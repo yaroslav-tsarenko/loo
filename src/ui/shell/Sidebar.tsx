@@ -3,18 +3,22 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { BookOpen, Braces, House, Route, Smartphone, Check, ChevronRight, ChevronsLeft, FileText, Layers, ListChecks, Map, Newspaper, RotateCcw, Search, Settings, UserRound } from 'lucide-react'
+import { BookOpen, Check, ChevronRight, ChevronsLeft, FileText } from 'lucide-react'
+import { PiGearSixFill, PiMagnifyingGlassBold } from 'react-icons/pi'
+import type { CSSProperties } from 'react'
 import type { TreeViewNode } from '@/server/services/library'
 import { levelInfo } from '@/progress/levels'
+import { Logo } from '@/ui/design/brand/Logo'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { ProgressBar } from '@/ui/design/ProgressBar'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { OPEN_PALETTE } from './constants'
 import { NAV } from './nav'
+import { FALLBACK_ICON, NAV_ICONS } from './nav-icons'
 import { PROGRESS_EVENT, useCounts } from './NavLinks'
 import { setMobileSidebar, setSidebarOpen } from './sidebar-state'
 import { SoundToggle, ThemeToggle } from './Toggles'
 import type { ThemeSetting } from '@/server/settings'
-
-const ICONS: Record<string, typeof BookOpen> = { '/': House, '/feed': Smartphone, '/path': Route, '/review': Layers, '/quiz': ListChecks, '/tasks': Braces, '/mistakes': RotateCcw, '/news': Newspaper, '/roadmap': Map, '/profile': UserRound }
 
 export interface SidebarGuide {
   id: string
@@ -193,16 +197,19 @@ function GuideRow({ guide, path, open, toggle }: { guide: SidebarGuide; path: st
 function LevelRow() {
   const { xp } = useFeedback()
   const info = levelInfo(xp)
+  const pct = Math.round(info.progress * 100)
   return (
-    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ${info.rank.title}, ${Math.round(info.progress * 100)}% до наступного`}>
-      <span className="sb-level-top">
-        <span>
-          Рівень {info.level} · {info.rank.title}
-        </span>
-        <span className="tabular">{Math.round(info.progress * 100)}%</span>
+    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ${info.rank.title}, ${pct}% до наступного`}>
+      <span className="sb-level-badge" aria-hidden="true">
+        <GameIcon name="bolt" size={22} />
+        <span className="tabular">{info.level}</span>
       </span>
-      <span className="sb-level-bar" aria-hidden="true">
-        <span style={{ transform: `scaleX(${Math.max(0.02, info.progress)})` }} />
+      <span className="sb-level-body">
+        <span className="sb-level-top">
+          <span>{info.rank.title}</span>
+          <span className="tabular">{pct}%</span>
+        </span>
+        <ProgressBar value={info.progress} tone="yellow" size="sm" label="Прогрес рівня" />
       </span>
     </Link>
   )
@@ -219,30 +226,33 @@ export function Sidebar({ guides, theme }: { guides: SidebarGuide[]; theme: Them
       <div className="sb-scrim" onClick={() => setMobileSidebar(false)} aria-hidden="true" />
       <aside className="sidebar" aria-label="Навігація">
         <div className="sb-head">
-          <Link href="/" className="sb-workspace" onClick={() => setMobileSidebar(false)}>
-            <span className="sb-avatar" aria-hidden="true">
-              I
-            </span>
-            <span className="sb-workspace-name">Interview Prep</span>
+          <Link href="/" className="sb-brand" aria-label="Levelup — на головну" onClick={() => setMobileSidebar(false)}>
+            <Logo size={34} />
           </Link>
           <button type="button" className="sb-icon-button sb-collapse" aria-label="Сховати бічну панель" title="Сховати бічну панель (⌘\)" onClick={() => setSidebarOpen(false)}>
-            <ChevronsLeft size={18} strokeWidth={1.6} />
+            <ChevronsLeft size={18} strokeWidth={2} />
           </button>
         </div>
+        <div className="sb-scroll">
         <nav className="sb-nav" aria-label="Розділи">
-          <button type="button" className="sb-row sb-item" onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE))}>
-            <Search size={16} strokeWidth={1.8} aria-hidden="true" />
-            <span className="sb-label">Пошук</span>
+          <button type="button" className="sb-item sb-search" onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE))}>
+            <span className="sb-item-icon">
+              <PiMagnifyingGlassBold size={22} aria-hidden="true" />
+            </span>
+            <span className="sb-item-label">Пошук</span>
             <kbd className="sb-kbd">⌘K</kbd>
           </button>
           {NAV.map((item) => {
-            const Icon = ICONS[item.href] ?? FileText
+            const { icon: Icon, color } = NAV_ICONS[item.href] ?? FALLBACK_ICON
             const count = counts[item.href]
+            const active = item.match(path)
             return (
-              <Link key={item.href} href={item.href} className="sb-row sb-item" data-active={item.match(path) ? '' : undefined} aria-current={item.match(path) ? 'page' : undefined} onClick={() => setMobileSidebar(false)}>
-                <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
-                <span className="sb-label">{item.label}</span>
-                {count ? <span className="sb-count tabular">{count}</span> : null}
+              <Link key={item.href} href={item.href} className="sb-item" data-active={active ? '' : undefined} aria-current={active ? 'page' : undefined} style={{ '--nav-c': color } as CSSProperties} onClick={() => setMobileSidebar(false)}>
+                <span className="sb-item-icon">
+                  <Icon size={28} aria-hidden="true" />
+                </span>
+                <span className="sb-item-label">{item.label}</span>
+                {count ? <span className="lu-badge sb-count" data-tone="red">{count > 99 ? '99+' : count}</span> : null}
               </Link>
             )
           })}
@@ -255,13 +265,14 @@ export function Sidebar({ guides, theme }: { guides: SidebarGuide[]; theme: Them
             ))}
           </div>
         </div>
+        </div>
         <div className="sb-foot">
           <LevelRow />
           <div className="sb-foot-tools">
             <SoundToggle />
             <ThemeToggle initial={theme} />
             <Link href="/settings" className="sb-icon-button" aria-label="Налаштування" title="Налаштування" onClick={() => setMobileSidebar(false)}>
-              <Settings size={17} strokeWidth={1.6} />
+              <PiGearSixFill size={20} />
             </Link>
           </div>
         </div>

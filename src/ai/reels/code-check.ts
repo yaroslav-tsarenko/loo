@@ -1,8 +1,13 @@
 import { Worker } from 'node:worker_threads'
 
-// Runs a reel's JS snippet in a node:vm context inside a throwaway worker thread:
-// the vm timeout stops sync loops, terminating the worker stops everything else
-// (async loops, unhandled rejections) without touching the host process.
+// Runs a reel's JS snippet (model output — untrusted, prompt-injectable via news feeds) in a fresh
+// node:vm realm inside a throwaway worker thread. node:vm alone is not a security boundary, so:
+// - the context is created without a host-realm global (no `this.constructor.constructor` escape);
+// - nothing from the host realm is ever placed in the context: console is a context-realm function
+//   that closes over the host logger, and all host frames are strict (no `.caller` / CallSite leaks);
+// - util.inspect never runs user hooks (customInspect off) and never triggers proxy traps;
+// - the worker gets an empty process.env, so even a full escape finds no secrets in it.
+// The vm timeout stops sync loops; terminating the worker stops everything else.
 
 export type RunResult =
   | { status: 'ok'; logs: string[] }
@@ -40,6 +45,7 @@ const PRELUDE = `
 `
 
 const WORKER_SOURCE = String.raw`
+'use strict'
 const { parentPort, workerData } = require('node:worker_threads')
 const vm = require('node:vm')
 const { inspect } = require('node:util')
@@ -47,12 +53,33 @@ const { code, timeoutMs, prelude } = workerData
 const logs = []
 let done = false
 const finish = (msg) => { if (done) return; done = true; parentPort.postMessage({ ...msg, logs: logs.slice(0, 40) }) }
-const fmt = (args) => args.map((a) => (typeof a === 'string' ? a : inspect(a, { depth: 3, breakLength: Infinity }))).join(' ')
-const errText = (e) => (e && typeof e === 'object' && 'name' in e ? String(e.name) + ': ' + String(e.message) : 'Uncaught ' + inspect(e))
+const INSPECT = { depth: 3, breakLength: Infinity, customInspect: false, showProxy: false, getters: false }
+const fmt = (args) => args.map((a) => (typeof a === 'string' ? a : inspect(a, INSPECT))).join(' ')
+const errText = (e) => {
+  try {
+    return e && typeof e === 'object' && 'name' in e ? String(e.name) + ': ' + String(e.message) : 'Uncaught ' + inspect(e, INSPECT)
+  } catch {
+    return 'Uncaught exception'
+  }
+}
 process.on('unhandledRejection', (e) => finish({ status: 'threw', error: errText(e) }))
 process.on('uncaughtException', (e) => finish({ status: 'threw', error: errText(e) }))
-const log = (...a) => { logs.push(fmt(a)) }
-const ctx = vm.createContext({ console: { log, info: log, warn: log, error: log, debug: log, table: log, dir: log } }, { microtaskMode: 'afterEvaluate' })
+// Never lets an exception out: a host-realm Error reaching the context would hand it host Function.
+const hostLog = (...a) => {
+  try {
+    if (logs.length < 200) logs.push(fmt(a).slice(0, 2000))
+  } catch {
+    logs.push('[unformattable value]')
+  }
+}
+const options = { microtaskMode: 'afterEvaluate', codeGeneration: { strings: true, wasm: false } }
+// DONT_CONTEXTIFY (Node ≥ 22.8) gives the context an ordinary global from its own realm;
+// otherwise a null-prototype sandbox keeps host Object/Function out of reach.
+const ctx = vm.constants && vm.constants.DONT_CONTEXTIFY !== undefined ? vm.createContext(vm.constants.DONT_CONTEXTIFY, options) : vm.createContext(Object.create(null), options)
+// The wrapper also swallows anything thrown on the way into the host (e.g. a stack overflow in hostLog).
+const install = vm.runInContext('(log) => { const c = (...a) => { try { log(...a) } catch {} }; return Object.freeze({ log: c, info: c, warn: c, error: c, debug: c, table: c, dir: c }) }', ctx)
+const consoleObject = install(hostLog)
+vm.runInContext('(c) => { Object.defineProperty(globalThis, "console", { value: c, writable: true, configurable: true }) }', ctx)(consoleObject)
 vm.runInContext(prelude, ctx)
 const run = (src) => vm.runInContext(src, ctx, { timeout: timeoutMs, filename: 'reel.js' })
 ;(async () => {
@@ -65,9 +92,12 @@ const run = (src) => vm.runInContext(src, ctx, { timeout: timeoutMs, filename: '
     }
     if (compiled) run(code)
     else run('(async () => {\n' + code + '\n})().then(() => { globalThis.__asyncOk = true }, (e) => { globalThis.__asyncError = e })')
-    for (let i = 0; i < 200 && run('__nextTimer()'); i++);
+    for (let i = 0; i < 200 && run('__nextTimer()') === true; i++);
     await new Promise((r) => setImmediate(r))
-    if (!compiled && ctx.__asyncError !== undefined) throw ctx.__asyncError
+    if (!compiled) {
+      const failed = run('globalThis.__asyncError !== undefined')
+      if (failed === true) throw run('globalThis.__asyncError')
+    }
     finish({ status: 'ok' })
   } catch (e) {
     finish(e && e.code === 'ERR_SCRIPT_EXECUTION_TIMEOUT' ? { status: 'timeout' } : { status: 'threw', error: errText(e) })
@@ -86,7 +116,7 @@ export function hasModuleSyntax(code: string): boolean {
 export async function runSnippet(code: string, { timeoutMs = 250 }: RunOptions = {}): Promise<RunResult> {
   if (hasModuleSyntax(code)) return { status: 'skipped', reason: 'ES module syntax', logs: [] }
   return new Promise<RunResult>((resolve) => {
-    const worker = new Worker(WORKER_SOURCE, { eval: true, workerData: { code, timeoutMs, prelude: PRELUDE }, resourceLimits: { maxOldGenerationSizeMb: 64, maxYoungGenerationSizeMb: 16 } })
+    const worker = new Worker(WORKER_SOURCE, { eval: true, env: {}, workerData: { code, timeoutMs, prelude: PRELUDE }, resourceLimits: { maxOldGenerationSizeMb: 64, maxYoungGenerationSizeMb: 16, stackSizeMb: 4 } })
     const settle = (r: RunResult) => {
       clearTimeout(hard)
       void worker.terminate()

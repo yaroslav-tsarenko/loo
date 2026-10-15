@@ -7,6 +7,7 @@ import type { Chapter } from '@/content/model'
 import type { WikiLink } from '@/content/parse/nodes'
 import { headingSlug, highlightTree, mdastToHast, type LinkTarget } from '@/content/render/to-hast'
 import type { ContentSnapshot } from '@/content/store'
+import { safeImageSrc, safeLinkHref } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { CalloutIcon } from './CalloutIcon'
 import { EmbedBlock } from './EmbedBlock'
@@ -67,10 +68,18 @@ export async function renderMdast(root: Root, env: RenderEnv): Promise<ReactNode
         <table {...props} />
       </div>
     ),
-    a: (props: Record<string, unknown> & { href?: string }) => {
-      const href = props.href ?? ''
-      const external = /^https?:\/\//.test(href)
-      return <a {...props} {...(external ? { target: '_blank', rel: 'noreferrer noopener' } : {})} />
+    // Content (and, later, user-uploaded courses / model output) decides these URLs: allow-list the schemes.
+    a: ({ href, ...props }: Record<string, unknown> & { href?: unknown; children?: ReactNode }) => {
+      const safe = safeLinkHref(href)
+      if (!safe) return <span className="link-blocked">{props.children}</span>
+      const external = /^https?:\/\//i.test(safe)
+      return <a {...props} href={safe} {...(external ? { target: '_blank', rel: 'noreferrer noopener' } : {})} />
+    },
+    img: ({ src, alt, ...props }: Record<string, unknown> & { src?: unknown; alt?: unknown }) => {
+      const safe = safeImageSrc(src)
+      const label = typeof alt === 'string' ? alt : ''
+      // eslint-disable-next-line @next/next/no-img-element
+      return safe ? <img {...props} src={safe} alt={label} /> : <span className="img-blocked">{label ? `[${label}]` : null}</span>
     },
   } as unknown as Components
   return toJsxRuntime(tree, { Fragment, jsx, jsxs, components, passKeys: true })

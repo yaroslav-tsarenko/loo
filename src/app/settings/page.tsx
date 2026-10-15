@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { defaultVaultConfig } from '@/content/config'
+import { authMode } from '@/lib/auth'
 import { getContent } from '@/server/content'
 import { readSettings } from '@/server/settings'
 import { SettingsForm } from '@/ui/settings/SettingsForm'
@@ -36,6 +37,19 @@ export default async function SettingsPage() {
         </p>
       </header>
       <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} />
+      {authMode() === 'password' ? (
+        <section aria-labelledby="s-session">
+          <h2 id="s-session" className="section-title rule-title">
+            Сесія
+          </h2>
+          {/* Plain POST to a route handler (same-origin checked); clears the session cookie. */}
+          <form action="/auth/logout" method="post">
+            <button type="submit" className="ui-button" data-variant="ghost">
+              Вийти
+            </button>
+          </form>
+        </section>
+      ) : null}
       <section aria-labelledby="s-issues">
         <h2 id="s-issues" className="section-title rule-title">
           Проблеми контенту

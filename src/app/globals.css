@@ -1,4 +1,6 @@
+@import './tokens.css';
 @import 'tailwindcss';
+@import './design.css';
 @import './shell.css';
 @import './study.css';
 @import './code.css'; /* code editor, tests, order/fill */

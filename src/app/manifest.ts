@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Interview Prep — тренажер мегамозку',
-    short_name: 'Prep',
-    description: 'Статті, візуалізації, щоденні місії, стрічка фішок і повторення FSRS',
+    name: 'Levelup — навчання як гра',
+    short_name: 'Levelup',
+    description: 'Курси як гра: уроки, серії, стрічка фішок і повторення FSRS. З лисом Loo 🦊',
     start_url: '/',
     display: 'standalone',
     orientation: 'portrait',

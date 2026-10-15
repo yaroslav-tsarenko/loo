@@ -1,6 +1,6 @@
 'use client'
 
-import { Monitor, Moon, Sun, Volume2, VolumeX } from 'lucide-react'
+import { PiMonitorFill, PiMoonFill, PiSpeakerHighFill, PiSpeakerSlashFill, PiSunFill } from 'react-icons/pi'
 import { useState } from 'react'
 import { updateSetting } from '@/server/actions/settings'
 import type { ThemeSetting } from '@/server/settings'
@@ -12,7 +12,7 @@ const LABEL: Record<ThemeSetting, string> = { system: 'Тема: як у сис�
 
 export function ThemeToggle({ initial }: { initial: ThemeSetting }) {
   const [theme, setTheme] = useState<ThemeSetting>(initial)
-  const Icon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Monitor
+  const Icon = theme === 'light' ? PiSunFill : theme === 'dark' ? PiMoonFill : PiMonitorFill
   return (
     <button
       type="button"
@@ -26,17 +26,17 @@ export function ThemeToggle({ initial }: { initial: ThemeSetting }) {
         void updateSetting('theme', next)
       }}
     >
-      <Icon size={17} strokeWidth={1.6} aria-hidden="true" />
+      <Icon size={20} aria-hidden="true" />
     </button>
   )
 }
 
 export function SoundToggle() {
   const { sound, toggleSound } = useFeedback()
-  const Icon = sound ? Volume2 : VolumeX
+  const Icon = sound ? PiSpeakerHighFill : PiSpeakerSlashFill
   return (
     <button type="button" className="sb-icon-button" aria-pressed={sound} aria-label={sound ? 'Вимкнути звук' : 'Увімкнути звук'} title={sound ? 'Звук увімкнено' : 'Звук вимкнено'} onClick={toggleSound}>
-      <Icon size={17} strokeWidth={1.6} aria-hidden="true" />
+      <Icon size={20} aria-hidden="true" />
     </button>
   )
 }

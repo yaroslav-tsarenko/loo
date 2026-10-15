@@ -29,6 +29,13 @@
       "when": 1792078354525,
       "tag": "0003_rls_new_tables",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792102590766,
+      "tag": "0004_rate_limits",
+      "breakpoints": true
     }
   ]
 }

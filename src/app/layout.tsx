@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
+import { Nunito } from 'next/font/google'
 import Link from 'next/link'
-import { cookies } from 'next/headers'
+import { cookies, headers } from 'next/headers'
 import type { ReactNode } from 'react'
 import { getDb } from '@/db/client'
 import { authMode, SESSION_COOKIE, verifySessionToken } from '@/lib/auth'
@@ -18,11 +19,14 @@ import { AutoTopbar } from '@/ui/shell/AutoTopbar'
 import { guideHref } from '@/ui/routes'
 import './globals.css'
 
+// Rounded display face for game chrome (buttons, nav, stats). The reader keeps its system stack.
+const nunito = Nunito({ subsets: ['latin', 'cyrillic'], variable: '--font-nunito', display: 'swap' })
+
 export const metadata: Metadata = {
-  title: { default: 'Interview Prep 2.0', template: '%s · Interview Prep' },
-  description: 'Тренажер інженерного мислення: статті, візуалізації, щоденні місії і повторення',
-  applicationName: 'Interview Prep',
-  appleWebApp: { capable: true, title: 'Prep', statusBarStyle: 'black-translucent' },
+  title: { default: 'Levelup', template: '%s · Levelup' },
+  description: 'Levelup — навчання як гра: статті, візуалізації, щоденні місії і повторення',
+  applicationName: 'Levelup',
+  appleWebApp: { capable: true, title: 'Levelup', statusBarStyle: 'black-translucent' },
   formatDetection: { telephone: false },
 }
 
@@ -45,18 +49,19 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   // proxy.ts only lets signed-out visitors reach /login, which renders without the app shell or DB.
   if (!(await isSignedIn())) {
     return (
-      <html lang="uk" data-theme="system">
+      <html lang="uk" data-theme="system" className={nunito.variable}>
         <body>{children}</body>
       </html>
     )
   }
   const snapshot = await getContent()
-  const [settings, xp, counts] = await Promise.all([readSettings(), totalXp(getDb()), navCounts(snapshot)])
+  const [settings, xp, counts, nonce] = await Promise.all([readSettings(), totalXp(getDb()), navCounts(snapshot), headers().then((h) => h.get('x-nonce') ?? undefined)])
   const guides = snapshot.guides.map((g) => ({ id: g.id, title: g.title, href: guideHref(g.id) }))
   return (
-    <html lang="uk" data-theme={settings.theme} suppressHydrationWarning>
+    <html lang="uk" data-theme={settings.theme} className={nunito.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: SIDEBAR_BOOT }} />
+        {/* Static string (no user input); allowed by the per-request CSP nonce from proxy.ts. */}
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: SIDEBAR_BOOT }} />
       </head>
       <body>
         <a href="#main" className="skip-link">

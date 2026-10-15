@@ -7,6 +7,7 @@ import { fetchGithubReleases } from './sources/github'
 import { fetchHackerNews } from './sources/hn'
 import { fetchReddit } from './sources/reddit'
 import type { NewsDraft, RankedNews } from './types'
+import { safeExternalUrl } from '@/lib/url'
 import { canonicalUrl, newsId } from './url'
 
 // Older items are not "news" anymore (stale blogs return years of posts).
@@ -40,9 +41,12 @@ export function rankDrafts(drafts: NewsDraft[], now: number): RankedNews[] {
   const ranked: RankedNews[] = []
   for (const d of drafts) {
     const canonical = canonicalUrl(d.url)
-    const title = d.title.replace(/\s+/g, ' ').trim()
-    if (!canonical || !title || now - d.publishedAt > MAX_AGE_MS) continue
-    const draft = { ...d, title, summary: cleanSummary(title, d.summary) }
+    const url = safeExternalUrl(d.url)
+    // Feed text is untrusted: cap sizes before it reaches the DB, the UI and the reels prompt.
+    const title = d.title.replace(/\s+/g, ' ').trim().slice(0, 300)
+    if (!canonical || !url || !title || now - d.publishedAt > MAX_AGE_MS) continue
+    const summary = cleanSummary(title, d.summary)?.slice(0, 600)
+    const draft = { ...d, url, title, summary, author: d.author?.slice(0, 120) }
     ranked.push({ ...draft, id: newsId(canonical), rank: rankScore(draft, now), tags: classify(draft) })
   }
   return dedupe(ranked)

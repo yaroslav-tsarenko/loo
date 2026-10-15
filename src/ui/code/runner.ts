@@ -1,4 +1,4 @@
-import { runSuite, type HarnessHost, type LogEntry, type RunEvent, type RunReport, type TestResult } from './harness'
+import type { LogEntry, RunEvent, RunReport, TestResult } from './harness'
 
 export type { LogEntry, RunReport, TestResult }
 
@@ -7,59 +7,9 @@ export const TIMEOUT_MESSAGE = '⏱️ Таймаут: нескінченний 
 
 type Message = { token: string } & (RunEvent | { type: 'done'; report: RunReport })
 
-// Runs inside the worker. Serialized with toString — keep it self-contained.
-function bootstrap(run: typeof runSuite) {
-  const scope = globalThis as unknown as {
-    postMessage: (message: unknown) => void
-    onmessage: ((e: { data: { token: string; code: string; tests: string } }) => void) | null
-    addEventListener: (type: string, fn: (e: { preventDefault: () => void; reason?: unknown }) => void) => void
-  }
-  const post = scope.postMessage.bind(scope)
-  const host: HarnessHost = {
-    setTimeout: setTimeout.bind(globalThis),
-    clearTimeout: clearTimeout.bind(globalThis) as (id: unknown) => void,
-    setInterval: setInterval.bind(globalThis),
-    clearInterval: clearInterval.bind(globalThis) as (id: unknown) => void,
-    now: Date.now,
-  }
-  // No network, no nested workers, no way to forge results: strip these from the global and its prototypes
-  const blocked = ['fetch', 'XMLHttpRequest', 'WebSocket', 'WebSocketStream', 'WebTransport', 'EventSource', 'importScripts', 'indexedDB', 'caches', 'BroadcastChannel', 'Worker', 'SharedWorker', 'postMessage', 'Request', 'navigator']
-  for (let obj: object | null = globalThis; obj; obj = Object.getPrototypeOf(obj)) {
-    for (const key of blocked) {
-      if (!Object.prototype.hasOwnProperty.call(obj, key)) continue
-      try {
-        Object.defineProperty(obj, key, { value: undefined, writable: false, configurable: false })
-      } catch {
-        try {
-          delete (obj as Record<string, unknown>)[key]
-        } catch {}
-      }
-    }
-  }
-  let token = ''
-  scope.addEventListener('unhandledrejection', (e) => {
-    e.preventDefault()
-    const reason = e.reason instanceof Error ? `${e.reason.name}: ${e.reason.message}` : String(e.reason)
-    post({ token, type: 'log', entry: { level: 'error', text: `Необроблений reject: ${reason}` } })
-  })
-  scope.onmessage = (e) => {
-    if (token) return
-    token = e.data.token
-    run(e.data.code, e.data.tests, (event) => post({ token, ...event }), host)
-      .then((report) => post({ token, type: 'done', report }))
-      .catch((err: unknown) => post({ token, type: 'done', report: { status: 'error', tests: [], logs: [], error: String(err), ms: 0 } }))
-  }
-}
-
-let blobUrl: string | null = null
-
-function workerUrl(): string {
-  if (!blobUrl) {
-    const source = `"use strict";\n(${bootstrap.toString()})(${runSuite.toString()})`
-    blobUrl = URL.createObjectURL(new Blob([source], { type: 'text/javascript' }))
-  }
-  return blobUrl
-}
+// The worker is served by /runner/worker.js with its own CSP (no network, no imports; eval only),
+// so learner code can't phone home even if it gets past the global scrubbing in worker-source.ts.
+export const WORKER_URL = '/runner/worker.js'
 
 export interface RunHandle {
   done: Promise<RunReport>
@@ -84,7 +34,7 @@ export function runInWorker(code: string, tests: string, onEvent?: (event: RunEv
   }
   const partial = (status: RunReport['status'], error: string): RunReport => ({ status, tests: tests_, logs, error, ms: performance.now() - started })
   try {
-    worker = new Worker(workerUrl(), { name: 'code-runner' })
+    worker = new Worker(WORKER_URL, { name: 'code-runner' })
   } catch (e) {
     stop(partial('error', `Не вдалося запустити пісочницю: ${e instanceof Error ? e.message : String(e)}`))
     return { done, cancel: () => {} }

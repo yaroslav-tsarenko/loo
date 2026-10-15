@@ -5,6 +5,7 @@ import { savedNews, savedNewsCount, weekNews, type NewsItem } from '@/news/queri
 import { isNewsTag, NEWS_TAGS, primaryTag, sourceLabel, TAG_META, type NewsTag } from '@/news/types'
 import { nowMs } from '@/server/clock'
 import { count, relative } from '@/ui/format'
+import { safeExternalUrl } from '@/lib/url'
 import { NewsRow } from '@/ui/news/NewsRow'
 import { RefreshNews } from '@/ui/news/RefreshNews'
 
@@ -111,7 +112,7 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
                   <NewsRow
                     key={item.id}
                     id={item.id}
-                    url={item.url}
+                    url={safeExternalUrl(item.url)}
                     title={item.title}
                     emoji={TAG_META[t].emoji}
                     tagLabel={TAG_META[t].label}

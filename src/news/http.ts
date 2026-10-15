@@ -2,6 +2,32 @@
 
 export const USER_AGENT = 'web:interview-prep-news:v1.0 (personal JS learning digest)'
 const TIMEOUT_MS = 8_000
+// Feeds are a few hundred KB; a hostile or broken source must not exhaust function memory.
+const MAX_BYTES = 3 * 1024 * 1024
+
+async function readCapped(res: Response, max: number): Promise<string | null> {
+  const declared = Number(res.headers.get('content-length') ?? '0')
+  if (declared > max) {
+    console.warn(`[news] body too large (${declared} bytes) ${res.url}`)
+    return null
+  }
+  if (!res.body) return ''
+  const reader = res.body.getReader()
+  const chunks: Uint8Array[] = []
+  let size = 0
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    size += value.byteLength
+    if (size > max) {
+      await reader.cancel()
+      console.warn(`[news] body over ${max} bytes, dropped ${res.url}`)
+      return null
+    }
+    chunks.push(value)
+  }
+  return new TextDecoder().decode(Buffer.concat(chunks))
+}
 
 export async function fetchText(url: string, accept = 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8'): Promise<string | null> {
   try {
@@ -10,7 +36,7 @@ export async function fetchText(url: string, accept = 'application/rss+xml, appl
       console.warn(`[news] ${res.status} ${url}`)
       return null
     }
-    return await res.text()
+    return await readCapped(res, MAX_BYTES)
   } catch (error) {
     console.warn(`[news] fetch failed ${url}: ${error instanceof Error ? error.message : String(error)}`)
     return null

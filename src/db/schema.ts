@@ -219,3 +219,14 @@ export const generatedReels = pgTable(
   },
   (t) => [index('generated_reels_created_idx').on(t.createdAt)],
 )
+
+// Fixed-window counters for rate limits (login attempts, expensive actions). Key = "<scope>:<subject>".
+export const rateLimits = pgTable(
+  'rate_limits',
+  {
+    key: text('key').primaryKey(),
+    count: integer('count').notNull(),
+    resetAt: ms('reset_at').notNull(),
+  },
+  (t) => [index('rate_limits_reset_idx').on(t.resetAt)],
+)

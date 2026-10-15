@@ -1,13 +1,20 @@
 'use server'
 
 import { and, eq, sql } from 'drizzle-orm'
+import { z } from 'zod'
 import { GENERATED_ID, REEL_ID } from '@/ai/reels/mix'
 import { getDb } from '@/db/client'
 import { generatedReels, reelState } from '@/db/schema'
 import type { Effect } from '@/progress/types'
+import { parseInput, requireSession } from '../auth-guard'
 import { settleMission } from '../services/mission'
 
-export async function markReelsSeen(ids: string[]): Promise<Effect[]> {
+const seenInput = z.array(z.string().max(64)).max(200)
+const toggleInput = z.object({ id: z.string().regex(REEL_ID), field: z.enum(['liked', 'saved']), value: z.boolean() })
+
+export async function markReelsSeen(rawIds: string[]): Promise<Effect[]> {
+  await requireSession()
+  const ids = parseInput(seenInput, rawIds)
   const clean = [...new Set(ids)].filter((id) => REEL_ID.test(id)).slice(0, 50)
   if (clean.length === 0) return []
   const now = Date.now()
@@ -21,8 +28,9 @@ export async function markReelsSeen(ids: string[]): Promise<Effect[]> {
   })
 }
 
-export async function toggleReel(id: string, field: 'liked' | 'saved', value: boolean): Promise<void> {
-  if (!REEL_ID.test(id)) return
+export async function toggleReel(rawId: string, rawField: 'liked' | 'saved', rawValue: boolean): Promise<void> {
+  await requireSession()
+  const { id, field, value } = parseInput(toggleInput, { id: rawId, field: rawField, value: rawValue })
   const db = getDb()
   const set = field === 'liked' ? { liked: value } : { saved: value }
   await db.insert(reelState).values({ reelId: id, ...set }).onConflictDoUpdate({ target: reelState.reelId, set })
@@ -30,7 +38,8 @@ export async function toggleReel(id: string, field: 'liked' | 'saved', value: bo
 
 // Hides an AI-generated reel from the feed (kept in the table, so dedupe still sees it).
 export async function hideGeneratedReel(id: string): Promise<{ hidden: boolean }> {
-  if (!GENERATED_ID.test(id)) return { hidden: false }
+  await requireSession()
+  if (typeof id !== 'string' || !GENERATED_ID.test(id)) return { hidden: false }
   const rows = await getDb()
     .update(generatedReels)
     .set({ status: 'hidden' })

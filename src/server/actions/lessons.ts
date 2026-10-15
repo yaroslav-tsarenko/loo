@@ -2,16 +2,24 @@
 
 import { randomUUID } from 'node:crypto'
 import { eq, sql } from 'drizzle-orm'
+import { z } from 'zod'
 import { first, getDb } from '@/db/client'
 import { dailyActivity, lessonProgress, sessions, xpLedger } from '@/db/schema'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
+import { ids, parseInput, requireSession } from '../auth-guard'
 import { getContent } from '../content'
 import { findLesson, LESSON_XP } from '../services/lessons'
 import { settleMission } from '../services/mission'
 import { evaluateAchievements } from '../services/progress'
 
-export async function startLesson(lessonId: string): Promise<string> {
+const completeInput = z
+  .object({ lessonId: ids.lesson, sessionId: ids.session.nullable(), correct: z.number().int().min(0).max(1000), total: z.number().int().min(0).max(1000) })
+  .refine((v) => v.correct <= v.total, 'correct > total')
+
+export async function startLesson(rawId: string): Promise<string> {
+  await requireSession()
+  const lessonId = parseInput(ids.lesson, rawId)
   const snapshot = await getContent()
   const lesson = findLesson(snapshot, lessonId)
   if (!lesson) throw new Error('Unknown lesson')
@@ -27,7 +35,9 @@ export interface LessonOutcome {
   firstTime: boolean
 }
 
-export async function completeLesson(input: { lessonId: string; sessionId: string | null; correct: number; total: number }): Promise<LessonOutcome> {
+export async function completeLesson(raw: { lessonId: string; sessionId: string | null; correct: number; total: number }): Promise<LessonOutcome> {
+  await requireSession()
+  const input = parseInput(completeInput, raw)
   const snapshot = await getContent()
   const lesson = findLesson(snapshot, input.lessonId)
   if (!lesson) throw new Error('Unknown lesson')

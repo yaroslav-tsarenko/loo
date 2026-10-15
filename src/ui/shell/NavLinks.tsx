@@ -2,11 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { createContext, use, useEffect, useState, type ReactNode } from 'react'
-import { House, Layers, Route, Smartphone, UserRound } from 'lucide-react'
+import { createContext, use, useEffect, useState, type CSSProperties, type ReactNode } from 'react'
 import { NAV } from './nav'
+import { NAV_ICONS } from './nav-icons'
 
-const ICONS = { '/': House, '/feed': Smartphone, '/path': Route, '/review': Layers, '/profile': UserRound } as const
+// Mobile tab bar: the five daily destinations.
+const TABS = new Set(['/', '/feed', '/path', '/review', '/profile'])
 
 export const PROGRESS_EVENT = 'progress:changed'
 
@@ -48,17 +49,21 @@ export function BottomNav() {
   const counts = use(CountsContext)
   return (
     <nav className="bottomnav" aria-label="Розділи">
-      {NAV.filter((i) => i.href in ICONS).map((item) => {
-        const Icon = ICONS[item.href as keyof typeof ICONS]
+      {NAV.filter((i) => TABS.has(i.href)).map((item) => {
+        const { icon: Icon, color } = NAV_ICONS[item.href]!
         const active = item.match(path)
         const count = counts[item.href]
         return (
-          <Link key={item.href} href={item.href} className="bottomnav-link" aria-current={active ? 'page' : undefined}>
+          <Link key={item.href} href={item.href} className="bottomnav-link" aria-current={active ? 'page' : undefined} style={{ '--nav-c': color } as CSSProperties}>
             <span className="bottomnav-icon">
-              <Icon size={20} strokeWidth={1.6} aria-hidden="true" />
-              {count ? <span className="bottomnav-dot tabular">{count > 99 ? '99+' : count}</span> : null}
+              <Icon size={28} aria-hidden="true" />
+              {count ? (
+                <span className="lu-badge bottomnav-dot" data-tone="red">
+                  {count > 99 ? '99+' : count}
+                </span>
+              ) : null}
             </span>
-            <span>{item.short}</span>
+            <span className="bottomnav-label">{item.short}</span>
           </Link>
         )
       })}

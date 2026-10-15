@@ -5,6 +5,7 @@ import { gatewayAuth, reelModels } from '@/ai/reels/generate'
 import { splitBody } from '@/ai/reels/schema'
 import { first, getDb } from '@/db/client'
 import { generatedReels, settings } from '@/db/schema'
+import { safeExternalUrl } from '@/lib/url'
 import { dayStartMs } from '@/progress/day'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
@@ -80,10 +81,10 @@ export default async function GeneratedReelsPage() {
                         <Link href={chapterHref(snapshot, chapter)}>{chapter.title}</Link>
                       </>
                     ) : null}
-                    {r.sourceUrl ? (
+                    {safeExternalUrl(r.sourceUrl) ? (
                       <>
                         {' · '}
-                        <a href={r.sourceUrl} target="_blank" rel="noreferrer noopener">
+                        <a href={safeExternalUrl(r.sourceUrl)!} target="_blank" rel="noreferrer noopener">
                           {r.sourceTitle ?? 'джерело'} ↗
                         </a>
                       </>

@@ -16,7 +16,8 @@ const TABLES = [
 const src = postgres(sourceUrl, { max: 1, prepare: false, onnotice: () => {} })
 const dst = postgres(targetUrl, { max: 1, prepare: false, onnotice: () => {} })
 
-const [{ n }] = await dst`select count(*)::int as n from attempts`
+const [row] = await dst`select count(*)::int as n from attempts`
+const n = Number(row?.n ?? 0)
 if (n > 0 && !process.argv.includes('--force')) {
   console.error(`У цілі вже є ${n} спроб — копіювання скасовано (додай --force, щоб замінити дані)`)
   process.exit(1)

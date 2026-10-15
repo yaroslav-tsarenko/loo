@@ -9,6 +9,7 @@ import { parseMarkdown } from '@/content/parse/markdown'
 import type { Reel } from '@/content/parse/reels'
 import type { ContentSnapshot } from '@/content/store'
 import { renderMdast } from '@/ui/markdown/render'
+import { safeExternalUrl } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type FlashItem, type QuizItem } from '@/ui/study/render-items'
 import { lastOutcomes, shuffle } from './queue'
@@ -177,7 +178,7 @@ async function renderGenerated(row: GeneratedRow, snapshot: ContentSnapshot, sta
     seen: Boolean(state?.views),
     hue: hueFor(row.chapterId ?? row.topic),
     ai: true,
-    sourceUrl: row.sourceUrl,
+    sourceUrl: safeExternalUrl(row.sourceUrl),
     sourceTitle: row.sourceTitle,
   }
 }

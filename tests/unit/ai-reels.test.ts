@@ -276,7 +276,7 @@ describe('generation pipeline (mock model)', () => {
   it('builds a Ukrainian prompt with limits and things to avoid', () => {
     const prompt = buildPrompt(PLAN, ['Стара фішка'], '2026-10-15')
     expect(prompt).toContain('Згенеруй рівно 4 фішок')
-    expect(prompt).toContain('[N1] Node.js 26 released')
+    expect(prompt).toContain('[N1] <<<Node.js 26 released>>>')
     expect(prompt).toContain('- Наявна фішка')
     expect(prompt).toContain('- Стара фішка')
   })

@@ -1,0 +1,150 @@
+/*
+  Levelup design tokens. Namespaced `--lu-*` so legacy screens keep their Notion-era variables.
+  Light/dark via light-dark(): follows `color-scheme` set by :root[data-theme] in globals.css.
+  The build (Lightning CSS) polyfills light-dark() with per-rule variables, so tokens resolve where they
+  are declared. To force a scheme on a subtree use .lu-scheme-light / .lu-scheme-dark (they re-declare tokens).
+*/
+.lu-scheme-light {
+  color-scheme: light;
+}
+.lu-scheme-dark {
+  color-scheme: dark;
+}
+:root,
+.lu-scheme-light,
+.lu-scheme-dark {
+  /* Brand palette — saturated game colors. `-lip` is the darker 3D edge, `-soft` a tinted surface, `-ink` readable text. */
+  --lu-green: #58cc02;
+  --lu-green-lip: #46a302;
+  --lu-green-hover: #61e002;
+  --lu-green-soft: light-dark(#e3fbd0, #1c3313);
+  --lu-green-ink: light-dark(#3f8f00, #7fe03a);
+
+  --lu-blue: #1cb0f6;
+  --lu-blue-lip: #1592cf;
+  --lu-blue-hover: #3cbdf8;
+  --lu-blue-soft: light-dark(#ddf4ff, #10303f);
+  --lu-blue-ink: light-dark(#1286c2, #5ccaff);
+
+  --lu-red: #ff4b4b;
+  --lu-red-lip: #e02f2f;
+  --lu-red-hover: #ff6262;
+  --lu-red-soft: light-dark(#ffe1e1, #3d1a1c);
+  --lu-red-ink: light-dark(#e02f2f, #ff7a7a);
+
+  --lu-yellow: #ffc800;
+  --lu-yellow-lip: #e0a800;
+  --lu-yellow-hover: #ffd233;
+  --lu-yellow-soft: light-dark(#fff6d1, #3a3112);
+  --lu-yellow-ink: light-dark(#b88600, #ffd84d);
+
+  --lu-orange: #ff9600;
+  --lu-orange-lip: #db7a00;
+  --lu-orange-hover: #ffa623;
+  --lu-orange-soft: light-dark(#ffecd4, #3d2812);
+  --lu-orange-ink: light-dark(#cc6f00, #ffb04d);
+
+  --lu-purple: #ce82ff;
+  --lu-purple-lip: #a85fe0;
+  --lu-purple-hover: #d899ff;
+  --lu-purple-soft: light-dark(#f4e6ff, #2f2140);
+  --lu-purple-ink: light-dark(#9a4fd6, #dca6ff);
+
+  --lu-pink: #ff86d0;
+  --lu-pink-lip: #e566b5;
+  --lu-pink-soft: light-dark(#ffe6f5, #3b1f31);
+  --lu-pink-ink: light-dark(#d23f9b, #ff9fda);
+
+  /* Loo's coat — shared by the mascot and the logo mark */
+  --lu-fox: #ff8a1f;
+  --lu-fox-dark: #e46c06;
+  --lu-fox-cream: #fff4e3;
+  --lu-fox-ink: #2b1b12;
+
+  /* Neutrals. Dark canvas matches the legacy --bg so the reader and the shell sit on one surface. */
+  --lu-bg: light-dark(#ffffff, #191919);
+  --lu-bg-sunk: light-dark(#f7f7f7, #141414);
+  --lu-surface: light-dark(#ffffff, #202224);
+  --lu-surface-2: light-dark(#f7f7f7, #2a2d30);
+  --lu-surface-3: light-dark(#efefef, #33373a);
+  --lu-border: light-dark(#e5e5e5, #363a3e);
+  --lu-border-strong: light-dark(#d4d4d4, #474c51);
+  --lu-text: light-dark(#3c3c3c, #f1f4f6);
+  --lu-text-2: light-dark(#777777, #a7b0b6);
+  --lu-text-3: light-dark(#afafaf, #6e777d);
+  --lu-on-color: #ffffff;
+  --lu-hover: light-dark(rgb(0 0 0 / 0.04), rgb(255 255 255 / 0.05));
+  --lu-press: light-dark(rgb(0 0 0 / 0.08), rgb(255 255 255 / 0.09));
+  --lu-scrim: rgb(0 0 0 / 0.5);
+
+  /* Semantic aliases */
+  --lu-primary: var(--lu-green);
+  --lu-primary-lip: var(--lu-green-lip);
+  --lu-accent: var(--lu-blue);
+  --lu-success: var(--lu-green);
+  --lu-danger: var(--lu-red);
+  --lu-warning: var(--lu-orange);
+  --lu-streak: var(--lu-orange);
+  --lu-gem: var(--lu-blue);
+  --lu-heart: var(--lu-red);
+  --lu-xp: var(--lu-yellow);
+
+  /* Typography — rounded display font for UI chrome; reader keeps --font-read */
+  --lu-font: var(--font-nunito), ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --lu-fs-2xs: 11px;
+  --lu-fs-xs: 13px;
+  --lu-fs-sm: 15px;
+  --lu-fs-md: 17px;
+  --lu-fs-lg: 19px;
+  --lu-fs-xl: 23px;
+  --lu-fs-2xl: 28px;
+  --lu-fs-3xl: 36px;
+  --lu-fw-bold: 800;
+  --lu-fw-black: 900;
+  --lu-tracking-caps: 0.06em;
+
+  /* Spacing (4px grid) */
+  --lu-s-1: 4px;
+  --lu-s-2: 8px;
+  --lu-s-3: 12px;
+  --lu-s-4: 16px;
+  --lu-s-5: 20px;
+  --lu-s-6: 24px;
+  --lu-s-8: 32px;
+  --lu-s-10: 40px;
+  --lu-s-12: 48px;
+
+  /* Radii */
+  --lu-r-xs: 6px;
+  --lu-r-sm: 10px;
+  --lu-r: 14px;
+  --lu-r-lg: 18px;
+  --lu-r-xl: 24px;
+  --lu-r-pill: 999px;
+
+  /* 3D lip: a solid offset shadow in the darker shade; pressed state drops by --lu-lip */
+  --lu-lip: 4px;
+  --lu-lip-sm: 3px;
+  --lu-border-w: 2px;
+  --lu-shadow-lip: 0 var(--lu-lip) 0 var(--lu-lip-color, var(--lu-border));
+  --lu-shadow-pop: 0 0 0 2px var(--lu-border), 0 12px 32px light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.5));
+  --lu-focus: 0 0 0 3px var(--lu-bg), 0 0 0 5px light-dark(rgb(28 176 246 / 0.75), rgb(92 202 255 / 0.85));
+
+  /* Hit target */
+  --lu-target: 44px;
+
+  /* Motion */
+  --lu-ease: cubic-bezier(0.2, 0, 0, 1);
+  --lu-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --lu-ease-spring: cubic-bezier(0.5, 1.8, 0.4, 0.8);
+  --lu-dur-1: 90ms;
+  --lu-dur-2: 160ms;
+  --lu-dur-3: 280ms;
+  --lu-dur-4: 520ms;
+
+  /* Layers */
+  --lu-z-nav: 30;
+  --lu-z-sheet: 60;
+  --lu-z-pop: 70;
+  --lu-z-fx: 90;
+}

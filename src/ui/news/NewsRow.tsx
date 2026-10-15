@@ -7,7 +7,8 @@ import { count } from '@/ui/format'
 
 export interface NewsRowProps {
   id: string
-  url: string
+  // Already allow-listed to http(s) on the server; null → rendered as plain text.
+  url: string | null
   title: string
   emoji: string
   tagLabel: string
@@ -45,9 +46,13 @@ export function NewsRow(props: NewsRowProps) {
         {props.emoji}
       </span>
       <div className="news-body">
-        <a className="news-title" href={props.url} target="_blank" rel="noopener noreferrer" onClick={open} onAuxClick={open}>
-          {props.title}
-        </a>
+        {props.url ? (
+          <a className="news-title" href={props.url} target="_blank" rel="noopener noreferrer" onClick={open} onAuxClick={open}>
+            {props.title}
+          </a>
+        ) : (
+          <span className="news-title">{props.title}</span>
+        )}
         {props.summary ? <p className="news-summary">{props.summary}</p> : null}
         <p className="news-meta">
           <span>{props.source}</span>

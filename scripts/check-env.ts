@@ -46,8 +46,12 @@ await checkUrl('PROD_DATABASE_URL', 6543)
 await checkUrl('PROD_DIRECT_URL', 5432)
 const app = env.APP_PASSWORD ?? ''
 if (!app) bad('APP_PASSWORD: порожньо')
-else if (app.length < 8) console.log(`⚠️  APP_PASSWORD: ${app.length} символів — краще ≥ 8`)
+else if (app.length < 12) console.log(`⚠️  APP_PASSWORD: ${app.length} символів — для інтернет-доступного входу краще ≥ 12 (фраза з 3–4 слів)`)
 else ok(`APP_PASSWORD: ${app.length} символів`)
-for (const k of ['AUTH_SECRET', 'CRON_SECRET']) (env[k]?.length ?? 0) >= 24 ? ok(`${k}: є`) : bad(`${k}: запусти pnpm env:secrets`)
+// The app locks itself on Vercel when AUTH_SECRET is shorter than 32 chars (src/lib/auth.ts).
+for (const [k, min] of [['AUTH_SECRET', 32], ['CRON_SECRET', 24]] as const) {
+  if ((env[k]?.length ?? 0) >= min) ok(`${k}: є`)
+  else bad(`${k}: коротший за ${min} символів — запусти pnpm env:secrets`)
+}
 console.log(failed ? '\nЩе не все — виправ ❌ і запусти pnpm env:check знову' : '\n🚀 Усе готово — запускай pnpm setup:prod')
 process.exit(failed ? 1 : 0)

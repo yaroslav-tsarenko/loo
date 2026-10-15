@@ -5,6 +5,7 @@ import { eq } from 'drizzle-orm'
 import { GENERATED_AT_KEY, generateDailyReels } from '@/ai/reels/ingest'
 import { first, getDb } from '@/db/client'
 import { settings } from '@/db/schema'
+import { requireSession } from '../auth-guard'
 import { nowMs } from '../clock'
 
 const COOLDOWN_MS = 30 * 60_000
@@ -16,6 +17,7 @@ export type GenerateNowResult =
 
 // Manual "generate now" on /feed/generated: at most once per 30 minutes (shared with the cron run).
 export async function generateReelsNow(): Promise<GenerateNowResult> {
+  await requireSession()
   const now = nowMs()
   const db = getDb()
   const row = await first(db.select().from(settings).where(eq(settings.key, GENERATED_AT_KEY)))
@@ -36,6 +38,8 @@ export async function generateReelsNow(): Promise<GenerateNowResult> {
     return { ok: true, inserted: summary.inserted, dropped: summary.dropped.length, tokens: summary.usage.generate.totalTokens + summary.usage.verify.totalTokens }
   } catch (error) {
     console.error('[reels] manual generation failed', error)
-    return { ok: false, reason: 'error', message: error instanceof Error ? error.message : String(error) }
+    // Details stay in the server log: provider errors can carry request ids, model names or keys.
+    const detail = process.env.NODE_ENV !== 'production' && error instanceof Error ? `: ${error.message}` : ' — деталі в логах сервера'
+    return { ok: false, reason: 'error', message: `Генерація не вдалася${detail}` }
   }
 }
