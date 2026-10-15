@@ -59,7 +59,8 @@
 }
 .path-banner {
   position: sticky;
-  top: 8px;
+  /* Stick just below the 45px sticky page header (z-index 30), not under it. */
+  top: calc(45px + 8px);
   z-index: 3;
   display: flex;
   align-items: center;
@@ -406,6 +407,8 @@
 }
 .lesson-node {
   position: relative;
+  /* Each node has a transform (own stacking context), so the open one must be lifted above its siblings. */
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -612,4 +615,8 @@ a.emap-track:active {
   .emap-ranks {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.lesson-node:has(.lesson-pop) {
+  z-index: 4;
 }
