@@ -13,6 +13,13 @@ DIRECT_URL="$(envval PROD_DIRECT_URL)"
 APP_PASSWORD="$(envval APP_PASSWORD)"
 AUTH_SECRET="$(envval AUTH_SECRET)"
 CRON_SECRET="$(envval CRON_SECRET)"
+DB_PASSWORD="$(envval PROD_DB_PASSWORD)"
+if [[ -n "$DB_PASSWORD" ]]; then
+  ENC="$(node -e 'process.stdout.write(encodeURIComponent(process.argv[1]))' "$DB_PASSWORD")"
+  DATABASE_URL="${DATABASE_URL//\[YOUR-PASSWORD\]/$ENC}"
+  DIRECT_URL="${DIRECT_URL//\[YOUR-PASSWORD\]/$ENC}"
+fi
+if [[ "$DATABASE_URL$DIRECT_URL" == *"[YOUR-PASSWORD]"* ]]; then echo "❌ Впиши PROD_DB_PASSWORD у .env.local"; exit 1; fi
 echo
 echo "1/5 Supabase → Connect (https://supabase.com/dashboard/project/acowzhsfvcdlswjuptxu?showConnect=true)"
 echo "    Підстав пароль БД замість [YOUR-PASSWORD]. Спецсимволи в паролі мають бути URL-закодовані (@ → %40 тощо)."

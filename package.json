@@ -26,7 +26,8 @@
     "db:copy": "tsx --env-file-if-exists=.env.local scripts/copy-db.ts",
     "vercel-build": "tsx scripts/migrate.ts --if-configured && next build",
     "setup:prod": "bash scripts/setup-prod.sh",
-    "env:secrets": "bash scripts/env-secrets.sh"
+    "env:secrets": "bash scripts/env-secrets.sh",
+    "env:check": "tsx scripts/check-env.ts"
   },
   "dependencies": {
     "@shikijs/transformers": "^4.4.3",
