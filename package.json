@@ -27,7 +27,8 @@
     "vercel-build": "tsx scripts/migrate.ts --if-configured && next build",
     "setup:prod": "bash scripts/setup-prod.sh",
     "env:secrets": "bash scripts/env-secrets.sh",
-    "env:check": "tsx scripts/check-env.ts"
+    "env:check": "tsx scripts/check-env.ts",
+    "env:fill": "bash scripts/env-fill.sh"
   },
   "dependencies": {
     "@shikijs/transformers": "^4.4.3",
