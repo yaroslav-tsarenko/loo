@@ -5,19 +5,31 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 echo "🚀 Interviewer: налаштування продакшну"
+
+# Values already filled in .env.local are used as is; missing ones are asked for below.
+envval() { grep -E "^$1=" .env.local 2>/dev/null | tail -1 | cut -d= -f2- | sed -E "s/^[\"']//; s/[\"']$//"; }
+DATABASE_URL="$(envval PROD_DATABASE_URL)"
+DIRECT_URL="$(envval PROD_DIRECT_URL)"
+APP_PASSWORD="$(envval APP_PASSWORD)"
+AUTH_SECRET="$(envval AUTH_SECRET)"
+CRON_SECRET="$(envval CRON_SECRET)"
 echo
 echo "1/5 Supabase → Connect (https://supabase.com/dashboard/project/acowzhsfvcdlswjuptxu?showConnect=true)"
 echo "    Підстав пароль БД замість [YOUR-PASSWORD]. Спецсимволи в паролі мають бути URL-закодовані (@ → %40 тощо)."
-read -rp "    DATABASE_URL (Transaction pooler, порт 6543): " DATABASE_URL
-read -rp "    DIRECT_URL   (Session pooler, порт 5432):     " DIRECT_URL
+[[ -n "$DATABASE_URL" ]] && echo "    DATABASE_URL — з .env.local" || read -rp "    DATABASE_URL (Transaction pooler, порт 6543): " DATABASE_URL
+[[ -n "$DIRECT_URL" ]] && echo "    DIRECT_URL   — з .env.local" || read -rp "    DIRECT_URL   (Session pooler, порт 5432):     " DIRECT_URL
 [[ "$DATABASE_URL" == postgres* && "$DIRECT_URL" == postgres* ]] || { echo "❌ Рядки мають починатися з postgres:// або postgresql://"; exit 1; }
 echo
 echo "2/5 Пароль для входу в застосунок (запамʼятай — він знадобиться на телефоні)"
-read -rsp "    APP_PASSWORD: " APP_PASSWORD; echo
-read -rsp "    ще раз:       " APP_PASSWORD2; echo
-[[ -n "$APP_PASSWORD" && "$APP_PASSWORD" == "$APP_PASSWORD2" ]] || { echo "❌ Паролі порожні або не збігаються"; exit 1; }
-AUTH_SECRET="$(openssl rand -base64 32)"
-CRON_SECRET="$(openssl rand -hex 24)"
+if [[ -n "$APP_PASSWORD" ]]; then
+  echo "    APP_PASSWORD — з .env.local"
+else
+  read -rsp "    APP_PASSWORD: " APP_PASSWORD; echo
+  read -rsp "    ще раз:       " APP_PASSWORD2; echo
+  [[ -n "$APP_PASSWORD" && "$APP_PASSWORD" == "$APP_PASSWORD2" ]] || { echo "❌ Паролі порожні або не збігаються"; exit 1; }
+fi
+[[ -n "$AUTH_SECRET" ]] || AUTH_SECRET="$(openssl rand -base64 32 | tr -d '\n')"
+[[ -n "$CRON_SECRET" ]] || CRON_SECRET="$(openssl rand -hex 24)"
 
 echo
 echo "3/5 Записую змінні у Vercel (production)…"
@@ -43,7 +55,7 @@ fi
 
 read -rp "    Перемкнути й локальну розробку на Supabase (спільний прогрес Mac + телефон)? [Y/n] " LOCAL
 if [[ "${LOCAL:-Y}" =~ ^[Yy]?$ ]]; then
-  grep -vE '^(DATABASE_URL|DIRECT_URL|DATABASE_POOL_MAX)=' .env.local > .env.local.tmp || true
+  grep -vE '^(DATABASE_URL|DIRECT_URL|DATABASE_POOL_MAX)=' .env.local | grep -v 'Офлайн-база' > .env.local.tmp || true
   printf 'DATABASE_URL=%s\nDIRECT_URL=%s\n' "$DATABASE_URL" "$DIRECT_URL" >> .env.local.tmp
   mv .env.local.tmp .env.local
   echo "    ✓ .env.local оновлено (перезапусти pnpm dev)"

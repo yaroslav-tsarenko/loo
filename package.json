@@ -25,7 +25,8 @@
     "news:preview": "tsx scripts/news-preview.ts",
     "db:copy": "tsx --env-file-if-exists=.env.local scripts/copy-db.ts",
     "vercel-build": "tsx scripts/migrate.ts --if-configured && next build",
-    "setup:prod": "bash scripts/setup-prod.sh"
+    "setup:prod": "bash scripts/setup-prod.sh",
+    "env:secrets": "bash scripts/env-secrets.sh"
   },
   "dependencies": {
     "@shikijs/transformers": "^4.4.3",
