@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm vercel-build",
+  "crons": [
+    { "path": "/api/cron/news", "schedule": "0 6 * * *" },
+    { "path": "/api/cron/reels", "schedule": "30 6 * * *" }
+  ]
+}

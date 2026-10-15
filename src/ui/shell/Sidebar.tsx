@@ -1,0 +1,271 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { BookOpen, Braces, House, Route, Smartphone, Check, ChevronRight, ChevronsLeft, FileText, Layers, ListChecks, Map, Newspaper, RotateCcw, Search, Settings, UserRound } from 'lucide-react'
+import type { TreeViewNode } from '@/server/services/library'
+import { levelInfo } from '@/progress/levels'
+import { useFeedback } from '@/ui/feedback/FeedbackProvider'
+import { OPEN_PALETTE } from './constants'
+import { NAV } from './nav'
+import { PROGRESS_EVENT, useCounts } from './NavLinks'
+import { setMobileSidebar, setSidebarOpen } from './sidebar-state'
+import { SoundToggle, ThemeToggle } from './Toggles'
+import type { ThemeSetting } from '@/server/settings'
+
+const ICONS: Record<string, typeof BookOpen> = { '/': House, '/feed': Smartphone, '/path': Route, '/review': Layers, '/quiz': ListChecks, '/tasks': Braces, '/mistakes': RotateCcw, '/news': Newspaper, '/roadmap': Map, '/profile': UserRound }
+
+export interface SidebarGuide {
+  id: string
+  title: string
+  href: string
+}
+
+const OPEN_KEY = 'sidebar-open-nodes'
+const OPEN_EVENT = 'sidebar-open-nodes'
+
+function subscribeOpen(cb: () => void) {
+  window.addEventListener(OPEN_EVENT, cb)
+  return () => window.removeEventListener(OPEN_EVENT, cb)
+}
+
+function readOpen(): string {
+  try {
+    return window.localStorage.getItem(OPEN_KEY) ?? '[]'
+  } catch {
+    return '[]'
+  }
+}
+
+function useOpenNodes(): [Set<string>, (id: string, open?: boolean) => void] {
+  const raw = useSyncExternalStore(subscribeOpen, readOpen, () => '[]')
+  let parsed: string[] = []
+  try {
+    parsed = JSON.parse(raw) as string[]
+  } catch {
+    parsed = []
+  }
+  const set = new Set(parsed)
+  const toggle = useCallback((id: string, open?: boolean) => {
+    const current = new Set(JSON.parse(readOpen()) as string[])
+    const next = open ?? !current.has(id)
+    if (next) current.add(id)
+    else current.delete(id)
+    try {
+      window.localStorage.setItem(OPEN_KEY, JSON.stringify([...current]))
+    } catch {}
+    window.dispatchEvent(new Event(OPEN_EVENT))
+  }, [])
+  return [set, toggle]
+}
+
+const trees = new globalThis.Map<string, TreeViewNode[]>()
+
+function useTree(guideId: string, enabled: boolean): TreeViewNode[] | null {
+  const [nodes, setNodes] = useState<TreeViewNode[] | null>(trees.get(guideId) ?? null)
+  useEffect(() => {
+    if (!enabled) return
+    let alive = true
+    const load = () =>
+      fetch(`/api/tree/${encodeURIComponent(guideId)}`, { cache: 'no-store' })
+        .then((r) => r.json() as Promise<{ nodes: TreeViewNode[] }>)
+        .then((d) => {
+          trees.set(guideId, d.nodes)
+          if (alive) setNodes(d.nodes)
+        })
+        .catch(() => {})
+    load()
+    window.addEventListener(PROGRESS_EVENT, load)
+    return () => {
+      alive = false
+      window.removeEventListener(PROGRESS_EVENT, load)
+    }
+  }, [guideId, enabled])
+  return nodes
+}
+
+function decode(href: string): string {
+  try {
+    return decodeURIComponent(href)
+  } catch {
+    return href
+  }
+}
+
+function containsPath(nodes: TreeViewNode[], path: string): string[] {
+  for (const n of nodes) {
+    if (n.href && decode(n.href) === path) return [n.id]
+    const inner = containsPath(n.children, path)
+    if (inner.length > 0) return [n.id, ...inner]
+  }
+  return []
+}
+
+function TreeRows({ nodes, depth, path, open, toggle }: { nodes: TreeViewNode[]; depth: number; path: string; open: Set<string>; toggle: (id: string, open?: boolean) => void }) {
+  return (
+    <>
+      {nodes.map((n) => {
+        const expandable = n.kind === 'group' && n.children.length > 0
+        const isOpen = expandable && open.has(n.id)
+        const active = n.href !== null && decode(n.href) === path
+        return (
+          <div key={n.id} role="treeitem" aria-expanded={expandable ? isOpen : undefined} aria-selected={active}>
+            <div className="sb-row" data-active={active ? '' : undefined} style={{ paddingLeft: 8 + depth * 14 }}>
+              <button
+                type="button"
+                className="sb-toggle"
+                data-expandable={expandable ? '' : undefined}
+                aria-label={expandable ? `${isOpen ? 'Згорнути' : 'Розгорнути'} ${n.title}` : undefined}
+                tabIndex={expandable ? 0 : -1}
+                onClick={() => expandable && toggle(n.id)}
+              >
+                <FileText className="sb-page-icon" size={16} strokeWidth={1.6} aria-hidden="true" />
+                {expandable ? <ChevronRight className="sb-chevron" data-open={isOpen ? '' : undefined} size={16} strokeWidth={1.8} aria-hidden="true" /> : null}
+              </button>
+              {n.href ? (
+                <Link href={n.href} className="sb-label" onClick={() => setMobileSidebar(false)}>
+                  {n.title}
+                </Link>
+              ) : (
+                <button type="button" className="sb-label" onClick={() => toggle(n.id)}>
+                  {n.title}
+                </button>
+              )}
+              {n.status === 'studied' ? <Check className="sb-done" size={14} strokeWidth={2} aria-label="вивчено" /> : null}
+            </div>
+            {isOpen ? (
+              <div role="group">
+                <TreeRows nodes={n.children} depth={depth + 1} path={path} open={open} toggle={toggle} />
+              </div>
+            ) : null}
+          </div>
+        )
+      })}
+    </>
+  )
+}
+
+function GuideRow({ guide, path, open, toggle }: { guide: SidebarGuide; path: string; open: Set<string>; toggle: (id: string, open?: boolean) => void }) {
+  const key = `guide:${guide.id}`
+  const inside = path === decode(guide.href) || path.startsWith(`${decode(guide.href)}/`)
+  const isOpen = open.has(key)
+  const nodes = useTree(guide.id, isOpen || inside)
+  const revealed = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (!inside || !nodes || revealed.current === path) return
+    revealed.current = path
+    const trail = containsPath(nodes, path).slice(0, -1)
+    toggle(key, true)
+    for (const id of trail) toggle(id, true)
+  }, [inside, nodes, path, key, toggle])
+
+  const shown = isOpen
+  return (
+    <div role="treeitem" aria-expanded={shown} aria-selected={path === decode(guide.href)}>
+      <div className="sb-row" data-active={path === decode(guide.href) ? '' : undefined}>
+        <button type="button" className="sb-toggle" data-expandable="" aria-label={`${shown ? 'Згорнути' : 'Розгорнути'} ${guide.title}`} onClick={() => toggle(key, !shown)}>
+          <BookOpen className="sb-page-icon" size={16} strokeWidth={1.6} aria-hidden="true" />
+          <ChevronRight className="sb-chevron" data-open={shown ? '' : undefined} size={16} strokeWidth={1.8} aria-hidden="true" />
+        </button>
+        <Link href={guide.href} className="sb-label" onClick={() => setMobileSidebar(false)}>
+          {guide.title}
+        </Link>
+      </div>
+      {shown ? (
+        <div role="group">
+          {nodes ? (
+            nodes.length > 0 ? (
+              <TreeRows nodes={nodes} depth={1} path={path} open={open} toggle={toggle} />
+            ) : (
+              <p className="sb-empty">Немає сторінок</p>
+            )
+          ) : (
+            <p className="sb-empty">Завантаження…</p>
+          )}
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
+function LevelRow() {
+  const { xp } = useFeedback()
+  const info = levelInfo(xp)
+  return (
+    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ${info.rank.title}, ${Math.round(info.progress * 100)}% до наступного`}>
+      <span className="sb-level-top">
+        <span>
+          Рівень {info.level} · {info.rank.title}
+        </span>
+        <span className="tabular">{Math.round(info.progress * 100)}%</span>
+      </span>
+      <span className="sb-level-bar" aria-hidden="true">
+        <span style={{ transform: `scaleX(${Math.max(0.02, info.progress)})` }} />
+      </span>
+    </Link>
+  )
+}
+
+export function Sidebar({ guides, theme }: { guides: SidebarGuide[]; theme: ThemeSetting }) {
+  const raw = usePathname()
+  const path = decode(raw)
+  const counts = useCounts()
+  const [open, toggle] = useOpenNodes()
+
+  return (
+    <>
+      <div className="sb-scrim" onClick={() => setMobileSidebar(false)} aria-hidden="true" />
+      <aside className="sidebar" aria-label="Навігація">
+        <div className="sb-head">
+          <Link href="/" className="sb-workspace" onClick={() => setMobileSidebar(false)}>
+            <span className="sb-avatar" aria-hidden="true">
+              I
+            </span>
+            <span className="sb-workspace-name">Interview Prep</span>
+          </Link>
+          <button type="button" className="sb-icon-button sb-collapse" aria-label="Сховати бічну панель" title="Сховати бічну панель (⌘\)" onClick={() => setSidebarOpen(false)}>
+            <ChevronsLeft size={18} strokeWidth={1.6} />
+          </button>
+        </div>
+        <nav className="sb-nav" aria-label="Розділи">
+          <button type="button" className="sb-row sb-item" onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE))}>
+            <Search size={16} strokeWidth={1.8} aria-hidden="true" />
+            <span className="sb-label">Пошук</span>
+            <kbd className="sb-kbd">⌘K</kbd>
+          </button>
+          {NAV.map((item) => {
+            const Icon = ICONS[item.href] ?? FileText
+            const count = counts[item.href]
+            return (
+              <Link key={item.href} href={item.href} className="sb-row sb-item" data-active={item.match(path) ? '' : undefined} aria-current={item.match(path) ? 'page' : undefined} onClick={() => setMobileSidebar(false)}>
+                <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
+                <span className="sb-label">{item.label}</span>
+                {count ? <span className="sb-count tabular">{count}</span> : null}
+              </Link>
+            )
+          })}
+        </nav>
+        <div className="sb-section">
+          <div className="sb-section-title">Посібники</div>
+          <div role="tree" aria-label="Посібники">
+            {guides.map((g) => (
+              <GuideRow key={g.id} guide={g} path={path} open={open} toggle={toggle} />
+            ))}
+          </div>
+        </div>
+        <div className="sb-foot">
+          <LevelRow />
+          <div className="sb-foot-tools">
+            <SoundToggle />
+            <ThemeToggle initial={theme} />
+            <Link href="/settings" className="sb-icon-button" aria-label="Налаштування" title="Налаштування" onClick={() => setMobileSidebar(false)}>
+              <Settings size={17} strokeWidth={1.6} />
+            </Link>
+          </div>
+        </div>
+      </aside>
+    </>
+  )
+}

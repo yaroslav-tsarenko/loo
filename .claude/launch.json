@@ -1,0 +1,30 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "exec",
+        "next",
+        "dev",
+        "--hostname",
+        "127.0.0.1"
+      ],
+      "port": 3200,
+      "autoPort": true
+    },
+    {
+      "name": "portfolio-4",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "/Users/yaroslav/Projects/yaroslav-tsarenko-4-0",
+        "run",
+        "dev"
+      ],
+      "port": 3100,
+      "autoPort": true
+    }
+  ]
+}

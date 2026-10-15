@@ -1,0 +1,11 @@
+[
+  {
+    "id": "new-02-101",
+    "chapter": "02. Питання зі співбесід",
+    "level": "junior",
+    "frequency": "часто",
+    "type": "теорія",
+    "question": "Що таке hoisting?",
+    "answer": "Оголошення `var` і function declaration піднімаються на початок області видимості."
+  }
+]

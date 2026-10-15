@@ -1,0 +1,5 @@
+[
+  { "id": "bk-01-001", "chapter": "01. Основи", "level": "junior", "frequency": "часто", "type": "теорія", "question": "Дубль з md", "answer": "Має бути проігноровано" },
+  { "id": "bk-01-099", "chapter": "01. Основи", "level": "middle", "frequency": "рідко", "type": "код", "question": "Питання лише з JSON?", "answer": "Відповідь з `code`" },
+  { "id": "bk-02-001", "chapter": "02. Невідомий", "level": "senior", "frequency": "іноді", "type": "теорія", "question": "Без розділу", "answer": "Текст" }
+]
