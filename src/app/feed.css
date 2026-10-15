@@ -1,11 +1,12 @@
-/* Feed: full-screen vertical swipe, TikTok-style */
+/* Feed: full-screen vertical swipe, TikTok-style, on the Levelup kit */
 .feed-shell {
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: light-dark(#f2f1ee, #0f0f0f);
+  background: var(--lu-bg-sunk);
   display: flex;
   justify-content: center;
+  font-family: var(--lu-font);
 }
 .feed {
   width: min(560px, 100%);
@@ -25,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(56px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom));
+  padding: calc(64px + env(safe-area-inset-top)) 14px calc(22px + env(safe-area-inset-bottom));
 }
 .feed-hud {
   position: fixed;
@@ -37,30 +38,43 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: calc(10px + env(safe-area-inset-top)) 14px 10px;
   pointer-events: none;
 }
 .feed-hud > * {
   pointer-events: auto;
 }
-.feed-hud-close {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--t1);
-  text-decoration: none;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.12);
+.feed-hud-close.lu-ibtn {
+  margin-bottom: var(--b-lip-h);
 }
 .feed-hud-count {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--surface);
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px 0 10px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-surface);
+  color: var(--lu-yellow-ink);
+  font-size: var(--lu-fs-sm);
+  font-weight: var(--lu-fw-black);
+}
+.feed-hud-track {
+  position: relative;
+  width: 72px;
+  height: 10px;
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-surface-3);
+  overflow: hidden;
+}
+.feed-hud-track > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--lu-yellow);
+  transition: width var(--lu-dur-4) var(--lu-ease-bounce);
 }
 
 .reel,
@@ -68,18 +82,19 @@
   width: 100%;
   max-height: 100%;
   overflow-y: auto;
-  border-radius: 22px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-xl);
+  box-shadow: 0 6px 0 var(--lu-border);
   padding: 22px 20px;
-  box-shadow: 0 6px 30px rgb(0 0 0 / 0.08);
 }
 .reel {
   display: flex;
   gap: 12px;
-  min-height: min(620px, 100%);
+  min-height: min(640px, 100%);
   background:
-    radial-gradient(120% 70% at 0% 0%, light-dark(hsl(var(--reel-hue) 85% 90%), hsl(var(--reel-hue) 45% 22%)), transparent 70%),
-    radial-gradient(90% 60% at 100% 100%, light-dark(hsl(calc(var(--reel-hue) + 60) 85% 92%), hsl(calc(var(--reel-hue) + 60) 40% 18%)), transparent 70%),
-    var(--surface);
+    radial-gradient(120% 70% at 0% 0%, light-dark(hsl(var(--reel-hue) 90% 88%), hsl(var(--reel-hue) 45% 22%)), transparent 70%),
+    radial-gradient(90% 60% at 100% 100%, light-dark(hsl(calc(var(--reel-hue) + 60) 90% 90%), hsl(calc(var(--reel-hue) + 60) 40% 18%)), transparent 70%),
+    var(--lu-surface);
 }
 .reel-main {
   flex: 1;
@@ -87,17 +102,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 .reel-chip {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   max-width: 100%;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: light-dark(rgb(255 255 255 / 0.7), rgb(0 0 0 / 0.3));
+  min-height: 28px;
+  padding: 0 12px 0 8px;
+  border-radius: var(--lu-r-pill);
+  background: light-dark(rgb(255 255 255 / 0.75), rgb(0 0 0 / 0.3));
   font-size: 12px;
-  font-weight: 600;
-  color: var(--t2);
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text-2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -116,48 +135,44 @@
 /* AI-generated reel marker; links to the source when there is one */
 .reel-ai {
   flex: none;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px dashed light-dark(rgb(55 53 47 / 0.3), rgb(255 255 255 / 0.3));
-  background: light-dark(rgb(255 255 255 / 0.5), rgb(0 0 0 / 0.2));
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--t2);
-  text-decoration: none;
-  white-space: nowrap;
 }
-a.reel-ai:hover {
-  color: var(--t1);
-  border-style: solid;
+.reel-ai-link {
+  display: inline-flex;
+  border-radius: var(--lu-r-pill);
+}
+.reel-ai-link:hover .reel-ai {
+  filter: brightness(1.08);
 }
 .reel-hidden .reel-main {
   align-items: center;
   text-align: center;
 }
 .reel-emoji {
-  font-size: 72px;
+  font-size: 84px;
   line-height: 1;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 .reel-title {
   margin: 0;
-  font-size: clamp(22px, 6vw, 28px);
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: clamp(26px, 7.4vw, 34px);
+  line-height: 1.15;
+  font-weight: var(--lu-fw-black);
+  text-wrap: balance;
 }
 .reel-body {
-  font-size: 16px;
-  line-height: 1.55;
+  font-family: var(--font-read);
+  font-size: 17px;
+  line-height: 1.6;
 }
 .reel-body pre {
   font-size: 13px;
+  border-radius: var(--lu-r) !important;
 }
 .reel-rail {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 14px;
+  gap: 10px;
   flex: none;
 }
 .reel-action {
@@ -165,95 +180,71 @@ a.reel-ai:hover {
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  width: 52px;
-  min-height: 52px;
-  border: 0;
-  background: none;
-  color: var(--t1);
-  text-decoration: none;
-  font-size: 26px;
-  cursor: pointer;
-  transition: transform 120ms;
 }
-.reel-action:active {
-  transform: scale(0.85);
+.reel-btn.lu-ibtn {
+  margin-bottom: var(--b-lip-h);
+}
+.reel-btn[data-on] {
+  background: var(--lu-pink-soft);
+  animation: lu-pop-in var(--lu-dur-3) var(--lu-ease-bounce);
 }
 .reel-action-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--t2);
+  font-size: 11px;
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text-2);
 }
 
 .feed-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background: var(--surface);
+  gap: 16px;
+  background: var(--lu-surface);
 }
 .feed-card-question {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.35;
+  font-size: clamp(22px, 6vw, 26px);
+  font-weight: var(--lu-fw-black);
+  line-height: 1.3;
+  text-wrap: balance;
 }
 .feed-card-answer {
-  font-size: 15px;
-  line-height: 1.55;
-  padding-top: 12px;
-  border-top: 1px solid var(--rule);
-}
-.feed-reveal {
-  min-height: 52px;
-  border: 1px dashed var(--border);
-  border-radius: 14px;
-  background: var(--sunk);
-  color: var(--t1);
+  padding: 14px 16px;
+  border: 2px solid var(--lu-blue);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-blue-soft);
+  font-family: var(--font-read);
   font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  line-height: 1.55;
+  animation: lu-pop-in var(--lu-dur-3) var(--lu-ease-bounce);
 }
-.feed-rate {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+.feed-card .lu-btn {
+  margin-bottom: var(--b-lip-h);
 }
-.feed-rate-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-height: 64px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface);
-  color: var(--t1);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
+.feed-quiz .quiz[data-variant='inline'] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
 }
-.feed-rate-button > span {
-  font-size: 24px;
-}
-.feed-rate-button[data-chosen] {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-.feed-rate-button:disabled:not([data-chosen]) {
-  opacity: 0.45;
+.feed-quiz .quiz-prompt {
+  font-size: clamp(20px, 5.6vw, 24px);
+  font-weight: var(--lu-fw-black);
 }
 .feed-end {
   align-items: center;
   text-align: center;
 }
 .feed-end-text {
-  color: var(--t2);
+  color: var(--lu-text-2);
+  font-weight: 700;
   margin: 0;
 }
-.feed-end .mission-cta {
-  align-self: stretch;
-}
 .feed-end-home {
-  color: var(--t2);
-  font-size: 14px;
+  color: var(--lu-blue-ink);
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-black);
+  text-transform: uppercase;
+  letter-spacing: var(--lu-tracking-caps);
 }
 
 /* /feed/generated — admin list of AI reels (mobile-first) */

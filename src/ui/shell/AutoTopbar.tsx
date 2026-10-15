@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { NAV } from './nav'
 import { PageTopbar } from './PageTopbar'
 
-const EXTRA: Record<string, string> = { '/settings': 'Налаштування', '/design': 'Дизайн-система', '/viz': 'Візуалізації' }
+const EXTRA: Record<string, string> = { '/settings': 'Налаштування', '/account': 'Профіль і акаунт', '/design': 'Дизайн-система', '/viz': 'Візуалізації' }
 
 export function AutoTopbar() {
   const path = usePathname()

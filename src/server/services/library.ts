@@ -1,12 +1,13 @@
 import 'server-only'
-import { desc, eq, isNull, lte, sql } from 'drizzle-orm'
-import { first, getDb } from '@/db/client'
+import { and, desc, eq, isNull, lte, sql } from 'drizzle-orm'
+import { first } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, mistakes, srsCards, taskState } from '@/db/schema'
 import type { Chapter, Guide, TreeNode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
 import { computeStreak } from '@/progress/streak'
 import { chapterHref } from '@/ui/routes'
+import { userScope } from '../auth'
 import { readSettings } from '../settings'
 
 export type ChapterStatus = 'unread' | 'reading' | 'studied'
@@ -19,7 +20,7 @@ export interface ProgressRow {
 }
 
 export async function chapterProgressMap(): Promise<Map<string, ProgressRow>> {
-  const rows = await getDb().select().from(chapterProgress)
+  const rows = await userScope((db, userId) => db.select().from(chapterProgress).where(eq(chapterProgress.userId, userId)))
   return new Map(rows.map((r) => [r.chapterId, { status: r.status, scrollPct: r.scrollPct, lastOpenedAt: r.lastOpenedAt, timeMs: r.timeMs }]))
 }
 
@@ -50,15 +51,22 @@ export function nextChapterFor(snapshot: ContentSnapshot, guide: Guide, progress
 }
 
 export async function libraryRows(snapshot: ContentSnapshot): Promise<GuideRow[]> {
-  const db = getDb()
   const now = Date.now()
-  const [progress, dueRows, accRows] = await Promise.all([
+  const [progress, [dueRows, accRows]] = await Promise.all([
     chapterProgressMap(),
-    db.select({ id: srsCards.unitId }).from(srsCards).where(lte(srsCards.due, now)),
-    db
-      .select({ guideId: attempts.guideId, total: sql<number>`count(*)`, correct: sql<number>`count(*) filter (where ${attempts.correct})` })
-      .from(attempts)
-      .groupBy(attempts.guideId),
+    userScope((db, userId) =>
+      Promise.all([
+        db
+          .select({ id: srsCards.unitId })
+          .from(srsCards)
+          .where(and(eq(srsCards.userId, userId), lte(srsCards.due, now))),
+        db
+          .select({ guideId: attempts.guideId, total: sql<number>`count(*)`, correct: sql<number>`count(*) filter (where ${attempts.correct})` })
+          .from(attempts)
+          .where(eq(attempts.userId, userId))
+          .groupBy(attempts.guideId),
+      ]),
+    ),
   ])
   const due = new Set(dueRows.map((r) => r.id))
   const acc = new Map(accRows.map((r) => [r.guideId, { total: Number(r.total), correct: Number(r.correct) }]))
@@ -99,15 +107,34 @@ export interface TodaySummary {
 }
 
 export async function todaySummary(snapshot: ContentSnapshot): Promise<TodaySummary> {
-  const db = getDb()
   const now = Date.now()
-  const [settings, srsRows, openRows, today, goalRows, last] = await Promise.all([
+  const [settings, [srsRows, openRows, today, goalRows, last]] = await Promise.all([
     readSettings(),
-    db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards),
-    db.select({ id: mistakes.unitId }).from(mistakes).where(isNull(mistakes.resolvedAt)),
-    first(db.select().from(dailyActivity).where(eq(dailyActivity.day, dayKey(now)))),
-    db.select({ day: dailyActivity.day }).from(dailyActivity).where(eq(dailyActivity.goalMet, true)),
-    db.select().from(chapterProgress).where(eq(chapterProgress.status, 'reading')).orderBy(desc(chapterProgress.lastOpenedAt)).limit(5),
+    userScope((db, userId) =>
+      Promise.all([
+        db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
+        db
+          .select({ id: mistakes.unitId })
+          .from(mistakes)
+          .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
+        first(
+          db
+            .select()
+            .from(dailyActivity)
+            .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, dayKey(now)))),
+        ),
+        db
+          .select({ day: dailyActivity.day })
+          .from(dailyActivity)
+          .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.goalMet, true))),
+        db
+          .select()
+          .from(chapterProgress)
+          .where(and(eq(chapterProgress.userId, userId), eq(chapterProgress.status, 'reading')))
+          .orderBy(desc(chapterProgress.lastOpenedAt))
+          .limit(5),
+      ]),
+    ),
   ])
   const reviewed = new Set(srsRows.map((r) => r.id))
   const due = srsRows.filter((r) => r.due <= now && snapshot.units.has(r.id)).length
@@ -195,5 +222,14 @@ export function chapterNumberMap(tree: TreeViewNode[]): Map<string, string> {
 }
 
 export async function taskStateFor(unitId: string) {
-  return (await first(getDb().select().from(taskState).where(eq(taskState.unitId, unitId)))) ?? null
+  return (
+    (await userScope((db, userId) =>
+      first(
+        db
+          .select()
+          .from(taskState)
+          .where(and(eq(taskState.userId, userId), eq(taskState.unitId, unitId))),
+      ),
+    )) ?? null
+  )
 }

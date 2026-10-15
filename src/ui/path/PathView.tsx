@@ -1,8 +1,15 @@
 'use client'
 
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type Ref } from 'react'
+import { PiBookOpenTextFill, PiCaretRightBold, PiCardsThreeFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiPlayFill, PiStarFill, PiTargetFill } from 'react-icons/pi'
 import { CROWN_LABEL } from '@/progress/mastery'
+import { Button } from '@/ui/design/Button'
+import { Card } from '@/ui/design/Card'
+import type { Tone } from '@/ui/design/cx'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { Loo } from '@/ui/design/mascot/Loo'
+import { Ring } from '@/ui/design/Ring'
+import { Sheet } from '@/ui/design/Sheet'
 
 export interface PathLessonView {
   id: string
@@ -41,82 +48,98 @@ export interface PathStageView {
 
 // Horizontal offsets that make the path wind like a river.
 const WAVE = [0, 56, 84, 56, 0, -56, -84, -56]
+// Section banners cycle through the bright palette.
+const STAGE_TONES: readonly Tone[] = ['green', 'blue', 'purple', 'orange', 'pink']
 
-function NodeRing({ ratio }: { ratio: number }) {
-  const r = 44
-  const c = 2 * Math.PI * r
-  return (
-    <svg className="path-node-ring" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="50" r={r} className="path-node-ring-track" />
-      <circle cx="50" cy="50" r={r} className="path-node-ring-fill" strokeDasharray={c} strokeDashoffset={c * (1 - ratio)} />
-    </svg>
-  )
-}
-
-function Sheet({ node, onClose }: { node: PathNodeView; onClose: () => void }) {
-  const ref = useRef<HTMLDialogElement>(null)
-  useEffect(() => {
-    const el = ref.current
-    if (el && !el.open) el.showModal()
-  }, [])
+function SkillSheet({ node, onClose }: { node: PathNodeView; onClose: () => void }) {
   const q = `chapter=${encodeURIComponent(node.id)}`
   return (
-    <dialog ref={ref} className="path-sheet" onClose={onClose} onClick={(e) => e.target === ref.current && ref.current?.close()}>
-      <div className="path-sheet-body">
-        <div className="path-sheet-head">
+    <Sheet
+      open
+      onClose={onClose}
+      title={
+        <span className="path-sheet-title">
           <span className="path-sheet-icon" aria-hidden="true">
             {node.icon}
           </span>
-          <div>
-            <span className="eyebrow">
-              Розділ {node.number} · ~{node.minutes} хв
-            </span>
-            <h2 className="path-sheet-title">{node.title}</h2>
-          </div>
-        </div>
-        <div className="path-crowns" aria-label={`${node.crowns} з 5 корон`}>
-          {Array.from({ length: 5 }, (_, i) => (
-            <span key={i} data-on={i < node.crowns ? '' : undefined} aria-hidden="true">
-              👑
-            </span>
-          ))}
-          <span className="path-crowns-label">{CROWN_LABEL[node.crowns]}</span>
-        </div>
-        {node.next ? <p className="path-sheet-next">🎯 Наступна корона: {node.next}</p> : <p className="path-sheet-next">🏆 Розділ повністю опановано</p>}
-        <div className="path-sheet-actions">
-          <Link href={node.href} className="mission-cta">
-            📖 {node.crowns >= 2 ? 'Перечитати' : 'Читати'}
-          </Link>
-          <div className="path-sheet-grid">
-            <Link href={`/quiz?${q}`} className="path-sheet-action">
-              🎲 Тести <small>{node.counts.quizzes}</small>
-            </Link>
-            <Link href={`/review?${q}&mode=all`} className="path-sheet-action">
-              🧠 Картки <small>{node.counts.cards}</small>
-            </Link>
-            <Link href={`/tasks?${q}`} className="path-sheet-action">
-              🛠️ Задачі <small>{node.counts.tasks}</small>
-            </Link>
-          </div>
-        </div>
-        <button type="button" className="path-sheet-close" onClick={() => ref.current?.close()}>
-          Закрити
-        </button>
+          {node.title}
+        </span>
+      }
+      description={`Розділ ${node.number} · ~${node.minutes} хв`}
+      footer={
+        <Button href={node.href} size="lg" block icon={<PiBookOpenTextFill size={20} />}>
+          {node.crowns >= 2 ? 'Перечитати' : 'Читати'}
+        </Button>
+      }
+    >
+      <div className="path-crowns" role="img" aria-label={`${node.crowns} з 5 корон`}>
+        {Array.from({ length: 5 }, (_, i) => (
+          <GameIcon key={i} name="crown" size={34} muted={i >= node.crowns} />
+        ))}
+        <span className="path-crowns-label">{CROWN_LABEL[node.crowns]}</span>
       </div>
-    </dialog>
+      <p className="path-sheet-next">
+        {node.next ? (
+          <>
+            <PiTargetFill aria-hidden="true" /> Наступна корона: {node.next}
+          </>
+        ) : (
+          <>
+            <GameIcon name="crown" size={18} /> Розділ повністю опановано
+          </>
+        )}
+      </p>
+      <div className="path-sheet-grid">
+        <Card href={`/quiz?${q}`} padding="sm" className="path-sheet-action">
+          <span className="path-sheet-action-icon" data-tone="blue" aria-hidden="true">
+            <PiExamFill />
+          </span>
+          Тести <small className="tabular">{node.counts.quizzes}</small>
+        </Card>
+        <Card href={`/review?${q}&mode=all`} padding="sm" className="path-sheet-action">
+          <span className="path-sheet-action-icon" data-tone="purple" aria-hidden="true">
+            <PiCardsThreeFill />
+          </span>
+          Картки <small className="tabular">{node.counts.cards}</small>
+        </Card>
+        <Card href={`/tasks?${q}`} padding="sm" className="path-sheet-action">
+          <span className="path-sheet-action-icon" data-tone="orange" aria-hidden="true">
+            <PiCodeBlockFill />
+          </span>
+          Задачі <small className="tabular">{node.counts.tasks}</small>
+        </Card>
+      </div>
+    </Sheet>
   )
 }
 
-function LessonBubble({ lesson, offset, onOpen, open, bubbleRef }: { lesson: PathLessonView; offset: number; onOpen: () => void; open: boolean; bubbleRef?: React.Ref<HTMLButtonElement> }) {
+function LessonBubble({ lesson, offset, ratio, onOpen, open, bubbleRef }: { lesson: PathLessonView; offset: number; ratio: number; onOpen: () => void; open: boolean; bubbleRef?: Ref<HTMLButtonElement> }) {
   const state = lesson.current ? 'current' : lesson.done ? 'done' : 'upcoming'
+  const glyph = lesson.done ? lesson.perfect ? <PiStarFill /> : <PiCheckBold /> : lesson.current ? <PiPlayFill /> : <span aria-hidden="true">{lesson.emoji}</span>
+  const bubble = (
+    <button type="button" ref={bubbleRef} className="lesson-bubble" onClick={onOpen} aria-expanded={open} aria-label={`${lesson.title}${lesson.done ? ' — пройдено' : lesson.current ? ' — наступний урок' : ''}`}>
+      <span className="lesson-bubble-glyph" aria-hidden="true">
+        {glyph}
+      </span>
+    </button>
+  )
   return (
-    <li className="lesson-node" style={{ '--x': `${offset}px` } as React.CSSProperties} data-state={state} data-kind={lesson.kind}>
+    <li className="lesson-node" style={{ '--x': `${offset}px` } as CSSProperties} data-state={state} data-kind={lesson.kind} data-side={offset > 0 ? 'right' : 'left'}>
       {lesson.current && !open ? <span className="path-node-tip">Старт</span> : null}
-      <button type="button" ref={bubbleRef} className="lesson-bubble" onClick={onOpen} aria-expanded={open} aria-label={`${lesson.title}${lesson.done ? ' — пройдено' : ''}`}>
-        <span aria-hidden="true">{lesson.done ? (lesson.perfect ? '⭐' : '✔️') : lesson.emoji}</span>
-      </button>
+      {lesson.current ? (
+        <Ring value={ratio} size={96} stroke={8} tone="green" label="Прогрес розділу" className="lesson-bubble-ring">
+          {bubble}
+        </Ring>
+      ) : (
+        bubble
+      )}
+      {lesson.current ? (
+        <span className="path-loo" aria-hidden="true">
+          <Loo mood="wave" size={96} />
+        </span>
+      ) : null}
       {open ? (
-        <div className="lesson-pop" role="dialog" aria-label={lesson.title}>
+        <div className="lesson-pop lu-card" data-variant="raised" data-tone={lesson.done ? 'yellow' : lesson.current ? 'green' : undefined} data-pad="md" role="dialog" aria-label={lesson.title}>
           <strong className="lesson-pop-title">
             {lesson.emoji} {lesson.title}
           </strong>
@@ -124,9 +147,9 @@ function LessonBubble({ lesson, offset, onOpen, open, bubbleRef }: { lesson: Pat
             {lesson.kind === 'theory' ? `Стаття · ~${lesson.minutes} хв` : `${lesson.size} вправ · ~${lesson.minutes} хв`}
             {lesson.done ? ' · пройдено' : ''}
           </span>
-          <Link href={lesson.href} className="lesson-primary">
-            {lesson.kind === 'theory' ? '📖 Читати' : lesson.done ? 'Повторити +XP' : 'Почати +XP'}
-          </Link>
+          <Button href={lesson.href} block variant={lesson.done ? 'ghost' : 'primary'} icon={lesson.kind === 'theory' ? <PiBookOpenTextFill size={18} /> : lesson.done ? <PiStarFill size={18} /> : <PiPlayFill size={18} />}>
+            {lesson.kind === 'theory' ? 'Читати' : lesson.done ? 'Повторити +XP' : 'Почати +XP'}
+          </Button>
         </div>
       ) : null}
     </li>
@@ -151,40 +174,45 @@ export function PathView({ stages }: { stages: PathStageView[] }) {
   let wave = 0
   return (
     <div className="path">
-      {stages.map((stage) => (
-        <section key={stage.title} className="path-stage">
+      {stages.map((stage, si) => (
+        <section key={stage.title} className="path-stage" data-tone={STAGE_TONES[si % STAGE_TONES.length]}>
           <header className="path-banner">
             <span className="path-banner-emoji" aria-hidden="true">
               {stage.emoji}
             </span>
             <div className="path-banner-text">
+              <span className="path-banner-eyebrow">Секція {si + 1}</span>
               <h2 className="path-banner-title">{stage.title}</h2>
               <span className="path-banner-bar" aria-hidden="true">
-                <span style={{ transform: `scaleX(${stage.ratio})` }} />
+                <span style={{ width: `${Math.max(4, stage.ratio * 100)}%` }} />
               </span>
             </div>
             <span className="path-banner-pct tabular">{Math.round(stage.ratio * 100)}%</span>
           </header>
           {stage.nodes.map((node) => (
             <div key={node.id} className="skill" data-state={node.state}>
-              <button type="button" className="skill-head" onClick={() => setSheet(node)}>
-                <span className="skill-ring">
-                  <NodeRing ratio={node.ratio} />
+              <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={node.state === 'current' ? 'green' : undefined} onClick={() => setSheet(node)}>
+                <Ring value={node.ratio} size={56} stroke={6} tone={node.crowns >= 5 ? 'yellow' : 'green'} label={`Опановано ${Math.round(node.ratio * 100)}%`} className="skill-ring">
                   <span className="skill-icon" aria-hidden="true">
-                    {node.crowns >= 5 ? '🏆' : node.icon}
+                    {node.crowns >= 5 ? <GameIcon name="crown" size={26} /> : node.icon}
                   </span>
-                </span>
+                </Ring>
                 <span className="skill-text">
                   <span className="skill-title">
                     <span className="tabular">{node.number}.</span> {node.title}
                   </span>
                   <span className="skill-meta">
-                    {node.crowns > 0 ? `👑 ${node.crowns}/5 · ${CROWN_LABEL[node.crowns]}` : CROWN_LABEL[0]} · {node.lessons.filter((l) => l.done).length}/{node.lessons.length} уроків
+                    {node.crowns > 0 ? (
+                      <span className="skill-crowns">
+                        <GameIcon name="crown" size={16} /> {node.crowns}/5 · {CROWN_LABEL[node.crowns]}
+                      </span>
+                    ) : (
+                      CROWN_LABEL[0]
+                    )}{' '}
+                    · {node.lessons.filter((l) => l.done).length}/{node.lessons.length} уроків
                   </span>
                 </span>
-                <span className="skill-chevron" aria-hidden="true">
-                  ›
-                </span>
+                <PiCaretRightBold className="skill-chevron" aria-hidden="true" />
               </button>
               <ol className="path-nodes">
                 {node.lessons.map((lesson) => (
@@ -192,6 +220,7 @@ export function PathView({ stages }: { stages: PathStageView[] }) {
                     key={lesson.id}
                     lesson={lesson}
                     offset={WAVE[wave++ % WAVE.length]!}
+                    ratio={node.ratio}
                     open={openLesson === lesson.id}
                     onOpen={() => setOpenLesson(openLesson === lesson.id ? null : lesson.id)}
                     bubbleRef={lesson.current ? currentRef : undefined}
@@ -202,7 +231,7 @@ export function PathView({ stages }: { stages: PathStageView[] }) {
           ))}
         </section>
       ))}
-      {sheet ? <Sheet node={sheet} onClose={() => setSheet(null)} /> : null}
+      {sheet ? <SkillSheet node={sheet} onClose={() => setSheet(null)} /> : null}
     </div>
   )
 }

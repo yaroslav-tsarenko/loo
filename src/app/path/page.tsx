@@ -2,11 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getContent } from '@/server/content'
-import { totalXp } from '@/server/services/progress'
+import { userXp } from '@/server/services/progress'
 import { trackPath } from '@/server/services/path'
 import { TRACKS } from '@/content/tracks'
-import { getDb } from '@/db/client'
 import { levelInfo } from '@/progress/levels'
+import { PiMapTrifoldFill } from 'react-icons/pi'
+import { Card } from '@/ui/design/Card'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { Icon } from '@/ui/icons/Icon'
+import { trackIcon } from '@/ui/icons/tracks'
 import { PathView, type PathStageView } from '@/ui/path/PathView'
 
 export const metadata: Metadata = { title: 'Шлях' }
@@ -18,7 +22,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
   const fromGuide = params.guide ? available.find((t) => t.guides.includes(params.guide!)) : undefined
   const track = available.find((t) => t.id === params.track) ?? fromGuide ?? available[0]
   if (!track) notFound()
-  const [path, xp] = await Promise.all([trackPath(snapshot, track), totalXp(getDb())])
+  const [path, xp] = await Promise.all([trackPath(snapshot, track), userXp()])
   const level = levelInfo(xp)
   const stages: PathStageView[] = path.stages.map((s) => ({
     emoji: s.emoji,
@@ -44,39 +48,48 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
     })),
   }))
   return (
-    <div className="page" data-width="wide">
-      <h1 className="page-title">
-        {track.emoji} {track.title}: шлях
-      </h1>
-      <p className="page-lead">{track.tagline}</p>
-      <div className="path-summary">
-        <div className="path-summary-item">
-          <span className="path-summary-value tabular">{level.level}</span>
-          <span className="path-summary-label">рівень · {level.rank.title}</span>
+    <div className="page path-page" data-width="wide">
+      <header className="ghead">
+        <span className="ghead-badge path-track-badge" aria-hidden="true">
+          <Icon name={trackIcon(track.id, track.emoji)} size={40} />
+        </span>
+        <div className="ghead-text">
+          <h1 className="ghead-title">{track.title}: шлях</h1>
+          <p className="ghead-lead">{track.tagline}</p>
         </div>
-        <div className="path-summary-item">
+      </header>
+      <div className="path-summary">
+        <Card variant="raised" tone="blue" padding="sm" className="path-summary-item">
           <span className="path-summary-value tabular">
-            👑 {path.crowns}
+            <GameIcon name="bolt" size={22} />
+            {level.level}
+          </span>
+          <span className="path-summary-label">рівень · {level.rank.title}</span>
+        </Card>
+        <Card variant="raised" tone="yellow" padding="sm" className="path-summary-item">
+          <span className="path-summary-value tabular">
+            <GameIcon name="crown" size={22} />
+            {path.crowns}
             <small>/{path.maxCrowns}</small>
           </span>
           <span className="path-summary-label">корон майстерності</span>
-        </div>
-        <div className="path-summary-item">
+        </Card>
+        <Card variant="raised" tone="green" padding="sm" className="path-summary-item">
           <span className="path-summary-value tabular">
             {path.lessonsDone}
             <small>/{path.lessonsTotal}</small>
           </span>
-          <span className="path-summary-label">уроків · {Math.round(path.ratio * 100)}% опановано</span>
-        </div>
+          <span className="path-summary-label">уроків · {Math.round(path.ratio * 100)}%</span>
+        </Card>
       </div>
-      <nav className="path-guides" aria-label="Трек">
+      <nav className="gchips path-guides" aria-label="Трек">
         {available.map((t) => (
-          <Link key={t.id} href={`/path?track=${t.id}`} className="path-guide-chip" aria-current={t.id === track.id ? 'page' : undefined}>
-            {t.emoji} {t.title}
+          <Link key={t.id} href={`/path?track=${t.id}`} className="gchip" aria-current={t.id === track.id ? 'page' : undefined}>
+            <Icon name={trackIcon(t.id, t.emoji)} size={18} /> {t.title}
           </Link>
         ))}
-        <Link href="/roadmap" className="path-guide-chip">
-          🗺️ Уся мапа
+        <Link href="/roadmap" className="gchip">
+          <PiMapTrifoldFill aria-hidden="true" /> Уся мапа
         </Link>
       </nav>
       <PathView stages={stages} />

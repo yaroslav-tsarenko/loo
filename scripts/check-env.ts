@@ -44,14 +44,23 @@ async function checkUrl(name: string, port: number) {
 
 await checkUrl('PROD_DATABASE_URL', 6543)
 await checkUrl('PROD_DIRECT_URL', 5432)
-const app = env.APP_PASSWORD ?? ''
-if (!app) bad('APP_PASSWORD: порожньо')
-else if (app.length < 12) console.log(`⚠️  APP_PASSWORD: ${app.length} символів — для інтернет-доступного входу краще ≥ 12 (фраза з 3–4 слів)`)
-else ok(`APP_PASSWORD: ${app.length} символів`)
-// The app locks itself on Vercel when AUTH_SECRET is shorter than 32 chars (src/lib/auth.ts).
-for (const [k, min] of [['AUTH_SECRET', 32], ['CRON_SECRET', 24]] as const) {
-  if ((env[k]?.length ?? 0) >= min) ok(`${k}: є`)
-  else bad(`${k}: коротший за ${min} символів — запусти pnpm env:secrets`)
+// Supabase Auth (public values: the publishable key is safe in the browser; RLS + server checks protect data).
+const supabaseUrl = env.NEXT_PUBLIC_SUPABASE_URL ?? ''
+if (!supabaseUrl) bad('NEXT_PUBLIC_SUPABASE_URL: порожньо (Supabase → Project Settings → API)')
+else if (!/^https:\/\/[a-z0-9]+\.supabase\.co\/?$/.test(supabaseUrl)) console.log(`⚠️  NEXT_PUBLIC_SUPABASE_URL: очікую https://<ref>.supabase.co`)
+else ok('NEXT_PUBLIC_SUPABASE_URL: є')
+const key = env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? ''
+if (!key) bad('NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: порожньо (Supabase → Project Settings → API Keys → Publishable key)')
+else if (key.startsWith('sb_secret_')) bad('NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: це СЕКРЕТНИЙ ключ! Потрібен publishable (sb_publishable_…)')
+else ok(`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: є (${key.startsWith('sb_publishable_') ? 'publishable' : 'legacy anon'})`)
+const admins = (env.ADMIN_EMAILS ?? '').split(',').map((e) => e.trim()).filter((e) => e.includes('@'))
+if (admins.length === 0) bad('ADMIN_EMAILS: порожньо (email адміністратора, через кому)')
+else ok(`ADMIN_EMAILS: ${admins.length}`)
+if ((env.CRON_SECRET?.length ?? 0) >= 24) ok('CRON_SECRET: є')
+else bad('CRON_SECRET: коротший за 24 символи — запусти pnpm env:secrets')
+if (env.SITE_URL && !/^https:\/\//.test(env.SITE_URL)) console.log('⚠️  SITE_URL: має бути https://… (адреса продакшну для листів і OAuth)')
+for (const legacy of ['APP_PASSWORD', 'AUTH_SECRET']) {
+  if (env[legacy]) console.log(`ℹ️  ${legacy}: більше не потрібен (вхід тепер через Supabase Auth) — можна видалити з .env.local`)
 }
 console.log(failed ? '\nЩе не все — виправ ❌ і запусти pnpm env:check знову' : '\n🚀 Усе готово — запускай pnpm setup:prod')
 process.exit(failed ? 1 : 0)

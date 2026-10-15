@@ -111,6 +111,13 @@ src/
 
 Правило залежностей: `course`, `game`, `progress` — чисті (жодного React/DB). `server` знає про DB і домен. `ui` знає лише про view-моделі.
 
+**Фаза 2 (зроблено):** вхід — `src/server/auth/` (`getUser`/`requireUser`/`userScope`/`getProfile`/`isAdmin`), сесія оновлюється в
+`src/proxy.ts`; кожен запит користувача — у `withUser()` (`src/server/db/`: на Supabase транзакція з роллю `authenticated` і claims → RLS).
+Маршрути: `/` — лендінг для гостей (`src/ui/marketing/Landing.tsx`) і «Сьогодні» для користувачів (серверне розгалуження в
+`src/app/page.tsx`, без переносу сторінок у `(app)/`); `(auth)/` — `/login`, `/signup`, `/forgot-password`, `/reset-password`,
+`/onboarding` і обробники `/auth/*`; `/account` — профіль. Оболонку (сайдбар, нижня навігація) вимикає `AppFrame` для auth-сторінок.
+Налаштування Supabase — [AUTH.md](./AUTH.md), статус безпеки — [SECURITY.md §5](./SECURITY.md).
+
 ## 5. Дані (Postgres / Supabase)
 
 - `auth.users` — Supabase Auth. `profiles(id = auth.uid())` — ім'я, аватар, локаль, налаштування, інтереси.

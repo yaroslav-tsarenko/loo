@@ -1,32 +1,10 @@
-import { Worker } from 'node:worker_threads'
-import { isRunnable, solutionCode } from '../src/content/blocks/task/code'
 import { defaultVaultConfig } from '../src/content/config'
 import { loadSnapshot } from '../src/content/store'
-import { runSuite, type RunReport } from '../src/ui/code/harness'
+import { checkTasks } from './lib/task-check'
 
 // Usage: pnpm content:check [guide-id|dir]
 // Prints chapters, unit counts by kind and all content issues for a guide.
 // Tasks with ```js tests are self-checked: the reference solution must pass its own tests.
-
-// Same harness as the browser worker, isolated in a node worker thread with a hard timeout
-function selfTest(code: string, tests: string): Promise<RunReport> {
-  const source = `var __name = (f) => f
-const { parentPort, workerData } = require('node:worker_threads')
-const run = ${runSuite.toString()}
-const host = { setTimeout, clearTimeout, setInterval, clearInterval, now: Date.now }
-run(workerData.code, workerData.tests, () => {}, host).then((r) => parentPort.postMessage(r), (e) => parentPort.postMessage({ status: 'error', tests: [], logs: [], error: String(e), ms: 0 }))`
-  return new Promise((resolve) => {
-    const worker = new Worker(source, { eval: true, workerData: { code, tests } })
-    const done = (report: RunReport) => {
-      clearTimeout(timer)
-      void worker.terminate()
-      resolve(report)
-    }
-    const timer = setTimeout(() => done({ status: 'timeout', tests: [], logs: [], error: 'таймаут 3 с', ms: 3000 }), 3000)
-    worker.once('message', done)
-    worker.once('error', (e) => done({ status: 'error', tests: [], logs: [], error: e.message, ms: 0 }))
-  })
-}
 
 const guideArg = process.argv[2]
 const snapshot = await loadSnapshot(defaultVaultConfig(), new Map(), 1)
@@ -50,19 +28,11 @@ for (const guide of guides) {
     problems++
     console.log(`  [${issue.severity}] ${issue.code} · ${issue.path} · ${issue.message}`)
   }
-  let tested = 0
-  for (const chapterId of guide.chapterIds) {
-    for (const unit of snapshot.unitsByChapter.get(chapterId) ?? []) {
-      if (unit.kind !== 'task' || !unit.code?.tests || !isRunnable(unit.code.lang)) continue
-      const reference = solutionCode(unit.solution)
-      if (!reference) continue
-      tested++
-      const report = await selfTest(reference, unit.code.tests)
-      if (report.status === 'passed') continue
-      problems++
-      const failed = report.tests.filter((t) => !t.ok).map((t) => `«${t.name}»: ${t.error}`)
-      console.log(`  [error] task-self-test · ${unit.id} · еталон не проходить власні тести: ${report.error ?? failed.join('; ')}`)
-    }
+  const units = guide.chapterIds.flatMap((id) => snapshot.unitsByChapter.get(id) ?? [])
+  const { tested, problems: taskProblems } = await checkTasks(units, { starters: false })
+  for (const p of taskProblems) {
+    problems++
+    console.log(`  [${p.severity}] ${p.code} · ${p.unitId} · ${p.message}`)
   }
   if (tested > 0) console.log(`  🧪 еталонних рішень перевірено тестами: ${tested}`)
 }

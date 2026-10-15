@@ -1,12 +1,13 @@
 import 'server-only'
 import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { first, getDb } from '@/db/client'
+import { first } from '@/db/client'
 import { attempts, mistakes, srsCards, taskState } from '@/db/schema'
 import { LEVELS, type LearningUnit, type Level, type UnitKind } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
 import { nextEligibleAt } from '@/progress/mistakes'
 import type { SrsCard } from '@/progress/srs'
+import { userScope } from '../auth'
 import { readSettings } from '../settings'
 
 export interface StudyFilters {
@@ -89,9 +90,18 @@ export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: Uni
 
 export async function srsMap(ids: readonly string[]): Promise<Map<string, SrsCard>> {
   if (ids.length === 0) return new Map()
-  const db = getDb()
-  const rows = []
-  for (let i = 0; i < ids.length; i += 500) rows.push(...(await db.select().from(srsCards).where(inArray(srsCards.unitId, ids.slice(i, i + 500)))))
+  const rows = await userScope(async (db, userId) => {
+    const out: (typeof srsCards.$inferSelect)[] = []
+    for (let i = 0; i < ids.length; i += 500) {
+      out.push(
+        ...(await db
+          .select()
+          .from(srsCards)
+          .where(and(eq(srsCards.userId, userId), inArray(srsCards.unitId, ids.slice(i, i + 500))))),
+      )
+    }
+    return out
+  })
   return new Map(
     rows.map((r) => [
       r.unitId,
@@ -113,13 +123,15 @@ export async function srsMap(ids: readonly string[]): Promise<Map<string, SrsCar
 
 export async function newIntroducedToday(now: number): Promise<number> {
   const today = dayKey(now)
-  const firsts = getDb()
-    .select({ unitId: attempts.unitId, firstDay: sql<string>`min(${attempts.day})`.as('first_day') })
-    .from(attempts)
-    .where(eq(attempts.kind, 'flashcard'))
-    .groupBy(attempts.unitId)
-    .as('firsts')
-  const row = await first(getDb().select({ n: sql<number>`count(*)` }).from(firsts).where(sql`${firsts.firstDay} = ${today}`))
+  const row = await userScope((db, userId) => {
+    const firsts = db
+      .select({ unitId: attempts.unitId, firstDay: sql<string>`min(${attempts.day})`.as('first_day') })
+      .from(attempts)
+      .where(and(eq(attempts.userId, userId), eq(attempts.kind, 'flashcard')))
+      .groupBy(attempts.unitId)
+      .as('firsts')
+    return first(db.select({ n: sql<number>`count(*)` }).from(firsts).where(sql`${firsts.firstDay} = ${today}`))
+  })
   return Number(row?.n ?? 0)
 }
 
@@ -164,7 +176,12 @@ export interface MistakeRow {
 }
 
 export async function openMistakeRows(snapshot: ContentSnapshot): Promise<MistakeRow[]> {
-  const rows = await getDb().select().from(mistakes).where(isNull(mistakes.resolvedAt))
+  const rows = await userScope((db, userId) =>
+    db
+      .select()
+      .from(mistakes)
+      .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
+  )
   const out: MistakeRow[] = []
   for (const r of rows) {
     const unit = snapshot.units.get(r.unitId)
@@ -175,12 +192,17 @@ export async function openMistakeRows(snapshot: ContentSnapshot): Promise<Mistak
 }
 
 export async function recentlyResolved(snapshot: ContentSnapshot, since: number): Promise<LearningUnit[]> {
-  const rows = await getDb().select().from(mistakes).where(gte(mistakes.resolvedAt, since))
+  const rows = await userScope((db, userId) =>
+    db
+      .select()
+      .from(mistakes)
+      .where(and(eq(mistakes.userId, userId), gte(mistakes.resolvedAt, since))),
+  )
   return rows.map((r) => snapshot.units.get(r.unitId)).filter((u): u is LearningUnit => Boolean(u))
 }
 
 export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ chapterId: string; open: number; ever: number }>> {
-  const rows = await getDb().select().from(mistakes)
+  const rows = await userScope((db, userId) => db.select().from(mistakes).where(eq(mistakes.userId, userId)))
   const byChapter = new Map<string, { open: number; ever: number }>()
   for (const r of rows) {
     const unit = snapshot.units.get(r.unitId)
@@ -195,17 +217,24 @@ export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ 
 
 export async function taskStates(ids: readonly string[]): Promise<Map<string, typeof taskState.$inferSelect>> {
   if (ids.length === 0) return new Map()
-  const rows = await getDb().select().from(taskState).where(inArray(taskState.unitId, [...ids]))
+  const rows = await userScope((db, userId) =>
+    db
+      .select()
+      .from(taskState)
+      .where(and(eq(taskState.userId, userId), inArray(taskState.unitId, [...ids]))),
+  )
   return new Map(rows.map((r) => [r.unitId, r]))
 }
 
 export async function lastOutcomes(ids: readonly string[]): Promise<Map<string, boolean>> {
   if (ids.length === 0) return new Map()
-  const rows = await getDb()
-    .select({ unitId: attempts.unitId, correct: attempts.correct, id: attempts.id })
-    .from(attempts)
-    .where(and(inArray(attempts.unitId, [...ids])))
-    .orderBy(attempts.id)
+  const rows = await userScope((db, userId) =>
+    db
+      .select({ unitId: attempts.unitId, correct: attempts.correct, id: attempts.id })
+      .from(attempts)
+      .where(and(eq(attempts.userId, userId), inArray(attempts.unitId, [...ids])))
+      .orderBy(attempts.id),
+  )
   const out = new Map<string, boolean>()
   for (const r of rows) out.set(r.unitId, r.correct)
   return out

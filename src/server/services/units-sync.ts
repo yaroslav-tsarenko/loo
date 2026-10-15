@@ -1,11 +1,12 @@
 import 'server-only'
 import { createHash } from 'node:crypto'
-import { eq, inArray, sql } from 'drizzle-orm'
-import { first, getDb } from '@/db/client'
-import { attempts, mistakes, settings, srsCards, taskState, unitAliases, units } from '@/db/schema'
+import { and, eq, inArray, sql } from 'drizzle-orm'
+import { getDb } from '@/db/client'
+import { attempts, mistakes, srsCards, taskState, unitAliases, units } from '@/db/schema'
 import { similarity } from '@/content/ids'
 import type { LearningUnit, QuizUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
+import { readSystem, writeSystem } from '../settings'
 
 const syncedKey = Symbol.for('interview-prep.units-synced')
 type GlobalWithSync = typeof globalThis & { [syncedKey]?: { version: number; vault: string } }
@@ -60,8 +61,7 @@ export async function syncUnits(snapshot: ContentSnapshot): Promise<void> {
   const done = () => (g[syncedKey] = { version: snapshot.version, vault: snapshot.config.vaultPath })
   const print = fingerprint(snapshot)
   const db = getDb()
-  const stored = await first(db.select().from(settings).where(eq(settings.key, FINGERPRINT_KEY)))
-  if (stored?.value === print) return void done()
+  if ((await readSystem(FINGERPRINT_KEY)) === print) return void done()
   const now = Date.now()
   await db.transaction(async (tx) => {
     const existing = new Map((await tx.select().from(units)).map((u) => [u.id, u]))
@@ -108,18 +108,21 @@ export async function syncUnits(snapshot: ContentSnapshot): Promise<void> {
       if (!best) continue
       const oldId = best.id
       used.add(oldId)
+      // Content migration for every learner (system job, runs as the table owner): progress follows the renamed
+      // unit; a user who already has a row for the new id keeps it, and the old row stays as an orphan.
+      // cross-user: units are shared content, the rename applies to all users.
       await tx.update(attempts).set({ unitId: unit.id }).where(eq(attempts.unitId, oldId))
-      const hasSrs = await first(tx.select().from(srsCards).where(eq(srsCards.unitId, unit.id)))
-      if (!hasSrs) await tx.update(srsCards).set({ unitId: unit.id }).where(eq(srsCards.unitId, oldId))
-      const hasMistake = await first(tx.select().from(mistakes).where(eq(mistakes.unitId, unit.id)))
-      if (!hasMistake) await tx.update(mistakes).set({ unitId: unit.id }).where(eq(mistakes.unitId, oldId))
-      const hasTask = await first(tx.select().from(taskState).where(eq(taskState.unitId, unit.id)))
-      if (!hasTask) await tx.update(taskState).set({ unitId: unit.id }).where(eq(taskState.unitId, oldId))
+      // cross-user: see above.
+      await tx.update(srsCards).set({ unitId: unit.id }).where(and(eq(srsCards.unitId, oldId), sql`not exists (select 1 from srs_cards s2 where s2.user_id = "srs_cards"."user_id" and s2.unit_id = ${unit.id})`))
+      // cross-user: see above.
+      await tx.update(mistakes).set({ unitId: unit.id }).where(and(eq(mistakes.unitId, oldId), sql`not exists (select 1 from mistakes m2 where m2.user_id = "mistakes"."user_id" and m2.unit_id = ${unit.id})`))
+      // cross-user: see above.
+      await tx.update(taskState).set({ unitId: unit.id }).where(and(eq(taskState.unitId, oldId), sql`not exists (select 1 from task_state t2 where t2.user_id = "task_state"."user_id" and t2.unit_id = ${unit.id})`))
       await tx.insert(unitAliases).values({ oldId, newId: unit.id, reason: `similarity ${best.score.toFixed(2)}`, createdAt: now }).onConflictDoNothing()
       await tx.delete(units).where(eq(units.id, oldId))
       console.info(`[content] прогрес ${oldId} → ${unit.id} (текст питання змінено, схожість ${best.score.toFixed(2)})`)
     }
-    await tx.insert(settings).values({ key: FINGERPRINT_KEY, value: print }).onConflictDoUpdate({ target: settings.key, set: { value: print } })
+    await writeSystem(FINGERPRINT_KEY, print, tx)
   })
   done()
 }

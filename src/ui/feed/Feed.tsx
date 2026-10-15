@@ -1,14 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { PiArrowSquareOutBold, PiBookOpenTextFill, PiBookmarkSimpleBold, PiBookmarkSimpleFill, PiEyeFill, PiEyeSlashFill, PiNewspaperFill, PiRobotFill, PiShareFatFill, PiXBold } from 'react-icons/pi'
 import { hideGeneratedReel, markReelsSeen, toggleReel } from '@/server/actions/feed'
 import { rateFlashcard } from '@/server/actions/study'
 import type { FlashRating } from '@/progress/types'
 import type { FeedSlide, ReelSlide } from '@/server/services/feed'
+import { Pill } from '@/ui/design/Badge'
+import { Button, IconButton } from '@/ui/design/Button'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { Loo } from '@/ui/design/mascot/Loo'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import type { FlashItem } from '@/ui/study/render-items'
 import { QuizInline } from '@/ui/study/QuizInline'
+import { RateButtons } from '@/ui/study/RateButtons'
 
 const SEEN_AFTER_MS = 1200
 
@@ -44,11 +50,28 @@ function useReelTracking(onSeen: (id: string) => void) {
 }
 
 function AiBadge({ slide }: { slide: ReelSlide }) {
-  if (!slide.sourceUrl) return <span className="reel-ai">🤖 AI</span>
+  const pill = (
+    <Pill size="sm" tone="purple" solid icon={<PiRobotFill />} className="reel-ai">
+      AI{slide.sourceUrl ? ' · джерело' : ''}
+      {slide.sourceUrl ? <PiArrowSquareOutBold aria-hidden="true" /> : null}
+    </Pill>
+  )
+  if (!slide.sourceUrl) return pill
   return (
-    <a className="reel-ai" href={slide.sourceUrl} target="_blank" rel="noreferrer noopener" title={slide.sourceTitle ?? undefined}>
-      🤖 AI · джерело ↗
+    <a className="reel-ai-link" href={slide.sourceUrl} target="_blank" rel="noreferrer noopener" title={slide.sourceTitle ?? undefined}>
+      {pill}
     </a>
+  )
+}
+
+function RailAction({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <span className="reel-action">
+      {children}
+      <span className="reel-action-label" aria-hidden="true">
+        {label}
+      </span>
+    </span>
   )
 }
 
@@ -60,11 +83,9 @@ function ReelCard({ slide }: { slide: ReelSlide }) {
   const isNews = slide.chapterHref === '/news'
   if (hidden)
     return (
-      <article className="reel reel-hidden" style={{ '--reel-hue': slide.hue } as React.CSSProperties}>
+      <article className="reel reel-hidden" style={{ '--reel-hue': slide.hue } as CSSProperties}>
         <div className="reel-main">
-          <div className="reel-emoji" aria-hidden="true">
-            🙈
-          </div>
+          <Loo mood="sleeping" size={120} />
           <h2 className="reel-title">Сховано</h2>
           <p className="feed-end-text">Ця AI-фішка більше не з’явиться у стрічці. Гортай далі 👇</p>
         </div>
@@ -76,10 +97,12 @@ function ReelCard({ slide }: { slide: ReelSlide }) {
     else await navigator.clipboard?.writeText(text)
   }
   return (
-    <article className="reel" style={{ '--reel-hue': slide.hue } as React.CSSProperties}>
+    <article className="reel" style={{ '--reel-hue': slide.hue } as CSSProperties}>
       <div className="reel-main">
         <div className="reel-tags">
-          <span className="reel-chip">⚡ Фішка · {slide.chapterTitle}</span>
+          <span className="reel-chip">
+            <GameIcon name="bolt" size={16} /> Фішка · {slide.chapterTitle}
+          </span>
           {slide.ai ? <AiBadge slide={slide} /> : null}
         </div>
         <div className="reel-emoji" aria-hidden="true">
@@ -89,64 +112,68 @@ function ReelCard({ slide }: { slide: ReelSlide }) {
         <div className="reel-body prose-flow">{slide.body}</div>
       </div>
       <div className="reel-rail" role="group" aria-label="Дії">
-        <button
-          type="button"
-          className="reel-action"
-          aria-pressed={liked}
-          onClick={() => {
-            setLiked(!liked)
-            if (!liked) feedback.play('correct')
-            void toggleReel(slide.id, 'liked', !liked)
-          }}
-        >
-          <span aria-hidden="true">{liked ? '❤️' : '🤍'}</span>
-          <span className="reel-action-label">Клас</span>
-        </button>
-        <button
-          type="button"
-          className="reel-action"
-          aria-pressed={saved}
-          onClick={() => {
-            setSaved(!saved)
-            void toggleReel(slide.id, 'saved', !saved)
-          }}
-        >
-          <span aria-hidden="true">{saved ? '🔖' : '📑'}</span>
-          <span className="reel-action-label">{saved ? 'Збережено' : 'Зберегти'}</span>
-        </button>
-        {slide.chapterHref ? (
-          <Link href={slide.chapterHref} className="reel-action">
-            <span aria-hidden="true">{isNews ? '📰' : '📖'}</span>
-            <span className="reel-action-label">{isNews ? 'Новини' : 'Розділ'}</span>
-          </Link>
-        ) : null}
-        <button type="button" className="reel-action" onClick={share}>
-          <span aria-hidden="true">📤</span>
-          <span className="reel-action-label">Поділитись</span>
-        </button>
-        {slide.ai ? (
-          <button
-            type="button"
-            className="reel-action"
+        <RailAction label="Клас">
+          <IconButton
+            label={liked ? 'Прибрати вподобання' : 'Клас'}
+            round
+            size="lg"
+            variant="ghost"
+            aria-pressed={liked}
+            className="reel-btn"
+            data-on={liked ? '' : undefined}
+            icon={<GameIcon name="heart" size={26} muted={!liked} />}
             onClick={() => {
-              setHidden(true)
-              void hideGeneratedReel(slide.id)
+              setLiked(!liked)
+              if (!liked) feedback.play('correct')
+              void toggleReel(slide.id, 'liked', !liked)
             }}
-          >
-            <span aria-hidden="true">🙈</span>
-            <span className="reel-action-label">Сховати</span>
-          </button>
+          />
+        </RailAction>
+        <RailAction label={saved ? 'Збережено' : 'Зберегти'}>
+          <IconButton
+            label={saved ? 'Збережено' : 'Зберегти'}
+            round
+            size="lg"
+            variant={saved ? 'secondary' : 'ghost'}
+            aria-pressed={saved}
+            className="reel-btn"
+            icon={saved ? <PiBookmarkSimpleFill size={24} /> : <PiBookmarkSimpleBold size={24} />}
+            onClick={() => {
+              setSaved(!saved)
+              void toggleReel(slide.id, 'saved', !saved)
+            }}
+          />
+        </RailAction>
+        {slide.chapterHref ? (
+          <RailAction label={isNews ? 'Новини' : 'Розділ'}>
+            <Link href={slide.chapterHref} className="lu-ibtn reel-btn" data-variant="ghost" data-size="lg" data-round="" aria-label={isNews ? 'Новини' : 'Відкрити розділ'}>
+              {isNews ? <PiNewspaperFill size={24} /> : <PiBookOpenTextFill size={24} />}
+            </Link>
+          </RailAction>
+        ) : null}
+        <RailAction label="Поділитись">
+          <IconButton label="Поділитись" round size="lg" variant="ghost" className="reel-btn" icon={<PiShareFatFill size={24} />} onClick={share} />
+        </RailAction>
+        {slide.ai ? (
+          <RailAction label="Сховати">
+            <IconButton
+              label="Сховати"
+              round
+              size="lg"
+              variant="ghost"
+              className="reel-btn"
+              icon={<PiEyeSlashFill size={24} />}
+              onClick={() => {
+                setHidden(true)
+                void hideGeneratedReel(slide.id)
+              }}
+            />
+          </RailAction>
         ) : null}
       </div>
     </article>
   )
 }
-
-const RATINGS: Array<{ key: FlashRating; emoji: string; label: string }> = [
-  { key: 'again', emoji: '😵', label: 'Не знав' },
-  { key: 'hard', emoji: '🤔', label: 'Важко' },
-  { key: 'good', emoji: '😎', label: 'Знав' },
-]
 
 function CardSlide({ item, onDone }: { item: FlashItem; onDone: () => void }) {
   const [open, setOpen] = useState(false)
@@ -167,32 +194,29 @@ function CardSlide({ item, onDone }: { item: FlashItem; onDone: () => void }) {
     [rated, feedback, item.unitId, onDone],
   )
   return (
-    <article className="feed-card">
-      <span className="reel-chip">🧠 Перевір себе · {item.chapterTitle}</span>
+    <article className="feed-card feed-flash" data-open={open ? '' : undefined}>
+      <span className="reel-chip">
+        <span aria-hidden="true">🧠</span> Перевір себе · {item.chapterTitle}
+      </span>
       <div className="feed-card-question">{item.question}</div>
       {open ? (
         <>
           <div className="feed-card-answer prose-flow">{item.answer}</div>
-          <div className="feed-rate" role="group" aria-label="Наскільки добре ти знав">
-            {RATINGS.map((r) => (
-              <button key={r.key} type="button" className="feed-rate-button" data-rating={r.key} data-chosen={rated === r.key ? '' : undefined} disabled={rated !== null} onClick={() => rate(r.key)}>
-                <span aria-hidden="true">{r.emoji}</span>
-                {r.label}
-              </button>
-            ))}
-          </div>
+          <RateButtons onRate={rate} disabled={rated !== null} chosen={rated} hotkeys={false} label="Наскільки добре ти знав" />
         </>
       ) : (
-        <button
-          type="button"
-          className="feed-reveal"
+        <Button
+          variant="secondary"
+          size="lg"
+          block
+          icon={<PiEyeFill size={20} />}
           onClick={() => {
             feedback.play('flip')
             setOpen(true)
           }}
         >
-          👀 Показати відповідь
-        </button>
+          Показати відповідь
+        </Button>
       )}
     </article>
   )
@@ -264,11 +288,16 @@ export function Feed({ slides, nextHref, seenToday, target }: { slides: FeedSlid
   return (
     <div className="feed-shell">
       <header className="feed-hud">
-        <Link href="/" className="feed-hud-close" aria-label="На головну">
-          ✕
+        <Link href="/" className="lu-ibtn feed-hud-close" data-variant="ghost" data-round="" aria-label="На головну">
+          <PiXBold size={22} />
         </Link>
         <span className="feed-hud-count tabular" aria-live="polite">
-          ⚡ {Math.min(seen, target)}/{target} фішок сьогодні
+          <GameIcon name="bolt" size={20} />
+          <span className="feed-hud-track" aria-hidden="true">
+            <span style={{ width: `${Math.min(1, seen / Math.max(1, target)) * 100}%` }} />
+          </span>
+          {Math.min(seen, target)}/{target}
+          <span className="sr-only"> фішок сьогодні</span>
         </span>
       </header>
       <div className="feed" ref={scroller}>
@@ -289,7 +318,9 @@ export function Feed({ slides, nextHref, seenToday, target }: { slides: FeedSlid
           return (
             <Slide key={q.unitId} index={i} track={track}>
               <article className="feed-card feed-quiz">
-                <span className="reel-chip">🎲 Квіз · {q.chapterTitle}</span>
+                <span className="reel-chip">
+                  <span aria-hidden="true">🎲</span> Квіз · {q.chapterTitle}
+                </span>
                 <QuizInline
                   unitId={q.unitId}
                   mode={q.mode}
@@ -308,14 +339,12 @@ export function Feed({ slides, nextHref, seenToday, target }: { slides: FeedSlid
         })}
         <section className="feed-slide">
           <article className="feed-card feed-end">
-            <div className="reel-emoji" aria-hidden="true">
-              🎉
-            </div>
-            <h2 className="reel-title">Порцію подолано</h2>
+            <Loo mood="cheer" size={140} />
+            <h2 className="reel-title">Порцію подолано!</h2>
             <p className="feed-end-text">Мозок отримав {slides.length} мікродоз знань. Ще одну?</p>
-            <Link href={nextHref} className="mission-cta">
-              Ще порція ⚡
-            </Link>
+            <Button href={nextHref} size="lg" block icon={<GameIcon name="bolt" size={22} />}>
+              Ще порція
+            </Button>
             <Link href="/" className="feed-end-home">
               На головну
             </Link>

@@ -40,8 +40,8 @@ test('quiz: a wrong answer lands in «Мої помилки»', async ({ page })
   await page.keyboard.press('Enter')
   await expect(page.getByText('Розбір')).toBeVisible()
   await page.goto('/mistakes')
-  await expect(page.locator('.data-table').last()).toContainText('Що поверне typeof null?')
-  await expect(page.locator('.data-table').first()).toContainText('Основи')
+  await expect(page.locator('.mistake-list')).toContainText('Що поверне typeof null?')
+  await expect(page.locator('.mistake-topics')).toContainText('Основи')
 })
 
 test('search: Ctrl+K finds a chapter and a question', async ({ page }) => {

@@ -1,7 +1,7 @@
 # SECURITY — audit, fixes, and the multi-user plan
 
 Scope: Next.js 16 App Router app on Vercel; Postgres (Supabase in prod, PGlite locally) via drizzle/postgres-js; single-user auth
-(`APP_PASSWORD` → HMAC-signed cookie). Audit date: 2026-10-16. File:line references point at the code **before** the fixes
+(`APP_PASSWORD` → HMAC-signed cookie) at audit time — **replaced by Supabase Auth in Phase 2, see §5**. Audit date: 2026-10-16. File:line references point at the code **before** the fixes
 (commit `677d9ee`) unless marked otherwise.
 
 - Part 1: threat model and findings
@@ -258,6 +258,7 @@ Status: **Fixed** means fixed in this change. **Planned** is deferred to the aut
 ## 4. Multi-user plan (Part 3)
 
 This aligns with `docs/ARCHITECTURE.md`: Supabase Auth, `requireUser()`, repositories always scoped by `userId`, and RLS as the second line of defense.
+What is implemented and what deviates from this plan: **§5**.
 
 ### 4.1 Authentication and sessions
 
@@ -390,3 +391,61 @@ The Postgres `rate_limits` table (already in place) is enough to start. Move hot
 - Rotate `AUTH_SECRET`, `CRON_SECRET` and DB passwords on any suspicion, and document the rotation.
 - **CI:** `pnpm audit --prod` (fail on high), the RLS-coverage check, the `tests/unit/security.test.ts` suite, and the cross-user isolation tests.
 - **CSP:** add `report-to` with a lightweight collector once there are real users. Consider Trusted Types once Next supports it end-to-end.
+
+---
+
+## 5. Phase 2 implementation status (2026-10-16)
+
+Legend: ✅ done · ⚠️ done differently (reason) · ⏳ not yet.
+
+### Authentication (§4.1)
+
+| Item | Status | Where |
+|---|---|---|
+| Supabase Auth via `@supabase/ssr`, HttpOnly cookies, PKCE | ✅ | `src/server/supabase.ts`, `src/proxy.ts` |
+| Server identity from `getClaims()` (JWKS / Auth server), never `getSession()` or client ids | ✅ | `src/server/auth/session.ts`, `src/lib/supabase/claims.ts` |
+| Proxy refreshes the session; exact public allow-list; 401 for any `Next-Action` / API call without a user; CSP kept | ✅ | `src/proxy.ts`, `src/lib/auth-paths.ts` (unit-tested) |
+| `requireUser()` in every action/page/service; `apiUser()` for JSON routes | ✅ | `src/server/auth/index.ts`; `requireSession()` and `APP_PASSWORD` / `AUTH_SECRET` removed |
+| Auth forms are plain POSTs to route handlers (no server action reachable without a session), Origin-checked, rate-limited | ✅ | `src/app/(auth)/auth/*` — sign-in 10/15 min per IP + 5/15 min per account (hashed email) + global; sign-up 5/h per IP; reset 3/h per account; OAuth start 20/15 min per IP; password change 5/h per user |
+| No user enumeration (sign-up / reset answer the same; failed sign-in delay) | ✅ | `src/server/auth/http.ts` |
+| Passwords 10–128, no composition rules | ✅ | app + Supabase setting (docs/AUTH.md §4) |
+| Re-auth for account deletion (last authentication < 15 min, from JWT `amr`) | ✅ | `src/app/(auth)/auth/delete-account/route.ts` |
+| Re-auth for data export | ⚠️ | rate-limited (3/day per user) instead; re-auth adds friction for a read of your own data — revisit with MFA |
+| Sign out / sign out everywhere (`scope: 'global'`) | ✅ | `/auth/sign-out`, `/account` |
+| OAuth Google / GitHub (PKCE), buttons only for providers enabled in Supabase | ✅ | `/auth/oauth` (GET link: CSP `form-action` would block a POST's cross-origin redirect chain), `/auth/callback` |
+| Email confirmation via `token_hash` (`/auth/confirm`) and code exchange (`/auth/callback`) | ✅ | docs/AUTH.md §5 for templates |
+| Sessions list, MFA, new-device emails, CAPTCHA | ⏳ | |
+| Per-user rate limit on server-action writes (120/min, §4.6) | ⏳ | auth endpoints, export and AI generation are limited; generic action writes aren't yet |
+
+### Data isolation (§4.2)
+
+| Item | Status | Where |
+|---|---|---|
+| `user_id uuid not null` + composite PK `(user_id, …)` on all 14 per-user tables; indexes lead with `user_id` | ✅ | `src/db/schema.ts`, `drizzle/0005_multi_user.sql` |
+| FK target | ⚠️ | `user_id → profiles(id) ON DELETE CASCADE` (not `auth.users` directly: PGlite has no `auth` schema, and the legacy placeholder owner isn't an auth user). On Supabase a trigger `on_auth_user_deleted` deletes the profile → cascade. |
+| `news_items.read_at/saved` → `news_reads`; `settings` → `user_settings` + `system_state` | ✅ | migration 0005 moves existing values |
+| Per-user AI-reel hiding | ⚠️ | `reel_state.hidden` instead of a separate `reel_hidden` table (same key, one table fewer). An admin's hide also sets `generated_reels.status = 'hidden'` (global takedown). |
+| `withUser()`: transaction + `set_config('role','authenticated')` + `request.jwt.claims` on Supabase; plain run on PGlite (auto-detected) | ✅ | `src/server/db/scope-core.ts` (re-entrant, unit-tested with a fake DB), `src/server/db/with-user.ts` |
+| RLS policies `user_id = (select auth.uid())` on every per-user table; profiles: own row read/update with **column grants** (role is not updatable); shared tables read-only | ✅ | migration 0005 (guarded: skipped without the `auth` schema). Verified on PGlite with a Supabase-like `auth` schema + roles: cross-user read/insert/update/delete denied, role escalation denied, anon denied |
+| `force row level security` | ⚠️ | not forced: system jobs (cron, units sync, profile creation, admin claim) run as the table owner on purpose |
+| App layer always filters by `user_id` | ✅ | every service/action; static check `tests/unit/user-scope.test.ts` fails on any per-user query without `userId` (or an explicit `// cross-user:` justification) |
+| Dedicated non-owner `app_server` / `app_system` roles | ⏳ | the app still connects as `postgres`; RLS applies because each user transaction switches role |
+| CI check that every public table has RLS + a policy | ⏳ | (lockdown loop in 0005 enables RLS everywhere) |
+| Cross-user integration tests through every action | ⏳ | covered by the static check + RLS simulation; a DB-backed suite is next |
+| Supabase Data API | ⚠️ | not used; recommended to disable it (docs/AUTH.md §8) because `authenticated` now has DML grants on own rows |
+
+### Roles, admin, GDPR (§4.4, §4.8)
+
+| Item | Status | Where |
+|---|---|---|
+| Admins from `ADMIN_EMAILS`, only on a **verified** email; legacy single-user progress claimed on first admin sign-in | ✅ | `src/server/auth/profile.ts`, `src/server/auth/claim.ts` |
+| Role storage | ⚠️ | `profiles.role` (server-written only; column grants keep it read-only for users) instead of `app_metadata.role` — no service-role key in the app. `requireAdmin()` guards `/feed/generated`, `generateReelsNow`, `updateVaultPath`. `aal2` for admins ⏳ |
+| Per-user export | ✅ | `/api/export` (profile + all per-user tables, 3/day) |
+| Delete account | ⚠️ | app data deleted + global sign-out + request recorded in `system_state` (`deletion:<id>`); deleting the `auth.users` row needs the secret key → owner does it in the dashboard (docs/AUTH.md §10) |
+| Audit log (§4.7) | ⏳ | sign-ins, exports and deletions are logged to server logs only |
+
+### Dev-only bypass
+
+`DEV_AUTH_BYPASS=1` signs every request in as the legacy owner **only** when `NODE_ENV=development` (never in `next build`/`start`),
+not on Vercel, and with no Supabase keys configured (`src/lib/supabase/config.ts`, unit-tested).
+

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Asks for the DB password and the app password (hidden input) and writes them into .env.local.
+# Asks for the Supabase DB password (hidden input) and writes it into .env.local. Sign-in is Supabase Auth now:
+# paste NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY / ADMIN_EMAILS into .env.local yourself.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 setval() {
@@ -20,12 +21,7 @@ PY
 echo "🔐 Пароль БАЗИ Supabase (Project Settings → Database). Вставляй як є — кодувати не треба."
 read -rsp "   PROD_DB_PASSWORD: " DB; echo
 [[ -n "$DB" ]] || { echo "❌ Порожньо"; exit 1; }
-echo "📱 Пароль для входу в застосунок з телефона (мінімум 8 символів)."
-read -rsp "   APP_PASSWORD: " APP; echo
-read -rsp "   ще раз:       " APP2; echo
-[[ -n "$APP" && "$APP" == "$APP2" ]] || { echo "❌ Паролі порожні або не збігаються"; exit 1; }
 setval PROD_DB_PASSWORD "$DB"
-setval APP_PASSWORD "$APP"
 echo "✓ Записано в .env.local. Перевіряю…"
 echo
 pnpm -s env:check

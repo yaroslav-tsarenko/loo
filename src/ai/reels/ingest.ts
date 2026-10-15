@@ -2,13 +2,13 @@ import 'server-only'
 import { createHash } from 'node:crypto'
 import { count, desc, gte, lt } from 'drizzle-orm'
 import { first, getDb } from '@/db/client'
-import { generatedReels, settings } from '@/db/schema'
-import { latestNews } from '@/news/queries'
+import { generatedReels } from '@/db/schema'
+import { systemLatestNews } from '@/news/queries'
 import { dayKey, dayStartMs } from '@/progress/day'
 import { getContent } from '@/server/content'
 import { FEED_GUIDES } from '@/server/services/feed'
-import { chapterProgressMap, nextChapterFor, readableChapters } from '@/server/services/library'
-import { weakChapters } from '@/server/services/stats'
+import { readableChapters } from '@/server/services/library'
+import { writeSystem } from '@/server/settings'
 import { dedupeByTitle, normalizeTitle } from './dedupe'
 import { gatewayAuth, generateReels, reelModels, type Dropped, type Usage } from './generate'
 import { pickTopics, type ChapterCandidate } from './topics'
@@ -57,10 +57,9 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
   }
 
   const snapshot = await getContent()
-  const [news, weak, progress, existing] = await Promise.all([
-    latestNews(40, { unreadOnly: true }),
-    weakChapters(snapshot, 8),
-    chapterProgressMap(),
+  // Reels are shared by every learner, so topics come from news and the course itself, not from anyone's progress.
+  const [news, existing] = await Promise.all([
+    systemLatestNews(40),
     db
       .select({ title: generatedReels.title, chapterId: generatedReels.chapterId, sourceUrl: generatedReels.sourceUrl, createdAt: generatedReels.createdAt })
       .from(generatedReels)
@@ -70,11 +69,6 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
 
   const guides = FEED_GUIDES.map((id) => snapshot.guideById.get(id)).filter((g) => g !== undefined)
   const candidates: ChapterCandidate[] = guides.flatMap((g) => readableChapters(snapshot, g).map((c) => ({ id: c.id, guideId: c.guideId, title: c.title })))
-  const reading = [...progress.entries()]
-    .filter(([, p]) => p.status === 'reading')
-    .sort((a, b) => b[1].lastOpenedAt - a[1].lastOpenedAt)
-    .map(([id]) => id)
-  const next = guides.map((g) => nextChapterFor(snapshot, g, progress)?.id).filter((id) => id !== undefined)
 
   const reelTitlesByChapter = new Map<string, string[]>()
   const add = (chapterId: string | null, title: string) => {
@@ -87,8 +81,8 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
   const plan = pickTopics({
     now,
     news,
-    weak: weak.map((w) => w.chapter.id),
-    current: [...reading, ...next],
+    weak: [],
+    current: [],
     candidates,
     plainText: snapshot.plainText,
     reelTitlesByChapter,
@@ -121,7 +115,7 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
       .onConflictDoNothing()
   }
   const deleted = await db.delete(generatedReels).where(lt(generatedReels.createdAt, now - RETENTION_MS)).returning({ id: generatedReels.id })
-  await db.insert(settings).values({ key: GENERATED_AT_KEY, value: now }).onConflictDoUpdate({ target: settings.key, set: { value: now } })
+  await writeSystem(GENERATED_AT_KEY, now)
 
   const summary: ReelsSummary = {
     ok: true,

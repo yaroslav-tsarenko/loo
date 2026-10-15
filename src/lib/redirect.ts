@@ -13,7 +13,7 @@ export function safeRedirectPath(raw: unknown, fallback = '/'): string {
   }
   if (url.origin !== BASE) return fallback
   const path = `${url.pathname}${url.search}${url.hash}`
-  // Never bounce back into the auth endpoints.
-  if (url.pathname === '/login' || url.pathname.startsWith('/auth/')) return fallback
+  // Never bounce back into the auth pages / endpoints.
+  if (['/login', '/signup', '/forgot-password', '/reset-password'].includes(url.pathname) || url.pathname.startsWith('/auth/')) return fallback
   return path
 }

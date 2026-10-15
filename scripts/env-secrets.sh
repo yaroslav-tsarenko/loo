@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Fills empty AUTH_SECRET / CRON_SECRET in .env.local with fresh random values (existing ones are kept).
+# Fills an empty CRON_SECRET in .env.local with a fresh random value (an existing one is kept).
+# User sign-in is Supabase Auth: no app password or session secret any more.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 fill() {
@@ -17,5 +18,4 @@ PY
   fi
   echo "  ✓ $1 згенеровано"
 }
-fill AUTH_SECRET "$(openssl rand -base64 32 | tr -d '\n')"
 fill CRON_SECRET "$(openssl rand -hex 24)"

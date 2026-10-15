@@ -1,0 +1,23 @@
+id: fixture-course
+version: 0.1.0
+title: Fixture Course
+subject: programming
+icon: si:SiJavascript
+sections:
+  - id: basics
+    title: Основи
+    icon: '🧱'
+    from: Alpha
+    chapters: 1-2
+  - id: advanced
+    title: Просунуте
+    from: Alpha
+    chapters: '3'
+  - id: practice
+    title: Практика
+    from: Bank
+    kind: practice
+exams:
+  topic: { questions: 4, pass: 0.75 }
+  section: { questions: 6, pass: 0.8, testOut: true }
+placement: { maxQuestions: 12, perLevel: 3 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
+import { PiArrowCounterClockwiseBold, PiCodeBlockFill, PiFlagBannerFill, PiLightbulbFilamentFill, PiPlayFill, PiTestTubeFill } from 'react-icons/pi'
 import { isRunnable } from '@/content/blocks/task/code'
 import type { TaskCode } from '@/content/model'
 import { finishTask, saveTaskDraft } from '@/server/actions/study'
@@ -8,8 +9,13 @@ import { CodeEditor } from '@/ui/code/CodeEditor'
 import { runInWorker, type RunHandle, type RunReport } from '@/ui/code/runner'
 import { TestReport } from '@/ui/code/TestReport'
 import { highlightCode } from '@/ui/code/tokens'
+import { Pill } from '@/ui/design/Badge'
+import { Button } from '@/ui/design/Button'
+import type { Tone } from '@/ui/design/cx'
+import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
-import { Tag, tagColor } from '@/ui/Tag'
+
+const DIFF_TONE: Record<'easy' | 'medium' | 'hard', Tone> = { easy: 'green', medium: 'orange', hard: 'red' }
 
 export interface TaskResult {
   unitId: string
@@ -114,16 +120,20 @@ export function TaskInline(props: Props) {
   const verdict =
     status === 'solved'
       ? testable
-        ? `🎉 Усі тести зелені — зараховано${revealed > 0 ? ` · підказок: ${revealed}` : ' без підказок'}!`
+        ? `Усі тести зелені — зараховано${revealed > 0 ? ` · підказок: ${revealed}` : ' без підказок'}!`
         : `Зараховано${revealed > 0 ? ` · підказок: ${revealed}` : ' без підказок'}.`
       : 'Задачу додано в «Мої помилки».'
 
   return (
     <section className="task" id={variant === 'inline' ? `u-${unitId}` : undefined} data-variant={variant} data-status={status} aria-labelledby={headingId}>
       <header className="task-head">
-        <span className="eyebrow">{testable ? 'Задача · з автотестами' : 'Задача'}</span>
-        <Tag color={tagColor(difficultyKey)}>{difficulty}</Tag>
-        {level ? <Tag>{level}</Tag> : null}
+        <Pill tone="blue" size="sm" icon={testable ? <PiTestTubeFill /> : <PiCodeBlockFill />} className="task-kind">
+          {testable ? 'Задача · автотести' : 'Задача'}
+        </Pill>
+        <Pill tone={DIFF_TONE[difficultyKey]} size="sm" solid>
+          {difficulty}
+        </Pill>
+        {level ? <Pill size="sm">{level}</Pill> : null}
       </header>
       <h3 className="task-title" id={headingId}>
         {title}
@@ -134,17 +144,19 @@ export function TaskInline(props: Props) {
         <div className="task-hints">
           {hints.slice(0, revealed).map((hint, i) => (
             <div className="task-hint" key={i}>
-              <span className="eyebrow">Підказка {i + 1}</span>
+              <span className="task-hint-head">
+                <PiLightbulbFilamentFill aria-hidden="true" /> Підказка {i + 1}
+              </span>
               <div className="prose-flow">{hint}</div>
             </div>
           ))}
           {revealed < hints.length && !showSolution && status === 'open' ? (
-            <button type="button" className="ui-button" data-variant="ghost" onClick={() => setRevealed((n) => n + 1)}>
-              {revealed === 0 ? 'Потрібна підказка' : 'Ще підказка'}
-              <span className="task-hint-count">
-                {revealed + 1} з {hints.length}
+            <Button variant="ghost" size="sm" icon={<PiLightbulbFilamentFill size={18} color="var(--lu-yellow)" />} onClick={() => setRevealed((n) => n + 1)}>
+              {revealed === 0 ? 'Підказка' : 'Ще підказка'}{' '}
+              <span className="task-hint-count tabular">
+                {revealed + 1}/{hints.length}
               </span>
-            </button>
+            </Button>
           ) : null}
         </div>
       ) : null}
@@ -152,40 +164,43 @@ export function TaskInline(props: Props) {
       {testable && code?.tests ? (
         <div className="task-work">
           <div className="task-code-head">
-            <label className="eyebrow" htmlFor={`${headingId}-draft`}>
+            <label className="task-label" htmlFor={`${headingId}-draft`}>
               Твій код
             </label>
             {starter && draft !== starter && status === 'open' ? (
-              <button type="button" className="ui-link task-reset" onClick={() => setDraft(starter)}>
-                ↺ До заготовки
+              <button type="button" className="task-reset" onClick={() => setDraft(starter)}>
+                <PiArrowCounterClockwiseBold aria-hidden="true" /> До заготовки
               </button>
             ) : null}
           </div>
           <CodeEditor id={`${headingId}-draft`} value={draft} onChange={setDraft} onRun={runTests} label="Твій код" />
           <details className="task-tests">
-            <summary>🧪 Тести, які має пройти код</summary>
+            <summary>
+              <PiTestTubeFill aria-hidden="true" /> Тести, які має пройти код
+            </summary>
             <pre className="task-tests-code">{highlightCode(code.tests)}</pre>
           </details>
           <div className="task-actions">
-            <button type="button" className="ui-button" onClick={runTests} disabled={running}>
-              ▶️ Запустити тести <kbd className="task-run-kbd">⌘↵</kbd>
-            </button>
+            <Button variant="super" onClick={runTests} loading={running} icon={<PiPlayFill size={18} />} className="task-run" aria-keyshortcuts="Meta+Enter">
+              Запустити тести
+            </Button>
+            <kbd className="task-run-kbd">⌘↵</kbd>
             {status === 'open' ? (
-              <button type="button" className="ui-button" data-variant="ghost" onClick={giveUp} disabled={!solution}>
-                🏳️ Здаюсь
-              </button>
+              <Button variant="ghost" size="sm" onClick={giveUp} disabled={!solution} icon={<PiFlagBannerFill size={16} />} className="task-giveup">
+                Здаюсь
+              </Button>
             ) : null}
             {status === 'solved' && solution ? (
-              <button type="button" className="ui-button" data-variant="ghost" onClick={() => setShowSolution((v) => !v)}>
+              <Button variant="ghost" size="sm" onClick={() => setShowSolution((v) => !v)}>
                 {showSolution ? 'Сховати еталон' : 'Порівняти з еталоном'}
-              </button>
+              </Button>
             ) : null}
           </div>
           <TestReport report={report} running={running} stuckOn={stuckOn} />
         </div>
       ) : (
         <div className="task-work">
-          <label className="eyebrow" htmlFor={`${headingId}-draft`}>
+          <label className="task-label" htmlFor={`${headingId}-draft`}>
             Ваше рішення
           </label>
           <textarea
@@ -211,9 +226,9 @@ export function TaskInline(props: Props) {
           />
           {!showSolution ? (
             <div className="task-actions">
-              <button type="button" className="ui-button" onClick={() => setShowSolution(true)} disabled={!solution}>
+              <Button size="sm" onClick={() => setShowSolution(true)} disabled={!solution}>
                 Порівняти з рішенням
-              </button>
+              </Button>
               <span className="unit-meta">{draft.trim() && draft !== starter ? 'Чернетка зберігається автоматично' : 'Спершу спробуйте самі'}</span>
             </div>
           ) : null}
@@ -222,12 +237,12 @@ export function TaskInline(props: Props) {
 
       {showSolution && solution ? (
         <div className="task-compare">
-          <div className="task-compare-col">
-            <span className="eyebrow">Ваше</span>
+          <div className="task-compare-col" data-side="mine">
+            <span className="task-label">Ваше</span>
             {draft.trim() ? <pre className="task-mine">{draft}</pre> : <p className="unit-meta">Без власної спроби</p>}
           </div>
-          <div className="task-compare-col">
-            <span className="eyebrow">Еталон</span>
+          <div className="task-compare-col" data-side="ref">
+            <span className="task-label">Еталон</span>
             <div className="prose-flow">{solution}</div>
           </div>
         </div>
@@ -236,23 +251,23 @@ export function TaskInline(props: Props) {
       {status === 'open' && showSolution && !testable ? (
         <div className="task-assess" role="group" aria-label="Самооцінка">
           <span>Вийшло?</span>
-          <button type="button" className="ui-button" data-variant="ghost" onClick={() => assess(false)}>
+          <Button variant="danger" onClick={() => assess(false)}>
             Ні, не вийшло
-          </button>
-          <button type="button" className="ui-button" onClick={() => assess(true)}>
-            Так, розв’язав
-          </button>
+          </Button>
+          <Button onClick={() => assess(true)}>Так, розв’язав</Button>
         </div>
       ) : null}
       {status !== 'open' && (showSolution || testable) ? (
         <div className="task-verdict-row">
-          <p className="task-verdict" role="status">
-            {verdict}
-          </p>
+          <LooSays mood={status === 'solved' ? 'cheer' : 'thinking'} size={variant === 'inline' ? 52 : 64}>
+            <p className="task-verdict" role="status">
+              {verdict}
+            </p>
+          </LooSays>
           {variant === 'inline' ? (
-            <button type="button" className="ui-link retry" onClick={retry}>
-              Розв’язати ще раз
-            </button>
+            <Button variant="ghost" size="sm" onClick={retry} icon={<PiArrowCounterClockwiseBold size={16} />}>
+              Ще раз
+            </Button>
           ) : null}
         </div>
       ) : null}

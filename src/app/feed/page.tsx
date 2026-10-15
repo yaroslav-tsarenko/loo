@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { gte, sql } from 'drizzle-orm'
-import { first, getDb } from '@/db/client'
+import { and, eq, gte, sql } from 'drizzle-orm'
+import { first } from '@/db/client'
 import { reelState } from '@/db/schema'
+import { userScope } from '@/server/auth'
 import { dayStartMs } from '@/progress/day'
 import { getContent } from '@/server/content'
 import { availableReelCount, buildFeed } from '@/server/services/feed'
@@ -16,7 +17,14 @@ async function loadFeed(seedParam: string | undefined) {
   const seed = Number(seedParam) || Math.floor(now / 60_000)
   const [slides, seenRow, mission] = await Promise.all([
     buildFeed(snapshot, seed),
-    first(getDb().select({ n: sql<number>`count(*)` }).from(reelState).where(gte(reelState.lastSeenAt, dayStartMs(now)))),
+    userScope((db, userId) =>
+      first(
+        db
+          .select({ n: sql<number>`count(*)` })
+          .from(reelState)
+          .where(and(eq(reelState.userId, userId), gte(reelState.lastSeenAt, dayStartMs(now)))),
+      ),
+    ),
     getMission(snapshot, availableReelCount(snapshot), now),
   ])
   const target = mission.plan.steps.find((s) => s.kind === 'feed')?.target ?? 20

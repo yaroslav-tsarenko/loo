@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import type { ReactNode } from 'react'
+import { PiBrainFill, PiCardsThreeFill, PiCodeBlockFill, PiExamFill, PiHourglassFill, PiLightningFill, PiSealCheckFill } from 'react-icons/pi'
 import type { LearningUnit } from '@/content/model'
 import { LEVEL_LABEL } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -7,6 +9,14 @@ import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
 import { mistakeTopics, openMistakeRows, recentlyResolved } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
+import { Pill } from '@/ui/design/Badge'
+import { Button } from '@/ui/design/Button'
+import { Card } from '@/ui/design/Card'
+import type { Tone } from '@/ui/design/cx'
+import { EmptyState } from '@/ui/design/EmptyState'
+import type { LooMood } from '@/ui/design/mascot/Loo'
+import { LooSays } from '@/ui/design/mascot/LooSays'
+import { Ring } from '@/ui/design/Ring'
 import { count, relative } from '@/ui/format'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems } from '@/ui/study/render-items'
@@ -14,7 +24,19 @@ import { StudySession } from '@/ui/study/StudySession'
 
 export const metadata: Metadata = { title: 'Мої помилки' }
 
-const KIND_LABEL = { flashcard: 'Картка', quiz: 'Тест', task: 'Задача' } as const
+const KIND: Record<LearningUnit['kind'], { label: string; tone: Tone; icon: ReactNode }> = {
+  flashcard: { label: 'Картка', tone: 'purple', icon: <PiCardsThreeFill /> },
+  quiz: { label: 'Тест', tone: 'blue', icon: <PiExamFill /> },
+  task: { label: 'Задача', tone: 'orange', icon: <PiCodeBlockFill /> },
+}
+const FIXED_TONES: readonly Tone[] = ['green', 'blue', 'purple', 'orange', 'pink', 'yellow']
+
+// Loo's mood follows the pile: calm for a few, thoughtful for a stack, fired up when it's big.
+function looFor(open: number, eligible: number): { mood: LooMood; text: string } {
+  if (open <= 3) return { mood: 'happy', text: eligible > 0 ? 'Лише кілька помилок — закриємо за хвилину!' : 'Майже чисто. Ці питання ще відпочивають.' }
+  if (open <= 15) return { mood: 'thinking', text: 'Помилки — найкоротший шлях до сильної памʼяті. Розберемо?' }
+  return { mood: 'fire', text: `${open} — це купа досвіду. Потроху, по 10 за раз!` }
+}
 
 function unitHref(snapshot: ContentSnapshot, unit: LearningUnit): string {
   const chapter = snapshot.chapters.get(unit.chapterId)
@@ -42,137 +64,147 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
   }
 
   const topics = (await mistakeTopics(snapshot)).slice(0, 10)
-  const maxOpen = Math.max(1, ...topics.map((t) => t.open))
   const resolved = await recentlyResolved(snapshot, now - 7 * 86_400_000)
+  const loo = looFor(rows.length, eligible.length)
 
   return (
     <div className="page mistakes-page">
-      <header className="mistakes-head">
-        <div>
-          <h1 className="page-title">Мої помилки</h1>
-          <p className="page-lead">
-            Сюди потрапляє кожна неправильна відповідь у тесті, картка з оцінкою «Не знав» і задача, яка не вийшла. Питання виходить звідси після двох правильних відповідей поспіль із перервою щонайменше 20 годин.
+      <header className="ghead">
+        <div className="ghead-text">
+          <h1 className="ghead-title">Мої помилки</h1>
+          <p className="ghead-lead">
+            Кожна неправильна відповідь, картка «Не знав» і задача, що не вийшла, потрапляє сюди. Питання виходить після двох правильних відповідей поспіль із перервою від 20 годин.
           </p>
-        </div>
-        <div className="mistakes-cta">
-          <span className="queue-num tabular">{rows.length}</span>
-          <span className="unit-meta">{rows.length === 0 ? 'відкритих помилок немає' : `відкрито${waiting > 0 ? ` · ${waiting} чекають перерви` : ''}`}</span>
-          {eligible.length > 0 ? (
-            <Link className="ui-button" href="/mistakes?start=1">
-              Пройти {count(eligible.length, 'помилку', 'помилки', 'помилок')}
-            </Link>
-          ) : null}
         </div>
       </header>
 
       {rows.length === 0 ? (
-        <p className="empty-note">
-          Поки чисто. Коли помилитесь у тесті, оціните картку як «Не знав» або задача не вийде — питання з&apos;явиться тут, і його можна буде пройти окремою сесією.
-        </p>
+        <Card variant="raised" padding="lg" className="mistakes-empty">
+          <EmptyState
+            mood="cheer"
+            title="Помилок немає — чистий аркуш!"
+            action={
+              <Button href="/quiz" icon={<PiExamFill size={20} />}>
+                Перевірити себе
+              </Button>
+            }
+          >
+            Коли помилишся в тесті, оціниш картку як «Не знав» або задача не вийде — питання зʼявиться тут, і його можна буде відпрацювати окремою сесією.
+          </EmptyState>
+        </Card>
       ) : (
         <>
-          <section aria-labelledby="topics-title">
-            <h2 id="topics-title" className="section-title rule-title">
-              Де помиляєтесь найчастіше
-            </h2>
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th scope="col">Розділ</th>
-                  <th scope="col" className="num">
-                    Відкрито
-                  </th>
-                  <th scope="col" className="num">
-                    Усього
-                  </th>
-                  <th scope="col" className="bar-col">
-                    <span className="sr-only">Частка</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {topics.map((t) => {
-                  const chapter = snapshot.chapters.get(t.chapterId)
-                  if (!chapter) return null
-                  const guide = snapshot.guideById.get(chapter.guideId)
-                  return (
-                    <tr key={t.chapterId}>
-                      <td>
-                        <Link className="ui-link" href={chapterHref(snapshot, chapter)}>
-                          {chapter.kind === 'index' ? guide?.title : chapter.title}
-                        </Link>
-                        <span className="cell-sub">{guide?.title}</span>
-                      </td>
-                      <td className="num tabular">{t.open}</td>
-                      <td className="num tabular muted">{t.ever}</td>
-                      <td className="bar-col">
-                        <span className="bar" data-tone="danger" aria-hidden="true">
-                          <span style={{ transform: `scaleX(${t.open / maxOpen})` }} />
-                        </span>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+          <section className="mistakes-hero" aria-label="Робота над помилками">
+            <LooSays mood={loo.mood} size={112} text={loo.text} className="mistakes-loo" />
+            <Card variant="raised" tone="purple" padding="lg" className="mistakes-cta">
+              <div className="mistakes-cta-top">
+                <span className="mistakes-cta-icon" aria-hidden="true">
+                  <PiBrainFill />
+                </span>
+                <div>
+                  <h2 className="mistakes-cta-title">Робота над помилками</h2>
+                  <p className="mistakes-cta-sub">
+                    <span className="queue-num tabular">{rows.length}</span> {rows.length === 1 ? 'відкрита' : 'відкритих'}
+                    {waiting > 0 ? (
+                      <Pill size="sm" tone="gray" icon={<PiHourglassFill />}>
+                        {waiting} чекають перерви
+                      </Pill>
+                    ) : null}
+                  </p>
+                </div>
+              </div>
+              {eligible.length > 0 ? (
+                <Button href="/mistakes?start=1" variant="super" size="lg" block icon={<PiLightningFill size={22} />}>
+                  Пройти {count(eligible.length, 'помилку', 'помилки', 'помилок')}
+                </Button>
+              ) : (
+                <Button size="lg" block disabled>
+                  Усі відпочивають — повертайся пізніше
+                </Button>
+              )}
+            </Card>
           </section>
 
-          <section aria-labelledby="open-title">
-            <h2 id="open-title" className="section-title rule-title">
-              Відкриті
+          <section aria-labelledby="topics-title" className="gsection">
+            <h2 id="topics-title" className="gsection-title">
+              Де помиляєшся найчастіше
             </h2>
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th scope="col">Питання</th>
-                  <th scope="col">Тип</th>
-                  <th scope="col" className="num">
-                    Помилок
-                  </th>
-                  <th scope="col">До виходу</th>
-                  <th scope="col">Остання</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.unit.id}>
-                    <td>
-                      <Link className="ui-link" href={unitHref(snapshot, r.unit)}>
+            <ul className="mistake-topics">
+              {topics.map((t) => {
+                const chapter = snapshot.chapters.get(t.chapterId)
+                if (!chapter) return null
+                const guide = snapshot.guideById.get(chapter.guideId)
+                const fixed = t.ever > 0 ? (t.ever - t.open) / t.ever : 1
+                return (
+                  <li key={t.chapterId}>
+                    <Card href={chapterHref(snapshot, chapter)} padding="sm" className="mistake-topic">
+                      <Ring value={fixed} size={56} stroke={6} tone={t.open === 0 ? 'green' : fixed >= 0.5 ? 'yellow' : 'red'} label={`Виправлено ${t.ever - t.open} з ${t.ever}`}>
+                        <span className="mistake-topic-open tabular">{t.open}</span>
+                      </Ring>
+                      <span className="mistake-topic-text">
+                        <span className="mistake-topic-title">{chapter.kind === 'index' ? guide?.title : chapter.title}</span>
+                        <span className="mistake-topic-meta">
+                          {guide?.title} · <span className="tabular">{t.open}</span> відкрито з <span className="tabular">{t.ever}</span>
+                        </span>
+                      </span>
+                    </Card>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+
+          <section aria-labelledby="open-title" className="gsection">
+            <h2 id="open-title" className="gsection-title">
+              Відкриті <span className="gsection-count tabular">{rows.length}</span>
+            </h2>
+            <ul className="mistake-list">
+              {rows.map((r) => {
+                const kind = KIND[r.unit.kind]
+                const resting = r.eligibleAt !== null && r.eligibleAt > now
+                return (
+                  <li key={r.unit.id} className="mistake-row">
+                    <span className="mistake-kind" data-tone={kind.tone} title={kind.label} role="img" aria-label={kind.label}>
+                      {kind.icon}
+                    </span>
+                    <span className="mistake-main">
+                      <Link className="mistake-q" href={unitHref(snapshot, r.unit)}>
                         {unitLabel(r.unit)}
                       </Link>
-                      <span className="cell-sub">
+                      <span className="mistake-meta">
                         {snapshot.chapters.get(r.unit.chapterId)?.title}
-                        {r.unit.level ? ` · ${LEVEL_LABEL[r.unit.level]}` : ''}
+                        {r.unit.level ? ` · ${LEVEL_LABEL[r.unit.level]}` : ''} · {relative(r.lastWrongAt, now)}
+                        {resting ? ` · наступна спроба ${relative(r.eligibleAt, now)}` : ''}
                       </span>
-                    </td>
-                    <td className="muted">{KIND_LABEL[r.unit.kind]}</td>
-                    <td className="num tabular">{r.wrongCount}</td>
-                    <td>
-                      <span className="streak-dots" aria-label={`${r.correctStreak} з 2 правильних`}>
+                    </span>
+                    <span className="mistake-side">
+                      <Pill size="sm" tone="red" className="tabular" title="Скільки разів помилився">
+                        ×{r.wrongCount}
+                      </Pill>
+                      <span className="streak-pips" role="img" aria-label={`${r.correctStreak} з 2 правильних`}>
                         <i data-on={r.correctStreak >= 1 ? '' : undefined} />
                         <i data-on={r.correctStreak >= 2 ? '' : undefined} />
                       </span>
-                      {r.eligibleAt && r.eligibleAt > now ? <span className="cell-sub">наступна спроба {relative(r.eligibleAt, now)}</span> : null}
-                    </td>
-                    <td className="muted">{relative(r.lastWrongAt, now)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
           </section>
         </>
       )}
 
       {resolved.length > 0 ? (
-        <section aria-labelledby="resolved-title">
-          <h2 id="resolved-title" className="section-title rule-title">
-            Закриті за тиждень
+        <section aria-labelledby="resolved-title" className="gsection">
+          <h2 id="resolved-title" className="gsection-title">
+            Виправлено за тиждень 🎉
           </h2>
-          <ul className="resolved-list">
-            {resolved.map((u) => (
+          <ul className="fixed-badges">
+            {resolved.map((u, i) => (
               <li key={u.id}>
-                <Link className="ui-link" href={unitHref(snapshot, u)}>
-                  {unitLabel(u)}
+                <Link href={unitHref(snapshot, u)} className="fixed-badge" data-tone={FIXED_TONES[i % FIXED_TONES.length]}>
+                  <PiSealCheckFill className="fixed-badge-icon" aria-hidden="true" />
+                  <span>{unitLabel(u)}</span>
                 </Link>
               </li>
             ))}

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { blankMatches } from '@/content/blocks/quiz/exercise'
 import type { FillExercise } from '@/content/model'
 import { highlightCode } from '@/ui/code/tokens'
+import { Button } from '@/ui/design/Button'
+import { ActionBar } from '../ActionBar'
 import { seededShuffle } from './shuffle'
 
 interface Props {
@@ -12,10 +14,11 @@ interface Props {
   checked: boolean
   variant: 'inline' | 'session'
   onSubmit: (correct: boolean, chosen: string[]) => void
+  actionsSlot?: Element | null
 }
 
 // Blanks inside code: free inputs, or a word bank of chips when the quiz has the `bank` flag.
-export function FillBlanks({ unitId, exercise, checked, variant, onSubmit }: Props) {
+export function FillBlanks({ unitId, exercise, checked, variant, onSubmit, actionsSlot }: Props) {
   const blanks = exercise.segments.flatMap((s) => (s.kind === 'blank' ? [s] : []))
   const [values, setValues] = useState<Record<string, string>>({})
   // bank mode: blank id → chip index
@@ -157,12 +160,12 @@ export function FillBlanks({ unitId, exercise, checked, variant, onSubmit }: Pro
         </ul>
       ) : null}
       {!checked ? (
-        <div className="quiz-actions exercise-actions">
-          <button type="button" className="ui-button" disabled={!filled} onClick={submit}>
-            Перевірити <kbd>Enter</kbd>
-          </button>
-          {!filled ? <span className="unit-meta">Лишилось пропусків: {blanks.filter((b) => !valueOf(b.id).trim()).length}</span> : null}
-        </div>
+        <ActionBar slot={actionsSlot} className="exercise-actions">
+          {!filled ? <span className="quiz-hint">Лишилось пропусків: {blanks.filter((b) => !valueOf(b.id).trim()).length}</span> : null}
+          <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : 'sm'} disabled={!filled} onClick={submit}>
+            Перевірити
+          </Button>
+        </ActionBar>
       ) : null}
     </div>
   )

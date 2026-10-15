@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import { STAGES, TRACKS, type Track, type TrackStage } from '@/content/tracks'
 import { RANKS, type LevelInfo } from '@/progress/levels'
+import { Pill } from '@/ui/design/Badge'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { ProgressBar } from '@/ui/design/ProgressBar'
+import { Icon } from '@/ui/icons/Icon'
+import { trackIcon } from '@/ui/icons/tracks'
 
 export interface TrackCard {
   track: Track
@@ -57,22 +62,24 @@ export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: Level
               {list.map((c) => {
                 const body = (
                   <>
-                    <span className="emap-track-emoji" aria-hidden="true">
-                      {c.track.emoji}
+                    <span className="emap-track-icon" aria-hidden="true">
+                      <Icon name={trackIcon(c.track.id, c.track.emoji)} size={30} />
                     </span>
                     <span className="emap-track-text">
                       <span className="emap-track-title">
                         {c.track.title}
-                        {!c.available ? <span className="emap-soon">скоро</span> : null}
+                        {!c.available ? (
+                          <Pill size="sm" className="emap-soon">
+                            скоро
+                          </Pill>
+                        ) : null}
                       </span>
                       <span className="emap-track-tagline">{c.track.tagline}</span>
                       {c.available ? (
                         <>
-                          <span className="emap-bar" aria-hidden="true">
-                            <span style={{ transform: `scaleX(${c.lessonsTotal ? c.lessonsDone / c.lessonsTotal : 0})` }} />
-                          </span>
+                          <ProgressBar value={c.lessonsTotal ? c.lessonsDone / c.lessonsTotal : 0} size="sm" label={`${c.track.title}: пройдено уроків`} className="emap-bar" />
                           <span className="emap-track-meta tabular">
-                            {c.lessonsDone}/{c.lessonsTotal} уроків · 👑 {c.crowns}/{c.maxCrowns}
+                            {c.lessonsDone}/{c.lessonsTotal} уроків · <GameIcon name="crown" size={14} /> {c.crowns}/{c.maxCrowns}
                             {c.currentTitle ? ` · зараз: ${c.currentTitle}` : ''}
                           </span>
                         </>
@@ -83,11 +90,11 @@ export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: Level
                   </>
                 )
                 return c.available ? (
-                  <Link key={c.track.id} href={`/path?track=${c.track.id}`} className="emap-track" data-started={c.lessonsDone > 0 ? '' : undefined}>
+                  <Link key={c.track.id} href={`/path?track=${c.track.id}`} className="emap-track lu-card" data-variant="interactive" data-pad="md" data-tone={c.lessonsDone > 0 ? 'green' : undefined} data-started={c.lessonsDone > 0 ? '' : undefined}>
                     {body}
                   </Link>
                 ) : (
-                  <div key={c.track.id} className="emap-track" data-soon="">
+                  <div key={c.track.id} className="emap-track lu-card" data-pad="md" data-soon="">
                     {body}
                   </div>
                 )

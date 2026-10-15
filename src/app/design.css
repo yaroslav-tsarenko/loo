@@ -456,6 +456,10 @@
     stroke-linecap: round;
     transition: stroke-dashoffset var(--lu-dur-4) var(--lu-ease);
   }
+  /* Round caps would leave a dot at 0% */
+  .lu-ring[aria-valuenow='0'] .lu-ring-fill {
+    stroke: transparent;
+  }
   .lu-ring-center {
     position: relative;
     display: grid;

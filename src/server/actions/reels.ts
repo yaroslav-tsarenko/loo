@@ -1,12 +1,10 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { eq } from 'drizzle-orm'
 import { GENERATED_AT_KEY, generateDailyReels } from '@/ai/reels/ingest'
-import { first, getDb } from '@/db/client'
-import { settings } from '@/db/schema'
-import { requireSession } from '../auth-guard'
+import { requireAdmin } from '../auth'
 import { nowMs } from '../clock'
+import { readSystem, writeSystem } from '../settings'
 
 const COOLDOWN_MS = 30 * 60_000
 
@@ -15,22 +13,21 @@ export type GenerateNowResult =
   | { ok: false; reason: 'cooldown'; retryInMs: number }
   | { ok: false; reason: 'no-credentials' | 'error'; message: string }
 
-// Manual "generate now" on /feed/generated: at most once per 30 minutes (shared with the cron run).
+// Manual "generate now" on /feed/generated (admins only: paid model calls): at most once per 30 minutes,
+// shared with the cron run.
 export async function generateReelsNow(): Promise<GenerateNowResult> {
-  await requireSession()
+  await requireAdmin()
   const now = nowMs()
-  const db = getDb()
-  const row = await first(db.select().from(settings).where(eq(settings.key, GENERATED_AT_KEY)))
-  const last = typeof row?.value === 'number' ? row.value : 0
+  const lastRaw = await readSystem(GENERATED_AT_KEY)
+  const last = typeof lastRaw === 'number' ? lastRaw : 0
   if (now - last < COOLDOWN_MS) return { ok: false, reason: 'cooldown', retryInMs: COOLDOWN_MS - (now - last) }
   // Claimed up front, so a double click or a failing model call still respects the cooldown.
-  await db.insert(settings).values({ key: GENERATED_AT_KEY, value: now }).onConflictDoUpdate({ target: settings.key, set: { value: now } })
+  await writeSystem(GENERATED_AT_KEY, now)
   try {
     const summary = await generateDailyReels(now, { force: true })
     if (summary.skipped === 'no-credentials') {
       // Nothing ran: give the cooldown back.
-      if (last) await db.update(settings).set({ value: last }).where(eq(settings.key, GENERATED_AT_KEY))
-      else await db.delete(settings).where(eq(settings.key, GENERATED_AT_KEY))
+      await writeSystem(GENERATED_AT_KEY, last || null)
       return { ok: false, reason: 'no-credentials', message: 'Немає ключа AI Gateway: додай AI_GATEWAY_API_KEY або зроби `vercel env pull`' }
     }
     revalidatePath('/feed/generated')

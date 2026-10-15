@@ -2,7 +2,7 @@ import 'server-only'
 import { connection } from 'next/server'
 import { defaultVaultConfig, normalizeVaultPath } from '@/content/config'
 import { getContentStore, type ChapterDocument, type ContentSnapshot } from '@/content/store'
-import { readSettings } from './settings'
+import { readVaultPath } from './settings'
 import { syncUnits } from './services/units-sync'
 import { searchContent } from '@/content/search'
 
@@ -13,7 +13,7 @@ async function boot(): Promise<void> {
   const g = globalThis as GlobalWithBoot
   if (!g[bootKey]) {
     g[bootKey] = (async () => {
-      const { vaultPath } = await readSettings()
+      const vaultPath = await readVaultPath()
       const store = getContentStore()
       // On Vercel the guides always come from ./content (VAULT_PATH); a local vault path saved in settings is ignored.
       if (vaultPath && !process.env.VERCEL) {

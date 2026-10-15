@@ -1,70 +1,97 @@
+import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
-import { authMode, cronAuthorized, createSessionToken, SESSION_COOKIE, SESSION_RENEW_BELOW_MS, sessionCookieOptions, sessionExpiry } from '@/lib/auth'
+import { isPublicRequest } from '@/lib/auth-paths'
+import { cronAuthorized } from '@/lib/auth'
 import { buildCsp, createNonce } from '@/lib/csp'
 import { isHttps } from '@/lib/same-origin'
+import { devAuthBypass, supabaseConfig } from '@/lib/supabase/config'
 
-// Reachable without a session (exact paths; GET/HEAD unless listed otherwise).
-const PUBLIC_GET = new Set(['/login', '/manifest.webmanifest', '/icon', '/apple-icon', '/favicon.ico'])
-const PUBLIC_POST = new Set(['/auth/login'])
 // Routes that set their own CSP (the code-runner worker needs a different policy).
 const OWN_CSP = new Set(['/runner/worker.js'])
 
 const dev = process.env.NODE_ENV === 'development'
 
-function isPublic(request: NextRequest): boolean {
-  const { pathname } = request.nextUrl
-  const method = request.method
-  // A server action call is never public, whatever path it is posted to.
-  if (request.headers.has('next-action')) return false
-  if ((method === 'GET' || method === 'HEAD') && PUBLIC_GET.has(pathname)) return true
-  if (method === 'POST' && PUBLIC_POST.has(pathname)) return true
-  // Dev-only tooling (HMR socket, error overlay) — never present in production builds.
-  return dev && (pathname.startsWith('/_next/') || pathname.startsWith('/__nextjs'))
+interface PendingCookie {
+  name: string
+  value: string
+  options: CookieOptions
 }
 
-function withCsp(request: NextRequest): { response: NextResponse; csp: string | null } {
+interface Session {
+  signedIn: boolean
+  cookies: PendingCookie[]
+  headers: Record<string, string>
+}
+
+// Supabase SSR session refresh: verifies the access token (getClaims) and, when it has expired, uses the refresh
+// token and queues the new cookies. They are written to the request (so this render sees them) and to the response.
+async function refreshSession(request: NextRequest): Promise<Session> {
+  const session: Session = { signedIn: false, cookies: [], headers: {} }
+  if (devAuthBypass()) return { ...session, signedIn: true }
+  const config = supabaseConfig()
+  if (!config) return session
+  const supabase = createServerClient(config.url, config.publishableKey, {
+    cookies: {
+      getAll: () => request.cookies.getAll(),
+      setAll(toSet, headers) {
+        for (const { name, value } of toSet) request.cookies.set(name, value)
+        session.cookies.push(...toSet)
+        Object.assign(session.headers, headers)
+      },
+    },
+  })
+  try {
+    const { data, error } = await supabase.auth.getClaims()
+    session.signedIn = !error && Boolean(data?.claims?.sub) && data?.claims?.role === 'authenticated'
+  } catch (error) {
+    console.error('[proxy] session check failed', error)
+  }
+  return session
+}
+
+function withCsp(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl
-  if (OWN_CSP.has(pathname)) return { response: NextResponse.next(), csp: null }
+  if (OWN_CSP.has(pathname)) return NextResponse.next({ request: { headers: new Headers(request.headers) } })
   const nonce = createNonce()
-  const csp = buildCsp({ nonce, dev, https: isHttps(request.nextUrl, request.headers) })
+  const csp = buildCsp({ nonce, dev, https: isHttps(request.nextUrl, request.headers), supabaseUrl: supabaseConfig()?.url })
   // Next.js reads the nonce from the request's CSP header and applies it to its scripts.
   const headers = new Headers(request.headers)
   headers.set('x-nonce', nonce)
   headers.set('content-security-policy', csp)
   const response = NextResponse.next({ request: { headers } })
   response.headers.set('Content-Security-Policy', csp)
-  return { response, csp }
+  return response
+}
+
+// Refreshed auth cookies must reach the browser whatever response we send (and never be cached by a CDN).
+function finish(response: NextResponse, session: Session): NextResponse {
+  for (const { name, value, options } of session.cookies) response.cookies.set(name, value, options)
+  for (const [key, value] of Object.entries(session.headers)) response.headers.set(key, value)
+  return response
 }
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Vercel Cron authenticates with a bearer secret instead of the session cookie.
+  // Vercel Cron authenticates with a bearer secret instead of a user session.
   if (pathname.startsWith('/api/cron/')) {
     return (await cronAuthorized(request.headers.get('authorization'))) ? NextResponse.next() : new NextResponse('Unauthorized', { status: 401 })
   }
 
-  const mode = authMode()
-  const token = request.cookies.get(SESSION_COOKIE)?.value
-  const expires = mode === 'password' ? await sessionExpiry(token) : null
-  const authed = mode === 'open' || expires !== null
+  const session = await refreshSession(request)
+  const isAction = request.headers.has('next-action')
 
-  if (!authed && !isPublic(request)) {
-    if (pathname.startsWith('/api/') || request.headers.has('next-action') || request.method !== 'GET') {
-      return new NextResponse('Unauthorized', { status: 401, headers: { 'Cache-Control': 'no-store' } })
+  if (!session.signedIn && !isPublicRequest(request.method, pathname, isAction, dev)) {
+    if (pathname.startsWith('/api/') || isAction || request.method !== 'GET') {
+      return finish(new NextResponse('Unauthorized', { status: 401, headers: { 'Cache-Control': 'no-store' } }), session)
     }
     const url = request.nextUrl.clone()
     url.pathname = '/login'
-    url.search = pathname === '/' ? '' : `?next=${encodeURIComponent(pathname + request.nextUrl.search)}`
-    return NextResponse.redirect(url)
+    url.search = `?next=${encodeURIComponent(pathname + request.nextUrl.search)}`
+    return finish(NextResponse.redirect(url), session)
   }
 
-  const { response } = withCsp(request)
-  // Sliding session: re-issue the cookie when less than half of its lifetime is left.
-  if (expires !== null && expires - Date.now() < SESSION_RENEW_BELOW_MS) {
-    response.cookies.set(SESSION_COOKIE, await createSessionToken(), sessionCookieOptions(isHttps(request.nextUrl, request.headers)))
-  }
-  return response
+  return finish(withCsp(request), session)
 }
 
 export const config = {

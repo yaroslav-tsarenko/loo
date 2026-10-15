@@ -8,6 +8,7 @@ import { PiGearSixFill, PiMagnifyingGlassBold } from 'react-icons/pi'
 import type { CSSProperties } from 'react'
 import type { TreeViewNode } from '@/server/services/library'
 import { levelInfo } from '@/progress/levels'
+import { Avatar } from '@/ui/design/Avatar'
 import { Logo } from '@/ui/design/brand/Logo'
 import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
@@ -215,7 +216,12 @@ function LevelRow() {
   )
 }
 
-export function Sidebar({ guides, theme }: { guides: SidebarGuide[]; theme: ThemeSetting }) {
+export interface SidebarAccount {
+  name: string
+  avatarUrl: string | null
+}
+
+export function Sidebar({ guides, theme, account }: { guides: SidebarGuide[]; theme: ThemeSetting; account?: SidebarAccount }) {
   const raw = usePathname()
   const path = decode(raw)
   const counts = useCounts()
@@ -274,6 +280,11 @@ export function Sidebar({ guides, theme }: { guides: SidebarGuide[]; theme: Them
             <Link href="/settings" className="sb-icon-button" aria-label="Налаштування" title="Налаштування" onClick={() => setMobileSidebar(false)}>
               <PiGearSixFill size={20} />
             </Link>
+            {account ? (
+              <Link href="/account" className="sb-icon-button sb-account" aria-label="Профіль і акаунт" title={account.name} onClick={() => setMobileSidebar(false)}>
+                <Avatar name={account.name} src={account.avatarUrl ?? undefined} size={26} />
+              </Link>
+            ) : null}
           </div>
         </div>
       </aside>

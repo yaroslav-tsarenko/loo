@@ -21,7 +21,8 @@ function Row({ label, hint, htmlFor, children }: { label: string; hint?: string;
   )
 }
 
-export function SettingsForm({ initial, vaultPath, envVault }: { initial: AppSettings; vaultPath: string; envVault: string }) {
+// `admin`: shows the vault section (global, local-dev only). Optional for backwards compatibility.
+export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { initial: AppSettings; vaultPath: string; envVault: string; admin?: boolean }) {
   const router = useRouter()
   const feedback = useFeedback()
   const [values, setValues] = useState(initial)
@@ -43,6 +44,7 @@ export function SettingsForm({ initial, vaultPath, envVault }: { initial: AppSet
 
   return (
     <div className="settings">
+      {admin ? (
       <section aria-labelledby="s-vault">
         <h2 id="s-vault" className="section-title rule-title">
           Vault
@@ -71,6 +73,7 @@ export function SettingsForm({ initial, vaultPath, envVault }: { initial: AppSet
           ) : null}
         </Row>
       </section>
+      ) : null}
 
       <section aria-labelledby="s-look">
         <h2 id="s-look" className="section-title rule-title">

@@ -32,7 +32,7 @@ export interface FilterFormProps {
 function Group({ label, children }: { label: string; children: ReactNode }) {
   const id = useId()
   return (
-    <div className="filter-row" role="group" aria-labelledby={id}>
+    <div className="filter-group" role="group" aria-labelledby={id}>
       <span className="filter-label" id={id}>
         {label}
       </span>
@@ -45,12 +45,14 @@ function Checks({ name, options, selected, legend }: { name: string; options: Op
   if (options.length === 0) return null
   return (
     <Group label={legend}>
-      <div className="filter-checks">
+      <div className="chip-set">
         {options.map((o) => (
-          <label key={o.value} className="check">
+          <label key={o.value} className="chip-check">
             <input type="checkbox" name={name} value={o.value} defaultChecked={selected.includes(o.value)} />
-            <span>{o.label}</span>
-            {o.count !== undefined ? <span className="check-count tabular">{o.count}</span> : null}
+            <span>
+              {o.label}
+              {o.count !== undefined ? <span className="chip-count tabular">{o.count}</span> : null}
+            </span>
           </label>
         ))}
       </div>
@@ -64,14 +66,14 @@ export function FilterForm(props: FilterFormProps) {
   const submit = () => form.current?.requestSubmit()
   return (
     <Form ref={form} action={props.action} className="filters" onChange={submit} scroll={false} replace>
-      <div className="filter-row">
+      <div className="filter-group">
         <label className="filter-label" htmlFor="f-guide">
           Посібник
         </label>
         <select
           id="f-guide"
           name="guide"
-          className="select"
+          className="gselect"
           defaultValue={values.guide ?? ''}
           onChange={() => {
             const chapter = form.current?.elements.namedItem('chapter')
@@ -88,11 +90,11 @@ export function FilterForm(props: FilterFormProps) {
         </select>
       </div>
       {props.chapters.length > 0 ? (
-        <div className="filter-row">
+        <div className="filter-group">
           <label className="filter-label" htmlFor="f-chapter">
             Розділ
           </label>
-          <select id="f-chapter" name="chapter" className="select" defaultValue={values.chapter ?? ''}>
+          <select id="f-chapter" name="chapter" className="gselect" defaultValue={values.chapter ?? ''}>
             <option value="">Усі розділи</option>
             {props.chapters.map((c) => (
               <option key={c.value} value={c.value}>
@@ -108,7 +110,7 @@ export function FilterForm(props: FilterFormProps) {
       {props.types ? <Checks name="type" legend={props.types.label} options={props.types.options} selected={values.types} /> : null}
       {props.modes ? (
         <Group label="Черга">
-          <div className="segmented">
+          <div className="gseg">
             {props.modes.map((m) => (
               <label key={m.value}>
                 <input type="radio" name="mode" value={m.value} defaultChecked={values.mode === m.value} />
@@ -119,7 +121,7 @@ export function FilterForm(props: FilterFormProps) {
         </Group>
       ) : null}
       <Group label="Розмір сесії">
-        <div className="segmented">
+        <div className="gseg">
           {props.sizes.map((s) => (
             <label key={s}>
               <input type="radio" name="size" value={s} defaultChecked={values.size === s} />
@@ -129,7 +131,7 @@ export function FilterForm(props: FilterFormProps) {
         </div>
       </Group>
       <noscript>
-        <button type="submit" className="ui-button" data-variant="ghost">
+        <button type="submit" className="lu-btn" data-variant="ghost" data-size="sm">
           Застосувати
         </button>
       </noscript>

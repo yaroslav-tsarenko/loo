@@ -1,9 +1,59 @@
-import { bigint, boolean, doublePrecision, index, integer, jsonb, pgTable, text } from 'drizzle-orm/pg-core'
+import { bigint, boolean, doublePrecision, index, integer, jsonb, pgTable, primaryKey, text, uuid } from 'drizzle-orm/pg-core'
 
 // Timestamps are epoch milliseconds (bigint in Postgres, number in JS).
 const ms = (name: string) => bigint(name, { mode: 'number' })
 
-export const settings = pgTable('settings', {
+// ─── Users ────────────────────────────────────────────────────────────────────
+// Multi-user model (docs/SECURITY.md §4): every per-user table has `user_id`, part of its primary key,
+// referencing profiles(id) with ON DELETE CASCADE. profiles.id = auth.users.id on Supabase (a trigger on
+// auth.users removes the profile, and with it all progress). On PGlite there is no auth schema.
+
+export type ProfileRole = 'user' | 'admin'
+
+export interface OnboardingState {
+  completedAt?: number
+  goal?: string
+  // Placement test result, filled by the course engine later (/placement).
+  placement?: { level: string; at: number }
+}
+
+// Learning preferences. App settings (theme, sound, haptics, daily minutes, goals) live in user_settings.
+export interface ProfilePreferences {
+  interests?: string[]
+  level?: string
+}
+
+export const profiles = pgTable('profiles', {
+  id: uuid('id').primaryKey(),
+  displayName: text('display_name'),
+  avatarUrl: text('avatar_url'),
+  locale: text('locale').notNull().default('uk'),
+  // Set only by server code (column grants keep it read-only for the `authenticated` role).
+  role: text('role', { enum: ['user', 'admin'] }).notNull().default('user'),
+  onboarding: jsonb('onboarding').$type<OnboardingState>().notNull().default({}),
+  preferences: jsonb('preferences').$type<ProfilePreferences>().notNull().default({}),
+  createdAt: ms('created_at').notNull(),
+  updatedAt: ms('updated_at').notNull(),
+})
+
+const userId = () =>
+  uuid('user_id')
+    .notNull()
+    .references(() => profiles.id, { onDelete: 'cascade' })
+
+// Per-user settings (theme, sound, goals…). Global/internal state lives in system_state.
+export const userSettings = pgTable(
+  'user_settings',
+  {
+    userId: userId(),
+    key: text('key').notNull(),
+    value: jsonb('value').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.key] })],
+)
+
+// Server-only state (cooldowns, content fingerprint, local vault path). Never writable by users.
+export const systemState = pgTable('system_state', {
   key: text('key').primaryKey(),
   value: jsonb('value').notNull(),
 })
@@ -34,22 +84,28 @@ export const unitAliases = pgTable('unit_aliases', {
   createdAt: ms('created_at').notNull(),
 })
 
-export const sessions = pgTable('sessions', {
-  id: text('id').primaryKey(),
-  mode: text('mode', { enum: ['flashcards', 'quiz', 'tasks', 'mistakes', 'feed', 'mission', 'lesson'] }).notNull(),
-  filters: jsonb('filters').notNull(),
-  unitIds: jsonb('unit_ids').$type<string[]>().notNull(),
-  startedAt: ms('started_at').notNull(),
-  endedAt: ms('ended_at'),
-  total: integer('total').notNull().default(0),
-  correct: integer('correct').notNull().default(0),
-  xp: integer('xp').notNull().default(0),
-})
+export const sessions = pgTable(
+  'sessions',
+  {
+    id: text('id').primaryKey(),
+    userId: userId(),
+    mode: text('mode', { enum: ['flashcards', 'quiz', 'tasks', 'mistakes', 'feed', 'mission', 'lesson'] }).notNull(),
+    filters: jsonb('filters').notNull(),
+    unitIds: jsonb('unit_ids').$type<string[]>().notNull(),
+    startedAt: ms('started_at').notNull(),
+    endedAt: ms('ended_at'),
+    total: integer('total').notNull().default(0),
+    correct: integer('correct').notNull().default(0),
+    xp: integer('xp').notNull().default(0),
+  },
+  (t) => [index('sessions_user_idx').on(t.userId, t.startedAt)],
+)
 
 export const attempts = pgTable(
   'attempts',
   {
     id: integer('id').primaryKey().generatedByDefaultAsIdentity(),
+    userId: userId(),
     unitId: text('unit_id').notNull(),
     sessionId: text('session_id'),
     kind: text('kind', { enum: ['flashcard', 'quiz', 'task'] }).notNull(),
@@ -64,13 +120,14 @@ export const attempts = pgTable(
     answeredAt: ms('answered_at').notNull(),
     day: text('day').notNull(),
   },
-  (t) => [index('attempts_unit_idx').on(t.unitId, t.answeredAt), index('attempts_time_idx').on(t.answeredAt), index('attempts_day_idx').on(t.day)],
+  (t) => [index('attempts_user_unit_idx').on(t.userId, t.unitId, t.answeredAt), index('attempts_user_day_idx').on(t.userId, t.day), index('attempts_user_id_idx').on(t.userId, t.id)],
 )
 
 export const srsCards = pgTable(
   'srs_cards',
   {
-    unitId: text('unit_id').primaryKey(),
+    userId: userId(),
+    unitId: text('unit_id').notNull(),
     due: ms('due').notNull(),
     stability: doublePrecision('stability').notNull(),
     difficulty: doublePrecision('difficulty').notNull(),
@@ -82,87 +139,124 @@ export const srsCards = pgTable(
     state: integer('state').notNull(),
     lastReview: ms('last_review'),
   },
-  (t) => [index('srs_due_idx').on(t.due)],
+  (t) => [primaryKey({ columns: [t.userId, t.unitId] }), index('srs_user_due_idx').on(t.userId, t.due)],
 )
 
-export const mistakes = pgTable('mistakes', {
-  unitId: text('unit_id').primaryKey(),
-  source: text('source', { enum: ['flashcard', 'quiz', 'task'] }).notNull(),
-  wrongCount: integer('wrong_count').notNull(),
-  correctStreak: integer('correct_streak').notNull(),
-  lastCorrectAt: ms('last_correct_at'),
-  firstWrongAt: ms('first_wrong_at').notNull(),
-  lastWrongAt: ms('last_wrong_at').notNull(),
-  resolvedAt: ms('resolved_at'),
-})
+export const mistakes = pgTable(
+  'mistakes',
+  {
+    userId: userId(),
+    unitId: text('unit_id').notNull(),
+    source: text('source', { enum: ['flashcard', 'quiz', 'task'] }).notNull(),
+    wrongCount: integer('wrong_count').notNull(),
+    correctStreak: integer('correct_streak').notNull(),
+    lastCorrectAt: ms('last_correct_at'),
+    firstWrongAt: ms('first_wrong_at').notNull(),
+    lastWrongAt: ms('last_wrong_at').notNull(),
+    resolvedAt: ms('resolved_at'),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.unitId] })],
+)
 
-export const chapterProgress = pgTable('chapter_progress', {
-  chapterId: text('chapter_id').primaryKey(),
-  guideId: text('guide_id').notNull(),
-  status: text('status', { enum: ['unread', 'reading', 'studied'] }).notNull(),
-  scrollPct: integer('scroll_pct').notNull().default(0),
-  timeMs: integer('time_ms').notNull().default(0),
-  studiedAt: ms('studied_at'),
-  lastOpenedAt: ms('last_opened_at').notNull(),
-})
+export const chapterProgress = pgTable(
+  'chapter_progress',
+  {
+    userId: userId(),
+    chapterId: text('chapter_id').notNull(),
+    guideId: text('guide_id').notNull(),
+    status: text('status', { enum: ['unread', 'reading', 'studied'] }).notNull(),
+    scrollPct: integer('scroll_pct').notNull().default(0),
+    timeMs: integer('time_ms').notNull().default(0),
+    studiedAt: ms('studied_at'),
+    lastOpenedAt: ms('last_opened_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.chapterId] })],
+)
 
-export const taskState = pgTable('task_state', {
-  unitId: text('unit_id').primaryKey(),
-  hintsRevealed: integer('hints_revealed').notNull().default(0),
-  draft: text('draft').notNull().default(''),
-  status: text('status', { enum: ['open', 'solved', 'failed'] }).notNull().default('open'),
-  updatedAt: ms('updated_at').notNull(),
-})
+export const taskState = pgTable(
+  'task_state',
+  {
+    userId: userId(),
+    unitId: text('unit_id').notNull(),
+    hintsRevealed: integer('hints_revealed').notNull().default(0),
+    draft: text('draft').notNull().default(''),
+    status: text('status', { enum: ['open', 'solved', 'failed'] }).notNull().default('open'),
+    updatedAt: ms('updated_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.unitId] })],
+)
 
 export const xpLedger = pgTable(
   'xp_ledger',
   {
     id: integer('id').primaryKey().generatedByDefaultAsIdentity(),
+    userId: userId(),
     amount: integer('amount').notNull(),
     reason: text('reason').notNull(),
     refId: text('ref_id'),
     createdAt: ms('created_at').notNull(),
     day: text('day').notNull(),
   },
-  (t) => [index('xp_day_idx').on(t.day)],
+  (t) => [index('xp_user_day_idx').on(t.userId, t.day)],
 )
 
-export const achievements = pgTable('achievements', {
-  id: text('id').primaryKey(),
-  unlockedAt: ms('unlocked_at').notNull(),
-  context: jsonb('context'),
-})
+export const achievements = pgTable(
+  'achievements',
+  {
+    userId: userId(),
+    id: text('id').notNull(),
+    unlockedAt: ms('unlocked_at').notNull(),
+    context: jsonb('context'),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.id] })],
+)
 
-export const dailyActivity = pgTable('daily_activity', {
-  day: text('day').primaryKey(),
-  cards: integer('cards').notNull().default(0),
-  quizzes: integer('quizzes').notNull().default(0),
-  tasks: integer('tasks').notNull().default(0),
-  correct: integer('correct').notNull().default(0),
-  total: integer('total').notNull().default(0),
-  xp: integer('xp').notNull().default(0),
-  timeMs: integer('time_ms').notNull().default(0),
-  goalMet: boolean('goal_met').notNull().default(false),
-})
+export const dailyActivity = pgTable(
+  'daily_activity',
+  {
+    userId: userId(),
+    day: text('day').notNull(),
+    cards: integer('cards').notNull().default(0),
+    quizzes: integer('quizzes').notNull().default(0),
+    tasks: integer('tasks').notNull().default(0),
+    correct: integer('correct').notNull().default(0),
+    total: integer('total').notNull().default(0),
+    xp: integer('xp').notNull().default(0),
+    timeMs: integer('time_ms').notNull().default(0),
+    goalMet: boolean('goal_met').notNull().default(false),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.day] })],
+)
 
 // Daily mission: a plan generated once per day from the time budget, steps ticked off as they are done.
-export const dailyMissions = pgTable('daily_missions', {
-  day: text('day').primaryKey(),
-  budgetMinutes: integer('budget_minutes').notNull(),
-  plan: jsonb('plan').notNull(),
-  progress: jsonb('progress').notNull().default({}),
-  completedAt: ms('completed_at'),
-  createdAt: ms('created_at').notNull(),
-})
+export const dailyMissions = pgTable(
+  'daily_missions',
+  {
+    userId: userId(),
+    day: text('day').notNull(),
+    budgetMinutes: integer('budget_minutes').notNull(),
+    plan: jsonb('plan').notNull(),
+    progress: jsonb('progress').notNull().default({}),
+    completedAt: ms('completed_at'),
+    createdAt: ms('created_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.day] })],
+)
 
-// Micro-facts ([!reel]) seen / liked in the feed.
-export const reelState = pgTable('reel_state', {
-  reelId: text('reel_id').primaryKey(),
-  views: integer('views').notNull().default(0),
-  liked: boolean('liked').notNull().default(false),
-  saved: boolean('saved').notNull().default(false),
-  lastSeenAt: ms('last_seen_at'),
-})
+// Micro-facts ([!reel]) seen / liked / hidden in the feed (hidden: AI reels this user dismissed).
+export const reelState = pgTable(
+  'reel_state',
+  {
+    userId: userId(),
+    reelId: text('reel_id').notNull(),
+    views: integer('views').notNull().default(0),
+    liked: boolean('liked').notNull().default(false),
+    saved: boolean('saved').notNull().default(false),
+    hidden: boolean('hidden').notNull().default(false),
+    lastSeenAt: ms('last_seen_at'),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.reelId] }), index('reel_state_user_seen_idx').on(t.userId, t.lastSeenAt)],
+)
 
 // Daily JavaScript news / tips pulled from community sources by a cron job.
 export const newsItems = pgTable(
@@ -178,17 +272,30 @@ export const newsItems = pgTable(
     tags: jsonb('tags').$type<string[]>().notNull().default([]),
     publishedAt: ms('published_at').notNull(),
     fetchedAt: ms('fetched_at').notNull(),
+  },
+  (t) => [index('news_published_idx').on(t.publishedAt)],
+)
+
+// Per-user news state (was news_items.read_at / saved in the single-user app).
+export const newsReads = pgTable(
+  'news_reads',
+  {
+    userId: userId(),
+    newsId: text('news_id')
+      .notNull()
+      .references(() => newsItems.id, { onDelete: 'cascade' }),
     readAt: ms('read_at'),
     saved: boolean('saved').notNull().default(false),
   },
-  (t) => [index('news_published_idx').on(t.publishedAt)],
+  (t) => [primaryKey({ columns: [t.userId, t.newsId] }), index('news_reads_news_idx').on(t.newsId)],
 )
 
 // Duolingo-style lessons (derived from chapter content): best result per lesson.
 export const lessonProgress = pgTable(
   'lesson_progress',
   {
-    lessonId: text('lesson_id').primaryKey(),
+    userId: userId(),
+    lessonId: text('lesson_id').notNull(),
     guideId: text('guide_id').notNull(),
     chapterId: text('chapter_id').notNull(),
     completions: integer('completions').notNull().default(0),
@@ -197,10 +304,11 @@ export const lessonProgress = pgTable(
     firstCompletedAt: ms('first_completed_at'),
     lastCompletedAt: ms('last_completed_at'),
   },
-  (t) => [index('lesson_chapter_idx').on(t.chapterId)],
+  (t) => [primaryKey({ columns: [t.userId, t.lessonId] }), index('lesson_user_guide_idx').on(t.userId, t.guideId)],
 )
 
 // AI-generated micro-facts for the feed (daily cron), shown next to [!reel] blocks from the guides.
+// Shared by everyone; status 'hidden' is an admin takedown, per-user hiding lives in reel_state.hidden.
 export const generatedReels = pgTable(
   'generated_reels',
   {

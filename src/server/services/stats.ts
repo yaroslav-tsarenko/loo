@@ -1,6 +1,6 @@
 import 'server-only'
-import { desc, eq, gte, isNull, sql } from 'drizzle-orm'
-import { first, getDb } from '@/db/client'
+import { and, desc, eq, gte, isNull, sql } from 'drizzle-orm'
+import { first } from '@/db/client'
 import { achievements, attempts, chapterProgress, dailyActivity, mistakes } from '@/db/schema'
 import { LEVELS, type Chapter, type Guide, type Level } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -10,6 +10,7 @@ import { dayKey, shiftDay } from '@/progress/day'
 import { computeStreak } from '@/progress/streak'
 import { computeStats, totalXp } from './progress'
 import { chapterProgressMap, readableChapters } from './library'
+import { userScope } from '../auth'
 import { readSettings } from '../settings'
 
 export interface Accuracy {
@@ -49,15 +50,23 @@ export interface ProfileData {
 }
 
 export async function chapterAccuracy(): Promise<Map<string, Accuracy>> {
-  const rows = await getDb()
-    .select({ chapterId: attempts.chapterId, total: sql<number>`count(*)`, correct: correctCount })
-    .from(attempts)
-    .groupBy(attempts.chapterId)
+  const rows = await userScope((db, userId) =>
+    db
+      .select({ chapterId: attempts.chapterId, total: sql<number>`count(*)`, correct: correctCount })
+      .from(attempts)
+      .where(eq(attempts.userId, userId))
+      .groupBy(attempts.chapterId),
+  )
   return new Map(rows.map((r) => [r.chapterId, acc(Number(r.total), Number(r.correct))]))
 }
 
 export async function openMistakesByChapter(snapshot: ContentSnapshot): Promise<Map<string, number>> {
-  const rows = await getDb().select({ unitId: mistakes.unitId }).from(mistakes).where(isNull(mistakes.resolvedAt))
+  const rows = await userScope((db, userId) =>
+    db
+      .select({ unitId: mistakes.unitId })
+      .from(mistakes)
+      .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
+  )
   const out = new Map<string, number>()
   for (const r of rows) {
     const unit = snapshot.units.get(r.unitId)
@@ -84,21 +93,35 @@ export async function weakChapters(snapshot: ContentSnapshot, limit = 8): Promis
 }
 
 export async function profileData(snapshot: ContentSnapshot, now = Date.now()): Promise<ProfileData> {
-  const db = getDb()
   const today = dayKey(now)
   const from = shiftDay(today, -181)
-  const [days, goalRows, totals, time, reading, guideRows, levelRows, achievementList, progress, stats, xp, weak, settings] = await Promise.all([
-    db.select().from(dailyActivity).where(gte(dailyActivity.day, from)),
-    db.select({ day: dailyActivity.day }).from(dailyActivity).where(eq(dailyActivity.goalMet, true)),
-    first(db.select({ total: sql<number>`count(*)`, correct: correctCount, ms: sql<number>`coalesce(sum(${attempts.durationMs}), 0)` }).from(attempts)),
-    first(db.select({ ms: sql<number>`coalesce(sum(${dailyActivity.timeMs}), 0)` }).from(dailyActivity)),
-    first(db.select({ ms: sql<number>`coalesce(sum(${chapterProgress.timeMs}), 0)` }).from(chapterProgress)),
-    db.select({ guideId: attempts.guideId, total: sql<number>`count(*)`, correct: correctCount }).from(attempts).groupBy(attempts.guideId),
-    db.select({ level: attempts.level, total: sql<number>`count(*)`, correct: correctCount }).from(attempts).groupBy(attempts.level),
-    db.select().from(achievements),
+  const [[days, goalRows, totals, time, reading, guideRows, levelRows, achievementList, stats, xp], progress, weak, settings] = await Promise.all([
+    userScope((db, userId) =>
+      Promise.all([
+        db
+          .select()
+          .from(dailyActivity)
+          .where(and(eq(dailyActivity.userId, userId), gte(dailyActivity.day, from))),
+        db
+          .select({ day: dailyActivity.day })
+          .from(dailyActivity)
+          .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.goalMet, true))),
+        first(
+          db
+            .select({ total: sql<number>`count(*)`, correct: correctCount, ms: sql<number>`coalesce(sum(${attempts.durationMs}), 0)` })
+            .from(attempts)
+            .where(eq(attempts.userId, userId)),
+        ),
+        first(db.select({ ms: sql<number>`coalesce(sum(${dailyActivity.timeMs}), 0)` }).from(dailyActivity).where(eq(dailyActivity.userId, userId))),
+        first(db.select({ ms: sql<number>`coalesce(sum(${chapterProgress.timeMs}), 0)` }).from(chapterProgress).where(eq(chapterProgress.userId, userId))),
+        db.select({ guideId: attempts.guideId, total: sql<number>`count(*)`, correct: correctCount }).from(attempts).where(eq(attempts.userId, userId)).groupBy(attempts.guideId),
+        db.select({ level: attempts.level, total: sql<number>`count(*)`, correct: correctCount }).from(attempts).where(eq(attempts.userId, userId)).groupBy(attempts.level),
+        db.select().from(achievements).where(eq(achievements.userId, userId)),
+        computeStats(db, userId, snapshot, now),
+        totalXp(db, userId),
+      ]),
+    ),
     chapterProgressMap(),
-    computeStats(db, snapshot, now),
-    totalXp(db),
     weakChapters(snapshot),
     readSettings(),
   ])
@@ -147,6 +170,8 @@ export async function profileData(snapshot: ContentSnapshot, now = Date.now()): 
 }
 
 export async function lastAttemptAt(): Promise<number | null> {
-  const row = await first(getDb().select({ at: attempts.answeredAt }).from(attempts).orderBy(desc(attempts.id)).limit(1))
+  const row = await userScope((db, userId) =>
+    first(db.select({ at: attempts.answeredAt }).from(attempts).where(eq(attempts.userId, userId)).orderBy(desc(attempts.id)).limit(1)),
+  )
   return row?.at ?? null
 }

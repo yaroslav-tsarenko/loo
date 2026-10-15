@@ -2,10 +2,17 @@
 
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { PiArrowRightBold, PiCheckBold, PiXBold } from 'react-icons/pi'
 import { exerciseSolution } from '@/content/blocks/quiz/exercise'
 import type { Effect, FlashRating } from '@/progress/types'
 import { endSession, finishTask, rateFlashcard, recordQuizAnswer, startSession } from '@/server/actions/study'
 import { highlightCode } from '@/ui/code/tokens'
+import { Button } from '@/ui/design/Button'
+import { Confetti } from '@/ui/design/Confetti'
+import { CountUp } from '@/ui/design/CountUp'
+import { GameIcon } from '@/ui/design/GameIcon'
+import { Loo } from '@/ui/design/mascot/Loo'
+import { ProgressBar } from '@/ui/design/ProgressBar'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { FlashcardCard } from './FlashcardCard'
 import { QuizInline, type QuizResult } from './QuizInline'
@@ -148,42 +155,55 @@ export function StudySession({
     const correct = results.filter((r) => r.correct).length
     const wrong = results.filter((r) => !r.correct)
     const accuracy = results.length ? Math.round((correct / results.length) * 100) : 0
+    const mood = results.length === 0 ? 'idle' : accuracy >= 80 ? 'cheer' : accuracy >= 50 ? 'happy' : 'thinking'
     return (
       <section className="summary" aria-live="polite">
-        <span className="eyebrow">Сесію завершено</span>
-        <h2 className="summary-title">
-          {correct} з {results.length}
-          <span className="summary-sub"> · {accuracy}%</span>
-        </h2>
-        <dl className="summary-stats">
-          <div>
+        <div className="summary-hero">
+          <Loo mood={mood} size={140} />
+          <Confetti trigger={results.length > 0 && accuracy >= 80} />
+          <span className="summary-eyebrow">Сесію завершено</span>
+          <h2 className="summary-title">
+            {correct} з {results.length}
+            <span className="summary-sub"> · {accuracy}%</span>
+          </h2>
+        </div>
+        <dl className="gstats">
+          <div className="gstat" data-tone="yellow">
             <dt>Здобуто</dt>
-            <dd className="tabular">+{xp} XP</dd>
+            <dd className="tabular">
+              <GameIcon name="bolt" size={22} />
+              <span>
+                +<CountUp value={xp} />
+              </span>
+            </dd>
           </div>
-          <div>
+          <div className="gstat" data-tone="red">
             <dt>До помилок</dt>
-            <dd className="tabular">{wrong.length}</dd>
+            <dd className="tabular">
+              <CountUp value={wrong.length} />
+            </dd>
           </div>
-          <div>
-            <dt>Закрито помилок</dt>
-            <dd className="tabular">{resolved}</dd>
+          <div className="gstat" data-tone="green">
+            <dt>Закрито</dt>
+            <dd className="tabular">
+              <CountUp value={resolved} />
+            </dd>
           </div>
         </dl>
         {wrong.length > 0 && mode !== 'quiz' ? (
-          <div className="summary-wrong">
-            <span className="eyebrow">Варто перечитати</span>
+          <div className="summary-section summary-wrong">
+            <h3 className="summary-section-title">Варто перечитати</h3>
             <ol>
               {wrong.map((w) => {
                 const item = items.find((i) => i.unitId === w.unitId)
                 return item ? (
                   <li key={w.unitId}>
-                    <Link className="ui-link" href={item.chapterHref}>
+                    <Link href={item.chapterHref}>
                       {item.label}
+                      <span className="unit-meta">
+                        {item.chapterTitle} · {w.label}
+                      </span>
                     </Link>
-                    <span className="unit-meta">
-                      {' '}
-                      · {item.chapterTitle} · {w.label}
-                    </span>
                   </li>
                 ) : null
               })}
@@ -192,17 +212,20 @@ export function StudySession({
         ) : null}
         <QuizReview items={items} results={results} />
         <div className="summary-actions">
-          <a className="ui-button" href={restartHref}>
-            Ще одна сесія
+          {/* A full load on purpose: the session state must reset with the new queue. */}
+          <a className="lu-btn" data-variant="primary" data-size="md" href={restartHref}>
+            <span className="lu-btn-content">
+              <span className="lu-btn-label">Ще одна сесія</span>
+            </span>
           </a>
           {wrong.length > 0 && mode !== 'mistakes' ? (
-            <Link className="ui-button" data-variant="ghost" href="/mistakes">
+            <Button variant="ghost" href="/mistakes">
               До «Моїх помилок»
-            </Link>
+            </Button>
           ) : null}
-          <Link className="ui-button" data-variant="ghost" href={backHref}>
+          <Button variant="ghost" href={backHref}>
             {backLabel}
-          </Link>
+          </Button>
         </div>
       </section>
     )
@@ -214,16 +237,16 @@ export function StudySession({
   return (
     <section className="session" aria-label="Сесія навчання">
       <div className="session-bar">
-        <span className="tabular">
+        <span className="tabular session-count">
           {index + 1} / {items.length}
         </span>
-        <span className="session-track" aria-hidden="true">
-          <span style={{ transform: `scaleX(${progress})` }} />
+        <ProgressBar value={progress} label="Прогрес сесії" size="lg" />
+        <span className="tabular session-xp">
+          <GameIcon name="bolt" size={20} />+{xp}
         </span>
-        <span className="tabular session-xp">+{xp} XP</span>
-        <button type="button" className="ui-link session-stop" onClick={() => void finish()}>
+        <Button variant="ghost" size="sm" onClick={() => void finish()}>
           Завершити
-        </button>
+        </Button>
       </div>
       <div className="session-stage" key={current.unitId}>
         {current.kind === 'flashcard' ? (
@@ -260,11 +283,11 @@ export function StudySession({
         )}
         {answered ? (
           <div className="session-next">
-            <button type="button" className="ui-button" onClick={next} disabled={busy && index + 1 >= items.length}>
-              {index + 1 >= items.length ? 'Підсумок' : 'Далі'} <kbd>Enter</kbd>
-            </button>
+            <Button size="lg" onClick={next} disabled={busy && index + 1 >= items.length} iconEnd={<PiArrowRightBold size={18} />}>
+              {index + 1 >= items.length ? 'Підсумок' : 'Далі'}
+            </Button>
             {current.kind !== 'flashcard' ? (
-              <Link className="ui-link" href={current.chapterHref} target="_blank">
+              <Link href={current.chapterHref} target="_blank">
                 Розділ: {current.chapterTitle}
               </Link>
             ) : null}
@@ -282,14 +305,16 @@ function QuizReview({ items, results }: { items: StudyItem[]; results: ResultRow
     .filter((x): x is { r: ResultRow; item: Extract<StudyItem, { kind: 'quiz' }> } => x.item?.kind === 'quiz')
   if (quizzes.length === 0) return null
   return (
-    <section className="review" aria-label="Розбір">
-      <span className="eyebrow">Розбір</span>
+    <section className="summary-section review" aria-label="Розбір">
+      <h3 className="summary-section-title">Розбір</h3>
       <ol className="review-list">
         {quizzes.map(({ r, item }, n) => (
           <li key={item.unitId}>
             <details className="review-item" data-correct={r.correct ? '' : undefined} open={!r.correct}>
               <summary>
-                <span className="review-mark">{r.correct ? 'правильно' : 'помилка'}</span>
+                <span className="review-mark" role="img" aria-label={r.correct ? 'правильно' : 'помилка'}>
+                  {r.correct ? <PiCheckBold /> : <PiXBold />}
+                </span>
                 <span className="review-q">
                   {n + 1}. {item.prompt}
                 </span>

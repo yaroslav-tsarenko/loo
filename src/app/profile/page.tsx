@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PiGraduationCapFill, PiStarFill, PiTargetFill, PiTimerFill } from 'react-icons/pi'
 import { LEVEL_LABEL } from '@/content/model'
 import { levelInfo, RANKS } from '@/progress/levels'
 import { getContent } from '@/server/content'
@@ -7,6 +8,8 @@ import { profileData, type Accuracy } from '@/server/services/stats'
 import { MAIN_TRACK } from '@/server/services/mission'
 import { trackPath } from '@/server/services/path'
 import { count, duration, percent, relative } from '@/ui/format'
+import { Card } from '@/ui/design/Card'
+import { GameIcon } from '@/ui/design/GameIcon'
 import { Heatmap } from '@/ui/profile/Heatmap'
 import { chapterHref, guideHref } from '@/ui/routes'
 
@@ -67,54 +70,54 @@ export default async function ProfilePage() {
       </header>
 
       <section className="course-stats" aria-label="Курс">
-        <Link href={`/path?track=${MAIN_TRACK.id}`} className="course-stat" data-tone="green">
-          <span className="course-stat-emoji" aria-hidden="true">
-            🎓
+        <Card href={`/path?track=${MAIN_TRACK.id}`} tone="green" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="green" aria-hidden="true">
+            <PiGraduationCapFill />
           </span>
           <span className="course-stat-value tabular">
             {course.lessonsDone}
             <small>/{course.lessonsTotal}</small>
           </span>
           <span className="course-stat-label">уроків {MAIN_TRACK.title}</span>
-        </Link>
-        <div className="course-stat" data-tone="yellow">
-          <span className="course-stat-emoji" aria-hidden="true">
-            ⭐
+        </Card>
+        <Card variant="raised" tone="yellow" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="yellow" aria-hidden="true">
+            <PiStarFill />
           </span>
           <span className="course-stat-value tabular">{perfectLessons}</span>
           <span className="course-stat-label">бездоганних уроків</span>
-        </div>
-        <div className="course-stat" data-tone="orange">
-          <span className="course-stat-emoji" aria-hidden="true">
-            👑
+        </Card>
+        <Card variant="raised" tone="orange" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="orange" aria-hidden="true">
+            <GameIcon name="crown" size={26} />
           </span>
           <span className="course-stat-value tabular">
             {course.crowns}
             <small>/{course.maxCrowns}</small>
           </span>
           <span className="course-stat-label">корон майстерності</span>
-        </div>
-        <div className="course-stat" data-tone="blue">
-          <span className="course-stat-emoji" aria-hidden="true">
-            🎯
+        </Card>
+        <Card variant="raised" tone="blue" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="blue" aria-hidden="true">
+            <PiTargetFill />
           </span>
           <span className="course-stat-value tabular">{percent(data.accuracy.rate)}</span>
           <span className="course-stat-label">точність відповідей</span>
-        </div>
-        <div className="course-stat" data-tone="red">
-          <span className="course-stat-emoji" aria-hidden="true">
-            🔥
+        </Card>
+        <Card variant="raised" tone="red" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="red" aria-hidden="true">
+            <GameIcon name="fire" size={26} />
           </span>
           <span className="course-stat-value tabular">{data.streak.current}</span>
           <span className="course-stat-label">днів поспіль · рекорд {data.streak.best}</span>
-        </div>
-        <div className="course-stat" data-tone="purple">
-          <span className="course-stat-emoji" aria-hidden="true">
-            ⏱️
+        </Card>
+        <Card variant="raised" tone="purple" padding="sm" className="course-stat">
+          <span className="course-stat-icon" data-tone="purple" aria-hidden="true">
+            <PiTimerFill />
           </span>
           <span className="course-stat-value tabular">{duration(data.studyMs + data.readingMs)}</span>
           <span className="course-stat-label">у навчанні</span>
-        </div>
+        </Card>
       </section>
 
       <section className="figures" aria-label="Підсумки">

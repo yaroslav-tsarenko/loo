@@ -44,7 +44,7 @@ const HAPTIC_FOR: Partial<Record<SoundName, HapticName>> = {
 }
 
 // Buttons that deserve a light tap when pressed.
-const TAP_TARGETS = '.lesson-primary, .lesson-secondary, .lesson-rate-btn, .mission-cta, .course-hero, .lesson-bubble, .skill-head, .reel-action, .budget-chip, .feed-rate-button, .feed-reveal, .home-tile, .path-sheet-action, .emap-track'
+const TAP_TARGETS = ".lu-btn, .lu-ibtn, .lu-card[data-variant='interactive'], .quiz-option, .order-piece, .fill-chip, .home-continue, .lesson-bubble, .budget-chip, .chip-check, .gchip"
 
 export function FeedbackProvider({ children, initialXp, sound, volume, haptics = true }: { children: ReactNode; initialXp: number; sound: boolean; volume: number; haptics?: boolean }) {
   const engine = useRef<SoundEngine | null>(null)

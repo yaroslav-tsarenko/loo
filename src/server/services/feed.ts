@@ -2,7 +2,6 @@ import 'server-only'
 import type { ReactNode } from 'react'
 import { and, desc, eq, gte, inArray } from 'drizzle-orm'
 import { interleave } from '@/ai/reels/mix'
-import { getDb } from '@/db/client'
 import { generatedReels, reelState, srsCards } from '@/db/schema'
 import type { Chapter, LearningUnit } from '@/content/model'
 import { parseMarkdown } from '@/content/parse/markdown'
@@ -12,6 +11,7 @@ import { renderMdast } from '@/ui/markdown/render'
 import { safeExternalUrl } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type FlashItem, type QuizItem } from '@/ui/study/render-items'
+import { userScope } from '../auth'
 import { lastOutcomes, shuffle } from './queue'
 
 // The feed focuses on these guides first (the user's current track); other guides fill in only if they run dry.
@@ -64,18 +64,27 @@ const PATTERN = ['reel', 'quiz', 'reel', 'flashcard', 'reel', 'quiz', 'flashcard
 export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 24, now = Date.now()): Promise<FeedSlide[]> {
   const reels = focus(snapshot.reels)
   const units = focus([...snapshot.units.values()])
-  const db = getDb()
-  const [generated, srsRows] = await Promise.all([
-    db
-      .select()
-      .from(generatedReels)
-      .where(and(eq(generatedReels.status, 'active'), gte(generatedReels.createdAt, now - GENERATED_WINDOW_MS)))
-      .orderBy(desc(generatedReels.createdAt))
-      .limit(120),
-    db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards),
-  ])
-  const reelIds = [...reels.map((r) => r.id), ...generated.map((r) => r.id)]
-  const reelRows = reelIds.length ? await db.select().from(reelState).where(inArray(reelState.reelId, reelIds)) : []
+  const { generated, srsRows, reelRows } = await userScope(async (db, userId) => {
+    const [allGenerated, srsRows] = await Promise.all([
+      db
+        .select()
+        .from(generatedReels)
+        .where(and(eq(generatedReels.status, 'active'), gte(generatedReels.createdAt, now - GENERATED_WINDOW_MS)))
+        .orderBy(desc(generatedReels.createdAt))
+        .limit(120),
+      db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
+    ])
+    const reelIds = [...reels.map((r) => r.id), ...allGenerated.map((r) => r.id)]
+    const reelRows = reelIds.length
+      ? await db
+          .select()
+          .from(reelState)
+          .where(and(eq(reelState.userId, userId), inArray(reelState.reelId, reelIds)))
+      : []
+    // AI reels this user hid ("не показувати") never come back.
+    const hidden = new Set(reelRows.filter((r) => r.hidden).map((r) => r.reelId))
+    return { generated: allGenerated.filter((r) => !hidden.has(r.id)), srsRows, reelRows }
+  })
   const states = new Map(reelRows.map((r) => [r.reelId, r]))
   const seen = (id: string) => Boolean(states.get(id)?.views)
   const byLastSeen = (a: { id: string }, b: { id: string }) => (states.get(a.id)?.lastSeenAt ?? 0) - (states.get(b.id)?.lastSeenAt ?? 0)

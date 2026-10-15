@@ -1,6 +1,6 @@
 import 'server-only'
 import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { first, getDb, type Conn } from '@/db/client'
+import { first, type Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState, xpLedger } from '@/db/schema'
 import type { Chapter } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -8,6 +8,7 @@ import { dayKey, dayStartMs } from '@/progress/day'
 import { missionRatio, planMission, stepProgress, type MissionActivity, type MissionPlan, type StepProgress } from '@/progress/mission'
 import type { Effect } from '@/progress/types'
 import { chapterHref } from '@/ui/routes'
+import { userScope } from '../auth'
 import { readSettings } from '../settings'
 import { TRACKS } from '@/content/tracks'
 import { chapterProgressMap, nextChapterFor } from './library'
@@ -39,12 +40,17 @@ async function currentNextChapter(snapshot: ContentSnapshot): Promise<Chapter | 
   return null
 }
 
-async function buildPlan(snapshot: ContentSnapshot, budget: number, reels: number, lessons: number, now: number): Promise<MissionPlan> {
-  const db = getDb()
+async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, budget: number, reels: number, lessons: number, now: number): Promise<MissionPlan> {
   const [srsRows, openRows, solvedRows, next] = await Promise.all([
-    db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards),
-    db.select({ id: mistakes.unitId }).from(mistakes).where(isNull(mistakes.resolvedAt)),
-    db.select({ id: taskState.unitId }).from(taskState).where(eq(taskState.status, 'solved')),
+    db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
+    db
+      .select({ id: mistakes.unitId })
+      .from(mistakes)
+      .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
+    db
+      .select({ id: taskState.unitId })
+      .from(taskState)
+      .where(and(eq(taskState.userId, userId), eq(taskState.status, 'solved'))),
     currentNextChapter(snapshot),
   ])
   const srs = new Map(srsRows.map((r) => [r.id, r.due]))
@@ -76,7 +82,7 @@ async function buildPlan(snapshot: ContentSnapshot, budget: number, reels: numbe
   })
 }
 
-async function activity(conn: Conn, plan: MissionPlan, now: number): Promise<MissionActivity> {
+async function activity(conn: Conn, userId: string, plan: MissionPlan, now: number): Promise<MissionActivity> {
   const day = dayKey(now)
   const start = dayStartMs(now)
   const readChapter = plan.steps.find((s) => s.kind === 'read')?.chapterId
@@ -90,21 +96,41 @@ async function activity(conn: Conn, plan: MissionPlan, now: number): Promise<Mis
           ms: sql<number>`coalesce(sum(${attempts.durationMs}), 0)`,
         })
         .from(attempts)
-        .where(eq(attempts.day, day)),
+        .where(and(eq(attempts.userId, userId), eq(attempts.day, day))),
     ),
     first(
       conn
         .select({ n: sql<number>`count(*)` })
         .from(attempts)
-        .innerJoin(sessions, eq(sessions.id, attempts.sessionId))
-        .where(and(eq(attempts.day, day), eq(sessions.mode, 'mistakes'))),
+        .innerJoin(sessions, and(eq(sessions.id, attempts.sessionId), eq(sessions.userId, attempts.userId)))
+        .where(and(eq(attempts.userId, userId), eq(attempts.day, day), eq(sessions.mode, 'mistakes'))),
     ),
-    first(conn.select({ timeMs: dailyActivity.timeMs }).from(dailyActivity).where(eq(dailyActivity.day, day))),
-    first(conn.select({ n: sql<number>`count(*)` }).from(reelState).where(gte(reelState.lastSeenAt, start))),
+    first(
+      conn
+        .select({ timeMs: dailyActivity.timeMs })
+        .from(dailyActivity)
+        .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, day))),
+    ),
+    first(
+      conn
+        .select({ n: sql<number>`count(*)` })
+        .from(reelState)
+        .where(and(eq(reelState.userId, userId), gte(reelState.lastSeenAt, start))),
+    ),
     readChapter
-      ? first(conn.select({ at: chapterProgress.studiedAt }).from(chapterProgress).where(and(eq(chapterProgress.chapterId, readChapter), gte(chapterProgress.studiedAt, start))))
+      ? first(
+          conn
+            .select({ at: chapterProgress.studiedAt })
+            .from(chapterProgress)
+            .where(and(eq(chapterProgress.userId, userId), eq(chapterProgress.chapterId, readChapter), gte(chapterProgress.studiedAt, start))),
+        )
       : Promise.resolve(undefined),
-    first(conn.select({ n: sql<number>`count(*)` }).from(lessonProgress).where(gte(lessonProgress.lastCompletedAt, start))),
+    first(
+      conn
+        .select({ n: sql<number>`count(*)` })
+        .from(lessonProgress)
+        .where(and(eq(lessonProgress.userId, userId), gte(lessonProgress.lastCompletedAt, start))),
+    ),
   ])
   // dailyActivity.timeMs = reading time + answering time; subtract answering to get reading.
   const readingMs = Math.max(0, Number(today?.timeMs ?? 0) - Number(counts?.ms ?? 0))
@@ -121,19 +147,26 @@ async function activity(conn: Conn, plan: MissionPlan, now: number): Promise<Mis
 }
 
 // Today's plan is created once and kept stable, unless the budget changed before any progress was made.
-async function ensurePlan(snapshot: ContentSnapshot, reels: number, lessons: number, now: number) {
-  const db = getDb()
+async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, reels: number, lessons: number, now: number) {
   const day = dayKey(now)
   const { dailyMinutes } = await readSettings()
-  const row = await first(db.select().from(dailyMissions).where(eq(dailyMissions.day, day)))
+  const row = await first(
+    db
+      .select()
+      .from(dailyMissions)
+      .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day))),
+  )
   if (row && (row.budgetMinutes === dailyMinutes || row.completedAt)) return row
   if (row) {
-    const progress = stepProgress(row.plan as MissionPlan, await activity(db, row.plan as MissionPlan, now))
+    const progress = stepProgress(row.plan as MissionPlan, await activity(db, userId, row.plan as MissionPlan, now))
     if (missionRatio(progress) > 0) return row
   }
-  const plan = await buildPlan(snapshot, dailyMinutes, reels, lessons, now)
-  const values = { day, budgetMinutes: dailyMinutes, plan, progress: {}, completedAt: null, createdAt: now }
-  await db.insert(dailyMissions).values(values).onConflictDoUpdate({ target: dailyMissions.day, set: { budgetMinutes: dailyMinutes, plan, createdAt: now } })
+  const plan = await buildPlan(db, userId, snapshot, dailyMinutes, reels, lessons, now)
+  const values = { userId, day, budgetMinutes: dailyMinutes, plan, progress: {}, completedAt: null, createdAt: now }
+  await db
+    .insert(dailyMissions)
+    .values(values)
+    .onConflictDoUpdate({ target: [dailyMissions.userId, dailyMissions.day], set: { budgetMinutes: dailyMinutes, plan, createdAt: now } })
   return values
 }
 
@@ -172,27 +205,37 @@ function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: CourseCu
 
 export async function getMission(snapshot: ContentSnapshot, reels: number, now = Date.now()): Promise<MissionView> {
   const cursor = await courseCursor(snapshot, MAIN_TRACK.guides)
-  const row = await ensurePlan(snapshot, reels, cursor.remaining, now)
-  const plan = row.plan as MissionPlan
-  const progress = stepProgress(plan, await activity(getDb(), plan, now))
-  const ratio = missionRatio(progress)
-  return { cursor, plan, progress, ratio, complete: progress.every((p) => p.complete), completedAt: row.completedAt ?? null, hrefs: hrefsFor(snapshot, plan, cursor) }
+  return userScope(async (db, userId) => {
+    const row = await ensurePlan(db, userId, snapshot, reels, cursor.remaining, now)
+    const plan = row.plan as MissionPlan
+    const progress = stepProgress(plan, await activity(db, userId, plan, now))
+    const ratio = missionRatio(progress)
+    return { cursor, plan, progress, ratio, complete: progress.every((p) => p.complete), completedAt: row.completedAt ?? null, hrefs: hrefsFor(snapshot, plan, cursor) }
+  })
 }
 
 // Called after every learning action: awards the mission bonus once, when the last step is done.
-export async function settleMission(conn: Conn, now = Date.now()): Promise<Effect[]> {
+export async function settleMission(conn: Conn, userId: string, now = Date.now()): Promise<Effect[]> {
   const day = dayKey(now)
-  const row = await first(conn.select().from(dailyMissions).where(eq(dailyMissions.day, day)))
+  const row = await first(
+    conn
+      .select()
+      .from(dailyMissions)
+      .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day))),
+  )
   if (!row || row.completedAt) return []
   const plan = row.plan as MissionPlan
-  const progress = stepProgress(plan, await activity(conn, plan, now))
+  const progress = stepProgress(plan, await activity(conn, userId, plan, now))
   if (!progress.every((p) => p.complete)) return []
-  await conn.update(dailyMissions).set({ completedAt: now }).where(eq(dailyMissions.day, day))
-  await conn.insert(xpLedger).values({ amount: plan.bonusXp, reason: 'mission', refId: day, createdAt: now, day })
+  await conn
+    .update(dailyMissions)
+    .set({ completedAt: now })
+    .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day)))
+  await conn.insert(xpLedger).values({ userId, amount: plan.bonusXp, reason: 'mission', refId: day, createdAt: now, day })
   await conn
     .insert(dailyActivity)
-    .values({ day, xp: plan.bonusXp, goalMet: true })
-    .onConflictDoUpdate({ target: dailyActivity.day, set: { xp: sql`${dailyActivity.xp} + ${plan.bonusXp}`, goalMet: true } })
+    .values({ userId, day, xp: plan.bonusXp, goalMet: true })
+    .onConflictDoUpdate({ target: [dailyActivity.userId, dailyActivity.day], set: { xp: sql`${dailyActivity.xp} + ${plan.bonusXp}`, goalMet: true } })
   return [
     { type: 'mission', budget: plan.budget, bonusXp: plan.bonusXp },
     { type: 'xp', amount: plan.bonusXp, reason: 'mission' },
@@ -201,6 +244,11 @@ export async function settleMission(conn: Conn, now = Date.now()): Promise<Effec
 
 export async function missionHistory(days: string[]): Promise<Map<string, { budget: number; completed: boolean }>> {
   if (days.length === 0) return new Map()
-  const rows = await getDb().select().from(dailyMissions).where(inArray(dailyMissions.day, days))
+  const rows = await userScope((db, userId) =>
+    db
+      .select()
+      .from(dailyMissions)
+      .where(and(eq(dailyMissions.userId, userId), inArray(dailyMissions.day, days))),
+  )
   return new Map(rows.map((r) => [r.day, { budget: r.budgetMinutes, completed: r.completedAt !== null }]))
 }

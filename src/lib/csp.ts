@@ -6,17 +6,23 @@ export interface CspOptions {
   nonce: string
   dev: boolean
   https: boolean
+  // Supabase project origin (Auth API, storage-hosted avatars).
+  supabaseUrl?: string | null
 }
 
-export function buildCsp({ nonce, dev, https }: CspOptions): string {
+// Profile pictures from the OAuth providers (Google, GitHub).
+export const AVATAR_HOSTS = ['https://lh3.googleusercontent.com', 'https://avatars.githubusercontent.com'] as const
+
+export function buildCsp({ nonce, dev, https, supabaseUrl }: CspOptions): string {
+  const supabase = supabaseUrl ? [supabaseUrl] : []
   const directives: [string, ...string[]][] = [
     ['default-src', "'self'"],
     // 'unsafe-eval' only in dev: React uses eval for server error stacks there.
     ['script-src', "'self'", `'nonce-${nonce}'`, "'strict-dynamic'", ...(dev ? ["'unsafe-eval'"] : [])],
     ['style-src', "'self'", "'unsafe-inline'"],
-    ['img-src', "'self'", 'data:', 'blob:'],
+    ['img-src', "'self'", 'data:', 'blob:', ...supabase, ...AVATAR_HOSTS],
     ['font-src', "'self'", 'data:'],
-    ['connect-src', "'self'", ...(dev ? ['ws:'] : [])],
+    ['connect-src', "'self'", ...supabase, ...(dev ? ['ws:'] : [])],
     ['media-src', "'self'", 'data:', 'blob:'],
     // The code runner worker is a same-origin script with its own locked-down CSP (/runner/worker.js).
     ['worker-src', "'self'"],

@@ -8,9 +8,13 @@ const targetUrl = process.env.DIRECT_URL ?? process.env.DATABASE_URL
 if (!targetUrl) throw new Error('DIRECT_URL / DATABASE_URL (ціль) не задано')
 if (targetUrl === sourceUrl) throw new Error('Джерело і ціль однакові')
 
+// FK order: profiles before per-user tables, news_items before news_reads. Both databases must be on the same
+// migration (pnpm db:migrate). Supabase: profiles of real users only exist after they signed in there; copying the
+// legacy owner (00000000-…) is what you want — the admin claims it on first sign-in.
 const TABLES = [
-  'settings', 'units', 'unit_aliases', 'sessions', 'attempts', 'srs_cards', 'mistakes', 'chapter_progress', 'task_state',
-  'xp_ledger', 'achievements', 'daily_activity', 'daily_missions', 'reel_state', 'lesson_progress', 'news_items', 'generated_reels',
+  'profiles', 'system_state', 'user_settings', 'units', 'unit_aliases', 'sessions', 'attempts', 'srs_cards', 'mistakes', 'chapter_progress',
+  'task_state', 'xp_ledger', 'achievements', 'daily_activity', 'daily_missions', 'reel_state', 'lesson_progress', 'news_items', 'news_reads',
+  'generated_reels',
 ]
 
 const src = postgres(sourceUrl, { max: 1, prepare: false, onnotice: () => {} })

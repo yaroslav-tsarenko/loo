@@ -1,7 +1,7 @@
 import 'server-only'
-import { and, eq, gt, lt, sql } from 'drizzle-orm'
+import { and, gt, lt, sql } from 'drizzle-orm'
 import { getDb } from '@/db/client'
-import { newsItems } from '@/db/schema'
+import { newsItems, newsReads } from '@/db/schema'
 import { collectNews } from './collect'
 import { isNearDuplicate } from './dedupe'
 
@@ -43,7 +43,7 @@ export async function ingestNews(now: number): Promise<IngestSummary> {
           fetchedAt: now,
         })),
       )
-      // readAt and saved are user state: never touched on re-ingest.
+      // Read / saved state lives in news_reads (per user): never touched on re-ingest.
       .onConflictDoUpdate({
         target: newsItems.id,
         set: {
@@ -56,9 +56,10 @@ export async function ingestNews(now: number): Promise<IngestSummary> {
       })
   }
 
+  // Old news go, unless somebody saved them (their news_reads rows cascade with the item).
   const deleted = await db
     .delete(newsItems)
-    .where(and(eq(newsItems.saved, false), lt(newsItems.publishedAt, now - RETENTION_MS)))
+    .where(and(lt(newsItems.publishedAt, now - RETENTION_MS), sql`not exists (select 1 from ${newsReads} where ${newsReads.newsId} = ${newsItems.id} and ${newsReads.saved})`))
     .returning({ id: newsItems.id })
 
   const summary = { fetched, upserted: fresh.length, skippedDuplicates: items.length - fresh.length, deleted: deleted.length, durationMs: Date.now() - started }

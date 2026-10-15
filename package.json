@@ -19,6 +19,8 @@
     "ids:suggest": "tsx scripts/ids-suggest.ts",
     "content:check": "tsx --env-file-if-exists=.env.local scripts/check-guide.ts",
     "content:sync": "tsx --env-file-if-exists=.env.local scripts/content-sync.ts",
+    "course:check": "tsx --env-file-if-exists=.env.local scripts/course-check.ts",
+    "course:build": "tsx --env-file-if-exists=.env.local scripts/course-build.ts",
     "db:migrate": "tsx --env-file-if-exists=.env.local scripts/migrate.ts",
     "db:import-sqlite": "tsx --env-file-if-exists=.env.local scripts/import-sqlite.ts",
     "db:local": "tsx scripts/local-db.ts",
@@ -32,6 +34,8 @@
   },
   "dependencies": {
     "@shikijs/transformers": "^4.4.3",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "ai": "^6.0.307",
     "chokidar": "^5.0.0",
     "drizzle-orm": "^0.45.3",

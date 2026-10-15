@@ -1,19 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PiArrowLeftBold, PiArrowRightBold, PiCheckBold, PiCodeBlockFill, PiPencilSimpleFill, PiTestTubeFill, PiXBold } from 'react-icons/pi'
 import { DIFFICULTIES, DIFFICULTY_LABEL, type TaskUnit } from '@/content/model'
 import { getContent } from '@/server/content'
 import { matchUnits, parseFilters, taskStates } from '@/server/services/queue'
 import { renderStudyItems } from '@/ui/study/render-items'
 import { TaskInline } from '@/ui/study/TaskInline'
+import { Pill } from '@/ui/design/Badge'
+import { Card } from '@/ui/design/Card'
+import type { Tone } from '@/ui/design/cx'
+import { ProgressBar } from '@/ui/design/ProgressBar'
 import { chapterHref } from '@/ui/routes'
-import { Tag, tagColor } from '@/ui/Tag'
 
 export const metadata: Metadata = { title: 'Задачі' }
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>
 
-const STATUS_LABEL = { open: 'в роботі', solved: 'розв’язано', failed: 'не вийшло' } as const
+const STATUS_LABEL = { open: 'в роботі', solved: 'розв’язано', failed: 'не вийшло', new: 'нова' } as const
+const STATUS_ICON = { open: <PiPencilSimpleFill />, solved: <PiCheckBold />, failed: <PiXBold />, new: <PiCodeBlockFill /> } as const
+const DIFF_TONE: Record<string, Tone> = { easy: 'green', medium: 'orange', hard: 'red' }
 
 export default async function TasksPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams
@@ -36,19 +42,16 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
     const chapter = snapshot.chapters.get(unit.chapterId)
     return (
       <div className="page task-page">
-        <div className="reader-crumbs">
-          <Link className="ui-link" href={`/tasks?${guideQuery}`}>
-            Задачі
+        <nav className="gcrumbs" aria-label="Навігація">
+          <Link className="gcrumb" href={`/tasks?${guideQuery}`}>
+            <PiArrowLeftBold aria-hidden="true" /> Задачі
           </Link>
           {chapter ? (
-            <>
-              <span aria-hidden="true">/</span>
-              <Link className="ui-link" href={chapterHref(snapshot, chapter)}>
-                {chapter.title}
-              </Link>
-            </>
+            <Link className="gcrumb" href={chapterHref(snapshot, chapter)}>
+              {chapter.title}
+            </Link>
           ) : null}
-        </div>
+        </nav>
         <div className="task-page-body">
           <TaskInline
             key={unit.id}
@@ -67,20 +70,24 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
             variant="inline"
           />
         </div>
-        <nav className="pager" aria-label="Сусідні задачі">
+        <nav className="gpager" aria-label="Сусідні задачі">
           {prev ? (
-            <Link className="pager-link" href={`/tasks?${guideQuery}unit=${encodeURIComponent(prev.id)}`}>
-              <span className="eyebrow">Попередня</span>
-              <span className="pager-title">{prev.titleText}</span>
-            </Link>
+            <Card href={`/tasks?${guideQuery}unit=${encodeURIComponent(prev.id)}`} padding="sm" className="gpager-link">
+              <span className="gpager-dir">
+                <PiArrowLeftBold aria-hidden="true" /> Попередня
+              </span>
+              <span className="gpager-title">{prev.titleText}</span>
+            </Card>
           ) : (
             <span />
           )}
           {next ? (
-            <Link className="pager-link pager-next" href={`/tasks?${guideQuery}unit=${encodeURIComponent(next.id)}`}>
-              <span className="eyebrow">Наступна</span>
-              <span className="pager-title">{next.titleText}</span>
-            </Link>
+            <Card href={`/tasks?${guideQuery}unit=${encodeURIComponent(next.id)}`} padding="sm" className="gpager-link gpager-next">
+              <span className="gpager-dir">
+                Наступна <PiArrowRightBold aria-hidden="true" />
+              </span>
+              <span className="gpager-title">{next.titleText}</span>
+            </Card>
           ) : null}
         </nav>
       </div>
@@ -88,58 +95,82 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   }
 
   const solved = tasks.filter((t) => states.get(t.id)?.status === 'solved').length
+  const guides = snapshot.guides.filter((g) => [...snapshot.units.values()].some((u) => u.kind === 'task' && u.guideId === g.id))
   return (
     <div className="page tasks-page">
-      <header className="study-head">
-        <h1 className="page-title">Задачі</h1>
-        <p className="page-lead">
-          Спершу пишете рішення самі, підказки відкриваються по одній. Задачі з 🧪 перевіряються автотестами прямо в браузері, решта — порівнянням з еталоном і чесною самооцінкою. Кожна підказка зменшує XP на 20%.
-        </p>
-        <p className="chapter-meta">
-          <span>
-            Розв’язано {solved} з {tasks.length}
+      <header className="ghead">
+        <span className="ghead-badge" data-tone="orange" aria-hidden="true">
+          <PiCodeBlockFill size={38} />
+        </span>
+        <div className="ghead-text">
+          <h1 className="ghead-title">Задачі</h1>
+          <p className="ghead-lead">Спершу пишеш рішення сам, підказки відкриваються по одній. Задачі з автотестами перевіряються прямо в браузері, решта — порівнянням з еталоном. Кожна підказка зменшує XP на 20%.</p>
+        </div>
+      </header>
+      <Card variant="raised" className="tasks-progress">
+        <div className="tasks-progress-top">
+          <span className="tasks-progress-label">Розв’язано</span>
+          <span className="tasks-progress-num tabular">
+            {solved}
+            <small>/{tasks.length}</small>
           </span>
-          {snapshot.guides
-            .filter((g) => [...snapshot.units.values()].some((u) => u.kind === 'task' && u.guideId === g.id))
-            .map((g) => (
-              <Link key={g.id} className="ui-link" href={filters.guide === g.id ? '/tasks' : `/tasks?guide=${encodeURIComponent(g.id)}`} aria-current={filters.guide === g.id ? 'true' : undefined}>
-                {filters.guide === g.id ? `× ${g.title}` : g.title}
+        </div>
+        <ProgressBar value={tasks.length ? solved / tasks.length : 0} label="Розв’язано задач" size="lg" />
+        {guides.length > 0 ? (
+          <nav className="gchips" aria-label="Посібник">
+            <Link className="gchip" href="/tasks" aria-current={!filters.guide ? 'true' : undefined}>
+              Усі
+            </Link>
+            {guides.map((g) => (
+              <Link key={g.id} className="gchip" href={filters.guide === g.id ? '/tasks' : `/tasks?guide=${encodeURIComponent(g.id)}`} aria-current={filters.guide === g.id ? 'true' : undefined}>
+                {g.title}
               </Link>
             ))}
-        </p>
-      </header>
+          </nav>
+        ) : null}
+      </Card>
       {DIFFICULTIES.map((d) => {
         const group = tasks.filter((t) => t.difficulty === d)
         if (group.length === 0) return null
+        const done = group.filter((t) => states.get(t.id)?.status === 'solved').length
         return (
-          <section key={d} aria-labelledby={`d-${d}`}>
-            <h2 id={`d-${d}`} className="section-title rule-title">
-              <Tag color={tagColor(d)}>{DIFFICULTY_LABEL[d]}</Tag>
-              <span className="tabular">{group.length}</span>
+          <section key={d} aria-labelledby={`d-${d}`} className="gsection">
+            <h2 id={`d-${d}`} className="gsection-title">
+              <Pill tone={DIFF_TONE[d] ?? 'gray'} solid size="sm">
+                {DIFFICULTY_LABEL[d]}
+              </Pill>
+              <span className="gsection-count tabular">
+                {done}/{group.length}
+              </span>
             </h2>
-            <table className="data-table">
-              <tbody>
-                {group.map((t) => {
-                  const state = states.get(t.id)
-                  const chapter = snapshot.chapters.get(t.chapterId)
-                  return (
-                    <tr key={t.id}>
-                      <td>
-                        <Link className="ui-link task-link" href={`/tasks?${guideQuery}unit=${encodeURIComponent(t.id)}`}>
-                          {t.titleText}
-                        </Link>
-                        {t.code?.tests ? <span title="Перевіряється автотестами"> 🧪</span> : null}
-                        <span className="cell-sub">{chapter?.title}</span>
-                      </td>
-                      <td className="task-state" data-status={state?.status ?? 'new'}>
-                        {state ? STATUS_LABEL[state.status] : 'нова'}
-                        {state && state.hintsRevealed > 0 ? <span className="cell-sub">підказок: {state.hintsRevealed}</span> : null}
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+            <ul className="task-cards">
+              {group.map((t) => {
+                const state = states.get(t.id)
+                const status = state?.status ?? 'new'
+                const chapter = snapshot.chapters.get(t.chapterId)
+                return (
+                  <li key={t.id}>
+                    <Card href={`/tasks?${guideQuery}unit=${encodeURIComponent(t.id)}`} padding="sm" className="task-card" data-status={status}>
+                      <span className="task-card-status" role="img" aria-label={STATUS_LABEL[status]} title={STATUS_LABEL[status]}>
+                        {STATUS_ICON[status]}
+                      </span>
+                      <span className="task-card-text">
+                        <span className="task-card-title">{t.titleText}</span>
+                        <span className="task-card-meta">
+                          {chapter?.title}
+                          {state && state.hintsRevealed > 0 ? ` · підказок: ${state.hintsRevealed}` : ''}
+                        </span>
+                      </span>
+                      {t.code?.tests ? (
+                        <Pill size="sm" tone="blue" icon={<PiTestTubeFill />} className="task-card-tests" title="Перевіряється автотестами">
+                          тести
+                        </Pill>
+                      ) : null}
+                    </Card>
+                  </li>
+                )
+              })}
+            </ul>
           </section>
         )
       })}

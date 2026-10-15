@@ -4,11 +4,13 @@ import { count, desc, eq, gte } from 'drizzle-orm'
 import { gatewayAuth, reelModels } from '@/ai/reels/generate'
 import { splitBody } from '@/ai/reels/schema'
 import { first, getDb } from '@/db/client'
-import { generatedReels, settings } from '@/db/schema'
+import { generatedReels } from '@/db/schema'
 import { safeExternalUrl } from '@/lib/url'
 import { dayStartMs } from '@/progress/day'
+import { requireAdmin } from '@/server/auth'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { readSystem } from '@/server/settings'
 import { relative } from '@/ui/format'
 import { GenerateNow, HideButton } from '@/ui/feed/GeneratedAdmin'
 import { chapterHref } from '@/ui/routes'
@@ -22,18 +24,20 @@ function Prose({ text }: { text: string }) {
   return text.split(/`([^`]+)`/).map((part, i) => (i % 2 ? <code key={i}>{part}</code> : part))
 }
 
+// Admin tool: review today's AI reels, take one down for everyone, run the generator.
 export default async function GeneratedReelsPage() {
+  await requireAdmin()
   const now = nowMs()
   const db = getDb()
   const [snapshot, rows, active, last] = await Promise.all([
     getContent(),
     db.select().from(generatedReels).where(gte(generatedReels.createdAt, dayStartMs(now))).orderBy(desc(generatedReels.createdAt)),
     first(db.select({ n: count() }).from(generatedReels).where(eq(generatedReels.status, 'active'))),
-    first(db.select().from(settings).where(eq(settings.key, 'internal.reelsGeneratedAt'))),
+    readSystem('internal.reelsGeneratedAt'),
   ])
   const { model, verifyModel } = reelModels()
   const auth = gatewayAuth()
-  const lastRun = typeof last?.value === 'number' ? last.value : null
+  const lastRun = typeof last === 'number' ? last : null
 
   return (
     <div className="page news-page gen-page">

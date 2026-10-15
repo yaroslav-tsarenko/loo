@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { defaultVaultConfig } from '@/content/config'
-import { authMode } from '@/lib/auth'
+import { isAdmin } from '@/server/auth'
 import { getContent } from '@/server/content'
 import { readSettings } from '@/server/settings'
 import { SettingsForm } from '@/ui/settings/SettingsForm'
@@ -21,7 +22,7 @@ const CODE_LABEL: Record<string, string> = {
 
 export default async function SettingsPage() {
   const snapshot = await getContent()
-  const settings = await readSettings()
+  const [settings, admin] = await Promise.all([readSettings(), isAdmin()])
   const groups = new Map<string, typeof snapshot.issues>()
   for (const issue of snapshot.issues) {
     const list = groups.get(issue.code) ?? []
@@ -33,23 +34,24 @@ export default async function SettingsPage() {
       <header className="study-head">
         <h1 className="page-title">Налаштування</h1>
         <p className="page-lead">
-          Прогрес зберігається локально в <code>.data/study.db</code>. Vault лише читається: апка ніколи в нього не пише.
+          Налаштування твого акаунта: тема, звук, щоденна ціль. Прогрес зберігається в хмарі й доступний на будь-якому пристрої.
         </p>
       </header>
-      <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} />
-      {authMode() === 'password' ? (
-        <section aria-labelledby="s-session">
-          <h2 id="s-session" className="section-title rule-title">
-            Сесія
-          </h2>
-          {/* Plain POST to a route handler (same-origin checked); clears the session cookie. */}
-          <form action="/auth/logout" method="post">
-            <button type="submit" className="ui-button" data-variant="ghost">
-              Вийти
-            </button>
-          </form>
-        </section>
-      ) : null}
+      <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} admin={admin} />
+      <section aria-labelledby="s-session">
+        <h2 id="s-session" className="section-title rule-title">
+          Акаунт
+        </h2>
+        <p className="unit-meta">
+          Ім&apos;я, аватар, інтереси, експорт і видалення даних — у <Link className="ui-link" href="/account">профілі й акаунті</Link>.
+        </p>
+        {/* Plain POST to a route handler (same-origin checked); ends the Supabase session. */}
+        <form action="/auth/sign-out" method="post">
+          <button type="submit" className="ui-button" data-variant="ghost">
+            Вийти
+          </button>
+        </form>
+      </section>
       <section aria-labelledby="s-issues">
         <h2 id="s-issues" className="section-title rule-title">
           Проблеми контенту

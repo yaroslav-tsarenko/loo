@@ -61,7 +61,8 @@ export function normalizeMeta(data: Record<string, unknown>): ChapterMeta {
   const parts = toStringList(data.parts)
   if (parts.length) meta.parts = parts
   const icon = toText(data.icon)
-  if (icon) meta.icon = icon.slice(0, 8)
+  // bare emoji ≤ 8 chars; library refs (`si:SiJavascript`, COURSE_FORMAT §6) keep their full name
+  if (icon) meta.icon = /^(si|pi|tb|lucide|emoji):/.test(icon) ? icon.slice(0, 64) : icon.slice(0, 8)
   const guide = toText(data.guide)
   if (guide) meta.guide = guide
   return meta

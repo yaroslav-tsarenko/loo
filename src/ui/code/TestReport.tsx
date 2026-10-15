@@ -1,5 +1,7 @@
 'use client'
 
+import { PiCheckBold, PiHourglassFill, PiWarningFill, PiXBold } from 'react-icons/pi'
+import { Pill } from '@/ui/design/Badge'
 import type { RunReport } from './runner'
 
 interface Props {
@@ -12,37 +14,54 @@ function summary(report: RunReport, stuckOn: string | null): string {
   const passed = report.tests.filter((t) => t.ok).length
   switch (report.status) {
     case 'passed':
-      return `🎉 Усі тести пройдено · ${passed}/${report.tests.length}`
+      return `Усі тести пройдено 🎉`
     case 'failed':
-      return `❌ Пройдено ${passed} з ${report.tests.length}`
+      return `Пройдено ${passed} з ${report.tests.length}`
     case 'timeout':
-      return `${report.error ?? '⏱️ Таймаут'}${stuckOn ? ` Зависло на «${stuckOn}»` : ''}`
+      return `${report.error ?? 'Таймаут'}${stuckOn ? ` Зависло на «${stuckOn}»` : ''}`
     default:
-      return `💥 ${report.error ?? 'Помилка'}`
+      return report.error ?? 'Помилка'
   }
 }
 
+// Checklist of tests: a green/red chip per row, plus a score pill.
 export function TestReport({ report, running, stuckOn }: Props) {
   if (running && !report) {
     return (
       <div className="test-report" data-status="running" role="status">
-        <p className="test-summary">⏳ Запускаю тести…</p>
+        <p className="test-summary">
+          <span className="test-chip" data-ok="wait" aria-hidden="true">
+            <PiHourglassFill />
+          </span>
+          Запускаю тести…
+        </p>
       </div>
     )
   }
   if (!report) return null
+  const passed = report.tests.filter((t) => t.ok).length
   return (
     <div className="test-report" data-status={report.status} role="status" aria-live="polite">
       <p className="test-summary">
-        {summary(report, stuckOn)}
+        {report.status === 'error' || report.status === 'timeout' ? (
+          <span className="test-chip" data-ok="no" aria-hidden="true">
+            <PiWarningFill />
+          </span>
+        ) : null}
+        <span className="test-summary-text">{summary(report, stuckOn)}</span>
+        {report.tests.length > 0 ? (
+          <Pill size="sm" tone={report.status === 'passed' ? 'green' : 'red'} solid className="tabular">
+            {passed}/{report.tests.length}
+          </Pill>
+        ) : null}
         <span className="test-ms tabular">{Math.round(report.ms)} мс</span>
       </p>
       {report.tests.length > 0 ? (
         <ol className="test-list">
           {report.tests.map((t, i) => (
             <li key={i} className="test-row" data-ok={t.ok ? '' : undefined}>
-              <span className="test-mark" aria-label={t.ok ? 'пройдено' : 'не пройдено'}>
-                {t.ok ? '✅' : '❌'}
+              <span className="test-chip" data-ok={t.ok ? 'yes' : 'no'} role="img" aria-label={t.ok ? 'пройдено' : 'не пройдено'}>
+                {t.ok ? <PiCheckBold /> : <PiXBold />}
               </span>
               <div className="test-body">
                 <span className="test-name">{t.name}</span>

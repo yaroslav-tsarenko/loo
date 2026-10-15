@@ -4,7 +4,7 @@ import path from 'node:path'
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { runSnippet } from '@/ai/reels/code-check'
 import { urlResponds } from '@/ai/reels/generate'
-import { authMode, createSessionToken, cronAuthorized, passwordMatches, secretsEqual, SESSION_TTL_MS, sessionExpiry, verifySessionToken } from '@/lib/auth'
+import { cronAuthorized, secretsEqual } from '@/lib/auth'
 import { buildCsp, RUNNER_WORKER_CSP } from '@/lib/csp'
 import { isWithin, resolveInside } from '@/lib/path-guard'
 import { clientIp, hitAll, hitRateLimit, MemoryRateLimitStore } from '@/lib/rate-limit'
@@ -43,7 +43,7 @@ describe('safeRedirectPath', () => {
   })
 
   it('rejects open redirects and odd inputs', () => {
-    for (const bad of ['//evil.com', '/\\evil.com', '\\\\evil.com', '/\t/evil.com', '/\n/evil.com', 'https://evil.com', 'evil.com', 'javascript:alert(1)', '/login', '/auth/login', '', undefined, 7, ['/a']])
+    for (const bad of ['//evil.com', '/\\evil.com', '\\\\evil.com', '/\t/evil.com', '/\n/evil.com', 'https://evil.com', 'evil.com', 'javascript:alert(1)', '/login', '/signup', '/reset-password', '/auth/callback?code=x', '', undefined, 7, ['/a']])
       expect(safeRedirectPath(bad), JSON.stringify(bad)).toBe('/')
   })
 })
@@ -113,56 +113,6 @@ describe('rate limiter', () => {
     expect(clientIp(new Headers({ 'x-forwarded-for': '1.2.3.4, 10.0.0.1' }))).toBe('1.2.3.4')
     expect(clientIp(new Headers({ 'x-real-ip': '5.6.7.8', 'x-forwarded-for': '1.2.3.4' }))).toBe('5.6.7.8')
     expect(clientIp(new Headers())).toBe('unknown')
-  })
-})
-
-describe('session tokens', () => {
-  const env = { ...process.env }
-  beforeAll(() => {
-    process.env.APP_PASSWORD = 'correct horse battery staple'
-    process.env.AUTH_SECRET = 'x'.repeat(48)
-  })
-  afterEach(() => vi.useRealTimers())
-  afterAll(() => {
-    process.env = env
-  })
-
-  it('round-trips and expires', async () => {
-    const now = 1_800_000_000_000
-    const token = await createSessionToken(now)
-    expect(await verifySessionToken(token, now)).toBe(true)
-    expect(await sessionExpiry(token, now)).toBe(now + SESSION_TTL_MS)
-    expect(await verifySessionToken(token, now + SESSION_TTL_MS + 1)).toBe(false)
-  })
-
-  it('rejects tampering, foreign keys and malformed tokens', async () => {
-    const now = 1_800_000_000_000
-    const token = await createSessionToken(now)
-    const [expires, sig] = token.split('.') as [string, string]
-    expect(await verifySessionToken(`${Number(expires) + 1000}.${sig}`, now)).toBe(false)
-    expect(await verifySessionToken(`${expires}.${sig.slice(0, -1)}A`, now)).toBe(false)
-    expect(await verifySessionToken(`${now + 10 * SESSION_TTL_MS}.${sig}`, now)).toBe(false)
-    for (const bad of [undefined, '', 'abc', '.', `${expires}.`, `-1.${sig}`, 'x'.repeat(500)]) expect(await verifySessionToken(bad, now)).toBe(false)
-    process.env.AUTH_SECRET = 'y'.repeat(48)
-    expect(await verifySessionToken(token, now)).toBe(false)
-    process.env.AUTH_SECRET = 'x'.repeat(48)
-    expect(await verifySessionToken(token, now)).toBe(true)
-  })
-
-  it('checks the password', async () => {
-    expect(await passwordMatches('correct horse battery staple')).toBe(true)
-    expect(await passwordMatches('correct horse battery stapl')).toBe(false)
-    expect(await passwordMatches('')).toBe(false)
-    expect(await passwordMatches('x'.repeat(5000))).toBe(false)
-  })
-
-  it('fails closed when deployed without a real secret', () => {
-    expect(authMode({ VERCEL: '1' })).toBe('locked')
-    expect(authMode({ VERCEL: '1', APP_PASSWORD: 'pw' })).toBe('locked')
-    expect(authMode({ VERCEL: '1', APP_PASSWORD: 'pw', AUTH_SECRET: 'short' })).toBe('locked')
-    expect(authMode({ VERCEL: '1', APP_PASSWORD: 'pw', AUTH_SECRET: 'z'.repeat(32) })).toBe('password')
-    expect(authMode({})).toBe('open')
-    expect(authMode({ APP_PASSWORD: 'pw' })).toBe('password')
   })
 })
 

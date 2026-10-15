@@ -1,16 +1,8 @@
 import 'server-only'
-import { cookies } from 'next/headers'
 import { z } from 'zod'
-import { authMode, SESSION_COOKIE, verifySessionToken } from '@/lib/auth'
 
-// Every server action is a public POST endpoint: proxy.ts blocks unauthenticated action calls,
-// and each action re-checks here (defense in depth; becomes requireUser() with multi-user auth).
-export async function requireSession(): Promise<void> {
-  const mode = authMode()
-  if (mode === 'open') return
-  if (mode === 'password' && (await verifySessionToken((await cookies()).get(SESSION_COOKIE)?.value))) return
-  throw new Error('Unauthorized')
-}
+// Every server action is a public POST endpoint: proxy.ts blocks action calls without a session, and each action
+// re-checks with requireUser() / userScope() from ./auth (defense in depth), then validates its input here.
 
 // Validates action input without echoing it back to the caller.
 export function parseInput<T extends z.ZodType>(schema: T, input: unknown): z.infer<T> {

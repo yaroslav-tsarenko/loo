@@ -1147,51 +1147,6 @@
     background: var(--red);
   }
 
-  .mistakes-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 32px;
-    align-items: end;
-  }
-  .mistakes-cta {
-    display: grid;
-    gap: 8px;
-    justify-items: start;
-    padding-bottom: 4px;
-  }
-  .mistakes-cta .queue-num {
-    font-size: 40px;
-  }
-  .streak-dots {
-    display: inline-flex;
-    gap: 4px;
-  }
-  .streak-dots i {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: light-dark(rgb(55 53 47 / 0.16), rgb(255 255 255 / 0.16));
-  }
-  .streak-dots i[data-on] {
-    background: var(--green);
-  }
-  .resolved-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 2px;
-    font-size: 14px;
-  }
-  .resolved-list li {
-    padding: 3px 2px;
-  }
-  .resolved-list li::before {
-    content: '✓';
-    color: var(--green);
-    margin-right: 8px;
-  }
-
   :root {
     --heat-0: light-dark(rgb(55 53 47 / 0.06), rgb(255 255 255 / 0.055));
     --heat-1: light-dark(#d3e5ef, #1c3a52);
@@ -1860,8 +1815,7 @@
     }
     .profile-head,
     .profile-cols,
-    .roadmap-body,
-    .mistakes-head {
+    .roadmap-body {
       grid-template-columns: 1fr;
       gap: 20px;
     }

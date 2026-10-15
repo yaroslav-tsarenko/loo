@@ -1,6 +1,5 @@
 import 'server-only'
-import { eq } from 'drizzle-orm'
-import { getDb } from '@/db/client'
+import { and, eq } from 'drizzle-orm'
 import { srsCards, taskState } from '@/db/schema'
 import type { LessonKind } from '@/content/lessons'
 import type { Track } from '@/content/tracks'
@@ -8,6 +7,7 @@ import type { Chapter, Guide } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { chapterMastery, STABLE_DAYS, type ChapterSignals, type Mastery } from '@/progress/mastery'
 import { chapterHref } from '@/ui/routes'
+import { userScope } from '../auth'
 import { chapterProgressMap, readableChapters } from './library'
 import { courseLessons, lessonProgressMap } from './lessons'
 import { lastOutcomes } from './queue'
@@ -60,12 +60,18 @@ const FALLBACK_ICONS = ['📘', '🧩', '⚙️', '🔍', '🧠', '🚀', '🛠�
 export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promise<GuidePath> {
   const chapters = readableChapters(snapshot, guide)
   const units = chapters.flatMap((c) => snapshot.unitsByChapter.get(c.id) ?? [])
-  const db = getDb()
-  const [progress, outcomes, srsRows, solvedRows, lessonRows] = await Promise.all([
+  const [progress, outcomes, [srsRows, solvedRows], lessonRows] = await Promise.all([
     chapterProgressMap(),
     lastOutcomes(units.filter((u) => u.kind === 'quiz').map((u) => u.id)),
-    db.select({ id: srsCards.unitId, state: srsCards.state, stability: srsCards.stability }).from(srsCards),
-    db.select({ id: taskState.unitId }).from(taskState).where(eq(taskState.status, 'solved')),
+    userScope((db, userId) =>
+      Promise.all([
+        db.select({ id: srsCards.unitId, state: srsCards.state, stability: srsCards.stability }).from(srsCards).where(eq(srsCards.userId, userId)),
+        db
+          .select({ id: taskState.unitId })
+          .from(taskState)
+          .where(and(eq(taskState.userId, userId), eq(taskState.status, 'solved'))),
+      ]),
+    ),
     lessonProgressMap(guide.id),
   ])
   const lessonsByChapter = courseLessons(snapshot, guide)

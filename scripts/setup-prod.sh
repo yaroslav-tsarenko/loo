@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 # One-time production setup: Vercel env vars → Supabase migrations → copy local progress → deploy.
-# Secrets are typed here (password input is hidden) and go straight to Vercel; nothing is printed or committed.
+# Values come from .env.local (or are asked for) and go straight to Vercel; nothing is printed or committed.
+# Supabase Auth dashboard settings (URL configuration, email templates, Google/GitHub) are manual: docs/AUTH.md.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-echo "🚀 Interviewer: налаштування продакшну"
+echo "🚀 Levelup: налаштування продакшну"
 
 # Values already filled in .env.local are used as is; missing ones are asked for below.
 envval() { grep -E "^$1=" .env.local 2>/dev/null | tail -1 | cut -d= -f2- | sed -E "s/^[\"']//; s/[\"']$//"; }
 DATABASE_URL="$(envval PROD_DATABASE_URL)"
 DIRECT_URL="$(envval PROD_DIRECT_URL)"
-APP_PASSWORD="$(envval APP_PASSWORD)"
-AUTH_SECRET="$(envval AUTH_SECRET)"
+SUPABASE_URL="$(envval NEXT_PUBLIC_SUPABASE_URL)"
+SUPABASE_KEY="$(envval NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)"
+ADMIN_EMAILS="$(envval ADMIN_EMAILS)"
+SITE_URL="$(envval SITE_URL)"
 CRON_SECRET="$(envval CRON_SECRET)"
 DB_PASSWORD="$(envval PROD_DB_PASSWORD)"
 if [[ -n "$DB_PASSWORD" ]]; then
@@ -27,15 +30,12 @@ echo "    Підстав пароль БД замість [YOUR-PASSWORD]. Сп�
 [[ -n "$DIRECT_URL" ]] && echo "    DIRECT_URL   — з .env.local" || read -rp "    DIRECT_URL   (Session pooler, порт 5432):     " DIRECT_URL
 [[ "$DATABASE_URL" == postgres* && "$DIRECT_URL" == postgres* ]] || { echo "❌ Рядки мають починатися з postgres:// або postgresql://"; exit 1; }
 echo
-echo "2/5 Пароль для входу в застосунок (запамʼятай — він знадобиться на телефоні)"
-if [[ -n "$APP_PASSWORD" ]]; then
-  echo "    APP_PASSWORD — з .env.local"
-else
-  read -rsp "    APP_PASSWORD: " APP_PASSWORD; echo
-  read -rsp "    ще раз:       " APP_PASSWORD2; echo
-  [[ -n "$APP_PASSWORD" && "$APP_PASSWORD" == "$APP_PASSWORD2" ]] || { echo "❌ Паролі порожні або не збігаються"; exit 1; }
-fi
-[[ -n "$AUTH_SECRET" ]] || AUTH_SECRET="$(openssl rand -base64 32 | tr -d '\n')"
+echo "2/5 Supabase Auth (Project Settings → API / API Keys)"
+[[ -n "$SUPABASE_URL" ]] && echo "    NEXT_PUBLIC_SUPABASE_URL — з .env.local" || read -rp "    NEXT_PUBLIC_SUPABASE_URL (https://<ref>.supabase.co): " SUPABASE_URL
+[[ -n "$SUPABASE_KEY" ]] && echo "    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY — з .env.local" || read -rp "    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY (sb_publishable_…): " SUPABASE_KEY
+[[ "$SUPABASE_KEY" != sb_secret_* ]] || { echo "❌ Це секретний ключ — потрібен publishable"; exit 1; }
+[[ -n "$ADMIN_EMAILS" ]] && echo "    ADMIN_EMAILS — з .env.local" || read -rp "    ADMIN_EMAILS (email адміністратора): " ADMIN_EMAILS
+[[ -n "$SITE_URL" ]] && echo "    SITE_URL — з .env.local" || read -rp "    SITE_URL (https://<домен на Vercel>, Enter — пропустити): " SITE_URL
 [[ -n "$CRON_SECRET" ]] || CRON_SECRET="$(openssl rand -hex 24)"
 
 echo
@@ -47,9 +47,19 @@ add() {
 }
 add DATABASE_URL "$DATABASE_URL"
 add DIRECT_URL "$DIRECT_URL"
-add APP_PASSWORD "$APP_PASSWORD"
-add AUTH_SECRET "$AUTH_SECRET"
 add CRON_SECRET "$CRON_SECRET"
+# Public by design (the browser may see them); not --sensitive so they show in the dashboard.
+addpublic() {
+  vercel env rm "$1" production --yes >/dev/null 2>&1 || true
+  printf '%s' "$2" | vercel env add "$1" production >/dev/null
+  echo "    ✓ $1"
+}
+addpublic NEXT_PUBLIC_SUPABASE_URL "$SUPABASE_URL"
+addpublic NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY "$SUPABASE_KEY"
+addpublic ADMIN_EMAILS "$ADMIN_EMAILS"
+[[ -n "$SITE_URL" ]] && addpublic SITE_URL "$SITE_URL"
+# The single-user password login is gone.
+for old in APP_PASSWORD AUTH_SECRET; do vercel env rm "$old" production --yes >/dev/null 2>&1 && echo "    ✗ $old видалено" || true; done
 
 echo
 echo "4/5 Міграції Supabase і перенесення прогресу…"
@@ -73,4 +83,5 @@ echo "5/5 Деплой у продакшн…"
 pnpm content:sync >/dev/null
 vercel --prod
 echo
-echo "✅ Готово. Відкрий URL вище на iPhone → Поділитися → «На початковий екран»."
+echo "✅ Готово. Далі: Supabase → Authentication → URL Configuration / Email Templates / Providers (docs/AUTH.md),"
+echo "   потім увійди адмін-email'ом — твій старий прогрес перейде на акаунт автоматично."

@@ -1,6 +1,5 @@
 import 'server-only'
-import { eq } from 'drizzle-orm'
-import { getDb } from '@/db/client'
+import { and, eq } from 'drizzle-orm'
 import { lessonProgress } from '@/db/schema'
 import { guideLessons, type Lesson } from '@/content/lessons'
 import type { Guide } from '@/content/model'
@@ -8,6 +7,7 @@ import type { ContentSnapshot } from '@/content/store'
 import { renderMdast } from '@/ui/markdown/render'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type StudyItem } from '@/ui/study/render-items'
+import { userScope } from '../auth'
 import { readableChapters } from './library'
 
 // Bonus on top of per-question XP: first pass of a lesson, first flawless pass.
@@ -41,7 +41,12 @@ export interface LessonRecord {
 }
 
 export async function lessonProgressMap(guideId: string): Promise<Map<string, LessonRecord>> {
-  const rows = await getDb().select().from(lessonProgress).where(eq(lessonProgress.guideId, guideId))
+  const rows = await userScope((db, userId) =>
+    db
+      .select()
+      .from(lessonProgress)
+      .where(and(eq(lessonProgress.userId, userId), eq(lessonProgress.guideId, guideId))),
+  )
   return new Map(rows.map((r) => [r.lessonId, { completions: r.completions, bestAccuracy: r.bestAccuracy }]))
 }
 

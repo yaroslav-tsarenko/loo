@@ -1,10 +1,15 @@
 'use client'
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
+import { PiCheckBold, PiCodeBlockFill, PiExamFill, PiListChecksFill, PiPuzzlePieceFill, PiTerminalWindowFill, PiXBold } from 'react-icons/pi'
 import type { QuizExercise, QuizMode } from '@/content/model'
 import { recordQuizAnswer } from '@/server/actions/study'
+import { Pill } from '@/ui/design/Badge'
+import { Button } from '@/ui/design/Button'
+import type { Tone } from '@/ui/design/cx'
+import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
-import { Tag } from '@/ui/Tag'
+import { ActionBar } from './ActionBar'
 import { FillBlanks } from './exercises/FillBlanks'
 import { OrderPuzzle } from './exercises/OrderPuzzle'
 
@@ -36,12 +41,25 @@ interface Props {
   sessionId?: string
   index?: number
   onResult?: (result: QuizResult) => void
+  /** Where the check button goes (the lesson player's bottom bar). Defaults to in place. */
+  actionsSlot?: Element | null
+  /** `none`: the host shows the verdict and explanation itself (lesson player sheet). */
+  verdict?: 'inline' | 'none'
 }
 
 const normalize = (s: string) => s.replace(/[\s,;]+/g, ' ').replace(/[`'"]/g, '').trim().toLowerCase()
 
+function kindOf(mode: QuizMode, free: boolean, multi: boolean): { label: string; tone: Tone; icon: ReactNode } {
+  if (mode === 'order') return { label: 'Склади код', tone: 'orange', icon: <PiPuzzlePieceFill /> }
+  if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'green', icon: <PiCodeBlockFill /> }
+  if (free || mode === 'output') return { label: 'Що виведе код', tone: 'blue', icon: <PiTerminalWindowFill /> }
+  if (multi) return { label: 'Кілька відповідей', tone: 'pink', icon: <PiListChecksFill /> }
+  return { label: 'Тест', tone: 'purple', icon: <PiExamFill /> }
+}
+
 export function QuizInline(props: Props) {
-  const { unitId, mode, level, prompt, body, explanation, options, freeAnswer, variant, sessionId, onResult } = props
+  const { unitId, mode, level, prompt, body, explanation, options, freeAnswer, variant, sessionId, onResult, actionsSlot } = props
+  const showVerdict = props.verdict !== 'none'
   const exercise = props.exercise ?? null
   const interactive = mode === 'order' || mode === 'fill'
   const [chosen, setChosen] = useState<string[]>([])
@@ -56,6 +74,7 @@ export function QuizInline(props: Props) {
   const feedback = useFeedback()
   const multi = mode === 'multi' || options.filter((o) => o.correct).length > 1
   const free = !interactive && options.length === 0 && freeAnswer !== null
+  const kind = kindOf(mode, free, multi)
 
   const submit = (picked: string[], text: string) => {
     if (checked) return
@@ -113,11 +132,20 @@ export function QuizInline(props: Props) {
     return () => window.removeEventListener('keydown', listener)
   })
 
+  const compact = variant === 'inline'
+  const verdictText = correct ? (interactive ? 'Правильно! Код зібрано 🎉' : 'Правильно!') : free ? `Не зовсім. Відповідь: ${freeAnswer}` : 'Неправильно — питання додано в «Мої помилки».'
+
   return (
     <section className="quiz" id={variant === 'inline' ? `u-${unitId}` : undefined} data-variant={variant} data-state={checked ? (correct ? 'correct' : 'wrong') : 'open'} aria-labelledby={headingId} onKeyDown={onKey}>
       <header className="quiz-head">
-        <span className="eyebrow">{mode === 'order' ? '🧩 Склади код' : mode === 'fill' ? '✍️ Заповни пропуски' : free ? 'Що виведе код' : multi ? 'Тест · кілька відповідей' : mode === 'output' ? 'Що виведе код' : 'Тест'}</span>
-        {level ? <Tag>{level}</Tag> : null}
+        <Pill tone={kind.tone} icon={kind.icon} size="sm" className="quiz-kind">
+          {kind.label}
+        </Pill>
+        {level ? (
+          <Pill size="sm" className="quiz-level">
+            {level}
+          </Pill>
+        ) : null}
       </header>
       <div className="quiz-prompt" id={headingId}>
         {prompt}
@@ -125,9 +153,9 @@ export function QuizInline(props: Props) {
       {body ? <div className="quiz-body prose-flow">{body}</div> : null}
       {interactive ? (
         exercise?.kind === 'order' ? (
-          <OrderPuzzle unitId={unitId} exercise={exercise} checked={checked} variant={variant} onSubmit={finalize} />
+          <OrderPuzzle unitId={unitId} exercise={exercise} checked={checked} variant={variant} onSubmit={finalize} actionsSlot={actionsSlot} />
         ) : exercise?.kind === 'fill' ? (
-          <FillBlanks unitId={unitId} exercise={exercise} checked={checked} variant={variant} onSubmit={finalize} />
+          <FillBlanks unitId={unitId} exercise={exercise} checked={checked} variant={variant} onSubmit={finalize} actionsSlot={actionsSlot} />
         ) : (
           <p className="unit-meta">Ця вправа відкривається в розділі «Тести».</p>
         )
@@ -145,16 +173,29 @@ export function QuizInline(props: Props) {
           <input
             id={`${headingId}-answer`}
             className="quiz-input"
+            data-state={checked ? (correct ? 'right' : 'wrong') : undefined}
             value={typed}
             onChange={(e) => setTyped(e.target.value)}
             disabled={checked}
             placeholder="Наприклад: 1 4 3 2"
             autoComplete="off"
+            autoCapitalize="off"
             spellCheck={false}
+            enterKeyHint="done"
           />
-          <button className="ui-button" type="submit" disabled={checked || !typed.trim()}>
-            Перевірити
-          </button>
+          {!checked ? (
+            actionsSlot ? (
+              <ActionBar slot={actionsSlot}>
+                <Button block size="lg" disabled={!typed.trim()} onClick={() => submit([], typed)}>
+                  Перевірити
+                </Button>
+              </ActionBar>
+            ) : (
+              <Button type="submit" size={compact ? 'sm' : 'md'} disabled={!typed.trim()}>
+                Перевірити
+              </Button>
+            )
+          ) : null}
         </form>
       ) : (
         <ol className="quiz-options" role={multi ? 'group' : 'radiogroup'} aria-labelledby={headingId}>
@@ -172,7 +213,9 @@ export function QuizInline(props: Props) {
                   onClick={() => toggle(o.id)}
                   disabled={checked}
                 >
-                  <kbd aria-hidden="true">{i + 1}</kbd>
+                  <span className="quiz-key" aria-hidden="true">
+                    {state === 'right' ? <PiCheckBold /> : state === 'wrong' ? <PiXBold /> : multi && picked ? <PiCheckBold /> : i + 1}
+                  </span>
                   <span className="quiz-option-text">{o.content}</span>
                   {checked && o.correct ? <span className="quiz-mark">правильно</span> : null}
                   {checked && picked && !o.correct ? <span className="quiz-mark">ваш вибір</span> : null}
@@ -183,17 +226,25 @@ export function QuizInline(props: Props) {
         </ol>
       )}
       {multi && !checked && !free && !interactive ? (
-        <div className="quiz-actions">
-          <button type="button" className="ui-button" disabled={chosen.length === 0} onClick={() => submit(chosen, '')}>
-            Перевірити <kbd>Enter</kbd>
-          </button>
-        </div>
+        <ActionBar slot={actionsSlot}>
+          <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={chosen.length === 0} onClick={() => submit(chosen, '')}>
+            Перевірити
+          </Button>
+          {!actionsSlot ? <span className="quiz-hint">або Enter · обрано {chosen.length}</span> : null}
+        </ActionBar>
       ) : null}
-      {checked ? (
-        <div className="quiz-verdict" role="status">
-          <p className="quiz-verdict-line">
-            {correct ? (interactive ? '🎉 Правильно!' : 'Правильно.') : free ? `Неправильно. Відповідь: ${freeAnswer}` : 'Неправильно — питання додано в «Мої помилки».'}
+      {!multi && !checked && !free && !interactive && actionsSlot ? (
+        <ActionBar slot={actionsSlot}>
+          <p className="quiz-dock-hint">
+            Торкнись відповіді <span className="quiz-dock-keys">· або клавіші 1–{options.length}</span>
           </p>
+        </ActionBar>
+      ) : null}
+      {checked && showVerdict ? (
+        <div className="quiz-verdict" role="status">
+          <LooSays className="quiz-loo" mood={correct ? 'happy' : 'sad'} size={compact ? 52 : 64}>
+            <span className="quiz-verdict-line">{verdictText}</span>
+          </LooSays>
           {explanation ? <div className="quiz-explain prose-flow">{explanation}</div> : null}
         </div>
       ) : null}

@@ -1,9 +1,11 @@
+import { apiUser } from '@/server/auth'
 import { getContent } from '@/server/content'
 import { chapterProgressMap, treeView } from '@/server/services/library'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(_request: Request, { params }: { params: Promise<{ guide: string }> }): Promise<Response> {
+  if (!(await apiUser())) return Response.json({ nodes: [] }, { status: 401 })
   const { guide: raw } = await params
   let id: string
   try {
