@@ -130,12 +130,32 @@ export const SectionSchema = z.object({
 })
 export type Section = z.infer<typeof SectionSchema>
 
+// Skills a placement bank measures (docs/LANGUAGE_COURSE.md «Банк вступного тесту»).
+export const PLACEMENT_SKILLS = ['grammar', 'vocabulary', 'reading', 'listening'] as const
+export const PlacementSkillSchema = z.enum(PLACEMENT_SKILLS)
+export type PlacementSkill = z.infer<typeof PlacementSkillSchema>
+
+// One calibrated bank question: its level, the skill it measures, the difficulty inside the level (1 easy … 3 on the
+// edge of the next level) and the number of options (the chance of a blind guess is 1 / options).
+export const PlacementItemSchema = z.object({
+  level: LevelSchema,
+  skill: PlacementSkillSchema,
+  diff: z.number().int().min(1).max(3),
+  options: z.number().int().min(2),
+})
+export type PlacementItem = z.infer<typeof PlacementItemSchema>
+
 export const PlacementPoolSchema = z.object({
   enabled: z.boolean(),
   maxQuestions: z.number().int(),
   perLevel: z.number().int(),
   // the course's ladder only (noob…god or A1…C2)
   pool: z.partialRecord(LevelSchema, z.array(z.string())),
+  // bank mode (a `_placement/` bank exists): pool = the bank's ids per level, `bank` — their metadata; the adaptive
+  // algorithm with skills, guessing protection and confidence (src/course/select/placement.ts). Absent → lesson quizzes.
+  bank: z.record(z.string(), PlacementItemSchema).optional(),
+  pass: z.number().optional(),
+  followUp: z.number().int().optional(),
 })
 export type PlacementPool = z.infer<typeof PlacementPoolSchema>
 

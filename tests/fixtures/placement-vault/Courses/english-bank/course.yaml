@@ -1,0 +1,16 @@
+id: english-bank
+version: 0.1.0
+title: English bank fixture
+subject: language
+kind: language
+language: uk
+target: en
+levels: [A1, A2, B1, B2, C1, C2]
+sections:
+  - { id: a1, title: A1, from: English, chapters: 101-102, level: A1 }
+  - { id: a2, title: A2, from: English, chapters: 201-230, level: A2, status: planned }
+  - { id: b1, title: B1, from: English, chapters: 301-330, level: B1, status: planned }
+  - { id: b2, title: B2, from: English, chapters: 401-429, level: B2, status: planned }
+  - { id: c1, title: C1, from: English, chapters: 501-525, level: C1, status: planned }
+  - { id: c2, title: C2, from: English, chapters: 601-622, level: C2, status: planned }
+placement: { enabled: true, maxQuestions: 30, perLevel: 5, pass: 0.75, followUp: 6 }

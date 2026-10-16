@@ -27,6 +27,10 @@ export interface ContentSnapshot {
   units: Map<string, LearningUnit>
   unitsByChapter: Map<string, LearningUnit[]>
   reels: Reel[]
+  // placement-test bank (`<Guide>/_placement/*.md`): graded and rendered only by the placement test, never part of
+  // guides, search, practice or article checks (docs/LANGUAGE_COURSE.md «Банк вступного тесту»)
+  placementUnits: Map<string, LearningUnit>
+  placementChapters: Map<string, Chapter>
   backlinks: Map<string, string[]>
   links: LinkIndex
   issues: ContentIssue[]
@@ -103,6 +107,8 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   const units = new Map<string, LearningUnit>()
   const usedGuideIds = new Set<string>()
   const reels: Reel[] = []
+  const placementUnits = new Map<string, LearningUnit>()
+  const placementChapters = new Map<string, Chapter>()
 
   for (const dir of listing.guideDirs) {
     const files = guideFiles.get(dir) ?? []
@@ -149,13 +155,25 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
       units.set(unit.id, unit)
     }
     for (const chapter of built.chapters) chapters.set(chapter.id, chapter)
+    for (const chapter of built.placement.chapters) placementChapters.set(chapter.id, chapter)
+    for (const unit of built.placement.units) {
+      if (placementUnits.has(unit.id)) {
+        issues.push({ severity: 'error', code: 'duplicate-id', path: unit.chapterId, message: `Дублікат id ${unit.id} у банку вступного тесту (також у ${placementUnits.get(unit.id)!.chapterId})` })
+        continue
+      }
+      placementUnits.set(unit.id, unit)
+    }
     for (const p of parsed) {
+      if (placementChapters.has(p.chapterId)) continue
       plainText.set(p.chapterId, p.info.plainText)
       if (p.full) reels.push(...collectReels(p.full.root, guideId, p.chapterId))
     }
     guides.push(built.guide)
   }
 
+  for (const unit of placementUnits.values()) {
+    if (units.has(unit.id)) issues.push({ severity: 'error', code: 'duplicate-id', path: unit.chapterId, message: `Дублікат id ${unit.id}: є і в банку вступного тесту, і в статті ${units.get(unit.id)!.chapterId}` })
+  }
   guides.sort((a, b) => (a.order === b.order ? a.title.localeCompare(b.title, 'uk') : a.order - b.order))
   const chapterByPath = new Map([...chapters.values()].map((c) => [c.path, c]))
   const unitsByChapter = new Map<string, LearningUnit[]>()
@@ -190,6 +208,8 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
     units,
     unitsByChapter,
     reels,
+    placementUnits,
+    placementChapters,
     backlinks,
     links,
     issues,
@@ -203,7 +223,7 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
 // parsed snapshot (pnpm content:snapshot → <vault>/.snapshot/guides.v8.br, v8-serialized + brotli) and a cold server
 // loads it in a few hundred ms. It is only used when the listing (paths + sizes) and the Node/V8 version match.
 
-const PREBUILT_FORMAT = 1
+const PREBUILT_FORMAT = 2
 
 interface Prebuilt {
   format: number

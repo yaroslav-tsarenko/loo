@@ -4,7 +4,11 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
-import { courseLevels, LEVELS, sectionForLevel, type Level } from '@/course'
+import type { ReactNode } from 'react'
+import { courseLevels, LEVELS, levelRank, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult, type PlacementSkill } from '@/course'
+import { quizKey } from '@/content/blocks/quiz/view'
+import { renderMdast } from '@/ui/markdown/render'
+import { renderLessonItems, type PlayerItem } from '../services/lessons'
 import { first } from '@/db/client'
 import { enrollments, profiles, type EnrollmentPlacement } from '@/db/schema'
 import { safeRedirectPath } from '@/lib/redirect'
@@ -13,7 +17,7 @@ import { parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { activate, enrollIn, levelFromPreference } from '../courses/enrollment'
 import { limitUser } from '../courses/limits'
-import { placementSeed, replayPlacement } from '../courses/placement-core'
+import { placementSeed, placementUnitOf, replayPlacement } from '../courses/placement-core'
 import { exerciseUnit, getCourse, getCourseEntry } from '../courses/registry'
 
 // Library (enroll / switch / leave / level) and placement. Every action: requireUser → zod → rate limit → user scope.
@@ -116,17 +120,58 @@ export async function setCourseLevel(form: FormData): Promise<void> {
 // ── Placement (/placement) ──────────────────────────────────────────────────────────────────────────────────────
 
 const nonce = z.string().regex(/^[a-f0-9]{8,32}$/)
-const rawAnswer = z.object({ id: z.string().min(1).max(200), chosen: z.array(z.string().max(2000)).max(64), text: z.string().max(2000).nullable() })
-const placementInput = z.object({ course: courseId, nonce, answers: z.array(rawAnswer).max(60) })
+const rawAnswer = z.object({ id: z.string().min(1).max(200), chosen: z.array(z.string().max(2000)).max(64), text: z.string().max(2000).nullable(), dontKnow: z.boolean().optional() })
+const placementInput = z.object({ course: courseId, nonce, answers: z.array(rawAnswer).max(60), followUp: z.boolean().optional() })
+
+type RawAnswer = { id: string; chosen: string[]; text: string | null; dontKnow?: boolean }
+
+export interface PlacementSkillView {
+  level: Level
+  asked: number
+  correct: number
+  measured: boolean
+  ielts: string | null
+}
+
+export interface PlacementResultView {
+  level: Level
+  sectionIndex: number
+  sectionId: string | null
+  confident: boolean
+  // bank mode (language courses)
+  confidence: PlacementConfidence | null
+  followUp: boolean
+  skills: Partial<Record<PlacementSkill, PlacementSkillView>> | null
+  strong: PlacementSkill[]
+  weak: PlacementSkill[]
+  ielts: string | null
+  lessonsReady: boolean
+  startLevel: Level | null
+  // start sections the learner may pick instead (bank mode, lessons still planned): the default first
+  starts: Array<{ id: string; index: number; level: Level }>
+}
+
+// A mistake of the finished test: the right option(s) and the explanation, revealed only after the last answer.
+export interface PlacementReviewItem {
+  id: string
+  chosen: string[]
+  dontKnow: boolean
+  key: string[]
+  explanation: ReactNode
+}
 
 export interface PlacementStepResult {
   done: boolean
   next: string | null
   asked: number
   maxQuestions: number
+  phase: 'main' | 'follow-up' | null
   // the verdict of the last answer, graded on the server
   lastCorrect: boolean | null
-  result: { level: Level; sectionIndex: number; sectionId: string | null; confident: boolean } | null
+  result: PlacementResultView | null
+  review: PlacementReviewItem[]
+  // the next question when the page didn't pre-render it (long confirmation / follow-up on one level)
+  item: PlayerItem | null
 }
 
 async function replay(raw: unknown) {
@@ -136,21 +181,72 @@ async function replay(raw: unknown) {
   const bundle = await getCourse(input.course)
   if (!bundle) throw new Error('Unknown course')
   const snapshot = await getContent()
-  const run = replayPlacement(bundle, input.answers, placementSeed(user.id, input.nonce), (id) => exerciseUnit(snapshot, bundle, id))
+  const unitOf = placementUnitOf(bundle, snapshot.placementUnits, (id) => exerciseUnit(snapshot, bundle, id))
+  const seed = placementSeed(user.id, input.nonce)
+  const run = replayPlacement(bundle, input.answers, seed, unitOf, { followUp: input.followUp })
   if (!run.ok) throw new Error('Invalid placement answers')
-  return { user, input, bundle, run }
+  return { user, input, bundle, run, snapshot, unitOf, seed }
 }
 
-export async function placementStep(raw: { course: string; nonce: string; answers: Array<{ id: string; chosen: string[]; text: string | null }> }): Promise<PlacementStepResult> {
-  const { run } = await replay(raw)
+// Start sections a bank-mode result may begin with: the default one and, when the level's lessons are still planned,
+// one level lower (repeat a bit more). Always active path sections at or below the default.
+function startChoices(bundle: CourseBundle, r: PlacementResult): PlacementResultView['starts'] {
+  const path = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned' && s.index <= r.sectionIndex)
+  const first = path.find((s) => s.index === r.sectionIndex)
+  if (!first) return []
+  const out = [{ id: first.id, index: first.index, level: first.level }]
+  if (bundle.placement.bank && r.lessonsReady === false) {
+    const lower = path.filter((s) => levelRank(s.level) < levelRank(first.level)).at(-1)
+    if (lower) out.push({ id: lower.id, index: lower.index, level: lower.level })
+  }
+  return out
+}
+
+function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultView {
+  const skills: PlacementResultView['skills'] = r.skills ? {} : null
+  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k as PlacementSkill] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.ielts?.label ?? null }
+  return {
+    level: r.level,
+    sectionIndex: r.sectionIndex,
+    sectionId: r.sectionId,
+    confident: r.confident,
+    confidence: r.confidence ?? null,
+    followUp: r.followUp ?? false,
+    skills,
+    strong: r.strong ?? [],
+    weak: r.weak ?? [],
+    ielts: r.ielts?.label ?? null,
+    lessonsReady: r.lessonsReady ?? true,
+    startLevel: r.startLevel ?? null,
+    starts: startChoices(bundle, r),
+  }
+}
+
+export async function placementStep(raw: { course: string; nonce: string; answers: RawAnswer[]; followUp?: boolean }): Promise<PlacementStepResult> {
+  const { run, input, bundle, snapshot, unitOf, seed } = await replay(raw)
   const last = run.graded.at(-1)
+  const review: PlacementReviewItem[] = []
+  if (run.result && bundle.placement.bank) {
+    // the test is over: its mistakes may show their keys and explanations now
+    for (const [i, g] of run.graded.entries()) {
+      if (g.correct) continue
+      const unit = unitOf(g.exerciseId)
+      if (!unit || unit.kind !== 'quiz') continue
+      const chapter = snapshot.placementChapters.get(unit.chapterId) ?? snapshot.chapters.get(unit.chapterId)
+      const explanation = unit.explanation && chapter ? await renderMdast(unit.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
+      review.push({ id: unit.id, chosen: input.answers[i]?.chosen ?? [], dontKnow: g.dontKnow === true, key: quizKey(unit).options, explanation })
+    }
+  }
   return {
     done: run.step.done,
     next: run.step.next,
     asked: run.step.asked,
     maxQuestions: run.step.maxQuestions,
+    phase: run.step.phase ?? null,
     lastCorrect: last ? last.correct : null,
-    result: run.result ? { level: run.result.level, sectionIndex: run.result.sectionIndex, sectionId: run.result.sectionId, confident: run.result.confident } : null,
+    result: run.result ? resultView(bundle, run.result) : null,
+    review,
+    item: run.step.next && !placementCandidates(bundle, seed).includes(run.step.next) ? ((await renderLessonItems(snapshot, [{ kind: 'unit', id: run.step.next }]))[0] ?? null) : null,
   }
 }
 
@@ -173,13 +269,23 @@ async function savePlacement(courseIdValue: string, placement: EnrollmentPlaceme
   revalidatePath('/', 'layout')
 }
 
-// Applies the placement result: level + first section to study (earlier sections count as known).
-export async function applyPlacement(raw: { course: string; nonce: string; answers: Array<{ id: string; chosen: string[]; text: string | null }> }): Promise<{ ok: true }> {
-  const { input, run } = await replay(raw)
+const applyInput = z.object({ start: z.string().max(200).optional() })
+
+// Applies the placement result: level + first section to study (earlier sections count as known). Bank mode also
+// stores the per-skill levels, the confidence and the IELTS estimate; `start` — one of the offered start sections.
+export async function applyPlacement(raw: { course: string; nonce: string; answers: RawAnswer[]; followUp?: boolean; start?: string }): Promise<{ ok: true }> {
+  const { start } = parseInput(applyInput, { start: raw.start })
+  const { input, run, bundle } = await replay({ course: raw.course, nonce: raw.nonce, answers: raw.answers, followUp: raw.followUp })
   if (!run.result) throw new Error('Placement not finished')
   const now = Date.now()
   const r = run.result
-  await savePlacement(input.course, { level: r.level, sectionIndex: r.sectionIndex, sectionId: r.sectionId, confident: r.confident, asked: run.step.asked, at: now }, r.level)
+  const view = resultView(bundle, r)
+  const chosen = start ? view.starts.find((s) => s.id === start) : view.starts[0]
+  if (start && !chosen) throw new Error('Unknown start section')
+  const sectionIndex = chosen?.index ?? r.sectionIndex
+  const sectionId = chosen?.id ?? r.sectionId
+  const extra: Partial<EnrollmentPlacement> = r.confidence ? { confidence: r.confidence, skills: view.skills ?? undefined, ielts: view.ielts, followUp: r.followedUp ?? false } : {}
+  await savePlacement(input.course, { level: r.level, sectionIndex, sectionId, confident: r.confident, asked: run.step.asked, at: now, ...extra }, r.level)
   return { ok: true }
 }
 

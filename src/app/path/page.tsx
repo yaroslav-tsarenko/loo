@@ -22,7 +22,7 @@ import { CoursePath } from '@/ui/courses/CoursePath'
 import { Icon } from '@/ui/icons/Icon'
 import { PathView, type PathStageView } from '@/ui/path/PathView'
 
-export const metadata: Metadata = { title: 'Шлях' }
+export const metadata: Metadata = { title: 'Карта' }
 
 // Guides that some course covers: their tracks are shown as the course path.
 async function courseGuides(): Promise<Set<string>> {
@@ -106,7 +106,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
             <PiFlaskFill />
           </span>
           <span className="cp-placement-text">
-            <strong>Вступний тест · 5–7 хв</strong>
+            <strong>Вступний тест · {bundle.placement.bank ? `${Math.round(bundle.placement.maxQuestions / 3)}–${Math.round(bundle.placement.maxQuestions / 2)} хв` : '5–7 хв'}</strong>
             <span>Loo підбере рівень і перший розділ — те, що вже знаєш, буде зараховано.</span>
           </span>
           <Button href={`/placement?course=${bundle.course.id}`} variant="secondary">
@@ -155,7 +155,7 @@ async function LegacyTrackPath({ snapshot, track }: { snapshot: ContentSnapshot;
           <Icon name={track.icon} size={40} />
         </span>
         <div className="ghead-text">
-          <h1 className="ghead-title">{track.title}: шлях</h1>
+          <h1 className="ghead-title">{track.title}: карта</h1>
           <p className="ghead-lead">{track.tagline} · за статтями (курс ще готується)</p>
         </div>
       </header>

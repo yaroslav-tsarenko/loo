@@ -60,7 +60,11 @@ function printSummary(b: CourseBundle) {
   console.log(`  Рівні вправ: ${levels.map((l) => `${l} (${LEVEL_LABEL[l]}) ${fmt(st.byLevel[l] ?? 0)}`).join(' · ')}`)
   const planned = b.sections.filter((s) => s.status === 'planned')
   if (planned.length > 0) console.log(`  Заплановано («скоро»): ${planned.map((s) => s.title).join(', ')}`)
-  if (b.placement.enabled) console.log(`  Вступний тест (≤ ${b.placement.maxQuestions} пит., ${b.placement.perLevel}/рівень): ${levels.map((l) => `${l} ${b.placement.pool[l]?.length ?? 0}`).join(' · ')}`)
+  if (b.placement.enabled) {
+    // bank mode: `_placement/` questions (docs/LANGUAGE_COURSE.md); otherwise lesson quizzes
+    const source = b.placement.bank ? `банк _placement, поріг ${Math.round((b.placement.pass ?? 0) * 100)} %, уточнення ${b.placement.followUp ?? 0}` : 'тести уроків'
+    console.log(`  Вступний тест (${source}; ≤ ${b.placement.maxQuestions} пит., ${b.placement.perLevel}/рівень): ${levels.map((l) => `${l} ${b.placement.pool[l]?.length ?? 0}`).join(' · ')}`)
+  }
 }
 
 function printIssues(list: CourseIssue[]) {

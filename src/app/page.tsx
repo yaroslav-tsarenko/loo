@@ -102,7 +102,7 @@ async function LibraryPage() {
                   <span className="home-continue-title">
                     <Icon name="px:books" size={22} /> Обери свій перший курс
                   </span>
-                  <span className="home-continue-sub">Шлях, місії й стрічка підлаштуються під нього</span>
+                  <span className="home-continue-sub">Карта, місії й стрічка підлаштуються під нього</span>
                 </span>
                 <span className="home-continue-go">
                   Курси <PiArrowRightBold aria-hidden="true" />

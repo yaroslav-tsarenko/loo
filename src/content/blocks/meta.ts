@@ -77,3 +77,14 @@ export function splitTags(value: string | undefined): string[] {
 export function fenceWords(node: { lang?: string | null; meta?: string | null }): string[] {
   return [node.lang ?? '', ...(node.meta ?? '').split(/\s+/)].map((w) => w.toLowerCase()).filter(Boolean)
 }
+
+// Placement bank items (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): `skill: reading · diff: 3` → fields of the
+// unit. Raw values are kept as written (lower-cased); the course compiler validates them.
+export function placementFields(skill: string | null | undefined, diff: string | null | undefined): { skill?: string; diff?: number } {
+  const out: { skill?: string; diff?: number } = {}
+  const s = skill?.trim().toLowerCase()
+  if (s) out.skill = s
+  const d = diff?.trim()
+  if (d) out.diff = /^\d+$/.test(d) ? Number(d) : Number.NaN
+  return out
+}

@@ -5,7 +5,7 @@ export interface NavItem {
   match: (path: string) => boolean
 }
 
-// Global destinations — the same for every course. The active course's practice sections (Шлях, Картки, Тести,
+// Global destinations — the same for every course. The active course's practice sections (Карта, Картки, Тести,
 // Задачі, Помилки… or Слова, Граматика… for a language) come from its course.yaml via ./course-nav.ts.
 export const NAV: readonly NavItem[] = [
   { href: '/', label: 'Сьогодні', short: 'Сьогодні', match: (p) => p === '/' },

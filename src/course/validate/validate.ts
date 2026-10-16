@@ -2,7 +2,7 @@ import { compileCourseDetailed, MIN_AUTO_QUESTIONS } from '../compile/compile'
 import type { CourseSource } from '../compile/source'
 import { iconExists, type IconCatalog } from '../icons'
 import type { CourseIssue } from '../issues'
-import { courseKind, courseLevels, coursePractice, parseCourseManifest, parseCourseYaml, PRACTICE_NEEDS, type CourseBundle, type CourseManifest, type ExerciseKind, type Level, levelRank, type Topic } from '../schema'
+import { courseKind, courseLevels, coursePractice, PLACEMENT_SKILLS, parseCourseManifest, parseCourseYaml, PRACTICE_NEEDS, type CourseBundle, type CourseManifest, type ExerciseKind, type Level, levelRank, type Topic } from '../schema'
 
 // COURSE_FORMAT §7: schema, guides and ranges, unique ids, icons, §4 minimums (warnings), exercise levels,
 // test/exam/placement pools, plus the content parser's own issues for the chapters the course uses.
@@ -24,6 +24,9 @@ export interface CourseCheck {
 // Language courses (docs/ENGLISH_SYLLABUS.md §1.3): every topic trains listening and speaking too.
 export const MINIMUMS = { quizzes: 6, flashcards: 6, tasks: 2, reels: 3, figures: 1, listening: 1, speaking: 1 } as const
 
+export const REVIEW_TAG = 'review'
+const isReview = (topic: Topic): boolean => topic.tags.includes(REVIEW_TAG)
+
 function minimumIssues(topic: Topic, bundle: CourseBundle, opts: ValidateOptions): CourseIssue | null {
   const kinds = topic.exercises.map((id) => bundle.exercises[id]!.kind)
   const count = (...k: ExerciseKind[]) => kinds.filter((x) => k.includes(x)).length
@@ -34,7 +37,9 @@ function minimumIssues(topic: Topic, bundle: CourseBundle, opts: ValidateOptions
   const language = courseKind(bundle.course) === 'language'
   // a listening choice and a minimal pair are auto-graded tests; [!word] is a card
   need(language ? count('quiz', 'listen', 'pair') : count('quiz'), MINIMUMS.quizzes, 'тести')
-  need(count('flashcard', 'word'), MINIMUMS.flashcards, language ? 'картки (слова)' : 'картки')
+  // a review topic («Підсумок A1 — тест рівня», tag `review`) brings no new words or terms: it tests the topics it
+  // sums up, so the cards minimum doesn't apply (its quizzes, listening and speaking minimums still do)
+  if (!isReview(topic)) need(count('flashcard', 'word'), MINIMUMS.flashcards, language ? 'картки (слова)' : 'картки')
   if (bundle.course.subject === 'programming') need(count('task'), MINIMUMS.tasks, 'задачі')
   if (language) {
     need(count('listen'), MINIMUMS.listening, 'аудіювання')
@@ -83,7 +88,9 @@ export function checkCourse(input: unknown, source: CourseSource, opts: Validate
     }
   }
 
-  if (bundle.placement.enabled) {
+  if (bundle.placement.enabled && bundle.placement.bank) {
+    issues.push(...bankIssues(bundle))
+  } else if (bundle.placement.enabled) {
     // levels that only planned sections (B1…C2 «скоро») teach have no questions yet — not a gap
     const covered = (l: Level) => bundle.sections.some((s) => s.status !== 'planned' && levelRank(s.minLevel) <= levelRank(l) && levelRank(l) <= levelRank(s.level))
     const plannedOnly = new Set(bundle.sections.filter((s) => s.status === 'planned').map((s) => s.level).filter((l) => !covered(l)))
@@ -104,12 +111,42 @@ export function checkCourse(input: unknown, source: CourseSource, opts: Validate
 
   // Content parser issues for the course's own chapters.
   const used = new Set(chapterIds)
-  const paths = new Set(chapterIds.map((id) => source.chapters.get(id)?.path).filter(Boolean))
+  const paths = new Set(chapterIds.map((id) => source.chapters.get(id)?.path ?? source.placementChapters?.get(id)?.path).filter(Boolean))
   for (const i of source.issues ?? []) {
     if (!used.has(i.path) && !paths.has(i.path)) continue
     issues.push({ severity: i.severity, code: 'content', where: i.path, message: `${i.code}: ${i.message}` })
   }
   return { manifest, bundle, issues }
+}
+
+// Bank mode (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): every level of the ladder needs enough questions for a
+// probe plus the follow-up, all four skills and enough diff ≥ 2 items (guessing protection).
+function bankIssues(bundle: CourseBundle): CourseIssue[] {
+  const { bank = {}, perLevel, followUp = 0 } = bundle.placement
+  const items = Object.values(bank)
+  const want = perLevel * 2 + followUp
+  const missing: string[] = []
+  const thin: string[] = []
+  const skills: string[] = []
+  const hard: string[] = []
+  for (const l of courseLevels(bundle.course)) {
+    const at = items.filter((i) => i.level === l)
+    if (at.length === 0) {
+      missing.push(l)
+      continue
+    }
+    if (at.length < want) thin.push(`${l} (${at.length})`)
+    const lacking = PLACEMENT_SKILLS.filter((s) => !at.some((i) => i.skill === s))
+    if (lacking.length > 0) skills.push(`${l}: ${lacking.join(', ')}`)
+    if (at.filter((i) => i.diff >= 2).length < perLevel) hard.push(l)
+  }
+  const out: CourseIssue[] = []
+  const warn = (message: string) => out.push({ severity: 'warning', code: 'thin-placement', where: 'placement', message: `Банк вступного тесту: ${message}` })
+  if (missing.length > 0) warn(`немає питань рівнів ${missing.join(', ')} — тест їх не перевіряє`)
+  if (thin.length > 0) warn(`замало питань: ${thin.join(', ')} — потрібно ≥ ${want} (краще 40)`)
+  if (skills.length > 0) warn(`без навичок — ${skills.join('; ')}`)
+  if (hard.length > 0) warn(`замало питань diff ≥ 2 на рівнях ${hard.join(', ')} — захист від вгадування слабший`)
+  return out
 }
 
 export function validateCourse(input: unknown, source: CourseSource, opts: ValidateOptions = {}): CourseIssue[] {

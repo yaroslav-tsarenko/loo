@@ -95,6 +95,23 @@
   align-items: center;
   gap: var(--lu-s-2) var(--lu-s-3);
 }
+.lang-word-head {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lu-s-2) var(--lu-s-3);
+  min-width: 0;
+}
+/* compact row: text on the left, audio controls pinned right, everything on one centre line */
+.lang-word-front[data-compact] {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.lang-word-front[data-compact] .lang-word-head { flex: 1; }
+.lang-word-front[data-compact] .lang-word-text { font-size: var(--lu-fs-xl); line-height: 1.15; }
+.lang-word-front[data-compact] .lang-audio { flex: none; flex-wrap: nowrap; }
+.lang-word > summary { align-items: center; }
+.lang-word > summary .toggle-arrow { margin-top: 0; }
 .lang-word-text { font-size: var(--lu-fs-2xl); font-weight: var(--lu-fw-black); letter-spacing: -0.01em; }
 .lang-word-meta { display: inline-flex; align-items: center; gap: var(--lu-s-2); flex-wrap: wrap; }
 .lang-word-pos { color: var(--lu-text-3); font-size: var(--lu-fs-sm); font-style: italic; }

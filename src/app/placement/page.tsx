@@ -18,7 +18,8 @@ import { PlacementPlayer } from '@/ui/placement/PlacementPlayer'
 export const metadata: Metadata = { title: 'Вступний тест' }
 
 // Stateless adaptive placement (src/course/select/placement.ts). The page pre-renders every question this run can
-// ask (≤ perLevel per level); the client sends its answers to placementStep, which grades them on the server.
+// ask (≤ perLevel per level, + the follow-up in bank mode); the client sends its answers to placementStep, which
+// grades them on the server. Bank items (`_placement/`) render like lesson quizzes, without keys or transcripts.
 export default async function PlacementPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const user = await requireUser()
   const params = await searchParams
@@ -57,6 +58,7 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
       sections={bundle.sections.map((s) => ({ id: s.id, index: s.index, title: s.title, icon: s.icon }))}
       levels={Object.fromEntries(bundle.course.levels.map((l) => [l, LEVEL_LABEL[l]]))}
       next={next}
+      bank={bundle.placement.bank ? { followUp: bundle.placement.followUp ?? 0, ladder: courseLevels(bundle.course) } : undefined}
       zeroHint={courseKind(bundle.course) === 'language' ? 'Без тесту: обери рівень сам — попередні розділи буде зараховано.' : undefined}
       zero={
         courseKind(bundle.course) === 'language' ? (

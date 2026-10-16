@@ -940,3 +940,126 @@
   font-weight: var(--lu-fw-bold);
   color: var(--lu-text-3);
 }
+
+/* ── Placement: calibrated bank (language courses) ─────────────────────── */
+/* reading passages: a calm, readable card; the question below it */
+.placement[data-bank] .quiz-body {
+  margin-top: 12px;
+  padding: 14px 16px;
+  max-width: 68ch;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
+  font-size: var(--lu-fs-md);
+  line-height: 1.7;
+}
+.placement[data-bank] .quiz-body:has(> .lang-listen:only-child) {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.placement-dont-know.lu-btn {
+  color: var(--lu-text-2);
+}
+@media (min-width: 760px) {
+  .placement-dont-know.lu-btn {
+    grid-column: 2;
+    width: auto;
+    min-width: 200px;
+  }
+}
+.placement-bank-result {
+  text-align: center;
+}
+.placement-ielts {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  margin: 4px auto 0;
+  max-width: 460px;
+}
+.placement-confidence {
+  display: grid;
+  gap: 2px;
+  margin: 12px auto 0;
+  max-width: 460px;
+  padding: 10px 14px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
+  background: var(--lu-surface);
+  font-size: var(--lu-fs-sm);
+  color: var(--lu-text-2);
+}
+.placement-confidence strong {
+  color: var(--lu-text);
+  font-weight: var(--lu-fw-black);
+}
+.placement-confidence[data-confidence='high'] {
+  border-color: var(--lu-green);
+  background: var(--lu-green-soft);
+}
+.placement-confidence[data-confidence='low'] {
+  border-color: var(--lu-yellow);
+  background: var(--lu-yellow-soft);
+}
+.placement-followup.lu-card {
+  display: grid;
+  gap: 10px;
+  margin: 12px auto 0;
+  max-width: 460px;
+  text-align: left;
+}
+.placement-skills {
+  margin: 18px auto 0;
+  max-width: 460px;
+  text-align: left;
+}
+.placement-skills ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.placement-skills li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
+  background: var(--lu-surface);
+}
+.placement-skills li[data-mark='strong'] {
+  border-color: var(--lu-green);
+}
+.placement-skills li[data-mark='weak'] {
+  border-color: var(--lu-orange);
+}
+.placement-skill-name {
+  font-weight: var(--lu-fw-bold);
+  min-width: 7.5em;
+}
+.placement-skill-meta {
+  margin-left: auto;
+  color: var(--lu-text-3);
+  font-size: var(--lu-fs-xs);
+  text-align: right;
+}
+.placement-planned {
+  max-width: 460px;
+  margin-inline: auto;
+  padding: 10px 14px;
+  border: 2px dashed var(--lu-violet);
+  border-radius: var(--lu-r);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+}
+.placement-review {
+  max-width: 620px;
+  margin: 18px auto 0;
+  text-align: left;
+}
+.placement-review > summary {
+  cursor: pointer;
+}

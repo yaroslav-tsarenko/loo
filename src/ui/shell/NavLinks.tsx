@@ -69,7 +69,7 @@ interface Tab {
   badge: string | null
 }
 
-// Mobile tab bar (≤ 5): «Сьогодні», the course's first two sections (Шлях + Картки / Слова…), Ліги, Профіль.
+// Mobile tab bar (≤ 5): «Сьогодні», the course's first two sections (Карта + Картки / Слова…), Ліги, Профіль.
 // Everything else is one tap away in the drawer.
 function mobileTabs(practice: readonly PracticeNavItem[]): Tab[] {
   const global = (href: string): Tab => ({ item: NAV.find((n) => n.href === href)!, ...NAV_ICONS[href]!, badge: null })

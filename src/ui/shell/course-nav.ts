@@ -7,7 +7,7 @@ import {
   PiListChecksFill,
   PiMapTrifoldFill,
   PiMicrophoneFill,
-  PiPathFill,
+  PiSignpostFill,
   PiTextAaFill,
   PiTranslateFill,
 } from 'react-icons/pi'
@@ -47,12 +47,12 @@ const PRON: PracticeBadge = { key: PRON_KEY, tone: 'red', label: 'помилок
 const at = (...prefixes: string[]) => (path: string) => prefixes.some((p) => path === p || path.startsWith(`${p}/`))
 
 export const PRACTICE_NAV = {
-  path: { href: '/path', label: 'Шлях', short: 'Шлях', match: at('/path', '/test'), icon: PiPathFill, color: 'var(--lu-green)', badge: null, ready: true },
+  path: { href: '/path', label: 'Карта', short: 'Карта', match: at('/path', '/test'), icon: PiMapTrifoldFill, color: 'var(--lu-green)', badge: null, ready: true },
   cards: { href: '/review', label: 'Картки', short: 'Картки', match: at('/review'), icon: PiCardsThreeFill, color: 'var(--lu-blue)', badge: DUE, ready: true },
   tests: { href: '/quiz', label: 'Тести', short: 'Тести', match: at('/quiz'), icon: PiListChecksFill, color: 'var(--lu-purple)', badge: null, ready: true },
   mistakes: { href: '/mistakes', label: 'Мої помилки', short: 'Помилки', match: at('/mistakes'), icon: PiBandaidsFill, color: 'var(--lu-red)', badge: MISTAKES, ready: true },
   tasks: { href: '/tasks', label: 'Задачі', short: 'Задачі', match: at('/tasks'), icon: PiCodeBlockFill, color: 'var(--lu-yellow-lip)', badge: TASKS, ready: true },
-  roadmap: { href: '/roadmap', label: 'Мапа інженера', short: 'Мапа', match: at('/roadmap'), icon: PiMapTrifoldFill, color: 'var(--lu-green-lip)', badge: null, ready: true },
+  roadmap: { href: '/roadmap', label: 'Мапа інженера', short: 'Мапа', match: at('/roadmap'), icon: PiSignpostFill, color: 'var(--lu-green-lip)', badge: null, ready: true },
   // Language courses (docs/LANGUAGE_COURSE.md): [!word] SRS with audio, [!listen], [!speak] + [!pair], grammar tests.
   words: { href: '/words', label: 'Слова', short: 'Слова', match: at('/words'), icon: PiTranslateFill, color: 'var(--lu-blue)', badge: WORDS, ready: true },
   listening: { href: '/listening', label: 'Аудіювання', short: 'Слухати', match: at('/listening'), icon: PiHeadphonesFill, color: 'var(--lu-pink)', badge: LISTEN, ready: true },

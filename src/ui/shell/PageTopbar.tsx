@@ -37,7 +37,7 @@ export function PageTopbar({ crumbs, children }: { crumbs: Crumb[]; children?: R
           <ChevronsRight size={18} strokeWidth={1.6} />
         </button>
       ) : null}
-      <nav className="crumbs" aria-label="Шлях">
+      <nav className="crumbs" aria-label="Навігація">
         {crumbs.map((c, i) => (
           <span key={`${c.label}-${i}`} className="crumb-wrap">
             {i > 0 ? (

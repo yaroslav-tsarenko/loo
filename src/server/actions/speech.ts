@@ -24,7 +24,9 @@ export async function speechLines(raw: { unitId: string }): Promise<SpeechLines>
   const user = await requireUser()
   const input = parseInput(linesInput, raw)
   await limitUser(user.id, 'audio')
-  const unit = (await getContent()).units.get(input.unitId)
+  const snapshot = await getContent()
+  // placement bank items play through the same path (the test never ships their transcript)
+  const unit = snapshot.units.get(input.unitId) ?? snapshot.placementUnits.get(input.unitId)
   if (unit?.kind === 'quiz' && unit.listen) return { lines: unit.listen.lines, slow: unit.listen.slow }
   if (unit?.kind === 'quiz' && unit.pair) return { lines: [{ speaker: null, text: unit.pair.say }], slow: false }
   throw new Error('No audio')

@@ -335,6 +335,12 @@ export interface EnrollmentPlacement {
   at: number
   // true when the learner chose «start from zero» instead of taking the test
   skipped?: boolean
+  // bank mode (language courses): result confidence, the level per skill (grammar / vocabulary / reading /
+  // listening → CEFR) and the approximate IELTS band — kept for adaptive practice later (jsonb, no migration)
+  confidence?: 'high' | 'medium' | 'low'
+  skills?: Partial<Record<'grammar' | 'vocabulary' | 'reading' | 'listening', { level: string; asked: number; correct: number; measured: boolean; ielts: string | null }>>
+  ielts?: string | null
+  followUp?: boolean
 }
 
 // A course in the learner's library. Exactly one active enrollment per user (partial unique index).

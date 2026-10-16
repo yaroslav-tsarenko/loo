@@ -42,18 +42,22 @@ function Example({ en, bold }: { en: string; bold: readonly string[] }) {
   )
 }
 
-export function WordFront({ word, lang }: { word: WordSpec; lang: string }) {
+// `compact`: one tidy row for lists and articles (word + IPA + part of speech on the left, small audio controls on the
+// right, no per-row accent switch — that lives in settings); the full size is the flashcard face.
+export function WordFront({ word, lang, compact = false }: { word: WordSpec; lang: string; compact?: boolean }) {
   const pos = posLabel(word.pos)
   return (
-    <div className="lang-word-front">
-      <span className="lang-word-text" lang={lang}>
-        {word.word}
+    <div className="lang-word-front" data-compact={compact ? '' : undefined}>
+      <span className="lang-word-head">
+        <span className="lang-word-text" lang={lang}>
+          {word.word}
+        </span>
+        <span className="lang-word-meta">
+          <IpaChip ipa={word.ipa} ipaUs={word.ipaUs} />
+          {pos ? <span className="lang-word-pos">{pos}</span> : null}
+        </span>
       </span>
-      <span className="lang-word-meta">
-        <IpaChip ipa={word.ipa} ipaUs={word.ipaUs} />
-        {pos ? <span className="lang-word-pos">{pos}</span> : null}
-      </span>
-      <AudioButton text={word.word} lang={lang} size="lg" accentSwitch label={`Прослухати «${word.word}»`} />
+      <AudioButton text={word.word} lang={lang} size={compact ? 'md' : 'lg'} accentSwitch={!compact} label={`Прослухати «${word.word}»`} />
     </div>
   )
 }
@@ -93,7 +97,7 @@ export function WordInline({ id, word, lang, level }: { id: string; word: WordSp
     <details className="lang-word unit-flash" id={`u-${id}`} data-level={level ?? undefined}>
       <summary>
         <span className="toggle-arrow" aria-hidden="true" />
-        <WordFront word={word} lang={lang} />
+        <WordFront word={word} lang={lang} compact />
       </summary>
       <WordBack word={word} lang={lang} />
     </details>

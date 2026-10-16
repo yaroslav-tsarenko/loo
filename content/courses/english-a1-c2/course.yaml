@@ -261,4 +261,8 @@ sections:
 exams:
   topic: { questions: 10, pass: 0.8 }
   section: { questions: 25, pass: 0.8, testOut: true }
-placement: { enabled: true, maxQuestions: 20, perLevel: 3 }
+# Placement: a calibrated bank Guides/English/_placement/A1.md … C2.md (docs/LANGUAGE_COURSE.md «Банк вступного тесту»),
+# independent of the lessons, so it measures B1–C2 too. Starts at B1, binary search; perLevel questions per probed level
+# (mixed skills and difficulties), a level passes at ≥ pass right with most diff ≥ 2 items right; up to maxQuestions
+# (~30); below-high confidence offers a follow-up of followUp questions around the boundary.
+placement: { enabled: true, maxQuestions: 30, perLevel: 5, pass: 0.75, followUp: 6 }

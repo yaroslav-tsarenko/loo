@@ -42,6 +42,8 @@ export interface ChapterMeta {
   icon?: string
   // Guide index only: path stages, e.g. "🧱 Ядро мови: 1-7" (the emoji is mapped to an icon ref).
   parts?: string[]
+  // placement-test bank file (`<Guide>/_placement/B2.md`, docs/LANGUAGE_COURSE.md): not theory, never a chapter
+  placement?: boolean
 }
 
 export type ChapterKind = 'chapter' | 'index' | 'overview'
@@ -236,6 +238,10 @@ export interface QuizUnit extends UnitBase {
   pair?: PairSpec
   speak?: SpeakSpec
   lang?: string
+  // placement bank items (`skill: grammar · diff: 2` in the meta line): the skill measured and the difficulty
+  // inside the level (1 easy … 3 on the edge of the next one) — docs/LANGUAGE_COURSE.md «Банк вступного тесту»
+  skill?: string
+  diff?: number
 }
 
 export interface TaskUnit extends UnitBase {

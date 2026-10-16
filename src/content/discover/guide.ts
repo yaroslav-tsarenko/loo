@@ -22,6 +22,16 @@ export interface BuiltGuide {
   chapters: Chapter[]
   units: LearningUnit[]
   issues: ContentIssue[]
+  // placement-test bank files (`_placement/` or `placement: true`): kept out of the tree, chapters and search
+  placement: { chapters: Chapter[]; units: LearningUnit[] }
+}
+
+export const PLACEMENT_DIR = '_placement'
+
+// A placement bank file (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): `<Guide>/_placement/B2.md` or
+// frontmatter `placement: true`. Not theory — its questions only feed the course's placement test.
+export function isPlacementFile(p: Pick<ParsedFile, 'file' | 'meta'>): boolean {
+  return p.meta.placement === true || p.file.relInGuide.split('/')[0]?.toLowerCase() === PLACEMENT_DIR
 }
 
 const PART = /^\s*(\p{Extended_Pictographic}\uFE0F?)?\s*(.+?)\s*:\s*(\d+)\s*[-–]\s*(\d+)\s*$/u
@@ -93,8 +103,34 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
   }
 
   const rootNode: DirNode = { name: dir, rel: '', files: [], dirs: new Map() }
+  const placement: BuiltGuide['placement'] = { chapters: [], units: [] }
   for (const p of parsed) {
     if (p === indexParsed) continue
+    if (isPlacementFile(p)) {
+      placement.chapters.push({
+        id: p.chapterId,
+        guideId,
+        path: p.file.path,
+        slug: [],
+        title: p.meta.title ?? titleFrom(p.info.h1, p.file.name, dir),
+        number: null,
+        kind: 'chapter',
+        level: p.meta.level ?? null,
+        tags: p.info.tags,
+        prerequisiteRefs: [],
+        prerequisites: [],
+        estimatedMinutes: 0,
+        unitIds: p.full ? p.full.units.map((u) => u.id) : [],
+        outgoingLinks: [],
+        birthtimeMs: p.file.birthtimeMs,
+        mtimeMs: p.file.mtimeMs,
+        description: null,
+        icon: null,
+      })
+      if (p.full) placement.units.push(...p.full.units)
+      issues.push(...p.issues)
+      continue
+    }
     const parts = p.file.relInGuide.split('/')
     let node = rootNode
     for (let i = 0; i < parts.length - 1; i++) {
@@ -257,5 +293,5 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
     parts: parseParts(indexMeta?.parts ?? []),
     icon: iconRef(indexMeta?.icon),
   }
-  return { guide, chapters, units, issues }
+  return { guide, chapters, units, issues, placement }
 }

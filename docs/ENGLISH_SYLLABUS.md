@@ -451,6 +451,37 @@ estimatedMinutes: 35
 
 ---
 
+## 8.3 IELTS — ціль курсу (вимога власника, 2026-10-16)
+
+Курс веде не лише до рівня CEFR, а й до **складання IELTS** (Academic і General Training). Принципи:
+
+- **Шкала.** Рівень учня завжди показуємо і в CEFR, і як орієнтовний бал IELTS (офіційне узгодження
+  Cambridge / British Council): нижче B1 → нижче 4.0 · B1 ≈ 4.0–5.0 · B2 ≈ 5.5–6.5 · C1 ≈ 7.0–8.0 ·
+  C2 ≈ 8.5–9.0. Бал — діапазон і «орієнтовно»: письмо й говоріння вимірюються окремо.
+- **Формат іспиту наскрізно з B1.** У кожному рівні B1–C2 частина практики — у форматі IELTS, щоб учень звикав
+  до завдань ще до окремої підготовки:
+  - **Listening** (4 частини: побутовий діалог, монолог, навчальна дискусія, лекція): form / note / table
+    completion (`type: fill`), multiple choice (`[!listen]`), matching, plan/map labelling (`[!quiz]` з варіантами),
+    spelling імен і чисел (диктант).
+  - **Reading** (Academic: 3 тексти з журналів/книжок; General: оголошення, робочі документи, довгий текст):
+    True / False / Not Given і Yes / No / Not Given (`[!quiz]` з трьома варіантами), matching headings,
+    matching information / features, sentence / summary completion (`type: fill` з банком слів),
+    short answers.
+  - **Writing**: Task 1 Academic (графік / таблиця / процес / мапа, 150+ слів) або General (лист: формальний,
+    напівформальний, неформальний); Task 2 — есе 250+ слів (opinion, discussion, problem–solution,
+    advantages–disadvantages, two-part). Критерії банда: Task Achievement / Response, Coherence & Cohesion,
+    Lexical Resource, Grammatical Range & Accuracy. Шаблони структур, мовні засоби, розбір зразків Band 6 / 7 / 8.
+  - **Speaking**: Part 1 (інтерв'ю), Part 2 (cue card, 1 хв підготовки + 2 хв монолог), Part 3 (дискусія);
+    критерії Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation (`[!speak]`).
+- **Окремий розділ «IELTS: стратегії й пробні тести»** після B2 (`status: planned`, поки контент не готовий):
+  по темі на кожен модуль і тип завдання, стратегії часу, типові пастки (paraphrase у Listening/Reading,
+  Not Given ≠ False, перевищення ліміту слів), академічна лексика (Academic Word List), повні пробні тести
+  Listening / Reading з оцінкою балу за офіційними таблицями відповідності (raw score → band).
+- **Фінальний етап (AI, після підтвердження вартості):** перевірка Writing Task 1/2 і Speaking Part 1–3 за
+  публічними band descriptors IELTS з поясненням українською, що підняти до наступного балу.
+- Чесність: офіційні матеріали IELTS — власність British Council / IDP / Cambridge; ми пишемо власні завдання в
+  тому самому форматі й не копіюємо тести.
+
 ## 9. Маніфест і що має розширити команда застосунку
 
 > **Статус (фаза 2, 2026-10-16): усі пункти нижче реалізовано** — CEFR-шкала курсу (`levels: [A1…C2]`, розділи

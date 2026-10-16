@@ -70,6 +70,7 @@ export function normalizeMeta(data: Record<string, unknown>): ChapterMeta {
   if (icon) meta.icon = /^(si|pi|tb|lucide|emoji|px):/.test(icon) ? icon.slice(0, 64) : icon.slice(0, 8)
   const guide = toText(data.guide)
   if (guide) meta.guide = guide
+  if (data.placement === true || data.placement === 'true') meta.placement = true
   return meta
 }
 

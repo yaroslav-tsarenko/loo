@@ -1,7 +1,7 @@
 import type { List, Paragraph, PhrasingContent, Root, RootContent } from 'mdast'
 import { toString } from 'mdast-util-to-string'
 import type { QuizExercise, QuizMode, QuizOption, QuizUnit } from '../../model'
-import { levelFrom, readMetaParagraph, splitTags } from '../meta'
+import { levelFrom, placementFields, readMetaParagraph, splitTags } from '../meta'
 import type { UnitDefinition } from '../types'
 import { isRoleFence, parseFill, parseOrder } from './exercise'
 
@@ -125,6 +125,7 @@ export const quizDefinition: UnitDefinition = {
       freeAnswer,
       explanation,
       exercise,
+      ...placementFields(meta?.values.skill, meta?.values.diff),
       searchText: `${promptText}\n${options.map((o) => toString({ type: 'paragraph', children: o.content })).join('\n')}${exerciseText ? `\n${exerciseText}` : ''}`,
     }
     return unit

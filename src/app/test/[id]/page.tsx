@@ -42,7 +42,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   if (!built || items.length !== built.questions.length) {
     return (
       <div className="page">
-        <EmptyState title="Тест тимчасово недоступний" mood="sad" action={<Button href="/path">До шляху</Button>}>
+        <EmptyState title="Тест тимчасово недоступний" mood="sad" action={<Button href="/path">До карти</Button>}>
           Частина питань цього тесту зараз не знайдена у вмісті курсу. Спробуй пізніше.
         </EmptyState>
       </div>

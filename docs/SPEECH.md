@@ -44,10 +44,29 @@
 
 ---
 
-## 0. TL;DR (рішення для v1)
+## 0. TL;DR
+
+**v1 (зараз, рішення власника — безкоштовно):**
 
 | Що | Рішення v1 |
 |---|---|
+| TTS | Браузерний `speechSynthesis` (голоси en-GB / en-US пристрою, перемикач акценту в налаштуваннях, повільний режим). Без сервера й без ключів. |
+| STT / вимова | Web Speech `SpeechRecognition` у браузері (Chrome / Edge / Safari); на сервер іде лише текст (zod, ліміти). Оцінка — **word-level diff** + IPA-підказки з контенту, лише на сервері. Firefox / без мікрофона — «послухай і повтори» із самооцінкою, без XP. |
+| Сховище аудіо | Не потрібне (нічого не генеруємо й не зберігаємо; аудіо учня не завантажується). |
+| Нові пакети / env | Немає. |
+
+**v2 (коли буде бюджет; код уже має шар `SpeechProvider` → провайдер `gateway`):**
+
+| Що | Рішення v2 |
+|---|---|
+| TTS | **AI Gateway** → `microsoft/mai-voice-2.1-flash` (`en-GB-*`, `en-US-*`, `de-DE-*`, `fr-FR-*`), запасний `openai/tts-1`. |
+| STT | **AI Gateway** → `openai/gpt-4o-mini-transcribe`; таймінги слів — `openai/whisper-1`. |
+| Сховище аудіо | **Supabase Storage** (публічний бакет), незмінні шляхи з content-hash, індекс і lock у Postgres (`speech_clips`). Vercel Blob — лише на плані Pro. |
+| Генерація | Pre-generation скриптом (`speech:build`), on-demand як fallback, браузер — останній fallback. |
+| Оцінка вимови | word-level diff; далі — Azure Pronunciation Assessment (фонеми). |
+| Env | Опційно `SPEECH_TTS_MODEL`, `SPEECH_STT_MODEL`; для Azure — `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION`. |
+
+---|---|
 | TTS | **AI Gateway** → `microsoft/mai-voice-2.1-flash` (голоси з локаллю: `en-GB-*`, `en-US-*`, `de-DE-*`, `fr-FR-*`). Запасний варіант: `openai/tts-1`. Новий AI-пакет не потрібен. |
 | STT | **AI Gateway** → `openai/gpt-4o-mini-transcribe` (дешевий і точний). Якщо потрібні таймінги слів, `openai/whisper-1`. |
 | Сховище аудіо | **Vercel Blob, public store**, незмінні шляхи з content-hash; індекс і lock у Postgres (`speech_clips`) |

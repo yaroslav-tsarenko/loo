@@ -55,6 +55,10 @@ export const PlacementSchema = z
     enabled: z.boolean().default(true),
     maxQuestions: z.number().int().min(4).max(60).default(20),
     perLevel: z.number().int().min(2).max(5).default(3),
+    // bank mode only (docs/LANGUAGE_COURSE.md «Вступний тест»): share of right answers that passes a level (0.75)
+    // and the optional follow-up after a low-confidence result (questions around the boundary, 6)
+    pass: z.number().min(0.5).max(1).optional(),
+    followUp: z.number().int().min(0).max(10).optional(),
   })
   .prefault({})
 export type PlacementConfig = z.infer<typeof PlacementSchema>

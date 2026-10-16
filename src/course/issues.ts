@@ -10,6 +10,7 @@ export type CourseIssueCode =
   | 'no-level'
   | 'thin-exam'
   | 'thin-placement'
+  | 'placement-bank'
   | 'empty-practice'
   | 'content'
   | 'task'

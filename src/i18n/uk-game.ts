@@ -12,7 +12,7 @@ export const ukGame = {
     refillShort: 'Відновити',
     notEnough: 'Потрібно {price} баксів — у тебе {bucks}.',
     toShop: 'До крамниці',
-    toPath: 'До шляху',
+    toPath: 'До карти',
     next: 'Наступне сердечко {when}',
     full: 'Усі 5 сердечок на місці',
     refilled: 'Сердечка відновлено! Продовжуємо!',

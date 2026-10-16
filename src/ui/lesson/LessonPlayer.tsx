@@ -222,7 +222,7 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
           </Button>
         ) : null}
         <Button href="/path" variant={nextHref ? 'ghost' : 'primary'} size="lg" block icon={<PiMapTrifoldFill size={20} />}>
-          До шляху
+          До карти
         </Button>
         <Link href={chapterHref} className="lesson-summary-link">
           <PiBookOpenTextFill aria-hidden="true" /> Перечитати теорію

@@ -8,6 +8,9 @@ export interface CourseSource {
   units: ReadonlyMap<string, LearningUnit>
   unitsByChapter: ReadonlyMap<string, readonly LearningUnit[]>
   reels: readonly Reel[]
+  // placement-test bank (`<Guide>/_placement/*.md`), outside guides and chapters
+  placementUnits?: ReadonlyMap<string, LearningUnit>
+  placementChapters?: ReadonlyMap<string, Chapter>
   issues?: readonly { severity: 'warning' | 'error'; code: string; path: string; message: string }[]
 }
 

@@ -2,7 +2,7 @@ import type { Root, RootContent } from 'mdast'
 import { toString } from 'mdast-util-to-string'
 import type { AudioLine, ListenSpec, ListenType, QuizOption, QuizUnit } from '../../model'
 import { FieldBag, isSlow, readFields } from '../lang/fields'
-import { levelFrom, splitTags } from '../meta'
+import { levelFrom, placementFields, splitTags } from '../meta'
 import { EXPLANATION, isTaskList, labeledParagraph, optionContent } from '../quiz/definition'
 import type { UnitDefinition } from '../types'
 
@@ -12,7 +12,8 @@ import type { UnitDefinition } from '../types'
 //   type: dictation — type what you heard (graded without case / punctuation, src/content/blocks/lang/grade.ts)
 // `audio:` lines are spoken in order; `audio: A: …` / `audio: B: …` make a dialogue with alternating voices.
 
-const KEYS = new Set(['level', 'type', 'id', 'audio', 'speed', 'accept', 'tags', 'lang', 'explain'])
+// skill / diff: placement bank items (docs/LANGUAGE_COURSE.md «Банк вступного тесту»)
+const KEYS = new Set(['level', 'type', 'id', 'audio', 'speed', 'accept', 'tags', 'lang', 'explain', 'skill', 'diff'])
 const TYPES: readonly ListenType[] = ['choice', 'dictation', 'answer']
 
 export const MAX_AUDIO_CHARS = 300
@@ -99,6 +100,7 @@ export const listenDefinition: UnitDefinition = {
       exercise: null,
       listen,
       ...(f.text('lang') ? { lang: f.text('lang')! } : {}),
+      ...placementFields(f.text('skill'), f.text('diff')),
       // search shows the prompt only: the transcript is the answer of choice / dictation items
       searchText: promptText,
     }

@@ -64,14 +64,16 @@ export interface TaskItem extends ItemBase {
 export type StudyItem = FlashItem | QuizItem | TaskItem
 
 export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly string[], now = Date.now()): Promise<StudyItem[]> {
-  const units = ids.map((id) => snapshot.units.get(id)).filter((u): u is LearningUnit => Boolean(u))
+  // placement bank items (`_placement/`) render here too: only the placement page asks for them
+  const units = ids.map((id) => snapshot.units.get(id) ?? snapshot.placementUnits.get(id)).filter((u): u is LearningUnit => Boolean(u))
   // card schedules and task states: one transaction, one round trip
   const [cards, tasks] = await userScope((db, userId) =>
     Promise.all([srsMapIn(db, userId, units.filter((u) => u.kind === 'flashcard').map((u) => u.id)), taskStatesIn(db, userId, units.filter((u) => u.kind === 'task').map((u) => u.id))]),
   )
   return Promise.all(
     units.map(async (unit): Promise<StudyItem> => {
-      const chapter = snapshot.chapters.get(unit.chapterId)!
+      const bankChapter = snapshot.placementChapters.get(unit.chapterId)
+      const chapter = snapshot.chapters.get(unit.chapterId) ?? bankChapter!
       const env: RenderEnv = { snapshot, chapter, depth: 0, variant: 'card' }
       const base: ItemBase = {
         unitId: unit.id,
@@ -79,7 +81,8 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
         // raw level id; LevelPill renders its tag
         level: unit.level ?? null,
         chapterTitle: chapter.kind === 'index' ? snapshot.guideById.get(chapter.guideId)?.title ?? chapter.title : chapter.title,
-        chapterHref: `${chapterHref(snapshot, chapter)}#u-${unit.id}`,
+        // the bank is no article: nothing to link to
+        chapterHref: bankChapter ? '' : `${chapterHref(snapshot, chapter)}#u-${unit.id}`,
       }
       if (unit.kind === 'flashcard' && unit.word) {
         const lang = await speechLangFor(unit)

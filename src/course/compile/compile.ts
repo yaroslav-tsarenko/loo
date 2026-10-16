@@ -14,6 +14,7 @@ import {
   minLevel,
   toCourseLevel,
   type LevelLadder,
+  PLACEMENT_SKILLS,
   type CourseBundle,
   type CourseManifest,
   type CourseStats,
@@ -21,7 +22,9 @@ import {
   type ExerciseRef,
   type Lesson,
   type Level,
+  type PlacementItem,
   type PlacementPool,
+  type PlacementSkill,
   type ReelRef,
   type Section,
   type SectionExam,
@@ -37,7 +40,7 @@ import { chapterUnits, findGuide, type CourseSource } from './source'
 export interface CompileResult {
   bundle: CourseBundle
   issues: CourseIssue[]
-  // chapters the course pulls in (for scoping content issues)
+  // chapters the course pulls in (for scoping content issues), placement bank files included
   chapterIds: string[]
 }
 
@@ -297,7 +300,15 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
   }
   const kind = manifest.kind ?? kindForSubject(manifest.subject)
 
-  const placement = placementPool(manifest, sections, exercises, quick, ladder)
+  // the bank of the guides this course uses (sections, planned ones too, and theory)
+  const courseGuides = new Set<string>(theory)
+  for (const sm of manifest.sections) {
+    const g = findGuide(source, sm.from)
+    if (g) courseGuides.add(g.id)
+  }
+  const bank = placementBank(source, courseGuides, ladder, issues)
+  for (const id of bank.chapterIds) chapterIds.push(id)
+  const placement = bank.size > 0 ? bankPool(manifest, bank.items, ladder) : placementPool(manifest, sections, exercises, quick, ladder)
   const stats = courseStats(sections, exercises, reels, ladder)
   const icons = [...new Set([iconRef(manifest.icon), ...sections.map((s) => s.icon), ...sections.flatMap((s) => s.topics.map((t) => t.icon))].filter((v): v is string => Boolean(v)))]
 
@@ -337,6 +348,62 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
 
 export function compileCourse(manifest: CourseManifest, source: CourseSource): CourseBundle {
   return compileCourseDetailed(manifest, source).bundle
+}
+
+// Bank-mode defaults (course.yaml `placement: { pass, followUp }`, docs/COURSE_FORMAT.md §2).
+export const PLACEMENT_PASS = 0.75
+export const PLACEMENT_FOLLOW_UP = 6
+
+const isSkill = (v: unknown): v is PlacementSkill => typeof v === 'string' && (PLACEMENT_SKILLS as readonly string[]).includes(v)
+
+// Placement bank (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): single-choice [!quiz] and [!listen] choice / answer
+// items of the course guides' `_placement/` files, with level, skill and diff. Independent of the sections, so
+// it measures levels whose lessons are still `status: planned`.
+function placementBank(source: CourseSource, guides: ReadonlySet<string>, ladder: LevelLadder, issues: CourseIssue[]): { items: Map<string, PlacementItem>; size: number; chapterIds: string[] } {
+  const items = new Map<string, PlacementItem>()
+  const chapterIds: string[] = []
+  const units = source.placementUnits
+  if (!units) return { items, size: 0, chapterIds }
+  for (const c of source.placementChapters?.values() ?? []) if (guides.has(c.guideId)) chapterIds.push(c.id)
+  const problems = new Map<string, string[]>()
+  const note = (problem: string, id: string) => {
+    const list = problems.get(problem)
+    if (list) list.push(id)
+    else problems.set(problem, [id])
+  }
+  for (const u of units.values()) {
+    if (!guides.has(u.guideId)) continue
+    const single = u.kind === 'quiz' && (u.mode === 'single' || (u.mode === 'listen' && u.listen?.type !== 'dictation')) && u.options.filter((o) => o.correct).length === 1
+    if (u.kind !== 'quiz' || !single) {
+      note('пропущено: не один правильний варіант або не [!quiz] / [!listen] choice', u.id)
+      continue
+    }
+    const level = toCourseLevel(u.level, ladder)
+    if (!level) {
+      note('пропущено: немає рівня (level: у рядку мета або frontmatter)', u.id)
+      continue
+    }
+    let skill: PlacementSkill = u.mode === 'listen' ? 'listening' : 'grammar'
+    if (isSkill(u.skill)) skill = u.skill
+    else note(u.skill ? `невідома skill «${u.skill}» (grammar | vocabulary | reading | listening), взято ${skill}` : `немає skill:, взято ${skill}`, u.id)
+    let diff = 2
+    if (u.diff === 1 || u.diff === 2 || u.diff === 3) diff = u.diff
+    else note('немає або хибний diff: (1 | 2 | 3), взято 2', u.id)
+    items.set(u.id, { level, skill, diff, options: u.options.length })
+  }
+  for (const [problem, ids] of problems) {
+    issues.push({ severity: 'warning', code: 'placement-bank', where: 'placement', message: `Банк вступного тесту: ${ids.length} питань — ${problem}: ${ids.slice(0, 4).join(', ')}${ids.length > 4 ? '…' : ''}` })
+  }
+  return { items, size: items.size, chapterIds }
+}
+
+function bankPool(manifest: CourseManifest, items: ReadonlyMap<string, PlacementItem>, ladder: LevelLadder): PlacementPool {
+  const { enabled, maxQuestions, perLevel } = manifest.placement
+  const ids = [...items.keys()].sort()
+  const pool = byLevel((l) => (enabled ? ids.filter((id) => items.get(id)!.level === l) : []), LADDERS[ladder])
+  const bank: Record<string, PlacementItem> = {}
+  for (const id of ids) bank[id] = items.get(id)!
+  return { enabled, maxQuestions, perLevel, pool, bank, pass: manifest.placement.pass ?? PLACEMENT_PASS, followUp: manifest.placement.followUp ?? PLACEMENT_FOLLOW_UP }
 }
 
 const PLACEMENT_KINDS = new Set<ExerciseKind>(['quiz', 'listen', 'pair'])
