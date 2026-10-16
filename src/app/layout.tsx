@@ -11,6 +11,7 @@ import { navCounts } from '@/server/services/counts'
 import { userXp } from '@/server/services/progress'
 import { readSettings } from '@/server/settings'
 import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
+import { EvolutionMoment } from '@/ui/game/EvolutionMoment'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
 import { CommandPalette } from '@/ui/search/CommandPalette'
 import { AppFrame } from '@/ui/shell/AppFrame'
@@ -26,7 +27,7 @@ const nunito = Nunito({ subsets: ['latin', 'cyrillic'], variable: '--font-nunito
 
 export const metadata: Metadata = {
   title: { default: 'Levelup', template: '%s · Levelup' },
-  description: 'Levelup — навчання як гра: короткі уроки, тести, задачі, серії й ліги від Noob до God',
+  description: 'Levelup — навчання як гра: короткі уроки, тести, задачі, серії й ліги — Loo еволюціонує від Яйця до Легенди',
   applicationName: 'Levelup',
   appleWebApp: { capable: true, title: 'Levelup', statusBarStyle: 'black-translucent' },
   formatDetection: { telephone: false },
@@ -92,6 +93,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 <>
                   <BottomNav />
                   <CommandPalette />
+                  {game.evolution ? <EvolutionMoment key={game.evolution.to} from={game.evolution.from} to={game.evolution.to} /> : null}
                 </>
               }
             >

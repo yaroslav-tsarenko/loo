@@ -7,6 +7,7 @@ export interface NavItem {
 
 export const NAV: readonly NavItem[] = [
   { href: '/', label: 'Сьогодні', short: 'Сьогодні', match: (p) => p === '/' },
+  { href: '/loo', label: 'Мій Loo', short: 'Loo', match: (p) => p.startsWith('/loo') },
   { href: '/feed', label: 'Стрічка', short: 'Стрічка', match: (p) => p.startsWith('/feed') },
   { href: '/path', label: 'Шлях', short: 'Шлях', match: (p) => p.startsWith('/path') || p.startsWith('/test') },
   { href: '/leagues', label: 'Ліги', short: 'Ліги', match: (p) => p.startsWith('/leagues') },

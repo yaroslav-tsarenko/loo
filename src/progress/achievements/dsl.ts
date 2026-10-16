@@ -26,7 +26,8 @@ export const METRICS = [
   'lessons.completed',
   'lessons.perfect',
   'courses.completed',
-  'rank',
+  // Loo's evolution step 0–21 (src/game/ranks.ts)
+  'evolution',
   'gems.earned',
   'shop.purchases',
   'skins.owned',

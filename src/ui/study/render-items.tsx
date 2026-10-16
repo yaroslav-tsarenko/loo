@@ -1,7 +1,8 @@
 import 'server-only'
 import { Fragment, type ReactNode } from 'react'
 import { gradedQuiz, type ExerciseView } from '@/content/blocks/quiz/view'
-import { DIFFICULTY_LABEL, LEVEL_LABEL, type LearningUnit, type QuizMode, type TaskCode } from '@/content/model'
+import { levelTag } from '@/game/evolution'
+import { DIFFICULTY_LABEL, type LearningUnit, type QuizMode, type TaskCode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { previewIntervals } from '@/progress/srs'
 import { srsMap, taskStates } from '@/server/services/queue'
@@ -65,7 +66,8 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
       const base: ItemBase = {
         unitId: unit.id,
         label: unitLabel(unit),
-        level: unit.level ? LEVEL_LABEL[unit.level] : null,
+        // «🧱 для Блока»: difficulty as the Loo form it matches
+        level: unit.level ? levelTag(unit.level) : null,
         chapterTitle: chapter.kind === 'index' ? snapshot.guideById.get(chapter.guideId)?.title ?? chapter.title : chapter.title,
         chapterHref: `${chapterHref(snapshot, chapter)}#u-${unit.id}`,
       }

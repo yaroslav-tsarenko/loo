@@ -422,3 +422,400 @@
   left: 10px;
   transform: translateY(-50%);
 }
+
+/* ── Loo's evolution ───────────────────────────────────────────────── */
+.loo-character {
+  display: inline-grid;
+  place-items: center;
+  line-height: 0;
+}
+.loo-character[data-silhouette] .loo {
+  filter: brightness(0) opacity(0.22);
+}
+.shell-evo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px 2px 4px;
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-purple-soft);
+  color: var(--lu-purple-ink);
+  font-family: var(--lu-font);
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-black);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.shell-evo:hover {
+  background: color-mix(in srgb, var(--lu-purple) 22%, transparent);
+}
+@media (max-width: 900px) {
+  .shell-evo {
+    padding-right: 4px;
+  }
+  .shell-evo-title {
+    display: none;
+  }
+}
+.sb-level-loo {
+  position: relative;
+}
+.sb-level-loo .tabular {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-yellow);
+  color: var(--lu-yellow-ink);
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+}
+.st-hero-loo {
+  display: inline-grid;
+  place-items: center;
+  align-self: center;
+}
+.st-hero-evo {
+  text-decoration: none;
+}
+
+/* Full-screen evolution moment */
+.evo-moment {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 40%, #3b1d73 0%, #120a24 70%);
+  color: #fff;
+  font-family: var(--lu-font);
+  text-align: center;
+  animation: evo-fade 0.35s var(--lu-ease) both;
+}
+@keyframes evo-fade {
+  from {
+    opacity: 0;
+  }
+}
+.evo-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 280px;
+  height: 260px;
+}
+.evo-rays {
+  position: absolute;
+  inset: -40px;
+  background: repeating-conic-gradient(from 0deg, rgb(255 200 0 / 0.18) 0deg 10deg, transparent 10deg 30deg);
+  border-radius: 50%;
+  mask: radial-gradient(circle, #000 30%, transparent 70%);
+  animation: evo-spin 8s linear infinite;
+}
+@keyframes evo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.evo-eyebrow {
+  margin: 0;
+  font-size: var(--lu-fs-sm);
+  font-weight: var(--lu-fw-black);
+  letter-spacing: var(--lu-tracking-caps);
+  text-transform: uppercase;
+  color: #ffc800;
+}
+.evo-title {
+  margin: 0;
+  font-size: clamp(30px, 7vw, 46px);
+  font-weight: var(--lu-fw-black);
+}
+.evo-gems {
+  margin: 0;
+  font-weight: var(--lu-fw-black);
+  color: #8fdbff;
+}
+.evo-actions {
+  display: grid;
+  gap: 8px;
+  width: min(320px, 80vw);
+  margin-top: 10px;
+}
+.evo-actions .lu-btn[data-variant='ghost'] {
+  color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .evo-rays {
+    animation: none;
+  }
+}
+
+/* /loo — «Мій Loo» */
+.loo-page {
+  font-family: var(--lu-font);
+}
+.loo-hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--lu-purple-soft), var(--lu-surface) 60%);
+}
+.loo-hero-art {
+  flex: none;
+}
+.loo-hero-text {
+  min-width: 0;
+  flex: 1;
+}
+.loo-eyebrow {
+  margin: 0;
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-black);
+  letter-spacing: var(--lu-tracking-caps);
+  text-transform: uppercase;
+  color: var(--lu-purple-ink);
+}
+.loo-title {
+  margin: 2px 0 4px;
+  font-size: clamp(30px, 6vw, 42px);
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text);
+}
+.loo-lead {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: var(--lu-text-2);
+}
+.loo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.loo-step,
+.loo-power {
+  padding: 2px 10px;
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-surface-2);
+}
+.loo-gaps {
+  margin: 8px 0 0;
+  font-size: var(--lu-fs-sm);
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.loo-gap[data-met] {
+  color: var(--lu-green-ink);
+}
+.loo-gap-gems {
+  color: var(--lu-blue-ink);
+}
+.loo-attrs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: center;
+  margin-top: 12px;
+}
+.attr-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.attr-row {
+  display: grid;
+  grid-template-columns: 32px 120px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 4px 10px;
+}
+.attr-emoji {
+  font-size: 24px;
+  text-align: center;
+}
+.attr-name {
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text);
+}
+.attr-level {
+  font-size: var(--lu-fs-lg);
+  font-weight: var(--lu-fw-black);
+  text-align: right;
+  color: var(--lu-text);
+}
+.attr-hint {
+  grid-column: 2 / -1;
+  font-size: var(--lu-fs-xs);
+  font-weight: 600;
+  color: var(--lu-text-3);
+}
+.attr-radar-card {
+  display: grid;
+  place-items: center;
+}
+.attr-radar {
+  width: 100%;
+  max-width: 280px;
+  overflow: visible;
+}
+.attr-radar-ring {
+  fill: none;
+  stroke: var(--lu-border);
+  stroke-width: 1.5;
+}
+.attr-radar-axis {
+  stroke: var(--lu-border);
+  stroke-width: 1;
+}
+.attr-radar-shape {
+  fill: color-mix(in srgb, var(--lu-purple) 35%, transparent);
+  stroke: var(--lu-purple);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.attr-radar-label {
+  font-size: 20px;
+}
+.loo-sw {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.loo-sw-title {
+  margin: 0 0 8px;
+  font-size: var(--lu-fs-md);
+  font-weight: var(--lu-fw-black);
+}
+.loo-sw-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 20px;
+  font-weight: var(--lu-fw-bold);
+}
+.loo-sw-weak {
+  margin: 0;
+  font-size: var(--lu-fs-lg);
+  font-weight: var(--lu-fw-black);
+}
+.loo-sw-tip {
+  margin: 4px 0 10px;
+  font-weight: 600;
+  color: var(--lu-text-2);
+}
+.skill-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.skill-card {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 14px 14px 18px;
+  overflow: hidden;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
+  box-shadow: 0 4px 0 var(--lu-border);
+}
+.skill-card[data-kind='section'] {
+  border-color: var(--lu-yellow);
+  box-shadow: 0 4px 0 var(--lu-yellow-lip);
+  background: linear-gradient(160deg, var(--lu-yellow-soft), var(--lu-surface) 60%);
+}
+.skill-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--power);
+  height: 5px;
+  background: var(--lu-purple);
+}
+.skill-name {
+  font-size: var(--lu-fs-md);
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text);
+}
+.skill-source,
+.skill-course {
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.skill-power {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-purple-ink);
+}
+.evo-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 10px;
+  margin: 12px 0 40px;
+  padding: 0;
+  list-style: none;
+}
+.evo-step {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
+  background: var(--lu-surface);
+  text-align: center;
+}
+.evo-step[data-state='reached'] {
+  border-color: var(--lu-green);
+  background: var(--lu-green-soft);
+}
+.evo-step[data-state='current'] {
+  border-color: var(--lu-purple);
+  background: var(--lu-purple-soft);
+  box-shadow: 0 4px 0 var(--lu-purple-lip);
+  transform: translateY(-2px);
+}
+.evo-step-title {
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text);
+}
+.evo-step-sub {
+  font-size: 11px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-3);
+}
+@media (max-width: 720px) {
+  .loo-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .loo-meta {
+    justify-content: center;
+  }
+  .loo-attrs,
+  .loo-sw {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .attr-row {
+    grid-template-columns: 28px 100px minmax(0, 1fr) 34px;
+  }
+}

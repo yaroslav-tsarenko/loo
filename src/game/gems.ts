@@ -46,4 +46,5 @@ export const gemRef = {
   achievement: (id: string) => `ach:${id}`,
   league: (week: string) => `league:${week}`,
   practice: (sessionId: string) => `practice:${sessionId}`,
+  evolution: (step: number) => `evo:${step}`,
 }

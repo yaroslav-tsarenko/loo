@@ -1,0 +1,76 @@
+# Levelup course manifest — docs/COURSE_FORMAT.md (interview-preparation-2-0)
+# Official course: `from:` resolves against the vault's shared Guides/ folder.
+id: javascript-noob-to-god
+version: 1.0.0
+title: JavaScript from Noob to God
+subtitle: Від першого console.log до V8, архітектури і співбесід
+description: >-
+  Повний шлях у JavaScript: старт з нуля, ядро мови, асинхронність і памʼять, мова глибше,
+  браузер і мережа, інженерія і продуктивність, лайвкодинг, справжні проєкти і банк питань зі співбесід.
+subject: programming
+language: uk
+icon: si:SiJavascript
+color: '#F7DF1E'
+levels: [noob, junior, middle, senior, god]
+tags: [javascript, frontend, browser, async, interview, livecoding]
+authors: [{ name: Yaroslav Tsarenko }]
+license: proprietary
+
+sections:
+  - id: start
+    title: Старт з нуля
+    icon: '🌱'
+    description: Ніколи не програмував? Від першого console.log до власної інтерактивної сторінки.
+    from: JavaScript Start
+    level: noob
+  - id: core
+    title: Ядро мови
+    icon: '🧱'
+    description: Як JS виконує код, типи, значення і посилання, scope, замикання, this, прототипи.
+    from: JavaScript
+    chapters: 1-7
+  - id: async-memory
+    title: Асинхронність і памʼять
+    icon: '⏳'
+    description: Event loop, Promise, async/await, ітератори, функціональний стиль, памʼять і GC.
+    from: JavaScript
+    chapters: 8-14
+  - id: deeper
+    title: Мова глибше
+    icon: '🔬'
+    description: Функції й обʼєкти глибоко, числа, рядки і Unicode, колекції, Proxy, модулі, помилки, дати.
+    from: JavaScript
+    chapters: 15-24
+  - id: browser-network
+    title: Браузер і мережа
+    icon: '🌐'
+    description: DOM і події, рендеринг, fetch і CORS, сховища, workers, безпека.
+    from: JavaScript
+    chapters: 25-30
+  - id: engineering
+    title: Інженерія і продуктивність
+    icon: '🏗️'
+    description: V8 і продуктивність, патерни, тестування, сучасний JS і TC39.
+    from: JavaScript
+    chapters: 31-34
+  - id: livecoding
+    title: Лайвкодинг
+    icon: '🥋'
+    description: Задачі з автотестами — саме те, що просять написати наживо на співбесіді.
+    from: JavaScript Katas
+  - id: projects
+    title: Проєкти
+    icon: '🚀'
+    description: Вісім міні-застосунків і бібліотек крок за кроком, кожен крок — задача з тестами.
+    from: JavaScript Projects
+  - id: interview
+    title: Співбесіда
+    icon: '🎤'
+    description: Банк питань зі співбесід від Junior до Tech Lead — практика без теорії.
+    from: JS Interview Q&A
+    kind: practice
+
+exams:
+  topic: { questions: 10, pass: 0.8 }
+  section: { questions: 25, pass: 0.8, testOut: true }
+placement: { enabled: true, maxQuestions: 20, perLevel: 3 }

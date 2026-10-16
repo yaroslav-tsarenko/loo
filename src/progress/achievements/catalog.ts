@@ -24,11 +24,13 @@ export const ACHIEVEMENTS: readonly AchievementDef[] = [
   { id: 'test-perfect', title: 'Тест без помилок', description: 'Скласти тест теми на 100%', tier: 'silver', when: { metric: 'tests.perfect', gte: 1 } },
   { id: 'exam-first', title: 'Екзамен розділу', description: 'Скласти екзамен розділу 👑', tier: 'gold', when: { metric: 'exams.passed', gte: 1 } },
   { id: 'test-out', title: 'Перескочив розділ', description: 'Скласти екзамен розділу ще до кінця розділу', tier: 'gold', when: { metric: 'sections.testedOut', gte: 1 } },
-  // Ranks (src/game/ranks.ts: 0 Noob · 1 Trainee · 2 Junior · 3 Middle · 4 Senior · 5 Staff · 6 Principal · 7 God)
-  { id: 'rank-junior', title: 'Junior', description: 'Досягти рангу Junior', tier: 'bronze', when: { metric: 'rank', gte: 2 } },
-  { id: 'rank-middle', title: 'Middle', description: 'Досягти рангу Middle', tier: 'silver', when: { metric: 'rank', gte: 3 } },
-  { id: 'rank-senior', title: 'Senior', description: 'Досягти рангу Senior', tier: 'gold', when: { metric: 'rank', gte: 4 } },
-  { id: 'rank-god', title: 'God mode', description: 'Досягти рангу God', tier: 'gold', when: { metric: 'rank', gte: 7 } },
+  // Loo's evolution (src/game/ranks.ts steps: 3 Піксель I · 6 Блок I · 9 Ламповий I · 15 Броньований I · 21 Легендарний).
+  // Ids are kept from the old rank ladder so unlocked achievements stay unlocked.
+  { id: 'evo-pixel', title: 'Вилупився!', description: 'Loo став Пікселем 👾', tier: 'bronze', when: { metric: 'evolution', gte: 3 } },
+  { id: 'rank-junior', title: 'Блок', description: 'Loo еволюціонував у Блок 🧱', tier: 'bronze', when: { metric: 'evolution', gte: 6 } },
+  { id: 'rank-middle', title: 'Ламповий', description: 'Loo засвітився: форма Ламповий 💡', tier: 'silver', when: { metric: 'evolution', gte: 9 } },
+  { id: 'rank-senior', title: 'Броньований', description: 'Loo вдягнув броню: форма Броньований 🛡️', tier: 'gold', when: { metric: 'evolution', gte: 15 } },
+  { id: 'rank-god', title: 'Легенда', description: 'Loo став Легендарним 🌟', tier: 'gold', when: { metric: 'evolution', gte: 21 } },
   // Course progress
   { id: 'lesson-first', title: 'Перший урок', description: 'Пройти перший урок курсу', tier: 'bronze', when: { metric: 'lessons.completed', gte: 1 } },
   { id: 'lessons-25', title: 'Чверть сотні', description: 'Пройти 25 уроків', tier: 'silver', when: { metric: 'lessons.completed', gte: 25 } },

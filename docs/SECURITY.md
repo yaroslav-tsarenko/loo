@@ -479,3 +479,4 @@ Leagues turn XP into something other people see, so every number that feeds them
 | Rate limit on `answerQuiz` 120/min per user | ✅ | `src/server/courses/limits.ts` |
 | Cron `/api/cron/leagues` behind `CRON_SECRET` (proxy + route) | ✅ | `src/app/api/cron/leagues/route.ts`, `vercel.json` |
 | Users with direct DML grants (Data API) could still insert their own positive `gem_ledger` / `xp_ledger` rows | ⏳ | same as Phase 2: keep the Supabase Data API disabled (docs/AUTH.md §8); next step — SECURITY DEFINER functions for ledger writes and dropping INSERT grants |
+| Loo's character / battle snapshot: `characterSnapshot(userId)` reads that learner's rows in their own `withUser` scope, server-side only (no action exposes another user's sheet); the snapshot holds form, attribute levels, skill names/power — no raw answers, no ids beyond course/topic ids | ✅ | `src/server/game/character.ts`, docs/BATTLES.md |

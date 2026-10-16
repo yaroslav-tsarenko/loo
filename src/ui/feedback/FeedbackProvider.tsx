@@ -98,7 +98,7 @@ export function FeedbackProvider({ children, initialXp, sound, volume, haptics =
         shown.push({ id: ++counter.current, effect })
       }
       if (gained > 0) setXp((v) => v + gained)
-      if (list.some((e) => e.type === 'level-up' || e.type === 'rank-up')) window.setTimeout(() => play('level'), 350)
+      if (list.some((e) => e.type === 'level-up' || e.type === 'rank-up' || e.type === 'evolution')) window.setTimeout(() => play('level'), 350)
       else if (list.some((e) => e.type === 'achievement')) window.setTimeout(() => play('achievement'), 350)
       else if (list.some((e) => e.type === 'daily-goal' || e.type === 'mission')) window.setTimeout(() => play('goal'), 350)
       const merged = mergeXp(shown)

@@ -1,13 +1,15 @@
 import type { Root, RootContent, PhrasingContent } from 'mdast'
+import { levelLabel } from '@/game/evolution'
 
 export const LEVELS = ['junior', 'middle', 'senior', 'techlead'] as const
 export type Level = (typeof LEVELS)[number]
 
+// Shown as the matching Loo form (src/game/evolution.ts): junior → Блок … techlead → Легендарний.
 export const LEVEL_LABEL: Record<Level, string> = {
-  junior: 'Junior',
-  middle: 'Middle',
-  senior: 'Senior',
-  techlead: 'Tech Lead',
+  junior: levelLabel('junior'),
+  middle: levelLabel('middle'),
+  senior: levelLabel('senior'),
+  techlead: levelLabel('techlead'),
 }
 
 export const FREQUENCIES = ['рідко', 'іноді', 'часто', 'дуже часто'] as const

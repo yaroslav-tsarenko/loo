@@ -1,5 +1,5 @@
 import type { IconType } from 'react-icons'
-import { PiBandaidsFill, PiBooksFill, PiCardsThreeFill, PiCodeBlockFill, PiDeviceMobileFill, PiFileTextFill, PiHouseFill, PiListChecksFill, PiMapTrifoldFill, PiNewspaperFill, PiPathFill, PiStorefrontFill, PiTrophyFill, PiUserCircleFill } from 'react-icons/pi'
+import { PiBandaidsFill, PiBooksFill, PiCardsThreeFill, PiCodeBlockFill, PiDeviceMobileFill, PiFileTextFill, PiHouseFill, PiListChecksFill, PiMapTrifoldFill, PiNewspaperFill, PiPathFill, PiSparkleFill, PiStorefrontFill, PiTrophyFill, PiUserCircleFill } from 'react-icons/pi'
 
 export interface NavIcon {
   icon: IconType
@@ -10,6 +10,7 @@ export interface NavIcon {
 // Direct per-icon imports keep the shell chunk small (no registry lookup on every page).
 export const NAV_ICONS: Record<string, NavIcon> = {
   '/': { icon: PiHouseFill, color: 'var(--lu-orange)' },
+  '/loo': { icon: PiSparkleFill, color: 'var(--lu-purple)' },
   '/feed': { icon: PiDeviceMobileFill, color: 'var(--lu-pink)' },
   '/path': { icon: PiPathFill, color: 'var(--lu-green)' },
   '/leagues': { icon: PiTrophyFill, color: 'var(--lu-yellow-lip)' },

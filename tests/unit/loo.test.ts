@@ -2,7 +2,8 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { faviconIco } from '@/ui/design/brand/favicon'
 import { logoMarkSvg } from '@/ui/design/brand/mark-svg'
-import { frameSpans, LOO_COLORS, LOO_EYES, LOO_GRID, LOO_MOODS, LOO_TIMELINES, looTimeline, MARK_BOX, markRects, poseRects, timelineTicks } from '@/ui/design/mascot/pixels'
+import { frameSpans, LOO_COLORS, LOO_EYES, LOO_FORM_LABEL, LOO_FORMS, LOO_GRID, LOO_MOODS, LOO_TIMELINES, looTimeline, MARK_BOX, markRects, poseRects, timelineTicks, type LooSkin } from '@/ui/design/mascot/pixels'
+import { LOO_FORMS as INDEX_FORMS, LOO_FORM_LABEL as INDEX_LABELS } from '@/ui/design/mascot/LooArt'
 
 describe('Loo pixel mascot', () => {
   it('every mood has a key frame and spans that tile its clock', () => {
@@ -65,5 +66,51 @@ describe('Loo pixel mascot', () => {
   it('src/app/favicon.ico matches the current pixels (regenerate: pnpm exec tsx scripts/favicon.ts)', () => {
     const committed = new Uint8Array(readFileSync(new URL('../../src/app/favicon.ico', import.meta.url)))
     expect(Buffer.from(committed).equals(Buffer.from(faviconIco()))).toBe(true)
+  })
+
+  describe('evolution forms', () => {
+    const SKINS: (LooSkin | undefined)[] = [undefined, { hat: 'beanie', glasses: 'nerd', hoodie: '#00f' }, { hat: 'party', glasses: 'round', scarf: '#f00' }, { hat: 'grad', glasses: 'shades' }]
+
+    it('exports the ordered forms with Ukrainian labels', () => {
+      expect(LOO_FORMS).toEqual(['egg', 'pixel', 'block', 'lamp', 'charged', 'armored', 'crowned', 'legendary'])
+      expect(Object.values(LOO_FORM_LABEL)).toEqual(['Яйце', 'Піксель', 'Блок', 'Ламповий', 'Заряджений', 'Броньований', 'Коронований', 'Легендарний'])
+      expect(INDEX_FORMS).toBe(LOO_FORMS)
+      expect(INDEX_LABELS).toBe(LOO_FORM_LABEL)
+    })
+
+    it("'block' is the default look", () => {
+      for (const mood of LOO_MOODS) {
+        const pose = LOO_TIMELINES[mood].frames[0]!.pose
+        expect(poseRects(pose, undefined, { form: 'block' })).toEqual(poseRects(pose))
+      }
+    })
+
+    it('every form renders every frame of every mood (and every eye expression, every skin) near the grid', () => {
+      const bad: string[] = []
+      const check = (label: string, px: ReturnType<typeof poseRects>) => {
+        if (px.length < 10) bad.push(`${label}: empty`)
+        for (const p of px) if (!(p.w > 0 && p.h > 0 && p.x >= -1 && p.x + p.w <= LOO_GRID + 1 && p.y >= -4 && p.y + p.h <= LOO_GRID)) bad.push(`${label}: ${JSON.stringify(p)}`)
+      }
+      for (const form of LOO_FORMS) {
+        for (const mood of LOO_MOODS) {
+          for (const [i, f] of LOO_TIMELINES[mood].frames.entries()) for (const skin of SKINS) check(`${form}/${mood}/${i}`, poseRects(f.pose, skin, { form, tier: 3 }))
+          for (const eyes of LOO_EYES) check(`${form}/${mood}/${eyes}`, poseRects(looTimeline(mood, { eyes }).frames[0]!.pose, undefined, { form, tier: 1 }))
+        }
+      }
+      expect(bad.slice(0, 5)).toEqual([])
+    })
+
+    it('forms look different from each other, and tiers add detail', () => {
+      const idle = LOO_TIMELINES.idle.frames[0]!.pose
+      const key = (form: (typeof LOO_FORMS)[number], tier?: 1 | 2 | 3) => JSON.stringify(poseRects(idle, undefined, { form, tier }))
+      expect(new Set(LOO_FORMS.map((f) => key(f))).size).toBe(LOO_FORMS.length)
+      for (const form of LOO_FORMS) expect(new Set([key(form), key(form, 1), key(form, 2), key(form, 3)]).size, form).toBe(4)
+    })
+
+    it('legendary always lights its bulb; the logo mark stays the block form', () => {
+      const sleeping = LOO_TIMELINES.sleeping.frames[0]!.pose
+      expect(poseRects(sleeping, undefined, { form: 'legendary' }).some((p) => p.cls === 'loo-aura')).toBe(true)
+      expect(markRects()).toEqual(poseRects({ eyes: 'normal', arms: ['rest', 'rest'], spring: 'a', cheeks: true, bulb: 'on' }).filter((p) => p.c !== 'currentColor' && p.c !== LOO_COLORS.glow))
+    })
   })
 })

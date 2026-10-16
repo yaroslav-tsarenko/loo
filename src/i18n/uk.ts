@@ -1,6 +1,7 @@
 // Ukrainian UI strings (default locale). New locales copy this shape: `export const en: Dict = { … }`.
 // Placeholders: {name} → t('key', { name }).
 
+import { levelBadge } from '@/game/evolution'
 import { ukGame } from './uk-game'
 
 export const uk = {
@@ -79,7 +80,7 @@ export const uk = {
     hero: {
       eyebrow: 'Навчання як гра',
       title: 'Прокачуй навички щодня — по 5 хвилин',
-      lead: 'Levelup перетворює будь-який предмет на шлях від Noob до God: короткі уроки, тести, задачі, серії й ліги. А Loo з лампочкою-«еврикою» стежить, щоб ти не здувся.',
+      lead: 'Levelup перетворює будь-який предмет на шлях від Яйця до Легенди: короткі уроки, тести, задачі, серії й ліги. А Loo з лампочкою-«еврикою» стежить, щоб ти не здувся.',
       cta: 'Почати безкоштовно',
       login: 'У мене вже є акаунт',
       loo: 'Привіт! Я Loo. Пройдемо шлях разом?',
@@ -110,7 +111,7 @@ export const uk = {
     },
     stats: [
       { value: '5 хв', label: 'на день достатньо' },
-      { value: 'Noob → God', label: '5 рівнів складності' },
+      { value: '🥚 → 🌟', label: '22 кроки еволюції Loo' },
       { value: 'FSRS', label: 'розумні повторення' },
     ],
     final: { title: 'Готовий до першого рівня?', body: 'Перший урок — менше ніж за 3 хвилини. Без кредитки й без реклами.', cta: 'Створити акаунт' },
@@ -138,12 +139,13 @@ export const uk = {
     },
     submit: 'Поїхали! 🚀',
   },
+  // Difficulty = the Loo form it matches (src/game/evolution.ts is the source of the names)
   levels: {
-    noob: { title: 'Noob', body: 'Починаю з нуля' },
-    junior: { title: 'Junior', body: 'Знаю основи' },
-    middle: { title: 'Middle', body: 'Пишу код щодня' },
-    senior: { title: 'Senior', body: 'Розбираюся глибоко' },
-    god: { title: 'God', body: 'Хочу челенджів' },
+    noob: { title: levelBadge('noob'), body: 'Починаю з нуля' },
+    junior: { title: levelBadge('junior'), body: 'Знаю основи' },
+    middle: { title: levelBadge('middle'), body: 'Пишу код щодня' },
+    senior: { title: levelBadge('senior'), body: 'Розбираюся глибоко' },
+    god: { title: levelBadge('god'), body: 'Хочу челенджів' },
   },
   interests: {
     javascript: 'JavaScript',
@@ -208,7 +210,7 @@ export const uk = {
   },
   courses: {
     title: 'Курси',
-    lead: 'Обери, що прокачувати. Кожен курс — шлях від Noob до God: короткі уроки, тести тем, екзамени й задачі.',
+    lead: 'Обери, що прокачувати. Кожен курс — шлях від Яйця до Легенди: короткі уроки, тести тем, екзамени й задачі.',
     library: 'Мої курси',
     libraryEmpty: 'Бібліотека порожня — додай перший курс нижче.',
     catalog: 'Каталог',
@@ -299,11 +301,11 @@ export const uk = {
   stats: {
     title: 'Профіль',
     level: 'Рівень {level}',
-    rankNext: 'До рангу {rank}',
+    rankNext: 'До еволюції «{rank}»',
     gaps: { xp: 'XP', lessons: 'уроків', tests: 'тестів тем', exams: 'екзаменів', courses: 'курсів' },
     xpToNext: '{xp} XP до рівня {level}',
     xpTotal: 'Усього {xp} XP',
-    topRank: 'найвищий ранг',
+    topRank: 'Loo — Легендарний 🌟',
     since: 'вчиться з {date}',
     account: 'Налаштування профілю',
     zero: {

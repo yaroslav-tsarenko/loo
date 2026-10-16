@@ -997,6 +997,41 @@
   .loo[data-animated] {
     animation: loo-clock var(--loo-dur) steps(var(--loo-n), end) infinite;
   }
+  /* Per-pixel effects that run beside the frame clock: charged sparks, legendary aura and sparkles. */
+  .loo[data-animated] .loo-blink-a,
+  .loo[data-animated] .loo-blink-b {
+    animation: loo-blink 0.6s steps(1, end) infinite;
+  }
+  .loo[data-animated] .loo-blink-b {
+    animation-delay: -0.3s;
+  }
+  .loo[data-animated] .loo-crackle {
+    animation: loo-crackle 0.45s steps(1, end) infinite;
+  }
+  .loo[data-animated] .loo-aura {
+    animation: loo-aura 1.6s steps(1, end) infinite;
+  }
+  @keyframes loo-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes loo-crackle {
+    50% {
+      fill: #ecfeff;
+    }
+  }
+  @keyframes loo-aura {
+    25% {
+      fill: #f9a8d4;
+    }
+    50% {
+      fill: #a5f3fc;
+    }
+    75% {
+      fill: #c4b5fd;
+    }
+  }
   @keyframes loo-clock {
     from {
       --loo-f: 0;
@@ -1004,6 +1039,46 @@
     to {
       --loo-f: var(--loo-n);
     }
+  }
+
+  /* Evolution cutscene (LooEvolve): stacked layers, data-phase picks which one shows. */
+  .loo-evolve {
+    position: relative;
+    flex: none;
+  }
+  .loo-evolve-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+  .loo-evolve[data-reduced] .loo-evolve-layer {
+    transition: opacity 0.6s ease;
+  }
+  .loo-evolve-white {
+    filter: brightness(0) invert(1) drop-shadow(0 0 2px var(--lu-loo)) drop-shadow(0 0 8px var(--lu-loo));
+  }
+  .loo-evolve[data-phase='old'] [data-layer='old'],
+  .loo-evolve[data-phase='oldW'] [data-layer='oldW'],
+  .loo-evolve[data-phase='newW'] [data-layer='newW'],
+  .loo-evolve[data-phase='flash'] [data-layer='newW'],
+  .loo-evolve[data-phase='new'] [data-layer='new'] {
+    opacity: 1;
+  }
+  .loo-evolve::after {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, color-mix(in srgb, var(--lu-loo-glow) 70%, transparent) 40%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loo-evolve[data-phase='flash']::after {
+    opacity: 1;
+  }
+  .loo-evolve[data-phase='new']::after {
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
 
   /* Speech bubble */
@@ -1251,6 +1326,22 @@
   }
   .ds-loo-matrix-row > :first-child {
     justify-self: start;
+  }
+  .ds-loo-matrix-row.ds-loo-forms-row {
+    grid-template-columns: 96px repeat(10, 80px) 48px;
+  }
+  .ds-loo-evolve-demo {
+    align-items: center;
+    gap: var(--lu-s-6);
+  }
+  .ds-select {
+    padding: 6px 10px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
+    color: var(--lu-text);
+    font: inherit;
+    font-weight: 700;
   }
   .ds-icons {
     display: grid;

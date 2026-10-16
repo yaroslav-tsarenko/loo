@@ -1,6 +1,7 @@
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
 import { exerciseView, quizKey, quizShape } from '@/content/blocks/quiz/view'
+import { levelTag } from '@/game/evolution'
 import { DIFFICULTY_LABEL, LEVEL_LABEL, type FlashcardUnit, type QuizUnit, type TaskUnit } from '@/content/model'
 import { QuizInline } from '@/ui/study/QuizInline'
 import { TaskInline } from '@/ui/study/TaskInline'
@@ -53,7 +54,7 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
       mode={unit.mode}
       multi={shape.multi}
       free={shape.free}
-      level={unit.level ? LEVEL_LABEL[unit.level] : null}
+      level={unit.level ? levelTag(unit.level) : null}
       prompt={prompt}
       body={body}
       explanation={explanation}
@@ -78,7 +79,7 @@ async function TaskBlock({ unit, env }: { unit: TaskUnit; env: RenderEnv }) {
       title={title}
       difficulty={DIFFICULTY_LABEL[unit.difficulty]}
       difficultyKey={unit.difficulty}
-      level={unit.level ? LEVEL_LABEL[unit.level] : null}
+      level={unit.level ? levelTag(unit.level) : null}
       statement={statement}
       hints={hints.map((h, i) => (
         <Fragment key={i}>{h}</Fragment>

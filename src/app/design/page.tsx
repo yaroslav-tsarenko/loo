@@ -15,11 +15,11 @@ import { Logo, LogoMark, Wordmark } from '@/ui/design/brand/Logo'
 import { TONES } from '@/ui/design/cx'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { LOO_EYES, LOO_EYES_LABEL, LOO_LABEL, LOO_MOODS, LooPixels, type LooBulb, type LooSkin } from '@/ui/design/mascot/LooArt'
-import { LOO_GRID, LOO_TIMELINES, MARK_BOX, poseRects, timelineTicks, type LooMood } from '@/ui/design/mascot/pixels'
+import { LOO_FORM_LABEL, LOO_FORMS, LOO_GRID, LOO_TIMELINES, MARK_BOX, poseRects, timelineTicks, type LooMood, type LooTier } from '@/ui/design/mascot/pixels'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { ICON_NAMES } from '@/ui/icons/catalog'
 import { Icon } from '@/ui/icons/Icon'
-import { ConfettiDemo, LoadingDemo, OverlayDemo, ProgressDemo, StatsDemo, TabsToggleDemo } from './demos'
+import { ConfettiDemo, LoadingDemo, LooEvolveDemo, OverlayDemo, ProgressDemo, StatsDemo, TabsToggleDemo } from './demos'
 
 export const metadata: Metadata = { title: 'Дизайн-система' }
 
@@ -40,6 +40,8 @@ const SKINS: { label: string; skin: LooSkin }[] = [
 ]
 const LOO_SIZES = [16, 24, 32, 48, 64, 96, 120, 160, 240]
 const LOO_BULBS: LooBulb[] = ['off', 'on', 'flicker']
+const LOO_TIERS: (LooTier | undefined)[] = [undefined, 1, 2, 3]
+const FORM_MOODS: LooMood[] = ['happy', 'sad', 'thinking', 'fire', 'eureka', 'sleeping']
 const LOO_TOKENS = ['loo', 'loo-lip', 'loo-ink', 'loo-spring', 'loo-bulb', 'loo-bulb-on', 'loo-glow', 'loo-cheek'] as const
 const MARK_SIZES = [16, 32, 48, 64]
 
@@ -363,6 +365,50 @@ export default function DesignShowcasePage() {
             </div>
           ))}
         </div>
+        <h3 className="ds-h3">Еволюція: ранги на Loo</h3>
+        <p className="ds-muted">
+          <code>{'<Loo form="lamp" tier={2} />'}</code> — форма = ранг, <code>tier</code> I–III = під-ранг (пипи на губі, тріщини на яйці, самоцвіти в короні). За замовчуванням <code>form=&quot;block&quot;</code>.
+        </p>
+        <div className="ds-loo-matrix" role="table" aria-label="Форми × під-ранги">
+          <div role="row" className="ds-loo-matrix-row ds-loo-forms-row">
+            <span role="columnheader" />
+            {LOO_TIERS.map((t) => (
+              <code key={t ?? 0} role="columnheader">
+                {t ? `tier ${t}` : '—'}
+              </code>
+            ))}
+            {FORM_MOODS.map((m) => (
+              <code key={m} role="columnheader">
+                {m}
+              </code>
+            ))}
+            <code role="columnheader">32 px</code>
+          </div>
+          {LOO_FORMS.map((f) => (
+            <div key={f} role="row" className="ds-loo-matrix-row ds-loo-forms-row">
+              <span role="rowheader">
+                <code>{f}</code>
+                <br />
+                <span className="ds-muted">{LOO_FORM_LABEL[f]}</span>
+              </span>
+              {LOO_TIERS.map((t) => (
+                <span key={t ?? 0} role="cell">
+                  <Loo form={f} tier={t} size={72} label={`${LOO_FORM_LABEL[f]} ${t ?? ''}`} />
+                </span>
+              ))}
+              {FORM_MOODS.map((m) => (
+                <span key={m} role="cell">
+                  <Loo form={f} mood={m} size={72} animated={false} label={`${LOO_FORM_LABEL[f]} · ${m}`} />
+                </span>
+              ))}
+              <span role="cell">
+                <Loo form={f} tier={2} size={32} decorative />
+              </span>
+            </div>
+          ))}
+        </div>
+        <h3 className="ds-h3">Катсцена еволюції</h3>
+        <LooEvolveDemo />
         <h3 className="ds-h3">Лампочка «еврика»</h3>
         <div className="ds-row">
           {LOO_BULBS.map((b) => (

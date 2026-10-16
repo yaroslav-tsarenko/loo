@@ -11,7 +11,9 @@ export interface GameState {
   freezes: number
   boostUntil: number | null
   skin: EquippedSkin
-  rank: string
+  // Loo's evolution step reached / last one celebrated (src/game/ranks.ts)
+  evoStep: number
+  evoSeen: number
 }
 
 type Row = typeof userState.$inferSelect
@@ -22,7 +24,8 @@ function toState(row: Row, now: number): GameState {
     freezes: row.streakFreezes,
     boostUntil: row.doubleXpUntil,
     skin: (row.skin ?? {}) as EquippedSkin,
-    rank: row.rank,
+    evoStep: row.evoStep,
+    evoSeen: row.evoSeen,
   }
 }
 
@@ -35,7 +38,7 @@ export async function loadState(conn: Conn, userId: string, now: number, opts: {
   return toState(row, now)
 }
 
-export async function saveState(conn: Conn, userId: string, patch: Partial<Pick<Row, 'hearts' | 'heartsAt' | 'streakFreezes' | 'doubleXpUntil' | 'skin' | 'rank'>>, now: number): Promise<void> {
+export async function saveState(conn: Conn, userId: string, patch: Partial<Pick<Row, 'hearts' | 'heartsAt' | 'streakFreezes' | 'doubleXpUntil' | 'skin' | 'evoStep' | 'evoSeen'>>, now: number): Promise<void> {
   await conn
     .update(userState)
     .set({ ...patch, updatedAt: now })

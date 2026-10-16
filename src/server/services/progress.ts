@@ -4,7 +4,7 @@ import { first, type Conn } from '@/db/client'
 import { achievements, attempts, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userState, xpLedger } from '@/db/schema'
 import type { LearningUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
-import { ACHIEVEMENT_GEMS, gemRef, isXpReason, LEAGUE_TIERS, PRACTICE_MIN_ANSWERS, rankIndex } from '@/game'
+import { ACHIEVEMENT_GEMS, gemRef, isXpReason, LEAGUE_TIERS, PRACTICE_MIN_ANSWERS } from '@/game'
 import { ACHIEVEMENTS } from '@/progress/achievements/catalog'
 import { emptyStats, type StatsSnapshot } from '@/progress/achievements/dsl'
 import { newlyUnlocked } from '@/progress/achievements/evaluate'
@@ -153,8 +153,8 @@ async function gameStats(conn: Conn, userId: string, stats: StatsSnapshot): Prom
   stats['lessons.perfect'] = n(lessons?.perfect)
   const input = await rankInput(conn, userId)
   stats['courses.completed'] = input.courses
-  const state = await first(conn.select({ rank: userState.rank }).from(userState).where(eq(userState.userId, userId)))
-  stats.rank = rankIndex(state?.rank ?? 'noob')
+  const state = await first(conn.select({ step: userState.evoStep }).from(userState).where(eq(userState.userId, userId)))
+  stats.evolution = state?.step ?? 0
   const gems = await first(
     conn
       .select({ earned: sql<number>`coalesce(sum(${gemLedger.amount}) filter (where ${gemLedger.amount} > 0), 0)`, shop: sql<number>`count(*) filter (where ${gemLedger.reason} = 'shop')` })

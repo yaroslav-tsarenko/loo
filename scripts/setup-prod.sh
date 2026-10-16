@@ -63,7 +63,7 @@ for old in APP_PASSWORD AUTH_SECRET; do vercel env rm "$old" production --yes >/
 
 echo
 echo "4/5 Міграції Supabase і перенесення прогресу…"
-DIRECT_URL="$DIRECT_URL" pnpm exec tsx scripts/migrate.ts
+DIRECT_URL="$DIRECT_URL" pnpm exec tsx scripts/migrate.ts --prod
 if lsof -iTCP:54329 -sTCP:LISTEN >/dev/null 2>&1; then
   SOURCE_URL="postgres://postgres@127.0.0.1:54329/postgres" DIRECT_URL="$DIRECT_URL" pnpm exec tsx scripts/copy-db.ts || echo "    ⚠️  Прогрес не скопійовано (див. повідомлення вище)"
 else

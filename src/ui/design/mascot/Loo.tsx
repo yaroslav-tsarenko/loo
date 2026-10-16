@@ -3,7 +3,7 @@
 import { LooArt, type LooProps } from './LooArt'
 import { useLooSkin } from './LooSkin'
 
-export type { LooBulb, LooEyes, LooGlasses, LooHat, LooMood, LooSkin } from './pixels'
+export type { LooBulb, LooEyes, LooForm, LooGlasses, LooHat, LooMood, LooSkin, LooTier } from './pixels'
 
 // Loo wearing the learner's equipped skin (from LooSkinProvider) unless a skin is passed explicitly
 // (`skin={{}}` shows him bare, e.g. shop previews of other items).

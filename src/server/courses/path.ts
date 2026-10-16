@@ -91,13 +91,27 @@ async function topicMastery(bundle: CourseBundle, progress: CourseProgressRows):
       ]),
     ),
   ])
-  const srs = new Map(srsRows.map((r) => [r.id, r]))
-  const solved = new Set(solvedRows.map((r) => r.id))
+  return masteryFromRows(bundle, { studied: progress.studied, reading: progress.reading }, outcomes, new Map(srsRows.map((r) => [r.id, r])), new Set(solvedRows.map((r) => r.id)))
+}
+
+export interface MasteryRows {
+  studied: ReadonlySet<string>
+  reading: ReadonlySet<string>
+}
+
+// Pure: per-topic crowns of one course from already loaded rows (also used by Loo's character sheet for every course).
+export function masteryFromRows(
+  bundle: CourseBundle,
+  chapters: MasteryRows,
+  outcomes: ReadonlyMap<string, boolean>,
+  srs: ReadonlyMap<string, { state: number; stability: number }>,
+  solved: ReadonlySet<string>,
+): Map<string, TopicMastery> {
   const out = new Map<string, TopicMastery>()
   for (const section of bundle.sections) {
     for (const topic of section.topics) {
       const signals: ChapterSignals = {
-        status: progress.studied.has(topic.chapterId) ? 'studied' : progress.reading.has(topic.chapterId) ? 'reading' : 'unread',
+        status: chapters.studied.has(topic.chapterId) ? 'studied' : chapters.reading.has(topic.chapterId) ? 'reading' : 'unread',
         quizzes: { total: 0, answered: 0, correct: 0 },
         cards: { total: 0, reviewing: 0, stable: 0 },
         tasks: { total: 0, solved: 0 },

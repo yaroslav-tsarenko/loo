@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
 import { PiArrowRightBold, PiFlaskFill, PiPlusBold } from 'react-icons/pi'
-import { LEVEL_EMOJI, LEVEL_LABEL, LEVELS } from '@/course'
+import { LEVEL_LABEL, LEVELS } from '@/course'
 import { messages, t } from '@/i18n'
 import { requireUser } from '@/server/auth'
 import { enrollCourse, leaveCourse, setCourseLevel, switchCourse } from '@/server/actions/courses'
@@ -171,7 +171,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
             <input type="hidden" name="next" value={`/courses/${id}?saved=1#level`} />
             <ChoiceGroup legend={t('courses.level.title')} hint={t('courses.level.hint')} wide>
               {LEVELS.map((l) => (
-                <Choice key={l} type="radio" name="level" value={l} defaultChecked={l === enrollment.level} required title={`${LEVEL_EMOJI[l]} ${m.levels[l].title}`} sub={m.levels[l].body} />
+                <Choice key={l} type="radio" name="level" value={l} defaultChecked={l === enrollment.level} required title={m.levels[l].title} sub={m.levels[l].body} />
               ))}
             </ChoiceGroup>
             {enrollment.placement && !enrollment.placement.skipped ? (

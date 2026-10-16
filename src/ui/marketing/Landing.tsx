@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { levelBadge } from '@/game/evolution'
 import { messages, t } from '@/i18n'
 import { Logo } from '@/ui/design/brand/Logo'
 import { Button } from '@/ui/design/Button'
@@ -98,8 +99,8 @@ export function Landing({ notice }: { notice?: 'deleted' }) {
               <h3>{t('landing.courses.featured.title')}</h3>
               <p>{t('landing.courses.featured.body')}</p>
               <ol className="landing-levels" aria-label="Рівні">
-                {(['Noob', 'Junior', 'Middle', 'Senior', 'God'] as const).map((l) => (
-                  <li key={l}>{l}</li>
+                {(['noob', 'junior', 'middle', 'senior', 'god'] as const).map((l) => (
+                  <li key={l}>{levelBadge(l)}</li>
                 ))}
               </ol>
             </div>

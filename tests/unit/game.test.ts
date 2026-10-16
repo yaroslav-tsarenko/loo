@@ -9,7 +9,23 @@ import {
   freezesToUse,
   gainHearts,
   HEART_REFILL_MS,
+  ATTRIBUTES,
+  attributes,
   isRankUp,
+  LEGACY_RANK_STEP,
+  levelLabel,
+  levelTag,
+  LOO_FORM_LABEL,
+  LOO_FORMS,
+  powerScore,
+  rankAt,
+  RANKS,
+  sectionSkill,
+  snapshotOf,
+  stepsBetween,
+  strengthsAndWeakness,
+  topicSkill,
+  type CharacterInput,
   leagueGems,
   lessonGems,
   LEAGUE_XP_REASONS,
@@ -34,6 +50,9 @@ import {
   type Wallet,
 } from '@/game'
 import { computeStreak } from '@/progress/streak'
+import { LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
+import { LEVEL_LABEL as CONTENT_LEVEL_LABEL } from '@/content/model'
+import { LOO_FORM_LABEL as MASCOT_FORM_LABEL, LOO_FORMS as MASCOT_FORMS } from '@/ui/design/mascot/pixels'
 
 const H = 3_600_000
 
@@ -210,26 +229,156 @@ describe('shop', () => {
   })
 })
 
-describe('ranks', () => {
+describe('evolution ranks', () => {
   const input = { xp: 0, lessons: 0, tests: 0, exams: 0, courses: 0 }
 
-  it('needs XP and course milestones', () => {
-    expect(rankOf(input).id).toBe('noob')
-    expect(rankOf({ ...input, xp: 150, lessons: 1 }).id).toBe('trainee')
-    // plenty of XP, but no topic tests yet → stuck at Trainee
-    expect(rankOf({ ...input, xp: 50_000, lessons: 50 }).id).toBe('trainee')
-    expect(rankOf({ ...input, xp: 5_000, lessons: 40, tests: 12, exams: 1 }).id).toBe('middle')
-    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 1 }).id).toBe('god')
-    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 0 }).id).toBe('principal')
+  it('has 8 forms × 3 tiers with a single Legendary step (22 steps)', () => {
+    expect(RANKS).toHaveLength(22)
+    expect(RANKS.filter((r) => r.form === 'legendary')).toHaveLength(1)
+    for (const form of LOO_FORMS.filter((f) => f !== 'legendary')) expect(RANKS.filter((r) => r.form === form).map((r) => r.tier)).toEqual([1, 2, 3])
+    expect(RANKS.map((r) => r.index)).toEqual(RANKS.map((_, i) => i))
+    expect(rankAt(10).title).toBe('Ламповий II')
+    expect(rankAt(21).title).toBe('Легендарний')
   })
 
-  it('reports the gap to the next rank', () => {
+  it('thresholds never go down, step by step, for every requirement', () => {
+    for (let i = 1; i < RANKS.length; i++) {
+      const a = RANKS[i - 1]!.needs
+      const b = RANKS[i]!.needs
+      for (const k of ['xp', 'lessons', 'tests', 'exams', 'courses'] as const) expect(b[k]).toBeGreaterThanOrEqual(a[k])
+      expect(b.xp).toBeGreaterThan(a.xp)
+      expect(RANKS[i]!.gems).toBeGreaterThan(0)
+    }
+  })
+
+  it('needs XP and course milestones', () => {
+    expect(rankOf(input).id).toBe('egg-1')
+    expect(rankOf({ ...input, xp: 150, lessons: 1 }).id).toBe('pixel-1')
+    // plenty of XP, but no topic tests yet → stuck before Піксель III
+    expect(rankOf({ ...input, xp: 50_000, lessons: 50 }).id).toBe('pixel-2')
+    expect(rankOf({ ...input, xp: 5_000, lessons: 40, tests: 12, exams: 1 }).id).toBe('lamp-1')
+    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 1 }).id).toBe('legendary')
+    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 0 }).id).toBe('crowned-3')
+  })
+
+  it('reports the gap to the next step and the steps passed', () => {
     const p = rankProgress({ ...input, xp: 500, lessons: 5, tests: 3 })
-    expect(p.rank.id).toBe('trainee')
-    expect(p.next?.id).toBe('junior')
-    expect(p.gaps.find((g) => g.key === 'lessons')).toEqual({ key: 'lessons', have: 5, need: 10 })
-    expect(p.progress).toBe(0.5)
-    expect(isRankUp('trainee', 'junior')).toBe(true)
-    expect(isRankUp('junior', 'junior')).toBe(false)
+    expect(p.rank.id).toBe('pixel-2')
+    expect(p.next?.id).toBe('pixel-3')
+    expect(p.gaps.find((g) => g.key === 'lessons')).toEqual({ key: 'lessons', have: 5, need: 6 })
+    expect(isRankUp('pixel-2', 'pixel-3')).toBe(true)
+    expect(isRankUp(5, 5)).toBe(false)
+    expect(stepsBetween(2, 5).map((r) => r.index)).toEqual([3, 4, 5])
+  })
+
+  it('maps the old Noob→God ladder onto evolution steps', () => {
+    expect(rankAt(LEGACY_RANK_STEP.trainee!).id).toBe('pixel-1')
+    expect(rankAt(LEGACY_RANK_STEP.middle!).id).toBe('lamp-1')
+    expect(rankAt(LEGACY_RANK_STEP.senior!).id).toBe('armored-1')
+    expect(rankAt(LEGACY_RANK_STEP.god!).id).toBe('legendary')
+  })
+})
+
+describe('one difficulty scale (labels)', () => {
+  it('shows every level as the Loo form it matches', () => {
+    expect(levelLabel('noob')).toBe('Піксель')
+    expect(levelLabel('junior')).toBe('Блок')
+    expect(levelLabel('middle')).toBe('Ламповий')
+    expect(levelLabel('senior')).toBe('Броньований')
+    expect(levelLabel('god')).toBe('Легендарний')
+    expect(levelLabel('techlead')).toBe('Легендарний')
+    expect(levelTag('senior')).toBe('🛡️ для Броньованого')
+    expect(COURSE_LEVEL_LABEL.middle).toBe('Ламповий')
+    expect(CONTENT_LEVEL_LABEL.junior).toBe('Блок')
+    expect(Object.keys(LOO_FORM_LABEL)).toEqual([...LOO_FORMS])
+  })
+
+  it('agrees with the mascot drawing the forms (one order, one set of names)', () => {
+    expect([...MASCOT_FORMS]).toEqual([...LOO_FORMS])
+    expect(MASCOT_FORM_LABEL).toEqual(LOO_FORM_LABEL)
+  })
+})
+
+describe('character sheet', () => {
+  const empty: CharacterInput = {
+    answers: { total: 0, correct: 0 },
+    topics: { touched: 0, avgCrowns: 0 },
+    speed: { medianMs: null, n: 0 },
+    memory: { cards: 0, longTerm: 0 },
+    tasks: { easy: 0, medium: 0, hard: 0, attempted: 0, firstTry: 0 },
+    rhythm: { streak: 0, active30: 0, frozen30: 0 },
+    volume: { totalMs: 0, weekMs: 0 },
+  }
+  const strong: CharacterInput = {
+    answers: { total: 5000, correct: 4800 },
+    topics: { touched: 60, avgCrowns: 5 },
+    speed: { medianMs: 1000, n: 500 },
+    memory: { cards: 2000, longTerm: 1900 },
+    tasks: { easy: 50, medium: 80, hard: 60, attempted: 190, firstTry: 180 },
+    rhythm: { streak: 400, active30: 30, frozen30: 0 },
+    volume: { totalMs: 900 * 3_600_000, weekMs: 20 * 3_600_000 },
+  }
+
+  it('keeps every attribute within 1–100, even for odd inputs', () => {
+    const odd: CharacterInput = { ...empty, answers: { total: -5, correct: 99 }, speed: { medianMs: Number.NaN, n: -1 }, rhythm: { streak: 0, active30: 90, frozen30: 50 } }
+    for (const input of [empty, strong, odd]) {
+      for (const a of attributes(input)) {
+        expect(a.value).toBeGreaterThanOrEqual(1)
+        expect(a.value).toBeLessThanOrEqual(100)
+        expect(a.level).toBeGreaterThanOrEqual(1)
+        expect(a.progress).toBeGreaterThanOrEqual(0)
+        expect(a.progress).toBeLessThanOrEqual(1)
+      }
+    }
+    expect(attributes(empty).every((a) => a.level === 1)).toBe(true)
+    expect(attributes(strong).every((a) => a.level >= 75)).toBe(true)
+  })
+
+  it('grows with practice and rewards rhythm without freezes', () => {
+    const more = { ...empty, answers: { total: 200, correct: 170 } }
+    const intellect = (c: CharacterInput) => attributes(c).find((a) => a.id === 'intellect')!.value
+    expect(intellect(more)).toBeGreaterThan(intellect(empty))
+    const resilience = (c: CharacterInput) => attributes(c).find((a) => a.id === 'resilience')!.value
+    const clean = { ...empty, rhythm: { streak: 20, active30: 25, frozen30: 0 } }
+    expect(resilience(clean)).toBeGreaterThan(resilience({ ...clean, rhythm: { ...clean.rhythm, frozen30: 4 } }))
+    const speed = (c: CharacterInput) => attributes(c).find((a) => a.id === 'speed')!.value
+    expect(speed({ ...empty, speed: { medianMs: 4_000, n: 60 } })).toBeGreaterThan(speed({ ...empty, speed: { medianMs: 20_000, n: 60 } }))
+  })
+
+  it('names strengths and the weakest attribute', () => {
+    const attrs = attributes({ ...empty, memory: { cards: 300, longTerm: 280 }, tasks: { easy: 5, medium: 10, hard: 5, attempted: 20, firstTry: 15 } })
+    const { strengths, weakest } = strengthsAndWeakness(attrs)
+    expect(strengths.map((a) => a.id).slice(0, 2).sort()).toEqual(['craft', 'memory'])
+    expect(weakest.level).toBe(1)
+  })
+
+  it('unlocks skills from mastered topics and passed exams', () => {
+    const base = { courseId: 'javascript-noob-to-god', courseTitle: 'JS', icon: '🎒', ratio: 0.8 }
+    expect(topicSkill({ ...base, topicId: 'javascript-noob-to-god:core:jsd-ch-05', title: 'Замикання', crowns: 2 })).toBeNull()
+    const closure = topicSkill({ ...base, topicId: 'javascript-noob-to-god:core:jsd-ch-05', title: 'Замикання', crowns: 3 })!
+    expect(closure).toMatchObject({ id: 'javascript-noob-to-god:core:jsd-ch-05', name: 'Майстер замикань', kind: 'topic' })
+    expect(closure.power).toBeGreaterThanOrEqual(1)
+    expect(closure.power).toBeLessThanOrEqual(100)
+    const generic = topicSkill({ ...base, courseId: 'english', topicId: 'english:a1:past-simple', title: 'Past Simple', icon: null, crowns: 5, ratio: 1 })!
+    expect(generic.name).toBe('Past Simple · майстерність')
+    expect(generic.power).toBe(100)
+    const exam = sectionSkill({ courseId: 'javascript-noob-to-god', courseTitle: 'JS', sectionId: 'javascript-noob-to-god:core', title: 'Ядро мови', icon: '🧱', score: 0.8 })
+    expect(exam).toMatchObject({ kind: 'section', name: 'Серце мови', power: 60 })
+  })
+
+  it('produces a stable battle snapshot', () => {
+    const attrs = attributes(strong)
+    const skills = [
+      topicSkill({ courseId: 'c', courseTitle: 'C', topicId: 'c:b', title: 'B', icon: null, crowns: 4, ratio: 0.5 })!,
+      topicSkill({ courseId: 'c', courseTitle: 'C', topicId: 'c:a', title: 'A', icon: null, crowns: 4, ratio: 0.5 })!,
+    ]
+    const a = snapshotOf(rankAt(9), attrs, skills)
+    const b = snapshotOf(rankAt(9), [...attrs].reverse(), [...skills].reverse())
+    expect(JSON.stringify(a)).toBe(JSON.stringify(b))
+    expect(Object.keys(a)).toEqual(['version', 'form', 'tier', 'step', 'title', 'attributes', 'skills', 'power'])
+    expect(Object.keys(a.attributes)).toEqual([...ATTRIBUTES])
+    expect(a.skills.map((s) => s.id)).toEqual(['c:a', 'c:b'])
+    expect(a).toMatchObject({ form: 'lamp', tier: 1, step: 9 })
+    expect(powerScore(attrs, 21, skills)).toBeGreaterThan(powerScore(attrs, 0, skills))
   })
 })

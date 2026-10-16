@@ -13,10 +13,10 @@ import type { TreeViewNode } from '@/server/services/library'
 import { levelInfo } from '@/progress/levels'
 import { Avatar } from '@/ui/design/Avatar'
 import { Logo } from '@/ui/design/brand/Logo'
-import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { RANKS } from '@/game/ranks'
+import { LooCharacter } from '@/ui/game/LooCharacter'
 import { OPEN_PALETTE, RANK_KEY } from './constants'
 import { NAV } from './nav'
 import { FALLBACK_ICON, NAV_ICONS } from './nav-icons'
@@ -212,7 +212,7 @@ export interface SidebarRank {
   index: number
 }
 
-// Level (from XP) + the game rank (src/game/ranks.ts; live through /api/counts).
+// Level (from XP) + Loo's evolution (src/game/ranks.ts; live through /api/counts) → «Мій Loo».
 function LevelRow({ rank }: { rank?: SidebarRank }) {
   const { xp } = useFeedback()
   const counts = useCounts()
@@ -220,9 +220,9 @@ function LevelRow({ rank }: { rank?: SidebarRank }) {
   const pct = Math.round(info.progress * 100)
   const live = RANKS[counts[RANK_KEY] ?? rank?.index ?? 0] ?? RANKS[0]!
   return (
-    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ранг ${live.title}, ${pct}% до наступного рівня`}>
-      <span className="sb-level-badge" aria-hidden="true">
-        <GameIcon name="bolt" size={22} />
+    <Link href="/loo" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Мій Loo: ${live.title}, рівень ${info.level}, ${pct}% до наступного рівня`}>
+      <span className="sb-level-badge sb-level-loo" aria-hidden="true">
+        <LooCharacter step={live.index} size={34} animated={false} />
         <span className="tabular">{info.level}</span>
       </span>
       <span className="sb-level-body">

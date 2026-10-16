@@ -3,6 +3,11 @@ import type { ReactNode } from 'react'
 export type TagColor = 'default' | 'gray' | 'brown' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'red'
 
 const BY_VALUE: Record<string, TagColor> = {
+  // difficulty shown as Loo forms (src/game/evolution.ts)
+  Блок: 'green',
+  Ламповий: 'yellow',
+  Броньований: 'orange',
+  Легендарний: 'purple',
   Junior: 'green',
   Middle: 'yellow',
   Senior: 'orange',

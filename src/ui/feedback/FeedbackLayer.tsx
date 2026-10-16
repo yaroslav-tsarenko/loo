@@ -11,6 +11,7 @@ const LIFETIME: Record<string, number> = {
   gems: 2200,
   freeze: 4200,
   league: 5200,
+  evolution: 6200,
   'mistake-resolved': 2600,
   'daily-goal': 3600,
   streak: 3600,
@@ -101,6 +102,12 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
       title = effect.days === 1 ? 'Пропущений день заморожено' : `Заморожено днів: ${effect.days}`
       body = 'Серію врятовано — продовжуй!'
       tone = 'accent'
+      break
+    case 'evolution':
+      eyebrow = '✨ Еволюція Loo'
+      title = effect.title
+      body = effect.gems > 0 ? `+${effect.gems} 💎 · відкрий «Мій Loo»` : 'Відкрий «Мій Loo»'
+      tone = 'gold'
       break
     case 'league':
       eyebrow = '🏆 Ліга'

@@ -45,6 +45,8 @@ export type Effect =
   | { type: 'hearts'; hearts: number; delta: number }
   | { type: 'freeze'; days: number }
   | { type: 'league'; tier: string; result: 'promoted' | 'stayed' | 'demoted'; rank: number }
+  // Loo evolved: steps `from` → `step` (src/game/ranks.ts), 💎 paid for the steps passed
+  | { type: 'evolution'; from: number; step: number; title: string; form: string; tier: number; gems: number }
 
 export function isCorrectOutcome(outcome: Outcome): boolean {
   return outcome === 'good' || outcome === 'hard' || outcome === 'correct' || outcome === 'solved'

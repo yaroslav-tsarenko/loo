@@ -24,6 +24,7 @@ import type { Tone } from '@/ui/design/cx'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
+import { LooCharacter } from '@/ui/game/LooCharacter'
 import { Icon } from '@/ui/icons/Icon'
 import { Heatmap } from '@/ui/profile/Heatmap'
 import { topicAnchor } from '@/ui/routes'
@@ -142,12 +143,17 @@ export default async function ProfilePage() {
     <div className="page profile st-page" data-width="wide">
       <header className="lu-card st-hero" data-pad="lg">
         <Avatar name={name} src={profile?.avatarUrl ?? undefined} size={84} ring="green" className="st-hero-avatar" />
+        <Link href="/loo" className="st-hero-loo" title={`${t('game.character.title')}: ${rank.rank.title}`} aria-label={`${t('game.character.title')}: ${rank.rank.title}`}>
+          <LooCharacter step={rank.rank.index} mood="happy" size={72} />
+        </Link>
         <div className="st-hero-text">
           <h1 className="st-hero-name">{name}</h1>
           <p className="st-hero-pills">
-            <Pill tone="purple" solid icon={<span aria-hidden="true">{rank.rank.emoji}</span>}>
-              {rank.rank.title}
-            </Pill>
+            <Link href="/loo" className="st-hero-evo">
+              <Pill tone="purple" solid icon={<span aria-hidden="true">{rank.rank.emoji}</span>}>
+                {rank.rank.title}
+              </Pill>
+            </Link>
             <Pill tone="yellow" icon={<GameIcon name="bolt" size={16} />}>
               {t('stats.level', { level: info.level })}
             </Pill>

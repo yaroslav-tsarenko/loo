@@ -12,6 +12,14 @@ if (!url) {
   }
   throw new Error('DATABASE_URL / DIRECT_URL не задано')
 }
+// Guard: a remote database (e.g. Supabase prod) is only migrated on purpose — on Vercel builds or with --prod.
+// Local dev may point .env.local at prod, and a plain `pnpm db:migrate` must never touch it by accident.
+const host = new URL(url).hostname
+const local = host === 'localhost' || host === '127.0.0.1' || host === '::1'
+if (!local && !process.env.VERCEL && !process.argv.includes('--prod')) {
+  console.error(`⛔ ${host} — віддалена база. Міграції на неї тільки свідомо: pnpm db:migrate --prod`)
+  process.exit(1)
+}
 const sql = postgres(url, { max: 1, prepare: false, onnotice: () => {} })
 await migrate(drizzle(sql), { migrationsFolder: 'drizzle' })
 const tables = await sql`select tablename from pg_tables where schemaname = 'public' order by 1`

@@ -16,7 +16,7 @@ import { settleStreak, streakRewards, type StreakState } from './streak'
 export { awardGems, grantXp, gemsEarnedToday, spendGems, xpEarnedToday } from './ledger'
 export { addHearts, gemsOf, loadState, ownedItems, spendHeart, type GameState } from './state'
 export { settleStreak, streakRewards, goalDays, frozenDayList, type StreakState } from './streak'
-export { rankInput, rankOfUser, settleRank } from './ranks'
+export { ackEvolution, rankInput, rankOfUser, settleRank } from './ranks'
 export { finalizeDue, leagueSummary, leagueView, touchLeague, type LeagueRow, type LeagueView } from './leagues'
 
 // End-of-transaction bookkeeping for anything that can move XP / goals: freezes, streak milestones 💎, rank-ups.
@@ -73,15 +73,17 @@ export interface ShellGame {
   gems: number
   boostUntil: number | null
   look: SkinLook
-  // last settled rank (user_state.rank; settled at the end of every progress transaction)
-  rank: { id: string; title: string; emoji: string; index: number }
+  // Loo's evolution step (user_state.evo_step; settled at the end of every progress transaction)
+  rank: { id: string; title: string; emoji: string; index: number; form: string; tier: number }
+  // a reached step whose evolution moment hasn't been shown yet (full-screen cutscene on the next page load)
+  evolution: { from: number; to: number } | null
 }
 
 // Cheap per-navigation state for the shell (top bar chips, sidebar, Loo skin): no rank recomputation.
 export async function shellGameIn(conn: Conn, userId: string, now: number): Promise<ShellGame> {
   const { streak } = await settleStreak(conn, userId, now)
   const state = await loadState(conn, userId, now)
-  const index = rankIndex(state.rank)
+  const index = rankIndex(state.evoStep)
   const def = RANKS[index]!
   return {
     streak,
@@ -89,12 +91,13 @@ export async function shellGameIn(conn: Conn, userId: string, now: number): Prom
     gems: await gemsOf(conn, userId),
     boostUntil: boostActive(state.boostUntil, now) ? state.boostUntil : null,
     look: skinLook(state.skin),
-    rank: { id: def.id, title: def.title, emoji: def.emoji, index },
+    rank: { id: def.id, title: def.title, emoji: def.emoji, index, form: def.form, tier: def.tier },
+    evolution: state.evoStep > state.evoSeen ? { from: state.evoSeen, to: state.evoStep } : null,
   }
 }
 
 // Layout (full loads, router.refresh): also settles the rank silently, so a new user_state row (or ranks changed by
-// content) never shows a stale «Noob».
+// content) never shows a stale evolution.
 export async function shellGame(now = Date.now()): Promise<ShellGame> {
   return userScope(
     async (tx, userId) => {

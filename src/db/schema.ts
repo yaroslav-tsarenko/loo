@@ -437,7 +437,8 @@ export interface EquippedSkinState {
 }
 
 // One row per learner: hearts (refilled lazily from hearts_at), equipped streak freezes, double-XP window, Loo skin and
-// the last rank seen (to announce rank-ups). Created on first use.
+// Loo's evolution: evo_step = the step reached (0–21, src/game/ranks.ts), evo_seen = the last step whose evolution
+// moment was shown (the full-screen cutscene plays once per new step). Created on first use.
 export const userState = pgTable('user_state', {
   userId: userId().primaryKey(),
   hearts: integer('hearts').notNull().default(5),
@@ -445,7 +446,8 @@ export const userState = pgTable('user_state', {
   streakFreezes: integer('streak_freezes').notNull().default(0),
   doubleXpUntil: ms('double_xp_until'),
   skin: jsonb('skin').$type<EquippedSkinState>().notNull().default({}),
-  rank: text('rank').notNull().default('noob'),
+  evoStep: integer('evo_step').notNull().default(0),
+  evoSeen: integer('evo_seen').notNull().default(0),
   updatedAt: ms('updated_at').notNull(),
 })
 
