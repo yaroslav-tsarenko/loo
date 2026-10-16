@@ -4,10 +4,16 @@ import { gradedQuiz, type ExerciseView } from '@/content/blocks/quiz/view'
 import { DIFFICULTY_LABEL, type LearningUnit, type QuizMode, type TaskCode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { previewIntervals } from '@/progress/srs'
-import { srsMap, taskStates } from '@/server/services/queue'
+import { speechLangFor } from '@/server/courses/target'
+import { userScope } from '@/server/auth'
+import { srsMapIn, taskStatesIn } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
 import { renderPhrasing } from '@/ui/markdown/UnitBlock'
 import { renderMdast, type RenderEnv } from '@/ui/markdown/render'
+import { ListenExercise } from '@/ui/lang/ListenExercise'
+import { PairAudio, PairOption } from '@/ui/lang/PairExercise'
+import type { SpeakView } from '@/ui/lang/SpeakExercise'
+import { WordBack, WordFront } from '@/ui/lang/WordCard'
 import { chapterHref } from '@/ui/routes'
 
 interface ItemBase {
@@ -37,6 +43,9 @@ export interface QuizItem extends ItemBase {
   body: ReactNode
   options: Array<{ id: string; content: ReactNode }>
   exercise: ExerciseView | null
+  // language blocks: the spoken language and, for [!speak], the phrase (public — it's what the learner reads aloud)
+  lang: string | null
+  speak: SpeakView | null
 }
 
 export interface TaskItem extends ItemBase {
@@ -56,8 +65,10 @@ export type StudyItem = FlashItem | QuizItem | TaskItem
 
 export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly string[], now = Date.now()): Promise<StudyItem[]> {
   const units = ids.map((id) => snapshot.units.get(id)).filter((u): u is LearningUnit => Boolean(u))
-  const cards = await srsMap(units.filter((u) => u.kind === 'flashcard').map((u) => u.id))
-  const tasks = await taskStates(units.filter((u) => u.kind === 'task').map((u) => u.id))
+  // card schedules and task states: one transaction, one round trip
+  const [cards, tasks] = await userScope((db, userId) =>
+    Promise.all([srsMapIn(db, userId, units.filter((u) => u.kind === 'flashcard').map((u) => u.id)), taskStatesIn(db, userId, units.filter((u) => u.kind === 'task').map((u) => u.id))]),
+  )
   return Promise.all(
     units.map(async (unit): Promise<StudyItem> => {
       const chapter = snapshot.chapters.get(unit.chapterId)!
@@ -69,6 +80,17 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
         level: unit.level ?? null,
         chapterTitle: chapter.kind === 'index' ? snapshot.guideById.get(chapter.guideId)?.title ?? chapter.title : chapter.title,
         chapterHref: `${chapterHref(snapshot, chapter)}#u-${unit.id}`,
+      }
+      if (unit.kind === 'flashcard' && unit.word) {
+        const lang = await speechLangFor(unit)
+        return {
+          ...base,
+          kind: 'flashcard',
+          meta: ['слово'],
+          question: <WordFront word={unit.word} lang={lang} />,
+          answer: <WordBack word={unit.word} lang={lang} />,
+          intervals: previewIntervals(cards.get(unit.id) ?? null, now),
+        }
       }
       if (unit.kind === 'flashcard') {
         const [question, answer] = await Promise.all([renderPhrasing(unit.question, env), renderMdast(unit.answer, env)])
@@ -88,6 +110,14 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
           ...unit.options.map((o) => renderPhrasing(o.content, env)),
         ])
         const payload = gradedQuiz(unit)
+        const lang = unit.listen || unit.pair || unit.speak ? await speechLangFor(unit) : null
+        // listening / minimal pairs: the audio is fetched on play (the transcript never ships with the item)
+        const audio = unit.listen ? (
+          <ListenExercise unitId={unit.id} lang={lang!} slow={unit.listen.slow} dialogue={new Set(unit.listen.lines.map((l) => l.speaker).filter(Boolean)).size > 1} />
+        ) : unit.pair ? (
+          <PairAudio unitId={unit.id} lang={lang!} />
+        ) : null
+        const pair = unit.pair
         return {
           ...base,
           kind: 'quiz',
@@ -95,9 +125,18 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
           multi: payload.multi,
           free: payload.free,
           prompt,
-          body,
-          options: payload.optionIds.map((id, i) => ({ id, content: options[i] })),
+          body: audio ? (
+            <>
+              {audio}
+              {body}
+            </>
+          ) : (
+            body
+          ),
+          options: payload.optionIds.map((id, i) => ({ id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang!} /> : options[i] })),
           exercise: payload.exercise,
+          lang,
+          speak: unit.speak ? { text: unit.speak.text, ipa: unit.speak.ipa, ipaUs: unit.speak.ipaUs, translation: unit.speak.translation, slow: unit.speak.slow } : null,
         }
       }
       const [title, statement, solution, ...hints] = await Promise.all([

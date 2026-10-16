@@ -11,9 +11,8 @@ import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { BUCKS, buckRef, PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
-import { addHearts, awardBucks, loadState, settleGame } from '../game'
-import { settleMission } from '../services/mission'
-import { evaluateAchievements, recordAttempt } from '../services/progress'
+import { addHearts, awardBucks, loadState } from '../game'
+import { readForAttempt, recordAttempt, recordAttemptIn, settleProgress } from '../services/progress'
 
 async function unitOrThrow(unitId: string) {
   const snapshot = await getContent()
@@ -54,21 +53,27 @@ export async function finishTask(raw: { unitId: string; solved: boolean; hintsUs
   const input = parseInput(taskInput, raw)
   const { snapshot, unit } = await unitOrThrow(input.unitId)
   if (unit.kind !== 'task') throw new Error('Unknown task')
-  const effects = await recordAttempt(snapshot, unit, {
-    unitId: unit.id,
-    outcome: input.solved ? 'solved' : 'failed',
-    hintsUsed: input.hintsUsed,
-    durationMs: input.durationMs,
-    sessionId: input.sessionId,
-  })
   const now = Date.now()
-  await userScope((db, userId) =>
-    db
-      .insert(taskState)
-      .values({ userId, unitId: unit.id, hintsRevealed: input.hintsUsed, status: input.solved ? 'solved' : 'failed', updatedAt: now })
-      .onConflictDoUpdate({ target: [taskState.userId, taskState.unitId], set: { status: input.solved ? 'solved' : 'failed', hintsRevealed: input.hintsUsed, updatedAt: now } }),
+  // the attempt and the task's state in one transaction
+  return userScope(
+    async (tx, userId) => {
+      const effects = await recordAttemptIn(
+        tx,
+        userId,
+        snapshot,
+        unit,
+        { unitId: unit.id, outcome: input.solved ? 'solved' : 'failed', hintsUsed: input.hintsUsed, durationMs: input.durationMs, sessionId: input.sessionId },
+        now,
+        await readForAttempt(tx, userId, unit, now),
+      )
+      await tx
+        .insert(taskState)
+        .values({ userId, unitId: unit.id, hintsRevealed: input.hintsUsed, status: input.solved ? 'solved' : 'failed', updatedAt: now })
+        .onConflictDoUpdate({ target: [taskState.userId, taskState.unitId], set: { status: input.solved ? 'solved' : 'failed', hintsRevealed: input.hintsUsed, updatedAt: now } })
+      return effects
+    },
+    { tx: true },
   )
-  return effects
 }
 
 export async function saveTaskDraft(raw: { unitId: string; hintsRevealed: number; draft: string }): Promise<void> {
@@ -101,7 +106,7 @@ export async function markChapter(raw: { chapterId: string; studied: boolean }):
         .insert(chapterProgress)
         .values({ userId, chapterId: chapter.id, guideId: chapter.guideId, status, scrollPct: input.studied ? 100 : 0, studiedAt: input.studied ? now : null, lastOpenedAt: now })
         .onConflictDoUpdate({ target: [chapterProgress.userId, chapterProgress.chapterId], set: { status, studiedAt: input.studied ? now : null, lastOpenedAt: now } })
-      return input.studied ? [...(await settleMission(tx, userId, now)), ...(await settleGame(tx, userId, now)), ...(await evaluateAchievements(tx, userId, snapshot, now))] : []
+      return input.studied ? (await settleProgress(tx, userId, snapshot, now)).effects : []
     },
     { tx: true },
   )
@@ -172,8 +177,8 @@ export async function endSession(raw: { sessionId: string }): Promise<Effect[]> 
         const bucks = await awardBucks(tx, userId, { amount: BUCKS.practice, reason: 'practice', refId: buckRef.practice(input.sessionId), now })
         if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'practice' })
       }
-      effects.push(...(await settleGame(tx, userId, now)))
-      effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))
+      // game + achievements (no mission step here, as before)
+      effects.push(...(await settleProgress(tx, userId, snapshot, now, { mission: null })).effects)
       return effects
     },
     { tx: true },

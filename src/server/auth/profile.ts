@@ -4,7 +4,7 @@ import { and, eq, isNull, ne } from 'drizzle-orm'
 import { first, getDb } from '@/db/client'
 import { profiles, type ProfileRole } from '@/db/schema'
 import { isAdminEmail } from '@/lib/admin'
-import { withUser } from '../db/with-user'
+import { userBase } from '../base'
 import { claimLegacyData } from './claim'
 import { getUser, type AuthUser } from './session'
 
@@ -39,13 +39,9 @@ export async function ensureProfile(user: AuthUser, opts: { verifiedEmail?: bool
   return row
 }
 
-// The signed-in user's profile (created on demand). Deduplicated per request.
-export const getProfile = cache(async (): Promise<Profile | null> => {
-  const user = await getUser()
-  if (!user) return null
-  const row = await withUser(user, (db) => first(db.select().from(profiles).where(eq(profiles.id, user.id))))
-  return row ?? ensureProfile(user)
-})
+// The signed-in user's profile (created on demand). Read with the settings and the active enrollment in one
+// transaction (src/server/base.ts); deduplicated per request.
+export const getProfile = cache(async (): Promise<Profile | null> => (await userBase())?.profile ?? null)
 
 export async function isAdmin(): Promise<boolean> {
   const user = await getUser()

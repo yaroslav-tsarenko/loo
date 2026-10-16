@@ -10,6 +10,7 @@ export interface VaultFile {
   ext: string
   birthtimeMs: number
   mtimeMs: number
+  size: number
 }
 
 export interface VaultListing {
@@ -70,6 +71,7 @@ export async function describeFile(vaultPath: string, guidesDir: string, absolut
     ext,
     birthtimeMs: birth,
     mtimeMs: info.mtimeMs,
+    size: info.size,
   }
 }
 

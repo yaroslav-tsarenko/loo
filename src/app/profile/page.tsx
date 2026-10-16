@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import type { ReactNode } from 'react'
 import { PiBrainFill, PiChatCircleTextFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiGearSixFill, PiLightningFill, PiPlusBold, PiTargetFill, PiTimerFill, PiTrendDownBold, PiTrendUpBold, PiWarningFill } from 'react-icons/pi'
 import { LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
@@ -10,12 +11,11 @@ import { levelInfo } from '@/progress/levels'
 import type { Tier } from '@/progress/stats'
 import { setDailyMinutes, toggleInterest } from '@/server/actions/preferences'
 import { getProfile, requireUser } from '@/server/auth'
-import { getContent } from '@/server/content'
-import { interestOptions, getPreferences } from '@/server/preferences'
+import { interestOptionsFor, getPreferences } from '@/server/preferences'
 import { MINUTES } from '@/server/services/preferences'
-import { missionCursor } from '@/server/services/mission'
-import { getCoach } from '@/server/stats/coach'
-import { profileView, type ProfileTopic, type ProfileView } from '@/server/stats/profile'
+import { readSettings } from '@/server/settings'
+import { shellData } from '@/server/shell'
+import { profilePageData, type ProfileTopic, type ProfileView } from '@/server/stats/profile'
 import { count, duration, percent, relative } from '@/ui/format'
 import { Avatar } from '@/ui/design/Avatar'
 import { Pill } from '@/ui/design/Badge'
@@ -135,9 +135,11 @@ function AchievementCard({ a }: { a: ProfileView['achievements'][number] }) {
 
 export default async function ProfilePage() {
   const user = await requireUser()
-  const snapshot = await getContent()
-  const [view, profile, prefs, options, { cursor }] = await Promise.all([profileView(snapshot), getProfile(), getPreferences(), interestOptions(), missionCursor(snapshot)])
-  const coach = await getCoach(snapshot, { href: cursor.href })
+  // base rows + shell come with the layout; the page's own reads are one transaction (src/server/stats/profile.ts)
+  const [shell, profile, prefs, settings] = await Promise.all([shellData(), getProfile(), getPreferences(), readSettings()])
+  if (!shell) redirect('/login')
+  const { snapshot } = shell
+  const [{ view, cursor, coach }, options] = await Promise.all([profilePageData(snapshot, { active: shell.active, settings }), interestOptionsFor(shell.library.map((c) => c.id))])
   const m = messages()
   const { stats, tiers, rank } = view
   const info = levelInfo(stats.xp)

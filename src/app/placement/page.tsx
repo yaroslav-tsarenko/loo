@@ -1,11 +1,11 @@
 import { randomBytes } from 'node:crypto'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { LEVEL_LABEL, placementCandidates, placementTest } from '@/course'
+import { courseKind, courseLevels, LEVEL_LABEL, levelRank, placementCandidates, placementTest, type Level } from '@/course'
 import { t } from '@/i18n'
 import { safeRedirectPath } from '@/lib/redirect'
 import { requireUser } from '@/server/auth'
-import { startFromZero } from '@/server/actions/courses'
+import { startAtLevel, startFromZero } from '@/server/actions/courses'
 import { getContent } from '@/server/content'
 import { placementSeed } from '@/server/courses/placement-core'
 import { defaultCourse, getCourse } from '@/server/courses/registry'
@@ -43,6 +43,9 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
   )
   const first = placementTest(bundle, [], seed)
   const next = safeRedirectPath(param(params, 'next'), '/path')
+  // language courses: «з нуля» → A1, «трохи знаю» → A2… (levels some active section teaches)
+  const active = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
+  const manual = courseLevels(bundle.course).filter((l) => active.some((s) => levelRank(s.minLevel) <= levelRank(l) && levelRank(l) <= levelRank(s.level)))
   return (
     <PlacementPlayer
       key={nonce}
@@ -54,15 +57,37 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
       sections={bundle.sections.map((s) => ({ id: s.id, index: s.index, title: s.title, icon: s.icon }))}
       levels={Object.fromEntries(bundle.course.levels.map((l) => [l, LEVEL_LABEL[l]]))}
       next={next}
+      zeroHint={courseKind(bundle.course) === 'language' ? 'Без тесту: обери рівень сам — попередні розділи буде зараховано.' : undefined}
       zero={
-        <form action={startFromZero}>
-          <input type="hidden" name="course" value={id} />
-          <input type="hidden" name="next" value="/path" />
-          <Button type="submit" variant="ghost" size="lg" block>
-            {t('placement.zero')}
-          </Button>
-        </form>
+        courseKind(bundle.course) === 'language' ? (
+          <ManualLevels courseId={id} levels={manual} />
+        ) : (
+          <form action={startFromZero}>
+            <input type="hidden" name="course" value={id} />
+            <input type="hidden" name="next" value="/path" />
+            <Button type="submit" variant="ghost" size="lg" block>
+              {t('placement.zero')}
+            </Button>
+          </form>
+        )
       }
     />
+  )
+}
+
+const MANUAL_HINT = ['З нуля', 'Трохи знаю', 'Впевнено говорю', 'Вільно спілкуюся', 'Просунутий', 'Майже як носій']
+
+// Manual start without the test: one button per level (docs/LANGUAGE_COURSE.md — «з нуля» / «трохи знаю (A2)»).
+function ManualLevels({ courseId, levels }: { courseId: string; levels: readonly Level[] }) {
+  return (
+    <form action={startAtLevel} className="placement-manual">
+      <input type="hidden" name="course" value={courseId} />
+      <input type="hidden" name="next" value="/path" />
+      {levels.map((l) => (
+        <Button key={l} type="submit" name="level" value={l} variant="ghost" size="lg" block>
+          {MANUAL_HINT[levelRank(l)]} · {LEVEL_LABEL[l]}
+        </Button>
+      ))}
+    </form>
   )
 }

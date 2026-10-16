@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { checkCourse, LEVEL_LABEL, LEVELS, type CourseBundle, type CourseIssue } from '../src/course'
+import { checkCourse, courseKind, courseLevels, coursePractice, courseTheory, LEVEL_LABEL, type CourseBundle, type CourseIssue } from '../src/course'
 import { countFigures, listOfficialCourses, loadCourseSource, loadIconCatalog, resolveCourse } from './lib/course-source'
 import { checkTasks } from './lib/task-check'
 
@@ -40,6 +40,8 @@ function printSummary(b: CourseBundle) {
   console.log(`\n# ${c.title} (${c.id}) v${c.version}`)
   console.log(`  ${pkg!.official ? 'офіційний курс · посібники зі спільної Guides/' : 'пакет'} · ${pkg!.yamlPath}`)
   if (c.subtitle) console.log(`  ${c.subtitle}`)
+  const guideTitle = (id: string) => snapshot.guideById.get(id)?.dir ?? id
+  console.log(`  Тип ${courseKind(c)} · практика: ${coursePractice(c).join(', ')} · теорія: ${courseTheory(b).map(guideTitle).join(', ')}`)
   console.log('')
   for (const s of b.sections) {
     const lessons = s.topics.reduce((sum, t) => sum + t.lessons.length, 0)
@@ -53,8 +55,12 @@ function printSummary(b: CourseBundle) {
   console.log(`\n  Розділів ${st.sections} · тем ${st.topics} · уроків ${fmt(st.lessons)} · вправ ${fmt(st.exercises)}`)
   console.log(`  Тести ${fmt(st.quizzes)} · картки ${fmt(st.flashcards)} · співбесіда ${fmt(st.interview)} · задачі ${fmt(st.tasks)} (з автотестами ${fmt(st.autoTestedTasks)}) · фішки ${fmt(st.reels)}`)
   console.log(`  Тестів тем ${st.topicTests} · екзаменів розділів ${st.sectionExams} · ≈ ${st.hours.toLocaleString('uk-UA')} год`)
-  console.log(`  Рівні вправ: ${LEVELS.map((l) => `${l} (${LEVEL_LABEL[l]}) ${fmt(st.byLevel[l])}`).join(' · ')}`)
-  if (b.placement.enabled) console.log(`  Вступний тест (≤ ${b.placement.maxQuestions} пит., ${b.placement.perLevel}/рівень): ${LEVELS.map((l) => `${l} ${b.placement.pool[l]?.length ?? 0}`).join(' · ')}`)
+  if (st.words !== undefined) console.log(`  Слова ${fmt(st.words)} · аудіювання ${fmt(st.listening ?? 0)} · вимова ${fmt(st.speaking ?? 0)} · мінімальні пари ${fmt(st.pairs ?? 0)}`)
+  const levels = courseLevels(c)
+  console.log(`  Рівні вправ: ${levels.map((l) => `${l} (${LEVEL_LABEL[l]}) ${fmt(st.byLevel[l] ?? 0)}`).join(' · ')}`)
+  const planned = b.sections.filter((s) => s.status === 'planned')
+  if (planned.length > 0) console.log(`  Заплановано («скоро»): ${planned.map((s) => s.title).join(', ')}`)
+  if (b.placement.enabled) console.log(`  Вступний тест (≤ ${b.placement.maxQuestions} пит., ${b.placement.perLevel}/рівень): ${levels.map((l) => `${l} ${b.placement.pool[l]?.length ?? 0}`).join(' · ')}`)
 }
 
 function printIssues(list: CourseIssue[]) {

@@ -2,7 +2,7 @@ import { compileCourseDetailed, MIN_AUTO_QUESTIONS } from '../compile/compile'
 import type { CourseSource } from '../compile/source'
 import { iconExists, type IconCatalog } from '../icons'
 import type { CourseIssue } from '../issues'
-import { LEVELS, parseCourseManifest, parseCourseYaml, type CourseBundle, type CourseManifest, type Topic } from '../schema'
+import { courseKind, courseLevels, coursePractice, parseCourseManifest, parseCourseYaml, PRACTICE_NEEDS, type CourseBundle, type CourseManifest, type ExerciseKind, type Level, levelRank, type Topic } from '../schema'
 
 // COURSE_FORMAT §7: schema, guides and ranges, unique ids, icons, §4 minimums (warnings), exercise levels,
 // test/exam/placement pools, plus the content parser's own issues for the chapters the course uses.
@@ -11,7 +11,7 @@ import { LEVELS, parseCourseManifest, parseCourseYaml, type CourseBundle, type C
 export interface ValidateOptions {
   // known library icons; without it only the icon syntax is checked
   icons?: IconCatalog
-  // [!viz] + [!figure] count per chapter id; without it the illustration minimum is skipped
+  // [!viz] + [!figure] + [!diagram] count per chapter id; without it the illustration minimum is skipped
   figures?: ReadonlyMap<string, number>
 }
 
@@ -21,18 +21,25 @@ export interface CourseCheck {
   issues: CourseIssue[]
 }
 
-export const MINIMUMS = { quizzes: 6, flashcards: 6, tasks: 2, reels: 3, figures: 1 } as const
+// Language courses (docs/ENGLISH_SYLLABUS.md §1.3): every topic trains listening and speaking too.
+export const MINIMUMS = { quizzes: 6, flashcards: 6, tasks: 2, reels: 3, figures: 1, listening: 1, speaking: 1 } as const
 
 function minimumIssues(topic: Topic, bundle: CourseBundle, opts: ValidateOptions): CourseIssue | null {
   const kinds = topic.exercises.map((id) => bundle.exercises[id]!.kind)
-  const count = (k: string) => kinds.filter((x) => x === k).length
+  const count = (...k: ExerciseKind[]) => kinds.filter((x) => k.includes(x)).length
   const short: string[] = []
   const need = (have: number, min: number, label: string) => {
     if (have < min) short.push(`${label} ${have}/${min}`)
   }
-  need(count('quiz'), MINIMUMS.quizzes, 'тести')
-  need(count('flashcard'), MINIMUMS.flashcards, 'картки')
+  const language = courseKind(bundle.course) === 'language'
+  // a listening choice and a minimal pair are auto-graded tests; [!word] is a card
+  need(language ? count('quiz', 'listen', 'pair') : count('quiz'), MINIMUMS.quizzes, 'тести')
+  need(count('flashcard', 'word'), MINIMUMS.flashcards, language ? 'картки (слова)' : 'картки')
   if (bundle.course.subject === 'programming') need(count('task'), MINIMUMS.tasks, 'задачі')
+  if (language) {
+    need(count('listen'), MINIMUMS.listening, 'аудіювання')
+    need(count('speak', 'pair'), MINIMUMS.speaking, 'вимова')
+  }
   need(topic.reels.length, MINIMUMS.reels, 'фішки')
   const figures = opts.figures?.get(topic.chapterId)
   if (figures !== undefined) need(figures, MINIMUMS.figures, 'ілюстрації')
@@ -77,9 +84,21 @@ export function checkCourse(input: unknown, source: CourseSource, opts: Validate
   }
 
   if (bundle.placement.enabled) {
-    const thin = LEVELS.filter((l) => manifest.levels.includes(l) && (bundle.placement.pool[l]?.length ?? 0) < bundle.placement.perLevel)
+    // levels that only planned sections (B1…C2 «скоро») teach have no questions yet — not a gap
+    const covered = (l: Level) => bundle.sections.some((s) => s.status !== 'planned' && levelRank(s.minLevel) <= levelRank(l) && levelRank(l) <= levelRank(s.level))
+    const plannedOnly = new Set(bundle.sections.filter((s) => s.status === 'planned').map((s) => s.level).filter((l) => !covered(l)))
+    const thin = courseLevels(bundle.course).filter((l) => !plannedOnly.has(l) && (bundle.placement.pool[l]?.length ?? 0) < bundle.placement.perLevel)
     if (thin.length > 0) {
       issues.push({ severity: 'warning', code: 'thin-placement', message: `Вступний тест: замало тестів рівнів ${thin.map((l) => `${l} (${bundle.placement.pool[l]?.length ?? 0})`).join(', ')} — потрібно ≥ ${bundle.placement.perLevel}` })
+    }
+  }
+
+  // Practice sections the course offers but has nothing for (e.g. «tasks» without a single [!task]).
+  const kinds = new Set(Object.values(bundle.exercises).map((e) => e.kind))
+  for (const id of coursePractice(bundle.course)) {
+    const needs = PRACTICE_NEEDS[id]
+    if (needs && !needs.some((k) => kinds.has(k))) {
+      issues.push({ severity: 'warning', code: 'empty-practice', where: 'practice', message: `Розділ практики «${id}»: у курсі немає вправ типу ${needs.join(' / ')}` })
     }
   }
 

@@ -2,20 +2,20 @@
 
 import { randomUUID } from 'node:crypto'
 import { and, asc, eq, sql } from 'drizzle-orm'
+import { after } from 'next/server'
 import { z } from 'zod'
 import { first } from '@/db/client'
-import { attempts, lessonProgress, sessions } from '@/db/schema'
-import { BUCKS, buckRef, canStartLesson } from '@/game'
+import { attempts, buckLedger, lessonProgress, sessions, xpLedger } from '@/db/schema'
+import { BUCKS, buckRef, canStartLesson, cappedBucks } from '@/game'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { findCourseLesson, learnerLevel, lessonView } from '../courses/lessons'
-import { awardBucks, grantXp, loadState, settleGame, touchLeague } from '../game'
+import { bucksEarnedToday, loadState, touchLeague, xpEarnedToday, xpToGrant } from '../game'
 import { findLesson, LESSON_XP } from '../services/lessons'
-import { settleMission } from '../services/mission'
-import { addDailyXp, evaluateAchievements } from '../services/progress'
+import { addDailyXp, settleProgress } from '../services/progress'
 
 // Lessons are graded from what the server recorded: startLesson stores the exercises the learner will see, every answer
 // is recorded against the session (answerQuiz / rateFlashcard / finishTask), and completeLesson computes the accuracy
@@ -85,64 +85,84 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
   const empty = (incomplete: boolean): LessonOutcome => ({ effects: [], bonusXp: 0, bucks: 0, firstTime: false, correct: 0, total: 0, incomplete })
   if (!input.sessionId) return empty(true)
   const sessionId = input.sessionId
+  // Every read up front (one round trip), every write at once, then the settlement (src/server/services/progress.ts).
   const outcome = await userScope(
     async (tx, userId) => {
-      const session = await first(
+      const [session, rows, before, state, xpToday, bucksToday] = await Promise.all([
+        first(
+          tx
+            .select()
+            .from(sessions)
+            .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId))),
+        ),
+        // First recorded answer per exercise of this session.
         tx
-          .select()
-          .from(sessions)
-          .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId))),
-      )
+          .select({ unitId: attempts.unitId, correct: attempts.correct })
+          .from(attempts)
+          .where(and(eq(attempts.userId, userId), eq(attempts.sessionId, sessionId)))
+          .orderBy(asc(attempts.id)),
+        first(
+          tx
+            .select()
+            .from(lessonProgress)
+            .where(and(eq(lessonProgress.userId, userId), eq(lessonProgress.lessonId, lesson.id))),
+        ),
+        loadState(tx, userId, now),
+        xpEarnedToday(tx, userId, 'lesson', day),
+        bucksEarnedToday(tx, userId, 'lesson', day),
+      ])
       const filters = (session?.filters ?? {}) as { lessonId?: string }
       if (!session || session.mode !== 'lesson' || filters.lessonId !== lesson.id || session.endedAt !== null) return empty(true)
-      await tx
-        .update(sessions)
-        .set({ endedAt: now })
-        .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId)))
-      // First recorded answer per exercise of this session.
-      const rows = await tx
-        .select({ unitId: attempts.unitId, correct: attempts.correct })
-        .from(attempts)
-        .where(and(eq(attempts.userId, userId), eq(attempts.sessionId, sessionId)))
-        .orderBy(asc(attempts.id))
       const firstAnswer = new Map<string, boolean>()
       for (const r of rows) if (!firstAnswer.has(r.unitId)) firstAnswer.set(r.unitId, r.correct)
       const units = session.unitIds
-      if (!units.every((u) => firstAnswer.has(u))) return empty(true)
+      if (!units.every((u) => firstAnswer.has(u))) {
+        await tx
+          .update(sessions)
+          .set({ endedAt: now })
+          .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId)))
+        return empty(true)
+      }
       const correct = units.filter((u) => firstAnswer.get(u)).length
       const accuracy = units.length > 0 ? correct / units.length : 1
-      const before = await first(
-        tx
-          .select()
-          .from(lessonProgress)
-          .where(and(eq(lessonProgress.userId, userId), eq(lessonProgress.lessonId, lesson.id))),
-      )
       const firstTime = !before
       // Bonus once for the first pass and once for the first flawless pass — replays still earn per-question XP.
       const bonus = (firstTime ? LESSON_XP.first : 0) + (accuracy === 1 && (before?.bestAccuracy ?? 0) < 1 ? LESSON_XP.perfect : 0)
-      const bonusXp = await grantXp(tx, userId, { amount: bonus, reason: 'lesson', refId: lesson.id, now })
-      await tx
-        .insert(lessonProgress)
-        .values({ userId, lessonId: lesson.id, courseId: lesson.courseId, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now })
-        .onConflictDoUpdate({
-          target: [lessonProgress.userId, lessonProgress.lessonId],
-          set: { completions: sql`${lessonProgress.completions} + 1`, bestAccuracy: sql`greatest(${lessonProgress.bestAccuracy}, ${accuracy})`, lastXp: bonusXp, lastCompletedAt: now },
-        })
-      const effects: Effect[] = []
-      if (bonusXp > 0) {
-        await addDailyXp(tx, userId, day, bonusXp)
-        effects.push({ type: 'xp', amount: bonusXp, reason: 'lesson' })
-      }
+      const bonusXp = xpToGrant({ amount: bonus, reason: 'lesson', now }, state.boostUntil, xpToday)
       // Bucks: 10 per finished lesson, 20 when flawless (daily cap; once per session).
-      const bucks = await awardBucks(tx, userId, { amount: accuracy >= 1 ? BUCKS.lessonPerfect : BUCKS.lesson, reason: 'lesson', refId: buckRef.lesson(sessionId), now })
+      const bucksWanted = cappedBucks(accuracy >= 1 ? BUCKS.lessonPerfect : BUCKS.lesson, bucksToday, 'lesson')
+      const [, , , , bucksRows] = await Promise.all([
+        tx
+          .update(sessions)
+          .set({ endedAt: now })
+          .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId))),
+        bonusXp > 0 ? tx.insert(xpLedger).values({ userId, amount: bonusXp, reason: 'lesson', refId: lesson.id, createdAt: now, day }) : null,
+        tx
+          .insert(lessonProgress)
+          .values({ userId, lessonId: lesson.id, courseId: lesson.courseId, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now })
+          .onConflictDoUpdate({
+            target: [lessonProgress.userId, lessonProgress.lessonId],
+            set: { completions: sql`${lessonProgress.completions} + 1`, bestAccuracy: sql`greatest(${lessonProgress.bestAccuracy}, ${accuracy})`, lastXp: bonusXp, lastCompletedAt: now },
+          }),
+        bonusXp > 0 ? addDailyXp(tx, userId, day, bonusXp) : null,
+        bucksWanted > 0
+          ? tx
+              .insert(buckLedger)
+              .values({ userId, amount: bucksWanted, reason: 'lesson', refId: buckRef.lesson(sessionId), createdAt: now, day })
+              .onConflictDoNothing()
+              .returning({ id: buckLedger.id })
+          : [],
+      ])
+      const bucks = bucksRows.length > 0 ? bucksWanted : 0
+      const effects: Effect[] = []
+      if (bonusXp > 0) effects.push({ type: 'xp', amount: bonusXp, reason: 'lesson' })
       if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'lesson' })
-      effects.push(...(await settleMission(tx, userId, now)))
-      effects.push(...(await settleGame(tx, userId, now)))
-      effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))
+      effects.push(...(await settleProgress(tx, userId, snapshot, now)).effects)
       return { effects, bonusXp, bucks, firstTime, correct, total: units.length, incomplete: false }
     },
     { tx: true },
   )
-  if (outcome.bonusXp > 0 || outcome.effects.some((e) => e.type === 'xp')) await touchLeague(user.id, now)
+  // league placement reads other learners' rows on its own connection: after the response
+  if (outcome.bonusXp > 0 || outcome.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))
   return outcome
 }

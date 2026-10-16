@@ -6,6 +6,7 @@ import { getProfile } from './auth'
 import { listCourses, getCourse } from './courses/registry'
 import { myLibrary } from './courses/library'
 import { readSettings } from './settings'
+import { shellData } from './shell'
 import { INTERESTS, LEVELS, type SelfLevel } from './services/preferences'
 
 // One place to read what the learner wants (profile preferences + app settings + per-course levels). Feed, mission,
@@ -24,8 +25,10 @@ function selfLevel(value: unknown): SelfLevel {
   return (LEVELS as readonly unknown[]).includes(value) ? (value as SelfLevel) : 'noob'
 }
 
+// Page renders only: the library comes with the shell (src/server/shell.ts).
 export const getPreferences = cache(async (): Promise<Preferences> => {
-  const [profile, settings, library] = await Promise.all([getProfile(), readSettings(), myLibrary()])
+  const [profile, settings, shell] = await Promise.all([getProfile(), readSettings(), shellData()])
+  const library = shell?.library ?? []
   const courses = library.map((c) => ({ id: c.id, title: c.title, icon: c.icon, level: c.enrollment.level, active: c.enrollment.active }))
   return {
     interests: [...new Set(profile?.preferences.interests ?? [])],
@@ -49,11 +52,14 @@ const MAX_TOPIC_TAGS = 14
 
 // Interest chips: the onboarding interests, every catalog course's tags and the most common topic tags of the
 // courses in the learner's library (so «async» or «closures» can steer the feed, mission and reviews).
-export const interestOptions = cache(async (): Promise<InterestOption[]> => {
+export const interestOptions = cache(async (): Promise<InterestOption[]> => interestOptionsFor((await myLibrary()).map((c) => c.id)))
+
+// `libraryIds`: the learner's enrolled course ids (a page passes the shell's library).
+export async function interestOptionsFor(libraryIds: readonly string[]): Promise<InterestOption[]> {
   const m = messages()
   const tags = new Set<string>(INTERESTS)
   const catalog = await listCourses()
-  const library = new Set((await myLibrary()).map((c) => c.id))
+  const library = new Set(libraryIds)
   const topicTags = new Map<string, number>()
   for (const entry of catalog) {
     const bundle = await getCourse(entry.id)
@@ -69,4 +75,4 @@ export const interestOptions = cache(async (): Promise<InterestOption[]> => {
     .forEach(([tag]) => tags.add(tag))
   const labels = m.interests as Record<string, string>
   return [...tags].filter((t) => TAG.test(t)).map((tag) => ({ tag, label: labels[tag] ?? `#${tag}` }))
-})
+}

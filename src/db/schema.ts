@@ -121,7 +121,15 @@ export const attempts = pgTable(
     answeredAt: ms('answered_at').notNull(),
     day: text('day').notNull(),
   },
-  (t) => [index('attempts_user_unit_idx').on(t.userId, t.unitId, t.answeredAt), index('attempts_user_day_idx').on(t.userId, t.day), index('attempts_user_id_idx').on(t.userId, t.id)],
+  (t) => [
+    index('attempts_user_unit_idx').on(t.userId, t.unitId, t.answeredAt),
+    index('attempts_user_day_idx').on(t.userId, t.day),
+    index('attempts_user_id_idx').on(t.userId, t.id),
+    // docs/PERFORMANCE.md: per-kind / per-outcome counts on every answer (achievement metrics) as index-only scans,
+    // and a lesson's answers by session (completeLesson, «Робота над помилками» activity)
+    index('attempts_user_kind_outcome_idx').on(t.userId, t.kind, t.outcome),
+    index('attempts_user_session_idx').on(t.userId, t.sessionId).where(sql`${t.sessionId} is not null`),
+  ],
 )
 
 export const srsCards = pgTable(
@@ -198,7 +206,7 @@ export const xpLedger = pgTable(
     createdAt: ms('created_at').notNull(),
     day: text('day').notNull(),
   },
-  (t) => [index('xp_user_day_idx').on(t.userId, t.day), index('xp_user_created_idx').on(t.userId, t.createdAt)],
+  (t) => [index('xp_user_day_idx').on(t.userId, t.day), index('xp_user_created_idx').on(t.userId, t.createdAt), index('xp_user_reason_day_idx').on(t.userId, t.reason, t.day)],
 )
 
 export const achievements = pgTable(
@@ -336,7 +344,8 @@ export const enrollments = pgTable(
     userId: userId(),
     courseId: text('course_id').notNull(),
     source: text('source', { enum: ['official', 'user'] }).notNull().default('official'),
-    level: text('level', { enum: ['noob', 'junior', 'middle', 'senior', 'god'] }).notNull().default('noob'),
+    // noob…god, or CEFR A1…C2 for language courses (text column without a CHECK: no migration needed)
+    level: text('level', { enum: ['noob', 'junior', 'middle', 'senior', 'god', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'] }).notNull().default('noob'),
     placement: jsonb('placement').$type<EnrollmentPlacement>(),
     active: boolean('active').notNull().default(false),
     enrolledAt: ms('enrolled_at').notNull(),

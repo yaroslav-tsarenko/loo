@@ -71,6 +71,14 @@ UI never shows emoji glyphs. Pick, in this order:
 
 Emoji inside long-read *content* (vault markdown) is the author's text and stays.
 
+## Scroll panes and trees
+
+- Long panes (the sidebar) hide the native scrollbar and draw an **island**: `<IslandScroll>` (`src/ui/shell/IslandScroll.tsx`)
+  — a 5px violet pill sized by viewport/content, shown on hover and while scrolling, fading when idle, draggable (mouse,
+  pen, finger). Scrolling itself stays native (wheel, keys, touch momentum). Reuse it for any other scroll pane.
+- Explorer trees (sidebar «Теорія», `TheoryTree`) — guide icon → pixel `folder`/`folderOpen` → chapter status square
+  (hollow = unread, half = reading, green = studied), indent guides, `done/total` per folder, current page highlighted.
+
 ## Code
 
 Code blocks are always a dark «arcade screen» (`--code-bg`), in both themes, with the «Loo night» syntax palette

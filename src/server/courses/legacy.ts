@@ -8,11 +8,16 @@ import { planLegacyMigration } from './legacy-core'
 // Lazy, idempotent carry-over of lesson_progress to course lesson ids (see drizzle/0006_courses.sql). Runs inside
 // the caller's user scope (a transaction): upsert merged rows under the new ids, then drop the migrated old rows.
 // A second run finds nothing to do; rows of guides outside the course are kept for the legacy guide paths.
-export async function migrateLegacyLessons(conn: Conn, userId: string, bundle: CourseBundle): Promise<number> {
-  const rows = await conn
+export function legacyLessonsQuery(conn: Conn, userId: string) {
+  return conn
     .select()
     .from(lessonProgress)
     .where(and(eq(lessonProgress.userId, userId), isNull(lessonProgress.courseId), like(lessonProgress.lessonId, '%::%')))
+}
+
+// `legacy`: the rows of legacyLessonsQuery when already read in this transaction.
+export async function migrateLegacyLessons(conn: Conn, userId: string, bundle: CourseBundle, legacy?: Array<typeof lessonProgress.$inferSelect>): Promise<number> {
+  const rows = legacy ?? (await legacyLessonsQuery(conn, userId))
   if (rows.length === 0) return 0
   const plan = planLegacyMigration(bundle, rows)
   if (plan.rows.length === 0) return 0

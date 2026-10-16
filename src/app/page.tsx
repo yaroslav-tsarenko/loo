@@ -4,13 +4,10 @@ import { PiArrowRightBold, PiBookOpenTextFill, PiPlusBold } from 'react-icons/pi
 import { LEVEL_LABEL } from '@/course'
 import { t } from '@/i18n'
 import { getProfile, getUser } from '@/server/auth'
-import { getContent } from '@/server/content'
-import { myLibrary } from '@/server/courses/library'
-import { todaySummary } from '@/server/services/library'
 import { availableReelCount } from '@/server/services/feed'
-import { getMission } from '@/server/services/mission'
-import { getCoach } from '@/server/stats/coach'
+import { homeData } from '@/server/services/home'
 import { readSettings } from '@/server/settings'
+import { shellData } from '@/server/shell'
 import { Pill } from '@/ui/design/Badge'
 import { Card } from '@/ui/design/Card'
 import type { Tone } from '@/ui/design/cx'
@@ -49,10 +46,12 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 }
 
 async function LibraryPage() {
-  const snapshot = await getContent()
-  const [today, settings, library] = await Promise.all([todaySummary(snapshot), readSettings(), myLibrary()])
-  const mission = await getMission(snapshot, await availableReelCount(snapshot))
-  const coach = await getCoach(snapshot, { href: mission.cursor.href })
+  // The shell's data (library, settled streak) is already read with the layout; the page's own reads are ONE
+  // transaction (src/server/services/home.ts).
+  const [shell, settings] = await Promise.all([shellData(), readSettings()])
+  if (!shell) redirect('/login')
+  const { snapshot, library, active } = shell
+  const { today, mission, coach } = await homeData(snapshot, { settings, active, reels: await availableReelCount(snapshot), streak: shell.game.streak.current })
   const continueTarget = today.continueChapter
     ? { href: today.continueChapter.href, title: today.continueChapter.chapter.title, meta: `${today.continueChapter.guide.title} · ${today.continueChapter.scrollPct}%`, label: 'Продовжити читання' }
     : null

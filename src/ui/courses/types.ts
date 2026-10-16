@@ -46,6 +46,8 @@ export interface CPSection {
   icon: string | null
   description: string | null
   kind: 'path' | 'practice'
+  // course.yaml `status: planned`: «скоро», no topics yet
+  planned: boolean
   levelLabel: string
   state: CPState
   known: 'placement' | 'exam' | null

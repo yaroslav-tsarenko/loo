@@ -23,7 +23,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
   const filters = parseFilters(params, settings.sessionSize)
   if (filters.chapter && !filters.guide) filters.guide = snapshot.chapters.get(filters.chapter)?.guideId ?? null
   const scope = await studyScope(filters)
-  const queue = await flashcardQueue(snapshot, filters, undefined, scope)
+  const queue = await flashcardQueue(snapshot, filters, undefined, scope.pool)
   const startHref = `/review?${filtersToQuery(filters, { start: '1' })}`
 
   if (params.start === '1' && queue.ids.length > 0) {
@@ -35,7 +35,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
     )
   }
 
-  const options = filterOptions(snapshot, 'flashcard', filters, scope)
+  const options = filterOptions(snapshot, 'flashcard', filters, scope.pool, scope.guides)
   return (
     <div className="page page-study">
       <header className="ghead">
@@ -49,7 +49,8 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
       </header>
       <div className="study-setup">
         <FilterForm
-          allLabel={scope ? 'Увесь активний курс' : undefined}
+          allLabel={scope.course && !scope.all ? 'Увесь курс' : undefined}
+          course={scope.course ? { title: scope.course.title, all: scope.all } : undefined}
           action="/review"
           guides={options.guides}
           chapters={options.chapters}

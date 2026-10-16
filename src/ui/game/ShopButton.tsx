@@ -26,7 +26,9 @@ export function ShopButton(props: Props) {
   const [error, setError] = useState<string | null>(null)
   const ref = useRef<HTMLSpanElement>(null)
 
-  const run = () =>
+  const run = () => {
+    // the press answers at once: a tick for a purchase, the swap sound for equip (the server confirms right after)
+    feedback.play(props.action === 'buy' ? 'tap' : 'flip')
     start(async () => {
       setError(null)
       try {
@@ -43,13 +45,13 @@ export function ShopButton(props: Props) {
         } else {
           const out = await equipItem({ slot: props.slot, itemId: props.action === 'equip' ? props.itemId : null })
           if (!out.ok) return setError(t('game.shop.error'))
-          feedback.play('flip')
         }
         router.refresh()
       } catch {
         setError(t('game.shop.error'))
       }
     })
+  }
 
   if (props.action !== 'buy') {
     return (

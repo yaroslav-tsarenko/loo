@@ -2,7 +2,8 @@ import type { Difficulty, Level } from '@/content/model'
 import type { AttemptInput, UnitHistory } from './types'
 import { dayKey } from './day'
 
-export const LEVEL_BASE_XP: Record<Level, number> = { junior: 10, middle: 15, senior: 25, techlead: 35 }
+// CEFR levels of language courses grow like the IT ones (A1 ≈ junior … C2 ≈ techlead).
+export const LEVEL_BASE_XP: Record<Level, number> = { junior: 10, middle: 15, senior: 25, techlead: 35, A1: 10, A2: 12, B1: 15, B2: 20, C1: 25, C2: 35 }
 export const DEFAULT_BASE_XP = 12
 export const TASK_XP: Record<Difficulty, number> = { easy: 30, medium: 50, hard: 80 }
 export const REPEAT_FACTOR = 0.4
@@ -17,7 +18,8 @@ export function baseXp(level: Level | null): number {
 }
 
 function quizFactor(mode: AttemptInput['quizMode']): number {
-  if (mode === 'output') return OUTPUT_FACTOR
+  // saying a phrase aloud ([!speak]) is production, like predicting output
+  if (mode === 'output' || mode === 'speak') return OUTPUT_FACTOR
   if (mode === 'order' || mode === 'fill') return BUILD_FACTOR
   return 1
 }

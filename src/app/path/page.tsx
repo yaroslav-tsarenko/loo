@@ -6,15 +6,14 @@ import { LEVEL_LABEL } from '@/course'
 import { TRACKS, type Track } from '@/content/tracks'
 import type { ContentSnapshot } from '@/content/store'
 import { levelInfo } from '@/progress/levels'
-import { shellGame } from '@/server/game'
 import { getContent } from '@/server/content'
 import { activeCourse } from '@/server/courses/enrollment'
-import { courseChips, myLibrary } from '@/server/courses/library'
+import { courseChips } from '@/server/courses/library'
 import { coursePath } from '@/server/courses/path'
 import { pathSections } from '@/server/courses/path-view'
 import { listCourses, getCourse } from '@/server/courses/registry'
 import { trackPath } from '@/server/services/path'
-import { userXp } from '@/server/services/progress'
+import { shellData } from '@/server/shell'
 import { Button } from '@/ui/design/Button'
 import { Card } from '@/ui/design/Card'
 import { GameIcon } from '@/ui/design/GameIcon'
@@ -47,7 +46,10 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
   }
   const active = await activeCourse()
   if (!active) redirect('/courses')
-  const [path, xp, library, game] = await Promise.all([coursePath(snapshot, active), userXp(), myLibrary(), shellGame()])
+  // xp, library and game state come with the shell (read once per request with the layout: src/server/shell.ts)
+  const [path, shell] = await Promise.all([coursePath(snapshot, active), shellData()])
+  if (!shell) redirect('/login')
+  const { xp, library, game } = shell
   const { bundle, enrollment } = active
   const level = levelInfo(xp)
   const crowns = [...path.mastery.values()].reduce((s, m) => s + m.crowns, 0)
@@ -120,7 +122,8 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
 async function LegacyTrackPath({ snapshot, track }: { snapshot: ContentSnapshot; track: Track }) {
   const available = TRACKS.filter((t) => t.guides.some((g) => snapshot.guideById.has(g)))
   if (!available.includes(track)) notFound()
-  const [path, xp] = await Promise.all([trackPath(snapshot, track), userXp()])
+  const [path, shell] = await Promise.all([trackPath(snapshot, track), shellData()])
+  const xp = shell?.xp ?? 0
   const level = levelInfo(xp)
   const stages: PathStageView[] = path.stages.map((s) => ({
     icon: s.icon,

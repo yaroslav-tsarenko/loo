@@ -2,6 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "bosses",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3410", "--bind", "127.0.0.1", "--directory", "docs/bosses"],
+      "port": 3410
+    },
+    {
       "name": "dev",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [

@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
 import { PiArrowRightBold, PiCheckBold, PiFlaskFill, PiPlusBold } from 'react-icons/pi'
 import { SECTION_FALLBACK_ICON, TEST_ICON } from '@/content/icons'
-import { LEVEL_LABEL, LEVELS } from '@/course'
+import { courseLevels, LEVEL_LABEL, levelShort } from '@/course'
 import { messages, t } from '@/i18n'
 import { requireUser } from '@/server/auth'
 import { enrollCourse, leaveCourse, setCourseLevel, switchCourse } from '@/server/actions/courses'
@@ -54,7 +54,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
         </span>
         <div className="course-hero-text">
           <p className="course-hero-eyebrow">
-            {listing.source === 'official' ? t('courses.official') : meta.authors.map((a) => a.name).join(', ')} · {LEVEL_LABEL[listing.levels.from]} → {LEVEL_LABEL[listing.levels.to]}
+            {listing.source === 'official' ? t('courses.official') : meta.authors.map((a) => a.name).join(', ')} · {levelShort(listing.levels.from)} → {levelShort(listing.levels.to)}
           </p>
           <h1 className="course-hero-title">{meta.title}</h1>
           {meta.subtitle ? <p className="course-hero-sub">{meta.subtitle}</p> : null}
@@ -144,7 +144,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
                     ) : null}
                   </span>
                   <span className="course-program-meta tabular">
-                    {count(s.topics.length, 'тема', 'теми', 'тем')} · ~{Math.max(1, Math.round(s.minutes / 60))} год · {LEVEL_LABEL[s.minLevel]}
+                    {s.status === 'planned' ? `скоро · ${LEVEL_LABEL[s.level]}` : `${count(s.topics.length, 'тема', 'теми', 'тем')} · ~${Math.max(1, Math.round(s.minutes / 60))} год · ${LEVEL_LABEL[s.minLevel]}`}
                     {s.minLevel !== s.level ? ` → ${LEVEL_LABEL[s.level]}` : ''}
                     {s.exam ? (
                       <>
@@ -183,7 +183,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
             <input type="hidden" name="course" value={id} />
             <input type="hidden" name="next" value={`/courses/${id}?saved=1#level`} />
             <ChoiceGroup legend={t('courses.level.title')} hint={t('courses.level.hint')} wide>
-              {LEVELS.map((l) => (
+              {courseLevels(meta).map((l) => (
                 <Choice key={l} type="radio" name="level" value={l} defaultChecked={l === enrollment.level} required title={m.levels[l].title} sub={m.levels[l].body} />
               ))}
             </ChoiceGroup>

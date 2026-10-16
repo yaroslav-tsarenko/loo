@@ -104,18 +104,57 @@ export const LEVEL_IT_RANK: Record<string, ItRank> = {
   god: 'principal',
 }
 
+// ── CEFR: the difficulty ladder of language courses (docs/LANGUAGE_COURSE.md) ───────────────────────────────────
+// Language courses (kind: language) grade content, sections and learners on A1…C2 instead of the IT career. The two
+// ladders never mix inside one course; where a course needs the other ladder's value it maps by rank (src/course
+// toLadder). The per-course mastery rank of a language course is shown as CEFR too: the six IT ranks map 1:1.
+
+export const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const
+export type CefrLevel = (typeof CEFR_LEVELS)[number]
+
+export const CEFR_NAME: Record<CefrLevel, string> = {
+  A1: 'Початковий',
+  A2: 'Елементарний',
+  B1: 'Середній',
+  B2: 'Вище середнього',
+  C1: 'Просунутий',
+  C2: 'Вільне володіння',
+}
+
+export const CEFR_ICON: Record<CefrLevel, string> = {
+  A1: 'px:sprout',
+  A2: 'px:letterTile',
+  B1: 'px:chat',
+  B2: 'px:compass',
+  C1: 'px:gradCap',
+  C2: 'px:crown',
+}
+
+export const isCefrLevel = (level: string): level is CefrLevel => (CEFR_LEVELS as readonly string[]).includes(level)
+
+// «A1 · Початковий»
+export const cefrLabel = (level: CefrLevel): string => `${level} · ${CEFR_NAME[level]}`
+
+// Per-course mastery rank of a language course: Trainee ↔ A1 … Principal ↔ C2.
+export const IT_RANK_CEFR: Record<ItRank, CefrLevel> = { trainee: 'A1', junior: 'A2', middle: 'B1', senior: 'B2', staff: 'C1', principal: 'C2' }
+
+export type RankLadder = 'it' | 'cefr'
+
+export const courseRankLabel = (rank: ItRank, ladder: RankLadder = 'it'): string => (ladder === 'cefr' ? cefrLabel(IT_RANK_CEFR[rank]) : IT_RANK_LABEL[rank])
+export const courseRankIcon = (rank: ItRank, ladder: RankLadder = 'it'): string => (ladder === 'cefr' ? CEFR_ICON[IT_RANK_CEFR[rank]] : IT_RANK_ICON[rank])
+
 export const levelItRank = (level: string): ItRank => LEVEL_IT_RANK[level] ?? 'junior'
 
-// «Senior»
-export const levelLabel = (level: string): string => IT_RANK_LABEL[levelItRank(level)]
+// «Senior» · CEFR levels: «A1 · Початковий»
+export const levelLabel = (level: string): string => (isCefrLevel(level) ? cefrLabel(level) : IT_RANK_LABEL[levelItRank(level)])
 
 // «Senior» — plain text; callers put a <LevelIcon level /> next to it.
 export const levelBadge = (level: string): string => levelLabel(level)
 
-// «для Senior» — exercise difficulty tags
-export const levelTag = (level: string): string => `для ${levelLabel(level)}`
+// «для Senior» — exercise difficulty tags; CEFR: «рівень A1»
+export const levelTag = (level: string): string => (isCefrLevel(level) ? `рівень ${level}` : `для ${levelLabel(level)}`)
 
-export const levelIcon = (level: string): string => IT_RANK_ICON[levelItRank(level)]
+export const levelIcon = (level: string): string => (isCefrLevel(level) ? CEFR_ICON[level] : IT_RANK_ICON[levelItRank(level)])
 
 // ── Per-course mastery rank ────────────────────────────────────────────────────────────────────────────────────
 

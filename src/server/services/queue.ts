@@ -1,6 +1,6 @@
 import 'server-only'
-import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { first } from '@/db/client'
+import { and, desc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
+import { first, type Conn } from '@/db/client'
 import { attempts, mistakes, srsCards, taskState } from '@/db/schema'
 import { LEVELS, type LearningUnit, type Level, type UnitKind } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -8,6 +8,7 @@ import { dayKey } from '@/progress/day'
 import { nextEligibleAt } from '@/progress/mistakes'
 import type { SrsCard } from '@/progress/srs'
 import { userScope } from '../auth'
+import { read, readOne, type Read } from '../db/batch'
 import { readSettings } from '../settings'
 
 export interface StudyFilters {
@@ -18,6 +19,8 @@ export interface StudyFilters {
   types: string[]
   mode: 'due' | 'all'
   size: number
+  // «Усі курси»: ignore the active course (?scope=all)
+  all: boolean
 }
 
 type Params = Record<string, string | string[] | undefined>
@@ -41,6 +44,7 @@ export function parseFilters(params: Params, defaultSize: number): StudyFilters 
     types: list(params.type),
     mode: one('mode') === 'all' ? 'all' : 'due',
     size: Number.isInteger(size) && size > 0 && size <= 200 ? size : defaultSize,
+    all: one('scope') === 'all',
   }
 }
 
@@ -53,6 +57,7 @@ export function filtersToQuery(f: StudyFilters, extra: Record<string, string> = 
   if (f.types.length) q.set('type', f.types.join(','))
   if (f.mode !== 'due') q.set('mode', f.mode)
   q.set('size', String(f.size))
+  if (f.all) q.set('scope', 'all')
   for (const [k, v] of Object.entries(extra)) q.set(k, v)
   return q.toString()
 }
@@ -84,6 +89,8 @@ export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: Uni
       if (f.types.length && (!unit.qtype || !f.types.includes(unit.qtype))) continue
     }
     if (unit.kind === 'quiz' && f.types.length && !f.types.includes(unit.mode)) continue
+    // [!speak] needs a microphone: only when asked for explicitly («Вимова»)
+    if (unit.kind === 'quiz' && unit.mode === 'speak' && !f.types.includes('speak')) continue
     if (unit.kind === 'task' && f.types.length && !f.types.includes(unit.difficulty)) continue
     out.push(unit)
   }
@@ -92,18 +99,23 @@ export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: Uni
 
 export async function srsMap(ids: readonly string[]): Promise<Map<string, SrsCard>> {
   if (ids.length === 0) return new Map()
-  const rows = await userScope(async (db, userId) => {
-    const out: (typeof srsCards.$inferSelect)[] = []
-    for (let i = 0; i < ids.length; i += 500) {
-      out.push(
-        ...(await db
+  return userScope((db, userId) => srsMapIn(db, userId, ids))
+}
+
+// A whole course's pool can be thousands of ids: past BIG_POOL the learner's cards come back in one query and are
+// filtered here (a learner has at most a few thousand cards) instead of shipping every id as a parameter.
+const BIG_POOL = 500
+
+export async function srsMapIn(db: Conn, userId: string, ids: readonly string[]): Promise<Map<string, SrsCard>> {
+  if (ids.length === 0) return new Map()
+  const wanted = new Set(ids)
+  const rows =
+    ids.length > BIG_POOL
+      ? (await db.select().from(srsCards).where(eq(srsCards.userId, userId))).filter((r) => wanted.has(r.unitId))
+      : await db
           .select()
           .from(srsCards)
-          .where(and(eq(srsCards.userId, userId), inArray(srsCards.unitId, ids.slice(i, i + 500))))),
-      )
-    }
-    return out
-  })
+          .where(and(eq(srsCards.userId, userId), inArray(srsCards.unitId, [...ids])))
   return new Map(
     rows.map((r) => [
       r.unitId,
@@ -124,16 +136,18 @@ export async function srsMap(ids: readonly string[]): Promise<Map<string, SrsCar
 }
 
 export async function newIntroducedToday(now: number): Promise<number> {
+  return userScope((db, userId) => newIntroducedTodayIn(db, userId, now))
+}
+
+async function newIntroducedTodayIn(db: Conn, userId: string, now: number): Promise<number> {
   const today = dayKey(now)
-  const row = await userScope((db, userId) => {
-    const firsts = db
-      .select({ unitId: attempts.unitId, firstDay: sql<string>`min(${attempts.day})`.as('first_day') })
-      .from(attempts)
-      .where(and(eq(attempts.userId, userId), eq(attempts.kind, 'flashcard')))
-      .groupBy(attempts.unitId)
-      .as('firsts')
-    return first(db.select({ n: sql<number>`count(*)` }).from(firsts).where(sql`${firsts.firstDay} = ${today}`))
-  })
+  const firsts = db
+    .select({ unitId: attempts.unitId, firstDay: sql<string>`min(${attempts.day})`.as('first_day') })
+    .from(attempts)
+    .where(and(eq(attempts.userId, userId), eq(attempts.kind, 'flashcard')))
+    .groupBy(attempts.unitId)
+    .as('firsts')
+  const row = await first(db.select({ n: sql<number>`count(*)` }).from(firsts).where(sql`${firsts.firstDay} = ${today}`))
   return Number(row?.n ?? 0)
 }
 
@@ -147,11 +161,12 @@ export interface FlashQueue {
 
 export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null): Promise<FlashQueue> {
   const candidates = matchUnits(snapshot, f, 'flashcard', scope)
-  const cards = await srsMap(candidates.map((u) => u.id))
+  const settings = await readSettings()
+  // one transaction, both reads in one round trip
+  const [cards, introduced] = await userScope((db, userId) => Promise.all([srsMapIn(db, userId, candidates.map((u) => u.id)), newIntroducedTodayIn(db, userId, now)]))
   const due = candidates.filter((u) => cards.has(u.id) && cards.get(u.id)!.due <= now).sort((a, b) => cards.get(a.id)!.due - cards.get(b.id)!.due)
   const unseen = candidates.filter((u) => !cards.has(u.id))
-  const settings = await readSettings()
-  const newLeft = Math.max(0, settings.newCardsPerDay - (await newIntroducedToday(now)))
+  const newLeft = Math.max(0, settings.newCardsPerDay - introduced)
   let ids: string[]
   if (f.mode === 'all') ids = candidates.map((u) => u.id).slice(0, f.size)
   else ids = [...due.map((u) => u.id), ...unseen.slice(0, newLeft).map((u) => u.id)].slice(0, f.size)
@@ -184,8 +199,13 @@ export async function openMistakeRows(snapshot: ContentSnapshot): Promise<Mistak
       .from(mistakes)
       .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
   )
+  return openRowsFrom(snapshot, rows)
+}
+
+function openRowsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mistakes.$inferSelect>): MistakeRow[] {
   const out: MistakeRow[] = []
   for (const r of rows) {
+    if (r.resolvedAt !== null) continue
     const unit = snapshot.units.get(r.unitId)
     if (!unit) continue
     out.push({ unit, wrongCount: r.wrongCount, correctStreak: r.correctStreak, lastWrongAt: r.lastWrongAt, eligibleAt: nextEligibleAt({ ...r }) })
@@ -205,6 +225,10 @@ export async function recentlyResolved(snapshot: ContentSnapshot, since: number)
 
 export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ chapterId: string; open: number; ever: number }>> {
   const rows = await userScope((db, userId) => db.select().from(mistakes).where(eq(mistakes.userId, userId)))
+  return topicsFrom(snapshot, rows)
+}
+
+function topicsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mistakes.$inferSelect>): Array<{ chapterId: string; open: number; ever: number }> {
   const byChapter = new Map<string, { open: number; ever: number }>()
   for (const r of rows) {
     const unit = snapshot.units.get(r.unitId)
@@ -217,29 +241,67 @@ export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ 
   return [...byChapter.entries()].map(([chapterId, v]) => ({ chapterId, ...v })).sort((a, b) => b.open - a.open || b.ever - a.ever)
 }
 
+// «Мої помилки» in one query: open rows, per-topic counts and the ones resolved since `since` all come from the
+// learner's mistakes table (was three transactions).
+export async function mistakesOverview(snapshot: ContentSnapshot, since: number): Promise<{ open: MistakeRow[]; topics: Array<{ chapterId: string; open: number; ever: number }>; resolved: LearningUnit[] }> {
+  const rows = await userScope((db, userId) => db.select().from(mistakes).where(eq(mistakes.userId, userId)))
+  return {
+    open: openRowsFrom(snapshot, rows),
+    topics: topicsFrom(snapshot, rows),
+    resolved: rows.filter((r) => r.resolvedAt !== null && r.resolvedAt >= since).flatMap((r) => snapshot.units.get(r.unitId) ?? []),
+  }
+}
+
 export async function taskStates(ids: readonly string[]): Promise<Map<string, typeof taskState.$inferSelect>> {
   if (ids.length === 0) return new Map()
-  const rows = await userScope((db, userId) =>
-    db
-      .select()
-      .from(taskState)
-      .where(and(eq(taskState.userId, userId), inArray(taskState.unitId, [...ids]))),
-  )
+  return userScope((db, userId) => taskStatesIn(db, userId, ids))
+}
+
+export async function taskStatesIn(db: Conn, userId: string, ids: readonly string[]): Promise<Map<string, typeof taskState.$inferSelect>> {
+  if (ids.length === 0) return new Map()
+  const rows = await db
+    .select()
+    .from(taskState)
+    .where(and(eq(taskState.userId, userId), inArray(taskState.unitId, [...ids])))
   return new Map(rows.map((r) => [r.unitId, r]))
 }
 
 export async function lastOutcomes(ids: readonly string[]): Promise<Map<string, boolean>> {
   if (ids.length === 0) return new Map()
-  const rows = await userScope((db, userId) =>
+  return userScope((db, userId) => lastOutcomesIn(db, userId, ids))
+}
+
+// The latest attempt's verdict per unit. Large pools (a whole course: thousands of ids) don't ship every id as a
+// parameter: the latest attempt per unit the learner ever answered comes back (distinct on), filtered here.
+export async function lastOutcomesIn(db: Conn, userId: string, ids: readonly string[]): Promise<Map<string, boolean>> {
+  if (ids.length === 0) return new Map()
+  return readOne(db, lastOutcomesRead(db, userId, ids))
+}
+
+export function lastOutcomesRead(db: Conn, userId: string, ids: readonly string[]): Read<Map<string, boolean>> {
+  if (ids.length > 200) {
+    const wanted = new Set(ids)
+    return read(
+      db
+        .selectDistinctOn([attempts.unitId], { unitId: attempts.unitId, correct: attempts.correct })
+        .from(attempts)
+        .where(eq(attempts.userId, userId))
+        .orderBy(attempts.unitId, desc(attempts.id)),
+      (rows) => new Map(rows.filter((r) => wanted.has(r.unitId)).map((r) => [r.unitId, r.correct])),
+    )
+  }
+  return read(
     db
       .select({ unitId: attempts.unitId, correct: attempts.correct, id: attempts.id })
       .from(attempts)
-      .where(and(eq(attempts.userId, userId), inArray(attempts.unitId, [...ids])))
+      .where(and(eq(attempts.userId, userId), inArray(attempts.unitId, ids.length > 0 ? [...ids] : [''])))
       .orderBy(attempts.id),
+    (rows) => {
+      const out = new Map<string, boolean>()
+      for (const r of rows) out.set(r.unitId, r.correct)
+      return out
+    },
   )
-  const out = new Map<string, boolean>()
-  for (const r of rows) out.set(r.unitId, r.correct)
-  return out
 }
 
 export async function practiceQueue(

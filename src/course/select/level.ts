@@ -31,7 +31,7 @@ export interface LevelView {
 export const KEEP_WHEN_ALL_BELOW = 2
 export const KEEP_WHEN_MIXED = 1
 
-const KIND_PRIORITY: Record<ExerciseRef['kind'], number> = { quiz: 0, task: 1, interview: 2, flashcard: 3 }
+const KIND_PRIORITY: Record<ExerciseRef['kind'], number> = { quiz: 0, listen: 0, pair: 1, task: 1, speak: 2, interview: 2, flashcard: 3, word: 3 }
 
 export function selectLesson(lesson: Lesson, exercises: Record<string, ExerciseRef>, level: Level): LessonView {
   const user = levelRank(level)

@@ -1,13 +1,16 @@
 import { z } from 'zod'
 import { LevelSchema } from './level'
 import { AuthorSchema, SectionKindSchema } from './manifest'
+import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
 
 // CourseBundle — compiled, self-contained JSON of one course version (content/courses/<id>.json).
 // Exercise bodies stay in the content store; the bundle holds structure and references only.
 
 export const BUNDLE_FORMAT = 1
 
-export const ExerciseKindSchema = z.enum(['quiz', 'flashcard', 'interview', 'task'])
+// word / listen / speak / pair — language blocks (docs/LANGUAGE_COURSE.md): a flashcard / quizzes for the engine,
+// their own kinds for lessons, test pools, placement and practice sections.
+export const ExerciseKindSchema = z.enum(['quiz', 'flashcard', 'interview', 'task', 'word', 'listen', 'speak', 'pair'])
 export type ExerciseKind = z.infer<typeof ExerciseKindSchema>
 
 export const LevelSourceSchema = z.enum(['exercise', 'topic', 'section', 'default'])
@@ -122,6 +125,8 @@ export const SectionSchema = z.object({
   minutes: z.number(),
   topics: z.array(TopicSchema),
   exam: SectionExamSchema.nullable(),
+  // planned: on the path as «скоро» — no topics yet (course.yaml sections[].status)
+  status: z.enum(['active', 'planned']).optional(),
 })
 export type Section = z.infer<typeof SectionSchema>
 
@@ -129,7 +134,8 @@ export const PlacementPoolSchema = z.object({
   enabled: z.boolean(),
   maxQuestions: z.number().int(),
   perLevel: z.number().int(),
-  pool: z.record(LevelSchema, z.array(z.string())),
+  // the course's ladder only (noob…god or A1…C2)
+  pool: z.partialRecord(LevelSchema, z.array(z.string())),
 })
 export type PlacementPool = z.infer<typeof PlacementPoolSchema>
 
@@ -148,7 +154,12 @@ export const CourseStatsSchema = z.object({
   sectionExams: z.number().int(),
   minutes: z.number(),
   hours: z.number(),
-  byLevel: z.record(LevelSchema, z.number().int()),
+  byLevel: z.partialRecord(LevelSchema, z.number().int()),
+  // language blocks (optional for bundles compiled before them)
+  words: z.number().int().optional(),
+  listening: z.number().int().optional(),
+  speaking: z.number().int().optional(),
+  pairs: z.number().int().optional(),
 })
 export type CourseStats = z.infer<typeof CourseStatsSchema>
 
@@ -159,7 +170,12 @@ export const CourseMetaSchema = z.object({
   subtitle: z.string().nullable(),
   description: z.string().nullable(),
   subject: z.string(),
+  // optional: bundles compiled before they existed resolve via courseKind() / coursePractice() (schema/practice.ts)
+  kind: CourseKindSchema.optional(),
+  practice: z.array(PracticeSectionIdSchema).optional(),
   language: z.string(),
+  // language courses: the language being learned (BCP 47), for speech; absent → `language`
+  target: z.string().optional(),
   icon: z.string().nullable(),
   color: z.string().nullable(),
   cover: z.string().nullable(),
@@ -179,6 +195,8 @@ export const CourseBundleSchema = z.object({
     section: z.object({ questions: z.number(), pass: z.number(), testOut: z.boolean() }),
   }),
   sections: z.array(SectionSchema),
+  // guide ids of the sidebar «Теорія», in order (optional for older bundles → courseTheory())
+  theory: z.array(z.string()).optional(),
   exercises: z.record(z.string(), ExerciseRefSchema),
   reels: z.record(z.string(), ReelRefSchema),
   placement: PlacementPoolSchema,

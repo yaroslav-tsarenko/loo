@@ -20,6 +20,8 @@ export interface FilterFormProps {
   sizes: number[]
   // label of the empty «all» option of the material select (the active course, or all content)
   allLabel?: string
+  // the active course: a «Цей курс / Усі курси» switch (?scope=all); without it the switch is hidden
+  course?: { title: string; all: boolean }
   values: {
     guide: string | null
     chapter: string | null
@@ -68,6 +70,33 @@ export function FilterForm(props: FilterFormProps) {
   const submit = () => form.current?.requestSubmit()
   return (
     <Form ref={form} action={props.action} className="filters" onChange={submit} scroll={false} replace>
+      {props.course ? (
+        <Group label="Курс">
+          <div className="gseg">
+            {[
+              { value: '', label: 'Цей курс', title: props.course.title },
+              { value: 'all', label: 'Усі курси', title: 'Матеріали всіх курсів і посібників' },
+            ].map((o) => (
+              <label key={o.value} title={o.title}>
+                <input
+                  type="radio"
+                  name="scope"
+                  value={o.value}
+                  defaultChecked={props.course!.all === (o.value === 'all')}
+                  onChange={() => {
+                    // a guide of another course makes no sense in «Цей курс»: start the material filter over
+                    for (const name of ['guide', 'chapter']) {
+                      const el = form.current?.elements.namedItem(name)
+                      if (el instanceof HTMLSelectElement) el.value = ''
+                    }
+                  }}
+                />
+                <span>{o.label}</span>
+              </label>
+            ))}
+          </div>
+        </Group>
+      ) : null}
       <div className="filter-group">
         <label className="filter-label" htmlFor="f-guide">
           Матеріали

@@ -5,7 +5,7 @@ import { levelFrom, readMetaParagraph, splitTags } from '../meta'
 import type { UnitDefinition } from '../types'
 import { isRoleFence, parseFill, parseOrder } from './exercise'
 
-function labeledParagraph(node: RootContent, labels: RegExp): Paragraph | null {
+export function labeledParagraph(node: RootContent, labels: RegExp): Paragraph | null {
   if (node.type !== 'paragraph') return null
   const first = node.children[0]
   if (!first || first.type !== 'strong') return null
@@ -21,11 +21,11 @@ function labeledParagraph(node: RootContent, labels: RegExp): Paragraph | null {
   return { type: 'paragraph', children: rest }
 }
 
-function isTaskList(node: RootContent): node is List {
+export function isTaskList(node: RootContent): node is List {
   return node.type === 'list' && node.children.length > 0 && node.children.every((item) => typeof item.checked === 'boolean')
 }
 
-function optionContent(item: List['children'][number]): PhrasingContent[] {
+export function optionContent(item: List['children'][number]): PhrasingContent[] {
   const out: PhrasingContent[] = []
   for (const child of item.children) {
     if (child.type === 'paragraph') {
@@ -36,7 +36,7 @@ function optionContent(item: List['children'][number]): PhrasingContent[] {
   return out
 }
 
-const EXPLANATION = /^(пояснення|explanation|чому)\s*:?$/i
+export const EXPLANATION = /^(пояснення|explanation|чому)\s*:?$/i
 const ANSWER = /^(відповідь|answer)\s*:?$/i
 
 export const quizDefinition: UnitDefinition = {

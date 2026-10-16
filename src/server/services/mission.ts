@@ -1,8 +1,8 @@
 import 'server-only'
-import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { first, type Conn } from '@/db/client'
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
+import type { Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState } from '@/db/schema'
-import { lookup } from '@/course'
+import { lookup, type CoursePathView } from '@/course'
 import { EXAM_ICON, TEST_ICON } from '@/content/icons'
 import type { Chapter } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -12,11 +12,12 @@ import type { Effect } from '@/progress/types'
 import { chapterHref } from '@/ui/routes'
 import { BUCKS, buckRef } from '@/game'
 import { userScope } from '../auth'
+import { read, readOne, type Read } from '../db/batch'
 import { awardBucks, grantXp } from '../game/ledger'
 import { readSettings } from '../settings'
-import { activeCourse, exerciseIds } from '../courses/enrollment'
-import { coursePathView, cursorHref } from '../courses/path'
-import { chapterProgressMap, nextChapterFor } from './library'
+import { activeCourse, exerciseIds, type ActiveCourse } from '../courses/enrollment'
+import { courseProgressIn, coursePathView, cursorHref, pathViewFrom } from '../courses/path'
+import { chapterProgressIn, nextChapterFor, type ProgressRow } from './library'
 
 // Where the learner is in the active course: the next node of the course path (lesson, topic test or section exam).
 export interface MissionCursor {
@@ -44,16 +45,14 @@ export interface MissionView {
 
 // The chapter to read next: the current topic of the active course while it isn't studied yet, else the guide the
 // learner is reading.
-async function cursorChapter(snapshot: ContentSnapshot, cursor: MissionCursor): Promise<Chapter | null> {
-  const progress = await chapterProgressMap()
+function cursorChapter(snapshot: ContentSnapshot, cursor: MissionCursor, progress: ReadonlyMap<string, ProgressRow>): Chapter | null {
   const chapter = cursor.chapterId ? snapshot.chapters.get(cursor.chapterId) : undefined
   if (chapter && progress.get(chapter.id)?.status !== 'studied') return chapter
-  return currentNextChapter(snapshot)
+  return currentNextChapter(snapshot, progress)
 }
 
 // The guide the learner is currently in: the last opened one, else the deep JavaScript guide, else the first.
-async function currentNextChapter(snapshot: ContentSnapshot): Promise<Chapter | null> {
-  const progress = await chapterProgressMap()
+function currentNextChapter(snapshot: ContentSnapshot, progress: ReadonlyMap<string, ProgressRow>): Chapter | null {
   const last = [...progress.entries()].sort((a, b) => b[1].lastOpenedAt - a[1].lastOpenedAt)[0]
   const lastGuide = last ? snapshot.guideById.get(snapshot.chapters.get(last[0])?.guideId ?? '') : undefined
   const candidates = [lastGuide, snapshot.guideById.get('javascript'), ...snapshot.guides].filter((g) => g !== undefined)
@@ -65,7 +64,7 @@ async function currentNextChapter(snapshot: ContentSnapshot): Promise<Chapter | 
 }
 
 async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cursor: MissionCursor, scope: ReadonlySet<string> | null, budget: number, reels: number, now: number): Promise<MissionPlan> {
-  const [srsRows, openRows, solvedRows, next] = await Promise.all([
+  const [srsRows, openRows, solvedRows, progress] = await Promise.all([
     db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
     db
       .select({ id: mistakes.unitId })
@@ -75,8 +74,9 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cu
       .select({ id: taskState.unitId })
       .from(taskState)
       .where(and(eq(taskState.userId, userId), eq(taskState.status, 'solved'))),
-    cursorChapter(snapshot, cursor),
+    chapterProgressIn(db, userId),
   ])
+  const next = cursorChapter(snapshot, cursor, progress)
   const srs = new Map(srsRows.map((r) => [r.id, r.due]))
   const solved = new Set(solvedRows.map((r) => r.id))
   let due = 0
@@ -90,7 +90,9 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cu
       const at = srs.get(unit.id)
       if (at === undefined) fresh++
       else if (at <= now) due++
-    } else if (unit.kind === 'quiz') quizzes++
+    } else if (unit.kind === 'quiz') {
+      if (unit.mode !== 'speak') quizzes++
+    }
     else if (!solved.has(unit.id)) tasks[unit.difficulty]++
   }
   return planMission({
@@ -109,79 +111,68 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cu
 }
 
 async function activity(conn: Conn, userId: string, plan: MissionPlan, now: number): Promise<MissionActivity> {
+  return activityFrom(await readOne(conn, activityRead(conn, userId, now)), plan)
+}
+
+interface ActivityRow {
+  cards: number
+  quizzes: number
+  solved: number
+  ms: number
+  mistakes: number
+  timeMs: number
+  reels: number
+  // chapters studied today (the plan's «read» step checks its own)
+  studied: string[]
+  lessons: number
+}
+
+// Today's activity behind the mission steps, in one statement and independent of the plan (so it can be read before
+// the plan is known, alongside other reads).
+export function activityRead(conn: Conn, userId: string, now: number): Read<ActivityRow> {
   const day = dayKey(now)
   const start = dayStartMs(now)
+  return read(
+    conn
+      .select({
+        cards: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.day = ${day} and a.kind = 'flashcard')`,
+        quizzes: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.day = ${day} and a.kind = 'quiz')`,
+        solved: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.day = ${day} and a.kind = 'task' and a.outcome = 'solved')`,
+        ms: sql<number>`(select coalesce(sum(a.duration_ms), 0) from ${attempts} a where a.user_id = ${userId} and a.day = ${day})`,
+        mistakes: sql<number>`(select count(*) from ${attempts} a join ${sessions} s on s.id = a.session_id and s.user_id = a.user_id where a.user_id = ${userId} and a.day = ${day} and s.mode = 'mistakes')`,
+        timeMs: sql<number>`(select coalesce(max(d.time_ms), 0) from ${dailyActivity} d where d.user_id = ${userId} and d.day = ${day})`,
+        reels: sql<number>`(select count(*) from ${reelState} r where r.user_id = ${userId} and r.last_seen_at >= ${start})`,
+        studied: sql<string[] | null>`(select array_agg(c.chapter_id) from ${chapterProgress} c where c.user_id = ${userId} and c.studied_at >= ${start})`,
+        lessons: sql<number>`(select count(*) from ${lessonProgress} l where l.user_id = ${userId} and l.last_completed_at >= ${start})`,
+      })
+      .from(sql`(select 1) as one`),
+    (rows) => {
+      const r = rows[0]
+      const num = (v: unknown) => Number(v ?? 0)
+      return { cards: num(r?.cards), quizzes: num(r?.quizzes), solved: num(r?.solved), ms: num(r?.ms), mistakes: num(r?.mistakes), timeMs: num(r?.timeMs), reels: num(r?.reels), studied: r?.studied ?? [], lessons: num(r?.lessons) }
+    },
+  )
+}
+
+export function activityFrom(row: ActivityRow, plan: MissionPlan): MissionActivity {
   const readChapter = plan.steps.find((s) => s.kind === 'read')?.chapterId
-  const [counts, mistakeRow, today, reels, studied, lessonsRow] = await Promise.all([
-    first(
-      conn
-        .select({
-          cards: sql<number>`count(*) filter (where ${attempts.kind} = 'flashcard')`,
-          quizzes: sql<number>`count(*) filter (where ${attempts.kind} = 'quiz')`,
-          solved: sql<number>`count(*) filter (where ${attempts.kind} = 'task' and ${attempts.outcome} = 'solved')`,
-          ms: sql<number>`coalesce(sum(${attempts.durationMs}), 0)`,
-        })
-        .from(attempts)
-        .where(and(eq(attempts.userId, userId), eq(attempts.day, day))),
-    ),
-    first(
-      conn
-        .select({ n: sql<number>`count(*)` })
-        .from(attempts)
-        .innerJoin(sessions, and(eq(sessions.id, attempts.sessionId), eq(sessions.userId, attempts.userId)))
-        .where(and(eq(attempts.userId, userId), eq(attempts.day, day), eq(sessions.mode, 'mistakes'))),
-    ),
-    first(
-      conn
-        .select({ timeMs: dailyActivity.timeMs })
-        .from(dailyActivity)
-        .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, day))),
-    ),
-    first(
-      conn
-        .select({ n: sql<number>`count(*)` })
-        .from(reelState)
-        .where(and(eq(reelState.userId, userId), gte(reelState.lastSeenAt, start))),
-    ),
-    readChapter
-      ? first(
-          conn
-            .select({ at: chapterProgress.studiedAt })
-            .from(chapterProgress)
-            .where(and(eq(chapterProgress.userId, userId), eq(chapterProgress.chapterId, readChapter), gte(chapterProgress.studiedAt, start))),
-        )
-      : Promise.resolve(undefined),
-    first(
-      conn
-        .select({ n: sql<number>`count(*)` })
-        .from(lessonProgress)
-        .where(and(eq(lessonProgress.userId, userId), gte(lessonProgress.lastCompletedAt, start))),
-    ),
-  ])
   // dailyActivity.timeMs = reading time + answering time; subtract answering to get reading.
-  const readingMs = Math.max(0, Number(today?.timeMs ?? 0) - Number(counts?.ms ?? 0))
+  const readingMs = Math.max(0, row.timeMs - row.ms)
   return {
-    cards: Number(counts?.cards ?? 0),
-    quizzes: Number(counts?.quizzes ?? 0),
-    tasksSolved: Number(counts?.solved ?? 0),
-    mistakes: Number(mistakeRow?.n ?? 0),
+    cards: row.cards,
+    quizzes: row.quizzes,
+    tasksSolved: row.solved,
+    mistakes: row.mistakes,
     readingMinutes: readingMs / 60_000,
-    chapterStudied: Boolean(studied?.at),
-    lessons: Number(lessonsRow?.n ?? 0),
-    reels: Number(reels?.n ?? 0),
+    chapterStudied: readChapter ? row.studied.includes(readChapter) : false,
+    lessons: row.lessons,
+    reels: row.reels,
   }
 }
 
 // Today's plan is created once and kept stable, unless the budget changed before any progress was made.
-async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, cursor: MissionCursor, scope: ReadonlySet<string> | null, reels: number, now: number) {
+async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, cursor: MissionCursor, scope: ReadonlySet<string> | null, reels: number, now: number, dailyMinutes: number, row: MissionRow | null) {
   const day = dayKey(now)
-  const { dailyMinutes } = await readSettings()
-  const row = await first(
-    db
-      .select()
-      .from(dailyMissions)
-      .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day))),
-  )
   if (row && (row.budgetMinutes === dailyMinutes || row.completedAt)) return row
   if (row) {
     const progress = stepProgress(row.plan as MissionPlan, await activity(db, userId, row.plan as MissionPlan, now))
@@ -235,7 +226,17 @@ const EMPTY_CURSOR: MissionCursor = { href: null, icon: null, title: null, topic
 export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor: MissionCursor; scope: ReadonlySet<string> | null }> {
   const active = await activeCourse()
   if (!active) return { cursor: EMPTY_CURSOR, scope: null }
-  const { view } = await coursePathView(active)
+  return cursorFrom(snapshot, active, (await coursePathView(active)).view)
+}
+
+// missionCursor inside the caller's transaction (the course progress read alongside its other reads).
+export async function missionCursorIn(db: Conn, userId: string, snapshot: ContentSnapshot, active: ActiveCourse | null): Promise<{ cursor: MissionCursor; scope: ReadonlySet<string> | null }> {
+  if (!active) return { cursor: EMPTY_CURSOR, scope: null }
+  const progress = await courseProgressIn(db, userId, active.bundle)
+  return cursorFrom(snapshot, active, pathViewFrom(active, progress))
+}
+
+function cursorFrom(snapshot: ContentSnapshot, active: ActiveCourse, view: CoursePathView): { cursor: MissionCursor; scope: ReadonlySet<string> | null } {
   const { bundle } = active
   const course = { id: bundle.course.id, title: bundle.course.title, icon: bundle.course.icon }
   const base = { ...EMPTY_CURSOR, remaining: view.lessonsLeft, total: view.lessonsTotal, course }
@@ -251,29 +252,56 @@ export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor
 }
 
 export async function getMission(snapshot: ContentSnapshot, reels: number, now = Date.now()): Promise<MissionView> {
-  const { cursor, scope } = await missionCursor(snapshot)
-  return userScope(async (db, userId) => {
-    const row = await ensurePlan(db, userId, snapshot, cursor, scope, reels, now)
-    const plan = row.plan as MissionPlan
-    const progress = stepProgress(plan, await activity(db, userId, plan, now))
-    const ratio = missionRatio(progress)
-    return { cursor, plan, progress, ratio, complete: progress.every((p) => p.complete), completedAt: row.completedAt ?? null, hrefs: hrefsFor(snapshot, plan, cursor) }
-  })
+  const [active, { dailyMinutes }] = await Promise.all([activeCourse(), readSettings()])
+  return userScope((db, userId) => getMissionIn(db, userId, snapshot, reels, active, dailyMinutes, now), { tx: true })
 }
 
-// Called after every learning action: awards the mission bonus once, when the last step is done.
-export async function settleMission(conn: Conn, userId: string, now = Date.now()): Promise<Effect[]> {
-  const day = dayKey(now)
-  const row = await first(
+// Today's mission inside the caller's transaction: cursor + today's row in one round trip, the plan (built once a
+// day), then the activity counts.
+export async function getMissionIn(db: Conn, userId: string, snapshot: ContentSnapshot, reels: number, active: ActiveCourse | null, dailyMinutes: number, now: number): Promise<MissionView> {
+  const [{ cursor, scope }, today] = await Promise.all([missionCursorIn(db, userId, snapshot, active), todayMission(db, userId, now)])
+  const row = await ensurePlan(db, userId, snapshot, cursor, scope, reels, now, dailyMinutes, today)
+  const plan = row.plan as MissionPlan
+  const progress = stepProgress(plan, await activity(db, userId, plan, now))
+  const ratio = missionRatio(progress)
+  return { cursor, plan, progress, ratio, complete: progress.every((p) => p.complete), completedAt: row.completedAt ?? null, hrefs: hrefsFor(snapshot, plan, cursor) }
+}
+
+export type MissionRow = typeof dailyMissions.$inferSelect
+
+export async function todayMission(conn: Conn, userId: string, now: number): Promise<MissionRow | null> {
+  return readOne(conn, missionRead(conn, userId, now))
+}
+
+export function missionRead(conn: Conn, userId: string, now: number): Read<MissionRow | null> {
+  return read(
     conn
       .select()
       .from(dailyMissions)
-      .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day))),
+      .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, dayKey(now)))),
+    (rows) => rows[0] ?? null,
   )
-  if (!row || row.completedAt) return []
+}
+
+export interface MissionProgress {
+  plan: MissionPlan
+  complete: boolean
+}
+
+// Today's open mission and whether every step is done now (null: no mission today, or already completed).
+// `today`: the activity already read in this transaction.
+export async function missionProgress(conn: Conn, userId: string, row: MissionRow | null, now: number, today?: ActivityRow): Promise<MissionProgress | null> {
+  if (!row || row.completedAt) return null
   const plan = row.plan as MissionPlan
-  const progress = stepProgress(plan, await activity(conn, userId, plan, now))
-  if (!progress.every((p) => p.complete)) return []
+  const progress = stepProgress(plan, today ? activityFrom(today, plan) : await activity(conn, userId, plan, now))
+  return { plan, complete: progress.every((p) => p.complete) }
+}
+
+// Awards the mission bonus once, when the last step is done.
+export async function completeMission(conn: Conn, userId: string, mission: MissionProgress, now: number): Promise<Effect[]> {
+  if (!mission.complete) return []
+  const day = dayKey(now)
+  const plan = mission.plan
   await conn
     .update(dailyMissions)
     .set({ completedAt: now })
@@ -288,6 +316,12 @@ export async function settleMission(conn: Conn, userId: string, now = Date.now()
   if (xp > 0) effects.push({ type: 'xp', amount: xp, reason: 'mission' })
   if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'mission' })
   return effects
+}
+
+// Called after every learning action: awards the mission bonus once, when the last step is done.
+export async function settleMission(conn: Conn, userId: string, now = Date.now()): Promise<Effect[]> {
+  const mission = await missionProgress(conn, userId, await todayMission(conn, userId, now), now)
+  return mission ? completeMission(conn, userId, mission, now) : []
 }
 
 export async function missionHistory(days: string[]): Promise<Map<string, { budget: number; completed: boolean }>> {

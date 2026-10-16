@@ -1,0 +1,26 @@
+id: english-test
+version: 0.1.0
+title: English test
+subject: language
+kind: language
+language: uk
+target: en
+levels: [A1, A2, B1]
+sections:
+  - id: a1
+    title: A1
+    from: English
+    chapters: 101
+    level: A1
+  - id: a2
+    title: A2
+    from: English
+    chapters: 201
+    level: A2
+  - id: b1
+    title: B1
+    from: English
+    chapters: 301-330
+    level: B1
+    status: planned
+placement: { enabled: true, maxQuestions: 20, perLevel: 2 }

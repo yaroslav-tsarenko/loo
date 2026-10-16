@@ -71,6 +71,13 @@
       "when": 1792156054048,
       "tag": "0009_rpg",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1792179125570,
+      "tag": "0010_perf_indexes",
+      "breakpoints": true
     }
   ]
 }

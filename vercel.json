@@ -1,8 +1,20 @@
 {
   "buildCommand": "pnpm vercel-build",
+  "regions": [
+    "dub1"
+  ],
   "crons": [
-    { "path": "/api/cron/news", "schedule": "0 6 * * *" },
-    { "path": "/api/cron/reels", "schedule": "30 6 * * *" },
-    { "path": "/api/cron/leagues", "schedule": "30 22 * * *" }
+    {
+      "path": "/api/cron/news",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/reels",
+      "schedule": "30 6 * * *"
+    },
+    {
+      "path": "/api/cron/leagues",
+      "schedule": "30 22 * * *"
+    }
   ]
 }

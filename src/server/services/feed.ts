@@ -116,7 +116,8 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
   const cardQueue: LearningUnit[] = [...due, ...fresh]
 
   // Quizzes: wrong last time → never tried → previously right.
-  const quizzes = units.filter((u) => u.kind === 'quiz')
+  // [!speak] needs a microphone: it stays in lessons and «Вимова», not in the feed
+  const quizzes = units.filter((u) => u.kind === 'quiz' && u.mode !== 'speak')
   const last = await lastOutcomes(quizzes.map((u) => u.id))
   const quizQueue = [
     ...shuffle(quizzes.filter((u) => last.get(u.id) === false), seed + 3),

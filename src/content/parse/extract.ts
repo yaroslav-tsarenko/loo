@@ -97,6 +97,10 @@ export function extractFile(input: ExtractInput): ExtractResult {
     return { id, source: 'hash' as const }
   }
 
+  const report = (severity: 'warning' | 'error', message: string) => {
+    issues.push({ severity, code: severity === 'error' ? 'exercise-invalid' : 'block-warning', path, message })
+  }
+
   let sectionSlug: string | null = null
   let level: Level | null = meta.level ?? null
   let levelDepth = 7
@@ -129,7 +133,7 @@ export function extractFile(input: ExtractInput): ExtractResult {
         }
         const definition = unitDefinitionFor(node.calloutType)
         if (definition) {
-          const ctx: ExtractContext = { guideId, chapterId, chapterPath: path, sectionSlug, level, resolveId }
+          const ctx: ExtractContext = { guideId, chapterId, chapterPath: path, sectionSlug, level, resolveId, report }
           const unit = definition.extract(node as Callout, ctx)
           if (unit) {
             units.push(unit)

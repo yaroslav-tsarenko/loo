@@ -24,7 +24,7 @@ export async function updateSetting<K extends UserSettingKey>(rawKey: K, rawValu
   const value = parseInput(settingValue, rawValue) as AppSettings[K]
   // writeSetting coerces per key (type and range), falling back to the default.
   const saved = await writeSetting(key, value)
-  if (key === 'theme' || key === 'dailyGoal' || key === 'dailyMinutes' || key === 'haptics') revalidatePath('/', 'layout')
+  if (key === 'theme' || key === 'dailyGoal' || key === 'dailyMinutes' || key === 'haptics' || key === 'accent') revalidatePath('/', 'layout')
   return saved
 }
 

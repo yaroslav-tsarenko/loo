@@ -2,7 +2,7 @@ import 'server-only'
 import type { Chapter, Guide, TreeNode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { chapterHref, guideHref } from '@/ui/routes'
-import { chapterProgressMap, nextChapterFor, readableChapters, todaySummary, type ChapterStatus, type ProgressRow } from './library'
+import { pageProgress, nextChapterFor, readableChapters, todaySummary, type ChapterStatus, type ProgressRow } from './library'
 import { chapterAccuracy, openMistakesByChapter, weakChapters } from './stats'
 
 export interface RoadNode {
@@ -76,7 +76,7 @@ function guideDone(snapshot: ContentSnapshot, guide: Guide, progress: Map<string
 
 export async function buildRoadmap(snapshot: ContentSnapshot): Promise<Roadmap> {
   const [progress, accuracy, open, today, weak] = await Promise.all([
-    chapterProgressMap(),
+    pageProgress(),
     chapterAccuracy(),
     openMistakesByChapter(snapshot),
     todaySummary(snapshot),

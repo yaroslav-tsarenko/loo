@@ -4,7 +4,7 @@ import { lessonIdFromLegacy, lookup, selectLesson, type CourseBundle, type Lesso
 import { first } from '@/db/client'
 import { enrollments } from '@/db/schema'
 import { getProfile, userScope } from '../auth'
-import { levelFromPreference } from './enrollment'
+import { courseLevelOf, levelFromPreference } from './enrollment'
 import { courseFor, listCourses, getCourse } from './registry'
 
 export interface CourseLesson {
@@ -44,8 +44,9 @@ export async function learnerLevel(courseId: string): Promise<Level> {
         .where(and(eq(enrollments.userId, userId), eq(enrollments.courseId, courseId))),
     ),
   )
-  if (row) return row.level
-  return levelFromPreference((await getProfile())?.preferences.level)
+  const bundle = await getCourse(courseId)
+  if (row) return bundle ? courseLevelOf(row.level, bundle.course) : row.level
+  return levelFromPreference((await getProfile())?.preferences.level, bundle?.course)
 }
 
 export function lessonView(bundle: CourseBundle, lesson: Lesson, level: Level): LessonView {

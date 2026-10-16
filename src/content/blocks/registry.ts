@@ -4,20 +4,34 @@ import { figureDefinition } from './figure/definition'
 import { importantStyle } from './important/style'
 import { interviewDefinition } from './interview/definition'
 import { interviewStyle } from './interview/style'
+import { listenDefinition } from './listen/definition'
 import { noteStyle } from './note/style'
 import { failureStyle, successStyle } from './outcome/style'
+import { pairDefinition } from './pair/definition'
 import { pitfallStyle } from './pitfall/style'
 import { questionDefinition } from './question/definition'
 import { quizDefinition } from './quiz/definition'
 import { reelStyle } from './reel/style'
 import { solutionStyle } from './solution/style'
+import { speakDefinition } from './speak/definition'
 import { taskDefinition } from './task/definition'
 import { tipStyle } from './tip/style'
 import type { CalloutStyle, RenderBlockDefinition, UnitDefinition } from './types'
 import { vizDefinition } from './viz/definition'
 import { warningStyle } from './warning/style'
+import { wordDefinition } from './word/definition'
 
-const unitDefinitions: readonly UnitDefinition[] = [questionDefinition, quizDefinition, taskDefinition, interviewDefinition]
+const unitDefinitions: readonly UnitDefinition[] = [
+  questionDefinition,
+  quizDefinition,
+  taskDefinition,
+  interviewDefinition,
+  // language courses (docs/LANGUAGE_COURSE.md)
+  wordDefinition,
+  listenDefinition,
+  speakDefinition,
+  pairDefinition,
+]
 
 const renderBlocks: readonly RenderBlockDefinition[] = [vizDefinition, figureDefinition, diagramDefinition]
 

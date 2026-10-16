@@ -82,6 +82,8 @@ export interface PathTopicView {
 
 export interface PathSectionView {
   section: Section
+  // course.yaml `status: planned`: shown as «скоро», nothing to study yet
+  planned: boolean
   state: PathState
   known: 'placement' | 'exam' | null
   topics: PathTopicView[]
@@ -123,6 +125,11 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
   let prevPathDone = true
 
   for (const section of bundle.sections) {
+    if (section.status === 'planned') {
+      sections.push({ section, planned: true, state: 'locked', known: null, topics: [], exam: null, done: 0, total: 0, ratio: 0 })
+      if (section.kind === 'path') prevPathDone = false
+      continue
+    }
     const path = section.kind === 'path'
     const examPassed = Boolean(section.exam && progress.exams.get(section.exam.id)?.passed)
     const known: PathSectionView['known'] = !path ? null : examPassed ? 'exam' : placement !== null && section.index < placement ? 'placement' : null
@@ -194,7 +201,7 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
     const total = topics.reduce((s, t) => s + t.total, 0) + (exam ? 1 : 0)
     const complete = known !== null || (exam ? exam.done : done === total)
     for (const t of topics) t.state = !unlocked ? 'locked' : t.done === t.total ? 'done' : 'open'
-    sections.push({ section, state: !unlocked ? 'locked' : complete ? 'done' : 'open', known, topics, exam, done, total, ratio: total > 0 ? done / total : complete ? 1 : 0 })
+    sections.push({ section, planned: false, state: !unlocked ? 'locked' : complete ? 'done' : 'open', known, topics, exam, done, total, ratio: total > 0 ? done / total : complete ? 1 : 0 })
     if (path) prevPathDone = complete
   }
 

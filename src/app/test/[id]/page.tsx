@@ -1,15 +1,14 @@
 import { EXAM_ICON, TEST_ICON } from '@/content/icons'
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { requireUser, userScope } from '@/server/auth'
-import { getContent } from '@/server/content'
 import { learnerLevel, nextStepAfter, stepHref } from '@/server/courses/lessons'
 import { nextLabel } from '@/server/courses/player'
 import { courseFor } from '@/server/courses/registry'
 import { readTestRecord, sectionUnfinished } from '@/server/courses/tests'
 import { attemptSeed, drawTest, resolveTest } from '@/server/courses/tests-core'
-import { playerGame } from '@/server/game'
 import { renderLessonItems } from '@/server/services/lessons'
+import { learnerLevelFrom, playerGameFrom, shellData } from '@/server/shell'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { Button } from '@/ui/design/Button'
 import { LessonPlayer } from '@/ui/lesson/LessonPlayer'
@@ -32,8 +31,11 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   const bundle = await courseFor(id)
   const test = bundle ? resolveTest(bundle, id) : null
   if (!bundle || !test) notFound()
-  const snapshot = await getContent()
-  const [record, level, unfinished] = await Promise.all([userScope((db, userId) => readTestRecord(db, userId, test)), learnerLevel(bundle.course.id), sectionUnfinished(test)])
+  // hearts, bucks and the course level come with the shell (src/server/shell.ts)
+  const shell = await shellData()
+  if (!shell) redirect('/login')
+  const { snapshot } = shell
+  const [record, level, unfinished] = await Promise.all([userScope((db, userId) => readTestRecord(db, userId, test)), learnerLevelFrom(shell, bundle.course.id, () => learnerLevel(bundle.course.id)), sectionUnfinished(test)])
   const attempt = (record?.attempts ?? 0) + 1
   const built = drawTest(test, attemptSeed(user.id, attempt))
   const items = built ? await renderLessonItems(snapshot, built.questions.map((q) => ({ kind: 'unit' as const, id: q }))) : []
@@ -48,7 +50,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   }
   const exam = test.kind === 'section-exam'
   const next = nextStepAfter(bundle, level, test.id)
-  const game = await playerGame()
+  const game = playerGameFrom(shell)
   const title = exam ? test.section.title : test.topic!.title
   return (
     <LessonPlayer

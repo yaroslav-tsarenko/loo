@@ -156,6 +156,13 @@ export const uk = {
     middle: { title: levelBadge('middle'), body: 'Пишу код щодня' },
     senior: { title: levelBadge('senior'), body: 'Розбираюся глибоко' },
     god: { title: levelBadge('god'), body: 'Хочу челенджів' },
+    // language courses (CEFR)
+    A1: { title: levelBadge('A1'), body: 'З нуля — алфавіт, звуки, перші фрази' },
+    A2: { title: levelBadge('A2'), body: 'Трохи знаю — прості розмови про себе' },
+    B1: { title: levelBadge('B1'), body: 'Говорю на щоденні теми' },
+    B2: { title: levelBadge('B2'), body: 'Вільно спілкуюся, розумію фільми' },
+    C1: { title: levelBadge('C1'), body: 'Академічна й ділова мова' },
+    C2: { title: levelBadge('C2'), body: 'Як освічений носій' },
   },
   interests: {
     javascript: 'JavaScript',
@@ -217,6 +224,9 @@ export const uk = {
     catalog: 'Усі курси',
     theory: 'Теорія',
     activeCourse: 'активний курс',
+    practice: 'Практика',
+    allGuides: 'Усі посібники',
+    pickCourse: 'Обери курс — тут зʼявиться його теорія',
   },
   courses: {
     title: 'Курси',

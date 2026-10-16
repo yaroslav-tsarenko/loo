@@ -14,6 +14,11 @@ export const COURSE_LIMITS = {
   answer: { limit: 120, windowMs: 60_000 },
   // shop purchases and equipping skins
   shop: { limit: 30, windowMs: 60_000 },
+  // pronunciation checks (docs/SPEECH.md §4): per minute and per day
+  speak: { limit: 20, windowMs: 60_000 },
+  speakDay: { limit: 400, windowMs: 86_400_000 },
+  // the spoken text of a listening item / minimal pair, fetched when the learner presses play
+  audio: { limit: 240, windowMs: 60_000 },
 } satisfies Record<string, RateLimitRule>
 
 export async function limitUser(userId: string, scope: keyof typeof COURSE_LIMITS): Promise<void> {

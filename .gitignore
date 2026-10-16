@@ -13,3 +13,6 @@ next-env.d.ts
 .env
 .claude/settings.local.json
 .env*
+tmp/
+# build artifact (pnpm content:snapshot, vercel-build)
+content/.snapshot/

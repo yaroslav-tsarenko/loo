@@ -1,4 +1,5 @@
 import type { FillExercise, OrderExercise, QuizExercise, QuizMode, QuizUnit } from '../../model'
+import { dictationMatches } from '../lang/grade'
 import { blankMatches } from './exercise'
 import { isFreeQuiz, normalizeFreeAnswer, type QuizAnswer } from './grade'
 
@@ -36,6 +37,8 @@ export interface QuizKey {
   order: string[] | null
   // fill: accepted answers per blank, in order
   blanks: string[][] | null
+  // dictation ([!listen]): other accepted transcriptions
+  accept?: string[]
 }
 
 export interface QuizShape {
@@ -89,6 +92,7 @@ export function quizKey(unit: QuizUnit): QuizKey {
     free: isFreeQuiz(unit) ? unit.freeAnswer : null,
     order: unit.mode === 'order' && ex?.kind === 'order' ? ex.pieces.filter((p) => !p.distractor).map((p) => p.code) : null,
     blanks: unit.mode === 'fill' && ex?.kind === 'fill' ? ex.segments.flatMap((s) => (s.kind === 'blank' ? [s.answers] : [])) : null,
+    ...(unit.mode === 'listen' && unit.listen?.accept.length ? { accept: unit.listen.accept } : {}),
   }
 }
 
@@ -97,6 +101,8 @@ export function quizKey(unit: QuizUnit): QuizKey {
 export function gradeWithKey(shape: QuizShape, key: QuizKey, answer: QuizAnswer): boolean {
   if (shape.mode === 'order') return key.order !== null && answer.chosen.length === key.order.length && answer.chosen.every((c, i) => c === key.order![i])
   if (shape.mode === 'fill') return key.blanks !== null && key.blanks.length > 0 && answer.chosen.length === key.blanks.length && key.blanks.every((b, i) => blankMatches(b, answer.chosen[i] ?? ''))
+  if (shape.mode === 'speak') return false
+  if (shape.mode === 'listen' && shape.free) return dictationMatches(answer.text ?? '', key.free ?? '', key.accept ?? [])
   if (shape.free) {
     const text = answer.text ?? ''
     return text.trim() !== '' && normalizeFreeAnswer(text) === normalizeFreeAnswer(key.free ?? '')

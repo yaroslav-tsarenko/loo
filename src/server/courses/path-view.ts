@@ -55,6 +55,7 @@ export function pathSections(path: CoursePath): CPSection[] {
       icon: s.section.icon,
       description: s.section.description,
       kind: s.section.kind,
+      planned: s.planned,
       levelLabel,
       state: s.state,
       known: s.known,

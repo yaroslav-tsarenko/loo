@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getContent } from '@/server/content'
 import { buildRoadmap } from '@/server/services/roadmap'
 import { trackPath } from '@/server/services/path'
-import { userXp } from '@/server/services/progress'
+import { shellData } from '@/server/shell'
 import { TRACKS } from '@/content/tracks'
 import { levelInfo } from '@/progress/levels'
 import { PixelIcon } from '@/ui/design/PixelIcon'
@@ -18,7 +18,7 @@ export default async function RoadmapPage() {
   const snapshot = await getContent()
   const [map, xp, cards] = await Promise.all([
     buildRoadmap(snapshot),
-    userXp(),
+    shellData().then((s) => s?.xp ?? 0),
     Promise.all(
       TRACKS.map(async (track): Promise<TrackCard> => {
         const available = track.guides.some((g) => snapshot.guideById.has(g))

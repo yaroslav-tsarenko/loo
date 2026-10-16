@@ -8,6 +8,7 @@ import {
   courseRank,
   courseScore,
   gearStats,
+  rankProgress,
   sanitizeGear,
   sectionSkill,
   snapshotOf,
@@ -25,12 +26,14 @@ import {
 import { shiftDay, dayKey } from '@/progress/day'
 import { computeProfileStats, type ProfileStats } from '@/progress/stats'
 import { userScope } from '../auth'
+import { courseLadder } from '@/course'
 import { getCourse } from '../courses/registry'
 import { masteryFromRows } from '../courses/path'
 import { withUser } from '../db/with-user'
 import { loadAggregates } from '../stats/queries'
-import { rankOfUser } from './ranks'
-import { loadState, ownedItems } from './state'
+import { read, readAll, readBatch } from '../db/batch'
+import { rankInputFrom, rankRead } from './ranks'
+import { loadState, ownedRead, stateRead } from './state'
 
 // Loo's character sheet: attributes from the statistics engine's aggregates (read-only reuse of src/server/stats),
 // skills from topic mastery / passed section exams of EVERY enrolled course, the warrior rank from src/game/ranks.ts and
@@ -47,18 +50,20 @@ export interface CourseMasteryTopic {
   touched: boolean
 }
 
-// Per-course mastery rank (IT career, src/game/evolution.ts courseRank).
+// Per-course mastery rank (IT career, src/game/evolution.ts courseRank); language courses show it as CEFR (A1…C2).
 export interface CourseRankView {
   courseId: string
   title: string
   icon: string | null
   rank: ItRank
   score: number
+  ladder: 'it' | 'cefr'
 }
 
 // Crowns of every topic of every course in the learner's library (same signals as the path) + each course's IT rank.
 async function masteryAcrossCourses(conn: Conn, userId: string): Promise<{ topics: CourseMasteryTopic[]; skills: Skill[]; courses: CourseRankView[] }> {
-  const [enrolled, chapters, srsRows, solvedRows, lastQuiz, exams, lessonsDone, testsPassed] = await Promise.all([
+  // one statement (src/server/db/batch.ts)
+  const [enrolled, chapters, srsRows, solvedRows, lastQuiz, exams, lessonsDone, testsPassed] = await readBatch(conn, [
     conn.select({ id: enrollments.courseId }).from(enrollments).where(eq(enrollments.userId, userId)),
     conn.select({ id: chapterProgress.chapterId, status: chapterProgress.status }).from(chapterProgress).where(eq(chapterProgress.userId, userId)),
     conn.select({ id: srsCards.unitId, state: srsCards.state, stability: srsCards.stability }).from(srsCards).where(eq(srsCards.userId, userId)),
@@ -108,7 +113,7 @@ async function masteryAcrossCourses(conn: Conn, userId: string): Promise<{ topic
       exams: { passed: examIds.filter((e) => passed.has(e)).length, total: examIds.length },
       accuracy: quizIds.length > 0 ? quizIds.filter((u) => outcomes.get(u)).length / quizIds.length : null,
     }
-    courses.push({ courseId: id, title: bundle.course.title, icon: bundle.course.icon ?? null, rank: courseRank(m), score: courseScore(m) })
+    courses.push({ courseId: id, title: bundle.course.title, icon: bundle.course.icon ?? null, rank: courseRank(m), score: courseScore(m), ladder: courseLadder(bundle.course) })
     const mastery = masteryFromRows(bundle, status, outcomes, srs, solved)
     const courseTitle = bundle.course.title
     for (const section of bundle.sections) {
@@ -141,17 +146,25 @@ export interface CharacterView {
 }
 
 export async function characterIn(conn: Conn, userId: string, now: number): Promise<CharacterView> {
-  const [agg, mastery, rank, state, owned, frozen] = await Promise.all([
+  // three statements: the aggregates, the mastery rows, and the rest together
+  const [agg, mastery, [rankParts, stateRow, owned, frozen]] = await Promise.all([
     loadAggregates(conn, userId, now),
     masteryAcrossCourses(conn, userId),
-    rankOfUser(conn, userId, now),
-    loadState(conn, userId, now),
-    ownedItems(conn, userId),
-    conn
-      .select({ day: frozenDays.day })
-      .from(frozenDays)
-      .where(and(eq(frozenDays.userId, userId), gte(frozenDays.day, shiftDay(dayKey(now), -29)))),
+    readAll(conn, [
+      rankRead(conn, userId),
+      stateRead(conn, userId, now),
+      ownedRead(conn, userId),
+      read(
+        conn
+          .select({ day: frozenDays.day })
+          .from(frozenDays)
+          .where(and(eq(frozenDays.userId, userId), gte(frozenDays.day, shiftDay(dayKey(now), -29)))),
+        (rows) => rows,
+      ),
+    ]),
   ])
+  const state = stateRow ?? (await loadState(conn, userId, now))
+  const rank = rankProgress(await rankInputFrom(rankParts), state.evoStep)
   const stats = computeProfileStats(agg)
   const touched = mastery.topics.filter((t) => t.touched)
   const avgCrowns = touched.length > 0 ? touched.reduce((s, t) => s + t.crowns, 0) / touched.length : 0

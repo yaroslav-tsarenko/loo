@@ -1,0 +1,264 @@
+# Levelup course manifest — docs/COURSE_FORMAT.md, docs/LANGUAGE_COURSE.md (interview-preparation-2-0)
+# Full map of the course (all levels, topics, counts) — docs/ENGLISH_SYLLABUS.md.
+# Official course: `from:` resolves against the vault's shared Guides/ folder (Guides/English/).
+#
+# Topic numbering: files are named `English - <LEVEL> - NN. <Назва>.md`; the name parser reads it as <level>×100 + NN
+# (A1 → 101…, A2 → 201…, B1 → 301…, B2 → 401…, C1 → 501…, C2 → 601…) and sections pick topics by that number.
+# Frontmatter `order:` (same numbers) still works and wins when present.
+#
+# B1–C2 are planned (docs/ENGLISH_SYLLABUS.md §6–8): `status: planned` shows them on the path as «скоро» without
+# requiring their articles. When a level's articles land, drop `status: planned` (topics are picked by `chapters:`).
+id: english-a1-c2
+version: 0.1.0
+title: English A1 → C2
+subtitle: Уся англійська — від алфавіту й звуків до вільного C2
+description: >-
+  Один великий курс англійської для україномовних: граматика (усі часи, частини мови, структури речень), лексика за
+  темами, фразові дієслова й ідіоми, вимова (звуки, IPA, дифтонги, наголос, інтонація, звʼязне мовлення),
+  аудіювання, читання, письмо і реальні ситуації. Шість рівнів CEFR — від A1 до C2; рівень визначає вступний тест
+  або вибір учня. Пояснення українською, приклади англійською.
+subject: language
+# Shell: course kind, practice sections (sidebar order) and the guides of the sidebar «Теорія» — COURSE_FORMAT §2.1
+kind: language
+practice: [path, words, listening, pronunciation, grammar, mistakes]
+theory: [English]
+# `language` — the language of instruction (explanations, UI); `target` — the language being learned: speech synthesis
+# and recognition use it (docs/SPEECH.md), with the learner's accent setting (en-GB / en-US).
+language: uk
+target: en
+icon: px:flagUk
+color: '#2B59C3'
+# CEFR ladder of language courses (labels «A1 · Початковий» …); placement probes the levels of active sections.
+levels: [A1, A2, B1, B2, C1, C2]
+tags: [english, cefr, grammar, vocabulary, pronunciation, listening, speaking, reading, writing]
+authors: [{ name: Yaroslav Tsarenko }]
+license: proprietary
+
+sections:
+  - id: a1
+    title: A1 — Початковий
+    icon: px:sprout
+    description: 'Звуки й алфавіт, to be, Present Simple і Continuous; перші слова й фрази — знайомство, сімʼя, їжа, місто, покупки.'
+    from: English
+    chapters: 101-130
+    level: A1
+    # Теми (30), у порядку `order`:
+    #   101  English - A1 - 01. Алфавіт, звуки й IPA  [pronunciation]
+    #   102  English - A1 - 02. Знайомство — привітання, країни й національності  [vocabulary]
+    #   103  English - A1 - 03. Дієслово to be — am, is, are  [grammar]
+    #   104  English - A1 - 04. Числа, вік і номер телефону  [vocabulary]
+    #   105  English - A1 - 05. Короткі й довгі голосні  [pronunciation]
+    #   106  English - A1 - 06. Артиклі a, an і множина іменників  [grammar]
+    #   107  English - A1 - 07. This, that, these, those — речі навколо  [grammar]
+    #   108  English - A1 - 08. Сімʼя, люди й зовнішність  [vocabulary]
+    #   109  English - A1 - 09. Займенники і присвійність — me, my, mine, 's  [grammar]
+    #   110  English - A1 - 10. Дифтонги  [pronunciation]
+    #   111  English - A1 - 11. Have got — що в мене є  [grammar]
+    #   112  English - A1 - 12. Час, дні, місяці й дати  [vocabulary]
+    #   113  English - A1 - 13. Аудіювання — імена, числа, ціни й час  [listening]
+    #   114  English - A1 - 14. Present Simple — стверджувальні речення  [grammar]
+    #   115  English - A1 - 15. Present Simple — питання й заперечення  [grammar]
+    #   116  English - A1 - 16. Розпорядок дня і прислівники частоти  [vocabulary]
+    #   117  English - A1 - 17. Приголосні th, w, v, r, h  [pronunciation]
+    #   118  English - A1 - 18. Їжа, напої й у кафе  [vocabulary]
+    #   119  English - A1 - 19. Some, any, much, many — лічильні й нелічильні  [grammar]
+    #   120  English - A1 - 20. There is, there are — дім і кімнати  [grammar]
+    #   121  English - A1 - 21. Can і can't — уміння й прохання  [grammar]
+    #   122  English - A1 - 22. Одяг, кольори й у магазині  [vocabulary]
+    #   123  English - A1 - 23. Кінцеві приголосні й закінчення -s  [pronunciation]
+    #   124  English - A1 - 24. Місто, транспорт і як пройти  [vocabulary]
+    #   125  English - A1 - 25. Прийменники in, on, at — час і місце  [grammar]
+    #   126  English - A1 - 26. Present Continuous — що відбувається зараз  [grammar]
+    #   127  English - A1 - 27. Вільний час, хобі й погода  [vocabulary]
+    #   128  English - A1 - 28. Аудіювання — діалоги на щодень  [listening]
+    #   129  English - A1 - 29. Читання й письмо — анкета, оголошення, листівка  [skills]
+    #   130  English - A1 - 30. Підсумок A1 — тест рівня  [review]
+
+  - id: a2
+    title: A2 — Елементарний
+    icon: px:letterTile
+    description: 'Минулий час, Present Perfect, майбутнє, порівняння, модальні; подорожі, робота, здоровʼя; наголос та інтонація.'
+    from: English
+    chapters: 201-230
+    level: A2
+    # Теми (30), у порядку `order`:
+    #   201  English - A2 - 01. Was і were — минуле дієслова to be  [grammar]
+    #   202  English - A2 - 02. Past Simple — правильні й неправильні дієслова  [grammar]
+    #   203  English - A2 - 03. Вимова закінчення -ed  [pronunciation]
+    #   204  English - A2 - 04. Past Simple — питання й заперечення  [grammar]
+    #   205  English - A2 - 05. Біографія й життєві події  [vocabulary]
+    #   206  English - A2 - 06. Наголос у слові  [pronunciation]
+    #   207  English - A2 - 07. Подорожі, відпустка й транспорт  [vocabulary]
+    #   208  English - A2 - 08. Ступені порівняння прикметників  [grammar]
+    #   209  English - A2 - 09. Аудіювання — оголошення й інструкції  [listening]
+    #   210  English - A2 - 10. Be going to — плани й наміри  [grammar]
+    #   211  English - A2 - 11. Will — прогнози, обіцянки, рішення  [grammar]
+    #   212  English - A2 - 12. Робота, професії й навчання  [vocabulary]
+    #   213  English - A2 - 13. Наголос у реченні й слабкі форми  [pronunciation]
+    #   214  English - A2 - 14. Present Perfect — досвід, ever, never  [grammar]
+    #   215  English - A2 - 15. Present Perfect чи Past Simple — just, already, yet  [grammar]
+    #   216  English - A2 - 16. Здоровʼя, тіло й у лікаря  [vocabulary]
+    #   217  English - A2 - 17. Must, have to, should — обовʼязок і порада  [grammar]
+    #   218  English - A2 - 18. Інтонація — питання, переліки, емоції  [pronunciation]
+    #   219  English - A2 - 19. Past Continuous — дія в процесі в минулому  [grammar]
+    #   220  English - A2 - 20. Почуття й характер — прикметники на -ed та -ing  [vocabulary]
+    #   221  English - A2 - 21. Аудіювання — телефонні розмови й повідомлення  [listening]
+    #   222  English - A2 - 22. Кількість — a few, a little, too, enough і something, anyone  [grammar]
+    #   223  English - A2 - 23. Прислівники й порядок слів  [grammar]
+    #   224  English - A2 - 24. Гроші, покупки й послуги  [vocabulary]
+    #   225  English - A2 - 25. Дієслово + to чи -ing  [grammar]
+    #   226  English - A2 - 26. Правила читання й німі літери  [pronunciation]
+    #   227  English - A2 - 27. Перші фразові дієслова  [vocabulary]
+    #   228  English - A2 - 28. Читання й письмо — email, історія, відгук  [skills]
+    #   229  English - A2 - 29. Ситуації — готель, ресторан, вокзал, аптека  [skills]
+    #   230  English - A2 - 30. Підсумок A2 — тест рівня  [review]
+
+  - id: b1
+    title: B1 — Середній
+    icon: px:chat
+    description: 'Наративні часи, умовні, пасив, непряма мова; звʼязне мовлення; лист, есе-думка, дискусія.'
+    from: English
+    chapters: 301-330
+    level: B1
+    status: planned
+    # Теми (30), у порядку `order`:
+    #   301  English - B1 - 01. Теперішні часи — Simple чи Continuous, дієслова стану  [grammar]
+    #   302  English - B1 - 02. Стосунки й особистість  [vocabulary]
+    #   303  English - B1 - 03. Наративні часи — Past Simple, Continuous і Perfect  [grammar]
+    #   304  English - B1 - 04. Used to, would і be used to  [grammar]
+    #   305  English - B1 - 05. Звʼязне мовлення — linking  [pronunciation]
+    #   306  English - B1 - 06. Present Perfect Continuous — for, since, how long  [grammar]
+    #   307  English - B1 - 07. Технології, інтернет і соцмережі  [vocabulary]
+    #   308  English - B1 - 08. Майбутнє — will, going to, Present Continuous, розклад  [grammar]
+    #   309  English - B1 - 09. Аудіювання — новини, подкасти, оголошення  [listening]
+    #   310  English - B1 - 10. Умовні речення — нульовий і перший  [grammar]
+    #   311  English - B1 - 11. Другий умовний — уявні ситуації  [grammar]
+    #   312  English - B1 - 12. Довкілля, природа й клімат  [vocabulary]
+    #   313  English - B1 - 13. Слабкі форми й ритм мовлення  [pronunciation]
+    #   314  English - B1 - 14. Ймовірність — may, might, could, must, can't  [grammar]
+    #   315  English - B1 - 15. Can, could, be able to, manage to  [grammar]
+    #   316  English - B1 - 16. Робота, карʼєра й співбесіда  [vocabulary]
+    #   317  English - B1 - 17. Пасивний стан — Present і Past  [grammar]
+    #   318  English - B1 - 18. Медіа, новини й реклама  [vocabulary]
+    #   319  English - B1 - 19. Непряма мова — твердження, питання, прохання  [grammar]
+    #   320  English - B1 - 20. Означальні речення — who, which, that, where, whose  [grammar]
+    #   321  English - B1 - 21. Аудіювання — інтервʼю й розмови носіїв  [listening]
+    #   322  English - B1 - 22. Колокації — make, do, have, take, get  [vocabulary]
+    #   323  English - B1 - 23. Словотвір — префікси й суфікси  [vocabulary]
+    #   324  English - B1 - 24. Фразові дієслова й ідіоми B1  [vocabulary]
+    #   325  English - B1 - 25. Артиклі глибше — the, a і нульовий артикль  [grammar]
+    #   326  English - B1 - 26. Question tags і непрямі питання  [grammar]
+    #   327  English - B1 - 27. Письмо — лист, email, есе-думка  [skills]
+    #   328  English - B1 - 28. Читання — статті й стратегії skimming, scanning  [skills]
+    #   329  English - B1 - 29. Говоріння — розповідь, думка, згода й незгода  [skills]
+    #   330  English - B1 - 30. Підсумок B1 — тест рівня  [review]
+
+  - id: b2
+    title: B2 — Вище середнього
+    icon: px:compass
+    description: 'Уся система часів, модальні в минулому, ідіоми й колокації; фільми, лекції, есе й аргументація.'
+    from: English
+    chapters: 401-429
+    level: B2
+    status: planned
+    # Теми (29), у порядку `order`:
+    #   401  English - B2 - 01. Система часів — simple, continuous, perfect  [grammar]
+    #   402  English - B2 - 02. Future Continuous і Future Perfect  [grammar]
+    #   403  English - B2 - 03. Третій і змішані умовні  [grammar]
+    #   404  English - B2 - 04. Wish, if only, I'd rather, it's time  [grammar]
+    #   405  English - B2 - 05. Пасив глибше — have something done, it is said that  [grammar]
+    #   406  English - B2 - 06. Непряма мова — suggest, admit, deny, warn  [grammar]
+    #   407  English - B2 - 07. Модальні в минулому — must have, should have, could have  [grammar]
+    #   408  English - B2 - 08. Герундій та інфінітив — remember, stop, try  [grammar]
+    #   409  English - B2 - 09. Підрядні речення — non-defining і скорочені  [grammar]
+    #   410  English - B2 - 10. Звʼязки — although, despite, whereas, however  [grammar]
+    #   411  English - B2 - 11. Звʼязне мовлення — випадіння, злиття, intrusive r  [pronunciation]
+    #   412  English - B2 - 12. Розмовні скорочення — gonna, wanna, gotta, dunno  [pronunciation]
+    #   413  English - B2 - 13. Аудіювання — лекції й нотатки  [listening]
+    #   414  English - B2 - 14. Аудіювання — фільми й серіали  [listening]
+    #   415  English - B2 - 15. Бізнес — зустрічі, переговори, листування  [vocabulary]
+    #   416  English - B2 - 16. Наука, технології й майбутнє  [vocabulary]
+    #   417  English - B2 - 17. Суспільство, закон і злочинність  [vocabulary]
+    #   418  English - B2 - 18. Здоровʼя, психологія й спосіб життя  [vocabulary]
+    #   419  English - B2 - 19. Гроші, економіка й споживання  [vocabulary]
+    #   420  English - B2 - 20. Мистецтво, культура й рецензії  [vocabulary]
+    #   421  English - B2 - 21. Фразові дієслова — частки up, out, off, down, over  [vocabulary]
+    #   422  English - B2 - 22. Ідіоми й сталі вирази B2  [vocabulary]
+    #   423  English - B2 - 23. Колокації — прикметник, іменник, прислівник  [vocabulary]
+    #   424  English - B2 - 24. Словотвір — складні слова й заперечні префікси  [vocabulary]
+    #   425  English - B2 - 25. Письмо — есе for and against, звіт, відгук  [skills]
+    #   426  English - B2 - 26. Говоріння — аргументація, дискусія, переконання  [skills]
+    #   427  English - B2 - 27. Читання — довгі тексти, висновки й тон автора  [skills]
+    #   428  English - B2 - 28. Ситуації — оренда, скарги, банк, співбесіда  [skills]
+    #   429  English - B2 - 29. Підсумок B2 — тест рівня  [review]
+
+  - id: c1
+    title: C1 — Просунутий
+    icon: px:gradCap
+    description: 'Інверсія, cleft, регістр і академічний стиль; швидке мовлення, презентації, ділове письмо.'
+    from: English
+    chapters: 501-525
+    level: C1
+    status: planned
+    # Теми (25), у порядку `order`:
+    #   501  English - C1 - 01. Інверсія — Never have I, Not only, Hardly  [grammar]
+    #   502  English - C1 - 02. Розщеплені речення — What I need is, It was … that  [grammar]
+    #   503  English - C1 - 03. Еліпсис і заміна — so, not, do so, one  [grammar]
+    #   504  English - C1 - 04. Умовні без if — Should you, Were I, Had I known  [grammar]
+    #   505  English - C1 - 05. Модальні — нюанси значень  [grammar]
+    #   506  English - C1 - 06. Дієприкметникові звороти — Having finished, Given that  [grammar]
+    #   507  English - C1 - 07. Номіналізація й академічний стиль  [grammar]
+    #   508  English - C1 - 08. Дистанціювання й ввічливість — I was wondering  [grammar]
+    #   509  English - C1 - 09. Hedging — обережні формулювання  [vocabulary]
+    #   510  English - C1 - 10. Інтонація ставлення й контрастивний наголос  [pronunciation]
+    #   511  English - C1 - 11. Аудіювання — швидка розмова й акценти UK, US  [listening]
+    #   512  English - C1 - 12. Аудіювання — лекції, TED, аргументація  [listening]
+    #   513  English - C1 - 13. Ідіоми — тіло, кольори, тварини, гроші  [vocabulary]
+    #   514  English - C1 - 14. Фразові дієслова — абстрактні значення  [vocabulary]
+    #   515  English - C1 - 15. Академічна лексика — Academic Word List  [vocabulary]
+    #   516  English - C1 - 16. Професійна комунікація — переговори, фідбек  [vocabulary]
+    #   517  English - C1 - 17. Синоніми, конотації й нюанси значень  [vocabulary]
+    #   518  English - C1 - 18. Колокації високого рівня  [vocabulary]
+    #   519  English - C1 - 19. Регістр — formal vs informal, фразові vs латинізми  [skills]
+    #   520  English - C1 - 20. Письмо — аргументаційне есе, пропозиція, звіт  [skills]
+    #   521  English - C1 - 21. Письмо — ділове листування, CV і cover letter  [skills]
+    #   522  English - C1 - 22. Читання — складні тексти, підтекст і аргументація  [skills]
+    #   523  English - C1 - 23. Говоріння — презентації, дебати, small talk  [skills]
+    #   524  English - C1 - 24. Дискусійні теми — медіа, етика, глобалізація  [vocabulary]
+    #   525  English - C1 - 25. Підсумок C1 — тест рівня  [review]
+
+  - id: c2
+    title: C2 — Вільне володіння
+    icon: px:crown
+    description: 'Стилістика, ідіоматика, акценти світу, медіація — англійська на рівні освіченого носія.'
+    from: English
+    chapters: 601-622
+    level: C2
+    status: planned
+    # Теми (22), у порядку `order`:
+    #   601  English - C2 - 01. Маркований порядок слів — фронтування й емфаза  [grammar]
+    #   602  English - C2 - 02. Тонкощі часів — історичний теперішній, tentative past  [grammar]
+    #   603  English - C2 - 03. Тонкощі артиклів і детермінантів  [grammar]
+    #   604  English - C2 - 04. Субʼюнктив і формальні конструкції  [grammar]
+    #   605  English - C2 - 05. Складні речення — вкладення, абсолютні звороти, паралелізм  [grammar]
+    #   606  English - C2 - 06. Ідіоматика — прислівʼя, алюзії, крилаті вислови  [vocabulary]
+    #   607  English - C2 - 07. Розмовна мова й сленг UK, US  [vocabulary]
+    #   608  English - C2 - 08. Етимологія — латинські й грецькі корені  [vocabulary]
+    #   609  English - C2 - 09. Точність — understatement, евфемізми, ввічливе заперечення  [vocabulary]
+    #   610  English - C2 - 10. Гумор, іронія й гра слів  [skills]
+    #   611  English - C2 - 11. Акценти світу — RP, General American, Australian, Scottish, Irish, Indian  [pronunciation]
+    #   612  English - C2 - 12. Аудіювання — радіо, ток-шоу, перекриття мовлення  [listening]
+    #   613  English - C2 - 13. Просодія на рівні носія — ритм, паузи, публічний виступ  [pronunciation]
+    #   614  English - C2 - 14. Читання — художня література, есеїстика, юридичні тексти  [skills]
+    #   615  English - C2 - 15. Письмо — стилістика, редагування, есе C2  [skills]
+    #   616  English - C2 - 16. Письмо — рецензія, стаття, доповідь  [skills]
+    #   617  English - C2 - 17. Говоріння — переговори, дипломатія, імпровізація  [skills]
+    #   618  English - C2 - 18. Кальки й хибні друзі — пастки для українців  [vocabulary]
+    #   619  English - C2 - 19. Культурний контекст — реалії, ввічливість, табу  [skills]
+    #   620  English - C2 - 20. Фахова англійська — IT, право, медицина, фінанси  [vocabulary]
+    #   621  English - C2 - 21. Медіація — переказ, резюме, пояснення іншій аудиторії  [skills]
+    #   622  English - C2 - 22. Підсумок C2 — екзамен рівня  [review]
+exams:
+  topic: { questions: 10, pass: 0.8 }
+  section: { questions: 25, pass: 0.8, testOut: true }
+placement: { enabled: true, maxQuestions: 20, perLevel: 3 }

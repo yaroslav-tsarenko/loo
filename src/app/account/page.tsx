@@ -4,7 +4,7 @@ import { PiCheckBold } from 'react-icons/pi'
 import { messages, t } from '@/i18n'
 import { updateProfile } from '@/server/actions/account'
 import { setCourseLevel } from '@/server/actions/courses'
-import { myLibrary } from '@/server/courses/library'
+import { shellData } from '@/server/shell'
 import { Icon } from '@/ui/icons/Icon'
 import { getProfile, isAdmin, requireUser } from '@/server/auth'
 import { INTERESTS, LEVELS, MINUTES } from '@/server/services/preferences'
@@ -19,7 +19,8 @@ export const metadata: Metadata = { title: 'Профіль і акаунт' }
 
 export default async function AccountPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const user = await requireUser()
-  const [params, profile, settings, admin, library] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin(), myLibrary()])
+  const [params, profile, settings, admin, shell] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin(), shellData()])
+  const library = shell?.library ?? []
   const m = messages()
   const name = profile?.displayName || user.name || user.email || 'Я'
   const chosen = new Set(profile?.preferences.interests ?? [])
@@ -128,7 +129,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               {t('courses.level.title')}
             </label>
             <select id={`lvl-${c.id}`} className="auth-input acct-course-level" name="level" defaultValue={c.enrollment.level}>
-              {LEVELS.map((l) => (
+              {c.levels.map((l) => (
                 <option key={l} value={l}>
                   {m.levels[l].title}
                 </option>

@@ -6,11 +6,16 @@ import { ACHIEVEMENTS } from '@/progress/achievements/catalog'
 import { progressOf, type AchievementDef } from '@/progress/achievements/dsl'
 import { computeProfileStats, splitTopics, statTiers, type ProfileStats, type Tier, type TopicStat } from '@/progress/stats'
 import type { RankProgress } from '@/game'
+import type { StatsSnapshot } from '@/progress/achievements/dsl'
+import type { StatsAggregates } from '@/progress/stats'
 import { userScope } from '../auth'
 import { rankOfUser } from '../game/ranks'
-import { activeCourse } from '../courses/enrollment'
+import type { ActiveCourse } from '../courses/enrollment'
+import { missionCursorIn, type MissionCursor } from '../services/mission'
 import { computeStats } from '../services/progress'
-import { statsAggregates } from './aggregates'
+import type { AppSettings } from '../settings'
+import { getCoachIn, type CoachView } from './coach'
+import { loadAggregates } from './queries'
 import { topicTitles } from './topics'
 
 export interface ProfileTopic extends TopicStat {
@@ -31,14 +36,41 @@ export interface ProfileView {
   achievements: Array<{ def: AchievementDef; unlockedAt: number | null; progress: number }>
 }
 
-export async function profileView(snapshot: ContentSnapshot, now = Date.now()): Promise<ProfileView> {
-  const [agg, active, [unlockedRows, snapshotStats, rank]] = await Promise.all([
-    statsAggregates(),
-    activeCourse(),
-    userScope((db, userId) =>
-      Promise.all([db.select({ id: achievements.id, at: achievements.unlockedAt }).from(achievements).where(eq(achievements.userId, userId)), computeStats(db, userId, snapshot, now), rankOfUser(db, userId)]),
-    ),
-  ])
+export interface ProfilePageData {
+  view: ProfileView
+  cursor: MissionCursor
+  coach: CoachView
+}
+
+// Everything the profile page reads, in ONE transaction: aggregates, achievement metrics, rank, the mission cursor
+// and the coach all go out together (was nine transactions).
+export async function profilePageData(snapshot: ContentSnapshot, ctx: { active: ActiveCourse | null; settings: AppSettings }, now = Date.now()): Promise<ProfilePageData> {
+  return userScope(
+    async (db, userId) => {
+      const agg = loadAggregates(db, userId, now)
+      const cursor = missionCursorIn(db, userId, snapshot, ctx.active)
+      const [aggregates, unlockedRows, snapshotStats, rank, { cursor: at }, coach] = await Promise.all([
+        agg,
+        db.select({ id: achievements.id, at: achievements.unlockedAt }).from(achievements).where(eq(achievements.userId, userId)),
+        computeStats(db, userId, snapshot, now),
+        rankOfUser(db, userId),
+        cursor,
+        getCoachIn(db, userId, snapshot, cursor.then((c) => ({ href: c.cursor.href })), { settings: ctx.settings, active: ctx.active, agg }, now),
+      ])
+      return { view: profileViewFrom(snapshot, ctx.active, aggregates, unlockedRows, snapshotStats, rank), cursor: at, coach }
+    },
+    { tx: true },
+  )
+}
+
+function profileViewFrom(
+  snapshot: ContentSnapshot,
+  active: ActiveCourse | null,
+  agg: StatsAggregates,
+  unlockedRows: Array<{ id: string; at: number }>,
+  snapshotStats: StatsSnapshot,
+  rank: RankProgress,
+): ProfileView {
   const stats = computeProfileStats(agg)
   const titles = topicTitles(snapshot, active?.bundle ?? null)
   const topics: ProfileTopic[] = []

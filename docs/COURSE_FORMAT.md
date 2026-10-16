@@ -36,11 +36,15 @@ version: 1.0.0                      # semver; нова версія не губ�
 title: JavaScript Zero → Pro
 subtitle: Від першого console.log до архітектури, V8 і співбесід
 subject: programming                # programming | language | security | science | other
-language: uk                        # мова викладання (BCP 47)
+kind: programming                   # programming | language | general — див. §2.1 (за замовчуванням з subject)
+practice: [path, cards, tests, tasks, mistakes, roadmap]   # розділи практики в сайдбарі, у цьому порядку (§2.1)
+theory: [JavaScript Start, JavaScript, JavaScript Katas]   # посібники «Теорії» в сайдбарі (§2.1)
+language: uk                        # мова викладання — пояснення, інтерфейс (BCP 47)
+# target: en                        # мовні курси: мова, яку вивчають (BCP 47) — для озвучки й розпізнавання мовлення
 icon: si:SiJavascript               # див. §6
 color: '#F7DF1E'
 cover: cover.png
-levels: [noob, junior, middle, senior, god]
+levels: [noob, junior, middle, senior, god]   # шкала курсу; мовні курси — [A1, A2, B1, B2, C1, C2] (за замовчуванням за kind)
 tags: [javascript, frontend, interview]
 estimatedHours: 120
 authors: [{ name: Yaroslav Tsarenko }]
@@ -63,6 +67,12 @@ sections:                           # етапи шляху, у порядку �
     icon: '🎤'
     from: JS Interview Q&A
     kind: practice                  # path (за замовчуванням) | practice — банк вправ без уроків-теорії
+  - id: b1
+    title: B1 — Середній
+    from: English
+    chapters: 301-330
+    level: B1
+    status: planned                 # «скоро»: розділ на шляху (заблокований, без тем); посібник і теми ще можуть не існувати
 
 exams:
   topic:   { questions: 10, pass: 0.8 }                  # тест у кінці кожної теми
@@ -71,8 +81,55 @@ placement: { enabled: true, maxQuestions: 20, perLevel: 3 } # вступний �
 ```
 
 `id` розділу — `[a-z0-9-]`, стабільний: від нього залежать id уроків, тестів і екзаменів (`<курс>:<розділ>:<тема>:<урок>`).
-`chapters` — `1-7`, `'1-3, 5'`, `3` або `[1, 2, 3]` (номери тем у назвах файлів). Рівні `junior/middle/senior/techlead`
-зі старих посібників мапляться на `junior/middle/senior/god`.
+`chapters` — `1-7`, `'1-3, 5'`, `3` або `[1, 2, 3]` (номери тем у назвах файлів; у мовних посібниках
+`English - A1 - 01.` = 101, `B2 - 07.` = 407). Рівні `junior/middle/senior/techlead` зі старих посібників мапляться на
+`junior/middle/senior/god`.
+
+**Шкала рівнів курсу.** Курс має одну шкалу: `noob → junior → middle → senior → god` (programming / general; учню —
+Trainee … Principal) або **CEFR** `A1 → A2 → B1 → B2 → C1 → C2` для `kind: language` (підписи «A1 · Початковий» …
+«C2 · Вільне володіння», на картці курсу — «A1 → C2»). `levels` за замовчуванням — уся шкала типу курсу; рівень зі
+сторонньої шкали в `levels` чи `sections[].level` — помилка схеми. Рівні вправ зі старої шкали (напр. `junior` у
+мовному посібнику) мапляться за кроком: noob ↔ A1, junior ↔ A2, middle ↔ B1, senior ↔ B2, god ↔ C1. Ранг учня в курсі
+(Trainee … Principal) мовний курс показує як CEFR (Trainee = A1 … Principal = C2) — шість ступенів 1:1.
+
+**`status: planned`.** Розділ, який ще пишеться: видно на шляху й сторінці курсу як «скоро», без тем, без екзамену,
+не блокує валідацію (`missing-guide`, `missing-chapter`, `empty-range` не перевіряються), не буває стартовим для
+вступного тесту. Щойно статті рівня готові — прибрати `status: planned`.
+
+### 2.1. Тип курсу, практика і теорія (оболонка під активний курс)
+
+Сайдбар і нижня навігація підлаштовуються під **активний курс**: блок «Практика» показує лише розділи, які курс
+оголосив, а «Теорія» — лише його посібники (деревом, як провідник редактора коду). Глобальне (Сьогодні, Мій Loo,
+Стрічка, Ліги, Крамниця, Курси, Новини, Профіль) однакове для всіх курсів. Усі посібники — на `/g`.
+
+| Поле | Що задає | За замовчуванням |
+|---|---|---|
+| `kind` | `programming` · `language` · `general` | з `subject`: `programming` → programming, `language` → language, інше → general |
+| `practice` | розділи практики і їхній порядок; `path` завжди перший (додається сам) | за `kind`, див. нижче |
+| `theory` | посібники «Теорії» (папка або id, як у `from:`), у порядку | посібники розділів курсу, у порядку розділів |
+
+Розділи практики (реєстр id — `src/course/practice.ts`; підпис, іконка, маршрут і лічильник — `src/ui/shell/course-nav.ts`):
+
+| id | У сайдбарі | Маршрут | Лічильник | Типово для |
+|---|---|---|---|---|
+| `path` | Шлях | `/path` | — | усіх |
+| `cards` | Картки | `/review` | картки до повторення | programming, general |
+| `tests` | Тести | `/quiz` | — | programming, general |
+| `tasks` | Задачі | `/tasks` | задачі в роботі | programming |
+| `mistakes` | Мої помилки | `/mistakes` | відкриті помилки | усіх |
+| `roadmap` | Мапа інженера | `/roadmap` | — | programming |
+| `words` | Слова (`[!word]`, FSRS з аудіо) + словник курсу | `/words` | слова до повторення | language |
+| `listening` | Аудіювання (`[!listen]`) | `/listening` | відкриті помилки на слух | language |
+| `pronunciation` | Вимова (`[!speak]` + `[!pair]`) | `/pronunciation` | відкриті помилки в мінімальних парах | language |
+| `grammar` | Граматика й тести: тести тем із тегом `grammar` (або всі тести курсу) + тести тем | `/grammar` | — | language |
+
+Типові набори: programming — `path, cards, tests, tasks, mistakes, roadmap`; language — `path, words, listening,
+pronunciation, grammar, mistakes`; general — `path, cards, tests, mistakes`. Розділ без сторінки (`ready: false` у
+`course-nav.ts`) оболонка не показує. Два розділи з однією сторінкою показуються одним пунктом. Лічильники рахуються лише по вправах
+активного курсу. `course:check` попереджає, якщо розділу нема з чого брати вправи (напр. `tasks` без жодної `[!task]`).
+
+Практика за замовчуванням теж обмежена активним курсом: «Картки», «Тести», «Задачі», «Мої помилки» беруть вправи
+лише з нього; перемикач «Цей курс / Усі курси» (`?scope=all`, у помилок `?all=1`) відкриває всі матеріали.
 
 ## 3. Тема (topic)
 
@@ -82,7 +139,7 @@ Frontmatter:
 ---
 title: Замикання
 id: jsd-ch-05                 # стабільний id теми (обовʼязково для курсів у маркетплейсі)
-level: middle                 # noob | junior | middle | senior | god (старі junior/middle/senior/techlead теж ок)
+level: middle                 # noob | junior | middle | senior | god (старі junior/middle/senior/techlead теж ок); мовні — A1…C2
 icon: '🎒'                    # або si:/pi:/lucide: іконка
 tags: [functions, scope]
 prerequisites: ["[[JavaScript - 04. Scope, hoisting і TDZ]]"]
@@ -101,10 +158,16 @@ estimatedMinutes: 35
 | `[!interview]` | картка-співбесіда | — |
 | `[!task]` з `js starter` + `js tests` | задача з автотестами | 2 (для programming) |
 | `[!reel]` | мікрофакт для уроків і стрічки | 3 |
-| `[!viz]`, `[!figure]` | ілюстрації | 1 |
+| `[!viz]`, `[!figure]`, `[!diagram]` | ілюстрації | 1 |
+| `[!word]` | картка слова (FSRS), рахується як картка | — |
+| `[!listen]` | аудіювання (`choice` / `answer` / `dictation`), рахується як тест | 1 (language) |
+| `[!speak]`, `[!pair]` | вимова: мікрофон / мінімальні пари (`[!pair]` рахується як тест) | 1 (language) |
 
 Кожна вправа — **явний `id`**, унікальний у межах курсу: `<префікс>-NN-<тип>-NN`. Рівень — `level:` у meta-рядку або з заголовка `## 🟢 Junior`.
-Курси мов (`subject: language`) додатково отримають типи `translate`, `listen`, `speak`, `match` (заплановано; формат буде в цьому ж документі).
+Мовні блоки `[!word]` `[!listen]` `[!speak]` `[!pair]` — формат у [CONTENT_SPEC.md §15](../CONTENT_SPEC.md), курс — у
+[LANGUAGE_COURSE.md](./LANGUAGE_COURSE.md). У bundle вони — окремі типи вправ `word`, `listen`, `speak`, `pair`
+(`PRACTICE_NEEDS`: `words` ← word, `listening` ← listen, `pronunciation` ← speak / pair). `[!speak]` не йде в тести
+тем, екзамени й вступний тест (потрібен мікрофон).
 
 ## 5. Як платформа будує шлях
 
@@ -117,7 +180,7 @@ estimatedMinutes: 35
 4. Кінець розділу → **екзамен розділу**: `exams.section.questions` тестів з усіх тем, рівномірно по темах; при `testOut` його можна скласти будь-коли, щоб «перескочити» розділ.
 5. `kind: practice` — банк вправ: уроки без теорії, без тестів тем і екзамену.
 6. Рівень учня фільтрує вправи: урок, де все нижче рівня, скорочується до 2 вправ і стає необовʼязковим; у змішаному уроці лишається 1 вправа нижче рівня; вправи вище рівня — 🔥 «челендж».
-7. **Вступний тест:** адаптивний — спершу другий знизу рівень, далі бінарний пошук; 2–3 питання на рівень (2 правильні — рівень зараховано, 2 помилки — ні). Результат — рівень і перший розділ, складніший за нього (попередні вважаються пройденими).
+7. **Вступний тест:** адаптивний — спершу другий знизу рівень, далі бінарний пошук; 2–3 питання на рівень (2 правильні — рівень зараховано, 2 помилки — ні). Результат — рівень і перший розділ, складніший за нього (попередні вважаються пройденими). Рівні — шкала курсу (CEFR у мовних курсах; рівні лише запланованих розділів не перевіряються). Питання — швидкі автоперевірні: single / multi / output, `[!listen]` choice / answer, `[!pair]`. Мовні курси пропонують і ручний вибір без тесту: «З нуля · A1», «Трохи знаю · A2»… — рівень і перший розділ, що його навчає.
 
 Id: розділ `<курс>:<розділ>`, тема `<курс>:<розділ>:<тема>` (тема = `id` з frontmatter або `<посібник>-<NN>`), урок `…:<тип>-<n>`, тест `…:test`, екзамен `<курс>:<розділ>:exam`.
 
@@ -154,6 +217,7 @@ pnpm course:build                          # усі офіційні курси 
 ## 9. Чекліст автора
 
 - [ ] `course.yaml` валідний, `id` остаточний
+- [ ] `kind`, `practice` і `theory` відповідають курсу (§2.1): у сайдбарі лише те, що в курсі справді є
 - [ ] Кожна тема має `id`, `level`, `icon`, 🎯-результати і «📚 Джерела»
 - [ ] ≥ 6 тестів, ≥ 6 карток, ≥ 3 фішки на тему; задачі з тестами
 - [ ] `pnpm course:check` → ✅

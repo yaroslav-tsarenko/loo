@@ -10,6 +10,8 @@ import { devAuthBypass, supabaseConfig } from '@/lib/supabase/config'
 const OWN_CSP = new Set(['/runner/worker.js'])
 
 const dev = process.env.NODE_ENV === 'development'
+// docs/PERFORMANCE.md: Server-Timing for the proxy's own work + a label for the per-request [perf] log line.
+const perf = process.env.PERF_TRACE === '1'
 
 interface PendingCookie {
   name: string
@@ -71,6 +73,15 @@ function finish(response: NextResponse, session: Session): NextResponse {
 }
 
 export async function proxy(request: NextRequest) {
+  if (!perf) return handle(request)
+  const started = performance.now()
+  request.headers.set('x-perf-label', `${request.method} ${request.nextUrl.pathname}${request.headers.has('next-action') ? ' (action)' : ''}`)
+  const response = await handle(request)
+  response.headers.append('Server-Timing', `proxy;dur=${(performance.now() - started).toFixed(1)}`)
+  return response
+}
+
+async function handle(request: NextRequest): Promise<NextResponse> {
   const { pathname } = request.nextUrl
 
   // Vercel Cron authenticates with a bearer secret instead of a user session.
@@ -95,7 +106,9 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Everything except immutable build assets: no extension-based exclusions, so a path like
-  // /g/x/y.png can't skip auth (it still routes to a page and its server actions).
-  matcher: ['/((?!_next/static/).*)'],
+  // Everything except immutable build assets and the static metadata files (exact paths: the app icons and the web
+  // manifest — public, prerendered, no page behind them; skipping the proxy lets the CDN serve them without a function
+  // call). No extension-based exclusions, so a path like /g/x/y.png can't skip auth (it still routes to a page and its
+  // server actions).
+  matcher: ['/((?!_next/static/|favicon\\.ico$|icon$|apple-icon$|manifest\\.webmanifest$).*)'],
 }

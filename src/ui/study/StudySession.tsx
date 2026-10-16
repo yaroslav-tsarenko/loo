@@ -273,6 +273,8 @@ export function StudySession({
             body={current.body}
             options={current.options}
             exercise={current.exercise}
+            speak={current.speak}
+            lang={current.lang}
             variant="session"
             check={checkQuiz}
             onResult={onQuiz}

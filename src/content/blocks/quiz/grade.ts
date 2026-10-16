@@ -1,4 +1,5 @@
 import type { OrderExercise, QuizUnit } from '../../model'
+import { dictationMatches } from '../lang/grade'
 import { blankMatches } from './exercise'
 
 // One answer checker for the client (instant feedback) and the server (tests, exams, placement grading).
@@ -17,6 +18,10 @@ export function isFreeQuiz(unit: Pick<QuizUnit, 'mode' | 'options' | 'freeAnswer
 }
 
 export function gradeQuiz(unit: QuizUnit, answer: QuizAnswer): boolean {
+  // [!speak] is judged by checkSpeech (word diff of a transcript), never as a quiz answer
+  if (unit.mode === 'speak') return false
+  // [!listen] type: dictation — words compared without case / punctuation (src/content/blocks/lang/grade.ts)
+  if (unit.mode === 'listen' && isFreeQuiz(unit)) return dictationMatches(answer.text ?? '', unit.freeAnswer ?? '', unit.listen?.accept ?? [])
   // Order answers are code, not piece ids: the client only ever sees shuffled pieces (src/content/blocks/quiz/view.ts).
   if (unit.mode === 'order') return unit.exercise?.kind === 'order' ? orderCodesMatch(unit.exercise, answer.chosen) : false
   if (unit.mode === 'fill') {

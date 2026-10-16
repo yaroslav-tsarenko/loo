@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, desc, eq, gte, isNotNull, isNull, sql } from 'drizzle-orm'
-import { first, type Conn } from '@/db/client'
+import type { Conn } from '@/db/client'
+import { readBatch } from '../db/batch'
 import { attempts, chapterProgress, dailyActivity, examResults, lessonProgress, mistakes, sessions, srsCards, topicResults, units, xpLedger } from '@/db/schema'
 import { dayKey, dayStartMs, DAY, shiftDay } from '@/progress/day'
 import { STABLE_DAYS } from '@/progress/mastery'
@@ -45,7 +46,8 @@ export async function loadAggregates(db: Conn, userId: string, now: number): Pro
     .where(eq(attempts.userId, userId))
     .as('runs')
 
-  const [days, goalRows, kinds, levels, speedRows, speedDaily, topicRows, openRows, taskRows, memory, tests, exams, lessons, bestXp, bestAnswers, combo, fastest, reading, xp] = await Promise.all([
+  // all nineteen in ONE statement (src/server/db/batch.ts)
+  const [days, goalRows, kinds, levels, speedRows, speedDaily, topicRows, openRows, taskRows, memoryRows, testsRows, examsRows, lessonsRows, bestXpRows, bestAnswersRows, comboRows, fastestRows, readingRows, xpRows] = await readBatch(db, [
     db
       .select()
       .from(dailyActivity)
@@ -90,77 +92,62 @@ export async function loadAggregates(db: Conn, userId: string, now: number): Pro
       .leftJoin(units, eq(units.id, attempts.unitId))
       .where(and(eq(attempts.userId, userId), eq(attempts.kind, 'task')))
       .groupBy(attempts.unitId),
-    first(
-      db
-        .select({
-          cards: sql<number>`count(*)`,
-          reviewing: sql<number>`count(*) filter (where ${srsCards.state} = ${REVIEW_STATE})`,
-          longTerm: sql<number>`count(*) filter (where ${srsCards.state} = ${REVIEW_STATE} and ${srsCards.stability} >= ${STABLE_DAYS})`,
-          dueToday: sql<number>`count(*) filter (where ${srsCards.due} < ${dayEnd})`,
-          lapses: sql<number>`coalesce(sum(${srsCards.lapses}), 0)`,
-        })
-        .from(srsCards)
-        .where(eq(srsCards.userId, userId)),
-    ),
-    first(
-      db
-        .select({ passed: sql<number>`count(*) filter (where ${topicResults.passedAt} is not null)`, perfect: sql<number>`count(*) filter (where ${topicResults.bestScore} >= 1)` })
-        .from(topicResults)
-        .where(eq(topicResults.userId, userId)),
-    ),
-    first(
-      db
-        .select({ passed: sql<number>`count(*) filter (where ${examResults.passedAt} is not null)`, out: sql<number>`count(*) filter (where ${examResults.testOut})` })
-        .from(examResults)
-        .where(eq(examResults.userId, userId)),
-    ),
-    first(
-      db
-        .select({
-          done: sql<number>`count(*) filter (where ${lessonProgress.completions} > 0)`,
-          perfect: sql<number>`count(*) filter (where ${lessonProgress.bestAccuracy} >= 1)`,
-          lastNew: sql<number | null>`max(${lessonProgress.firstCompletedAt})`,
-        })
-        .from(lessonProgress)
-        .where(eq(lessonProgress.userId, userId)),
-    ),
-    first(
-      db
-        .select({ day: dailyActivity.day, value: dailyActivity.xp })
-        .from(dailyActivity)
-        .where(and(eq(dailyActivity.userId, userId), sql`${dailyActivity.xp} > 0`))
-        .orderBy(desc(dailyActivity.xp), desc(dailyActivity.day))
-        .limit(1),
-    ),
-    first(
-      db
-        .select({ day: dailyActivity.day, value: dailyActivity.total })
-        .from(dailyActivity)
-        .where(and(eq(dailyActivity.userId, userId), sql`${dailyActivity.total} > 0`))
-        .orderBy(desc(dailyActivity.total), desc(dailyActivity.day))
-        .limit(1),
-    ),
+    db
+      .select({
+        cards: sql<number>`count(*)`,
+        reviewing: sql<number>`count(*) filter (where ${srsCards.state} = ${REVIEW_STATE})`,
+        longTerm: sql<number>`count(*) filter (where ${srsCards.state} = ${REVIEW_STATE} and ${srsCards.stability} >= ${STABLE_DAYS})`,
+        dueToday: sql<number>`count(*) filter (where ${srsCards.due} < ${dayEnd})`,
+        lapses: sql<number>`coalesce(sum(${srsCards.lapses}), 0)`,
+      })
+      .from(srsCards)
+      .where(eq(srsCards.userId, userId)),
+    db
+      .select({ passed: sql<number>`count(*) filter (where ${topicResults.passedAt} is not null)`, perfect: sql<number>`count(*) filter (where ${topicResults.bestScore} >= 1)` })
+      .from(topicResults)
+      .where(eq(topicResults.userId, userId)),
+    db
+      .select({ passed: sql<number>`count(*) filter (where ${examResults.passedAt} is not null)`, out: sql<number>`count(*) filter (where ${examResults.testOut})` })
+      .from(examResults)
+      .where(eq(examResults.userId, userId)),
+    db
+      .select({
+        done: sql<number>`count(*) filter (where ${lessonProgress.completions} > 0)`,
+        perfect: sql<number>`count(*) filter (where ${lessonProgress.bestAccuracy} >= 1)`,
+        lastNew: sql<number | null>`max(${lessonProgress.firstCompletedAt})`,
+      })
+      .from(lessonProgress)
+      .where(eq(lessonProgress.userId, userId)),
+    db
+      .select({ day: dailyActivity.day, value: dailyActivity.xp })
+      .from(dailyActivity)
+      .where(and(eq(dailyActivity.userId, userId), sql`${dailyActivity.xp} > 0`))
+      .orderBy(desc(dailyActivity.xp), desc(dailyActivity.day))
+      .limit(1),
+    db
+      .select({ day: dailyActivity.day, value: dailyActivity.total })
+      .from(dailyActivity)
+      .where(and(eq(dailyActivity.userId, userId), sql`${dailyActivity.total} > 0`))
+      .orderBy(desc(dailyActivity.total), desc(dailyActivity.day))
+      .limit(1),
     // gaps and islands: every wrong answer starts a new group; the longest group of correct answers is the combo
-    first(
-      db
-        .select({ best: sql<number>`coalesce(max(n), 0)` })
-        .from(
-          db
-            .select({ n: sql<number>`count(*) filter (where ${runs.correct})`.as('n') })
-            .from(runs)
-            .groupBy(runs.grp)
-            .as('islands'),
-        ),
-    ),
-    first(
-      db
-        .select({ ms: sql<number | null>`min(${sessions.endedAt} - ${sessions.startedAt})` })
-        .from(sessions)
-        .where(and(eq(sessions.userId, userId), eq(sessions.mode, 'lesson'), isNotNull(sessions.endedAt), sql`${sessions.total} >= 3`, sql`${sessions.correct} = ${sessions.total}`)),
-    ),
-    first(db.select({ ms: sql<number>`coalesce(sum(${chapterProgress.timeMs}), 0)` }).from(chapterProgress).where(eq(chapterProgress.userId, userId))),
-    first(db.select({ total: sql<number>`coalesce(sum(${xpLedger.amount}), 0)` }).from(xpLedger).where(eq(xpLedger.userId, userId))),
+    db
+      .select({ best: sql<number>`coalesce(max(n), 0)` })
+      .from(
+        db
+          .select({ n: sql<number>`count(*) filter (where ${runs.correct})`.as('n') })
+          .from(runs)
+          .groupBy(runs.grp)
+          .as('islands'),
+      ),
+    db
+      .select({ ms: sql<number | null>`min(${sessions.endedAt} - ${sessions.startedAt})` })
+      .from(sessions)
+      .where(and(eq(sessions.userId, userId), eq(sessions.mode, 'lesson'), isNotNull(sessions.endedAt), sql`${sessions.total} >= 3`, sql`${sessions.correct} = ${sessions.total}`)),
+    db.select({ ms: sql<number>`coalesce(sum(${chapterProgress.timeMs}), 0)` }).from(chapterProgress).where(eq(chapterProgress.userId, userId)),
+    db.select({ total: sql<number>`coalesce(sum(${xpLedger.amount}), 0)` }).from(xpLedger).where(eq(xpLedger.userId, userId)),
   ])
+  const [memory, tests, exams, lessons, bestXp, bestAnswers, combo, fastest, reading, xp] = [memoryRows[0], testsRows[0], examsRows[0], lessonsRows[0], bestXpRows[0], bestAnswersRows[0], comboRows[0], fastestRows[0], readingRows[0], xpRows[0]]
 
   const open = new Map(openRows.map((r) => [r.chapterId, Number(r.open)]))
   const topics = topicRows.map((r) => ({ chapterId: r.chapterId, total: Number(r.total), correct: Number(r.correct), open: open.get(r.chapterId) ?? 0 }))

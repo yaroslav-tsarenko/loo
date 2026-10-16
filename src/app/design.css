@@ -1689,3 +1689,84 @@
     }
   }
 }
+
+/* ── Route skeletons: src/ui/design/Skeleton.tsx, used by every loading.tsx ───────────────────────────────── */
+@layer components {
+  .lu-skel {
+    display: block;
+    flex: none;
+    max-width: 100%;
+    border-radius: var(--lu-r);
+    background: var(--lu-surface-2);
+    box-shadow: inset 0 0 0 var(--lu-border-w) var(--lu-border);
+    animation: lu-skel-pulse 1.1s var(--lu-ease) infinite alternate;
+  }
+  .lu-skel[data-r='sm'] {
+    border-radius: var(--lu-r-sm);
+    box-shadow: none;
+  }
+  .lu-skel[data-r='lg'] {
+    border-radius: var(--lu-r-lg);
+  }
+  .lu-skel[data-r='pill'] {
+    border-radius: var(--lu-r-pill);
+  }
+  @keyframes lu-skel-pulse {
+    to {
+      background: var(--lu-surface-3);
+    }
+  }
+  .lu-skel-page {
+    display: grid;
+    gap: 20px;
+    padding-top: 28px;
+  }
+  .lu-skel-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .lu-skel-stack {
+    display: grid;
+    flex: 1;
+    gap: 10px;
+    min-width: 0;
+  }
+  .lu-skel-gap {
+    height: 8px;
+  }
+  .lu-skel-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .lu-skel-row > .lu-skel:nth-child(2) {
+    flex: 1;
+  }
+  .lu-skel-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  }
+  .lu-skel-grid[data-cols='2'] {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  }
+  .lu-skel-path {
+    display: grid;
+    justify-items: center;
+    gap: 18px;
+    padding: 12px 0 40px;
+  }
+  .lu-skel-path > .lu-skel:nth-child(4n + 2) {
+    translate: -56px 0;
+  }
+  .lu-skel-path > .lu-skel:nth-child(4n) {
+    translate: 56px 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lu-skel {
+      animation: none;
+    }
+  }
+}
+

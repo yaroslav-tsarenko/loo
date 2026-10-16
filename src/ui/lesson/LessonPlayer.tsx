@@ -730,6 +730,8 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
               body={item.body}
               options={item.options}
               exercise={item.exercise}
+              speak={item.speak}
+              lang={item.lang}
               variant="session"
               check={checkQuiz}
               onResult={onQuiz}

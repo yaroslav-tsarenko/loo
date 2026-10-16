@@ -8,6 +8,10 @@ description: >-
   Повний шлях у JavaScript: старт з нуля, ядро мови, асинхронність і памʼять, мова глибше,
   браузер і мережа, інженерія і продуктивність, лайвкодинг, справжні проєкти і банк питань зі співбесід.
 subject: programming
+# Shell: course kind, practice sections (sidebar order) and the guides of the sidebar «Теорія» — COURSE_FORMAT §2.1
+kind: programming
+practice: [path, cards, tests, tasks, mistakes, roadmap]
+theory: [JavaScript Start, JavaScript, JavaScript Katas, JavaScript Projects, JS Interview Q&A]
 language: uk
 icon: si:SiJavascript
 color: '#F7DF1E'

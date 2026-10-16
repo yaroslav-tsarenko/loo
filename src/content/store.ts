@@ -1,4 +1,8 @@
+import { createHash } from 'node:crypto'
+import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { deserialize, serialize } from 'node:v8'
+import { brotliCompressSync, brotliDecompressSync, constants as zlibConstants } from 'node:zlib'
 import type { Root } from 'mdast'
 import { unitCalloutTypes } from './blocks/registry'
 import { defaultVaultConfig, type VaultConfig } from './config'
@@ -10,7 +14,7 @@ import { parseMarkdown } from './parse/markdown'
 import { collectReels, REEL_TYPES, type Reel } from './parse/reels'
 import { scanFile } from './parse/scan'
 import { jsonUnits, parseQuestionsJson } from './sources/questions-json'
-import { listVault, readText, type VaultFile } from './sources/vault-fs'
+import { listVault, readText, type VaultFile, type VaultListing } from './sources/vault-fs'
 
 export interface ContentSnapshot {
   version: number
@@ -78,9 +82,9 @@ async function readIndexSlug(file: VaultFile | null): Promise<string | null> {
   return scanFile(await readText(file.absolute), UNIT_TYPES).meta.slug ?? null
 }
 
-export async function loadSnapshot(config: VaultConfig, cache: Map<string, CacheEntry>, version: number): Promise<ContentSnapshot> {
+export async function loadSnapshot(config: VaultConfig, cache: Map<string, CacheEntry>, version: number, listed?: VaultListing): Promise<ContentSnapshot> {
   const started = performance.now()
-  const listing = await listVault(config.vaultPath, config.guidesDir)
+  const listing = listed ?? (await listVault(config.vaultPath, config.guidesDir))
   const issues: ContentIssue[] = []
   const guideFiles = new Map<string, VaultFile[]>()
   for (const file of listing.files) {
@@ -194,6 +198,65 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   }
 }
 
+// ── Prebuilt snapshot (docs/PERFORMANCE.md) ───────────────────────────────────────────────────────────────────
+// Parsing the vault takes seconds; a deployment's content never changes after its build, so the build stores the
+// parsed snapshot (pnpm content:snapshot → <vault>/.snapshot/guides.v8.br, v8-serialized + brotli) and a cold server
+// loads it in a few hundred ms. It is only used when the listing (paths + sizes) and the Node/V8 version match.
+
+const PREBUILT_FORMAT = 1
+
+interface Prebuilt {
+  format: number
+  v8: string
+  fingerprint: string
+  snapshot: ContentSnapshot
+  files: VaultFile[]
+}
+
+export function prebuiltPath(config: VaultConfig): string {
+  return path.join(config.vaultPath, '.snapshot', 'guides.v8.br')
+}
+
+export function listingFingerprint(listing: VaultListing): string {
+  const hash = createHash('sha1')
+  hash.update(`${PREBUILT_FORMAT}\n`)
+  for (const f of listing.files) hash.update(`${f.path}:${f.size}\n`)
+  hash.update(listing.guideDirs.join('|'))
+  hash.update(listing.notes.join('|'))
+  return hash.digest('hex')
+}
+
+// Build time: parse the vault and serialize the snapshot together with the guide files it was built from.
+export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer; snapshot: ContentSnapshot }> {
+  const listing = await listVault(config.vaultPath, config.guidesDir)
+  const snapshot = await loadSnapshot(config, new Map(), 1, listing)
+  const payload: Prebuilt = { format: PREBUILT_FORMAT, v8: process.versions.v8, fingerprint: listingFingerprint(listing), snapshot, files: listing.files }
+  const data = brotliCompressSync(serialize(payload), { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } })
+  return { data, snapshot }
+}
+
+async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: ContentSnapshot; files: Map<string, VaultFile> } | null> {
+  let raw: Buffer
+  try {
+    raw = await readFile(file)
+  } catch {
+    return null
+  }
+  try {
+    const payload = deserialize(brotliDecompressSync(raw)) as Prebuilt
+    if (payload.format !== PREBUILT_FORMAT || payload.v8 !== process.versions.v8 || payload.fingerprint !== listingFingerprint(listing)) return null
+    const { snapshot } = payload
+    // the snapshot was built elsewhere (another absolute path): rebase it on this server's vault
+    snapshot.config = config
+    Object.setPrototypeOf(snapshot.links, LinkIndex.prototype)
+    const files = new Map(payload.files.map((f) => [f.path, { ...f, absolute: path.join(config.vaultPath, ...f.path.split('/')) }]))
+    return { snapshot, files }
+  } catch (error) {
+    console.warn('[content] prebuilt snapshot unreadable, parsing the vault', error)
+    return null
+  }
+}
+
 export class ContentStore {
   private config: VaultConfig
   private readonly cache = new Map<string, CacheEntry>()
@@ -205,8 +268,15 @@ export class ContentStore {
   private stopWatch: (() => Promise<void>) | null = null
   private pending = new Set<string>()
   private timer: ReturnType<typeof setTimeout> | null = null
+  // guide files of a prebuilt snapshot (documents are parsed from them on demand)
+  private prebuiltFiles: Map<string, VaultFile> | null = null
 
-  constructor(config: VaultConfig, private readonly watch: boolean) {
+  // `prebuilt`: a snapshot file to try on the first load (deployments; see buildPrebuilt)
+  constructor(
+    config: VaultConfig,
+    private readonly watch: boolean,
+    private readonly prebuilt: string | null = null,
+  ) {
     this.config = config
   }
 
@@ -226,7 +296,7 @@ export class ContentStore {
       this.documents.set(chapter.path, cached)
       return { chapter, root: cached.result.root, headings: cached.result.headings }
     }
-    const file = entry?.parsed.file
+    const file = entry?.parsed.file ?? this.prebuiltFiles?.get(chapter.path)
     if (!file) return null
     const result = fullParse(await readText(file.absolute), file, chapter.guideId, chapter.id)
     this.documents.set(chapter.path, { mtimeMs: chapter.mtimeMs, result })
@@ -262,12 +332,22 @@ export class ContentStore {
   }
 
   private async reload(paths: string[]): Promise<ContentSnapshot> {
-    const snapshot = await loadSnapshot(this.config, this.cache, ++this.version)
+    const snapshot = (await this.fromPrebuilt(paths)) ?? (await loadSnapshot(this.config, this.cache, ++this.version))
     this.snapshot = snapshot
     this.loading = null
     if (this.watch && !this.stopWatch) await this.startWatch()
     if (paths.length > 0) for (const l of this.listeners) l({ version: snapshot.version, paths })
     return snapshot
+  }
+
+  private async fromPrebuilt(paths: string[]): Promise<ContentSnapshot | null> {
+    if (!this.prebuilt || paths.length > 0 || this.version > 0) return null
+    const started = performance.now()
+    const listing = await listVault(this.config.vaultPath, this.config.guidesDir)
+    const hit = await loadPrebuilt(this.prebuilt, this.config, listing)
+    if (!hit) return null
+    this.prebuiltFiles = hit.files
+    return { ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) }
   }
 
   private async startWatch(): Promise<void> {
@@ -301,6 +381,12 @@ type GlobalWithStore = typeof globalThis & { [globalKey]?: ContentStore }
 
 export function getContentStore(): ContentStore {
   const g = globalThis as GlobalWithStore
-  if (!g[globalKey]) g[globalKey] = new ContentStore(defaultVaultConfig(), process.env.CONTENT_WATCH !== '0' && !process.env.VERCEL)
+  if (!g[globalKey]) {
+    const config = defaultVaultConfig()
+    const watch = process.env.CONTENT_WATCH !== '0' && !process.env.VERCEL
+    // deployments (and CONTENT_SNAPSHOT=1 locally) start from the build's parsed snapshot when it matches the vault
+    const prebuilt = !watch && (process.env.VERCEL || process.env.CONTENT_SNAPSHOT === '1') ? prebuiltPath(config) : null
+    g[globalKey] = new ContentStore(config, watch, prebuilt)
+  }
   return g[globalKey]
 }

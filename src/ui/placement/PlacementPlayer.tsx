@@ -30,13 +30,14 @@ interface Props {
   levels: Record<string, string>
   next: string
   zero: ReactNode
+  zeroHint?: string
 }
 
 // Placement answers are graded by placementStep on the server (all at once); a single answer gets no verdict here.
 const collectOnly: QuizCheck = async () => ({ correct: null, key: null, explanation: null })
 
 // Adaptive placement in the lesson shell: one question at a time, the server picks the next one and grades.
-export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sections, levels, next, zero }: Props) {
+export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sections, levels, next, zero, zeroHint }: Props) {
   const router = useRouter()
   const [started, setStarted] = useState(false)
   const [current, setCurrent] = useState<string | null>(first)
@@ -113,7 +114,7 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
             {t('placement.start')}
           </Button>
           {zero}
-          <p className="choice-hint">{t('placement.zeroHint')}</p>
+          <p className="choice-hint">{zeroHint ?? t('placement.zeroHint')}</p>
         </div>
       </div>
     )
@@ -182,6 +183,8 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
               body={item.body}
               options={item.options}
               exercise={item.exercise}
+              speak={item.speak}
+              lang={item.lang}
               variant="session"
               onResult={onResult}
               check={collectOnly}

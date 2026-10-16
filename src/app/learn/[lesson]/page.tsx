@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { getContent } from '@/server/content'
 import { courseLessonForLegacy, findCourseLesson, learnerLevel } from '@/server/courses/lessons'
 import { courseLessonPlayerData } from '@/server/courses/player'
-import { playerGame } from '@/server/game'
 import { findLesson, lessonPlayerData } from '@/server/services/lessons'
+import { learnerLevelFrom, playerGameFrom, shellData } from '@/server/shell'
 import { LessonPlayer } from '@/ui/lesson/LessonPlayer'
 
 export const metadata: Metadata = { title: 'Урок' }
@@ -21,12 +20,15 @@ function decode(raw: string): string {
 // lesson of a course; lessons of guides that no course covers still play from the guide.
 export default async function LessonPage({ params }: { params: Promise<{ lesson: string }> }) {
   const id = decode((await params).lesson)
-  const snapshot = await getContent()
+  // hearts, bucks and the learner's level come with the shell (read once with the layout: src/server/shell.ts)
+  const shell = await shellData()
+  if (!shell) redirect('/login')
+  const { snapshot } = shell
   const course = await findCourseLesson(id)
   if (course) {
-    const data = await courseLessonPlayerData(snapshot, course, await learnerLevel(course.bundle.course.id))
+    const data = await courseLessonPlayerData(snapshot, course, await learnerLevelFrom(shell, course.bundle.course.id, () => learnerLevel(course.bundle.course.id)))
     if (course.lesson.kind === 'theory' || data.items.length === 0) redirect(data.chapterHref)
-    const game = await playerGame()
+    const game = playerGameFrom(shell)
     return (
       <LessonPlayer
         key={course.lesson.id}
@@ -51,7 +53,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
   if (!lesson) notFound()
   const data = await lessonPlayerData(snapshot, lesson)
   if (lesson.kind === 'theory' || data.items.length === 0) redirect(data.chapterHref)
-  const game = await playerGame()
+  const game = playerGameFrom(shell)
   return (
     <LessonPlayer
       key={lesson.id}

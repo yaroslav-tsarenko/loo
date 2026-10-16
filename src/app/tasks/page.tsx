@@ -27,10 +27,11 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   const snapshot = await getContent()
   const filters = parseFilters(params, 200)
   const scope = await studyScope(filters)
-  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task', scope) as TaskUnit[]
+  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task', scope.pool) as TaskUnit[]
   const states = await taskStates(tasks.map((t) => t.id))
   const unitParam = typeof params.unit === 'string' ? params.unit : null
-  const guideQuery = filters.guide ? `guide=${encodeURIComponent(filters.guide)}&` : ''
+  const allQuery = filters.all ? 'scope=all&' : ''
+  const guideQuery = `${allQuery}${filters.guide ? `guide=${encodeURIComponent(filters.guide)}&` : ''}`
 
   if (unitParam) {
     const unit = snapshot.units.get(unitParam)
@@ -97,7 +98,8 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   }
 
   const solved = tasks.filter((t) => states.get(t.id)?.status === 'solved').length
-  const guides = snapshot.guides.filter((g) => [...snapshot.units.values()].some((u) => u.kind === 'task' && u.guideId === g.id))
+  // Guides of the active course (all guides with «Усі курси» or without a course); a picked outside guide stays.
+  const guides = snapshot.guides.filter((g) => (!scope.guides || scope.guides.has(g.id) || g.id === filters.guide) && [...snapshot.units.values()].some((u) => u.kind === 'task' && u.guideId === g.id))
   return (
     <div className="page tasks-page">
       <header className="ghead">
@@ -118,16 +120,26 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
           </span>
         </div>
         <ProgressBar value={tasks.length ? solved / tasks.length : 0} label="Розв’язано задач" size="lg" />
-        {guides.length > 0 ? (
+        {guides.length > 0 || scope.course ? (
           <nav className="gchips" aria-label="Матеріали">
-            <Link className="gchip" href="/tasks" aria-current={!filters.guide ? 'true' : undefined}>
-              {scope ? 'Активний курс' : 'Усі'}
+            <Link className="gchip" href={filters.all ? '/tasks?scope=all' : '/tasks'} aria-current={!filters.guide ? 'true' : undefined}>
+              {scope.course && !filters.all ? 'Увесь курс' : 'Усі'}
             </Link>
             {guides.map((g) => (
-              <Link key={g.id} className="gchip" href={filters.guide === g.id ? '/tasks' : `/tasks?guide=${encodeURIComponent(g.id)}`} aria-current={filters.guide === g.id ? 'true' : undefined}>
+              <Link
+                key={g.id}
+                className="gchip"
+                href={filters.guide === g.id ? `/tasks?${allQuery}` : `/tasks?${allQuery}guide=${encodeURIComponent(g.id)}`}
+                aria-current={filters.guide === g.id ? 'true' : undefined}
+              >
                 {g.title}
               </Link>
             ))}
+            {scope.course ? (
+              <Link className="gchip" href={filters.all ? '/tasks' : '/tasks?scope=all'} title={filters.all ? scope.course.title : 'Задачі всіх курсів і посібників'}>
+                {filters.all ? 'Лише цей курс' : 'Усі курси'}
+              </Link>
+            ) : null}
           </nav>
         ) : null}
       </Card>

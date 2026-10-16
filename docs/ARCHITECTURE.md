@@ -17,7 +17,7 @@
 ## 2. Доменна модель
 
 ```text
-Marketplace ─┬─ Course (JavaScript Zero → Pro · uk · subject: programming)
+Marketplace ─┬─ Course (JavaScript Zero → Pro · uk · subject: programming · kind: programming)
              │    ├─ Section «🧱 Ядро мови»            ── Section Exam (екзамен розділу, «перескочити розділ»)
              │    │    ├─ Topic «Замикання»            ── Topic Test (підсумковий тест теми)
              │    │    │    ├─ Lesson 📖 Теорія        (стаття — Notion-стиль, лишається)
@@ -40,7 +40,7 @@ User ── Enrollment(course, level, placement) ── Progress (attempts, SRS,
 | **Topic** | Тема = один розділ статті (chapter), закінчується **тестом теми** | markdown-файл |
 | **Lesson** | 3–7 хв, 4–10 вправ; генерується з контенту теми детерміновано | компілятор |
 | **Exercise** | Атомарна вправа з `id`, рівнем, тегами | callout у markdown |
-| **Level** | `noob · junior · middle · senior · god` (мапиться з `junior/middle/senior/techlead` + `beginner`) | frontmatter / meta-рядок |
+| **Level** | шкала курсу: `noob · junior · middle · senior · god` (мапиться з `junior/middle/senior/techlead` + `beginner`) або CEFR `A1 … C2` для мовних курсів | frontmatter / meta-рядок |
 
 ### Складність і персоналізація
 
@@ -65,6 +65,9 @@ javascript-noob-to-god/
 id: javascript-noob-to-god
 title: JavaScript Zero → Pro
 subject: programming
+kind: programming              # programming | language | general → розділи практики й теорія в сайдбарі
+practice: [path, cards, tests, tasks, mistakes, roadmap]
+theory: [JavaScript Start, JavaScript, JavaScript Katas, JavaScript Projects, JS Interview Q&A]
 language: uk
 icon: si:SiJavascript          # бібліотечна іконка (react-icons) або емодзі
 color: '#F7DF1E'
@@ -131,6 +134,28 @@ src/
 `src/server/actions/answers.ts`): клієнт графлених вправ отримує лише «вигляд» (`src/content/blocks/quiz/view.ts`) без ключа.
 Ліги — системний код поза транзакцією користувача (`src/server/game/leagues.ts`): ліниве приєднання, фіналізація при першому
 візиті нового тижня й cron `/api/cron/leagues`. Маршрути `/shop`, `/leagues`, `/loo`; скіни й спорядження Loo — `LooSkinProvider` у root layout. RPG-шар (ранги, валюти, речі) — [ECONOMY.md](./ECONOMY.md).
+
+**Оболонка під активний курс (зроблено):** курс сам оголошує, яким є (`kind: programming | language | general`), які розділи
+практики пропонує і в якому порядку (`practice:`) і які посібники — його теорія (`theory:`); див. [COURSE_FORMAT.md §2.1](./COURSE_FORMAT.md).
+Реєстр id розділів, типові набори й резолв — чисті `src/course/practice.ts` (zod-схеми — `src/course/schema/practice.ts`);
+компілятор кладе `course.kind`, `course.practice`, `theory` у bundle (старі bundle резолвляться з `subject` через `courseKind` /
+`coursePractice` / `courseTheory`). UI-реєстр `src/ui/shell/course-nav.ts` дає кожному id підпис, іконку, маршрут, джерело
+лічильника і `ready` (розділ без сторінки не показується) — новий тип курсу чи розділ = дані, не нові гілки в оболонці.
+Root layout бере активний курс (`activeCourse`) і рендерить: глобальні пункти (`src/ui/shell/nav.ts`), блок «Практика» з
+розділами курсу (`PracticeProvider` — спільно для сайдбару, нижньої навігації і заголовка сторінки), «Курси» (перемикач,
+`switchCourse` ревалідує layout), «Теорія» — дерево лише посібників курсу: посібник → частина (`parts` з `_guide.md` або
+папки) → розділ, зі статусом прочитання (`src/server/courses/theory-core.ts`, `/api/theory`, `src/ui/shell/TheoryTree.tsx`,
+WAI-ARIA tree, стан розгортання в localStorage). Лічильники (`/api/counts`: картки до повторення, відкриті помилки, задачі в роботі)
+рахуються лише по вправах активного курсу (`src/server/services/counts-core.ts`). «Картки», «Тести», «Задачі», «Помилки»
+обмежені активним курсом (`studyScope`), перемикач «Усі курси» — `?scope=all`. Усі посібники — `/g`. Скрол сайдбару —
+`IslandScroll` (`src/ui/shell/IslandScroll.tsx`): нативний скрол, власний «острівець»-повзунок; переюзується для будь-якої панелі.
+
+**Мовні курси (зроблено):** шкала CEFR на курс (`src/course/schema/level.ts`: `LADDERS`, `courseLadder`, `toLadder`),
+`target` (мова, яку вивчають) окремо від `language`, розділи `status: planned` («скоро»), нумерація `English - A1 - NN.`,
+блоки `[!word]` `[!listen]` `[!speak]` `[!pair]` (`src/content/blocks/*`, перевірка — `src/content/blocks/lang/grade.ts`,
+на сервері), шар озвучки / розпізнавання `SpeechProvider` (браузер, безкоштовно; `src/ui/lang/speech/*`), UI
+`src/ui/lang/**`, розділи практики `/words`, `/listening`, `/pronunciation`, `/grammar`. Див. [LANGUAGE_COURSE.md](./LANGUAGE_COURSE.md),
+[SPEECH.md](./SPEECH.md).
 
 ## 5. Дані (Postgres / Supabase)
 

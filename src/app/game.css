@@ -36,12 +36,21 @@
 }
 
 /* ── Quiz: waiting for the server's verdict ───────────────────────── */
+/* The picked option stays pressed in (lip down) with a soft pulse until the verdict lands — the press reads as
+   accepted at once, never as a disabled button. */
 .quiz-option[data-pending] {
-  animation: quiz-pending 0.9s var(--lu-ease) infinite alternate;
+  transform: translateY(calc(var(--lu-lip) - 1px));
+  box-shadow: 0 1px 0 var(--o-lip);
+  animation: quiz-pending 0.6s var(--lu-ease) infinite alternate;
 }
 @keyframes quiz-pending {
   to {
-    opacity: 0.6;
+    filter: brightness(0.94);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quiz-option[data-pending] {
+    animation: none;
   }
 }
 .quiz-error {

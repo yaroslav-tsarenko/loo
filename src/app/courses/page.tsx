@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { PiBooksFill } from 'react-icons/pi'
 import { messages, t } from '@/i18n'
-import { myLibrary } from '@/server/courses/library'
 import { listCourses } from '@/server/courses/registry'
 import { requireUser } from '@/server/auth'
+import { shellData } from '@/server/shell'
 import { CourseCard } from '@/ui/courses/CourseCard'
 import { CourseChips } from '@/ui/courses/CourseChips'
 import { courseChips } from '@/server/courses/library'
@@ -14,7 +15,8 @@ export const metadata: Metadata = { title: 'Курси' }
 // Marketplace: every listed course (official now; user-uploaded later), with «Мої курси» on top.
 export default async function CoursesPage() {
   await requireUser()
-  const [courses, library] = await Promise.all([listCourses(), myLibrary()])
+  const [courses, shell] = await Promise.all([listCourses(), shellData()])
+  const library = shell?.library ?? []
   const enrolled = new Map(library.map((c) => [c.id, c.enrollment]))
   const soon = messages().landing.courses.items
   return (
@@ -26,6 +28,12 @@ export default async function CoursesPage() {
         <div className="ghead-text">
           <h1 className="ghead-title">{t('courses.title')}</h1>
           <p className="ghead-lead">{t('courses.lead')}</p>
+          <p className="ghead-lead">
+            <Link className="ui-link" href="/g">
+              {t('shell.allGuides')}
+            </Link>{' '}
+            — теорія всіх курсів в одному місці.
+          </p>
         </div>
       </header>
 

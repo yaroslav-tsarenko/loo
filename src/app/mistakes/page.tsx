@@ -8,7 +8,7 @@ import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
 import { studyScope } from '@/server/courses/enrollment'
-import { mistakeTopics, openMistakeRows, recentlyResolved } from '@/server/services/queue'
+import { mistakesOverview } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
@@ -52,8 +52,9 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
   const now = nowMs()
   // Mistakes of the active course first; ?all=1 shows every open mistake.
   const all = params.all === '1'
-  const pool = all ? null : await studyScope({ guide: null, chapter: null })
-  const everyRow = await openMistakeRows(snapshot)
+  const { pool } = await studyScope({ guide: null, chapter: null, all })
+  const overview = await mistakesOverview(snapshot, now - 7 * 86_400_000)
+  const everyRow = overview.open
   const rows = pool ? everyRow.filter((r) => pool.has(r.unit.id)) : everyRow
   const outside = everyRow.length - rows.length
   const eligible = rows.filter((r) => r.eligibleAt === null || r.eligibleAt <= now)
@@ -69,8 +70,8 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
     )
   }
 
-  const topics = (await mistakeTopics(snapshot)).slice(0, 10)
-  const resolved = await recentlyResolved(snapshot, now - 7 * 86_400_000)
+  const topics = overview.topics.slice(0, 10)
+  const resolved = overview.resolved
   const loo = looFor(rows.length, eligible.length)
 
   return (
@@ -84,10 +85,10 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
           {outside > 0 || all ? (
             <nav className="gchips" aria-label="Які помилки">
               <Link className="gchip" href="/mistakes" aria-current={!all ? 'true' : undefined}>
-                Активний курс
+                Цей курс
               </Link>
               <Link className="gchip" href="/mistakes?all=1" aria-current={all ? 'true' : undefined}>
-                Усі{outside > 0 && !all ? ` · ще ${outside}` : ''}
+                Усі курси{outside > 0 && !all ? ` · ще ${outside}` : ''}
               </Link>
             </nav>
           ) : null}

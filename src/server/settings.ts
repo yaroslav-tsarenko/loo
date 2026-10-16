@@ -4,9 +4,12 @@ import { and, eq } from 'drizzle-orm'
 import { first, getDb, type Conn } from '@/db/client'
 import { systemState, userSettings } from '@/db/schema'
 import { userScope } from './auth'
-import { getUser } from './auth/session'
+import { userBase } from './base'
+import { read, readOne, type Read } from './db/batch'
 
 export type ThemeSetting = 'system' | 'light' | 'dark'
+// English voice of language courses (docs/SPEECH.md): British by default
+export type AccentSetting = 'en-GB' | 'en-US'
 
 export interface AppSettings {
   vaultPath: string | null
@@ -18,6 +21,7 @@ export interface AppSettings {
   sessionSize: number
   dailyMinutes: number
   haptics: boolean
+  accent: AccentSetting
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -30,6 +34,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   sessionSize: 20,
   dailyMinutes: 20,
   haptics: true,
+  accent: 'en-GB',
 }
 
 export type UserSettingKey = Exclude<keyof AppSettings, 'vaultPath'>
@@ -39,6 +44,8 @@ function coerce<K extends keyof AppSettings>(key: K, value: unknown): AppSetting
   switch (key) {
     case 'vaultPath':
       return (typeof value === 'string' && value.trim() ? value.trim() : null) as AppSettings[K]
+    case 'accent':
+      return (value === 'en-GB' || value === 'en-US' ? value : fallback) as AppSettings[K]
     case 'theme':
       return (value === 'light' || value === 'dark' || value === 'system' ? value : fallback) as AppSettings[K]
     case 'sound':
@@ -76,7 +83,20 @@ export async function writeVaultPath(value: string | null): Promise<void> {
 // ── Per-user settings ──────────────────────────────────────────────────────────────────────────────────────────
 
 export async function settingsFor(conn: Conn, userId: string): Promise<AppSettings> {
-  const rows = await conn.select().from(userSettings).where(eq(userSettings.userId, userId))
+  return readOne(conn, settingsRead(conn, userId))
+}
+
+export function settingsRead(conn: Conn, userId: string): Read<AppSettings> {
+  return read(
+    conn
+      .select({ key: userSettings.key, value: userSettings.value })
+      .from(userSettings)
+      .where(eq(userSettings.userId, userId)),
+    settingsFrom,
+  )
+}
+
+function settingsFrom(rows: ReadonlyArray<{ key: string; value: unknown }>): AppSettings {
   const out: AppSettings = { ...DEFAULT_SETTINGS }
   for (const row of rows) {
     if (row.key in DEFAULT_SETTINGS && row.key !== 'vaultPath') {
@@ -88,10 +108,10 @@ export async function settingsFor(conn: Conn, userId: string): Promise<AppSettin
 }
 
 // The current user's settings (defaults when signed out) plus the global vault path. Deduplicated per request.
+// The rows come with the profile and the active enrollment (src/server/base.ts).
 export const readSettings = cache(async (): Promise<AppSettings> => {
-  const [user, vaultPath] = await Promise.all([getUser(), readVaultPath()])
-  if (!user) return { ...DEFAULT_SETTINGS, vaultPath }
-  return { ...(await userScope((db, userId) => settingsFor(db, userId))), vaultPath }
+  const [base, vaultPath] = await Promise.all([userBase(), readVaultPath()])
+  return { ...(base?.settings ?? DEFAULT_SETTINGS), vaultPath }
 })
 
 export async function writeSetting<K extends UserSettingKey>(key: K, value: AppSettings[K]): Promise<AppSettings[K]> {

@@ -90,7 +90,8 @@ export async function loadIconCatalog(): Promise<IconCatalog> {
   return catalog
 }
 
-const FIGURE = /^(?:>\s?)+\[!(viz|visualization|візуалізація|figure|scene|сцена)\]/gimu
+// Illustrations: [!viz], [!figure] and [!diagram] (language guides illustrate tenses and structures with diagrams)
+const FIGURE = /^(?:>\s?)+\[!(viz|visualization|візуалізація|figure|scene|сцена|diagram|діаграма|схема)\]/gimu
 
 export async function countFigures(snapshot: ContentSnapshot, config: VaultConfig, chapterIds: readonly string[]): Promise<Map<string, number>> {
   const out = new Map<string, number>()

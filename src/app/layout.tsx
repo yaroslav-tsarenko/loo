@@ -4,22 +4,20 @@ import Link from 'next/link'
 import { headers } from 'next/headers'
 import type { ReactNode } from 'react'
 import { getProfile, getUser } from '@/server/auth'
-import { getContent } from '@/server/content'
-import { myLibrary } from '@/server/courses/library'
-import { shellGame } from '@/server/game'
-import { navCounts } from '@/server/services/counts'
-import { userXp } from '@/server/services/progress'
+import { coursePractice } from '@/course/practice'
 import { readSettings } from '@/server/settings'
+import { shellData } from '@/server/shell'
 import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
 import { EvolutionMoment } from '@/ui/game/EvolutionMoment'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
+import { SpeechSettingsProvider } from '@/ui/lang/SpeechSettings'
 import { CommandPalette } from '@/ui/search/CommandPalette'
 import { AppFrame } from '@/ui/shell/AppFrame'
 import { ClientEnhancer } from '@/ui/shell/ClientEnhancer'
 import { PUBLIC_THEME_BOOT, SIDEBAR_BOOT } from '@/ui/shell/constants'
-import { BottomNav, CountsProvider } from '@/ui/shell/NavLinks'
+import { FALLBACK_PRACTICE } from '@/ui/shell/course-nav'
+import { BottomNav, CountsProvider, PracticeProvider } from '@/ui/shell/NavLinks'
 import { Sidebar } from '@/ui/shell/Sidebar'
-import { guideHref } from '@/ui/routes'
 import './globals.css'
 
 // docs/DESIGN.md: Onest for all text, JetBrains Mono for code, Pixelify Sans only for the wordmark.
@@ -62,18 +60,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       </html>
     )
   }
-  const snapshot = await getContent()
-  const [settings, xp, counts, profile, nonce, library, game] = await Promise.all([
-    readSettings(),
-    userXp(),
-    navCounts(snapshot),
-    getProfile(),
-    headers().then((h) => h.get('x-nonce') ?? undefined),
-    myLibrary(),
-    shellGame(),
-  ])
+  // Two transactions in all: the learner's base rows (profile, settings, active course) and the shell's reads
+  // (src/server/base.ts, src/server/shell.ts) — both cached for the page rendered inside.
+  const [settings, profile, shell, nonce] = await Promise.all([readSettings(), getProfile(), shellData(), headers().then((h) => h.get('x-nonce') ?? undefined)])
+  if (!shell) throw new Error('shell: signed-in user without shell data')
+  const { snapshot, xp, counts, library, game, active, theory } = shell
   const courses = library.map((c) => ({ id: c.id, title: c.title, icon: c.icon, active: c.enrollment.active }))
-  const guides = snapshot.guides.map((g) => ({ id: g.id, title: g.title, href: guideHref(g.id) }))
+  // The shell adapts to the active course: its practice sections (course.yaml `practice:`) and its theory only.
+  const meta = active?.bundle.course
+  const course = meta ? { id: meta.id, title: meta.title, icon: meta.icon } : null
+  const practice = meta ? coursePractice(meta) : FALLBACK_PRACTICE
   const account = { name: profile?.displayName || user.name || user.email || 'Я', avatarUrl: profile?.avatarUrl ?? user.avatarUrl }
   return (
     <html lang="uk" data-theme={settings.theme} className={fonts} suppressHydrationWarning>
@@ -86,10 +82,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           До вмісту
         </a>
         <FeedbackProvider initialXp={xp} sound={settings.sound} volume={settings.volume} haptics={settings.haptics}>
+          <SpeechSettingsProvider accent={settings.accent}>
           <LooSkinProvider skin={game.look}>
           <CountsProvider initial={counts}>
+          <PracticeProvider sections={practice}>
             <AppFrame
-              sidebar={<Sidebar guides={guides} courses={courses} theme={settings.theme} account={account} rank={game.rank} />}
+              sidebar={<Sidebar course={course} theory={theory} courses={courses} theme={settings.theme} account={account} rank={game.rank} />}
               banner={
                 snapshot.error ? (
                   <div className="vault-error" role="alert">
@@ -110,8 +108,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             >
               {children}
             </AppFrame>
+          </PracticeProvider>
           </CountsProvider>
           </LooSkinProvider>
+          </SpeechSettingsProvider>
         </FeedbackProvider>
         <ClientEnhancer />
       </body>

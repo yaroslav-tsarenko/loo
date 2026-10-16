@@ -1,5 +1,5 @@
 import 'server-only'
-import { existsSync } from 'node:fs'
+import { existsSync, readdirSync, statSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { CourseBundle } from '@/course'
@@ -13,7 +13,18 @@ export { courseIdOf, type CourseEntry, type CourseListing, type CourseSource } f
 // server function via next.config.ts). Loaded and schema-validated once per process.
 
 const key = Symbol.for('levelup.course-registry')
-type GlobalWithRegistry = typeof globalThis & { [key]?: Promise<Map<string, CourseEntry>> }
+const sigKey = Symbol.for('levelup.course-registry-sig')
+type GlobalWithRegistry = typeof globalThis & { [key]?: Promise<Map<string, CourseEntry>>; [sigKey]?: string }
+
+// Dev only: `pnpm course:build` rewrites the bundles while the server runs — reload when their mtimes change.
+function bundlesSignature(): string {
+  const dir = coursesDir()
+  if (!existsSync(dir)) return ''
+  return readdirSync(dir)
+    .filter((n) => n.endsWith('.json'))
+    .map((n) => `${n}:${statSync(path.join(dir, n)).mtimeMs}`)
+    .join('|')
+}
 
 export function coursesDir(): string {
   return path.resolve(process.cwd(), 'content', 'courses')
@@ -34,6 +45,13 @@ async function load(): Promise<Map<string, CourseEntry>> {
 
 function registry(): Promise<Map<string, CourseEntry>> {
   const g = globalThis as GlobalWithRegistry
+  if (process.env.NODE_ENV !== 'production') {
+    const sig = bundlesSignature()
+    if (sig !== g[sigKey]) {
+      g[sigKey] = sig
+      g[key] = undefined
+    }
+  }
   if (!g[key]) {
     g[key] = load().catch((error: unknown) => {
       g[key] = undefined

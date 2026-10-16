@@ -1,4 +1,4 @@
-export type SoundName = 'correct' | 'wrong' | 'flip' | 'level' | 'achievement' | 'goal' | 'xp' | 'combo' | 'complete'
+export type SoundName = 'tap' | 'correct' | 'wrong' | 'flip' | 'level' | 'achievement' | 'goal' | 'xp' | 'combo' | 'complete'
 
 interface Tone {
   freq: number
@@ -10,6 +10,9 @@ interface Tone {
 }
 
 const PATTERNS: Record<Exclude<SoundName, 'flip'>, Tone[]> = {
+  // An answer was pressed and is on its way to the server: a soft, short «tick» right on the press (it also unlocks
+  // audio inside the gesture, so the verdict's sound plays on time when it arrives a moment later).
+  tap: [{ freq: 740, at: 0, dur: 0.035, type: 'triangle', gain: 0.14, slideTo: 620 }],
   correct: [
     { freq: 659.25, at: 0, dur: 0.09, type: 'sine', gain: 0.5 },
     { freq: 987.77, at: 0.075, dur: 0.16, type: 'sine', gain: 0.45 },

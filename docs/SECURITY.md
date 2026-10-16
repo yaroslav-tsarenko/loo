@@ -481,3 +481,13 @@ Leagues turn XP into something other people see, so every number that feeds them
 | Cron `/api/cron/leagues` behind `CRON_SECRET` (proxy + route) | ✅ | `src/app/api/cron/leagues/route.ts`, `vercel.json` |
 | Users with direct DML grants (Data API) could still insert their own positive `gem_ledger` / `xp_ledger` rows | ⏳ | same as Phase 2: keep the Supabase Data API disabled (docs/AUTH.md §8); next step — SECURITY DEFINER functions for ledger writes and dropping INSERT grants |
 | Loo's character / battle snapshot: `characterSnapshot(userId)` reads that learner's rows in their own `withUser` scope, server-side only (no action exposes another user's sheet); the snapshot holds form, attribute levels, skill names/power — no raw answers, no ids beyond course/topic ids | ✅ | `src/server/game/character.ts`, docs/BATTLES.md |
+
+### Language courses (docs/LANGUAGE_COURSE.md, docs/SPEECH.md)
+
+| Control | Status | Where |
+|---|---|---|
+| `[!listen]` / `[!pair]` / dictation graded on the server only; graded payloads (and even article items) carry no right option, no dictation text and no transcript; the explanation comes with the verdict | ✅ | `src/content/blocks/lang/grade.ts`, `src/content/blocks/quiz/{grade,view}.ts`, `src/ui/markdown/UnitBlock.tsx`; `tests/unit/language.test.ts` («ships no answer key…») |
+| Spoken text for browser TTS delivered only on ▶ via `speechLines({unitId})` (requireUser, zod, 240/min) — never in HTML / RSC payload. Residual: whoever presses ▶ can read it in devtools (inherent to client-side TTS; `gateway` audio in v2) | ✅ / ⏳ | `src/server/actions/speech.ts` |
+| `[!speak]`: no audio uploaded or stored; the client sends ≤ 5 transcripts ≤ 500 chars (zod + slicing), compared with the content's own `text`; XP only on a server pass; misses cost nothing; rate limits `speak` 20/min + `speakDay` 400/day on top of `answer` 120/min; never part of tests / exams / placement. Residual: a transcript can be forged (XP bounded by the per-source daily cap) | ✅ / ⏳ | `src/server/actions/answers.ts → speakOutcome`, `src/server/courses/limits.ts` |
+| `Permissions-Policy: microphone=(self)` (was `()`); camera etc. still denied | ✅ | `next.config.ts` |
+| Enrollment level validated against the course's own ladder (noob…god or A1…C2); `startAtLevel` re-derives the start section on the server | ✅ | `src/server/actions/courses.ts` |

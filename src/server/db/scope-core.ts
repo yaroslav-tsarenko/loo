@@ -32,6 +32,8 @@ export interface ScopeDeps {
   db: () => Db
   // true when the database has Supabase's auth schema + `authenticated` role.
   rls: () => Promise<boolean>
+  // PERF_TRACE: wall time of every top-level scope transaction
+  onTx?: (ms: number) => void
 }
 
 export function jwtClaims(user: ScopeUser): string {
@@ -41,9 +43,21 @@ export function jwtClaims(user: ScopeUser): string {
 export function createScope(deps: ScopeDeps) {
   const storage = new AsyncLocalStorage<Scope>()
 
-  async function enterRls(tx: Tx, user: ScopeUser): Promise<void> {
-    // Transaction-local (third arg true): safe on the Supabase transaction pooler.
-    await tx.execute(sql`select set_config('request.jwt.claims', ${jwtClaims(user)}, true), set_config('role', 'authenticated', true)`)
+  // Transaction-local (third arg true): safe on the Supabase transaction pooler.
+  //
+  // Queued right here, synchronously, on the transaction's handle (src/db/pipeline.ts): it is guaranteed to run before
+  // anything fn sends, without fn waiting for it first (with DATABASE_PIPELINE=pipeline it even shares the first
+  // statement's round trip). If it fails, the transaction is aborted, fn's statements fail too and the error surfaces
+  // below. Other drivers (tests) fall back to awaiting it first.
+  function enterRls(tx: Tx, user: ScopeUser): Promise<unknown> {
+    const claims = jwtClaims(user)
+    const queued = sendNow(tx, RLS_SETUP_SQL, [claims])
+    if (queued) {
+      // observed below; until then a rejection must not count as unhandled
+      void queued.catch(() => {})
+      return queued
+    }
+    return Promise.resolve(tx.execute(sql`select set_config('request.jwt.claims', ${claims}, true), set_config('role', 'authenticated', true)`))
   }
 
   async function withUser<T>(user: ScopeUser, fn: (conn: Conn) => Promise<T>, opts: ScopeOptions = {}): Promise<T> {
@@ -55,13 +69,20 @@ export function createScope(deps: ScopeDeps) {
       return current.conn.transaction((tx) => storage.run({ ...current, conn: tx, inTx: true }, () => fn(tx)))
     }
     const db = deps.db()
+    const started = deps.onTx ? performance.now() : 0
+    const timed = <R>(p: Promise<R>): Promise<R> => (deps.onTx ? p.finally(() => deps.onTx?.(performance.now() - started)) : p)
     if (await deps.rls()) {
-      return db.transaction(async (tx) => {
-        await enterRls(tx, user)
-        return storage.run({ userId: user.id, conn: tx, inTx: true }, () => fn(tx))
-      })
+      return timed(
+        db.transaction(async (tx) => {
+          const rls = enterRls(tx, user)
+          if (!pipelines(tx)) await rls
+          const result = await storage.run({ userId: user.id, conn: tx, inTx: true }, () => fn(tx))
+          await rls
+          return result
+        }),
+      )
     }
-    if (opts.tx) return db.transaction((tx) => storage.run({ userId: user.id, conn: tx, inTx: true }, () => fn(tx)))
+    if (opts.tx) return timed(db.transaction((tx) => storage.run({ userId: user.id, conn: tx, inTx: true }, () => fn(tx))))
     return storage.run({ userId: user.id, conn: db, inTx: false }, () => fn(db))
   }
 
@@ -71,6 +92,35 @@ export function createScope(deps: ScopeDeps) {
   }
 
   return { withUser, currentUserId }
+}
+
+const RLS_SETUP_SQL = "select set_config('request.jwt.claims', $1, true), set_config('role', 'authenticated', true)"
+
+interface RawQuery extends PromiseLike<unknown> {
+  execute(): unknown
+  catch(onrejected: (reason: unknown) => unknown): unknown
+}
+type RawClient = { unsafe(text: string, params: unknown[]): RawQuery }
+
+// drizzle's postgres-js transaction keeps the driver's transaction handle at tx.session.client.
+function rawClient(tx: Tx): RawClient | null {
+  const client = (tx as unknown as { session?: { client?: Partial<RawClient> } }).session?.client
+  return typeof client?.unsafe === 'function' ? (client as RawClient) : null
+}
+
+function pipelines(tx: Tx): boolean {
+  return rawClient(tx) !== null
+}
+
+// Starts a statement now (postgres-js queries are lazy until executed) — it enters the connection's queue before any
+// statement issued later.
+function sendNow(tx: Tx, text: string, params: unknown[]): Promise<unknown> | null {
+  const client = rawClient(tx)
+  if (!client) return null
+  const query = client.unsafe(text, params)
+  if (typeof query.execute !== 'function') return null
+  query.execute()
+  return Promise.resolve(query)
 }
 
 export const RLS_PROBE = sql`select (to_regnamespace('auth') is not null and to_regprocedure('auth.uid()') is not null and exists (select 1 from pg_roles where rolname = 'authenticated')) as "on"`

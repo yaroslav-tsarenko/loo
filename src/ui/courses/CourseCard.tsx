@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
 import { PiArrowRightBold, PiCheckCircleFill, PiClockFill, PiPlusBold, PiStackFill } from 'react-icons/pi'
-import { LEVEL_LABEL } from '@/course'
+import { levelShort } from '@/course'
 import { enrollCourse, switchCourse } from '@/server/actions/courses'
 import type { CourseListing } from '@/server/courses/registry'
 import { Pill } from '@/ui/design/Badge'
@@ -39,7 +39,7 @@ export function CourseCard({ course, enrolled, active }: CourseCardProps) {
         {meta.subtitle ? <p className="course-card-sub">{meta.subtitle}</p> : null}
         <div className="course-card-pills">
           <Pill size="sm" tone="purple">
-            {LEVEL_LABEL[course.levels.from]} → {LEVEL_LABEL[course.levels.to]}
+            {levelShort(course.levels.from)} → {levelShort(course.levels.to)}
           </Pill>
           <Pill size="sm" tone="blue" icon={<PiClockFill />}>
             ~{Math.round(meta.estimatedHours)} год

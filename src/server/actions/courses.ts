@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
-import { LEVELS, type Level } from '@/course'
+import { courseLevels, LEVELS, sectionForLevel, type Level } from '@/course'
 import { first } from '@/db/client'
 import { enrollments, profiles, type EnrollmentPlacement } from '@/db/schema'
 import { safeRedirectPath } from '@/lib/redirect'
@@ -42,7 +42,7 @@ export async function enrollCourse(form: FormData): Promise<void> {
   const input = parseInput(libraryInput, { course: field(form, 'course'), next: field(form, 'next') })
   await limitUser(user.id, 'library')
   await knownCourse(input.course)
-  const lvl = levelFromPreference((await getProfile())?.preferences.level)
+  const lvl = levelFromPreference((await getProfile())?.preferences.level, (await getCourse(input.course))?.course)
   await userScope((tx, userId) => enrollIn(tx, userId, input.course, { level: lvl, activate: true }), { tx: true })
   revalidatePath('/', 'layout')
   redirect(safeRedirectPath(input.next ?? '/path'))
@@ -95,7 +95,10 @@ export async function setCourseLevel(form: FormData): Promise<void> {
   const user = await requireUser()
   const input = parseInput(levelInput, { course: field(form, 'course'), level: field(form, 'level'), next: field(form, 'next') })
   await limitUser(user.id, 'library')
-  await knownCourse(input.course)
+  const bundle = await getCourse(input.course)
+  if (!bundle) throw new Error('Unknown course')
+  // a level of the course's own ladder only (noob…god or A1…C2)
+  if (!courseLevels(bundle.course).includes(input.level)) throw new Error('Unknown level')
   await userScope(
     async (tx, userId) => {
       await enrollIn(tx, userId, input.course, { level: input.level, activate: false })
@@ -189,7 +192,23 @@ export async function startFromZero(form: FormData): Promise<void> {
   await limitUser(user.id, 'placement')
   const bundle = await getCourse(input.course)
   if (!bundle) throw new Error('Unknown course')
-  const lvl = levelFromPreference((await getProfile())?.preferences.level)
+  const lvl = levelFromPreference((await getProfile())?.preferences.level, bundle.course)
   await savePlacement(input.course, { level: lvl, sectionIndex: 0, sectionId: bundle.sections[0]?.id ?? null, confident: false, asked: 0, at: Date.now(), skipped: true }, lvl)
+  redirect(safeRedirectPath(input.next ?? '/path'))
+}
+
+const startInput = z.object({ course: courseId, level, next })
+
+// Manual start without the test (language courses: «з нуля» → A1, «трохи знаю» → A2…): the level plus the first path
+// section that teaches it; earlier sections count as known.
+export async function startAtLevel(form: FormData): Promise<void> {
+  const user = await requireUser()
+  const input = parseInput(startInput, { course: field(form, 'course'), level: field(form, 'level'), next: field(form, 'next') })
+  await limitUser(user.id, 'placement')
+  const bundle = await getCourse(input.course)
+  if (!bundle) throw new Error('Unknown course')
+  if (!courseLevels(bundle.course).includes(input.level)) throw new Error('Unknown level')
+  const { index, id } = sectionForLevel(bundle, input.level)
+  await savePlacement(input.course, { level: input.level, sectionIndex: index, sectionId: id, confident: false, asked: 0, at: Date.now(), skipped: true }, input.level)
   redirect(safeRedirectPath(input.next ?? '/path'))
 }

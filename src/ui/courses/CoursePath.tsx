@@ -209,6 +209,7 @@ function SectionBanner({ section, number }: { section: CPSection; number: number
       <div className="path-banner-text">
         <span className="path-banner-eyebrow">
           {section.kind === 'practice' ? 'Практика' : `Розділ ${number}`} · {section.levelLabel}
+          {section.planned ? ' · скоро' : null}
         </span>
         <h2 className="path-banner-title">{section.title}</h2>
         <span className="path-banner-bar" aria-hidden="true">
@@ -273,6 +274,7 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
               </p>
             ) : null}
             {section.description && !section.known ? <p className="cp-section-lead">{section.description}</p> : null}
+            {section.planned ? <p className="cp-planned">Скоро: теми цього рівня ще пишуться — розділ відкриється, щойно вони зʼявляться.</p> : null}
             {section.testOut && (locked || section.state === 'open') ? <TestOutCard section={section} /> : null}
             {locked || compact ? (
               <ul className="cp-locked-topics" data-known={compact ? '' : undefined}>

@@ -18,6 +18,7 @@ const CODE_LABEL: Record<string, string> = {
   'prerequisite-cycle': 'Цикл у prerequisites',
   'parse-error': 'Помилки розбору',
   'unknown-block': 'Невідомі візуалізації',
+  'block-warning': 'Зауваги до мовних блоків',
 }
 
 export default async function SettingsPage() {

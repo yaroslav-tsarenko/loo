@@ -1,5 +1,6 @@
 import 'server-only'
 import { getDb } from '@/db/client'
+import { perfEnabled, perfTx } from '../perf'
 import { createScope, RLS_PROBE } from './scope-core'
 
 export type { ScopeOptions, ScopeUser } from './scope-core'
@@ -22,4 +23,4 @@ export function rlsActive(): Promise<boolean> {
   return g[probeKey]
 }
 
-export const { withUser, currentUserId } = createScope({ db: getDb, rls: rlsActive })
+export const { withUser, currentUserId } = createScope({ db: getDb, rls: rlsActive, ...(perfEnabled ? { onTx: perfTx } : {}) })

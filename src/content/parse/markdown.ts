@@ -15,11 +15,16 @@ export interface ParsedMarkdown {
   metaError: string | null
 }
 
+const CEFR = /^\s*([abc][12])\s*$/i
+
 export function toLevel(value: unknown): Level | null {
   if (typeof value !== 'string') return null
+  // CEFR (language guides): a1 / A1 → 'A1'
+  const cefr = CEFR.exec(value)
+  if (cefr) return cefr[1]!.toUpperCase() as Level
   const normalized = value.toLowerCase().replace(/[\s_-]+/g, '')
   if (normalized === 'teamlead' || normalized === 'lead') return 'techlead'
-  return (LEVELS as readonly string[]).includes(normalized) ? (normalized as Level) : null
+  return (LEVELS as readonly string[]).includes(normalized) && !CEFR.test(normalized) ? (normalized as Level) : null
 }
 
 function toStringList(value: unknown): string[] {
@@ -62,7 +67,7 @@ export function normalizeMeta(data: Record<string, unknown>): ChapterMeta {
   if (parts.length) meta.parts = parts
   const icon = toText(data.icon)
   // bare emoji ≤ 8 chars; library refs (`si:SiJavascript`, COURSE_FORMAT §6) keep their full name
-  if (icon) meta.icon = /^(si|pi|tb|lucide|emoji):/.test(icon) ? icon.slice(0, 64) : icon.slice(0, 8)
+  if (icon) meta.icon = /^(si|pi|tb|lucide|emoji|px):/.test(icon) ? icon.slice(0, 64) : icon.slice(0, 8)
   const guide = toText(data.guide)
   if (guide) meta.guide = guide
   return meta

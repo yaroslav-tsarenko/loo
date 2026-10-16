@@ -10,14 +10,12 @@ import type { ContentSnapshot } from '@/content/store'
 import { safeImageSrc, safeLinkHref } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { PixelIcon, PIXEL_ICONS } from '@/ui/design/PixelIcon'
-import { Diagram } from '@/ui/diagram/Diagram'
 import type { DiagramSpec } from '@/content/diagram/spec'
 import { CalloutIcon } from './CalloutIcon'
 import { emojiToIcons } from './emoji-icons'
 import { EmbedBlock } from './EmbedBlock'
+import { LazyDiagram, LazyFigureBlock, LazyVizBlock } from './lazy-blocks'
 import { UnitBlock } from './UnitBlock'
-import { FigureBlock } from '@/ui/theater/FigureBlock'
-import { VizBlock } from '@/ui/viz/VizBlock'
 
 export interface RenderEnv {
   snapshot: ContentSnapshot
@@ -56,22 +54,22 @@ export async function renderMdast(root: Root, env: RenderEnv): Promise<ReactNode
     },
     'x-diagram': (props: Record<string, unknown> & { children?: ReactNode }) => {
       const spec = JSON.parse(String(props['data-spec'] ?? '{}')) as DiagramSpec
-      return <Diagram spec={spec}>{props.children}</Diagram>
+      return <LazyDiagram spec={spec}>{props.children}</LazyDiagram>
     },
     'x-unit': (props: Record<string, unknown>) => <UnitBlock unitId={String(props['data-unit'] ?? '')} env={env} />,
     'x-viz': (props: Record<string, unknown> & { children?: ReactNode }) => (
-      <VizBlock vizId={String(props['data-viz'] ?? '')} scenario={props['data-scenario'] ? String(props['data-scenario']) : null}>
+      <LazyVizBlock vizId={String(props['data-viz'] ?? '')} scenario={props['data-scenario'] ? String(props['data-scenario']) : null}>
         {props.children}
-      </VizBlock>
+      </LazyVizBlock>
     ),
     'x-figure': (props: Record<string, unknown> & { children?: ReactNode }) => (
-      <FigureBlock
+      <LazyFigureBlock
         scene={String(props['data-scene'] ?? '')}
         scenario={props['data-scenario'] ? String(props['data-scenario']) : null}
         device={props['data-device'] ? (String(props['data-device']) as 'desktop' | 'phone' | 'auto') : null}
       >
         {props.children}
-      </FigureBlock>
+      </LazyFigureBlock>
     ),
     'x-embed': (props: Record<string, unknown>) => (
       <EmbedBlock target={String(props['data-target'] ?? '')} heading={String(props['data-heading'] ?? '') || null} env={env} />

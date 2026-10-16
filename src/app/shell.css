@@ -112,9 +112,83 @@
   }
   .sb-scroll {
     flex: 1;
+  }
+
+  /* Island scroll (src/ui/shell/IslandScroll.tsx): native bar hidden, a floating violet pill drawn on top. */
+  .island {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .island-viewport {
+    flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
-    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .island-viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .island-thumb {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    width: 5px;
+    height: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--lu-violet) 55%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--lu-bg) 70%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    touch-action: none;
+    cursor: grab;
+    transition:
+      opacity 220ms var(--ease-out),
+      width 120ms var(--ease-out),
+      background-color 120ms;
+    z-index: 2;
+  }
+  /* a finger-sized grab area around the 5px pill */
+  .island-thumb::before {
+    content: '';
+    position: absolute;
+    inset: -4px -6px -4px -8px;
+  }
+  /* grabbable only while shown, so the invisible pill never swallows taps on the content under it */
+  .island[data-overflow]:hover .island-thumb,
+  .island[data-overflow][data-active] .island-thumb {
+    pointer-events: auto;
+  }
+  .island[data-overflow]:hover .island-thumb {
+    opacity: 0.55;
+  }
+  .island[data-overflow][data-active] .island-thumb,
+  .island[data-overflow] .island-thumb:hover {
+    opacity: 1;
+  }
+  .island-thumb:hover,
+  .island[data-dragging] .island-thumb {
+    width: 7px;
+    right: 2px;
+    background: var(--lu-violet);
+  }
+  .island[data-dragging] .island-thumb {
+    cursor: grabbing;
+  }
+  .island[data-dragging] {
+    user-select: none;
+  }
+  @media (hover: none) {
+    .island-thumb {
+      width: 4px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .island-thumb {
+      transition: none;
+    }
   }
   .sb-nav {
     display: grid;
@@ -193,43 +267,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .sb-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    min-height: 32px;
-    padding: 0 8px;
-    border-radius: var(--lu-r-sm);
-    color: var(--lu-text-2);
-    width: 100%;
-    text-align: left;
-    border: 0;
-    background: transparent;
-    font: 600 14px/1.3 var(--lu-font);
-    transition: background-color 60ms;
-  }
-  .sb-row:hover {
-    background: var(--lu-hover);
-  }
-  .sb-row[data-active] {
-    background: var(--lu-violet-soft);
-    color: var(--lu-violet-ink);
-    font-weight: var(--lu-fw-black);
-  }
-  .sb-label {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: inherit;
-    text-align: left;
-    background: none;
-    border: 0;
-    font: inherit;
-    padding: 0;
-    line-height: 32px;
-  }
   .sb-kbd {
     border: 0;
     font-family: var(--lu-font);
@@ -254,44 +291,176 @@
     font-weight: var(--lu-fw-bold);
     color: var(--lu-text-3);
   }
-  .sb-toggle {
-    position: relative;
-    flex: 0 0 22px;
-    height: 22px;
-    display: grid;
+  .sb-section-link {
+    margin-left: auto;
+    display: inline-grid;
     place-items: center;
-    border: 0;
-    border-radius: 6px;
-    background: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--lu-r-sm);
     color: var(--lu-text-3);
+  }
+  .sb-section-link:hover {
+    background: var(--lu-hover);
+    color: var(--lu-violet-ink);
+  }
+  .sb-section-link:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 1px;
+  }
+
+  /* «Практика»: the active course's sections (src/ui/shell/course-nav.ts) */
+  .sb-nav-practice {
     padding: 0;
   }
-  .sb-toggle[data-expandable]:hover {
-    background: var(--lu-press);
+  .sb-practice-course {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    color: var(--lu-text-2);
+    border-radius: var(--lu-r-xs);
   }
-  .sb-toggle .sb-chevron {
+  .sb-practice-course > span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sb-practice-course:hover {
+    color: var(--lu-violet-ink);
+  }
+  .sb-practice-course:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 2px;
+  }
+
+  /* «Теорія»: explorer tree of the active course (src/ui/shell/TheoryTree.tsx) */
+  .tt,
+  .tt-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tt-group {
+    position: relative;
+  }
+  /* indent guide, like an editor's explorer */
+  .tt-group::before {
+    content: '';
     position: absolute;
-    inset: 3px;
-    opacity: 0;
+    top: 2px;
+    bottom: 2px;
+    left: calc(var(--tt-level) * 14px - 1px);
+    width: 1px;
+    background: var(--lu-border);
+  }
+  .tt-item {
+    outline: none;
+  }
+  .tt-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 0 6px 0 calc(2px + (var(--tt-level) - 1) * 14px);
+    border-radius: var(--lu-r-sm);
+    color: var(--lu-text-2);
+    font: 600 13.5px/1.3 var(--lu-font);
+    transition: background-color 60ms;
+  }
+  .tt-row[data-kind='guide'] {
+    font-weight: var(--lu-fw-bold);
+    color: var(--lu-text);
+  }
+  .tt-row:hover {
+    background: var(--lu-hover);
+  }
+  .tt-row[data-active] {
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-weight: var(--lu-fw-black);
+  }
+  .tt-item:focus-visible > .tt-row {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: -1px;
+  }
+  .tt-chevron {
+    flex: 0 0 16px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: var(--lu-r-xs);
+    background: transparent;
+    color: var(--lu-text-3);
+  }
+  button.tt-chevron:hover {
+    background: var(--lu-press);
+    color: var(--lu-text-2);
+  }
+  .tt-chevron > svg {
     transition: transform 120ms var(--ease-out);
   }
-  .sb-toggle .sb-chevron[data-open] {
+  .tt-chevron[data-open] > svg {
     transform: rotate(90deg);
   }
-  .sb-row:hover .sb-toggle[data-expandable] .sb-page-icon,
-  .sb-toggle[data-expandable]:focus-visible .sb-page-icon {
-    opacity: 0;
+  .tt-icon {
+    flex: 0 0 16px;
+    display: grid;
+    place-items: center;
   }
-  .sb-row:hover .sb-toggle[data-expandable] .sb-chevron,
-  .sb-toggle[data-expandable]:focus-visible .sb-chevron {
-    opacity: 1;
+  /* chapter status: hollow = unread, half = reading, filled = studied */
+  .tt-dot {
+    flex: 0 0 16px;
+    height: 16px;
+    position: relative;
   }
-  .sb-done {
-    flex: 0 0 auto;
-    color: var(--lu-green);
+  .tt-dot::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 2px;
+    border: 2px solid var(--lu-border-strong);
+  }
+  .tt-dot[data-status='reading']::before {
+    border-color: var(--lu-yellow-lip);
+    background: linear-gradient(to top, var(--lu-yellow) 50%, transparent 50%);
+  }
+  .tt-dot[data-status='studied']::before {
+    border-color: var(--lu-green-lip);
+    background: var(--lu-green);
+  }
+  .tt-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+    text-align: left;
+    background: none;
+    border: 0;
+    font: inherit;
+    padding: 0;
+    line-height: 30px;
+  }
+  .tt-meta {
+    flex: none;
+    font-size: 11.5px;
+    font-weight: var(--lu-fw-bold);
+    color: var(--lu-text-3);
+  }
+  .tt-meta[data-complete] {
+    color: var(--lu-green-ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tt-chevron > svg {
+      transition: none;
+    }
   }
   .sb-empty {
-    padding: 4px 8px 4px 44px;
+    padding: 4px 8px;
     font-size: 13px;
     color: var(--lu-text-3);
   }
@@ -1605,7 +1774,7 @@
     }
     .bottomnav {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(var(--tabs, 5), 1fr);
       position: fixed;
       left: 0;
       right: 0;

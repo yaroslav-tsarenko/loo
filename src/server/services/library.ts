@@ -1,14 +1,16 @@
 import 'server-only'
 import { and, desc, eq, isNull, lte, sql } from 'drizzle-orm'
-import { first } from '@/db/client'
+import { first, type Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, mistakes, srsCards, taskState } from '@/db/schema'
 import type { Chapter, Guide, TreeNode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
 import { chapterHref } from '@/ui/routes'
 import { userScope } from '../auth'
-import { streakNow } from '../game'
-import { readSettings } from '../settings'
+import { read, readBatch, readOne, type Read } from '../db/batch'
+import { settleStreak } from '../game'
+import { readSettings, type AppSettings } from '../settings'
+import { shellData } from '../shell'
 
 export type ChapterStatus = 'unread' | 'reading' | 'studied'
 
@@ -19,9 +21,27 @@ export interface ProgressRow {
   timeMs: number
 }
 
+// Page renders: the map read with the shell (src/server/shell.ts) — no query of its own.
+export async function pageProgress(): Promise<Map<string, ProgressRow>> {
+  return (await shellData())?.progress ?? new Map()
+}
+
 export async function chapterProgressMap(): Promise<Map<string, ProgressRow>> {
-  const rows = await userScope((db, userId) => db.select().from(chapterProgress).where(eq(chapterProgress.userId, userId)))
-  return new Map(rows.map((r) => [r.chapterId, { status: r.status, scrollPct: r.scrollPct, lastOpenedAt: r.lastOpenedAt, timeMs: r.timeMs }]))
+  return userScope((db, userId) => chapterProgressIn(db, userId))
+}
+
+export async function chapterProgressIn(conn: Conn, userId: string): Promise<Map<string, ProgressRow>> {
+  return readOne(conn, progressRead(conn, userId))
+}
+
+export function progressRead(conn: Conn, userId: string): Read<Map<string, ProgressRow>> {
+  return read(
+    conn
+      .select({ chapterId: chapterProgress.chapterId, status: chapterProgress.status, scrollPct: chapterProgress.scrollPct, lastOpenedAt: chapterProgress.lastOpenedAt, timeMs: chapterProgress.timeMs })
+      .from(chapterProgress)
+      .where(eq(chapterProgress.userId, userId)),
+    (rows) => new Map(rows.map((r) => [r.chapterId, { status: r.status, scrollPct: r.scrollPct, lastOpenedAt: r.lastOpenedAt, timeMs: r.timeMs }])),
+  )
 }
 
 export interface GuideRow {
@@ -41,7 +61,7 @@ export function readableChapters(snapshot: ContentSnapshot, guide: Guide): Chapt
   return guide.chapterIds.map((id) => snapshot.chapters.get(id)).filter((c): c is Chapter => Boolean(c) && c!.kind !== 'index')
 }
 
-export function nextChapterFor(snapshot: ContentSnapshot, guide: Guide, progress: Map<string, ProgressRow>): Chapter | null {
+export function nextChapterFor(snapshot: ContentSnapshot, guide: Guide, progress: ReadonlyMap<string, ProgressRow>): Chapter | null {
   const chapters = readableChapters(snapshot, guide)
   const reading = chapters
     .filter((c) => progress.get(c.id)?.status === 'reading')
@@ -53,7 +73,7 @@ export function nextChapterFor(snapshot: ContentSnapshot, guide: Guide, progress
 export async function libraryRows(snapshot: ContentSnapshot): Promise<GuideRow[]> {
   const now = Date.now()
   const [progress, [dueRows, accRows]] = await Promise.all([
-    chapterProgressMap(),
+    pageProgress(),
     userScope((db, userId) =>
       Promise.all([
         db
@@ -107,35 +127,43 @@ export interface TodaySummary {
 }
 
 export async function todaySummary(snapshot: ContentSnapshot): Promise<TodaySummary> {
+  const settings = await readSettings()
   const now = Date.now()
-  const [settings, [srsRows, openRows, today, goalRows, last]] = await Promise.all([
-    readSettings(),
-    userScope((db, userId) =>
-      Promise.all([
-        db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
-        db
-          .select({ id: mistakes.unitId })
-          .from(mistakes)
-          .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
-        first(
-          db
-            .select()
-            .from(dailyActivity)
-            .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, dayKey(now)))),
-        ),
-        db
-          .select({ day: dailyActivity.day })
-          .from(dailyActivity)
-          .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.goalMet, true))),
-        db
-          .select()
-          .from(chapterProgress)
-          .where(and(eq(chapterProgress.userId, userId), eq(chapterProgress.status, 'reading')))
-          .orderBy(desc(chapterProgress.lastOpenedAt))
-          .limit(5),
-      ]),
-    ),
+  return userScope(
+    async (db, userId) => {
+      // with freezes applied (src/server/game/streak.ts)
+      const { streak } = await settleStreak(db, userId, now)
+      return todaySummaryIn(db, userId, snapshot, settings, streak.current, now)
+    },
+    { tx: true },
+  )
+}
+
+// todaySummary inside the caller's transaction; `streak` is the settled streak (the shell has it already).
+export async function todaySummaryIn(db: Conn, userId: string, snapshot: ContentSnapshot, settings: Pick<AppSettings, 'newCardsPerDay' | 'dailyGoal'>, streak: number, now = Date.now()): Promise<TodaySummary> {
+  // one statement (src/server/db/batch.ts)
+  const [srsRows, openRows, todayRows, goalRows, last] = await readBatch(db, [
+    db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
+    db
+      .select({ id: mistakes.unitId })
+      .from(mistakes)
+      .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
+    db
+      .select()
+      .from(dailyActivity)
+      .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, dayKey(now)))),
+    db
+      .select({ day: dailyActivity.day })
+      .from(dailyActivity)
+      .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.goalMet, true))),
+    db
+      .select()
+      .from(chapterProgress)
+      .where(and(eq(chapterProgress.userId, userId), eq(chapterProgress.status, 'reading')))
+      .orderBy(desc(chapterProgress.lastOpenedAt))
+      .limit(5),
   ])
+  const today = todayRows[0]
   const reviewed = new Set(srsRows.map((r) => r.id))
   const due = srsRows.filter((r) => r.due <= now && snapshot.units.has(r.id)).length
   let newAvailable = 0
@@ -157,8 +185,7 @@ export async function todaySummary(snapshot: ContentSnapshot): Promise<TodaySumm
     mistakes: open,
     answeredToday: today?.total ?? 0,
     goal: settings.dailyGoal,
-    // with freezes applied (src/server/game/streak.ts)
-    streak: goalDays.length > 0 ? (await streakNow(now)).current : 0,
+    streak: goalDays.length > 0 ? streak : 0,
     continueChapter,
   }
 }

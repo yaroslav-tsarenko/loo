@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import type { Metadata } from 'next'
 import { PiSwordFill } from 'react-icons/pi'
 import { t } from '@/i18n'
-import { ATTRIBUTE_ICON, GEAR_SLOTS, IT_RANK_ICON, IT_RANK_LABEL, IT_RANKS, RANK_TIERS, RANKS, rarityOf, shopItem, STAT_ICON, STATS, WARRIOR_LABEL, WARRIOR_RANKS, type Attribute } from '@/game'
+import { ATTRIBUTE_ICON, courseRankIcon, courseRankLabel, GEAR_SLOTS, IT_RANKS, RANK_TIERS, RANKS, rarityOf, shopItem, STAT_ICON, STATS, WARRIOR_LABEL, WARRIOR_RANKS, type Attribute } from '@/game'
 import { requireUser } from '@/server/auth'
 import { myCharacter } from '@/server/game/character'
 import { Button } from '@/ui/design/Button'
@@ -136,7 +136,7 @@ export default async function LooPage() {
               <Icon name={course.icon ?? 'px:book'} size={28} />
               <span className="loo-course-title">{course.title}</span>
               <span className="loo-course-rank">
-                <Icon name={IT_RANK_ICON[course.rank]} size={20} /> {IT_RANK_LABEL[course.rank]}
+                <Icon name={courseRankIcon(course.rank, course.ladder)} size={20} /> {courseRankLabel(course.rank, course.ladder)}
               </span>
               <span className="loo-course-steps" aria-hidden="true">
                 {IT_RANKS.map((r, i) => (

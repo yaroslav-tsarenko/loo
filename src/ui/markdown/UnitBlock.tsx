@@ -1,6 +1,10 @@
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
 import { exerciseView, quizKey, quizShape } from '@/content/blocks/quiz/view'
+import { speechLangFor } from '@/server/courses/target'
+import { ListenExercise } from '@/ui/lang/ListenExercise'
+import { PairAudio, PairOption } from '@/ui/lang/PairExercise'
+import { WordInline } from '@/ui/lang/WordCard'
 import { DIFFICULTY_LABEL, LEVEL_LABEL, type FlashcardUnit, type QuizUnit, type TaskUnit } from '@/content/model'
 import { QuizInline } from '@/ui/study/QuizInline'
 import { TaskInline } from '@/ui/study/TaskInline'
@@ -46,6 +50,40 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
     ...unit.options.map((o) => renderPhrasing(o.content, env)),
   ])
   const shape = quizShape(unit)
+  // Language blocks: the spoken text and the key stay on the server (audio is fetched on play, answers are checked by
+  // answerQuiz) — even in articles, the transcript of a listening item IS its answer.
+  if (unit.mode === 'listen' || unit.mode === 'pair' || unit.mode === 'speak') {
+    const lang = await speechLangFor(unit)
+    const pair = unit.pair
+    const audio = unit.listen ? (
+      <ListenExercise unitId={unit.id} lang={lang} slow={unit.listen.slow} dialogue={new Set(unit.listen.lines.map((l) => l.speaker).filter(Boolean)).size > 1} />
+    ) : pair ? (
+      <PairAudio unitId={unit.id} lang={lang} />
+    ) : null
+    return (
+      <QuizInline
+        unitId={unit.id}
+        mode={unit.mode}
+        multi={shape.multi}
+        free={shape.free}
+        level={unit.level ?? null}
+        prompt={prompt}
+        body={
+          <>
+            {audio}
+            {body}
+          </>
+        }
+        // listen / pair: the explanation may quote the transcript — it comes with the server's verdict instead
+        explanation={unit.speak ? explanation : null}
+        options={unit.options.map((o, i) => ({ id: o.id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang} /> : options[i] }))}
+        exercise={null}
+        variant="inline"
+        lang={lang}
+        speak={unit.speak ? { text: unit.speak.text, ipa: unit.speak.ipa, ipaUs: unit.speak.ipaUs, translation: unit.speak.translation, slow: unit.speak.slow } : null}
+      />
+    )
+  }
   // Article quizzes are practice: the key ships for an instant verdict; XP is granted only by the server's own check.
   return (
     <QuizInline
@@ -93,6 +131,7 @@ async function TaskBlock({ unit, env }: { unit: TaskUnit; env: RenderEnv }) {
 export async function UnitBlock({ unitId, env }: { unitId: string; env: RenderEnv }) {
   const unit = env.snapshot.units.get(unitId)
   if (!unit) return null
+  if (unit.kind === 'flashcard' && unit.word) return <WordInline id={unit.id} word={unit.word} lang={await speechLangFor(unit)} level={unit.level ?? null} />
   if (unit.kind === 'flashcard') return <FlashcardInline unit={unit} env={env} />
   if (unit.kind === 'quiz') return <QuizBlock unit={unit} env={env} />
   return <TaskBlock unit={unit} env={env} />

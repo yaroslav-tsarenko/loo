@@ -1,5 +1,6 @@
 'use server'
 
+import { after } from 'next/server'
 import { z } from 'zod'
 import { BUCKS, buckRef, canStartTest, GEMS, gemRef } from '@/game'
 import { dayKey } from '@/progress/day'
@@ -12,9 +13,8 @@ import { limitUser } from '../courses/limits'
 import { exerciseUnit } from '../courses/registry'
 import { readTestRecord, resolveTestById, saveGrade, sectionUnfinished, startAttempt } from '../courses/tests'
 import { attemptSeed, drawTest, fallbackPool, gradeAnswer, testBonus } from '../courses/tests-core'
-import { awardBucks, awardGems, grantXp, loadState, settleGame, touchLeague } from '../game'
-import { settleMission } from '../services/mission'
-import { addDailyXp, evaluateAchievements } from '../services/progress'
+import { awardBucks, awardGems, grantXp, loadState, touchLeague } from '../game'
+import { addDailyXp, settleProgress } from '../services/progress'
 
 // Topic tests (🏁) and section exams (👑). The page draws attempt n with the seed `${userId}:${n}`; startTest records
 // the attempt, submitTest re-draws it on the server, re-checks every answer against the content and stores the score.
@@ -111,9 +111,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
       if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason })
       const gems = scored.passed && test.kind === 'section-exam' ? await awardGems(tx, userId, { amount: GEMS.sectionExam, reason, refId: gemRef.exam(test.id), now }) : 0
       if (gems > 0) effects.push({ type: 'gems', amount: gems, reason })
-      effects.push(...(await settleMission(tx, userId, now)))
-      effects.push(...(await settleGame(tx, userId, now)))
-      effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))
+      effects.push(...(await settleProgress(tx, userId, snapshot, now)).effects)
       return {
         passed: scored.passed,
         correct: scored.correct,
@@ -131,7 +129,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
     },
     { tx: true },
   )
-  // Leagues are joined outside the user's transaction (src/server/game/leagues.ts).
-  if (outcome.effects.some((e) => e.type === 'xp')) await touchLeague(user.id, now)
+  // Leagues are joined outside the user's transaction (src/server/game/leagues.ts), after the response.
+  if (outcome.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))
   return outcome
 }

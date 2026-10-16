@@ -1,16 +1,13 @@
 import type { Root, RootContent, PhrasingContent } from 'mdast'
-import { levelLabel } from '@/game/evolution'
+import { CEFR_LEVELS, levelLabel } from '@/game/evolution'
 
-export const LEVELS = ['junior', 'middle', 'senior', 'techlead'] as const
+// Content difficulty: the legacy IT levels of programming guides, plus CEFR (A1…C2) for language guides.
+export const IT_CONTENT_LEVELS = ['junior', 'middle', 'senior', 'techlead'] as const
+export const LEVELS = [...IT_CONTENT_LEVELS, ...CEFR_LEVELS] as const
 export type Level = (typeof LEVELS)[number]
 
-// Shown as the matching IT rank (src/game/evolution.ts): junior → Junior … techlead → Staff.
-export const LEVEL_LABEL: Record<Level, string> = {
-  junior: levelLabel('junior'),
-  middle: levelLabel('middle'),
-  senior: levelLabel('senior'),
-  techlead: levelLabel('techlead'),
-}
+// Shown as the matching IT rank (src/game/evolution.ts): junior → Junior … techlead → Staff; CEFR: «A1 · Початковий».
+export const LEVEL_LABEL = Object.fromEntries(LEVELS.map((l) => [l, levelLabel(l)])) as Record<Level, string>
 
 export const FREQUENCIES = ['рідко', 'іноді', 'часто', 'дуже часто'] as const
 export type Frequency = (typeof FREQUENCIES)[number]
@@ -122,9 +119,76 @@ export interface FlashcardUnit extends UnitBase {
   questionText: string
   answer: Root
   origin: 'callout' | 'heading' | 'json'
+  // [!word] card (language courses)
+  word?: WordSpec
+  // spoken language of a language block (`lang:` meta, BCP 47); default — the course's `target`
+  lang?: string
 }
 
-export type QuizMode = 'single' | 'multi' | 'output' | 'order' | 'fill'
+// listen / pair / speak — language blocks [!listen] [!pair] [!speak] (docs/LANGUAGE_COURSE.md, src/content/blocks/lang)
+export type QuizMode = 'single' | 'multi' | 'output' | 'order' | 'fill' | 'listen' | 'pair' | 'speak'
+
+// ── Language blocks ──────────────────────────────────────────────────────────────────────────────────────────
+
+// One spoken line; dialogues alternate voices by speaker («audio: A: Where are you from?»).
+export interface AudioLine {
+  speaker: string | null
+  text: string
+}
+
+export type ListenType = 'choice' | 'dictation' | 'answer'
+
+// [!listen]: what is played. The text reaches the browser only when the learner presses play (browser TTS needs it);
+// graded payloads never carry it or the right option (src/server/actions/speech.ts).
+export interface ListenSpec {
+  type: ListenType
+  lines: AudioLine[]
+  slow: boolean
+  // dictation: extra accepted transcriptions (`accept: a | b`)
+  accept: string[]
+}
+
+export interface PairWord {
+  word: string
+  ipa: string | null
+}
+
+// [!pair]: two words that differ in one sound; the learner hears `say` and picks it (options a / b).
+export interface PairSpec {
+  words: [PairWord, PairWord]
+  say: string
+  tip: string | null
+}
+
+// [!speak]: say `text` aloud; the browser recognises it, the server compares word by word (blocks/lang/grade.ts).
+export interface SpeakSpec {
+  text: string
+  ipa: string | null
+  ipaUs: string | null
+  tip: string | null
+  translation: string | null
+  slow: boolean
+}
+
+export interface WordExample {
+  en: string
+  // translation (the instruction language)
+  tr: string | null
+  // words the author bolded in the example (the headword in context)
+  bold: string[]
+}
+
+// [!word]: an SRS card — front: word + audio + IPA; back: translation, examples, forms.
+export interface WordSpec {
+  word: string
+  ipa: string | null
+  ipaUs: string | null
+  pos: string | null
+  translations: string[]
+  examples: WordExample[]
+  forms: string | null
+  note: string | null
+}
 
 // Parsons problem: pieces in the correct order; distractors stay where the author wrote them
 export interface OrderPiece {
@@ -167,6 +231,11 @@ export interface QuizUnit extends UnitBase {
   freeAnswer: string | null
   explanation: Root | null
   exercise: QuizExercise | null
+  // language blocks: mode 'listen' / 'pair' / 'speak'
+  listen?: ListenSpec
+  pair?: PairSpec
+  speak?: SpeakSpec
+  lang?: string
 }
 
 export interface TaskUnit extends UnitBase {
@@ -191,7 +260,7 @@ export type LearningUnit = FlashcardUnit | QuizUnit | TaskUnit
 
 export interface ContentIssue {
   severity: 'warning' | 'error'
-  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block'
+  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block'
   path: string
   message: string
 }

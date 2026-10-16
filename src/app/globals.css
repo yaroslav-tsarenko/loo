@@ -21,6 +21,7 @@
 @import './diagram.css'; /* [!diagram] figures */
 @import './game.css'; /* hearts, gems, shop, leagues, ranks */
 @import './stats.css'; /* profile statistics, «+1% щодня» coach */
+@import './lang.css'; /* language courses: audio, IPA, words, listening, dictation, pronunciation */
 
 /* Legacy (reader/study/viz) variables, now aliases of the Levelup palette (tokens.css) so every screen shares one look. */
 :root {

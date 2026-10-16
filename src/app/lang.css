@@ -1,0 +1,205 @@
+/* Language courses (docs/LANGUAGE_COURSE.md): audio, IPA, word cards, listening, dictation, pronunciation.
+   «Loo Pixel-soft» (docs/DESIGN.md): soft 2px blocks with a flat lip, violet primary, mint secondary,
+   green only for right, red only for wrong. Pixel accents: the stepped-corner play / mic buttons. */
+
+/* ── Audio button ─────────────────────────────────────────────────────────────── */
+.lang-audio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lu-s-2);
+  flex-wrap: wrap;
+  vertical-align: middle;
+}
+.lang-audio-play,
+.lang-audio-slow {
+  --s: 40px;
+  display: inline-grid;
+  place-items: center;
+  inline-size: var(--s);
+  block-size: var(--s);
+  border: 2px solid var(--lu-violet-lip);
+  border-radius: var(--lu-r);
+  background: var(--lu-violet);
+  color: var(--lu-on-color);
+  box-shadow: 0 3px 0 var(--lu-violet-lip);
+  font-size: calc(var(--s) * 0.5);
+  cursor: pointer;
+  transition: transform var(--lu-dur-1) var(--lu-ease), box-shadow var(--lu-dur-1) var(--lu-ease);
+  clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+}
+.lang-audio-slow {
+  background: var(--lu-mint-soft);
+  border-color: var(--lu-mint-lip);
+  color: var(--lu-mint-ink);
+  box-shadow: 0 3px 0 var(--lu-mint-lip);
+}
+.lang-audio-play:hover { background: var(--lu-violet-hover); }
+.lang-audio-play:active,
+.lang-audio-slow:active { transform: translateY(3px); box-shadow: 0 0 0 transparent; }
+.lang-audio[data-size='sm'] .lang-audio-play,
+.lang-audio[data-size='sm'] .lang-audio-slow { --s: 30px; }
+.lang-audio[data-size='lg'] .lang-audio-play { --s: 64px; }
+.lang-audio[data-size='lg'] .lang-audio-slow { --s: 48px; }
+.lang-audio[data-phase='playing'] .lang-audio-play { animation: lang-pulse 1s var(--lu-ease) infinite; }
+.lang-audio[data-phase='loading'] .lang-audio-play { opacity: 0.7; cursor: progress; }
+@keyframes lang-pulse {
+  50% { transform: scale(1.06); }
+}
+.lang-audio-missing {
+  gap: var(--lu-s-2);
+  padding: var(--lu-s-2) var(--lu-s-3);
+  border: 2px dashed var(--lu-border-strong);
+  border-radius: var(--lu-r);
+  color: var(--lu-text-2);
+  font-size: var(--lu-fs-sm);
+}
+.lang-audio-error { color: var(--lu-red-ink); font-size: var(--lu-fs-sm); }
+
+.lang-accent {
+  display: inline-flex;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  overflow: hidden;
+}
+.lang-accent button {
+  padding: 2px 8px;
+  border: 0;
+  background: var(--lu-surface);
+  color: var(--lu-text-3);
+  font: inherit;
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-bold);
+  cursor: pointer;
+}
+.lang-accent button[data-on] { background: var(--lu-violet-soft); color: var(--lu-violet-ink); }
+
+/* ── IPA chip ─────────────────────────────────────────────────────────────────── */
+.lang-ipa {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 1px 8px;
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+  font-family: 'Charis SIL', 'Doulos SIL', 'Gentium Plus', 'Noto Sans', var(--lu-font);
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+.lang-ipa-region { font-family: var(--lu-font); font-size: var(--lu-fs-2xs); font-weight: var(--lu-fw-bold); opacity: 0.7; }
+
+/* ── Word card ([!word]) ──────────────────────────────────────────────────────── */
+.lang-word-front {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lu-s-2) var(--lu-s-3);
+}
+.lang-word-text { font-size: var(--lu-fs-2xl); font-weight: var(--lu-fw-black); letter-spacing: -0.01em; }
+.lang-word-meta { display: inline-flex; align-items: center; gap: var(--lu-s-2); flex-wrap: wrap; }
+.lang-word-pos { color: var(--lu-text-3); font-size: var(--lu-fs-sm); font-style: italic; }
+.lang-word-back { display: grid; gap: var(--lu-s-3); }
+.lang-word-tr { margin: 0; font-size: var(--lu-fs-xl); font-weight: var(--lu-fw-bold); }
+.lang-word-examples { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--lu-s-2); }
+.lang-word-examples li { display: flex; align-items: flex-start; gap: var(--lu-s-2); }
+.lang-word-en { font-weight: 600; }
+.lang-word-ex-tr { color: var(--lu-text-2); }
+.lang-word-hl { background: var(--lu-yellow-soft); color: inherit; border-radius: 3px; padding: 0 2px; }
+.lang-word-forms,
+.lang-word-note { margin: 0; color: var(--lu-text-2); }
+.lang-word > summary .lang-word-front { flex: 1; }
+.lang-word > .lang-word-back { padding: var(--lu-s-3) var(--lu-s-4) var(--lu-s-4); }
+.flashcard-question .lang-word-front,
+.lesson-question .lang-word-front { justify-content: center; }
+
+/* ── Listening, minimal pairs ─────────────────────────────────────────────────── */
+.lang-listen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lu-s-2);
+  padding: var(--lu-s-4);
+  margin-block: var(--lu-s-2);
+  border: 2px solid var(--lu-pink-soft);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface-2);
+}
+.lang-listen-hint { margin: 0; color: var(--lu-text-3); font-size: var(--lu-fs-sm); text-align: center; }
+.lang-pair { border-color: var(--lu-orange-soft); }
+.lang-pair-option { display: inline-flex; align-items: center; gap: var(--lu-s-2); font-size: var(--lu-fs-lg); font-weight: var(--lu-fw-bold); }
+
+/* ── Dictation ────────────────────────────────────────────────────────────────── */
+.lang-dictation { display: grid; gap: var(--lu-s-2); inline-size: 100%; }
+.lang-dictation-input { inline-size: 100%; resize: vertical; min-block-size: 3.2em; font-size: var(--lu-fs-lg); }
+.lang-diff { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; font-size: var(--lu-fs-lg); }
+.lang-diff-word { padding: 0 4px; border-radius: var(--lu-r-xs); background: var(--lu-red-soft); color: var(--lu-red-ink); text-decoration: underline wavy; text-underline-offset: 4px; }
+.lang-diff-word[data-ok] { background: var(--lu-green-soft); color: var(--lu-green-ink); text-decoration: none; }
+
+/* ── Pronunciation ([!speak]) ─────────────────────────────────────────────────── */
+.lang-speak { display: grid; gap: var(--lu-s-4); }
+.lang-speak-target {
+  display: grid;
+  gap: var(--lu-s-2);
+  justify-items: center;
+  padding: var(--lu-s-4);
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
+  box-shadow: 0 4px 0 var(--lu-border);
+  text-align: center;
+}
+.lang-speak-text { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 8px; margin: 0; font-size: var(--lu-fs-2xl); font-weight: var(--lu-fw-black); }
+.lang-speak-text .lang-diff-word { text-decoration-thickness: 2px; }
+.lang-speak-meta { display: inline-flex; align-items: center; gap: var(--lu-s-2); flex-wrap: wrap; justify-content: center; }
+.lang-speak-tr { margin: 0; color: var(--lu-text-2); }
+.lang-speak-mic { display: grid; justify-items: center; gap: var(--lu-s-3); }
+.lang-mic {
+  --level: 0;
+  display: grid;
+  place-items: center;
+  inline-size: 84px;
+  block-size: 84px;
+  border: 3px solid var(--lu-mint-lip);
+  border-radius: 50%;
+  background: var(--lu-mint);
+  color: var(--lu-on-mint);
+  font-size: 38px;
+  box-shadow: 0 5px 0 var(--lu-mint-lip), 0 0 0 calc(var(--level) * 18px) color-mix(in srgb, var(--lu-mint) 35%, transparent);
+  cursor: pointer;
+  transition: box-shadow 80ms linear, transform var(--lu-dur-1) var(--lu-ease);
+}
+.lang-mic[data-on] { background: var(--lu-red); border-color: var(--lu-red-lip); color: var(--lu-on-color); box-shadow: 0 5px 0 var(--lu-red-lip), 0 0 0 calc(var(--level) * 18px) color-mix(in srgb, var(--lu-red) 30%, transparent); }
+.lang-mic:active { transform: translateY(4px); }
+.lang-mic:disabled { opacity: 0.55; cursor: default; }
+.lang-meter { display: inline-flex; gap: 3px; block-size: 14px; align-items: flex-end; }
+.lang-meter span { inline-size: 6px; block-size: 100%; background: var(--lu-border); border-radius: 1px; }
+.lang-meter span:nth-child(odd) { block-size: 70%; }
+.lang-meter span[data-on] { background: var(--lu-mint); }
+.lang-speak-status { margin: 0; color: var(--lu-text-2); text-align: center; min-block-size: 1.5em; }
+.lang-hints { margin: 0; padding: var(--lu-s-3) var(--lu-s-4) var(--lu-s-3) var(--lu-s-6); border-radius: var(--lu-r); background: var(--lu-yellow-soft); color: var(--lu-text); display: grid; gap: var(--lu-s-1); }
+.lang-speak-skip { font-size: var(--lu-fs-sm); }
+.lang-speak-fallback { display: grid; gap: var(--lu-s-3); color: var(--lu-text-2); }
+.lang-speak-fallback p { margin: 0; }
+
+/* ── Practice pages (/words, /listening, /pronunciation, /grammar) ─────────────── */
+.lang-vocab { display: grid; gap: var(--lu-s-2); margin: 0; padding: 0; list-style: none; }
+/* /words lists a whole course (1000+ words): off-screen groups skip layout and paint until scrolled near (docs/PERFORMANCE.md) */
+.lang-vocab { content-visibility: auto; contain-intrinsic-size: auto 480px; }
+.lang-vocab li { display: flex; align-items: center; gap: var(--lu-s-3); padding: var(--lu-s-2) var(--lu-s-3); border: 2px solid var(--lu-border); border-radius: var(--lu-r); background: var(--lu-surface); }
+.lang-vocab-word { font-weight: var(--lu-fw-black); }
+.lang-vocab-tr { color: var(--lu-text-2); margin-inline-start: auto; text-align: end; }
+.lang-topics { display: grid; gap: var(--lu-s-2); margin: 0; padding: 0; list-style: none; }
+.lang-topics a { display: flex; gap: var(--lu-s-3); align-items: center; padding: var(--lu-s-2) var(--lu-s-3); border: 2px solid var(--lu-border); border-radius: var(--lu-r); background: var(--lu-surface); color: inherit; text-decoration: none; }
+.lang-topics a:hover { border-color: var(--lu-violet); }
+.lang-topics small { margin-inline-start: auto; color: var(--lu-text-3); }
+
+/* «скоро» sections on the course path (course.yaml status: planned) */
+.cp-planned { margin: 0; color: var(--lu-text-3); font-size: var(--lu-fs-sm); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-audio[data-phase='playing'] .lang-audio-play { animation: none; }
+  .lang-mic { transition: none; }
+}
+
+/* placement: manual level choice of language courses */
+.placement-manual { display: grid; gap: var(--lu-s-2); }

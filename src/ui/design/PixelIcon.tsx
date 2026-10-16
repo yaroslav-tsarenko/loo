@@ -16,19 +16,18 @@ const PAL = PIXEL_PALETTE
 export type PixelIconName = keyof typeof ART
 export const PIXEL_ICONS = Object.keys(ART) as PixelIconName[]
 
-interface Run {
-  x: number
-  y: number
-  w: number
-  c: string
+interface Layer {
+  fill: string
+  d: string
 }
 
-// Horizontal runs of one colour → one <rect> each (≈60 rects per icon instead of ≈200 cells).
-const RUNS = new Map<PixelIconName, Run[]>()
-function runs(name: PixelIconName): Run[] {
-  let out = RUNS.get(name)
+// Horizontal runs of one colour, all runs of a colour in ONE <path> (`M x y h w v1.02 h-w z` each): ≈1 KB of markup per
+// icon instead of ≈4 KB of <rect>s — a course path page shows hundreds of them (docs/PERFORMANCE.md).
+const LAYERS = new Map<PixelIconName, Layer[]>()
+function layers(name: PixelIconName): Layer[] {
+  let out = LAYERS.get(name)
   if (out) return out
-  out = []
+  const byFill = new Map<string, string>()
   ART[name].forEach((row, y) => {
     let x = 0
     while (x < row.length) {
@@ -36,11 +35,12 @@ function runs(name: PixelIconName): Run[] {
       let w = 1
       while (row.charAt(x + w) === c) w++
       const fill = PAL[c]
-      if (fill) out!.push({ x, y, w, c: fill })
+      if (fill) byFill.set(fill, `${byFill.get(fill) ?? ''}M${x} ${y}h${w}v1.02h-${w}z`)
       x += w
     }
   })
-  RUNS.set(name, out)
+  out = [...byFill].map(([fill, d]) => ({ fill, d }))
+  LAYERS.set(name, out)
   return out
 }
 
@@ -57,8 +57,8 @@ export function PixelIcon({ name, size = 32, label, className }: { name: PixelIc
       aria-hidden={label ? undefined : true}
       focusable="false"
     >
-      {runs(name).map((r, i) => (
-        <rect key={i} x={r.x} y={r.y} width={r.w} height={1.02} fill={r.c} />
+      {layers(name).map((l) => (
+        <path key={l.fill} d={l.d} fill={l.fill} />
       ))}
     </svg>
   )

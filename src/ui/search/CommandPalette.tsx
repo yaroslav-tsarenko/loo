@@ -4,6 +4,8 @@ import { FileText, Braces, Layers, ListChecks, Search, CornerDownLeft } from 'lu
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { OPEN_PALETTE } from '@/ui/shell/constants'
+import { ALL_PRACTICE_NAV } from '@/ui/shell/course-nav'
+import { usePractice } from '@/ui/shell/NavLinks'
 
 interface Hit {
   id: string
@@ -30,6 +32,8 @@ const COMMANDS: Hit[] = [
   { id: 'cmd:profile', type: 'command', title: 'Профіль і статистика', context: 'XP, точність, активність', href: '/profile' },
   { id: 'cmd:settings', type: 'command', title: 'Налаштування', context: 'Vault, тема, звук, мета', href: '/settings' },
 ]
+
+const PRACTICE_HREFS = new Set(ALL_PRACTICE_NAV.map((p) => p.href))
 
 export function CommandPalette() {
   const router = useRouter()
@@ -92,7 +96,10 @@ export function CommandPalette() {
     }
   }, [query])
 
-  const shown = query.trim() ? hits : COMMANDS
+  // Practice commands only for sections the active course has (no «Задачі» in a language course).
+  const own = new Set(usePractice().map((p) => p.href))
+  const offered = (h: Hit) => h.type !== 'command' || !PRACTICE_HREFS.has(h.href) || own.has(h.href)
+  const shown = (query.trim() ? hits : COMMANDS).filter(offered)
 
   const go = (hit: Hit | undefined) => {
     if (!hit) return

@@ -32,6 +32,12 @@ export function normalizeTerm(term: string): string | null {
 const indexes = new WeakMap<ContentSnapshot, MiniSearch<SearchDoc>>()
 
 function build(snapshot: ContentSnapshot): MiniSearch<SearchDoc> {
+  const { mini, docs } = prepare(snapshot)
+  mini.addAll(docs)
+  return mini
+}
+
+function prepare(snapshot: ContentSnapshot): { mini: MiniSearch<SearchDoc>; docs: SearchDoc[] } {
   const mini = new MiniSearch<SearchDoc>({
     fields: ['title', 'text'],
     storeFields: ['type', 'title', 'context', 'chapterId', 'guideId'],
@@ -64,8 +70,24 @@ function build(snapshot: ContentSnapshot): MiniSearch<SearchDoc> {
       guideId: unit.guideId,
     })
   }
-  mini.addAll(docs)
-  return mini
+  return { mini, docs }
+}
+
+const warming = new WeakMap<ContentSnapshot, Promise<void>>()
+
+// Builds the index in the background, in small chunks (the full build is ~0.7 s of CPU: done in one go it would stall
+// every request on the instance). searchContent() before it finishes builds synchronously, as before.
+export function warmSearchIndex(snapshot: ContentSnapshot): Promise<void> {
+  if (indexes.has(snapshot)) return Promise.resolve()
+  let pending = warming.get(snapshot)
+  if (!pending) {
+    const { mini, docs } = prepare(snapshot)
+    pending = mini.addAllAsync(docs, { chunkSize: 200 }).then(() => {
+      if (!indexes.has(snapshot)) indexes.set(snapshot, mini)
+    })
+    warming.set(snapshot, pending)
+  }
+  return pending
 }
 
 export function searchContent(snapshot: ContentSnapshot, query: string, limit = 24): SearchHit[] {

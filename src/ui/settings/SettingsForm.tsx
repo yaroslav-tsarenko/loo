@@ -107,6 +107,21 @@ export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { i
             <span>{values.haptics ? 'Увімкнено' : 'Вимкнено'}</span>
           </label>
         </Row>
+        <Row label="Акцент англійської" hint="Голос озвучки й транскрипція в мовних курсах (голоси — системні, безкоштовні)">
+          <div className="segmented" role="radiogroup" aria-label="Акцент">
+            {(
+              [
+                ['en-GB', 'Британський'],
+                ['en-US', 'Американський'],
+              ] as const
+            ).map(([v, l]) => (
+              <label key={v}>
+                <input type="radio" name="accent" checked={values.accent === v} onChange={() => save('accent', v)} />
+                <span>{l}</span>
+              </label>
+            ))}
+          </div>
+        </Row>
         <Row label="Гучність" htmlFor="volume">
           <div className="range-row">
             <input

@@ -11,6 +11,9 @@ export const QUIZ_MODE_LABEL: Record<QuizMode, string> = {
   output: 'Що виведе код',
   order: 'Склади код',
   fill: 'Заповни пропуски',
+  listen: 'Аудіювання',
+  pair: 'Мінімальні пари',
+  speak: 'Вимова',
 }
 
 function tally<T extends string>(values: Iterable<T | null>): Map<T, number> {
@@ -19,12 +22,15 @@ function tally<T extends string>(values: Iterable<T | null>): Map<T, number> {
   return map
 }
 
-export function filterOptions(snapshot: ContentSnapshot, kind: UnitKind, f: StudyFilters, pool: ReadonlySet<string> | null = null) {
+// pool: exercise ids of the active course (counts without a guide pick); courseGuides: guides offered in the material
+// select (the active course's; null = every guide, «усі курси»). A picked guide outside them stays selectable.
+export function filterOptions(snapshot: ContentSnapshot, kind: UnitKind, f: StudyFilters, pool: ReadonlySet<string> | null = null, courseGuides: ReadonlySet<string> | null = null) {
   const every = [...snapshot.units.values()].filter((u): u is LearningUnit => u.kind === kind)
-  // Any guide can be picked; without a pick, counts describe the active course (pool).
   const all = pool && !f.guide ? every.filter((u) => pool.has(u.id)) : every
   const byGuide = tally(every.map((u) => u.guideId))
-  const guides: Option[] = snapshot.guides.filter((g) => byGuide.has(g.id)).map((g) => ({ value: g.id, label: g.title, count: byGuide.get(g.id) }))
+  const guides: Option[] = snapshot.guides
+    .filter((g) => byGuide.has(g.id) && (!courseGuides || courseGuides.has(g.id) || g.id === f.guide))
+    .map((g) => ({ value: g.id, label: g.title, count: byGuide.get(g.id) }))
   const inGuide = f.guide ? all.filter((u) => u.guideId === f.guide) : []
   const byChapter = tally(inGuide.map((u) => u.chapterId))
   const order = unitOrder(snapshot)

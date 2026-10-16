@@ -891,3 +891,52 @@
 .lesson-node[data-optional][data-state='upcoming'] .lesson-bubble-glyph .lu-icon {
   transform: scale(0.8);
 }
+
+/* /g — every guide (the sidebar «Теорія» shows only the active course's) */
+.guide-grid {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 12px;
+}
+.guide-card.lu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  height: 100%;
+}
+.guide-card-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--lu-r);
+  background: var(--lu-surface-2);
+}
+.guide-card-body {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+.guide-card-title {
+  font-weight: var(--lu-fw-black);
+  color: var(--lu-text);
+}
+.guide-card-desc {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--lu-text-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.guide-card-meta {
+  font-size: 12.5px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-3);
+}

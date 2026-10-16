@@ -16,9 +16,9 @@ import {
   type StatsAggregates,
 } from '@/progress/stats'
 import { userScope } from '../auth'
-import { readSettings } from '../settings'
-import { activeCourse } from '../courses/enrollment'
-import { statsAggregates } from './aggregates'
+import { readSettings, type AppSettings } from '../settings'
+import { activeCourse, type ActiveCourse } from '../courses/enrollment'
+import { loadAggregates } from './queries'
 import { topicTitles } from './topics'
 
 // The day's «+1%» goal is frozen when first shown (the baseline must not drift while the learner works on it) and kept
@@ -153,8 +153,7 @@ function daysSince(at: number | null, now: number): number | null {
   return Math.max(0, Math.round((dayStartMs(now) - dayStartMs(at)) / DAY))
 }
 
-async function planFor(snapshot: ContentSnapshot, agg: StatsAggregates, hasNextLesson: boolean, now: number): Promise<CoachGoal> {
-  const [settings, active] = await Promise.all([readSettings(), activeCourse()])
+function planFor(snapshot: ContentSnapshot, agg: StatsAggregates, hasNextLesson: boolean, now: number, settings: Pick<AppSettings, 'dailyGoal'>, active: ActiveCourse | null): CoachGoal {
   const titles = topicTitles(snapshot, active?.bundle ?? null)
   const topics = agg.topics.flatMap((t) => {
     const title = titles.get(t.chapterId)?.title
@@ -174,41 +173,59 @@ async function planFor(snapshot: ContentSnapshot, agg: StatsAggregates, hasNextL
 }
 
 // Today's «+1%» goal with its live progress and the 1% streak. `nextHref` is where «go» leads for path-type goals.
-export async function getCoach(snapshot: ContentSnapshot, next: { href: string | null }, now = Date.now()): Promise<CoachView> {
+export async function getCoach(snapshot: ContentSnapshot, next: { href: string | null }, now = Date.now(), agg?: StatsAggregates): Promise<CoachView> {
+  const [settings, active] = await Promise.all([readSettings(), activeCourse()])
+  return userScope((db, userId) => getCoachIn(db, userId, snapshot, next, { settings, active, agg }, now), { tx: true })
+}
+
+// getCoach inside the caller's transaction: the aggregates (unless given) and the stored log in one round trip, then
+// every goal still to measure at once, then the log write when something changed.
+export async function getCoachIn(
+  db: Conn,
+  userId: string,
+  snapshot: ContentSnapshot,
+  // may still be resolving (the home page computes the mission cursor alongside)
+  nextHref: { href: string | null } | Promise<{ href: string | null }>,
+  ctx: { settings: Pick<AppSettings, 'dailyGoal'>; active: ActiveCourse | null; agg?: StatsAggregates | Promise<StatsAggregates> },
+  now = Date.now(),
+): Promise<CoachView> {
   const today = dayKey(now)
-  const agg = await statsAggregates()
-  const stored = await userScope(async (db, userId) => parseLog((await first(db.select({ value: userSettings.value }).from(userSettings).where(and(eq(userSettings.userId, userId), eq(userSettings.key, COACH_KEY)))))?.value))
+  const [agg, storedValue, next] = await Promise.all([
+    ctx.agg ?? loadAggregates(db, userId, now),
+    first(db.select({ value: userSettings.value }).from(userSettings).where(and(eq(userSettings.userId, userId), eq(userSettings.key, COACH_KEY)))),
+    nextHref,
+  ])
+  const stored = parseLog(storedValue?.value)
   let changed = false
   let todayEntry = stored.entries.find((e) => e.goal.day === today)
   if (!todayEntry) {
-    todayEntry = { goal: await planFor(snapshot, agg, next.href !== null, now), done: false, final: false }
+    todayEntry = { goal: planFor(snapshot, agg, next.href !== null, now, ctx.settings, ctx.active), done: false, final: false }
     stored.entries.push(todayEntry)
     changed = true
   }
   const entry = todayEntry
-  const result = await userScope(async (db, userId) => {
-    // settle past days that ended before their outcome was recorded
-    for (const e of stored.entries) {
-      if (e.final || e.goal.day >= today) continue
-      if (!e.done) e.done = coachProgress(e.goal, await measureGoal(db, userId, e.goal)).done
-      e.final = true
-      changed = true
-    }
-    const progress = coachProgress(entry.goal, await measureGoal(db, userId, entry.goal))
-    if (progress.done && !entry.done) {
-      entry.done = true
-      changed = true
-    }
-    if (changed) {
-      const keepFrom = shiftDay(today, -KEEP_DAYS)
-      const value: CoachLog = { v: 1, entries: stored.entries.filter((e) => e.goal.day >= keepFrom).sort((a, b) => a.goal.day.localeCompare(b.goal.day)) }
-      await db
-        .insert(userSettings)
-        .values({ userId, key: COACH_KEY, value })
-        .onConflictDoUpdate({ target: [userSettings.userId, userSettings.key], set: { value } })
-    }
-    return progress
+  // settle past days that ended before their outcome was recorded (measured together with today's goal)
+  const past = stored.entries.filter((e) => !e.final && e.goal.day < today)
+  const [pastMeasures, measure] = await Promise.all([Promise.all(past.map((e) => (e.done ? null : measureGoal(db, userId, e.goal)))), measureGoal(db, userId, entry.goal)])
+  past.forEach((e, i) => {
+    const m = pastMeasures[i]
+    if (!e.done && m) e.done = coachProgress(e.goal, m).done
+    e.final = true
+    changed = true
   })
+  const result = coachProgress(entry.goal, measure)
+  if (result.done && !entry.done) {
+    entry.done = true
+    changed = true
+  }
+  if (changed) {
+    const keepFrom = shiftDay(today, -KEEP_DAYS)
+    const value: CoachLog = { v: 1, entries: stored.entries.filter((e) => e.goal.day >= keepFrom).sort((a, b) => a.goal.day.localeCompare(b.goal.day)) }
+    await db
+      .insert(userSettings)
+      .values({ userId, key: COACH_KEY, value })
+      .onConflictDoUpdate({ target: [userSettings.userId, userSettings.key], set: { value } })
+  }
   const history: CoachDay[] = stored.entries.map((e) => ({ day: e.goal.day, done: e.done }))
   const streak = onePercentStreak(history, today)
   const doneDays = new Set(history.filter((h) => h.done).map((h) => h.day))

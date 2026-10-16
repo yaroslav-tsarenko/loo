@@ -9,6 +9,8 @@ export interface ExtractContext {
   sectionSlug: string | null
   level: Level | null
   resolveId: (explicit: string | null, basis: string) => { id: string; source: IdSource }
+  // authoring problems of a block (content:check, course:check, settings → «Проблеми контенту»)
+  report?: (severity: 'warning' | 'error', message: string) => void
 }
 
 export interface UnitDefinition {

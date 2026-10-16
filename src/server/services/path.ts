@@ -9,7 +9,7 @@ import type { ContentSnapshot } from '@/content/store'
 import { chapterMastery, STABLE_DAYS, type ChapterSignals, type Mastery } from '@/progress/mastery'
 import { chapterHref } from '@/ui/routes'
 import { userScope } from '../auth'
-import { chapterProgressMap, readableChapters } from './library'
+import { pageProgress, readableChapters } from './library'
 import { courseLessons, lessonProgressMap } from './lessons'
 import { lastOutcomes } from './queue'
 
@@ -61,7 +61,7 @@ export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promis
   const chapters = readableChapters(snapshot, guide)
   const units = chapters.flatMap((c) => snapshot.unitsByChapter.get(c.id) ?? [])
   const [progress, outcomes, [srsRows, solvedRows], lessonRows] = await Promise.all([
-    chapterProgressMap(),
+    pageProgress(),
     lastOutcomes(units.filter((u) => u.kind === 'quiz').map((u) => u.id)),
     userScope((db, userId) =>
       Promise.all([

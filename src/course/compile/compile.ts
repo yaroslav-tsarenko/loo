@@ -6,11 +6,14 @@ import type { CourseIssue } from '../issues'
 import {
   BUNDLE_FORMAT,
   byLevel,
+  courseLadder,
   expandRange,
+  LADDERS,
   levelRank,
   maxLevel,
   minLevel,
   toCourseLevel,
+  type LevelLadder,
   type CourseBundle,
   type CourseManifest,
   type CourseStats,
@@ -25,6 +28,8 @@ import {
   type SectionManifest,
   type Topic,
   type TopicTest,
+  kindForSubject,
+  resolvePractice,
 } from '../schema'
 import { PACE, isInterviewUnit, topicLessons } from './lessons'
 import { chapterUnits, findGuide, type CourseSource } from './source'
@@ -39,23 +44,33 @@ export interface CompileResult {
 // Fewer auto-graded quizzes than this → a test/exam is topped up with self-graded cards.
 export const MIN_AUTO_QUESTIONS = 5
 
-// Placement prefers quick, auto-graded formats.
-const QUICK_MODES = new Set(['single', 'multi', 'output'])
+// Placement prefers quick, auto-graded formats (a listening choice and a minimal pair count too).
+const QUICK_MODES = new Set(['single', 'multi', 'output', 'pair'])
 
-function exerciseKind(unit: LearningUnit): ExerciseKind {
-  if (unit.kind === 'flashcard') return isInterviewUnit(unit) ? 'interview' : 'flashcard'
+// Fallback level of a topic without any (course ladder).
+const DEFAULT_LEVEL: Record<LevelLadder, Level> = { it: 'junior', cefr: 'A1' }
+
+export function exerciseKind(unit: LearningUnit): ExerciseKind {
+  if (unit.kind === 'flashcard') return unit.word ? 'word' : isInterviewUnit(unit) ? 'interview' : 'flashcard'
+  if (unit.kind === 'quiz' && (unit.mode === 'listen' || unit.mode === 'pair' || unit.mode === 'speak')) return unit.mode
   return unit.kind
 }
+
+// Auto-graded by the server: everything a topic test / exam / placement may ask. [!speak] needs a microphone and a
+// recogniser, so it stays in lessons and «Вимова» only.
+export const isTestable = (unit: LearningUnit): boolean => unit.kind === 'quiz' && unit.mode !== 'speak'
+
+const isQuick = (unit: LearningUnit): boolean => unit.kind === 'quiz' && (QUICK_MODES.has(unit.mode) || (unit.mode === 'listen' && unit.listen?.type !== 'dictation'))
 
 export function unitMinutes(unit: LearningUnit): number {
   return PACE[unit.kind]
 }
 
 // Most common exercise level of a chapter — used when the chapter itself has no level.
-function dominantLevel(units: readonly LearningUnit[]): Level | null {
+function dominantLevel(units: readonly LearningUnit[], ladder: LevelLadder): Level | null {
   const counts = new Map<Level, number>()
   for (const u of units) {
-    const l = toCourseLevel(u.level)
+    const l = toCourseLevel(u.level, ladder)
     if (l) counts.set(l, (counts.get(l) ?? 0) + 1)
   }
   let best: Level | null = null
@@ -92,8 +107,33 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
     else reelsByChapter.set(r.chapterId, [r])
   }
 
+  const ladder = courseLadder({ levels: manifest.levels })
+  const quick = new Set<string>()
   const sections: Section[] = []
   manifest.sections.forEach((sm, sectionIndex) => {
+    if (sm.status === 'planned') {
+      // «скоро» on the path: no topics yet, never an error that its guide or chapters don't exist
+      const planned = findGuide(source, sm.from)
+      const level = sm.level ?? LADDERS[ladder][0]!
+      sections.push({
+        id: makeSectionId(courseId, sm.id),
+        key: sm.id,
+        index: sectionIndex,
+        kind: sm.kind,
+        title: sm.title,
+        description: sm.description ?? null,
+        icon: iconRef(sm.icon) ?? iconRef(planned?.icon),
+        guideId: planned?.id ?? sm.from,
+        guideDir: planned?.dir ?? sm.from,
+        level,
+        minLevel: level,
+        minutes: 0,
+        topics: [],
+        exam: null,
+        status: 'planned',
+      })
+      return
+    }
     const guide = findGuide(source, sm.from)
     if (!guide) {
       issues.push({ severity: 'error', code: 'missing-guide', where: sm.id, message: `Розділ «${sm.id}»: посібник «${sm.from}» не знайдено` })
@@ -132,10 +172,11 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
         }
         units.push(u)
       }
-      const contentLevel = toCourseLevel(chapter.level) ?? dominantLevel(units)
-      const topicLevel: Level = sm.level ?? contentLevel ?? toCourseLevel(guide.level) ?? 'junior'
+      const contentLevel = toCourseLevel(chapter.level, ladder) ?? dominantLevel(units, ladder)
+      const topicLevel: Level = sm.level ?? contentLevel ?? toCourseLevel(guide.level, ladder) ?? DEFAULT_LEVEL[ladder]
       units.forEach((u, position) => {
-        const own = toCourseLevel(u.level)
+        if (isQuick(u)) quick.add(u.id)
+        const own = toCourseLevel(u.level, ladder)
         exercises[u.id] = {
           id: u.id,
           kind: exerciseKind(u),
@@ -177,7 +218,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
         }
       })
 
-      const quizIds = units.filter((u) => u.kind === 'quiz').map((u) => u.id)
+      const quizIds = units.filter(isTestable).map((u) => u.id)
       const cardIds = units.filter((u) => u.kind === 'flashcard').map((u) => u.id)
       let test: TopicTest | null = null
       const cfg = manifest.exams.topic
@@ -233,8 +274,8 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       icon: iconRef(sm.icon) ?? iconRef(guide.icon),
       guideId: guide.id,
       guideDir: guide.dir,
-      level: maxLevel(topicLevels) ?? sm.level ?? 'junior',
-      minLevel: minLevel(topicLevels) ?? sm.level ?? 'junior',
+      level: maxLevel(topicLevels) ?? sm.level ?? DEFAULT_LEVEL[ladder],
+      minLevel: minLevel(topicLevels) ?? sm.level ?? DEFAULT_LEVEL[ladder],
       minutes: topics.reduce((sum, t) => sum + t.minutes, 0),
       topics,
       exam,
@@ -243,8 +284,21 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
   // Re-index after skipped (missing) sections so index == position.
   sections.forEach((s, i) => (s.index = i))
 
-  const placement = placementPool(manifest, sections, exercises)
-  const stats = courseStats(sections, exercises, reels)
+  // Sidebar «Теорія»: declared guides, or the guides the sections use (in order).
+  const theory: string[] = []
+  if (manifest.theory) {
+    for (const from of manifest.theory) {
+      const guide = findGuide(source, from)
+      if (!guide) issues.push({ severity: 'error', code: 'missing-guide', where: 'theory', message: `theory: посібник «${from}» не знайдено` })
+      else if (!theory.includes(guide.id)) theory.push(guide.id)
+    }
+  } else {
+    for (const s of sections) if (!theory.includes(s.guideId)) theory.push(s.guideId)
+  }
+  const kind = manifest.kind ?? kindForSubject(manifest.subject)
+
+  const placement = placementPool(manifest, sections, exercises, quick, ladder)
+  const stats = courseStats(sections, exercises, reels, ladder)
   const icons = [...new Set([iconRef(manifest.icon), ...sections.map((s) => s.icon), ...sections.flatMap((s) => s.topics.map((t) => t.icon))].filter((v): v is string => Boolean(v)))]
 
   const bundle: CourseBundle = {
@@ -256,7 +310,10 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       subtitle: manifest.subtitle ?? null,
       description: manifest.description ?? null,
       subject: manifest.subject,
+      kind,
+      practice: resolvePractice(kind, manifest.practice),
       language: manifest.language,
+      ...(manifest.target ? { target: manifest.target } : kind === 'language' ? { target: manifest.language } : {}),
       icon: iconRef(manifest.icon),
       color: manifest.color ?? null,
       cover: manifest.cover ?? null,
@@ -268,6 +325,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
     },
     exams: manifest.exams,
     sections,
+    theory,
     exercises,
     reels,
     placement,
@@ -281,25 +339,29 @@ export function compileCourse(manifest: CourseManifest, source: CourseSource): C
   return compileCourseDetailed(manifest, source).bundle
 }
 
-function placementPool(manifest: CourseManifest, sections: readonly Section[], exercises: Record<string, ExerciseRef>): PlacementPool {
+const PLACEMENT_KINDS = new Set<ExerciseKind>(['quiz', 'listen', 'pair'])
+
+function placementPool(manifest: CourseManifest, sections: readonly Section[], exercises: Record<string, ExerciseRef>, quickIds: ReadonlySet<string>, ladder: LevelLadder): PlacementPool {
   const quick = byLevel((): string[] => [])
   const other = byLevel((): string[] => [])
   for (const s of sections) {
     if (s.kind !== 'path') continue
     for (const t of s.topics) {
+      // the topic test pool: auto-graded, no [!speak]
+      const testable = new Set(t.test?.pool ?? [])
       for (const id of t.exercises) {
         const ex = exercises[id]!
-        if (ex.kind !== 'quiz') continue
-        ;(QUICK_MODES.has(ex.mode ?? '') ? quick : other)[ex.level].push(id)
+        if (!PLACEMENT_KINDS.has(ex.kind) || !testable.has(id)) continue
+        ;(quickIds.has(id) ? quick : other)[ex.level].push(id)
       }
     }
   }
   const { enabled, maxQuestions, perLevel } = manifest.placement
-  const pool = byLevel((l) => (!enabled ? [] : quick[l].length >= perLevel ? quick[l] : [...quick[l], ...other[l]]))
+  const pool = byLevel((l) => (!enabled ? [] : quick[l].length >= perLevel ? quick[l] : [...quick[l], ...other[l]]), LADDERS[ladder])
   return { enabled, maxQuestions, perLevel, pool }
 }
 
-function courseStats(sections: readonly Section[], exercises: Record<string, ExerciseRef>, reels: Record<string, ReelRef>): CourseStats {
+function courseStats(sections: readonly Section[], exercises: Record<string, ExerciseRef>, reels: Record<string, ReelRef>, ladder: LevelLadder): CourseStats {
   const list = Object.values(exercises)
   const count = (kind: ExerciseKind) => list.filter((e) => e.kind === kind).length
   const topics = sections.flatMap((s) => s.topics)
@@ -307,7 +369,7 @@ function courseStats(sections: readonly Section[], exercises: Record<string, Exe
   // a test/exam takes ~0.6 min per question
   const examMinutes = topics.reduce((sum, t) => sum + (t.test ? t.test.questions * PACE.quiz : 0), 0) + sections.reduce((sum, s) => sum + (s.exam ? s.exam.questions * PACE.quiz : 0), 0)
   const minutes = Math.round(topics.reduce((sum, t) => sum + t.minutes, 0) + examMinutes)
-  const levels = byLevel((l) => list.filter((e) => e.level === l).length)
+  const levels = byLevel((l) => list.filter((e) => e.level === l).length, LADDERS[ladder])
   return {
     sections: sections.length,
     topics: topics.length,
@@ -324,5 +386,6 @@ function courseStats(sections: readonly Section[], exercises: Record<string, Exe
     minutes,
     hours: Math.round(minutes / 6) / 10,
     byLevel: levels,
+    ...(ladder === 'cefr' ? { words: count('word'), listening: count('listen'), speaking: count('speak'), pairs: count('pair') } : {}),
   }
 }

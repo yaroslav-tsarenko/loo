@@ -1,15 +1,17 @@
 'use client'
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
-import { PiCheckBold, PiCodeBlockFill, PiExamFill, PiListChecksFill, PiPuzzlePieceFill, PiTerminalWindowFill, PiXBold } from 'react-icons/pi'
+import { PiCheckBold, PiCodeBlockFill, PiEarFill, PiExamFill, PiHeadphonesFill, PiListChecksFill, PiMicrophoneFill, PiPuzzlePieceFill, PiTerminalWindowFill, PiXBold } from 'react-icons/pi'
 import { gradeWithKey, type ExerciseView, type QuizKey } from '@/content/blocks/quiz/view'
 import type { QuizMode } from '@/content/model'
-import { answerQuiz } from '@/server/actions/answers'
+import { answerQuiz, type SpeechResult } from '@/server/actions/answers'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
 import type { Tone } from '@/ui/design/cx'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
+import { DictationInput } from '@/ui/lang/DictationInput'
+import { SpeakExercise, type SpeakVerdict, type SpeakView } from '@/ui/lang/SpeakExercise'
 import { ActionBar } from './ActionBar'
 import { LevelPill } from './LevelPill'
 import { FillBlanks } from './exercises/FillBlanks'
@@ -27,6 +29,8 @@ export interface QuizVerdict {
   key: QuizKey | null
   explanation: ReactNode
   outOfHearts?: boolean
+  // [!speak]: the word-by-word verdict (answerQuiz → speakOutcome)
+  speech?: SpeechResult
 }
 
 export interface QuizAnswerInput {
@@ -67,9 +71,15 @@ interface Props {
   actionsSlot?: Element | null
   /** `none`: the host shows the verdict and explanation itself (lesson player sheet). */
   verdict?: 'inline' | 'none'
+  /** [!speak]: the phrase to say (mode 'speak'); `lang` — the course's target language (BCP 47 base). */
+  speak?: SpeakView | null
+  lang?: string | null
 }
 
 function kindOf(mode: QuizMode, free: boolean, multi: boolean): { label: string; tone: Tone; icon: ReactNode } {
+  if (mode === 'listen') return { label: free ? 'Диктант' : 'Аудіювання', tone: 'pink', icon: <PiHeadphonesFill /> }
+  if (mode === 'pair') return { label: 'Розрізни на слух', tone: 'orange', icon: <PiEarFill /> }
+  if (mode === 'speak') return { label: 'Скажи вголос', tone: 'mint', icon: <PiMicrophoneFill /> }
   if (mode === 'order') return { label: 'Склади код', tone: 'orange', icon: <PiPuzzlePieceFill /> }
   if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'mint', icon: <PiCodeBlockFill /> }
   if (free || mode === 'output') return { label: 'Що виведе код', tone: 'blue', icon: <PiTerminalWindowFill /> }
@@ -123,7 +133,9 @@ export function QuizInline(props: Props) {
       void serverCheck(answer).catch(() => {})
       return
     }
+    // the press registers at once (pressed option + tick + haptic tap); the verdict follows from the server
     setPhase('checking')
+    feedback.play('tap')
     try {
       finish(await (check ?? serverCheck)(answer), answer)
     } catch {
@@ -168,7 +180,28 @@ export function QuizInline(props: Props) {
   })
 
   const compact = variant === 'inline'
-  const verdictText = correct ? (interactive ? 'Правильно! Код зібрано' : 'Правильно!') : free && key?.free ? `Не зовсім. Відповідь: ${key.free}` : 'Неправильно — питання додано в «Мої помилки».'
+  const dictation = mode === 'listen' && free
+  const verdictText =
+    mode === 'speak'
+      ? correct
+        ? 'Чудова вимова!'
+        : 'Потренуйся ще — фраза повернеться.'
+      : correct
+        ? interactive
+          ? 'Правильно! Код зібрано'
+          : 'Правильно!'
+        : dictation
+          ? 'Не зовсім — звір із правильним текстом.'
+          : free && key?.free
+            ? `Не зовсім. Відповідь: ${key.free}`
+            : 'Неправильно — питання додано в «Мої помилки».'
+
+  // [!speak]: the recogniser's alternatives go through the host's check (answerQuiz) as `chosen`
+  const speakCheck = async (transcripts: string[], durationMs: number): Promise<SpeakVerdict> => {
+    const v = await (check ?? serverCheck)({ unitId, chosen: transcripts, text: null, durationMs })
+    return { correct: v.correct === true, score: v.speech?.score ?? null, words: v.speech?.words ?? null, hints: v.speech?.hints ?? [], transcript: v.speech?.transcript ?? null, selfAssessed: false }
+  }
+  const speakDone = (v: SpeakVerdict) => finish({ correct: v.correct, key: null, explanation: v.selfAssessed ? null : props.explanation ?? null }, { unitId, chosen: v.transcript ? [v.transcript] : [], text: null, durationMs: Date.now() - started.current })
   const state = phase === 'checking' ? 'checking' : phase === 'done' ? (correct === null ? 'answered' : correct ? 'correct' : 'wrong') : 'open'
 
   return (
@@ -183,7 +216,9 @@ export function QuizInline(props: Props) {
         {prompt}
       </div>
       {body ? <div className="quiz-body prose-flow">{body}</div> : null}
-      {interactive ? (
+      {mode === 'speak' && props.speak ? (
+        <SpeakExercise lang={props.lang ?? 'en'} spec={props.speak} check={speakCheck} onDone={speakDone} actionsSlot={actionsSlot} locked={phase === 'done'} />
+      ) : interactive ? (
         exercise?.kind === 'order' ? (
           <OrderPuzzle exercise={exercise} checked={checked} want={key?.order ?? null} variant={variant} onSubmit={(codes) => void submit(codes, null)} actionsSlot={actionsSlot} />
         ) : exercise?.kind === 'fill' ? (
@@ -191,6 +226,23 @@ export function QuizInline(props: Props) {
         ) : (
           <p className="unit-meta">Ця вправа відкривається в розділі «Тести».</p>
         )
+      ) : dictation ? (
+        <form
+          className="quiz-free"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (typed.trim()) void submit([], typed)
+          }}
+        >
+          <DictationInput id={`${headingId}-answer`} value={typed} onChange={setTyped} disabled={checked} state={phase === 'done' && correct !== null ? (correct ? 'right' : 'wrong') : undefined} expected={key?.free ?? null} onSubmit={() => void submit([], typed)} />
+          {phase !== 'done' ? (
+            <ActionBar slot={actionsSlot}>
+              <Button type={actionsSlot ? 'button' : 'submit'} block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'} onClick={actionsSlot ? () => void submit([], typed) : undefined}>
+                Перевірити
+              </Button>
+            </ActionBar>
+          ) : null}
+        </form>
       ) : free ? (
         <form
           className="quiz-free"
@@ -259,7 +311,7 @@ export function QuizInline(props: Props) {
           })}
         </ol>
       )}
-      {multi && phase !== 'done' && !free && !interactive ? (
+      {multi && phase !== 'done' && !free && !interactive && mode !== 'speak' ? (
         <ActionBar slot={actionsSlot}>
           <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={chosen.length === 0} loading={phase === 'checking'} onClick={() => void submit(chosen, null)}>
             Перевірити
@@ -267,7 +319,7 @@ export function QuizInline(props: Props) {
           {!actionsSlot ? <span className="quiz-hint">або Enter · обрано {chosen.length}</span> : null}
         </ActionBar>
       ) : null}
-      {!multi && phase !== 'done' && !free && !interactive && actionsSlot ? (
+      {!multi && phase !== 'done' && !free && !interactive && mode !== 'speak' && actionsSlot ? (
         <ActionBar slot={actionsSlot}>
           <p className="quiz-dock-hint">
             {phase === 'checking' ? (
@@ -280,7 +332,7 @@ export function QuizInline(props: Props) {
           </p>
         </ActionBar>
       ) : null}
-      {phase === 'checking' && !actionsSlot && !multi && !free && !interactive ? (
+      {phase === 'checking' && !actionsSlot && !multi && !free && !interactive && mode !== 'speak' ? (
         <p className="quiz-hint" role="status">
           Перевіряю…
         </p>

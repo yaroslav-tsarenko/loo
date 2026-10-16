@@ -1,12 +1,14 @@
 import { parse as parseYaml } from 'yaml'
 import { z } from 'zod'
-import { LEVELS, LevelSchema } from './level'
+import { LADDERS, LevelSchema, courseLadder, ladderOf } from './level'
+import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
 
 // course.yaml — see docs/COURSE_FORMAT.md §2
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 const SEMVER = /^\d+\.\d+\.\d+(?:[-+][\w.-]+)?$/
 const HEX = /^#[0-9a-fA-F]{6}$/
+const BCP47 = /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/
 
 // "1-7" · "1-3, 5" · 5 · [1, 2, 3]
 const RANGE = /^\s*\d+\s*(?:[-–]\s*\d+\s*)?(?:,\s*\d+\s*(?:[-–]\s*\d+\s*)?)*$/
@@ -29,8 +31,10 @@ export const SectionManifestSchema = z.object({
   from: z.string().min(1),
   chapters: ChapterRangeSchema.optional(),
   kind: SectionKindSchema.default('path'),
-  // Forces one level on every topic and exercise of the section (e.g. a beginners' guide → noob)
+  // Forces one level on every topic and exercise of the section (e.g. a beginners' guide → noob, a CEFR level → B1)
   level: LevelSchema.optional(),
+  // planned: shown on the path as «скоро» (locked, no topics) — its guide / chapters may not exist yet
+  status: z.enum(['active', 'planned']).default('active'),
 })
 export type SectionManifest = z.infer<typeof SectionManifestSchema>
 
@@ -65,11 +69,21 @@ export const CourseManifestSchema = z
     subtitle: z.string().max(160).optional(),
     description: z.string().max(2000).optional(),
     subject: z.enum(['programming', 'language', 'security', 'science', 'other']).default('other'),
-    language: z.string().regex(/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/, 'language: BCP 47, напр. uk').default('uk'),
+    // programming | language | general; default from subject (src/course/schema/practice.ts → kindForSubject)
+    kind: CourseKindSchema.optional(),
+    // practice sections in sidebar order; default per kind (DEFAULT_PRACTICE); `path` is always first
+    practice: z.array(PracticeSectionIdSchema).min(1).optional(),
+    // guide folders (or guide ids) of the sidebar «Теорія»; default = the guides the sections use
+    theory: z.array(z.string().min(1)).min(1).optional(),
+    // language of instruction: explanations, UI (BCP 47)
+    language: z.string().regex(BCP47, 'language: BCP 47, напр. uk').default('uk'),
+    // language courses: the language being learned (BCP 47) — speech synthesis / recognition use it (docs/SPEECH.md)
+    target: z.string().regex(BCP47, 'target: BCP 47, напр. en').optional(),
     icon: z.string().min(1).optional(),
     color: z.string().regex(HEX, "color: '#RRGGBB'").optional(),
     cover: z.string().optional(),
-    levels: z.array(LevelSchema).min(1).default([...LEVELS]),
+    // difficulty ladder: noob…god (programming / general) or A1…C2 (language); default — the whole ladder of the kind
+    levels: z.array(LevelSchema).min(1).optional(),
     tags: z.array(z.string().min(1)).default([]),
     estimatedHours: z.number().positive().optional(),
     authors: z.array(AuthorSchema).default([]),
@@ -84,6 +98,25 @@ export const CourseManifestSchema = z
       if (seen.has(s.id)) ctx.addIssue({ code: 'custom', path: ['sections', i, 'id'], message: `Дублікат id розділу «${s.id}»` })
       seen.add(s.id)
     })
+    const practice = new Set<string>()
+    m.practice?.forEach((id, i) => {
+      if (practice.has(id)) ctx.addIssue({ code: 'custom', path: ['practice', i], message: `Дублікат розділу практики «${id}»` })
+      practice.add(id)
+    })
+    // One ladder per course: CEFR for language courses, noob…god otherwise.
+    const kind = m.kind ?? (m.subject === 'language' ? 'language' : null)
+    const ladder = courseLadder({ kind, subject: m.subject, levels: null })
+    const ladderName = ladder === 'cefr' ? 'A1…C2 (мовний курс)' : 'noob…god'
+    m.levels?.forEach((l, i) => {
+      if (ladderOf(l) !== ladder) ctx.addIssue({ code: 'custom', path: ['levels', i], message: `Рівень «${l}» не з шкали курсу ${ladderName}` })
+    })
+    m.sections.forEach((s, i) => {
+      if (s.level && ladderOf(s.level) !== ladder) ctx.addIssue({ code: 'custom', path: ['sections', i, 'level'], message: `Рівень розділу «${s.level}» не з шкали курсу ${ladderName}` })
+    })
+  })
+  .transform((m) => {
+    const kind = m.kind ?? (m.subject === 'language' ? 'language' : null)
+    return { ...m, levels: m.levels ?? [...LADDERS[courseLadder({ kind, subject: m.subject, levels: null })]] }
   })
 export type CourseManifest = z.infer<typeof CourseManifestSchema>
 export type CourseManifestInput = z.input<typeof CourseManifestSchema>

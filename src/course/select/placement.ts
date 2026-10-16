@@ -1,7 +1,7 @@
 import { rng, shuffle, type Seed } from '../rng'
-import { LEVELS, byLevel, levelAt, levelRank, type CourseBundle, type Level } from '../schema'
+import { byLevel, courseLadder, courseLevels, levelAt, levelRank, type CourseBundle, type Level } from '../schema'
 
-// Adaptive placement test (5–7 min). Stateless: the server replays the answers so far to get the next question.
+// Adaptive placement test (5–7 min), over the course's own ladder (noob…god, or A1…C2 for language courses). Stateless: the server replays the answers so far to get the next question.
 // Levels are probed easier → harder: first the second-lowest level, then a binary search over the rest,
 // 2–3 questions per level (2 right → pass, 2 wrong → fail, 1:1 → a third question decides).
 
@@ -57,12 +57,12 @@ function verdict(t: LevelTally, perLevel: number, poolSize: number): Verdict {
 }
 
 function lowestLevel(bundle: CourseBundle): Level {
-  return bundle.course.levels.length > 0 ? levelAt(Math.min(...bundle.course.levels.map(levelRank))) : 'noob'
+  return courseLevels(bundle.course)[0]!
 }
 
 function replay(bundle: CourseBundle, answers: readonly PlacementAnswer[]): Replay {
   const { pool, perLevel, maxQuestions } = bundle.placement
-  const levels = LEVELS.filter((l) => bundle.course.levels.includes(l) && (pool[l]?.length ?? 0) >= 2)
+  const levels = courseLevels(bundle.course).filter((l) => (pool[l]?.length ?? 0) >= 2)
   const tallies = byLevel((): LevelTally => ({ asked: 0, correct: 0 }))
   const inPool = new Map<string, Level>()
   for (const l of levels) for (const id of pool[l] ?? []) inPool.set(id, l)
@@ -117,7 +117,7 @@ export function placementQueue(bundle: CourseBundle, level: Level, seed: Seed): 
 // always takes them from the front of its queue. Lets a page pre-render the whole (small) candidate set.
 export function placementCandidates(bundle: CourseBundle, seed: Seed): string[] {
   if (!bundle.placement.enabled) return []
-  return LEVELS.flatMap((l) => (bundle.course.levels.includes(l) && (bundle.placement.pool[l]?.length ?? 0) >= 2 ? placementQueue(bundle, l, seed).slice(0, bundle.placement.perLevel) : []))
+  return courseLevels(bundle.course).flatMap((l) => ((bundle.placement.pool[l]?.length ?? 0) >= 2 ? placementQueue(bundle, l, seed).slice(0, bundle.placement.perLevel) : []))
 }
 
 export function placementResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): PlacementResult {
@@ -125,15 +125,24 @@ export function placementResult(bundle: CourseBundle, answers: readonly Placemen
   const lowest = lowestLevel(bundle)
   let level: Level
   if (r.best >= 0) level = r.levels[r.best]!
-  else if (r.levels.length > 0) level = levelAt(Math.max(levelRank(lowest), levelRank(r.levels[0]!) - 1))
+  else if (r.levels.length > 0) level = levelAt(Math.max(levelRank(lowest), levelRank(r.levels[0]!) - 1), courseLadder(bundle.course))
   else level = lowest
   const { index, id } = startSection(bundle, level)
   return { level, sectionIndex: index, sectionId: id, perLevel: r.tallies, confident: r.done && !r.capped }
 }
 
-// First path section that is harder than the level; all-known → the last path section.
+// First path section that is harder than the level; all-known → the last path section. Planned sections («скоро»)
+// have nothing to study yet.
 export function startSection(bundle: CourseBundle, level: Level): { index: number; id: string | null } {
-  const path = bundle.sections.filter((s) => s.kind === 'path')
+  const path = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
   const target = path.find((s) => levelRank(s.level) > levelRank(level)) ?? path.at(-1) ?? bundle.sections[0]
+  return target ? { index: target.index, id: target.id } : { index: 0, id: null }
+}
+
+// A manual start («з нуля» → the lowest level, «трохи знаю» → A2…): the first path section that teaches the level
+// (earlier sections count as known). Planned sections are skipped.
+export function sectionForLevel(bundle: CourseBundle, level: Level): { index: number; id: string | null } {
+  const path = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
+  const target = path.find((s) => levelRank(s.level) >= levelRank(level)) ?? path.at(-1) ?? bundle.sections[0]
   return target ? { index: target.index, id: target.id } : { index: 0, id: null }
 }

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Chapter, Guide } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { getContent, getDocument } from '@/server/content'
-import { chapterNumberMap, chapterProgressMap, nextChapterFor, readableChapters, treeView } from '@/server/services/library'
+import { chapterNumberMap, nextChapterFor, pageProgress, readableChapters, treeView } from '@/server/services/library'
 import { count, minutes } from '@/ui/format'
 import { renderMdast } from '@/ui/markdown/render'
 import { BookOpen, CircleCheck, CircleDot, Clock, CodeXml, FileText, Layers, Link2, ListChecks } from 'lucide-react'
@@ -57,7 +57,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   const found = locate(snapshot, await params)
   if (!found) notFound()
   const { guide, chapter } = found
-  const progress = await chapterProgressMap()
+  const progress = await pageProgress()
   const tree = treeView(snapshot, guide, progress)
   const numbers = chapterNumberMap(tree)
   if (!chapter || chapter.kind === 'index') return <GuideOverview snapshot={snapshot} guide={guide} index={chapter} tree={tree} progress={progress} />
@@ -245,7 +245,7 @@ async function GuideOverview({
   guide: Guide
   index: Chapter | null
   tree: ReturnType<typeof treeView>
-  progress: Awaited<ReturnType<typeof chapterProgressMap>>
+  progress: Awaited<ReturnType<typeof pageProgress>>
 }) {
   const chapters = readableChapters(snapshot, guide)
   const studied = chapters.filter((c) => progress.get(c.id)?.status === 'studied').length
