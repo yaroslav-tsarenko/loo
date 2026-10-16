@@ -17,14 +17,14 @@ export function CourseChips({ courses, next = '/path', label = 'Мої курс�
       {courses.map((c) =>
         c.active ? (
           <span key={c.id} className="gchip" aria-current="page">
-            <Icon name={c.icon ?? '📘'} size={18} /> {c.title}
+            <Icon name={c.icon ?? 'px:book'} size={18} /> {c.title}
           </span>
         ) : (
           <form key={c.id} action={switchCourse} className="cp-chip-form">
             <input type="hidden" name="course" value={c.id} />
             <input type="hidden" name="next" value={next} />
             <button type="submit" className="gchip">
-              <Icon name={c.icon ?? '📘'} size={18} /> {c.title}
+              <Icon name={c.icon ?? 'px:book'} size={18} /> {c.title}
             </button>
           </form>
         ),

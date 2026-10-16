@@ -1,8 +1,9 @@
+import { LESSON_ICONS } from './icons'
 import type { Chapter, Guide, LearningUnit } from './model'
 import type { Reel } from './parse/reels'
 
 // Duolingo-style lessons, derived deterministically from a chapter's own content.
-// A chapter becomes: 📖 theory (the article) → 🤔 start → 🔬 core × n → 🧠 cards × n → 🛠️ one node per task → 🎤 interview.
+// A chapter becomes: theory (the article) → start → core × n → cards × n → one code node per task → interview.
 
 export type LessonKind = 'theory' | 'start' | 'core' | 'cards' | 'code' | 'interview'
 
@@ -14,7 +15,8 @@ export interface Lesson {
   chapterId: string
   index: number
   kind: LessonKind
-  emoji: string
+  // icon ref (LESSON_ICONS)
+  icon: string
   title: string
   items: LessonItemRef[]
   minutes: number
@@ -49,9 +51,9 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
   const tasks = units.filter((u) => u.kind === 'task')
   const reelQueue = [...reels]
   const lessons: Lesson[] = []
-  const push = (kind: LessonKind, n: number, emoji: string, title: string, items: LessonItemRef[]) => {
+  const push = (kind: LessonKind, n: number, title: string, items: LessonItemRef[]) => {
     if (kind !== 'theory' && items.length === 0) return
-    lessons.push({ id: `${chapter.id}::${kind}-${n}`, guideId: chapter.guideId, chapterId: chapter.id, index: lessons.length, kind, emoji, title, items, minutes: kind === 'theory' ? chapter.estimatedMinutes : minutesOf(items, unitById) })
+    lessons.push({ id: `${chapter.id}::${kind}-${n}`, guideId: chapter.guideId, chapterId: chapter.id, index: lessons.length, kind, icon: LESSON_ICONS[kind], title, items, minutes: kind === 'theory' ? chapter.estimatedMinutes : minutesOf(items, unitById) })
   }
   const unit = (u: LearningUnit): LessonItemRef => ({ kind: 'unit', id: u.id })
   const reel = (): LessonItemRef[] => {
@@ -59,11 +61,11 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
     return r ? [{ kind: 'reel', id: r.id }] : []
   }
 
-  push('theory', 1, '📖', 'Теорія: читати розділ', [])
+  push('theory', 1, 'Теорія: читати розділ', [])
 
-  // The first quiz of a chapter is the «🤔 Передбач» pretest — it opens the start lesson.
+  // The first quiz of a chapter is the «Передбач» pretest — it opens the start lesson.
   const restQuizzes = quizzes.slice(1)
-  if (quizzes[0]) push('start', 1, '🤔', 'Передбач і розберись', [...reel(), unit(quizzes[0]), ...reel()])
+  if (quizzes[0]) push('start', 1, 'Передбач і розберись', [...reel(), unit(quizzes[0]), ...reel()])
 
   const cores = chunk(restQuizzes, QUIZZES_PER_CORE)
   const cardQueue = [...cards]
@@ -74,20 +76,20 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
       if (j < CARDS_PER_CORE && cardQueue.length > 0) items.push(unit(cardQueue.shift()!))
     })
     items.push(...reel())
-    push('core', i + 1, '🔬', cores.length > 1 ? `Розбір ${i + 1}` : 'Розбір', items)
+    push('core', i + 1, cores.length > 1 ? `Розбір ${i + 1}` : 'Розбір', items)
   })
 
   chunk(cardQueue, CARDS_PER_LESSON).forEach((group, i, all) => {
-    push('cards', i + 1, '🧠', all.length > 1 ? `Закріплення ${i + 1}` : 'Закріплення', [...group.map(unit), ...reel()])
+    push('cards', i + 1, all.length > 1 ? `Закріплення ${i + 1}` : 'Закріплення', [...group.map(unit), ...reel()])
   })
 
   tasks.forEach((t, i) => {
     const title = t.kind === 'task' ? t.titleText : 'Задача'
-    push('code', i + 1, '🛠️', title.length > 48 ? `${title.slice(0, 46)}…` : title, [unit(t)])
+    push('code', i + 1, title.length > 48 ? `${title.slice(0, 46)}…` : title, [unit(t)])
   })
 
   chunk(interview, INTERVIEW_PER_LESSON).forEach((group, i, all) => {
-    push('interview', i + 1, '🎤', all.length > 1 ? `Співбесіда ${i + 1}` : 'Співбесіда', group.map(unit))
+    push('interview', i + 1, all.length > 1 ? `Співбесіда ${i + 1}` : 'Співбесіда', group.map(unit))
   })
 
   // Leftover reels become a short bonus at the end of the last practice lesson.

@@ -38,7 +38,7 @@ export function combine(id: CombinatorId, inputs: readonly CombinatorInput[]): O
       return { at: last, ok: true, value: `[${inputs.map((i) => i.value).join(', ')}]` }
     }
     case 'allSettled':
-      return { at: last, ok: true, value: `[${inputs.map((i) => (i.ok ? `✅ ${i.value}` : `❌ ${i.reason}`)).join(', ')}]` }
+      return { at: last, ok: true, value: `[${inputs.map((i) => (i.ok ? `✓ ${i.value}` : `✗ ${i.reason}`)).join(', ')}]` }
     case 'race': {
       const first = sorted[0]!
       return { at: first.ms, ok: first.ok, value: first.ok ? first.value : first.reason }

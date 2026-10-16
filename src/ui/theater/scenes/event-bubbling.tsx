@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, Crosshair } from 'lucide-react'
+import { ArrowDown, ArrowUp, Crosshair, ListTodo } from 'lucide-react'
 import { defineScene, erase } from '../define'
 import type { AnyScene, SceneViewProps } from '../types'
 import { Caret, Code } from './kit'
@@ -30,7 +30,9 @@ function View({ s, focus }: SceneViewProps<S>) {
   return (
     <div className="ev">
       <div className="ev-page">
-        <h3 className="ev-title">📝 Справи</h3>
+        <h3 className="ev-title">
+          <ListTodo size={18} strokeWidth={2} aria-hidden="true" /> Справи
+        </h3>
         <div className="ev-form">
           <span className="ev-input" data-demo="draft">
             {s.draft || (focus === 'draft' ? '' : <span className="ev-ph">Нова справа…</span>)}
@@ -108,13 +110,13 @@ const delegation = defineScene<S>({
     tween('hop', 0, 600, { ease: 'linear' }),
     set({ phase: 'idle', clicked: null }),
     caption('Нова справа працює без нового слухача'),
-    type('draft', 'Кава ☕'),
+    type('draft', 'Кава'),
     click('add', (s) => ({ items: [...s.items, s.draft], draft: '' })),
-    click('del-Кава ☕', { clicked: 'Кава ☕', phase: 'capture', hop: 0 }),
+    click('del-Кава', { clicked: 'Кава', phase: 'capture', hop: 0 }),
     tween('hop', TARGET, 500, { ease: 'linear' }),
     set({ phase: 'bubble' }),
     tween('hop', UL, 300, { ease: 'linear' }),
-    set((s) => ({ log: [...s.log, LOG], items: s.items.filter((i) => i !== 'Кава ☕') })),
+    set((s) => ({ log: [...s.log, LOG], items: s.items.filter((i) => i !== 'Кава') })),
     highlight('path', 'Делегування працює, бо click спливає. focus, blur, mouseenter не спливають — для них є focusin/focusout'),
     set({ phase: 'idle', clicked: null, hop: 0 }),
     wait(800),

@@ -3,6 +3,7 @@
 import { LazyMotion, MotionConfig, domMax } from 'motion/react'
 import { useState, type ReactNode } from 'react'
 import { vizInfo, vizScenario } from '@/content/blocks/viz/catalog'
+import { Icon } from '@/ui/icons/Icon'
 import { VIZ_COMPONENTS } from './components'
 
 interface Props {
@@ -35,7 +36,7 @@ export function VizBlock({ vizId, scenario = null, children, fixed = false }: Pr
           <div className="viz">
             <header className="viz-head">
               <span className="viz-emoji" aria-hidden="true">
-                {info.emoji}
+                <Icon name={info.icon} size={26} />
               </span>
               <div className="viz-head-text">
                 <h4 className="viz-title">{info.title}</h4>

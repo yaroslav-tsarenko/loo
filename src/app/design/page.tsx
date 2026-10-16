@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import type { ReactNode } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import { PiArrowRightBold, PiCheckBold, PiGearSixFill, PiHeartFill, PiLightningFill, PiPlayFill, PiSpeakerHighFill, PiStarFill, PiXBold } from 'react-icons/pi'
 import { Avatar } from '@/ui/design/Avatar'
 import { Badge, Pill } from '@/ui/design/Badge'
@@ -15,17 +15,45 @@ import { Logo, LogoMark, Wordmark } from '@/ui/design/brand/Logo'
 import { TONES } from '@/ui/design/cx'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { LOO_EYES, LOO_EYES_LABEL, LOO_LABEL, LOO_MOODS, LooPixels, type LooBulb, type LooSkin } from '@/ui/design/mascot/LooArt'
-import { LOO_FORM_LABEL, LOO_FORMS, LOO_GRID, LOO_TIMELINES, MARK_BOX, poseRects, timelineTicks, type LooMood, type LooTier } from '@/ui/design/mascot/pixels'
+import { LOO_GRID, LOO_STAGE_LABEL, LOO_STAGES, LOO_TIMELINES, MARK_BOX, poseRects, timelineTicks, type LooMood } from '@/ui/design/mascot/pixels'
 import { LooSays } from '@/ui/design/mascot/LooSays'
+import { PIXEL_ICONS, PixelIcon } from '@/ui/design/PixelIcon'
 import { ICON_NAMES } from '@/ui/icons/catalog'
 import { Icon } from '@/ui/icons/Icon'
 import { ConfettiDemo, LoadingDemo, LooEvolveDemo, OverlayDemo, ProgressDemo, StatsDemo, TabsToggleDemo } from './demos'
 
 export const metadata: Metadata = { title: 'Дизайн-система' }
 
-const PALETTE = ['green', 'blue', 'red', 'yellow', 'orange', 'purple', 'pink'] as const
-const NAMES: Record<(typeof PALETTE)[number], string> = { green: 'Feather green', blue: 'Sky blue', red: 'Cardinal red', yellow: 'Bee yellow', orange: 'Flame orange', purple: 'Beetle purple', pink: 'Bubblegum pink' }
+// Brand pair: violet leads (primary action, Loo), mint helps (secondary, highlights).
+const BRAND = [
+  { c: 'violet', name: 'Loo violet', role: 'Головна дія, Loo, фокус', ink: 'var(--lu-on-color)' },
+  { c: 'mint', name: 'Mint', role: 'Друга дія, підсвітки', ink: 'var(--lu-on-mint)' },
+] as const
+const STEPS = ['lip', 'hover', 'soft', 'ink'] as const
+// Semantic colours: each one means one thing only.
+const PALETTE = ['green', 'red', 'yellow', 'orange', 'blue', 'purple', 'pink'] as const
+const NAMES: Record<(typeof PALETTE)[number], { name: string; role: string }> = {
+  green: { name: 'Green', role: 'правильно · готово' },
+  red: { name: 'Red', role: 'помилка · серця' },
+  yellow: { name: 'Yellow', role: 'XP' },
+  orange: { name: 'Orange', role: 'серія' },
+  blue: { name: 'Blue', role: 'кристали · інфо' },
+  purple: { name: 'Purple', role: 'ранги · Super' },
+  pink: { name: 'Pink', role: 'декор' },
+}
 const NEUTRALS = ['bg', 'bg-sunk', 'surface', 'surface-2', 'surface-3', 'border', 'border-strong', 'text', 'text-2', 'text-3'] as const
+const BUTTON_VARIANTS = ['primary', 'secondary', 'ghost', 'danger', 'super'] as const
+const BUTTON_SIZES = ['sm', 'md', 'lg'] as const
+const BUTTON_LABEL: Record<(typeof BUTTON_VARIANTS)[number], string> = { primary: 'Продовжити', secondary: 'Почати', ghost: 'Пропустити', danger: 'Здатися', super: 'Super' }
+// A tiny pre-tokenized snippet for the code-screen sample (keeps the page a server component without shiki).
+type Tk = 'keyword' | 'string' | 'const' | 'fn' | 'param' | 'comment' | 'punct'
+const CODE: [string, Tk?][][] = [
+  [['// Loo пам’ятає змінну — це замикання', 'comment']],
+  [['function', 'keyword'], [' '], ['counter', 'fn'], ['(', 'punct'], ['start', 'param'], [' = ', 'punct'], ['0', 'const'], [') {', 'punct']],
+  [['  let', 'keyword'], [' n '], ['=', 'punct'], [' start']],
+  [['  return', 'keyword'], [' () '], ['=>', 'keyword'], [' '], ['`крок ${', 'string'], ['++n', 'const'], ['}`', 'string']],
+  [['}', 'punct']],
+]
 const GAME_ICONS: GameIconName[] = ['fire', 'gem', 'heart', 'bolt', 'crown', 'chest']
 const SKINS: { label: string; skin: LooSkin }[] = [
   { label: 'beanie', skin: { hat: 'beanie' } },
@@ -33,15 +61,31 @@ const SKINS: { label: string; skin: LooSkin }[] = [
   { label: 'crown', skin: { hat: 'crown' } },
   { label: 'party + round', skin: { hat: 'party', glasses: 'round' } },
   { label: 'grad + nerd', skin: { hat: 'grad', glasses: 'nerd' } },
-  { label: 'hoodie', skin: { hoodie: '#1CB0F6' } },
-  { label: 'hoodie + beanie', skin: { hoodie: '#CE82FF', hat: 'beanie' } },
-  { label: 'scarf', skin: { scarf: '#FF4B4B' } },
-  { label: 'scarf + crown + shades', skin: { scarf: '#FFC800', hat: 'crown', glasses: 'shades' } },
+  { label: 'hoodie', skin: { hoodie: '#3B9EFF' } },
+  { label: 'hoodie + beanie', skin: { hoodie: '#2DD4BF', hat: 'beanie' } },
+  { label: 'scarf', skin: { scarf: '#FF5A6E' } },
+  { label: 'scarf + crown + shades', skin: { scarf: '#FFC23D', hat: 'crown', glasses: 'shades' } },
 ]
 const LOO_SIZES = [16, 24, 32, 48, 64, 96, 120, 160, 240]
 const LOO_BULBS: LooBulb[] = ['off', 'on', 'flicker']
-const LOO_TIERS: (LooTier | undefined)[] = [undefined, 1, 2, 3]
-const FORM_MOODS: LooMood[] = ['happy', 'sad', 'thinking', 'fire', 'eureka', 'sleeping']
+const FORM_MOODS: LooMood[] = ['idle', 'happy', 'sad', 'thinking', 'fire', 'eureka', 'sleeping']
+// Gear looks per slot (src/game/shop.ts), common → legendary, plus full sets by rarity.
+const GEAR_ROWS: Array<{ slot: string; looks: Array<{ label: string; skin: LooSkin }> }> = [
+  { slot: 'head', looks: [{ label: 'leather', skin: { head: 'leather' } }, { label: 'iron', skin: { head: 'iron' } }, { label: 'knight', skin: { head: 'knight' } }, { label: 'crown', skin: { head: 'crown' } }] },
+  { slot: 'body', looks: [{ label: 'leather', skin: { body: 'leather' } }, { label: 'chain', skin: { body: 'chain' } }, { label: 'plate', skin: { body: 'plate' } }, { label: 'royal', skin: { body: 'royal' } }] },
+  { slot: 'weapon', looks: [{ label: 'wood', skin: { weapon: 'wood' } }, { label: 'iron', skin: { weapon: 'iron' } }, { label: 'staff', skin: { weapon: 'staff' } }, { label: 'legend', skin: { weapon: 'legend' } }] },
+  { slot: 'amulet', looks: [{ label: 'warm', skin: { amulet: 'warm' } }, { label: 'lamp', skin: { amulet: 'lamp' } }, { label: 'storm', skin: { amulet: 'storm' } }, { label: 'sun', skin: { amulet: 'sun' } }] },
+  { slot: 'aura', looks: [{ label: 'spark', skin: { aura: 'spark' } }, { label: 'charge', skin: { aura: 'charge' } }, { label: 'arcane', skin: { aura: 'arcane' } }, { label: 'legend', skin: { aura: 'legend' } }] },
+  {
+    slot: 'sets',
+    looks: [
+      { label: 'common', skin: { head: 'leather', body: 'leather', weapon: 'wood', amulet: 'warm', aura: 'spark' } },
+      { label: 'rare', skin: { head: 'iron', body: 'chain', weapon: 'iron', amulet: 'lamp', aura: 'charge' } },
+      { label: 'epic', skin: { head: 'knight', body: 'plate', weapon: 'staff', amulet: 'storm', aura: 'arcane' } },
+      { label: 'legendary', skin: { head: 'crown', body: 'royal', weapon: 'legend', amulet: 'sun', aura: 'legend' } },
+    ],
+  },
+]
 const LOO_TOKENS = ['loo', 'loo-lip', 'loo-ink', 'loo-spring', 'loo-bulb', 'loo-bulb-on', 'loo-glow', 'loo-cheek'] as const
 const MARK_SIZES = [16, 32, 48, 64]
 
@@ -112,30 +156,50 @@ export default function DesignShowcasePage() {
           <Logo size={44} />
           <h1 className="ds-h1">Дизайн-система</h1>
           <p className="ds-muted">
-            Токени <code>--lu-*</code> (src/app/tokens.css), компоненти <code>src/ui/design</code>, маскот Loo, реєстр іконок <code>src/ui/icons</code>. Лише dev-режим.
+            «Loo Pixel-soft»: лавандовий папір удень, «нічна аркада» вночі. Фіолетовий Loo в центрі, текст — спокійний і читабельний, піксель — лише акцент (кнопки, рамки, сегментовані смуги). Правила — <code>docs/DESIGN.md</code>, токени <code>--lu-*</code> — <code>src/app/tokens.css</code>, компоненти — <code>src/ui/design</code>. Лише dev-режим.
           </p>
         </div>
       </header>
       <nav className="ds-toc" aria-label="Розділи">
-        {['brand', 'buttons', 'cards', 'progress', 'badges', 'stats', 'overlays', 'forms', 'people', 'loo', 'icons', 'themes'].map((id) => (
+        {['brand', 'type', 'buttons', 'cards', 'progress', 'code', 'badges', 'stats', 'overlays', 'forms', 'people', 'loo', 'icons', 'themes'].map((id) => (
           <a key={id} href={`#${id}`} className="lu-pill" data-tone="gray" data-size="sm">
             {id}
           </a>
         ))}
       </nav>
 
-      <Section id="brand" title="Бренд і токени">
+      <Section id="brand" title="Бренд і палітра" lead="Фіолетовий веде, м’ятний допомагає. Решта кольорів — лише зі своїм значенням: зелений = правильно, червоний = помилка, жовтий = XP, помаранчевий = серія, синій = кристали.">
         <div className="ds-row">
           <Logo size={56} />
           <Logo size={34} />
           <LogoMark size={64} />
           <Wordmark height={40} />
         </div>
+        <div className="ds-brand">
+          {BRAND.map((b) => (
+            <div key={b.c} className="ds-brand-card">
+              <span className="ds-brand-chip" style={{ background: `var(--lu-${b.c})`, boxShadow: `0 6px 0 var(--lu-${b.c}-lip)`, color: b.ink }}>
+                <span>{b.name}</span>
+                <code>--lu-{b.c}</code>
+              </span>
+              <span className="ds-muted">{b.role}</span>
+              <div className="ds-steps">
+                {STEPS.map((st) => (
+                  <span key={st} className="ds-step">
+                    <span style={{ background: `var(--lu-${b.c}-${st})` }} />
+                    <code>-{st}</code>
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
         <div className="ds-swatches">
           {PALETTE.map((c) => (
             <div key={c} className="ds-swatch">
               <span className="ds-chip" style={{ background: `var(--lu-${c})`, boxShadow: `0 4px 0 var(--lu-${c}-lip)` }} />
-              <strong>{NAMES[c]}</strong>
+              <strong>{NAMES[c].name}</strong>
+              <span className="ds-muted">{NAMES[c].role}</span>
               <code>--lu-{c}</code>
               <span className="ds-row ds-tight">
                 <span className="ds-dot" style={{ background: `var(--lu-${c}-lip)` }} title="lip" />
@@ -145,6 +209,18 @@ export default function DesignShowcasePage() {
             </div>
           ))}
         </div>
+        <h3 className="ds-h3">Тони</h3>
+        <p className="ds-muted">
+          <code>data-tone=&quot;…&quot;</code> задає <code>--tone / --tone-lip / --tone-soft / --tone-ink</code> для будь-якого компонента кіту.
+        </p>
+        <div className="ds-tones">
+          {TONES.map((t) => (
+            <Pill key={t} tone={t} size="sm">
+              {t}
+            </Pill>
+          ))}
+        </div>
+        <h3 className="ds-h3">Нейтральні (підфарбовані у фіолетовий)</h3>
         <div className="ds-swatches ds-swatches-sm">
           {NEUTRALS.map((n) => (
             <div key={n} className="ds-swatch">
@@ -153,13 +229,7 @@ export default function DesignShowcasePage() {
             </div>
           ))}
         </div>
-        <div className="ds-type">
-          <p style={{ fontSize: 'var(--lu-fs-3xl)', fontWeight: 900 }}>Вчися граючи · 36</p>
-          <p style={{ fontSize: 'var(--lu-fs-2xl)', fontWeight: 900 }}>Замикання в JavaScript · 28</p>
-          <p style={{ fontSize: 'var(--lu-fs-xl)', fontWeight: 800 }}>Урок 3 з 7 · 23</p>
-          <p style={{ fontSize: 'var(--lu-fs-md)', fontWeight: 700 }}>Обери правильну відповідь · 17</p>
-          <p style={{ fontSize: 'var(--lu-fs-sm)', fontWeight: 600 }}>Nunito для ігрового UI; статті лишаються в шрифті читача · 15</p>
-        </div>
+        <h3 className="ds-h3">Радіуси: блоки, а не бульбашки</h3>
         <div className="ds-row">
           {(['xs', 'sm', '', 'lg', 'xl'] as const).map((r) => (
             <span key={r} className="ds-radius" style={{ borderRadius: `var(--lu-r${r ? `-${r}` : ''})` }}>
@@ -169,26 +239,85 @@ export default function DesignShowcasePage() {
         </div>
       </Section>
 
-      <Section id="buttons" title="Кнопки" lead="3D-губа (lip) під кнопкою; при натисканні кнопка «сідає» на неї.">
-        <div className="ds-row">
-          <Button>Продовжити</Button>
-          <Button variant="secondary">Почати</Button>
-          <Button variant="danger">Здатися</Button>
-          <Button variant="super" icon={<GameIcon name="crown" size={22} />}>
-            Super
-          </Button>
-          <Button variant="ghost">Пропустити</Button>
+      <Section id="type" title="Типографіка" lead="Увесь текст і цифри — Onest, заголовки теж. Піксельний шрифт (Pixelify Sans) — лише у вордмарку: дрібним кеглем він плутає 5 і S. Код — JetBrains Mono.">
+        <div className="ds-spec">
+          <div className="ds-spec-row">
+            <code>3xl · 36 · 800</code>
+            <p style={{ fontSize: 'var(--lu-fs-3xl)', fontWeight: 800 }}>Вчися граючи разом із Loo</p>
+          </div>
+          <div className="ds-spec-row">
+            <code>2xl · 28 · 800</code>
+            <p style={{ fontSize: 'var(--lu-fs-2xl)', fontWeight: 800 }}>Замикання в JavaScript</p>
+          </div>
+          <div className="ds-spec-row">
+            <code>xl · 23 · 700</code>
+            <p style={{ fontSize: 'var(--lu-fs-xl)', fontWeight: 700 }}>Урок 3 з 7</p>
+          </div>
+          <div className="ds-spec-row">
+            <code>md · 17 · 400</code>
+            <p style={{ fontSize: 'var(--lu-fs-md)', lineHeight: 1.6 }}>
+              Основний текст статей і пояснень: Onest 16–17 px, міжрядковий ≥ 1.55. Інлайн-код — <code className="ds-inline-code">loo.say()</code> на м’якому фіолетовому.
+            </p>
+          </div>
+          <div className="ds-spec-row">
+            <code>sm · 15 · 600</code>
+            <p style={{ fontSize: 'var(--lu-fs-sm)', fontWeight: 600, color: 'var(--lu-text-2)' }}>Підписи, вкладки, мітки — теж Onest, ніколи не піксель.</p>
+          </div>
+          <div className="ds-spec-row">
+            <code>лічильники · 800</code>
+            <div className="ds-row">
+              <StatChip kind="streak" value={12} />
+              <StatChip kind="xp" value={1280} />
+              <span className="ds-pixel-num" style={{ fontSize: 'var(--lu-fs-3xl)', color: 'var(--lu-yellow-ink)' }}>+15 XP</span>
+              <Wordmark height={32} />
+            </div>
+          </div>
+          <div className="ds-spec-row">
+            <code>--lu-font-mono</code>
+            <p className="ds-mono">const loo = {"{ colour: 'violet', mood: 'happy' }"}</p>
+          </div>
+        </div>
+        <p className="ds-note">Піксель — це акцент: кнопки, 1–2 рамки .lu-px на екран, сегментовані смуги, Loo та іконки. Не в реченнях, заголовках, вкладках чи статтях.</p>
+      </Section>
+
+      <Section id="pixel-icons" title="Піксельні іконки" lead="Власний набір 16×16 у тій самій піксельній мові, що й Loo (src/ui/design/PixelIcon.tsx). Кольори фіксовані, як у GameIcon. Найчіткіші на розмірах, кратних 16.">
+        <div className="ds-row ds-pxicons">
+          {PIXEL_ICONS.map((name) => (
+            <figure key={name} className="ds-pxicon">
+              <PixelIcon name={name} size={48} />
+              <figcaption>{name}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="buttons" title="Кнопки" lead="Лише кнопки піксельні: сходинкові кути + пласка 3D-губа; при натисканні кнопка «сідає» на губу. Кольори задаються ручками --b / --b-hover / --b-lip / --b-ink, а не background/border.">
+        <div className="ds-btn-grid">
+          {BUTTON_VARIANTS.map((v) => (
+            <Fragment key={v}>
+              <code>{v}</code>
+              {BUTTON_SIZES.map((sz) => (
+                <span key={sz}>
+                  <Button variant={v} size={sz} icon={v === 'super' ? <GameIcon name="crown" size={sz === 'sm' ? 18 : 22} /> : undefined}>
+                    {BUTTON_LABEL[v]}
+                  </Button>
+                </span>
+              ))}
+              <span>
+                <Button variant={v} size="md" disabled>
+                  Неактивна
+                </Button>
+              </span>
+            </Fragment>
+          ))}
         </div>
         <div className="ds-row">
-          <Button size="sm">Small</Button>
-          <Button size="md">Medium</Button>
-          <Button size="lg" iconEnd={<PiArrowRightBold size={20} />}>
-            Large
-          </Button>
           <LoadingDemo />
-          <Button disabled>Перевірити</Button>
           <Button href="/design#buttons" variant="secondary" icon={<PiPlayFill size={18} />}>
             Посилання
+          </Button>
+          <Button size="lg" iconEnd={<PiArrowRightBold size={20} />}>
+            Далі
           </Button>
         </div>
         <div className="ds-narrow">
@@ -196,17 +325,19 @@ export default function DesignShowcasePage() {
             На всю ширину
           </Button>
         </div>
+        <h3 className="ds-h3">Кнопки-іконки</h3>
         <div className="ds-row">
           <IconButton label="Закрити" icon={<PiXBold size={22} />} />
           <IconButton label="Налаштування" icon={<PiGearSixFill size={22} />} variant="ghost" />
+          <IconButton label="Готово" icon={<PiCheckBold size={22} />} variant="primary" />
           <IconButton label="Озвучити" icon={<PiSpeakerHighFill size={24} />} variant="secondary" size="lg" />
-          <IconButton label="Готово" icon={<PiCheckBold size={22} />} variant="primary" round />
-          <IconButton label="Улюблене" icon={<PiHeartFill size={22} />} variant="danger" round />
-          <IconButton label="Супер" icon={<PiStarFill size={22} />} variant="super" round />
+          <IconButton label="Улюблене" icon={<PiHeartFill size={22} />} variant="danger" />
+          <IconButton label="Супер" icon={<PiStarFill size={22} />} variant="super" />
+          <IconButton label="Готово (кругла)" icon={<PiCheckBold size={20} />} variant="primary" size="sm" round />
         </div>
       </Section>
 
-      <Section id="cards" title="Картки">
+      <Section id="cards" title="Картки та рамки" lead="М’які блоки: рамка 2px, радіус 14px, пласка губа без розмитих тіней. .lu-px — піксельна рамка для 1–2 головних блоків на екрані.">
         <div className="ds-grid">
           <Card>
             <strong>Flat</strong>
@@ -214,7 +345,7 @@ export default function DesignShowcasePage() {
           </Card>
           <Card variant="raised">
             <strong>Raised</strong>
-            <p className="ds-muted">З 3D-губою.</p>
+            <p className="ds-muted">З пласкою 3D-губою.</p>
           </Card>
           <Card href="/design#cards">
             <strong>Interactive</strong>
@@ -222,7 +353,7 @@ export default function DesignShowcasePage() {
           </Card>
           <Card variant="interactive" selected>
             <strong>Selected</strong>
-            <p className="ds-muted">Стан вибору відповіді.</p>
+            <p className="ds-muted">Вибрана відповідь — фіолетова.</p>
           </Card>
           <Card variant="raised" tone="green">
             <strong>Tone green</strong>
@@ -233,16 +364,44 @@ export default function DesignShowcasePage() {
             <p className="ds-muted">Помилка.</p>
           </Card>
         </div>
+        <div className="ds-grid ds-grid-2">
+          <div className="lu-px ds-px-demo" data-lip="">
+            <strong>.lu-px з губою</strong>
+            <span className="ds-muted">
+              Лише ручки <code>--px-face / --px-line / --px-bw / --px-lip</code> — без background, border і box-shadow.
+            </span>
+          </div>
+          <div className="lu-px ds-px-demo" data-tone="mint">
+            <strong>.lu-px без губи</strong>
+            <span className="ds-muted">Добре для героя-блоку: нагорода дня, підсумок уроку.</span>
+          </div>
+        </div>
       </Section>
 
-      <Section id="progress" title="Прогрес">
+      <Section id="progress" title="Прогрес" lead="Сегментована «піксельна» смуга (фіолетова за замовчуванням); з текстом усередині — суцільна, щоб цифри не різались.">
         <div className="ds-stack">
           {TONES.filter((t) => t !== 'gray').map((t, i) => (
-            <ProgressBar key={t} value={0.15 + i * 0.12} tone={t} label={`Прогрес ${t}`} size={i % 3 === 0 ? 'sm' : i % 3 === 1 ? 'md' : 'lg'} />
+            <ProgressBar key={t} value={0.15 + i * 0.09} tone={t} label={`Прогрес ${t}`} size={i % 3 === 0 ? 'sm' : i % 3 === 1 ? 'md' : 'lg'} />
           ))}
           <ProgressBar value={0.7} tone="purple" striped label="Подвійний XP" valueText="×2 XP · 12 хв" size="lg" />
           <ProgressDemo />
         </div>
+      </Section>
+
+      <Section id="code" title="Код" lead="Код — завжди темний «аркадний екран» в обох темах, палітра синтаксису «Loo night».">
+        <pre className="ds-code">
+          <code>
+            {CODE.map((line, i) => (
+              <span key={i} style={{ display: 'block' }}>
+                {line.map(([text, tk], j) => (
+                  <span key={j} data-tk={tk}>
+                    {text}
+                  </span>
+                ))}
+              </span>
+            ))}
+          </code>
+        </pre>
       </Section>
 
       <Section id="badges" title="Бейджі та пігулки">
@@ -365,18 +524,13 @@ export default function DesignShowcasePage() {
             </div>
           ))}
         </div>
-        <h3 className="ds-h3">Еволюція: ранги на Loo</h3>
+        <h3 className="ds-h3">Ріст: стадії за рангом</h3>
         <p className="ds-muted">
-          <code>{'<Loo form="lamp" tier={2} />'}</code> — форма = ранг, <code>tier</code> I–III = під-ранг (пипи на губі, тріщини на яйці, самоцвіти в короні). За замовчуванням <code>form=&quot;block&quot;</code>.
+          <code>{'<Loo stage="small" />'}</code> — за рангом Loo лише росте: яйце (Новобранець I–II) → малий (Новобранець III–V) → звичайний (від Рекрута). За замовчуванням <code>stage=&quot;normal&quot;</code>. Уся «сила» на вигляді — спорядження.
         </p>
-        <div className="ds-loo-matrix" role="table" aria-label="Форми × під-ранги">
+        <div className="ds-loo-matrix" role="table" aria-label="Стадії × настрої">
           <div role="row" className="ds-loo-matrix-row ds-loo-forms-row">
             <span role="columnheader" />
-            {LOO_TIERS.map((t) => (
-              <code key={t ?? 0} role="columnheader">
-                {t ? `tier ${t}` : '—'}
-              </code>
-            ))}
             {FORM_MOODS.map((m) => (
               <code key={m} role="columnheader">
                 {m}
@@ -384,30 +538,44 @@ export default function DesignShowcasePage() {
             ))}
             <code role="columnheader">32 px</code>
           </div>
-          {LOO_FORMS.map((f) => (
-            <div key={f} role="row" className="ds-loo-matrix-row ds-loo-forms-row">
+          {LOO_STAGES.map((st) => (
+            <div key={st} role="row" className="ds-loo-matrix-row ds-loo-forms-row">
               <span role="rowheader">
-                <code>{f}</code>
+                <code>{st}</code>
                 <br />
-                <span className="ds-muted">{LOO_FORM_LABEL[f]}</span>
+                <span className="ds-muted">{LOO_STAGE_LABEL[st]}</span>
               </span>
-              {LOO_TIERS.map((t) => (
-                <span key={t ?? 0} role="cell">
-                  <Loo form={f} tier={t} size={72} label={`${LOO_FORM_LABEL[f]} ${t ?? ''}`} />
-                </span>
-              ))}
               {FORM_MOODS.map((m) => (
                 <span key={m} role="cell">
-                  <Loo form={f} mood={m} size={72} animated={false} label={`${LOO_FORM_LABEL[f]} · ${m}`} />
+                  <Loo stage={st} mood={m} size={72} animated={m === 'idle'} label={`${LOO_STAGE_LABEL[st]} · ${m}`} />
                 </span>
               ))}
               <span role="cell">
-                <Loo form={f} tier={2} size={32} decorative />
+                <Loo stage={st} size={32} decorative />
               </span>
             </div>
           ))}
         </div>
-        <h3 className="ds-h3">Катсцена еволюції</h3>
+        <h3 className="ds-h3">Спорядження на Loo</h3>
+        <p className="ds-muted">
+          Шари в <code>skin</code>: <code>head · body · weapon · amulet · aura</code> (поруч зі скінами <code>hat · glasses · hoodie · scarf</code>; шолом замінює капелюх). Колишні форми «Ламповий / Заряджений / Броньований / Коронований / Легендарний» — тепер речі.
+        </p>
+        <div className="ds-loo-matrix" role="table" aria-label="Слоти × речі">
+          {GEAR_ROWS.map((r) => (
+            <div key={r.slot} role="row" className="ds-loo-matrix-row ds-loo-forms-row">
+              <span role="rowheader">
+                <code>{r.slot}</code>
+              </span>
+              {r.looks.map((l) => (
+                <span key={l.label} role="cell">
+                  <Loo skin={l.skin} size={88} label={`${r.slot}: ${l.label}`} />
+                  <code>{l.label}</code>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+        <h3 className="ds-h3">Катсцена нового рангу</h3>
         <LooEvolveDemo />
         <h3 className="ds-h3">Лампочка «еврика»</h3>
         <div className="ds-row">

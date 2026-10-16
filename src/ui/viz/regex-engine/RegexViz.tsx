@@ -17,9 +17,9 @@ const KIND: Record<RegexFrame['kind'], { label: string; tone: 'ok' | 'fail' | 'b
   'lazy-rest': { label: 'лінивий: далі', tone: 'info' },
   'lazy-more': { label: 'backtrack', tone: 'back' },
   'alt-next': { label: 'backtrack', tone: 'back' },
-  success: { label: 'збіг ✅', tone: 'ok' },
+  success: { label: 'збіг ✓', tone: 'ok' },
   'no-match': { label: 'збігу немає', tone: 'fail' },
-  skip: { label: 'пропуск ⏩', tone: 'info' },
+  skip: { label: 'пропуск »', tone: 'info' },
 }
 
 function PatternView({ f }: { f: RegexFrame }) {
@@ -64,7 +64,7 @@ function Explosion() {
   const rows = explosionTable()
   const max = Math.max(...rows.map((r) => r.nested))
   return (
-    <Panel title="Скільки кроків: (a+)+b проти a+b" emoji="💣" hint="рядок 'a'.repeat(n) + 'c'">
+    <Panel title="Скільки кроків: (a+)+b проти a+b" icon="px:bomb" hint="рядок 'a'.repeat(n) + 'c'">
       <div className="viz-rx-chart" role="table" aria-label="Кількість кроків залежно від довжини рядка">
         <div className="viz-rx-chart-row viz-muted" role="row">
           <span role="columnheader">n</span>
@@ -99,10 +99,10 @@ function Stage({ f }: { f: RegexFrame }) {
   const kind = KIND[f.kind]
   return (
     <>
-      <Panel title="Шаблон" emoji="🧩" hint={f.kind === 'skip' ? undefined : f.span ? 'активний токен підсвічено' : undefined}>
+      <Panel title="Шаблон" icon="pi:PiPuzzlePieceFill" hint={f.kind === 'skip' ? undefined : f.span ? 'активний токен підсвічено' : undefined}>
         <PatternView f={f} />
       </Panel>
-      <Panel title="Рядок" emoji="🔤" hint={`▲ старт ${f.start} · позиція ${f.pos}`}>
+      <Panel title="Рядок" icon="px:letterTile" hint={`▲ старт ${f.start} · позиція ${f.pos}`}>
         <InputView f={f} />
       </Panel>
       <div className="viz-rx-status">
@@ -137,7 +137,7 @@ export function RegexViz(_props: VizProps) {
         label={`Пошук /${ex.pattern}/ у «${ex.input}»`}
         side={(f) => <Stage f={f} />}
         below={(f) => (
-          <Panel title="Журнал" emoji="📜" hint="останні кроки">
+          <Panel title="Журнал" icon="px:scroll" hint="останні кроки">
             <TokenList items={f.log} />
           </Panel>
         )}

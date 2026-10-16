@@ -12,6 +12,7 @@ import { Button, IconButton } from '@/ui/design/Button'
 import { GameIcon } from '@/ui/design/GameIcon'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
+import { Icon } from '@/ui/icons/Icon'
 import type { FlashItem } from '@/ui/study/render-items'
 import { QuizInline } from '@/ui/study/QuizInline'
 import { RateButtons } from '@/ui/study/RateButtons'
@@ -87,12 +88,12 @@ function ReelCard({ slide }: { slide: ReelSlide }) {
         <div className="reel-main">
           <Loo mood="sleeping" size={120} />
           <h2 className="reel-title">Сховано</h2>
-          <p className="feed-end-text">Ця AI-фішка більше не з’явиться у стрічці. Гортай далі 👇</p>
+          <p className="feed-end-text">Ця AI-фішка більше не з’явиться у стрічці. Гортай далі</p>
         </div>
       </article>
     )
   const share = async () => {
-    const text = `${slide.emoji} ${slide.title}`
+    const text = slide.title
     if (navigator.share) await navigator.share({ title: text, text }).catch(() => undefined)
     else await navigator.clipboard?.writeText(text)
   }
@@ -106,7 +107,7 @@ function ReelCard({ slide }: { slide: ReelSlide }) {
           {slide.ai ? <AiBadge slide={slide} /> : null}
         </div>
         <div className="reel-emoji" aria-hidden="true">
-          {slide.emoji}
+          <Icon name={slide.icon} size={80} />
         </div>
         <h2 className="reel-title">{slide.title}</h2>
         <div className="reel-body prose-flow">{slide.body}</div>
@@ -196,7 +197,7 @@ function CardSlide({ item, onDone }: { item: FlashItem; onDone: () => void }) {
   return (
     <article className="feed-card feed-flash" data-open={open ? '' : undefined}>
       <span className="reel-chip">
-        <span aria-hidden="true">🧠</span> Перевір себе · {item.chapterTitle}
+        <Icon name="px:brain" size={16} /> Перевір себе · {item.chapterTitle}
       </span>
       <div className="feed-card-question">{item.question}</div>
       {open ? (
@@ -319,7 +320,7 @@ export function Feed({ slides, nextHref, seenToday, target }: { slides: FeedSlid
             <Slide key={q.unitId} index={i} track={track}>
               <article className="feed-card feed-quiz">
                 <span className="reel-chip">
-                  <span aria-hidden="true">🎲</span> Квіз · {q.chapterTitle}
+                  <Icon name="px:dice" size={16} /> Квіз · {q.chapterTitle}
                 </span>
                 <QuizInline unitId={q.unitId} mode={q.mode} multi={q.multi} free={q.free} level={q.level} prompt={q.prompt} body={q.body} options={q.options} exercise={q.exercise} variant="inline" />
               </article>

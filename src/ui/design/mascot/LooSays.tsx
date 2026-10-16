@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { cx } from '../cx'
-import { Loo, type LooBulb, type LooEyes, type LooForm, type LooMood, type LooSkin, type LooTier } from './Loo'
+import { Loo, type LooBulb, type LooEyes, type LooMood, type LooSkin, type LooStage } from './Loo'
 
 interface LooSaysProps {
   mood?: LooMood
@@ -10,8 +10,7 @@ interface LooSaysProps {
   skin?: LooSkin
   eyes?: LooEyes
   bulb?: LooBulb
-  form?: LooForm
-  tier?: LooTier
+  stage?: LooStage
   /** Where the bubble sits relative to Loo. */
   side?: 'right' | 'top'
   /** Announce changes (feedback after an answer). */
@@ -19,10 +18,10 @@ interface LooSaysProps {
   className?: string
 }
 
-export function LooSays({ mood = 'idle', text, children, size = 96, skin, eyes, bulb, form, tier, side = 'right', live, className }: LooSaysProps) {
+export function LooSays({ mood = 'idle', text, children, size = 96, skin, eyes, bulb, stage, side = 'right', live, className }: LooSaysProps) {
   return (
     <div className={cx('loo-says', className)} data-side={side}>
-      <Loo mood={mood} size={size} skin={skin} eyes={eyes} bulb={bulb} form={form} tier={tier} decorative />
+      <Loo mood={mood} size={size} skin={skin} eyes={eyes} bulb={bulb} stage={stage} decorative />
       <div className="loo-bubble" aria-live={live ? 'polite' : undefined}>
         {text ?? children}
       </div>

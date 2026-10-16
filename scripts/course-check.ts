@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { checkCourse, LEVEL_EMOJI, LEVELS, type CourseBundle, type CourseIssue } from '../src/course'
+import { checkCourse, LEVEL_LABEL, LEVELS, type CourseBundle, type CourseIssue } from '../src/course'
 import { countFigures, listOfficialCourses, loadCourseSource, loadIconCatalog, resolveCourse } from './lib/course-source'
 import { checkTasks } from './lib/task-check'
 
@@ -53,7 +53,7 @@ function printSummary(b: CourseBundle) {
   console.log(`\n  Розділів ${st.sections} · тем ${st.topics} · уроків ${fmt(st.lessons)} · вправ ${fmt(st.exercises)}`)
   console.log(`  Тести ${fmt(st.quizzes)} · картки ${fmt(st.flashcards)} · співбесіда ${fmt(st.interview)} · задачі ${fmt(st.tasks)} (з автотестами ${fmt(st.autoTestedTasks)}) · фішки ${fmt(st.reels)}`)
   console.log(`  Тестів тем ${st.topicTests} · екзаменів розділів ${st.sectionExams} · ≈ ${st.hours.toLocaleString('uk-UA')} год`)
-  console.log(`  Рівні вправ: ${LEVELS.map((l) => `${LEVEL_EMOJI[l]} ${l} ${fmt(st.byLevel[l])}`).join(' · ')}`)
+  console.log(`  Рівні вправ: ${LEVELS.map((l) => `${l} (${LEVEL_LABEL[l]}) ${fmt(st.byLevel[l])}`).join(' · ')}`)
   if (b.placement.enabled) console.log(`  Вступний тест (≤ ${b.placement.maxQuestions} пит., ${b.placement.perLevel}/рівень): ${LEVELS.map((l) => `${l} ${b.placement.pool[l]?.length ?? 0}`).join(' · ')}`)
 }
 

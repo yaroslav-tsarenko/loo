@@ -33,7 +33,7 @@ my-course/
 ```yaml
 id: javascript-noob-to-god          # [a-z0-9-], унікальний у маркетплейсі, не змінюється
 version: 1.0.0                      # semver; нова версія не губить прогрес (звʼязок по id вправ)
-title: JavaScript from Noob to God
+title: JavaScript Zero → Pro
 subtitle: Від першого console.log до архітектури, V8 і співбесід
 subject: programming                # programming | language | security | science | other
 language: uk                        # мова викладання (BCP 47)

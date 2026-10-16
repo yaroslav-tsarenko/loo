@@ -318,12 +318,24 @@ console.log(buf.byteLength, moved.byteLength); // → 0 8
 
 Кожна межа має свій формат:
 
-```text
-🧠 об'єкт у пам'яті
- ├─ fetch body / WebSocket / localStorage ──▶ рядок      → JSON.stringify / JSON.parse
- ├─ postMessage / Worker / IndexedDB      ──▶ structured clone (Date, Map, Blob — ок)
- └─ <script> в HTML                        ──▶ JSON + екранування `<` (інакше XSS)
-```
+> [!diagram] Серіалізація на межах: який формат де
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: obj, label: "об'єкт у пам'яті", code: "{ user, savedAt: new Date(), tags: new Set() }", tone: violet, icon: "px:brain" }
+>   - { id: net, label: "мережа й сховище", text: "fetch body · WebSocket · localStorage", parent: obj, tone: blue, icon: "px:globe" }
+>   - { id: json, label: формат, code: "JSON.stringify / JSON.parse", note: "лише рядок: Date → рядок, Set → {}", parent: net, tone: yellow }
+>   - { id: thr, label: "між потоками й у базу", text: "postMessage · Worker · IndexedDB", parent: obj, tone: blue, icon: "px:database" }
+>   - { id: clone, label: формат, code: "structured clone", note: "Date, Map, Blob — ок", parent: thr, tone: green }
+>   - { id: html, label: "вбудовано в HTML", code: "<script>…</script>", parent: obj, tone: blue, icon: "px:file" }
+>   - { id: esc, label: формат, text: "JSON + екранування «<»", note: "інакше XSS", parent: html, tone: red }
+> steps:
+>   - { show: obj, note: "У пам'яті живе справжній об'єкт: з Date, Set, посиланнями. Але щойно дані виходять за межу — їх треба перетворити." }
+>   - { show: [net, json], move: { from: obj, to: json, value: "JSON.stringify(state)" }, note: "Мережа й localStorage розуміють лише рядки, тож об'єкт стає JSON. Date перетвориться на рядок, Set — на {}." }
+>   - { show: [thr, clone], move: { from: obj, to: clone, value: "postMessage(state)" }, note: "Між вікнами, воркерами й в IndexedDB працює structured clone: Date, Map і Blob доїжджають цілими." }
+>   - { show: [html, esc], move: { from: obj, to: esc, value: "JSON у <script>" }, note: "Вбудовуючи дані в HTML, мало зробити JSON — треба ще екранувати «<», інакше рядок «</script>» у даних відкриє XSS." }
+>   - { focus: [json, clone, esc], note: "Одне правило: на кожній межі — свій формат. А на вході ненадійні дані ще й валідуємо схемою." }
+> ```
 
 **Ненадійний JSON** (тіло запиту, `localStorage`, `postMessage` з іншого вікна): `JSON.parse` у `try/catch` → **валідація схеми** (Zod, Valibot, JSON Schema) → лише потім використання. Ніколи `eval` чи `new Function` для «парсингу».
 

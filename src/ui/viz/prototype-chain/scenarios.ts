@@ -1,9 +1,9 @@
-import type { Frame, StepScenario } from '../engine/types'
+import type { Frame, StepScenario, VizIcon } from '../engine/types'
 
 export interface ProtoObject {
   id: string
   label: string
-  emoji: string
+  icon: VizIcon
   props: Array<{ key: string; value: string }>
   // [[Prototype]]; null only for Object.prototype, undefined for the `null` terminal itself
   proto?: string | null
@@ -26,19 +26,19 @@ export interface ProtoFrame extends Frame {
 export const LOOKUP_PROPS = ['name', 'jumps', 'eats', 'walk', 'toString', 'fly'] as const
 export type LookupProp = (typeof LOOKUP_PROPS)[number]
 
-const NULL: ProtoObject = { id: 'null', label: 'null', emoji: '🚫', props: [] }
-const OBJECT_PROTO: ProtoObject = { id: 'objproto', label: 'Object.prototype', emoji: '🏛️', props: [{ key: 'toString', value: 'ƒ' }, { key: 'hasOwnProperty', value: 'ƒ' }, { key: 'valueOf', value: 'ƒ' }], proto: 'null' }
+const NULL: ProtoObject = { id: 'null', label: 'null', icon: 'pi:PiProhibitFill', props: [] }
+const OBJECT_PROTO: ProtoObject = { id: 'objproto', label: 'Object.prototype', icon: 'px:temple', props: [{ key: 'toString', value: 'ƒ' }, { key: 'hasOwnProperty', value: 'ƒ' }, { key: 'valueOf', value: 'ƒ' }], proto: 'null' }
 
 const lookupObjects: ProtoObject[] = [
-  { id: 'bunny', label: 'bunny', emoji: '🐰', props: [{ key: 'name', value: "'🐰 Банні'" }], proto: 'rabbit' },
-  { id: 'rabbit', label: 'rabbit', emoji: '🐇', props: [{ key: 'jumps', value: 'true' }], proto: 'animal' },
-  { id: 'animal', label: 'animal', emoji: '🐾', props: [{ key: 'eats', value: 'true' }, { key: 'walk', value: 'ƒ walk' }], proto: 'objproto' },
+  { id: 'bunny', label: 'bunny', icon: 'px:rabbit', props: [{ key: 'name', value: "'Банні'" }], proto: 'rabbit' },
+  { id: 'rabbit', label: 'rabbit', icon: 'px:hare', props: [{ key: 'jumps', value: 'true' }], proto: 'animal' },
+  { id: 'animal', label: 'animal', icon: 'px:paw', props: [{ key: 'eats', value: 'true' }, { key: 'walk', value: 'ƒ walk' }], proto: 'objproto' },
   OBJECT_PROTO,
   NULL,
 ]
 
 const RESULT_OUTPUT: Record<LookupProp, string> = {
-  name: '🐰 Банні',
+  name: 'Банні',
   jumps: 'true',
   eats: 'true',
   walk: 'ƒ walk()',
@@ -55,7 +55,7 @@ const rabbit = Object.create(animal)
 rabbit.jumps = true
 
 const bunny = Object.create(rabbit)
-bunny.name = '🐰 Банні'
+bunny.name = 'Банні'
 
 console.log(bunny.${prop})`
 }
@@ -90,24 +90,24 @@ export function buildLookupScenario(prop: LookupProp): StepScenario<ProtoFrame> 
 // ── class-sugar ──────────────────────────────────────────────────
 const classCode = `class Animal {
   constructor(name) { this.name = name }
-  speak() { return \`\${this.name} 🔊\` }
+  speak() { return \`\${this.name} говорить\` }
 }
 class Dog extends Animal {
-  bark() { return 'Гав! 🐶' }
+  bark() { return 'Гав!' }
 }
 
 const rex = new Dog('Рекс')
 console.log(rex.speak())
 console.log(typeof Dog)`
 
-const FN_PROTO: ProtoObject = { id: 'fnproto', label: 'Function.prototype', emoji: '⚙️', props: [{ key: 'call', value: 'ƒ' }, { key: 'bind', value: 'ƒ' }], proto: 'objproto', col: 0 }
+const FN_PROTO: ProtoObject = { id: 'fnproto', label: 'Function.prototype', icon: 'px:gear', props: [{ key: 'call', value: 'ƒ' }, { key: 'bind', value: 'ƒ' }], proto: 'objproto', col: 0 }
 const OBJ1: ProtoObject = { ...OBJECT_PROTO, col: 1 }
 const NULL1: ProtoObject = { ...NULL, col: 1 }
-const animalFn: ProtoObject = { id: 'Animal', label: 'Animal', emoji: '🧩', props: [{ key: 'prototype', value: '→' }], proto: 'fnproto', col: 0, prototypeOf: 'AnimalP' }
-const animalP: ProtoObject = { id: 'AnimalP', label: 'Animal.prototype', emoji: '📘', props: [{ key: 'constructor', value: 'Animal' }, { key: 'speak', value: 'ƒ' }], proto: 'objproto', col: 1 }
-const dogFn: ProtoObject = { id: 'Dog', label: 'Dog', emoji: '🧩', props: [{ key: 'prototype', value: '→' }], proto: 'Animal', col: 0, prototypeOf: 'DogP' }
-const dogP: ProtoObject = { id: 'DogP', label: 'Dog.prototype', emoji: '📗', props: [{ key: 'constructor', value: 'Dog' }, { key: 'bark', value: 'ƒ' }], proto: 'AnimalP', col: 1 }
-const rexEmpty: ProtoObject = { id: 'rex', label: 'rex', emoji: '🐕', props: [], proto: 'DogP', col: 1 }
+const animalFn: ProtoObject = { id: 'Animal', label: 'Animal', icon: 'pi:PiFunctionBold', props: [{ key: 'prototype', value: '→' }], proto: 'fnproto', col: 0, prototypeOf: 'AnimalP' }
+const animalP: ProtoObject = { id: 'AnimalP', label: 'Animal.prototype', icon: 'px:book', props: [{ key: 'constructor', value: 'Animal' }, { key: 'speak', value: 'ƒ' }], proto: 'objproto', col: 1 }
+const dogFn: ProtoObject = { id: 'Dog', label: 'Dog', icon: 'pi:PiFunctionBold', props: [{ key: 'prototype', value: '→' }], proto: 'Animal', col: 0, prototypeOf: 'DogP' }
+const dogP: ProtoObject = { id: 'DogP', label: 'Dog.prototype', icon: 'px:book', props: [{ key: 'constructor', value: 'Dog' }, { key: 'bark', value: 'ƒ' }], proto: 'AnimalP', col: 1 }
+const rexEmpty: ProtoObject = { id: 'rex', label: 'rex', icon: 'px:dog', props: [], proto: 'DogP', col: 1 }
 const rex: ProtoObject = { ...rexEmpty, props: [{ key: 'name', value: "'Рекс'" }] }
 
 const step1 = [animalFn, FN_PROTO, animalP, OBJ1, NULL1]
@@ -124,8 +124,8 @@ const classSugar: StepScenario<ProtoFrame> = {
     { line: 2, objects: step4, cursor: 'rex', key: 'name', status: 'found', output: [], note: 'Конструктор Animal записує name як ВЛАСНУ властивість rex. Методів у rex немає — лише дані.' },
     { line: 10, objects: step4, cursor: 'rex', key: 'speak', from: 'rex', status: 'miss', output: [], note: 'rex.speak(): власної speak у rex немає → ідемо за [[Prototype]] до Dog.prototype.' },
     { line: 10, objects: step4, cursor: 'DogP', key: 'speak', from: 'rex', status: 'miss', output: [], note: 'У Dog.prototype лише constructor і bark → далі, до Animal.prototype.' },
-    { line: 10, objects: step4, cursor: 'AnimalP', key: 'speak', from: 'rex', status: 'found', output: ['Рекс 🔊'], note: 'Знайдено в Animal.prototype. Викликано як rex.speak(), тож this = rex і this.name = «Рекс».' },
-    { line: 11, objects: step4, cursor: 'Dog', key: null, status: 'idle', output: ['Рекс 🔊', 'function'], note: 'typeof Dog — "function". class — це синтаксис над функцією-конструктором і прототипами, плюс бонуси: strict mode, обов’язковий new, неперелічувані методи.' },
+    { line: 10, objects: step4, cursor: 'AnimalP', key: 'speak', from: 'rex', status: 'found', output: ['Рекс говорить'], note: 'Знайдено в Animal.prototype. Викликано як rex.speak(), тож this = rex і this.name = «Рекс».' },
+    { line: 11, objects: step4, cursor: 'Dog', key: null, status: 'idle', output: ['Рекс говорить', 'function'], note: 'typeof Dog — "function". class — це синтаксис над функцією-конструктором і прототипами, плюс бонуси: strict mode, обов’язковий new, неперелічувані методи.' },
   ],
 }
 

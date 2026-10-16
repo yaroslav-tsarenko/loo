@@ -25,25 +25,27 @@ icon: "🛰️"
 
 Бібліотеку `createClient`, яка робить `api.get('users', { params: { page: 2 } })` надійним: таймаут на кожну спробу, повтори при збоях сервера, авторизація через інтерсептор, не більше N запитів одночасно, і помилки, які можна розрізнити `instanceof`. Мережа — **ін'єкований транспорт**: у тестах фейк, у браузері — адаптер над `fetch`.
 
-```text
- api.get('users', { params, signal, timeout })
-        │
-        ▼ buildRequest(baseURL, options) ── { method, url, headers, body }
-        │
-        ▼ pool.run(…)  ── не більше `concurrency` одночасно, решта в черзі FIFO
-        │
-        ▼ retry(…)  ── повтор лише ідемпотентних (GET/PUT/DELETE…) при
-        │              NetworkError | TimeoutError | 5xx | 429
-        │              пауза: Retry-After або backoff з jitter
-        ▼ withTimeout(signal => …, timeout, { signal: користувацький })
-        │
-        ▼ middleware «цибуля»:  auth ─▶ logger ─▶ … ─▶ send
-        │                                              │
-        │                     transport(request) ◀─────┘  (fetch | fake)
-        │                           │ { status, headers, body }
-        │                           ▼
-        └───────────────── toResult: JSON / текст, HttpError | ParseError
-```
+> [!diagram] Шари createClient: що всередині чого
+> ```yaml
+> layout: nest
+> nodes:
+>   - { id: call, label: "api.get('users', { params: { page: 2 } })", tone: gray }
+>   - { id: build, parent: call, label: "buildRequest(baseURL, options)", text: "{ method, url, headers, body }", tone: blue }
+>   - { id: pool, parent: call, label: "pool.run(…) · concurrency = 6", text: "зайнято слотів: 0 / 6", tone: mint }
+>   - { id: retry, parent: pool, label: "retry(…) · NetworkError | TimeoutError | 5xx | 429", text: "спроба —", tone: yellow, icon: "px:repeat" }
+>   - { id: timeout, parent: retry, label: "withTimeout(signal => …, timeout)", text: "10000 мс на спробу", tone: orange, icon: "px:hourglass" }
+>   - { id: mw, parent: timeout, label: "middleware: auth → logger → … → send", text: "—", tone: violet }
+>   - { id: transport, parent: mw, label: "transport(request) — fetch | fake", text: "—", tone: gray }
+>   - { id: result, parent: call, label: "toResult: JSON / текст, HttpError | ParseError", text: "?", tone: green }
+> steps:
+>   - { set: { build: "GET https://api.test/v1/users?page=2" }, note: "buildRequest складає URL з baseURL і params та нормалізує заголовки. Далі всі шари працюють з одним форматом запиту." }
+>   - { set: { pool: "зайнято слотів: 1 / 6" }, note: "Пул пропускає не більше 6 запитів одночасно, решта чекає в черзі FIFO. Уся операція — разом із повторами — займає один слот." }
+>   - { set: { retry: "спроба 1", mw: "headers.authorization додано", transport: "503 Service Unavailable" }, note: "Спроба 1: стартує власний таймер на 10 с, інтерсептор auth додає заголовок, send віддає запит транспорту. Сервер відповів 503." }
+>   - { set: { retry: "спроба 2 · після backoff з jitter", transport: "…" }, note: "503 — це 5xx, а GET ідемпотентний, тож retry чекає паузу (Retry-After або backoff з jitter) і пробує ще раз. Нова спроба — новий таймер на 10 с." }
+>   - { set: { transport: "{ status: 200, headers, body }" }, note: "Друга спроба вдалась: транспорт повертає статус, заголовки й тіло. Яким був транспорт — fetch чи фейк у тесті, — шарам вище байдуже." }
+>   - { set: { result: "дані з JSON", pool: "зайнято слотів: 0 / 6" }, note: "toResult розбирає тіло як JSON (або кидає HttpError | ParseError, які легко розрізнити через instanceof). Слот у пулі звільняється." }
+>   - { focus: [pool, retry, timeout], note: "Порядок і є дизайн: таймаут усередині ретраю — кожна спроба має свій ліміт; ретрай усередині пулу — одна логічна операція займає один слот." }
+> ```
 
 Кожен шар — окрема функція з власними тестами; `createClient` лише складає їх у правильному порядку. Порядок і є дизайн: таймаут **усередині** ретраю (кожна спроба має свій ліміт), ретрай **усередині** пулу (одна логічна операція займає один слот).
 

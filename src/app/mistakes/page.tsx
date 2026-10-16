@@ -213,7 +213,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
       {resolved.length > 0 ? (
         <section aria-labelledby="resolved-title" className="gsection">
           <h2 id="resolved-title" className="gsection-title">
-            Виправлено за тиждень 🎉
+            Виправлено за тиждень
           </h2>
           <ul className="fixed-badges">
             {resolved.map((u, i) => (

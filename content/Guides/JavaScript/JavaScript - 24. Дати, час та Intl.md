@@ -45,13 +45,22 @@ icon: "📅"
 
 Усередині `Date` — **одне число**: *time value*, мілісекунди від `1970-01-01T00:00:00Z` (Unix epoch) в UTC, без високосних секунд. Діапазон — ±8,64·10¹⁵ мс (±100 000 000 днів, приблизно ±273 тисячі років). Усе інше — «вигляди» цього числа:
 
-```text
-                time value = 1717243200000  (одне число, UTC)
-                          │
-     ┌────────────────────┼─────────────────────────┐
- getUTCHours() → 12   getHours() → 15 (Київ, UTC+3)   toISOString()
-                       getHours() → 8 (Нью-Йорк, UTC−4)  "2024-06-01T12:00:00.000Z"
-```
+> [!diagram] Одне число — багато «виглядів»
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: tv, label: "time value (UTC)", text: "1717243200000", note: "мілісекунди від 1970-01-01T00:00Z", tone: violet, icon: "px:clock" }
+>   - { id: utc, label: "getUTCHours()", text: "?", note: UTC, parent: tv, tone: blue }
+>   - { id: kyiv, label: "getHours() у Києві", text: "?", note: "UTC+3", parent: tv, tone: green }
+>   - { id: ny, label: "getHours() у Нью-Йорку", text: "?", note: "UTC−4", parent: tv, tone: green }
+>   - { id: iso, label: "toISOString()", text: "?", note: "завжди UTC", parent: tv, tone: yellow }
+> steps:
+>   - { focus: tv, note: "Усередині Date лише одне число — 1717243200000 мс від epoch. Жодного часового поясу в ньому немає." }
+>   - { move: { from: tv, to: utc, value: "12:00 UTC" }, set: { utc: "12" }, note: "getUTCHours() читає число як є, в UTC: 12 годин." }
+>   - { move: { from: tv, to: kyiv, value: "+3 год" }, set: { kyiv: "15" }, note: "getHours() бере пояс середовища. На комп'ютері в Києві (UTC+3) це 15." }
+>   - { move: { from: tv, to: ny, value: "−4 год" }, set: { ny: "8" }, note: "Той самий Date на комп'ютері в Нью-Йорку (UTC−4) покаже 8 — число ж однакове." }
+>   - { move: { from: tv, to: iso, value: "UTC" }, set: { iso: "\"2024-06-01T12:00:00.000Z\"" }, note: "toISOString() завжди в UTC — тому ISO-рядок однаковий у будь-якому поясі і годиться для обміну даними." }
+> ```
 
 - `Date.now()` / `+new Date()` / `getTime()` — саме число.
 - `getHours()`, `getDate()`… — у **локальному поясі середовища** (ОС, `TZ` у Node).
@@ -158,10 +167,22 @@ console.log(addDays(new Date(2024, 0, 30), 3).toDateString()); // → Fri Feb 02
 
 **Зсув** (`+02:00`) — це не **часовий пояс** (`Europe/Kyiv`). Пояс — набір правил з бази IANA tz: коли переводять годинник, як змінювались зсуви історично. Через DST (літній час) у році є день на **23 години** і день на **25 годин**:
 
-```text
-Київ, 31 березня 2024:   02:59:59 (UTC+2) ──▶ 04:00:00 (UTC+3)   година 03:xx не існує
-Київ, 27 жовтня 2024:    03:59:59 (UTC+3) ──▶ 03:00:00 (UTC+2)   година 03:xx буває двічі
-```
+> [!diagram] DST у Києві: доба на 23 і на 25 годин
+> ```yaml
+> layout: compare
+> columns: { spring: "31 березня 2024", autumn: "27 жовтня 2024" }
+> nodes:
+>   - { id: s1, col: spring, text: "02:59:59", note: "UTC+2", tone: blue }
+>   - { id: s2, col: spring, text: "04:00:00", note: "UTC+3 — години 03:xx немає", tone: red }
+>   - { id: a1, col: autumn, text: "03:59:59", note: "UTC+3", tone: blue }
+>   - { id: a2, col: autumn, text: "03:00:00", note: "UTC+2 — година 03:xx удруге", tone: orange }
+> steps:
+>   - { focus: s1, note: "Ніч на 31 березня. Годинник у Києві показує 02:59:59, зсув — UTC+2." }
+>   - { move: { from: s1, to: s2, value: "+1 с" }, note: "Через секунду — одразу 04:00:00 і зсув UTC+3. Години 03:xx у цей день не існує, доба триває 23 години." }
+>   - { focus: a1, note: "Ніч на 27 жовтня: 03:59:59 за літнім часом, UTC+3." }
+>   - { move: { from: a1, to: a2, value: "+1 с" }, note: "Годинник повертається на 03:00:00, зсув UTC+2. Година 03:xx буває двічі, доба — 25 годин." }
+>   - { focus: [s2, a2], note: "Тому «+ 24 * 60 * 60 * 1000» — не «наступний день»: від 31.03 00:00 це вийде 01:00. Календарні дні додаємо через setDate." }
+> ```
 
 Звідси головна помилка — «додати день» як `+ 24 * 60 * 60 * 1000`:
 

@@ -12,7 +12,7 @@ interface RingProps {
 }
 
 // Circular progress (lesson nodes, daily goal). Center slot holds an icon or number.
-export function Ring({ value, size = 64, stroke = 7, tone = 'green', label, children, className }: RingProps) {
+export function Ring({ value, size = 64, stroke = 7, tone = 'violet', label, children, className }: RingProps) {
   const v = clamp01(value)
   const r = (size - stroke) / 2
   return (

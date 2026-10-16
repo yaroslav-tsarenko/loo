@@ -19,7 +19,7 @@ export function CalloutIcon({ name }: { name: string }) {
   const Icon = ICONS[name] ?? Info
   return (
     <span className="callout-icon" aria-hidden="true">
-      <Icon size={18} strokeWidth={1.7} />
+      <Icon size={17} strokeWidth={2.2} />
     </span>
   )
 }

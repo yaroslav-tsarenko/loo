@@ -25,27 +25,28 @@ icon: "🏗️"
 
 Мініатюрний React/Preact: компоненти-функції, віртуальний DOM, diff з ключами і рендер у будь-яке середовище. Головне архітектурне рішення — **diff не торкається DOM**. Він повертає масив операцій, а виконує їх «хост»: у тестах — звичайні об'єкти, у браузері — DOM, у React Native — нативні view.
 
-```text
-   state ──▶ view(state) ──▶ h('ul', null, items.map(i => h(Item, { key: i.id, ... })))
-                                   │
-                                   ▼ expand: компоненти-функції → елементи
-                          нове віртуальне дерево
-                                   │
-     попереднє дерево ──▶  diff(old, new)  ── чиста функція, без DOM
-                                   │
-                                   ▼
-          [ { op: 'text',  path: [0, 2, 0], value: '3' },
-            { op: 'move',  path: [1], from: 3, to: 0 },
-            { op: 'create', path: [1, 4], node: … } ]
-                                   │
-               ┌───────────────────┴───────────────────┐
-               ▼                                       ▼
-   applyOps(toTree(…), ops)                  DOM-хост: insertBefore,
-   (тести: звичайні об'єкти)                 removeChild, nodeValue…
-               │
-               ▼
-   властивість: applyOps(toTree(old), diff(old, new)) ≡ toTree(new)
-```
+> [!diagram] Від стану до DOM: view → diff → операції → хост
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: state, label: "state", text: "{ count: 2, items: [a, b, c, d] }", tone: blue, icon: "px:box" }
+>   - { id: view, label: "view(state) + expand", code: "h('ul', null, items.map(i =>\n  h(Item, { key: i.id, ... })))", tone: mint }
+>   - { id: diff, label: "diff(old, new) — чиста функція, без DOM", code: "diff(old, new)", note: "попереднє дерево ⇄ нове", tone: violet }
+>   - { id: ops, label: "операції", text: "[ ]", tone: yellow }
+>   - { id: host, label: "хост", text: "тести: applyOps · браузер: DOM", tone: green, icon: "px:monitor" }
+> edges:
+>   - { from: state, to: view }
+>   - { from: view, to: diff, label: "нове дерево" }
+>   - { from: diff, to: ops }
+>   - { from: ops, to: host, label: "виконати" }
+> steps:
+>   - { set: { state: "{ count: 3, items: [d, a, b, c, e] }" }, note: "Стан змінився: лічильник 2 → 3, елемент d переїхав нагору, додався e. DOM ми руками не чіпаємо." }
+>   - { move: { from: state, to: view, value: "state" }, line: ["view:1", "view:2"], note: "view(state) — звичайна функція: описує інтерфейс через h(). expand розгортає компоненти-функції (Item) до звичайних елементів." }
+>   - { move: { from: view, to: diff, value: "нове дерево" }, line: "diff:1", note: "diff порівнює нове віртуальне дерево з попереднім. Він нічого не малює — лише рахує різницю, тож його легко тестувати." }
+>   - { move: { from: diff, to: ops, value: "3 операції" }, set: { ops: "{ op: 'text', path: [0, 2, 0], value: '3' }\n{ op: 'move', path: [1], from: 3, to: 0 }\n{ op: 'create', path: [1, 4], node: … }" }, note: "Результат — масив операцій. Завдяки key елемент d переміщується (move), а не перестворюється." }
+>   - { move: { from: ops, to: host, value: "ops" }, set: { host: "nodeValue · insertBefore · appendChild" }, note: "Хост виконує операції. У браузері — DOM-методи, у тестах — applyOps над звичайними обʼєктами, у React Native — нативні view." }
+>   - { focus: [diff, host], note: "Головний тест розділу: applyOps(toTree(old), diff(old, new)) ≡ toTree(new). Якщо це правда для будь-якої пари дерев — diff коректний." }
+> ```
 
 Остання рядок — **головний тест розділу**: застосувати операції до старого дерева = отримати нове. Якщо це тримається для будь-якої пари дерев, diff коректний.
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { Sparkles } from 'lucide-react'
+import { PiEyeSlashFill } from 'react-icons/pi'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { hideGeneratedReel } from '@/server/actions/feed'
@@ -55,7 +56,7 @@ export function HideButton({ id }: { id: string }) {
         })
       }
     >
-      🙈 Сховати
+      <PiEyeSlashFill aria-hidden="true" /> Сховати
     </button>
   )
 }

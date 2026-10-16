@@ -2,7 +2,7 @@
 
 import { AnimatePresence, m } from 'motion/react'
 import { Arrows, type ArrowLink } from '../engine/Arrows'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { scopeChainScenarios, type ScopeEnv, type ScopeFrame } from './scenarios'
@@ -43,7 +43,9 @@ function EnvBox({ env, frame }: { env: ScopeEnv; frame: ScopeFrame }) {
               <m.span key={v.value} className="viz-var-val" data-changed={v.changed ? '' : undefined} data-anchor={v.fn ? `ref-${env.id}-${v.name}` : undefined} initial={v.changed ? { scale: 1.25 } : false} animate={{ scale: 1 }} transition={SPRING}>
                 {v.value}
               </m.span>
-              {v.captured ? <span className="viz-var-flag">📎 у замиканні</span> : null}
+              {v.captured ? <span className="viz-var-flag">
+                  <VizGlyph icon="pi:PiPaperclipBold" size={12} /> у замиканні
+                </span> : null}
             </li>
           )
         })}
@@ -77,14 +79,16 @@ function ScopeStage({ frame }: { frame: ScopeFrame }) {
     if (from?.outer === path[i + 1]) links.push({ from: `env-${path[i]}`, to: `env-${path[i + 1]}`, tone: 'accent', dashed: true })
   }
   return (
-    <Panel title="Лексичні оточення" emoji="🪆" hint={frame.lookup ? `шукаємо «${frame.lookup.name}»` : undefined} className="viz-scope">
+    <Panel title="Лексичні оточення" icon="px:matryoshka" hint={frame.lookup ? `шукаємо «${frame.lookup.name}»` : undefined} className="viz-scope">
       <div className="viz-rel">
         {roots.map((r) => (
           <EnvBox key={r.id} env={r} frame={frame} />
         ))}
         {frame.fns.length > 0 ? (
           <div className="viz-fns" aria-label="Функції-об’єкти">
-            <span className="viz-fns-title">🧩 функції в пам’яті · стрілка = [[Environment]]</span>
+            <span className="viz-fns-title">
+              <VizGlyph icon="pi:PiFunctionBold" size={12} /> функції в пам’яті · стрілка = [[Environment]]
+            </span>
             <div className="viz-fns-list">
               <AnimatePresence initial={false}>
                 {frame.fns.map((fn) => (

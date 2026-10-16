@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import type { ReactNode } from 'react'
-import { PiArrowRightBold, PiBookOpenTextFill, PiCardsThreeFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiLightningFill, PiPathFill, PiTimerFill } from 'react-icons/pi'
-import { budgetFor } from '@/progress/mission'
+import { PiArrowRightBold, PiCheckBold, PiTimerFill } from 'react-icons/pi'
+import { budgetFor, STEP_ICONS } from '@/progress/mission'
 import type { MissionView } from '@/server/services/mission'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
@@ -11,6 +10,7 @@ import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { Ring } from '@/ui/design/Ring'
 import { StatChip } from '@/ui/design/StatChip'
+import { Icon } from '@/ui/icons/Icon'
 import { BudgetPicker } from './BudgetPicker'
 
 const UNIT: Record<string, [string, string, string]> = {
@@ -22,14 +22,14 @@ const UNIT: Record<string, [string, string, string]> = {
   lesson: ['урок', 'уроки', 'уроків'],
 }
 
-// Each step kind gets a library icon on a colored tile instead of an emoji.
-const STEP_ART: Record<string, { tone: Tone; icon: ReactNode }> = {
-  card: { tone: 'purple', icon: <PiCardsThreeFill /> },
-  question: { tone: 'blue', icon: <PiExamFill /> },
-  minute: { tone: 'green', icon: <PiBookOpenTextFill /> },
-  reel: { tone: 'yellow', icon: <PiLightningFill /> },
-  task: { tone: 'orange', icon: <PiCodeBlockFill /> },
-  lesson: { tone: 'green', icon: <PiPathFill /> },
+// Each step gets its pixel icon (by kind) on a tile tinted by its unit. Green is reserved for completed steps.
+const STEP_TONE: Record<string, Tone> = {
+  card: 'purple',
+  question: 'blue',
+  minute: 'mint',
+  reel: 'yellow',
+  task: 'orange',
+  lesson: 'violet',
 }
 
 function plural(n: number, forms: [string, string, string]): string {
@@ -47,12 +47,12 @@ export function MissionCard({ mission, dailyMinutes, streak }: { mission: Missio
   return (
     <Card as="section" variant="raised" tone={mission.complete ? 'yellow' : undefined} padding="lg" className="mission" aria-labelledby="mission-title" data-complete={mission.complete ? '' : undefined}>
       <header className="mission-head">
-        <Ring value={mission.ratio} size={76} stroke={8} tone={mission.complete ? 'yellow' : 'green'} label={`Місія дня: ${Math.round(mission.ratio * 100)}%`}>
+        <Ring value={mission.ratio} size={76} stroke={8} tone={mission.complete ? 'yellow' : 'violet'} label={`Місія дня: ${Math.round(mission.ratio * 100)}%`}>
           {mission.complete ? <GameIcon name="crown" size={34} /> : <span className="mission-ring-pct tabular">{Math.round(mission.ratio * 100)}%</span>}
         </Ring>
         <div className="mission-head-text">
           <span className="mission-tags">
-            <Pill size="sm" tone="blue" icon={<span aria-hidden="true">{budget.emoji}</span>}>
+            <Pill size="sm" tone="blue" icon={<Icon name={budget.icon} size={16} />}>
               {budget.title} · {mission.plan.budget} хв
             </Pill>
             <Pill size="sm" tone="yellow" icon={<GameIcon name="bolt" size={14} />}>
@@ -60,7 +60,7 @@ export function MissionCard({ mission, dailyMinutes, streak }: { mission: Missio
             </Pill>
           </span>
           <h2 id="mission-title" className="mission-title">
-            {mission.complete ? 'Місію виконано. Ти машина 🦾' : started ? 'Місія дня в процесі' : 'Місія дня'}
+            {mission.complete ? 'Місію виконано. Ти машина!' : started ? 'Місія дня в процесі' : 'Місія дня'}
           </h2>
           <span className="mission-streak">
             <StatChip kind="streak" value={streak} size="sm" active={streak > 0} /> {plural(streak, ['день', 'дні', 'днів'])} поспіль
@@ -72,17 +72,17 @@ export function MissionCard({ mission, dailyMinutes, streak }: { mission: Missio
         {mission.progress.map(({ step, done, complete }) => {
           const href = mission.hrefs[step.id] ?? '/'
           const isNext = next?.step.id === step.id
-          const art = STEP_ART[step.unit] ?? { tone: 'blue' as Tone, icon: <span aria-hidden="true">{step.emoji}</span> }
+          const tone = STEP_TONE[step.unit] ?? 'blue'
           return (
             <li key={step.id} className="mission-step" data-complete={complete ? '' : undefined} data-next={isNext ? '' : undefined}>
               <Link href={href} className="mission-step-link">
-                <span className="mission-step-icon" data-tone={complete ? 'green' : art.tone} aria-hidden="true">
-                  {complete ? <PiCheckBold /> : art.icon}
+                <span className="mission-step-icon" data-tone={complete ? 'green' : tone} aria-hidden="true">
+                  {complete ? <PiCheckBold /> : <Icon name={STEP_ICONS[step.kind] ?? 'px:target'} size={26} />}
                 </span>
                 <span className="mission-step-body">
                   <span className="mission-step-title">{step.title}</span>
                   {isNext ? <span className="mission-step-why">{step.why}</span> : null}
-                  <ProgressBar value={done / step.target} size="sm" tone={complete ? 'green' : art.tone} label={step.title} className="mission-step-bar" />
+                  <ProgressBar value={done / step.target} size="sm" tone={complete ? 'green' : tone} label={step.title} className="mission-step-bar" />
                 </span>
                 <span className="mission-step-count tabular">
                   {done}/{step.target}

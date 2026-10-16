@@ -197,14 +197,28 @@ console.log(!hasTicket) // → false
 
 Таблиця істинності для `&&` і `||` — коротко:
 
-```text
-  A      B     │  A && B   A || B
- ──────────────┼──────────────────
- true   true   │  true     true
- true   false  │  false    true
- false  true   │  false    true
- false  false  │  false    false
-```
+> [!diagram] Таблиця істинності для && і ||
+> ```yaml
+> layout: compare
+> columns: { and: "A && B — «і»", or: "A || B — «або»" }
+> nodes:
+>   - { id: and1, col: and, code: "true && true", note: "→ true", tone: green }
+>   - { id: and2, col: and, code: "true && false", note: "→ false", tone: gray }
+>   - { id: and3, col: and, code: "false && true", note: "→ false", tone: gray }
+>   - { id: and4, col: and, code: "false && false", note: "→ false", tone: gray }
+>   - { id: or1, col: or, code: "true || true", note: "→ true", tone: green }
+>   - { id: or2, col: or, code: "true || false", note: "→ true", tone: green }
+>   - { id: or3, col: or, code: "false || true", note: "→ true", tone: green }
+>   - { id: or4, col: or, code: "false || false", note: "→ false", tone: gray }
+> edges:
+>   - { from: and1, to: or1, label: "ті самі A і B" }
+> steps:
+>   - { show: [and1, or1], note: "Обидві частини true: і && («і»), і || («або») дають true." }
+>   - { show: [and2, or2], note: "Друга частина false: && вимагає, щоб були true обидві, — отже false. А || вистачає однієї true — отже true." }
+>   - { show: [and3, or3], note: "Те саме, якщо false стоїть першим: для результату порядок частин не важливий." }
+>   - { show: [and4, or4], note: "Обидві false: тепер і || немає жодної true, тож теж false." }
+>   - { focus: [and1, or4], note: "Запам'ятай коротко: && дає true лише в першому рядку, а || дає false лише в останньому." }
+> ```
 
 > [!quiz] Заповни пропуски: можна кермувати, якщо є 18 **і** є права; вихідний — субота **або** неділя
 > level: junior · type: fill · id: jss-03-quiz-06

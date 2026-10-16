@@ -157,7 +157,7 @@ export async function todaySummary(snapshot: ContentSnapshot): Promise<TodaySumm
     mistakes: open,
     answeredToday: today?.total ?? 0,
     goal: settings.dailyGoal,
-    // with 🧊 freezes applied (src/server/game/streak.ts)
+    // with freezes applied (src/server/game/streak.ts)
     streak: goalDays.length > 0 ? (await streakNow(now)).current : 0,
     continueChapter,
   }

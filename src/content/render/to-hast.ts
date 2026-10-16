@@ -3,7 +3,7 @@ import type { Code, Paragraph, PhrasingContent, Root } from 'mdast'
 import { toHast, type Handlers, type State } from 'mdast-util-to-hast'
 import { slug } from 'github-slugger'
 import { calloutStyleFor, renderBlockFor } from '../blocks/registry'
-import type { Callout, FigureRef, Mark, Tag, UnitRef, VizRef, WikiLink } from '../parse/nodes'
+import type { Callout, DiagramRef, FigureRef, Mark, Tag, UnitRef, VizRef, WikiLink } from '../parse/nodes'
 import { canonicalLang, highlightCode, parseCodeMeta, type CodeInput } from './highlight'
 
 export interface LinkTarget {
@@ -63,6 +63,11 @@ export function mdastToHast(root: Root, env: HastEnv): HastResult {
     },
     unitRef(_state, node: UnitRef) {
       return el('x-unit', { dataUnit: node.unitId }, [])
+    },
+    diagramRef(state, node: DiagramRef) {
+      const caption = state.all(node)
+      if (node.spec) return el('x-diagram', { dataSpec: JSON.stringify(node.spec) }, caption.length > 0 ? [el('div', { className: ['dg-caption-body'] }, caption)] : [])
+      return missingBlock(`Схема не намальована: ${node.error ?? 'помилка опису'}`, 'diagram', caption)
     },
     vizRef(state, node: VizRef) {
       const caption = state.all(node)

@@ -166,17 +166,26 @@ console.log(Object.prototype.toString.call(new Money())); // → '[object Money]
 | `apply(target, thisArg, args)` | виклик функції `p(...)` (лише якщо target — функція) |
 | `construct(target, args, newTarget)` | `new p(...)` |
 
-```text
-  код:   proxy.age = 30
-           │
-           ▼
-  [[Set]] на proxy ──► handler.set є? ──так──► set(target, 'age', 30, proxy)
-                               │                   │ перевірка, логування…
-                               ні                  ▼
-                               │            Reflect.set(target, 'age', 30, receiver)
-                               ▼                   │
-                       target.age = 30 ◄───────────┘
-```
+> [!diagram] user.age = 30: шлях запису через Proxy
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: code, label: "код", text: "user.age = 30", tone: blue }
+>   - { id: proxy, label: "[[Set]] на proxy", text: "handler.set є?", tone: gray, icon: "px:mirror" }
+>   - { id: trap, label: "пастка handler.set", code: "set(target, key, value, receiver) {\n  if (key === 'age' && !Number.isInteger(value)) throw new TypeError(…);\n  return Reflect.set(target, key, value, receiver);\n}", tone: violet }
+>   - { id: target, label: "target", text: "{ }", tone: green }
+> edges:
+>   - { from: code, to: proxy, label: "запис" }
+>   - { from: proxy, to: trap, label: "так" }
+>   - { from: trap, to: target, label: "Reflect.set" }
+> steps:
+>   - { focus: code, note: "Записуємо user.age = 30. user — не звичайний обʼєкт, а Proxy над порожнім { }." }
+>   - { move: { from: code, to: proxy, value: "age = 30" }, note: "Запис — це внутрішня операція [[Set]]. Рушій шукає пастку set у handler; якби її не було, запис пішов би прямо в target." }
+>   - { move: { from: proxy, to: trap, value: "('age', 30)" }, line: "trap:1", note: "Пастка є — викликається set(target, 'age', 30, user)." }
+>   - { line: "trap:2", note: "Перевірка: 30 — ціле число, тож помилки немає." }
+>   - { move: { from: trap, to: target, value: "30" }, line: "trap:3", set: { target: "{ age: 30 }" }, note: "Reflect.set виконує стандартний запис у target і повертає true." }
+>   - { set: { code: "user.age = 'тридцять'" }, line: "trap:2", focus: [code, trap], note: "А з 'тридцять' пастка кидає TypeError — запис до target так і не доходить." }
+> ```
 
 > [!viz] proxy-traps
 > scenario: get-set

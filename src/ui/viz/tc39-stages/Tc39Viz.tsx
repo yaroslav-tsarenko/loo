@@ -1,7 +1,7 @@
 'use client'
 
 import { m } from 'motion/react'
-import { SPRING } from '../engine/Panel'
+import { SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { STAGES, tc39Scenarios, type Tc39Frame } from './scenarios'
@@ -10,7 +10,7 @@ function Card({ f }: { f: Tc39Frame }) {
   return (
     <m.div layoutId="tc39-card" className="viz-tc-card" data-done={f.edition ? '' : undefined} transition={SPRING}>
       <strong>
-        <span aria-hidden="true">🔗</span> Optional chaining
+        <VizGlyph icon="pi:PiLinkBold" size={14} /> Optional chaining
       </strong>
       <code>{f.snippet}</code>
     </m.div>
@@ -21,7 +21,7 @@ function Pipeline({ f }: { f: Tc39Frame }) {
   const idle = f.at === null && !f.edition
   return (
     <div className="viz-tc">
-      <div className="viz-tc-dock" data-label="💭 ідеї спільноти">{idle ? <Card f={f} /> : null}</div>
+      <div className="viz-tc-dock" data-label="ідеї спільноти">{idle ? <Card f={f} /> : null}</div>
       <ol className="viz-tc-stages" aria-label="Стадії TC39">
         {STAGES.map((s, i) => {
           const here = f.at === i
@@ -32,7 +32,7 @@ function Pipeline({ f }: { f: Tc39Frame }) {
                 <span className="viz-tc-num">{s.label}</span>
                 <span className="viz-tc-name">{s.name}</span>
                 {s.since ? <span className="viz-tc-since">{s.since}</span> : null}
-                {state === 'passed' ? <span aria-label="пройдено">✓</span> : state === 'skipped' ? <span aria-label="не існувала">⏭</span> : null}
+                {state === 'passed' ? <span aria-label="пройдено">✓</span> : state === 'skipped' ? <VizGlyph icon="pi:PiSkipForwardFill" size={12} label="не існувала" /> : null}
               </div>
               <ul className="viz-tc-criteria">
                 {s.criteria.map((c) => (
@@ -44,7 +44,7 @@ function Pipeline({ f }: { f: Tc39Frame }) {
           )
         })}
       </ol>
-      <div className="viz-tc-dock" data-label="📘 щорічне видання" data-on={f.edition ? '' : undefined}>
+      <div className="viz-tc-dock" data-label="щорічне видання" data-on={f.edition ? '' : undefined}>
         {f.edition ? (
           <>
             <span className="viz-tc-edition">ECMAScript {f.edition.replace('ES', '')}</span>

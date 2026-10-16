@@ -8,6 +8,7 @@ import { getUser } from '@/server/auth'
 import { enabledProviders } from '@/server/auth/providers'
 import { AuthShell, Field, FormError, OAuthButtons, param, SetupNotice } from '@/ui/auth/AuthShell'
 import { Button } from '@/ui/design/Button'
+import { GameIcon } from '@/ui/design/GameIcon'
 
 export const metadata: Metadata = { title: 'Вхід', robots: { index: false, follow: false } }
 
@@ -22,7 +23,11 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       mood="wave"
       loo={t('auth.login.loo')}
       title={t('auth.login.title')}
-      lead={t('auth.login.lead')}
+      lead={
+        <>
+          {t('auth.login.lead')} <GameIcon name="fire" size={18} className="auth-lead-icon" />
+        </>
+      }
       footer={
         <>
           {t('auth.login.noAccount')} <Link href={next === '/' ? '/signup' : `/signup?next=${encodeURIComponent(next)}`}>{t('auth.login.signupLink')}</Link>
@@ -34,8 +39,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <OAuthButtons next={next} providers={await enabledProviders()} />
           <form action="/auth/sign-in" method="post" className="auth-form">
             <input type="hidden" name="next" value={next} />
-            <Field label={t('auth.email')} name="email" type="email" autoComplete="email" required maxLength={254} autoFocus inputMode="email" />
-            <Field label={t('auth.password')} name="password" type="password" autoComplete="current-password" required maxLength={128} />
+            <Field label={t('auth.email')} name="email" type="email" autoComplete="email" required maxLength={254} autoFocus inputMode="email" placeholder={t('auth.placeholders.email')} />
+            <Field label={t('auth.password')} name="password" type="password" autoComplete="current-password" required maxLength={128} placeholder={t('auth.placeholders.password')} />
             <FormError code={param(params, 'error')} />
             <Button type="submit" block size="lg">
               {t('auth.login.submit')}

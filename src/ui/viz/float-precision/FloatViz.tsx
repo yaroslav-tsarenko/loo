@@ -2,7 +2,7 @@
 
 import { m } from 'motion/react'
 import { useState, type FormEvent } from 'react'
-import { Badge, Panel, SPRING } from '../engine/Panel'
+import { Badge, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import type { VizProps } from '../engine/types'
 import { FLOAT_PRESETS, decompose, evaluate, exactDecimal, formula, nextDown, nextUp, shortest, significandValue, ulpDistance, ulpPower, type FloatKind, type FloatParts } from './ieee754'
 
@@ -98,7 +98,7 @@ function ExactView({ x }: { x: number }) {
   let common = 0
   while (common < exact.length && exact[common] === expanded[common]) common++
   return (
-    <Panel title="Що насправді лежить у пам’яті" emoji="🔎" hint={same ? 'точно' : 'наближено'}>
+    <Panel title="Що насправді лежить у пам’яті" icon="pi:PiMagnifyingGlassBold" hint={same ? 'точно' : 'наближено'}>
       <p className="viz-fp-exact">
         <code>
           {exact.slice(0, common)}
@@ -127,7 +127,7 @@ function Neighbours({ x }: { x: number }) {
   const next = nextUp(x)
   const gap = 2 ** power
   return (
-    <Panel title="Сусіди на «лінійці»" emoji="📏" hint={`крок = 2${sup(power)}`}>
+    <Panel title="Сусіди на «лінійці»" icon="pi:PiRulerFill" hint={`крок = 2${sup(power)}`}>
       <div className="viz-fp-ruler">
         <div className="viz-fp-tick">
           <span className="viz-muted">попередній</span>
@@ -155,7 +155,7 @@ function Compare() {
   const target = decompose(0.3)
   const diff = Math.abs(sum.value - target.value)
   return (
-    <Panel title="0.1 + 0.2 проти 0.3" emoji="⚖️" hint={`різниця ${ulpDistance(sum.value, target.value)} ULP`}>
+    <Panel title="0.1 + 0.2 проти 0.3" icon="pi:PiScalesFill" hint={`різниця ${ulpDistance(sum.value, target.value)} ULP`}>
       <div className="viz-fp-compare">
         <span className="viz-fp-compare-label">
           <code>0.1 + 0.2</code> <code className="viz-muted">0x{sum.hex}</code>
@@ -290,7 +290,7 @@ export function FloatViz(_props: VizProps) {
         {Number.isInteger(choice.value) ? <Badge tone={Number.isSafeInteger(choice.value) ? 'success' : undefined}>{Number.isSafeInteger(choice.value) ? 'безпечне ціле' : 'не safe integer'}</Badge> : null}
       </m.div>
 
-      <Panel title="64 біти" emoji="🧮" hint={`0x${parts.hex}`}>
+      <Panel title="64 біти" icon="px:abacus" hint={`0x${parts.hex}`}>
         <div className="viz-fp-legend" aria-hidden="true">
           {FIELDS.map((f) => (
             <span key={f.id} data-field={f.id}>
@@ -325,7 +325,7 @@ export function FloatViz(_props: VizProps) {
       <Neighbours x={choice.value} />
       {showCompare ? <Compare /> : null}
       {facts ? (
-        <Panel title="Перевір у консолі" emoji="🖥️">
+        <Panel title="Перевір у консолі" icon="px:monitor">
           <ul className="viz-fp-facts">
             {facts.map(([code, run]) => (
               <li key={code}>
@@ -337,7 +337,7 @@ export function FloatViz(_props: VizProps) {
       ) : null}
       {preset ? (
         <p className="viz-note viz-fp-insight">
-          <span aria-hidden="true">💡</span> {preset.insight}
+          <VizGlyph icon="px:bulb" /> {preset.insight}
         </p>
       ) : null}
     </div>

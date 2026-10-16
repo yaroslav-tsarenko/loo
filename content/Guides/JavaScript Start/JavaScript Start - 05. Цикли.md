@@ -46,22 +46,47 @@ icon: "🔁"
 
 `for` — коли ти знаєш, скільки разів повторювати. У дужках три частини через `;`:
 
-```text
- for ( let i = 0 ;   i < 3   ;   i++ ) { тіло }
-       ────┬────     ──┬──       ─┬─
-           │           │          └─ 3. крок: після кожного проходу
-           │           └─ 2. умова: перевіряється ПЕРЕД кожним проходом
-           └─ 1. старт: виконується один раз на початку
-```
+> [!diagram] Три частини в дужках for
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: init, label: "1. старт", code: "let i = 0", tone: blue }
+>   - { id: cond, label: "2. умова", code: "i < 3", tone: violet }
+>   - { id: body, label: "тіло", code: "{ тіло }", tone: green }
+>   - { id: step, label: "3. крок", code: "i++", tone: yellow }
+> edges:
+>   - { from: init, to: cond, label: "один раз" }
+>   - { from: cond, to: body, label: "true" }
+>   - { from: body, to: step, label: "після проходу" }
+>   - { from: step, to: cond, label: "знову перевірка", dashed: true }
+> steps:
+>   - { show: init, note: "Старт виконується лише один раз — на самому початку: створюємо лічильник i = 0." }
+>   - { show: cond, note: "Умова перевіряється ПЕРЕД кожним проходом. Якщо вона true — заходимо в тіло." }
+>   - { show: body, note: "Тіло — інструкції в { }, які повторюються. Один прохід тіла називають ітерацією." }
+>   - { show: step, note: "Крок виконується ПІСЛЯ кожного проходу: i++ збільшує лічильник на 1." }
+>   - { focus: [step, cond], note: "Після кроку — знову умова. Коло крутиться, доки умова не стане false; тоді цикл закінчується." }
+> ```
 
 Як рушій це виконує:
 
-```text
- i = 0 → 0 < 3? так → тіло → i++ →
- i = 1 → 1 < 3? так → тіло → i++ →
- i = 2 → 2 < 3? так → тіло → i++ →
- i = 3 → 3 < 3? НІ → вихід із циклу
-```
+> [!diagram] Як рушій виконує for: прохід за проходом
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: i, label: "лічильник i", text: "—", tone: yellow, icon: "px:abacus" }
+>   - { id: code, label: "цикл", code: "for (let i = 0; i < 3; i++) {\n  console.log(`Коло ${i + 1}`)\n}", tone: violet, icon: "px:repeat" }
+>   - { id: out, label: "консоль", text: "—", tone: green, icon: "px:monitor" }
+> edges:
+>   - { from: i, to: code, label: "i < 3?" }
+>   - { from: code, to: out, label: "тіло друкує" }
+> steps:
+>   - { set: { i: "0" }, line: "code:1", note: "Старт let i = 0 виконується один раз. Перевірка перед проходом: 0 < 3? так." }
+>   - { line: "code:2", move: { from: code, to: out, value: "Коло 1" }, set: { out: "Коло 1" }, note: "Перша ітерація: тіло друкує Коло ${0 + 1}, тобто Коло 1." }
+>   - { set: { i: "1", out: "Коло 1\nКоло 2" }, line: ["code:1", "code:2"], move: { from: code, to: out, value: "Коло 2" }, note: "i++ → i = 1. Знову умова: 1 < 3? так — тіло друкує Коло 2." }
+>   - { set: { i: "2", out: "Коло 1\nКоло 2\nКоло 3" }, line: ["code:1", "code:2"], move: { from: code, to: out, value: "Коло 3" }, note: "i++ → i = 2. 2 < 3? так — третя ітерація, Коло 3." }
+>   - { set: { i: "3" }, line: "code:1", focus: i, note: "i++ → i = 3. Умова 3 < 3? НІ — тіло більше не виконується." }
+>   - { line: "code:3", focus: [i, out], note: "Вихід із циклу: програма йде далі після }. Тіло спрацювало 3 рази — для i = 0, 1, 2." }
+> ```
 
 Один прохід тіла циклу називають **ітерацією**. За традицією лічильник звуть `i` (від *index*), а рахують з нуля — так зручно з масивами.
 
@@ -100,10 +125,24 @@ for (let i = 1; i <= 4; i++) {
 console.log(total)             // → 10 — 3. результат після циклу
 ```
 
-```text
- i:      1    2    3    4
- total:  1    3    6   10
-```
+> [!diagram] Накопичувач: total росте на кожному проході
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: i, label: "i", text: "—", tone: yellow }
+>   - { id: code, label: "цикл", code: "let total = 0\nfor (let i = 1; i <= 4; i++) {\n  total += i\n}\nconsole.log(total)", tone: violet, icon: "px:repeat" }
+>   - { id: total, label: "total", text: "0", tone: green, icon: "px:box" }
+> edges:
+>   - { from: i, to: code }
+>   - { from: code, to: total, label: "total += i" }
+> steps:
+>   - { line: "code:1", focus: total, note: "До циклу створюємо порожній накопичувач: total = 0." }
+>   - { set: { i: "1", total: "1" }, line: "code:3", move: { from: code, to: total, value: "+1" }, note: "i = 1: total = 0 + 1 = 1." }
+>   - { set: { i: "2", total: "3" }, line: "code:3", move: { from: code, to: total, value: "+2" }, note: "i = 2: total = 1 + 2 = 3. Накопичувач пам'ятає попередню суму." }
+>   - { set: { i: "3", total: "6" }, line: "code:3", move: { from: code, to: total, value: "+3" }, note: "i = 3: total = 3 + 3 = 6." }
+>   - { set: { i: "4", total: "10" }, line: "code:3", move: { from: code, to: total, value: "+4" }, note: "i = 4: total = 6 + 4 = 10. Далі i стає 5, умова 5 <= 4 хибна — цикл закінчено." }
+>   - { line: "code:5", focus: total, note: "Результат читаємо вже після циклу: console.log(total) → 10." }
+> ```
 
 > [!quiz] Склади код, який порахує суму чисел від 1 до 5
 > level: junior · type: order · id: jss-05-quiz-03

@@ -1,13 +1,14 @@
 import 'server-only'
 import { and, eq, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
-import { gemLedger, xpLedger } from '@/db/schema'
-import { boostedXp, cappedXp, xpMultiplier, type XpReason } from '@/game'
+import { buckLedger, gemLedger, xpLedger } from '@/db/schema'
+import { boostedXp, cappedBucks, cappedXp, xpMultiplier, type BuckReason, type XpReason } from '@/game'
 import { dayKey } from '@/progress/day'
 import { loadState } from './state'
 
-// Every XP and gem movement goes through here: XP gets the ⚡ multiplier and the per-source daily cap (src/game/xp.ts);
-// gem awards are idempotent through the ledger's unique (user, reason, ref).
+// Every XP, buck and gem movement goes through here: XP gets the ⚡ multiplier and the per-source daily cap
+// (src/game/xp.ts); bucks get their own daily cap (src/game/gems.ts); awards in both currencies are idempotent through
+// the ledgers' unique (user, reason, ref).
 
 export interface XpGrant {
   amount: number
@@ -66,6 +67,33 @@ export async function gemsEarnedToday(conn: Conn, userId: string, reason: string
       .select({ n: sql<number>`coalesce(sum(${gemLedger.amount}), 0)` })
       .from(gemLedger)
       .where(and(eq(gemLedger.userId, userId), eq(gemLedger.day, day), eq(gemLedger.reason, reason))),
+  )
+  return Number(row?.n ?? 0)
+}
+
+// +bucks once per (reason, ref), under the source's daily cap. Returns what landed (0 when already paid / capped).
+export async function awardBucks(conn: Conn, userId: string, move: GemMove & { reason: BuckReason }): Promise<number> {
+  const amount = cappedBucks(move.amount, await bucksEarnedToday(conn, userId, move.reason, dayKey(move.now)), move.reason)
+  if (amount <= 0) return 0
+  const rows = await conn
+    .insert(buckLedger)
+    .values({ userId, amount, reason: move.reason, refId: move.refId, createdAt: move.now, day: dayKey(move.now) })
+    .onConflictDoNothing()
+    .returning({ id: buckLedger.id })
+  return rows.length > 0 ? amount : 0
+}
+
+// −bucks (the caller has checked the balance under the user_state row lock).
+export async function spendBucks(conn: Conn, userId: string, move: GemMove): Promise<void> {
+  await conn.insert(buckLedger).values({ userId, amount: -Math.abs(move.amount), reason: move.reason, refId: move.refId, createdAt: move.now, day: dayKey(move.now) })
+}
+
+export async function bucksEarnedToday(conn: Conn, userId: string, reason: string, day: string): Promise<number> {
+  const row = await first(
+    conn
+      .select({ n: sql<number>`coalesce(sum(${buckLedger.amount}), 0)` })
+      .from(buckLedger)
+      .where(and(eq(buckLedger.userId, userId), eq(buckLedger.day, day), eq(buckLedger.reason, reason))),
   )
   return Number(row?.n ?? 0)
 }

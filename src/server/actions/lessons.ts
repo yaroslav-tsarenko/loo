@@ -5,14 +5,14 @@ import { and, asc, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { first } from '@/db/client'
 import { attempts, lessonProgress, sessions } from '@/db/schema'
-import { canStartLesson, gemRef, lessonGems } from '@/game'
+import { BUCKS, buckRef, canStartLesson } from '@/game'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { findCourseLesson, learnerLevel, lessonView } from '../courses/lessons'
-import { awardGems, gemsEarnedToday, grantXp, loadState, settleGame, touchLeague } from '../game'
+import { awardBucks, grantXp, loadState, settleGame, touchLeague } from '../game'
 import { findLesson, LESSON_XP } from '../services/lessons'
 import { settleMission } from '../services/mission'
 import { addDailyXp, evaluateAchievements } from '../services/progress'
@@ -66,12 +66,12 @@ export async function startLesson(rawId: string): Promise<string | null> {
 export interface LessonOutcome {
   effects: Effect[]
   bonusXp: number
-  gems: number
+  bucks: number
   firstTime: boolean
   // server-graded: first answer per exercise
   correct: number
   total: number
-  // not every exercise of the session was answered (no bonus, no gems)
+  // not every exercise of the session was answered (no bonus, no bucks)
   incomplete: boolean
 }
 
@@ -82,7 +82,7 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
   const snapshot = await getContent()
   const now = Date.now()
   const day = dayKey(now)
-  const empty = (incomplete: boolean): LessonOutcome => ({ effects: [], bonusXp: 0, gems: 0, firstTime: false, correct: 0, total: 0, incomplete })
+  const empty = (incomplete: boolean): LessonOutcome => ({ effects: [], bonusXp: 0, bucks: 0, firstTime: false, correct: 0, total: 0, incomplete })
   if (!input.sessionId) return empty(true)
   const sessionId = input.sessionId
   const outcome = await userScope(
@@ -133,13 +133,13 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
         await addDailyXp(tx, userId, day, bonusXp)
         effects.push({ type: 'xp', amount: bonusXp, reason: 'lesson' })
       }
-      // 💎 5 per finished lesson, 10 when flawless (daily cap; once per session).
-      const gems = await awardGems(tx, userId, { amount: lessonGems(accuracy, await gemsEarnedToday(tx, userId, 'lesson', day)), reason: 'lesson', refId: gemRef.lesson(sessionId), now })
-      if (gems > 0) effects.push({ type: 'gems', amount: gems, reason: 'lesson' })
+      // Bucks: 10 per finished lesson, 20 when flawless (daily cap; once per session).
+      const bucks = await awardBucks(tx, userId, { amount: accuracy >= 1 ? BUCKS.lessonPerfect : BUCKS.lesson, reason: 'lesson', refId: buckRef.lesson(sessionId), now })
+      if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'lesson' })
       effects.push(...(await settleMission(tx, userId, now)))
       effects.push(...(await settleGame(tx, userId, now)))
       effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))
-      return { effects, bonusXp, gems, firstTime, correct, total: units.length, incomplete: false }
+      return { effects, bonusXp, bucks, firstTime, correct, total: units.length, incomplete: false }
     },
     { tx: true },
   )

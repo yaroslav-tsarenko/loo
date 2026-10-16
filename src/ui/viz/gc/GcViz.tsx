@@ -1,9 +1,10 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { RotateCcw } from 'lucide-react'
+import { RotateCcw, Scissors } from 'lucide-react'
 import { useEffect, useId, useState } from 'react'
-import { Panel } from '../engine/Panel'
+import { PixelIcon } from '@/ui/design/PixelIcon'
+import { Panel, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { MemoryStage } from '../memory-refs/MemoryStage'
@@ -86,11 +87,11 @@ function Reachability() {
 
   let note: string
   if (phase === 'marking') note = 'Mark: обходимо граф від коренів (globalThis і стек) і позначаємо все, до чого можна дійти.'
-  else if (phase === 'marked') note = garbage.length > 0 ? `Позначено ${order.length - 2} об’єкт(ів). Непозначені — ${garbage.map((n) => n.emoji).join(' ')} — недосяжні, тобто сміття.` : 'Усе досяжне — сміття немає. Переріж якесь посилання ✂️ і спробуй знову.'
+  else if (phase === 'marked') note = garbage.length > 0 ? `Позначено ${order.length - 2} об’єкт(ів). Непозначені — ${garbage.map((n) => n.label).join(', ')} — недосяжні, тобто сміття.` : 'Усе досяжне — сміття немає. Переріж якесь посилання і спробуй знову.'
   else if (phase === 'swept') {
     const cycle = swept.includes('parent') && swept.includes('child')
-    note = swept.length > 0 ? `Sweep звільнив ${swept.map((id) => nodeById.get(id)!.emoji).join(' ')}.${cycle ? ' Цикл 👨 ↔ 👶 теж прибрано: для mark & sweep важлива досяжність, а не те, чи посилаються об’єкти одне на одного.' : ''}` : 'Нічого не звільнено: усе було досяжним.'
-  } else note = '🗑️ temp ні від кого не досяжний з самого початку. Переріж посилання ✂️ (на схемі або кнопками нижче) і запусти Mark.'
+    note = swept.length > 0 ? `Sweep звільнив ${swept.map((id) => nodeById.get(id)!.label).join(', ')}.${cycle ? ' Цикл parent ⇄ child теж прибрано: для mark & sweep важлива досяжність, а не те, чи посилаються об’єкти одне на одного.' : ''}` : 'Нічого не звільнено: усе було досяжним.'
+  } else note = 'temp ні від кого не досяжний з самого початку. Переріж посилання (на схемі або кнопками нижче) і запусти Mark.'
 
   return (
     <div className="viz-gc">
@@ -113,9 +114,7 @@ function Reachability() {
                   <title>{`${isCut ? 'Відновити' : 'Перерізати'} ${e.label}`}</title>
                 </path>
                 {isCut ? (
-                  <text x={mx} y={my + 5} textAnchor="middle" className="viz-gc-scissors">
-                    ✂️
-                  </text>
+                  <Scissors x={mx - 7} y={my - 7} width={14} height={14} strokeWidth={2.2} className="viz-gc-scissors" aria-hidden="true" />
                 ) : null}
               </g>
             )
@@ -127,9 +126,9 @@ function Reachability() {
               return (
                 <m.g key={n.id} className="viz-gc-node" data-root={n.root ? '' : undefined} data-marked={isMarked ? '' : undefined} data-garbage={isGarbage ? '' : undefined} initial={false} exit={{ opacity: 0, scale: 0.3 }} style={{ transformOrigin: `${n.x}px ${n.y}px` }} transition={{ duration: 0.5 }}>
                   <circle cx={n.x} cy={n.y} r={R} />
-                  <text x={n.x} y={n.y + 6} textAnchor="middle" className="viz-gc-emoji">
-                    {n.emoji}
-                  </text>
+                  <g transform={`translate(${n.x - 10} ${n.y - 10})`}>
+                    <PixelIcon name={n.icon} size={20} />
+                  </g>
                   <text x={n.x} y={n.y + R + 13} textAnchor="middle" className="viz-gc-label">
                     {n.label}
                   </text>
@@ -147,16 +146,16 @@ function Reachability() {
       <div className="viz-gc-edges" role="group" aria-label="Посилання між об’єктами">
         {EDGES.filter((e) => !gone.has(e.from) && !gone.has(e.to)).map((e) => (
           <button key={e.id} type="button" className="viz-chip viz-chip-code" aria-pressed={cut.has(e.id)} onClick={() => toggle(e.id)} disabled={phase === 'marking'}>
-            <span aria-hidden="true">{cut.has(e.id) ? '✂️' : '🔗'}</span> <code>{e.label}</code>
+            <VizGlyph icon={cut.has(e.id) ? 'pi:PiScissorsFill' : 'pi:PiLinkBold'} size={14} /> <code>{e.label}</code>
           </button>
         ))}
       </div>
       <div className="viz-row">
         <button type="button" className="viz-btn viz-btn-text" data-primary="" onClick={mark} disabled={phase === 'marking'}>
-          🔍 Mark
+          <VizGlyph icon="pi:PiMagnifyingGlassBold" /> Mark
         </button>
         <button type="button" className="viz-btn viz-btn-text" onClick={sweep} disabled={phase !== 'marked' || garbage.length === 0}>
-          🧹 Sweep
+          <VizGlyph icon="pi:PiBroomFill" /> Sweep
         </button>
         <button type="button" className="viz-btn viz-btn-text" onClick={reset} aria-label="Відновити граф">
           <RotateCcw size={16} strokeWidth={1.8} /> Скинути
@@ -164,7 +163,7 @@ function Reachability() {
       </div>
       <div className="viz-note">
         <span className="viz-note-step" aria-hidden="true">
-          💬
+          <VizGlyph icon="pi:PiChatCircleDotsFill" />
         </span>
         <p aria-live="polite">{note}</p>
       </div>
@@ -174,13 +173,15 @@ function Reachability() {
 
 function MemoryGauge({ heap }: { heap: readonly HeapObj[] }) {
   const big = heap.find((h) => h.id === 'arr')
-  const status = !big ? 'звільнено ✨' : big.state === 'unreachable' ? 'недосяжний — чекає на GC' : big.state === 'reachable' ? 'досяжний від window — живе' : 'щойно створено'
+  const status = !big ? 'звільнено' : big.state === 'unreachable' ? 'недосяжний — чекає на GC' : big.state === 'reachable' ? 'досяжний від window — живе' : 'щойно створено'
   return (
-    <Panel title="Пам’ять" emoji="📊" tone={big?.state === 'reachable' ? 'danger' : undefined}>
+    <Panel title="Пам’ять" icon="pi:PiChartBarFill" tone={big?.state === 'reachable' ? 'danger' : undefined}>
       <div className="viz-gauge" data-full={big ? '' : undefined} data-state={big?.state}>
         <span style={{ width: big ? '82%' : '8%' }} />
       </div>
-      <p className="viz-muted">📦 big (~мегабайти): {status}</p>
+      <p className="viz-muted">
+        <VizGlyph icon="px:box" /> big (~мегабайти): {status}
+      </p>
     </Panel>
   )
 }
@@ -188,5 +189,5 @@ function MemoryGauge({ heap }: { heap: readonly HeapObj[] }) {
 export function GcViz({ scenario }: VizProps) {
   const data = gcScenarios[scenario]
   if (!data) return <Reachability />
-  return <StepPlayer scenario={data} label="Витік пам’яті" side={(f) => <MemoryGauge heap={f.heap} />} below={(f) => <MemoryStage frame={f} rootsTitle="Корені GC" rootsEmoji="🌱" />} />
+  return <StepPlayer scenario={data} label="Витік пам’яті" side={(f) => <MemoryGauge heap={f.heap} />} below={(f) => <MemoryStage frame={f} rootsTitle="Корені GC" rootsIcon="pi:PiPlantFill" />} />
 }

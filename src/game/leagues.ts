@@ -1,4 +1,4 @@
-// 🏆 Weekly leagues: cohorts of up to 30 learners of one tier, ranked by weekly XP (server-graded sources only).
+// Weekly leagues: cohorts of up to 30 learners of one tier, ranked by weekly XP (server-graded sources only).
 // At the end of the week the top 7 move up a tier and the bottom 5 move down (never past the ends of the ladder).
 
 export const LEAGUE_TIERS = ['bronze', 'silver', 'gold', 'sapphire', 'ruby', 'emerald', 'amethyst', 'pearl', 'obsidian', 'diamond'] as const
@@ -50,7 +50,7 @@ export function nextTier(tier: LeagueTier, result: LeagueResult | null): LeagueT
   return LEAGUE_TIERS[Math.max(0, Math.min(LEAGUE_TIERS.length - 1, j))]!
 }
 
-// 💎 for the week's result: podium bonus on top of a promotion.
+// Gems for the week's result: podium bonus on top of a promotion.
 export function leagueGems(rank: number, result: LeagueResult): number {
   if (result !== 'promoted') return rank === 1 ? 20 : 0
   return rank === 1 ? 60 : rank === 2 ? 40 : rank === 3 ? 25 : 15

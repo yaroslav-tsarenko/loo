@@ -50,20 +50,26 @@ icon: "⚙️"
 
 JavaScript-код виконує **рушій** (engine): V8 у Chrome і Node.js, SpiderMonkey у Firefox, JavaScriptCore у Safari. Розгляньмо V8 — **спрощено**, бо реальний конвеєр має більше стадій і евристик.
 
-```text
- source code (текст)
-        │  Parser (+ lazy parsing: тіла функцій парсяться, коли вперше потрібні)
-        ▼
-       AST (abstract syntax tree — дерево конструкцій)
-        │  Ignition: компілює AST у bytecode
-        ▼
-   bytecode ──► Ignition інтерпретує його і збирає feedback
-        │       («сюди завжди приходять числа», «в об'єкта завжди така форма»)
-        ▼  функція «гаряча»?
-   TurboFan (optimizing compiler) → швидкий машинний код
-        │  припущення зламалось (прийшов рядок замість числа)?
-        └──► deoptimization: назад у bytecode
-```
+> [!diagram] V8: від тексту до машинного коду
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: src, label: "source code", code: "function add(a, b) {\n  return a + b;\n}", tone: blue, icon: "px:file" }
+>   - { id: ast, label: "Parser → AST", text: "дерево конструкцій", note: "lazy: тіла функцій — коли знадобляться", tone: gray, icon: "px:blocks" }
+>   - { id: ign, label: "Ignition", text: "bytecode", note: "інтерпретує + збирає feedback", tone: yellow }
+>   - { id: turbo, label: "TurboFan", text: "—", note: "optimizing compiler", tone: violet, icon: "px:rocket" }
+> edges:
+>   - { from: src, to: ast, label: "парсинг" }
+>   - { from: ast, to: ign, label: "компіляція" }
+>   - { from: ign, to: turbo, label: "гаряча?" }
+> steps:
+>   - { focus: src, note: "Рушій отримує лише текст. Щоб його виконати, текст спершу треба зрозуміти." }
+>   - { move: { from: src, to: ast, value: "текст" }, note: "Parser будує AST — дерево конструкцій. Синтаксична помилка зупиняє все саме тут: SyntaxError ще до виконання будь-якого рядка." }
+>   - { move: { from: ast, to: ign, value: "AST" }, note: "Ignition компілює AST у компактний bytecode і одразу його виконує — старт швидкий, хоч і не найшвидша робота." }
+>   - { set: { ign: "bytecode · feedback: «тут числа»" }, line: "src:2", note: "add(i, 1) викликається мільйон разів — V8 записує feedback: у a і b завжди приходять числа." }
+>   - { move: { from: ign, to: turbo, value: "add ×1e6" }, set: { turbo: "машинний код для чисел" }, note: "Функція стала гарячою: TurboFan компілює її у швидкий машинний код, спекулюючи на зібраному feedback." }
+>   - { move: { from: turbo, to: ign, value: "add('a', 'b') ↩ deopt" }, set: { turbo: "викинуто" }, note: "Прийшли рядки — припущення зламалось. Deoptimization: назад у bytecode, і результат 'ab' все одно правильний." }
+> ```
 
 1. **Parser** перетворює текст на **AST**. Синтаксична помилка виявляється саме тут — тому `SyntaxError` у файлі не дає виконатися жодному його рядку.
 2. **Ignition** — інтерпретатор: з AST генерує компактний **bytecode** і виконує його. Стартує швидко, але працює не найшвидше.

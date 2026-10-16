@@ -311,13 +311,25 @@ const { user: { address: { city } = {} } = {} } = {}; // вкладена + за
 console.log(x, y, city);         // → 2 1 undefined
 ```
 
-```text
-  const { b: renamed = 5 } = source
-          │   │          │
-          │   │          └─ default, якщо source.b === undefined
-          │   └─ ІМ'Я НОВОЇ ЗМІННОЇ
-          └─ ЯКУ властивість читаємо
-```
+> [!diagram] const { b: renamed = 5 } = source — по частинах
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: src, label: "source", text: "{ a: undefined, b: null, c: 3, d: 4 }", tone: blue, icon: "px:box" }
+>   - { id: key, label: "b:", text: "ЯКУ властивість читаємо", tone: gray }
+>   - { id: def, label: "= 5", text: "default, лише якщо undefined", tone: yellow }
+>   - { id: name, label: "renamed", text: "ІМʼЯ НОВОЇ ЗМІННОЇ", tone: green }
+> edges:
+>   - { from: src, to: key, label: "читаємо" }
+>   - { from: key, to: def, label: "перевірка" }
+>   - { from: def, to: name, label: "записуємо" }
+> steps:
+>   - { focus: src, note: "Розбираємо патерн { b: renamed = 5 }: ліворуч від двокрапки — що читаємо, праворуч — куди кладемо." }
+>   - { move: { from: src, to: key, value: "source.b" }, set: { key: "source.b → null" }, note: "Ліва частина b: каже, ЯКУ властивість читати. source.b = null." }
+>   - { move: { from: key, to: def, value: "null" }, set: { def: "null ≠ undefined → 5 не потрібен" }, note: "Default = 5 спрацьовує лише для undefined. null — це справжнє значення, тож default пропускаємо." }
+>   - { move: { from: def, to: name, value: "null" }, set: { name: "renamed = null" }, note: "Значення потрапляє в НОВУ змінну renamed. Змінної b при цьому не створено." }
+>   - { set: { key: "source.b → undefined", def: "undefined → беремо 5", name: "renamed = 5" }, note: "Якби source.b був undefined (або властивості не було), renamed отримав би 5." }
+> ```
 
 **Shorthand і computed keys** у літералах:
 

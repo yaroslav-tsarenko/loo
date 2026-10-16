@@ -73,7 +73,7 @@ export function Heatmap({ days, goal }: { days: HeatDay[]; goal: number }) {
                 y={TOP + row * (CELL + GAP)}
                 width={CELL}
                 height={CELL}
-                rx={3}
+                rx={2}
                 className="heat-cell"
                 data-level={level(d.total, goal)}
                 data-goal={d.goalMet ? '' : undefined}
@@ -89,7 +89,7 @@ export function Heatmap({ days, goal }: { days: HeatDay[]; goal: number }) {
         <span>{t('stats.heatLess')}</span>
         {[0, 1, 2, 3, 4].map((l) => (
           <svg key={l} width={CELL} height={CELL} aria-hidden="true">
-            <rect width={CELL} height={CELL} rx={3} className="heat-cell" data-level={l} />
+            <rect width={CELL} height={CELL} rx={2} className="heat-cell" data-level={l} />
           </svg>
         ))}
         <span>{t('stats.heatMore')}</span>

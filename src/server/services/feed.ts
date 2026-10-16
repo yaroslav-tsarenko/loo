@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { and, desc, eq, gte, inArray } from 'drizzle-orm'
 import { interleave } from '@/ai/reels/mix'
 import { generatedReels, reelState, srsCards } from '@/db/schema'
+import { iconRef, REEL_FALLBACK_ICON } from '@/content/icons'
 import type { Chapter, LearningUnit } from '@/content/model'
 import { parseMarkdown } from '@/content/parse/markdown'
 import type { Reel } from '@/content/parse/reels'
@@ -27,7 +28,8 @@ async function feedGuides(): Promise<readonly string[]> {
 export interface ReelSlide {
   kind: 'reel'
   id: string
-  emoji: string
+  // icon ref (src/content/icons.ts) from the reel's leading emoji
+  icon: string
   title: string
   body: ReactNode
   chapterTitle: string
@@ -150,7 +152,7 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
       return {
         kind: 'reel',
         id: reel.id,
-        emoji: reel.emoji ?? '⚡',
+        icon: iconRef(reel.emoji, REEL_FALLBACK_ICON)!,
         title: reel.title,
         body: await renderMdast(reel.body, { snapshot, chapter, depth: 0, variant: 'card' }),
         chapterTitle: chapter.title,
@@ -183,7 +185,7 @@ async function renderGenerated(row: GeneratedRow, snapshot: ContentSnapshot, sta
   return {
     kind: 'reel',
     id: row.id,
-    emoji: row.emoji,
+    icon: iconRef(row.emoji, REEL_FALLBACK_ICON)!,
     title: row.title,
     body: await renderMdast(parseMarkdown(row.body).root, { snapshot, chapter: envChapter, depth: 0, variant: 'card' }),
     chapterTitle: chapter?.title ?? row.topic,

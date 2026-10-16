@@ -1,7 +1,7 @@
 // Pure icon-ref check (mirrors src/ui/icons/ref.ts without pulling React icon sets into the domain).
-// `si:SiJavascript` · `pi:PiFireFill` · `tb:TbBrain` · `lucide:Flame` · `emoji:🔥` · bare emoji
+// `si:SiJavascript` · `pi:PiFireFill` · `tb:TbBrain` · `lucide:Flame` · `px:flagUk` · `emoji:🔥` · bare emoji
 
-export const ICON_LIBRARY_SETS = ['si', 'pi', 'tb', 'lucide'] as const
+export const ICON_LIBRARY_SETS = ['si', 'pi', 'tb', 'lucide', 'px'] as const
 export type IconLibrarySet = (typeof ICON_LIBRARY_SETS)[number]
 
 export type CourseIconRef = { set: 'emoji'; name: string } | { set: IconLibrarySet; name: string }
@@ -10,6 +10,7 @@ export type CourseIconRef = { set: 'emoji'; name: string } | { set: IconLibraryS
 export type IconCatalog = Partial<Record<IconLibrarySet, ReadonlySet<string>>>
 
 const NAME = /^[A-Z][A-Za-z0-9]*$/
+const PX_NAME = /^[a-z][A-Za-z0-9]*$/
 const PICTO = /\p{Extended_Pictographic}|\p{Regional_Indicator}/u
 
 export function parseCourseIcon(raw: string | null | undefined): CourseIconRef | null {
@@ -20,7 +21,7 @@ export function parseCourseIcon(raw: string | null | undefined): CourseIconRef |
     const set = value.slice(0, colon)
     const name = value.slice(colon + 1).trim()
     if (set === 'emoji') return name && PICTO.test(name) ? { set: 'emoji', name } : null
-    if ((ICON_LIBRARY_SETS as readonly string[]).includes(set)) return NAME.test(name) ? { set: set as IconLibrarySet, name } : null
+    if ((ICON_LIBRARY_SETS as readonly string[]).includes(set)) return (set === 'px' ? PX_NAME : NAME).test(name) ? { set: set as IconLibrarySet, name } : null
   }
   return PICTO.test(value) && [...value].length <= 8 ? { set: 'emoji', name: value } : null
 }

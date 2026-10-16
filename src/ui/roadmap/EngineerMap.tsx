@@ -5,7 +5,6 @@ import { Pill } from '@/ui/design/Badge'
 import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { Icon } from '@/ui/icons/Icon'
-import { trackIcon } from '@/ui/icons/tracks'
 
 export interface TrackCard {
   track: Track
@@ -18,7 +17,8 @@ export interface TrackCard {
   currentTitle: string | null
 }
 
-const RANK_EMOJI: Record<string, string> = { trainee: '🐣', junior: '🌱', middle: '🔧', senior: '🧠', staff: '🦉', principal: '👑' }
+// Career ranks climb a small ladder of pixel icons.
+const RANK_ICON: Record<string, string> = { trainee: 'px:sprout', junior: 'px:star', middle: 'px:medal', senior: 'px:trophy', staff: 'px:shield', principal: 'px:crown' }
 
 export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: LevelInfo }) {
   const stages = Object.keys(STAGES) as TrackStage[]
@@ -31,7 +31,7 @@ export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: Level
           return (
             <li key={rank.id} className="emap-rank" data-reached={reached ? '' : undefined} data-current={current ? '' : undefined}>
               <span className="emap-rank-emoji" aria-hidden="true">
-                {RANK_EMOJI[rank.id] ?? '⭐'}
+                <Icon name={RANK_ICON[rank.id] ?? 'px:star'} size={28} />
               </span>
               <span className="emap-rank-title">{rank.title}</span>
               <span className="emap-rank-sub tabular">рів. {rank.fromLevel}+</span>
@@ -56,14 +56,14 @@ export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: Level
         return (
           <div key={stage} className="emap-stage">
             <h2 className="emap-stage-title">
-              {STAGES[stage].emoji} {STAGES[stage].title}
+              <Icon name={STAGES[stage].icon} size={22} /> {STAGES[stage].title}
             </h2>
             <div className="emap-tracks">
               {list.map((c) => {
                 const body = (
                   <>
                     <span className="emap-track-icon" aria-hidden="true">
-                      <Icon name={trackIcon(c.track.id, c.track.emoji)} size={30} />
+                      <Icon name={c.track.icon} size={30} />
                     </span>
                     <span className="emap-track-text">
                       <span className="emap-track-title">
@@ -90,7 +90,7 @@ export function EngineerMap({ cards, level }: { cards: TrackCard[]; level: Level
                   </>
                 )
                 return c.available ? (
-                  <Link key={c.track.id} href={`/path?track=${c.track.id}`} className="emap-track lu-card" data-variant="interactive" data-pad="md" data-tone={c.lessonsDone > 0 ? 'green' : undefined} data-started={c.lessonsDone > 0 ? '' : undefined}>
+                  <Link key={c.track.id} href={`/path?track=${c.track.id}`} className="emap-track lu-card" data-variant="interactive" data-pad="md" data-tone={c.lessonsDone > 0 ? 'violet' : undefined} data-started={c.lessonsDone > 0 ? '' : undefined}>
                     {body}
                   </Link>
                 ) : (

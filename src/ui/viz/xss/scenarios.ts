@@ -43,18 +43,18 @@ export interface XssFrame extends Frame {
 const code = `// https://shop.example/search?q=<img src=x onerror=alert(1)>
 const q = new URLSearchParams(location.search).get('q')
 
-// ❌ sink: рядок стає HTML-розміткою
+// ✗ sink: рядок стає HTML-розміткою
 results.innerHTML = 'Шукали: ' + q
 
-// ✅ текст, а не HTML
+// ✓ текст, а не HTML
 results.textContent = 'Шукали: ' + q
 
-// ✅ санітизація прибирає onerror
+// ✓ санітизація прибирає onerror
 results.innerHTML = DOMPurify.sanitize('Шукали: ' + q)
 results.setHTML('Шукали: ' + q) // Sanitizer API
 
-// ✅ CSP: require-trusted-types-for 'script'
-results.innerHTML = 'Шукали: ' + q // ❌ TypeError
+// ✓ CSP: require-trusted-types-for 'script'
+results.innerHTML = 'Шукали: ' + q // ✗ TypeError
 const policy = trustedTypes.createPolicy('app', {
   createHTML: (s) => DOMPurify.sanitize(s),
 })

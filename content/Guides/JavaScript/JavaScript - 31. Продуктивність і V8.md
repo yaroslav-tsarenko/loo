@@ -85,20 +85,31 @@ console.log(`parse: ${duration.toFixed(1)} ms`);
 
 ### Конвеєр V8: Ignition, Sparkplug, Maglev, TurboFan
 
-```text
- source ──► Parser ──► AST ──► Ignition (інтерпретатор, bytecode + feedback vector)
-                                   │  збирає типи й форми, що реально трапляються
-                                   ▼
-                              Sparkplug   базовий компілятор: bytecode → машинний код,
-                                   │      майже без оптимізацій, але дуже швидко
-                                   ▼
-                               Maglev     швидкий оптимізуючий JIT (середній рівень)
-                                   │
-                                   ▼
-                              TurboFan    найпотужніші спекулятивні оптимізації
-                                   │
-              ◄──── deopt ─────────┘      припущення хибне → назад у bytecode
-```
+> [!diagram] Конвеєр V8: від коду до оптимізації й назад
+> ```yaml
+> layout: stack
+> nodes:
+>   - { id: src, label: "вихідний код", code: "function add(a, b) {\n  return a + b;\n}", tone: blue }
+>   - { id: parse, label: Parser, text: "AST", tone: gray }
+>   - { id: ign, label: "Ignition — інтерпретатор", text: "bytecode + feedback vector", tone: violet }
+>   - { id: spark, label: "Sparkplug — базовий компілятор", text: "bytecode → машинний код, майже без оптимізацій", tone: mint }
+>   - { id: mag, label: "Maglev — швидкий оптимізуючий JIT", text: "досить гарний код досить швидко", tone: yellow }
+>   - { id: tf, label: "TurboFan — спекулятивні оптимізації", text: "найшвидший код для гарячих функцій", tone: green }
+> edges:
+>   - { from: src, to: parse }
+>   - { from: parse, to: ign }
+>   - { from: ign, to: spark }
+>   - { from: spark, to: mag }
+>   - { from: mag, to: tf }
+>   - { from: tf, to: ign, label: deopt, tone: red, dashed: true }
+> steps:
+>   - { move: { from: src, to: parse, value: "source" }, note: "Спершу парсер розбирає текст функції в дерево AST." }
+>   - { move: { from: parse, to: ign, value: bytecode }, set: { ign: "feedback: a, b — малі цілі" }, note: "Ignition компілює AST у компактний bytecode і починає виконувати. Заодно записує в feedback vector, які типи реально приходять." }
+>   - { move: { from: ign, to: spark, value: "часто викликається" }, note: "Функцію викликають часто — Sparkplug швидко перекладає bytecode в машинний код, прибираючи накладні витрати інтерпретатора." }
+>   - { move: { from: spark, to: mag, value: "hot and stable" }, note: "Типи стабільні — Maglev оптимізує на основі feedback: «досить гарний код досить швидко»." }
+>   - { move: { from: mag, to: tf, value: "дуже гаряча" }, set: { tf: "рахує лише цілі + guard" }, note: "Для справді гарячого коду TurboFan робить спекуляцію: add 10 000 разів бачив цілі — значить, генеруємо код лише для цілих і ставимо дешеву перевірку (guard)." }
+>   - { move: { from: tf, to: ign, value: "add('1', 2)" }, set: { tf: "guard ✗ → deopt" }, note: "Прийшов рядок — guard спрацьовує, припущення хибне. Деоптимізація: назад у bytecode, збирати новий feedback." }
+> ```
 
 - **Ignition** (з 2017) — інтерпретатор: компактний bytecode, швидкий старт. Під час виконання заповнює **feedback vector**: які форми об'єктів і типи значень бачив кожен рядок.
 - **Sparkplug** (2021) — перекладає bytecode в машинний код без аналізу: прибирає накладні витрати інтерпретатора.
@@ -130,11 +141,21 @@ $ node --trace-deopt app.js
 
 Об'єкт у JS — словник, але пошук за рядком у кожному `obj.x` був би повільним. Тому V8 зберігає для об'єкта **hidden class** (у V8 — *Map*, в інших рушіях — *Shape*/*Structure*): опис «властивість `x` — у слоті 0, `y` — у слоті 1». Об'єкти з однаковою історією додавання властивостей **ділять** одну форму, а значення лежать у компактному масиві слотів.
 
-```text
-{}  ──+x──►  Shape1 {x:0}  ──+y──►  Shape2 {x:0, y:1}      ← a = {}; a.x=…; a.y=…
-              │
-              └──+z──►  Shape3 {x:0, z:1}                   ← інша гілка — інша форма
-```
+> [!diagram] Hidden classes: дерево форм
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: s0, label: "порожня форма", code: "a = {}", tone: gray }
+>   - { id: s1, label: Shape1, text: "{ x: слот 0 }", parent: s0, tone: violet }
+>   - { id: s2, label: Shape2, text: "{ x: 0, y: 1 }", note: "a.x = …; a.y = …", parent: s1, tone: green }
+>   - { id: s3, label: Shape3, text: "{ x: 0, z: 1 }", note: "b.x = …; b.z = …", parent: s1, tone: orange }
+> steps:
+>   - { focus: s0, note: "Новий об'єкт {} має порожню форму: жодної властивості ще немає." }
+>   - { show: s1, move: { from: s0, to: s1, value: "+x" }, note: "a.x = … — V8 переходить до форми Shape1: «x лежить у слоті 0»." }
+>   - { show: s2, move: { from: s1, to: s2, value: "+y" }, note: "a.y = … — форма Shape2. Кожен об'єкт, що отримав x, а потім y, ділить цю саму форму — і доступ obj.y стає просто «взяти слот 1»." }
+>   - { show: s3, move: { from: s1, to: s3, value: "+z" }, note: "Об'єкт b після x отримав z — інша гілка, інша форма. Код, що бачить і a, і b, вже поліморфний і повільніший." }
+>   - { focus: [s2, s3], note: "Тому { x: 1, y: 2 } і { y: 2, x: 1 } мають різні форми. Правило: ініціалізуй усі поля в одному порядку, навіть як null." }
+> ```
 
 ```js
 // node --allow-natives-syntax shapes.js   (%-функції — лише для налагодження!)
@@ -258,12 +279,30 @@ console.log(%HasFastProperties(user)); // → false — тепер «словн�
 
 Для масивів V8 окремо відстежує **тип елементів** (elements kind) — від найспеціалізованішого до найзагальнішого:
 
-```text
-PACKED_SMI ──► PACKED_DOUBLE ──► PACKED_ELEMENTS         (лише вниз, назад — ніколи)
-    │                │                  │
-    ▼                ▼                  ▼
-HOLEY_SMI  ──► HOLEY_DOUBLE  ──► HOLEY_ELEMENTS
-```
+> [!diagram] Elements kinds: тільки в бік загальнішого
+> ```yaml
+> layout: compare
+> columns: { packed: "packed — без дірок", holey: "holey — з дірками" }
+> nodes:
+>   - { id: psmi, col: packed, text: PACKED_SMI, note: "[1, 2, 3]", tone: green }
+>   - { id: pdbl, col: packed, text: PACKED_DOUBLE, note: "+ 4.5", tone: yellow }
+>   - { id: pel, col: packed, text: PACKED_ELEMENTS, note: "+ 'x'", tone: orange }
+>   - { id: hsmi, col: holey, text: HOLEY_SMI, note: "new Array(3)", tone: yellow }
+>   - { id: hdbl, col: holey, text: HOLEY_DOUBLE, tone: orange }
+>   - { id: hel, col: holey, text: HOLEY_ELEMENTS, tone: red }
+> edges:
+>   - { from: psmi, to: pdbl }
+>   - { from: pdbl, to: pel }
+>   - { from: hsmi, to: hdbl }
+>   - { from: hdbl, to: hel }
+> steps:
+>   - { focus: psmi, note: "const arr = [1, 2, 3] — лише малі цілі (Smi) без дірок. Це PACKED_SMI, найшвидший вид." }
+>   - { move: { from: psmi, to: pdbl, value: "push(4.5)" }, note: "Додали дробове число — масив переходить у PACKED_DOUBLE." }
+>   - { move: { from: pdbl, to: pel, value: "push('x')" }, note: "Додали рядок — тепер PACKED_ELEMENTS: довільні значення, найзагальніший вид." }
+>   - { focus: pel, note: "Видалимо 'x' — масив НЕ повернеться назад. Переходи односторонні: лише вниз, до загальнішого." }
+>   - { focus: hsmi, note: "new Array(3) або arr[100] = 1 дають holey-масив: кожне читання перевіряє «дірку» і може піти в прототип." }
+>   - { focus: [psmi, pdbl, pel, hsmi, hdbl, hel], note: "Packed можна «зіпсувати» до holey, але не навпаки. Тому заповнюй масиви послідовно і не змішуй типи в гарячому коді." }
+> ```
 
 - `[1, 2, 3]` — `PACKED_SMI`: найшвидші операції.
 - `push(4.5)` → `PACKED_DOUBLE`; `push('x')` → `PACKED_ELEMENTS`. Якщо потім видалити `'x'`, масив **не повернеться** назад.
@@ -390,10 +429,24 @@ async function processAll(items) {
 > [!viz] event-loop
 > scenario: basic-timeout
 
-```text
-Без розбиття:   [██████████████ 400 мс ██████████████] клік чекає ──► INP 400+ мс
-З yield:        [██ 8 ██]▲[██ 8 ██]▲[██ 8 ██]▲ …     ▲ — тут браузер обробив клік і кадр
-```
+> [!diagram] Long task проти роботи шматками
+> ```yaml
+> layout: compare
+> columns: { long: "без розбиття", split: "з yield" }
+> nodes:
+>   - { id: b1, col: long, text: "400 мс суцільної роботи", note: "одна long task", tone: red }
+>   - { id: b2, col: long, text: "клік чекає…", tone: orange, icon: "px:cursor" }
+>   - { id: b3, col: long, text: "INP 400+ мс", tone: red }
+>   - { id: y1, col: split, text: "8 мс роботи", tone: blue }
+>   - { id: y2, col: split, text: "▲ yield: браузер обробив клік і кадр", tone: green, icon: "px:cursor" }
+>   - { id: y3, col: split, text: "8 мс → ▲ → 8 мс → ▲ …", tone: blue }
+> steps:
+>   - { show: b1, note: "Обробник синхронно обробляє всі items за 400 мс. Це одна long task — головний потік зайнятий увесь цей час." }
+>   - { show: [b2, b3], note: "Користувач клікає, але клік чекає кінця задачі. Затримка відгуку (INP) — понад 400 мс." }
+>   - { show: y1, note: "З розбиттям: обробляємо items, поки не вичерпали бюджет ~8 мс (deadline = performance.now() + 8)." }
+>   - { show: y2, note: "await yieldToMain() віддає керування циклу подій: браузер встигає обробити клік і намалювати кадр." }
+>   - { show: y3, note: "Далі — наступний шматок по 8 мс, і так до кінця. Роботи стільки ж, але сторінка весь час відгукується." }
+> ```
 
 > [!quiz] Перевір себе: long tasks
 > level: senior · type: multi · id: jsd-31-quiz-09

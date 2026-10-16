@@ -50,11 +50,25 @@ icon: "👷"
 - **Конкурентність** (concurrency) — кілька задач **у процесі** одночасно, але виконуються по черзі. Event loop, `async/await`, `Promise.all` — це конкурентність: один потік, перемикання на `await` ([[JavaScript - 08. Event Loop]]).
 - **Паралельність** (parallelism) — кілька задач **виконуються в ту саму мить** на різних ядрах. У JS це дають лише окремі агенти: Web Workers, `worker_threads`, окремі процеси.
 
-```text
-Конкурентність (1 потік):   main  ██A██░░B░░██A██░░B░░██A██     ← перемикання
-Паралельність (2 потоки):   main  ██A████████A████████A██
-                            work  ░░B████████B████████B██     ← справді одночасно
-```
+> [!diagram] Конкурентність проти паралельності
+> ```yaml
+> layout: compare
+> columns: { conc: "конкурентність · 1 потік (main)", pmain: "паралельність · main", pwork: "паралельність · worker" }
+> nodes:
+>   - { id: c1, col: conc, text: "A", note: "B чекає", tone: violet }
+>   - { id: c2, col: conc, text: "B", note: "A чекає", tone: blue }
+>   - { id: c3, col: conc, text: "A", note: "B чекає", tone: violet }
+>   - { id: c4, col: conc, text: "B", note: "A чекає", tone: blue }
+>   - { id: m1, col: pmain, text: "A", tone: violet }
+>   - { id: m2, col: pmain, text: "A", tone: violet }
+>   - { id: w1, col: pwork, text: "B", note: "інше ядро", tone: blue }
+>   - { id: w2, col: pwork, text: "B", tone: blue }
+> steps:
+>   - { show: [c1, m1, w1], note: "Перша мить. В одному потоці виконується лише A. З воркером A рахується на main, а B — у ту саму мить на іншому ядрі." }
+>   - { show: [c2, m2, w2], note: "Один потік перемикається на B — тепер чекає A. Два потоки просто продовжують кожен свою задачу." }
+>   - { show: c3, note: "Event loop і далі чергує A і B. Обидві задачі «в процесі», але жодної миті не виконуються разом." }
+>   - { show: c4, note: "Це конкурентність: async/await і Promise.all лише перемикають задачі в одному потоці. Справжню паралельність JS-коду дають тільки окремі агенти — воркери." }
+> ```
 
 Кожен воркер — окремий **агент** зі своїм heap, глобальним об'єктом і event loop. Спільних змінних немає: за замовчуванням дані лише **копіюються** між ними. Тому класичних гонок даних немає — доки ти сам не візьмеш `SharedArrayBuffer`.
 
@@ -158,10 +172,24 @@ console.log(pixels.buffer.byteLength, pixels.length);      // → 0 0
 
 Що можна передавати: `ArrayBuffer`, `MessagePort`, `ImageBitmap`, `OffscreenCanvas`, потоки (`ReadableStream`, `WritableStream`, `TransformStream`), `VideoFrame`, `AudioData` та ін. Передається саме **буфер**, а не view (`Uint8Array`): view клонується як «обгортка» над переданим буфером.
 
-```text
-Копія (clone):      main [■■■■ 4 МБ] ──serialize──► worker [■■■■ 4 МБ]   час ∝ розміру
-Передача (transfer): main [  0 Б  ]  ──власність──► worker [■■■■ 4 МБ]   O(1)
-```
+> [!diagram] Копія чи передача: 4 МБ у воркер
+> ```yaml
+> layout: compare
+> columns: { clone: "копія (clone)", transfer: "передача (transfer)" }
+> nodes:
+>   - { id: cm, col: clone, label: main, text: "■■■■ 4 МБ", note: "postMessage({ pixels })", tone: blue }
+>   - { id: cw, col: clone, label: worker, text: "порожньо", tone: gray }
+>   - { id: tm, col: transfer, label: main, text: "■■■■ 4 МБ", note: "postMessage({ pixels }, [pixels.buffer])", tone: blue }
+>   - { id: tw, col: transfer, label: worker, text: "порожньо", tone: gray }
+> edges:
+>   - { from: cm, to: cw, label: serialize }
+>   - { from: tm, to: tw, label: власність }
+> steps:
+>   - { focus: [cm, tm], note: "В обох випадках у головному потоці лежить 4 МБ пікселів: new Uint8Array(1024 * 1024 * 4)." }
+>   - { move: { from: cm, to: cw, value: "копія 4 МБ" }, set: { cw: "■■■■ 4 МБ" }, note: "Без списку transfer дані серіалізуються і копіюються. Час росте з розміром, а пам'ять тепер зайнята двічі." }
+>   - { move: { from: tm, to: tw, value: "pixels.buffer" }, set: { tw: "■■■■ 4 МБ" }, note: "З transfer байти не копіюються: воркер просто отримує власність на буфер — за O(1)." }
+>   - { set: { tm: "0 Б — detached" }, note: "А в оригінала лишається порожня оболонка: pixels.buffer.byteLength і pixels.length тепер 0." }
+> ```
 
 `OffscreenCanvas` — окремий вау-кейс: `canvas.transferControlToOffscreen()` віддає полотно воркеру, і той малює без участі головного потоку.
 

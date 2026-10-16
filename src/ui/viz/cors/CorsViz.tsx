@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { ConsolePanel, SPRING } from '../engine/Panel'
+import { ConsolePanel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { HttpMessage } from './HttpMessage'
@@ -13,11 +13,11 @@ function Sequence({ f }: { f: CorsFrame }) {
     <div className="viz-seq">
       <div className="viz-seq-actors">
         <span>
-          <span aria-hidden="true">🖥️</span> Браузер
+          <VizGlyph icon="px:monitor" /> Браузер
           <small>app.example</small>
         </span>
         <span>
-          <span aria-hidden="true">🗄️</span> Сервер
+          <VizGlyph icon="px:database" /> Сервер
           <small>api.example</small>
         </span>
       </div>
@@ -35,9 +35,9 @@ function Sequence({ f }: { f: CorsFrame }) {
       <AnimatePresence initial={false}>
         {f.verdict ? (
           <m.div key={`${f.verdict.ok}:${f.verdict.text}`} className="viz-cors-check" data-ok={f.verdict.ok ? '' : undefined} role="status" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={SPRING}>
-            <span aria-hidden="true">🛡️</span>
+            <VizGlyph icon="px:shield" size={20} />
             <span>
-              CORS-перевірка{f.verdict.preflight ? ' preflight' : ''}: {f.verdict.ok ? '✅' : '⛔'} {f.verdict.text}
+              CORS-перевірка{f.verdict.preflight ? ' preflight' : ''}: <VizGlyph icon={f.verdict.ok ? 'pi:PiCheckCircleFill' : 'pi:PiProhibitFill'} size={14} /> {f.verdict.text}
             </span>
           </m.div>
         ) : null}

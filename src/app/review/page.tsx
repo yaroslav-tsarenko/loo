@@ -81,7 +81,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
             { label: 'усього за фільтром', value: queue.total, tone: 'gray' },
           ]}
           start={queue.ids.length > 0 ? { href: startHref, label: `Почати · ${count(queue.ids.length, 'картка', 'картки', 'карток')}` } : null}
-          empty={queue.total === 0 ? 'За цим фільтром карток немає.' : filters.mode === 'due' ? 'На сьогодні все повторено 🎉 Можна вибрати «Усі за фільтром».' : 'Черга порожня.'}
+          empty={queue.total === 0 ? 'За цим фільтром карток немає.' : filters.mode === 'due' ? 'На сьогодні все повторено! Можна вибрати «Усі за фільтром».' : 'Черга порожня.'}
           note={<>Нових карток на день: {settings.newCardsPerDay} — змінюється в налаштуваннях.</>}
         />
       </div>

@@ -1,4 +1,4 @@
-import { tok, type Frame, type StepScenario, type Token } from '../engine/types'
+import { itok, type Frame, type StepScenario, type Token } from '../engine/types'
 
 export const MB = 1024 * 1024
 
@@ -62,14 +62,14 @@ self.onmessage = (e) => {
   self.postMessage(sum)
 }`
 
-const mainScript = tok('main-script', '📜 main.js', 'перша задача')
-const workerScript = tok('worker-script', '📜 worker.js', 'перша задача воркера')
+const mainScript = itok('px:scroll', 'main-script', 'main.js', 'перша задача')
+const workerScript = itok('px:scroll', 'worker-script', 'worker.js', 'перша задача воркера')
 const workerObj: MemBlock = { id: 'worker', name: 'worker', detail: 'Worker {…}' }
 const mainHandler: MemBlock = { id: 'onmessage', name: 'onmessage', detail: 'ƒ (e) => log(…)' }
 const workerHandler: MemBlock = { id: 'onmessage', name: 'self.onmessage', detail: 'ƒ (e) => { … }' }
 const job = (nums: string, state?: MemBlock['state']): MemBlock => ({ id: 'job', name: 'job', detail: `{ nums: [${nums}] }`, state })
-const msgJob = tok('m1', '✉️ message', 'знімок { nums: [1, 2, 3] }')
-const msgSum = tok('m2', '✉️ message', 'знімок 6')
+const msgJob = itok('px:envelope', 'm1', 'message', 'знімок { nums: [1, 2, 3] }')
+const msgSum = itok('px:envelope', 'm2', 'message', 'знімок 6')
 const mainMem = [workerObj, mainHandler, job('1, 2, 3, 4')]
 
 const postmessage: StepScenario<WorkerFrame> = {
@@ -92,7 +92,7 @@ const postmessage: StepScenario<WorkerFrame> = {
     {
       line: 13,
       main: idle(mainMem),
-      worker: run(tok('m1', '✉️ onmessage(e)', 'e.data — нова копія'), [workerHandler, { id: 'data', name: 'e.data', detail: '{ nums: [1, 2, 3] }', state: 'copy' }, { id: 'sum', name: 'sum', detail: '6', state: 'new' }]),
+      worker: run(itok('px:envelope', 'm1', 'onmessage(e)', 'e.data — нова копія'), [workerHandler, { id: 'data', name: 'e.data', detail: '{ nums: [1, 2, 3] }', state: 'copy' }, { id: 'sum', name: 'sum', detail: '6', state: 'new' }]),
       wire: null,
       log: [{ from: 'main', text: 'DataCloneError: cb() {} could not be cloned.', error: true }],
       note: 'Event loop воркера бере подію з черги: дані десеріалізуються в НОВИЙ об’єкт у його купі. reduce рахує 1 + 2 + 3 = 6.',
@@ -100,14 +100,14 @@ const postmessage: StepScenario<WorkerFrame> = {
     {
       line: 14,
       main: idle(mainMem, [msgSum]),
-      worker: run(tok('m1', '✉️ onmessage(e)', 'e.data — нова копія'), [workerHandler, { id: 'data', name: 'e.data', detail: '{ nums: [1, 2, 3] }', state: 'copy' }, { id: 'sum', name: 'sum', detail: '6' }]),
+      worker: run(itok('px:envelope', 'm1', 'onmessage(e)', 'e.data — нова копія'), [workerHandler, { id: 'data', name: 'e.data', detail: '{ nums: [1, 2, 3] }', state: 'copy' }, { id: 'sum', name: 'sum', detail: '6' }]),
       wire: { dir: 'to-main', mode: 'clone', label: 'structured clone', detail: '6 → копія' },
       log: [{ from: 'main', text: 'DataCloneError: cb() {} could not be cloned.', error: true }],
       note: 'Відповідь іде тим самим шляхом у зворотний бік: число клонується і стає подією message у черзі головного потоку.',
     },
     {
       line: 3,
-      main: run(tok('m2', '✉️ onmessage(e)', 'e.data = 6'), mainMem),
+      main: run(itok('px:envelope', 'm2', 'onmessage(e)', 'e.data = 6'), mainMem),
       worker: idle([workerHandler]),
       wire: null,
       log: [
@@ -138,11 +138,11 @@ self.onmessage = (e) => {
 const SIZE = 8 * MB
 const buf = (state?: MemBlock['state']): MemBlock => (state === 'detached' ? { id: 'buf', name: 'buf', detail: '0 Б · detached', bytes: 0, state } : { id: 'buf', name: 'buf', detail: 'ArrayBuffer · 8 МБ', bytes: SIZE, state })
 const wHandler: MemBlock = { id: 'onmessage', name: 'self.onmessage', detail: 'ƒ (e) => { … }' }
-const msgCopy = tok('c1', '✉️ message', 'копія 8 МБ')
-const msgMoved = tok('t1', '✉️ message', 'передано 8 МБ')
+const msgCopy = itok('px:envelope', 'c1', 'message', 'копія 8 МБ')
+const msgMoved = itok('px:envelope', 't1', 'message', 'передано 8 МБ')
 const copyBlock = (state?: MemBlock['state']): MemBlock => ({ id: 'copy', name: 'e.data (#1)', detail: 'копія · 8 МБ', bytes: SIZE, state })
 const movedBlock = (state?: MemBlock['state']): MemBlock => ({ id: 'moved', name: 'e.data (#2)', detail: 'той самий блок · 8 МБ', bytes: SIZE, state })
-const trScript = tok('main-script', '📜 main.js')
+const trScript = itok('px:scroll', 'main-script', 'main.js')
 const logs = (...lines: LogLine[]): LogLine[] => lines
 const L8 = { from: 'main' as const, text: '8388608' }
 const L0 = { from: 'main' as const, text: '0' }
@@ -157,8 +157,8 @@ const transfer: StepScenario<WorkerFrame> = {
     { line: 7, main: run(trScript, [buf('detached')]), worker: idle([wHandler], [msgCopy, msgMoved]), wire: { dir: 'to-worker', mode: 'transfer', label: 'передача · O(1)', detail: '0 Б скопійовано, змінився власник' }, log: logs(L8), note: 'buf у списку transfer: блок пам’яті переходить до воркера без копіювання байтів — за O(1), хоч 8 МБ, хоч 800. Оригінал стає detached.' },
     { line: 8, main: run(trScript, [buf('detached')]), worker: idle([wHandler], [msgCopy, msgMoved]), wire: null, log: logs(L8, L0), note: 'Об’єкт buf лишився, але пам’яті в нього більше немає: byteLength — 0, buf.detached — true. Усі view над ним теж мають довжину 0.' },
     { line: 9, main: run(trScript, [buf('detached')]), worker: idle([wHandler], [msgCopy, msgMoved]), wire: null, log: logs(L8, L0, LErr), note: 'Від’єднаний буфер не використати: new Uint8Array(buf) кидає TypeError. Відправник віддав дані повністю — тому гонок за спільні байти немає.' },
-    { line: 13, main: idle([buf('detached')]), worker: run(tok('c1', '✉️ onmessage(e)', 'копія'), [wHandler, copyBlock('copy')], [msgMoved]), wire: null, log: logs(L8, L0, LErr, { from: 'worker', text: '8388608' }), note: 'Воркер обробляє перше повідомлення: e.data — окрема копія на 8 МБ, десеріалізована вже в його купі.' },
-    { line: 13, main: idle([buf('detached')]), worker: run(tok('t1', '✉️ onmessage(e)', 'передано'), [wHandler, copyBlock(), movedBlock('moved')]), wire: null, log: logs(L8, L0, LErr, { from: 'worker', text: '8388608' }, { from: 'worker', text: '8388608' }), note: 'Друге повідомлення: той самий блок пам’яті, що був у main, тепер належить воркеру. Байти не копіювались — змінився лише власник.' },
+    { line: 13, main: idle([buf('detached')]), worker: run(itok('px:envelope', 'c1', 'onmessage(e)', 'копія'), [wHandler, copyBlock('copy')], [msgMoved]), wire: null, log: logs(L8, L0, LErr, { from: 'worker', text: '8388608' }), note: 'Воркер обробляє перше повідомлення: e.data — окрема копія на 8 МБ, десеріалізована вже в його купі.' },
+    { line: 13, main: idle([buf('detached')]), worker: run(itok('px:envelope', 't1', 'onmessage(e)', 'передано'), [wHandler, copyBlock(), movedBlock('moved')]), wire: null, log: logs(L8, L0, LErr, { from: 'worker', text: '8388608' }, { from: 'worker', text: '8388608' }), note: 'Друге повідомлення: той самий блок пам’яті, що був у main, тепер належить воркеру. Байти не копіювались — змінився лише власник.' },
     { line: null, main: idle([buf('detached')]), worker: idle([wHandler, copyBlock(), movedBlock()]), wire: null, compare: true, log: logs(L8, L0, LErr, { from: 'worker', text: '8388608' }, { from: 'worker', text: '8388608' }), note: 'Копія подвоює пам’ять, і час росте з розміром; передача — O(1), але відправник втрачає доступ. Передають ArrayBuffer (не view!), MessagePort, ImageBitmap, OffscreenCanvas, потоки.' },
   ],
 }

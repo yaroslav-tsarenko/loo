@@ -104,7 +104,7 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
           <Loo mood="wave" size={150} className="lesson-summary-loo" />
         </div>
         <p className="test-intro-eyebrow">
-          <Icon name={course.icon ?? '📘'} size={20} /> {course.title}
+          <Icon name={course.icon ?? 'px:book'} size={20} /> {course.title}
         </p>
         <h1 className="lesson-summary-title">{t('placement.title')}</h1>
         <p className="lesson-summary-note">{t('placement.lead', { max: maxQuestions })}</p>
@@ -137,7 +137,7 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
               .filter((s) => s.index <= (result?.sectionIndex ?? 0) + 1)
               .map((s) => (
                 <li key={s.id} data-state={s.index < (result?.sectionIndex ?? 0) ? 'known' : s.index === result?.sectionIndex ? 'start' : 'next'}>
-                  <Icon name={s.icon ?? '📍'} size={22} /> {s.title}
+                  <Icon name={s.icon ?? 'px:map'} size={22} /> {s.title}
                 </li>
               ))}
           </ol>
@@ -168,7 +168,7 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
       </header>
       <main className="lesson-stage">
         <p className="lesson-crumb">
-          🧪 {t('placement.title')} · {t('placement.question', { n: asked + (answered ? 0 : 1) })}
+          <Icon name="px:testTube" size={18} /> {t('placement.title')} · {t('placement.question', { n: asked + (answered ? 0 : 1) })}
         </p>
         <div key={item.unitId} className="lesson-item">
           {item.kind === 'quiz' ? (

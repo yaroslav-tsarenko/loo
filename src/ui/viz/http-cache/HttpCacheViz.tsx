@@ -2,17 +2,17 @@
 
 import { AnimatePresence, m } from 'motion/react'
 import { HttpMessage } from '../cors/HttpMessage'
-import { Badge, ConsolePanel, SPRING } from '../engine/Panel'
+import { Badge, ConsolePanel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
-import type { VizProps } from '../engine/types'
+import type { VizIcon, VizProps } from '../engine/types'
 import { ageOf, decide, type Decision } from './cache'
 import { httpCacheScenarios, type CacheFrame } from './scenarios'
 
 const SCALE = 120
-const DECISION: Record<Decision, { label: string; tone?: string }> = {
+const DECISION: Record<Decision, { label: string; icon?: VizIcon }> = {
   miss: { label: '∅ miss' },
-  fresh: { label: '✅ fresh', tone: 'success' },
-  stale: { label: '⏰ stale', tone: 'danger' },
+  fresh: { label: 'fresh', icon: 'pi:PiCheckCircleFill' },
+  stale: { label: 'stale', icon: 'pi:PiTimerFill' },
 }
 
 function Clock({ f }: { f: CacheFrame }) {
@@ -23,10 +23,10 @@ function Clock({ f }: { f: CacheFrame }) {
     <div className="viz-hc-clock">
       <div className="viz-hc-clock-row">
         <span className="viz-hc-time tabular">
-          <span aria-hidden="true">🕒</span> t = {f.t} с
+          <VizGlyph icon="px:clock" size={14} /> t = {f.t} с
         </span>
         <span className="viz-hc-decision" data-state={state}>
-          {DECISION[state].label}
+          {DECISION[state].icon ? <VizGlyph icon={DECISION[state].icon} size={12} /> : null} {DECISION[state].label}
         </span>
       </div>
       {f.entry && !f.entry.noCache ? (
@@ -52,7 +52,7 @@ function Wire({ f, hop }: { f: CacheFrame; hop: 'page' | 'server' }) {
         {msg ? (
           <m.div key={msg.id + hop} className="viz-hc-msg" initial={{ opacity: 0, y: msg.dir === 'req' ? -10 : 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={SPRING}>
             <span className="viz-hc-arrow" aria-hidden="true">
-              {msg.dir === 'req' ? '⬇' : '⬆'}
+              {msg.dir === 'req' ? '↓' : '↑'}
             </span>
             <HttpMessage msg={msg} active />
           </m.div>
@@ -68,14 +68,14 @@ function Stack({ f }: { f: CacheFrame }) {
     <div className="viz-hc-stack">
       <div className="viz-hc-box" data-active={f.hop === 'page' ? '' : undefined}>
         <span className="viz-hc-box-head">
-          <span aria-hidden="true">🖥️</span> Сторінка
+          <VizGlyph icon="px:monitor" /> Сторінка
         </span>
         <code className="viz-muted">fetch(&apos;/app.js&apos;)</code>
       </div>
       <Wire f={f} hop="page" />
       <div className="viz-hc-box" data-tone="cache" data-active={f.decision ? '' : undefined}>
         <span className="viz-hc-box-head">
-          <span aria-hidden="true">💾</span> HTTP-кеш браузера
+          <VizGlyph icon="px:floppy" /> HTTP-кеш браузера
         </span>
         {e ? (
           <span className="viz-hc-entry">
@@ -88,7 +88,7 @@ function Stack({ f }: { f: CacheFrame }) {
       <Wire f={f} hop="server" />
       <div className="viz-hc-box" data-active={f.hop === 'server' ? '' : undefined}>
         <span className="viz-hc-box-head">
-          <span aria-hidden="true">🗄️</span> Сервер
+          <VizGlyph icon="px:database" /> Сервер
         </span>
         <span className="viz-hc-entry">
           <code>/app.js</code> <Badge tone="accent">ETag {f.server}</Badge>

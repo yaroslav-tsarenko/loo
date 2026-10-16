@@ -38,7 +38,8 @@ describe('compileCourse', () => {
     expect(first.id).toBe('fixture-course:basics:al-ch-01')
     expect(first.lessons[0]!.id).toBe('fixture-course:basics:al-ch-01:theory-1')
     expect(parseLessonId(first.lessons[2]!.id)).toEqual({ courseId: 'fixture-course', sectionKey: 'basics', topicKey: 'al-ch-01', kind: 'core', n: 1 })
-    expect(first.icon).toBe('🥇')
+    // author emoji (frontmatter «🥇») is normalised to an icon ref
+    expect(first.icon).toBe('px:medal')
   })
 
   it('weaves tasks in document order instead of piling them at the end', () => {
@@ -108,7 +109,7 @@ describe('compileCourse', () => {
     expect(bundle.stats).toMatchObject({ sections: 3, topics: 4, quizzes: 12, flashcards: 10, interview: 1, tasks: 3, autoTestedTasks: 3, reels: 3, topicTests: 3, sectionExams: 2 })
     expect(bundle.stats.lessons).toBe(bundle.sections.flatMap((s) => s.topics).reduce((n, t) => n + t.lessons.length, 0))
     expect(bundle.course.estimatedHours).toBe(bundle.stats.hours)
-    expect(bundle.icons).toEqual(['si:SiJavascript', '🧱', '🥇'])
+    expect(bundle.icons).toEqual(['si:SiJavascript', 'px:bricks', 'px:medal'])
     expect(bundle.placement.pool.junior).toEqual(['al-01-quiz-01', 'al-01-quiz-02', 'al-01-quiz-03', 'al-01-quiz-05'])
     expect(bundle.placement.pool.noob).toEqual([])
   })

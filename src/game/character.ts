@@ -1,14 +1,16 @@
 import type { ProfileStats } from '@/progress/stats'
-import type { RankDef } from './ranks'
+import { RANKS, type RankDef } from './ranks'
+import { GEAR_SLOTS, STATS, statTotal, type EquippedGear, type GearSlot, type GearStats } from './shop'
 import { sortSkills, type Skill } from './skills'
 
-// 🧙 Loo's character sheet: six RPG attributes (1–100) computed from real learning data. Course-agnostic — only
+// Loo's character sheet: six RPG attributes (1–100) computed from real learning data. Course-agnostic — only
 // accuracy, speed, memory, practice tasks, rhythm and volume, so English or Math courses feed the same formulas.
 
 export const ATTRIBUTES = ['intellect', 'speed', 'memory', 'craft', 'resilience', 'stamina'] as const
 export type AttributeId = (typeof ATTRIBUTES)[number]
 
-export const ATTRIBUTE_EMOJI: Record<AttributeId, string> = { intellect: '🧠', speed: '⚡', memory: '💾', craft: '🔧', resilience: '🛡️', stamina: '🔥' }
+// Icon refs (src/ui/icons): our pixel set.
+export const ATTRIBUTE_ICON: Record<AttributeId, string> = { intellect: 'px:bulb', speed: 'px:bolt', memory: 'px:cards', craft: 'px:hammer', resilience: 'px:shield', stamina: 'px:fire' }
 
 export interface CharacterInput {
   // every graded answer (quizzes, cards, tasks)
@@ -48,7 +50,7 @@ export function attributeScores(c: CharacterInput): Record<AttributeId, number> 
   const weighted = c.tasks.easy + 2 * c.tasks.medium + 3 * c.tasks.hard
   const firstTry = c.tasks.attempted > 0 ? c.tasks.firstTry / c.tasks.attempted : 0
   const craft = 0.75 * sat(weighted, 25) + 0.25 * firstTry * sat(c.tasks.attempted, 5)
-  // freezes not needed: a clean month of rhythm beats one held together by 🧊
+  // freezes not needed: a clean month of rhythm beats one held together by freezes
   const resilience = 0.4 * sat(c.rhythm.streak, 14) + 0.45 * clamp01(c.rhythm.active30 / 30) + 0.15 * (1 - clamp01(c.rhythm.frozen30 / 4)) * sat(c.rhythm.active30, 5)
   const stamina = 0.6 * sat(c.volume.totalMs / 3_600_000, 25) + 0.4 * sat(c.volume.weekMs / 60_000, 150)
   return {
@@ -80,11 +82,11 @@ export function strengthsAndWeakness(attrs: readonly Attribute[]): { strengths: 
   return { strengths: sorted.slice(0, 3), weakest }
 }
 
-// One number for matchmaking / battles: attributes, evolution step and skills.
-export function powerScore(attrs: readonly Attribute[], step: number, skills: readonly Skill[]): number {
+// One number for matchmaking / battles: attributes, character step, skills and gear stats.
+export function powerScore(attrs: readonly Attribute[], step: number, skills: readonly Skill[], gear?: GearStats): number {
   const base = attrs.reduce((s, a) => s + a.level, 0)
   const skillPower = skills.reduce((s, k) => s + k.power, 0)
-  return Math.round(base * (1 + step / 21) + Math.sqrt(skillPower) * 10)
+  return Math.round(base * (1 + step / (RANKS.length - 1)) + Math.sqrt(skillPower) * 10 + (gear ? statTotal(gear) * 3 : 0))
 }
 
 // From the statistics engine's profile metrics (src/progress/stats) + course mastery + spent freezes.
@@ -101,29 +103,34 @@ export function characterInput(stats: ProfileStats, topics: CharacterInput['topi
   }
 }
 
-// ⚔️ Battle-ready snapshot: stable JSON (fixed key order, attributes in catalog order, skills sorted).
+// Battle-ready snapshot: stable JSON (fixed key order, attributes / gear in catalog order, skills sorted).
+// v2: the warrior rank instead of Loo's forms, plus the equipped gear and its (capped) battle stats.
 export interface CharacterSnapshot {
-  version: 1
-  form: string
+  version: 2
+  rank: string
   tier: number
   step: number
   title: string
   attributes: Record<AttributeId, number>
   skills: Array<Pick<Skill, 'id' | 'kind' | 'name' | 'icon' | 'power' | 'courseId'>>
+  gear: { equipped: Partial<Record<GearSlot, string>>; stats: GearStats }
   power: number
 }
 
-export function snapshotOf(rank: RankDef, attrs: readonly Attribute[], skills: readonly Skill[]): CharacterSnapshot {
+export function snapshotOf(rank: RankDef, attrs: readonly Attribute[], skills: readonly Skill[], gear: { equipped: EquippedGear; stats: GearStats } = { equipped: {}, stats: { attack: 0, defense: 0, energy: 0, focus: 0, speed: 0 } }): CharacterSnapshot {
   const byId = new Map(attrs.map((a) => [a.id, a.level]))
   const sorted = sortSkills(skills)
+  const equipped: Partial<Record<GearSlot, string>> = {}
+  for (const slot of GEAR_SLOTS) if (gear.equipped[slot]) equipped[slot] = gear.equipped[slot]
   return {
-    version: 1,
-    form: rank.form,
+    version: 2,
+    rank: rank.rank,
     tier: rank.tier,
     step: rank.index,
     title: rank.title,
     attributes: Object.fromEntries(ATTRIBUTES.map((id) => [id, byId.get(id) ?? 1])) as Record<AttributeId, number>,
     skills: sorted.map((s) => ({ id: s.id, kind: s.kind, name: s.name, icon: s.icon, power: s.power, courseId: s.courseId })),
-    power: powerScore(attrs, rank.index, sorted),
+    gear: { equipped, stats: Object.fromEntries(STATS.map((s) => [s, gear.stats[s]])) as GearStats },
+    power: powerScore(attrs, rank.index, sorted, gear.stats),
   }
 }

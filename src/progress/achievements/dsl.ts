@@ -54,6 +54,8 @@ export interface AchievementDef {
   id: string
   title: string
   description: string
+  // icon ref (`px:fire`, src/ui/icons) or `loo:<form>` for a still Loo in that evolution form
+  icon: string
   tier: AchievementTier
   when: Condition
 }

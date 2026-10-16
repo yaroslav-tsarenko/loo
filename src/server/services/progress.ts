@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, desc, eq, isNotNull, isNull, lte, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
-import { achievements, attempts, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userState, xpLedger } from '@/db/schema'
+import { achievements, attempts, buckLedger, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userState, xpLedger } from '@/db/schema'
 import type { LearningUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { ACHIEVEMENT_GEMS, gemRef, isXpReason, LEAGUE_TIERS, PRACTICE_MIN_ANSWERS } from '@/game'
@@ -161,8 +161,14 @@ async function gameStats(conn: Conn, userId: string, stats: StatsSnapshot): Prom
       .from(gemLedger)
       .where(eq(gemLedger.userId, userId)),
   )
+  const bucks = await first(
+    conn
+      .select({ shop: sql<number>`count(*) filter (where ${buckLedger.reason} = 'shop')` })
+      .from(buckLedger)
+      .where(eq(buckLedger.userId, userId)),
+  )
   stats['gems.earned'] = n(gems?.earned)
-  stats['shop.purchases'] = n(gems?.shop)
+  stats['shop.purchases'] = n(gems?.shop) + n(bucks?.shop)
   stats['skins.owned'] = n((await first(conn.select({ n: sql<number>`count(*)` }).from(inventory).where(eq(inventory.userId, userId))))?.n)
   stats['freezes.used'] = n((await first(conn.select({ n: sql<number>`count(*)` }).from(frozenDays).where(eq(frozenDays.userId, userId))))?.n)
   const practice = await first(
@@ -264,7 +270,7 @@ export async function recordAttempt(snapshot: ContentSnapshot, unit: LearningUni
       },
       { history, srs: toSrs(srsRow), mistake: toMistake(mistakeRow), totalXp: xpBefore },
     )
-    // XP is granted through the game ledger (⚡ boost, per-source daily cap); report what actually landed.
+    // XP is granted through the game ledger (double-XP boost, per-source daily cap); report what actually landed.
     const reason = isXpReason(unit.kind) ? unit.kind : 'quiz'
     const xp = await grantXp(tx, userId, { amount: result.xp, reason, refId: unit.id, now })
     const effects: Effect[] = result.effects.filter((e) => e.type !== 'level-up' && e.type !== 'rank-up' && e.type !== 'xp')

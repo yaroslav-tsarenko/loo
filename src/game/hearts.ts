@@ -1,4 +1,4 @@
-// ❤️ Hearts: 5 max, a wrong answer in a lesson costs one, +1 every 4 hours (computed lazily from hearts_at).
+// Hearts: 5 max, a wrong answer in a lesson costs one, +1 every 4 hours (computed lazily from hearts_at).
 // hearts_at anchors the refill clock: the moment the last refill tick happened (or the first heart was lost).
 
 export const MAX_HEARTS = 5

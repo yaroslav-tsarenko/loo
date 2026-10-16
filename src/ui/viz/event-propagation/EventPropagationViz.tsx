@@ -1,16 +1,16 @@
 'use client'
 
 import { m } from 'motion/react'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { findNode, pathTo, type DomNode, type EventPhase } from './dispatch'
 import { eventPropagationScenarios, type PropFrame } from './scenarios'
 
 const PHASES: Array<{ id: EventPhase; label: string }> = [
-  { id: 1, label: '⬇ 1 capture' },
-  { id: 2, label: '🎯 2 target' },
-  { id: 3, label: '⬆ 3 bubble' },
+  { id: 1, label: '↓ 1 capture' },
+  { id: 2, label: '2 target' },
+  { id: 3, label: '↑ 3 bubble' },
 ]
 
 function PhaseBar({ phase }: { phase: EventPhase }) {
@@ -18,6 +18,7 @@ function PhaseBar({ phase }: { phase: EventPhase }) {
     <ol className="viz-phases" aria-label="event.eventPhase">
       {PHASES.map((p) => (
         <li key={p.id} data-on={p.id === phase ? '' : undefined} aria-current={p.id === phase ? 'step' : undefined}>
+          {p.id === 2 ? <VizGlyph icon="px:target" size={14} /> : null}
           {p.label}
         </li>
       ))}
@@ -47,7 +48,7 @@ function DomBox({ node, f, path }: { node: DomNode; f: PropFrame; path: readonly
           <span className="viz-dom-ls">
             {listeners.map((l) => (
               <span key={l.id} className="viz-dom-l" data-cap={l.capture ? '' : undefined} data-stop={l.stops ? '' : undefined} data-ran={f.ran.includes(l.id) ? '' : undefined}>
-                {l.capture ? '⬇' : '⬆'} {l.label}
+                {l.capture ? '↓' : '↑'} {l.label}
               </span>
             ))}
           </span>
@@ -77,7 +78,16 @@ function EventInfo({ f }: { f: PropFrame }) {
     ['event.eventPhase', String(f.phase)],
   ]
   return (
-    <Panel title="Об’єкт події" emoji="📨" hint={f.stopped ? '⛔ stopPropagation' : undefined} tone={f.stopped ? 'danger' : undefined}>
+    <Panel
+      title="Об’єкт події"
+      icon="px:envelope"
+      hint={
+        f.stopped ? (
+          <>
+            <VizGlyph icon="pi:PiProhibitFill" size={12} /> stopPropagation
+          </>
+        ) : undefined
+      } tone={f.stopped ? 'danger' : undefined}>
       <dl className="viz-ev-kv">
         {rows.map(([k, v]) => (
           <div key={k} data-same={k === 'event.currentTarget' && current !== null && current === f.target ? '' : undefined}>

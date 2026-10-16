@@ -7,10 +7,10 @@ import { lessonView, nextStepAfter, stepHref, type CourseLesson, type PathStep }
 
 export function nextLabel(step: PathStep | null): string | null {
   if (!step) return null
-  return step.type === 'test' ? 'Тест теми 🏁' : step.type === 'exam' ? 'Екзамен розділу 👑' : 'Наступний урок'
+  return step.type === 'test' ? 'Тест теми' : step.type === 'exam' ? 'Екзамен розділу' : 'Наступний урок'
 }
 
-// A course lesson at the learner's level: below-level items condensed, 🔥 challenges marked.
+// A course lesson at the learner's level: below-level items condensed, above-level challenges marked.
 export async function courseLessonPlayerData(snapshot: ContentSnapshot, cl: CourseLesson, level: Level): Promise<LessonPlayerData> {
   const view = lessonView(cl.bundle, cl.lesson, level)
   const items = await renderLessonItems(snapshot, view.items)

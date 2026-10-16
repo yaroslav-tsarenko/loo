@@ -1,4 +1,4 @@
-// 🃏 Skills: every mastered topic (👑 ≥ 3 crowns) or passed section exam of ANY course unlocks a card.
+// Skills: every mastered topic (≥ 3 crowns) or passed section exam of ANY course unlocks a card.
 // Course-agnostic: names come from a curated map for known courses, otherwise «<Тема> · майстерність».
 // Future PvP: skills are the character's moves (docs/BATTLES.md).
 
@@ -20,7 +20,7 @@ export interface Skill {
   source: string
 }
 
-// Curated names (JavaScript from Noob to God), keyed by `<section>:<chapter>` (the topic id without the course).
+// Curated names (JavaScript Zero → Pro), keyed by `<section>:<chapter>` (the topic id without the course).
 export const SKILL_NAMES: Record<string, string> = {
   'start:jss-ch-01': 'Перший запуск',
   'start:jss-ch-02': 'Охоронець змінних',
@@ -83,7 +83,7 @@ export const SKILL_NAMES: Record<string, string> = {
   'projects:jsp-ch-06': 'Сигнальник',
   'projects:jsp-ch-07': 'Творець фреймворку',
   'projects:jsp-ch-08': 'HTTP-пілот',
-  // section exams 👑
+  // section exams
   start: 'Перший крок',
   core: 'Серце мови',
   'async-memory': 'Повелитель асинхронності',
@@ -117,7 +117,7 @@ export function topicSkill(t: TopicSkillInput): Skill | null {
     id: `${t.courseId}:${key}`,
     kind: 'topic',
     name: SKILL_NAMES[key] ?? `${t.title} · майстерність`,
-    icon: t.icon ?? '✨',
+    icon: t.icon ?? 'px:star',
     // 3 crowns ≈ 50, 5 crowns + full ratio = 100
     power: clampPower(t.crowns * 14 + t.ratio * 30),
     courseId: t.courseId,
@@ -142,7 +142,7 @@ export function sectionSkill(s: SectionSkillInput): Skill {
     id: `${s.courseId}:${key}:exam`,
     kind: 'section',
     name: SKILL_NAMES[key] ?? `${s.title} · майстерність`,
-    icon: s.icon ?? '👑',
+    icon: s.icon ?? 'px:crown',
     // exams are worth more than a topic: 60 at the pass mark (0.8), 100 flawless
     power: clampPower(60 + (s.score - 0.8) * 200),
     courseId: s.courseId,

@@ -59,17 +59,24 @@ const PI = 3.14
 console.log(PI)      // → 3.14
 ```
 
-```text
-  let lives = 3              lives = 2
- ┌───────────┐            ┌───────────┐
- │ lives: 3  │   ──────►  │ lives: 2  │   ← та сама коробка, новий вміст
- └───────────┘            └───────────┘
-
-  const PI = 3.14            PI = 3
- ┌───────────┐
- │ PI: 3.14  │   ──X──►  TypeError: Assignment to constant variable.
- └───────────┘
-```
+> [!diagram] let можна перезаписати, const — ні
+> ```yaml
+> layout: compare
+> columns: { let: "let — звичайна коробка", const: "const — заклеєна скотчем" }
+> nodes:
+>   - { id: letcode, col: let, label: "код", code: "let lives = 3\nlives = 2\nconsole.log(lives)" }
+>   - { id: lives, col: let, label: "коробка lives", text: "3", tone: blue, icon: "px:box" }
+>   - { id: constcode, col: const, label: "код", code: "const PI = 3.14\nPI = 3" }
+>   - { id: pi, col: const, label: "коробка PI", text: "3.14", tone: violet, icon: "px:lock" }
+>   - { id: err, col: const, label: "помилка", text: "TypeError: Assignment to constant variable.", tone: red, icon: "px:warning" }
+> steps:
+>   - { show: lives, line: "letcode:1", note: "let lives = 3 створює коробку з наліпкою lives і кладе в неї 3." }
+>   - { set: { lives: "2" }, line: "letcode:2", note: "lives = 2 — без let, бо коробка вже є. Старе 3 викидаємо, кладемо 2: та сама коробка, новий вміст." }
+>   - { line: "letcode:3", focus: lives, note: "console.log(lives) зазирає в коробку й друкує те, що там зараз, — 2." }
+>   - { show: pi, line: "constcode:1", note: "const PI = 3.14 — коробку наповнили й одразу заклеїли скотчем." }
+>   - { show: err, line: "constcode:2", note: "Спроба PI = 3 зупиняє програму помилкою TypeError. У PI так і лишається 3.14." }
+>   - { focus: [lives, pi], note: "Звідси правило: пиши const за замовчуванням, а let — лише коли значення справді змінюватиметься." }
+> ```
 
 > [!important] Правило вибору
 > Пиши `const` за замовчуванням. Перейди на `let`, лише коли значення **справді** буде змінюватися (лічильник, баланс, крок циклу). Так код легше читати: бачиш `const` — знаєш, що значення не зміниться.

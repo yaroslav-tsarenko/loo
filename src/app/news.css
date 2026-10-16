@@ -1,11 +1,13 @@
 @layer components {
-  /* Mobile-first: base styles target ~375px, wider screens only add room. */
+  /* Mobile-first: base styles target ~375px, wider screens only add room.
+     «Loo Pixel-soft»: tabs with a violet underline, chips as small soft blocks, each group as one soft card. */
   .news-page {
     padding-bottom: 48px;
   }
   .news-head .page-lead {
-    color: var(--t2);
-    font-size: 15px;
+    color: var(--lu-text-2);
+    font-size: var(--lu-fs-sm);
+    line-height: 1.55;
   }
   .news-toolbar {
     display: flex;
@@ -22,7 +24,7 @@
   }
   .news-refresh-note {
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .news-spin {
     animation: news-spin 900ms linear infinite;
@@ -37,40 +39,55 @@
     display: flex;
     gap: 4px;
     margin-top: 20px;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 2px solid var(--lu-border);
   }
   .news-tab {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 8px 8px;
-    margin-bottom: -1px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--t2);
-    border-bottom: 2px solid transparent;
-    border-radius: 4px 4px 0 0;
-    transition: background-color 60ms;
+    min-height: var(--lu-target);
+    padding: 0 12px;
+    margin-bottom: -2px;
+    font-size: var(--lu-fs-sm);
+    font-weight: 600;
+    color: var(--lu-text-2);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: var(--lu-r-sm) var(--lu-r-sm) 0 0;
+    transition:
+      background-color var(--lu-dur-2),
+      color var(--lu-dur-2);
   }
   .news-tab:hover {
-    background: var(--hover);
-    color: var(--t1);
+    background: var(--lu-hover);
+    color: var(--lu-text);
   }
   .news-tab[aria-current] {
-    color: var(--t1);
-    border-bottom-color: var(--t1);
+    color: var(--lu-violet-ink);
+    font-weight: var(--lu-fw-bold);
+    border-bottom-color: var(--lu-violet);
   }
   .news-tab-count {
+    min-width: 20px;
+    padding: 2px 6px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-3);
     font-size: 12px;
-    color: var(--t3);
+    font-weight: var(--lu-fw-bold);
+    color: var(--lu-text-2);
+    text-align: center;
+  }
+  .news-tab[aria-current] .news-tab-count {
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
   }
 
   /* Horizontal scroll on phones instead of wrapping into many rows. */
   .news-chips {
     display: flex;
     gap: 6px;
-    margin: 12px -20px 0;
-    padding: 0 20px 4px;
+    margin: 14px -20px 0;
+    padding: 0 20px 6px;
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -80,50 +97,67 @@
   .news-chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     flex: none;
-    height: 28px;
-    padding: 0 10px;
-    border-radius: 999px;
-    font-size: 13px;
-    color: var(--t1);
+    min-height: 36px;
+    padding: 0 12px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface);
+    box-shadow: 0 2px 0 var(--lu-border);
+    margin-bottom: 2px;
+    font-size: var(--lu-fs-xs);
+    font-weight: 600;
+    color: var(--lu-text);
+    text-decoration: none;
     white-space: nowrap;
-    box-shadow: inset 0 0 0 1px var(--border);
-    transition: background-color 60ms;
+    transition:
+      background-color var(--lu-dur-2),
+      transform var(--lu-dur-1) var(--lu-ease);
   }
   .news-chip .tabular {
-    color: var(--t3);
+    color: var(--lu-text-2);
     font-size: 12px;
   }
   .news-chip:hover {
-    background: var(--hover);
+    background: var(--lu-surface-2);
+  }
+  .news-chip:active {
+    transform: translateY(2px);
+    box-shadow: none;
   }
   .news-chip[aria-current] {
-    background: var(--accent-soft);
-    color: var(--accent);
-    box-shadow: inset 0 0 0 1px rgb(35 131 226 / 0.35);
+    border-color: var(--lu-violet);
+    background: var(--lu-violet-soft);
+    box-shadow: 0 2px 0 var(--lu-violet-lip);
+    color: var(--lu-violet-ink);
   }
   .news-chip[aria-current] .tabular {
     color: inherit;
   }
 
   .news-group-count {
-    font-weight: 400;
-    color: var(--t3);
+    font-weight: 500;
+    color: var(--lu-text-2);
     margin-left: 4px;
   }
+  /* each group is one soft card */
   .news-list {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 var(--lu-lip);
+    padding: 0 12px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-surface);
+    box-shadow: 0 var(--lu-lip) 0 var(--lu-border);
   }
   .news-row {
     display: grid;
-    grid-template-columns: 28px minmax(0, 1fr) 32px;
+    grid-template-columns: 28px minmax(0, 1fr) 36px;
     gap: 2px 8px;
     align-items: start;
-    padding: 10px 2px;
-    border-bottom: 1px solid var(--rule);
+    padding: 12px 0;
+    border-bottom: 2px solid var(--lu-border);
   }
   .news-row:last-child {
     border-bottom: 0;
@@ -137,27 +171,28 @@
     min-width: 0;
   }
   .news-title {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--t1);
+    font-size: var(--lu-fs-sm);
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--lu-text);
     overflow-wrap: anywhere;
     text-decoration: underline;
     text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
     text-underline-offset: 3px;
-    transition: text-decoration-color 100ms;
+    transition: text-decoration-color var(--lu-dur-2);
   }
   .news-title:hover {
-    text-decoration-color: var(--border);
+    text-decoration-color: var(--lu-violet);
   }
   .news-title:visited {
-    color: var(--t1);
+    color: var(--lu-text);
   }
   .news-summary {
-    margin-top: 2px;
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--t2);
+    margin-top: 4px;
+    font-size: var(--lu-fs-xs);
+    line-height: 1.5;
+    color: var(--lu-text-2);
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -169,37 +204,45 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0 6px;
-    margin-top: 4px;
+    margin-top: 6px;
     font-size: 12px;
-    color: var(--t3);
+    font-weight: 500;
+    color: var(--lu-text-2);
   }
   .news-save {
     display: inline-grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border: 0;
-    border-radius: 6px;
+    border-radius: var(--lu-r-sm);
     background: transparent;
-    color: var(--t3);
+    color: var(--lu-text-2);
     cursor: pointer;
-    transition: background-color 60ms, color 60ms;
+    transition:
+      background-color var(--lu-dur-2),
+      color var(--lu-dur-2);
   }
   .news-save:hover {
-    background: var(--hover);
-    color: var(--t1);
+    background: var(--lu-hover);
+    color: var(--lu-violet-ink);
+  }
+  .news-save:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 1px;
   }
   .news-save[aria-pressed='true'] {
-    color: var(--accent);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
   }
 
   /* Read items fade back but stay legible; hovering brings them forward. */
   .news-row[data-read] .news-title,
   .news-row[data-read] .news-emoji {
-    opacity: 0.55;
+    opacity: 0.6;
   }
   .news-row[data-read] .news-summary {
-    opacity: 0.7;
+    opacity: 0.75;
   }
   .news-row[data-read]:hover .news-title,
   .news-row[data-read]:hover .news-emoji {
@@ -209,26 +252,29 @@
   @media (min-width: 900px) {
     .news-chips {
       flex-wrap: wrap;
-      margin: 14px 0 0;
+      margin: 16px 0 0;
       padding: 0;
       overflow: visible;
     }
+    .news-list {
+      padding: 4px 8px;
+    }
     .news-row {
-      grid-template-columns: 32px minmax(0, 1fr) 32px;
+      grid-template-columns: 32px minmax(0, 1fr) 36px;
       gap: 2px 10px;
-      padding: 12px 4px;
-      border-radius: 4px;
+      padding: 12px 8px;
+      border-radius: var(--lu-r);
     }
     .news-title {
-      font-size: 16px;
+      font-size: var(--lu-fs-md);
     }
     .news-summary {
-      font-size: 14px;
+      font-size: var(--lu-fs-sm);
     }
   }
   @media (min-width: 900px) and (hover: hover) {
     .news-row:hover {
-      background: var(--hover);
+      background: var(--lu-hover);
     }
     .news-row .news-save {
       opacity: 0;

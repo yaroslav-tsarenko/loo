@@ -4,33 +4,33 @@ import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { burst } from '../Confetti'
 import { cx } from '../cx'
 import { Loo } from './Loo'
-import { LOO_FORM_LABEL, type LooForm, type LooMood, type LooTier } from './pixels'
+import { LOO_STAGE_LABEL, type LooMood, type LooStage } from './pixels'
 
 type Phase = 'old' | 'oldW' | 'newW' | 'flash' | 'new'
 
-// Classic monster-evolution beat: the old form, then white silhouettes of old/new swapping faster and faster,
-// a flash, the new form (+ confetti). ≈2.5s. Reduced motion: a plain crossfade.
+// Classic monster-evolution beat: the old look, then white silhouettes of old/new swapping faster and faster,
+// a flash, the new look (+ confetti). ≈2.5s. Reduced motion: a plain crossfade.
 const BLINKS = [220, 180, 140, 110, 90, 70, 60]
 const SCHEDULE: readonly (readonly [Phase, number])[] = [['old', 450], ...BLINKS.flatMap((ms) => [['oldW', ms] as const, ['newW', ms] as const]), ['flash', 220], ['new', 300]]
 const CROSSFADE: readonly (readonly [Phase, number])[] = [['old', 300], ['new', 700]]
 
 interface LooEvolveProps {
-  from: LooForm
-  to: LooForm
-  fromTier?: LooTier
-  toTier?: LooTier
+  from: LooStage
+  to: LooStage
+  /** Screen-reader text; defaults to «Loo росте: Яйце → Малий Loo». */
+  label?: string
   fromMood?: LooMood
   toMood?: LooMood
   size?: number
-  /** Burst confetti when the new form appears (skipped for reduced motion). Default true. */
+  /** Burst confetti when the new look appears (skipped for reduced motion). Default true. */
   confetti?: boolean
-  /** Called once the new form has settled. */
+  /** Called once the new look has settled. */
   onDone?: () => void
   className?: string
 }
 
-/** Evolution cutscene from one Loo form to the next. Remount (change `key`) to replay. */
-export function LooEvolve({ from, to, fromTier, toTier, fromMood = 'surprised', toMood = 'cheer', size = 160, confetti = true, onDone, className }: LooEvolveProps) {
+/** Rank-up cutscene from one Loo stage to the next (or the same one). Remount (change `key`) to replay. */
+export function LooEvolve({ from, to, label: text, fromMood = 'surprised', toMood = 'cheer', size = 160, confetti = true, onDone, className }: LooEvolveProps) {
   const [phase, setPhase] = useState<Phase>('old')
   const [reduced, setReduced] = useState(false)
   const box = useRef<HTMLDivElement>(null)
@@ -57,20 +57,20 @@ export function LooEvolve({ from, to, fromTier, toTier, fromMood = 'surprised', 
     return () => timers.forEach((id) => window.clearTimeout(id))
   }, [from, to])
 
-  const label = `Loo еволюціонує: ${LOO_FORM_LABEL[from]} → ${LOO_FORM_LABEL[to]}`
+  const label = text ?? `Loo росте: ${LOO_STAGE_LABEL[from]} → ${LOO_STAGE_LABEL[to]}`
   return (
     <div ref={box} className={cx('loo-evolve', className)} data-phase={phase} data-reduced={reduced ? '' : undefined} style={{ width: size, height: size }}>
       <div className="loo-evolve-layer" data-layer="old">
-        <Loo form={from} tier={fromTier} mood={fromMood} size={size} decorative />
+        <Loo stage={from} mood={fromMood} size={size} decorative />
       </div>
       <div className="loo-evolve-layer loo-evolve-white" data-layer="oldW">
-        <Loo form={from} tier={fromTier} mood="idle" size={size} animated={false} decorative />
+        <Loo stage={from} mood="idle" size={size} animated={false} decorative />
       </div>
       <div className="loo-evolve-layer loo-evolve-white" data-layer="newW">
-        <Loo form={to} tier={toTier} mood="idle" size={size} animated={false} decorative />
+        <Loo stage={to} mood="idle" size={size} animated={false} decorative />
       </div>
       <div className="loo-evolve-layer" data-layer="new">
-        <Loo form={to} tier={toTier} mood={toMood} size={size} decorative />
+        <Loo stage={to} mood={toMood} size={size} decorative />
       </div>
       <span className="sr-only" role="status">
         {phase === 'new' ? `${label}!` : label}

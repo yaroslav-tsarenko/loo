@@ -1,4 +1,10 @@
 import { describe, expect, it } from 'vitest'
+import { ACHIEVEMENTS } from '@/progress/achievements/catalog'
+import { LADDERS } from '@/progress/stats/tiers'
+import { ukGame } from '@/i18n/uk-game'
+import { PIXEL_ICONS } from '@/ui/design/PixelIcon'
+import { TIER_LOOK } from '@/ui/game/tiers'
+import { messages } from '@/i18n'
 import {
   boostActive,
   boostFull,
@@ -12,11 +18,37 @@ import {
   ATTRIBUTES,
   attributes,
   isRankUp,
-  LEGACY_RANK_STEP,
+  ATTRIBUTE_ICON,
+  BUCKS,
+  BUCKS_DAILY_CAP,
+  buckRef,
+  cappedBucks,
+  courseRank,
+  fromLegacyStep,
+  gearStats,
+  gemRef,
+  GEAR_SLOTS,
+  isGear,
+  isLooStage,
+  isSkin,
+  minStep,
+  rankStart,
+  rankXp,
+  sanitizeGear,
+  STAT_ICON,
+  levelIcon,
+  STATS,
+  STAGE_FROM,
+  stageOf,
+  tryOn,
+  WARRIOR_RANKS,
+  LEAGUE_TIERS,
+  levelBadge,
   levelLabel,
   levelTag,
-  LOO_FORM_LABEL,
-  LOO_FORMS,
+  SHOP_ITEMS,
+  LOO_STAGE_LABEL,
+  LOO_STAGES,
   powerScore,
   rankAt,
   RANKS,
@@ -27,7 +59,7 @@ import {
   topicSkill,
   type CharacterInput,
   leagueGems,
-  lessonGems,
+  lessonBucks,
   LEAGUE_XP_REASONS,
   loseHeart,
   MAX_HEARTS,
@@ -52,7 +84,7 @@ import {
 import { computeStreak } from '@/progress/streak'
 import { LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
 import { LEVEL_LABEL as CONTENT_LEVEL_LABEL } from '@/content/model'
-import { LOO_FORM_LABEL as MASCOT_FORM_LABEL, LOO_FORMS as MASCOT_FORMS } from '@/ui/design/mascot/pixels'
+import { LOO_STAGE_LABEL as MASCOT_STAGE_LABEL, LOO_STAGES as MASCOT_STAGES } from '@/ui/design/mascot/pixels'
 
 const H = 3_600_000
 
@@ -113,17 +145,34 @@ describe('xp caps', () => {
   })
 })
 
-describe('gems', () => {
-  it('pays lessons 5 / perfect 10 under a daily cap', () => {
-    expect(lessonGems(0.8, 0)).toBe(5)
-    expect(lessonGems(1, 0)).toBe(10)
-    expect(lessonGems(1, 95)).toBe(5)
-    expect(lessonGems(1, 100)).toBe(0)
+describe('currencies', () => {
+  it('pays lessons 10 / perfect 20 bucks under a daily cap', () => {
+    expect(lessonBucks(0.8, 0)).toBe(BUCKS.lesson)
+    expect(lessonBucks(1, 0)).toBe(BUCKS.lessonPerfect)
+    expect(lessonBucks(1, BUCKS_DAILY_CAP.lesson - 5)).toBe(5)
+    expect(lessonBucks(1, BUCKS_DAILY_CAP.lesson)).toBe(0)
+  })
+
+  it('caps every routine bucks source per day', () => {
+    for (const reason of ['lesson', 'topic-test', 'mission', 'practice'] as const) {
+      expect(cappedBucks(10_000, 0, reason)).toBe(BUCKS_DAILY_CAP[reason])
+      expect(cappedBucks(10, BUCKS_DAILY_CAP[reason], reason)).toBe(0)
+    }
+    expect(BUCKS.mission).toBeLessThanOrEqual(BUCKS_DAILY_CAP.mission)
+  })
+
+  it('keeps stable, distinct refs per award', () => {
+    expect(buckRef.lesson('s1')).toBe('lesson:s1')
+    expect(buckRef.practice('s1')).toBe('practice:s1')
+    expect(gemRef.rank(5)).toBe('rank:5')
+    // the old 22-step ladder paid under evo:<n>; the new one never reuses those refs
+    expect(gemRef.rank(5)).not.toBe('evo:5')
   })
 
   it('reaches streak milestones', () => {
     expect(streakMilestones(6)).toEqual([])
     expect(streakMilestones(30).map((m) => m.days)).toEqual([7, 30])
+    expect(streakMilestones(400).map((m) => m.days)).toEqual([7, 30, 100, 365])
   })
 })
 
@@ -211,91 +260,179 @@ describe('league weeks (Monday 00:00 Europe/Kyiv)', () => {
 })
 
 describe('shop', () => {
-  const wallet = (w: Partial<Wallet>): Wallet => ({ gems: 1000, hearts: 3, freezes: 0, boostUntil: null, owned: new Set(), now: 0, ...w })
+  const wallet = (w: Partial<Wallet>): Wallet => ({ bucks: 10_000, gems: 10_000, hearts: 3, freezes: 0, boostUntil: null, owned: new Set(), step: 55, now: 0, ...w })
 
-  it('checks funds and limits', () => {
+  it('checks funds in the item currency and limits', () => {
     expect(purchaseBlock(shopItem('streak-freeze'), wallet({}))).toBeNull()
     expect(purchaseBlock(shopItem('streak-freeze'), wallet({ freezes: 2 }))).toBe('max-freezes')
     expect(purchaseBlock(shopItem('heart-refill'), wallet({ hearts: 5 }))).toBe('hearts-full')
-    expect(purchaseBlock(shopItem('hat-crown'), wallet({ gems: 10 }))).toBe('funds')
+    // consumables cost bucks: plenty of gems doesn't help
+    expect(purchaseBlock(shopItem('streak-freeze'), wallet({ bucks: 10 }))).toBe('no-bucks')
+    expect(purchaseBlock(shopItem('streak-freeze'), wallet({ gems: 0 }))).toBeNull()
+    // a rare skin costs gems
+    expect(purchaseBlock(shopItem('hat-crown'), wallet({ gems: 10 }))).toBe('no-gems')
+    expect(purchaseBlock(shopItem('hat-crown'), wallet({ bucks: 0 }))).toBeNull()
     expect(purchaseBlock(shopItem('hat-crown'), wallet({ owned: new Set(['hat-crown']) }))).toBe('owned')
     expect(purchaseBlock(shopItem('nope'), wallet({}))).toBe('unknown')
   })
 
-  it('equips only owned skins, one per slot', () => {
-    const owned = new Set(['hat-crown', 'scarf-pink'])
+  it('prices by rarity: common / rare in bucks, epic / legendary in gems; skins mostly bucks', () => {
+    for (const item of SHOP_ITEMS) {
+      if (isGear(item)) expect(item.currency, item.id).toBe(item.rarity === 'common' || item.rarity === 'rare' ? 'bucks' : 'gems')
+      else if (isSkin(item)) expect(item.currency, item.id).toBe(item.rarity === 'rare' ? 'gems' : 'bucks')
+      else expect(item.currency, item.id).toBe('bucks')
+      expect(item.price, item.id).toBeGreaterThan(0)
+    }
+    // within a slot, a rarer item never costs less in the same currency
+    for (const slot of GEAR_SLOTS) {
+      const items = SHOP_ITEMS.filter(isGear).filter((g) => g.slot === slot)
+      expect(items.map((g) => g.rarity)).toEqual(['common', 'rare', 'epic', 'legendary'])
+      for (let i = 1; i < items.length; i++) if (items[i]!.currency === items[i - 1]!.currency) expect(items[i]!.price).toBeGreaterThan(items[i - 1]!.price)
+    }
+    // hoodies differ in price
+    expect(new Set(SHOP_ITEMS.filter(isSkin).filter((i) => i.slot === 'hoodie').map((i) => `${i.price}${i.currency}`)).size).toBe(4)
+  })
+
+  it('gates epic gear behind Лицар and legendary behind Чемпіон', () => {
+    expect(minStep(shopItem('helm-leather')!)).toBe(0)
+    expect(minStep(shopItem('helm-knight')!)).toBe(rankStart('knight'))
+    expect(minStep(shopItem('crown-sun')!)).toBe(rankStart('champion'))
+    expect(rankAt(rankStart('knight')).title).toBe('Лицар I')
+    expect(purchaseBlock(shopItem('helm-knight'), wallet({ step: rankStart('knight') - 1 }))).toBe('rank')
+    expect(purchaseBlock(shopItem('helm-knight'), wallet({ step: rankStart('knight') }))).toBeNull()
+    expect(purchaseBlock(shopItem('crown-sun'), wallet({ step: rankStart('champion') - 1 }))).toBe('rank')
+    // rank is checked before funds: the learner sees the lock first
+    expect(purchaseBlock(shopItem('crown-sun'), wallet({ step: 0, gems: 0 }))).toBe('rank')
+  })
+
+  it('sums gear stats without caps; rarer items are stronger', () => {
+    const sum = (id: string) => STATS.reduce((n, st) => n + ((shopItem(id) as { stats: Partial<Record<string, number>> }).stats[st] ?? 0), 0)
+    for (const slot of GEAR_SLOTS) {
+      const items = SHOP_ITEMS.filter(isGear).filter((g) => g.slot === slot)
+      for (let i = 1; i < items.length; i++) expect(sum(items[i]!.id), items[i]!.id).toBeGreaterThan(sum(items[i - 1]!.id))
+    }
+    const all = { head: 'crown-sun', body: 'armor-royal', weapon: 'sword-legend', amulet: 'bulb-sun', aura: 'aura-legend' }
+    const total = gearStats(all)
+    // no clamp: focus stacks fully (8 + 4 + 10 + 4)
+    expect(total.focus).toBe(26)
+    expect(total.attack).toBe(22)
+    expect(gearStats({})).toEqual({ attack: 0, defense: 0, energy: 0, focus: 0, speed: 0 })
+    // an item in the wrong slot counts for nothing
+    expect(gearStats({ head: 'sword-wood' }).attack).toBe(0)
+  })
+
+  it('equips only owned skins / gear, one per slot, gear within the rank', () => {
+    const owned = new Set(['hat-crown', 'scarf-pink', 'helm-knight', 'sword-wood'])
     expect(sanitizeEquipped({ hat: 'hat-crown', glasses: 'glasses-nerd', scarf: 'hat-crown' }, owned)).toEqual({ hat: 'hat-crown' })
     expect(skinLook({ hat: 'hat-crown', scarf: 'scarf-pink' })).toEqual({ hat: 'crown', scarf: '#FF86D0' })
+    expect(sanitizeGear({ head: 'helm-knight', weapon: 'sword-wood', body: 'armor-chain' }, owned, 55)).toEqual({ head: 'helm-knight', weapon: 'sword-wood' })
+    expect(sanitizeGear({ head: 'helm-knight' }, owned, 10)).toEqual({})
+    expect(skinLook({}, { head: 'helm-knight', weapon: 'sword-wood' })).toEqual({ head: 'knight', weapon: 'wood' })
+    expect(tryOn({ hat: 'hat-crown' }, {}, shopItem('armor-plate') as never)).toEqual({ hat: 'crown', body: 'plate' })
   })
 })
 
-describe('evolution ranks', () => {
+describe('шлях воїна (character rank)', () => {
   const input = { xp: 0, lessons: 0, tests: 0, exams: 0, courses: 0 }
 
-  it('has 8 forms × 3 tiers with a single Legendary step (22 steps)', () => {
-    expect(RANKS).toHaveLength(22)
-    expect(RANKS.filter((r) => r.form === 'legendary')).toHaveLength(1)
-    for (const form of LOO_FORMS.filter((f) => f !== 'legendary')) expect(RANKS.filter((r) => r.form === form).map((r) => r.tier)).toEqual([1, 2, 3])
+  it('has 11 ranks × I–V plus a single Легенда (56 steps)', () => {
+    expect(RANKS).toHaveLength(56)
+    expect(WARRIOR_RANKS).toHaveLength(12)
+    expect(RANKS.filter((r) => r.rank === 'legend')).toHaveLength(1)
+    for (const r of WARRIOR_RANKS.filter((w) => w !== 'legend')) expect(RANKS.filter((d) => d.rank === r).map((d) => d.tier)).toEqual([1, 2, 3, 4, 5])
     expect(RANKS.map((r) => r.index)).toEqual(RANKS.map((_, i) => i))
-    expect(rankAt(10).title).toBe('Ламповий II')
-    expect(rankAt(21).title).toBe('Легендарний')
+    expect(rankAt(0).title).toBe('Новобранець I')
+    expect(rankAt(32).title).toBe('Лицар III')
+    expect(rankAt(55).title).toBe('Легенда')
   })
 
-  it('thresholds never go down, step by step, for every requirement', () => {
+  it('grows XP ~quadratically to ≈120–150k, thresholds never go down', () => {
+    expect(RANKS[55]!.needs.xp).toBeGreaterThanOrEqual(120_000)
+    expect(RANKS[55]!.needs.xp).toBeLessThanOrEqual(150_000)
+    expect(rankXp(0)).toBe(0)
     for (let i = 1; i < RANKS.length; i++) {
       const a = RANKS[i - 1]!.needs
       const b = RANKS[i]!.needs
-      for (const k of ['xp', 'lessons', 'tests', 'exams', 'courses'] as const) expect(b[k]).toBeGreaterThanOrEqual(a[k])
+      for (const k of ['xp', 'lessons', 'tests', 'exams', 'courses'] as const) expect(b[k], `${i} ${k}`).toBeGreaterThanOrEqual(a[k])
       expect(b.xp).toBeGreaterThan(a.xp)
+      // gaps widen (quadratic), allowing for rounding
+      if (i >= 2) expect(b.xp - a.xp).toBeGreaterThanOrEqual(a.xp - RANKS[i - 2]!.needs.xp - 100)
       expect(RANKS[i]!.gems).toBeGreaterThan(0)
     }
   })
 
-  it('needs XP and course milestones', () => {
-    expect(rankOf(input).id).toBe('egg-1')
-    expect(rankOf({ ...input, xp: 150, lessons: 1 }).id).toBe('pixel-1')
-    // plenty of XP, but no topic tests yet → stuck before Піксель III
-    expect(rankOf({ ...input, xp: 50_000, lessons: 50 }).id).toBe('pixel-2')
-    expect(rankOf({ ...input, xp: 5_000, lessons: 40, tests: 12, exams: 1 }).id).toBe('lamp-1')
-    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 1 }).id).toBe('legendary')
-    expect(rankOf({ xp: 200_000, lessons: 500, tests: 80, exams: 9, courses: 0 }).id).toBe('crowned-3')
+  it('pays gems once per step, more for a new rank (step I)', () => {
+    expect(RANKS[0]!.gems).toBe(0)
+    for (const r of RANKS.slice(1, 55)) if (r.tier === 1) expect(r.gems, r.id).toBeGreaterThan(RANKS[r.index - 1]!.gems)
+    expect(RANKS[55]!.gems).toBeGreaterThan(RANKS[54]!.gems)
   })
 
-  it('reports the gap to the next step and the steps passed', () => {
-    const p = rankProgress({ ...input, xp: 500, lessons: 5, tests: 3 })
-    expect(p.rank.id).toBe('pixel-2')
-    expect(p.next?.id).toBe('pixel-3')
-    expect(p.gaps.find((g) => g.key === 'lessons')).toEqual({ key: 'lessons', have: 5, need: 6 })
-    expect(isRankUp('pixel-2', 'pixel-3')).toBe(true)
+  it('needs XP and course milestones — no skipping a gate', () => {
+    expect(rankOf(input).id).toBe('novice-1')
+    expect(rankOf({ ...input, xp: 100, lessons: 1 }).id).toBe('novice-2')
+    // plenty of XP, but no lessons → stuck at the first step
+    expect(rankOf({ ...input, xp: 500_000 }).id).toBe('novice-1')
+    // lots of XP and lessons, no section exam → stuck before Воїн I
+    expect(rankOf({ ...input, xp: 500_000, lessons: 1_000, tests: 100 }).id).toBe('fighter-5')
+    expect(rankOf({ xp: 40_200, lessons: 170, tests: 30, exams: 3, courses: 0 }).id).toBe('knight-1')
+    expect(rankOf({ xp: 200_000, lessons: 1_000, tests: 100, exams: 20, courses: 2 }).id).toBe('legend')
+    expect(rankOf({ xp: 200_000, lessons: 1_000, tests: 100, exams: 20, courses: 1 }).id).toBe('hero-5')
+  })
+
+  it('reports the gap to the next step, keeps a stored floor, lists steps passed', () => {
+    const p = rankProgress({ ...input, xp: 500, lessons: 4, tests: 1 })
+    expect(p.rank.id).toBe('novice-4')
+    expect(p.next?.id).toBe('novice-5')
+    expect(p.gaps.find((g) => g.key === 'lessons')).toEqual({ key: 'lessons', have: 4, need: RANKS[4]!.needs.lessons })
+    expect(rankProgress(input, 8).rank.index).toBe(8)
+    expect(isRankUp('novice-2', 'novice-3')).toBe(true)
     expect(isRankUp(5, 5)).toBe(false)
     expect(stepsBetween(2, 5).map((r) => r.index)).toEqual([3, 4, 5])
   })
 
-  it('maps the old Noob→God ladder onto evolution steps', () => {
-    expect(rankAt(LEGACY_RANK_STEP.trainee!).id).toBe('pixel-1')
-    expect(rankAt(LEGACY_RANK_STEP.middle!).id).toBe('lamp-1')
-    expect(rankAt(LEGACY_RANK_STEP.senior!).id).toBe('armored-1')
-    expect(rankAt(LEGACY_RANK_STEP.god!).id).toBe('legendary')
+  it('maps the old 22-step evolution proportionally (migration 0009)', () => {
+    expect(fromLegacyStep(0)).toBe(0)
+    expect(fromLegacyStep(3)).toBe(8)
+    expect(fromLegacyStep(21)).toBe(55)
+    for (let i = 1; i < 22; i++) expect(fromLegacyStep(i)).toBeGreaterThan(fromLegacyStep(i - 1))
+  })
+
+  it('Loo only grows with the rank: egg → small → normal', () => {
+    expect(stageOf(0)).toBe('egg')
+    expect(stageOf(STAGE_FROM.small)).toBe('small')
+    expect(stageOf(STAGE_FROM.normal)).toBe('normal')
+    expect(stageOf(55)).toBe('normal')
+    expect(RANKS.map((r) => r.stage).filter((st, i, a) => st !== a[i - 1])).toEqual(['egg', 'small', 'normal'])
   })
 })
 
-describe('one difficulty scale (labels)', () => {
-  it('shows every level as the Loo form it matches', () => {
-    expect(levelLabel('noob')).toBe('Піксель')
-    expect(levelLabel('junior')).toBe('Блок')
-    expect(levelLabel('middle')).toBe('Ламповий')
-    expect(levelLabel('senior')).toBe('Броньований')
-    expect(levelLabel('god')).toBe('Легендарний')
-    expect(levelLabel('techlead')).toBe('Легендарний')
-    expect(levelTag('senior')).toBe('🛡️ для Броньованого')
-    expect(COURSE_LEVEL_LABEL.middle).toBe('Ламповий')
-    expect(CONTENT_LEVEL_LABEL.junior).toBe('Блок')
-    expect(Object.keys(LOO_FORM_LABEL)).toEqual([...LOO_FORMS])
+describe('two scales: IT career for courses and difficulty', () => {
+  it('labels every level with an IT rank', () => {
+    expect(levelLabel('noob')).toBe('Trainee')
+    expect(levelLabel('beginner')).toBe('Trainee')
+    expect(levelLabel('junior')).toBe('Junior')
+    expect(levelLabel('middle')).toBe('Middle')
+    expect(levelLabel('senior')).toBe('Senior')
+    expect(levelLabel('techlead')).toBe('Staff')
+    expect(levelLabel('god')).toBe('Principal')
+    expect(levelTag('senior')).toBe('для Senior')
+    expect(levelBadge('senior')).toBe('Senior')
+    expect(COURSE_LEVEL_LABEL.middle).toBe('Middle')
+    expect(CONTENT_LEVEL_LABEL.junior).toBe('Junior')
   })
 
-  it('agrees with the mascot drawing the forms (one order, one set of names)', () => {
-    expect([...MASCOT_FORMS]).toEqual([...LOO_FORMS])
-    expect(MASCOT_FORM_LABEL).toEqual(LOO_FORM_LABEL)
+  it('ranks course mastery Trainee → Principal (Principal needs every exam)', () => {
+    const m = (done: number, passed: number, exams: number, accuracy: number | null) => ({ lessons: { done, total: 100 }, tests: { passed, total: 10 }, exams: { passed: exams, total: 4 }, accuracy })
+    expect(courseRank(m(0, 0, 0, null))).toBe('trainee')
+    expect(courseRank(m(40, 2, 0, 0.7))).toBe('junior')
+    expect(courseRank(m(70, 6, 2, 0.8))).toBe('senior')
+    expect(courseRank(m(100, 10, 3, 1))).toBe('staff')
+    expect(courseRank(m(100, 10, 4, 0.9))).toBe('principal')
+  })
+
+  it('agrees with the mascot on stages (one order, one set of names)', () => {
+    expect([...MASCOT_STAGES]).toEqual([...LOO_STAGES])
+    expect(MASCOT_STAGE_LABEL).toEqual(LOO_STAGE_LABEL)
   })
 })
 
@@ -372,13 +509,51 @@ describe('character sheet', () => {
       topicSkill({ courseId: 'c', courseTitle: 'C', topicId: 'c:b', title: 'B', icon: null, crowns: 4, ratio: 0.5 })!,
       topicSkill({ courseId: 'c', courseTitle: 'C', topicId: 'c:a', title: 'A', icon: null, crowns: 4, ratio: 0.5 })!,
     ]
-    const a = snapshotOf(rankAt(9), attrs, skills)
-    const b = snapshotOf(rankAt(9), [...attrs].reverse(), [...skills].reverse())
+    const equipped = { weapon: 'sword-iron', head: 'helm-leather' }
+    const gear = { equipped, stats: gearStats(equipped) }
+    const a = snapshotOf(rankAt(32), attrs, skills, gear)
+    const b = snapshotOf(rankAt(32), [...attrs].reverse(), [...skills].reverse(), { equipped: { head: 'helm-leather', weapon: 'sword-iron' }, stats: gear.stats })
     expect(JSON.stringify(a)).toBe(JSON.stringify(b))
-    expect(Object.keys(a)).toEqual(['version', 'form', 'tier', 'step', 'title', 'attributes', 'skills', 'power'])
+    expect(Object.keys(a)).toEqual(['version', 'rank', 'tier', 'step', 'title', 'attributes', 'skills', 'gear', 'power'])
     expect(Object.keys(a.attributes)).toEqual([...ATTRIBUTES])
+    expect(Object.keys(a.gear.equipped)).toEqual(['head', 'weapon'])
+    expect(Object.keys(a.gear.stats)).toEqual([...STATS])
     expect(a.skills.map((s) => s.id)).toEqual(['c:a', 'c:b'])
-    expect(a).toMatchObject({ form: 'lamp', tier: 1, step: 9 })
-    expect(powerScore(attrs, 21, skills)).toBeGreaterThan(powerScore(attrs, 0, skills))
+    expect(a).toMatchObject({ version: 2, rank: 'knight', tier: 3, step: 32, title: 'Лицар III' })
+    expect(a.gear.stats).toMatchObject({ attack: 6, defense: 2, energy: 2, speed: 2 })
+    expect(powerScore(attrs, 55, skills)).toBeGreaterThan(powerScore(attrs, 0, skills))
+    expect(powerScore(attrs, 10, skills, gear.stats)).toBeGreaterThan(powerScore(attrs, 10, skills))
+    expect(snapshotOf(rankAt(0), attrs, skills).gear).toEqual({ equipped: {}, stats: { attack: 0, defense: 0, energy: 0, focus: 0, speed: 0 } })
+  })
+})
+
+describe('game icons (no emoji in the UI)', () => {
+  // emoji glyphs (© / ® / ™ are plain text)
+  const EMOJI = /(?![©®™])\p{Extended_Pictographic}/u
+  const known = (ref: string) => {
+    if (ref.startsWith('loo:')) return isLooStage(ref.slice(4))
+    return ref.startsWith('px:') && (PIXEL_ICONS as readonly string[]).includes(ref.slice(3))
+  }
+
+  it('every power-up, attribute and achievement points at a real icon', () => {
+    for (const item of SHOP_ITEMS) if ('icon' in item) expect(known(item.icon), item.id).toBe(true)
+    for (const s of STATS) expect(known(STAT_ICON[s]), s).toBe(true)
+    for (const l of ['noob', 'junior', 'middle', 'senior', 'techlead', 'god']) expect(known(levelIcon(l)), l).toBe(true)
+    for (const icon of ['buck', 'sword', 'staff', 'helmet', 'armor', 'amulet', 'spark', 'insignia']) expect(PIXEL_ICONS, icon).toContain(icon)
+    for (const icon of Object.values(ATTRIBUTE_ICON)) expect(known(icon), icon).toBe(true)
+    for (const a of ACHIEVEMENTS) expect(known(a.icon), a.id).toBe(true)
+  })
+
+  it('league tiers have pixel badges and titles have icons', () => {
+    for (const tier of LEAGUE_TIERS) expect(PIXEL_ICONS).toContain(TIER_LOOK[tier].icon)
+    const tiers = messages().stats.tiers as unknown as Record<string, Record<string, { icon: string } | string>>
+    for (const [dim, ids] of Object.entries(LADDERS)) for (const id of ids.ids) expect(known((tiers[dim]![id] as { icon: string }).icon), id).toBe(true)
+  })
+
+  it('catalog texts carry no emoji', () => {
+    for (const a of ACHIEVEMENTS) expect(`${a.title} ${a.description}`, a.id).not.toMatch(EMOJI)
+    expect(JSON.stringify(ukGame)).not.toMatch(EMOJI)
+    expect(JSON.stringify(messages())).not.toMatch(EMOJI)
+    for (const level of ['noob', 'junior', 'middle', 'senior', 'god']) expect(`${levelBadge(level)} ${levelTag(level)}`).not.toMatch(EMOJI)
   })
 })

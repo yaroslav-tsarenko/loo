@@ -1,5 +1,7 @@
 // Decision tree for `this` (checked top to bottom = priority order).
 
+import type { VizIcon } from '../engine/types'
+
 export type QuestionId = 'arrow' | 'new' | 'explicit' | 'method' | 'strict'
 export type ResultId = 'lexical' | 'constructed' | 'bound' | 'implicit' | 'default-strict' | 'default-sloppy'
 
@@ -12,7 +14,7 @@ export interface Question {
 
 export interface Result {
   id: ResultId
-  emoji: string
+  icon: VizIcon
   title: string
   value: string
   explain: string
@@ -30,7 +32,7 @@ export const QUESTIONS: Record<QuestionId, Question> = {
 export const RESULTS: Record<ResultId, Result> = {
   lexical: {
     id: 'lexical',
-    emoji: '🏹',
+    icon: 'pi:PiArrowUpLeftBold',
     title: 'Лексичний this',
     value: 'this ззовні',
     explain: 'Стрілка не має власного this: вона бере this з оточення, де її створено. call / apply / bind його не змінять, а new на стрілці — TypeError.',
@@ -38,7 +40,7 @@ export const RESULTS: Record<ResultId, Result> = {
   },
   constructed: {
     id: 'constructed',
-    emoji: '🐣',
+    icon: 'px:box',
     title: 'Новий об’єкт',
     value: 'новий об’єкт',
     explain: 'new створює порожній об’єкт з [[Prototype]] = Fn.prototype і викликає функцію з this = цей об’єкт. Найвищий пріоритет: перебиває навіть bind.',
@@ -46,7 +48,7 @@ export const RESULTS: Record<ResultId, Result> = {
   },
   bound: {
     id: 'bound',
-    emoji: '👉',
+    icon: 'pi:PiLinkBold',
     title: 'Явне прив’язування',
     value: 'перший аргумент',
     explain: 'this — те, що передали в call / apply / bind. У sloppy mode null / undefined замінюються на globalThis, а примітиви загортаються в об’єкти; у strict — як є.',
@@ -54,7 +56,7 @@ export const RESULTS: Record<ResultId, Result> = {
   },
   implicit: {
     id: 'implicit',
-    emoji: '🔵',
+    icon: 'pi:PiDotOutlineFill',
     title: 'Неявне: об’єкт перед крапкою',
     value: 'obj',
     explain: 'this — об’єкт, на якому викликали метод. Важить лише остання крапка: a.b.fn() → this = a.b. Скопіюєш метод у змінну — зв’язок зникне.',
@@ -62,7 +64,7 @@ export const RESULTS: Record<ResultId, Result> = {
   },
   'default-strict': {
     id: 'default-strict',
-    emoji: '🫥',
+    icon: 'pi:PiProhibitFill',
     title: 'За замовчуванням (strict)',
     value: 'undefined',
     explain: 'Звичайний виклик fn() без крапки у strict mode. Модулі ES і тіло class — завжди strict.',
@@ -70,7 +72,7 @@ export const RESULTS: Record<ResultId, Result> = {
   },
   'default-sloppy': {
     id: 'default-sloppy',
-    emoji: '🌐',
+    icon: 'px:globe',
     title: 'За замовчуванням (sloppy)',
     value: 'globalThis',
     explain: 'Звичайний виклик у нестрогому режимі: this = глобальний об’єкт (window у браузері). Джерело багів — тому strict mode і модулі.',

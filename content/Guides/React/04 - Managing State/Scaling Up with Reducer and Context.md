@@ -16,10 +16,20 @@
 При використанні `useReducer` state та функція dispatch доступні лише на верхньому рівні. Щоб поділитися ними з вкладеними компонентами, потрібно передавати їх як props через кожен проміжний component — патерн, відомий як "prop drilling".
 
 Приклад проблеми prop drilling:
-```
-TaskApp → TaskList → Task
-(props передаються на кожному рівні)
-```
+
+> [!diagram] Prop drilling: дані йдуть через кожен рівень
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: app, label: TaskApp, code: "const [tasks, dispatch] = useReducer(…)", tone: violet, icon: "si:SiReact" }
+>   - { id: list, label: TaskList, text: "лише передає далі", tone: gray }
+>   - { id: task, label: Task, text: "використовує dispatch", tone: green }
+> steps:
+>   - { focus: app, line: "app:1", note: "TaskApp викликає useReducer: tasks і dispatch доступні лише тут, нагорі." }
+>   - { move: { from: app, to: list, value: "tasks, dispatch" }, note: "TaskList мусить прийняти їх як props — хоча сам dispatch йому не потрібен." }
+>   - { move: { from: list, to: task, value: "task, dispatch" }, note: "Лише Task справді викликає dispatch. Проміжний рівень працює «транзитом» — це і є prop drilling." }
+>   - { focus: [app, list, task], note: "Що глибше дерево, то більше таких транзитних props. Context дає змогу Task узяти дані напряму — про це далі." }
+> ```
 
 ## Рішення: Поєднання Reducer з Context
 

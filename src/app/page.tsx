@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { PiArrowRightBold, PiBookOpenTextFill, PiPlusBold } from 'react-icons/pi'
-import { LEVEL_EMOJI, LEVEL_LABEL } from '@/course'
+import { LEVEL_LABEL } from '@/course'
 import { t } from '@/i18n'
 import { getProfile, getUser } from '@/server/auth'
 import { getContent } from '@/server/content'
@@ -16,6 +16,7 @@ import { Card } from '@/ui/design/Card'
 import type { Tone } from '@/ui/design/cx'
 import type { LooMood } from '@/ui/design/mascot/Loo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
+import { PixelIcon, type PixelIconName } from '@/ui/design/PixelIcon'
 import { Ring } from '@/ui/design/Ring'
 import { Icon } from '@/ui/icons/Icon'
 import { MissionCard } from '@/ui/mission/MissionCard'
@@ -24,12 +25,12 @@ import { count, relative } from '@/ui/format'
 import { Landing } from '@/ui/marketing/Landing'
 
 // Loo greets by time of day (server clock, like before).
-function greeting(now: Date): { title: string; mood: LooMood } {
+function greeting(now: Date): { title: string; mood: LooMood; icon: PixelIconName } {
   const h = now.getHours()
-  if (h < 5) return { title: 'Нічна сесія? 🌙', mood: 'sleeping' }
-  if (h < 12) return { title: 'Доброго ранку! ☀️', mood: 'wave' }
-  if (h < 18) return { title: 'Гарного дня! 🚀', mood: 'happy' }
-  return { title: 'Добрий вечір! 🌆', mood: 'wave' }
+  if (h < 5) return { title: 'Нічна сесія?', mood: 'sleeping', icon: 'moon' }
+  if (h < 12) return { title: 'Доброго ранку!', mood: 'wave', icon: 'sun' }
+  if (h < 18) return { title: 'Гарного дня!', mood: 'happy', icon: 'rocket' }
+  return { title: 'Добрий вечір!', mood: 'wave', icon: 'moon' }
 }
 
 const TILES: Array<{ href: string; icon: string; tone: Tone; title: string; sub: string }> = [
@@ -65,7 +66,9 @@ async function LibraryPage() {
       <div className="page home" data-width="wide">
         <header className="home-hello">
           <LooSays mood={hello.mood} size={92} className="home-hello-loo">
-            <h1 className="home-hello-title">{hello.title}</h1>
+            <h1 className="home-hello-title">
+              {hello.title} <PixelIcon name={hello.icon} size={28} className="home-hello-icon" />
+            </h1>
             <p className="home-hello-lead">
               {today.due > 0 ? `${count(today.due, 'картка чекає', 'картки чекають', 'карток чекають')} на повторення` : 'Повторення на сьогодні закрито'} ·{' '}
               {count(library.length, 'курс', 'курси', 'курсів')} у бібліотеці
@@ -78,14 +81,14 @@ async function LibraryPage() {
             {cursor.course && cursor.href ? (
               <Link href={cursor.href} className="home-continue">
                 <Ring value={courseRatio} size={72} stroke={7} tone="yellow" label={`Курс ${cursor.course.title}: ${Math.round(courseRatio * 100)}%`} className="home-continue-ring">
-                  <Icon name={cursor.course.icon ?? '📘'} size={34} />
+                  <Icon name={cursor.course.icon ?? 'px:book'} size={34} />
                 </Ring>
                 <span className="home-continue-text">
                   <span className="home-continue-eyebrow">
                     {cursor.course.title} · урок {Math.min(cursor.total, cursor.total - cursor.remaining + 1)} з {cursor.total}
                   </span>
                   <span className="home-continue-title">
-                    {cursor.emoji} {cursor.title}
+                    {cursor.icon ? <Icon name={cursor.icon} size={22} /> : null} {cursor.title}
                   </span>
                   <span className="home-continue-sub">{cursor.topicTitle}</span>
                 </span>
@@ -97,7 +100,9 @@ async function LibraryPage() {
               <Link href="/courses" className="home-continue">
                 <span className="home-continue-text">
                   <span className="home-continue-eyebrow">Бібліотека порожня</span>
-                  <span className="home-continue-title">📚 Обери свій перший курс</span>
+                  <span className="home-continue-title">
+                    <Icon name="px:books" size={22} /> Обери свій перший курс
+                  </span>
                   <span className="home-continue-sub">Шлях, місії й стрічка підлаштуються під нього</span>
                 </span>
                 <span className="home-continue-go">
@@ -145,10 +150,10 @@ async function LibraryPage() {
         <ul className="home-guides home-courses">
           {library.map((c) => (
             <li key={c.id}>
-              <Card href={c.enrollment.active ? '/path' : `/courses/${c.id}`} padding="sm" className="guide-card" tone={c.enrollment.active ? 'green' : undefined}>
+              <Card href={c.enrollment.active ? '/path' : `/courses/${c.id}`} padding="sm" className="guide-card" tone={c.enrollment.active ? 'violet' : undefined}>
                 <span className="guide-card-head">
                   <span className="guide-card-icon" aria-hidden="true">
-                    <Icon name={c.icon ?? '📘'} size={26} />
+                    <Icon name={c.icon ?? 'px:book'} size={26} />
                   </span>
                   <span className="guide-card-text">
                     <span className="guide-card-title">{c.title}</span>
@@ -157,14 +162,14 @@ async function LibraryPage() {
                 </span>
                 <span className="guide-card-pills">
                   {c.enrollment.active ? (
-                    <Pill size="sm" tone="green" solid>
+                    <Pill size="sm" tone="violet" solid>
                       {t('courses.active')}
                     </Pill>
                   ) : (
                     <Pill size="sm">{t('courses.enrolled')}</Pill>
                   )}
                   <Pill size="sm" tone="purple">
-                    {LEVEL_EMOJI[c.enrollment.level]} {LEVEL_LABEL[c.enrollment.level]}
+                    {LEVEL_LABEL[c.enrollment.level]}
                   </Pill>
                   {c.enrollment.lastOpenedAt ? <Pill size="sm">{relative(c.enrollment.lastOpenedAt)}</Pill> : null}
                 </span>

@@ -1,4 +1,4 @@
-/* Lesson player (Duolingo-style) on the Levelup kit */
+/* Lesson player on the Levelup kit: violet segmented progress, soft answer blocks, a tinted feedback dock */
 .lesson,
 .lesson-summary {
   position: fixed;
@@ -29,8 +29,7 @@
   align-items: center;
   gap: 2px;
   min-width: 44px;
-  font-size: var(--lu-fs-md);
-  font-weight: var(--lu-fw-black);
+  font: 800 var(--lu-fs-lg) / 1 var(--lu-font-pixel);
   color: var(--lu-text-3);
   transition:
     transform var(--lu-dur-3) var(--lu-ease-bounce),
@@ -57,7 +56,7 @@
   gap: 6px;
   margin: 4px 0 18px;
   font-size: var(--lu-fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .lesson-item {
@@ -76,9 +75,7 @@
 }
 .lesson-kind {
   align-self: flex-start;
-  font-weight: var(--lu-fw-black);
-  text-transform: uppercase;
-  letter-spacing: var(--lu-tracking-caps);
+  font-weight: var(--lu-fw-bold);
 }
 .lesson-question {
   font-size: clamp(22px, 5.6vw, 28px);
@@ -97,25 +94,27 @@
 }
 .lesson-answer {
   padding: 16px 18px;
-  border: 2px solid var(--lu-blue);
+  border: 2px solid color-mix(in srgb, var(--lu-violet) 40%, transparent);
   border-radius: var(--lu-r-lg);
-  background: var(--lu-blue-soft);
-  font-family: var(--font-read);
-  font-size: 16px;
+  background: var(--lu-violet-soft);
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--lu-violet) 40%, transparent);
+  font-family: var(--lu-font);
+  font-size: var(--lu-fs-md);
   line-height: 1.6;
   animation: lu-pop-in var(--lu-dur-3) var(--lu-ease-bounce);
 }
+/* «Новий факт»: a soft yellow block with a pixel-dot grid */
 .lesson-reel {
   align-items: center;
   text-align: center;
+  margin-bottom: 6px;
   padding: 24px 20px;
-  border: 2px solid var(--lu-border);
+  border: 2px solid color-mix(in srgb, var(--lu-yellow) 55%, var(--lu-border));
   border-radius: var(--lu-r-xl);
-  box-shadow: 0 6px 0 var(--lu-border);
-  background:
-    radial-gradient(120% 80% at 0% 0%, var(--lu-yellow-soft), transparent 70%),
-    radial-gradient(100% 70% at 100% 100%, var(--lu-blue-soft), transparent 70%),
-    var(--lu-surface);
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--lu-yellow) 55%, var(--lu-border));
+  background-color: var(--lu-surface);
+  background-image: radial-gradient(color-mix(in srgb, var(--lu-yellow) 30%, transparent) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
 }
 .lesson-reel .lesson-kind {
   align-self: center;
@@ -134,8 +133,8 @@
 }
 .lesson-reel-body {
   text-align: left;
-  font-family: var(--font-read);
-  font-size: 16px;
+  font-family: var(--lu-font);
+  font-size: var(--lu-fs-md);
   line-height: 1.6;
 }
 
@@ -151,11 +150,17 @@
 }
 .lesson-foot[data-verdict='good'] {
   background: var(--lu-green-soft);
-  border-top-color: transparent;
+  border-top-color: color-mix(in srgb, var(--lu-green) 40%, transparent);
 }
 .lesson-foot[data-verdict='bad'] {
   background: var(--lu-red-soft);
-  border-top-color: transparent;
+  border-top-color: color-mix(in srgb, var(--lu-red) 40%, transparent);
+}
+/* «Продовжити» after a correct answer turns green (kit button knobs, never background) */
+.lesson-foot[data-verdict='good'] .lesson-cta.lu-btn {
+  --b: var(--lu-green);
+  --b-hover: var(--lu-green-hover);
+  --b-lip: var(--lu-green-lip);
 }
 .lesson-foot-inner {
   width: min(1000px, 100%);
@@ -188,8 +193,9 @@
   gap: 4px 10px;
 }
 .lesson-verdict-title {
-  font-size: var(--lu-fs-lg);
+  font-size: var(--lu-fs-xl);
   font-weight: var(--lu-fw-black);
+  line-height: 1.2;
 }
 .lesson-foot[data-verdict='good'] .lesson-verdict-title {
   color: var(--lu-green-ink);
@@ -200,9 +206,9 @@
 .lesson-verdict-xp {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   color: var(--lu-yellow-ink);
-  font-weight: var(--lu-fw-black);
+  font: 800 var(--lu-fs-md) / 1 var(--lu-font-pixel);
 }
 .lesson-verdict-answer {
   margin: 0;
@@ -210,19 +216,20 @@
   color: var(--lu-red-ink);
 }
 .lesson-verdict-answer code {
-  font-family: var(--font-mono);
+  font-family: var(--lu-font-mono);
   padding: 1px 8px;
-  border-radius: var(--lu-r-pill);
+  border-radius: var(--lu-r-xs);
   background: var(--lu-surface);
 }
 .lesson-explain {
   padding: 12px 14px;
-  border-radius: var(--lu-r);
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
   background: var(--lu-surface);
   color: var(--lu-text);
-  font-family: var(--font-read);
-  font-size: 15px;
-  line-height: 1.55;
+  font-family: var(--lu-font);
+  font-size: var(--lu-fs-sm);
+  line-height: 1.6;
 }
 @media (min-width: 760px) {
   .lesson-foot-inner {
@@ -263,8 +270,58 @@
 }
 .lesson-summary-hero {
   position: relative;
+  isolation: isolate;
   display: grid;
   place-items: center;
+  padding: 8px;
+}
+/* Loo stands on a violet-soft pixel disc (same stepped token shape as the path nodes) */
+.lesson-summary-hero::before {
+  --p1: 8px;
+  --p2: 20px;
+  --p3: 44px;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 92%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: var(--lu-violet-soft);
+  clip-path: polygon(
+    0 var(--p3),
+    var(--p1) var(--p3),
+    var(--p1) var(--p2),
+    var(--p2) var(--p2),
+    var(--p2) var(--p1),
+    var(--p3) var(--p1),
+    var(--p3) 0,
+    calc(100% - var(--p3)) 0,
+    calc(100% - var(--p3)) var(--p1),
+    calc(100% - var(--p2)) var(--p1),
+    calc(100% - var(--p2)) var(--p2),
+    calc(100% - var(--p1)) var(--p2),
+    calc(100% - var(--p1)) var(--p3),
+    100% var(--p3),
+    100% calc(100% - var(--p3)),
+    calc(100% - var(--p1)) calc(100% - var(--p3)),
+    calc(100% - var(--p1)) calc(100% - var(--p2)),
+    calc(100% - var(--p2)) calc(100% - var(--p2)),
+    calc(100% - var(--p2)) calc(100% - var(--p1)),
+    calc(100% - var(--p3)) calc(100% - var(--p1)),
+    calc(100% - var(--p3)) 100%,
+    var(--p3) 100%,
+    var(--p3) calc(100% - var(--p1)),
+    var(--p2) calc(100% - var(--p1)),
+    var(--p2) calc(100% - var(--p2)),
+    var(--p1) calc(100% - var(--p2)),
+    var(--p1) calc(100% - var(--p3)),
+    0 calc(100% - var(--p3))
+  );
+}
+.hearts-out .lesson-summary-hero::before {
+  background: var(--lu-red-soft);
 }
 .lesson-summary-loo {
   animation: lu-pop-in var(--lu-dur-4) var(--lu-ease-bounce);
@@ -273,14 +330,18 @@
   margin: 0;
   font-size: clamp(28px, 8vw, 36px);
   font-weight: var(--lu-fw-black);
-  color: var(--lu-green-ink);
+  line-height: 1.15;
+  text-wrap: balance;
+  color: var(--lu-violet-ink);
 }
 .lesson-summary-title[data-perfect] {
   color: var(--lu-yellow-ink);
 }
 .lesson-summary-note {
+  max-width: 46ch;
   margin: 0;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.5;
   color: var(--lu-text-2);
 }
 .lesson-stats {
@@ -290,7 +351,17 @@
   margin: 8px 0 0;
 }
 .lesson-stats .gstat {
+  border-radius: var(--lu-r-lg);
+  box-shadow: 0 4px 0 var(--tone-lip);
+  margin-bottom: 4px;
   animation: lu-pop-in var(--lu-dur-4) var(--lu-ease-bounce) backwards;
+}
+/* big reward numbers on the finish screen: Onest 800 (pixel face is wordmark-only) */
+.lesson-stats .gstat dd {
+  font-family: var(--lu-font);
+  font-size: 26px;
+  font-weight: var(--lu-fw-black);
+  font-variant-numeric: tabular-nums;
 }
 .lesson-stats .gstat:nth-child(2) {
   animation-delay: 90ms;
@@ -310,10 +381,11 @@
   gap: 4px;
   padding: 0 14px 0 6px;
   min-height: 40px;
-  border-radius: var(--lu-r-pill);
+  border: 2px solid color-mix(in srgb, var(--tone) 35%, transparent);
+  border-radius: var(--lu-r);
   background: var(--tone-soft);
   color: var(--tone-ink);
-  font-weight: var(--lu-fw-black);
+  font-weight: var(--lu-fw-bold);
 }
 .lesson-summary-chip .lu-stat {
   min-height: 0;
@@ -330,11 +402,17 @@
   justify-content: center;
   gap: 6px;
   min-height: 44px;
-  color: var(--lu-blue-ink);
+  border-radius: var(--lu-r-sm);
+  color: var(--lu-violet-ink);
   font-weight: var(--lu-fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--lu-tracking-caps);
-  font-size: var(--lu-fs-xs);
+  font-size: var(--lu-fs-sm);
+}
+.lesson-summary-link:hover {
+  background: var(--lu-hover);
+}
+.lesson-summary-link:focus-visible {
+  outline: 3px solid var(--lu-focus-color);
+  outline-offset: 2px;
 }
 @media (max-width: 420px) {
   .lesson-top {

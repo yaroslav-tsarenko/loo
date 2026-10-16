@@ -7,6 +7,7 @@ import { requireUser } from '@/server/auth'
 import { CourseCard } from '@/ui/courses/CourseCard'
 import { CourseChips } from '@/ui/courses/CourseChips'
 import { courseChips } from '@/server/courses/library'
+import { Icon } from '@/ui/icons'
 
 export const metadata: Metadata = { title: 'Курси' }
 
@@ -19,7 +20,7 @@ export default async function CoursesPage() {
   return (
     <div className="page courses-page" data-width="wide">
       <header className="ghead">
-        <span className="ghead-badge" data-tone="green" aria-hidden="true">
+        <span className="ghead-badge" data-tone="violet" aria-hidden="true">
           <PiBooksFill size={38} />
         </span>
         <div className="ghead-text">
@@ -47,7 +48,7 @@ export default async function CoursesPage() {
       <ul className="courses-soon">
         {soon.map((s) => (
           <li key={s.title} className="lu-card courses-soon-item" data-pad="sm">
-            <span aria-hidden="true">{s.emoji}</span> {s.title}
+            <Icon name={s.icon} size={28} /> {s.title}
           </li>
         ))}
       </ul>

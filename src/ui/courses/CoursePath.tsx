@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState, type CSSProperties, type Ref } from 'react'
 import { PiBookOpenTextFill, PiCaretRightBold, PiCardsThreeFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiFlagCheckeredFill, PiLockSimpleFill, PiPlayFill, PiStarFill, PiTargetFill } from 'react-icons/pi'
+import { SECTION_FALLBACK_ICON } from '@/content/icons'
 import { CROWN_LABEL } from '@/progress/mastery'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
@@ -16,11 +17,12 @@ import { Icon } from '@/ui/icons/Icon'
 import { topicAnchor } from '@/ui/routes'
 import type { CPNode, CPSection, CPTopic } from './types'
 
-// The active course as a Duolingo path: section banner → topic card → lesson bubbles → 🏁 topic test, and a
-// 👑 section exam at the end. Future sections are locked (advisory) and offer «Перескочити розділ» (test-out).
+// The active course as a Duolingo path: section banner → topic card → lesson bubbles → topic test, and a
+// section exam at the end. Future sections are locked (advisory) and offer «Перескочити розділ» (test-out).
 
 const WAVE = [0, 56, 84, 56, 0, -56, -84, -56]
-const SECTION_TONES: readonly Tone[] = ['green', 'blue', 'purple', 'orange', 'pink']
+// Section banners cycle through the tones, starting with Loo's violet.
+const SECTION_TONES: readonly Tone[] = ['violet', 'mint', 'blue', 'pink', 'orange']
 
 function nodeMeta(node: CPNode): string {
   if (node.type !== 'lesson') {
@@ -28,7 +30,7 @@ function nodeMeta(node: CPNode): string {
     return `${node.size} питань · ~${node.minutes} хв${best}`
   }
   if (node.kind === 'theory') return `Стаття · ~${node.minutes} хв`
-  return `${node.size} вправ · ~${node.minutes} хв${node.optional ? ' · необовʼязково' : ''}${node.challenge ? ' · 🔥 челендж' : ''}`
+  return `${node.size} вправ · ~${node.minutes} хв${node.optional ? ' · необовʼязково' : ''}`
 }
 
 function nodeAction(node: CPNode, locked: boolean): string {
@@ -45,7 +47,7 @@ function Bubble({ node, offset, ratio, open, onOpen, locked, bubbleRef }: { node
     node.type === 'exam' ? (
       <GameIcon name="crown" size={34} muted={!node.done && !node.current} />
     ) : node.type === 'test' ? (
-      node.done ? <PiFlagCheckeredFill /> : <span aria-hidden="true">🏁</span>
+      node.done ? <PiFlagCheckeredFill /> : <Icon name={node.icon} size={32} />
     ) : node.done ? (
       node.perfect ? <PiStarFill /> : <PiCheckBold />
     ) : node.current ? (
@@ -53,7 +55,7 @@ function Bubble({ node, offset, ratio, open, onOpen, locked, bubbleRef }: { node
     ) : locked ? (
       <PiLockSimpleFill />
     ) : (
-      <span aria-hidden="true">{node.emoji}</span>
+      <Icon name={node.icon} size={32} />
     )
   const label = `${node.title}${node.done ? (node.skipped ? ' — зараховано' : ' — пройдено') : node.current ? ' — наступний крок' : locked ? ' — розділ закритий' : ''}`
   const bubble = (
@@ -70,13 +72,14 @@ function Bubble({ node, offset, ratio, open, onOpen, locked, bubbleRef }: { node
       data-state={state}
       data-kind={node.kind}
       data-type={node.type}
+      data-perfect={node.done && node.perfect ? '' : undefined}
       data-optional={node.optional ? '' : undefined}
       data-locked={locked ? '' : undefined}
       data-side={offset > 0 ? 'right' : 'left'}
     >
       {node.current && !open ? <span className="path-node-tip">{node.type === 'lesson' ? 'Старт' : node.type === 'test' ? 'Тест' : 'Екзамен'}</span> : null}
       {node.current ? (
-        <Ring value={ratio} size={96} stroke={8} tone="green" label="Прогрес теми" className="lesson-bubble-ring">
+        <Ring value={ratio} size={96} stroke={8} label="Прогрес теми" className="lesson-bubble-ring">
           {bubble}
         </Ring>
       ) : (
@@ -89,15 +92,25 @@ function Bubble({ node, offset, ratio, open, onOpen, locked, bubbleRef }: { node
       ) : null}
       {node.type !== 'lesson' ? <span className="cp-node-label">{node.type === 'test' ? 'Тест теми' : 'Екзамен розділу'}</span> : null}
       {open ? (
-        <div className="lesson-pop lu-card" data-variant="raised" data-tone={node.done ? 'yellow' : node.current ? 'green' : undefined} data-pad="md" role="dialog" aria-label={node.title}>
+        <div className="lesson-pop lu-card" data-variant="raised" data-tone={node.done ? (node.perfect && node.type === 'lesson' ? 'yellow' : 'green') : node.current ? 'violet' : undefined} data-pad="md" role="dialog" aria-label={node.title}>
           <strong className="lesson-pop-title">
-            {node.emoji} {node.title}
+            <Icon name={node.icon} size={20} /> {node.title}
           </strong>
           <span className="lesson-pop-meta">
             {nodeMeta(node)}
+            {node.challenge ? (
+              <>
+                {' · '}
+                <GameIcon name="fire" size={14} /> челендж
+              </>
+            ) : null}
             {node.done ? (node.skipped ? ' · зараховано' : ' · пройдено') : ''}
           </span>
-          {locked && !node.done ? <span className="lesson-pop-meta cp-locked-note">🔒 Розділ ще закритий: заверши попередній або перескоч його екзаменом.</span> : null}
+          {locked && !node.done ? (
+            <span className="lesson-pop-meta cp-locked-note">
+              <PiLockSimpleFill aria-hidden="true" /> Розділ ще закритий: заверши попередній або перескоч його екзаменом.
+            </span>
+          ) : null}
           <Button
             href={node.href}
             block
@@ -130,7 +143,7 @@ function TopicSheet({ topic, onClose }: { topic: CPTopic; onClose: () => void })
       footer={
         topic.theoryHref ? (
           <Button href={topic.theoryHref} size="lg" block icon={<PiBookOpenTextFill size={20} />}>
-            {topic.crowns >= 2 ? 'Перечитати теорію' : '📖 Теорія'}
+            {topic.crowns >= 2 ? 'Перечитати теорію' : 'Теорія'}
           </Button>
         ) : null
       }
@@ -176,7 +189,7 @@ function TopicSheet({ topic, onClose }: { topic: CPTopic; onClose: () => void })
         {topic.nodes.map((n) => (
           <li key={n.id} data-done={n.done ? '' : undefined}>
             <Link href={n.href} className="cp-sheet-lesson">
-              <span aria-hidden="true">{n.done ? '✅' : n.emoji}</span>
+              <span className="cp-sheet-lesson-icon" aria-hidden="true">{n.done ? <Icon name="px:check" size={20} /> : <Icon name={n.icon} size={20} />}</span>
               <span className="cp-sheet-lesson-title">{n.title}</span>
               <span className="cp-sheet-lesson-meta">{n.type === 'lesson' && n.kind === 'theory' ? `~${n.minutes} хв` : `${n.size}`}</span>
             </Link>
@@ -191,7 +204,7 @@ function SectionBanner({ section, number }: { section: CPSection; number: number
   return (
     <header className="path-banner">
       <span className="path-banner-emoji" aria-hidden="true">
-        {section.state === 'locked' ? <PiLockSimpleFill /> : <Icon name={section.icon ?? '📍'} size={28} />}
+        {section.state === 'locked' ? <PiLockSimpleFill /> : <Icon name={section.icon ?? SECTION_FALLBACK_ICON} size={28} />}
       </span>
       <div className="path-banner-text">
         <span className="path-banner-eyebrow">
@@ -294,8 +307,8 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
                 ) : null}
                 {section.topics.map((topic) => (
                   <div key={topic.id} id={topicAnchor(topic.id)} className="skill" data-state={topic.state === 'current' ? 'current' : topic.state === 'done' ? 'done' : 'upcoming'}>
-                    <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={topic.state === 'current' ? 'green' : undefined} onClick={() => setSheet(topic)}>
-                      <Ring value={topic.ratio} size={56} stroke={6} tone={topic.crowns >= 5 ? 'yellow' : 'green'} label={`Опановано ${Math.round(topic.ratio * 100)}%`} className="skill-ring">
+                    <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={topic.state === 'current' ? 'violet' : undefined} onClick={() => setSheet(topic)}>
+                      <Ring value={topic.ratio} size={56} stroke={6} tone={topic.crowns >= 5 ? 'yellow' : 'violet'} label={`Опановано ${Math.round(topic.ratio * 100)}%`} className="skill-ring">
                         <span className="skill-icon" aria-hidden="true">
                           {topic.crowns >= 5 ? <GameIcon name="crown" size={26} /> : <Icon name={topic.icon} size={22} />}
                         </span>
@@ -350,8 +363,8 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
             )}
             {section.state === 'done' && section.exam?.done && !section.known ? (
               <p className="cp-known">
-                <Pill tone="yellow" size="sm">
-                  👑 Екзамен складено
+                <Pill tone="yellow" size="sm" icon={<GameIcon name="crown" size={14} />}>
+                  Екзамен складено
                 </Pill>
               </p>
             ) : null}

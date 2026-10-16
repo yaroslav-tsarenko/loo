@@ -212,14 +212,24 @@ await fetch(url, { signal: AbortSignal.any([controller.signal, AbortSignal.timeo
 > [!viz] http-cache
 > scenario: revalidation
 
-```text
-1) GET /app.css                       ──▶  200 OK
-                                           Cache-Control: max-age=60
-                                           ETag: "v1"
-2) через 30 с: свіже                  ──▶  з кешу, БЕЗ запиту
-3) через 90 с: застаріле → питаємо    ──▶  GET /app.css  If-None-Match: "v1"
-                                      ◀──  304 Not Modified  (без тіла, кеш оновлено)
-```
+> [!diagram] HTTP-кеш: свіжість і ревалідація
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: page, label: сторінка, code: "<link href=\"/app.css\">", tone: blue, icon: "px:monitor" }
+>   - { id: cache, label: "HTTP-кеш браузера", text: порожньо, tone: violet, icon: "px:database" }
+>   - { id: server, label: сервер, text: "/app.css · ETag \"v1\"", tone: gray, icon: "px:globe" }
+> edges:
+>   - { from: page, to: cache }
+>   - { from: cache, to: server }
+> steps:
+>   - { move: { from: page, to: cache, value: "GET /app.css" }, note: "Сторінці потрібен app.css. Спершу браузер заглядає в HTTP-кеш — там порожньо." }
+>   - { move: { from: cache, to: server, value: "GET /app.css" }, note: "Кеш-промах, тож запит іде на сервер." }
+>   - { move: { from: server, to: cache, value: "200 OK · max-age=60 · ETag \"v1\"" }, set: { cache: "app.css · v1 · свіже 60 с" }, note: "Сервер віддає файл і інструкції: «свіже 60 секунд», версія \"v1\". Браузер кладе відповідь у кеш." }
+>   - { set: { cache: "вік 30 с — свіже" }, move: { from: cache, to: page, value: "app.css з кешу" }, note: "Через 30 с файл ще свіжий: браузер бере його з кешу взагалі БЕЗ запиту на сервер." }
+>   - { set: { cache: "вік 90 с — застаріле" }, move: { from: cache, to: server, value: "If-None-Match: \"v1\"" }, note: "Через 90 с відповідь застаріла. Браузер не качає наново, а питає: «у мене \"v1\" — щось змінилося?»" }
+>   - { move: { from: server, to: cache, value: "304 Not Modified" }, set: { cache: "app.css · v1 · знову свіже" }, note: "Файл той самий — сервер відповідає 304 без тіла. Кеш оновлює свіжість і віддає сторінці старий файл." }
+> ```
 
 | Директива `Cache-Control` | Значення |
 |---|---|
@@ -268,27 +278,47 @@ await fetch(url, { signal: AbortSignal.any([controller.signal, AbortSignal.timeo
 > [!viz] cors
 > scenario: simple
 
-```text
-GET /data                Origin: https://app.com
-◀── 200   Access-Control-Allow-Origin: https://app.com   ✅ JS отримає відповідь
-◀── 200   (без заголовка)                                ❌ TypeError: Failed to fetch
-```
+> [!diagram] Простий CORS-запит: хто кого перевіряє
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: js, label: "JS на https://app.com", code: "const res = await fetch(url)", tone: blue }
+>   - { id: br, label: браузер, text: "стежить за CORS", tone: violet, icon: "pi:PiBrowserFill" }
+>   - { id: srv, label: "сервер іншого origin", text: "/data", tone: gray, icon: "px:globe" }
+> edges:
+>   - { from: js, to: br }
+>   - { from: br, to: srv }
+> steps:
+>   - { move: { from: js, to: br, value: "fetch(url)" }, line: "js:1", note: "Скрипт зі сторінки https://app.com просить дані з чужого origin." }
+>   - { move: { from: br, to: srv, value: "GET /data · Origin: https://app.com" }, note: "Це простий запит (GET без особливих заголовків), тож браузер шле його одразу й сам додає Origin — звідки запит." }
+>   - { move: { from: srv, to: br, value: "200 · Access-Control-Allow-Origin: https://app.com" }, set: { br: "✅ origin дозволено" }, note: "Сервер відповідає і явно дозволяє origin https://app.com." }
+>   - { move: { from: br, to: js, value: "res ✅" }, note: "Дозвіл є — браузер віддає відповідь твоєму JS." }
+>   - { move: { from: srv, to: br, value: "200 (без заголовка)" }, set: { br: "❌ дозволу немає" }, note: "Інший сценарій: сервер не додав Access-Control-Allow-Origin. Запит дійшов і навіть виконався…" }
+>   - { move: { from: br, to: js, value: "TypeError: Failed to fetch" }, note: "…але браузер не віддасть відповідь JS. CORS обмежує читання в браузері, а не захищає сервер." }
+> ```
 
 **Preflight** — для всього іншого: `PUT`/`DELETE`/`PATCH`, `Content-Type: application/json`, `Authorization`, власні заголовки. Спершу браузер питає дозволу запитом `OPTIONS`:
 
 > [!viz] cors
 > scenario: preflight
 
-```text
-OPTIONS /todos   Origin: https://app.com
-                 Access-Control-Request-Method: PUT
-                 Access-Control-Request-Headers: content-type, authorization
-◀── 204  Access-Control-Allow-Origin: https://app.com
-         Access-Control-Allow-Methods: PUT, DELETE
-         Access-Control-Allow-Headers: Content-Type, Authorization
-         Access-Control-Max-Age: 600          ← кеш дозволу (для цього URL)
-PUT /todos  … справжній запит
-```
+> [!diagram] Preflight: спершу дозвіл, потім запит
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: js, label: "JS на https://app.com", code: "fetch('/todos', { method: 'PUT',\n  headers: { 'Content-Type': 'application/json',\n    Authorization: 'Bearer …' } })", tone: blue }
+>   - { id: br, label: браузер, text: "запит не простий", tone: violet, icon: "pi:PiBrowserFill" }
+>   - { id: srv, label: "сервер іншого origin", text: "/todos", tone: gray, icon: "px:globe" }
+> edges:
+>   - { from: js, to: br }
+>   - { from: br, to: srv }
+> steps:
+>   - { move: { from: js, to: br, value: "PUT + JSON + Authorization" }, note: "PUT, Content-Type: application/json і Authorization — усе це робить запит «не простим». Одразу слати його браузер не буде." }
+>   - { move: { from: br, to: srv, value: "OPTIONS /todos · Request-Method: PUT" }, set: { br: "чекає на дозвіл" }, note: "Спершу preflight: OPTIONS з Origin і питанням «чи можна PUT із заголовками content-type, authorization?»" }
+>   - { move: { from: srv, to: br, value: "204 · Allow-Methods: PUT, DELETE" }, set: { br: "✅ дозвіл на 600 с" }, note: "Сервер дозволяє origin, методи й заголовки. Access-Control-Max-Age: 600 — браузер запам'ятає дозвіл для цього URL." }
+>   - { move: { from: br, to: srv, value: "PUT /todos" }, note: "Лише тепер іде справжній запит." }
+>   - { move: [{ from: srv, to: br, value: "200 OK" }, { from: br, to: js, value: "res ✅" }], note: "Відповідь теж містить Access-Control-Allow-Origin — і доходить до JS. Без preflight-дозволу PUT узагалі не був би надісланий." }
+> ```
 
 **Credentials** (cookies, HTTP auth) у крос-origin запиті надсилаються лише з `credentials: 'include'`, і тоді сервер мусить відповісти **конкретним** origin (не `*`) плюс `Access-Control-Allow-Credentials: true`. Читати нестандартні заголовки відповіді (`X-Total-Count`) дозволяє `Access-Control-Expose-Headers`. `mode: 'no-cors'` не «вимикає CORS», а дає **opaque**-відповідь: `status 0`, тіло недоступне.
 

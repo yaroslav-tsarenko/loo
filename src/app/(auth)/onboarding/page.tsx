@@ -13,6 +13,9 @@ import { Button } from '@/ui/design/Button'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { Icon } from '@/ui/icons/Icon'
 
+// Goal choices get an icon (the strings themselves carry no emoji).
+const GOAL_ICON: Record<(typeof GOALS)[number], string> = { job: 'px:target', grow: 'px:rocket', school: 'px:gradCap', fun: 'px:star' }
+
 export const metadata: Metadata = { title: 'Налаштуймо шлях', robots: { index: false, follow: false } }
 
 // First sign-in: course, goal, daily minutes, interests, self-assessed level → profile (+ dailyMinutes setting) and the
@@ -48,7 +51,7 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
                 required
                 title={
                   <span className="onb-course">
-                    <Icon name={c.meta.icon ?? '📘'} size={26} /> {c.meta.title}
+                    <Icon name={c.meta.icon ?? 'px:book'} size={26} /> {c.meta.title}
                   </span>
                 }
                 sub={c.meta.subtitle ?? undefined}
@@ -59,7 +62,7 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
 
         <ChoiceGroup legend={t('onboarding.goal.title')} wide>
           {GOALS.map((g) => (
-            <Choice key={g} type="radio" name="goal" value={g} defaultChecked={g === goal} required title={m.onboarding.goal.options[g]} />
+            <Choice key={g} type="radio" name="goal" value={g} defaultChecked={g === goal} required icon={<Icon name={GOAL_ICON[g]} size={24} />} title={m.onboarding.goal.options[g]} />
           ))}
         </ChoiceGroup>
 
@@ -83,15 +86,17 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
 
         {courses.length > 0 ? (
           <ChoiceGroup legend={t('onboarding.start.title')} wide>
-            <Choice type="radio" name="start" value="placement" defaultChecked required title={t('onboarding.start.placement')} sub={t('onboarding.start.placementSub')} />
-            <Choice type="radio" name="start" value="zero" required title={t('onboarding.start.zero')} sub={t('onboarding.start.zeroSub')} />
+            <Choice type="radio" name="start" value="placement" defaultChecked required icon={<Icon name="px:testTube" size={24} />} title={t('onboarding.start.placement')} sub={t('onboarding.start.placementSub')} />
+            <Choice type="radio" name="start" value="zero" required icon={<Icon name="px:sprout" size={24} />} title={t('onboarding.start.zero')} sub={t('onboarding.start.zeroSub')} />
           </ChoiceGroup>
         ) : (
-          <p className="choice-hint onb-placement">🧪 {t('onboarding.placement')}</p>
+          <p className="choice-hint onb-placement">
+            <Icon name="px:testTube" size={18} /> {t('onboarding.placement')}
+          </p>
         )}
 
         <div className="onb-submit">
-          <Button type="submit" size="lg" block>
+          <Button type="submit" size="lg" block iconEnd={<Icon name="px:rocket" size={22} />}>
             {t('onboarding.submit')}
           </Button>
         </div>

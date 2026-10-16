@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound, redirect } from 'next/navigation'
-import { PiFlaskFill, PiMapTrifoldFill } from 'react-icons/pi'
-import { LEVEL_EMOJI, LEVEL_LABEL } from '@/course'
+import { PiChartBarFill, PiFlaskFill, PiMapTrifoldFill } from 'react-icons/pi'
+import { LEVEL_LABEL } from '@/course'
 import { TRACKS, type Track } from '@/content/tracks'
 import type { ContentSnapshot } from '@/content/store'
 import { levelInfo } from '@/progress/levels'
@@ -21,7 +21,6 @@ import { GameIcon } from '@/ui/design/GameIcon'
 import { CourseChips } from '@/ui/courses/CourseChips'
 import { CoursePath } from '@/ui/courses/CoursePath'
 import { Icon } from '@/ui/icons/Icon'
-import { trackIcon } from '@/ui/icons/tracks'
 import { PathView, type PathStageView } from '@/ui/path/PathView'
 
 export const metadata: Metadata = { title: 'Шлях' }
@@ -57,7 +56,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
     <div className="page path-page" data-width="wide">
       <header className="ghead">
         <span className="ghead-badge path-track-badge" aria-hidden="true">
-          <Icon name={bundle.course.icon ?? '📘'} size={40} />
+          <Icon name={bundle.course.icon ?? 'px:book'} size={40} />
         </span>
         <div className="ghead-text">
           <h1 className="ghead-title">{bundle.course.title}</h1>
@@ -71,7 +70,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
             {level.level}
           </span>
           <span className="path-summary-label">
-            рівень · {game.rank.emoji} {game.rank.title}
+            рівень · {game.rank.title}
           </span>
         </Card>
         <Card variant="raised" tone="yellow" padding="sm" className="path-summary-item">
@@ -93,7 +92,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
       <CourseChips courses={courseChips(library)} />
       <div className="cp-level-row">
         <Link href={`/courses/${bundle.course.id}#level`} className="cp-level-chip">
-          {LEVEL_EMOJI[enrollment.level]} Рівень курсу: <strong>{LEVEL_LABEL[enrollment.level]}</strong> · змінити
+          <PiChartBarFill aria-hidden="true" /> Рівень курсу: <strong>{LEVEL_LABEL[enrollment.level]}</strong> · змінити
         </Link>
         <Link href="/roadmap" className="cp-level-chip">
           <PiMapTrifoldFill aria-hidden="true" /> Мапа інженера
@@ -124,7 +123,7 @@ async function LegacyTrackPath({ snapshot, track }: { snapshot: ContentSnapshot;
   const [path, xp] = await Promise.all([trackPath(snapshot, track), userXp()])
   const level = levelInfo(xp)
   const stages: PathStageView[] = path.stages.map((s) => ({
-    emoji: s.emoji,
+    icon: s.icon,
     title: s.title,
     ratio: s.ratio,
     nodes: s.nodes.map((n) => ({
@@ -150,7 +149,7 @@ async function LegacyTrackPath({ snapshot, track }: { snapshot: ContentSnapshot;
     <div className="page path-page" data-width="wide">
       <header className="ghead">
         <span className="ghead-badge path-track-badge" aria-hidden="true">
-          <Icon name={trackIcon(track.id, track.emoji)} size={40} />
+          <Icon name={track.icon} size={40} />
         </span>
         <div className="ghead-text">
           <h1 className="ghead-title">{track.title}: шлях</h1>

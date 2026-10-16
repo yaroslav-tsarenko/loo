@@ -1,7 +1,20 @@
-/* Levelup component kit (src/ui/design). Everything is namespaced .lu-* / .loo-* and reads tokens from tokens.css. */
+/* Levelup component kit (src/ui/design). Everything is namespaced .lu-* / .loo-* and reads tokens from tokens.css.
+   Style rules: docs/DESIGN.md («Loo Pixel-soft»). */
 
 @layer components {
   /* ── Tones: one switch drives every colored component ───────────────── */
+  [data-tone='violet'] {
+    --tone: var(--lu-violet);
+    --tone-lip: var(--lu-violet-lip);
+    --tone-soft: var(--lu-violet-soft);
+    --tone-ink: var(--lu-violet-ink);
+  }
+  [data-tone='mint'] {
+    --tone: var(--lu-mint);
+    --tone-lip: var(--lu-mint-lip);
+    --tone-soft: var(--lu-mint-soft);
+    --tone-ink: var(--lu-mint-ink);
+  }
   [data-tone='green'] {
     --tone: var(--lu-green);
     --tone-lip: var(--lu-green-lip);
@@ -51,6 +64,79 @@
     --tone-ink: var(--lu-text-2);
   }
 
+  /* ── Pixel frame ─────────────────────────────────────────────────────
+     Stepped («pixel») corners that still have a border and a 3D lip. The element itself paints nothing; ::before is
+     the line + lip, ::after the face, both clipped to a two-step corner. Children are never clipped (no clip on the
+     element), so badges/popovers can still overhang. Knobs (inherit, set them on the element):
+       --px-face  face fill (colour or gradient)      --px-line  border + lip colour
+       --px-bw    border width (0 = solid block)       --px-lip   lip height under the face
+       --px-s     step size (default --lu-px)
+     Used by .lu-btn and .lu-ibtn; opt in elsewhere with .lu-px (a block that must not set its own background). */
+  .lu-px,
+  .lu-btn,
+  .lu-ibtn:not([data-variant='plain']) {
+    position: relative;
+    isolation: isolate;
+  }
+  .lu-px {
+    --px-face: var(--lu-surface);
+    --px-line: var(--lu-border);
+    --px-bw: var(--lu-border-w);
+    --px-lip: 0px;
+    margin-bottom: var(--px-lip);
+  }
+  .lu-px[data-lip] {
+    --px-lip: var(--lu-lip);
+  }
+  .lu-px::before,
+  .lu-px::after,
+  .lu-btn::before,
+  .lu-btn::after,
+  .lu-ibtn:not([data-variant='plain'])::before,
+  .lu-ibtn:not([data-variant='plain'])::after {
+    --s: var(--px-s, var(--lu-px));
+    content: '';
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    clip-path: polygon(
+      0 calc(2 * var(--s)),
+      var(--s) calc(2 * var(--s)),
+      var(--s) var(--s),
+      calc(2 * var(--s)) var(--s),
+      calc(2 * var(--s)) 0,
+      calc(100% - 2 * var(--s)) 0,
+      calc(100% - 2 * var(--s)) var(--s),
+      calc(100% - var(--s)) var(--s),
+      calc(100% - var(--s)) calc(2 * var(--s)),
+      100% calc(2 * var(--s)),
+      100% calc(100% - 2 * var(--s)),
+      calc(100% - var(--s)) calc(100% - 2 * var(--s)),
+      calc(100% - var(--s)) calc(100% - var(--s)),
+      calc(100% - 2 * var(--s)) calc(100% - var(--s)),
+      calc(100% - 2 * var(--s)) 100%,
+      calc(2 * var(--s)) 100%,
+      calc(2 * var(--s)) calc(100% - var(--s)),
+      var(--s) calc(100% - var(--s)),
+      var(--s) calc(100% - 2 * var(--s)),
+      0 calc(100% - 2 * var(--s))
+    );
+  }
+  .lu-px::before,
+  .lu-btn::before,
+  .lu-ibtn:not([data-variant='plain'])::before {
+    inset: 0 0 calc(-1 * var(--px-lip)) 0;
+    background: var(--px-line);
+    transition: bottom var(--lu-dur-1) var(--lu-ease);
+  }
+  .lu-px::after,
+  .lu-btn::after,
+  .lu-ibtn:not([data-variant='plain'])::after {
+    inset: var(--px-bw);
+    background: var(--px-face);
+    transition: background-color var(--lu-dur-2), filter var(--lu-dur-2);
+  }
+
   /* ── Icon wrapper ─────────────────────────────────────────────────── */
   .lu-icon {
     display: inline-grid;
@@ -76,48 +162,52 @@
     opacity: 0.45;
   }
 
-  /* ── Button ───────────────────────────────────────────────────────── */
+  /* ── Button ─────────────────────────────────────────────────────────
+     Variants set --b (face), --b-hover, --b-lip, --b-ink; --b-face overrides the face with a gradient. */
   .lu-btn {
-    --b: var(--lu-green);
-    --b-hover: var(--lu-green-hover);
-    --b-lip: var(--lu-green-lip);
+    --b: var(--lu-violet);
+    --b-hover: var(--lu-violet-hover);
+    --b-lip: var(--lu-violet-lip);
     --b-ink: var(--lu-on-color);
     --b-lip-h: var(--lu-lip);
-    position: relative;
+    --px-face: var(--b-face, var(--b));
+    --px-line: var(--b-lip);
+    --px-bw: 0px;
+    --px-lip: var(--b-lip-h);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 48px;
     padding: 0 22px;
     border: 0;
-    border-radius: var(--lu-r);
-    background: var(--b);
+    border-radius: 0;
+    background: none;
     color: var(--b-ink);
     font-family: var(--lu-font);
     font-size: var(--lu-fs-sm);
     font-weight: var(--lu-fw-bold);
-    letter-spacing: var(--lu-tracking-caps);
+    letter-spacing: 0.01em;
     line-height: 1.1;
-    text-transform: uppercase;
+    text-transform: none;
     text-decoration: none;
     white-space: nowrap;
-    box-shadow: 0 var(--b-lip-h) 0 var(--b-lip);
     margin-bottom: var(--b-lip-h);
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    transition:
-      transform var(--lu-dur-1) var(--lu-ease),
-      box-shadow var(--lu-dur-1) var(--lu-ease),
-      background-color var(--lu-dur-2),
-      filter var(--lu-dur-2);
+    transition: transform var(--lu-dur-1) var(--lu-ease), color var(--lu-dur-2);
   }
   .lu-btn:hover {
-    background: var(--b-hover);
+    --px-face: var(--b-face, var(--b-hover));
+  }
+  .lu-btn[data-variant='super']:hover::after {
+    filter: brightness(1.08) saturate(1.05);
   }
   .lu-btn:active:not(:disabled, [data-loading]) {
     transform: translateY(var(--b-lip-h));
-    box-shadow: 0 0 0 var(--b-lip);
+  }
+  .lu-btn:active:not(:disabled, [data-loading])::before {
+    bottom: 0;
   }
   .lu-btn:focus-visible,
   .lu-ibtn:focus-visible,
@@ -126,13 +216,14 @@
   .lu-tab:focus-visible,
   .lu-switch:focus-visible,
   .lu-pop-trigger:focus-visible {
-    outline: 3px solid light-dark(rgb(28 176 246 / 0.75), rgb(92 202 255 / 0.85));
+    outline: 3px solid var(--lu-focus-color);
     outline-offset: 3px;
   }
   .lu-btn[data-variant='secondary'] {
-    --b: var(--lu-blue);
-    --b-hover: var(--lu-blue-hover);
-    --b-lip: var(--lu-blue-lip);
+    --b: var(--lu-mint);
+    --b-hover: var(--lu-mint-hover);
+    --b-lip: var(--lu-mint-lip);
+    --b-ink: var(--lu-on-mint);
   }
   .lu-btn[data-variant='danger'] {
     --b: var(--lu-red);
@@ -140,38 +231,28 @@
     --b-lip: var(--lu-red-lip);
   }
   .lu-btn[data-variant='super'] {
-    --b-lip: #7b4fd1;
-    background: linear-gradient(100deg, #ce82ff 0%, #9b6bff 48%, #1cb0f6 100%);
-  }
-  .lu-btn[data-variant='super']:hover {
-    filter: brightness(1.07) saturate(1.05);
+    --b-lip: #4b2bb8;
+    --b-face: linear-gradient(100deg, #9b6bff 0%, #7c4dff 45%, #2dd4bf 100%);
   }
   .lu-btn[data-variant='ghost'] {
     --b: var(--lu-surface);
     --b-hover: var(--lu-surface-2);
     --b-lip: var(--lu-border);
-    --b-ink: var(--lu-blue-ink);
-    box-shadow:
-      inset 0 0 0 2px var(--lu-border),
-      0 var(--b-lip-h) 0 var(--b-lip);
-  }
-  .lu-btn[data-variant='ghost']:active:not(:disabled, [data-loading]) {
-    box-shadow:
-      inset 0 0 0 2px var(--lu-border),
-      0 0 0 var(--b-lip);
+    --b-ink: var(--lu-violet-ink);
+    --px-bw: var(--lu-border-w);
   }
   .lu-btn[data-size='sm'] {
     --b-lip-h: var(--lu-lip-sm);
+    --px-s: 2px;
     min-height: 40px;
     padding: 0 16px;
     font-size: var(--lu-fs-xs);
-    border-radius: var(--lu-r-sm);
   }
   .lu-btn[data-size='lg'] {
+    --px-s: 4px;
     min-height: 56px;
     padding: 0 28px;
     font-size: var(--lu-fs-md);
-    border-radius: var(--lu-r-lg);
   }
   .lu-btn[data-block] {
     display: flex;
@@ -183,9 +264,8 @@
     --b-hover: var(--lu-surface-3);
     --b-lip: var(--lu-border-strong);
     --b-ink: var(--lu-text-3);
-    background: var(--b);
+    --b-face: var(--lu-surface-3);
     cursor: default;
-    filter: none;
   }
   .lu-btn[data-loading] {
     cursor: progress;
@@ -232,6 +312,11 @@
     --b-lip: transparent;
     --b-ink: var(--lu-text-2);
     --b-lip-h: 0px;
+    --px-face: var(--b);
+    --px-line: var(--b-lip);
+    --px-bw: 0px;
+    --px-lip: var(--b-lip-h);
+    --px-s: 2px;
     display: inline-grid;
     place-items: center;
     flex: none;
@@ -240,14 +325,12 @@
     padding: 0;
     border: 0;
     border-radius: var(--lu-r-sm);
-    background: var(--b);
+    background: none;
     color: var(--b-ink);
-    box-shadow: 0 var(--b-lip-h) 0 var(--b-lip);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition:
       transform var(--lu-dur-1) var(--lu-ease),
-      box-shadow var(--lu-dur-1) var(--lu-ease),
       background-color var(--lu-dur-2),
       color var(--lu-dur-2);
   }
@@ -264,48 +347,54 @@
     margin-bottom: var(--b-lip-h);
   }
   .lu-ibtn[data-variant='primary'] {
-    --b: var(--lu-green);
-    --b-lip: var(--lu-green-lip);
+    --b: var(--lu-violet);
+    --b-lip: var(--lu-violet-lip);
   }
   .lu-ibtn[data-variant='secondary'] {
-    --b: var(--lu-blue);
-    --b-lip: var(--lu-blue-lip);
+    --b: var(--lu-mint);
+    --b-lip: var(--lu-mint-lip);
+    --b-ink: var(--lu-on-mint);
   }
   .lu-ibtn[data-variant='danger'] {
     --b: var(--lu-red);
     --b-lip: var(--lu-red-lip);
   }
   .lu-ibtn[data-variant='super'] {
-    --b-lip: #7b4fd1;
-    background: linear-gradient(135deg, #ce82ff, #1cb0f6);
+    --b-lip: #4b2bb8;
+    --px-face: linear-gradient(135deg, #9b6bff, #2dd4bf);
   }
   .lu-ibtn[data-variant='ghost'] {
     --b: var(--lu-surface);
     --b-lip: var(--lu-border);
     --b-ink: var(--lu-text-2);
-    box-shadow:
-      inset 0 0 0 2px var(--lu-border),
-      0 var(--b-lip-h) 0 var(--b-lip);
+    --px-bw: var(--lu-border-w);
+  }
+  .lu-ibtn[data-variant='ghost']:hover {
+    --b: var(--lu-surface-2);
+    --b-ink: var(--lu-violet-ink);
   }
   .lu-ibtn:not([data-variant='plain']):active:not(:disabled) {
     transform: translateY(var(--b-lip-h));
-    box-shadow: 0 0 0 var(--b-lip);
   }
-  .lu-ibtn[data-variant='ghost']:active:not(:disabled) {
-    box-shadow:
-      inset 0 0 0 2px var(--lu-border),
-      0 0 0 var(--b-lip);
+  .lu-ibtn:not([data-variant='plain']):active:not(:disabled)::before {
+    bottom: 0;
   }
   .lu-ibtn[data-size='sm'] {
     width: 36px;
     height: 36px;
   }
   .lu-ibtn[data-size='lg'] {
+    --px-s: 3px;
     width: 56px;
     height: 56px;
     border-radius: var(--lu-r);
   }
   .lu-ibtn[data-round] {
+    border-radius: 50%;
+  }
+  .lu-ibtn[data-round]:not([data-variant='plain'])::before,
+  .lu-ibtn[data-round]:not([data-variant='plain'])::after {
+    clip-path: none;
     border-radius: 50%;
   }
   .lu-ibtn:disabled {
@@ -337,7 +426,8 @@
     --c-border: var(--tone);
   }
   .lu-card[data-selected] {
-    background: var(--lu-blue-soft);
+    --c-border: var(--lu-violet);
+    background: var(--lu-violet-soft);
   }
   .lu-card[data-variant='raised'],
   .lu-card[data-variant='interactive'] {
@@ -345,8 +435,9 @@
     margin-bottom: var(--lu-lip);
   }
   .lu-card[data-tone][data-variant='raised'],
-  .lu-card[data-tone][data-variant='interactive'] {
-    box-shadow: 0 var(--lu-lip) 0 var(--tone-lip);
+  .lu-card[data-tone][data-variant='interactive'],
+  .lu-card[data-selected][data-variant='interactive'] {
+    box-shadow: 0 var(--lu-lip) 0 var(--tone-lip, var(--lu-violet-lip));
   }
   .lu-card[data-variant='interactive'] {
     cursor: pointer;
@@ -354,58 +445,70 @@
     transition:
       transform var(--lu-dur-1) var(--lu-ease),
       box-shadow var(--lu-dur-1) var(--lu-ease),
+      border-color var(--lu-dur-2),
       background-color var(--lu-dur-2);
   }
   .lu-card[data-variant='interactive']:hover {
+    --c-border: var(--lu-border-strong);
     background: var(--lu-surface-2);
   }
+  .lu-card[data-tone][data-variant='interactive']:hover {
+    --c-border: var(--tone);
+  }
   .lu-card[data-selected][data-variant='interactive']:hover {
-    background: var(--lu-blue-soft);
+    --c-border: var(--lu-violet);
+    background: var(--lu-violet-soft);
   }
   .lu-card[data-variant='interactive']:active {
     transform: translateY(calc(var(--lu-lip) - 1px));
     box-shadow: 0 1px 0 var(--c-border);
   }
 
-  /* ── ProgressBar ──────────────────────────────────────────────────── */
+  /* ── ProgressBar: segmented «pixel» bar ─────────────────────────────── */
   .lu-progress {
     --h: 16px;
+    --seg: 14px;
     position: relative;
     display: block;
     height: var(--h);
-    border-radius: var(--lu-r-pill);
+    border-radius: var(--lu-r-xs);
     background: var(--lu-surface-3);
     overflow: hidden;
   }
+  /* Gaps between segments; bars that print a number inside stay solid so the digits aren't sliced. */
+  .lu-progress:not(:has(.lu-progress-text)) {
+    -webkit-mask: repeating-linear-gradient(90deg, #000 0 calc(var(--seg) - 3px), transparent calc(var(--seg) - 3px) var(--seg));
+    mask: repeating-linear-gradient(90deg, #000 0 calc(var(--seg) - 3px), transparent calc(var(--seg) - 3px) var(--seg));
+  }
   .lu-progress:not([data-tone]) {
-    --tone: var(--lu-green);
+    --tone: var(--lu-violet);
   }
   .lu-progress[data-size='sm'] {
     --h: 10px;
+    --seg: 10px;
   }
   .lu-progress[data-size='lg'] {
     --h: 22px;
+    --seg: 18px;
   }
   .lu-progress-fill {
     position: absolute;
     inset: 0 auto 0 0;
     width: max(var(--h), calc(var(--v) * 100%));
-    border-radius: inherit;
     background: var(--tone);
     transition: width var(--lu-dur-4) var(--lu-ease-bounce);
   }
   .lu-progress[data-empty] .lu-progress-fill {
     width: 0;
   }
+  /* pixel highlight: a flat light strip near the top */
   .lu-progress-fill::after {
     content: '';
     position: absolute;
-    left: 8px;
-    right: 8px;
-    top: 22%;
-    height: 26%;
-    min-height: 3px;
-    border-radius: var(--lu-r-pill);
+    left: 0;
+    right: 0;
+    top: 3px;
+    height: max(2px, 18%);
     background: rgb(255 255 255 / 0.32);
   }
   .lu-progress[data-striped] .lu-progress-fill {
@@ -439,7 +542,7 @@
     flex: none;
   }
   .lu-ring:not([data-tone]) {
-    --tone: var(--lu-green);
+    --tone: var(--lu-violet);
   }
   .lu-ring > svg {
     position: absolute;
@@ -453,10 +556,9 @@
   .lu-ring-fill {
     fill: none;
     stroke: var(--tone);
-    stroke-linecap: round;
+    stroke-linecap: butt;
     transition: stroke-dashoffset var(--lu-dur-4) var(--lu-ease);
   }
-  /* Round caps would leave a dot at 0% */
   .lu-ring[aria-valuenow='0'] .lu-ring-fill {
     stroke: transparent;
   }
@@ -475,7 +577,7 @@
     min-width: 20px;
     height: 20px;
     padding: 0 6px;
-    border-radius: var(--lu-r-pill);
+    border-radius: var(--lu-r-xs);
     background: var(--tone);
     color: var(--lu-on-color);
     font: var(--lu-fw-black) 11px/1 var(--lu-font);
@@ -489,7 +591,7 @@
     gap: 6px;
     height: 32px;
     padding: 0 12px;
-    border-radius: var(--lu-r-pill);
+    border-radius: var(--lu-r-sm);
     background: var(--tone-soft);
     color: var(--tone-ink);
     font: var(--lu-fw-bold) var(--lu-fs-xs) / 1 var(--lu-font);
@@ -504,6 +606,16 @@
   .lu-pill[data-solid] {
     background: var(--tone);
     color: var(--lu-on-color);
+  }
+  /* Light tones fail white-text contrast: dark ink on mint/yellow, the deeper lip shade for purple/pink/orange */
+  .lu-pill[data-solid]:is([data-tone='mint'], [data-tone='yellow']) {
+    color: var(--lu-on-mint);
+  }
+  .lu-pill[data-solid][data-tone='yellow'] {
+    color: #3d2a00;
+  }
+  .lu-pill[data-solid]:is([data-tone='purple'], [data-tone='pink'], [data-tone='orange'], [data-tone='green'], [data-tone='blue']) {
+    background: var(--tone-lip);
   }
   .lu-pill-icon {
     display: inline-grid;
@@ -534,6 +646,9 @@
   }
   .lu-stat[data-kind='streak'] {
     color: var(--lu-orange-ink);
+  }
+  .lu-stat[data-kind='bucks'] {
+    color: var(--lu-yellow-ink);
   }
   .lu-stat[data-kind='gems'] {
     color: var(--lu-blue-ink);
@@ -605,7 +720,7 @@
     margin: 4px 0 0;
     color: var(--lu-text-2);
     font-size: var(--lu-fs-md);
-    font-weight: 600;
+    font-weight: 500;
   }
   .lu-sheet-body {
     margin-top: var(--lu-s-4);
@@ -676,7 +791,7 @@
     border: 2px solid var(--lu-border);
     box-shadow: 0 3px 0 var(--lu-border);
     color: var(--lu-text);
-    font: 700 var(--lu-fs-xs) / 1.35 var(--lu-font);
+    font: 600 var(--lu-fs-xs) / 1.4 var(--lu-font);
     text-align: center;
     pointer-events: none;
     opacity: 0;
@@ -780,9 +895,7 @@
     border-radius: var(--lu-r-sm);
     background: transparent;
     color: var(--lu-text-2);
-    font: var(--lu-fw-bold) var(--lu-fs-xs) / 1 var(--lu-font);
-    letter-spacing: var(--lu-tracking-caps);
-    text-transform: uppercase;
+    font: var(--lu-fw-bold) var(--lu-fs-sm) / 1 var(--lu-font);
     cursor: pointer;
     transition:
       background-color var(--lu-dur-2),
@@ -794,10 +907,10 @@
   }
   .lu-tab[aria-selected='true'] {
     background: var(--lu-surface);
-    color: var(--lu-blue-ink);
+    color: var(--lu-violet-ink);
     box-shadow:
-      inset 0 0 0 2px var(--lu-blue),
-      0 2px 0 var(--lu-blue-lip);
+      inset 0 0 0 2px var(--lu-violet),
+      0 2px 0 var(--lu-violet-lip);
   }
   .lu-tab-icon {
     display: inline-grid;
@@ -840,7 +953,7 @@
     height: 34px;
     padding: 0;
     border: 0;
-    border-radius: var(--lu-r-pill);
+    border-radius: var(--lu-r);
     background: var(--lu-surface-3);
     box-shadow: inset 0 0 0 2px var(--lu-border-strong);
     cursor: pointer;
@@ -849,8 +962,8 @@
       box-shadow var(--lu-dur-2);
   }
   .lu-switch[aria-checked='true'] {
-    background: var(--lu-green);
-    box-shadow: inset 0 0 0 2px var(--lu-green-lip);
+    background: var(--lu-violet);
+    box-shadow: inset 0 0 0 2px var(--lu-violet-lip);
   }
   .lu-switch-thumb {
     position: absolute;
@@ -858,9 +971,9 @@
     left: 4px;
     width: 26px;
     height: 26px;
-    border-radius: 50%;
+    border-radius: 6px;
     background: #fff;
-    box-shadow: 0 2px 0 rgb(0 0 0 / 0.18);
+    box-shadow: 0 -3px 0 rgb(42 33 69 / 0.14) inset;
     transition: transform var(--lu-dur-3) var(--lu-ease-bounce);
   }
   .lu-switch[aria-checked='true'] .lu-switch-thumb {
@@ -893,7 +1006,7 @@
   .lu-avatar[data-ring] {
     box-shadow:
       0 0 0 3px var(--lu-bg),
-      0 0 0 6px var(--lu-ring-color, var(--lu-blue));
+      0 0 0 6px var(--lu-ring-color, var(--lu-violet));
   }
   .lu-avatar[data-ring='green'] {
     --lu-ring-color: var(--lu-green);
@@ -927,7 +1040,7 @@
     max-width: 360px;
     color: var(--lu-text-2);
     font-size: var(--lu-fs-md);
-    font-weight: 600;
+    font-weight: 500;
   }
   .lu-empty-action {
     margin-top: var(--lu-s-4);
@@ -961,23 +1074,23 @@
     overflow: visible;
   }
   .lu-wordmark text {
-    font-family: var(--lu-font);
-    font-weight: var(--lu-fw-black);
+    font-family: var(--lu-font-logo);
+    font-weight: 700;
   }
   .lu-wordmark-level {
     font-size: 27px;
-    fill: var(--lu-green);
+    fill: var(--lu-violet);
   }
   .lu-wordmark-up {
     font-size: 25px;
-    fill: var(--lu-orange);
+    fill: var(--lu-mint-ink);
   }
   .lu-wordmark-arrow {
     fill: none;
-    stroke: var(--lu-orange);
-    stroke-width: 3.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    stroke: var(--lu-mint-ink);
+    stroke-width: 3;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
   }
 
   /* ── Loo «Пружинка», the pixel mascot ───────────────────────────────────────────
@@ -1149,8 +1262,17 @@
   .loo,
   .loo *,
   .lu-progress-fill,
-  .lu-spin {
+  .lu-spin,
+  .lu-sheet::backdrop,
+  .lu-sheet-panel,
+  .lu-pop,
+  .loo-bubble {
     animation: none !important;
+  }
+  .lu-tip,
+  .lu-switch-thumb,
+  .lu-progress-fill {
+    transition: none;
   }
   .lu-spin {
     border-right-color: currentColor;
@@ -1165,7 +1287,7 @@
     color: var(--lu-text);
   }
   .ds code {
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12px;
     color: var(--lu-text-2);
   }
@@ -1207,6 +1329,30 @@
     padding: var(--lu-s-8) 0;
     border-top: 2px solid var(--lu-border);
     scroll-margin-top: 64px;
+  }
+  /* author emoji rendered as our pixel icon inside text (src/ui/markdown/emoji-icons.ts) */
+  .px-emoji {
+    display: inline-block;
+    vertical-align: -0.22em;
+    margin: 0 0.08em;
+  }
+  .ds-pxicons {
+    gap: var(--lu-s-3);
+  }
+  .ds-pxicon {
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+    width: 84px;
+    margin: 0;
+    padding: var(--lu-s-3) var(--lu-s-1);
+    border: var(--lu-border-w) solid var(--lu-border);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-surface);
+  }
+  .ds-pxicon figcaption {
+    color: var(--lu-text-2);
+    font: 600 11px/1 var(--lu-font-mono);
   }
   .ds-row {
     display: flex;
@@ -1366,6 +1512,161 @@
     white-space: nowrap;
     font-size: 10px;
   }
+  /* Brand colours: violet (primary) and mint (accent) get big swatches with their -lip/-hover/-soft/-ink steps. */
+  .ds-brand {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--lu-s-4);
+  }
+  .ds-brand-card {
+    display: grid;
+    gap: var(--lu-s-3);
+  }
+  .ds-brand-chip {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 112px;
+    padding: var(--lu-s-3) var(--lu-s-4);
+    border-radius: var(--lu-r-lg);
+    font-weight: var(--lu-fw-black);
+    font-size: var(--lu-fs-lg);
+  }
+  .ds-brand-chip code {
+    color: inherit;
+    opacity: 0.85;
+  }
+  .ds-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--lu-s-2);
+  }
+  .ds-step {
+    display: grid;
+    gap: 4px;
+    font-size: var(--lu-fs-2xs);
+  }
+  .ds-step > span:first-child {
+    height: 36px;
+    border-radius: var(--lu-r-sm);
+    border: 2px solid var(--lu-border);
+  }
+  .ds-tones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--lu-s-2);
+  }
+  /* Typography specimen: label column + sample */
+  .ds-spec {
+    display: grid;
+    gap: var(--lu-s-3);
+  }
+  .ds-spec-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--lu-s-4);
+    padding-bottom: var(--lu-s-3);
+    border-bottom: 2px dashed var(--lu-border);
+  }
+  .ds-spec-row > :last-child {
+    margin: 0;
+    min-width: 0;
+    line-height: 1.25;
+  }
+  .ds-pixel-num {
+    font-family: var(--lu-font-pixel);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .ds-mono {
+    font-family: var(--lu-font-mono);
+    font-size: var(--lu-fs-sm);
+  }
+  .ds-note {
+    padding: var(--lu-s-3) var(--lu-s-4);
+    border-left: 4px solid var(--lu-violet);
+    border-radius: var(--lu-r-xs) var(--lu-r) var(--lu-r) var(--lu-r-xs);
+    background: var(--lu-violet-soft);
+    color: var(--lu-text);
+    font-weight: 600;
+  }
+  /* Buttons: variants × sizes */
+  .ds-btn-grid {
+    display: grid;
+    grid-template-columns: 96px repeat(3, max-content) max-content;
+    align-items: center;
+    gap: var(--lu-s-3) var(--lu-s-4);
+    overflow-x: auto;
+    padding-bottom: var(--lu-s-1);
+  }
+  .ds-btn-grid > code {
+    align-self: center;
+  }
+  /* Framed .lu-px block: set only the knobs, never background/border/box-shadow */
+  .ds-px-demo {
+    --px-face: var(--lu-violet-soft);
+    --px-line: var(--lu-violet);
+    display: grid;
+    gap: 6px;
+    padding: var(--lu-s-4) var(--lu-s-5);
+    color: var(--lu-text);
+  }
+  .ds-px-demo[data-tone='mint'] {
+    --px-face: var(--lu-mint-soft);
+    --px-line: var(--lu-mint-lip);
+  }
+  .ds-px-demo strong {
+    font-size: var(--lu-fs-lg);
+  }
+  /* Code sample: the dark «arcade screen» with the «Loo night» syntax palette */
+  .ds-code {
+    margin: 0;
+    padding: var(--lu-s-3) var(--lu-s-4);
+    border: 2px solid var(--code-border);
+    border-radius: var(--lu-r-lg);
+    background: var(--code-bg);
+    color: var(--code-foreground);
+    font: 14px / 1.7 var(--lu-font-mono);
+    overflow-x: auto;
+  }
+  .ds .ds-code code {
+    color: inherit;
+    font-size: inherit;
+  }
+  .ds-code [data-tk='keyword'] {
+    color: var(--code-token-keyword);
+  }
+  .ds-code [data-tk='string'] {
+    color: var(--code-token-string);
+  }
+  .ds-code [data-tk='const'] {
+    color: var(--code-token-constant);
+  }
+  .ds-code [data-tk='fn'] {
+    color: var(--code-token-function);
+  }
+  .ds-code [data-tk='param'] {
+    color: var(--code-token-parameter);
+  }
+  .ds-code [data-tk='comment'] {
+    color: var(--code-token-comment);
+    font-style: italic;
+  }
+  .ds-code [data-tk='punct'] {
+    color: var(--code-token-punctuation);
+  }
+  .ds-inline-code {
+    padding: 1px 6px;
+    border-radius: var(--lu-r-xs);
+    background: var(--inline-code-bg);
+    color: var(--inline-code);
+    font: 0.92em var(--lu-font-mono);
+  }
+  .ds .ds-inline-code {
+    font-size: 0.92em;
+    color: var(--inline-code);
+  }
   .ds-theme {
     padding: var(--lu-s-5);
     border-radius: var(--lu-r-xl);
@@ -1381,6 +1682,10 @@
     }
     .ds-h1 {
       font-size: var(--lu-fs-2xl);
+    }
+    .ds-spec-row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
     }
   }
 }

@@ -14,8 +14,8 @@ interface ProgressBarProps {
   className?: string
 }
 
-// Rounded game bar with a glossy highlight; width animates with a little overshoot.
-export function ProgressBar({ value, tone = 'green', size = 'md', striped, label, valueText, className }: ProgressBarProps) {
+// Segmented «pixel» bar (violet by default) with a flat highlight; width animates with a little overshoot.
+export function ProgressBar({ value, tone = 'violet', size = 'md', striped, label, valueText, className }: ProgressBarProps) {
   const v = clamp01(value)
   return (
     <div

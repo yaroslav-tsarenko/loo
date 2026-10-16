@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { PiCheckBold } from 'react-icons/pi'
 import { messages, t } from '@/i18n'
 import { updateProfile } from '@/server/actions/account'
 import { setCourseLevel } from '@/server/actions/courses'
@@ -37,7 +38,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       </header>
       {param(params, 'saved') ? (
         <p className="acct-note" role="status">
-          {t('account.savedNote')}
+          <PiCheckBold aria-hidden="true" /> {t('account.savedNote')}
         </p>
       ) : null}
 
@@ -48,7 +49,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           </h2>
           <label className="auth-field">
             <span className="auth-label">{t('account.displayName')}</span>
-            <input className="auth-input" name="displayName" defaultValue={name} required maxLength={60} autoComplete="nickname" />
+            <input className="auth-input" name="displayName" defaultValue={name} required maxLength={60} autoComplete="nickname" placeholder={t('auth.placeholders.displayName')} />
           </label>
           <ChoiceGroup legend={t('account.avatar')} hint={t('account.avatarHint')}>
             {user.avatarUrl ? <Choice type="radio" name="avatar" value="oauth" defaultChecked={Boolean(profile?.avatarUrl)} title={<Avatar name={name} src={user.avatarUrl} size={40} />} /> : null}
@@ -120,7 +121,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             <input type="hidden" name="course" value={c.id} />
             <input type="hidden" name="next" value="/account?saved=1" />
             <span className="acct-course-title">
-              <Icon name={c.icon ?? '📘'} size={22} /> {c.title}
+              <Icon name={c.icon ?? 'px:book'} size={22} /> {c.title}
               {c.enrollment.active ? <Pill tone="green" size="sm">{t('courses.active')}</Pill> : null}
             </span>
             <label className="sr-only" htmlFor={`lvl-${c.id}`}>
@@ -137,7 +138,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               {t('common.save')}
             </Button>
             <Link href={`/placement?course=${c.id}`} className="acct-course-link">
-              🧪 {t('account.placementLink')}
+              <Icon name="px:testTube" size={18} /> {t('account.placementLink')}
             </Link>
           </form>
         ))}
@@ -198,7 +199,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         <form action="/auth/delete-account" method="post" className="acct-row">
           <label className="auth-field">
             <span className="auth-label">{t('account.deleteConfirm')}</span>
-            <input className="auth-input" name="confirm" required autoComplete="off" pattern={t('account.deleteWord')} />
+            <input className="auth-input" name="confirm" required autoComplete="off" pattern={t('account.deleteWord')} placeholder={t('auth.placeholders.confirmDelete', { word: t('account.deleteWord') })} />
           </label>
           <Button type="submit" variant="danger">
             {t('account.deleteSubmit')}

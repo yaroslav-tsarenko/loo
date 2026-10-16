@@ -118,15 +118,27 @@ import config from './config.json' with { type: 'json' }; // import attributes (
 
 Імпорт в ESM — не змінна-копія, а **зв'язок** (binding) на змінну модуля-експортера. Читання завжди повертає поточне значення, а записати в імпорт не можна — `TypeError: Assignment to constant variable`, навіть якщо в джерелі `let`.
 
-```text
-   counter.mjs                          main.mjs
-   ┌────────────────────┐               ┌─────────────────────┐
-   │ let count ─────────┼──── live ────►│ count  (read-only)  │
-   │ function inc()     │               │ inc()  ── змінює ───┼──► count у counter.mjs
-   └────────────────────┘               └─────────────────────┘
-
-   CommonJS:  const { count } = require('./counter')  →  КОПІЯ значення в момент require
-```
+> [!diagram] Live binding: ESM бачить змінну, CommonJS — копію
+> ```yaml
+> layout: compare
+> columns: { src: "counter.mjs", esm: "main.mjs (ESM)", cjs: "CommonJS" }
+> nodes:
+>   - { id: cnt, col: src, label: "export let count", text: "0", tone: yellow }
+>   - { id: inc, col: src, label: "export function inc()", code: "count++;", tone: gray }
+>   - { id: ecount, col: esm, label: "count (live, read-only)", text: "0", tone: violet }
+>   - { id: ecode, col: esm, label: "код", code: "import { count, inc } from './counter.mjs';\ninc();\nconsole.log(count);", tone: gray }
+>   - { id: ccount, col: cjs, label: "const { count } = require('./counter')", text: "0 (копія)", tone: orange }
+> edges:
+>   - { from: inc, to: cnt, label: "змінює" }
+>   - { from: ecode, to: ecount, label: "читає" }
+> steps:
+>   - { focus: cnt, note: "У counter.mjs живе змінна let count = 0." }
+>   - { show: [ecount, ccount], line: "ecode:1", focus: [ecount, ccount], note: "ESM-імпорт — це звʼязок із самою змінною. CommonJS-деструктуризація копіює значення 0 у момент require." }
+>   - { set: { cnt: "1" }, line: "ecode:2", focus: [inc, cnt], note: "inc() виконує count++ всередині counter.mjs — тепер там 1." }
+>   - { set: { ecount: "1" }, line: "ecode:3", note: "console.log(count) у main.mjs → 1: імпорт щоразу читає поточне значення змінної модуля." }
+>   - { focus: ccount, note: "А CommonJS-копія досі 0 — її зняли один раз і більше ніщо її не оновлює." }
+>   - { set: { ecount: "count = 5 → TypeError" }, note: "Записати в імпорт не можна: Assignment to constant variable. Змінювати count може лише сам counter.mjs." }
+> ```
 
 > [!viz] module-graph
 > scenario: esm-live-binding
@@ -194,13 +206,23 @@ console.log(count, frozenDefault); // → 1 0
 2. 🔗 **Linking (instantiation)** — для кожного модуля створити оточення і **з'єднати** імпорти з експортами (live bindings). Тут виявляються помилки на кшталт `does not provide an export named …` — до виконання будь-якого рядка. `function`-оголошення вже ініціалізовані, `let/const/class` — у TDZ.
 3. ▶️ **Evaluation** — виконати код модулів у порядку **post-order DFS**: спершу залежності (зліва направо за порядком `import`), потім сам модуль. Кожен модуль — рівно один раз.
 
-```text
-        main.mjs                     порядок виконання:
-        ├── import './a.mjs'           1️⃣ c.mjs   (листок, перший у DFS)
-        │     └── import './c.mjs'     2️⃣ a.mjs
-        └── import './b.mjs'           3️⃣ b.mjs   (c вже виконаний — не повторюється)
-              └── import './c.mjs'     4️⃣ main.mjs
-```
+> [!diagram] Порядок виконання: post-order DFS
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: main, label: "main.mjs", code: "import './a.mjs';\nimport './b.mjs';", tone: violet }
+>   - { id: a, label: "a.mjs", code: "import './c.mjs';", parent: main, tone: blue }
+>   - { id: c1, label: "c.mjs", text: "листок", parent: a, tone: gray }
+>   - { id: b, label: "b.mjs", code: "import './c.mjs';", parent: main, tone: blue }
+>   - { id: c2, label: "c.mjs (той самий)", text: "листок", parent: b, tone: gray }
+> steps:
+>   - { focus: main, note: "Construction і Linking уже пройшли: граф знайдено, імпорти звʼязано, але жоден рядок ще не виконувався." }
+>   - { set: { c1: "1️⃣ виконано" }, line: ["main:1", "a:1"], note: "Evaluation — post-order DFS: main → a → c. c.mjs — листок без залежностей, тож виконується першим." }
+>   - { set: { a: "2️⃣ виконано" }, focus: a, note: "Усі залежності a.mjs готові — виконується сам a.mjs." }
+>   - { set: { c2: "вже виконано — пропуск" }, line: ["main:2", "b:1"], note: "Далі друга гілка: main → b → c. Але c.mjs уже виконаний: кожен модуль — рівно один раз." }
+>   - { set: { b: "3️⃣ виконано" }, focus: b, note: "Залежності b.mjs готові — виконується b.mjs." }
+>   - { set: { main: "4️⃣ виконано" }, focus: main, note: "Наприкінці — сам main.mjs. Тому імпорти «спливають»: залежності завжди виконуються раніше за модуль." }
+> ```
 
 > [!quiz] Перевір себе: що виведе `node order1.mjs`?
 > level: middle · type: output · id: jsd-21-quiz-05
@@ -387,11 +409,26 @@ CommonJS-модуль — це функція-обгортка, яку Node ви
 
 Браузер уміє ESM нативно, але для продакшну код усе одно **бандлять**: сотні дрібних файлів — це сотні запитів і водоспад залежностей (браузер дізнається про наступний імпорт, лише розпарсивши попередній), а ще потрібні TypeScript/JSX, мініфікація, хешовані імена файлів, оптимізація CSS і картинок.
 
-```text
-  src/*.ts, *.tsx, *.css ──► resolve ──► transform ──► граф ──► tree shaking ──► chunks ──► minify ──► dist/
-                              (node_modules,  (TS→JS,          (прибрати      (code splitting
-                               alias)          JSX)             невикористане)  за import())
-```
+> [!diagram] Що бандлер робить з кодом
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: src, label: "src/", text: "*.ts, *.tsx, *.css", tone: blue, icon: "px:file" }
+>   - { id: resolve, label: "resolve", text: "node_modules, alias", tone: gray }
+>   - { id: transform, label: "transform", text: "TS → JS, JSX", tone: gray }
+>   - { id: shake, label: "граф + tree shaking", text: "прибрати невикористане", tone: violet }
+>   - { id: chunks, label: "chunks", text: "code splitting за import()", tone: yellow }
+>   - { id: minify, label: "minify", text: "коротші імена, без пробілів", tone: gray }
+>   - { id: dist, label: "dist/", text: "?", tone: green }
+> steps:
+>   - { focus: src, note: "На вході — твої файли: TypeScript, JSX, CSS. Браузер так їх не з'їсть, та й файлів сотні." }
+>   - { move: { from: src, to: resolve, value: "import 'react'" }, note: "Resolve: бандлер знаходить, який файл стоїть за кожним специфікатором — у node_modules чи за alias." }
+>   - { move: { from: resolve, to: transform, value: "App.tsx" }, note: "Transform: TypeScript і JSX перетворюються на звичайний JS." }
+>   - { move: { from: transform, to: shake, value: "граф модулів" }, note: "З усіх імпортів будується граф. Експорти, які ніхто не імпортує, викидаються — це tree shaking." }
+>   - { move: { from: shake, to: chunks, value: "import('./Admin')" }, note: "Динамічний import() стає окремим chunk-ом — він завантажиться лише тоді, коли знадобиться." }
+>   - { move: { from: chunks, to: minify, value: "chunks" }, note: "Minify: коротші імена змінних, жодних пробілів і коментарів." }
+>   - { move: { from: minify, to: dist, value: "app.3f9a1c.js" }, set: { dist: "app.3f9a1c.js + admin.81b2e0.js" }, note: "На виході — кілька файлів із хешем у назві: браузер кешує їх надовго, а нова версія отримає нове імʼя." }
+> ```
 
 | Інструмент | Сильна сторона | Де трапляється |
 |---|---|---|

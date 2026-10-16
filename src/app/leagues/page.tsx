@@ -9,6 +9,7 @@ import { Avatar } from '@/ui/design/Avatar'
 import { Button } from '@/ui/design/Button'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { GameIcon } from '@/ui/design/GameIcon'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { InviteButton, PromotionConfetti, WeekCountdown } from '@/ui/game/LeagueClient'
@@ -38,7 +39,7 @@ function Row({ row, size }: { row: LeagueRow; size: number }) {
   )
 }
 
-// 🏆 /leagues: this week's cohort (≤ 30 learners of one tier), ranked by server-graded weekly XP. Names and avatars only.
+// /leagues: this week's cohort (≤ 30 learners of one tier), ranked by server-graded weekly XP. Names and avatars only.
 export default async function LeaguesPage() {
   const user = await requireUser()
   const now = nowMs()
@@ -57,7 +58,7 @@ export default async function LeaguesPage() {
     <div className="page leagues-page" data-width="wide" style={tierStyle(view.tier)}>
       <header className="league-hero">
         <span className="league-shield" aria-hidden="true">
-          {look.emoji}
+          <PixelIcon name={look.icon} size={96} />
         </span>
         <div className="league-hero-text">
           <h1 className="ghead-title">{t('game.leagues.league', { tier: tierName(view.tier) })}</h1>
@@ -68,8 +69,8 @@ export default async function LeaguesPage() {
 
       <ol className="league-ladder" aria-label={t('game.leagues.ladder')}>
         {LEAGUE_TIERS.map((tier) => (
-          <li key={tier} style={tierStyle(tier)} data-state={tier === view.tier ? 'current' : tierIndex(tier) < tierIndex(view.tier) ? 'done' : 'locked'} title={tierName(tier)}>
-            <span aria-hidden="true">{TIER_LOOK[tier].emoji}</span>
+          <li key={tier} data-state={tier === view.tier ? 'current' : tierIndex(tier) < tierIndex(view.tier) ? 'done' : 'locked'} title={tierName(tier)}>
+            <PixelIcon name={TIER_LOOK[tier].icon} size={36} />
             <span className="sr-only">{tierName(tier)}</span>
           </li>
         ))}

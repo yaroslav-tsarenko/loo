@@ -3,7 +3,7 @@ import { nowMs } from '@/server/clock'
 import { finalizeDue } from '@/server/game/leagues'
 
 // Vercel Cron (vercel.json) hits this daily: closes every league cohort of a finished week (top 7 up, bottom 5 down,
-// 💎 rewards). Weeks are also closed lazily on the first /leagues visit of the new week. src/proxy.ts checks CRON_SECRET.
+// gem rewards). Weeks are also closed lazily on the first /leagues visit of the new week. src/proxy.ts checks CRON_SECRET.
 export const dynamic = 'force-dynamic'
 export const maxDuration = 60
 

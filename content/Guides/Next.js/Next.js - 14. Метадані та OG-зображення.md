@@ -96,12 +96,20 @@ export const getPost = cache(async (slug: string) => {
 
 Створіть файл `opengraph-image.jpg` у папці `app` або в конкретному маршруті:
 
-```
-app/
-├── opengraph-image.jpg          (глобальне)
-├── blog/
-│   └── opengraph-image.jpg      (для /blog)
-```
+> [!diagram] Яке OG-зображення отримає сторінка
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: app, text: "app/", tone: violet, icon: "si:SiNextdotjs" }
+>   - { id: og1, text: "opengraph-image.jpg", note: "глобальне", parent: app, tone: blue, icon: "px:image" }
+>   - { id: blog, text: "blog/", note: "сегмент /blog", parent: app, tone: gray, icon: "pi:PiFoldersFill" }
+>   - { id: og2, text: "opengraph-image.jpg", note: "для /blog", parent: blog, tone: green, icon: "px:image" }
+> steps:
+>   - { show: [app, og1], note: "Кладемо opengraph-image.jpg прямо в app/ — це глобальне прев'ю для всіх сторінок." }
+>   - { move: { from: app, to: og1, value: "/" }, note: "Головна / свого зображення не має, тож бере глобальне." }
+>   - { show: [blog, og2], note: "У папці blog/ лежить своє opengraph-image.jpg." }
+>   - { move: { from: blog, to: og2, value: "/blog" }, note: "Для /blog знайшлись обидва, але виграє специфічніше — зображення з blog/. Next.js сам додасть потрібні og:image теги." }
+> ```
 
 Більш специфічне зображення має пріоритет.
 

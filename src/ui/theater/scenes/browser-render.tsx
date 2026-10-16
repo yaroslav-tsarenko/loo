@@ -13,7 +13,7 @@ interface S {
 
 const STAGES = ['Байти', 'DOM', 'CSSOM', 'Render tree', 'Layout', 'Paint', 'Composite']
 
-const HTML = `<header>☕ Кавʼярня</header>
+const HTML = `<header>Кавʼярня</header>
 <main>
   <h1>Флет вайт</h1>
   <p class="price">95 ₴</p>
@@ -53,7 +53,7 @@ const BOXES: Array<[string, string]> = [
   ['button', '16, 134 · 120×40'],
 ]
 
-const PAINT = ["fillRect header #3b2a20", "drawText '☕ Кавʼярня'", "drawText 'Флет вайт'", "drawText '95 ₴' green", "fillRect button #2383e2", "drawText 'Купити' white"]
+const PAINT = ["fillRect header #3b2a20", "drawText 'Кавʼярня'", "drawText 'Флет вайт'", "drawText '95 ₴' green", "fillRect button #2383e2", "drawText 'Купити' white"]
 const LAYERS = [
   ['Root layer', 'увесь документ'],
   ['header', 'sticky: прокручується окремо'],
@@ -67,7 +67,7 @@ function Page({ s }: { s: S }) {
   return (
     <div className="br-page" data-laid={laid ? '' : undefined} style={{ ['--paint' as string]: painted, ['--split' as string]: split }}>
       <div className="br-layer br-header" data-demo="box-header" style={{ opacity: laid ? 1 : 0, transform: `translate(${split * 14}px, ${split * -10}px)` }}>
-        <span>☕ Кавʼярня</span>
+        <span>Кавʼярня</span>
         {laid && painted < 1 ? <em>360×44</em> : null}
       </div>
       <div className="br-layer br-root" style={{ opacity: laid ? 1 : 0 }}>

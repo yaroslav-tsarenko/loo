@@ -53,14 +53,27 @@ icon: "📦"
 
 Модель, яка працює завжди: **змінна зберігає значення**. Для примітивів значення — це саме число, рядок тощо. Для об'єктів значення — це **посилання** (reference) на об'єкт, який живе в **heap** (купі пам'яті).
 
-```text
-let x = 1;            змінні              heap
-let y = x;            x ──► 1
-const a = { n: 1 };   y ──► 1  (окрема копія)
-const b = a;          a ──┐
-                          ├──► { n: 1 }    ← один об'єкт
-                      b ──┘
-```
+> [!diagram] Змінна — ярлик: копія числа vs копія посилання
+> ```yaml
+> layout: compare
+> columns: { code: "код", vars: "змінні", heap: "heap" }
+> nodes:
+>   - { id: src, col: code, label: "рядок за рядком", code: "let x = 1;\nlet y = x;\nconst a = { n: 1 };\nconst b = a;\nb.n = 2;", tone: gray }
+>   - { id: x, col: vars, label: "x", text: "1", tone: blue }
+>   - { id: y, col: vars, label: "y", text: "1", note: "окрема копія", tone: blue }
+>   - { id: a, col: vars, label: "a", text: "→ обʼєкт #1", note: "посилання", tone: violet }
+>   - { id: b, col: vars, label: "b", text: "→ обʼєкт #1", note: "та сама адреса", tone: violet }
+>   - { id: obj, col: heap, label: "обʼєкт #1", text: "{ n: 1 }", tone: yellow, icon: "px:house" }
+> edges:
+>   - { from: a, to: obj, dashed: true }
+>   - { from: b, to: obj, dashed: true }
+> steps:
+>   - { show: x, line: "src:1", note: "let x = 1 — у змінній лежить саме число 1." }
+>   - { show: y, line: "src:2", note: "let y = x копіює значення: y отримує свою окрему 1. Змінимо y — x цього не помітить." }
+>   - { show: [obj, a], line: "src:3", note: "Обʼєкт { n: 1 } створюється в heap, а в a лежить лише посилання на нього — «адреса» #1." }
+>   - { show: b, line: "src:4", note: "const b = a копіює посилання, а не обʼєкт. Тепер два ярлики ведуть до одного { n: 1 }." }
+>   - { set: { obj: "{ n: 2 }" }, focus: [a, b, obj], line: "src:5", note: "b.n = 2 змінює спільний обʼєкт — тому a.n теж 2, а a === b → true." }
+> ```
 
 Присвоєння `=` **завжди копіює значення**. Просто для об'єкта копіюється посилання, а не сам об'єкт.
 
@@ -584,11 +597,30 @@ console.log(o === o);           // → true
 > >
 > > Виведе `2 undefined true`.
 > >
-> > ```text
-> > a ──► { list: ─┐ }
-> > b ──┐          ├──► [1, 2]   ← один масив на двох (shallow copy)
-> > c ──┴► { list: ┘, flag: true }
-> > ```
+> > > [!diagram] Shallow copy: два обʼєкти, один масив
+> > > ```yaml
+> > > layout: compare
+> > > columns: { code: "код", vars: "змінні", heap: "heap" }
+> > > nodes:
+> > >   - { id: src, col: code, label: "рядок за рядком", code: "const a = { list: [1] };\nconst b = { ...a };\nconst c = b;\nc.list.push(2);\nc.flag = true;\nconsole.log(a.list.length, a.flag, b.flag);", tone: gray }
+> > >   - { id: a, col: vars, label: "a", text: "→ обʼєкт #1", tone: blue }
+> > >   - { id: b, col: vars, label: "b", text: "→ обʼєкт #2", tone: violet }
+> > >   - { id: c, col: vars, label: "c", text: "→ обʼєкт #2", note: "лише ще один ярлик", tone: violet }
+> > >   - { id: o1, col: heap, label: "обʼєкт #1", text: "{ list: → масив }", tone: blue }
+> > >   - { id: arr, col: heap, label: "масив (один на двох)", text: "[1]", tone: yellow }
+> > >   - { id: o2, col: heap, label: "обʼєкт #2 (копія)", text: "{ list: → масив }", tone: violet }
+> > >   - { id: out, col: code, label: "console.log", text: "?", tone: green }
+> > > edges:
+> > >   - { from: o1, to: arr, label: "list" }
+> > >   - { from: o2, to: arr, label: "list" }
+> > > steps:
+> > >   - { show: [a, o1, arr], line: "src:1", note: "Створено обʼєкт #1 і масив [1]; у властивості list лежить посилання на масив." }
+> > >   - { show: [b, o2], line: "src:2", note: "Spread створює НОВИЙ обʼєкт #2, але копіює значення властивостей — тобто те саме посилання на масив. Це shallow copy." }
+> > >   - { show: c, line: "src:3", note: "c = b не створює обʼєкт — це другий ярлик для обʼєкта #2." }
+> > >   - { set: { arr: "[1, 2]" }, line: "src:4", note: "c.list веде до спільного масиву — push(2) видно і через a, і через b." }
+> > >   - { set: { o2: "{ list: → масив, flag: true }" }, line: "src:5", note: "flag дописано лише в обʼєкт #2 (на нього дивляться b і c). Обʼєкт #1 не змінився." }
+> > >   - { show: out, set: { out: "2 undefined true" }, line: "src:6", note: "Разом: 2 обʼєкти верхнього рівня, 1 масив — тому a.list.length = 2, a.flag — undefined, b.flag — true." }
+> > > ```
 > >
 > > Об'єктів верхнього рівня два (`a` і копія, на яку вказують `b` і `c`), масив — один. Тому `push` видно через `a`, а `flag` додано лише в копію.
 

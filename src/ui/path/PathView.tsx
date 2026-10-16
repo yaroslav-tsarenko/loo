@@ -10,11 +10,13 @@ import { GameIcon } from '@/ui/design/GameIcon'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { Ring } from '@/ui/design/Ring'
 import { Sheet } from '@/ui/design/Sheet'
+import { Icon } from '@/ui/icons/Icon'
 
 export interface PathLessonView {
   id: string
   kind: string
-  emoji: string
+  // icon refs for <Icon name> (src/content/icons.ts)
+  icon: string
   title: string
   minutes: number
   size: number
@@ -40,7 +42,7 @@ export interface PathNodeView {
 }
 
 export interface PathStageView {
-  emoji: string
+  icon: string
   title: string
   ratio: number
   nodes: PathNodeView[]
@@ -48,8 +50,8 @@ export interface PathStageView {
 
 // Horizontal offsets that make the path wind like a river.
 const WAVE = [0, 56, 84, 56, 0, -56, -84, -56]
-// Section banners cycle through the bright palette.
-const STAGE_TONES: readonly Tone[] = ['green', 'blue', 'purple', 'orange', 'pink']
+// Section banners cycle through the tones, starting with Loo's violet.
+const STAGE_TONES: readonly Tone[] = ['violet', 'mint', 'blue', 'pink', 'orange']
 
 function SkillSheet({ node, onClose }: { node: PathNodeView; onClose: () => void }) {
   const q = `chapter=${encodeURIComponent(node.id)}`
@@ -60,7 +62,7 @@ function SkillSheet({ node, onClose }: { node: PathNodeView; onClose: () => void
       title={
         <span className="path-sheet-title">
           <span className="path-sheet-icon" aria-hidden="true">
-            {node.icon}
+            <Icon name={node.icon} size={32} />
           </span>
           {node.title}
         </span>
@@ -115,7 +117,7 @@ function SkillSheet({ node, onClose }: { node: PathNodeView; onClose: () => void
 
 function LessonBubble({ lesson, offset, ratio, onOpen, open, bubbleRef }: { lesson: PathLessonView; offset: number; ratio: number; onOpen: () => void; open: boolean; bubbleRef?: Ref<HTMLButtonElement> }) {
   const state = lesson.current ? 'current' : lesson.done ? 'done' : 'upcoming'
-  const glyph = lesson.done ? lesson.perfect ? <PiStarFill /> : <PiCheckBold /> : lesson.current ? <PiPlayFill /> : <span aria-hidden="true">{lesson.emoji}</span>
+  const glyph = lesson.done ? lesson.perfect ? <PiStarFill /> : <PiCheckBold /> : lesson.current ? <PiPlayFill /> : <Icon name={lesson.icon} size={32} />
   const bubble = (
     <button type="button" ref={bubbleRef} className="lesson-bubble" onClick={onOpen} aria-expanded={open} aria-label={`${lesson.title}${lesson.done ? ' — пройдено' : lesson.current ? ' — наступний урок' : ''}`}>
       <span className="lesson-bubble-glyph" aria-hidden="true">
@@ -124,10 +126,10 @@ function LessonBubble({ lesson, offset, ratio, onOpen, open, bubbleRef }: { less
     </button>
   )
   return (
-    <li className="lesson-node" style={{ '--x': `${offset}px` } as CSSProperties} data-state={state} data-kind={lesson.kind} data-side={offset > 0 ? 'right' : 'left'}>
+    <li className="lesson-node" style={{ '--x': `${offset}px` } as CSSProperties} data-state={state} data-kind={lesson.kind} data-perfect={lesson.done && lesson.perfect ? '' : undefined} data-side={offset > 0 ? 'right' : 'left'}>
       {lesson.current && !open ? <span className="path-node-tip">Старт</span> : null}
       {lesson.current ? (
-        <Ring value={ratio} size={96} stroke={8} tone="green" label="Прогрес розділу" className="lesson-bubble-ring">
+        <Ring value={ratio} size={96} stroke={8} label="Прогрес розділу" className="lesson-bubble-ring">
           {bubble}
         </Ring>
       ) : (
@@ -139,9 +141,9 @@ function LessonBubble({ lesson, offset, ratio, onOpen, open, bubbleRef }: { less
         </span>
       ) : null}
       {open ? (
-        <div className="lesson-pop lu-card" data-variant="raised" data-tone={lesson.done ? 'yellow' : lesson.current ? 'green' : undefined} data-pad="md" role="dialog" aria-label={lesson.title}>
+        <div className="lesson-pop lu-card" data-variant="raised" data-tone={lesson.done ? (lesson.perfect ? 'yellow' : 'green') : lesson.current ? 'violet' : undefined} data-pad="md" role="dialog" aria-label={lesson.title}>
           <strong className="lesson-pop-title">
-            {lesson.emoji} {lesson.title}
+            <Icon name={lesson.icon} size={20} /> {lesson.title}
           </strong>
           <span className="lesson-pop-meta">
             {lesson.kind === 'theory' ? `Стаття · ~${lesson.minutes} хв` : `${lesson.size} вправ · ~${lesson.minutes} хв`}
@@ -178,7 +180,7 @@ export function PathView({ stages }: { stages: PathStageView[] }) {
         <section key={stage.title} className="path-stage" data-tone={STAGE_TONES[si % STAGE_TONES.length]}>
           <header className="path-banner">
             <span className="path-banner-emoji" aria-hidden="true">
-              {stage.emoji}
+              <Icon name={stage.icon} size={28} />
             </span>
             <div className="path-banner-text">
               <span className="path-banner-eyebrow">Секція {si + 1}</span>
@@ -191,10 +193,10 @@ export function PathView({ stages }: { stages: PathStageView[] }) {
           </header>
           {stage.nodes.map((node) => (
             <div key={node.id} className="skill" data-state={node.state}>
-              <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={node.state === 'current' ? 'green' : undefined} onClick={() => setSheet(node)}>
-                <Ring value={node.ratio} size={56} stroke={6} tone={node.crowns >= 5 ? 'yellow' : 'green'} label={`Опановано ${Math.round(node.ratio * 100)}%`} className="skill-ring">
+              <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={node.state === 'current' ? 'violet' : undefined} onClick={() => setSheet(node)}>
+                <Ring value={node.ratio} size={56} stroke={6} tone={node.crowns >= 5 ? 'yellow' : 'violet'} label={`Опановано ${Math.round(node.ratio * 100)}%`} className="skill-ring">
                   <span className="skill-icon" aria-hidden="true">
-                    {node.crowns >= 5 ? <GameIcon name="crown" size={26} /> : node.icon}
+                    {node.crowns >= 5 ? <GameIcon name="crown" size={26} /> : <Icon name={node.icon} size={22} />}
                   </span>
                 </Ring>
                 <span className="skill-text">

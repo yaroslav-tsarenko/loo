@@ -32,7 +32,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
         key={course.lesson.id}
         lessonId={course.lesson.id}
         title={course.lesson.title}
-        emoji={course.lesson.emoji}
+        icon={course.lesson.icon}
         chapterTitle={data.chapterTitle}
         chapterHref={data.chapterHref}
         items={data.items}
@@ -57,7 +57,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
       key={lesson.id}
       lessonId={lesson.id}
       title={lesson.title}
-      emoji={lesson.emoji}
+      icon={lesson.icon}
       chapterTitle={data.chapterTitle}
       chapterHref={data.chapterHref}
       items={data.items}

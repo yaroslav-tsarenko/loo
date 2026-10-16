@@ -1,3 +1,4 @@
+import { iconRef } from '@/content/icons'
 import type { Chapter, LearningUnit } from '@/content/model'
 import type { Reel } from '@/content/parse/reels'
 import { lessonId, legacyLessonIdFor, sectionExamId, sectionId as makeSectionId, topicId as makeTopicId, topicKeyFor, topicTestId } from '../ids'
@@ -168,7 +169,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
           index,
           kind: d.kind,
           n: d.n,
-          emoji: d.emoji,
+          icon: d.icon,
           title: d.title,
           items: d.items,
           minutes: d.minutes,
@@ -195,7 +196,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
         guideId: guide.id,
         title: chapter.title,
         number: chapter.number,
-        icon: chapter.icon,
+        icon: iconRef(chapter.icon),
         level: topicLevel,
         tags: chapter.tags,
         minutes: lessons.reduce((sum, l) => sum + l.minutes, 0),
@@ -229,7 +230,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       kind: sm.kind,
       title: sm.title,
       description: sm.description ?? null,
-      icon: sm.icon ?? guide.icon ?? null,
+      icon: iconRef(sm.icon) ?? iconRef(guide.icon),
       guideId: guide.id,
       guideDir: guide.dir,
       level: maxLevel(topicLevels) ?? sm.level ?? 'junior',
@@ -244,7 +245,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
 
   const placement = placementPool(manifest, sections, exercises)
   const stats = courseStats(sections, exercises, reels)
-  const icons = [...new Set([manifest.icon, ...sections.map((s) => s.icon), ...sections.flatMap((s) => s.topics.map((t) => t.icon))].filter((v): v is string => Boolean(v)))]
+  const icons = [...new Set([iconRef(manifest.icon), ...sections.map((s) => s.icon), ...sections.flatMap((s) => s.topics.map((t) => t.icon))].filter((v): v is string => Boolean(v)))]
 
   const bundle: CourseBundle = {
     format: BUNDLE_FORMAT,
@@ -256,7 +257,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       description: manifest.description ?? null,
       subject: manifest.subject,
       language: manifest.language,
-      icon: manifest.icon ?? null,
+      icon: iconRef(manifest.icon),
       color: manifest.color ?? null,
       cover: manifest.cover ?? null,
       levels: manifest.levels,

@@ -198,21 +198,22 @@ store.put(fresh); // 💥 TransactionInactiveError
 > [!viz] service-worker
 > scenario: lifecycle
 
-```text
-register('/sw.js')
-   │
-   ▼
-installing ── install: попередньо закешувати статику (event.waitUntil)
-   │
-   ▼
-installed / waiting ⏸  ← нова версія ЧЕКАЄ, поки закриються всі вкладки зі старою
-   │        (або self.skipWaiting())
-   ▼
-activating ── activate: прибрати старі кеші; clients.claim() — взяти під контроль відкриті сторінки
-   │
-   ▼
-activated ── fetch / push / sync події
-```
+> [!diagram] Життєвий цикл Service Worker
+> ```yaml
+> layout: stack
+> nodes:
+>   - { id: reg, label: сторінка, code: "navigator.serviceWorker.register('/sw.js')", tone: blue }
+>   - { id: inst, label: installing, code: "self.addEventListener('install', …)\nc.addAll(['/', '/app.css', '/app.js'])", tone: violet }
+>   - { id: wait, label: "installed / waiting", text: "⏸ чекає, поки закриються вкладки зі старою версією", note: "або self.skipWaiting()", tone: yellow }
+>   - { id: act, label: activating, code: "caches.delete(k)  // k !== 'static-v2'\nself.clients.claim()", tone: orange }
+>   - { id: done, label: activated, text: "перехоплює fetch / push / sync", tone: green, icon: "px:shield" }
+> steps:
+>   - { show: reg, line: "reg:1", note: "Сторінка реєструє воркер. Браузер завантажує sw.js і запускає його окремо від сторінки — у своєму потоці, без DOM." }
+>   - { show: inst, move: { from: reg, to: inst, value: "sw.js" }, line: "inst:2", note: "Подія install: воркер заздалегідь кладе статику в Cache API. event.waitUntil не дає фазі завершитись, поки кеш не заповнено." }
+>   - { show: wait, note: "Нова версія встановлена, але ЧЕКАЄ: старий воркер ще обслуговує відкриті вкладки. Дві версії одночасно зламали б кеші." }
+>   - { show: act, line: ["act:1", "act:2"], note: "Коли старих вкладок не лишилось (або викликано skipWaiting) — activate: прибираємо старі кеші й беремо під контроль відкриті сторінки через clients.claim()." }
+>   - { show: done, move: { from: act, to: done, value: "fetch" }, note: "Тепер воркер перехоплює кожен запит своїх сторінок і може відповідати з кешу — так працює офлайн." }
+> ```
 
 ```js
 // sw.js

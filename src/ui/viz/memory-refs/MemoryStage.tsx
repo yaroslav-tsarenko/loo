@@ -2,7 +2,8 @@
 
 import { AnimatePresence, m } from 'motion/react'
 import { Arrows, type ArrowLink } from '../engine/Arrows'
-import { SPRING } from '../engine/Panel'
+import { SPRING, VizGlyph } from '../engine/Panel'
+import type { VizIcon } from '../engine/types'
 import type { HeapObj, MemFrame, MemValue } from './scenarios'
 
 function Value({ value, anchor, heap }: { value: MemValue; anchor: string; heap: readonly HeapObj[] }) {
@@ -16,7 +17,7 @@ function Value({ value, anchor, heap }: { value: MemValue; anchor: string; heap:
 }
 
 // Stack (or GC roots) on the left, heap on the right, references as arrows.
-export function MemoryStage({ frame, rootsTitle = 'Стек · змінні', rootsEmoji = '🗂️' }: { frame: MemFrame; rootsTitle?: string; rootsEmoji?: string }) {
+export function MemoryStage({ frame, rootsTitle = 'Стек · змінні', rootsIcon = 'px:pancakes' }: { frame: MemFrame; rootsTitle?: string; rootsIcon?: VizIcon }) {
   const links: ArrowLink[] = []
   for (const s of frame.stack) if ('ref' in s.value) links.push({ from: `slot-${s.name}`, to: `heap-${s.value.ref}`, tone: 'accent' })
   for (const h of frame.heap) {
@@ -28,7 +29,7 @@ export function MemoryStage({ frame, rootsTitle = 'Стек · змінні', ro
     <div className="viz-mem viz-rel">
       <section className="viz-mem-col" aria-label={rootsTitle}>
         <header className="viz-panel-head">
-          <span aria-hidden="true">{rootsEmoji}</span> {rootsTitle}
+          <VizGlyph icon={rootsIcon} /> {rootsTitle}
         </header>
         <ul className="viz-slots">
           <AnimatePresence initial={false}>
@@ -44,14 +45,14 @@ export function MemoryStage({ frame, rootsTitle = 'Стек · змінні', ro
       </section>
       <section className="viz-mem-col" aria-label="Купа · об’єкти">
         <header className="viz-panel-head">
-          <span aria-hidden="true">🧺</span> Купа · об’єкти
+          <VizGlyph icon="px:box" /> Купа · об’єкти
         </header>
         <div className="viz-heap">
           <AnimatePresence initial={false} mode="popLayout">
             {frame.heap.map((h) => (
               <m.div key={h.id} layout="position" className="viz-obj" data-anchor={`heap-${h.id}`} data-state={h.state} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: h.state === 'unreachable' ? 0.55 : 1, scale: 1 }} exit={{ opacity: 0, scale: 0.6, filter: 'blur(2px)' }} transition={SPRING}>
                 <div className="viz-obj-head">
-                  <span aria-hidden="true">{h.emoji}</span> {h.label}
+                  <VizGlyph icon={h.icon} /> {h.label}
                   {h.state === 'unreachable' ? <span className="viz-obj-flag">недосяжний</span> : null}
                 </div>
                 <ul>

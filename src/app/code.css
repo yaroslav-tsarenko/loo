@@ -24,25 +24,36 @@
     --ce-line: 21px;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    border: 2px solid var(--lu-border);
+    border: 2px solid var(--code-border);
     border-radius: var(--lu-r);
     background: var(--code-bg);
-    font-family: var(--font-mono);
+    box-shadow: 0 var(--lu-lip-sm) 0 var(--code-border);
+    color: var(--code-foreground);
+    font-family: var(--lu-font-mono);
     font-size: var(--ce-font);
     line-height: var(--ce-line);
     overflow: hidden;
-    transition: border-color var(--lu-dur-2);
+    transition:
+      border-color var(--lu-dur-2),
+      box-shadow var(--lu-dur-2);
   }
   .code-editor:focus-within {
-    border-color: var(--lu-blue);
+    border-color: var(--lu-violet);
+    box-shadow: 0 var(--lu-lip-sm) 0 var(--lu-violet-lip);
   }
+  .code-editor[data-readonly] {
+    opacity: 0.85;
+  }
+  /* The editor sits on the dark arcade screen in both themes: every colour here is screen-relative. */
   .code-editor-gutter {
     display: flex;
     flex-direction: column;
-    padding: 12px 6px 18px 12px;
+    padding: 12px 8px 18px 12px;
     min-width: 3.2ch;
     text-align: right;
-    color: var(--t3);
+    color: rgb(236 232 255 / 0.38);
+    background: rgb(255 255 255 / 0.03);
+    border-right: 2px solid var(--code-border);
     user-select: none;
     -webkit-user-select: none;
     font-variant-numeric: tabular-nums;
@@ -60,7 +71,7 @@
   .code-editor-overlay,
   .code-editor-input {
     margin: 0;
-    padding: 12px 16px 18px 8px;
+    padding: 12px 16px 18px 10px;
     border: 0;
     font: inherit;
     line-height: var(--ce-line);
@@ -87,12 +98,13 @@
     background: transparent;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    caret-color: var(--t1);
+    caret-color: var(--lu-mint);
     outline: none;
     scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.22) transparent;
   }
   .code-editor-input::selection {
-    background: var(--selection);
+    background: rgb(140 105 255 / 0.5);
   }
 
 
@@ -107,15 +119,17 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 10px;
-    border: 0;
-    border-radius: var(--lu-r-pill);
-    background: var(--lu-surface-2);
-    color: var(--lu-blue-ink);
-    font: 800 12px var(--lu-font);
+    min-height: 30px;
+    padding: 0 10px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface);
+    color: var(--lu-violet-ink);
+    font: 700 12px var(--lu-font);
+    transition: background-color var(--lu-dur-2);
   }
   .task-reset:hover {
-    background: var(--lu-surface-3);
+    background: var(--lu-violet-soft);
   }
   .task-tests > summary {
     display: inline-flex;
@@ -124,8 +138,15 @@
     cursor: pointer;
     padding: 4px 0;
     font-size: var(--lu-fs-xs);
-    font-weight: 800;
+    font-weight: 700;
     color: var(--lu-text-2);
+    list-style: none;
+  }
+  .task-tests > summary::-webkit-details-marker {
+    display: none;
+  }
+  .task-tests > summary > svg {
+    color: var(--lu-violet);
   }
   .task-tests > summary:hover {
     color: var(--lu-text);
@@ -134,14 +155,17 @@
   .exercise-solution pre {
     margin: 6px 0 0;
     padding: 12px 14px;
+    border: 2px solid var(--code-border);
     border-radius: var(--lu-r);
     background: var(--code-bg);
     color: var(--code-foreground);
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: auto;
     tab-size: 2;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.22) transparent;
   }
   .task-run-kbd {
     margin-left: -4px;
@@ -161,6 +185,7 @@
   .test-report[data-status='passed'] {
     border-color: var(--lu-green);
     background: var(--lu-green-soft);
+    box-shadow: 0 var(--lu-lip-sm) 0 var(--lu-green-lip);
     animation: test-pop 420ms var(--lu-ease-bounce);
   }
   .test-report[data-status='failed'] {
@@ -178,7 +203,7 @@
     gap: 8px;
     margin: 0;
     font-size: var(--lu-fs-sm);
-    font-weight: 900;
+    font-weight: var(--lu-fw-black);
   }
   .test-report[data-status='passed'] .test-summary {
     color: var(--lu-green-ink);
@@ -228,7 +253,7 @@
     place-items: center;
     width: 24px;
     height: 24px;
-    border-radius: 50%;
+    border-radius: var(--lu-r-sm);
     font-size: 14px;
     color: var(--lu-on-color);
     background: var(--lu-text-3);
@@ -242,7 +267,7 @@
     box-shadow: 0 2px 0 var(--lu-red-lip);
   }
   .test-chip[data-ok='wait'] {
-    background: var(--lu-blue);
+    background: var(--lu-violet);
     animation: lu-spin 1.4s linear infinite;
   }
   .test-body {
@@ -257,7 +282,8 @@
   }
   .test-error {
     color: var(--lu-red-ink);
-    font-family: var(--font-mono);
+    font-weight: 500;
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
     overflow-wrap: anywhere;
   }
@@ -281,14 +307,14 @@
   .test-diff dd {
     margin: 0;
     min-width: 0;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
   .test-console > summary {
     cursor: pointer;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--lu-text-2);
   }
   .test-console pre {
@@ -296,17 +322,22 @@
     padding: 10px 12px;
     max-height: 220px;
     overflow: auto;
+    border: 2px solid var(--code-border);
     border-radius: var(--lu-r-sm);
     background: var(--code-bg);
-    font-family: var(--font-mono);
+    color: var(--code-foreground);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
-    line-height: 1.5;
+    line-height: 1.55;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.22) transparent;
   }
+  /* on the dark console: screen palette, not the page inks */
   .test-log[data-level='warn'] {
-    color: var(--orange);
+    color: var(--code-token-changed);
   }
   .test-log[data-level='error'] {
-    color: var(--red);
+    color: var(--code-token-deleted);
   }
 
   /* ---------- order (Parsons): code tiles you stack into a tray */
@@ -318,10 +349,8 @@
   }
   .order-label {
     margin-top: 4px;
-    font-size: var(--lu-fs-2xs);
-    font-weight: 900;
-    letter-spacing: var(--lu-tracking-caps);
-    text-transform: uppercase;
+    font-size: var(--lu-fs-sm);
+    font-weight: var(--lu-fw-bold);
     color: var(--lu-text-2);
   }
   .order-answer,
@@ -336,7 +365,7 @@
   .order-answer {
     min-height: 64px;
     background: var(--lu-surface-2);
-    border: 2px solid var(--lu-border);
+    border: 2px solid var(--lu-border-strong);
   }
   .order-answer[data-empty] {
     border-style: dashed;
@@ -359,9 +388,11 @@
     font-weight: 700;
     color: var(--lu-text-3);
   }
+  /* Code tiles are little arcade screens: the syntax colours are tuned for the dark --code-bg. */
   .order-piece {
-    --p: var(--lu-border);
-    --p-lip: var(--lu-border);
+    --p: var(--code-border);
+    --p-lip: var(--code-border);
+    --p-bg: var(--code-bg);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -371,7 +402,7 @@
     padding: 6px 12px 6px 8px;
     border: 2px solid var(--p);
     border-radius: var(--lu-r);
-    background: var(--lu-surface);
+    background: var(--p-bg);
     box-shadow: 0 3px 0 var(--p-lip);
     color: var(--code-foreground);
     text-align: left;
@@ -387,7 +418,12 @@
     animation: lu-pop-in var(--lu-dur-2) var(--lu-ease-bounce);
   }
   .order-piece:hover:not(:disabled) {
-    background: var(--lu-surface-2);
+    --p: var(--lu-violet);
+    --p-lip: var(--lu-violet-lip);
+  }
+  .order-piece:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 2px;
   }
   .order-piece:active:not(:disabled) {
     cursor: grabbing;
@@ -399,7 +435,7 @@
   }
   .order-grip {
     flex: none;
-    color: var(--lu-text-3);
+    color: rgb(236 232 255 / 0.4);
     font-size: 18px;
   }
   .order-line {
@@ -408,23 +444,31 @@
     place-items: center;
     width: 24px;
     height: 24px;
-    border-radius: 7px;
-    background: var(--lu-surface-3);
-    color: var(--lu-text-2);
+    border-radius: var(--lu-r-xs);
+    background: rgb(255 255 255 / 0.1);
+    color: var(--code-foreground);
     font-size: 12px;
-    font-weight: 900;
+    font-weight: var(--lu-fw-black);
   }
+  .order-piece kbd {
+    color: var(--code-foreground);
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.2);
+    box-shadow: 0 2px 0 rgb(255 255 255 / 0.12);
+  }
+  /* reset the article's inline-code chip (.prose-read code) on code tiles */
   .order .order-piece code,
   .fill .fill-chip code {
     padding: 0;
     border-radius: 0;
     background: none;
+    box-shadow: none;
     color: inherit;
   }
-  .order-piece code {
+  .order .order-piece code {
     flex: 1;
     min-width: 0;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 13.6px;
     line-height: 1.5;
     white-space: pre;
@@ -436,7 +480,7 @@
   .order-piece[data-state='right'] {
     --p: var(--lu-green);
     --p-lip: var(--lu-green-lip);
-    background: var(--lu-green-soft);
+    --p-bg: color-mix(in srgb, var(--lu-green) 18%, var(--code-bg));
   }
   .order-piece[data-state='right'] .order-line {
     background: var(--lu-green);
@@ -445,7 +489,7 @@
   .order-piece[data-state='wrong'] {
     --p: var(--lu-red);
     --p-lip: var(--lu-red-lip);
-    background: var(--lu-red-soft);
+    --p-bg: color-mix(in srgb, var(--lu-red) 18%, var(--code-bg));
   }
   .order-piece[data-state='wrong'] .order-line {
     background: var(--lu-red);
@@ -476,10 +520,12 @@
   .fill-code {
     margin: 0;
     padding: 14px 16px;
+    border: 2px solid var(--code-border);
     border-radius: var(--lu-r-lg);
     background: var(--code-bg);
+    box-shadow: 0 var(--lu-lip-sm) 0 var(--code-border);
     color: var(--code-foreground);
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 13.6px;
     line-height: 2.3;
     overflow-x: auto;
@@ -497,19 +543,21 @@
     line-height: 1.5;
     padding: 1px 10px;
     margin: 0 2px;
-    border: 2px solid var(--lu-blue);
+    border: 2px solid var(--lu-violet);
     border-bottom-width: 3px;
-    border-radius: var(--lu-r-pill);
-    background: var(--lu-surface);
-    color: var(--lu-text);
+    border-radius: var(--lu-r-sm);
+    background: rgb(255 255 255 / 0.08);
+    color: var(--code-foreground);
+    caret-color: var(--lu-mint);
     text-align: center;
     transition: border-color var(--lu-dur-2), background-color var(--lu-dur-2);
   }
   .fill-input:focus,
   .fill-slot[data-active] {
     outline: none;
-    background: var(--lu-blue-soft);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--lu-blue) 30%, transparent);
+    border-color: var(--lu-mint);
+    background: rgb(79 227 204 / 0.14);
+    box-shadow: 0 0 0 3px rgb(79 227 204 / 0.25);
   }
   .fill-slot {
     cursor: pointer;
@@ -526,22 +574,22 @@
   .fill-slot[data-state='right'] {
     border-style: solid;
     border-color: var(--lu-green);
-    background: var(--lu-green-soft);
-    color: var(--lu-green-ink);
+    background: rgb(95 224 154 / 0.16);
+    color: var(--code-token-inserted);
   }
   .fill-input[data-state='wrong'],
   .fill-slot[data-state='wrong'] {
     border-style: solid;
     border-color: var(--lu-red);
-    background: var(--lu-red-soft);
-    color: var(--lu-red-ink);
+    background: rgb(255 138 153 / 0.16);
+    color: var(--code-token-deleted);
     text-decoration: line-through;
   }
   .fill-correct {
     padding: 0 8px;
-    border-radius: var(--lu-r-pill);
-    background: var(--lu-green);
-    color: var(--lu-on-color);
+    border-radius: var(--lu-r-sm);
+    background: var(--code-token-inserted);
+    color: var(--lu-loo-ink);
     font-weight: 700;
   }
   .fill-bank {
@@ -576,16 +624,22 @@
       box-shadow var(--lu-dur-1) var(--lu-ease),
       background-color var(--lu-dur-2);
   }
-  .fill-chip code {
-    font-family: var(--font-mono);
+  .fill .fill-chip code {
+    font-family: var(--lu-font-mono);
     font-size: 15px;
     font-weight: 600;
+    color: var(--lu-violet-ink);
   }
   .fill-chip kbd {
     font-family: var(--lu-font);
   }
   .fill-chip:hover:not(:disabled) {
-    background: var(--lu-surface-2);
+    border-color: var(--lu-violet);
+    background: var(--lu-violet-soft);
+  }
+  .fill-chip:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 2px;
   }
   .fill-chip:active:not(:disabled) {
     transform: translateY(var(--lu-lip-sm));
@@ -610,7 +664,7 @@
       --ce-line: 24px;
     }
     .fill-code,
-    .order-piece code {
+    .order .order-piece code {
       font-size: 15px;
     }
     .fill-input {

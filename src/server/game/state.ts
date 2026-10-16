@@ -1,8 +1,8 @@
 import 'server-only'
 import { and, eq, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
-import { gemLedger, inventory, userState, type EquippedSkinState } from '@/db/schema'
-import { gainHearts, loseHeart, settleHearts, skinLook, type EquippedSkin, type HeartsState, type HeartsView, type SkinLook } from '@/game'
+import { buckLedger, gemLedger, inventory, userState } from '@/db/schema'
+import { gainHearts, loseHeart, settleHearts, type EquippedGear, type EquippedSkin, type HeartsState, type HeartsView } from '@/game'
 
 // The learner's game row (user_state): created on first use, hearts settled lazily on every read.
 
@@ -11,7 +11,8 @@ export interface GameState {
   freezes: number
   boostUntil: number | null
   skin: EquippedSkin
-  // Loo's evolution step reached / last one celebrated (src/game/ranks.ts)
+  gear: EquippedGear
+  // character step reached / last one celebrated (src/game/ranks.ts)
   evoStep: number
   evoSeen: number
 }
@@ -24,6 +25,7 @@ function toState(row: Row, now: number): GameState {
     freezes: row.streakFreezes,
     boostUntil: row.doubleXpUntil,
     skin: (row.skin ?? {}) as EquippedSkin,
+    gear: (row.gear ?? {}) as EquippedGear,
     evoStep: row.evoStep,
     evoSeen: row.evoSeen,
   }
@@ -38,7 +40,7 @@ export async function loadState(conn: Conn, userId: string, now: number, opts: {
   return toState(row, now)
 }
 
-export async function saveState(conn: Conn, userId: string, patch: Partial<Pick<Row, 'hearts' | 'heartsAt' | 'streakFreezes' | 'doubleXpUntil' | 'skin' | 'evoStep' | 'evoSeen'>>, now: number): Promise<void> {
+export async function saveState(conn: Conn, userId: string, patch: Partial<Pick<Row, 'hearts' | 'heartsAt' | 'streakFreezes' | 'doubleXpUntil' | 'skin' | 'gear' | 'evoStep' | 'evoSeen'>>, now: number): Promise<void> {
   await conn
     .update(userState)
     .set({ ...patch, updatedAt: now })
@@ -67,13 +69,13 @@ export async function gemsOf(conn: Conn, userId: string): Promise<number> {
   return Number(row?.total ?? 0)
 }
 
-export async function ownedItems(conn: Conn, userId: string): Promise<Set<string>> {
-  return new Set((await conn.select({ id: inventory.itemId }).from(inventory).where(eq(inventory.userId, userId))).map((r) => r.id))
+export async function bucksOf(conn: Conn, userId: string): Promise<number> {
+  const row = await first(conn.select({ total: sql<number>`coalesce(sum(${buckLedger.amount}), 0)` }).from(buckLedger).where(eq(buckLedger.userId, userId)))
+  return Number(row?.total ?? 0)
 }
 
-export async function equippedLook(conn: Conn, userId: string): Promise<SkinLook> {
-  const row = await first(conn.select({ skin: userState.skin }).from(userState).where(eq(userState.userId, userId)))
-  return skinLook((row?.skin ?? {}) as EquippedSkinState)
+export async function ownedItems(conn: Conn, userId: string): Promise<Set<string>> {
+  return new Set((await conn.select({ id: inventory.itemId }).from(inventory).where(eq(inventory.userId, userId))).map((r) => r.id))
 }
 
 export async function hasItem(conn: Conn, userId: string, itemId: string): Promise<boolean> {

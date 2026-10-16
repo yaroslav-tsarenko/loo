@@ -52,11 +52,13 @@ export async function rankInput(conn: Conn, userId: string): Promise<RankInput> 
   return { xp, lessons, tests, exams, courses: await coursesFinished(conn, userId) }
 }
 
-export async function rankOfUser(conn: Conn, userId: string): Promise<RankProgress> {
-  return rankProgress(await rankInput(conn, userId))
+// Progress on «шлях воїна»; the stored step is a floor (ranks never go down).
+export async function rankOfUser(conn: Conn, userId: string, now = Date.now()): Promise<RankProgress> {
+  const [input, state] = [await rankInput(conn, userId), await loadState(conn, userId, now)]
+  return rankProgress(input, state.evoStep)
 }
 
-// Loo evolves: a newly reached step is stored (evo_step), pays its 💎 once per step, and yields an «evolution» effect
+// A new step of «шлях воїна»: stored (evo_step), pays its gems once per step, and yields an «evolution» effect
 // (toast now; the full-screen moment plays on the next page load until acknowledged — evo_seen). Never goes down.
 export async function settleRank(conn: Conn, userId: string, now: number): Promise<Effect[]> {
   const state = await loadState(conn, userId, now)
@@ -64,13 +66,13 @@ export async function settleRank(conn: Conn, userId: string, now: number): Promi
   if (rank.index <= state.evoStep) return []
   await saveState(conn, userId, { evoStep: rank.index }, now)
   let gems = 0
-  for (const step of stepsBetween(state.evoStep, rank.index)) gems += await awardGems(conn, userId, { amount: step.gems, reason: 'evolution', refId: gemRef.evolution(step.index), now })
-  const effects: Effect[] = [{ type: 'evolution', from: state.evoStep, step: rank.index, title: rank.title, form: rank.form, tier: rank.tier, gems }]
+  for (const step of stepsBetween(state.evoStep, rank.index)) gems += await awardGems(conn, userId, { amount: step.gems, reason: 'evolution', refId: gemRef.rank(step.index), now })
+  const effects: Effect[] = [{ type: 'evolution', from: state.evoStep, step: rank.index, title: rank.title, rank: rank.rank, tier: rank.tier, gems }]
   if (gems > 0) effects.push({ type: 'gems', amount: gems, reason: 'evolution' })
   return effects
 }
 
-// The evolution moment was shown: don't play it again.
+// The rank-up moment was shown: don't play it again.
 export async function ackEvolution(conn: Conn, userId: string, step: number, now: number): Promise<void> {
   const state = await loadState(conn, userId, now)
   const seen = Math.min(state.evoStep, Math.max(state.evoSeen, step))

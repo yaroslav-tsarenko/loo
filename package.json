@@ -18,6 +18,7 @@
     "db:generate": "drizzle-kit generate",
     "ids:suggest": "tsx scripts/ids-suggest.ts",
     "content:check": "tsx --env-file-if-exists=.env.local scripts/check-guide.ts",
+    "diagram:check": "tsx --env-file-if-exists=.env.local scripts/diagram-check.ts",
     "content:sync": "tsx --env-file-if-exists=.env.local scripts/content-sync.ts",
     "course:check": "tsx --env-file-if-exists=.env.local scripts/course-check.ts",
     "course:build": "tsx --env-file-if-exists=.env.local scripts/course-build.ts",

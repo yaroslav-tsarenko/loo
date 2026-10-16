@@ -5,6 +5,7 @@ import { gatewayAuth, reelModels } from '@/ai/reels/generate'
 import { splitBody } from '@/ai/reels/schema'
 import { first, getDb } from '@/db/client'
 import { generatedReels } from '@/db/schema'
+import { iconRef, REEL_FALLBACK_ICON } from '@/content/icons'
 import { safeExternalUrl } from '@/lib/url'
 import { dayStartMs } from '@/progress/day'
 import { requireAdmin } from '@/server/auth'
@@ -13,6 +14,7 @@ import { getContent } from '@/server/content'
 import { readSystem } from '@/server/settings'
 import { relative } from '@/ui/format'
 import { GenerateNow, HideButton } from '@/ui/feed/GeneratedAdmin'
+import { Icon } from '@/ui/icons/Icon'
 import { chapterHref } from '@/ui/routes'
 
 export const metadata: Metadata = { title: 'AI-фішки' }
@@ -42,7 +44,10 @@ export default async function GeneratedReelsPage() {
   return (
     <div className="page news-page gen-page">
       <header className="news-head">
-        <h1 className="page-title">🤖 AI-фішки</h1>
+        <h1 className="page-title">
+          <Icon name="pi:PiRobotFill" size={36} className="page-title-icon" />
+          AI-фішки
+        </h1>
         <p className="page-lead">
           Щоранку (06:30 UTC) модель пише 8–12 фішок: новини JS за 48 год і глибокі факти з твоїх слабких та поточних розділів. Кожну перевіряє друга модель і запуск коду в sandbox.
         </p>
@@ -53,7 +58,8 @@ export default async function GeneratedReelsPage() {
           </span>
           <GenerateNow />
         </div>
-        {auth ? null : <p className="gen-warning">⚠️ AI Gateway не налаштовано: додай AI_GATEWAY_API_KEY у .env.local або зроби `vercel env pull` (VERCEL_OIDC_TOKEN).</p>}
+        {auth ? null : <p className="gen-warning">
+            <Icon name="px:warning" size={18} /> AI Gateway не налаштовано: додай AI_GATEWAY_API_KEY у .env.local або зроби `vercel env pull` (VERCEL_OIDC_TOKEN).</p>}
       </header>
 
       <h2 className="section-title">
@@ -69,7 +75,7 @@ export default async function GeneratedReelsPage() {
             return (
               <li key={r.id} className="gen-row" data-hidden={r.status === 'hidden' ? '' : undefined}>
                 <span className="news-emoji" aria-hidden="true">
-                  {r.emoji}
+                  <Icon name={iconRef(r.emoji, REEL_FALLBACK_ICON)!} size={24} />
                 </span>
                 <div className="news-body">
                   <div className="gen-title">{r.title}</div>
@@ -93,7 +99,7 @@ export default async function GeneratedReelsPage() {
                         </a>
                       </>
                     ) : null}
-                    {r.status === 'hidden' ? ' · 🙈 сховано' : ''}
+                    {r.status === 'hidden' ? ' · сховано' : ''}
                   </div>
                 </div>
                 {r.status === 'active' ? <HideButton id={r.id} /> : <span />}

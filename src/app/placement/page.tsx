@@ -1,7 +1,7 @@
 import { randomBytes } from 'node:crypto'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { LEVEL_EMOJI, LEVEL_LABEL, placementCandidates, placementTest } from '@/course'
+import { LEVEL_LABEL, placementCandidates, placementTest } from '@/course'
 import { t } from '@/i18n'
 import { safeRedirectPath } from '@/lib/redirect'
 import { requireUser } from '@/server/auth'
@@ -52,7 +52,7 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
       maxQuestions={bundle.placement.maxQuestions}
       items={items}
       sections={bundle.sections.map((s) => ({ id: s.id, index: s.index, title: s.title, icon: s.icon }))}
-      levels={Object.fromEntries(bundle.course.levels.map((l) => [l, `${LEVEL_EMOJI[l]} ${LEVEL_LABEL[l]}`]))}
+      levels={Object.fromEntries(bundle.course.levels.map((l) => [l, LEVEL_LABEL[l]]))}
       next={next}
       zero={
         <form action={startFromZero}>

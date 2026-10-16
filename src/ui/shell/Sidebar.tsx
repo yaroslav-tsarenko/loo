@@ -208,11 +208,10 @@ function GuideRow({ guide, path, open, toggle }: { guide: SidebarGuide; path: st
 
 export interface SidebarRank {
   title: string
-  emoji: string
   index: number
 }
 
-// Level (from XP) + Loo's evolution (src/game/ranks.ts; live through /api/counts) → «Мій Loo».
+// Level (from XP) + the warrior rank (src/game/ranks.ts; live through /api/counts) → «Мій Loo».
 function LevelRow({ rank }: { rank?: SidebarRank }) {
   const { xp } = useFeedback()
   const counts = useCounts()
@@ -220,16 +219,14 @@ function LevelRow({ rank }: { rank?: SidebarRank }) {
   const pct = Math.round(info.progress * 100)
   const live = RANKS[counts[RANK_KEY] ?? rank?.index ?? 0] ?? RANKS[0]!
   return (
-    <Link href="/loo" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Мій Loo: ${live.title}, рівень ${info.level}, ${pct}% до наступного рівня`}>
+    <Link href="/loo" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Мій Loo: ранг ${live.title}, рівень ${info.level}, ${pct}% до наступного рівня`}>
       <span className="sb-level-badge sb-level-loo" aria-hidden="true">
         <LooCharacter step={live.index} size={34} animated={false} />
         <span className="tabular">{info.level}</span>
       </span>
       <span className="sb-level-body">
         <span className="sb-level-top">
-          <span>
-            <span aria-hidden="true">{live.emoji}</span> {live.title}
-          </span>
+          <span>{live.title}</span>
           <span className="tabular">{pct}%</span>
         </span>
         <ProgressBar value={info.progress} tone="yellow" size="sm" label="Прогрес рівня" />
@@ -252,7 +249,7 @@ function CourseRows({ courses }: { courses: SidebarCourse[] }) {
           {c.active ? (
             <Link href="/path" className="sb-course" data-active="" aria-current="true" onClick={() => setMobileSidebar(false)}>
               <span className="sb-course-icon">
-                <Icon name={c.icon ?? '📘'} size={20} />
+                <Icon name={c.icon ?? 'px:book'} size={20} />
               </span>
               <span className="sb-course-title">{c.title}</span>
               <PiCheckBold className="sb-course-check" aria-label={t('shell.activeCourse')} />
@@ -263,7 +260,7 @@ function CourseRows({ courses }: { courses: SidebarCourse[] }) {
               <input type="hidden" name="next" value="/path" />
               <button type="submit" className="sb-course" onClick={() => setMobileSidebar(false)}>
                 <span className="sb-course-icon">
-                  <Icon name={c.icon ?? '📘'} size={20} />
+                  <Icon name={c.icon ?? 'px:book'} size={20} />
                 </span>
                 <span className="sb-course-title">{c.title}</span>
               </button>

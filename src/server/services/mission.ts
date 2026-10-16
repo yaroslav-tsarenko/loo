@@ -3,24 +3,26 @@ import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState } from '@/db/schema'
 import { lookup } from '@/course'
+import { EXAM_ICON, TEST_ICON } from '@/content/icons'
 import type { Chapter } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey, dayStartMs } from '@/progress/day'
 import { missionRatio, planMission, stepProgress, type MissionActivity, type MissionPlan, type StepProgress } from '@/progress/mission'
 import type { Effect } from '@/progress/types'
 import { chapterHref } from '@/ui/routes'
-import { GEMS, gemRef } from '@/game'
+import { BUCKS, buckRef } from '@/game'
 import { userScope } from '../auth'
-import { awardGems, grantXp } from '../game/ledger'
+import { awardBucks, grantXp } from '../game/ledger'
 import { readSettings } from '../settings'
 import { activeCourse, exerciseIds } from '../courses/enrollment'
 import { coursePathView, cursorHref } from '../courses/path'
 import { chapterProgressMap, nextChapterFor } from './library'
 
-// Where the learner is in the active course: the next node of the course path (lesson, 🏁 test or 👑 exam).
+// Where the learner is in the active course: the next node of the course path (lesson, topic test or section exam).
 export interface MissionCursor {
   href: string | null
-  emoji: string | null
+  // icon ref (src/content/icons.ts)
+  icon: string | null
   title: string | null
   topicTitle: string | null
   // the next topic's chapter (for the «read» step)
@@ -227,7 +229,7 @@ function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: MissionC
   return out
 }
 
-const EMPTY_CURSOR: MissionCursor = { href: null, emoji: null, title: null, topicTitle: null, chapterId: null, remaining: 0, total: 0, course: null }
+const EMPTY_CURSOR: MissionCursor = { href: null, icon: null, title: null, topicTitle: null, chapterId: null, remaining: 0, total: 0, course: null }
 
 // The mission's lesson cursor = the next node of the active course path.
 export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor: MissionCursor; scope: ReadonlySet<string> | null }> {
@@ -244,8 +246,8 @@ export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor
   const chapter = topic ? snapshot.chapters.get(topic.chapterId) : undefined
   const href = cursorHref(at, { bundle, theoryHref: new Map(chapter ? [[chapter.id, chapterHref(snapshot, chapter)]] : []) })
   const title = at.type === 'lesson' ? at.lesson?.title ?? null : at.type === 'test' ? 'Тест теми' : `Екзамен: ${section?.title ?? ''}`
-  const emoji = at.type === 'lesson' ? at.lesson?.emoji ?? null : at.type === 'test' ? '🏁' : '👑'
-  return { cursor: { ...base, href, title, emoji, topicTitle: topic?.title ?? section?.title ?? null, chapterId: topic?.chapterId ?? null }, scope: exerciseIds(bundle) }
+  const icon = at.type === 'lesson' ? at.lesson?.icon ?? null : at.type === 'test' ? TEST_ICON : EXAM_ICON
+  return { cursor: { ...base, href, title, icon, topicTitle: topic?.title ?? section?.title ?? null, chapterId: topic?.chapterId ?? null }, scope: exerciseIds(bundle) }
 }
 
 export async function getMission(snapshot: ContentSnapshot, reels: number, now = Date.now()): Promise<MissionView> {
@@ -281,10 +283,10 @@ export async function settleMission(conn: Conn, userId: string, now = Date.now()
     .insert(dailyActivity)
     .values({ userId, day, xp, goalMet: true })
     .onConflictDoUpdate({ target: [dailyActivity.userId, dailyActivity.day], set: { xp: sql`${dailyActivity.xp} + ${xp}`, goalMet: true } })
-  const gems = await awardGems(conn, userId, { amount: GEMS.mission, reason: 'mission', refId: gemRef.mission(day), now })
+  const bucks = await awardBucks(conn, userId, { amount: BUCKS.mission, reason: 'mission', refId: buckRef.mission(day), now })
   const effects: Effect[] = [{ type: 'mission', budget: plan.budget, bonusXp: xp }]
   if (xp > 0) effects.push({ type: 'xp', amount: xp, reason: 'mission' })
-  if (gems > 0) effects.push({ type: 'gems', amount: gems, reason: 'mission' })
+  if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'mission' })
   return effects
 }
 

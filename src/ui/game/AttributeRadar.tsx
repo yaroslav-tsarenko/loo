@@ -1,5 +1,10 @@
-import type { Attribute } from '@/game'
-import { ATTRIBUTE_EMOJI } from '@/game'
+import type { Attribute, AttributeId } from '@/game'
+import { ATTRIBUTE_ICON } from '@/game'
+import { PIXEL_ICONS, PixelIcon } from '@/ui/design/PixelIcon'
+
+const ICON = 22
+// `px:bulb` → the pixel icon drawn inside the chart's own SVG
+const pixelOf = (id: AttributeId) => PIXEL_ICONS.find((n) => `px:${n}` === ATTRIBUTE_ICON[id])
 
 // Six-axis radar of Loo's attributes (server-rendered SVG).
 export function AttributeRadar({ attributes, label }: { attributes: readonly Attribute[]; label: string }) {
@@ -25,11 +30,12 @@ export function AttributeRadar({ attributes, label }: { attributes: readonly Att
       <polygon points={shape} className="attr-radar-shape" />
       {attributes.map((a, i) => {
         const [x, y] = point(i, 1.2)
-        return (
-          <text key={a.id} x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="attr-radar-label">
-            {ATTRIBUTE_EMOJI[a.id]}
-          </text>
-        )
+        const px = pixelOf(a.id)
+        return px ? (
+          <g key={a.id} transform={`translate(${x - ICON / 2} ${y - ICON / 2})`}>
+            <PixelIcon name={px} size={ICON} />
+          </g>
+        ) : null
       })}
     </svg>
   )

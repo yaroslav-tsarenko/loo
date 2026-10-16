@@ -9,7 +9,11 @@ import { headingSlug, highlightTree, mdastToHast, type LinkTarget } from '@/cont
 import type { ContentSnapshot } from '@/content/store'
 import { safeImageSrc, safeLinkHref } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
+import { PixelIcon, PIXEL_ICONS } from '@/ui/design/PixelIcon'
+import { Diagram } from '@/ui/diagram/Diagram'
+import type { DiagramSpec } from '@/content/diagram/spec'
 import { CalloutIcon } from './CalloutIcon'
+import { emojiToIcons } from './emoji-icons'
 import { EmbedBlock } from './EmbedBlock'
 import { UnitBlock } from './UnitBlock'
 import { FigureBlock } from '@/ui/theater/FigureBlock'
@@ -42,9 +46,18 @@ export function resolveWikiLink(env: RenderEnv, link: WikiLink): LinkTarget {
 
 export async function renderMdast(root: Root, env: RenderEnv): Promise<ReactNode> {
   const hast = mdastToHast(root, { resolveLink: (link) => resolveWikiLink(env, link) })
-  const tree = await highlightTree(hast)
+  const tree = emojiToIcons(await highlightTree(hast))
   const components = {
     'x-icon': (props: Record<string, unknown>) => <CalloutIcon name={String(props['data-name'] ?? 'info')} />,
+    // an author's emoji swapped for our pixel icon (emoji-icons.ts); the emoji stays as the accessible name
+    'x-px': (props: Record<string, unknown>) => {
+      const name = PIXEL_ICONS.find((n) => n === props['data-name'])
+      return name ? <PixelIcon name={name} size={20} className="px-emoji" /> : <>{String(props['data-emoji'] ?? '')}</>
+    },
+    'x-diagram': (props: Record<string, unknown> & { children?: ReactNode }) => {
+      const spec = JSON.parse(String(props['data-spec'] ?? '{}')) as DiagramSpec
+      return <Diagram spec={spec}>{props.children}</Diagram>
+    },
     'x-unit': (props: Record<string, unknown>) => <UnitBlock unitId={String(props['data-unit'] ?? '')} env={env} />,
     'x-viz': (props: Record<string, unknown> & { children?: ReactNode }) => (
       <VizBlock vizId={String(props['data-viz'] ?? '')} scenario={props['data-scenario'] ? String(props['data-scenario']) : null}>

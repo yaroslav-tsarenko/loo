@@ -52,6 +52,14 @@ export interface FigureRef extends Parent {
   children: Array<BlockContent | DefinitionContent>
 }
 
+export interface DiagramRef extends Parent {
+  type: 'diagramRef'
+  /** parsed `[!diagram]` (src/content/diagram/spec.ts); null when the yaml is missing or invalid */
+  spec: import('../diagram/spec').DiagramSpec | null
+  error: string | null
+  children: Array<BlockContent | DefinitionContent>
+}
+
 export interface IdMarker {
   type: 'idMarker'
   value: string
@@ -63,6 +71,7 @@ declare module 'mdast' {
     unitRef: UnitRef
     vizRef: VizRef
     figureRef: FigureRef
+    diagramRef: DiagramRef
     idMarker: IdMarker
     wikiLink: WikiLink
     tag: Tag
@@ -73,6 +82,7 @@ declare module 'mdast' {
     unitRef: UnitRef
     vizRef: VizRef
     figureRef: FigureRef
+    diagramRef: DiagramRef
     idMarker: IdMarker
   }
   interface PhrasingContentMap {

@@ -1,4 +1,5 @@
-import { X } from 'lucide-react'
+import { Save, X } from 'lucide-react'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { defineScene, erase } from '../define'
 import type { AnyScene, SceneViewProps } from '../types'
 import { DevTools, PageStrip, ToolIcon } from './kit'
@@ -129,10 +130,18 @@ function View({ s }: SceneViewProps<S>) {
   return (
     <div className="sc-split">
       <PageStrip>
-        <span className="sc-page-logo">📦</span>
+        <span className="sc-page-logo">
+          <PixelIcon name="box" size={22} />
+        </span>
         <span className="sc-page-title">app.example — Замовлення</span>
         <span className="sc-page-btn" data-demo="save" data-done={s.saved ? '' : undefined}>
-          {s.saved ? '✓ Збережено' : '💾 Зберегти'}
+          {s.saved ? (
+            '✓ Збережено'
+          ) : (
+            <>
+              <Save size={13} strokeWidth={2} aria-hidden="true" /> Зберегти
+            </>
+          )}
         </span>
       </PageStrip>
       <DevTools

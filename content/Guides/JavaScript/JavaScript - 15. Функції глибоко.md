@@ -113,16 +113,26 @@ console.log(connect());               // → 'localhost:80'
 console.log(connect({ port: 8080 })); // → 'localhost:8080'
 ```
 
-```text
-  виклик:  connect({ port: 8080 })
-             │
-             ▼
-  параметр: { host = 'localhost', port = 80 } = {}
-             │            │                 │
-             │            │                 └─ якщо аргумент undefined → {}
-             │            └─ port є → 8080
-             └─ host немає → 'localhost'
-```
+> [!diagram] connect({ port: 8080 }): деструктуризація з default
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: arg, label: "аргумент", text: "{ port: 8080 }", tone: blue, icon: "px:box" }
+>   - { id: param, label: "параметр", code: "function connect({\n  host = 'localhost',\n  port = 80\n} = {})", tone: violet }
+>   - { id: vars, label: "змінні всередині", text: "host = ? · port = ?", tone: yellow }
+>   - { id: out, label: "return", text: "?", tone: green }
+> edges:
+>   - { from: arg, to: param, label: "виклик" }
+>   - { from: param, to: vars, label: "розпаковка" }
+>   - { from: vars, to: out, label: "`${host}:${port}`" }
+> steps:
+>   - { focus: arg, note: "Викликаємо connect({ port: 8080 }) — передаємо обʼєкт лише з port." }
+>   - { move: { from: arg, to: param, value: "{ port: 8080 }" }, line: "param:4", note: "Аргумент не undefined, тож запасне = {} не спрацьовує — розпаковуємо сам обʼєкт." }
+>   - { set: { vars: "host = ? · port = 8080" }, line: "param:3", note: "port у обʼєкті є → 8080. Default 80 ігнорується." }
+>   - { set: { vars: "host = 'localhost' · port = 8080" }, line: "param:2", note: "host немає (undefined) → береться default 'localhost'." }
+>   - { move: { from: vars, to: out, value: "'localhost:8080'" }, set: { out: "'localhost:8080'" }, note: "Функція повертає 'localhost:8080'." }
+>   - { set: { arg: "нічого (undefined)", vars: "host = 'localhost' · port = 80", out: "'localhost:80'" }, line: "param:4", note: "А connect() без аргументу: undefined → спрацьовує = {} → обидва default. Без = {} тут був би TypeError." }
+> ```
 
 `fn.length` — кількість параметрів **до першого** з default-значенням або rest. Деструктурований параметр без default рахується.
 
@@ -283,15 +293,29 @@ const sumToSafe = trampoline(function step(n, acc = 0) {
 console.log(sumToSafe(1_000_000)); // → 500000500000
 ```
 
-```text
-  звичайна рекурсія            trampoline
-  ┌──────────┐                 ┌──────────┐
-  │ sum(1)   │                 │ while    │ ← один кадр
-  │ sum(2)   │  стек росте     │  step()  │ ← з'являється й зникає
-  │ sum(3)   │  до переповнення│  thunk() │ ← знову один
-  │ ...      │                 └──────────┘
-  └──────────┘
-```
+> [!diagram] Рекурсія vs trampoline: що відбувається зі стеком
+> ```yaml
+> layout: compare
+> columns: { rec: "звичайна рекурсія", tr: "trampoline" }
+> nodes:
+>   - { id: boom, col: rec, label: "ліміт стека", text: "RangeError: Maximum call stack size exceeded", tone: red }
+>   - { id: r3, col: rec, label: "кадр", code: "sumTo(99_998) …", tone: orange }
+>   - { id: r2, col: rec, label: "кадр", code: "sumTo(99_999)", tone: orange }
+>   - { id: r1, col: rec, label: "кадр", code: "sumTo(100_000)", tone: orange }
+>   - { id: step, col: tr, label: "кадр (зʼявляється й зникає)", text: "step(1_000_000, 0)", tone: mint }
+>   - { id: loop, col: tr, label: "кадр (один на весь час)", text: "while (typeof result === 'function')", tone: blue }
+> edges:
+>   - { from: r3, to: r2 }
+>   - { from: r2, to: r1 }
+>   - { from: step, to: loop }
+> steps:
+>   - { show: [r1, loop], note: "Обидва варіанти стартують з одного кадру: sumTo(100_000) і цикл trampoline." }
+>   - { show: [r2, step], note: "Рекурсія: sumTo викликає sumTo — новий кадр зверху. Trampoline: цикл викликає step(1_000_000, 0)." }
+>   - { show: r3, hide: step, focus: [r3, loop], note: "Рекурсивні кадри чекають один на одного й накопичуються. А step не викликає себе — повертає thunk і завершується, його кадр знято." }
+>   - { show: step, set: { step: "thunk() → step(999_999, 1_000_000)" }, note: "Цикл викликає thunk з того самого рівня — глибина знову 2 кадри, скільки б кроків не було." }
+>   - { show: boom, note: "Рекурсія на сотні тисяч рівнів упирається в ліміт стека — RangeError." }
+>   - { hide: step, set: { loop: "return 500000500000" }, focus: loop, note: "Trampoline пройшов мільйон кроків на двох кадрах і повернув 500000500000." }
+> ```
 
 Обмеження trampoline: результатом не може бути функція (інакше цикл її викличе), і він трохи повільніший. Часто простіше переписати рекурсію на цикл з **явним стеком** (масивом).
 

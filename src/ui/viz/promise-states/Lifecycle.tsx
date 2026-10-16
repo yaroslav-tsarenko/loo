@@ -3,9 +3,9 @@
 import { AnimatePresence, LayoutGroup, m } from 'motion/react'
 import { RotateCcw } from 'lucide-react'
 import { useEffect, useId, useState } from 'react'
-import { ConsolePanel, Panel, SPRING, TokenList } from '../engine/Panel'
-import type { Token } from '../engine/types'
-import type { PromiseState } from './scenarios'
+import { ConsolePanel, Panel, SPRING, TokenList, VizGlyph } from '../engine/Panel'
+import type { Token, VizIcon } from '../engine/types'
+import { STATE_ICON, type PromiseState } from './scenarios'
 
 type Kind = 'then' | 'catch' | 'finally'
 
@@ -27,8 +27,8 @@ interface State {
   seq: number
 }
 
-const VALUE = "'🍕'"
-const REASON = "Error('🔥')"
+const VALUE = "'піца'"
+const REASON = "Error('згоріла')"
 
 const INITIAL: State = {
   status: 'pending',
@@ -53,7 +53,7 @@ const runsOn = (kind: Kind, status: PromiseState) => kind === 'finally' || (kind
 function settle(s: State, status: 'fulfilled' | 'rejected'): State {
   const call = status === 'fulfilled' ? `resolve(${VALUE})` : `reject(new ${REASON})`
   if (s.status !== 'pending') {
-    return { ...s, code: [...s.code, `${call} // 🙅 ігнорується`], notice: `Проміс уже ${s.status === 'fulfilled' ? 'fulfilled' : 'rejected'} — повторний ${status === 'fulfilled' ? 'resolve' : 'reject'} нічого не змінює. Стан змінюється лише один раз.`, shake: s.shake + 1 }
+    return { ...s, code: [...s.code, `${call} // ігнорується`], notice: `Проміс уже ${s.status === 'fulfilled' ? 'fulfilled' : 'rejected'} — повторний ${status === 'fulfilled' ? 'resolve' : 'reject'} нічого не змінює. Стан змінюється лише один раз.`, shake: s.shake + 1 }
   }
   const jobs = s.handlers.map((h) => ({ id: h.id, kind: h.kind, runs: runsOn(h.kind, status) }))
   return {
@@ -81,17 +81,18 @@ function runNext(s: State): State {
   if (!job) return s
   let line: string
   if (!job.runs) line = s.status === 'rejected' ? `· .${job.kind} пропущено: помилка йде далі ланцюжком` : `· .${job.kind} пропущено: значення йде далі ланцюжком`
-  else if (job.kind === 'then') line = `then: 🍕`
-  else if (job.kind === 'catch') line = 'catch: 🔥'
+  else if (job.kind === 'then') line = 'then: піца'
+  else if (job.kind === 'catch') line = 'catch: згоріла'
   else line = 'finally'
   return { ...s, queue: rest, log: [...s.log, line] }
 }
 
-const LABEL: Record<Kind, string> = { then: '✨ then(v => …)', catch: '✨ catch(e => …)', finally: '✨ finally(() => …)' }
-const STATE_VIEW: Record<PromiseState, { emoji: string; title: string }> = {
-  pending: { emoji: '⏳', title: 'pending' },
-  fulfilled: { emoji: '✅', title: 'fulfilled' },
-  rejected: { emoji: '❌', title: 'rejected' },
+const LABEL: Record<Kind, string> = { then: 'then(v => …)', catch: 'catch(e => …)', finally: 'finally(() => …)' }
+const JOB_ICON: VizIcon = 'pi:PiSparkleFill'
+const STATE_VIEW: Record<PromiseState, { icon: VizIcon; title: string }> = {
+  pending: { icon: STATE_ICON.pending, title: 'pending' },
+  fulfilled: { icon: STATE_ICON.fulfilled, title: 'fulfilled' },
+  rejected: { icon: STATE_ICON.rejected, title: 'rejected' },
 }
 
 export function Lifecycle() {
@@ -105,7 +106,7 @@ export function Lifecycle() {
   }, [s.queue])
 
   const view = STATE_VIEW[s.status]
-  const queue: Token[] = s.queue.map((j) => ({ id: `job-${j.id}`, label: LABEL[j.kind], hint: j.runs ? undefined : 'пропуск' }))
+  const queue: Token[] = s.queue.map((j) => ({ id: `job-${j.id}`, label: LABEL[j.kind], icon: JOB_ICON, hint: j.runs ? undefined : 'пропуск' }))
   const waiting: Token[] = s.handlers.map((h) => ({ id: `job-${h.id}`, label: `.${h.kind}`, hint: 'чекає' }))
 
   return (
@@ -113,11 +114,11 @@ export function Lifecycle() {
       <div className="viz-lifecycle">
         <div className="viz-stage" data-split="">
           <div className="viz-side">
-            <Panel title="Проміс p" emoji="🤞">
+            <Panel title="Проміс p" icon="px:hourglass">
               <div className="viz-machine" aria-label={`Стан: ${s.status}`}>
                 {(['fulfilled', 'pending', 'rejected'] as const).map((st) => (
                   <span key={st} className="viz-machine-node" data-state={st} data-on={s.status === st ? '' : undefined}>
-                    {STATE_VIEW[st].emoji} {st}
+                    <VizGlyph icon={STATE_VIEW[st].icon} size={14} /> {st}
                   </span>
                 ))}
               </div>
@@ -125,7 +126,7 @@ export function Lifecycle() {
                 <AnimatePresence mode="wait" initial={false}>
                   <m.div key={s.status} className="viz-promise-state" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} transition={SPRING}>
                     <span className="viz-promise-emoji" aria-hidden="true">
-                      {view.emoji}
+                      <VizGlyph icon={view.icon} size={28} />
                     </span>
                     <span>
                       <strong>{view.title}</strong>
@@ -144,10 +145,10 @@ export function Lifecycle() {
             </Panel>
             <div className="viz-actions">
               <button type="button" className="viz-action" data-tone="success" onClick={() => setS((x) => settle(x, 'fulfilled'))}>
-                ✅ resolve(&apos;🍕&apos;)
+                <VizGlyph icon="px:pizza" /> resolve(&apos;піца&apos;)
               </button>
               <button type="button" className="viz-action" data-tone="danger" onClick={() => setS((x) => settle(x, 'rejected'))}>
-                ❌ reject(🔥)
+                <VizGlyph icon="px:fire" /> reject(error)
               </button>
               <button type="button" className="viz-action" onClick={() => setS((x) => addHandler(x, 'then'))}>
                 + .then
@@ -164,7 +165,7 @@ export function Lifecycle() {
             </div>
           </div>
           <div className="viz-side">
-            <Panel title="Код" emoji="📝">
+            <Panel title="Код" icon="px:code">
               <pre className="viz-snippet viz-snippet-live">
                 <AnimatePresence initial={false}>
                   {s.code.map((line, i) => (
@@ -175,7 +176,7 @@ export function Lifecycle() {
                 </AnimatePresence>
               </pre>
             </Panel>
-            <Panel title="Мікрозадачі" emoji="✨" tone="micro">
+            <Panel title="Мікрозадачі" icon="pi:PiSparkleFill" tone="micro">
               <TokenList items={queue} direction="row" tone="micro" />
             </Panel>
             <ConsolePanel lines={s.log} />
@@ -183,7 +184,7 @@ export function Lifecycle() {
         </div>
         <div className="viz-note">
           <span className="viz-note-step" aria-hidden="true">
-            💬
+            <VizGlyph icon="pi:PiChatCircleDotsFill" />
           </span>
           <p aria-live="polite">{s.notice}</p>
         </div>

@@ -49,15 +49,23 @@ icon: "🛡️"
 
 Усі атаки нижче мають спільний корінь: **дані з-поза межі довіри потрапили туди, де їх інтерпретують як код чи команду**. Межа довіри — місце, де дані змінюють «власника»:
 
-```text
-  ненадійне                         │  твій код             │  інтерпретатор
-  ─────────                         │  ─────────            │  ─────────────
-  URL, hash, query, referrer   ───► │                       │  HTML-парсер (innerHTML)
-  поля форм, localStorage      ───► │  валідація,           │  JS (eval, setTimeout(str))
-  відповіді API, WebSocket     ───► │  екранування за       │  URL-навігація (href, src)
-  postMessage від інших вікон  ───► │  контекстом           │  CSS, SQL, shell на сервері
-  npm-пакети, CDN-скрипти      ───► │  ↑ тут ти захищаєшся  │
-```
+> [!diagram] Межа довіри: дані стають кодом
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: src, label: ненадійне, text: "URL і hash · форми · localStorage · API · postMessage · npm", note: "це може контролювати атакувальник", tone: blue, icon: "px:globe" }
+>   - { id: code, label: "твій код — межа довіри", code: "// ✗ як є\nel.innerHTML = location.hash.slice(1)\n// ✓ як текст\nel.textContent = location.hash.slice(1)", tone: violet, icon: "px:shield" }
+>   - { id: sink, label: інтерпретатор, text: "HTML-парсер · eval · href/src · CSS, SQL", tone: gray }
+> edges:
+>   - { from: src, to: code, label: дані }
+>   - { from: code, to: sink, label: "код?" }
+> steps:
+>   - { focus: src, note: "Усе, що приходить ззовні твого коду, — ненадійне: адреса, поля форм, відповіді API, навіть сторонні пакети." }
+>   - { move: { from: src, to: code, value: "#<img src=x onerror=alert(1)>" }, note: "Атакувальник кладе payload у hash посилання. Дані перетинають межу довіри — і потрапляють у твій код." }
+>   - { line: "code:2", move: { from: code, to: sink, value: "<img onerror=…>" }, set: { sink: "💥 onerror виконано — XSS" }, note: "innerHTML віддає рядок HTML-парсеру. Той бачить тег з обробником — і виконує чужий JS у твоєму origin." }
+>   - { line: "code:4", move: { from: code, to: sink, value: "просто текст" }, set: { sink: "✓ показано як текст" }, note: "textContent нічого не парсить: ті самі символи показуються як текст. Захист — саме тут, на межі: валідація й екранування за контекстом." }
+>   - { focus: [src, code, sink], note: "Корінь усіх атак один: ненадійні дані дісталися інтерпретатора як код. Тому шарів захисту кілька — екранування, CSP, HttpOnly." }
+> ```
 
 Принципи, на яких тримається [OWASP Top 10](https://owasp.org/Top10/): **defense in depth** (кілька незалежних шарів — екранування + CSP + HttpOnly), **least privilege** (мінімум прав скриптам, iframe, токенам), **secure by default** (безпечне API має бути найпростішим), **не довіряй клієнту** (усе, що перевірено лише в браузері, не перевірено взагалі).
 

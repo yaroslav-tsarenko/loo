@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { PiBrainFill, PiChatCircleTextFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiGearSixFill, PiLightningFill, PiPlusBold, PiTargetFill, PiTimerFill, PiTrendDownBold, PiTrendUpBold } from 'react-icons/pi'
-import { LEVEL_EMOJI, LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
+import { PiBrainFill, PiChatCircleTextFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiGearSixFill, PiLightningFill, PiPlusBold, PiTargetFill, PiTimerFill, PiTrendDownBold, PiTrendUpBold, PiWarningFill } from 'react-icons/pi'
+import { LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
 import { LEVEL_LABEL, LEVELS } from '@/content/model'
+import { isLooStage, levelIcon } from '@/game'
 import { messages, t } from '@/i18n'
 import { levelInfo } from '@/progress/levels'
 import type { Tier } from '@/progress/stats'
@@ -23,6 +24,8 @@ import { Card } from '@/ui/design/Card'
 import type { Tone } from '@/ui/design/cx'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { GameIcon } from '@/ui/design/GameIcon'
+import { LooArt } from '@/ui/design/mascot/LooArt'
+import { PixelIcon, type PixelIconName } from '@/ui/design/PixelIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { LooCharacter } from '@/ui/game/LooCharacter'
 import { Icon } from '@/ui/icons/Icon'
@@ -50,9 +53,9 @@ function StatTile({ icon, tone, value, label, sub, hint }: { icon: ReactNode; to
   )
 }
 
-function tierText(tier: Tier): { emoji: string; title: string; label: string; unit: string; next: string | null } {
-  const set = messages().stats.tiers[tier.dimension] as unknown as Record<string, { emoji: string; title: string } | string>
-  const pick = (id: string) => set[id] as { emoji: string; title: string }
+function tierText(tier: Tier): { title: string; icon: string; label: string; unit: string; next: string | null } {
+  const set = messages().stats.tiers[tier.dimension] as unknown as Record<string, { title: string; icon: string } | string>
+  const pick = (id: string) => set[id] as { title: string; icon: string }
   const me = pick(tier.id)
   const unit = set.unit as string
   let next: string | null = null
@@ -61,7 +64,7 @@ function tierText(tier: Tier): { emoji: string; title: string; label: string; un
     const left = tier.dimension === 'speed' ? `${(Math.round((tier.value - tier.next.at) * 10) / 10).toFixed(1)}${unit}` : `${Math.max(0, tier.next.at - tier.value)}${unit}`
     next = t('stats.tierNext', { title: pick(tier.next.id).title, left })
   } else next = t('stats.tierMax')
-  return { emoji: me.emoji, title: me.title, label: set.label as string, unit, next }
+  return { title: me.title, icon: me.icon, label: set.label as string, unit, next }
 }
 
 function TopicList({ topics, kind }: { topics: ProfileTopic[]; kind: 'strong' | 'weak' }) {
@@ -71,7 +74,7 @@ function TopicList({ topics, kind }: { topics: ProfileTopic[]; kind: 'strong' | 
       {topics.map((tp) => (
         <li key={tp.chapterId}>
           <span className="st-topic-icon" aria-hidden="true">
-            <Icon name={tp.icon ?? (kind === 'strong' ? '💪' : '🎯')} size={22} />
+            <Icon name={tp.icon ?? (kind === 'strong' ? 'px:dumbbell' : 'px:target')} size={22} />
           </span>
           <span className="st-topic-text">
             <span className="st-topic-title">{tp.title}</span>
@@ -101,12 +104,23 @@ function TopicList({ topics, kind }: { topics: ProfileTopic[]; kind: 'strong' | 
 // closest locked achievements shown up front; the rest fold away
 const LOCKED_SHOWN = 6
 
+// `loo:<stage>` → a still Loo at that growth stage; anything else is an icon ref
+function AchievementIcon({ icon }: { icon: string }) {
+  const stage = icon.startsWith('loo:') ? icon.slice(4) : null
+  if (stage && isLooStage(stage)) return <LooArt stage={stage} animated={false} size={28} decorative />
+  return <Icon name={icon} size={28} />
+}
+
+function SectionIcon({ name }: { name: PixelIconName }) {
+  return <PixelIcon name={name} size={26} className="st-h2-icon" />
+}
+
 function AchievementCard({ a }: { a: ProfileView['achievements'][number] }) {
   const done = a.unlockedAt !== null
   return (
     <li className="lu-card" data-pad="sm" data-tier={a.def.tier} data-state={done ? 'unlocked' : 'locked'}>
       <span className="st-ach-medal" aria-hidden="true">
-        {done ? <PiCheckBold /> : '🔒'}
+        <AchievementIcon icon={a.def.icon} />
       </span>
       <span className="st-ach-title">{a.def.title}</span>
       <span className="st-ach-desc">{a.def.description}</span>
@@ -150,20 +164,22 @@ export default async function ProfilePage() {
           <h1 className="st-hero-name">{name}</h1>
           <p className="st-hero-pills">
             <Link href="/loo" className="st-hero-evo">
-              <Pill tone="purple" solid icon={<span aria-hidden="true">{rank.rank.emoji}</span>}>
+              <Pill tone="purple" solid icon={<PixelIcon name="insignia" size={18} />}>
                 {rank.rank.title}
               </Pill>
             </Link>
             <Pill tone="yellow" icon={<GameIcon name="bolt" size={16} />}>
               {t('stats.level', { level: info.level })}
             </Pill>
-            <Pill tone={coach.streak > 0 ? 'green' : 'gray'}>📈 {t('coach.multiplier', { x: coach.multiplier.toFixed(2) })}</Pill>
+            <Pill tone={coach.streak > 0 ? 'green' : 'gray'} icon={<PiTrendUpBold aria-hidden="true" />}>
+              {t('coach.multiplier', { x: coach.multiplier.toFixed(2) })}
+            </Pill>
           </p>
           {rank.next ? (
             <>
               <ProgressBar value={rank.progress} tone="purple" size="sm" label={t('stats.rankNext', { rank: rank.next.title })} className="st-hero-xp" />
               <p className="st-hero-meta">
-                {t('stats.rankNext', { rank: `${rank.next.emoji} ${rank.next.title}` })}:{' '}
+                {t('stats.rankNext', { rank: rank.next.title })}:{' '}
                 {rank.gaps.map((g, i) => (
                   <span key={g.key} className="st-gap" data-met={g.have >= g.need ? '' : undefined}>
                     {i > 0 ? ' · ' : ''}
@@ -276,8 +292,8 @@ export default async function ProfilePage() {
             const text = tierText(tier)
             return (
               <li key={tier.dimension} className="lu-card st-tier" data-pad="sm" data-index={tier.index} data-empty={tier.value === null ? '' : undefined}>
-                <span className="st-tier-emoji" aria-hidden="true">
-                  {text.emoji}
+                <span className="st-tier-icon" aria-hidden="true">
+                  <Icon name={text.icon} size={40} />
                 </span>
                 <span className="st-tier-text">
                   <span className="st-tier-label">{text.label}</span>
@@ -328,7 +344,7 @@ export default async function ProfilePage() {
                   flag:
                     tp.accuracy !== null && tp.accuracy < 0.7 && tp.total >= 5 ? (
                       <span className="st-flag" title={t('stats.topics.weak')}>
-                        ⚠︎ <span className="sr-only">{t('stats.topics.weak')}</span>
+                        <PiWarningFill aria-hidden="true" /> <span className="sr-only">{t('stats.topics.weak')}</span>
                       </span>
                     ) : null,
                 }))}
@@ -354,7 +370,7 @@ export default async function ProfilePage() {
       {stats.empty ? null : (
         <section aria-labelledby="st-records" className="st-block">
           <h2 id="st-records" className="st-h2">
-            🏆 {t('stats.records.title')}
+            <SectionIcon name="trophy" /> {t('stats.records.title')}
           </h2>
           <ul className="st-records">
             <li className="lu-card" data-pad="sm">
@@ -388,13 +404,13 @@ export default async function ProfilePage() {
         <div className="st-topic-cols">
           <section aria-labelledby="st-strong" className="lu-card st-block" data-pad="md">
             <h2 id="st-strong" className="st-h2">
-              💪 {t('stats.topics.strong')}
+              <SectionIcon name="dumbbell" /> {t('stats.topics.strong')}
             </h2>
             <TopicList topics={view.strong} kind="strong" />
           </section>
           <section aria-labelledby="st-weak" className="lu-card st-block" data-pad="md">
             <h2 id="st-weak" className="st-h2">
-              🎯 {t('stats.topics.weak')}
+              <SectionIcon name="target" /> {t('stats.topics.weak')}
             </h2>
             <TopicList topics={view.weak} kind="weak" />
           </section>
@@ -403,7 +419,7 @@ export default async function ProfilePage() {
 
       <section aria-labelledby="st-prefs" className="lu-card st-block st-prefs" data-pad="md">
         <h2 id="st-prefs" className="st-h2">
-          ✨ {t('stats.prefs.title')}
+          <SectionIcon name="star" /> {t('stats.prefs.title')}
         </h2>
         <p className="st-prefs-lead">{t('stats.prefs.lead')}</p>
         <h3 className="st-h3">{t('stats.prefs.interests')}</h3>
@@ -430,10 +446,10 @@ export default async function ProfilePage() {
         <ul className="st-pref-courses">
           {prefs.courses.map((c) => (
             <li key={c.id}>
-              <Icon name={c.icon ?? '📘'} size={22} />
+              <Icon name={c.icon ?? 'px:book'} size={22} />
               <span className="st-pref-course-title">{c.title}</span>
-              <Pill tone="purple" size="sm">
-                {LEVEL_EMOJI[c.level]} {COURSE_LEVEL_LABEL[c.level]}
+              <Pill tone="purple" size="sm" icon={<Icon name={levelIcon(c.level)} size={16} />}>
+                {COURSE_LEVEL_LABEL[c.level]}
               </Pill>
               <Link className="st-link" href={`/courses/${c.id}#level`}>
                 {t('stats.prefs.change')}
@@ -451,7 +467,7 @@ export default async function ProfilePage() {
 
       <section aria-labelledby="st-ach" className="st-block">
         <h2 id="st-ach" className="st-h2">
-          🎖️ {t('stats.achievements', { n: unlocked.length, total: view.achievements.length })}
+          <SectionIcon name="medal" /> {t('stats.achievements', { n: unlocked.length, total: view.achievements.length })}
         </h2>
         <ul className="st-ach">
           {unlocked.map((a) => (

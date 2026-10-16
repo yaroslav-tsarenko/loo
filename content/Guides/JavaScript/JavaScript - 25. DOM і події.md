@@ -47,15 +47,24 @@ DOM — це родинне дерево сторінки: `<html>` — праб
 
 DOM (Document Object Model, WHATWG DOM Standard) — дерево **вузлів** (`Node`), яке браузер будує з HTML. Не всі вузли — елементи:
 
-```text
-document (DOCUMENT_NODE = 9)
-└─ <ul id="list"> (ELEMENT_NODE = 1)
-   ├─ "\n  "          (TEXT_NODE = 3)  ← пробіли й переноси теж вузли!
-   ├─ <li>a</li>      (ELEMENT_NODE)
-   ├─ "\n  "          (TEXT_NODE)
-   ├─ <!-- note -->   (COMMENT_NODE = 8)
-   └─ <li>b</li>
-```
+> [!diagram] DOM: не всі вузли — елементи
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: doc, label: "DOCUMENT_NODE = 9", text: document, tone: gray, icon: "px:file" }
+>   - { id: ul, label: "ELEMENT_NODE = 1", code: "<ul id=\"list\">", parent: doc, tone: violet }
+>   - { id: t1, label: "TEXT_NODE = 3", code: "\"\\n  \"", note: "пробіли й переноси", parent: ul, tone: yellow }
+>   - { id: li1, label: ELEMENT_NODE, code: "<li>a</li>", parent: ul, tone: blue }
+>   - { id: t2, label: TEXT_NODE, code: "\"\\n  \"", parent: ul, tone: yellow }
+>   - { id: cm, label: "COMMENT_NODE = 8", code: "<!-- note -->", parent: ul, tone: gray }
+>   - { id: li2, label: ELEMENT_NODE, code: "<li>b</li>", parent: ul, tone: blue }
+> steps:
+>   - { show: [doc, ul], note: "Браузер будує з HTML дерево вузлів. Корінь — document, у ньому елемент <ul id=\"list\">." }
+>   - { show: [li1, li2], note: "Очікувано: два елементи <li>. Саме їх і поверне list.children — довжина 2." }
+>   - { show: [t1, t2], note: "Але переноси рядків і відступи між тегами — теж вузли, текстові (TEXT_NODE = 3)." }
+>   - { show: cm, note: "І коментар — окремий вузол COMMENT_NODE = 8." }
+>   - { focus: [t1, li1, t2, cm, li2], note: "Тому list.childNodes довший за list.children, а firstChild — текстовий вузол. Для елементів є firstElementChild." }
+> ```
 
 Тому `list.childNodes` (усі вузли) і `list.children` (лише елементи) мають різну довжину, а `firstChild` часто — текстовий вузол. Для елементів є окремі `firstElementChild`, `nextElementSibling` тощо.
 
@@ -176,17 +185,29 @@ console.log(inp.getAttribute('value'), inp.value, inp.defaultValue);
 > [!viz] event-propagation
 > scenario: capture-bubble
 
-```text
-          window                           ▲
-            │  1️⃣ CAPTURE (згори вниз)       │  3️⃣ BUBBLE (знизу вгору)
-         document                          │
-            │                               │
-          <body>                            │
-            │                               │
-        <div#outer>  ← listener(capture)    │  ← listener(bubble)
-            ▼                               │
-        <button#btn>  2️⃣ AT_TARGET ──────────┘
-```
+> [!diagram] Потік події: capture → target → bubble
+> ```yaml
+> layout: stack
+> nodes:
+>   - { id: win, text: window, tone: gray }
+>   - { id: doc, text: document, tone: gray }
+>   - { id: body, code: "<body>", tone: gray }
+>   - { id: outer, label: "<div#outer>", code: "// capture: true\nconsole.log('outer capture')\n// звичайний (bubble)\nconsole.log('outer bubble')", tone: violet }
+>   - { id: btn, label: "<button#btn> — ціль", code: "console.log('btn')", tone: blue, icon: "px:cursor" }
+>   - { id: log, label: консоль, text: "—", tone: green }
+> edges:
+>   - { from: win, to: doc }
+>   - { from: doc, to: body }
+>   - { from: body, to: outer }
+>   - { from: outer, to: btn }
+> steps:
+>   - { focus: btn, note: "btn.click(): подія сталася на кнопці. Але спершу DOM будує шлях від window до цілі." }
+>   - { move: [{ from: win, to: doc, value: "click ↓" }, { from: doc, to: body, value: "click ↓" }], note: "Фаза 1 — CAPTURE: подія спускається згори вниз через window, document, body." }
+>   - { move: { from: body, to: outer, value: "capture" }, line: "outer:2", set: { log: "outer capture" }, note: "На div#outer є обробник з capture: true — він спрацьовує першим, ще на шляху вниз." }
+>   - { move: { from: outer, to: btn, value: "click ↓" }, line: "btn:1", set: { log: "outer capture · btn" }, note: "Фаза 2 — AT_TARGET: подія на самій кнопці, event.target === btn." }
+>   - { move: { from: btn, to: outer, value: "bubble ↑" }, line: "outer:4", set: { log: "outer capture · btn · outer bubble" }, note: "Фаза 3 — BUBBLE: подія спливає назад, і спрацьовує звичайний обробник outer." }
+>   - { move: [{ from: outer, to: body, value: "↑" }, { from: body, to: doc, value: "↑" }, { from: doc, to: win, value: "↑" }], note: "Далі — вгору до window. Будь-хто на шляху може зупинити рух через stopPropagation()." }
+> ```
 
 - `event.target` — де подія сталася (кнопка), `event.currentTarget` — чий обробник зараз виконується; `event.eventPhase` — 1, 2 або 3.
 - Не всі події спливають: `focus`/`blur`, `mouseenter`/`mouseleave`, `load` на ресурсах — ні (їхні пари `focusin`/`focusout`, `mouseover`/`mouseout` — так). Перевірка: `event.bubbles`.

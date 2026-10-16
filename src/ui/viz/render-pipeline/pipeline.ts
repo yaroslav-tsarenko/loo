@@ -1,15 +1,17 @@
 // Rendering pipeline model: stages, what a CSS change triggers, frame budget and
 // a tiny layout-dirty simulation for read/write interleaving.
 
+import type { VizIcon } from '../engine/types'
+
 export type Stage = 'input' | 'js' | 'style' | 'layout' | 'paint' | 'composite'
 
-export const STAGES: ReadonlyArray<{ id: Stage; label: string; emoji: string }> = [
-  { id: 'input', label: 'Input', emoji: '👆' },
-  { id: 'js', label: 'JS / rAF', emoji: '📜' },
-  { id: 'style', label: 'Style', emoji: '🎨' },
-  { id: 'layout', label: 'Layout', emoji: '📐' },
-  { id: 'paint', label: 'Paint', emoji: '🖌️' },
-  { id: 'composite', label: 'Composite', emoji: '🧩' },
+export const STAGES: ReadonlyArray<{ id: Stage; label: string; icon: VizIcon }> = [
+  { id: 'input', label: 'Input', icon: 'pi:PiHandPointingFill' },
+  { id: 'js', label: 'JS / rAF', icon: 'pi:PiCodeBlockFill' },
+  { id: 'style', label: 'Style', icon: 'pi:PiPaletteFill' },
+  { id: 'layout', label: 'Layout', icon: 'pi:PiRulerFill' },
+  { id: 'paint', label: 'Paint', icon: 'pi:PiPaintBrushFill' },
+  { id: 'composite', label: 'Composite', icon: 'pi:PiStackFill' },
 ]
 
 // 60 Hz

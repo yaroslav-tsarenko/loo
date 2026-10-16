@@ -1,4 +1,5 @@
-import { TriangleAlert } from 'lucide-react'
+import { SquareCheck, TriangleAlert } from 'lucide-react'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { defineScene, erase } from '../define'
 import type { AnyScene, SceneViewProps } from '../types'
 import { Code, DevTools, PageStrip, ToolIcon } from './kit'
@@ -103,7 +104,9 @@ function View({ s }: SceneViewProps<S>) {
   return (
     <div className="sc-split">
       <PageStrip>
-        <span className="sc-page-logo">🗂️</span>
+        <span className="sc-page-logo">
+          <PixelIcon name="clock" size={22} />
+        </span>
         <span className="sc-page-title">100 карток змінюють висоту</span>
         <span className="sc-page-cards" aria-hidden="true">
           {Array.from({ length: 8 }, (_, i) => (
@@ -120,8 +123,12 @@ function View({ s }: SceneViewProps<S>) {
             </span>
             <ToolIcon kind="reload" />
             <ToolIcon kind="clear" />
-            <span className="dt-select">☑ Screenshots</span>
-            <span className="dt-select">☑ Memory</span>
+            <span className="dt-select">
+              <SquareCheck size={12} strokeWidth={2} aria-hidden="true" /> Screenshots
+            </span>
+            <span className="dt-select">
+              <SquareCheck size={12} strokeWidth={2} aria-hidden="true" /> Memory
+            </span>
           </>
         }
       >

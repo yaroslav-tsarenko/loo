@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 
-const COLORS = ['#58CC02', '#1CB0F6', '#FF4B4B', '#FFC800', '#FF9600', '#CE82FF', '#FF86D0']
+// Levelup palette (tokens.css): violet, mint, yellow, pink, blue, orange, green
+const COLORS = ['#7c4dff', '#2dd4bf', '#ffc23d', '#ff7ac0', '#3b9eff', '#ff8a3d', '#22b56c']
 
 export interface BurstOptions {
   /** Element to burst from; defaults to the top-center of the viewport. */

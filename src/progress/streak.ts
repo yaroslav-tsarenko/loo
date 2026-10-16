@@ -6,7 +6,7 @@ export interface StreakInfo {
   todayCounted: boolean
 }
 
-// Goal days build the streak; frozen days (🧊 streak freezes spent on missed days) bridge a gap without counting.
+// Goal days build the streak; frozen days (streak freezes spent on missed days) bridge a gap without counting.
 export function computeStreak(goalDays: readonly string[], today: string, frozenDays: readonly string[] = []): StreakInfo {
   const days = new Set(goalDays)
   const frozen = new Set(frozenDays.filter((d) => !days.has(d)))

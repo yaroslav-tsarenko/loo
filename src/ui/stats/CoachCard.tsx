@@ -1,9 +1,10 @@
-import { PiArrowRightBold, PiCheckBold } from 'react-icons/pi'
+import { PiArrowRightBold, PiCheckBold, PiTrendUpBold } from 'react-icons/pi'
 import { t } from '@/i18n'
 import type { CoachDay } from '@/progress/stats'
 import type { CoachView } from '@/server/stats/coach'
 import { Button } from '@/ui/design/Button'
 import { Loo } from '@/ui/design/mascot/Loo'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { coachText } from './coach-text'
 import { longDay } from './format'
@@ -50,18 +51,17 @@ export function CoachCard({ coach, variant = 'full' }: { coach: CoachView; varia
         </h2>
         <p className="coach-sub">{text.sub}</p>
         <div className="coach-progress">
-          <ProgressBar value={coach.progress.ratio} tone={done ? 'yellow' : 'green'} size="sm" label={`${text.title}: ${text.progress}`} className="coach-bar" />
+          <ProgressBar value={coach.progress.ratio} tone={done ? 'yellow' : 'purple'} size="sm" label={`${text.title}: ${text.progress}`} className="coach-bar" />
           <span className="coach-progress-text tabular" aria-hidden="true">
             {text.progress}
           </span>
         </div>
         <p className="coach-why">
-          <span aria-hidden="true">💡 </span>
-          {text.why}
+          <PixelIcon name="bulb" size={18} className="coach-why-icon" /> {text.why}
         </p>
         <div className="coach-foot">
           <span className="coach-streak" title={t('coach.compound', { n: coach.streak, x: coach.multiplier.toFixed(2) })}>
-            <span aria-hidden="true">📈</span> {t('coach.streak', { n: coach.streak })} · <strong className="tabular">{t('coach.multiplier', { x: coach.multiplier.toFixed(2) })}</strong>
+            <PiTrendUpBold aria-hidden="true" className="coach-streak-icon" /> {t('coach.streak', { n: coach.streak })} · <strong className="tabular">{t('coach.multiplier', { x: coach.multiplier.toFixed(2) })}</strong>
           </span>
           {done ? (
             <span className="coach-done" role="status">

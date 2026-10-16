@@ -2,7 +2,7 @@
 
 import { AnimatePresence, m } from 'motion/react'
 import { Arrows, type ArrowLink } from '../engine/Arrows'
-import { ConsolePanel, SPRING } from '../engine/Panel'
+import { ConsolePanel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { proxyTrapsScenarios, TRAPS, type ProxyFrame } from './scenarios'
@@ -21,7 +21,7 @@ function ProxyStage({ frame }: { frame: ProxyFrame }) {
     <div className="viz-px viz-rel">
       <section className="viz-px-box" aria-label="Код, що звертається до proxy">
         <header className="viz-px-head">
-          <span aria-hidden="true">📞</span> Виклик
+          <VizGlyph icon="px:phone" /> Виклик
         </header>
         <AnimatePresence mode="wait" initial={false}>
           {frame.op ? (
@@ -37,7 +37,13 @@ function ProxyStage({ frame }: { frame: ProxyFrame }) {
         </AnimatePresence>
         {frame.result ? (
           <m.div key={`${frame.op}-${frame.result.text}`} className="viz-px-result" data-tone={frame.result.tone} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={SPRING}>
-            {frame.result.tone === 'error' ? '✕ кидає ' : '↩ '}
+            {frame.result.tone === 'error' ? (
+              '✕ кидає '
+            ) : (
+              <>
+                <VizGlyph icon="pi:PiArrowBendUpLeftBold" size={14} />{' '}
+              </>
+            )}
             <code>{frame.result.text}</code>
           </m.div>
         ) : null}
@@ -45,7 +51,7 @@ function ProxyStage({ frame }: { frame: ProxyFrame }) {
 
       <section className="viz-px-box" data-tone="proxy" aria-label="Проксі та handler" data-active={frame.stage === 'trap' || frame.stage === 'throw' ? '' : undefined}>
         <header className="viz-px-head">
-          <span aria-hidden="true">🪞</span> proxy · handler
+          <VizGlyph icon="px:mirror" /> proxy · handler
         </header>
         <ul className="viz-px-traps">
           {SHOWN.map((name) => {
@@ -74,7 +80,7 @@ function ProxyStage({ frame }: { frame: ProxyFrame }) {
 
       <section className="viz-px-box" data-tone="target" aria-label="Цільовий об’єкт" data-active={frame.stage === 'target' ? '' : undefined}>
         <header className="viz-px-head" data-anchor="px-target">
-          <span aria-hidden="true">🎯</span> target · user
+          <VizGlyph icon="px:target" /> target · user
         </header>
         <ul className="viz-vars">
           {frame.target.map((p) => (

@@ -7,13 +7,16 @@ import { getContent, getDocument } from '@/server/content'
 import { chapterNumberMap, chapterProgressMap, nextChapterFor, readableChapters, treeView } from '@/server/services/library'
 import { count, minutes } from '@/ui/format'
 import { renderMdast } from '@/ui/markdown/render'
-import { BookOpen, CircleDot, Clock, FileText, Hash, Layers, Link2 } from 'lucide-react'
+import { BookOpen, CircleCheck, CircleDot, Clock, CodeXml, FileText, Layers, Link2, ListChecks } from 'lucide-react'
 import { MarkStudied } from '@/ui/reader/MarkStudied'
 import { PageToc } from '@/ui/reader/PageToc'
 import { ReadingTracker } from '@/ui/reader/ReadingTracker'
 import { chapterHref, guideHref } from '@/ui/routes'
 import { PageTopbar } from '@/ui/shell/PageTopbar'
 import { Tag } from '@/ui/Tag'
+import { Button } from '@/ui/design/Button'
+import { ProgressBar } from '@/ui/design/ProgressBar'
+import { Loo } from '@/ui/design/mascot/Loo'
 import type { ReactNode } from 'react'
 
 interface Params {
@@ -81,60 +84,94 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
         <MarkStudied chapterId={chapter.id} studied={status === 'studied'} nextHref={next ? chapterHref(snapshot, next) : null} prevHref={prev ? chapterHref(snapshot, prev) : null} />
       </PageTopbar>
       <ReadingTracker chapterId={chapter.id} />
-      <article className="page" data-reading="">
-        <h1 className="page-title">{chapter.title}</h1>
-        <dl className="props">
-          <Prop icon={<BookOpen size={16} strokeWidth={1.6} />} label="Посібник">
-            <Link className="prop-link" href={guideHref(guide.id)}>
-              {guide.title}
-            </Link>
-          </Prop>
-          {number ? (
-            <Prop icon={<Hash size={16} strokeWidth={1.6} />} label="Розділ">
-              <span className="tabular">{number}</span>
-              {part ? <span className="prop-muted"> · {part}</span> : null}
-            </Prop>
-          ) : null}
-          <Prop icon={<Clock size={16} strokeWidth={1.6} />} label="Читати">
-            ~{minutes(chapter.estimatedMinutes)}
-          </Prop>
-          <Prop icon={<CircleDot size={16} strokeWidth={1.6} />} label="Статус">
-            {status === 'studied' ? <Tag color="green">Вивчено</Tag> : status === 'reading' ? <Tag color="blue">Читаю</Tag> : <Tag color="gray">Не почато</Tag>}
-          </Prop>
-          {flash + quizzes + tasks > 0 ? (
-            <Prop icon={<Layers size={16} strokeWidth={1.6} />} label="Практика">
-              <span className="prop-tags">
-                {flash ? (
-                  <Link href={`/review?chapter=${encodeURIComponent(chapter.id)}`} className="prop-chip">
-                    {count(flash, 'картка', 'картки', 'карток')}
-                  </Link>
-                ) : null}
-                {quizzes ? (
-                  <Link href={`/quiz?chapter=${encodeURIComponent(chapter.id)}`} className="prop-chip">
-                    {count(quizzes, 'тест', 'тести', 'тестів')}
-                  </Link>
-                ) : null}
-                {tasks ? (
-                  <Link href={`/tasks?guide=${encodeURIComponent(guide.id)}`} className="prop-chip">
-                    {count(tasks, 'задача', 'задачі', 'задач')}
-                  </Link>
-                ) : null}
+      <article className="page reader" data-reading="">
+        <header className="reader-hero">
+          <div className="reader-hero-text">
+            <div className="reader-kicker">
+              <Link className="reader-guide" href={guideHref(guide.id)}>
+                <BookOpen size={15} strokeWidth={2.2} aria-hidden="true" />
+                {guide.title}
+              </Link>
+              {part ? <span className="reader-part">{part}</span> : null}
+            </div>
+            <h1 className="page-title reader-title">
+              {number ? <span className="reader-num tabular">{number}</span> : null}
+              {chapter.title}
+            </h1>
+            <div className="reader-meta">
+              <span className="reader-chip">
+                <Clock size={14} strokeWidth={2.2} aria-hidden="true" />
+                <span className="sr-only">Читати:</span>~{minutes(chapter.estimatedMinutes)}
               </span>
-            </Prop>
-          ) : null}
-          {chapter.tags.length > 0 ? (
-            <Prop icon={<Hash size={16} strokeWidth={1.6} />} label="Теги">
-              <span className="prop-tags">
-                {chapter.tags.slice(0, 8).map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
-              </span>
-            </Prop>
-          ) : null}
-        </dl>
-        <div className="page-divider" />
+              {status === 'studied' ? (
+                <span className="reader-chip" data-tone="green">
+                  <CircleCheck size={14} strokeWidth={2.4} aria-hidden="true" />
+                  Вивчено
+                </span>
+              ) : status === 'reading' ? (
+                <span className="reader-chip" data-tone="blue">
+                  <CircleDot size={14} strokeWidth={2.4} aria-hidden="true" />
+                  Читаю
+                </span>
+              ) : (
+                <span className="reader-chip">
+                  <CircleDot size={14} strokeWidth={2.2} aria-hidden="true" />
+                  Не почато
+                </span>
+              )}
+            </div>
+          </div>
+          <span className="reader-hero-loo" aria-hidden="true">
+            <Loo mood={status === 'studied' ? 'happy' : status === 'reading' ? 'thinking' : 'wave'} size={88} decorative />
+          </span>
+        </header>
+        {flash + quizzes + tasks > 0 ? (
+          <nav className="reader-practice" aria-label="Практика за розділом">
+            <span className="reader-practice-label">Практика:</span>
+            {flash ? (
+              <Link href={`/review?chapter=${encodeURIComponent(chapter.id)}`} className="reader-practice-link" data-tone="violet">
+                <Layers size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(flash, 'картка', 'картки', 'карток')}
+              </Link>
+            ) : null}
+            {quizzes ? (
+              <Link href={`/quiz?chapter=${encodeURIComponent(chapter.id)}`} className="reader-practice-link" data-tone="mint">
+                <ListChecks size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(quizzes, 'тест', 'тести', 'тестів')}
+              </Link>
+            ) : null}
+            {tasks ? (
+              <Link href={`/tasks?guide=${encodeURIComponent(guide.id)}`} className="reader-practice-link" data-tone="orange">
+                <CodeXml size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(tasks, 'задача', 'задачі', 'задач')}
+              </Link>
+            ) : null}
+          </nav>
+        ) : null}
+        {chapter.tags.length > 0 ? (
+          <div className="reader-tags" aria-label="Теги">
+            {chapter.tags.slice(0, 8).map((t) => (
+              <Tag key={t}>{t}</Tag>
+            ))}
+          </div>
+        ) : null}
         <div className="prose-read">{content}</div>
         <footer className="chapter-foot">
+          <div className="reader-end" data-done={status === 'studied' ? '' : undefined}>
+            <Loo mood={status === 'studied' ? 'cheer' : 'happy'} size={56} decorative animated={false} />
+            <div>
+              <p className="reader-end-title">{status === 'studied' ? 'Розділ уже вивчено' : 'Кінець розділу'}</p>
+              <p className="reader-end-sub">
+                {status === 'studied' ? (
+                  'Можна закріпити картками або йти далі.'
+                ) : (
+                  <>
+                    Познач його як вивчений — кнопка вгорі або клавіша <kbd>M</kbd>.
+                  </>
+                )}
+              </p>
+            </div>
+          </div>
           {backlinks.length > 0 ? (
             <section className="backlinks" aria-label="Згадується в">
               <div className="section-title">
@@ -169,18 +206,6 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
       </article>
       <PageToc headings={doc.headings} />
     </>
-  )
-}
-
-function Prop({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
-  return (
-    <div className="prop">
-      <dt className="prop-name">
-        <span aria-hidden="true">{icon}</span>
-        {label}
-      </dt>
-      <dd className="prop-value">{children}</dd>
-    </div>
   )
 }
 
@@ -236,61 +261,73 @@ async function GuideOverview({
   return (
     <>
       <PageTopbar crumbs={[{ label: 'Бібліотека', href: '/' }, { label: guide.title }]} />
-      <div className="page">
-        <h1 className="page-title">{guide.title}</h1>
-        {guide.description ? <p className="page-lead">{guide.description}</p> : null}
-        <dl className="props">
-          <Prop icon={<FileText size={16} strokeWidth={1.6} />} label="Розділів">
-            {chapters.length}
-          </Prop>
-          <Prop icon={<Clock size={16} strokeWidth={1.6} />} label="Час">
-            ~{minutes(guide.estimatedMinutes)}
-          </Prop>
-          <Prop icon={<CircleDot size={16} strokeWidth={1.6} />} label="Прогрес">
-            <span className="progress-inline">
-              <span className="bar" aria-hidden="true">
-                <span style={{ transform: `scaleX(${pct})` }} />
+      <div className="page reader reader-guide-page">
+        <header className="reader-hero">
+          <div className="reader-hero-text">
+            <div className="reader-kicker">
+              <span className="reader-guide">
+                <BookOpen size={15} strokeWidth={2.2} aria-hidden="true" />
+                Посібник
               </span>
-              <span className="tabular">
+            </div>
+            <h1 className="page-title reader-title">{guide.title}</h1>
+            {guide.description ? <p className="reader-lead">{guide.description}</p> : null}
+            <div className="reader-meta">
+              <span className="reader-chip">
+                <FileText size={14} strokeWidth={2.2} aria-hidden="true" />
+                {count(chapters.length, 'розділ', 'розділи', 'розділів')}
+              </span>
+              <span className="reader-chip">
+                <Clock size={14} strokeWidth={2.2} aria-hidden="true" />~{minutes(guide.estimatedMinutes)}
+              </span>
+            </div>
+            <div className="reader-progress">
+              <ProgressBar value={pct} size="sm" tone={studied === chapters.length && studied > 0 ? 'green' : 'violet'} label="Прогрес посібника" valueText={`${studied} з ${chapters.length}`} className="reader-progress-bar" />
+              <span className="reader-progress-text tabular">
                 {studied} з {chapters.length}
               </span>
-            </span>
-          </Prop>
-          {flash + quizzes + tasks > 0 ? (
-            <Prop icon={<Layers size={16} strokeWidth={1.6} />} label="Практика">
-              <span className="prop-tags">
-                {flash ? (
-                  <Link href={`/review?guide=${encodeURIComponent(guide.id)}`} className="prop-chip">
-                    {count(flash, 'картка', 'картки', 'карток')}
-                  </Link>
-                ) : null}
-                {quizzes ? (
-                  <Link href={`/quiz?guide=${encodeURIComponent(guide.id)}`} className="prop-chip">
-                    {count(quizzes, 'тест', 'тести', 'тестів')}
-                  </Link>
-                ) : null}
-                {tasks ? (
-                  <Link href={`/tasks?guide=${encodeURIComponent(guide.id)}`} className="prop-chip">
-                    {count(tasks, 'задача', 'задачі', 'задач')}
-                  </Link>
-                ) : null}
-              </span>
-            </Prop>
-          ) : null}
-        </dl>
+            </div>
+          </div>
+          <span className="reader-hero-loo" aria-hidden="true">
+            <Loo mood={studied > 0 ? 'happy' : 'wave'} size={88} decorative />
+          </span>
+        </header>
         <div className="guide-actions">
           {next ? (
-            <Link className="ui-button" href={chapterHref(snapshot, next)}>
+            <Button href={chapterHref(snapshot, next)} className="reader-continue">
               {studied > 0 || progress.get(next.id) ? 'Продовжити' : 'Почати'}: {next.title}
-            </Link>
+            </Button>
           ) : null}
           {flash ? (
-            <Link className="ui-button" data-variant="ghost" href={`/review?guide=${encodeURIComponent(guide.id)}`}>
+            <Button variant="ghost" href={`/review?guide=${encodeURIComponent(guide.id)}`}>
               Картки посібника
-            </Link>
+            </Button>
           ) : null}
         </div>
-        <div className="page-divider" />
+        {flash + quizzes + tasks > 0 ? (
+          <nav className="reader-practice" aria-label="Практика за посібником">
+            <span className="reader-practice-label">Практика:</span>
+            {flash ? (
+              <Link href={`/review?guide=${encodeURIComponent(guide.id)}`} className="reader-practice-link" data-tone="violet">
+                <Layers size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(flash, 'картка', 'картки', 'карток')}
+              </Link>
+            ) : null}
+            {quizzes ? (
+              <Link href={`/quiz?guide=${encodeURIComponent(guide.id)}`} className="reader-practice-link" data-tone="mint">
+                <ListChecks size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(quizzes, 'тест', 'тести', 'тестів')}
+              </Link>
+            ) : null}
+            {tasks ? (
+              <Link href={`/tasks?guide=${encodeURIComponent(guide.id)}`} className="reader-practice-link" data-tone="orange">
+                <CodeXml size={16} strokeWidth={2.2} aria-hidden="true" />
+                {count(tasks, 'задача', 'задачі', 'задач')}
+              </Link>
+            ) : null}
+          </nav>
+        ) : null}
+        <h2 className="section-title reader-contents-title">Зміст</h2>
         <section className="guide-contents" aria-label="Зміст">
           <GuideContents nodes={tree} />
         </section>

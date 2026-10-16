@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { hoistingScenarios, type ExecContext, type HoistFrame } from './scenarios'
@@ -13,7 +13,9 @@ function ContextCard({ ctx, frame, top }: { ctx: ExecContext; frame: HoistFrame;
   return (
     <m.div layout="position" className="viz-ctx" data-top={top ? '' : undefined} initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={SPRING}>
       <div className="viz-ctx-head">
-        <span className="viz-ctx-name">{ctx.name}</span>
+        <span className="viz-ctx-name">
+          <VizGlyph icon={ctx.icon} /> {ctx.name}
+        </span>
         <span className="viz-ctx-phases">
           <span data-on={ctx.phase === 'creation' ? '' : undefined}>1 · створення</span>
           <span data-on={ctx.phase === 'execution' ? '' : undefined}>2 · виконання</span>
@@ -37,7 +39,13 @@ function ContextCard({ ctx, frame, top }: { ctx: ExecContext; frame: HoistFrame;
               </span>
               <code className="viz-var-name">{b.name}</code>
               <m.span key={b.value} className="viz-var-val" data-changed={b.changed ? '' : undefined} initial={b.changed ? { scale: 1.2 } : false} animate={{ scale: 1 }} transition={SPRING}>
-                {b.state === 'tdz' ? '⛔ TDZ' : b.value}
+                {b.state === 'tdz' ? (
+                  <>
+                    <VizGlyph icon="pi:PiProhibitFill" size={12} /> TDZ
+                  </>
+                ) : (
+                  b.value
+                )}
               </m.span>
             </m.li>
           ))}
@@ -55,7 +63,7 @@ export function HoistingViz({ scenario }: VizProps) {
       scenario={data}
       label="Hoisting"
       side={(f) => (
-        <Panel title="Контексти виконання" emoji="🎈" hint="новий — зверху" tone={f.error ? 'danger' : undefined}>
+        <Panel title="Контексти виконання" icon="px:balloon" hint="новий — зверху" tone={f.error ? 'danger' : undefined}>
           <div className="viz-ctx-list">
             <AnimatePresence initial={false} mode="popLayout">
               {[...f.contexts].reverse().map((ctx, i) => (

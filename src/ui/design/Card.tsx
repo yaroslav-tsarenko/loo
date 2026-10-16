@@ -6,7 +6,7 @@ export type CardVariant = 'flat' | 'raised' | 'interactive'
 
 interface CardProps extends HTMLAttributes<HTMLElement> {
   variant?: CardVariant
-  /** Colors border + lip; `selected` is a shortcut for the blue choice state. */
+  /** Colors border + lip; `selected` is a shortcut for the violet choice state. */
   tone?: Tone
   selected?: boolean
   /** Renders a Next link (implies interactive). */
@@ -19,7 +19,7 @@ interface CardProps extends HTMLAttributes<HTMLElement> {
 export function Card({ variant = 'flat', tone, selected, href, as: Tag = 'div', padding = 'md', className, children, ...rest }: CardProps) {
   const data = {
     'data-variant': href ? 'interactive' : variant,
-    'data-tone': selected ? 'blue' : tone,
+    'data-tone': selected ? 'violet' : tone,
     'data-selected': selected ? '' : undefined,
     'data-pad': padding,
   }

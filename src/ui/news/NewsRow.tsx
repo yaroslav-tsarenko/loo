@@ -4,13 +4,15 @@ import { Bookmark, BookmarkCheck } from 'lucide-react'
 import { useState, useTransition } from 'react'
 import { markNewsRead, toggleNewsSaved } from '@/server/actions/news'
 import { count } from '@/ui/format'
+import { Icon } from '@/ui/icons/Icon'
 
 export interface NewsRowProps {
   id: string
   // Already allow-listed to http(s) on the server; null → rendered as plain text.
   url: string | null
   title: string
-  emoji: string
+  // icon ref of the primary tag (TAG_META)
+  icon: string
   tagLabel: string
   summary: string | null
   source: string
@@ -43,7 +45,7 @@ export function NewsRow(props: NewsRowProps) {
   return (
     <li className="news-row" data-read={read ? '' : undefined}>
       <span className="news-emoji" role="img" aria-label={props.tagLabel} title={props.tagLabel}>
-        {props.emoji}
+        <Icon name={props.icon} size={24} />
       </span>
       <div className="news-body">
         {props.url ? (

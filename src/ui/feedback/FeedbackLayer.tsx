@@ -1,14 +1,18 @@
 'use client'
 
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react'
-import { useEffect } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { TIER_MOOD } from '@/progress/achievements/dsl'
+import { GameIcon } from '@/ui/design/GameIcon'
 import { Loo } from '@/ui/design/mascot/Loo'
+import { PixelIcon } from '@/ui/design/PixelIcon'
+import { Icon } from '@/ui/icons/Icon'
 import type { Toast } from './FeedbackProvider'
 
 const LIFETIME: Record<string, number> = {
   xp: 1600,
   gems: 2200,
+  bucks: 2200,
   freeze: 4200,
   league: 5200,
   evolution: 6200,
@@ -47,13 +51,22 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
   if (effect.type === 'gems') {
     return (
       <m.div layout className="toast toast-xp toast-gems" {...motionProps}>
-        +{effect.amount} 💎
+        +{effect.amount} <GameIcon name="gem" size={18} className="toast-inline-icon" />
+      </m.div>
+    )
+  }
+  if (effect.type === 'bucks') {
+    return (
+      <m.div layout className="toast toast-xp toast-bucks" {...motionProps}>
+        +{effect.amount} <PixelIcon name="buck" size={18} className="toast-inline-icon" />
       </m.div>
     )
   }
   let eyebrow = ''
+  // small icon before the eyebrow (pixel / game icons, never emoji)
+  let mark: ReactNode = null
   let title = ''
-  let body: string | null = null
+  let body: ReactNode = null
   let tone = 'neutral'
   switch (effect.type) {
     case 'level-up':
@@ -92,25 +105,40 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
       tone = 'success'
       break
     case 'mission':
-      eyebrow = '🏆 Місію дня виконано'
+      eyebrow = 'Місію дня виконано'
+      mark = <Icon name="px:trophy" size={16} />
       title = `+${effect.bonusXp} XP бонусу`
-      body = `${effect.budget} хв чистого прогресу. Серія 🔥 збережена`
+      body = (
+        <>
+          {effect.budget} хв чистого прогресу. Серія <GameIcon name="fire" size={14} className="toast-inline-icon" /> збережена
+        </>
+      )
       tone = 'gold'
       break
     case 'freeze':
-      eyebrow = '🧊 Заморозка серії'
+      eyebrow = 'Заморозка серії'
+      mark = <Icon name="pi:PiSnowflakeFill" size={14} color="var(--lu-blue)" />
       title = effect.days === 1 ? 'Пропущений день заморожено' : `Заморожено днів: ${effect.days}`
       body = 'Серію врятовано — продовжуй!'
       tone = 'accent'
       break
     case 'evolution':
-      eyebrow = '✨ Еволюція Loo'
+      eyebrow = 'Новий ранг'
+      mark = <Icon name="pi:PiSparkleFill" size={14} color="var(--lu-yellow)" />
       title = effect.title
-      body = effect.gems > 0 ? `+${effect.gems} 💎 · відкрий «Мій Loo»` : 'Відкрий «Мій Loo»'
+      body =
+        effect.gems > 0 ? (
+          <>
+            +{effect.gems} <GameIcon name="gem" size={14} className="toast-inline-icon" /> · відкрий «Мій Loo»
+          </>
+        ) : (
+          'Відкрий «Мій Loo»'
+        )
       tone = 'gold'
       break
     case 'league':
-      eyebrow = '🏆 Ліга'
+      eyebrow = 'Ліга'
+      mark = <Icon name="px:trophy" size={16} />
       title = effect.result === 'promoted' ? 'Підвищення!' : effect.result === 'demoted' ? 'Ліга нижче' : 'Ліга збережена'
       body = `Місце ${effect.rank} минулого тижня`
       tone = effect.result === 'promoted' ? 'gold' : 'neutral'
@@ -126,7 +154,9 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
       <button type="button" className="toast-close" aria-label="Закрити" onClick={() => onDismiss(toast.id)}>
         ×
       </button>
-      <span className="eyebrow">{eyebrow}</span>
+      <span className="eyebrow">
+        {mark} {eyebrow}
+      </span>
       <strong className="toast-title">{title}</strong>
       {body ? <span className="toast-body">{body}</span> : null}
     </m.div>

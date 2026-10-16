@@ -1,4 +1,4 @@
-import type { Frame, StepScenario } from '../engine/types'
+import type { Frame, StepScenario, VizIcon } from '../engine/types'
 
 export type ModPhase = 'construct' | 'link' | 'evaluate'
 
@@ -16,7 +16,7 @@ export interface ModBinding {
 export interface ModBox {
   id: string
   file: string
-  emoji: string
+  icon: VizIcon
   // module record status or a short label
   status?: string
   tone?: 'active' | 'done' | 'error' | 'idle'
@@ -28,7 +28,7 @@ export interface ModBox {
 export interface ModLane {
   id: string
   title: string
-  emoji: string
+  icon: VizIcon
   hint?: string
   boxes: ModBox[]
 }
@@ -56,9 +56,9 @@ inc()
 console.log(count)
 count = 10`
 
-const lane = (boxes: ModBox[]): ModLane[] => [{ id: 'esm', title: 'Граф модулів', emoji: '🕸️', boxes }]
-const counterBox = (status: string, bindings: ModBinding[], tone?: ModBox['tone'], order?: number): ModBox => ({ id: 'counter', file: 'counter.js', emoji: '🔢', status, tone, order, bindings })
-const mainBox = (status: string, bindings: ModBinding[], tone?: ModBox['tone'], order?: number): ModBox => ({ id: 'main', file: 'main.js', emoji: '🚪', status, tone, order, bindings })
+const lane = (boxes: ModBox[]): ModLane[] => [{ id: 'esm', title: 'Граф модулів', icon: 'px:blocks', boxes }]
+const counterBox = (status: string, bindings: ModBinding[], tone?: ModBox['tone'], order?: number): ModBox => ({ id: 'counter', file: 'counter.js', icon: 'px:abacus', status, tone, order, bindings })
+const mainBox = (status: string, bindings: ModBinding[], tone?: ModBox['tone'], order?: number): ModBox => ({ id: 'main', file: 'main.js', icon: 'px:door', status, tone, order, bindings })
 
 const cTdz: ModBinding[] = [
   { name: 'count', kind: 'let', value: '<TDZ>', state: 'tdz' },
@@ -118,23 +118,23 @@ import { count, inc } from './counter.mjs'
 inc()
 console.log(count)`
 
-const cjsLane = (boxes: ModBox[]): ModLane => ({ id: 'cjs', title: 'CommonJS', emoji: '📦', hint: 'копія значення', boxes })
-const esmLane = (boxes: ModBox[]): ModLane => ({ id: 'esm', title: 'ESM', emoji: '🔗', hint: 'живий зв’язок', boxes })
+const cjsLane = (boxes: ModBox[]): ModLane => ({ id: 'cjs', title: 'CommonJS', icon: 'px:box', hint: 'копія значення', boxes })
+const esmLane = (boxes: ModBox[]): ModLane => ({ id: 'esm', title: 'ESM', icon: 'pi:PiLinkBold', hint: 'живий зв’язок', boxes })
 
-const cjsMain = (bindings: ModBinding[], tone?: ModBox['tone'], status = 'виконується'): ModBox => ({ id: 'cmain', file: 'main.cjs', emoji: '🚪', status, tone, bindings })
-const cjsCounter = (bindings: ModBinding[], tone?: ModBox['tone'], status = 'виконано'): ModBox => ({ id: 'ccounter', file: 'counter.cjs', emoji: '🔢', status, tone, bindings })
+const cjsMain = (bindings: ModBinding[], tone?: ModBox['tone'], status = 'виконується'): ModBox => ({ id: 'cmain', file: 'main.cjs', icon: 'px:door', status, tone, bindings })
+const cjsCounter = (bindings: ModBinding[], tone?: ModBox['tone'], status = 'виконано'): ModBox => ({ id: 'ccounter', file: 'counter.cjs', icon: 'px:abacus', status, tone, bindings })
 const cjsVars = cVal
 const exportsBox = (count = '0'): ModBox => ({
   id: 'cexports',
   file: 'module.exports',
-  emoji: '📤',
+  icon: 'pi:PiUploadSimpleBold',
   status: 'об’єкт',
   bindings: [
     { name: 'count', kind: 'prop', value: count, state: 'copy' },
     { name: 'inc', kind: 'prop', value: 'ƒ inc' },
   ],
 })
-const cacheBox: ModBox = { id: 'ccache', file: 'require.cache', emoji: '🗄️', status: 'кеш', bindings: [{ name: '…/counter.cjs', kind: 'entry', value: 'module', ref: 'cexports' }] }
+const cacheBox: ModBox = { id: 'ccache', file: 'require.cache', icon: 'px:database', status: 'кеш', bindings: [{ name: '…/counter.cjs', kind: 'entry', value: 'module', ref: 'cexports' }] }
 const counterRef = (): ModBinding => ({ name: 'counter', kind: 'const', value: '{…}', ref: 'cexports' })
 const esmPending: ModLane = esmLane([])
 const cjsDone = (count: string, changed = false) => cjsLane([cjsMain([counterRef()], undefined, 'виконано'), exportsBox(), cjsCounter(cjsVars(count, changed)), cacheBox])
@@ -142,7 +142,7 @@ const cjsDone = (count: string, changed = false) => cjsLane([cjsMain([counterRef
 const eMain = (v: string, changed = false, tone?: ModBox['tone']): ModBox => ({
   id: 'emain',
   file: 'main.mjs',
-  emoji: '🚪',
+  icon: 'px:door',
   status: 'evaluating',
   tone,
   order: 2,
@@ -151,7 +151,7 @@ const eMain = (v: string, changed = false, tone?: ModBox['tone']): ModBox => ({
     { name: 'inc', kind: 'import', value: 'ƒ inc', state: 'live', ref: 'ecounter.inc' },
   ],
 })
-const eCounter = (v: string, changed = false): ModBox => ({ id: 'ecounter', file: 'counter.mjs', emoji: '🔢', status: 'evaluated', tone: 'done', order: 1, bindings: cjsVars(v, changed) })
+const eCounter = (v: string, changed = false): ModBox => ({ id: 'ecounter', file: 'counter.mjs', icon: 'px:abacus', status: 'evaluated', tone: 'done', order: 1, bindings: cjsVars(v, changed) })
 
 const cjsVsEsm: StepScenario<ModuleFrame> = {
   code: cjsCode,

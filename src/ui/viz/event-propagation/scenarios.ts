@@ -38,19 +38,19 @@ const L = {
 } satisfies Record<string, Listener>
 
 const all = [L.winCap, L.ulCap, L.btn, L.btnCap, L.li, L.doc]
-const run1 = ['window ⬇ 1', 'ul ⬇ 1', 'btn ⬇ 2', 'btn 2', 'li ⬆ 3', 'document ⬆ 3']
+const run1 = ['window ↓ 1', 'ul ↓ 1', 'btn ↓ 2', 'btn 2', 'li ↑ 3', 'document ↑ 3']
 const cb = { tree: chain, at: null, phase: 0 as EventPhase, target: null, ran: [], run: 0, output: [] }
 const r1 = { ...cb, listeners: all, target: 'button', run: 1 }
 const r2 = { ...cb, listeners: [...all, L.liStop], target: 'button', run: 2 }
 
 const captureBubbleCode = `const log = (name) => (e) => console.log(name, e.eventPhase)
 
-window.addEventListener('click', log('window ⬇'), { capture: true })
-ul.addEventListener('click', log('ul ⬇'), { capture: true })
+window.addEventListener('click', log('window ↓'), { capture: true })
+ul.addEventListener('click', log('ul ↓'), { capture: true })
 btn.addEventListener('click', log('btn'))
-btn.addEventListener('click', log('btn ⬇'), { capture: true })
-li.addEventListener('click', log('li ⬆'))
-document.addEventListener('click', log('document ⬆'))
+btn.addEventListener('click', log('btn ↓'), { capture: true })
+li.addEventListener('click', log('li ↑'))
+document.addEventListener('click', log('document ↑'))
 
 btn.click() // те саме, що клік користувача
 
@@ -80,20 +80,20 @@ const captureBubble: StepScenario<PropFrame> = {
     { ...cb, line: 13, listeners: [...all, L.liStop], output: run1, note: 'Додаємо на <li> ще один bubble-слухач, який викликає e.stopPropagation().' },
     { ...r2, line: 14, at: 'button', phase: 2, ran: ['win-cap', 'ul-cap', 'btn-cap', 'btn'], output: [...run1, '— клік №2 —', ...run1.slice(0, 4)], note: 'Другий клік: capture і фаза цілі — як і раніше, stopPropagation ще ніхто не викликав.' },
     { ...r2, line: 13, at: 'li', phase: 3, ran: ['li', 'li-stop'], stopped: true, output: [...run1, '— клік №2 —', ...run1.slice(0, 5)], note: 'На <li> виконуються обидва слухачі: log, а потім stopPropagation(). Вона не скасовує решту слухачів поточного елемента — лише рух далі.' },
-    { ...r2, line: null, at: 'li', phase: 3, stopped: true, output: [...run1, '— клік №2 —', ...run1.slice(0, 5)], note: 'document ⬆ уже не спрацює: подія далі не піде. stopImmediatePropagation() зупинила б ще й наступні слухачі на самому <li>.' },
+    { ...r2, line: null, at: 'li', phase: 3, stopped: true, output: [...run1, '— клік №2 —', ...run1.slice(0, 5)], note: 'document ↑ уже не спрацює: подія далі не піде. stopImmediatePropagation() зупинила б ще й наступні слухачі на самому <li>.' },
     { ...cb, line: null, listeners: [...all, L.liStop], output: [...run1, '— клік №2 —', ...run1.slice(0, 5)], note: 'Не всі події спливають: у focus, blur, mouseenter event.bubbles === false — є лише capture і фаза цілі. Для делегування беруть focusin / focusout.' },
   ],
 }
 
 // ── delegation ───────────────────────────────────────────────────
-const item = (n: number, text: string) => leaf(`li${n}`, '<li>', [leaf(`btn${n}`, '<button>', [], '✔')], text)
-const list2 = page(leaf('ul', '<ul>', [item(1, '🍞 Хліб'), item(2, '🧀 Сир')]))
-const list3 = page(leaf('ul', '<ul>', [item(1, '🍞 Хліб'), item(2, '🧀 Сир'), item(3, '🥛 Молоко')]))
+const item = (n: number, text: string) => leaf(`li${n}`, '<li>', [leaf(`btn${n}`, '<button>', [], '✓')], text)
+const list2 = page(leaf('ul', '<ul>', [item(1, 'Хліб'), item(2, 'Сир')]))
+const list3 = page(leaf('ul', '<ul>', [item(1, 'Хліб'), item(2, 'Сир'), item(3, 'Молоко')]))
 
 const ulDel: Listener = { id: 'ul-del', node: 'ul', capture: false, label: 'bubble' }
 const db = { tree: list2, listeners: [ulDel], at: null, phase: 0 as EventPhase, target: null, ran: [], run: 0, output: [] }
-const log2 = '✔ 2 target: BUTTON'
-const log3 = '✔ 3 target: BUTTON'
+const log2 = '✓ 2 target: BUTTON'
+const log3 = '✓ 3 target: BUTTON'
 
 const delegationCode = `const list = document.querySelector('ul')
 
@@ -101,21 +101,21 @@ list.addEventListener('click', (event) => {
   const li = event.target.closest('li')
   if (!li || !list.contains(li)) return
   li.classList.toggle('done')
-  console.log('✔', li.dataset.id, 'target:', event.target.tagName)
+  console.log('✓', li.dataset.id, 'target:', event.target.tagName)
 })
 
 // пізніше: новий пункт без власного слухача
 const item = document.createElement('li')
 item.dataset.id = '3'
-item.innerHTML = '🥛 Молоко <button>✔</button>'
+item.innerHTML = 'Молоко <button>✓</button>'
 list.append(item)`
 
 const delegation: StepScenario<PropFrame> = {
   code: delegationCode,
   frames: [
-    { ...db, line: 1, listeners: [], note: 'Список із двох пунктів, у кожному — кнопка ✔. Замість слухача на кожному <li> повісимо один, на спільному предку <ul>.' },
+    { ...db, line: 1, listeners: [], note: 'Список із двох пунктів, у кожному — кнопка ✓. Замість слухача на кожному <li> повісимо один, на спільному предку <ul>.' },
     { ...db, line: 3, note: 'Один bubble-слухач на <ul>. Завдяки спливанню він почує кліки з будь-якого нащадка — навіть з тих, яких ще немає.' },
-    { ...db, line: null, run: 1, target: 'btn2', at: 'btn2', phase: 2, note: 'Клік по кнопці ✔ у другому пункті. event.target — найглибший елемент під курсором, тобто <button>, а не <li>.' },
+    { ...db, line: null, run: 1, target: 'btn2', at: 'btn2', phase: 2, note: 'Клік по кнопці ✓ у другому пункті. event.target — найглибший елемент під курсором, тобто <button>, а не <li>.' },
     { ...db, line: null, run: 1, target: 'btn2', at: 'li2', phase: 3, note: 'Подія спливає: на <li> слухачів немає, тож вона йде далі вгору.' },
     { ...db, line: 4, run: 1, target: 'btn2', at: 'ul', phase: 3, ran: ['ul-del'], hit: 'li2', note: 'Спрацював слухач <ul>: currentTarget = ul, target = button. closest(\'li\') піднімається від target до предків і знаходить другий <li>.' },
     { ...db, line: 7, run: 1, target: 'btn2', at: 'ul', phase: 3, hit: 'li2', done: ['li2'], output: [log2], note: 'list.contains(li) відсікає <li>, що лежить вище за сам список (вкладені списки). Пункт позначено, а tagName показує, що клікнули саме кнопку.' },

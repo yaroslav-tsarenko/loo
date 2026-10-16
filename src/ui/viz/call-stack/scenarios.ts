@@ -1,4 +1,4 @@
-import { tok, type Frame, type StepScenario, type Token } from '../engine/types'
+import { itok, tok, type Frame, type StepScenario, type Token } from '../engine/types'
 
 export interface CallStackFrame extends Frame {
   // bottom → top
@@ -10,7 +10,7 @@ export interface CallStackFrame extends Frame {
   error?: string
 }
 
-const G = tok('global', '🌐 global', 'глобальний код')
+const G = itok('px:globe', 'global', 'global', 'глобальний код')
 
 const nestedCode = `function greet(name) {
   return \`Привіт, \${name}!\`
@@ -67,7 +67,7 @@ const recursion: StepScenario<CallStackFrame> = {
 
 const overflowCode = `function countdown(n) {
   console.log(n)
-  countdown(n - 1) // де стоп? 🙈
+  countdown(n - 1) // де стоп?
 }
 
 countdown(3)`

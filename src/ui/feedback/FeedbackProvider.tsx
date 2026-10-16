@@ -130,12 +130,13 @@ export function FeedbackProvider({ children, initialXp, sound, volume, haptics =
   )
 }
 
-// One «+N XP» and one «+N 💎» toast per batch.
+// One «+N XP», one «+N bucks» and one «+N gems» toast per batch.
+const SUMMED = ['xp', 'bucks', 'gems'] as const
 function mergeXp(list: Toast[]): Toast[] {
-  const total = (type: 'xp' | 'gems') => list.reduce((sum, t) => sum + (t.effect.type === type ? t.effect.amount : 0), 0)
-  const rest = list.filter((t) => t.effect.type !== 'xp' && t.effect.type !== 'gems')
+  const total = (type: (typeof SUMMED)[number]) => list.reduce((sum, t) => sum + (t.effect.type === type ? t.effect.amount : 0), 0)
+  const rest = list.filter((t) => !(SUMMED as readonly string[]).includes(t.effect.type))
   const out: Toast[] = []
-  for (const type of ['xp', 'gems'] as const) {
+  for (const type of SUMMED) {
     const firstOf = list.find((t) => t.effect.type === type)
     const amount = total(type)
     if (firstOf && amount > 0) out.push({ id: firstOf.id, effect: { type, amount, reason: 'total' } })

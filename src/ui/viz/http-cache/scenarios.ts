@@ -10,7 +10,7 @@ export interface CacheFrame extends Frame {
   server: string
   // cache lookup result at time t (only on lookup steps)
   decision?: Decision
-  // message travelling page ↔ cache or cache ↔ server
+  // message travelling page <-> cache or cache <-> server
   hop: 'page' | 'server' | null
   msg: HttpMsg | null
   output: string[]
@@ -46,12 +46,12 @@ const code = `// сервер віддає /app.js із заголовками:
 await fetch('/app.js') // t = 0 с
 await fetch('/app.js') // t = 30 с
 await fetch('/app.js') // t = 90 с
-// 🚀 деплой: на сервері тепер "v2"
+// деплой: на сервері тепер "v2"
 await fetch('/app.js') // t = 200 с
 
 // Cache-Control: no-cache → зберігати, але щоразу перевіряти
 // Cache-Control: no-store → не зберігати взагалі
-// Last-Modified ↔ If-Modified-Since — перевірка за датою`
+// Last-Modified / If-Modified-Since — перевірка за датою`
 
 const revalidation: StepScenario<CacheFrame> = {
   code,

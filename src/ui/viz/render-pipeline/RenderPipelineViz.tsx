@@ -1,7 +1,7 @@
 'use client'
 
 import { m } from 'motion/react'
-import { Badge, Panel, SPRING } from '../engine/Panel'
+import { Badge, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { FRAME_MS, STAGES, budget, type Block, type BlockKind } from './pipeline'
@@ -26,7 +26,7 @@ function Stages({ f }: { f: RenderFrame }) {
         const state = f.stages[s.id]
         return (
           <li key={s.id} data-kind={s.id} data-state={state} aria-current={state === 'run' ? 'step' : undefined}>
-            <span aria-hidden="true">{s.emoji}</span>
+            <VizGlyph icon={s.icon} size={14} />
             <span className="viz-rp-stage-name">{s.label}</span>
             {state ? <span className="viz-rp-stage-state">{STATE_LABEL[state]}</span> : null}
           </li>
@@ -42,7 +42,7 @@ function BudgetBar({ blocks }: { blocks: readonly Block[] }) {
   const pct = (ms: number) => `${(ms / scale) * 100}%`
   const kinds = [...new Set(blocks.map((b) => b.kind))]
   return (
-    <Panel title="Бюджет кадру" emoji="⏱️" hint={`${used.toFixed(1)} / ${FRAME_MS.toFixed(1)} мс`} tone={over ? 'danger' : undefined}>
+    <Panel title="Бюджет кадру" icon="px:clock" hint={`${used.toFixed(1)} / ${FRAME_MS.toFixed(1)} мс`} tone={over ? 'danger' : undefined}>
       <div className="viz-budget" data-over={over ? '' : undefined}>
         <div className="viz-budget-track" role="img" aria-label={`Використано ${used.toFixed(1)} мс із ${FRAME_MS.toFixed(1)}`}>
           {blocks.map((b) => (
@@ -86,12 +86,20 @@ export function RenderPipelineViz({ scenario }: VizProps) {
                 <code>style.{f.prop}</code>
               </Badge>
             ) : null}
-            {f.thread ? <Badge tone={f.thread === 'compositor' ? 'success' : undefined}>{f.thread === 'compositor' ? '🧩 compositor-потік' : '🧵 головний потік'}</Badge> : null}
-            {f.dirty !== undefined ? <Badge tone={f.dirty ? undefined : 'success'}>{f.dirty ? '📐 layout «брудний»' : '📐 layout актуальний'}</Badge> : null}
+            {f.thread ? (
+              <Badge tone={f.thread === 'compositor' ? 'success' : undefined}>
+                <VizGlyph icon={f.thread === 'compositor' ? 'pi:PiStackFill' : 'px:spool'} size={12} /> {f.thread === 'compositor' ? 'compositor-потік' : 'головний потік'}
+              </Badge>
+            ) : null}
+            {f.dirty !== undefined ? (
+              <Badge tone={f.dirty ? undefined : 'success'}>
+                <VizGlyph icon="pi:PiRulerFill" size={12} /> {f.dirty ? 'layout «брудний»' : 'layout актуальний'}
+              </Badge>
+            ) : null}
           </div>
           {f.warn ? (
             <m.p key={f.warn} className="viz-rp-warn" role="status" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
-              {f.warn}
+              <VizGlyph icon="pi:PiWarningFill" size={14} /> {f.warn}
             </m.p>
           ) : null}
         </>

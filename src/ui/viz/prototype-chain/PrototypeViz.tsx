@@ -3,7 +3,7 @@
 import { AnimatePresence, m } from 'motion/react'
 import { useState } from 'react'
 import { Arrows, type ArrowLink } from '../engine/Arrows'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { LOOKUP_PROPS, buildLookupScenario, prototypeScenarios, type LookupProp, type ProtoFrame, type ProtoObject } from './scenarios'
@@ -25,15 +25,17 @@ function ObjectCard({ obj, frame, visited }: { obj: ProtoObject; frame: ProtoFra
   if (obj.id === 'null') {
     return (
       <m.div layout="position" className="viz-proto viz-proto-null" data-anchor="obj-null" data-status={status} transition={SPRING}>
-        🚫 null
+        <VizGlyph icon="pi:PiProhibitFill" /> null
       </m.div>
     )
   }
   return (
     <m.div layout="position" className="viz-proto" data-anchor={`obj-${obj.id}`} data-status={status} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={SPRING}>
       <div className="viz-proto-head">
-        <span aria-hidden="true">{obj.emoji}</span> {obj.label}
-        {isCursor && frame.status === 'search' ? <span className="viz-proto-eye">🔍</span> : null}
+        <VizGlyph icon={obj.icon} /> {obj.label}
+        {isCursor && frame.status === 'search' ? <span className="viz-proto-eye">
+            <VizGlyph icon="pi:PiMagnifyingGlassBold" size={14} />
+          </span> : null}
       </div>
       <ul>
         {obj.props.map((p) => (
@@ -61,7 +63,7 @@ function ProtoStage({ frame }: { frame: ProtoFrame }) {
     if (o.prototypeOf) links.push({ from: `obj-${o.id}`, to: `obj-${o.prototypeOf}`, tone: 'muted', dashed: true })
   }
   return (
-    <Panel title="Об’єкти і [[Prototype]]" emoji="🧬" hint={frame.key ? `шукаємо «${frame.key}»` : twoCols ? '- - → .prototype' : undefined}>
+    <Panel title="Об’єкти і [[Prototype]]" icon="px:rabbit" hint={frame.key ? `шукаємо «${frame.key}»` : twoCols ? '- - → .prototype' : undefined}>
       <div className="viz-rel viz-proto-cols" data-cols={cols.length}>
         {cols.map((col, i) => (
           <div key={i} className="viz-proto-col">

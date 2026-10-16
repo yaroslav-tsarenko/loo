@@ -34,13 +34,21 @@ React змінює ваше уявлення про проєктування т�
 
 ### Ієрархія компонентів
 
-```
-FilterableProductTable
-  ├── SearchBar
-  └── ProductTable
-      ├── ProductCategoryRow
-      └── ProductRow
-```
+> [!diagram] Ієрархія компонентів таблиці продуктів
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: root, text: FilterableProductTable, note: "увесь застосунок", tone: gray, icon: "si:SiReact" }
+>   - { id: search, text: SearchBar, note: "введення користувача", parent: root, tone: blue }
+>   - { id: table, text: ProductTable, note: "показує й фільтрує список", parent: root, tone: violet }
+>   - { id: cat, text: ProductCategoryRow, note: "заголовок категорії", parent: table, tone: green }
+>   - { id: row, text: ProductRow, note: "рядок продукту", parent: table, tone: yellow }
+> steps:
+>   - { show: root, note: "Найбільша рамка на макеті — FilterableProductTable. Вона містить увесь застосунок." }
+>   - { show: [search, table], note: "Усередині — дві частини з різними обов'язками: SearchBar отримує введення, ProductTable показує список." }
+>   - { show: [cat, row], note: "ProductTable складається з рядків двох видів: заголовок категорії і рядок продукту. Кожен компонент відповідає за одну річ." }
+>   - { move: [{ from: root, to: search, value: "filterText, inStockOnly" }, { from: root, to: table, value: "products, filterText" }], note: "Дерево компонентів — це й шлях даних: props течуть згори вниз, від батьківського компонента до дочірніх (кроки 2–4)." }
+> ```
 
 ---
 

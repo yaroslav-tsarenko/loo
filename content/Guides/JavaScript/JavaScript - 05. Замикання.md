@@ -52,14 +52,24 @@ icon: "🎒"
 
 Тепер ключова деталь зі специфікації: **кожен об'єкт функції має внутрішній слот `[[Environment]]`**. Він заповнюється **в момент створення функції** посиланням на оточення, де вона створена. При кожному **виклику** функції рушій створює нове оточення для її тіла, у якого `outer = [[Environment]]`.
 
-```text
-makeCounter()  ──► створює оточення E1 { count: 0 }
-                     │
-                     └─ стрілкова функція створюється тут
-                        її [[Environment]] = E1  ← «рюкзак»
-
-a()  ──► нове оточення тіла { }  ──outer──►  E1 { count: 1 }  ──outer──► global
-```
+> [!diagram] [[Environment]]: функція несе оточення з собою
+> ```yaml
+> layout: nest
+> nodes:
+>   - { id: global, label: "global", code: "function makeCounter() {\n  let count = 0;\n  return () => ++count;\n}\nconst a = makeCounter();\na();", tone: gray }
+>   - { id: e1, label: "E1 — оточення виклику makeCounter()", parent: global, tone: violet }
+>   - { id: count, label: "count", text: "0", parent: e1, tone: yellow }
+>   - { id: fn, label: "() => ++count", text: "[[Environment]] = E1", note: "«рюкзак» функції", parent: e1, tone: mint, icon: "px:backpack" }
+>   - { id: body, label: "оточення тіла a()", text: "{ }", note: "outer → E1 → global", parent: e1, tone: blue }
+> steps:
+>   - { show: global, line: "global:5", note: "Виконується const a = makeCounter() — викликаємо фабрику." }
+>   - { show: [e1, count], line: "global:2", note: "Виклик створює нове оточення E1, у ньому count = 0." }
+>   - { show: fn, line: "global:3", note: "Стрілкова функція створюється всередині E1, тож її [[Environment]] назавжди = E1." }
+>   - { focus: [fn, e1], line: "global:5", note: "makeCounter завершилась, але E1 не знищено: функція в a досі тримає на нього посилання." }
+>   - { show: body, line: "global:6", note: "a() створює нове порожнє оточення тіла, а його outer = [[Environment]] = E1." }
+>   - { set: { count: "1" }, line: "global:3", note: "++count: у тілі count немає — пошук іде по outer в E1 і змінює саму змінну. Тепер count = 1." }
+>   - { hide: body, focus: [fn, count], note: "Виклик закінчився — оточення тіла зникло. E1 з count = 1 живе далі, поки живе a." }
+> ```
 
 **Замикання** (closure) — це комбінація функції та оточення, на яке вказує її `[[Environment]]`. Тобто технічно **кожна функція в JS — замикання**. Цікавим це стає, коли функція переживає виклик, у якому народилась: оточення не знищується, бо на нього ще є посилання.
 

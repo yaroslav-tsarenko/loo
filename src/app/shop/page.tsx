@@ -1,39 +1,138 @@
 import type { Metadata } from 'next'
-import { PiStorefrontFill } from 'react-icons/pi'
+import type { ReactNode } from 'react'
+import { PiCheckBold, PiLockSimpleFill, PiStorefrontFill } from 'react-icons/pi'
 import { t } from '@/i18n'
-import { HEART_REFILL_MS, isSkin, MAX_FREEZES, MAX_HEARTS, purchaseBlock, SHOP_ITEMS, tryOn, type ShopItem, type SkinItem, type SkinSlot } from '@/game'
+import {
+  GEAR_SLOTS,
+  HEART_REFILL_MS,
+  isConsumable,
+  isGear,
+  isSkin,
+  MAX_FREEZES,
+  MAX_HEARTS,
+  minRank,
+  minStep,
+  purchaseBlock,
+  rarityOf,
+  SHOP_ITEMS,
+  STAT_ICON,
+  STATS,
+  tryOn,
+  WARRIOR_FROM,
+  type EquippedGear,
+  type EquippedSkin,
+  type GearItem,
+  type ShopItem,
+  type SkinItem,
+  type SkinSlot,
+  type Wallet,
+} from '@/game'
 import { nowMs } from '@/server/clock'
 import { requireUser, userScope } from '@/server/auth'
 import { gameSnapshotIn, ownedItems } from '@/server/game'
 import { Card } from '@/ui/design/Card'
 import { GameIcon } from '@/ui/design/GameIcon'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { Loo } from '@/ui/design/mascot/Loo'
-import { LooSays } from '@/ui/design/mascot/LooSays'
-import { ShopButton } from '@/ui/game/ShopButton'
 import { BoostLeft } from '@/ui/game/BoostLeft'
+import { CurrencyIcon } from '@/ui/game/Currency'
+import { ShopButton } from '@/ui/game/ShopButton'
+import { ShopTryOnProvider, TryOnButton, TryOnStage } from '@/ui/game/ShopTryOn'
+import { Icon } from '@/ui/icons/Icon'
 
 export const metadata: Metadata = { title: 'Крамниця' }
 
-const SLOTS: readonly SkinSlot[] = ['hat', 'glasses', 'hoodie', 'scarf']
+const SKIN_SLOTS: readonly SkinSlot[] = ['hat', 'glasses', 'hoodie', 'scarf']
 
-// 🛒 /shop: power-ups (🧊 freeze, ❤️ refill, ⚡ double XP) and Loo's wardrobe. Prices and rules: src/game/shop.ts.
+type ItemName = 'streak-freeze'
+const itemName = (item: ShopItem) => t(`game.shop.items.${item.id as ItemName}.name`)
+
+// /shop: consumables (bucks), gear by slot (stats for battles; epic / legendary for gems and a rank) and skins.
+// Every card shows its price in its currency; the server re-checks everything (src/server/actions/shop.ts).
 export default async function ShopPage() {
   await requireUser()
   const now = nowMs()
   const { game, owned } = await userScope(async (tx, userId) => ({ game: await gameSnapshotIn(tx, userId, now), owned: await ownedItems(tx, userId) }), { tx: true })
-  const wallet = { gems: game.gems, hearts: game.hearts.hearts, freezes: game.freezes, boostUntil: game.boostUntil, owned, now }
-  const blocked = (item: ShopItem) => {
-    const b = purchaseBlock(item, wallet)
-    return b ? t(`game.shop.blocks.${b}`) : null
+  const step = Math.max(game.step, game.rank.rank.index)
+  const wallet: Wallet = { bucks: game.bucks, gems: game.gems, hearts: game.hearts.hearts, freezes: game.freezes, boostUntil: game.boostUntil, owned, step, now }
+  const skin = game.equipped as EquippedSkin
+  const gear = game.gear as EquippedGear
+
+  const buy = (item: ShopItem) => {
+    const rank = minRank(item)
+    return (
+      <ShopButton
+        action="buy"
+        itemId={item.id}
+        price={item.price}
+        currency={item.currency}
+        balance={item.currency === 'gems' ? game.gems : game.bucks}
+        block={purchaseBlock(item, wallet)}
+        rankLabel={rank ? WARRIOR_FROM[rank] : null}
+      />
+    )
   }
-  const powerups = SHOP_ITEMS.filter((i) => !isSkin(i))
-  const skins = SHOP_ITEMS.filter(isSkin)
-  const equipped = game.equipped as Partial<Record<SkinSlot, string>>
-  const status = (item: ShopItem): string | null => {
+
+  const status = (item: ShopItem): ReactNode => {
     if (item.kind === 'freeze') return t('game.shop.freezes', { n: game.freezes, max: MAX_FREEZES })
-    if (item.kind === 'refill') return game.hearts.hearts >= MAX_HEARTS ? t('game.hearts.full') : `${game.hearts.hearts}/${MAX_HEARTS} ❤️`
+    if (item.kind === 'refill')
+      return game.hearts.hearts >= MAX_HEARTS ? (
+        t('game.hearts.full')
+      ) : (
+        <>
+          <GameIcon name="heart" size={16} /> {game.hearts.hearts}/{MAX_HEARTS} · +1 / {HEART_REFILL_MS / 3_600_000} год
+        </>
+      )
     return null
   }
+
+  // One wearable card: Loo with the item on top of the current outfit, rarity, stats, rank gate, price / equip.
+  const wearable = (item: GearItem | SkinItem) => {
+    const has = owned.has(item.id)
+    const slotOn = isGear(item) ? gear[item.slot] : skin[item.slot]
+    const on = slotOn === item.id
+    const rarity = rarityOf(item)!
+    const rank = minRank(item)
+    const locked = !has && step < minStep(item)
+    return (
+      <li key={item.id}>
+        <Card variant="raised" className="shop-item shop-wear" as="article" data-rarity={rarity} data-on={on ? '' : undefined}>
+          <span className="shop-rarity">{t(`game.shop.rarity.${rarity}`)}</span>
+          <Loo mood={on ? 'happy' : 'idle'} size={88} skin={tryOn(skin, gear, item)} animated={false} decorative />
+          <h4 className="shop-item-name">{itemName(item)}</h4>
+          {isGear(item) ? (
+            <ul className="shop-stats" aria-label={t('game.shop.stats')}>
+              {STATS.filter((s) => item.stats[s]).map((s) => (
+                <li key={s} title={t(`game.stats.${s}.hint`)}>
+                  <Icon name={STAT_ICON[s]} size={14} /> {t(`game.stats.${s}.name`)} <strong className="tabular">+{item.stats[s]}</strong>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {rank && !has ? (
+            <p className="shop-item-rank" data-locked={locked ? '' : undefined}>
+              <PiLockSimpleFill aria-hidden="true" /> {t('game.shop.needRank', { rank: WARRIOR_FROM[rank] })}
+            </p>
+          ) : null}
+          {on ? (
+            <span className="shop-item-status">
+              <PiCheckBold aria-hidden="true" /> {t('game.shop.equipped')}
+            </span>
+          ) : has ? (
+            <span className="shop-item-status">{t('game.shop.owned')}</span>
+          ) : (
+            <TryOnButton itemId={item.id} />
+          )}
+          {has ? <ShopButton action={on ? 'unequip' : 'equip'} itemId={item.id} slot={item.slot} /> : buy(item)}
+        </Card>
+      </li>
+    )
+  }
+
+  const consumables = SHOP_ITEMS.filter(isConsumable)
+  const gearItems = SHOP_ITEMS.filter(isGear)
+  const skins = SHOP_ITEMS.filter(isSkin)
+
   return (
     <div className="page shop-page" data-width="wide">
       <header className="ghead">
@@ -46,77 +145,105 @@ export default async function ShopPage() {
         </div>
       </header>
 
-      <Card variant="raised" className="shop-wallet" tone="blue">
-        <Loo mood={game.gems >= 100 ? 'love' : 'happy'} size={96} />
-        <div className="shop-wallet-body">
-          <span className="shop-wallet-label">{t('game.shop.balance')}</span>
-          <strong className="shop-wallet-gems tabular">
-            <GameIcon name="gem" size={34} /> {game.gems}
-          </strong>
-          <span className="shop-wallet-meta">
-            <span>
-              <GameIcon name="heart" size={18} /> {game.hearts.hearts}/{MAX_HEARTS}
-            </span>
-            <span>🧊 {game.freezes}/{MAX_FREEZES}</span>
-            {game.boostActive && game.boostUntil ? <BoostLeft until={game.boostUntil} /> : null}
-          </span>
-        </div>
-      </Card>
-
-      <h2 className="gsection-title">{t('game.shop.powerups')}</h2>
-      <ul className="shop-grid" data-kind="powerups">
-        {powerups.map((item) => (
-          <li key={item.id}>
-            <Card variant="raised" className="shop-item" as="article">
-              <span className="shop-item-emoji" aria-hidden="true">
-                {item.emoji}
+      <ShopTryOnProvider skin={skin} gear={gear}>
+        <div className="shop-top">
+          <Card variant="raised" className="shop-wallet" tone="orange">
+            <span className="shop-wallet-label">{t('game.shop.balance')}</span>
+            <div className="shop-wallet-balances">
+              <span className="shop-wallet-coin" data-currency="bucks">
+                <CurrencyIcon currency="bucks" size={34} />
+                <strong className="tabular">{game.bucks.toLocaleString('uk-UA')}</strong>
+                <span className="shop-wallet-hint">
+                  {t('game.bucks.title')} · {t('game.shop.bucksHint')}
+                </span>
               </span>
-              <h3 className="shop-item-name">{t(`game.shop.items.${item.id as 'streak-freeze'}.name`)}</h3>
-              <p className="shop-item-desc">{t(`game.shop.items.${item.id as 'streak-freeze'}.desc`)}</p>
-              {status(item) ? <p className="shop-item-status">{status(item)}</p> : null}
-              {item.kind === 'refill' && game.hearts.hearts < MAX_HEARTS ? <p className="shop-item-status">+1 ❤️ / {HEART_REFILL_MS / 3_600_000} год</p> : null}
-              <ShopButton action="buy" itemId={item.id} price={item.price} blocked={blocked(item)} />
-            </Card>
-          </li>
-        ))}
-      </ul>
+              <span className="shop-wallet-coin" data-currency="gems">
+                <CurrencyIcon currency="gems" size={34} />
+                <strong className="tabular">{game.gems.toLocaleString('uk-UA')}</strong>
+                <span className="shop-wallet-hint">
+                  {t('game.gems.title')} · {t('game.shop.gemsHint')}
+                </span>
+              </span>
+            </div>
+            <span className="shop-wallet-meta">
+              <span>
+                <PixelIcon name="insignia" size={18} /> {game.rank.rank.title}
+              </span>
+              <span>
+                <GameIcon name="heart" size={18} /> {game.hearts.hearts}/{MAX_HEARTS}
+              </span>
+              <span>
+                <PixelIcon name="freeze" size={18} /> {game.freezes}/{MAX_FREEZES}
+              </span>
+              {game.boostActive && game.boostUntil ? <BoostLeft until={game.boostUntil} /> : null}
+            </span>
+          </Card>
+          <Card variant="raised" className="shop-stage-card">
+            <TryOnStage step={step} />
+          </Card>
+        </div>
 
-      <h2 className="gsection-title">{t('game.shop.looTitle')}</h2>
-      <LooSays mood="wink" size={72} className="shop-loo-says">
-        {t('game.shop.looLead')}
-      </LooSays>
-      {SLOTS.map((slot) => (
-        <section key={slot} className="shop-slot" aria-labelledby={`slot-${slot}`}>
-          <h3 className="shop-slot-title" id={`slot-${slot}`}>
-            {t(`game.shop.slots.${slot}`)}
-          </h3>
-          <ul className="shop-grid" data-kind="skins">
-            {skins
-              .filter((s) => s.slot === slot)
-              .map((item: SkinItem) => {
-                const has = owned.has(item.id)
-                const on = equipped[slot] === item.id
-                return (
-                  <li key={item.id}>
-                    <Card variant="raised" className="shop-item shop-skin" as="article" tone={on ? 'green' : undefined}>
-                      <Loo mood={on ? 'happy' : 'idle'} size={88} skin={tryOn(equipped, item)} animated={false} decorative />
-                      <h4 className="shop-item-name">{t(`game.shop.items.${item.id as 'hat-crown'}.name`)}</h4>
-                      {on ? <span className="shop-item-status">✓ {t('game.shop.equipped')}</span> : has ? <span className="shop-item-status">{t('game.shop.owned')}</span> : null}
-                      {has ? <ShopButton action={on ? 'unequip' : 'equip'} itemId={item.id} slot={slot} /> : <ShopButton action="buy" itemId={item.id} price={item.price} blocked={blocked(item)} />}
-                    </Card>
-                  </li>
-                )
-              })}
-          </ul>
-        </section>
-      ))}
+        <h2 className="gsection-title">{t('game.shop.consumables')}</h2>
+        <ul className="shop-grid" data-kind="powerups">
+          {consumables.map((item) => (
+            <li key={item.id}>
+              <Card variant="raised" className="shop-item" as="article">
+                <span className="shop-item-art" aria-hidden="true">
+                  {'icon' in item ? <Icon name={item.icon} size={48} /> : null}
+                </span>
+                <h3 className="shop-item-name">{itemName(item)}</h3>
+                <p className="shop-item-desc">{t(`game.shop.items.${item.id as ItemName}.desc`)}</p>
+                {status(item) ? <p className="shop-item-status">{status(item)}</p> : null}
+                {buy(item)}
+              </Card>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className="gsection-title">{t('game.shop.gearTitle')}</h2>
+        <p className="ghead-lead">{t('game.shop.gearLead')}</p>
+        {GEAR_SLOTS.map((slot) => (
+          <section key={slot} className="shop-slot" aria-labelledby={`gear-${slot}`}>
+            <h3 className="shop-slot-title" id={`gear-${slot}`}>
+              {t(`game.shop.gearSlots.${slot}`)}
+            </h3>
+            <ul className="shop-grid" data-kind="gear">
+              {gearItems.filter((g) => g.slot === slot).map(wearable)}
+            </ul>
+          </section>
+        ))}
+
+        <h2 className="gsection-title">{t('game.shop.skinsTitle')}</h2>
+        <p className="ghead-lead">{t('game.shop.looLead')}</p>
+        {SKIN_SLOTS.map((slot) => (
+          <section key={slot} className="shop-slot" aria-labelledby={`slot-${slot}`}>
+            <h3 className="shop-slot-title" id={`slot-${slot}`}>
+              {t(`game.shop.slots.${slot}`)}
+            </h3>
+            <ul className="shop-grid" data-kind="skins">
+              {skins.filter((s) => s.slot === slot).map(wearable)}
+            </ul>
+          </section>
+        ))}
+      </ShopTryOnProvider>
 
       <h2 className="gsection-title">{t('game.shop.earnTitle')}</h2>
-      <ul className="shop-earn">
-        {(['lesson', 'test', 'mission', 'streak', 'achievements', 'league'] as const).map((k) => (
-          <li key={k}>{t(`game.shop.earn.${k}`)}</li>
-        ))}
-      </ul>
+      <div className="shop-earn-cols">
+        <ul className="shop-earn">
+          {(['lesson', 'test', 'mission', 'practice'] as const).map((k) => (
+            <li key={k}>
+              <CurrencyIcon currency="bucks" size={18} /> {t(`game.shop.earn.${k}`)}
+            </li>
+          ))}
+        </ul>
+        <ul className="shop-earn">
+          {(['exam', 'rank', 'streak', 'achievements', 'league'] as const).map((k) => (
+            <li key={k}>
+              <CurrencyIcon currency="gems" size={18} /> {t(`game.shop.earn.${k}`)}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

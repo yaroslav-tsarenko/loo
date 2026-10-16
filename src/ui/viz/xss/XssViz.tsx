@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { xssScenarios, type DomNode, type XssFrame } from './scenarios'
@@ -17,7 +17,7 @@ const SINK_LABEL: Record<NonNullable<XssFrame['sink']>['name'], string> = {
 function UrlBar({ frame }: { frame: XssFrame }) {
   return (
     <div className="viz-xss-url" data-stage={frame.stage} aria-label="Адресний рядок">
-      <span aria-hidden="true">🔒</span>
+      <VizGlyph icon="px:lock" size={14} />
       <span className="viz-xss-host">shop.example/search?q=</span>
       <m.mark key={frame.query} className="viz-xss-payload" initial={{ opacity: 0.4 }} animate={{ opacity: 1 }} transition={SPRING}>
         {frame.query}
@@ -84,7 +84,7 @@ function Node({ node }: { node: DomNode }) {
 
 function Tree({ frame }: { frame: XssFrame }) {
   return (
-    <Panel title="DOM" emoji="🌳" hint={frame.tree ? 'що побудував браузер' : undefined} className="viz-xss-tree">
+    <Panel title="DOM" icon="pi:PiTreeStructureFill" hint={frame.tree ? 'що побудував браузер' : undefined} className="viz-xss-tree">
       <code className="viz-xss-root">
         <span className="viz-xss-tag">&lt;div id=&quot;results&quot;&gt;</span>
       </code>
@@ -102,9 +102,11 @@ function Tree({ frame }: { frame: XssFrame }) {
 
 function Preview({ frame }: { frame: XssFrame }) {
   return (
-    <Panel title="Сторінка" emoji="🖼️" className="viz-xss-preview" tone={frame.alert ? 'danger' : undefined}>
+    <Panel title="Сторінка" icon="px:image" className="viz-xss-preview" tone={frame.alert ? 'danger' : undefined}>
       <div className="viz-xss-page viz-rel">
-        <div className="viz-xss-page-bar">🛍️ shop.example</div>
+        <div className="viz-xss-page-bar">
+          <VizGlyph icon="pi:PiShoppingBagFill" size={12} /> shop.example
+        </div>
         <div className="viz-xss-page-body">
           {frame.page.length === 0 ? <span className="viz-empty">результатів ще немає</span> : null}
           {frame.page.map((p, i) =>
@@ -114,7 +116,7 @@ function Preview({ frame }: { frame: XssFrame }) {
               </span>
             ) : (
               <span key={i} className="viz-xss-broken" role="img" aria-label="зламане зображення">
-                ⛔ x
+                <VizGlyph icon="pi:PiImageBrokenFill" size={14} /> x
               </span>
             ),
           )}
@@ -131,8 +133,7 @@ function Preview({ frame }: { frame: XssFrame }) {
       </div>
       {frame.verdict ? (
         <m.div key={frame.verdict.text} className="viz-xss-verdict" data-tone={frame.verdict.tone} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
-          {frame.verdict.tone === 'danger' ? '💥 ' : frame.verdict.tone === 'blocked' ? '🛑 ' : '✅ '}
-          {frame.verdict.text}
+          <VizGlyph icon={frame.verdict.tone === 'danger' ? 'px:bomb' : frame.verdict.tone === 'blocked' ? 'pi:PiProhibitFill' : 'pi:PiCheckCircleFill'} size={14} /> {frame.verdict.text}
         </m.div>
       ) : null}
     </Panel>

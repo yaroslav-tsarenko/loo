@@ -1,3 +1,4 @@
+import { EXAM_ICON, TEST_ICON } from '@/content/icons'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { requireUser, userScope } from '@/server/auth'
@@ -23,7 +24,7 @@ function decode(raw: string): string {
   }
 }
 
-// 🏁 /test/<course>:<section>:<topic>:test and 👑 /test/<course>:<section>:exam. Attempt n = started attempts + 1,
+// /test/<course>:<section>:<topic>:test (topic test) and /test/<course>:<section>:exam (section exam). Attempt n = started attempts + 1,
 // drawn with the seed `${userId}:${n}`; the attempt is recorded when the learner presses «Почати».
 export default async function TestPage({ params }: { params: Promise<{ id: string }> }) {
   const user = await requireUser()
@@ -54,7 +55,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
       key={`${test.id}#${attempt}`}
       lessonId={test.id}
       title={title}
-      emoji={exam ? '👑' : '🏁'}
+      icon={exam ? EXAM_ICON : TEST_ICON}
       chapterTitle={exam ? `${bundle.course.title} · екзамен розділу` : `${test.section.title} · тест теми`}
       chapterHref="/path"
       items={items}

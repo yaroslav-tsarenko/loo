@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import { notFound } from 'next/navigation'
-import { PiArrowRightBold, PiFlaskFill, PiPlusBold } from 'react-icons/pi'
+import { PiArrowRightBold, PiCheckBold, PiFlaskFill, PiPlusBold } from 'react-icons/pi'
+import { SECTION_FALLBACK_ICON, TEST_ICON } from '@/content/icons'
 import { LEVEL_LABEL, LEVELS } from '@/course'
 import { messages, t } from '@/i18n'
 import { requireUser } from '@/server/auth'
@@ -13,6 +14,7 @@ import { param } from '@/ui/auth/AuthShell'
 import { Choice, ChoiceGroup } from '@/ui/auth/Choices'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
+import { GameIcon } from '@/ui/design/GameIcon'
 import { Icon } from '@/ui/icons/Icon'
 import { count } from '@/ui/format'
 
@@ -34,7 +36,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
   const enrollment = (await myEnrollments()).find((e) => e.courseId === id) ?? null
   const m = messages()
   const placementSection = enrollment?.placement ? bundle.sections[enrollment.placement.sectionIndex] : undefined
-  const style = { '--course-c': meta.color ?? 'var(--lu-green)' } as CSSProperties
+  const style = { '--course-c': meta.color ?? 'var(--lu-violet)' } as CSSProperties
   const path = bundle.sections.filter((s) => s.kind === 'path')
   const stats: Array<[number, string]> = [
     [Math.round(meta.estimatedHours), t('courses.stats.hours')],
@@ -48,7 +50,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
     <div className="page course-page" data-width="wide" style={style}>
       <section className="course-hero">
         <span className="course-hero-icon" aria-hidden="true">
-          <Icon name={meta.icon ?? '📘'} size={72} />
+          <Icon name={meta.icon ?? 'px:book'} size={72} />
         </span>
         <div className="course-hero-text">
           <p className="course-hero-eyebrow">
@@ -58,7 +60,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
           {meta.subtitle ? <p className="course-hero-sub">{meta.subtitle}</p> : null}
           <div className="course-hero-pills">
             {/* price / likes / comments: data hooks in CourseListing, filled once the marketplace has them */}
-            <Pill tone="green" solid size="sm">
+            <Pill tone="mint" solid size="sm">
               {listing.price ? `${listing.price.amount} ${listing.price.currency}` : t('courses.free')}
             </Pill>
             {meta.tags.slice(0, 5).map((tag) => (
@@ -112,7 +114,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
         {path.map((s) => (
           <li key={s.id} className="course-learn-item">
             <span className="course-learn-icon" aria-hidden="true">
-              <Icon name={s.icon ?? '📍'} size={26} />
+              <Icon name={s.icon ?? SECTION_FALLBACK_ICON} size={26} />
             </span>
             <span>
               <strong>{s.title}</strong>
@@ -129,7 +131,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
             <details>
               <summary>
                 <span className="course-program-icon" aria-hidden="true">
-                  <Icon name={s.icon ?? '📍'} size={24} />
+                  <Icon name={s.icon ?? SECTION_FALLBACK_ICON} size={24} />
                 </span>
                 <span className="course-program-text">
                   <span className="course-program-title">
@@ -144,17 +146,28 @@ export default async function CoursePage({ params, searchParams }: { params: Par
                   <span className="course-program-meta tabular">
                     {count(s.topics.length, 'тема', 'теми', 'тем')} · ~{Math.max(1, Math.round(s.minutes / 60))} год · {LEVEL_LABEL[s.minLevel]}
                     {s.minLevel !== s.level ? ` → ${LEVEL_LABEL[s.level]}` : ''}
-                    {s.exam ? ' · 👑 екзамен' : ''}
+                    {s.exam ? (
+                      <>
+                        {' · '}
+                        <GameIcon name="crown" size={14} /> екзамен
+                      </>
+                    ) : null}
                   </span>
                 </span>
               </summary>
               <ul className="course-program-topics">
                 {s.topics.map((topic) => (
                   <li key={topic.id}>
-                    <Icon name={topic.icon ?? '•'} size={18} /> {topic.title}
+                    <Icon name={topic.icon ?? 'px:book'} size={18} /> {topic.title}
                     <small className="tabular">
                       {' '}
-                      · {topic.lessons.length} ур.{topic.test ? ' · 🏁' : ''}
+                      · {topic.lessons.length} ур.
+                      {topic.test ? (
+                        <>
+                          {' · '}
+                          <Icon name={TEST_ICON} size={14} label="тест теми" />
+                        </>
+                      ) : null}
                     </small>
                   </li>
                 ))}
@@ -175,11 +188,12 @@ export default async function CoursePage({ params, searchParams }: { params: Par
               ))}
             </ChoiceGroup>
             {enrollment.placement && !enrollment.placement.skipped ? (
-              <p className="choice-hint">🧪 {t('courses.level.placementDone', { level: LEVEL_LABEL[enrollment.placement.level as keyof typeof LEVEL_LABEL] ?? enrollment.placement.level, section: placementSection?.title ?? '—' })}</p>
+              <p className="choice-hint">
+                <Icon name="px:testTube" size={18} /> {t('courses.level.placementDone', { level: LEVEL_LABEL[enrollment.placement.level as keyof typeof LEVEL_LABEL] ?? enrollment.placement.level, section: placementSection?.title ?? '—' })}</p>
             ) : null}
             {param(query, 'saved') ? (
               <p className="acct-note" role="status">
-                {t('courses.level.saved')}
+                <PiCheckBold aria-hidden="true" /> {t('courses.level.saved')}
               </p>
             ) : null}
             <div className="course-level-actions">

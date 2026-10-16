@@ -1,0 +1,774 @@
+/* `[!diagram]` figures (src/ui/diagram/Diagram.tsx): hand-laid boxes and arrows instead of ASCII art. Soft blocks with a
+   lip, tone per node, a walkthrough strip under the picture. Flows run left → right and turn vertical on phones. */
+
+@layer components {
+  .dg {
+    margin: 20px 0;
+    padding: var(--lu-s-4);
+    border: var(--lu-border-w) solid var(--lu-border);
+    border-radius: var(--lu-r-lg);
+    background:
+      radial-gradient(color-mix(in srgb, var(--lu-violet) 12%, transparent) 1px, transparent 1.4px) 0 0 / 18px 18px,
+      var(--lu-surface-2);
+    box-shadow: 0 var(--lu-lip) 0 var(--lu-border);
+    font-family: var(--lu-font);
+    outline-offset: 3px;
+  }
+  .dg-title {
+    color: var(--lu-text);
+    font-size: var(--lu-fs-sm);
+    font-weight: var(--lu-fw-black);
+  }
+  .dg-canvas {
+    padding: 14px 4px 10px;
+  }
+
+  /* ── canvas: fit, zoom, pan (ZoomPan.tsx) ─────────────────────────── */
+  .dg-zoom {
+    position: relative;
+  }
+  .dg-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--lu-r);
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .dg-viewport[data-zoomed] {
+    touch-action: none;
+    cursor: grab;
+    background: color-mix(in srgb, var(--lu-surface) 55%, transparent);
+    box-shadow: inset 0 0 0 2px var(--lu-border);
+  }
+  .dg-viewport[data-zoomed]:active {
+    cursor: grabbing;
+  }
+  /* Every layout fills the column and wraps inside it; only a wide (unstacked) flow takes its natural width and gets
+     scaled down to fit. */
+  .dg-stage {
+    width: 100%;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+  @media (min-width: 640px) {
+    .dg[data-layout='flow'] .dg-stage:not([data-stacked]) {
+      width: max-content;
+      min-width: var(--dg-w, 100%);
+    }
+  }
+  /* title + zoom controls on one row; the controls never cover the picture */
+  .dg-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--lu-s-2);
+    margin-bottom: 6px;
+  }
+  .dg-head .dg-title {
+    margin: 6px 0 0;
+  }
+  .dg-zoombar {
+    flex: none;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: var(--lu-border-w) solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: color-mix(in srgb, var(--lu-surface) 92%, transparent);
+    box-shadow: 0 2px 0 var(--lu-border);
+    opacity: 0.55;
+    transition: opacity var(--lu-dur-2);
+  }
+  .dg:hover .dg-zoombar,
+  .dg:focus-within .dg-zoombar,
+  .dg[data-expanded] .dg-zoombar,
+  .dg-zoom:has(.dg-viewport[data-zoomed]) .dg-zoombar {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .dg-zoombar {
+      opacity: 1;
+    }
+  }
+  .dg-zoombar button {
+    display: grid;
+    place-items: center;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 6px;
+    border: 0;
+    border-radius: var(--lu-r-sm);
+    background: transparent;
+    color: var(--lu-text-2);
+    font: 700 12px/1 var(--lu-font);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+  .dg-zoombar button:hover:not(:disabled) {
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+  }
+  .dg-zoombar button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .dg-zoom-pct {
+    min-width: 46px;
+  }
+
+  /* full screen: the whole figure (picture + steps) over the page, portalled to <body> */
+  .dg-placeholder {
+    margin: 20px 0;
+  }
+  .dg-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: var(--lu-z-sheet);
+    background: var(--lu-scrim);
+    animation: lu-fade var(--lu-dur-3) var(--lu-ease);
+  }
+  .dg[data-expanded] {
+    position: fixed;
+    inset: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+    z-index: calc(var(--lu-z-sheet) + 1);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lu-surface-2);
+    animation: lu-pop-in var(--lu-dur-3) var(--lu-ease-bounce);
+  }
+  .dg[data-expanded] .dg-zoom {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  /* natural size, so a small picture can scale up to fill the screen */
+  .dg[data-expanded][data-layout='flow'] .dg-stage:not([data-stacked]) {
+    min-width: 0;
+  }
+  .dg[data-expanded] .dg-viewport {
+    flex: 1;
+    height: auto !important;
+    touch-action: none;
+    cursor: grab;
+  }
+  @media (min-width: 900px) {
+    .dg[data-expanded] {
+      inset: 32px max(32px, calc((100vw - 1280px) / 2));
+    }
+  }
+
+  /* ── node ─────────────────────────────────────────────────────────── */
+  .dg-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: var(--lu-border-w) solid color-mix(in srgb, var(--tone) 55%, var(--lu-border));
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
+    box-shadow: 0 3px 0 color-mix(in srgb, var(--tone) 40%, var(--lu-border));
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+    transition:
+      opacity var(--lu-dur-3) var(--lu-ease),
+      transform var(--lu-dur-3) var(--lu-ease-bounce),
+      background-color var(--lu-dur-2),
+      box-shadow var(--lu-dur-2);
+  }
+  .dg-node[data-shown] {
+    opacity: 1;
+    transform: none;
+  }
+  .dg-node[data-focus] {
+    background: var(--tone-soft);
+    box-shadow:
+      0 3px 0 var(--tone-lip),
+      0 0 0 4px color-mix(in srgb, var(--tone) 22%, transparent);
+  }
+  .dg-label {
+    color: var(--tone-ink);
+    font-size: 12px;
+    font-weight: var(--lu-fw-black);
+    line-height: 1.2;
+  }
+  .dg-body {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dg-icon {
+    flex: none;
+  }
+  .dg-text {
+    color: var(--lu-text);
+    font-size: var(--lu-fs-sm);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  /* `.dg` prefix beats the article's inline-code style (.prose-read :not(pre) > code) */
+  .dg .dg-code {
+    display: block;
+    padding: 6px 0;
+    overflow-wrap: normal;
+    border-radius: var(--lu-r-sm);
+    background: var(--code-bg);
+    color: var(--code-foreground);
+    font: 500 13px/1.5 var(--lu-font-mono);
+    /* wrap long lines (indent kept) instead of widening the whole picture */
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  /* stack: frames that left the stack collapse (no gap where they were) */
+  .dg-stack > .dg-seq-item:has(> .dg-node:not([data-shown])) {
+    display: none;
+  }
+  .dg-stack > .dg-seq-item:has(> .dg-node:not([data-shown])) + .dg-seq-item > :is(.dg-arrow, .dg-gap) {
+    display: none;
+  }
+  /* nest / tree / timeline: what isn't there yet takes no room either */
+  .dg-nest-kids > .dg-node:not([data-shown]),
+  .dg-tree > li:has(> .dg-node:not([data-shown])),
+  .dg-timeline > li:not([data-shown]) {
+    display: none;
+  }
+  .dg-nest-kids > .dg-node[data-shown],
+  .dg-tree > li > .dg-node[data-shown],
+  .dg-timeline > li > .dg-node[data-shown],
+  .dg-stack > .dg-seq-item > .dg-node[data-shown] {
+    animation: dg-push 420ms var(--lu-ease-bounce);
+  }
+  @keyframes dg-push {
+    from {
+      transform: translateY(-14px) scale(0.96);
+      opacity: 0;
+    }
+  }
+  .dg-line {
+    display: block;
+    padding: 0 10px;
+    border-left: 3px solid transparent;
+    transition:
+      background-color var(--lu-dur-2),
+      border-color var(--lu-dur-2);
+  }
+  /* the line running now */
+  .dg-line[data-on] {
+    border-left-color: var(--lu-mint);
+    background: rgb(79 227 204 / 0.16);
+  }
+  .dg-text[data-changed] {
+    display: inline-block;
+    animation: dg-pop 520ms var(--lu-ease-bounce);
+  }
+  @keyframes dg-pop {
+    0% {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.18);
+      opacity: 1;
+    }
+  }
+  /* a value that just arrived in this box */
+  .dg-arrive {
+    position: absolute;
+    top: -12px;
+    right: -8px;
+    z-index: 2;
+    padding: 2px 8px;
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-yellow);
+    box-shadow: 0 2px 0 var(--lu-yellow-lip);
+    color: #3d2a00;
+    font: 700 12px/1.4 var(--lu-font-mono);
+    white-space: nowrap;
+    animation: dg-arrive 700ms var(--lu-ease-bounce) var(--d, 0ms) both;
+  }
+  @keyframes dg-arrive {
+    0% {
+      transform: translate(-24px, 10px) scale(0.5);
+      opacity: 0;
+    }
+  }
+  .dg-note {
+    color: var(--lu-text-2);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* ── arrows ───────────────────────────────────────────────────────── */
+  .dg-arrow {
+    --a: color-mix(in srgb, var(--tone, var(--lu-violet)) 70%, var(--lu-text-3));
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    opacity: 0.15;
+    transition: opacity var(--lu-dur-3);
+  }
+  .dg-arrow[data-shown] {
+    opacity: 1;
+  }
+  .dg-arrow > i {
+    position: relative;
+    display: block;
+    background: var(--a);
+  }
+  .dg-arrow[data-dashed] > i {
+    background: repeating-linear-gradient(var(--dg-dash-dir, 90deg), var(--a) 0 6px, transparent 6px 10px);
+  }
+  .dg-arrow > i::after {
+    content: '';
+    position: absolute;
+    border: 6px solid transparent;
+  }
+  .dg-arrow[data-dir='x'] {
+    width: 56px;
+    align-self: center;
+  }
+  .dg-arrow[data-dir='x'] > i {
+    width: 100%;
+    height: 3px;
+  }
+  .dg-arrow[data-dir='x'] > i::after {
+    right: -8px;
+    top: -4.5px;
+    border-left: 9px solid var(--a);
+    border-right-width: 0;
+  }
+  .dg-arrow[data-dir='y'] {
+    height: 34px;
+    --dg-dash-dir: 180deg;
+  }
+  .dg-arrow[data-dir='y'] > i {
+    width: 3px;
+    height: 100%;
+  }
+  .dg-arrow[data-dir='y'] > i::after {
+    bottom: -8px;
+    left: -4.5px;
+    border-top: 9px solid var(--a);
+    border-bottom-width: 0;
+  }
+  /* the arrow carrying a value right now */
+  .dg-arrow[data-live] > i {
+    --a: var(--lu-yellow-lip);
+  }
+  .dg-chip {
+    position: absolute;
+    z-index: 2;
+    padding: 2px 8px;
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-yellow);
+    box-shadow: 0 2px 0 var(--lu-yellow-lip);
+    color: #3d2a00;
+    font: 700 12px/1.4 var(--lu-font-mono);
+    white-space: nowrap;
+    pointer-events: none;
+    animation: dg-travel-y 1100ms var(--lu-ease) both;
+  }
+  .dg-chip[data-back] {
+    animation-direction: reverse;
+  }
+  @keyframes dg-travel-y {
+    0% {
+      transform: translateY(-160%);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(160%);
+      opacity: 0;
+    }
+  }
+  @keyframes dg-travel-x {
+    0% {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(30px);
+      opacity: 0;
+    }
+  }
+  .dg-arrow-label {
+    position: absolute;
+    padding: 1px 6px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-2);
+    color: var(--lu-text-2);
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .dg-arrow[data-dir='x'] .dg-arrow-label {
+    bottom: calc(50% + 6px);
+  }
+  .dg-arrow[data-dir='y'] .dg-arrow-label {
+    left: calc(50% + 10px);
+  }
+
+  /* ── flow / stack ─────────────────────────────────────────────────── */
+  .dg-seq {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dg-seq-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dg-seq-item > .dg-arrow[data-dir='x'] {
+    /* phones: a flow runs downwards */
+    width: auto;
+    height: 34px;
+  }
+  .dg-seq-item > .dg-arrow[data-dir='x'] > i {
+    width: 3px;
+    height: 100%;
+  }
+  .dg-seq-item > .dg-arrow[data-dir='x'] > i::after {
+    right: auto;
+    top: auto;
+    bottom: -8px;
+    left: -4.5px;
+    border: 6px solid transparent;
+    border-top: 9px solid var(--a);
+    border-bottom-width: 0;
+  }
+  .dg-seq-item > .dg-arrow[data-dir='x'] .dg-arrow-label {
+    bottom: auto;
+    left: calc(50% + 10px);
+  }
+  .dg-gap {
+    height: 10px;
+  }
+  .dg-stack .dg-node {
+    text-align: center;
+    align-items: center;
+  }
+  /* wide screens: a flow runs left → right, unless ZoomPan stacked it because it would only fit badly shrunk */
+  @media (min-width: 640px) {
+    .dg-stage:not([data-stacked]) .dg-flow {
+      flex-direction: row;
+      align-items: center;
+      min-width: max-content;
+    }
+    .dg-stage:not([data-stacked]) .dg-flow > .dg-seq-item {
+      flex-direction: row;
+      align-items: center;
+    }
+    .dg-stage:not([data-stacked]) .dg-flow .dg-node {
+      max-width: 280px;
+    }
+    .dg-stage:not([data-stacked]) .dg-seq-item > .dg-arrow[data-dir='x'] {
+      width: 56px;
+      height: auto;
+    }
+    .dg-stage:not([data-stacked]) .dg-seq-item > .dg-arrow[data-dir='x'] > i {
+      width: 100%;
+      height: 3px;
+    }
+    .dg-stage:not([data-stacked]) .dg-seq-item > .dg-arrow[data-dir='x'] > i::after {
+      bottom: auto;
+      left: auto;
+      right: -8px;
+      top: -4.5px;
+      border: 6px solid transparent;
+      border-left: 9px solid var(--a);
+      border-right-width: 0;
+    }
+    .dg-stage:not([data-stacked]) .dg-seq-item > .dg-arrow[data-dir='x'] .dg-arrow-label {
+      left: auto;
+      bottom: calc(50% + 6px);
+    }
+    .dg-stage:not([data-stacked]) .dg-flow .dg-chip {
+      animation-name: dg-travel-x;
+    }
+    .dg-stage:not([data-stacked]) .dg-flow > .dg-seq-item > .dg-gap {
+      width: 12px;
+      height: auto;
+    }
+    .dg-stage[data-stacked] .dg-flow {
+      max-width: 560px;
+      margin-inline: auto;
+    }
+    .dg-stack {
+      max-width: 420px;
+      margin-inline: auto;
+    }
+  }
+
+  /* ── compare ──────────────────────────────────────────────────────── */
+  .dg-compare {
+    display: grid;
+    gap: var(--lu-s-3);
+  }
+  .dg-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+  .dg-col-head {
+    align-self: flex-start;
+    padding: 3px 10px;
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-size: var(--lu-fs-xs);
+    font-weight: var(--lu-fw-black);
+  }
+  .dg-compare .dg-stack {
+    max-width: none;
+  }
+  .dg-compare .dg-stack .dg-node {
+    text-align: left;
+    align-items: stretch;
+  }
+  @media (min-width: 640px) {
+    .dg-compare {
+      grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+    }
+  }
+
+  /* ── tree: connector lines ────────────────────────────────────────── */
+  .dg-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .dg-tree .dg-tree {
+    margin-left: 14px;
+    padding-left: 18px;
+    border-left: 2px solid var(--lu-border-strong);
+  }
+  .dg-tree > li {
+    position: relative;
+    padding-top: 8px;
+  }
+  .dg-tree .dg-tree > li::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 28px;
+    width: 16px;
+    height: 2px;
+    background: var(--lu-border-strong);
+  }
+  .dg-tree .dg-node {
+    display: inline-flex;
+    max-width: 100%;
+  }
+
+  /* ── nest: boxes in boxes (scopes, DOM, modules) ──────────────────── */
+  .dg-nest-kids {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .dg-nest-root > .dg-nest-kids > .dg-node {
+    flex: 1 1 100%;
+  }
+  .dg-nest-kids .dg-nest-kids {
+    margin-top: 8px;
+  }
+  .dg-nest-kids .dg-nest-kids > .dg-node {
+    flex: 1 1 200px;
+    background: color-mix(in srgb, var(--tone) 6%, var(--lu-surface));
+  }
+
+  /* ── timeline ─────────────────────────────────────────────────────── */
+  .dg-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+    display: grid;
+    gap: 10px;
+    border-left: 3px solid var(--lu-border-strong);
+  }
+  .dg-timeline > li {
+    position: relative;
+    display: grid;
+    gap: 4px;
+  }
+  .dg-timeline > li::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 10px;
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    background: var(--lu-surface-3);
+    box-shadow: 0 0 0 3px var(--lu-surface-2);
+  }
+  .dg-timeline > li[data-shown]::before {
+    background: var(--lu-violet);
+  }
+  .dg-tick {
+    color: var(--lu-text-3);
+    font: 600 12px/1 var(--lu-font-mono);
+  }
+
+  /* ── extra links, walkthrough, caption ────────────────────────────── */
+  .dg-links {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .dg-links > li {
+    padding: 2px 8px;
+    border: var(--lu-border-w) dashed var(--lu-border-strong);
+    border-radius: var(--lu-r-sm);
+    color: var(--lu-text-2);
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.3;
+  }
+  .dg-links > li[data-shown] {
+    opacity: 1;
+  }
+  .dg-steps {
+    display: grid;
+    gap: 10px;
+    margin-top: var(--lu-s-3);
+    padding-top: var(--lu-s-3);
+    border-top: 2px dashed var(--lu-border);
+  }
+  .dg-step-note {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    min-height: 2.9em;
+    margin: 0;
+    color: var(--lu-text);
+    font-size: var(--lu-fs-sm);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .dg-step-text {
+    animation: dg-note-in var(--lu-dur-3) var(--lu-ease);
+  }
+  @keyframes dg-note-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+  /* time left until the next step while autoplaying */
+  .dg-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--lu-surface-3);
+    overflow: hidden;
+  }
+  .dg-progress > i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--lu-violet);
+  }
+  .dg-progress > i[data-run] {
+    animation: dg-progress var(--dur, 2600ms) linear forwards;
+  }
+  @keyframes dg-progress {
+    to {
+      width: 100%;
+    }
+  }
+  .dg:not([data-playing]) .dg-progress {
+    visibility: hidden;
+  }
+  .dg-step-num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: var(--lu-violet);
+    box-shadow: 0 3px 0 var(--lu-violet-lip);
+    color: #fff;
+    font-size: 13px;
+    font-weight: var(--lu-fw-black);
+  }
+  .dg-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .dg-controls .lu-btn {
+    margin-bottom: var(--b-lip-h);
+  }
+  .dg-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+  .dg-dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    background: var(--lu-surface-3);
+    cursor: pointer;
+  }
+  .dg-dot[data-done] {
+    background: color-mix(in srgb, var(--lu-violet) 45%, var(--lu-surface-3));
+  }
+  .dg-dot[data-on] {
+    background: var(--lu-violet);
+    box-shadow: 0 2px 0 var(--lu-violet-lip);
+  }
+  .dg-caption {
+    margin-top: var(--lu-s-3);
+    color: var(--lu-text-2);
+    font-size: var(--lu-fs-sm);
+    line-height: 1.5;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dg-node,
+    .dg-arrow {
+      transition: none;
+    }
+    .dg-chip {
+      display: none;
+    }
+    .dg-arrive,
+    .dg-text[data-changed],
+    .dg-step-text {
+      animation: none;
+    }
+    .dg-node {
+      transform: none;
+    }
+  }
+}

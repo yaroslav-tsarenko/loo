@@ -106,25 +106,24 @@
 
 ## Граф зв'язків
 
-```
-Встановлення ─── Структура ─── Layouts/Сторінки
-                    │               │
-              Метадані/OG     Навігація ─── Proxy ─── Prefetching
-                │                 │
-          JSON-LD        Server/Client Components
-                               │          │
-       Паралельні ──── Отримання ── Мутація ── Форми
-       маршрути          даних      даних
-          │                │          │
-    Перехоплення     Кешування ── Ревалідація ── Cache Components
-    маршрутів              │
-                     Route Handlers
-                     
-Безпека даних ─── Автентифікація ─── CSP
-CSS ─── Sass ─── CSS-in-JS ─── Шрифти ─── Зображення
-Стрімінг ─── Lazy Loading ─── Бандлінг ─── Пам'ять
-ISR ─── i18n ─── SPA ─── PWA ─── MDX
-Змінні середовища ─── Інструментація ─── OpenTelemetry
-Деплоймент ─── Self-Hosting ─── Multi-Zones ─── Кастомний сервер
-Тестування ─── Налагодження ─── Аналітика ─── Чекліст
-```
+> [!diagram] Карта курсу: що на чому тримається
+> ```yaml
+> layout: timeline
+> nodes:
+>   - { id: base, at: "1", label: основа, text: "Встановлення → Структура → Layouts і сторінки", note: "поруч: Метадані/OG → JSON-LD", tone: blue, icon: "si:SiNextdotjs" }
+>   - { id: nav, at: "2", label: навігація, text: "Навігація → Proxy → Prefetching", tone: blue }
+>   - { id: rsc, at: "3", label: компоненти, text: "Server і Client Components", note: "серце App Router — на них тримається все далі", tone: violet }
+>   - { id: data, at: "4", label: дані, text: "Отримання даних → Мутація → Форми", note: "поруч: Паралельні маршрути → Перехоплення маршрутів", tone: mint }
+>   - { id: cache, at: "5", label: кеш, text: "Кешування → Ревалідація → Cache Components", note: "і Route Handlers", tone: mint }
+>   - { id: sec, at: "6", label: безпека, text: "Безпека даних → Автентифікація → CSP", tone: red, icon: "px:lock" }
+>   - { id: ui, at: "7", label: "UI і швидкість", text: "CSS → Sass → CSS-in-JS → Шрифти → Зображення", note: "Стрімінг → Lazy Loading → Бандлінг → Пам'ять", tone: yellow }
+>   - { id: modes, at: "8", label: режими, text: "ISR → i18n → SPA → PWA → MDX", tone: orange }
+>   - { id: prod, at: "9", label: продакшн, text: "Змінні середовища → Інструментація → OpenTelemetry", note: "Деплоймент → Self-Hosting → Multi-Zones → Кастомний сервер", tone: green, icon: "px:rocket" }
+>   - { id: qa, at: "10", label: якість, text: "Тестування → Налагодження → Аналітика → Чекліст", tone: green, icon: "px:check" }
+> steps:
+>   - { show: base, note: "Починаємо з фундаменту: встановити проєкт, зрозуміти структуру папок, layouts і сторінки. Метадані й JSON-LD — одразу поруч." }
+>   - { show: [nav, rsc], note: "Далі — як користувач ходить між сторінками (і що перехоплює запит у Proxy), та головне: Server і Client Components." }
+>   - { show: [data, cache], note: "Компоненти отримують і змінюють дані, а кеш і ревалідація вирішують, коли дані оновлювати." }
+>   - { show: [sec, ui, modes], note: "Окремі гілки, які можна читати в будь-якому порядку: безпека, стилі й продуктивність, режими застосунку." }
+>   - { show: [prod, qa], note: "Наостанок — продакшн: змінні середовища, моніторинг, деплой, тестування і чекліст перед релізом." }
+> ```

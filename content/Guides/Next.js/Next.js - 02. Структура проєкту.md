@@ -108,14 +108,23 @@
 
 Компоненти в спеціальних файлах рендеряться у визначеному порядку:
 
-```
-layout.js
-  └── template.js
-       └── error.js (React Error Boundary)
-            └── loading.js (React Suspense Boundary)
-                 └── not-found.js
-                      └── page.js або вкладений layout.js
-```
+> [!diagram] Як спеціальні файли вкладаються один в одного
+> ```yaml
+> layout: nest
+> nodes:
+>   - { id: layout, label: "layout.js", text: "спільний UI сегмента", tone: violet, icon: "si:SiReact" }
+>   - { id: template, label: "template.js", text: "як layout, але новий при кожній навігації", parent: layout, tone: blue }
+>   - { id: error, label: "error.js — React Error Boundary", text: "ловить помилки всередині", parent: template, tone: red }
+>   - { id: loading, label: "loading.js — React Suspense Boundary", text: "скелетон, поки вантажиться", parent: error, tone: yellow }
+>   - { id: notfound, label: "not-found.js", text: "UI для notFound()", parent: loading, tone: orange }
+>   - { id: page, label: "page.js або вкладений layout.js", text: "вміст маршруту", parent: notfound, tone: green, icon: "px:file" }
+> steps:
+>   - { show: layout, note: "Зовнішній шар — layout.js: шапка, навігація, усе спільне для сегмента. Він зберігає стан між переходами." }
+>   - { show: template, note: "Усередині — template.js. Те саме, що layout, але створюється заново при кожній навігації." }
+>   - { show: error, note: "error.js загортає все, що глибше, у React Error Boundary: помилка в сторінці покаже error, а layout лишиться цілим." }
+>   - { show: loading, note: "loading.js — це Suspense Boundary: поки сторінка чекає на дані, користувач бачить скелетон." }
+>   - { show: [notfound, page], note: "Далі not-found.js і в самому центрі — page.js. У вкладеному маршруті тут опиниться layout дочірнього сегмента, і вся «матрьошка» повториться." }
+> ```
 
 У вкладених маршрутах компоненти сегмента вкладаються всередину компонентів батьківського сегмента.
 
@@ -153,39 +162,60 @@ layout.js
 
 Весь код застосунку у спільних папках в корені проєкту, `app` тільки для маршрутизації:
 
-```
-project/
-├── components/
-├── lib/
-├── app/
-│   ├── page.tsx
-│   └── layout.tsx
-```
+> [!diagram] Стратегія 1: код поза app
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: proj, text: "project/", tone: gray, icon: "pi:PiFoldersFill" }
+>   - { id: comp, text: "components/", note: "спільні компоненти", parent: proj, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: lib, text: "lib/", note: "утиліти, доступ до даних", parent: proj, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: app, text: "app/", note: "лише маршрутизація", parent: proj, tone: violet, icon: "si:SiNextdotjs" }
+>   - { id: page, text: "page.tsx", note: "маршрут /", parent: app, tone: green, icon: "px:file" }
+>   - { id: layout, text: "layout.tsx", note: "кореневий layout", parent: app, tone: green, icon: "px:file" }
+> steps:
+>   - { show: [proj, app, page, layout], note: "У app/ лежать тільки файли маршрутів: page.tsx відкриває маршрут /, layout.tsx його обгортає." }
+>   - { show: [comp, lib], note: "Увесь інший код — components/ і lib/ — живе в корені проєкту, поза app/." }
+>   - { focus: [app, comp, lib], note: "Так одразу видно межу: app/ відповідає за URL, а решта папок — за логіку й UI." }
+> ```
 
 ### 2. Файли проєкту всередині `app`
 
 Весь код у папках всередині `app`:
 
-```
-app/
-├── components/
-├── lib/
-├── page.tsx
-└── layout.tsx
-```
+> [!diagram] Стратегія 2: усе всередині app
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: app, text: "app/", tone: violet, icon: "si:SiNextdotjs" }
+>   - { id: comp, text: "components/", note: "немає page — не маршрут", parent: app, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: lib, text: "lib/", note: "немає page — не маршрут", parent: app, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: page, text: "page.tsx", note: "маршрут /", parent: app, tone: green, icon: "px:file" }
+>   - { id: layout, text: "layout.tsx", note: "кореневий layout", parent: app, tone: green, icon: "px:file" }
+> steps:
+>   - { show: [app, page, layout], note: "Корінь app/ з page.tsx і layout.tsx — як завжди." }
+>   - { show: [comp, lib], note: "components/ і lib/ лежать прямо в app/. Це безпечно: папка стає маршрутом лише тоді, коли в ній є page або route." }
+>   - { focus: [comp, lib, page], note: "Службові папки тут сусідять із сегментами маршрутів. Щоб явно сховати папку від роутера, назви її з підкресленням: _components/." }
+> ```
 
 ### 3. Розділення за фічами або маршрутами
 
 Глобальний код в корені `app`, специфічний — у відповідних сегментах маршрутів:
 
-```
-app/
-├── components/     (спільні)
-├── lib/            (спільні)
-├── blog/
-│   ├── components/ (специфічні для блогу)
-│   └── page.tsx
-```
+> [!diagram] Стратегія 3: розділення за фічами
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: app, text: "app/", tone: violet, icon: "si:SiNextdotjs" }
+>   - { id: comp, text: "components/", note: "спільні", parent: app, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: lib, text: "lib/", note: "спільні", parent: app, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: blog, text: "blog/", note: "сегмент /blog", parent: app, tone: violet, icon: "pi:PiFoldersFill" }
+>   - { id: bcomp, text: "components/", note: "специфічні для блогу", parent: blog, tone: yellow, icon: "pi:PiFoldersFill" }
+>   - { id: bpage, text: "page.tsx", note: "маршрут /blog", parent: blog, tone: green, icon: "px:file" }
+> steps:
+>   - { show: [app, comp, lib], note: "У корені app/ — те, що потрібно всім сторінкам: спільні components/ і lib/." }
+>   - { show: [blog, bpage], note: "Фіча «блог» — окремий сегмент: blog/page.tsx відкриває маршрут /blog." }
+>   - { show: bcomp, note: "Компоненти, потрібні лише блогу, лежать поруч із ним у blog/components/. Видалив фічу — видалив одну папку." }
+> ```
 
 ### Папка `src`
 

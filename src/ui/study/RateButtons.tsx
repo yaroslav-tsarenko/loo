@@ -2,12 +2,15 @@
 
 import type { FlashRating } from '@/progress/types'
 import { Button } from '@/ui/design/Button'
+import { LooArt } from '@/ui/design/mascot/LooArt'
+import type { LooMood } from '@/ui/design/mascot/Loo'
 import { interval } from '@/ui/format'
 
-const RATINGS: Array<{ key: FlashRating; emoji: string; label: string; hotkey: string }> = [
-  { key: 'again', emoji: '😵', label: 'Не знав', hotkey: '1' },
-  { key: 'hard', emoji: '🤔', label: 'Важко', hotkey: '2' },
-  { key: 'good', emoji: '😎', label: 'Знав', hotkey: '3' },
+// Loo's face tells the rating at a glance (instead of emoji faces).
+const RATINGS: Array<{ key: FlashRating; mood: LooMood; label: string; hotkey: string }> = [
+  { key: 'again', mood: 'dizzy', label: 'Не знав', hotkey: '1' },
+  { key: 'hard', mood: 'thinking', label: 'Важко', hotkey: '2' },
+  { key: 'good', mood: 'cheer', label: 'Знав', hotkey: '3' },
 ]
 
 interface Props {
@@ -38,7 +41,7 @@ export function RateButtons({ onRate, disabled, intervals, chosen, hotkeys = tru
           aria-keyshortcuts={hotkeys ? r.hotkey : undefined}
         >
           <span className="rate-emoji" aria-hidden="true">
-            {r.emoji}
+            <LooArt mood={r.mood} size={30} animated={false} decorative />
           </span>
           <span className="rate-text">
             <span className="rate-label">{r.label}</span>

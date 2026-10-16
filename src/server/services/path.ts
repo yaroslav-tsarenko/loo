@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { srsCards, taskState } from '@/db/schema'
+import { SECTION_FALLBACK_ICON, TOPIC_FALLBACK_ICONS } from '@/content/icons'
 import type { LessonKind } from '@/content/lessons'
 import type { Track } from '@/content/tracks'
 import type { Chapter, Guide } from '@/content/model'
@@ -18,7 +19,8 @@ const REVIEW_STATE = 2
 export interface PathLesson {
   id: string
   kind: LessonKind
-  emoji: string
+  // icon refs below are for <Icon name> (src/content/icons.ts)
+  icon: string
   title: string
   minutes: number
   size: number
@@ -40,7 +42,7 @@ export interface PathNode {
 }
 
 export interface PathStage {
-  emoji: string
+  icon: string
   title: string
   nodes: PathNode[]
   ratio: number
@@ -54,8 +56,6 @@ export interface GuidePath {
   ratio: number
   current: PathNode | null
 }
-
-const FALLBACK_ICONS = ['📘', '🧩', '⚙️', '🔍', '🧠', '🚀', '🛠️']
 
 export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promise<GuidePath> {
   const chapters = readableChapters(snapshot, guide)
@@ -117,7 +117,7 @@ export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promis
       return {
         id: l.id,
         kind: l.kind,
-        emoji: l.emoji,
+        icon: l.icon,
         title: l.title,
         minutes: l.minutes,
         size: l.items.length,
@@ -131,7 +131,7 @@ export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promis
       lessons,
       chapter,
       number,
-      icon: chapter.icon ?? FALLBACK_ICONS[i % FALLBACK_ICONS.length]!,
+      icon: chapter.icon ?? TOPIC_FALLBACK_ICONS[i % TOPIC_FALLBACK_ICONS.length]!,
       href: chapterHref(snapshot, chapter),
       mastery,
       signals,
@@ -142,10 +142,10 @@ export async function guidePath(snapshot: ContentSnapshot, guide: Guide): Promis
   const stageOf = (n: PathNode) => guide.parts.findIndex((p) => n.number >= p.from && n.number <= p.to)
   const stages: PathStage[] =
     guide.parts.length > 0
-      ? guide.parts.map((p, i) => ({ emoji: p.emoji ?? '📍', title: p.title, nodes: nodes.filter((n) => stageOf(n) === i), ratio: 0 }))
-      : [{ emoji: '📍', title: guide.title, nodes, ratio: 0 }]
+      ? guide.parts.map((p, i) => ({ icon: p.icon ?? SECTION_FALLBACK_ICON, title: p.title, nodes: nodes.filter((n) => stageOf(n) === i), ratio: 0 }))
+      : [{ icon: SECTION_FALLBACK_ICON, title: guide.title, nodes, ratio: 0 }]
   const orphans = guide.parts.length > 0 ? nodes.filter((n) => stageOf(n) < 0) : []
-  if (orphans.length > 0) stages.push({ emoji: '➕', title: 'Додатково', nodes: orphans, ratio: 0 })
+  if (orphans.length > 0) stages.push({ icon: 'pi:PiPlusBold', title: 'Додатково', nodes: orphans, ratio: 0 })
   for (const stage of stages) stage.ratio = stage.nodes.length ? stage.nodes.reduce((s, n) => s + n.mastery.ratio, 0) / stage.nodes.length : 0
 
   const crowns = nodes.reduce((s, n) => s + n.mastery.crowns, 0)
@@ -178,7 +178,7 @@ export async function trackPath(snapshot: ContentSnapshot, track: Track): Promis
   const stages: PathStage[] = []
   for (const p of paths) {
     if (p.guide.parts.length > 0) stages.push(...p.stages)
-    else stages.push(...p.stages.map((s) => ({ ...s, emoji: p.guide.icon ?? '📍', title: p.guide.title })))
+    else stages.push(...p.stages.map((s) => ({ ...s, icon: p.guide.icon ?? SECTION_FALLBACK_ICON, title: p.guide.title })))
   }
   const nodes = stages.flatMap((s) => s.nodes)
   // Each guide marks its own first unfinished lesson; across the track only the very first one is current.

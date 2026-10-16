@@ -21,19 +21,24 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  border-radius: var(--lu-r-pill);
-  background: var(--lu-surface-2);
+  min-height: 36px;
+  margin-bottom: 2px;
+  padding: 0 12px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface);
+  box-shadow: 0 2px 0 var(--lu-border);
   color: var(--lu-text-2);
   font-size: var(--lu-fs-xs);
-  font-weight: 700;
+  font-weight: 600;
 }
 .cp-level-chip strong {
-  color: var(--lu-text);
+  color: var(--lu-violet-ink);
   font-weight: var(--lu-fw-black);
 }
 .cp-level-chip:hover {
-  background: var(--lu-surface-3);
+  border-color: var(--lu-border-strong);
+  background: var(--lu-surface-2);
 }
 .cp-placement-card.lu-card {
   display: flex;
@@ -48,7 +53,8 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  margin-bottom: 3px;
+  border-radius: var(--lu-r);
   background: var(--tone);
   box-shadow: 0 3px 0 var(--tone-lip);
   color: var(--lu-on-color);
@@ -68,18 +74,19 @@
   font-weight: var(--lu-fw-black);
   color: var(--lu-text);
 }
-.cp-section[data-state='locked'] .path-banner {
-  background: var(--lu-surface-3);
-  box-shadow: 0 5px 0 var(--lu-border-strong);
-  color: var(--lu-text-2);
-  text-shadow: none;
+/* Banner colours come from the section's tone knobs (path.css): locked = muted, known = gold */
+.cp-section[data-state='locked'] {
+  --tone: var(--lu-surface-3);
+  --tone-lip: var(--lu-border-strong);
+  --banner-ink: var(--lu-text-2);
 }
 .cp-section[data-state='locked'] .path-banner-bar > span {
   background: var(--lu-text-3);
 }
-.cp-section[data-known] .path-banner {
-  background: var(--lu-yellow);
-  box-shadow: 0 5px 0 var(--lu-yellow-lip);
+.cp-section[data-known] {
+  --tone: var(--lu-yellow);
+  --tone-lip: var(--lu-yellow-lip);
+  --banner-ink: var(--lu-loo-ink);
 }
 .cp-section-lead,
 .cp-known {
@@ -88,10 +95,12 @@
   gap: 6px;
   margin: 12px 4px 0;
   font-size: var(--lu-fs-xs);
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.45;
   color: var(--lu-text-2);
 }
 .cp-known {
+  font-weight: 700;
   color: var(--lu-yellow-ink);
 }
 .cp-testout.lu-card {
@@ -100,9 +109,10 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 14px;
-  border-color: var(--lu-purple);
-  background: var(--lu-purple-soft);
-  box-shadow: 0 4px 0 var(--lu-purple-lip);
+  margin-bottom: var(--lu-lip);
+  border-color: var(--lu-violet);
+  background: var(--lu-violet-soft);
+  box-shadow: 0 var(--lu-lip) 0 var(--lu-violet-lip);
 }
 .cp-testout-crown {
   flex: none;
@@ -119,7 +129,7 @@
 .cp-testout-text strong {
   font-size: var(--lu-fs-sm);
   font-weight: var(--lu-fw-black);
-  color: var(--lu-purple-ink);
+  color: var(--lu-violet-ink);
 }
 .cp-locked-topics {
   list-style: none;
@@ -143,7 +153,15 @@
   cursor: pointer;
 }
 .cp-locked-topic:hover {
+  border-color: var(--lu-border-strong);
   background: var(--lu-surface-2);
+}
+.cp-locked-topic:focus-visible,
+.cp-expand:focus-visible,
+.cp-level-chip:focus-visible,
+.cp-sheet-lesson:focus-visible {
+  outline: 3px solid var(--lu-focus-color);
+  outline-offset: 2px;
 }
 .cp-locked-icon {
   flex: none;
@@ -151,7 +169,7 @@
   place-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--lu-r-sm);
   background: var(--lu-surface-2);
   filter: grayscale(0.6);
 }
@@ -179,17 +197,18 @@
 }
 .cp-expand {
   display: block;
+  min-height: 36px;
   margin: 10px auto 0;
-  padding: 6px 14px;
-  border: 0;
-  border-radius: var(--lu-r-pill);
-  background: var(--lu-surface-2);
-  color: var(--lu-text-2);
-  font: 800 var(--lu-fs-xs) / 1.2 var(--lu-font);
+  padding: 0 14px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface);
+  color: var(--lu-violet-ink);
+  font: var(--lu-fw-bold) var(--lu-fs-xs) / 1.2 var(--lu-font);
   cursor: pointer;
 }
 .cp-expand:hover {
-  background: var(--lu-surface-3);
+  background: var(--lu-violet-soft);
 }
 .cp-locked-note {
   color: var(--lu-orange-ink);
@@ -201,7 +220,12 @@
   font-size: 24px;
   opacity: 0.7;
 }
-/* 🏁 topic test: a checkered flag node */
+/* Topic test: a squarer token with a checkered flag */
+.lesson-node[data-type='test'] .lesson-bubble {
+  --p1: 3px;
+  --p2: 6px;
+  --p3: 10px;
+}
 .lesson-node[data-type='test'] {
   --b: var(--lu-blue-soft);
   --b-lip: color-mix(in srgb, var(--lu-blue) 45%, var(--lu-border));
@@ -212,10 +236,7 @@
   --b-lip: var(--lu-blue-lip);
   --b-ink: var(--lu-on-color);
 }
-.lesson-node[data-type='test'] .lesson-bubble {
-  border-radius: 22px;
-}
-/* 👑 section exam: big golden crown */
+/* Section exam: a big purple token with a golden crown */
 .cp-exam {
   padding-top: 18px;
 }
@@ -233,16 +254,18 @@
   --b-lip: var(--lu-purple-lip);
 }
 .lesson-node[data-type='exam'] .lesson-bubble {
+  --p1: 5px;
+  --p2: 12px;
+  --p3: 24px;
+  --lip: 8px;
   width: 96px;
   height: 84px;
 }
 .cp-node-label {
-  margin-top: 2px;
-  font-size: 11px;
-  font-weight: var(--lu-fw-black);
-  letter-spacing: var(--lu-tracking-caps);
-  text-transform: uppercase;
-  color: var(--lu-text-3);
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
 }
 .cp-sheet-lessons {
   list-style: none;
@@ -281,21 +304,24 @@
   align-items: center;
   gap: 6px;
   margin: 0;
+  padding: 4px 10px;
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-violet-soft);
   font-size: var(--lu-fs-xs);
-  font-weight: var(--lu-fw-black);
-  letter-spacing: var(--lu-tracking-caps);
-  text-transform: uppercase;
-  color: var(--lu-purple-ink);
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-violet-ink);
 }
 .test-intro-rules {
   margin: 4px auto 0;
   padding: 12px 16px 12px 32px;
   max-width: 420px;
-  border-radius: var(--lu-r);
-  background: var(--lu-surface-2);
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
   text-align: left;
-  font-size: var(--lu-fs-xs);
-  font-weight: 700;
+  font-size: var(--lu-fs-sm);
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--lu-text-2);
   display: grid;
   gap: 4px;
@@ -314,7 +340,7 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--lu-r-sm);
   background: var(--lu-red-soft);
   color: var(--lu-red-ink);
   font-size: 14px;
@@ -344,7 +370,8 @@
   padding: 10px 12px;
   border: 2px solid var(--lu-border);
   border-radius: var(--lu-r);
-  font-weight: 800;
+  background: var(--lu-surface);
+  font-weight: var(--lu-fw-bold);
   font-size: var(--lu-fs-sm);
 }
 .placement-sections li[data-state='known'] {
@@ -358,15 +385,16 @@
   color: var(--lu-yellow-ink);
 }
 .placement-sections li[data-state='start'] {
-  border-color: var(--lu-green);
-  background: var(--lu-green-soft);
-  box-shadow: 0 3px 0 var(--lu-green-lip);
+  border-color: var(--lu-violet);
+  background: var(--lu-violet-soft);
+  box-shadow: 0 3px 0 var(--lu-violet-lip);
+  color: var(--lu-violet-ink);
 }
 .placement-sections li[data-state='start']::after {
   content: '▶ старт';
   margin-left: auto;
   font-size: 12px;
-  color: var(--lu-green-ink);
+  color: var(--lu-violet-ink);
 }
 .placement-sections li[data-state='next'] {
   opacity: 0.6;
@@ -391,28 +419,35 @@
   padding: 0;
   overflow: hidden;
 }
+/* Cover: a flat wash of the course colour on a faint pixel-dot grid (no gradients on surfaces) */
 .course-card-cover {
   position: relative;
   display: grid;
   place-items: center;
   height: 132px;
-  background:
-    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.35), transparent 45%),
-    linear-gradient(135deg, var(--course-c), color-mix(in srgb, var(--course-c) 65%, #ff9600));
+  border-bottom: 2px solid color-mix(in srgb, var(--course-c) 40%, var(--lu-border));
+  background-color: color-mix(in srgb, var(--course-c) 22%, var(--lu-surface));
+  background-image: radial-gradient(color-mix(in srgb, var(--course-c) 45%, transparent) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
 }
 .course-card-icon {
   display: grid;
   place-items: center;
   width: 84px;
   height: 84px;
-  border-radius: 24px;
-  background: rgb(255 255 255 / 0.9);
-  box-shadow: 0 5px 0 rgb(0 0 0 / 0.15);
+  border: 2px solid color-mix(in srgb, var(--course-c) 40%, var(--lu-border));
+  border-radius: var(--lu-r-xl);
+  background: var(--lu-surface);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--course-c) 40%, var(--lu-border));
   transform: rotate(-4deg);
   transition: transform var(--lu-dur-3) var(--lu-ease-bounce);
 }
 .course-card:hover .course-card-icon {
   transform: rotate(3deg) scale(1.05);
+}
+.course-card-cover:focus-visible {
+  outline: 3px solid var(--lu-focus-color);
+  outline-offset: -3px;
 }
 .course-card-badge {
   position: absolute;
@@ -422,12 +457,12 @@
   align-items: center;
   gap: 4px;
   padding: 4px 10px;
-  border-radius: var(--lu-r-pill);
-  background: var(--lu-green);
-  box-shadow: 0 2px 0 var(--lu-green-lip);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-violet);
+  box-shadow: 0 2px 0 var(--lu-violet-lip);
   color: var(--lu-on-color);
   font-size: 12px;
-  font-weight: var(--lu-fw-black);
+  font-weight: var(--lu-fw-bold);
 }
 .course-card-body {
   flex: 1;
@@ -442,10 +477,14 @@
   font-weight: var(--lu-fw-black);
   line-height: 1.2;
 }
+.course-card-title a:hover {
+  color: var(--lu-violet-ink);
+}
 .course-card-sub {
   margin: 0;
-  font-size: var(--lu-fs-xs);
-  font-weight: 600;
+  font-size: var(--lu-fs-sm);
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--lu-text-2);
 }
 .course-card-pills {
@@ -456,8 +495,8 @@
 .course-card-meta {
   margin: 0;
   font-size: 12px;
-  font-weight: 700;
-  color: var(--lu-text-3);
+  font-weight: 600;
+  color: var(--lu-text-2);
 }
 .course-card-actions {
   margin-top: auto;
@@ -479,7 +518,8 @@
   align-items: center;
   gap: 8px;
   border-style: dashed;
-  font-weight: 800;
+  background: var(--lu-surface-2);
+  font-weight: var(--lu-fw-bold);
   color: var(--lu-text-2);
 }
 
@@ -487,17 +527,21 @@
 .course-page {
   font-family: var(--lu-font);
 }
+/* Course hero: a soft block washed with the course colour, pixel-dot grid, readable ink in both themes */
 .course-hero {
+  --hero-line: color-mix(in srgb, var(--course-c) 45%, var(--lu-border));
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-bottom: 6px;
   padding: 24px;
+  border: 2px solid var(--hero-line);
   border-radius: var(--lu-r-xl);
-  background:
-    radial-gradient(circle at 10% 10%, rgb(255 255 255 / 0.35), transparent 40%),
-    linear-gradient(135deg, color-mix(in srgb, var(--course-c) 85%, white), color-mix(in srgb, var(--course-c) 55%, #ff9600));
-  box-shadow: 0 6px 0 color-mix(in srgb, var(--course-c) 60%, black);
-  color: #2b2b2b;
+  background-color: color-mix(in srgb, var(--course-c) 16%, var(--lu-surface));
+  background-image: radial-gradient(color-mix(in srgb, var(--course-c) 35%, transparent) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  box-shadow: 0 6px 0 var(--hero-line);
+  color: var(--lu-text);
 }
 .course-hero-icon {
   flex: none;
@@ -505,9 +549,10 @@
   place-items: center;
   width: 120px;
   height: 120px;
-  border-radius: 32px;
-  background: rgb(255 255 255 / 0.92);
-  box-shadow: 0 6px 0 rgb(0 0 0 / 0.15);
+  border: 2px solid var(--hero-line);
+  border-radius: var(--lu-r-xl);
+  background: var(--lu-surface);
+  box-shadow: 0 6px 0 var(--hero-line);
   transform: rotate(-4deg);
 }
 .course-hero-text {
@@ -518,23 +563,23 @@
 }
 .course-hero-eyebrow {
   margin: 0;
-  font-size: 12px;
-  font-weight: var(--lu-fw-black);
-  letter-spacing: var(--lu-tracking-caps);
-  text-transform: uppercase;
-  opacity: 0.75;
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-violet-ink);
 }
 .course-hero-title {
   margin: 0;
   font-size: var(--lu-fs-3xl);
   font-weight: var(--lu-fw-black);
-  line-height: 1.05;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 .course-hero-sub {
   margin: 0;
   font-size: var(--lu-fs-md);
-  font-weight: 700;
-  opacity: 0.85;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--lu-text-2);
 }
 .course-hero-pills {
   display: flex;
@@ -557,27 +602,31 @@
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  gap: 4px;
   padding: 12px 6px;
   border: 2px solid var(--lu-border);
-  border-radius: var(--lu-r);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
   box-shadow: 0 3px 0 var(--lu-border);
   text-align: center;
 }
+/* stat counters: Onest 800, tabular digits */
 .course-fact dd {
   margin: 0;
-  font-size: var(--lu-fs-xl);
-  font-weight: var(--lu-fw-black);
+  font: 800 var(--lu-fs-xl) / 1 var(--lu-font-pixel);
+  color: var(--lu-violet-ink);
 }
 .course-fact dt {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .course-desc {
+  max-width: 72ch;
   margin: 18px 0 0;
   font-size: var(--lu-fs-md);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--lu-text-2);
 }
 .course-page .gsection-title {
@@ -596,9 +645,11 @@
   gap: 12px;
   align-items: flex-start;
   padding: 12px;
-  border-radius: var(--lu-r);
-  background: var(--lu-surface-2);
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
   font-size: var(--lu-fs-sm);
+  font-weight: var(--lu-fw-bold);
 }
 .course-learn-icon {
   flex: none;
@@ -606,15 +657,17 @@
   place-items: center;
   width: 42px;
   height: 42px;
-  border-radius: 12px;
-  background: var(--lu-surface);
-  box-shadow: 0 3px 0 var(--lu-border);
+  margin-bottom: 3px;
+  border-radius: var(--lu-r);
+  background: var(--lu-violet-soft);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--lu-violet) 30%, var(--lu-border));
 }
 .course-learn-desc {
   display: block;
   margin-top: 2px;
   font-size: var(--lu-fs-xs);
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--lu-text-2);
 }
 .course-program {
@@ -630,6 +683,14 @@
   gap: 12px;
   cursor: pointer;
   list-style: none;
+  border-radius: var(--lu-r-sm);
+}
+.course-program-item summary:focus-visible {
+  outline: 3px solid var(--lu-focus-color);
+  outline-offset: 4px;
+}
+.course-program-item[open] {
+  border-color: color-mix(in srgb, var(--lu-violet) 38%, transparent);
 }
 .course-program-item summary::-webkit-details-marker {
   display: none;
@@ -640,7 +701,7 @@
   place-items: center;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: var(--lu-r);
   background: var(--lu-surface-2);
 }
 .course-program-text {
@@ -655,7 +716,7 @@
 }
 .course-program-meta {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .course-program-topics {
@@ -722,8 +783,8 @@
   background: var(--lu-hover);
 }
 .sb-course[data-active] {
-  background: var(--lu-green-soft);
-  color: var(--lu-green-ink);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
   font-weight: var(--lu-fw-black);
 }
 .sb-course-icon {
@@ -732,8 +793,11 @@
   place-items: center;
   width: 26px;
   height: 26px;
-  border-radius: 8px;
+  border-radius: var(--lu-r-sm);
   background: var(--lu-surface-2);
+}
+.sb-course[data-active] .sb-course-icon {
+  background: var(--lu-surface);
 }
 .sb-course-title {
   flex: 1;
@@ -772,7 +836,7 @@
 .acct-course-link {
   font-size: var(--lu-fs-xs);
   font-weight: 700;
-  color: var(--lu-blue-ink);
+  color: var(--lu-violet-ink);
 }
 .home-course-add .guide-card-icon {
   color: var(--lu-text-3);
@@ -816,4 +880,14 @@
   .cp-testout-crown {
     animation: none;
   }
+}
+/* Pixel icons inside path text (popover title, challenge note, lock note) sit on the text baseline */
+.lesson-pop-title .lu-icon,
+.lesson-pop-meta .lu-gicon,
+.lesson-pop-meta svg {
+  vertical-align: -3px;
+  margin-right: 2px;
+}
+.lesson-node[data-optional][data-state='upcoming'] .lesson-bubble-glyph .lu-icon {
+  transform: scale(0.8);
 }

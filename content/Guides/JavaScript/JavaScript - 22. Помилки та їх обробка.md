@@ -117,16 +117,26 @@ try { throw 'oops'; } catch (e) {
 
 Специфікація описує кожен оператор через **completion record**: «нормально», `return`, `throw`, `break` чи `continue`. Правила `try/catch/finally`:
 
-```text
-try { … }               ── нормально ────────────────┐
-   │ throw                                           │
-   ▼                                                 ▼
-catch (e) { … }  ── результат catch ──────▶  finally { … }
-                                                     │
-          finally завершився нормально? ── так ──▶ лишається результат try/catch
-                                         └─ ні ───▶ результат finally ПЕРЕМАГАЄ
-                                                    (return / throw / break)
-```
+> [!diagram] try → catch → finally: хто вирішує результат
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: try, label: "try", code: "try {\n  throw new Error('збій');\n}", tone: blue }
+>   - { id: catch, label: "catch", code: "catch (e) {\n  return 'catch';\n}", tone: orange }
+>   - { id: fin, label: "finally (завжди)", code: "finally {\n  console.log('cleanup');\n}", tone: violet }
+>   - { id: out, label: "результат f()", text: "?", tone: green }
+> edges:
+>   - { from: try, to: catch, label: "throw" }
+>   - { from: catch, to: fin, label: "результат catch" }
+>   - { from: fin, to: out }
+>   - { from: try, to: fin, label: "нормально — catch пропускається" }
+> steps:
+>   - { line: "try:2", note: "try кидає Error — completion record типу «throw». Без помилки ми пішли б одразу до finally." }
+>   - { move: { from: try, to: catch, value: "Error('збій')" }, line: "catch:2", note: "Помилку ловить catch і вирішує результат: return 'catch'. Значення вже «запаковане»." }
+>   - { move: { from: catch, to: fin, value: "return 'catch'" }, line: "fin:2", note: "Перш ніж функція справді вийде, виконується finally — завжди: після return, throw, break." }
+>   - { move: { from: fin, to: out, value: "'catch'" }, set: { out: "'catch'" }, note: "finally завершився тихо (лише console.log) — лишається те, що вирішив catch." }
+>   - { set: { out: "'finally' — перемагає" }, focus: [fin, out], note: "А якби у finally був return 'finally' (чи throw, break), він ПЕРЕБИВ би все — і результат catch, і навіть помилку з try." }
+> ```
 
 1. `finally` виконується **завжди**: після нормального виходу, `return`, `throw`, `break`, `continue`.
 2. Якщо `finally` завершився «тихо», зберігається те, що вирішили `try`/`catch`.

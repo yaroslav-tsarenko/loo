@@ -1,15 +1,17 @@
+import { LESSON_ICONS } from '@/content/icons'
 import type { LearningUnit } from '@/content/model'
 import type { LessonItem, LessonKind } from '../schema'
 
 // Topic → Duolingo-style lessons, deterministic (evolution of src/content/lessons.ts):
-// 📖 theory → 🤔 start → 🔬 core × n → 🧠 cards × n → 🎤 interview, with every 🛠️ task woven in
+// theory → start → core × n → cards × n → interview, with every code task woven in
 // right after the last lesson whose material precedes the task in the document.
 // Kinds and numbering match the old generator, so old lesson ids map 1:1 (see ids.ts).
 
 export interface DraftLesson {
   kind: LessonKind
   n: number
-  emoji: string
+  // icon ref (src/content/icons.ts)
+  icon: string
   title: string
   items: LessonItem[]
   minutes: number
@@ -68,20 +70,20 @@ export function topicLessons(input: TopicLessonInput): DraftLesson[] {
     for (const item of items) m += item.kind === 'reel' ? PACE.reel : input.minutesOf(byId.get(item.id)!)
     return Math.max(1, Math.round(m))
   }
-  const draft = (kind: LessonKind, n: number, emoji: string, title: string, items: LessonItem[]): DraftLesson => ({
+  const draft = (kind: LessonKind, n: number, title: string, items: LessonItem[]): DraftLesson => ({
     kind,
     n,
-    emoji,
+    icon: LESSON_ICONS[kind],
     title,
     items,
     minutes: kind === 'theory' ? Math.max(1, Math.round(input.theoryMinutes)) : minutes(items),
   })
 
   const path: Anchored[] = []
-  if (input.theory) path.push({ lesson: draft('theory', 1, '📖', 'Теорія: читати розділ', []), anchor: -1 })
+  if (input.theory) path.push({ lesson: draft('theory', 1, 'Теорія: читати розділ', []), anchor: -1 })
 
-  // The first quiz is the «🤔 Передбач» pretest.
-  if (quizzes[0]) path.push({ lesson: draft('start', 1, '🤔', 'Передбач і розберись', [...reel(), unit(quizzes[0]), ...reel()]), anchor: pos(quizzes[0]) })
+  // The first quiz is the «Передбач» pretest.
+  if (quizzes[0]) path.push({ lesson: draft('start', 1, 'Передбач і розберись', [...reel(), unit(quizzes[0]), ...reel()]), anchor: pos(quizzes[0]) })
 
   const cores = chunk(quizzes.slice(1), QUIZZES_PER_CORE)
   const cardQueue = [...cards]
@@ -92,12 +94,12 @@ export function topicLessons(input: TopicLessonInput): DraftLesson[] {
       if (j < CARDS_PER_CORE && cardQueue.length > 0) items.push(unit(cardQueue.shift()!))
     })
     items.push(...reel())
-    path.push({ lesson: draft('core', i + 1, '🔬', cores.length > 1 ? `Розбір ${i + 1}` : 'Розбір', items), anchor: Math.max(...group.map(pos)) })
+    path.push({ lesson: draft('core', i + 1, cores.length > 1 ? `Розбір ${i + 1}` : 'Розбір', items), anchor: Math.max(...group.map(pos)) })
   })
 
   chunk(cardQueue, CARDS_PER_LESSON).forEach((group, i, all) => {
     const items = [...group.map(unit), ...reel()]
-    path.push({ lesson: draft('cards', i + 1, '🧠', all.length > 1 ? `Закріплення ${i + 1}` : 'Закріплення', items), anchor: Math.max(...group.map(pos)) })
+    path.push({ lesson: draft('cards', i + 1, all.length > 1 ? `Закріплення ${i + 1}` : 'Закріплення', items), anchor: Math.max(...group.map(pos)) })
   })
 
   // Leftover reels: a short bonus at the end of the last practice lesson (as before).
@@ -116,7 +118,7 @@ export function topicLessons(input: TopicLessonInput): DraftLesson[] {
     while (k + 1 < path.length && path[k + 1]!.anchor < p) k++
     const title = t.kind === 'task' ? t.titleText : 'Задача'
     const list = after.get(k) ?? []
-    list.push(draft('code', i + 1, '🛠️', shortTitle(title || 'Задача'), [unit(t)]))
+    list.push(draft('code', i + 1, shortTitle(title || 'Задача'), [unit(t)]))
     after.set(k, list)
   })
 
@@ -124,7 +126,7 @@ export function topicLessons(input: TopicLessonInput): DraftLesson[] {
   path.forEach((p, k) => out.push(p.lesson, ...(after.get(k) ?? [])))
 
   chunk(interview, INTERVIEW_PER_LESSON).forEach((group, i, all) => {
-    out.push(draft('interview', i + 1, '🎤', all.length > 1 ? `Співбесіда ${i + 1}` : 'Співбесіда', group.map(unit)))
+    out.push(draft('interview', i + 1, all.length > 1 ? `Співбесіда ${i + 1}` : 'Співбесіда', group.map(unit)))
   })
   return out
 }

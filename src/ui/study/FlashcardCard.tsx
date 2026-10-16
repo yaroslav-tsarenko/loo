@@ -8,6 +8,7 @@ import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import type { FlashItem } from './render-items'
+import { LevelPill } from './LevelPill'
 import { RateButtons } from './RateButtons'
 
 const HOTKEYS: Record<string, FlashRating> = { '1': 'again', '2': 'hard', '3': 'good' }
@@ -58,11 +59,7 @@ export function FlashcardCard({ item, onRate, disabled }: { item: FlashItem; onR
 
   const meta = (
     <div className="flashcard-meta">
-      {item.level ? (
-        <Pill size="sm" tone="purple">
-          {item.level}
-        </Pill>
-      ) : null}
+      {item.level ? <LevelPill level={item.level} tone="violet" /> : null}
       {item.meta.map((m) => (
         <Pill key={m} size="sm">
           {m}

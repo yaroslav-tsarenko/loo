@@ -1,4 +1,4 @@
-// ⚡ Double XP: 15 minutes per purchase; buying again extends the window (up to an hour ahead).
+// Double XP: 15 minutes per purchase; buying again extends the window (up to an hour ahead).
 
 export const DOUBLE_XP_MS = 15 * 60_000
 export const MAX_BOOST_AHEAD_MS = 60 * 60_000

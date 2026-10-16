@@ -10,8 +10,8 @@ import type { Effect, FlashRating } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
-import { PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
-import { addHearts, loadState, settleGame } from '../game'
+import { BUCKS, buckRef, PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
+import { addHearts, awardBucks, loadState, settleGame } from '../game'
 import { settleMission } from '../services/mission'
 import { evaluateAchievements, recordAttempt } from '../services/progress'
 
@@ -164,11 +164,13 @@ export async function endSession(raw: { sessionId: string }): Promise<Effect[]> 
       if (!row || row.endedAt) return []
       await tx.update(sessions).set({ endedAt: now }).where(and(eq(sessions.userId, userId), eq(sessions.id, input.sessionId)))
       const effects: Effect[] = []
-      // «Робота над помилками»: a finished practice session refills one ❤️.
+      // «Робота над помилками»: a finished practice session refills one heart and pays bucks (daily cap).
       if ((row.mode === 'mistakes' || row.mode === 'quiz') && row.total >= PRACTICE_MIN_ANSWERS) {
         const before = (await loadState(tx, userId, now)).hearts.hearts
         const after = await addHearts(tx, userId, PRACTICE_REFILL, now)
         if (after.hearts > before) effects.push({ type: 'hearts', hearts: after.hearts, delta: after.hearts - before })
+        const bucks = await awardBucks(tx, userId, { amount: BUCKS.practice, reason: 'practice', refId: buckRef.practice(input.sessionId), now })
+        if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason: 'practice' })
       }
       effects.push(...(await settleGame(tx, userId, now)))
       effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))

@@ -16,11 +16,19 @@
 
 Розглянемо батьківський component `Accordion`, який рендерить два компоненти `Panel`:
 
-```
-Accordion
-  ├─ Panel
-  └─ Panel
-```
+> [!diagram] Дві панелі — два незалежні state
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: acc, text: Accordion, tone: gray, icon: "si:SiReact" }
+>   - { id: p1, label: "Panel «About»", text: "isActive: false", parent: acc, tone: blue }
+>   - { id: p2, label: "Panel «Etymology»", text: "isActive: false", parent: acc, tone: blue }
+> steps:
+>   - { show: acc, note: "Батьківський компонент Accordion рендерить дві панелі." }
+>   - { show: [p1, p2], note: "Кожна Panel має власний state isActive, спершу false — обидві згорнуті." }
+>   - { set: { p1: "isActive: true" }, note: "Клік Show у першій панелі — змінюється лише її власний state." }
+>   - { set: { p2: "isActive: true" }, note: "Клік у другій — і відкриті обидві: панелі нічого не знають одна про одну. Щоб відкритою була лише одна, state треба підняти в Accordion." }
+> ```
 
 Кожен `Panel` має власний булевий state `isActive`:
 

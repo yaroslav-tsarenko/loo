@@ -130,7 +130,7 @@ function note(e: TraceEvent, ex: RegexExample, steps: number): string {
 function logLabel(e: TraceEvent): string {
   switch (e.kind) {
     case 'start':
-      return `▶ старт з ${e.start}`
+      return `► старт з ${e.start}`
     case 'char-ok':
       return `✓ ${e.label} = '${e.ch}' @${e.pos}`
     case 'char-fail':
@@ -142,17 +142,17 @@ function logLabel(e: TraceEvent): string {
     case 'quant-stop':
       return `■ ${e.label} ×${e.count}`
     case 'give-back':
-      return `↩ ${e.label} віддає → ×${e.count}`
+      return `↶ ${e.label} віддає → ×${e.count}`
     case 'lazy-rest':
       return `→ ${e.label} ×${e.count}, далі`
     case 'lazy-more':
-      return `↩ ${e.label} бере ще`
+      return `↶ ${e.label} бере ще`
     case 'alt-next':
-      return `↩ | → ${e.label}`
+      return `↶ | → ${e.label}`
     case 'success':
-      return '✅ збіг'
+      return '✓ збіг'
     case 'no-match':
-      return '❌ null'
+      return '✗ null'
   }
 }
 
@@ -189,8 +189,8 @@ export function buildRegexScenario(id: string): StepScenario<RegexFrame> {
       kind: 'skip',
       span: null,
       step: last.step + skipped,
-      log: [...last.log.slice(-(LOG_SIZE - 1)), tok('skip', `⏩ пропущено ${skipped}`)],
-      note: `⏩ Пропущено кроків: ${skipped}. Тут ${ex.skip ?? 'рушій продовжує перебирати варіанти.'}`,
+      log: [...last.log.slice(-(LOG_SIZE - 1)), tok('skip', `» пропущено ${skipped}`)],
+      note: `Пропущено кроків: ${skipped}. Тут ${ex.skip ?? 'рушій продовжує перебирати варіанти.'}`,
     }
     frames = [...head, skip, ...tail]
   }

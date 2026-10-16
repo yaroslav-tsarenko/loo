@@ -15,7 +15,7 @@ import { Toggle } from '@/ui/design/Toggle'
 import { Popover, Tooltip } from '@/ui/design/Tooltip'
 import { LooEvolve } from '@/ui/design/mascot/LooEvolve'
 import { LooSays } from '@/ui/design/mascot/LooSays'
-import { LOO_FORM_LABEL, LOO_FORMS, type LooForm } from '@/ui/design/mascot/pixels'
+import { LOO_STAGE_LABEL, LOO_STAGES, type LooStage } from '@/ui/design/mascot/pixels'
 
 export function ProgressDemo() {
   const [v, setV] = useState(0.35)
@@ -153,19 +153,19 @@ export function LoadingDemo() {
   )
 }
 
-// Pick two forms and replay the evolution cutscene (remounts LooEvolve via key).
+// Pick two stages and replay the rank-up cutscene (remounts LooEvolve via key).
 export function LooEvolveDemo() {
-  const [from, setFrom] = useState<LooForm>('block')
-  const [to, setTo] = useState<LooForm>('lamp')
+  const [from, setFrom] = useState<LooStage>('egg')
+  const [to, setTo] = useState<LooStage>('small')
   const [run, setRun] = useState(0)
   const [done, setDone] = useState(0)
-  const pick = (value: LooForm, set: (f: LooForm) => void, label: string) => (
+  const pick = (value: LooStage, set: (f: LooStage) => void, label: string) => (
     <label className="ds-row ds-tight">
       <span className="ds-muted">{label}</span>
-      <select className="ds-select" value={value} onChange={(e) => set(e.target.value as LooForm)}>
-        {LOO_FORMS.map((f) => (
+      <select className="ds-select" value={value} onChange={(e) => set(e.target.value as LooStage)}>
+        {LOO_STAGES.map((f) => (
           <option key={f} value={f}>
-            {LOO_FORM_LABEL[f]}
+            {LOO_STAGE_LABEL[f]}
           </option>
         ))}
       </select>
@@ -178,7 +178,7 @@ export function LooEvolveDemo() {
         {pick(from, setFrom, 'з')}
         {pick(to, setTo, 'у')}
         <Button size="sm" onClick={() => setRun((n) => n + 1)}>
-          Еволюція!
+          Новий ранг!
         </Button>
         <span className="ds-muted" aria-live="polite">
           onDone × {done}

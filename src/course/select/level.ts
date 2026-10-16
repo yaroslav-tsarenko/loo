@@ -2,7 +2,7 @@ import { levelRank, type CourseBundle, type ExerciseRef, type Lesson, type Lesso
 import { PACE } from '../compile/lessons'
 
 // Personalises the path for a learner level (ARCHITECTURE §2 «Складність і персоналізація»):
-// exercises below the level are condensed (a lesson keeps 1–2 of them), above the level are 🔥 challenges.
+// exercises below the level are condensed (a lesson keeps 1–2 of them), above the level are challenges.
 
 export interface SelectedItem extends LessonItem {
   challenge: boolean

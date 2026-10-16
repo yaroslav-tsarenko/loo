@@ -53,7 +53,8 @@ export const LessonSchema = z.object({
   index: z.number().int(),
   kind: LessonKindSchema,
   n: z.number().int(),
-  emoji: z.string(),
+  // icon ref (src/content/icons.ts), e.g. px:microscope
+  icon: z.string(),
   title: z.string(),
   items: z.array(LessonItemSchema),
   minutes: z.number(),

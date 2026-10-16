@@ -6,7 +6,8 @@ export interface CPNode {
   id: string
   type: 'lesson' | 'test' | 'exam'
   kind: string
-  emoji: string
+  // icon ref for <Icon name> (src/content/icons.ts)
+  icon: string
   title: string
   href: string
   minutes: number

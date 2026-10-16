@@ -42,14 +42,23 @@ export default function RichTextEditor({ timestamp, text }) {
 
 **Приклад дерева залежностей модулів:**
 
-```
-App.js (Server)
-├── Copyright.js (Server)
-├── FancyText.js (Server)
-└── InspirationGenerator.js (Client - 'use client')
-    ├── FancyText.js (Client при використанні тут)
-    └── inspirations.js (Client)
-```
+> [!diagram] Межа 'use client' у дереві модулів
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: app, text: "App.js", note: Server, tone: blue, icon: "si:SiReact" }
+>   - { id: copy, text: "Copyright.js", note: Server, parent: app, tone: blue }
+>   - { id: fancy1, text: "FancyText.js", note: Server, parent: app, tone: blue }
+>   - { id: insp, code: "'use client'", label: "InspirationGenerator.js", note: "Client — тут межа", parent: app, tone: orange }
+>   - { id: fancy2, text: "FancyText.js", note: "Client — бо імпортовано тут", parent: insp, tone: orange }
+>   - { id: data, text: "inspirations.js", note: Client, parent: insp, tone: orange }
+> steps:
+>   - { show: app, note: "Додатки з React Server Components рендеряться на сервері за замовчуванням. Починаємо з кореня — App.js." }
+>   - { show: [copy, fancy1], note: "Copyright.js і FancyText.js імпортовані з серверного коду — вони теж серверні, і їхній код не їде в браузер." }
+>   - { show: insp, line: "insp:1", note: "InspirationGenerator.js починається з 'use client'. Імпорт цього модуля — межа: сервер далі не обчислює його код, а відправляє клієнту." }
+>   - { show: [fancy2, data], note: "Усе, що імпортує клієнтський модуль, теж стає клієнтським — навіть без власної директиви: inspirations.js і FancyText.js." }
+>   - { focus: [fancy1, fancy2], note: "Один файл FancyText.js — два використання: серверне біля App і клієнтське всередині InspirationGenerator. Середовище визначає місце імпорту, а не сам файл." }
+> ```
 
 Фреймворк серверно рендерить кореневий компонент та продовжує через дерево рендерингу, відмовляючись від обчислення будь-якого коду, імпортованого з клієнтського позначеного коду. Серверно відрендерена частина відправляється клієнту, який потім завершує рендеринг з завантаженим клієнтським кодом.
 

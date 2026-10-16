@@ -25,24 +25,25 @@ icon: "📡"
 
 Міні-бібліотеку реактивності на ~120 рядків. Ти пишеш звичайний код — `effect(() => el.textContent = fullName.value)` — а бібліотека **сама** з'ясовує, від чого він залежить, і перезапускає його рівно тоді, коли треба.
 
-```text
-  firstName ──┐                         ┌──▶ effect: bind(el, { textContent })
-  (signal)    ├──▶ fullName (computed) ─┤
-  lastName  ──┘    лінивий, кешований   └──▶ effect: document.title = …
-
-  Як працює відстеження:
-
-  effect.run()                            signal.value (get)
-    activeObserver = effect   ─────────▶    track(observers):
-    fn()  ── читає сигнали ──────────▶        observers.add(activeObserver)
-    activeObserver = prev                     activeObserver.deps.add(observers)
-
-  signal.value = x (set)
-    batch(() => observers.forEach(o => o.notify()))
-      computed.notify → dirty = true, далі по ланцюжку (синхронно)
-      effect.notify   → pending.add(effect)
-    flush() → кожен ефект з pending виконується РІВНО ОДИН раз
-```
+> [!diagram] Як сигнали самі знаходять, кого перезапустити
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: eff, label: "effect · bind(el, { textContent: fullName })", text: "el.textContent = —", tone: green, icon: "px:monitor" }
+>   - { id: full, parent: eff, label: "fullName (computed) · лінивий, кешований", text: "ще не обчислено", tone: violet }
+>   - { id: first, parent: full, label: "firstName (signal)", text: "'Оля'", tone: blue }
+>   - { id: last, parent: full, label: "lastName (signal)", text: "'Коваль'", tone: blue }
+>   - { id: obs, label: "activeObserver (глобальна змінна)", text: "null", tone: yellow, icon: "px:magnifier" }
+>   - { id: pending, label: "pending — ефекти в черзі", text: "{ }", tone: gray }
+> steps:
+>   - { set: { obs: "effect" }, focus: [obs, eff], note: "effect.run() спершу пише activeObserver = effect — ніби каже: «зараз читаю я». Потім виконує свою функцію." }
+>   - { set: { obs: "fullName", full: "обчислюється…" }, focus: [obs, full], note: "Функція ефекту читає fullName.value. Computed лінивий: рахує лише зараз, коли його вперше прочитали, і на час обчислення сам стає activeObserver." }
+>   - { move: [{ from: first, to: full, value: "'Оля'" }, { from: last, to: full, value: "'Коваль'" }], set: { full: "'Оля Коваль'" }, note: "first.value і last.value — це get. track(observers) додає activeObserver (fullName) у спостерігачі сигналу, а fullName запам'ятовує сигнали в deps. Так і виникають лінії цього дерева." }
+>   - { set: { obs: "null", eff: "el.textContent = 'Оля Коваль'" }, focus: [obs, eff], note: "Обчислення скінчились, activeObserver повертається до prev. Ефект записав текст і тепер підписаний на fullName — жодного ручного subscribe." }
+>   - { set: { first: "'Петро'", full: "dirty = true", pending: "{ effect }" }, note: "firstName.value = 'Петро' (set). batch обходить спостерігачів синхронно: computed.notify позначає dirty, effect.notify кладе ефект у pending. Ще нічого не перераховано." }
+>   - { set: { pending: "{ }", full: "'Петро Коваль'", eff: "el.textContent = 'Петро Коваль'" }, note: "flush(): кожен ефект із pending виконується РІВНО ОДИН раз. Він читає fullName — той брудний, тож перераховується і віддає свіже значення." }
+>   - { focus: [first, last, pending], note: "batch(() => { first = 'X'; last = 'Y' }) — обидві зміни кладуть той самий ефект у pending (це Set), тож текст запишеться один раз, без проміжного «X Коваль»." }
+> ```
 
 Глобальна змінна `activeObserver` — увесь «секрет» автотрекінгу: сигнал під час читання дивиться, *хто* його зараз читає, і запам'ятовує цього читача.
 

@@ -1,30 +1,29 @@
-import { rankAt, type EvoTier, type LooForm } from '@/game'
+import { rankAt, type LooStage } from '@/game'
 import { cx } from '@/ui/design/cx'
 import { Loo } from '@/ui/design/mascot/Loo'
-import type { LooMood } from '@/ui/design/mascot/LooArt'
+import type { LooMood, LooSkin } from '@/ui/design/mascot/LooArt'
 
 interface Props {
-  // evolution step (src/game/ranks.ts) — or an explicit form + tier
+  // character step (src/game/ranks.ts) — or an explicit growth stage
   step?: number
-  form?: LooForm
-  tier?: EvoTier
+  stage?: LooStage
   mood?: LooMood
   size?: number
   animated?: boolean
-  // locked future forms: a dark silhouette
+  // locked future steps: a dark silhouette
   silhouette?: boolean
+  // explicit look (shop previews); default: the learner's equipped skins + gear
+  skin?: LooSkin
   className?: string
   label?: string
 }
 
-// Loo in his evolution form (the mascot draws forms: <Loo form tier />), wearing the equipped shop skin.
-export function LooCharacter({ step, form, tier, mood = 'idle', size = 120, animated, silhouette, className, label }: Props) {
-  const def = step !== undefined ? rankAt(step) : null
-  const f = form ?? def?.form ?? 'egg'
-  const tr = tier ?? def?.tier ?? 1
+// Loo at the size his rank has grown him to, wearing the equipped skins and gear.
+export function LooCharacter({ step, stage, mood = 'idle', size = 120, animated, silhouette, skin, className, label }: Props) {
+  const s = stage ?? (step !== undefined ? rankAt(step).stage : 'normal')
   return (
-    <span className={cx('loo-character', className)} data-form={f} data-tier={tr} data-silhouette={silhouette ? '' : undefined}>
-      <Loo form={f} tier={f === 'legendary' ? undefined : tr} mood={mood} size={size} animated={animated} label={label} decorative={!label} />
+    <span className={cx('loo-character', className)} data-stage={s} data-silhouette={silhouette ? '' : undefined}>
+      <Loo stage={s} mood={mood} size={size} animated={animated} skin={skin} label={label} decorative={!label} />
     </span>
   )
 }

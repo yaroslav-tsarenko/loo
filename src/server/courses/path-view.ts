@@ -1,9 +1,8 @@
 import 'server-only'
+import { EXAM_ICON, TEST_ICON, TOPIC_FALLBACK_ICONS } from '@/content/icons'
 import { LEVEL_LABEL, type PathLessonNode, type PathTestNode, type PathExamNode } from '@/course'
 import type { CPNode, CPSection } from '@/ui/courses/types'
 import { lessonHref, testHref, type CoursePath } from './path'
-
-const FALLBACK_ICONS = ['📘', '🧩', '⚙️', '🔍', '🧠', '🚀', '🛠️']
 
 function node(n: PathLessonNode | PathTestNode | PathExamNode, theoryHref: string | null): CPNode {
   if (n.type === 'lesson') {
@@ -11,7 +10,7 @@ function node(n: PathLessonNode | PathTestNode | PathExamNode, theoryHref: strin
       id: n.id,
       type: 'lesson',
       kind: n.kind,
-      emoji: n.lesson.emoji,
+      icon: n.lesson.icon,
       title: n.lesson.title,
       href: n.kind === 'theory' && theoryHref ? theoryHref : lessonHref(n.id),
       minutes: n.minutes,
@@ -29,7 +28,7 @@ function node(n: PathLessonNode | PathTestNode | PathExamNode, theoryHref: strin
     id: n.id,
     type: n.type,
     kind: n.type,
-    emoji: n.type === 'test' ? '🏁' : '👑',
+    icon: n.type === 'test' ? TEST_ICON : EXAM_ICON,
     title: n.type === 'test' ? 'Тест теми' : 'Екзамен розділу',
     href: testHref(n.id),
     minutes: Math.max(1, Math.round(n.questions * 0.6)),
@@ -73,7 +72,7 @@ export function pathSections(path: CoursePath): CPSection[] {
           chapterId: t.topic.chapterId,
           number: t.topic.number ?? topicNo,
           title: t.topic.title,
-          icon: t.topic.icon ?? FALLBACK_ICONS[i % FALLBACK_ICONS.length]!,
+          icon: t.topic.icon ?? TOPIC_FALLBACK_ICONS[i % TOPIC_FALLBACK_ICONS.length]!,
           theoryHref: theory,
           crowns: m?.crowns ?? 0,
           ratio: m?.ratio ?? 0,

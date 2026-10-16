@@ -25,21 +25,31 @@ icon: "💬"
 
 Ядро чату, як у Slack чи Telegram, — без сервера і без DOM: кімнати, учасники, історія, захист від спаму, «Оля друкує…». Усі модулі не знають один про одного; їх склеює фасад `createChat`, а UI лише підписується на події.
 
-```text
-                         ┌──────────────── createChat ────────────────┐
-  UI: join / leave ─────▶│ members: Map<room, Set<user>>              │
-  UI: typing(room) ─────▶│ createTypingTracker ── таймер 3 с ──┐      │
-  UI: send(text) ───────▶│   │                                 │      │
-                         │   ├─▶ createRateLimiter (ковзне вікно)      │
-                         │   ├─▶ createMessageStore (ліміт, курсор)    │
-                         │   └─▶ typing.stop(user)             │      │
-                         │                                     ▼      │
-                         │        EventEmitter ◀── emit('typing'|'message'|'join'|'leave')
-                         └──────────────│─────────────────────────────┘
-                                        ▼
-                       chat.on('message', render) — будь-скільки слухачів:
-                       UI, звук, лічильник непрочитаних, логер…
-```
+> [!diagram] createChat: шлях одного повідомлення
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: ui, label: "UI", text: "join · typing · send", tone: blue, icon: "px:chat" }
+>   - { id: members, label: "members: Map<room, Set<user>>", text: "general: { }", tone: gray }
+>   - { id: limiter, label: "createRateLimiter (ковзне вікно)", text: "Оля: 0 / 5 за 10 с", tone: yellow, icon: "px:hourglass" }
+>   - { id: store, label: "createMessageStore", text: "порожньо", tone: mint, icon: "px:database" }
+>   - { id: emitter, label: "EventEmitter", code: "emit('message', message)", tone: violet, icon: "px:bolt" }
+>   - { id: listeners, label: "chat.on('message', …)", text: "UI · звук · непрочитані · логер", tone: green }
+> edges:
+>   - { from: ui, to: members }
+>   - { from: members, to: limiter, label: "учасник?" }
+>   - { from: limiter, to: store, label: "ліміт ок" }
+>   - { from: store, to: emitter, label: "message" }
+>   - { from: emitter, to: listeners, label: "розсилка" }
+> steps:
+>   - { move: { from: ui, to: members, value: "join('general', 'Оля')" }, set: { members: "general: { Оля }" }, note: "Оля заходить у кімнату. Склад змінився — фасад емітить 'join', і кожен слухач дізнається про нову учасницю." }
+>   - { set: { listeners: "«Оля друкує…»" }, focus: [ui, listeners], note: "chat.typing('general', 'Оля'): трекер вмикає «друкує…» і ставить таймер на 3 с. Слухачі події 'typing' показують індикатор." }
+>   - { move: { from: ui, to: members, value: "send('general', 'Оля', 'Привіт')" }, note: "Оля надсилає повідомлення. Перша перевірка — чи вона учасниця кімнати. Так; інакше було б { ok: false, error: 'Спершу приєднайся до кімнати' }." }
+>   - { move: { from: members, to: limiter, value: "Оля" }, set: { limiter: "Оля: 1 / 5 за 10 с" }, note: "Ковзне вікно: за останні 10 с у Олі менше 5 повідомлень — пропускаємо. Шосте поспіль отримало б 'Забагато повідомлень' і retryAfter." }
+>   - { move: { from: limiter, to: store, value: "'Привіт'" }, set: { store: "{ id: 1, user: 'Оля', text: 'Привіт' }" }, note: "Сховище обрізає пробіли, перевіряє довжину й заморожує повідомлення. Автор надіслав текст — typing.stop гасить «друкує…»." }
+>   - { move: [{ from: store, to: emitter, value: "message" }, { from: emitter, to: listeners, value: "'Привіт'" }], set: { listeners: "UI · звук · непрочитані · логер ← 'Привіт'" }, line: "emitter:1", note: "emit('message') роздає повідомлення всім слухачам по черзі. Сам емітер не знає, скільки їх і що вони роблять." }
+>   - { focus: listeners, note: "Хочеш звук нового повідомлення — додай ще один chat.on('message', …), ядро не змінюється. Це і є слабка зв'язність." }
+> ```
 
 Event-driven архітектура = **слабка зв'язність**: той, хто публікує подію, не знає, скільки слухачів її отримає і що вони зроблять. Додати «звук нового повідомлення» — один `chat.on('message', …)`, без правок у ядрі.
 

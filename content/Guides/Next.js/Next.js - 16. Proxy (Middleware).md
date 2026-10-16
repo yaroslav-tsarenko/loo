@@ -20,12 +20,19 @@ Proxy дозволяє виконувати код **перед завершен
 
 Створіть `proxy.ts` (або `.js`) в корені проєкту або в `src/`:
 
-```
-project/
-├── proxy.ts        (або src/proxy.ts)
-├── app/
-├── package.json
-```
+> [!diagram] Де живе proxy.ts
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: proj, text: "project/", tone: gray, icon: "pi:PiFoldersFill" }
+>   - { id: proxy, text: "proxy.ts", note: "або src/proxy.ts — один на проєкт", parent: proj, tone: violet, icon: "si:SiTypescript" }
+>   - { id: app, text: "app/", note: "маршрути", parent: proj, tone: blue, icon: "si:SiNextdotjs" }
+>   - { id: pkg, text: "package.json", parent: proj, tone: gray, icon: "px:file" }
+> steps:
+>   - { show: [proj, app, pkg], note: "Звичайний проєкт: папка app/ з маршрутами і package.json у корені." }
+>   - { show: proxy, note: "proxy.ts кладемо в корінь — на одному рівні з app/, а не всередину неї. Якщо код у src/, то src/proxy.ts. Такий файл лише один." }
+>   - { move: { from: proxy, to: app, value: "GET /about/team" }, note: "Запит, що підпадає під matcher ('/about/:path*'), спершу проходить через proxy() — і лише потім доходить до маршруту в app/ (або перенаправляється)." }
+> ```
 
 Підтримується тільки **один** файл `proxy.ts` на проєкт. Розбивайте логіку на модулі та імпортуйте в головний файл.
 

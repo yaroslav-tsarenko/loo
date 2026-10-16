@@ -41,14 +41,25 @@ icon: "🧺"
 
 Навіщо? Уяви список покупок на 50 пунктів. Створювати 50 змінних `item1`, `item2`… — божевілля. Масив тримає їх усі під одним іменем — і цикл легко пройде по кожному.
 
-```text
- const fruits = ['🍎', '🍌', '🍇', '🍋']
-
-  індекс:     0      1      2      3
-            ┌────┐ ┌────┐ ┌────┐ ┌────┐
-  вагони:   │ 🍎 │─│ 🍌 │─│ 🍇 │─│ 🍋 │      length = 4
-            └────┘ └────┘ └────┘ └────┘
-```
+> [!diagram] Масив — поїзд із пронумерованими вагонами
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: w0, label: "індекс 0", text: "🍎", tone: blue }
+>   - { id: w1, label: "індекс 1", text: "🍌", tone: blue }
+>   - { id: w2, label: "індекс 2", text: "🍇", tone: blue }
+>   - { id: w3, label: "індекс 3", text: "🍋", tone: yellow }
+>   - { id: len, label: "fruits.length", text: "3", tone: violet }
+> edges:
+>   - { from: w0, to: w1 }
+>   - { from: w1, to: w2 }
+>   - { from: w2, to: w3 }
+> steps:
+>   - { show: [w0, w1, w2], note: "const fruits = ['🍎', '🍌', '🍇'] — поїзд із трьох вагонів. Номери вагонів (індекси) починаються з 0." }
+>   - { show: w3, set: { len: "4" }, note: "fruits.push('🍋') чіпляє новий вагон у кінець. Він отримує наступний номер — 3, а length стає 4." }
+>   - { focus: w0, note: "fruits[0] — це перший вагон, 🍎. Називаєш номер — отримуєш пасажира." }
+>   - { focus: [w3, len], note: "Останній індекс завжди на 1 менший за length: 4 вагони — індекси від 0 до 3." }
+> ```
 
 ## 🔬 Як це працює
 
@@ -231,10 +242,24 @@ console.log(cheap)    // → [100, 50]
 console.log(prices)   // → [100, 250, 50] — оригінал не змінився
 ```
 
-```text
- [100, 250, 50] ──map(p => p * 1.2)──► [120, 300, 60]   той самий розмір
- [100, 250, 50] ──filter(p => p < 200)─► [100, 50]       можливо менше
-```
+> [!diagram] map перетворює кожен, filter залишає потрібні
+> ```yaml
+> layout: compare
+> columns: { map: "map — перетворити кожен", filter: "filter — залишити потрібні" }
+> nodes:
+>   - { id: mapin, col: map, label: "prices", text: "[100, 250, 50]", tone: blue }
+>   - { id: mapfn, col: map, label: "функція", code: "(p) => p * 1.2", tone: violet }
+>   - { id: mapout, col: map, label: "withTax", text: "[ ]", tone: green }
+>   - { id: filin, col: filter, label: "prices", text: "[100, 250, 50]", tone: blue }
+>   - { id: filfn, col: filter, label: "функція", code: "(p) => p < 200", tone: violet }
+>   - { id: filout, col: filter, label: "cheap", text: "[ ]", tone: green }
+> steps:
+>   - { focus: [mapin, filin], note: "Обидва методи отримують той самий масив prices і функцію. Цикл вони роблять самі — по одному елементу." }
+>   - { set: { mapout: "[120]", filout: "[100]" }, line: ["mapfn:1", "filfn:1"], note: "Елемент 100: map кладе 100 * 1.2 = 120. filter питає 100 < 200? — true, тож 100 лишається." }
+>   - { set: { mapout: "[120, 300]" }, line: ["mapfn:1", "filfn:1"], focus: [mapout, filout], note: "Елемент 250: map кладе 300. А 250 < 200 — false, тому filter його пропускає: cheap не змінився." }
+>   - { set: { mapout: "[120, 300, 60]", filout: "[100, 50]" }, line: ["mapfn:1", "filfn:1"], note: "Елемент 50: map → 60, filter → 50 < 200 true, лишаємо." }
+>   - { focus: [mapout, filout, mapin], note: "map дає масив того самого розміру (3 → 3), filter — можливо менший (3 → 2). Оригінал prices не змінився." }
+> ```
 
 Подивись, як фрукти проходять крізь такий конвеєр (третій етап, `reduce`, ти вивчиш пізніше):
 

@@ -1,5 +1,6 @@
 /* Theater: scripted <figure> illustrations in a device frame (ported from allship).
-   The frame is drawn at fixed "device pixels" and scaled to the box with CSS only. */
+   The frame is drawn at fixed "device pixels" and scaled to the box with CSS only.
+   «Loo Pixel-soft»: lavender / night device chrome, flat lip instead of blurred drop shadows, violet accents. */
 @layer viz {
   .th-root {
     margin: 20px 0;
@@ -49,7 +50,7 @@
     transform-origin: 0 0;
     transform: translate(calc((100cqw - var(--ow) * 1px * var(--k)) / 2), calc((100cqh - var(--oh) * 1px * var(--k)) / 2)) scale(var(--k));
     border-radius: calc(var(--fr) * 1px);
-    font-family: var(--font-ui);
+    font-family: var(--lu-font);
     font-size: 13px;
     line-height: 1.45;
     -webkit-font-smoothing: antialiased;
@@ -86,21 +87,22 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: light-dark(#e9e9e7, #2b2b2b);
+    background: var(--lu-surface-3);
     box-shadow:
-      0 0 0 1px var(--border),
-      0 24px 48px -24px rgb(0 0 0 / 0.3);
+      0 0 0 2px var(--lu-border-strong),
+      0 6px 0 2px var(--lu-border-strong);
   }
+  /* phone body: always the dark «night arcade» shell */
   .th-frame[data-device='phone'] .th-shell {
-    background: #15171a;
+    background: #140f28;
     box-shadow:
       inset 0 0 0 1.5px rgb(255 255 255 / 0.1),
-      0 0 0 1px var(--border),
-      0 28px 56px -28px rgb(0 0 0 / 0.45);
+      0 0 0 2px var(--lu-border-strong),
+      0 6px 0 2px var(--lu-border-strong);
   }
   @media (max-width: 639.98px) {
     .th-frame[data-device='auto'] .th-shell {
-      background: #15171a;
+      background: #140f28;
     }
     .th-frame[data-device='auto'] .th-bar {
       display: none;
@@ -119,7 +121,7 @@
     gap: 10px;
     height: 100%;
     padding: 0 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .th-lights {
     display: flex;
@@ -129,13 +131,13 @@
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: #f2625a;
+    background: var(--lu-red);
   }
   .th-lights span:nth-child(2) {
-    background: #f4bb3d;
+    background: var(--lu-yellow);
   }
   .th-lights span:nth-child(3) {
-    background: #3fc456;
+    background: var(--lu-green);
   }
   .th-nav {
     display: flex;
@@ -157,8 +159,8 @@
     height: 26px;
     margin-inline: auto;
     padding: 0 12px;
-    border-radius: 999px;
-    background: var(--bg);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface);
     font-size: 12px;
   }
   .th-url-text {
@@ -167,7 +169,7 @@
     text-overflow: ellipsis;
   }
   .th-url-host {
-    color: var(--t1);
+    color: var(--lu-text);
   }
   .th-bar-spacer {
     width: 72px;
@@ -182,8 +184,8 @@
     height: calc(var(--fh) * 1px);
     overflow: hidden;
     border-radius: calc(var(--sr) * 1px) calc(var(--sr) * 1px) max(calc(var(--sr) * 1px), calc((var(--fr) - var(--fb) - 1) * 1px)) max(calc(var(--sr) * 1px), calc((var(--fr) - var(--fb) - 1) * 1px));
-    background: var(--bg);
-    color: var(--t1);
+    background: var(--lu-bg);
+    color: var(--lu-text);
   }
   .th-frame[data-bare] .th-screen {
     background: transparent;
@@ -224,7 +226,7 @@
     height: 28px;
     transform: translateX(-50%);
     border-radius: 999px;
-    background: #15171a;
+    background: #140f28;
   }
   .th-home {
     position: absolute;
@@ -234,7 +236,7 @@
     height: 5px;
     transform: translateX(-50%);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--t1) 60%, transparent);
+    background: color-mix(in srgb, var(--lu-text) 60%, transparent);
   }
   .th-content {
     position: relative;
@@ -301,7 +303,7 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--lu-violet);
     opacity: 0;
   }
   .th-ring[data-pulse] {
@@ -323,7 +325,7 @@
     height: 1.15em;
     margin-left: 1px;
     vertical-align: -0.2em;
-    background: var(--accent);
+    background: var(--lu-violet);
     animation: th-blink 1s steps(1) infinite;
   }
   @keyframes th-blink {
@@ -332,7 +334,7 @@
     }
   }
   .th-content [data-hover] {
-    background-color: var(--hover);
+    background-color: var(--lu-hover);
   }
   .th-content [data-press] {
     transform: scale(0.97);
@@ -348,14 +350,14 @@
     pointer-events: none;
     opacity: 0;
     box-shadow:
-      0 0 0 2px var(--accent),
-      0 0 0 9999px rgb(10 14 20 / 0.32);
+      0 0 0 3px var(--lu-violet),
+      0 0 0 9999px rgb(22 17 43 / 0.35);
     transition:
       opacity 0.25s,
-      left 0.3s var(--ease-out),
-      top 0.3s var(--ease-out),
-      width 0.3s var(--ease-out),
-      height 0.3s var(--ease-out);
+      left 0.3s var(--lu-ease),
+      top 0.3s var(--lu-ease),
+      width 0.3s var(--lu-ease),
+      height 0.3s var(--lu-ease);
   }
   .th-tip {
     position: absolute;
@@ -365,14 +367,15 @@
     pointer-events: none;
     opacity: 0;
     transform: translateY(4px);
-    background: light-dark(#2f2f2f, #f1f1ef);
-    color: light-dark(#ffffff, #191919);
+    background: var(--lu-text);
+    color: var(--lu-surface);
     font-size: 13px;
-    line-height: 1.4;
-    box-shadow: var(--shadow-pop);
+    font-weight: 500;
+    line-height: 1.45;
+    box-shadow: 0 3px 0 color-mix(in srgb, var(--lu-text) 55%, var(--lu-violet));
     transition:
       opacity 0.25s,
-      transform 0.25s var(--ease-out);
+      transform 0.25s var(--lu-ease);
   }
   .th-spot[data-on],
   .th-tip[data-on] {
@@ -395,8 +398,8 @@
   .th-poster-bar {
     display: block;
     height: 14px;
-    border-radius: 4px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-3);
   }
   .th-poster-bar[data-w='40'] {
     width: 40%;
@@ -414,8 +417,8 @@
   .th-poster-block {
     display: block;
     height: 160px;
-    border-radius: 10px;
-    background: var(--sunk);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface-3);
   }
 
   /* chapter bar, controls, caption */
@@ -434,18 +437,20 @@
     min-width: 0;
     margin: 0;
     padding: 0;
-    font-size: 14px;
-    color: var(--t1);
+    font-size: var(--lu-fs-sm);
+    font-weight: 500;
+    color: var(--lu-text);
   }
   .th-chapter-num {
     flex-shrink: 0;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12px;
-    color: var(--t2);
+    font-weight: 600;
+    color: var(--lu-violet-ink);
   }
   .th-chapter-text {
     min-width: 0;
-    animation: th-fade-in 0.35s var(--ease-out);
+    animation: th-fade-in 0.35s var(--lu-ease);
   }
   @keyframes th-fade-in {
     from {
@@ -459,18 +464,33 @@
     flex-shrink: 0;
     width: 44px;
     height: 44px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: var(--surface);
-    color: var(--t1);
+    margin-bottom: 3px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
+    box-shadow: 0 3px 0 var(--lu-border);
+    color: var(--lu-violet-ink);
+    cursor: pointer;
+    transition:
+      transform var(--lu-dur-1) var(--lu-ease),
+      background-color var(--lu-dur-2);
   }
   .th-toggle:hover {
-    background: var(--hover);
+    background: var(--lu-surface-2);
+  }
+  .th-toggle:active {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  .th-toggle:focus-visible {
+    outline: 3px solid var(--lu-focus-color);
+    outline-offset: 3px;
   }
   .th-caption {
     margin-top: 4px;
-    font-size: 14px;
-    color: var(--t2);
+    font-size: var(--lu-fs-sm);
+    line-height: 1.55;
+    color: var(--lu-text-2);
   }
   .th-caption p {
     margin: 0;
@@ -497,17 +517,19 @@
     gap: 6px;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid var(--rule);
+    border-top: 2px solid var(--lu-border);
   }
   .th-steps li {
     display: flex;
     gap: 10px;
     padding: 0;
-    font-size: 14px;
-    color: var(--t2);
+    font-size: var(--lu-fs-sm);
+    line-height: 1.5;
+    color: var(--lu-text-2);
   }
   .th-steps li[aria-current='step'] {
-    color: var(--t1);
+    color: var(--lu-text);
+    font-weight: 600;
   }
   .th-steps-num {
     display: inline-grid;
@@ -515,14 +537,19 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 1px var(--border);
-    font-family: var(--font-mono);
+    border-radius: var(--lu-r-xs);
+    box-shadow: inset 0 0 0 2px var(--lu-border-strong);
+    font-family: var(--lu-font-mono);
     font-size: 11px;
+    font-weight: 600;
+  }
+  .th-steps li[aria-current='step'] .th-steps-num {
+    box-shadow: inset 0 0 0 2px var(--lu-violet);
+    color: var(--lu-violet-ink);
   }
   .th-steps li[data-done] .th-steps-num {
-    background: var(--accent);
-    color: var(--accent-ink);
+    background: var(--lu-violet);
+    color: var(--lu-on-color);
     box-shadow: none;
   }
 
@@ -537,15 +564,16 @@
   .th-figure-head h4 {
     margin: 0;
     padding: 0;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: var(--lu-fs-sm);
+    font-weight: var(--lu-fw-bold);
     line-height: 1.3;
   }
   .th-figure-head p {
     margin: 2px 0 0;
     padding: 0;
     font-size: 13px;
-    color: var(--t2);
+    line-height: 1.45;
+    color: var(--lu-text-2);
   }
 }
 

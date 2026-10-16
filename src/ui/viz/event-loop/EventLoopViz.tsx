@@ -1,16 +1,16 @@
 'use client'
 
-import { ConsolePanel, Panel, TokenList } from '../engine/Panel'
+import { ConsolePanel, Panel, TokenList, VizGlyph } from '../engine/Panel'
 import { StackPanel } from '../engine/StackPanel'
 import { StepPlayer } from '../engine/StepPlayer'
-import type { VizProps } from '../engine/types'
+import type { VizIcon, VizProps } from '../engine/types'
 import { eventLoopScenarios, type LoopPhase } from './scenarios'
 
-const PHASES: Array<{ id: LoopPhase; label: string; emoji: string }> = [
-  { id: 'script', label: 'Скрипт', emoji: '📜' },
-  { id: 'micro', label: 'Мікрозадачі', emoji: '✨' },
-  { id: 'macro', label: 'Макрозадача', emoji: '⏰' },
-  { id: 'idle', label: 'Очікування', emoji: '💤' },
+const PHASES: Array<{ id: LoopPhase; label: string; icon: VizIcon }> = [
+  { id: 'script', label: 'Скрипт', icon: 'px:scroll' },
+  { id: 'micro', label: 'Мікрозадачі', icon: 'pi:PiSparkleFill' },
+  { id: 'macro', label: 'Макрозадача', icon: 'px:alarm' },
+  { id: 'idle', label: 'Очікування', icon: 'pi:PiMoonStarsFill' },
 ]
 
 function PhaseBar({ phase }: { phase: LoopPhase }) {
@@ -18,7 +18,7 @@ function PhaseBar({ phase }: { phase: LoopPhase }) {
     <ol className="viz-phases" aria-label="Фаза event loop">
       {PHASES.map((p) => (
         <li key={p.id} data-on={p.id === phase ? '' : undefined} aria-current={p.id === phase ? 'step' : undefined}>
-          <span aria-hidden="true">{p.emoji}</span> {p.label}
+          <VizGlyph icon={p.icon} size={14} /> {p.label}
         </li>
       ))}
     </ol>
@@ -35,7 +35,7 @@ export function EventLoopViz({ scenario }: VizProps) {
         <>
           <PhaseBar phase={f.phase} />
           <StackPanel stack={f.stack} />
-          <Panel title="Web APIs" emoji="🌐" hint="таймери, fetch, DOM">
+          <Panel title="Web APIs" icon="px:globe" hint="таймери, fetch, DOM">
             <TokenList items={f.webApis} tone="api" empty="нічого не чекає" />
           </Panel>
         </>
@@ -43,10 +43,10 @@ export function EventLoopViz({ scenario }: VizProps) {
       below={(f) => (
         <>
           <div className="viz-queues">
-            <Panel title="Мікрозадачі" emoji="✨" hint="promise, await, queueMicrotask" tone="micro">
+            <Panel title="Мікрозадачі" icon="pi:PiSparkleFill" hint="promise, await, queueMicrotask" tone="micro">
               <TokenList items={f.microtasks} direction="row" tone="micro" />
             </Panel>
-            <Panel title="Макрозадачі" emoji="⏰" hint="таймери, події, I/O" tone="macro">
+            <Panel title="Макрозадачі" icon="px:alarm" hint="таймери, події, I/O" tone="macro">
               <TokenList items={f.macrotasks} direction="row" tone="macro" />
             </Panel>
           </div>

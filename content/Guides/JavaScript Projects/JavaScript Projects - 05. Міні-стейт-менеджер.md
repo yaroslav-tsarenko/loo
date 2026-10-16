@@ -25,24 +25,32 @@ icon: "🗃️"
 
 Власний Redux: стор, слайси, селектори, middleware і devtools-подібну історію. Ти побачиш, що за «магією» популярного стейт-менеджера стоять кілька функцій вищого порядку і одне правило — **редьюсер чистий, стан імутабельний**.
 
-```text
-  UI ──dispatch(action)──▶ ┌──────── middleware «цибуля» ────────┐
-                           │ thunk ─▶ logger ─▶ … ─▶ store.dispatch │
-                           └──────────────────────────────┬────────┘
-                                                          ▼
-                     reducer = withHistory(combineReducers({ counter, todos }))
-                                                          │ (state, action) → newState
-                                                          ▼
-                     state ───────────────────────▶ { past, present, future }
-                                                          │
-                           subscribe(listener) ◀──────────┘ лише якщо state !== prev
-                                  │
-                                  ▼
-                 createSelector(inputs…, result) — перерахунок лише при зміні входів
-                                  │
-                                  ▼
-                                 UI
-```
+> [!diagram] Одна дія крізь стор: middleware → reducer → state → UI
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: ui, label: "UI", text: "count: 0", tone: blue, icon: "px:monitor" }
+>   - { id: thunk, label: "middleware · thunk", text: "функція? → виконати її", tone: gray }
+>   - { id: logger, label: "middleware · logger", text: "log({ type, prev, next })", tone: gray }
+>   - { id: reducer, label: "withHistory(combineReducers(…))", code: "(state, action) → newState", tone: violet }
+>   - { id: state, label: "state", text: "{ counter: 0, todos: { past, present, future } }", tone: yellow, icon: "px:box" }
+>   - { id: sel, label: "subscribe → createSelector", text: "selectDoneCount: перерахунків 1", tone: green }
+> edges:
+>   - { from: ui, to: thunk, label: "dispatch(action)" }
+>   - { from: thunk, to: logger, label: "next" }
+>   - { from: logger, to: reducer, label: "next" }
+>   - { from: reducer, to: state, label: "newState" }
+>   - { from: state, to: sel, label: "state !== prev" }
+>   - { from: sel, to: ui, label: "render", dashed: true }
+> steps:
+>   - { move: { from: ui, to: thunk, value: "async (dispatch, getState, { wait }) => …" }, note: "Клік «+5 за секунду»: UI диспатчить не обʼєкт, а функцію. Стан UI не змінює — лише описує, що сталося." }
+>   - { move: { from: thunk, to: logger, value: "{ type: 'counter/inc', by: 5 }" }, note: "Перший шар «цибулі» — thunk. Він бачить функцію, виконує її, а та після wait(1000) диспатчить звичайну дію-обʼєкт, яка йде далі по ланцюжку." }
+>   - { move: { from: logger, to: reducer, value: "{ type: 'counter/inc', by: 5 }" }, note: "logger запам'ятовує prev і передає дію далі через next — аж до справжнього store.dispatch." }
+>   - { move: { from: reducer, to: state, value: "newState" }, set: { state: "{ counter: 5, todos: той самий обʼєкт }" }, line: "reducer:1", note: "Чистий редьюсер повертає новий стан: counter 0 → 5. Слайс todos дію не впізнав і повернув той самий обʼєкт — structural sharing." }
+>   - { set: { logger: "log({ type: 'counter/inc', prev: 0, next: 5 })" }, focus: logger, note: "Повертаючись назад крізь цибулю, logger бачить новий стан і пише запис «до → після»." }
+>   - { move: { from: state, to: sel, value: "state !== prev" }, set: { sel: "selectDoneCount: перерахунків 1 (з кешу)" }, note: "Стан змінився — subscribe кличе render. Вхід селектора state.todos.present не змінився, тож результат береться з кешу без перерахунку." }
+>   - { set: { ui: "count: 5" }, focus: [ui, state], note: "UI показує 5. Потік односпрямований: кожна зміна йде однією трубою, тож її можна логувати, відкладати й скасовувати через { past, present, future }." }
+> ```
 
 Потік **односпрямований**: UI не змінює стан — лише описує подію діями. Усі зміни проходять крізь одну трубу, тож їх можна логувати, відкладати, відтворювати і скасовувати.
 

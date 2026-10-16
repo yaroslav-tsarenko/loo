@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { lessonProgress } from '@/db/schema'
+import { iconRef, REEL_FALLBACK_ICON } from '@/content/icons'
 import { guideLessons, type Lesson } from '@/content/lessons'
 import type { Guide } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -50,15 +51,16 @@ export async function lessonProgressMap(guideId: string): Promise<Map<string, Le
   return new Map(rows.map((r) => [r.lessonId, { completions: r.completions, bestAccuracy: r.bestAccuracy }]))
 }
 
-export type PlayerItem = StudyItem | { kind: 'reel'; unitId: string; emoji: string; title: string; body: React.ReactNode }
+// reel `icon` is an icon ref (src/content/icons.ts) derived from the reel's leading emoji
+export type PlayerItem = StudyItem | { kind: 'reel'; unitId: string; icon: string; title: string; body: React.ReactNode }
 
 export interface LessonPlayerData {
-  lesson: { id: string; kind: string; emoji: string; title: string }
+  lesson: { id: string; kind: string; icon: string; title: string }
   chapterTitle: string
   chapterHref: string
   guideTitle: string
   items: PlayerItem[]
-  // 🔥 above-level exercises of a course lesson
+  // above-level («челендж») exercises of a course lesson
   challenges: string[]
   nextHref: string | null
   nextLabel: string | null
@@ -79,7 +81,7 @@ export async function renderLessonItems(snapshot: ContentSnapshot, refs: Readonl
     const reel = reels.get(ref.id)
     const chapter = reel ? snapshot.chapters.get(reel.chapterId) : undefined
     if (!reel || !chapter) continue
-    items.push({ kind: 'reel', unitId: reel.id, emoji: reel.emoji ?? '💡', title: reel.title, body: await renderMdast(reel.body, { snapshot, chapter, depth: 0, variant: 'card' }) })
+    items.push({ kind: 'reel', unitId: reel.id, icon: iconRef(reel.emoji, REEL_FALLBACK_ICON)!, title: reel.title, body: await renderMdast(reel.body, { snapshot, chapter, depth: 0, variant: 'card' }) })
   }
   return items
 }

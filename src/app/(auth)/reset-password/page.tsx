@@ -16,8 +16,8 @@ export default async function ResetPasswordPage({ searchParams }: { searchParams
   return (
     <AuthShell mood="thinking" loo={t('auth.reset.loo')} title={t('auth.reset.title')} lead={t('auth.reset.lead', { email: user.email ?? '' })}>
       <form action="/auth/reset-password" method="post" className="auth-form">
-        <Field label={t('auth.passwordNew')} name="password" type="password" autoComplete="new-password" required minLength={PASSWORD_MIN} maxLength={128} autoFocus hint={t('auth.passwordHint', { min: PASSWORD_MIN })} />
-        <Field label={t('auth.passwordConfirm')} name="confirm" type="password" autoComplete="new-password" required minLength={PASSWORD_MIN} maxLength={128} />
+        <Field label={t('auth.passwordNew')} name="password" type="password" autoComplete="new-password" required minLength={PASSWORD_MIN} maxLength={128} autoFocus placeholder={t('auth.placeholders.passwordNew')} hint={t('auth.passwordHint', { min: PASSWORD_MIN })} />
+        <Field label={t('auth.passwordConfirm')} name="confirm" type="password" autoComplete="new-password" required minLength={PASSWORD_MIN} maxLength={128} placeholder={t('auth.placeholders.passwordConfirm')} />
         <FormError code={param(params, 'error')} />
         <Button type="submit" block size="lg">
           {t('auth.reset.submit')}

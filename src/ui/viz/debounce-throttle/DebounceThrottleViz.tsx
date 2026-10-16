@@ -1,8 +1,9 @@
 'use client'
 
-import { Flame, RotateCcw, Zap } from 'lucide-react'
+import { Flame, Pause, Play, RotateCcw, Zap } from 'lucide-react'
 import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react'
-import type { VizProps } from '../engine/types'
+import { VizGlyph } from '../engine/Panel'
+import type { VizIcon, VizProps } from '../engine/types'
 import { simulateDebounce, simulateThrottle } from './timing'
 
 const WINDOW = 6000
@@ -13,7 +14,7 @@ function stamp(setEvents: Dispatch<SetStateAction<number[]>>, setNow: (t: number
   setEvents((prev) => [...prev.slice(-400), t])
 }
 
-function Track({ title, emoji, caption, dots, now, bands = [], pendingAt, tone }: { title: string; emoji: string; caption: string; dots: readonly number[]; now: number; bands?: ReadonlyArray<[number, number]>; pendingAt?: number | null; tone: string }) {
+function Track({ title, icon, caption, dots, now, bands = [], pendingAt, tone }: { title: string; icon: VizIcon; caption: string; dots: readonly number[]; now: number; bands?: ReadonlyArray<[number, number]>; pendingAt?: number | null; tone: string }) {
   const start = now - WINDOW
   const pos = (t: number) => `${Math.max(0, Math.min(100, ((t - start) / WINDOW) * 100))}%`
   const visible = dots.filter((t) => t >= start && t <= now)
@@ -21,7 +22,7 @@ function Track({ title, emoji, caption, dots, now, bands = [], pendingAt, tone }
     <div className="viz-tl" data-tone={tone}>
       <div className="viz-tl-head">
         <span>
-          <span aria-hidden="true">{emoji}</span> {title}
+          <VizGlyph icon={icon} /> {title}
         </span>
         <span className="viz-tl-count tabular">{dots.length}</span>
       </div>
@@ -114,7 +115,7 @@ export function DebounceThrottleViz(_props: VizProps) {
           <Zap size={16} strokeWidth={1.8} /> Сплеск
         </button>
         <button type="button" className="viz-btn viz-btn-text" aria-pressed={auto} onClick={() => setAuto((a) => !a)}>
-          {auto ? '⏸ Авто' : '▶ Авто'}
+          {auto ? <Pause size={16} strokeWidth={1.8} /> : <Play size={16} strokeWidth={1.8} />} Авто
         </button>
         <button type="button" className="viz-btn viz-btn-text" onClick={reset} aria-label="Очистити таймлайни">
           <RotateCcw size={16} strokeWidth={1.8} />
@@ -135,10 +136,10 @@ export function DebounceThrottleViz(_props: VizProps) {
         </label>
       </div>
       <div className="viz-tls">
-        <Track title="Сирі події" emoji="🔥" tone="raw" caption="кожен клік, скрол чи натискання клавіші" dots={events} now={now} />
+        <Track title="Сирі події" icon="px:fire" tone="raw" caption="кожен клік, скрол чи натискання клавіші" dots={events} now={now} />
         <Track
           title={`debounce(fn, ${debounceMs})`}
-          emoji="🧘"
+          icon="pi:PiHourglassFill"
           tone="debounce"
           caption={debounced.pendingAt ? `чекаю тиші ще ${Math.max(0, Math.round(debounced.pendingAt - now))} мс — кожна подія скидає таймер` : 'викликає fn один раз, коли події стихли на N мс'}
           dots={debounced.fired}
@@ -148,7 +149,7 @@ export function DebounceThrottleViz(_props: VizProps) {
         />
         <Track
           title={`throttle(fn, ${throttleMs})`}
-          emoji="🚦"
+          icon="pi:PiTrafficSignalFill"
           tone="throttle"
           caption="не частіше ніж раз на N мс: перший виклик одразу, останній — у кінці вікна"
           dots={throttled.fired}

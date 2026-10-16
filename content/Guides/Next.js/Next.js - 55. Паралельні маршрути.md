@@ -9,15 +9,23 @@
 
 Слоти визначаються конвенцією `@folder`:
 
-```
-app/
-  @analytics/
-    page.tsx
-  @team/
-    page.tsx
-  layout.tsx
-  page.tsx
-```
+> [!diagram] Слоти @folder: кілька сторінок в одному layout
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: app, text: "app/", tone: violet, icon: "si:SiNextdotjs" }
+>   - { id: an, text: "@analytics/", note: "слот analytics", parent: app, tone: blue, icon: "pi:PiFoldersFill" }
+>   - { id: anp, text: "page.tsx", parent: an, tone: blue, icon: "px:file" }
+>   - { id: team, text: "@team/", note: "слот team", parent: app, tone: mint, icon: "pi:PiFoldersFill" }
+>   - { id: teamp, text: "page.tsx", parent: team, tone: mint, icon: "px:file" }
+>   - { id: layout, text: "layout.tsx", note: "отримує слоти як props", parent: app, tone: violet, icon: "px:file" }
+>   - { id: page, text: "page.tsx", note: "неявний слот children", parent: app, tone: green, icon: "px:file" }
+> steps:
+>   - { show: [app, layout, page], note: "Звичайний корінь: layout.tsx і page.tsx. Сторінка потрапляє в layout як children — це теж слот, просто неявний." }
+>   - { show: [team, teamp], note: "Папка з @ — це слот, а не сегмент URL: @team/page.tsx не створює адресу /@team." }
+>   - { show: [an, anp], note: "Ще один слот — @analytics. Тепер на одному URL рендеряться три сторінки одночасно." }
+>   - { move: [{ from: team, to: layout, value: "team" }, { from: an, to: layout, value: "analytics" }], note: "Layout отримує кожен слот як prop з тією ж назвою — children, team, analytics — і сам вирішує, де їх показати." }
+> ```
 
 Слоти передаються як props у layout:
 

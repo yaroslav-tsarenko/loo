@@ -50,7 +50,7 @@ const counter = makeCounter()
 console.log(counter())
 console.log(counter())`
 
-const g = (vars: ScopeVar[]): ScopeEnv => ({ id: 'global', name: '🌐 Global', outer: null, vars })
+const g = (vars: ScopeVar[]): ScopeEnv => ({ id: 'global', name: 'Global', outer: null, vars })
 const mkFn: ScopeVar = { name: 'makeCounter', value: 'ƒ makeCounter' }
 const mc = (count: ScopeVar, extra: Partial<ScopeEnv> = {}): ScopeEnv => ({ id: 'mc', name: 'makeCounter()', outer: 'global', vars: [count], ...extra })
 const incFn: ScopeFn = { id: 'inc', label: 'ƒ increment', env: 'mc' }
@@ -104,11 +104,11 @@ const loopVarVsLet: StepScenario<ScopeFrame> = {
 }
 
 // ── shadowing ────────────────────────────────────────────────────
-const shadowCode = `const planet = '🌍 Земля'
-const name = '🏠 глобальна'
+const shadowCode = `const planet = 'Земля'
+const name = 'глобальна'
 
 function outer() {
-  const name = '📦 з outer'
+  const name = 'з outer'
   function inner() {
     console.log(name, planet)
   }
@@ -120,10 +120,10 @@ console.log(name)`
 
 const outerFn: ScopeVar = { name: 'outer', value: 'ƒ outer' }
 const gTdz = g([{ name: 'planet', value: '‹TDZ›', tdz: true }, { name: 'name', value: '‹TDZ›', tdz: true }, outerFn])
-const gReady = (changed = false) => g([{ name: 'planet', value: "'🌍 Земля'", changed }, { name: 'name', value: "'🏠 глобальна'", changed }, outerFn])
+const gReady = (changed = false) => g([{ name: 'planet', value: "'Земля'", changed }, { name: 'name', value: "'глобальна'", changed }, outerFn])
 const innerFn: ScopeVar = { name: 'inner', value: 'ƒ inner' }
 const outerEnv = (name: ScopeVar): ScopeEnv => ({ id: 'outer', name: 'outer()', outer: 'global', vars: [name, innerFn] })
-const outerName: ScopeVar = { name: 'name', value: "'📦 з outer'" }
+const outerName: ScopeVar = { name: 'name', value: "'з outer'" }
 const innerEnv: ScopeEnv = { id: 'inner', name: 'inner()', outer: 'outer', vars: [] }
 
 const shadowing: StepScenario<ScopeFrame> = {
@@ -135,8 +135,8 @@ const shadowing: StepScenario<ScopeFrame> = {
     { line: 5, envs: [gReady(), outerEnv({ ...outerName, changed: true })], fns: [], active: 'outer', output: [], note: 'Внутрішню name ініціалізовано. Глобальна name при цьому не змінилась — це дві різні змінні.' },
     { line: 9, envs: [gReady(), outerEnv(outerName), innerEnv], fns: [], active: 'inner', output: [], note: 'inner() отримує порожнє оточення. Його outer — оточення outer, бо саме там inner оголошено.' },
     { line: 7, envs: [gReady(), outerEnv(outerName), innerEnv], fns: [], active: 'inner', lookup: { name: 'name', path: ['inner', 'outer'], found: 'outer' }, output: [], note: 'Шукаємо name: в inner немає → в outer є! Пошук зупиняється на першому збігу, тож глобальна name навіть не перевіряється.' },
-    { line: 7, envs: [gReady(), outerEnv(outerName), innerEnv], fns: [], active: 'inner', lookup: { name: 'planet', path: ['inner', 'outer', 'global'], found: 'global' }, output: ['📦 з outer 🌍 Земля'], note: 'Шукаємо planet: inner → outer → global — знайшли на самому верху ланцюжка. Друкується «📦 з outer 🌍 Земля».' },
-    { line: 13, envs: [gReady()], fns: [], active: 'global', lookup: { name: 'name', path: ['global'], found: 'global' }, output: ['📦 з outer 🌍 Земля', '🏠 глобальна'], note: 'Зовні затінення немає: глобальний код бачить лише своє оточення. Пошук імені йде тільки назовні, ніколи всередину.' },
+    { line: 7, envs: [gReady(), outerEnv(outerName), innerEnv], fns: [], active: 'inner', lookup: { name: 'planet', path: ['inner', 'outer', 'global'], found: 'global' }, output: ['з outer Земля'], note: 'Шукаємо planet: inner → outer → global — знайшли на самому верху ланцюжка. Друкується «з outer Земля».' },
+    { line: 13, envs: [gReady()], fns: [], active: 'global', lookup: { name: 'name', path: ['global'], found: 'global' }, output: ['з outer Земля', 'глобальна'], note: 'Зовні затінення немає: глобальний код бачить лише своє оточення. Пошук імені йде тільки назовні, ніколи всередину.' },
   ],
 }
 

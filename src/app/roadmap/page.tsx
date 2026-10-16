@@ -6,6 +6,7 @@ import { trackPath } from '@/server/services/path'
 import { userXp } from '@/server/services/progress'
 import { TRACKS } from '@/content/tracks'
 import { levelInfo } from '@/progress/levels'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { EngineerMap, type TrackCard } from '@/ui/roadmap/EngineerMap'
 import { chapterHref, guideHref } from '@/ui/routes'
 
@@ -29,7 +30,10 @@ export default async function RoadmapPage() {
   ])
   return (
     <div className="page roadmap">
-      <h1 className="page-title">🗺️ Мапа інженера</h1>
+      <h1 className="page-title">
+        <PixelIcon name="map" size={36} className="page-title-icon" />
+        Мапа інженера
+      </h1>
       <p className="page-lead">Усі треки від нуля до Pro. Обери трек — відкриється його шлях з уроками.</p>
       <EngineerMap cards={cards} level={levelInfo(xp)} />
       <header className="roadmap-head">

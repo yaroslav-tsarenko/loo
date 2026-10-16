@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { FIGURE_CATALOG } from '@/content/blocks/figure/catalog'
+import { DIAGRAM_EXAMPLES } from '@/content/diagram/examples'
+import { parseDiagram } from '@/content/diagram/spec'
+import { Diagram } from '@/ui/diagram/Diagram'
 import { VIZ_CATALOG } from '@/content/blocks/viz/catalog'
+import { Icon } from '@/ui/icons/Icon'
 import { CalloutIcon } from '@/ui/markdown/CalloutIcon'
 import { FigureBlock } from '@/ui/theater/FigureBlock'
 import { VizBlock } from '@/ui/viz/VizBlock'
@@ -20,23 +24,30 @@ export default function VizShowcasePage() {
       <nav className="viz-showcase-toc" aria-label="Візуалізації">
         {VIZ_CATALOG.map((v) => (
           <a key={v.id} className="viz-chip" href={`#${v.id}`}>
-            <span aria-hidden="true">{v.emoji}</span> {v.id}
+            <Icon name={v.icon} size={16} /> {v.id}
           </a>
         ))}
         {FIGURE_CATALOG.map((f) => (
           <a key={f.id} className="viz-chip" href={`#figure-${f.id}`}>
-            <span aria-hidden="true">{f.emoji}</span> {f.id}
+            <Icon name={f.icon} size={16} /> {f.id}
           </a>
         ))}
         <a className="viz-chip" href="#reel">
-          <span aria-hidden="true">⚡</span> reel
+          <Icon name="px:bolt" size={16} /> reel
         </a>
       </nav>
       <div className="prose-read">
+        <h2 className="viz-showcase-part" id="diagrams">
+          Діаграми [!diagram]
+        </h2>
+        {DIAGRAM_EXAMPLES.map((d) => {
+          const r = parseDiagram(d.title, d.yaml)
+          return r.ok ? <Diagram key={d.title} spec={r.spec} /> : <p key={d.title}>Помилка: {r.error}</p>
+        })}
         {VIZ_CATALOG.map((v) => (
           <section key={v.id} id={v.id} className="viz-showcase-section">
-            <h2>
-              {v.emoji} {v.title}
+            <h2 className="viz-showcase-h">
+              <Icon name={v.icon} size={24} /> {v.title}
             </h2>
             <p className="viz-muted">{v.description}</p>
             {v.scenarios.map((s, i) => (
@@ -52,11 +63,11 @@ export default function VizShowcasePage() {
             ))}
           </section>
         ))}
-        <h2 className="viz-showcase-part">🎬 Сцени [!figure]</h2>
+        <h2 className="viz-showcase-part">Сцени [!figure]</h2>
         {FIGURE_CATALOG.map((f) => (
           <section key={f.id} id={`figure-${f.id}`} className="viz-showcase-section">
-            <h2>
-              {f.emoji} {f.title}
+            <h2 className="viz-showcase-h">
+              <Icon name={f.icon} size={24} /> {f.title}
             </h2>
             <p className="viz-muted">{f.description}</p>
             {f.scenarios.map((s, i) => (
@@ -75,11 +86,13 @@ export default function VizShowcasePage() {
           </section>
         ))}
         <section id="reel" className="viz-showcase-section">
-          <h2>⚡ [!reel]</h2>
+          <h2 className="viz-showcase-h">
+            <Icon name="px:bolt" size={24} /> [!reel]
+          </h2>
           <aside className="callout" data-tone="accent" data-type="reel">
             <CalloutIcon name="zap" />
             <div className="callout-content">
-              <div className="callout-title">🧩 typeof null — це баг віком 30 років</div>
+              <div className="callout-title">typeof null — це баг віком 30 років</div>
               <div className="callout-body">
                 <p>
                   У першій реалізації JS значення мали тег типу, і тег об’єкта був <code>000</code>. <code>null</code> — нульовий вказівник — теж мав <code>000</code>.
@@ -89,7 +102,7 @@ export default function VizShowcasePage() {
           </aside>
         </section>
         <section id="unknown" className="viz-showcase-section">
-          <h2>🚫 Невідомий id</h2>
+          <h2>Невідомий id</h2>
           <p className="viz-showcase-meta">
             <code>[!viz] does-not-exist</code>
           </p>

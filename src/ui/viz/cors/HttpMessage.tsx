@@ -1,5 +1,6 @@
 'use client'
 
+import { VizGlyph } from '../engine/Panel'
 import type { HttpMsg } from './http'
 
 function headersWord(n: number): string {
@@ -16,7 +17,7 @@ export function HttpMessage({ msg, active, compact }: { msg: HttpMsg; active?: b
     <div className="viz-http" data-dir={msg.dir} data-active={active ? '' : undefined}>
       <div className="viz-http-line">
         <span className="viz-http-dir" aria-hidden="true">
-          {msg.dir === 'req' ? '📤' : '📥'}
+          <VizGlyph icon={msg.dir === 'req' ? 'pi:PiUploadSimpleBold' : 'pi:PiDownloadSimpleBold'} size={14} />
         </span>
         <code>{msg.line}</code>
         {msg.tag ? <span className="viz-badge" data-tone="accent">{msg.tag}</span> : null}

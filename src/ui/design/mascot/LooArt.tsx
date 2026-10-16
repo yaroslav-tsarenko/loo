@@ -1,8 +1,8 @@
 import type { CSSProperties } from 'react'
 import { cx } from '../cx'
-import { frameSpans, LOO_GRID, looTimeline, poseRects, timelineTicks, type LooBulb, type LooEyes, type LooForm, type LooMood, type LooSkin, type LooTier, type Px } from './pixels'
+import { frameSpans, LOO_GRID, looTimeline, poseRects, timelineTicks, type LooBulb, type LooEyes, type LooMood, type LooSkin, type LooStage, type Px } from './pixels'
 
-export { LOO_EYES, LOO_FORM_LABEL, LOO_FORMS, LOO_MOODS, type LooBulb, type LooEyes, type LooForm, type LooGlasses, type LooHat, type LooMood, type LooSkin, type LooTier } from './pixels'
+export { LOO_EYES, LOO_MOODS, LOO_STAGE_LABEL, LOO_STAGES, type LooAmulet, type LooArmor, type LooAura, type LooBulb, type LooEyes, type LooGlasses, type LooHat, type LooHelm, type LooMood, type LooSkin, type LooStage, type LooWeapon } from './pixels'
 
 export const LOO_LABEL: Record<LooMood, string> = {
   idle: 'Loo',
@@ -44,9 +44,9 @@ export function LooPixels({ px }: { px: readonly Px[] }) {
 }
 
 /** Loo's key pose for a mood, without the ground shadow — for the logo mark and other static spots. */
-export function LooHead({ mood = 'idle', skin, eyes, bulb, form, tier }: { mood?: LooMood; skin?: LooSkin; eyes?: LooEyes; bulb?: LooBulb; form?: LooForm; tier?: LooTier }) {
+export function LooHead({ mood = 'idle', skin, eyes, bulb, stage }: { mood?: LooMood; skin?: LooSkin; eyes?: LooEyes; bulb?: LooBulb; stage?: LooStage }) {
   const pose = looTimeline(mood, { eyes, bulb }).frames[0]?.pose
-  return pose ? <LooPixels px={poseRects(pose, skin, { form, tier }).filter((p) => p.c !== 'currentColor')} /> : null
+  return pose ? <LooPixels px={poseRects(pose, skin, { stage }).filter((p) => p.c !== 'currentColor')} /> : null
 }
 
 export interface LooProps {
@@ -57,10 +57,8 @@ export interface LooProps {
   eyes?: LooEyes
   /** Antenna bulb: off, on (lit with rays) or flicker. Moods light it themselves for eureka moments. */
   bulb?: LooBulb
-  /** Evolution form = the player's rank, drawn on Loo. Default 'block' (the classic look). */
-  form?: LooForm
-  /** Sub-rank I–III inside the form: subtle pips / cracks / crown gems. */
-  tier?: LooTier
+  /** Growth stage from the character rank: egg → small → normal (default). Power comes from gear in `skin`. */
+  stage?: LooStage
   /** Turn off motion (static illustrations, lists). Reduced-motion users never get it. */
   animated?: boolean
   /** Hide from assistive tech when the surrounding text already says it. */
@@ -69,11 +67,11 @@ export interface LooProps {
   className?: string
 }
 
-// The mascot drawing itself (server-safe). Use <Loo> from ./Loo — it also puts on the learner's equipped skin.
+// The mascot drawing itself (server-safe). Use <Loo> from ./Loo — it also puts on the learner's equipped skin + gear.
 // Frame animation without client JS: every frame is server-rendered as its own <g>, and one CSS clock
 // (--loo-f, stepped 0…ticks-1) shows the frame whose span covers the current tick. Without the clock —
 // animated={false}, reduced motion, no CSS yet — the tick is 0 and the key frame shows.
-export function LooArt({ mood = 'idle', size = 120, skin, eyes, bulb, form = 'block', tier, animated = true, decorative, label, className }: LooProps) {
+export function LooArt({ mood = 'idle', size = 120, skin, eyes, bulb, stage = 'normal', animated = true, decorative, label, className }: LooProps) {
   const t = looTimeline(mood, { eyes, bulb })
   const live = animated && t.frames.length > 1
   const ticks = timelineTicks(t)
@@ -84,7 +82,7 @@ export function LooArt({ mood = 'idle', size = 120, skin, eyes, bulb, form = 'bl
     <svg
       className={cx('loo', className)}
       data-mood={mood}
-      data-form={form}
+      data-stage={stage}
       data-animated={live ? '' : undefined}
       width={size}
       height={size}
@@ -97,11 +95,11 @@ export function LooArt({ mood = 'idle', size = 120, skin, eyes, bulb, form = 'bl
       {live ? (
         t.frames.map((f, i) => (
           <g key={i} className="loo-frame" style={{ '--a': spans[i]?.a, '--h': spans[i]?.h } as CSSProperties}>
-            <LooPixels px={poseRects(f.pose, skin, { form, tier })} />
+            <LooPixels px={poseRects(f.pose, skin, { stage })} />
           </g>
         ))
       ) : t.frames[0] ? (
-        <LooPixels px={poseRects(t.frames[0].pose, skin, { form, tier })} />
+        <LooPixels px={poseRects(t.frames[0].pose, skin, { stage })} />
       ) : null}
     </svg>
   )

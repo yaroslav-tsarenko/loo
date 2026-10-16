@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { ConsolePanel, SPRING } from '../engine/Panel'
+import { ConsolePanel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { pipelineScenarios, type Item, type PipelineFrame, type Stage } from './scenarios'
@@ -27,7 +27,7 @@ function Lane({ title, method, items, frame, active, input, rejected = [] }: { t
               transition={SPRING}
             >
               <span className="viz-fruit-emoji" aria-hidden="true">
-                {it.emoji}
+                <VizGlyph icon={it.icon} size={20} />
               </span>
               <span className="tabular">{it.price}</span>
               {rejected.includes(it.id) ? <span className="viz-fruit-x">✗</span> : null}
@@ -60,7 +60,9 @@ function Pipeline({ frame }: { frame: PipelineFrame }) {
       </div>
       <div className="viz-lane viz-acc" data-active={frame.stage === 'reduce' || frame.stage === 'done' ? '' : undefined}>
         <div className="viz-lane-head">
-          <span>🧮 sum</span>
+          <span>
+            <VizGlyph icon="px:abacus" /> sum
+          </span>
         </div>
         <AnimatePresence mode="popLayout" initial={false}>
           <m.span key={String(frame.acc)} className="viz-acc-value tabular" initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 14 }} transition={SPRING}>

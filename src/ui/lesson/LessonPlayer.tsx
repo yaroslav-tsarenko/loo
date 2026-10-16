@@ -18,10 +18,12 @@ import { Button, IconButton } from '@/ui/design/Button'
 import { burst, Confetti } from '@/ui/design/Confetti'
 import { CountUp } from '@/ui/design/CountUp'
 import { GameIcon } from '@/ui/design/GameIcon'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { Loo, type LooMood } from '@/ui/design/mascot/Loo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { StatChip } from '@/ui/design/StatChip'
+import { Icon } from '@/ui/icons/Icon'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { ActionBar } from '@/ui/study/ActionBar'
 import { formatLeft, useClock } from '@/ui/shell/clock'
@@ -30,7 +32,7 @@ import { RateButtons } from '@/ui/study/RateButtons'
 import { TaskInline, type TaskResult } from '@/ui/study/TaskInline'
 import type { FlashItem } from '@/ui/study/render-items'
 
-// A scored run (🏁 topic test / 👑 section exam): no retry queue, every question must be answered, the server grades.
+// A scored run (topic test / section exam): no retry queue, every question must be answered, the server grades.
 export interface TestSpec {
   id: string
   kind: 'topic-test' | 'section-exam'
@@ -48,18 +50,19 @@ export interface TestSpec {
 interface Props {
   lessonId: string
   title: string
-  emoji: string
+  // icon ref of the lesson kind / test (src/content/icons.ts)
+  icon: string
   chapterTitle: string
   chapterHref: string
   items: PlayerItem[]
   nextHref: string | null
   nextLabel?: string | null
-  // 🔥 above-level exercise ids
+  // above-level («челендж») exercise ids
   challenges?: readonly string[]
   test?: TestSpec
-  // ❤️ at page load (lessons spend them; tests need ≥ 1 to start) and 💎 for an in-place refill
+  // hearts at page load (lessons spend them; tests need ≥ 1 to start) and bucks for an in-place refill
   hearts: HeartsInfo
-  gems: number
+  bucks: number
   // «Робота над помилками»: where practice refills hearts
   practiceHref: string
 }
@@ -88,8 +91,8 @@ type Verdict = { correct: boolean; xp: number; quiz?: QuizVerdict } | null
 
 const xpOf = (effects: readonly Effect[]) => effects.reduce((s, e) => s + (e.type === 'xp' ? e.amount : 0), 0)
 
-const PRAISE = ['Чудово!', 'Так тримати!', 'Мегамозок 🧠', 'Точно в ціль!', 'Бездоганно!', 'Ти машина!']
-const COMFORT = ['Не зовсім — повторимо в кінці уроку', 'Майже! Це питання повернеться', 'Помилка — це теж навчання 💪']
+const PRAISE = ['Чудово!', 'Так тримати!', 'Мегамозок!', 'Точно в ціль!', 'Бездоганно!', 'Ти машина!']
+const COMFORT = ['Не зовсім — повторимо в кінці уроку', 'Майже! Це питання повернеться', 'Помилка — це теж навчання']
 const MINUTE_FORMAT = (n: number) => `${n} хв`
 const PERCENT_FORMAT = (n: number) => `${n}%`
 
@@ -121,7 +124,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
   }, [open, reveal, rate])
   return (
     <div className="lesson-card lesson-flash" data-open={open ? '' : undefined}>
-      <Pill tone="purple" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
+      <Pill tone="violet" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
         Пригадай
       </Pill>
       <div className="lesson-question">{item.question}</div>
@@ -139,7 +142,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
   )
 }
 
-function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus, gems }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number; gems: number }) {
+function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus, bucks }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number; bucks: number }) {
   const feedback = useFeedback()
   const [shown, setShown] = useState({ xp: 0, accuracy: 0, minutes: 0 })
   const accuracy = total ? Math.round((correct / total) * 100) : 100
@@ -193,11 +196,11 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
           </dd>
         </div>
       </dl>
-      {streak || bestCombo >= 3 || gems > 0 ? (
+      {streak || bestCombo >= 3 || bucks > 0 ? (
         <div className="lesson-summary-chips">
-          {gems > 0 ? (
-            <span className="lesson-summary-chip" data-tone="blue">
-              <StatChip kind="gems" value={gems} size="sm" /> {t('game.gems.title').toLowerCase()}
+          {bucks > 0 ? (
+            <span className="lesson-summary-chip" data-tone="orange">
+              <StatChip kind="bucks" value={bucks} size="sm" /> {t('game.bucks.title').toLowerCase()}
             </span>
           ) : null}
           {streak ? (
@@ -229,13 +232,13 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
   )
 }
 
-// 💔 No hearts left: practice («Робота над помилками») refills one per session, the shop refills all at once.
-function OutOfHearts({ hearts, gems, practiceHref, backHref, onRefilled }: { hearts: HeartsInfo; gems: number; practiceHref: string; backHref: string; onRefilled: (gems: number) => void }) {
+// No hearts left: practice («Робота над помилками») refills one per session, the shop refills all at once.
+function OutOfHearts({ hearts, bucks, practiceHref, backHref, onRefilled }: { hearts: HeartsInfo; bucks: number; practiceHref: string; backHref: string; onRefilled: (bucks: number) => void }) {
   const now = useClock(30_000)
   const feedback = useFeedback()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const canBuy = gems >= REFILL.price
+  const canBuy = bucks >= REFILL.price
   const refill = async () => {
     setBusy(true)
     setError(null)
@@ -247,7 +250,7 @@ function OutOfHearts({ hearts, gems, practiceHref, backHref, onRefilled }: { hea
       }
       feedback.effects(out.effects)
       feedback.play('complete')
-      onRefilled(out.gems)
+      onRefilled(out.bucks)
     } catch {
       setError(t('game.shop.error'))
     } finally {
@@ -278,10 +281,10 @@ function OutOfHearts({ hearts, gems, practiceHref, backHref, onRefilled }: { hea
           {t('game.hearts.practice')}
         </Button>
         <p className="choice-hint">{t('game.hearts.practiceHint', { n: PRACTICE_MIN_ANSWERS })}</p>
-        <Button size="lg" block onClick={() => void refill()} loading={busy} disabled={!canBuy} icon={<GameIcon name="gem" size={22} />}>
+        <Button size="lg" block onClick={() => void refill()} loading={busy} disabled={!canBuy} icon={<PixelIcon name="buck" size={22} />}>
           {t('game.hearts.refill', { price: REFILL.price })}
         </Button>
-        {!canBuy ? <p className="choice-hint">{t('game.hearts.notEnough', { price: REFILL.price, gems })}</p> : null}
+        {!canBuy ? <p className="choice-hint">{t('game.hearts.notEnough', { price: REFILL.price, bucks })}</p> : null}
         <Button href={backHref} variant="ghost" size="lg" block icon={<PiMapTrifoldFill size={20} />}>
           {t('game.hearts.toPath')}
         </Button>
@@ -290,7 +293,7 @@ function OutOfHearts({ hearts, gems, practiceHref, backHref, onRefilled }: { hea
   )
 }
 
-function TestIntro({ test, title, emoji, chapterTitle, busy, error, onStart }: { test: TestSpec; title: string; emoji: string; chapterTitle: string; busy: boolean; error: string | null; onStart: () => void }) {
+function TestIntro({ test, title, icon, chapterTitle, busy, error, onStart }: { test: TestSpec; title: string; icon: string; chapterTitle: string; busy: boolean; error: string | null; onStart: () => void }) {
   const exam = test.kind === 'section-exam'
   return (
     <div className="lesson-summary test-intro">
@@ -298,7 +301,7 @@ function TestIntro({ test, title, emoji, chapterTitle, busy, error, onStart }: {
         <Loo mood={exam ? 'thinking' : 'happy'} size={150} className="lesson-summary-loo" />
       </div>
       <p className="test-intro-eyebrow">
-        <span aria-hidden="true">{emoji}</span> {exam ? (test.testOut ? t('tests.testOut') : t('tests.exam')) : t('tests.topic')}
+        <Icon name={icon} size={20} /> {exam ? (test.testOut ? t('tests.testOut') : t('tests.exam')) : t('tests.topic')}
       </p>
       <h1 className="lesson-summary-title">{title}</h1>
       <p className="lesson-summary-note">{chapterTitle}</p>
@@ -307,7 +310,7 @@ function TestIntro({ test, title, emoji, chapterTitle, busy, error, onStart }: {
           <dt>{t('tests.questions')}</dt>
           <dd className="tabular">{test.total}</dd>
         </div>
-        <div className="gstat" data-tone="green">
+        <div className="gstat" data-tone="violet">
           <dt>{t('tests.toPass')}</dt>
           <dd className="tabular">
             {test.needed}/{test.total}
@@ -360,7 +363,7 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
       <p className="lesson-summary-note">
         {outcome.passed
           ? outcome.bonusXp > 0
-            ? `${t('tests.bonus', { xp: outcome.bonusXp })}${outcome.gems > 0 ? ` · ${t('game.gems.earned', { n: outcome.gems })}` : ''}`
+            ? `${t('tests.bonus', { xp: outcome.bonusXp })}${outcome.bucks > 0 ? ` · ${t('game.bucks.earned', { n: outcome.bucks })}` : ''}${outcome.gems > 0 ? ` · ${t('game.gems.earned', { n: outcome.gems })}` : ''}`
             : t('tests.saved')
           : t('tests.failedNote', { needed: outcome.needed, total: outcome.total, correct: outcome.correct })}
       </p>
@@ -409,7 +412,7 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
   )
 }
 
-export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test, hearts: initialHearts, gems: initialGems, practiceHref }: Props) {
+export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test, hearts: initialHearts, bucks: initialBucks, practiceHref }: Props) {
   const feedback = useFeedback()
   const [begun, setBegun] = useState(!test)
   const [beginning, setBeginning] = useState(false)
@@ -429,10 +432,10 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
   const [bestCombo, setBestCombo] = useState(0)
   const [streak, setStreak] = useState<number | null>(null)
   const [stats, setStats] = useState({ correct: 0, total: 0, xp: 0 })
-  const [done, setDone] = useState<{ bonus: number; ms: number; gems: number } | null>(null)
+  const [done, setDone] = useState<{ bonus: number; ms: number; bucks: number } | null>(null)
   const [hearts, setHearts] = useState<HeartsInfo>(initialHearts)
-  const [gems, setGems] = useState(initialGems)
-  // 💔 sheet: no hearts to start / continue a graded lesson
+  const [bucks, setBucks] = useState(initialBucks)
+  // Out-of-hearts sheet: no hearts to start / continue a graded lesson
   const [blocked, setBlocked] = useState(!test && initialHearts.hearts <= 0)
   const [dock, setDock] = useState<HTMLDivElement | null>(null)
   const comboRef = useRef<HTMLSpanElement>(null)
@@ -531,7 +534,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         const outcome = await submitTest({ testId: test.id, attempt: test.attempt, answers: answers.current })
         absorb(outcome.effects)
         setTestResult(outcome)
-        setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, gems: outcome.gems })
+        setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, bucks: outcome.bucks })
       } catch {
         setTestError(t('tests.saveError'))
       }
@@ -540,7 +543,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     const id = session.current ? await session.current : null
     const outcome = await completeLesson({ lessonId, sessionId: id })
     absorb(outcome.effects)
-    setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, gems: outcome.gems })
+    setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, bucks: outcome.bucks })
   }, [lessonId, absorb, test])
 
   const advance = useCallback(() => {
@@ -566,7 +569,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     return () => window.removeEventListener('keydown', onKey)
   }, [answered, advance])
 
-  // The server grades every quiz answer (lesson: in the session, charging ❤️ for a miss; test: stored as the
+  // The server grades every quiz answer (lesson: in the session, charging a heart for a miss; test: stored as the
   // attempt's first answer for this question). The client never had the key.
   const checkQuiz = useCallback<QuizCheck>(
     async (answer) => {
@@ -595,7 +598,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
 
   const onRefilled = useCallback(
     (left: number) => {
-      setGems(left)
+      setBucks(left)
       setHearts({ hearts: MAX_HEARTS, nextAt: null })
       setBlocked(false)
       if (!session.current) openSession()
@@ -620,8 +623,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     [step, feedback, grade, test, pos],
   )
 
-  if (blocked && !done) return <OutOfHearts hearts={hearts} gems={gems} practiceHref={practiceHref} backHref={test?.backHref ?? '/path'} onRefilled={onRefilled} />
-  if (test && !begun) return <TestIntro test={test} title={title} emoji={emoji} chapterTitle={chapterTitle} busy={beginning} error={testError} onStart={() => void begin()} />
+  if (blocked && !done) return <OutOfHearts hearts={hearts} bucks={bucks} practiceHref={practiceHref} backHref={test?.backHref ?? '/path'} onRefilled={onRefilled} />
+  if (test && !begun) return <TestIntro test={test} title={title} icon={icon} chapterTitle={chapterTitle} busy={beginning} error={testError} onStart={() => void begin()} />
   if (test && testResult) return <TestSummary test={test} outcome={testResult} nextHref={nextHref} nextLabel={nextLabel} onRetry={() => router.refresh()} />
   if (test && begun && (testError || (submitting && !testResult)))
     return testError ? (
@@ -643,7 +646,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         <p className="lesson-summary-note">{t('tests.counting')}</p>
       </div>
     )
-  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} nextLabel={nextLabel} chapterHref={chapterHref} bonus={done.bonus} gems={done.gems} />
+  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} nextLabel={nextLabel} chapterHref={chapterHref} bonus={done.bonus} bucks={done.bucks} />
   if (!step) return null
 
   const progress = (pos + (answered ? 1 : 0)) / total
@@ -675,7 +678,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
 
       <main className="lesson-stage">
         <p className="lesson-crumb">
-          <span aria-hidden="true">{emoji}</span> {title} · {chapterTitle}
+          <Icon name={icon} size={18} /> {title} · {chapterTitle}
           {step.retry ? (
             <Pill tone="orange" size="sm" className="lesson-retry">
               повтор помилки
@@ -687,8 +690,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
             </Pill>
           ) : null}
           {challenges?.includes(item.unitId) ? (
-            <Pill tone="red" size="sm" className="lesson-retry">
-              🔥 челендж
+            <Pill tone="red" size="sm" className="lesson-retry" icon={<GameIcon name="fire" size={14} />}>
+              челендж
             </Pill>
           ) : null}
         </p>
@@ -699,7 +702,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
                 Новий факт
               </Pill>
               <div className="lesson-reel-emoji" aria-hidden="true">
-                {item.emoji}
+                <Icon name={item.icon} size={72} />
               </div>
               <h2 className="lesson-reel-title">{item.title}</h2>
               <div className="lesson-reel-body prose-flow">{item.body}</div>
@@ -707,7 +710,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           ) : item.kind === 'flashcard' ? (
             answered ? (
               <div className="lesson-card lesson-flash" data-open="">
-                <Pill tone="purple" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
+                <Pill tone="violet" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
                   Пригадай
                 </Pill>
                 <div className="lesson-question">{item.question}</div>
@@ -775,8 +778,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           ) : null}
           <div ref={setDock} className="lesson-dock" hidden={answered || item.kind === 'reel' || item.kind === 'task'} />
           {item.kind === 'reel' ? (
-            <Button size="lg" block onClick={advance} className="lesson-cta">
-              Зрозуміло 👍
+            <Button size="lg" block onClick={advance} className="lesson-cta" icon={<PiCheckBold size={20} />}>
+              Зрозуміло
             </Button>
           ) : answered ? (
             <Button size="lg" block variant={verdict && !verdict.correct ? 'danger' : 'primary'} onClick={advance} autoFocus className="lesson-cta">

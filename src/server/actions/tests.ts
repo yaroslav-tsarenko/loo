@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { canStartTest, GEMS, gemRef } from '@/game'
+import { BUCKS, buckRef, canStartTest, GEMS, gemRef } from '@/game'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
 import { scoreTest } from '@/course'
@@ -12,7 +12,7 @@ import { limitUser } from '../courses/limits'
 import { exerciseUnit } from '../courses/registry'
 import { readTestRecord, resolveTestById, saveGrade, sectionUnfinished, startAttempt } from '../courses/tests'
 import { attemptSeed, drawTest, fallbackPool, gradeAnswer, testBonus } from '../courses/tests-core'
-import { awardGems, grantXp, loadState, settleGame, touchLeague } from '../game'
+import { awardBucks, awardGems, grantXp, loadState, settleGame, touchLeague } from '../game'
 import { settleMission } from '../services/mission'
 import { addDailyXp, evaluateAchievements } from '../services/progress'
 
@@ -56,6 +56,8 @@ export interface TestOutcome {
   score: number
   results: boolean[]
   bonusXp: number
+  // first pass only: bucks for a topic test, gems for a section exam
+  bucks: number
   gems: number
   firstPass: boolean
   testOut: boolean
@@ -104,8 +106,10 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
         await addDailyXp(tx, userId, day, bonusXp)
         effects.push({ type: 'xp', amount: bonusXp, reason })
       }
-      // 💎 for the first pass only (the ledger ref makes it once per test).
-      const gems = scored.passed ? await awardGems(tx, userId, { amount: test.kind === 'topic-test' ? GEMS.topicTest : GEMS.sectionExam, reason, refId: gemRef.test(test.id), now }) : 0
+      // Paid for the first pass only (the ledger ref makes it once per test): bucks for a topic test, gems for an exam.
+      const bucks = scored.passed && test.kind === 'topic-test' ? await awardBucks(tx, userId, { amount: BUCKS.topicTest, reason: 'topic-test', refId: buckRef.test(test.id), now }) : 0
+      if (bucks > 0) effects.push({ type: 'bucks', amount: bucks, reason })
+      const gems = scored.passed && test.kind === 'section-exam' ? await awardGems(tx, userId, { amount: GEMS.sectionExam, reason, refId: gemRef.exam(test.id), now }) : 0
       if (gems > 0) effects.push({ type: 'gems', amount: gems, reason })
       effects.push(...(await settleMission(tx, userId, now)))
       effects.push(...(await settleGame(tx, userId, now)))
@@ -118,6 +122,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
         score: scored.score,
         results: scored.results,
         bonusXp,
+        bucks,
         gems,
         firstPass: scored.passed && !record.passed,
         testOut,

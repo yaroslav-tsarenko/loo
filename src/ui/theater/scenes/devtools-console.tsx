@@ -1,4 +1,5 @@
 import { ChevronRight, CircleX, Info } from 'lucide-react'
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { defineScene, erase, type ScriptBuilder } from '../define'
 import type { AnyScene, SceneViewProps, Step } from '../types'
 import { Caret, Code, DevTools, PageStrip, ToolIcon } from './kit'
@@ -176,7 +177,9 @@ function View({ s, focus }: SceneViewProps<S>) {
   return (
     <div className="sc-split">
       <PageStrip>
-        <span className="sc-page-logo">🧪</span>
+        <span className="sc-page-logo">
+          <PixelIcon name="code" size={22} />
+        </span>
         <span className="sc-page-title">JS Playground</span>
         <span className="sc-page-chip">F12 → Console</span>
       </PageStrip>

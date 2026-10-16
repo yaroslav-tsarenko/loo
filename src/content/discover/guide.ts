@@ -5,6 +5,7 @@ import { parseWikiTarget } from '../parse/obsidian'
 import type { ExtractResult } from '../parse/extract'
 import type { FileInfo } from '../parse/scan'
 import type { VaultFile } from '../sources/vault-fs'
+import { iconRef } from '../icons'
 import { capitalize, indexPriority, isIndexName, parseName, titleFrom } from './names'
 
 export interface ParsedFile {
@@ -25,12 +26,12 @@ export interface BuiltGuide {
 
 const PART = /^\s*(\p{Extended_Pictographic}\uFE0F?)?\s*(.+?)\s*:\s*(\d+)\s*[-–]\s*(\d+)\s*$/u
 
-// "🧱 Ядро мови: 1-7" → stage of the learning path covering chapters 1..7.
+// "🧱 Ядро мови: 1-7" → stage of the learning path covering chapters 1..7 (the emoji becomes an icon ref).
 export function parseParts(raw: readonly string[]): GuidePart[] {
   const out: GuidePart[] = []
   for (const line of raw) {
     const m = PART.exec(line)
-    if (m) out.push({ emoji: m[1] ?? null, title: m[2]!, from: Number(m[3]), to: Number(m[4]) })
+    if (m) out.push({ icon: iconRef(m[1]), title: m[2]!, from: Number(m[3]), to: Number(m[4]) })
   }
   return out
 }
@@ -146,7 +147,7 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
       birthtimeMs: p.file.birthtimeMs,
       mtimeMs: p.file.mtimeMs,
       description: p.meta.description ?? (kind === 'chapter' ? null : p.info.lead),
-      icon: p.meta.icon ?? null,
+      icon: iconRef(p.meta.icon),
     }
     chapters.push(chapter)
     if (p.full) units.push(...p.full.units)
@@ -253,7 +254,7 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
     tree,
     chapterIds,
     parts: parseParts(indexMeta?.parts ?? []),
-    icon: indexMeta?.icon ?? null,
+    icon: iconRef(indexMeta?.icon),
   }
   return { guide, chapters, units, issues }
 }

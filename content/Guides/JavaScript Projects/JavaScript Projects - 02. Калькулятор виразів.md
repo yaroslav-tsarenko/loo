@@ -24,22 +24,28 @@ icon: "🧮"
 
 Калькулятор, що розуміє `-(1.5 + 2) * 3 ^ 2 / 4` без `eval`. Класичний конвеєр компілятора в мініатюрі — той самий, що в Babel, ESLint, Prettier і рушії формул Excel.
 
-```text
- "2 * (3 + 4)"
-       │
-       ▼  tokenize            [num 2] [op *] [paren (] [num 3] [op +] [num 4] [paren )]
-       │
-       ▼  parse               { binary * }
-       │                      ╱          ╲
-       │                 { num 2 }     { binary + }
-       │                               ╱        ╲
-       │                          { num 3 }   { num 4 }
-       │
-       ├──▶ evaluate ──▶ 14
-       ├──▶ print    ──▶ "2 * (3 + 4)"
-       └──▶ calculate ──▶ { ok: true, value: 14, text: '14' }
-            (фасад: ловить CalcError → { ok: false, error, pos })
-```
+> [!diagram] Конвеєр калькулятора: рядок → токени → AST → число
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: src, label: "вхід", text: "\"2 * (3 + 4)\"", tone: blue }
+>   - { id: tok, label: "tokenize", text: "?", tone: yellow }
+>   - { id: ast, label: "parse → AST", text: "?", tone: violet }
+>   - { id: out, label: "evaluate", text: "?", tone: green }
+>   - { id: calc, label: "calculate (фасад)", text: "?", tone: mint }
+> edges:
+>   - { from: src, to: tok, label: "символи" }
+>   - { from: tok, to: ast, label: "токени" }
+>   - { from: ast, to: out, label: "дерево" }
+>   - { from: out, to: calc, label: "число" }
+> steps:
+>   - { focus: src, note: "Вхід — звичайний рядок. Для програми це поки лише символи: жодних чисел і пріоритетів, і eval ми не використовуємо." }
+>   - { move: { from: src, to: tok, value: "11 символів" }, set: { tok: "[num 2] [op *] [paren (] [num 3]\n[op +] [num 4] [paren )]" }, note: "Лексер ріже рядок на токени й викидає пробіли. Кожен токен ще пам'ятає pos — позицію в рядку для повідомлень про помилки." }
+>   - { move: { from: tok, to: ast, value: "7 токенів" }, set: { ast: "binary *\n├─ num 2\n└─ binary +\n   ├─ num 3\n   └─ num 4" }, note: "Парсер будує дерево. Корінь — *, а + у дужках опиняється глибше: що глибше, те обчислюється раніше." }
+>   - { move: { from: ast, to: out, value: "AST" }, set: { out: "3 + 4 = 7 → 2 * 7 = 14" }, note: "evaluate обходить дерево знизу вгору: спершу 3 + 4 = 7, потім 2 * 7 = 14. Те саме дерево print перетворить назад на \"2 * (3 + 4)\"." }
+>   - { move: { from: out, to: calc, value: "14" }, set: { calc: "{ ok: true, value: 14, text: '14' }" }, note: "Фасад calculate склеює етапи й віддає UI зручний обʼєкт-результат." }
+>   - { set: { src: "\"2 * (3 + 4\"", tok: "…", ast: "CalcError ✗", out: "—", calc: "{ ok: false, error, pos }" }, focus: [ast, calc], note: "Без закривної дужки parse кидає CalcError з позицією. calculate ловить саме цю помилку й повертає { ok: false, error, pos } — UI покаже ^ під проблемним місцем." }
+> ```
 
 Кожен етап — чиста функція з чітким входом і виходом. Помилку на будь-якому етапі описує `CalcError` з позицією в рядку — UI покаже `^` під проблемним символом.
 

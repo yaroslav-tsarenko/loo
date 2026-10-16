@@ -7,24 +7,24 @@ const r = (ref: string): MemValue => ({ ref })
 const leakCode = `const controller = new AbortController()
 
 function mount() {
-  const big = new Array(1e6).fill('📦')
+  const big = new Array(1e6).fill(0)
   window.addEventListener('resize', () => {
     console.log(big.length)
   }, { signal: controller.signal })
 }
 
 mount()
-// компонент зник з екрана, а слухач — ні 😱
+// компонент зник з екрана, а слухач — ні
 controller.abort()`
 
 type State = HeapObj['state']
 
-const win = (listener: boolean, state?: State, changed = false): HeapObj => ({ id: 'win', label: 'window', emoji: '🌐', fields: [{ key: 'resize-слухачі', value: listener ? r('fn') : p('[]'), changed }], ...(state ? { state } : {}) })
-const ctrl: HeapObj = { id: 'ctrl', label: 'controller', emoji: '🎛️', fields: [{ key: 'signal.aborted', value: p('false') }] }
-const ctrlAborted: HeapObj = { id: 'ctrl', label: 'controller', emoji: '🎛️', fields: [{ key: 'signal.aborted', value: p('true'), changed: true }] }
-const env = (state?: State): HeapObj => ({ id: 'env', label: 'оточення mount()', emoji: '🪆', fields: [{ key: 'big', value: r('arr') }], ...(state ? { state } : {}) })
-const arr = (state?: State): HeapObj => ({ id: 'arr', label: 'Array(1e6)', emoji: '📦', fields: [{ key: 'length', value: p('1 000 000') }], ...(state ? { state } : {}) })
-const fn = (state?: State): HeapObj => ({ id: 'fn', label: 'ƒ слухач', emoji: '👂', fields: [{ key: '[[Environment]]', value: r('env') }], ...(state ? { state } : {}) })
+const win = (listener: boolean, state?: State, changed = false): HeapObj => ({ id: 'win', label: 'window', icon: 'px:globe', fields: [{ key: 'resize-слухачі', value: listener ? r('fn') : p('[]'), changed }], ...(state ? { state } : {}) })
+const ctrl: HeapObj = { id: 'ctrl', label: 'controller', icon: 'px:gear', fields: [{ key: 'signal.aborted', value: p('false') }] }
+const ctrlAborted: HeapObj = { id: 'ctrl', label: 'controller', icon: 'px:gear', fields: [{ key: 'signal.aborted', value: p('true'), changed: true }] }
+const env = (state?: State): HeapObj => ({ id: 'env', label: 'оточення mount()', icon: 'px:matryoshka', fields: [{ key: 'big', value: r('arr') }], ...(state ? { state } : {}) })
+const arr = (state?: State): HeapObj => ({ id: 'arr', label: 'Array(1e6)', icon: 'px:box', fields: [{ key: 'length', value: p('1 000 000') }], ...(state ? { state } : {}) })
+const fn = (state?: State): HeapObj => ({ id: 'fn', label: 'ƒ слухач', icon: 'pi:PiEarFill', fields: [{ key: '[[Environment]]', value: r('env') }], ...(state ? { state } : {}) })
 
 const roots: Slot[] = [{ name: 'window', value: r('win') }, { name: 'controller', value: r('ctrl') }]
 

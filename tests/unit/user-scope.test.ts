@@ -94,7 +94,7 @@ export function scan(file: string, src: string): Finding[] {
 
 describe('per-user query scoping (static check)', () => {
   it('knows the per-user tables', () => {
-    expect(USER_TABLES).toEqual(expect.arrayContaining(['attempts', 'srsCards', 'mistakes', 'xpLedger', 'userSettings', 'newsReads', 'reelState', 'profiles']))
+    expect(USER_TABLES).toEqual(expect.arrayContaining(['attempts', 'srsCards', 'mistakes', 'xpLedger', 'gemLedger', 'buckLedger', 'userState', 'inventory', 'userSettings', 'newsReads', 'reelState', 'profiles']))
     expect(USER_TABLES).not.toContain('units')
     expect(USER_TABLES).not.toContain('newsItems')
   })

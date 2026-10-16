@@ -1,8 +1,10 @@
-import type { Frame, StepScenario } from '../engine/types'
+import type { Frame, StepScenario, VizIcon } from '../engine/types'
 
 export interface Item {
   id: string
-  emoji: string
+  icon: VizIcon
+  // Ukrainian name for the notes
+  name: string
   price: number
 }
 
@@ -21,10 +23,10 @@ export interface PipelineFrame extends Frame {
 }
 
 const code = `const basket = [
-  { fruit: '🍎', price: 30 },
-  { fruit: '🍌', price: 15 },
-  { fruit: '🍇', price: 60 },
-  { fruit: '🍋', price: 25 },
+  { fruit: 'яблуко', price: 30 },
+  { fruit: 'банан', price: 15 },
+  { fruit: 'виноград', price: 60 },
+  { fruit: 'лимон', price: 25 },
 ]
 const total = basket
   .map((x) => ({ ...x, price: x.price * 0.8 }))
@@ -34,10 +36,10 @@ const total = basket
 console.log(total)`
 
 const SOURCE: Item[] = [
-  { id: 'apple', emoji: '🍎', price: 30 },
-  { id: 'banana', emoji: '🍌', price: 15 },
-  { id: 'grapes', emoji: '🍇', price: 60 },
-  { id: 'lemon', emoji: '🍋', price: 25 },
+  { id: 'apple', icon: 'px:apple', name: 'яблуко', price: 30 },
+  { id: 'banana', icon: 'px:banana', name: 'банан', price: 15 },
+  { id: 'grapes', icon: 'px:grapes', name: 'виноград', price: 60 },
+  { id: 'lemon', icon: 'px:lemon', name: 'лимон', price: 25 },
 ]
 const MAPPED: Item[] = SOURCE.map((x) => ({ ...x, price: x.price * 0.8 }))
 const KEEP = MAPPED.filter((x) => x.price < 40)
@@ -54,7 +56,7 @@ function build(): PipelineFrame[] {
       stage: 'map',
       mapped: MAPPED.slice(0, i + 1),
       current: m.id,
-      note: i === 0 ? `map викликає колбек для ${src.emoji}: ${src.price} × 0.8 = ${m.price}. Результат іде в НОВИЙ масив — basket не змінюється.` : `${src.emoji}: ${src.price} × 0.8 = ${m.price}.`,
+      note: i === 0 ? `map викликає колбек для ${src.name}: ${src.price} × 0.8 = ${m.price}. Результат іде в НОВИЙ масив — basket не змінюється.` : `${src.name}: ${src.price} × 0.8 = ${m.price}.`,
     })
   })
   frames.push({ ...base, line: 8, stage: 'map', mapped: MAPPED, note: 'map обробив УВЕСЬ масив і повернув новий тієї ж довжини. Лише тепер стартує filter: методи масиву не ліниві, кожен робить повний прохід.' })
@@ -72,7 +74,7 @@ function build(): PipelineFrame[] {
       filtered: [...kept],
       rejected: [...rejected],
       current: m.id,
-      note: ok ? `${m.emoji} ${m.price} < 40 → true: елемент потрапляє в новий масив.` : `${m.emoji} ${m.price} < 40 → false: filter його відкидає. Колбек має повертати boolean (або truthy/falsy).`,
+      note: ok ? `${m.name} ${m.price} < 40 → true: елемент потрапляє в новий масив.` : `${m.name} ${m.price} < 40 → false: filter його відкидає. Колбек має повертати boolean (або truthy/falsy).`,
     })
   }
   let acc = 0
@@ -80,7 +82,7 @@ function build(): PipelineFrame[] {
   for (const m of KEEP) {
     const before = acc
     acc += m.price
-    frames.push({ ...base, line: 10, stage: 'reduce', mapped: MAPPED, filtered: KEEP, rejected, acc, current: m.id, note: `sum = ${before} + ${m.emoji} ${m.price} = ${acc}. Повернене значення стає sum для наступного кроку.` })
+    frames.push({ ...base, line: 10, stage: 'reduce', mapped: MAPPED, filtered: KEEP, rejected, acc, current: m.id, note: `sum = ${before} + ${m.name} ${m.price} = ${acc}. Повернене значення стає sum для наступного кроку.` })
   }
   frames.push({ ...base, line: 12, stage: 'done', mapped: MAPPED, filtered: KEEP, rejected, acc, output: [String(acc)], note: `Результат — одне число: ${acc}. Дорогою створено два проміжні масиви — для величезних даних інколи краще один reduce або цикл.` })
   return frames

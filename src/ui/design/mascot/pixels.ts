@@ -121,15 +121,13 @@ const OX = 2
 const OY = 4
 const at = (lx: number, ly: number, rows: readonly string[], keys?: Keys) => sprite(OX + lx, OY + ly, rows, keys)
 
-/* ── Forms: Loo's evolution = the Levelup rank, drawn on Loo ───────────── */
+/* ── Stages: Loo only grows with the rank (egg → small → normal) ────────── */
 
-// Forms and labels live in the game rules (single source); the art below is keyed by them.
-import { LOO_FORMS, LOO_FORM_LABEL, type LooForm } from '@/game/evolution'
-export { LOO_FORMS, LOO_FORM_LABEL, type LooForm }
-/** Sub-rank I–III inside a form: 1–3 pips on the lip (cracks on the egg, gems in the crown). */
-export type LooTier = 1 | 2 | 3
+// Stages and labels live in the game rules (single source); everything powerful-looking is gear (see below).
+import { LOO_STAGES, LOO_STAGE_LABEL, type LooStage } from '@/game/evolution'
+export { LOO_STAGES, LOO_STAGE_LABEL, type LooStage }
 
-// Body geometry every layer (eyes, arms, skins, tiers) is placed from, so moods, eyes and skins fit any form.
+// Body geometry every layer (eyes, arms, skins, gear) is placed from, so moods, eyes and skins fit any stage.
 interface Geo {
   body: Px[]
   /** Leftmost / rightmost body column, top row, lip row. */
@@ -189,10 +187,12 @@ const EGG: Geo = { ...BABY, body: shift(BABY.body, 0, -1), top: 10, lip: 15, eye
 
 const STEEL = '#CBD5E1'
 const STEEL_DARK = '#64748B'
-const ARMORED: Geo = { ...BLOCK, boots: sprite(3, BOOT_ROW, ['TTTT......TTTT'], { T: STEEL_DARK }) }
 
-function geoOf(form: LooForm): Geo {
-  return form === 'egg' ? EGG : form === 'pixel' ? BABY : form === 'armored' ? ARMORED : BLOCK
+function geoOf(stage: LooStage, skin?: LooSkin): Geo {
+  const g = stage === 'egg' ? EGG : stage === 'small' ? BABY : BLOCK
+  // plate armour comes with steel boots
+  if (stage === 'normal' && skin?.body === 'plate') return { ...g, boots: sprite(3, BOOT_ROW, ['TTTT......TTTT'], { T: STEEL_DARK }) }
+  return g
 }
 
 /* ── Eyes: an expression layer, one 3×3 box per eye ───────────────────── */
@@ -273,18 +273,18 @@ function tag(px: Px[], cls: string): Px[] {
   return px.map((p) => ({ ...p, cls }))
 }
 
-function antenna(form: LooForm, spring: SpringKind, bulbKind: BulbKind, g: Geo): Px[] {
+function antenna(amulet: LooAmulet | undefined, spring: SpringKind, bulbKind: BulbKind, g: Geo): Px[] {
   const s = SPRINGS[spring]
   const d = g.headDy
   const [bx, by] = [s.bulb[0], s.bulb[1] + d]
   const stem = s.stem.map(([x, y]) => [x, y + d] as const)
-  // Legendary always blazes; lamp glows warm even when "off".
-  const bulb: BulbKind = form === 'legendary' && bulbKind === 'off' ? 'on' : bulbKind
+  // The sun amulet always blazes; warm bulbs glow even when "off".
+  const bulb: BulbKind = amulet === 'sun' && bulbKind === 'off' ? 'on' : bulbKind
   const lit = bulb !== 'off'
   const rays = bulb === 'off' ? 'on' : bulb
   const out: Px[] = []
 
-  if (form === 'lamp') {
+  if (amulet === 'lamp') {
     if (lit) out.push(...sprite(bx - 3, by - 3, BIG_RAYS[rays]))
     out.push(...stem.map(([x, y]) => ({ x, y, w: 1, h: 1, c: C.spring })))
     // a little second bulb on the coil
@@ -294,14 +294,14 @@ function antenna(form: LooForm, spring: SpringKind, bulbKind: BulbKind, g: Geo):
     out.push(...sprite(bx - 1, by - 2, ['.oo.', 'oooo', 'oooo', '.ss.'], { o: lit ? C.bulbOn : WARM }))
     return out
   }
-  if (form === 'charged') {
+  if (amulet === 'storm') {
     // zig-zag doubled into a lightning bolt; the bulb crackles
     out.push(...tag(sprite(bx - 2, by - 2, RAYS[rays], { r: CYAN }), lit ? 'loo-blink-a' : 'loo-blink-b'))
     for (const [x, y] of stem) out.push({ x, y, w: 2, h: 1, c: CYAN })
     out.push(...tag(sprite(bx, by, ['oo', 'oo'], { o: lit ? ICE : CYAN_PALE }), 'loo-crackle'))
     return out
   }
-  if (form === 'legendary') {
+  if (amulet === 'sun') {
     out.push(...tag(sprite(bx - 2, by - 2, RAYS[rays], { r: GOLD_PALE }), 'loo-blink-a'))
     out.push(...stem.map(([x, y]) => ({ x, y, w: 1, h: 1, c: C.spring })))
     // tiny wings on the spring
@@ -313,7 +313,8 @@ function antenna(form: LooForm, spring: SpringKind, bulbKind: BulbKind, g: Geo):
   }
   if (lit) out.push(...sprite(bx - 2, by - 2, RAYS[rays]))
   out.push(...stem.map(([x, y]) => ({ x, y, w: 1, h: 1, c: C.spring })))
-  out.push(...sprite(bx, by, lit ? ['OO', 'OO'] : ['oo', 'oo']))
+  if (amulet === 'warm') out.push(...sprite(bx, by, ['oo', 'oo'], { o: lit ? C.bulbOn : WARM }), { x: bx + 1, y: by + 2, w: 1, h: 1, c: GOLD_DARK })
+  else out.push(...sprite(bx, by, lit ? ['OO', 'OO'] : ['oo', 'oo']))
   return out
 }
 
@@ -455,12 +456,26 @@ const ON_TORSO: ReadonlySet<Fx> = new Set(['tear1', 'tear2', 'tear3'])
 export type LooHat = 'beanie' | 'cap' | 'crown' | 'party' | 'grad'
 export type LooGlasses = 'round' | 'shades' | 'nerd'
 
-/** Cosmetics for the future shop. Every field is optional; colors are any CSS color. */
+/* ── Gear: shop items with battle stats, drawn as layers (src/game/shop.ts) ── */
+
+export type LooHelm = 'leather' | 'iron' | 'knight' | 'crown'
+export type LooArmor = 'leather' | 'chain' | 'plate' | 'royal'
+export type LooWeapon = 'wood' | 'iron' | 'staff' | 'legend'
+export type LooAmulet = 'warm' | 'lamp' | 'storm' | 'sun'
+export type LooAura = 'spark' | 'charge' | 'arcane' | 'legend'
+
+/** What Loo wears: cosmetic skins (hat, glasses, hoodie, scarf) and gear (head, body, weapon, amulet, aura). Every
+ * field is optional; colors are any CSS color. Head gear replaces the hat. */
 export interface LooSkin {
   hat?: LooHat
   glasses?: LooGlasses
   hoodie?: string
   scarf?: string
+  head?: LooHelm
+  body?: LooArmor
+  weapon?: LooWeapon
+  amulet?: LooAmulet
+  aura?: LooAura
 }
 
 const SHADE: Ink = { c: '#000', o: 0.2 }
@@ -527,38 +542,56 @@ function skinArm(px: Px[], color: string | undefined): Px[] {
   return color ? px.map((p) => ({ ...p, c: color })) : px
 }
 
-/* ── Form decorations ──────────────────────────────────────────────────── */
+/* ── Egg shell + gear layers ──────────────────────────────────────────── */
 
 const EGG_SHELL = '#FFF5E1'
 const EGG_SHADE = '#E7D2A6'
 const EGG_EDGE = '#C9A46A'
 const CAPE = '#E11D48'
 const CAPE_DARK = '#9F1239'
+const LEATHER = '#A0612B'
+const LEATHER_DARK = '#6B3A16'
+const WOOD = '#D9A066'
+const ARCANE = '#A78BFA'
 
 // Bottom half of a cracked shell, in front of baby Loo; it stays on the ground while Loo bobs inside.
-function eggShell(tier: LooTier | undefined): Px[] {
+function eggShell(): Px[] {
   const shell = sprite(4, 13, ['e..........e', 'eee.e..e.eee', 'eeeeeeeeeeee', 'eeeeeeeeeeEE', '.EEEEEEEEEE.'], { e: EGG_SHELL, E: EGG_SHADE })
   // outline the sides and bottom only, never across Loo's body above the jagged rim
   const edge = outlineRects(shell, EGG_EDGE).filter((p) => p.x < 4 || p.x > 15 || p.y > 14)
-  const cracks: Px[] = tier ? sprite(5, 15, [['...c.......', '...c....c..', 'c..c....c..'][tier - 1] ?? '', ['....c......', '....c...c..', '.c..c...c..'][tier - 1] ?? ''], { c: EGG_EDGE }) : []
-  return [...edge, ...shell, ...cracks]
+  return [...edge, ...shell]
 }
 
-function tierPips(form: LooForm, tier: LooTier | undefined, g: Geo): Px[] {
-  if (!tier || form === 'egg' || form === 'crowned') return []
-  const color = { pixel: C.bulbOff, block: C.bulbOff, lamp: WARM, charged: CYAN, armored: '#F8FAFC', legendary: GOLD }[form]
-  const xs = [[9], [7, 11], [5, 9, 13]][tier - 1] ?? []
-  return xs.map((x) => ({ x, y: g.lip, w: 2, h: 1, c: color }))
+const row = (ch: string, n: number) => ch.repeat(Math.max(0, n))
+
+function helm(kind: LooHelm, g: Geo): Px[] {
+  const w = g.r - g.l + 1
+  const cx = Math.round((g.l + g.r) / 2)
+  switch (kind) {
+    case 'leather':
+      return sprite(g.l, g.top - 2, ['..' + row('s', w - 4), '.' + row('s', w - 2), row('S', w)], { s: LEATHER, S: LEATHER_DARK })
+    case 'iron':
+      return [
+        ...sprite(g.l, g.top - 2, ['..' + row('S', w - 4), '.' + row('S', w - 2), 'r' + row('S', w - 2) + 'r'], { S: STEEL, r: STEEL_DARK }),
+        // nose guard
+        { x: cx - 1, y: g.top + 1, w: 2, h: 2, c: STEEL_DARK },
+      ]
+    case 'knight':
+      return [
+        ...sprite(g.l + 1, g.top - 4, ['.f', 'ff'], { f: CAPE }),
+        ...sprite(g.l, g.top - 2, ['..' + row('S', w - 4), '.' + row('S', w - 2), 'S' + row('r', w - 2) + 'S'], { S: STEEL, r: STEEL_DARK }),
+        // cheek guards on both edges, leaving the eyes free
+        { x: g.l, y: g.top + 1, w: 1, h: 3, c: STEEL },
+        { x: g.r, y: g.top + 1, w: 1, h: 3, c: STEEL },
+      ]
+    case 'crown':
+      return sprite(cx - 3, g.top - 2, ['y.yy.y', 'YbrrbY'], { y: GOLD, Y: GOLD_DARK, r: '#FF4B4B', b: C.blue })
+  }
 }
 
-function crown(tier: LooTier | undefined, g: Geo): Px[] {
-  const gems = ['YYYYYY', 'YYrrYY', 'YbYYbY', 'YbrrbY'][tier ?? 0] ?? 'YYYYYY'
-  return sprite(7, 7 + g.headDy, ['y.yy.y', gems], { y: GOLD, Y: GOLD_DARK, r: '#FF4B4B', b: C.blue })
-}
-
-// Per-form pixels behind the torso (cape), on the torso (armor, accents) and in the scene (sparks, sparkles).
-function formBehind(form: LooForm, g: Geo): Px[] {
-  if (form !== 'crowned') return []
+// Behind the torso: the royal cape.
+function armorBehind(kind: LooArmor | undefined, g: Geo): Px[] {
+  if (kind !== 'royal') return []
   const y = g.top + 2
   const h = g.lip + 2 - y
   return [
@@ -569,31 +602,78 @@ function formBehind(form: LooForm, g: Geo): Px[] {
   ]
 }
 
-function formTorso(form: LooForm, g: Geo): Px[] {
-  switch (form) {
-    case 'armored':
+function armor(kind: LooArmor, g: Geo): Px[] {
+  const w = g.r - g.l + 1
+  switch (kind) {
+    case 'leather':
+      return sprite(g.l + 1, g.armY, [row('s', w - 2), row('s', (w - 4) / 2) + 'SS' + row('s', (w - 4) / 2)], { s: LEATHER, S: LEATHER_DARK })
+    case 'chain':
       return [
-        // helmet rim with rivets, a chest plate, shoulder pads
-        ...sprite(g.l + 1, g.top, ['SrSSSSSSrS'], { S: STEEL, r: STEEL_DARK }),
-        ...sprite(g.l + 2, g.armY + 1, ['SSrSSrSS'], { S: STEEL, r: STEEL_DARK }),
+        ...sprite(g.l + 1, g.armY, [row('Sr', (w - 2) / 2), row('rS', (w - 2) / 2)], { S: STEEL, r: STEEL_DARK }),
+        ...sprite(g.l - 1, g.armY - 1, ['SS'], { S: STEEL }),
+        ...sprite(g.r, g.armY - 1, ['SS'], { S: STEEL }),
+      ]
+    case 'plate':
+      return [
+        // a chest plate with rivets, shoulder pads
+        ...sprite(g.l + 2, g.armY, [row('S', w - 4), 'SSr' + row('S', w - 10) + 'rSS'], { S: STEEL, r: STEEL_DARK }),
         ...sprite(g.l - 2, g.armY - 1, ['SSS'], { S: STEEL }),
         ...sprite(g.r, g.armY - 1, ['SSS'], { S: STEEL }),
       ]
-    case 'crowned':
-      return sprite(g.l, g.top + 2, ['y..........y'], { y: GOLD })
-    case 'charged':
-      return sprite(g.l, g.top + 3, ['c..........c', '.c........c.'], { c: CYAN })
-    default:
-      return []
+    case 'royal':
+      return [
+        { x: g.l, y: g.top + 2, w: 1, h: 1, c: GOLD },
+        { x: g.r, y: g.top + 2, w: 1, h: 1, c: GOLD },
+        ...sprite(g.l + 1, g.armY + 1, [row('y', w - 2)], { y: GOLD }),
+        ...sprite(Math.round((g.l + g.r) / 2) - 1, g.armY, ['yy'], { y: GOLD_DARK }),
+      ]
   }
 }
 
-function formScene(form: LooForm): Px[] {
-  if (form === 'charged')
-    return [...tag([...sprite(1, 8, ['c.', '.w']), ...sprite(17, 11, ['w', 'c']), ...sprite(13, 4, ['c'])], 'loo-blink-a'), ...tag([...sprite(1, 12, ['w', 'c']), ...sprite(17, 6, ['.c', 'w.']), ...sprite(5, 5, ['c'])], 'loo-blink-b')].map((p) => (p.c === C.white ? p : { ...p, c: CYAN }))
-  if (form === 'legendary')
-    return [...tag([...sprite(0, 3, ['.y.', 'yWy', '.y.'], { y: GOLD, W: GOLD_PALE }), ...sprite(18, 12, ['y'], { y: GOLD })], 'loo-blink-a'), ...tag([...sprite(17, 2, ['.i.', 'iWi', '.i.'], { i: C.pink, W: '#fff' }), ...sprite(1, 13, ['y'], { y: GOLD })], 'loo-blink-b')]
-  return []
+// Held on the right side: the guard / grip overlaps the right arm.
+function weapon(kind: LooWeapon, g: Geo): Px[] {
+  const x = g.r + g.armLen + 1
+  const y = g.armY
+  switch (kind) {
+    case 'wood':
+      return sprite(x - 1, y - 5, ['.w.', '.W.', '.W.', '.W.', '.W.', 'SSS', '.S.'], { w: '#F2D3A6', W: WOOD, S: LEATHER_DARK })
+    case 'iron':
+      return sprite(x - 1, y - 6, ['.w.', '.w.', '.S.', '.S.', '.S.', '.S.', 'YYY', '.L.'], { w: '#FFFFFF', S: STEEL, Y: GOLD_DARK, L: LEATHER_DARK })
+    case 'staff':
+      return [...sprite(x - 1, y - 8, ['vv.', 'vV.', '.s.', '.s.', '.s.', '.s.', '.s.', '.s.', '.s.', '.s.', '.s.'], { v: ARCANE, V: C.lip, s: LEATHER }), ...tag(sprite(x - 2, y - 9, ['w']), 'loo-blink-a')]
+    case 'legend':
+      return [
+        ...sprite(x - 1, y - 7, ['.w.', '.i.', '.i.', '.i.', '.i.', '.i.', '.i.', 'YyY', '.L.'], { w: '#FFFFFF', i: ICE, Y: GOLD_DARK, y: GOLD, L: LEATHER_DARK }),
+        ...tag(sprite(x - 2, y - 8, ['w.w']), 'loo-blink-b'),
+      ]
+  }
+}
+
+// On the torso edges (charge) and in the scene (sparks, sparkles).
+function auraTorso(kind: LooAura | undefined, g: Geo): Px[] {
+  if (kind !== 'charge') return []
+  return [
+    { x: g.l, y: g.top + 3, w: 1, h: 1, c: CYAN },
+    { x: g.r, y: g.top + 3, w: 1, h: 1, c: CYAN },
+    { x: g.l + 1, y: g.top + 4, w: 1, h: 1, c: CYAN },
+    { x: g.r - 1, y: g.top + 4, w: 1, h: 1, c: CYAN },
+  ]
+}
+
+function auraScene(kind: LooAura | undefined): Px[] {
+  switch (kind) {
+    case 'spark':
+      return [...tag([...sprite(1, 9, ['y']), ...sprite(17, 5, ['y'])], 'loo-blink-a'), ...tag([...sprite(2, 5, ['y']), ...sprite(18, 11, ['y'])], 'loo-blink-b')].map((p) => ({ ...p, c: GOLD }))
+    case 'charge':
+    case 'arcane': {
+      const k = { c: kind === 'charge' ? CYAN : ARCANE }
+      return [...tag([...sprite(1, 8, ['c.', '.w'], k), ...sprite(17, 11, ['w', 'c'], k), ...sprite(13, 4, ['c'], k)], 'loo-blink-a'), ...tag([...sprite(1, 12, ['w', 'c'], k), ...sprite(17, 6, ['.c', 'w.'], k), ...sprite(5, 5, ['c'], k)], 'loo-blink-b')]
+    }
+    case 'legend':
+      return [...tag([...sprite(0, 3, ['.y.', 'yWy', '.y.'], { y: GOLD, W: GOLD_PALE }), ...sprite(18, 12, ['y'], { y: GOLD })], 'loo-blink-a'), ...tag([...sprite(17, 2, ['.i.', 'iWi', '.i.'], { i: C.pink, W: '#fff' }), ...sprite(1, 13, ['y'], { y: GOLD })], 'loo-blink-b')]
+    default:
+      return []
+  }
 }
 
 /* ── Poses ─────────────────────────────────────────────────────────────── */
@@ -614,14 +694,13 @@ export interface Pose {
 }
 
 export interface LooLook {
-  form?: LooForm
-  tier?: LooTier
+  stage?: LooStage
 }
 
 /** Every pixel of one animation frame, back to front, in grid coordinates. */
-export function poseRects(pose: Pose, skin?: LooSkin, { form = 'block', tier }: LooLook = {}): Px[] {
-  const g = geoOf(form)
-  const egg = form === 'egg'
+export function poseRects(pose: Pose, skin?: LooSkin, { stage = 'normal' }: LooLook = {}): Px[] {
+  const g = geoOf(stage, skin)
+  const egg = stage === 'egg'
   const lift = pose.lift ?? 0
   const dy = pose.dy ?? 0
   const air = dy < 0
@@ -629,34 +708,35 @@ export function poseRects(pose: Pose, skin?: LooSkin, { form = 'block', tier }: 
   const torso: Px[] = []
   const add = (px: Px[]) => torso.push(...px)
 
-  add(formBehind(form, g))
+  add(armorBehind(egg ? undefined : skin?.body, g))
   if (!egg) {
     add(skinArm(arm(pose.arms[0], 'l', g), skin?.hoodie))
     add(skinArm(arm(pose.arms[1], 'r', g), skin?.hoodie))
   }
   add(g.body)
   if (skin?.hoodie) add(hoodie(skin.hoodie, g))
-  add(formTorso(form, g))
+  if (skin?.body && !egg) add(armor(skin.body, g))
+  add(auraTorso(skin?.aura, g))
   if (skin?.scarf) add(scarf(skin.scarf, g))
-  add(tierPips(form, tier, g))
   if (pose.cheeks) add(cheeks(g))
   add(eyes(pose.eyes, g))
   for (const f of effects) if (f === 'tear1' || f === 'tear2' || f === 'tear3') add(tear(Number(f.slice(4)) as 1 | 2 | 3, g))
   if (skin?.glasses) add(glasses(skin.glasses, g))
-  if (form === 'crowned') add(crown(tier, g))
-  if (skin?.hat) add(shift(HATS[skin.hat], 0, g.headDy))
-  add(antenna(form, pose.spring, pose.bulb ?? 'off', g))
+  if (skin?.head) add(helm(skin.head, g))
+  else if (skin?.hat) add(shift(HATS[skin.hat], 0, g.headDy))
+  if (skin?.weapon && !egg) add(weapon(skin.weapon, g))
+  add(antenna(skin?.amulet, pose.spring, pose.bulb ?? 'off', g))
 
   // Boots stay on the ground; when the torso lifts, the legs stretch to fill the gap. In the air: boots only.
   const legTop = BOOT_ROW + Math.min(0, lift)
   const legH = air ? 1 : BOOT_ROW + 1 - legTop
   const legs = egg ? [] : g.boots.map((p) => ({ ...p, y: legTop, h: legH }))
   const figure = shift([...legs, ...shift(torso, pose.dx ?? 0, lift)], 0, dy)
-  const ground = egg ? shift(eggShell(tier), 0, dy) : []
+  const ground = egg ? shift(eggShell(), 0, dy) : []
 
   const shadowW = air ? Math.max(4, g.shadowW - (dy <= -2 ? 4 : 2)) : egg ? 12 : g.shadowW
   const shadow: Px = { x: 10 - shadowW / 2, y: 18, w: shadowW, h: 1, c: 'currentColor', o: 0.12 }
-  const aura = form === 'legendary' ? tag(outlineRects([...figure.filter((p) => p.c !== C.glow && p.cls !== 'loo-blink-a'), ...ground], '#FDE68A'), 'loo-aura') : []
+  const aura = skin?.aura === 'legend' ? tag(outlineRects([...figure.filter((p) => p.c !== C.glow && p.cls !== 'loo-blink-a'), ...ground], '#FDE68A').filter((p) => p.x >= 0 && p.x < LOO_GRID), 'loo-aura') : []
 
   return [
     shadow,
@@ -664,7 +744,7 @@ export function poseRects(pose: Pose, skin?: LooSkin, { form = 'block', tier }: 
     ...aura,
     ...figure,
     ...ground,
-    ...formScene(form),
+    ...auraScene(skin?.aura),
     ...effects.filter((f) => !BEHIND.has(f) && !ON_TORSO.has(f)).flatMap(fx),
   ]
 }

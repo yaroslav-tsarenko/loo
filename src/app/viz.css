@@ -24,31 +24,35 @@
     line-height: inherit;
   }
 
+  /* Soft block on the page (2px border + flat lip). Stack = violet, microtasks = mint, macrotasks = orange,
+     Web APIs = blue; panels inside are tinted wells, code is the dark «arcade screen». */
   .viz {
-    --viz-radius: 10px;
+    --viz-radius: var(--lu-r);
     --viz-gap: 10px;
     --viz-tap: 44px;
-    --viz-micro: var(--purple);
-    --viz-micro-bg: var(--purple-bg);
-    --viz-macro: var(--orange);
-    --viz-macro-bg: var(--orange-bg);
-    --viz-api: var(--blue);
-    --viz-api-bg: var(--blue-bg);
+    --viz-micro: var(--lu-mint-ink);
+    --viz-micro-bg: var(--lu-mint-soft);
+    --viz-macro: var(--lu-orange-ink);
+    --viz-macro-bg: var(--lu-orange-soft);
+    --viz-api: var(--lu-blue-ink);
+    --viz-api-bg: var(--lu-blue-soft);
     container: viz / inline-size;
     position: relative;
     margin: 16px 0;
     padding: 14px 12px 12px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--surface);
-    color: var(--t1);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-surface);
+    box-shadow: 0 var(--lu-lip) 0 var(--lu-border);
+    color: var(--lu-text);
+    font-family: var(--lu-font);
     font-size: 14px;
     line-height: 1.5;
     min-width: 0;
     overflow-wrap: anywhere;
   }
   .viz-figure {
-    margin: 16px 0;
+    margin: 16px 0 calc(16px + var(--lu-lip));
     min-width: 0;
   }
   .viz-figure > .viz {
@@ -58,7 +62,7 @@
     margin-top: 8px;
     padding: 0 2px;
     font-size: 14px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-figcaption p {
     margin: 0;
@@ -70,12 +74,12 @@
     box-sizing: border-box;
   }
   .viz code {
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 0.92em;
   }
   .viz-chip code,
   .viz-showcase-meta code {
-    color: var(--accent);
+    color: var(--lu-violet-ink);
   }
 
   /* ── header ─────────────────────────────────────────── */
@@ -89,10 +93,11 @@
     flex: 0 0 auto;
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-    background: var(--sunk);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-violet-soft);
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--lu-violet) 22%, transparent);
     font-size: 20px;
     line-height: 1;
   }
@@ -103,15 +108,17 @@
   .viz .viz-title {
     margin: 0;
     padding: 0;
-    font-size: 15px;
-    font-weight: 600;
+    font-family: var(--lu-font);
+    font-size: 16px;
+    font-weight: var(--lu-fw-black);
     line-height: 1.3;
+    color: var(--lu-text);
   }
   .viz-subtitle {
     margin: 2px 0 0;
     padding: 0;
     font-size: 13px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-scenarios,
   .viz-presets {
@@ -123,7 +130,7 @@
   }
   .viz-presets-label {
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
     margin-right: 2px;
   }
   .viz-chip {
@@ -132,12 +139,13 @@
     gap: 6px;
     min-height: 36px;
     padding: 4px 12px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--t1);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
+    color: var(--lu-text);
     font: inherit;
     font-size: 13px;
+    font-weight: 600;
     line-height: 1.2;
     text-align: left;
     transition:
@@ -146,12 +154,14 @@
       color 120ms;
   }
   .viz-chip:hover {
-    background: var(--hover);
+    border-color: var(--lu-border-strong);
+    background: var(--lu-surface-2);
   }
   .viz-chip[aria-pressed='true'] {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-    color: var(--accent);
+    border-color: var(--lu-violet);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-weight: 700;
   }
   .viz-chip:disabled {
     opacity: 0.45;
@@ -162,7 +172,7 @@
   .viz-caption {
     margin-top: 12px;
     font-size: 13px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-caption p {
     padding: 0;
@@ -170,7 +180,7 @@
   .viz-loading {
     height: 260px;
     border-radius: var(--viz-radius);
-    background: linear-gradient(90deg, var(--sunk), var(--hover), var(--sunk));
+    background: linear-gradient(90deg, var(--lu-surface-2), var(--lu-hover), var(--lu-surface-2));
     background-size: 200% 100%;
     animation: viz-shimmer 1.4s linear infinite;
   }
@@ -180,7 +190,7 @@
     }
   }
   .viz-muted {
-    color: var(--t2);
+    color: var(--lu-text-2);
     font-size: 13px;
   }
   .viz-row {
@@ -198,7 +208,7 @@
     border-radius: var(--viz-radius);
   }
   .viz-player:focus-visible {
-    box-shadow: 0 0 0 2px rgb(35 131 226 / 0.5);
+    box-shadow: 0 0 0 3px var(--lu-focus-color);
   }
   .viz-swipe {
     touch-action: pan-y;
@@ -228,8 +238,10 @@
   /* ── code ───────────────────────────────────────────── */
   .viz-code {
     margin: 0;
+    border: 2px solid var(--code-border);
     border-radius: var(--viz-radius);
     background: var(--code-bg);
+    color: var(--code-foreground);
     min-width: 0;
   }
   .viz-code-scroll {
@@ -241,7 +253,7 @@
     margin: 0;
     padding: 10px 0;
     min-width: max-content;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
     line-height: 22px;
     color: var(--code-foreground);
@@ -252,11 +264,11 @@
     right: 0;
     top: 10px;
     height: 22px;
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--lu-mint);
     background: var(--code-line);
     opacity: 0;
     transition:
-      transform 260ms var(--ease-out),
+      transform 260ms var(--lu-ease),
       opacity 160ms;
     pointer-events: none;
   }
@@ -277,12 +289,12 @@
     flex: 0 0 34px;
     padding-right: 12px;
     text-align: right;
-    color: var(--t3);
+    color: var(--code-token-comment);
     user-select: none;
   }
   .viz-code-line[data-active] .viz-code-num {
-    color: var(--accent);
-    font-weight: 600;
+    color: var(--code-token-string);
+    font-weight: 700;
   }
   .viz [data-tk='keyword'] {
     color: var(--code-token-keyword);
@@ -309,13 +321,14 @@
   .viz-panel {
     min-width: 0;
     padding: 10px;
-    border: 1px solid var(--rule);
+    border: 2px solid var(--lu-border);
     border-radius: var(--viz-radius);
-    background: var(--bg);
+    background: var(--lu-bg);
     transition: border-color 200ms;
   }
   .viz-panel[data-tone='danger'] {
-    border-color: var(--red);
+    border-color: var(--lu-red);
+    background: color-mix(in srgb, var(--lu-red-soft) 45%, var(--lu-bg));
   }
   .viz-panel-head {
     display: flex;
@@ -324,14 +337,23 @@
     gap: 6px;
     margin-bottom: 8px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.01em;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-panel-hint {
     margin-left: auto;
-    font-weight: 400;
-    color: var(--t3);
+    font-weight: 500;
+    color: var(--lu-text-3);
+  }
+  /* icons in scenes: pixel props and library glyphs sit on the text line */
+  .viz-ic {
+    vertical-align: -0.2em;
+  }
+  .viz-token-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
   }
   .viz-tokens {
     display: flex;
@@ -344,78 +366,88 @@
     flex-wrap: wrap;
     align-items: center;
   }
+  /* Tokens are little blocks: tinted face, 2px line and a 2px lip in the same line colour. */
   .viz-token {
+    --tk-face: var(--lu-surface);
+    --tk-line: var(--lu-border);
     display: flex;
     flex-direction: column;
     gap: 1px;
     min-width: 0;
     padding: 6px 10px;
-    border-radius: 8px;
-    background: var(--sunk);
-    box-shadow: inset 0 0 0 1px var(--rule);
-    font-family: var(--font-mono);
+    border-radius: var(--lu-r-sm);
+    background: var(--tk-face);
+    box-shadow:
+      inset 0 0 0 2px var(--tk-line),
+      0 2px 0 var(--tk-line);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
     line-height: 1.35;
+    transition: box-shadow 160ms;
   }
   .viz-token-hint {
-    font-family: var(--font-ui);
+    font-family: var(--lu-font);
     font-size: 11px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-token[data-tone='stack'] {
-    background: var(--accent-soft);
+    --tk-face: var(--lu-violet-soft);
+    --tk-line: color-mix(in srgb, var(--lu-violet) 35%, transparent);
   }
   .viz-token[data-tone='stack'][data-active] {
-    box-shadow: inset 0 0 0 1.5px var(--accent);
+    --tk-line: var(--lu-violet);
   }
   .viz-token[data-tone='micro'] {
-    background: var(--viz-micro-bg);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--viz-micro) 35%, transparent);
+    --tk-face: var(--viz-micro-bg);
+    --tk-line: color-mix(in srgb, var(--viz-micro) 35%, transparent);
   }
   .viz-token[data-tone='macro'] {
-    background: var(--viz-macro-bg);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--viz-macro) 35%, transparent);
+    --tk-face: var(--viz-macro-bg);
+    --tk-line: color-mix(in srgb, var(--viz-macro) 35%, transparent);
   }
   .viz-token[data-tone='api'] {
-    background: var(--viz-api-bg);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--viz-api) 35%, transparent);
+    --tk-face: var(--viz-api-bg);
+    --tk-line: color-mix(in srgb, var(--viz-api) 35%, transparent);
   }
   /* queue head: the next item to run */
   .viz-tokens[data-dir='row'] .viz-token:first-child[data-tone='micro'] {
-    box-shadow: inset 0 0 0 1.5px var(--viz-micro);
+    --tk-line: var(--viz-micro);
   }
   .viz-tokens[data-dir='row'] .viz-token:first-child[data-tone='macro'] {
-    box-shadow: inset 0 0 0 1.5px var(--viz-macro);
+    --tk-line: var(--viz-macro);
   }
   .viz-empty {
     font-size: 12px;
-    color: var(--t3);
+    color: var(--lu-text-3);
     font-style: italic;
   }
   .viz-badge {
     display: inline-flex;
     align-items: center;
+    gap: 4px;
     height: 22px;
     padding: 0 8px;
-    border-radius: 999px;
-    background: var(--tag-default);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-3);
+    color: var(--lu-text-2);
     font-size: 12px;
+    font-weight: 700;
     white-space: nowrap;
   }
   .viz-badge[data-tone='accent'] {
-    background: var(--accent-soft);
-    color: var(--accent);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
   }
   .viz-badge[data-tone='success'] {
-    background: var(--green-bg);
-    color: var(--green);
+    background: var(--lu-green-soft);
+    color: var(--lu-green-ink);
   }
   .viz-return {
     margin-bottom: 6px;
     padding: 4px 10px;
-    border-radius: 8px;
-    background: var(--green-bg);
-    color: var(--green);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-green-soft);
+    color: var(--lu-green-ink);
     font-size: 12px;
   }
   .viz-console-lines {
@@ -423,7 +455,7 @@
     flex-direction: column;
     gap: 2px;
     min-height: 24px;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
   }
   .viz-console-line {
@@ -431,13 +463,13 @@
     gap: 8px;
   }
   .viz-console-caret {
-    color: var(--t3);
+    color: var(--lu-text-3);
   }
   .viz-console-line[data-error] {
-    color: var(--red);
+    color: var(--lu-red-ink);
   }
   .viz-console-line[data-error] .viz-console-caret {
-    color: var(--red);
+    color: var(--lu-red-ink);
   }
   .viz-queues {
     display: grid;
@@ -458,26 +490,32 @@
     list-style: none;
   }
   .viz-phases li {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     padding: 3px 8px;
-    border-radius: 999px;
+    border-radius: var(--lu-r-xs);
     font-size: 12px;
-    color: var(--t3);
+    color: var(--lu-text-3);
     background: transparent;
     transition:
       background-color 200ms,
       color 200ms;
   }
   .viz-phases li[data-on] {
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-weight: 600;
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-weight: 700;
+  }
+  .viz-phases li:not([data-on]) .lu-pxicon {
+    opacity: 0.5;
   }
 
   /* ── explanation + controls ─────────────────────────── */
   .viz-dock {
     position: relative;
     z-index: 3;
-    background: var(--surface);
+    background: var(--lu-surface);
   }
   /* phones: keep the explanation and buttons in view while the stage scrolls
      (sticks above the bottom nav, only while this viz is on screen) */
@@ -487,8 +525,8 @@
       bottom: calc(60px + env(safe-area-inset-bottom));
       margin: 0 -12px -12px;
       padding: 0 12px 12px;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 -8px 16px -12px rgb(15 15 15 / 0.25);
+      border-radius: 0 0 calc(var(--lu-r-lg) - 2px) calc(var(--lu-r-lg) - 2px);
+      box-shadow: 0 -2px 0 var(--lu-border);
     }
     .viz-dock .viz-note {
       margin-top: 10px;
@@ -499,29 +537,35 @@
       font-size: 13.5px;
     }
   }
+  /* Step explanation: Loo's «speech» strip — violet-soft with a violet bar on the left. */
   .viz-note {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     margin-top: 12px;
     padding: 10px 12px;
-    border-radius: var(--viz-radius);
-    background: var(--sunk);
+    border-left: 4px solid var(--lu-violet);
+    border-radius: var(--lu-r-xs) var(--viz-radius) var(--viz-radius) var(--lu-r-xs);
+    background: var(--lu-violet-soft);
   }
   .viz-note p {
     margin: 0;
     padding: 0;
     min-height: 3em;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.55;
+    color: var(--lu-text);
   }
   .viz-note-step {
     flex: 0 0 auto;
     min-width: 36px;
-    padding-top: 1px;
+    padding: 1px 6px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface);
     font-size: 12px;
-    font-weight: 600;
-    color: var(--t2);
+    font-weight: 800;
+    text-align: center;
+    color: var(--lu-violet-ink);
   }
   .viz-controls {
     display: flex;
@@ -529,6 +573,86 @@
     flex-wrap: wrap;
     gap: 6px;
     margin-top: 10px;
+  }
+
+  /* Pixel buttons (docs/DESIGN.md «Pixel frame»): the element paints nothing; ::before is the line + lip,
+     ::after the face, both clipped to a two-step corner. Knobs: --vb-face, --vb-line, --vb-bw, --vb-lip. */
+  .viz-btn,
+  .viz-action,
+  .viz-fire {
+    --vb-face: var(--lu-surface);
+    --vb-line: var(--lu-border);
+    --vb-bw: 2px;
+    --vb-lip: var(--lu-lip-sm);
+    --vb-s: 2px;
+    position: relative;
+    isolation: isolate;
+    margin-bottom: var(--vb-lip);
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: var(--lu-text);
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform var(--lu-dur-1) var(--lu-ease),
+      color 120ms;
+  }
+  .viz-btn::before,
+  .viz-btn::after,
+  .viz-action::before,
+  .viz-action::after,
+  .viz-fire::before,
+  .viz-fire::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    clip-path: polygon(
+      0 calc(2 * var(--vb-s)),
+      var(--vb-s) calc(2 * var(--vb-s)),
+      var(--vb-s) var(--vb-s),
+      calc(2 * var(--vb-s)) var(--vb-s),
+      calc(2 * var(--vb-s)) 0,
+      calc(100% - 2 * var(--vb-s)) 0,
+      calc(100% - 2 * var(--vb-s)) var(--vb-s),
+      calc(100% - var(--vb-s)) var(--vb-s),
+      calc(100% - var(--vb-s)) calc(2 * var(--vb-s)),
+      100% calc(2 * var(--vb-s)),
+      100% calc(100% - 2 * var(--vb-s)),
+      calc(100% - var(--vb-s)) calc(100% - 2 * var(--vb-s)),
+      calc(100% - var(--vb-s)) calc(100% - var(--vb-s)),
+      calc(100% - 2 * var(--vb-s)) calc(100% - var(--vb-s)),
+      calc(100% - 2 * var(--vb-s)) 100%,
+      calc(2 * var(--vb-s)) 100%,
+      calc(2 * var(--vb-s)) calc(100% - var(--vb-s)),
+      var(--vb-s) calc(100% - var(--vb-s)),
+      var(--vb-s) calc(100% - 2 * var(--vb-s)),
+      0 calc(100% - 2 * var(--vb-s))
+    );
+  }
+  .viz-btn::before,
+  .viz-action::before,
+  .viz-fire::before {
+    inset: 0 0 calc(-1 * var(--vb-lip)) 0;
+    background: var(--vb-line);
+    transition: bottom var(--lu-dur-1) var(--lu-ease);
+  }
+  .viz-btn::after,
+  .viz-action::after,
+  .viz-fire::after {
+    inset: var(--vb-bw);
+    background: var(--vb-face);
+    transition: background-color 120ms;
+  }
+  :is(.viz-btn, .viz-action, .viz-fire):hover {
+    --vb-face: var(--lu-surface-2);
+    --vb-line: var(--lu-border-strong);
+  }
+  :is(.viz-btn, .viz-action, .viz-fire):active:not(:disabled) {
+    transform: translateY(var(--vb-lip));
+  }
+  :is(.viz-btn, .viz-action, .viz-fire):active:not(:disabled)::before {
+    bottom: 0;
   }
   .viz-btn {
     display: inline-flex;
@@ -538,38 +662,31 @@
     min-width: var(--viz-tap);
     height: var(--viz-tap);
     padding: 0 10px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--t1);
     font: inherit;
     font-size: 14px;
-    font-weight: 500;
-    transition:
-      background-color 120ms,
-      transform 80ms;
+    font-weight: 700;
   }
-  .viz-btn:hover {
-    background: var(--hover);
+  .viz-btn[data-primary],
+  .viz-fire {
+    --vb-face: var(--lu-violet);
+    --vb-line: var(--lu-violet-lip);
+    --vb-bw: 0px;
+    color: var(--lu-on-color);
   }
-  .viz-btn:active {
-    transform: scale(0.96);
-  }
-  .viz-btn[data-primary] {
-    border-color: transparent;
-    background: var(--accent);
-    color: var(--accent-ink);
-  }
-  .viz-btn[data-primary]:hover {
-    background: var(--accent-hover);
+  .viz-btn[data-primary]:hover,
+  .viz-fire:hover {
+    --vb-face: var(--lu-violet-hover);
+    --vb-line: var(--lu-violet-lip);
   }
   .viz-btn:disabled {
     opacity: 0.4;
     pointer-events: none;
   }
-  .viz-btn[aria-pressed='true'] {
-    background: var(--accent-soft);
-    color: var(--accent);
+  .viz-btn[aria-pressed='true'],
+  .viz-btn[aria-pressed='true']:hover {
+    --vb-face: var(--lu-violet-soft);
+    --vb-line: var(--lu-violet);
+    color: var(--lu-violet-ink);
   }
   .viz-btn-text {
     flex-shrink: 0;
@@ -592,36 +709,40 @@
     cursor: pointer;
   }
   .viz-scrub::-webkit-slider-runnable-track {
-    height: 6px;
-    border-radius: 3px;
-    background: linear-gradient(to right, var(--accent) var(--fill, 0%), var(--rule) var(--fill, 0%));
+    height: 8px;
+    border-radius: var(--lu-r-xs);
+    background: linear-gradient(to right, var(--lu-violet) var(--fill, 0%), var(--lu-surface-3) var(--fill, 0%));
   }
   .viz-scrub::-moz-range-track {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--rule);
+    height: 8px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-3);
   }
   .viz-scrub::-moz-range-progress {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--accent);
+    height: 8px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-violet);
   }
   .viz-scrub::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
-    margin-top: -8px;
-    border-radius: 50%;
-    background: var(--surface);
-    box-shadow: 0 0 0 1px var(--border), 0 1px 3px rgb(15 15 15 / 0.2);
+    width: 20px;
+    height: 20px;
+    margin-top: -6px;
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface);
+    box-shadow:
+      inset 0 0 0 2px var(--lu-violet),
+      0 2px 0 var(--lu-violet-lip);
   }
   .viz-scrub::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border: 0;
-    border-radius: 50%;
-    background: var(--surface);
-    box-shadow: 0 0 0 1px var(--border), 0 1px 3px rgb(15 15 15 / 0.2);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface);
+    box-shadow:
+      inset 0 0 0 2px var(--lu-violet),
+      0 2px 0 var(--lu-violet-lip);
   }
   /* on phones the scrubber gets its own row under the buttons */
   @container viz (max-width: 419px) {
@@ -652,33 +773,33 @@
   .viz-arrows path {
     fill: none;
     stroke-width: 1.6;
-    stroke: var(--t3);
+    stroke: var(--lu-text-3);
     transition: stroke 200ms;
   }
   .viz-arrows marker path {
     stroke: none;
-    fill: var(--t3);
+    fill: var(--lu-text-3);
   }
   .viz-arrows > path[data-tone='muted'] {
     opacity: 0.6;
   }
   .viz-arrows [data-tone='accent'] {
-    stroke: var(--accent);
+    stroke: var(--lu-violet);
   }
   .viz-arrows marker [data-tone='accent'] {
-    fill: var(--accent);
+    fill: var(--lu-violet);
   }
   .viz-arrows [data-tone='danger'] {
-    stroke: var(--red);
+    stroke: var(--lu-red);
   }
   .viz-arrows marker [data-tone='danger'] {
-    fill: var(--red);
+    fill: var(--lu-red);
   }
   .viz-arrows [data-tone='success'] {
-    stroke: var(--green);
+    stroke: var(--lu-green);
   }
   .viz-arrows marker [data-tone='success'] {
-    fill: var(--green);
+    fill: var(--lu-green);
   }
 
   /* ── scope chain ────────────────────────────────────── */
@@ -686,9 +807,9 @@
     position: relative;
     min-width: 0;
     padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
     transition:
       border-color 200ms,
       box-shadow 200ms,
@@ -698,15 +819,15 @@
     margin-top: 10px;
   }
   .viz-env[data-active] {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+    border-color: var(--lu-violet);
+    box-shadow: 0 0 0 3px var(--lu-violet-soft);
   }
   .viz-env[data-path] {
-    background: color-mix(in srgb, var(--yellow-bg) 55%, var(--surface));
+    background: color-mix(in srgb, var(--lu-yellow-soft) 55%, var(--lu-surface));
   }
   .viz-env[data-found] {
-    border-color: var(--green);
-    box-shadow: 0 0 0 3px var(--green-bg);
+    border-color: var(--lu-green);
+    box-shadow: 0 0 0 3px var(--lu-green-soft);
   }
   .viz-env[data-dead] {
     border-style: dashed;
@@ -724,13 +845,13 @@
   }
   .viz-env-outer {
     font-size: 11px;
-    color: var(--t3);
+    color: var(--lu-text-3);
   }
   .viz-env-note {
     margin: 0 0 4px;
     padding: 0;
     font-size: 11px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-env-children {
     display: flex;
@@ -759,40 +880,40 @@
     align-items: baseline;
     gap: 4px 6px;
     padding: 2px 6px;
-    border-radius: 6px;
+    border-radius: var(--lu-r-sm);
     font-size: 12.5px;
   }
   .viz-vars li[data-captured] {
-    background: var(--accent-soft);
+    background: var(--lu-violet-soft);
   }
   .viz-vars li[data-hit],
   .viz-proto li[data-hit],
   .viz-bindings li[data-hit] {
-    background: var(--green-bg);
-    box-shadow: inset 0 0 0 1px var(--green);
+    background: var(--lu-green-soft);
+    box-shadow: inset 0 0 0 2px var(--lu-green);
   }
   .viz-var-name {
     font-weight: 600;
   }
   .viz-var-eq {
-    color: var(--t3);
+    color: var(--lu-text-3);
   }
   .viz-var-val {
     display: inline-block;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
-    border-radius: 4px;
+    border-radius: var(--lu-r-xs);
     padding: 0 2px;
   }
   .viz-var-val[data-changed] {
-    background: var(--yellow-bg);
+    background: var(--lu-yellow-soft);
   }
   .viz-vars li[data-tdz] .viz-var-val {
-    color: var(--red);
+    color: var(--lu-red-ink);
   }
   .viz-var-flag {
     font-size: 11px;
-    color: var(--accent);
+    color: var(--lu-violet-ink);
   }
   .viz-fns {
     display: flex;
@@ -802,7 +923,7 @@
   }
   .viz-fns-title {
     font-size: 11px;
-    color: var(--t3);
+    color: var(--lu-text-3);
   }
   .viz-fns-list {
     display: flex;
@@ -810,16 +931,16 @@
     gap: 6px;
   }
   .viz-fn-env {
-    font-family: var(--font-ui);
+    font-family: var(--lu-font);
     font-size: 11px;
     opacity: 0.8;
   }
   .viz-fn {
     padding: 3px 8px;
-    border-radius: 6px;
-    background: var(--purple-bg);
-    color: var(--purple);
-    font-family: var(--font-mono);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-family: var(--lu-font-mono);
     font-size: 12px;
   }
 
@@ -831,12 +952,12 @@
   }
   .viz-ctx {
     padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
   }
   .viz-ctx[data-top] {
-    border-color: var(--accent);
+    border-color: var(--lu-violet);
   }
   .viz-ctx-head {
     display: flex;
@@ -858,12 +979,12 @@
     padding: 2px 8px;
     border-radius: 999px;
     font-size: 11px;
-    color: var(--t3);
-    box-shadow: inset 0 0 0 1px var(--rule);
+    color: var(--lu-text-3);
+    box-shadow: inset 0 0 0 2px var(--lu-border);
   }
   .viz-ctx-phases span[data-on] {
-    background: var(--accent-soft);
-    color: var(--accent);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
     box-shadow: none;
     font-weight: 600;
   }
@@ -873,33 +994,33 @@
     align-items: center;
     gap: 8px;
     padding: 3px 6px;
-    border-radius: 6px;
+    border-radius: var(--lu-r-sm);
     font-size: 12.5px;
   }
   .viz-bindings li[data-state='tdz'] {
-    background: repeating-linear-gradient(135deg, var(--red-bg) 0 6px, transparent 6px 12px);
+    background: repeating-linear-gradient(135deg, var(--lu-red-soft) 0 6px, transparent 6px 12px);
   }
   .viz-bindings li[data-state='tdz'] .viz-var-val {
-    color: var(--red);
+    color: var(--lu-red-ink);
     font-weight: 600;
   }
   .viz-kind {
     min-width: 58px;
     padding: 1px 6px;
-    border-radius: 4px;
-    font-family: var(--font-mono);
+    border-radius: var(--lu-r-xs);
+    font-family: var(--lu-font-mono);
     font-size: 11px;
     text-align: center;
-    background: var(--tag-default);
+    background: var(--lu-surface-3);
   }
   .viz-kind[data-tone='orange'] {
-    background: var(--tag-orange);
+    background: var(--lu-orange-soft);
   }
   .viz-kind[data-tone='blue'] {
-    background: var(--tag-blue);
+    background: var(--lu-blue-soft);
   }
   .viz-kind[data-tone='purple'] {
-    background: var(--tag-purple);
+    background: var(--lu-violet-soft);
   }
 
   /* ── this ───────────────────────────────────────────── */
@@ -923,12 +1044,12 @@
     justify-content: space-between;
     gap: 8px;
     padding: 8px 10px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--bg);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-bg);
   }
   .viz-tree-node[data-answered] {
-    background: var(--sunk);
+    background: var(--lu-surface-2);
   }
   .viz-tree-q {
     display: flex;
@@ -943,11 +1064,11 @@
     place-items: center;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    color: var(--accent);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-violet);
+    color: var(--lu-on-color);
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 800;
   }
   .viz-tree-answers {
     display: inline-flex;
@@ -957,29 +1078,36 @@
     min-width: 64px;
     min-height: var(--viz-tap);
     padding: 0 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--t1);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
+    box-shadow: 0 2px 0 var(--lu-border);
+    color: var(--lu-text);
     font: inherit;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
   }
   .viz-yn:hover {
-    background: var(--hover);
+    border-color: var(--lu-border-strong);
+    background: var(--lu-surface-2);
   }
   .viz-yn[aria-pressed='true'] {
-    border-color: var(--red);
-    background: var(--red-bg);
+    border-color: var(--lu-red);
+    background: var(--lu-red-soft);
+    box-shadow: 0 2px 0 var(--lu-red-lip);
+    color: var(--lu-red-ink);
   }
   .viz-yn[data-yes][aria-pressed='true'] {
-    border-color: var(--green);
-    background: var(--green-bg);
+    border-color: var(--lu-green);
+    background: var(--lu-green-soft);
+    box-shadow: 0 2px 0 var(--lu-green-lip);
+    color: var(--lu-green-ink);
   }
   .viz-result {
     padding: 12px;
-    border-radius: 12px;
-    background: var(--accent-soft);
+    border: 2px solid color-mix(in srgb, var(--lu-violet) 30%, transparent);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-violet-soft);
   }
   .viz-result p {
     margin: 8px 0;
@@ -991,11 +1119,11 @@
     gap: 10px;
   }
   .viz-result-emoji {
-    font-size: 28px;
-    line-height: 1;
+    display: grid;
+    color: var(--lu-violet);
   }
   .viz-result-title {
-    font-weight: 600;
+    font-weight: 800;
   }
   .viz-result-value {
     font-size: 15px;
@@ -1003,9 +1131,11 @@
   .viz-snippet {
     margin: 0;
     padding: 8px 10px;
-    border-radius: 8px;
+    border: 2px solid var(--code-border);
+    border-radius: var(--lu-r-sm);
     background: var(--code-bg);
-    font-family: var(--font-mono);
+    color: var(--code-foreground);
+    font-family: var(--lu-font-mono);
     font-size: 12.5px;
     line-height: 1.55;
     white-space: pre-wrap;
@@ -1016,7 +1146,7 @@
     flex-direction: column;
   }
   .viz-snippet-live code[data-last] {
-    color: var(--accent);
+    color: var(--code-token-string);
   }
   .viz-this {
     display: flex;
@@ -1036,13 +1166,13 @@
   .viz-this-value {
     margin-top: 4px;
     padding: 10px 12px;
-    border-radius: 10px;
-    background: var(--green-bg);
+    border-radius: var(--lu-r);
+    background: var(--lu-green-soft);
     font-size: 16px;
     font-weight: 600;
   }
   .viz-this-value[data-empty] {
-    background: var(--red-bg);
+    background: var(--lu-red-soft);
   }
 
   /* ── prototype chain ────────────────────────────────── */
@@ -1068,13 +1198,13 @@
   .viz-proto-col-title {
     margin-bottom: -10px;
     font-size: 11px;
-    color: var(--t3);
+    color: var(--lu-text-3);
   }
   .viz-proto {
     padding: 6px 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
     transition:
       border-color 200ms,
       box-shadow 200ms,
@@ -1096,29 +1226,29 @@
     justify-content: space-between;
     gap: 6px;
     padding: 1px 4px;
-    border-radius: 4px;
+    border-radius: var(--lu-r-xs);
     font-size: 12px;
   }
   .viz-proto-null {
     align-self: flex-start;
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-proto[data-status='search'] {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+    border-color: var(--lu-violet);
+    box-shadow: 0 0 0 3px var(--lu-violet-soft);
   }
   .viz-proto[data-status='miss'] {
     opacity: 0.6;
   }
   .viz-proto[data-status='found'] {
-    border-color: var(--green);
-    box-shadow: 0 0 0 3px var(--green-bg);
+    border-color: var(--lu-green);
+    box-shadow: 0 0 0 3px var(--lu-green-soft);
   }
   .viz-proto[data-status='end'] {
-    border-color: var(--red);
-    box-shadow: 0 0 0 3px var(--red-bg);
+    border-color: var(--lu-red);
+    box-shadow: 0 0 0 3px var(--lu-red-soft);
   }
 
   /* ── promises ───────────────────────────────────────── */
@@ -1133,19 +1263,19 @@
     gap: 1px;
     min-width: 92px;
     padding: 6px 8px;
-    border-radius: 8px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface-2);
     font-size: 12px;
     transition: background-color 250ms;
   }
   .viz-promise-chip[data-state='fulfilled'] {
-    background: var(--green-bg);
+    background: var(--lu-green-soft);
   }
   .viz-promise-chip[data-state='rejected'] {
-    background: var(--red-bg);
+    background: var(--lu-red-soft);
   }
   .viz-promise-chip-id {
-    font-family: var(--font-mono);
+    font-family: var(--lu-font-mono);
     font-weight: 600;
   }
   .viz-machine {
@@ -1158,34 +1288,34 @@
     padding: 3px 8px;
     border-radius: 999px;
     font-size: 12px;
-    color: var(--t3);
-    box-shadow: inset 0 0 0 1px var(--rule);
+    color: var(--lu-text-3);
+    box-shadow: inset 0 0 0 2px var(--lu-border);
   }
   .viz-machine-node[data-on] {
-    color: var(--t1);
+    color: var(--lu-text);
     font-weight: 600;
-    box-shadow: inset 0 0 0 1.5px currentColor;
+    box-shadow: inset 0 0 0 2px currentColor;
   }
   .viz-machine-node[data-on][data-state='fulfilled'] {
-    background: var(--green-bg);
+    background: var(--lu-green-soft);
   }
   .viz-machine-node[data-on][data-state='rejected'] {
-    background: var(--red-bg);
+    background: var(--lu-red-soft);
   }
   .viz-machine-node[data-on][data-state='pending'] {
-    background: var(--yellow-bg);
+    background: var(--lu-yellow-soft);
   }
   .viz-promise {
     padding: 14px;
-    border-radius: 12px;
-    background: var(--yellow-bg);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-yellow-soft);
     transition: background-color 300ms;
   }
   .viz-promise[data-state='fulfilled'] {
-    background: var(--green-bg);
+    background: var(--lu-green-soft);
   }
   .viz-promise[data-state='rejected'] {
-    background: var(--red-bg);
+    background: var(--lu-red-soft);
   }
   .viz-promise-state {
     display: flex;
@@ -1194,13 +1324,12 @@
     font-size: 15px;
   }
   .viz-promise-emoji {
-    font-size: 26px;
-    line-height: 1;
+    display: grid;
   }
   .viz-subhead {
     margin: 10px 0 6px;
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-actions {
     display: grid;
@@ -1219,25 +1348,21 @@
     gap: 6px;
     min-height: var(--viz-tap);
     padding: 6px 10px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--t1);
     font: inherit;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 700;
   }
-  .viz-action:hover {
-    background: var(--hover);
+  .viz-action[data-tone='success'],
+  .viz-action[data-tone='success']:hover {
+    --vb-face: var(--lu-green-soft);
+    --vb-line: color-mix(in srgb, var(--lu-green) 55%, transparent);
+    color: var(--lu-green-ink);
   }
-  .viz-action:active {
-    transform: scale(0.97);
-  }
-  .viz-action[data-tone='success'] {
-    background: var(--green-bg);
-  }
-  .viz-action[data-tone='danger'] {
-    background: var(--red-bg);
+  .viz-action[data-tone='danger'],
+  .viz-action[data-tone='danger']:hover {
+    --vb-face: var(--lu-red-soft);
+    --vb-line: color-mix(in srgb, var(--lu-red) 55%, transparent);
+    color: var(--lu-red-ink);
   }
   .viz-comb {
     display: flex;
@@ -1257,8 +1382,8 @@
     align-items: center;
     gap: 6px 10px;
     padding: 8px 10px;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
   }
   .viz-comb-name {
     grid-area: name;
@@ -1276,13 +1401,13 @@
     gap: 8px;
     min-width: 0;
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-comb-ms input {
     flex: 1;
     min-width: 0;
     height: var(--viz-tap);
-    accent-color: var(--accent);
+    accent-color: var(--lu-violet);
   }
   .viz-comb-input .viz-track {
     grid-area: track;
@@ -1290,14 +1415,14 @@
   .viz-track {
     position: relative;
     height: 26px;
-    border-radius: 6px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface-2);
   }
   .viz-track-mark {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 15px;
+    display: grid;
     line-height: 1;
     opacity: 0.5;
     transition: opacity 200ms;
@@ -1310,7 +1435,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--accent);
+    background: var(--lu-violet);
   }
   .viz-track-at {
     position: absolute;
@@ -1319,25 +1444,25 @@
     width: 4px;
     margin-left: -2px;
     border-radius: 2px;
-    background: var(--red);
+    background: var(--lu-red);
   }
   .viz-track-at[data-ok] {
-    background: var(--green);
+    background: var(--lu-green);
   }
   .viz-comb-result {
     display: flex;
     flex-direction: column;
     gap: 6px;
     padding: 8px 10px;
-    border-radius: 10px;
-    background: var(--sunk);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface-2);
     transition: background-color 250ms;
   }
   .viz-comb-result[data-state='fulfilled'] {
-    background: var(--green-bg);
+    background: var(--lu-green-soft);
   }
   .viz-comb-result[data-state='rejected'] {
-    background: var(--red-bg);
+    background: var(--lu-red-soft);
   }
   .viz-comb-result-head {
     display: flex;
@@ -1353,7 +1478,7 @@
   }
   .viz-comb-result .viz-track {
     height: 10px;
-    background: color-mix(in srgb, var(--t1) 6%, transparent);
+    background: color-mix(in srgb, var(--lu-text) 6%, transparent);
   }
   .viz-comb-result .viz-track-at {
     top: -2px;
@@ -1380,14 +1505,14 @@
     min-width: 0;
     margin: 0;
     padding: 8px 10px 10px;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
   }
   .viz-picker legend {
     padding: 0 4px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-picker-grid {
     display: grid;
@@ -1399,20 +1524,21 @@
     padding: 2px 0;
     overflow-wrap: normal;
     white-space: nowrap;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--t1);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface);
+    color: var(--lu-text);
     font: inherit;
   }
   .viz-pick:hover {
-    background: var(--hover);
+    border-color: var(--lu-border-strong);
+    background: var(--lu-surface-2);
   }
   .viz-pick[aria-pressed='true'] {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-weight: 600;
+    border-color: var(--lu-violet);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-weight: 700;
   }
   .viz-pick code {
     font-size: 11.5px;
@@ -1434,14 +1560,14 @@
     display: flex;
     gap: 10px;
     padding: 8px 10px;
-    border-radius: 10px;
-    background: var(--sunk);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface-2);
   }
   .viz-algo-step p {
     margin: 2px 0 4px;
     padding: 0;
     font-size: 13px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-algo-num {
     flex: 0 0 auto;
@@ -1449,18 +1575,18 @@
     place-items: center;
     width: 22px;
     height: 22px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    color: var(--accent);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-violet);
+    color: var(--lu-on-color);
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 800;
   }
   .viz-algo-rule {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 13px;
   }
   .viz-algo-expr {
-    color: var(--accent);
+    color: var(--lu-violet-ink);
   }
   .viz-verdict {
     display: flex;
@@ -1469,15 +1595,19 @@
     justify-content: center;
     gap: 10px;
     padding: 12px;
-    border-radius: 12px;
-    background: var(--accent-soft);
+    border: 2px solid color-mix(in srgb, var(--lu-violet) 30%, transparent);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-violet-soft);
     font-size: 17px;
+    font-weight: 700;
   }
   .viz-verdict[data-tone='success'] {
-    background: var(--green-bg);
+    border-color: color-mix(in srgb, var(--lu-green) 45%, transparent);
+    background: var(--lu-green-soft);
   }
   .viz-verdict[data-tone='danger'] {
-    background: var(--red-bg);
+    border-color: color-mix(in srgb, var(--lu-red) 45%, transparent);
+    background: var(--lu-red-soft);
   }
 
   /* ── memory ─────────────────────────────────────────── */
@@ -1486,9 +1616,9 @@
     grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
     gap: 24px;
     padding: 10px;
-    border: 1px solid var(--rule);
+    border: 2px solid var(--lu-border);
     border-radius: var(--viz-radius);
-    background: var(--bg);
+    background: var(--lu-bg);
   }
   @container viz (min-width: 620px) {
     .viz-mem {
@@ -1508,19 +1638,19 @@
     justify-content: space-between;
     gap: 4px 8px;
     padding: 6px 8px;
-    border-radius: 8px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface-2);
     font-size: 12.5px;
   }
   .viz-slots li[data-changed] {
-    background: var(--yellow-bg);
+    background: var(--lu-yellow-soft);
   }
   .viz-ref {
     padding: 0 6px;
-    border-radius: 4px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-family: var(--font-mono);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
+    font-family: var(--lu-font-mono);
     font-size: 12px;
     white-space: nowrap;
   }
@@ -1531,20 +1661,20 @@
   }
   .viz-obj {
     padding: 6px 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-surface);
     transition:
       border-color 250ms,
       background-color 250ms;
   }
   .viz-obj[data-state='reachable'] {
-    border-color: var(--green);
+    border-color: var(--lu-green);
   }
   .viz-obj[data-state='unreachable'] {
     border-style: dashed;
-    border-color: var(--red);
-    background: var(--red-bg);
+    border-color: var(--lu-red);
+    background: var(--lu-red-soft);
   }
   .viz-obj-head {
     display: flex;
@@ -1558,7 +1688,7 @@
   .viz-obj-flag {
     font-size: 11px;
     font-weight: 500;
-    color: var(--red);
+    color: var(--lu-red-ink);
   }
   .viz-obj li {
     display: flex;
@@ -1566,32 +1696,34 @@
     justify-content: space-between;
     gap: 2px 8px;
     padding: 1px 4px;
-    border-radius: 4px;
+    border-radius: var(--lu-r-xs);
     font-size: 12px;
   }
   .viz-obj li[data-changed] {
-    background: var(--yellow-bg);
+    background: var(--lu-yellow-soft);
   }
+  /* segmented «pixel» gauge, like .lu-progress */
   .viz-gauge {
     height: 12px;
-    border-radius: 6px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-xs);
+    background: var(--lu-surface-3);
     overflow: hidden;
+    -webkit-mask: repeating-linear-gradient(90deg, #000 0 9px, transparent 9px 12px);
+    mask: repeating-linear-gradient(90deg, #000 0 9px, transparent 9px 12px);
   }
   .viz-gauge span {
     display: block;
     height: 100%;
-    border-radius: 6px;
-    background: var(--green);
+    background: var(--lu-green);
     transition:
-      width 500ms var(--ease-out),
+      width 500ms var(--lu-ease),
       background-color 300ms;
   }
   .viz-gauge[data-state='reachable'] span {
-    background: var(--red);
+    background: var(--lu-red);
   }
   .viz-gauge[data-state='unreachable'] span {
-    background: var(--orange);
+    background: var(--lu-orange);
   }
   .viz-gauge + .viz-muted {
     margin: 6px 0 0;
@@ -1606,9 +1738,9 @@
   }
   .viz-gc-graph {
     padding: 6px;
-    border: 1px solid var(--rule);
+    border: 2px solid var(--lu-border);
     border-radius: var(--viz-radius);
-    background: var(--bg);
+    background: var(--lu-bg);
   }
   .viz-gc-graph svg {
     display: block;
@@ -1620,16 +1752,16 @@
   }
   .viz-gc-edge path {
     fill: none;
-    stroke: var(--t3);
+    stroke: var(--lu-text-3);
     stroke-width: 1.6;
     transition: stroke 200ms;
   }
   .viz-gc-edge[data-hot] path {
-    stroke: var(--green);
+    stroke: var(--lu-green);
     stroke-width: 2;
   }
   .viz-gc-edge[data-cut] path {
-    stroke: var(--red);
+    stroke: var(--lu-red);
     stroke-dasharray: 4 4;
     opacity: 0.6;
   }
@@ -1641,46 +1773,43 @@
     cursor: pointer;
   }
   .viz-gc-arrowhead {
-    fill: var(--t3);
+    fill: var(--lu-text-3);
   }
   .viz-gc-scissors {
-    font-size: 13px;
+    color: var(--lu-red-ink);
     pointer-events: none;
   }
   .viz-gc-node circle {
-    fill: var(--surface);
-    stroke: var(--border);
+    fill: var(--lu-surface);
+    stroke: var(--lu-border-strong);
     stroke-width: 1.5;
     transition:
       fill 250ms,
       stroke 250ms;
   }
   .viz-gc-node[data-root] circle {
-    fill: var(--accent-soft);
-    stroke: var(--accent);
+    fill: var(--lu-violet-soft);
+    stroke: var(--lu-violet);
   }
   .viz-gc-node[data-marked] circle {
-    fill: var(--green-bg);
-    stroke: var(--green);
+    fill: var(--lu-green-soft);
+    stroke: var(--lu-green);
     stroke-width: 2;
   }
   .viz-gc-node[data-garbage] circle {
-    fill: var(--red-bg);
-    stroke: var(--red);
+    fill: var(--lu-red-soft);
+    stroke: var(--lu-red);
     stroke-dasharray: 3 3;
-  }
-  .viz-gc-emoji {
-    font-size: 17px;
   }
   .viz-gc-label {
     font-size: 10px;
-    fill: var(--t2);
-    font-family: var(--font-mono);
+    fill: var(--lu-text-2);
+    font-family: var(--lu-font-mono);
   }
   .viz-gc-check {
     font-size: 12px;
     font-weight: 700;
-    fill: var(--green);
+    fill: var(--lu-green-ink);
   }
   .viz-gc-edges {
     display: flex;
@@ -1707,18 +1836,10 @@
     flex: 1 1 140px;
     min-height: 52px;
     padding: 0 18px;
-    border: 0;
-    border-radius: 12px;
-    background: var(--orange);
-    color: #fff;
     font: inherit;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     touch-action: manipulation;
-    transition: transform 80ms;
-  }
-  .viz-fire:active {
-    transform: scale(0.95);
   }
   .viz-dt-sliders {
     display: grid;
@@ -1734,12 +1855,12 @@
     display: flex;
     flex-direction: column;
     font-size: 13px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-slider input {
     width: 100%;
     height: var(--viz-tap);
-    accent-color: var(--accent);
+    accent-color: var(--lu-violet);
   }
   .viz-tls {
     display: flex;
@@ -1747,19 +1868,19 @@
     gap: 10px;
   }
   .viz-tl {
-    --tl: var(--orange);
-    --tl-bg: var(--orange-bg);
+    --tl: var(--lu-orange-ink);
+    --tl-bg: var(--lu-orange-soft);
     padding: 8px 10px;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
   }
   .viz-tl[data-tone='debounce'] {
-    --tl: var(--purple);
-    --tl-bg: var(--purple-bg);
+    --tl: var(--lu-violet-ink);
+    --tl-bg: var(--lu-violet-soft);
   }
   .viz-tl[data-tone='throttle'] {
-    --tl: var(--blue);
-    --tl-bg: var(--blue-bg);
+    --tl: var(--lu-blue-ink);
+    --tl-bg: var(--lu-blue-soft);
   }
   .viz-tl-head {
     display: flex;
@@ -1780,8 +1901,8 @@
     position: relative;
     height: 28px;
     margin: 6px 0 4px;
-    border-radius: 6px;
-    background: var(--sunk);
+    border-radius: var(--lu-r-sm);
+    background: var(--lu-surface-2);
     overflow: hidden;
   }
   .viz-tl-band {
@@ -1812,7 +1933,7 @@
     margin: 0;
     padding: 0;
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
 
   /* ── array pipeline ─────────────────────────────────── */
@@ -1823,20 +1944,20 @@
   }
   .viz-lane {
     padding: 8px 10px;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    background: var(--bg);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r);
+    background: var(--lu-bg);
     transition: border-color 200ms;
   }
   .viz-lane[data-active] {
-    border-color: var(--accent);
+    border-color: var(--lu-violet);
   }
   .viz-lane-head {
     display: flex;
     gap: 8px;
     margin-bottom: 6px;
     font-size: 12px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-lane-items {
     display: flex;
@@ -1852,32 +1973,31 @@
     gap: 4px;
     padding: 4px 10px;
     border-radius: 999px;
-    background: var(--sunk);
+    background: var(--lu-surface-2);
     font-size: 13px;
     font-weight: 600;
   }
   .viz-fruit-emoji {
-    font-size: 18px;
-    line-height: 1;
+    display: grid;
   }
   .viz-fruit[data-current] {
-    box-shadow: 0 0 0 2px var(--accent);
-    background: var(--accent-soft);
+    box-shadow: 0 0 0 2px var(--lu-violet);
+    background: var(--lu-violet-soft);
   }
   .viz-fruit[data-rejected] {
     text-decoration: line-through;
   }
   .viz-fruit-x {
-    color: var(--red);
+    color: var(--lu-red-ink);
   }
   .viz-pipe {
     padding: 0 10px;
     font-size: 12px;
-    color: var(--t3);
+    color: var(--lu-text-3);
     transition: color 200ms;
   }
   .viz-pipe[data-on] {
-    color: var(--accent);
+    color: var(--lu-violet-ink);
   }
   .viz-acc {
     display: flex;
@@ -1905,16 +2025,16 @@
     gap: 6px;
     min-height: 86px;
     padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--bg);
+    border: 2px solid var(--lu-border);
+    border-radius: var(--lu-r-lg);
+    background: var(--lu-bg);
     transition:
       border-color 200ms,
       box-shadow 200ms;
   }
   .viz-side-box[data-active] {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+    border-color: var(--lu-violet);
+    box-shadow: 0 0 0 3px var(--lu-violet-soft);
   }
   .viz-side-box .viz-muted {
     margin: 0;
@@ -1931,8 +2051,7 @@
     position: absolute;
     top: 8px;
     right: 10px;
-    font-size: 22px;
-    line-height: 1;
+    display: grid;
   }
   .viz-wire {
     display: grid;
@@ -1946,13 +2065,13 @@
     max-width: 100%;
     padding: 4px 10px;
     border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent);
+    background: var(--lu-violet-soft);
+    color: var(--lu-violet-ink);
     font-size: 12px;
   }
   .viz-msg[data-dir='out'] {
-    background: var(--green-bg);
-    color: var(--green);
+    background: var(--lu-green-soft);
+    color: var(--lu-green-ink);
   }
 
   /* ── /viz showcase ──────────────────────────────────── */
@@ -1971,17 +2090,27 @@
     font-weight: 700;
     margin: 0 0 4px;
   }
+  .viz-showcase-h,
+  .viz-showcase-toc .viz-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .viz-showcase-toc .viz-chip {
+    display: inline-flex;
+    gap: 5px;
+  }
   .viz-showcase-part {
     margin: 56px 0 0;
     padding-top: 20px;
-    border-top: 1px solid var(--rule);
+    border-top: 2px solid var(--lu-border);
     font-size: 26px;
     font-weight: 700;
   }
   .viz-showcase-meta {
     margin: 18px 0 -6px;
     font-size: 13px;
-    color: var(--t2);
+    color: var(--lu-text-2);
   }
   .viz-showcase-meta code {
     font-size: 12px;
@@ -1991,5 +2120,15 @@
 @media (pointer: coarse) {
   .viz-chip {
     min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-loading {
+    animation: none;
+  }
+  :is(.viz-btn, .viz-action, .viz-fire, .viz-token),
+  :is(.viz-btn, .viz-action, .viz-fire)::before {
+    transition: none;
   }
 }

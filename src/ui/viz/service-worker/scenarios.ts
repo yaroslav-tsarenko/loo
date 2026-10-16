@@ -1,4 +1,4 @@
-import { tok, type Frame, type StepScenario, type Token } from '../engine/types'
+import { itok, type Frame, type StepScenario, type Token } from '../engine/types'
 import type { SwState } from './lifecycle'
 
 export interface SwWorker {
@@ -27,13 +27,13 @@ export interface SwFrame extends Frame {
 const v1 = (state: SwState): SwWorker => ({ id: 'v1', label: 'sw.js v1', state })
 const v2 = (state: SwState): SwWorker => ({ id: 'v2', label: 'sw.js v2', state })
 const tab = (id: string, controller: string | null): SwTab => ({ id, label: `Вкладка ${id}`, controller })
-const C1 = tok('static-v1', '🗄️ static-v1', '/, /app.js')
-const C2 = tok('static-v2', '🗄️ static-v2', '/, /app.js')
+const C1 = itok('px:database', 'static-v1', 'static-v1', '/, /app.js')
+const C2 = itok('px:database', 'static-v2', 'static-v2', '/, /app.js')
 
-const code = `// 📄 page.js
+const code = `// page.js
 navigator.serviceWorker.register('/sw.js')
 
-// ⚙️ sw.js
+// sw.js
 const CACHE = 'static-v1'
 
 self.addEventListener('install', (event) => {

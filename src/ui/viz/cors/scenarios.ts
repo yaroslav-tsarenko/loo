@@ -31,11 +31,11 @@ const res1 = msg('res1', 'res', '200 OK', [h('Content-Type', 'application/json',
 const req2 = getReq('req2')
 const res2 = msg('res2', 'res', '200 OK', [h('Content-Type', 'application/json', 'muted'), h('Access-Control-Allow-Origin', ORIGIN, 'ok'), h('Vary', 'Origin', 'new')], { body: '{ "items": 3 }' })
 
-const simpleCode = `// 🖥️ сторінка https://app.example
+const simpleCode = `// сторінка https://app.example
 const res = await fetch('https://api.example/data')
 const data = await res.json()
 
-// 🗄️ сервер https://api.example (Express)
+// сервер https://api.example (Express)
 app.get('/data', (req, res) => {
   res.set('Access-Control-Allow-Origin', 'https://app.example')
   res.set('Vary', 'Origin')
@@ -82,7 +82,7 @@ const put = putReq('put')
 const putOk = putRes('put-res')
 const putStar = msg('put-star', 'res', '200 OK', [h('Access-Control-Allow-Origin', '*', 'bad'), h('Content-Type', 'application/json', 'muted')], { body: '{"id":1,"done":true}' })
 
-const preflightCode = `// 🖥️ сторінка https://app.example
+const preflightCode = `// сторінка https://app.example
 await fetch('https://api.example/todos/1', {
   method: 'PUT',
   headers: {

@@ -3,7 +3,7 @@
 import { AnimatePresence, m } from 'motion/react'
 import { RotateCcw } from 'lucide-react'
 import { useState } from 'react'
-import { ConsolePanel, Panel, SPRING } from '../engine/Panel'
+import { ConsolePanel, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { FIRST, PRESETS, QUESTIONS, RESULTS, isResult, type QuestionId, type ResultId } from './rules'
@@ -90,7 +90,7 @@ function RulesTree() {
             <m.div key={outcome.id + String(preset)} className="viz-result" initial={{ opacity: 0, y: 10, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1, transition: { ...SPRING, delay: preset !== null ? path.length * 0.08 : 0 } }} exit={{ opacity: 0, y: -6 }}>
               <div className="viz-result-head">
                 <span className="viz-result-emoji" aria-hidden="true">
-                  {outcome.emoji}
+                  <VizGlyph icon={outcome.icon} size={28} />
                 </span>
                 <div>
                   <div className="viz-result-title">{outcome.title}</div>
@@ -131,7 +131,7 @@ function RulesTree() {
 
 function ThisCard({ frame }: { frame: ThisFrame }) {
   return (
-    <Panel title="this у цьому виклику" emoji="🎯">
+    <Panel title="this у цьому виклику" icon="px:target">
       <AnimatePresence mode="wait" initial={false}>
         <m.div key={`${frame.call ?? ''}|${frame.thisValue ?? ''}|${frame.line}`} className="viz-this" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={SPRING}>
           {frame.call ? (

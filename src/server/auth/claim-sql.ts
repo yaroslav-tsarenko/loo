@@ -25,6 +25,7 @@ export const CLAIM_TABLES: ReadonlyArray<{ table: string; keys: readonly string[
   // Phase 4 game layer
   { table: 'user_state', keys: [] },
   { table: 'gem_ledger', keys: ['reason', 'ref_id'] },
+  { table: 'buck_ledger', keys: ['reason', 'ref_id'] },
   { table: 'inventory', keys: ['item_id'] },
   { table: 'frozen_days', keys: ['day'] },
   { table: 'league_members', keys: ['week'] },

@@ -25,21 +25,32 @@ icon: "✅"
 
 TodoMVC-подібний список: додати, відмітити, перейменувати, видалити, фільтри «всі / активні / виконані», лічильник, «очистити виконані», undo/redo і збереження між перезавантаженнями. Ядро — **чисті функції** над масивом задач; зверху — фасад, який склеює їх зі сховищем та історією.
 
-```text
-                 ┌───────────── createTodoApp ─────────────┐
- UI (DOM) ──────▶│ dispatch({ type: 'add', title })        │
-   ▲             │      │                                   │
-   │             │      ▼                                   │
-   │             │ чисті функції: addTodo / toggleTodo /    │
-   │             │ removeTodo / renameTodo / clearDone      │
-   │             │      │ новий масив (або той самий)       │
-   │             │      ▼                                   │
-   │             │ history.push ──▶ saveTodos(storage) ─────┼──▶ storage-адаптер
-   │             │      │                                   │    (localStorage | Map)
-   └─subscribe───┼── notify(getState()) ◀── filterTodos,    │
-                 │                          getStats        │
-                 └─────────────────────────────────────────┘
-```
+> [!diagram] createTodoApp: шлях однієї дії
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: ui, label: "UI (DOM)", text: "0 задач", tone: blue, icon: "px:monitor" }
+>   - { id: dispatch, label: "createTodoApp · dispatch", code: "dispatch(action)", tone: violet }
+>   - { id: pure, label: "чисті функції", code: "addTodo / toggleTodo /\nremoveTodo / renameTodo /\nclearDone", tone: mint }
+>   - { id: history, label: "history.push", text: "past: 0", tone: yellow, icon: "px:hourglass" }
+>   - { id: storage, label: "saveTodos(storage) → адаптер", text: "localStorage | Map", tone: gray, icon: "px:database" }
+>   - { id: notify, label: "notify(getState())", text: "filterTodos, getStats", tone: green }
+> edges:
+>   - { from: ui, to: dispatch, label: "dispatch" }
+>   - { from: dispatch, to: pure, label: "action" }
+>   - { from: pure, to: history, label: "новий масив" }
+>   - { from: history, to: storage, label: "зберегти" }
+>   - { from: storage, to: notify, label: "сповістити" }
+>   - { from: notify, to: ui, label: "subscribe", dashed: true }
+> steps:
+>   - { move: { from: ui, to: dispatch, value: "{ type: 'add', title: 'Купити хліб' }" }, note: "Користувач додає задачу. UI нічого не змінює сам — лише надсилає дію у фасад через dispatch." }
+>   - { move: { from: dispatch, to: pure, value: "addTodo(todos, 'Купити хліб')" }, note: "Фасад за type обирає чисту функцію. addTodo не чіпає старий масив, а повертає новий: [{ id: 1, title: 'Купити хліб', done: false }]." }
+>   - { move: { from: pure, to: history, value: "next" }, set: { history: "past: 1 · canUndo" }, note: "next !== prev — отже щось справді змінилось. Попередній стан іде в історію, тепер можна undo." }
+>   - { move: { from: history, to: storage, value: "JSON.stringify" }, set: { storage: "збережено 1 задачу" }, note: "saveTodos пише масив через адаптер. Фасаду байдуже, що там — localStorage у браузері чи Map у тестах." }
+>   - { set: { notify: "stats: { total: 1, active: 1, done: 0 }", ui: "1 задача" }, focus: [notify, ui], note: "Наостанок notify(getState()): кожен слухач із subscribe отримує новий стан, і UI перемальовується." }
+>   - { move: [{ from: ui, to: dispatch, value: "{ type: 'toggle', id: 42 }" }, { from: dispatch, to: pure, value: "toggleTodo(todos, 42)" }], note: "А тепер дія, яка нічого не змінює: задачі з id 42 немає." }
+>   - { focus: pure, note: "toggleTodo повертає той самий масив. next === prev — тож ні історії, ні запису в сховище, ні перемальовки. Одна дешева перевірка === економить усю роботу." }
+> ```
 
 Ключова ідея: **кожна зміна повертає новий масив, а «нічого не змінилось» — той самий масив**. Тоді фасаду досить перевірити `next === prev`, щоб не писати в сховище, не засмічувати історію і не перемальовувати UI.
 

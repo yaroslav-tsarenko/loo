@@ -1,5 +1,7 @@
 /*
-  Levelup design tokens. Namespaced `--lu-*` so legacy screens keep their Notion-era variables.
+  Levelup design tokens — «Loo Pixel-soft» (docs/DESIGN.md).
+  Light = lavender paper around violet Loo; dark = «night arcade». Pixel is an accent (stepped-corner buttons,
+  segmented bars, the pixel face only on the logo and stat counters) — text stays in Onest.
   Light/dark via light-dark(): follows `color-scheme` set by :root[data-theme] in globals.css.
   The build (Lightning CSS) polyfills light-dark() with per-rule variables, so tokens resolve where they
   are declared. To force a scheme on a subtree use .lu-scheme-light / .lu-scheme-dark (they re-declare tokens).
@@ -13,47 +15,61 @@
 :root,
 .lu-scheme-light,
 .lu-scheme-dark {
-  /* Brand palette — saturated game colors. `-lip` is the darker 3D edge, `-soft` a tinted surface, `-ink` readable text. */
-  --lu-green: #58cc02;
-  --lu-green-lip: #46a302;
-  --lu-green-hover: #61e002;
-  --lu-green-soft: light-dark(#e3fbd0, #1c3313);
-  --lu-green-ink: light-dark(#3f8f00, #7fe03a);
+  /* Brand: violet is Loo's colour and the primary action. `-lip` = darker 3D edge, `-soft` = tinted surface, `-ink` = readable text. */
+  --lu-violet: light-dark(#7c4dff, #8c69ff);
+  --lu-violet-lip: light-dark(#5a30d6, #5b3bcc);
+  --lu-violet-hover: light-dark(#8b60ff, #9a7cff);
+  --lu-violet-soft: light-dark(#efe8ff, #2a2152);
+  --lu-violet-ink: light-dark(#5b33d9, #c4b2ff);
 
-  --lu-blue: #1cb0f6;
-  --lu-blue-lip: #1592cf;
-  --lu-blue-hover: #3cbdf8;
-  --lu-blue-soft: light-dark(#ddf4ff, #10303f);
-  --lu-blue-ink: light-dark(#1286c2, #5ccaff);
+  /* Mint: Loo's sidekick accent (secondary actions, highlights). Dark text on it — white fails contrast. */
+  --lu-mint: light-dark(#2dd4bf, #4fe3cc);
+  --lu-mint-lip: light-dark(#14a897, #23ab98);
+  --lu-mint-hover: light-dark(#45dcc9, #66ead6);
+  --lu-mint-soft: light-dark(#dcfaf4, #12383a);
+  --lu-mint-ink: light-dark(#0b8273, #7ff0dd);
+  --lu-on-mint: #053b34;
 
-  --lu-red: #ff4b4b;
-  --lu-red-lip: #e02f2f;
-  --lu-red-hover: #ff6262;
-  --lu-red-soft: light-dark(#ffe1e1, #3d1a1c);
-  --lu-red-ink: light-dark(#e02f2f, #ff7a7a);
+  --lu-green: light-dark(#22b56c, #2cc47a);
+  --lu-green-lip: light-dark(#178a51, #1b8f56);
+  --lu-green-hover: light-dark(#27c478, #36d386);
+  --lu-green-soft: light-dark(#ddf7e8, #14331f);
+  --lu-green-ink: light-dark(#128048, #5fe09a);
 
-  --lu-yellow: #ffc800;
-  --lu-yellow-lip: #e0a800;
-  --lu-yellow-hover: #ffd233;
-  --lu-yellow-soft: light-dark(#fff6d1, #3a3112);
-  --lu-yellow-ink: light-dark(#b88600, #ffd84d);
+  --lu-blue: light-dark(#3b9eff, #4aa8ff);
+  --lu-blue-lip: light-dark(#2179d6, #2a7fd6);
+  --lu-blue-hover: light-dark(#55abff, #64b5ff);
+  --lu-blue-soft: light-dark(#e1f0ff, #132c47);
+  --lu-blue-ink: light-dark(#1a6fc4, #7fbfff);
 
-  --lu-orange: #ff9600;
-  --lu-orange-lip: #db7a00;
-  --lu-orange-hover: #ffa623;
-  --lu-orange-soft: light-dark(#ffecd4, #3d2812);
-  --lu-orange-ink: light-dark(#cc6f00, #ffb04d);
+  --lu-red: light-dark(#ff5a6e, #ff6679);
+  --lu-red-lip: light-dark(#d93c52, #d1435a);
+  --lu-red-hover: light-dark(#ff7083, #ff7d8d);
+  --lu-red-soft: light-dark(#ffe5e9, #3f1a24);
+  --lu-red-ink: light-dark(#d12e47, #ff8a99);
 
-  --lu-purple: #ce82ff;
-  --lu-purple-lip: #a85fe0;
-  --lu-purple-hover: #d899ff;
-  --lu-purple-soft: light-dark(#f4e6ff, #2f2140);
-  --lu-purple-ink: light-dark(#9a4fd6, #dca6ff);
+  --lu-yellow: light-dark(#ffc23d, #ffc94f);
+  --lu-yellow-lip: light-dark(#db9b12, #d39c1c);
+  --lu-yellow-hover: light-dark(#ffcc5c, #ffd36b);
+  --lu-yellow-soft: light-dark(#fff4d6, #3a3015);
+  --lu-yellow-ink: light-dark(#a77300, #ffd66b);
 
-  --lu-pink: #ff86d0;
-  --lu-pink-lip: #e566b5;
-  --lu-pink-soft: light-dark(#ffe6f5, #3b1f31);
-  --lu-pink-ink: light-dark(#d23f9b, #ff9fda);
+  --lu-orange: light-dark(#ff8a3d, #ff9550);
+  --lu-orange-lip: light-dark(#db6a1f, #d56f2a);
+  --lu-orange-hover: light-dark(#ff9a57, #ffa569);
+  --lu-orange-soft: light-dark(#ffebdc, #3e2615);
+  --lu-orange-ink: light-dark(#c25a12, #ffae73);
+
+  --lu-purple: light-dark(#b57bff, #c08eff);
+  --lu-purple-lip: light-dark(#8f55e0, #9161d6);
+  --lu-purple-hover: light-dark(#c290ff, #cba1ff);
+  --lu-purple-soft: light-dark(#f3e8ff, #2e1f45);
+  --lu-purple-ink: light-dark(#8743d6, #d3aeff);
+
+  --lu-pink: light-dark(#ff7ac0, #ff86c6);
+  --lu-pink-lip: light-dark(#e0559e, #d65c9f);
+  --lu-pink-soft: light-dark(#ffe6f3, #3d1d33);
+  --lu-pink-ink: light-dark(#cc3b87, #ff9ed2);
 
   /* Loo «Пружинка» — mirrored by LOO_COLORS in src/ui/design/mascot/pixels.ts (the pixels need literal hex) */
   --lu-loo: #8b5cf6;
@@ -65,26 +81,28 @@
   --lu-loo-glow: #fde68a;
   --lu-loo-cheek: #f9a8d4;
 
-  /* Neutrals. Dark canvas matches the legacy --bg so the reader and the shell sit on one surface. */
-  --lu-bg: light-dark(#ffffff, #191919);
-  --lu-bg-sunk: light-dark(#f7f7f7, #141414);
-  --lu-surface: light-dark(#ffffff, #202224);
-  --lu-surface-2: light-dark(#f7f7f7, #2a2d30);
-  --lu-surface-3: light-dark(#efefef, #33373a);
-  --lu-border: light-dark(#e5e5e5, #363a3e);
-  --lu-border-strong: light-dark(#d4d4d4, #474c51);
-  --lu-text: light-dark(#3c3c3c, #f1f4f6);
-  --lu-text-2: light-dark(#777777, #a7b0b6);
-  --lu-text-3: light-dark(#afafaf, #6e777d);
+  /* Neutrals — every grey is tinted toward Loo's violet. */
+  --lu-bg: light-dark(#f6f3ff, #16112b);
+  --lu-bg-sunk: light-dark(#efeafc, #110d22);
+  --lu-surface: light-dark(#ffffff, #1e1838);
+  --lu-surface-2: light-dark(#f8f5ff, #261f45);
+  --lu-surface-3: light-dark(#ece6fb, #302855);
+  --lu-border: light-dark(#e3dbf7, #342b5c);
+  --lu-border-strong: light-dark(#cbbfeb, #4a3f7a);
+  --lu-text: light-dark(#2a2145, #eeeaff);
+  --lu-text-2: light-dark(#655a85, #b0a6d6);
+  --lu-text-3: light-dark(#a398c2, #7b71a3);
   --lu-on-color: #ffffff;
-  --lu-hover: light-dark(rgb(0 0 0 / 0.04), rgb(255 255 255 / 0.05));
-  --lu-press: light-dark(rgb(0 0 0 / 0.08), rgb(255 255 255 / 0.09));
-  --lu-scrim: rgb(0 0 0 / 0.5);
+  --lu-hover: light-dark(rgb(124 77 255 / 0.06), rgb(196 178 255 / 0.07));
+  --lu-press: light-dark(rgb(124 77 255 / 0.12), rgb(196 178 255 / 0.12));
+  --lu-scrim: light-dark(rgb(42 33 69 / 0.45), rgb(8 5 20 / 0.7));
+  /* Canvas pattern: a faint pixel-dot grid behind the app (body) */
+  --lu-dot: light-dark(rgb(124 77 255 / 0.1), rgb(196 178 255 / 0.07));
 
   /* Semantic aliases */
-  --lu-primary: var(--lu-green);
-  --lu-primary-lip: var(--lu-green-lip);
-  --lu-accent: var(--lu-blue);
+  --lu-primary: var(--lu-violet);
+  --lu-primary-lip: var(--lu-violet-lip);
+  --lu-accent: var(--lu-mint);
   --lu-success: var(--lu-green);
   --lu-danger: var(--lu-red);
   --lu-warning: var(--lu-orange);
@@ -93,8 +111,12 @@
   --lu-heart: var(--lu-red);
   --lu-xp: var(--lu-yellow);
 
-  /* Typography — rounded display font for UI chrome; reader keeps --font-read */
-  --lu-font: var(--font-nunito), ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Typography: Onest for all text and numbers, JetBrains Mono for code. Pixelify Sans only in the wordmark. */
+  --lu-font: var(--font-onest), var(--font-emoji), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Former pixel display slot: counters/rewards now use heavy Onest (Pixelify at small sizes misreads 5→S, в→e). */
+  --lu-font-pixel: var(--lu-font);
+  --lu-font-logo: var(--font-pixel), var(--lu-font);
+  --lu-font-mono: var(--font-jbmono), ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   --lu-fs-2xs: 11px;
   --lu-fs-xs: 13px;
   --lu-fs-sm: 15px;
@@ -103,8 +125,8 @@
   --lu-fs-xl: 23px;
   --lu-fs-2xl: 28px;
   --lu-fs-3xl: 36px;
-  --lu-fw-bold: 800;
-  --lu-fw-black: 900;
+  --lu-fw-bold: 700;
+  --lu-fw-black: 800;
   --lu-tracking-caps: 0.06em;
 
   /* Spacing (4px grid) */
@@ -118,21 +140,25 @@
   --lu-s-10: 40px;
   --lu-s-12: 48px;
 
-  /* Radii */
-  --lu-r-xs: 6px;
-  --lu-r-sm: 10px;
-  --lu-r: 14px;
-  --lu-r-lg: 18px;
-  --lu-r-xl: 24px;
+  /* Radii — tighter than a typical rounded UI: blocks, not bubbles */
+  --lu-r-xs: 4px;
+  --lu-r-sm: 8px;
+  --lu-r: 10px;
+  --lu-r-lg: 14px;
+  --lu-r-xl: 20px;
   --lu-r-pill: 999px;
 
-  /* 3D lip: a solid offset shadow in the darker shade; pressed state drops by --lu-lip */
+  /* Pixel step for stepped corners (.lu-btn, .lu-px): two steps of this size per corner */
+  --lu-px: 3px;
+
+  /* 3D lip: a solid offset in the darker shade; pressed state drops by --lu-lip */
   --lu-lip: 4px;
   --lu-lip-sm: 3px;
   --lu-border-w: 2px;
   --lu-shadow-lip: 0 var(--lu-lip) 0 var(--lu-lip-color, var(--lu-border));
-  --lu-shadow-pop: 0 0 0 2px var(--lu-border), 0 12px 32px light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.5));
-  --lu-focus: 0 0 0 3px var(--lu-bg), 0 0 0 5px light-dark(rgb(28 176 246 / 0.75), rgb(92 202 255 / 0.85));
+  --lu-shadow-pop: 0 0 0 2px var(--lu-border), 0 12px 32px light-dark(rgb(42 33 69 / 0.14), rgb(0 0 0 / 0.5));
+  --lu-focus-color: light-dark(rgb(124 77 255 / 0.7), rgb(196 178 255 / 0.85));
+  --lu-focus: 0 0 0 3px var(--lu-bg), 0 0 0 5px var(--lu-focus-color);
 
   /* Hit target */
   --lu-target: 44px;
@@ -141,6 +167,7 @@
   --lu-ease: cubic-bezier(0.2, 0, 0, 1);
   --lu-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --lu-ease-spring: cubic-bezier(0.5, 1.8, 0.4, 0.8);
+  --lu-ease-step: steps(4, jump-end);
   --lu-dur-1: 90ms;
   --lu-dur-2: 160ms;
   --lu-dur-3: 280ms;

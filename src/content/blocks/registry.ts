@@ -1,3 +1,4 @@
+import { diagramDefinition } from './diagram/definition'
 import { exampleStyle } from './example/style'
 import { figureDefinition } from './figure/definition'
 import { importantStyle } from './important/style'
@@ -18,7 +19,7 @@ import { warningStyle } from './warning/style'
 
 const unitDefinitions: readonly UnitDefinition[] = [questionDefinition, quizDefinition, taskDefinition, interviewDefinition]
 
-const renderBlocks: readonly RenderBlockDefinition[] = [vizDefinition, figureDefinition]
+const renderBlocks: readonly RenderBlockDefinition[] = [vizDefinition, figureDefinition, diagramDefinition]
 
 const calloutStyles: readonly CalloutStyle[] = [
   tipStyle,

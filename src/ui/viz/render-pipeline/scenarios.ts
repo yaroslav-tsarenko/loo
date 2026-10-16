@@ -75,20 +75,20 @@ const frame: StepScenario<RenderFrame> = {
     { line: 11, prop: 'width', stages: triggers(['style', 'layout', 'paint', 'composite']), blocks: [b('js', 'js', 0.4), b('style', 'style', 1.2), b('layout', 'layout', 3.4), b('paint', 'paint', 2.2), b('composite', 'composite', 0.9)], thread: 'main', note: 'width змінює геометрію: потрібні Layout, Paint і Composite. Найдорожчий шлях — особливо коли зміна зачіпає багато елементів.' },
     { line: 12, prop: 'color', stages: triggers(['style', 'paint', 'composite']), blocks: [b('js', 'js', 0.4), b('style', 'style', 1), b('paint', 'paint', 2.2), b('composite', 'composite', 0.9)], thread: 'main', note: 'color не впливає на геометрію: Layout пропускається, але пікселі треба перемалювати — лишаються Paint і Composite.' },
     { line: 13, prop: 'transform', stages: triggers(['style', 'composite']), blocks: [b('js', 'js', 0.4), b('style', 'style', 0.6), b('composite', 'composite', 0.9)], thread: 'compositor', note: 'transform і opacity елемента на власному шарі не потребують ні Layout, ні Paint: композитор лише зсуває готовий шар. CSS-анімації цих властивостей ідуть на compositor-потоці, навіть коли головний зайнятий.' },
-    { line: null, stages: upTo('composite'), blocks: [fIn, b('heavy', 'js', 13), fStyle, fLayout, fPaint, fComp], thread: 'main', warn: '⚠️ Кадр не вклався в 16.7 мс — jank', note: 'Якщо JS разом із рендерингом не вкладається в 16.7 мс, кадр пропускається — це jank. Тому анімують transform/opacity, а важку роботу дроблять.' },
+    { line: null, stages: upTo('composite'), blocks: [fIn, b('heavy', 'js', 13), fStyle, fLayout, fPaint, fComp], thread: 'main', warn: 'Кадр не вклався в 16.7 мс — jank', note: 'Якщо JS разом із рендерингом не вкладається в 16.7 мс, кадр пропускається — це jank. Тому анімують transform/opacity, а важку роботу дроблять.' },
   ],
 }
 
 // ── layout-thrashing ─────────────────────────────────────────────
 const thrashCode = `const items = document.querySelectorAll('.item') // 4 шт.
 
-// ❌ читання і запис упереміш
+// ✗ читання і запис упереміш
 for (const el of items) {
   const h = el.offsetHeight         // читання геометрії
   el.style.height = h + 10 + 'px'   // запис → layout «брудний»
 }
 
-// ✅ спершу всі читання, потім усі записи
+// ✓ спершу всі читання, потім усі записи
 const heights = [...items].map((el) => el.offsetHeight)
 items.forEach((el, i) => {
   el.style.height = heights[i] + 10 + 'px'
@@ -99,7 +99,7 @@ const r = (n: number) => b(`r${n}`, 'js', 0.3)
 const w = (n: number) => b(`w${n}`, 'js', 0.2)
 const forced = (n: number) => b(`forced${n}`, 'forced', FORCED)
 const render = [b('style', 'style', 1), b('layout', 'layout', FORCED), b('paint', 'paint', 2), b('composite', 'composite', 0.9)]
-const WARN = '⚠️ Forced reflow'
+const WARN = 'Forced reflow'
 const loop4 = [r(1), w(1), forced(2), r(2), w(2), forced(3), r(3), w(3), forced(4), r(4), w(4)]
 const batched = [b('reads', 'js', 0.8), b('writes', 'js', 0.6)]
 

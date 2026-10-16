@@ -2,15 +2,21 @@
 
 import { AnimatePresence, m } from 'motion/react'
 import type { ReactNode } from 'react'
-import type { Token } from './types'
+import { Icon } from '@/ui/icons/Icon'
+import type { Token, VizIcon } from './types'
 
 export const SPRING = { type: 'spring' as const, stiffness: 380, damping: 32, mass: 0.8 }
 
-export function Panel({ title, emoji, hint, tone, className, children }: { title: string; emoji?: string; hint?: string; tone?: string; className?: string; children: ReactNode }) {
+// Inline icon for scene props and marks; decorative unless `label` is set.
+export function VizGlyph({ icon, size = 16, label }: { icon: VizIcon; size?: number; label?: string }) {
+  return <Icon name={icon} size={size} label={label} className="viz-ic" />
+}
+
+export function Panel({ title, icon, hint, tone, className, children }: { title: string; icon?: VizIcon; hint?: ReactNode; tone?: string; className?: string; children: ReactNode }) {
   return (
     <section className={`viz-panel${className ? ` ${className}` : ''}`} data-tone={tone} aria-label={title}>
       <header className="viz-panel-head">
-        {emoji ? <span aria-hidden="true">{emoji}</span> : null}
+        {icon ? <VizGlyph icon={icon} /> : null}
         <span>{title}</span>
         {hint ? <span className="viz-panel-hint">{hint}</span> : null}
       </header>
@@ -53,7 +59,10 @@ export function TokenList({
             exit={{ opacity: 0, scale: 0.85 }}
             transition={SPRING}
           >
-            <span className="viz-token-label">{t.label}</span>
+            <span className="viz-token-label">
+              {t.icon ? <VizGlyph icon={t.icon} size={14} /> : null}
+              {t.label}
+            </span>
             {t.hint ? <span className="viz-token-hint">{t.hint}</span> : null}
           </m.div>
         ))}
@@ -65,7 +74,7 @@ export function TokenList({
 
 export function ConsolePanel({ lines, error }: { lines: readonly string[]; error?: string | null }) {
   return (
-    <Panel title="Console" emoji="🖥️" className="viz-console">
+    <Panel title="Console" icon="px:monitor" className="viz-console">
       <div className="viz-console-lines" role="log" aria-label="Вивід консолі">
         <AnimatePresence initial={false}>
           {lines.map((line, i) => (

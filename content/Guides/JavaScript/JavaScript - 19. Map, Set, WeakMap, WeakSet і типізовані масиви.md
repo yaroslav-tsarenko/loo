@@ -189,11 +189,31 @@ console.log([...s]); // → [1, 2, 3, 4, 5, 6] — нові елементи т�
 
 `WeakMap` — словник, у якому **ключ не утримує об'єкт від збирання сміття**. Ключі — лише об'єкти (або незареєстровані символи). Коли на об'єкт-ключ більше немає інших посилань, GC прибирає і його, і відповідне значення (так звана *ephemeron*-семантика: значення живе, поки живий ключ).
 
-```text
-   Map                                   WeakMap
-   map ──strong──► key ──► value         wm ┄┄weak┄┄► key ──► value
-   (key живе, поки живе map)             (key живе, лише поки на нього є ІНШІ посилання)
-```
+> [!diagram] Map vs WeakMap: хто тримає ключ живим
+> ```yaml
+> layout: compare
+> columns: { map: "Map", weak: "WeakMap" }
+> nodes:
+>   - { id: m, col: map, label: "map", code: "map.set(key, 'дані')", tone: violet }
+>   - { id: mk, col: map, label: "ключ", text: "{ id: 1 }", tone: blue }
+>   - { id: mv, col: map, label: "значення", text: "'дані'", tone: yellow }
+>   - { id: mvar, col: map, label: "наша змінна", text: "key → { id: 1 }", tone: gray }
+>   - { id: w, col: weak, label: "wm", code: "wm.set(key, 'дані')", tone: mint }
+>   - { id: wk, col: weak, label: "ключ", text: "{ id: 1 }", tone: blue }
+>   - { id: wv, col: weak, label: "значення", text: "'дані'", tone: yellow }
+>   - { id: wvar, col: weak, label: "наша змінна", text: "key → { id: 1 }", tone: gray }
+> edges:
+>   - { from: m, to: mk, label: "strong" }
+>   - { from: mk, to: mv }
+>   - { from: w, to: wk, label: "weak", dashed: true }
+>   - { from: wk, to: wv }
+> steps:
+>   - { focus: [mk, wk, mvar, wvar], note: "Один і той самий обʼєкт { id: 1 } поклали ключем і в Map, і в WeakMap. Поки що на нього посилається ще й наша змінна key." }
+>   - { set: { mvar: "key = null", wvar: "key = null" }, note: "Прибираємо своє посилання: key = null. Інших посилань у коді більше немає." }
+>   - { set: { mk: "{ id: 1 } — живий" }, focus: [m, mk], note: "Map тримає ключ сильним посиланням — обʼєкт досяжний, GC його не чіпає. Витік, якщо map живе довго." }
+>   - { hide: [wk, wv], focus: w, note: "WeakMap посилається слабко: інших посилань немає — GC прибирає і ключ, і значення (ephemeron)." }
+>   - { focus: [m, w], note: "Тому в WeakMap немає size, keys() чи ітерації: результат залежав би від того, чи встиг пройти GC." }
+> ```
 
 > [!viz] gc
 > scenario: reachability

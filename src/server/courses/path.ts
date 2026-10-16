@@ -21,7 +21,7 @@ export interface CoursePath {
   bundle: CourseBundle
   view: CoursePathView
   mastery: Map<string, TopicMastery>
-  // 📖 theory target per chapter (the guide reader)
+  // theory target per chapter (the guide reader)
   theoryHref: Map<string, string>
 }
 

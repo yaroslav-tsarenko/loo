@@ -1,27 +1,19 @@
 import { z } from 'zod'
-import { levelForm, levelLabel, LOO_FORM_EMOJI } from '@/game/evolution'
+import { levelLabel } from '@/game/evolution'
 
 // Course difficulty ladder. Legacy guide levels (junior/middle/senior/techlead) map onto it.
 export const LEVELS = ['noob', 'junior', 'middle', 'senior', 'god'] as const
 export type Level = (typeof LEVELS)[number]
 export const LevelSchema = z.enum(LEVELS)
 
-// One difficulty scale: ids stay noob…god internally, every label is the matching Loo form (src/game/evolution.ts):
-// noob → Піксель, junior → Блок, middle → Ламповий, senior → Броньований, god → Легендарний.
+// One difficulty scale: ids stay noob…god internally, every label is the matching IT rank (src/game/evolution.ts):
+// noob → Trainee, junior → Junior, middle → Middle, senior → Senior, god → Principal.
 export const LEVEL_LABEL: Record<Level, string> = {
   noob: levelLabel('noob'),
   junior: levelLabel('junior'),
   middle: levelLabel('middle'),
   senior: levelLabel('senior'),
   god: levelLabel('god'),
-}
-
-export const LEVEL_EMOJI: Record<Level, string> = {
-  noob: LOO_FORM_EMOJI[levelForm('noob')],
-  junior: LOO_FORM_EMOJI[levelForm('junior')],
-  middle: LOO_FORM_EMOJI[levelForm('middle')],
-  senior: LOO_FORM_EMOJI[levelForm('senior')],
-  god: LOO_FORM_EMOJI[levelForm('god')],
 }
 
 const LEGACY: Record<string, Level> = {

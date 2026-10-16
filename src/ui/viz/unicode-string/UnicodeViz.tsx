@@ -2,7 +2,7 @@
 
 import { m } from 'motion/react'
 import { useState } from 'react'
-import { Panel, SPRING } from '../engine/Panel'
+import { Panel, SPRING, VizGlyph } from '../engine/Panel'
 import type { VizProps } from '../engine/types'
 import { MAX_INPUT, UNICODE_PRESETS, analyze, visible, type Grapheme } from './analyze'
 
@@ -127,7 +127,7 @@ export function UnicodeViz(_props: VizProps) {
         </div>
       </div>
 
-      <Panel title="Графема → code points → UTF-16 → UTF-8" emoji="🔬" hint={a.text ? undefined : 'порожній рядок'}>
+      <Panel title="Графема → code points → UTF-16 → UTF-8" icon="pi:PiMicroscopeFill" hint={a.text ? undefined : 'порожній рядок'}>
         <div className="viz-uni-legend" aria-hidden="true">
           <span data-tone="cps">U+… code point</span>
           <span data-tone="units">UTF-16 unit</span>
@@ -141,7 +141,7 @@ export function UnicodeViz(_props: VizProps) {
         </ul>
       </Panel>
 
-      <Panel title="Що ріже рядок" emoji="✂️">
+      <Panel title="Що ріже рядок" icon="pi:PiScissorsFill">
         <ul className="viz-uni-ops">
           <li>
             <code>s.split(&apos;&apos;)</code>
@@ -168,7 +168,7 @@ export function UnicodeViz(_props: VizProps) {
         </ul>
       </Panel>
 
-      <Panel title="Нормалізація" emoji="🧽">
+      <Panel title="Нормалізація" icon="pi:PiSparkleFill">
         <ul className="viz-fp-facts">
           <li>
             <code>s.normalize(&apos;NFC&apos;).length</code> <strong>{a.nfc.length}</strong>
@@ -195,7 +195,7 @@ export function UnicodeViz(_props: VizProps) {
 
       {preset ? (
         <p className="viz-note viz-fp-insight">
-          <span aria-hidden="true">💡</span> {preset.insight}
+          <VizGlyph icon="px:bulb" /> {preset.insight}
         </p>
       ) : null}
     </div>

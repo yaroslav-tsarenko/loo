@@ -6,6 +6,7 @@ import { isNewsTag, NEWS_TAGS, primaryTag, sourceLabel, TAG_META, type NewsTag }
 import { nowMs } from '@/server/clock'
 import { count, relative } from '@/ui/format'
 import { safeExternalUrl } from '@/lib/url'
+import { Icon } from '@/ui/icons/Icon'
 import { NewsRow } from '@/ui/news/NewsRow'
 import { RefreshNews } from '@/ui/news/RefreshNews'
 
@@ -58,7 +59,10 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
   return (
     <div className="page news-page">
       <header className="news-head">
-        <h1 className="page-title">📰 Що нового в JS</h1>
+        <h1 className="page-title">
+          <Icon name="pi:PiNewspaperFill" size={36} className="page-title-icon" />
+          Що нового в JS
+        </h1>
         <p className="page-lead">Щоденна добірка з Hacker News, Reddit, dev.to, блогів V8, Node.js, TypeScript, React, Chrome і релізів на GitHub. Корисне для росту — вище, шум — нижче.</p>
         <div className="news-toolbar">
           <span className="unit-meta">
@@ -85,7 +89,7 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
           </Link>
           {NEWS_TAGS.filter((t) => tagCounts.has(t)).map((t) => (
             <Link key={t} href={href(tab, t)} className="news-chip" aria-current={tag === t ? 'true' : undefined}>
-              <span aria-hidden="true">{TAG_META[t].emoji}</span> {TAG_META[t].label} <span className="tabular">{tagCounts.get(t)}</span>
+              <Icon name={TAG_META[t].icon} size={18} /> {TAG_META[t].label} <span className="tabular">{tagCounts.get(t)}</span>
             </Link>
           ))}
         </nav>
@@ -114,7 +118,7 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
                     id={item.id}
                     url={safeExternalUrl(item.url)}
                     title={item.title}
-                    emoji={TAG_META[t].emoji}
+                    icon={TAG_META[t].icon}
                     tagLabel={TAG_META[t].label}
                     summary={item.summary}
                     source={sourceLabel(item.source)}

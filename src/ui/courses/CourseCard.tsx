@@ -15,16 +15,16 @@ export interface CourseCardProps {
   active: boolean
 }
 
-// Marketplace card: bright cover with the course icon, level range, hours, sections; enroll / open CTA.
+// Marketplace card: a cover washed with the course colour and the course icon, level range, hours, sections; enroll / open CTA.
 export function CourseCard({ course, enrolled, active }: CourseCardProps) {
   const { meta, stats } = course
-  const style = { '--course-c': meta.color ?? 'var(--lu-green)' } as CSSProperties
+  const style = { '--course-c': meta.color ?? 'var(--lu-violet)' } as CSSProperties
   const paths = course.sections.filter((s) => s.kind === 'path').length
   return (
     <article className="course-card lu-card" data-variant="raised" style={style}>
       <Link href={`/courses/${course.id}`} className="course-card-cover" aria-label={`${meta.title} — сторінка курсу`}>
         <span className="course-card-icon" aria-hidden="true">
-          <Icon name={meta.icon ?? '📘'} size={56} />
+          <Icon name={meta.icon ?? 'px:book'} size={56} />
         </span>
         {enrolled ? (
           <span className="course-card-badge">
@@ -44,7 +44,7 @@ export function CourseCard({ course, enrolled, active }: CourseCardProps) {
           <Pill size="sm" tone="blue" icon={<PiClockFill />}>
             ~{Math.round(meta.estimatedHours)} год
           </Pill>
-          <Pill size="sm" tone="green" icon={<PiStackFill />}>
+          <Pill size="sm" tone="mint" icon={<PiStackFill />}>
             {count(paths, 'розділ', 'розділи', 'розділів')}
           </Pill>
         </div>

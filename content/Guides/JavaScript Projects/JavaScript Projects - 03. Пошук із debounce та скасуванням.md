@@ -25,32 +25,26 @@ icon: "🔎"
 
 Поле пошуку з автопідказками, яке поводиться як у хороших продуктах: не шле запит на кожну літеру, не блимає старими результатами, миттєво показує вже бачене і не ламається від повільної мережі.
 
-```text
- користувач друкує: r → re → rea → react
-        │
-        ▼
- setQuery(q) ── коротший за minLength? ──▶ idle, скасувати все
-        │
-        ├── є в кеші (normalizeQuery)? ──▶ success одразу, без мережі
-        │
-        ▼
- debounce(300 мс) ── «тиша» ──▶ run(q)
-                                  │
-                                  ▼
-                 takeLatest: abort() попереднього ──▶ AbortController
-                                  │                       │ signal
-                                  ▼                       ▼
-                       searchApi(fetcher, q, { signal }) ──▶ fetcher (ін'єкція)
-                                  │                         fetch | fake у тестах
-                                  ▼
-                 застаріла відповідь? ──▶ AbortError (ігноруємо)
-                                  │
-                                  ▼
-                  cache.set ──▶ setState({ status: 'success', results })
-                                  │
-                                  ▼
-                 subscribe ──▶ UI: highlight(text, query) → сегменти → textContent
-```
+> [!diagram] Користувач друкує «react»: що робить контролер пошуку
+> ```yaml
+> layout: timeline
+> nodes:
+>   - { id: t1, at: "0 мс", label: "друк", code: "setQuery('r')", note: "1 символ < minLength 2 → idle, скасувати все", tone: gray }
+>   - { id: t2, at: "100 мс", label: "друк", code: "setQuery('re')", note: "debounce: таймер 300 мс стартує", tone: yellow, icon: "px:hourglass" }
+>   - { id: t3, at: "180 мс", label: "друк", code: "setQuery('rea')", note: "нова літера — таймер з нуля", tone: yellow }
+>   - { id: t4, at: "250 мс", label: "друк", code: "setQuery('react')", note: "і ще раз з нуля; запитів досі 0", tone: yellow }
+>   - { id: t5, at: "550 мс", label: "«тиша» 300 мс", code: "run('react')", note: "takeLatest: abort() попереднього → searchApi(fetcher, q, { signal })", tone: violet, icon: "px:bolt" }
+>   - { id: t6, at: "800 мс", label: "відповідь", code: "['React', 'React Native']", note: "cache.set → setState({ status: 'success', results }) → UI", tone: green, icon: "px:check" }
+>   - { id: t7, at: "пізніше", label: "друк", code: "setQuery('  React ')", note: "normalizeQuery → є в кеші → success одразу, без мережі", tone: mint }
+> steps:
+>   - { show: t1, note: "Перша літера r. Запит коротший за minLength — шукати по одній букві марно: стан idle, усе відкладене скасовано." }
+>   - { show: t2, note: "re — вже достатньо довгий. Але запит не летить одразу: debounce ставить таймер на 300 мс і чекає паузи." }
+>   - { show: t3, note: "Користувач друкує далі — rea. Таймер скидається: 300 мс рахуються знову від останньої літери." }
+>   - { show: t4, note: "react — та сама історія. Чотири натискання, а в мережу не пішло жодного запиту." }
+>   - { show: t5, note: "300 мс тиші — debounce запускає run('react'). takeLatest спершу abort() попереднього запиту, якщо той ще летить, і передає свіжий signal у fetcher." }
+>   - { show: t6, note: "Відповідь прийшла. Застарілу (вже скасовану) відповідь ми б проігнорували як AbortError; ця — свіжа, тож кладемо в кеш і показуємо результати." }
+>   - { show: t7, note: "Той самий запит з іншими пробілами й регістром: normalizeQuery дає той самий ключ — результат з кешу миттєво, мережа не потрібна." }
+> ```
 
 Три різні механізми захищають від «гонок»: **debounce** зменшує кількість запитів, **abort** звільняє мережу від непотрібних, **перевірка застарілості** гарантує, що навіть відповідь, яку не вдалося скасувати, не перезапише свіжу.
 

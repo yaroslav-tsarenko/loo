@@ -1,11 +1,12 @@
-/* Learning path (Duolingo-style) on the Levelup kit */
+/* Learning path on the Levelup kit: violet Loo leads, units cycle through the tones, lesson nodes are pixel-stepped
+   tokens (stepped corners + flat lip), green/gold only once a lesson is done. */
 .path-page {
   font-family: var(--lu-font);
 }
 .path-track-badge {
-  background: var(--lu-surface-2);
-  border: 2px solid var(--lu-border);
-  box-shadow: 0 4px 0 var(--lu-border);
+  background: var(--lu-violet-soft);
+  border: 2px solid color-mix(in srgb, var(--lu-violet) 38%, transparent);
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--lu-violet) 38%, transparent);
 }
 .path-summary {
   display: grid;
@@ -15,22 +16,23 @@
 }
 .path-summary-item.lu-card {
   display: grid;
-  gap: 2px;
+  gap: 4px;
 }
+/* Stat counters: Onest 800 with tabular digits (pixel face is wordmark-only) */
 .path-summary-value {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: var(--lu-fs-xl);
-  font-weight: var(--lu-fw-black);
+  gap: 6px;
+  font: 800 var(--lu-fs-xl) / 1 var(--lu-font-pixel);
+  color: var(--tone-ink, var(--lu-text));
 }
 .path-summary-value small {
-  font-size: var(--lu-fs-xs);
+  font-size: var(--lu-fs-sm);
   color: var(--lu-text-3);
 }
 .path-summary-label {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .path-guides {
@@ -43,25 +45,72 @@
   font-family: var(--lu-font);
 }
 .path-stage {
+  /* text on the unit banner: dark ink reads best on the light tones, white only on violet */
+  --banner-ink: var(--lu-loo-ink);
   margin-top: 28px;
 }
-/* Section banner: bright, 3D, sticks just below the 45px sticky page header (z-index 30), not under it. */
+.path-stage[data-tone='violet'] {
+  --banner-ink: var(--lu-on-color);
+}
+.path-stage[data-tone='mint'] {
+  --banner-ink: var(--lu-on-mint);
+}
+/* Unit banner: a pixel-framed tone block (stepped corners + lip, drawn by ::before/::after like .lu-px). Sticks just
+   below the 45px sticky page header (z-index 30), not under it. */
 .path-banner {
+  --s: 4px;
   position: sticky;
   top: calc(45px + 8px);
   z-index: 3;
+  isolation: isolate;
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 5px;
   padding: 14px 16px;
-  border-radius: var(--lu-r-lg);
-  background: var(--tone);
-  box-shadow: 0 5px 0 var(--tone-lip);
-  color: var(--lu-on-color);
+  color: var(--banner-ink);
 }
-.path-stage[data-tone='yellow'] .path-banner,
-.path-stage[data-tone='orange'] .path-banner {
-  text-shadow: 0 1px 0 rgb(0 0 0 / 0.12);
+.path-banner::before,
+.path-banner::after,
+.lesson-bubble::before,
+.lesson-bubble::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.path-banner::before,
+.path-banner::after {
+  clip-path: polygon(
+    0 calc(2 * var(--s)),
+    var(--s) calc(2 * var(--s)),
+    var(--s) var(--s),
+    calc(2 * var(--s)) var(--s),
+    calc(2 * var(--s)) 0,
+    calc(100% - 2 * var(--s)) 0,
+    calc(100% - 2 * var(--s)) var(--s),
+    calc(100% - var(--s)) var(--s),
+    calc(100% - var(--s)) calc(2 * var(--s)),
+    100% calc(2 * var(--s)),
+    100% calc(100% - 2 * var(--s)),
+    calc(100% - var(--s)) calc(100% - 2 * var(--s)),
+    calc(100% - var(--s)) calc(100% - var(--s)),
+    calc(100% - 2 * var(--s)) calc(100% - var(--s)),
+    calc(100% - 2 * var(--s)) 100%,
+    calc(2 * var(--s)) 100%,
+    calc(2 * var(--s)) calc(100% - var(--s)),
+    var(--s) calc(100% - var(--s)),
+    var(--s) calc(100% - 2 * var(--s)),
+    0 calc(100% - 2 * var(--s))
+  );
+}
+.path-banner::before {
+  inset: 0 0 -5px 0;
+  background: var(--tone-lip);
+}
+.path-banner::after {
+  inset: 0;
+  background: var(--tone);
 }
 .path-banner-emoji {
   flex: none;
@@ -69,8 +118,8 @@
   place-items: center;
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  background: rgb(255 255 255 / 0.22);
+  border-radius: var(--lu-r);
+  background: rgb(255 255 255 / 0.26);
   font-size: 28px;
 }
 .path-banner-text {
@@ -79,35 +128,34 @@
 }
 .path-banner-eyebrow {
   display: block;
-  font-size: 11px;
-  font-weight: var(--lu-fw-black);
-  letter-spacing: var(--lu-tracking-caps);
-  text-transform: uppercase;
-  opacity: 0.85;
+  font-size: var(--lu-fs-xs);
+  font-weight: var(--lu-fw-bold);
+  opacity: 0.8;
 }
 .path-banner-title {
-  margin: 0 0 6px;
+  margin: 1px 0 8px;
   font-size: var(--lu-fs-md);
   font-weight: var(--lu-fw-black);
   line-height: 1.2;
 }
+/* segmented pixel bar, same rhythm as .lu-progress */
 .path-banner-bar {
   display: block;
   height: 10px;
-  border-radius: var(--lu-r-pill);
-  background: rgb(0 0 0 / 0.18);
+  border-radius: 2px;
+  background: rgb(30 16 51 / 0.2);
   overflow: hidden;
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 10px);
+  mask: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 10px);
 }
 .path-banner-bar > span {
   display: block;
   height: 100%;
-  border-radius: inherit;
   background: var(--lu-on-color);
   transition: width var(--lu-dur-4) var(--lu-ease-bounce);
 }
 .path-banner-pct {
-  font-size: var(--lu-fs-md);
-  font-weight: var(--lu-fw-black);
+  font: 800 var(--lu-fs-lg) / 1 var(--lu-font-pixel);
 }
 
 /* Skill (chapter) header card */
@@ -122,6 +170,9 @@
   font: inherit;
   text-align: left;
 }
+.skill-head.lu-card[data-tone='violet'] {
+  background: var(--lu-violet-soft);
+}
 .skill-icon {
   display: grid;
   place-items: center;
@@ -135,7 +186,7 @@
   background: var(--lu-yellow-soft);
 }
 .skill[data-state='current'] .skill-icon {
-  background: var(--lu-green-soft);
+  background: var(--lu-surface);
 }
 .skill-text {
   flex: 1;
@@ -148,9 +199,12 @@
   font-size: var(--lu-fs-sm);
   line-height: 1.3;
 }
+.skill[data-state='current'] .skill-title {
+  color: var(--lu-violet-ink);
+}
 .skill-meta {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .skill-crowns {
@@ -165,7 +219,8 @@
   color: var(--lu-text-3);
 }
 
-/* Lesson nodes: round 3D buttons along a winding path */
+/* Lesson nodes: pixel-stepped round-ish tokens with a flat lip along a winding path.
+   Knobs: --b face, --b-lip edge, --b-ink glyph; --p1/--p2/--p3 the three corner steps (bigger = rounder). */
 .path-nodes {
   list-style: none;
   margin: 0;
@@ -190,15 +245,20 @@
 .lesson-node:has(.lesson-pop) {
   z-index: 4;
 }
-.lesson-node[data-state='done'] {
-  --b: var(--lu-yellow);
-  --b-lip: var(--lu-yellow-lip);
+.lesson-node[data-state='current'] {
+  --b: var(--lu-violet);
+  --b-lip: var(--lu-violet-lip);
   --b-ink: var(--lu-on-color);
 }
-.lesson-node[data-state='current'] {
+.lesson-node[data-state='done'] {
   --b: var(--lu-green);
   --b-lip: var(--lu-green-lip);
   --b-ink: var(--lu-on-color);
+}
+.lesson-node[data-state='done'][data-perfect] {
+  --b: var(--lu-yellow);
+  --b-lip: var(--lu-yellow-lip);
+  --b-ink: var(--lu-loo-ink);
 }
 .lesson-node[data-kind='theory'][data-state='upcoming'] {
   --b: var(--lu-blue-soft);
@@ -206,46 +266,86 @@
   --b-ink: var(--lu-blue-ink);
 }
 .lesson-bubble {
+  --p1: 4px;
+  --p2: 9px;
+  --p3: 18px;
+  --lip: 7px;
   position: relative;
+  isolation: isolate;
   display: grid;
   place-items: center;
   width: 72px;
   height: 64px;
+  padding: 0;
   border: 0;
-  border-radius: 50%;
-  background: var(--b);
-  box-shadow: 0 7px 0 var(--b-lip);
-  margin-bottom: 7px;
+  border-radius: 0;
+  background: none;
+  margin-bottom: var(--lip);
   color: var(--b-ink);
   font-size: 30px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition:
     transform var(--lu-dur-1) var(--lu-ease),
-    box-shadow var(--lu-dur-1) var(--lu-ease),
     filter var(--lu-dur-2);
 }
+.lesson-bubble::before,
 .lesson-bubble::after {
-  /* glossy highlight */
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 18px;
-  width: 16px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 0.35);
-  transform: rotate(-25deg);
+  clip-path: polygon(
+    0 var(--p3),
+    var(--p1) var(--p3),
+    var(--p1) var(--p2),
+    var(--p2) var(--p2),
+    var(--p2) var(--p1),
+    var(--p3) var(--p1),
+    var(--p3) 0,
+    calc(100% - var(--p3)) 0,
+    calc(100% - var(--p3)) var(--p1),
+    calc(100% - var(--p2)) var(--p1),
+    calc(100% - var(--p2)) var(--p2),
+    calc(100% - var(--p1)) var(--p2),
+    calc(100% - var(--p1)) var(--p3),
+    100% var(--p3),
+    100% calc(100% - var(--p3)),
+    calc(100% - var(--p1)) calc(100% - var(--p3)),
+    calc(100% - var(--p1)) calc(100% - var(--p2)),
+    calc(100% - var(--p2)) calc(100% - var(--p2)),
+    calc(100% - var(--p2)) calc(100% - var(--p1)),
+    calc(100% - var(--p3)) calc(100% - var(--p1)),
+    calc(100% - var(--p3)) 100%,
+    var(--p3) 100%,
+    var(--p3) calc(100% - var(--p1)),
+    var(--p2) calc(100% - var(--p1)),
+    var(--p2) calc(100% - var(--p2)),
+    var(--p1) calc(100% - var(--p2)),
+    var(--p1) calc(100% - var(--p3)),
+    0 calc(100% - var(--p3))
+  );
+}
+.lesson-bubble::before {
+  inset: 0 0 calc(-1 * var(--lip)) 0;
+  background: var(--b-lip);
+  transition: bottom var(--lu-dur-1) var(--lu-ease);
+}
+/* face + a flat pixel bevel: light band on top, soft shade at the bottom */
+.lesson-bubble::after {
+  inset: 0;
+  background: var(--b);
+  box-shadow:
+    inset 0 5px 0 rgb(255 255 255 / 0.22),
+    inset 0 -5px 0 rgb(30 16 51 / 0.08);
 }
 .lesson-bubble:hover {
   filter: brightness(1.05);
 }
 .lesson-bubble:active {
-  transform: translateY(6px);
-  box-shadow: 0 1px 0 var(--b-lip);
+  transform: translateY(calc(var(--lip) - 1px));
+}
+.lesson-bubble:active::before {
+  bottom: -1px;
 }
 .lesson-bubble:focus-visible {
-  outline: 3px solid light-dark(rgb(28 176 246 / 0.75), rgb(92 202 255 / 0.85));
+  outline: 3px solid var(--lu-focus-color);
   outline-offset: 4px;
 }
 .lesson-bubble-glyph {
@@ -264,32 +364,35 @@
 .lesson-bubble-ring .lu-ring-center {
   padding-top: 2px;
 }
-.lesson-node[data-state='current'] .lesson-bubble {
-  animation: path-pulse 2.2s var(--lu-ease) infinite;
+.lesson-node[data-state='current'] .lesson-bubble-glyph {
+  animation: path-hop 2.4s var(--lu-ease) infinite;
 }
-@keyframes path-pulse {
+@keyframes path-hop {
   0%,
+  70%,
   100% {
-    box-shadow: 0 7px 0 var(--b-lip), 0 0 0 0 color-mix(in srgb, var(--lu-green) 35%, transparent);
+    transform: none;
   }
-  50% {
-    box-shadow: 0 7px 0 var(--b-lip), 0 0 0 12px transparent;
+  80% {
+    transform: translateY(-4px) scale(1.06);
+  }
+  90% {
+    transform: translateY(0) scale(0.98);
   }
 }
-/* «Старт» tooltip bubble over the current node */
+/* «Старт» speech bubble over the current node */
 .path-node-tip {
   position: absolute;
-  top: -34px;
+  top: -36px;
   z-index: 2;
   padding: 6px 12px;
-  border: 2px solid var(--lu-border);
+  border: 2px solid var(--lu-violet);
   border-radius: var(--lu-r-sm);
   background: var(--lu-surface);
-  color: var(--lu-green-ink);
+  box-shadow: 0 3px 0 var(--lu-violet-lip);
+  color: var(--lu-violet-ink);
   font-size: var(--lu-fs-xs);
   font-weight: var(--lu-fw-black);
-  letter-spacing: var(--lu-tracking-caps);
-  text-transform: uppercase;
   white-space: nowrap;
   animation: path-bob 1.6s ease-in-out infinite;
 }
@@ -301,7 +404,7 @@
   width: 10px;
   height: 10px;
   background: var(--lu-surface);
-  border: 2px solid var(--lu-border);
+  border: 2px solid var(--lu-violet);
   border-top: 0;
   border-left: 0;
   transform: rotate(45deg);
@@ -334,6 +437,9 @@
   font-family: var(--lu-font);
   animation: lu-pop-in var(--lu-dur-2) var(--lu-ease-bounce);
 }
+.lesson-pop.lu-card[data-tone] {
+  background: var(--tone-soft);
+}
 .lesson-pop.lu-card::before {
   content: '';
   position: absolute;
@@ -348,12 +454,16 @@
   transform: rotate(45deg);
 }
 .lesson-pop-title {
-  font-size: var(--lu-fs-sm);
+  font-size: var(--lu-fs-md);
   font-weight: var(--lu-fw-black);
+  line-height: 1.3;
+}
+.lesson-pop.lu-card[data-tone] .lesson-pop-title {
+  color: var(--tone-ink);
 }
 .lesson-pop-meta {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--lu-fs-xs);
+  font-weight: 600;
   color: var(--lu-text-2);
 }
 .lesson-pop .lu-btn {
@@ -388,7 +498,8 @@
   margin: 12px 0;
   padding: 10px 12px;
   border-radius: var(--lu-r);
-  background: var(--lu-surface-2);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
   font-size: var(--lu-fs-xs);
   font-weight: 700;
 }
@@ -414,8 +525,8 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  margin-bottom: 4px;
-  border-radius: 12px;
+  margin-bottom: 7px;
+  border-radius: var(--lu-r);
   background: var(--tone);
   box-shadow: 0 3px 0 var(--tone-lip);
   color: var(--lu-on-color);
@@ -439,8 +550,12 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .path-node-tip,
-  .lesson-node[data-state='current'] .lesson-bubble {
+  .lesson-node[data-state='current'] .lesson-bubble-glyph {
     animation: none;
+  }
+  .lesson-bubble,
+  .lesson-bubble::before {
+    transition: none;
   }
 }
 
@@ -475,9 +590,10 @@
   box-shadow: 0 3px 0 var(--lu-border);
 }
 .emap-rank[data-current] {
-  border-color: var(--lu-green);
-  background: var(--lu-green-soft);
-  box-shadow: 0 3px 0 var(--lu-green-lip);
+  border-color: var(--lu-violet);
+  background: var(--lu-violet-soft);
+  box-shadow: 0 3px 0 var(--lu-violet-lip);
+  color: var(--lu-violet-ink);
 }
 .emap-rank-emoji {
   font-size: 26px;
@@ -501,6 +617,9 @@
   margin-top: 24px;
 }
 .emap-stage-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 10px;
   font-size: var(--lu-fs-lg);
   font-weight: var(--lu-fw-black);
@@ -524,8 +643,13 @@
   place-items: center;
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
   background: var(--lu-surface-2);
+}
+.emap-track.lu-card[data-tone] .emap-track-icon {
+  border-color: color-mix(in srgb, var(--tone) 38%, transparent);
+  background: var(--tone-soft);
 }
 .emap-track-text {
   flex: 1;

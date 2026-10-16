@@ -39,7 +39,7 @@ const lostThis: StepScenario<ThisFrame> = {
 
 const arrowCode = `'use strict'
 const team = {
-  name: '🚀 Ракета',
+  name: 'Ракета',
   list: ['Аня', 'Бо'],
   showRegular() {
     this.list.forEach(function (m) {
@@ -64,8 +64,8 @@ const arrow: StepScenario<ThisFrame> = {
     { line: 7, call: 'fn("Аня")  ← усередині forEach', rule: 'за замовчуванням · strict', thisValue: 'undefined', output: ['Аня undefined'], note: 'Звичайна function має ВЛАСНИЙ this, і для неї це звичайний виклик: у strict mode this = undefined.' },
     { line: 7, call: 'fn("Бо")  ← усередині forEach', rule: 'за замовчуванням · strict', thisValue: 'undefined', output: ['Аня undefined', 'Бо undefined'], note: 'Те саме для «Бо». Класичні фікси до ES2015 — const self = this або forEach(fn, this).' },
     { line: 18, call: 'team.showArrow()', rule: 'неявне · через крапку', thisValue: 'team', output: ['Аня undefined', 'Бо undefined'], note: 'showArrow теж викликано через крапку: this = team.' },
-    { line: 12, call: '(m) => …  ← усередині forEach', rule: 'лексичний · стрілка', thisValue: 'team', output: ['Аня undefined', 'Бо undefined', 'Аня 🚀 Ракета'], note: 'Стрілка не має власного this — вона бере його з оточення, де її створено, тобто з виклику showArrow. this = team.' },
-    { line: 12, call: '(m) => …  ← усередині forEach', rule: 'лексичний · стрілка', thisValue: 'team', output: ['Аня undefined', 'Бо undefined', 'Аня 🚀 Ракета', 'Бо 🚀 Ракета'], note: 'Тому стрілки ідеальні для колбеків у методах. Але не як самі методи: { f: () => this } візьме this ззовні об’єкта, а call/bind його не змінять.' },
+    { line: 12, call: '(m) => …  ← усередині forEach', rule: 'лексичний · стрілка', thisValue: 'team', output: ['Аня undefined', 'Бо undefined', 'Аня Ракета'], note: 'Стрілка не має власного this — вона бере його з оточення, де її створено, тобто з виклику showArrow. this = team.' },
+    { line: 12, call: '(m) => …  ← усередині forEach', rule: 'лексичний · стрілка', thisValue: 'team', output: ['Аня undefined', 'Бо undefined', 'Аня Ракета', 'Бо Ракета'], note: 'Тому стрілки ідеальні для колбеків у методах. Але не як самі методи: { f: () => this } візьме this ззовні об’єкта, а call/bind його не змінять.' },
   ],
 }
 

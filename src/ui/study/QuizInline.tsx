@@ -11,6 +11,7 @@ import type { Tone } from '@/ui/design/cx'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { ActionBar } from './ActionBar'
+import { LevelPill } from './LevelPill'
 import { FillBlanks } from './exercises/FillBlanks'
 import { OrderPuzzle } from './exercises/OrderPuzzle'
 
@@ -70,10 +71,10 @@ interface Props {
 
 function kindOf(mode: QuizMode, free: boolean, multi: boolean): { label: string; tone: Tone; icon: ReactNode } {
   if (mode === 'order') return { label: 'Склади код', tone: 'orange', icon: <PiPuzzlePieceFill /> }
-  if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'green', icon: <PiCodeBlockFill /> }
+  if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'mint', icon: <PiCodeBlockFill /> }
   if (free || mode === 'output') return { label: 'Що виведе код', tone: 'blue', icon: <PiTerminalWindowFill /> }
   if (multi) return { label: 'Кілька відповідей', tone: 'pink', icon: <PiListChecksFill /> }
-  return { label: 'Тест', tone: 'purple', icon: <PiExamFill /> }
+  return { label: 'Тест', tone: 'violet', icon: <PiExamFill /> }
 }
 
 type Phase = 'open' | 'checking' | 'done'
@@ -167,7 +168,7 @@ export function QuizInline(props: Props) {
   })
 
   const compact = variant === 'inline'
-  const verdictText = correct ? (interactive ? 'Правильно! Код зібрано 🎉' : 'Правильно!') : free && key?.free ? `Не зовсім. Відповідь: ${key.free}` : 'Неправильно — питання додано в «Мої помилки».'
+  const verdictText = correct ? (interactive ? 'Правильно! Код зібрано' : 'Правильно!') : free && key?.free ? `Не зовсім. Відповідь: ${key.free}` : 'Неправильно — питання додано в «Мої помилки».'
   const state = phase === 'checking' ? 'checking' : phase === 'done' ? (correct === null ? 'answered' : correct ? 'correct' : 'wrong') : 'open'
 
   return (
@@ -176,11 +177,7 @@ export function QuizInline(props: Props) {
         <Pill tone={kind.tone} icon={kind.icon} size="sm" className="quiz-kind">
           {kind.label}
         </Pill>
-        {level ? (
-          <Pill size="sm" className="quiz-level">
-            {level}
-          </Pill>
-        ) : null}
+        {level ? <LevelPill level={level} className="quiz-level" /> : null}
       </header>
       <div className="quiz-prompt" id={headingId}>
         {prompt}

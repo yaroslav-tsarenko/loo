@@ -11,7 +11,7 @@ export function LogoMark({ size = 32, className }: { size?: number; className?: 
   )
 }
 
-/** Wordmark: rounded heavy lowercase, "up" lifted in streak orange. */
+/** Wordmark: pixel display face, "level" in Loo violet, "up" lifted in mint. */
 export function Wordmark({ height = 26, className }: { height?: number; className?: string }) {
   return (
     <svg className={cx('lu-wordmark', className)} height={height} width={(height * 107) / 30} viewBox="0 0 107 30" role="img" aria-label="Levelup" focusable="false">

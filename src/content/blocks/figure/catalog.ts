@@ -11,7 +11,8 @@ export interface FigureScenarioInfo {
 
 export interface FigureInfo {
   id: string
-  emoji: string
+  // icon ref for <Icon> (pixel set / library glyph)
+  icon: string
   title: string
   description: string
   // poster url shown in the browser bar before the scene loads
@@ -26,7 +27,7 @@ const sc = (id: string, title: string, description: string): FigureScenarioInfo 
 export const FIGURE_CATALOG: readonly FigureInfo[] = [
   {
     id: 'devtools-console',
-    emoji: '🖥️',
+    icon: 'px:monitor',
     title: 'DevTools · Console',
     description: 'Код вводиться рядок за рядком, вивід і помилки — як у Chrome',
     url: 'https://playground.dev/',
@@ -41,7 +42,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'devtools-network',
-    emoji: '🌐',
+    icon: 'px:globe',
     title: 'DevTools · Network',
     description: 'Запити, статуси, водоспад таймінгів і заголовки',
     url: 'https://app.example/orders',
@@ -53,7 +54,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'devtools-performance',
-    emoji: '📈',
+    icon: 'px:clock',
     title: 'DevTools · Performance',
     description: 'Flame chart: long task, layout thrashing і виправлена версія',
     url: 'https://app.example/feed',
@@ -62,7 +63,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'devtools-memory',
-    emoji: '🧠',
+    icon: 'pi:PiBrainFill',
     title: 'DevTools · Memory',
     description: 'Heap snapshot, дерево retainers і знайдений detached DOM',
     url: 'https://app.example/modal',
@@ -71,7 +72,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'code-editor-run',
-    emoji: '🧪',
+    icon: 'px:code',
     title: 'Редактор і тести',
     description: 'TDD-цикл: тест червоний → код → тест зелений',
     url: 'https://code.example/kata/capitalize',
@@ -80,7 +81,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'browser-render',
-    emoji: '🎨',
+    icon: 'px:image',
     title: 'Як браузер малює сторінку',
     description: 'HTML → DOM, CSS → CSSOM, render tree, layout, paint, composite',
     url: 'https://coffee.example/',
@@ -89,7 +90,7 @@ export const FIGURE_CATALOG: readonly FigureInfo[] = [
   },
   {
     id: 'event-bubbling',
-    emoji: '🫧',
+    icon: 'px:bubbles',
     title: 'Спливання подій',
     description: 'Клік по кнопці: capture вниз, bubble вгору, делегування на батькові',
     url: 'https://todo.example/',

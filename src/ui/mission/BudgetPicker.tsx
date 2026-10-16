@@ -3,6 +3,7 @@
 import { useState, useTransition } from 'react'
 import { updateSetting } from '@/server/actions/settings'
 import { BUDGETS } from '@/progress/mission'
+import { Icon } from '@/ui/icons/Icon'
 
 export function BudgetPicker({ value, locked }: { value: number; locked: boolean }) {
   const [current, setCurrent] = useState(value)
@@ -27,7 +28,7 @@ export function BudgetPicker({ value, locked }: { value: number; locked: boolean
               })
             }}
           >
-            <span aria-hidden="true">{b.emoji}</span>
+            <Icon name={b.icon} size={20} />
             <span className="tabular">{b.minutes}</span>
             <span className="budget-unit">хв</span>
           </button>

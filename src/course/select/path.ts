@@ -3,7 +3,7 @@ import { selectForLevel, type LevelView } from './level'
 import { testOutEligible, type TestOutCheck } from './tests'
 
 // The learner's path through a compiled course (pure: progress comes in as sets/maps, no DB).
-// Section → topic → lessons (tasks already woven in by the compiler) → 🏁 topic test; 👑 section exam at the end.
+// Section → topic → lessons (tasks already woven in by the compiler) → topic test; section exam at the end.
 //
 // * A path section unlocks when the previous path section is done (its exam passed, or — without an exam — every
 //   required node done), or when the placement test started the learner further ahead. Practice banks never lock.
@@ -23,7 +23,7 @@ export interface PathProgress {
   // completed course lesson ids, and the flawless ones
   lessons: ReadonlySet<string>
   perfect?: ReadonlySet<string>
-  // chapter ids marked as studied in the reader (📖 theory lessons)
+  // chapter ids marked as studied in the reader (theory lessons)
   studied: ReadonlySet<string>
   // by test / exam id
   tests: ReadonlyMap<string, ResultRecord>

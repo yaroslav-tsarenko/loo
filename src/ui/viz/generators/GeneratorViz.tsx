@@ -1,16 +1,16 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { ConsolePanel, SPRING } from '../engine/Panel'
+import { ConsolePanel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
-import type { VizProps } from '../engine/types'
+import type { VizIcon, VizProps } from '../engine/types'
 import { generatorScenarios, type GenFrame, type GenState } from './scenarios'
 
-const STATE_LABEL: Record<GenState, string> = {
-  suspendedStart: '💤 suspendedStart',
-  executing: '▶️ executing',
-  suspendedYield: '⏸️ suspendedYield',
-  completed: '🏁 completed',
+const STATE_ICON: Record<GenState, VizIcon> = {
+  suspendedStart: 'pi:PiMoonStarsFill',
+  executing: 'pi:PiPlayFill',
+  suspendedYield: 'pi:PiPauseFill',
+  completed: 'pi:PiFlagCheckeredFill',
 }
 
 function PingPong({ frame }: { frame: GenFrame }) {
@@ -18,12 +18,12 @@ function PingPong({ frame }: { frame: GenFrame }) {
     <div className="viz-pingpong">
       <div className="viz-side-box" data-active={frame.active === 'caller' ? '' : undefined}>
         <div className="viz-side-box-head">
-          <span aria-hidden="true">📞</span> Виклик
+          <VizGlyph icon="px:phone" /> Виклик
         </div>
         <p className="viz-muted">gen.next(…)</p>
         {frame.active === 'caller' ? (
           <m.span layoutId="ball" className="viz-ball" transition={SPRING} aria-label="керування тут">
-            🏓
+            <VizGlyph icon="px:paddle" size={20} />
           </m.span>
         ) : null}
       </div>
@@ -39,10 +39,10 @@ function PingPong({ frame }: { frame: GenFrame }) {
       </div>
       <div className="viz-side-box" data-active={frame.active === 'generator' ? '' : undefined} data-state={frame.genState}>
         <div className="viz-side-box-head">
-          <span aria-hidden="true">⚙️</span> Генератор
+          <VizGlyph icon="px:gear" /> Генератор
         </div>
         <span className="viz-badge" data-tone={frame.genState === 'executing' ? 'accent' : frame.genState === 'completed' ? 'success' : undefined}>
-          {STATE_LABEL[frame.genState]}
+          <VizGlyph icon={STATE_ICON[frame.genState]} size={12} /> {frame.genState}
         </span>
         <ul className="viz-vars">
           {frame.vars.map((v) => (
@@ -55,7 +55,7 @@ function PingPong({ frame }: { frame: GenFrame }) {
         </ul>
         {frame.active === 'generator' ? (
           <m.span layoutId="ball" className="viz-ball" transition={SPRING} aria-label="керування тут">
-            🏓
+            <VizGlyph icon="px:paddle" size={20} />
           </m.span>
         ) : null}
       </div>

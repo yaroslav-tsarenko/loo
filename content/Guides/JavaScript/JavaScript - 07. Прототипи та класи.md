@@ -94,11 +94,25 @@ rex.constructor === Dog;                      // → true, але це НЕ вл
 2. Ні → перейти до `[[Prototype]]` і повторити.
 3. Дійшли до `null` → `undefined`.
 
-```text
-rex ──[[Prototype]]──► Dog.prototype ──► Object.prototype ──► null
-{ name }               { speak,          { toString, hasOwnProperty,
-                         constructor }     valueOf, ... }
-```
+> [!diagram] rex.toString(): пошук по ланцюжку
+> ```yaml
+> layout: stack
+> nodes:
+>   - { id: rex, label: "rex", code: "{ name: 'Rex' }", tone: blue, icon: "px:dog" }
+>   - { id: dog, label: "Dog.prototype", code: "{ speak, constructor }", tone: gray }
+>   - { id: obj, label: "Object.prototype", text: "{ toString, hasOwnProperty, valueOf, … }", tone: green }
+>   - { id: end, label: "кінець ланцюжка", text: "null", tone: gray }
+> edges:
+>   - { from: rex, to: dog, label: "[[Prototype]]" }
+>   - { from: dog, to: obj, label: "[[Prototype]]" }
+>   - { from: obj, to: end, label: "[[Prototype]]" }
+> steps:
+>   - { focus: rex, note: "Читаємо rex.toString. Спершу рушій шукає власну властивість у самому rex — там лише name." }
+>   - { move: { from: rex, to: dog, value: "toString?" }, note: "Немає — йдемо за [[Prototype]] у Dog.prototype. Там speak і constructor, toString теж немає." }
+>   - { move: { from: dog, to: obj, value: "toString?" }, note: "Йдемо далі — в Object.prototype. Знайдено! Повертаємо цю функцію." }
+>   - { set: { obj: "{ toString ✓, hasOwnProperty, … }" }, focus: [rex, obj], note: "Тому rex.toString() працює, хоча ніхто не писав toString для собак. this усередині — все одно rex." }
+>   - { focus: end, note: "Якби властивості не було ніде, пошук дійшов би до null і повернув undefined." }
+> ```
 
 > [!viz] prototype-chain
 > scenario: lookup
@@ -601,10 +615,28 @@ Config.get() === Config.get(); // → true — singleton
 > > const answers = [false, true, true, true];
 > > ```
 > >
-> > ```text
-> > admin ──► Admin.prototype ──► User.prototype ──► Object.prototype ──► null
-> > { }       { constructor, ban }  { constructor, hi }  { toString, ... }
-> > ```
+> > > [!diagram] Ланцюжок прототипів admin
+> > > ```yaml
+> > > layout: stack
+> > > nodes:
+> > >   - { id: admin, label: "admin", code: "{ }", note: "власних властивостей немає", tone: blue }
+> > >   - { id: ap, label: "Admin.prototype", code: "{ constructor, ban }", tone: gray }
+> > >   - { id: up, label: "User.prototype", text: "{ constructor, hi }", tone: violet }
+> > >   - { id: op, label: "Object.prototype", code: "{ toString, … }", tone: gray }
+> > >   - { id: end, label: "кінець", text: "null", tone: gray }
+> > > edges:
+> > >   - { from: admin, to: ap, label: "[[Prototype]]" }
+> > >   - { from: ap, to: up, label: "[[Prototype]]" }
+> > >   - { from: up, to: op, label: "[[Prototype]]" }
+> > >   - { from: op, to: end, label: "[[Prototype]]" }
+> > > steps:
+> > >   - { focus: admin, note: "1) Object.hasOwn(admin, 'hi') → false: в самому admin порожньо, методи класу живуть у prototype." }
+> > >   - { move: { from: admin, to: ap, value: "hi?" }, note: "2) 'hi' in admin дивиться весь ланцюжок. У Admin.prototype лише ban — шукаємо далі." }
+> > >   - { move: { from: ap, to: up, value: "hi?" }, set: { up: "{ constructor, hi ✓ }" }, note: "У User.prototype знайдено hi → true. Саме extends звʼязав Admin.prototype з User.prototype." }
+> > >   - { focus: [up, op, end], note: "3) admin instanceof User → true: User.prototype є в ланцюжку. Далі лише Object.prototype і null." }
+> > > ```
+> > >
+> > > `chain` — це три прототипи між `admin` і `null`.
 > >
 > > 1) `false` — `hi` не власна. 2) `true` — знайдено в ланцюжку. 3) `true` — `User.prototype` є в ланцюжку `admin`. 4) `true` — `extends` також робить `User` прототипом `Admin` (для успадкування `static`).
 

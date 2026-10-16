@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, m } from 'motion/react'
-import { Badge, Panel, SPRING } from '../engine/Panel'
+import { Badge, Panel, SPRING, VizGlyph } from '../engine/Panel'
 import { StepPlayer } from '../engine/StepPlayer'
 import type { VizProps } from '../engine/types'
 import { IC_SHAPES, inlineCacheScenario, shapesScenario, type IcFrame, type IcState, type MapNode, type ObjCard, type ShapeFrame } from './scenarios'
@@ -47,7 +47,7 @@ function ShapesStage({ f }: { f: ShapeFrame }) {
   const roots = f.maps.filter((n) => n.parent === null)
   const dict = f.objects.filter((o) => o.map === null)
   return (
-    <Panel title="Дерево переходів форм" emoji="🌳" hint="ключ:слот">
+    <Panel title="Дерево переходів форм" icon="pi:PiTreeStructureFill" hint="ключ:слот">
       <ul className="viz-hc-tree" aria-label="Форми (hidden classes) і переходи між ними">
         {roots.map((r) => (
           <MapRow key={r.id} node={r} frame={f} depth={0} />
@@ -56,7 +56,9 @@ function ShapesStage({ f }: { f: ShapeFrame }) {
       <AnimatePresence initial={false}>
         {dict.length ? (
           <m.div className="viz-hc-dict" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={SPRING}>
-            <span>🐢 dictionary mode</span>
+            <span>
+              <VizGlyph icon="px:turtle" /> dictionary mode
+            </span>
             <span className="viz-hc-objs">
               {dict.map((o) => (
                 <ObjChip key={o.id} o={o} active={f.activeObj === o.id} />
@@ -71,13 +73,15 @@ function ShapesStage({ f }: { f: ShapeFrame }) {
 
 function Objects({ f }: { f: ShapeFrame }) {
   return (
-    <Panel title="Об’єкти" emoji="📦" hint="форма + значення у слотах">
+    <Panel title="Об’єкти" icon="px:box" hint="форма + значення у слотах">
       <ul className="viz-hc-cards">
         {f.objects.map((o) => (
           <li key={o.id} className="viz-hc-card" data-active={f.activeObj === o.id ? '' : undefined} data-dict={o.map === null ? '' : undefined}>
             <div className="viz-hc-card-head">
               <strong>{o.name}</strong>
-              {o.map ? <Badge tone="accent">→ {o.map}</Badge> : <Badge>🐢 хеш-таблиця</Badge>}
+              {o.map ? <Badge tone="accent">→ {o.map}</Badge> : <Badge>
+                  <VizGlyph icon="px:turtle" size={14} /> хеш-таблиця
+                </Badge>}
             </div>
             <ul className="viz-hc-slots">
               {o.values.map((v, i) => (
@@ -108,7 +112,7 @@ const STATES: Array<{ id: IcState; label: string }> = [
 
 function IcStage({ f }: { f: IcFrame }) {
   return (
-    <Panel title="Feedback vector функції getX" emoji="🗂️" hint="спрощено">
+    <Panel title="Feedback vector функції getX" icon="pi:PiFoldersFill" hint="спрощено">
       <ol className="viz-phases viz-hc-states" aria-label="Стан inline cache">
         {STATES.map((s) => (
           <li key={s.id} data-on={s.id === f.state ? '' : undefined} data-state={s.id} aria-current={s.id === f.state ? 'step' : undefined}>
@@ -136,7 +140,9 @@ function IcStage({ f }: { f: IcFrame }) {
                 </m.code>
               ))}
             </AnimatePresence>
-            {f.state === 'megamorphic' ? <span className="viz-hc-entry" data-global="">🌐 глобальний stub cache</span> : null}
+            {f.state === 'megamorphic' ? <span className="viz-hc-entry" data-global="">
+                <VizGlyph icon="px:globe" size={14} /> глобальний stub cache
+              </span> : null}
           </span>
         </div>
       </div>
@@ -146,7 +152,7 @@ function IcStage({ f }: { f: IcFrame }) {
 
 function IcShapes({ f }: { f: IcFrame }) {
   return (
-    <Panel title="Форми аргументів" emoji="🧩" hint={`побачено: ${f.seen.length}`}>
+    <Panel title="Форми аргументів" icon="pi:PiShapesFill" hint={`побачено: ${f.seen.length}`}>
       <ul className="viz-hc-shapes">
         {IC_SHAPES.map((s) => {
           const seen = f.seen.includes(s.id)

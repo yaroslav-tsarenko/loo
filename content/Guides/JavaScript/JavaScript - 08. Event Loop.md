@@ -309,13 +309,29 @@ setTimeout(() => console.log('B'), 10);
 
 Node будує цикл на libuv, і в ньому є **фази** (спрощено):
 
-```text
-┌─> timers          (setTimeout / setInterval)
-│   pending callbacks
-│   poll            (I/O: файли, мережа)
-│   check           (setImmediate)
-└── close callbacks
-```
+> [!diagram] Оберт event loop у Node: фази по колу
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: timers, label: "timers", text: "setTimeout / setInterval", tone: yellow, icon: "px:alarm" }
+>   - { id: pending, label: "pending callbacks", text: "відкладені системні", tone: gray }
+>   - { id: poll, label: "poll", text: "I/O: файли, мережа", tone: blue, icon: "px:database" }
+>   - { id: check, label: "check", text: "setImmediate", tone: mint }
+>   - { id: close, label: "close callbacks", text: "socket.on('close')", tone: gray }
+> edges:
+>   - { from: timers, to: pending }
+>   - { from: pending, to: poll }
+>   - { from: poll, to: check }
+>   - { from: check, to: close }
+>   - { from: close, to: timers, label: "новий оберт" }
+> steps:
+>   - { focus: timers, note: "Цикл ходить фазами по колу. У timers виконуються колбеки таймерів, чий час уже минув." }
+>   - { move: { from: pending, to: poll, value: "чекаємо I/O" }, note: "У poll Node чекає на I/O. Файл прочитано — виконується його callback." }
+>   - { set: { poll: "callback: setTimeout(…, 0) + setImmediate(…)" }, note: "Усередині I/O-callback-а ставимо і таймер на 0 мс, і setImmediate." }
+>   - { move: { from: poll, to: check, value: "immediate" }, set: { check: "→ immediate" }, note: "Після poll одразу йде check — тому всередині I/O setImmediate завжди спрацьовує першим." }
+>   - { set: { timers: "→ timeout" }, focus: timers, note: "Таймер чекає до наступного оберту: close → timers, і лише тоді timeout." }
+>   - { focus: [timers, pending, poll, check, close], note: "Після КОЖНОГО callback-а Node спорожнює дві черги: спершу process.nextTick, потім мікрозадачі промісів." }
+> ```
 
 Після **кожного** callback-а (з Node 11 — так само, як у браузері) Node спорожнює дві черги: спершу `process.nextTick`, потім microtasks промісів.
 

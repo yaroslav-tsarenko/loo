@@ -436,9 +436,19 @@ export interface EquippedSkinState {
   scarf?: string
 }
 
-// One row per learner: hearts (refilled lazily from hearts_at), equipped streak freezes, double-XP window, Loo skin and
-// Loo's evolution: evo_step = the step reached (0–21, src/game/ranks.ts), evo_seen = the last step whose evolution
-// moment was shown (the full-screen cutscene plays once per new step). Created on first use.
+// Equipped gear: shop item id per gear slot (src/game/shop.ts GEAR_SLOTS).
+export interface EquippedGearState {
+  head?: string
+  body?: string
+  weapon?: string
+  amulet?: string
+  aura?: string
+}
+
+// One row per learner: hearts (refilled lazily from hearts_at), equipped streak freezes, double-XP window, Loo skin,
+// equipped gear and the character rank («шлях воїна»): evo_step = the step reached (0–55, src/game/ranks.ts),
+// evo_seen = the last step whose rank-up moment was shown (the full-screen cutscene plays once per new step).
+// Created on first use.
 export const userState = pgTable('user_state', {
   userId: userId().primaryKey(),
   hearts: integer('hearts').notNull().default(5),
@@ -446,6 +456,7 @@ export const userState = pgTable('user_state', {
   streakFreezes: integer('streak_freezes').notNull().default(0),
   doubleXpUntil: ms('double_xp_until'),
   skin: jsonb('skin').$type<EquippedSkinState>().notNull().default({}),
+  gear: jsonb('gear').$type<EquippedGearState>().notNull().default({}),
   evoStep: integer('evo_step').notNull().default(0),
   evoSeen: integer('evo_seen').notNull().default(0),
   updatedAt: ms('updated_at').notNull(),
@@ -466,7 +477,22 @@ export const gemLedger = pgTable(
   (t) => [uniqueIndex('gem_ledger_ref_idx').on(t.userId, t.reason, t.refId), index('gem_user_day_idx').on(t.userId, t.day)],
 )
 
-// Owned permanent shop items (Loo skins). Consumables (freezes, refills, boosts) live in user_state.
+// Bucks: the everyday currency (docs/ECONOMY.md), same shape and rules as gem_ledger.
+export const buckLedger = pgTable(
+  'buck_ledger',
+  {
+    id: integer('id').primaryKey().generatedByDefaultAsIdentity(),
+    userId: userId(),
+    amount: integer('amount').notNull(),
+    reason: text('reason').notNull(),
+    refId: text('ref_id').notNull(),
+    createdAt: ms('created_at').notNull(),
+    day: text('day').notNull(),
+  },
+  (t) => [uniqueIndex('buck_ledger_ref_idx').on(t.userId, t.reason, t.refId), index('buck_user_day_idx').on(t.userId, t.day)],
+)
+
+// Owned permanent shop items (Loo skins and gear). Consumables (freezes, refills, boosts) live in user_state.
 export const inventory = pgTable(
   'inventory',
   {

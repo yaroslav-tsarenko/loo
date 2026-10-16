@@ -43,14 +43,24 @@ icon: "🚦"
 
 До цього моменту програма йшла **прямою дорогою**: рядок за рядком. Умова — це **розвилка**. Як світлофор: зелений — їдь, червоний — стій. Програма дивиться на умову (`true` чи `false`) і обирає, яким шляхом іти далі. Другий шлях вона просто **пропускає**, ніби його й не було.
 
-```text
-              ┌── true ──►  виконати блок if
- умова? ──────┤
-              └── false ─►  виконати блок else (якщо є)
-                    │
-                    ▼
-            далі — спільний код
-```
+> [!diagram] Розвилка: умова обирає одну дорогу
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: age, label: "const age", text: "20", tone: blue, icon: "px:person" }
+>   - { id: code, label: "розвилка if / else", code: "if (age >= 18) {\n  console.log('Можна голосувати')\n} else {\n  console.log('Ще зарано')\n}", tone: violet, icon: "px:traffic" }
+>   - { id: out, label: "консоль", text: "—", tone: green, icon: "px:monitor" }
+> edges:
+>   - { from: age, to: code, label: "умова" }
+>   - { from: code, to: out, label: "одна з гілок" }
+> steps:
+>   - { move: { from: age, to: code, value: "20 >= 18" }, line: "code:1", note: "Програма доходить до if і спершу обчислює умову: 20 >= 18 → true." }
+>   - { line: "code:2", move: { from: code, to: out, value: "'Можна голосувати'" }, set: { out: "Можна голосувати" }, note: "Умова true — виконуємо блок if. Блок else повністю пропускаємо, ніби його й нема." }
+>   - { line: "code:5", note: "Після закривної } обидві дороги сходяться: далі виконується спільний код, що стоїть нижче." }
+>   - { set: { age: "15", out: "—" }, move: { from: age, to: code, value: "15 >= 18" }, line: "code:1", note: "А тепер age = 15. Ті самі рядки, але умова 15 >= 18 → false." }
+>   - { line: ["code:3", "code:4"], move: { from: code, to: out, value: "'Ще зарано'" }, set: { out: "Ще зарано" }, note: "false — блок if перестрибуємо й заходимо в else." }
+>   - { focus: code, note: "Виконується рівно одна гілка: або if, або else — ніколи обидві. Потім програма йде далі спільним шляхом." }
+> ```
 
 ## 🔬 Як це працює
 

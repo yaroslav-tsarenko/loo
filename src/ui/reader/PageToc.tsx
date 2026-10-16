@@ -23,7 +23,7 @@ export function PageToc({ headings }: { headings: Heading[] }) {
   if (headings.length < 2) return null
   const shown = headings.slice(0, 40)
   return (
-    <nav className="toc" aria-label="На цій сторінці">
+    <nav className="toc reader-toc" aria-label="На цій сторінці">
       <div className="toc-lines" aria-hidden="true">
         {shown.map((h) => (
           <span key={h.slug} className="toc-line" data-depth={h.depth} data-active={active === h.slug ? '' : undefined} />

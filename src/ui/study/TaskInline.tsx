@@ -14,6 +14,7 @@ import { Button } from '@/ui/design/Button'
 import type { Tone } from '@/ui/design/cx'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
+import { LevelPill } from '@/ui/study/LevelPill'
 
 const DIFF_TONE: Record<'easy' | 'medium' | 'hard', Tone> = { easy: 'green', medium: 'orange', hard: 'red' }
 
@@ -127,13 +128,13 @@ export function TaskInline(props: Props) {
   return (
     <section className="task" id={variant === 'inline' ? `u-${unitId}` : undefined} data-variant={variant} data-status={status} aria-labelledby={headingId}>
       <header className="task-head">
-        <Pill tone="blue" size="sm" icon={testable ? <PiTestTubeFill /> : <PiCodeBlockFill />} className="task-kind">
+        <Pill tone="violet" size="sm" icon={testable ? <PiTestTubeFill /> : <PiCodeBlockFill />} className="task-kind">
           {testable ? 'Задача · автотести' : 'Задача'}
         </Pill>
         <Pill tone={DIFF_TONE[difficultyKey]} size="sm" solid>
           {difficulty}
         </Pill>
-        {level ? <Pill size="sm">{level}</Pill> : null}
+        {level ? <LevelPill level={level} /> : null}
       </header>
       <h3 className="task-title" id={headingId}>
         {title}

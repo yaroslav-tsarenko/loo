@@ -49,16 +49,25 @@ icon: "🖼️"
 
 ### 🧭 Від URL до першого кадру
 
-```text
-🌐 DNS → 🤝 TCP/TLS (або QUIC) → 📨 HTTP-запит → 📦 HTML потоком
-                                                     │
-            ┌───────────── парсер HTML ◀─────────────┘
-            │      ├─ preload scanner: заздалегідь бачить <link>, <script>, <img> і качає їх
-            ▼      └─ <script> без async/defer → ПАУЗА парсингу
-          DOM ──┐
-                ├─▶ Style ─▶ Layout ─▶ Paint ─▶ Composite ─▶ 🖼️ пікселі
-       CSSOM ───┘
-```
+> [!diagram] Від URL до першого кадру
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: net, label: мережа, text: "DNS → TCP/TLS → HTTP", tone: blue, icon: "px:globe" }
+>   - { id: parser, label: "парсер HTML", text: "читає потік", note: "preload scanner біжить уперед і качає <link>, <script>, <img>", tone: violet }
+>   - { id: trees, label: дерева, text: "DOM + CSSOM", tone: violet, icon: "px:blocks" }
+>   - { id: style, label: Style, text: "стилі кожного вузла", tone: yellow }
+>   - { id: layout, label: Layout, text: "геометрія", tone: yellow }
+>   - { id: paint, label: Paint, text: "малювання шарів", tone: orange }
+>   - { id: comp, label: Composite, text: "склеювання шарів", tone: green, icon: "px:monitor" }
+> steps:
+>   - { focus: net, note: "DNS знаходить IP, TCP/TLS (або QUIC) відкриває з'єднання, і йде HTTP-запит за сторінкою." }
+>   - { move: { from: net, to: parser, value: "HTML потоком" }, note: "HTML приходить шматками, і парсер читає його інкрементально — не чекаючи кінця файлу." }
+>   - { set: { parser: "⏸ <script> без async/defer" }, note: "Звичайний <script> ставить парсинг на паузу. Поки основний парсер стоїть, preload scanner уже качає наступні ресурси." }
+>   - { set: { parser: "парсинг завершено" }, move: { from: parser, to: trees, value: "DOM" }, note: "З HTML виходить DOM, з CSS — CSSOM. CSS блокує рендер: без CSSOM браузер не малює, щоб не показати «голу» сторінку." }
+>   - { move: [{ from: trees, to: style, value: "render tree" }, { from: style, to: layout, value: "computed styles" }], note: "Style обчислює підсумкові стилі, Layout — розмір і позицію кожного блока." }
+>   - { move: [{ from: layout, to: paint, value: "геометрія" }, { from: paint, to: comp, value: "шари" }], set: { comp: "🖼️ перший кадр" }, note: "Paint малює шари, Composite складає їх, як прозорі плівки, — і на екрані з'являються пікселі." }
+> ```
 
 - **HTML парситься інкрементально**, у міру надходження байтів, тож браузер може почати рендерити ще до кінця завантаження.
 - **CSS — render-blocking**: без CSSOM браузер не малює (інакше показав би «голу» сторінку і перемалював — FOUC). Крім того, звичайний `<script>` чекає завантаження таблиць стилів перед собою, бо може запитати `getComputedStyle`.
@@ -84,14 +93,30 @@ icon: "🖼️"
 
 ### 📜 Завантаження скриптів — async, defer, module
 
-```text
-звичайний  HTML ██████▌░░░░░░░░▐██████          ← парсер стоїть, поки скрипт качається й виконується
-                      ⬇️ fetch ▶️ exec
-async      HTML ████████████▌░░░▐█████          ← качається паралельно, виконується ОДРАЗУ (перериває парсинг)
-                  ⬇️ fetch ───▶️ exec
-defer      HTML ████████████████████████ ▶️ exec ← качається паралельно, виконується ПІСЛЯ парсингу, по порядку
-                  ⬇️ fetch ──────────────
-```
+> [!diagram] Звичайний, async і defer — що робить парсер
+> ```yaml
+> layout: compare
+> columns: { plain: "звичайний <script>", async: "async", defer: "defer" }
+> nodes:
+>   - { id: n1, col: plain, text: "HTML парситься", tone: blue }
+>   - { id: n2, col: plain, text: "⏸ парсер стоїть: fetch", tone: red }
+>   - { id: n3, col: plain, text: "⏸ парсер стоїть: exec", tone: red }
+>   - { id: n4, col: plain, text: "HTML парситься далі", tone: blue }
+>   - { id: a1, col: async, text: "HTML парситься", tone: blue }
+>   - { id: a2, col: async, text: "fetch паралельно, HTML іде далі", tone: green }
+>   - { id: a3, col: async, text: "⏸ exec одразу — перериває парсинг", tone: orange }
+>   - { id: a4, col: async, text: "HTML парситься далі", tone: blue }
+>   - { id: d1, col: defer, text: "HTML парситься", tone: blue }
+>   - { id: d2, col: defer, text: "fetch паралельно, HTML іде далі", tone: green }
+>   - { id: d3, col: defer, text: "HTML дочитано до кінця", tone: blue }
+>   - { id: d4, col: defer, text: "▶️ exec по порядку", note: "перед DOMContentLoaded", tone: violet }
+> steps:
+>   - { show: [n1, a1, d1], note: "Усі троє стартують однаково: парсер читає HTML і натрапляє на <script src>." }
+>   - { show: [n2, a2, d2], note: "Звичайний скрипт зупиняє парсер на весь час завантаження. async і defer качаються паралельно — HTML читається далі." }
+>   - { show: [n3, a3], note: "Звичайний скрипт виконується, поки парсер досі стоїть. async виконується щойно завантажився — і на цей час теж перериває парсинг." }
+>   - { show: [n4, a4, d3], note: "Після виконання парсинг продовжується. У defer парсер узагалі не зупинявся і дочитав HTML до кінця." }
+>   - { show: d4, note: "defer виконується лише після парсингу і в порядку, як у HTML. type=\"module\" поводиться так само — тому для коду застосунку беремо defer або module." }
+> ```
 
 | Атрибут | Блокує парсинг | Коли виконується | Порядок між собою |
 |---|---|---|---|
@@ -217,10 +242,24 @@ boxes.forEach((box, i) => {
 
 На екрані 60 Гц кадр триває 1000 / 60 ≈ **16,7 мс** (на 120 Гц — 8,3 мс). За цей час браузер має виконати твій JS, style, layout, paint і composite. На практиці на JS лишається ~10 мс. Задача, довша за **50 мс**, — *long task*: користувач бачить ривки, а клік чекає.
 
-```text
-|◀──────────────── 16,7 мс ────────────────▶|
-| задачі/події JS | rAF | Style | Layout | Paint | Composite | (idle)
-```
+> [!diagram] Один кадр — 16,7 мс
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: js, label: "0 мс", text: "задачі й події JS", note: "≈ 10 мс бюджету", tone: blue }
+>   - { id: raf, label: rAF, code: "requestAnimationFrame(frame)", tone: violet }
+>   - { id: style, label: Style, text: стилі, tone: yellow }
+>   - { id: layout, label: Layout, text: геометрія, tone: yellow }
+>   - { id: paint, label: Paint, text: малювання, tone: orange }
+>   - { id: comp, label: Composite, text: шари → екран, tone: green }
+>   - { id: idle, label: "≤ 16,7 мс", text: idle, note: "requestIdleCallback", tone: gray }
+> steps:
+>   - { focus: js, note: "Кадр на 60 Гц триває 1000 / 60 ≈ 16,7 мс. Спершу виконуються твої задачі й обробники подій — на них лишається приблизно 10 мс." }
+>   - { move: { from: js, to: raf, value: "кадр" }, line: "raf:1", note: "Перед style/layout браузер викликає колбеки requestAnimationFrame — найкраще місце для візуальних змін." }
+>   - { move: [{ from: raf, to: style, value: "el.style.transform" }, { from: style, to: layout, value: "стилі" }], note: "Style перераховує стилі, Layout — геометрію (якщо змінилось щось, що на неї впливає)." }
+>   - { move: [{ from: layout, to: paint, value: "геометрія" }, { from: paint, to: comp, value: "шари" }], note: "Paint малює, Composite складає шари. Зміна transform чи opacity пропускає layout і paint — лише composite." }
+>   - { move: { from: comp, to: idle, value: "встигли ✓" }, note: "Якщо все вклалось у 16,7 мс — лишається idle. Задача довша за 50 мс — long task: кадри пропускаються, з'являються ривки." }
+> ```
 
 `requestAnimationFrame(cb)` викликає `cb` **перед style/layout наступного кадру** — найкраще місце для візуальних змін: вони гарантовано потраплять у найближчий кадр, а у фоновій вкладці rAF ставиться на паузу. Не плутати з `requestIdleCallback` — він для неважливої роботи в «хвостах» кадрів.
 

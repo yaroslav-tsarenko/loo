@@ -11,11 +11,19 @@ export function ChoiceGroup({ legend, hint, children, wide }: { legend: string; 
   )
 }
 
-export function Choice({ type, name, value, defaultChecked, required, title, sub }: { type: 'radio' | 'checkbox'; name: string; value: string; defaultChecked?: boolean; required?: boolean; title: ReactNode; sub?: ReactNode }) {
+// `icon`: a pixel icon / Loo form shown before the title (never an emoji in the title text).
+export function Choice({ type, name, value, defaultChecked, required, title, sub, icon }: { type: 'radio' | 'checkbox'; name: string; value: string; defaultChecked?: boolean; required?: boolean; title: ReactNode; sub?: ReactNode; icon?: ReactNode }) {
   return (
     <label className="choice">
       <input type={type} name={name} value={value} defaultChecked={defaultChecked} required={required} />
-      <span className="choice-title">{title}</span>
+      <span className="choice-title">
+        {icon ? (
+          <span className="choice-icon" aria-hidden="true">
+            {icon}
+          </span>
+        ) : null}
+        {title}
+      </span>
       {sub ? <span className="choice-sub">{sub}</span> : null}
     </label>
   )

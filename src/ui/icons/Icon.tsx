@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import type { CSSProperties } from 'react'
+import { PIXEL_ICONS, PixelIcon, type PixelIconName } from '../design/PixelIcon'
 import { parseIconRef } from './ref'
 import type { LucideName } from './sets/lucide'
 import type { PiName } from './sets/pi'
@@ -12,10 +13,10 @@ const PiGlyph = dynamic(() => import('./sets/pi'))
 const TbGlyph = dynamic(() => import('./sets/tb'))
 const LucideGlyph = dynamic(() => import('./sets/lucide'))
 
-export type IconName = `si:${SiName}` | `pi:${PiName}` | `tb:${TbName}` | `lucide:${LucideName}` | `emoji:${string}`
+export type IconName = `si:${SiName}` | `pi:${PiName}` | `tb:${TbName}` | `lucide:${LucideName}` | `px:${PixelIconName}` | `emoji:${string}`
 
 export interface IconProps {
-  /** `si:SiReact`, `pi:PiFireFill`, `tb:TbBrain`, `lucide:Flame`, `emoji:🔥` or a bare emoji. Unknown strings render the fallback. */
+  /** `si:SiReact`, `pi:PiFireFill`, `tb:TbBrain`, `lucide:Flame`, `px:flagUk`, `emoji:🔥` or a bare emoji. Unknown strings render the fallback. */
   name: IconName | (string & {})
   size?: number
   /** Accessible name. Without it the icon is decorative. */
@@ -37,6 +38,14 @@ export function Icon({ name, size = 20, label, mono, color, fallback = '•', cl
     return (
       <span className={cls} data-emoji="" style={style} {...a11y}>
         {ref?.name ?? fallback}
+      </span>
+    )
+  }
+  if (ref.set === 'px') {
+    const px = PIXEL_ICONS.find((n) => n === ref.name)
+    return (
+      <span className={cls} style={style} {...a11y}>
+        {px ? <PixelIcon name={px} size={size} /> : fallback}
       </span>
     )
   }

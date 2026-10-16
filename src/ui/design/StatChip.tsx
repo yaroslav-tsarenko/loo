@@ -3,15 +3,18 @@ import { plural } from '@/ui/format'
 import { CountUp } from './CountUp'
 import { cx } from './cx'
 import { GameIcon, type GameIconName } from './GameIcon'
+import { PixelIcon } from './PixelIcon'
 
-export type StatKind = 'streak' | 'gems' | 'hearts' | 'xp'
+export type StatKind = 'streak' | 'bucks' | 'gems' | 'hearts' | 'xp'
 
-const ICON: Record<StatKind, GameIconName> = { streak: 'fire', gems: 'gem', hearts: 'heart', xp: 'bolt' }
+const ICON: Record<Exclude<StatKind, 'bucks'>, GameIconName> = { streak: 'fire', gems: 'gem', hearts: 'heart', xp: 'bolt' }
 
 function describe(kind: StatKind, n: number, active: boolean): string {
   switch (kind) {
     case 'streak':
       return `Серія: ${n} ${plural(n, 'день', 'дні', 'днів')}${active ? '' : ', сьогодні ще не зараховано'}`
+    case 'bucks':
+      return `Бакси: ${n}`
     case 'gems':
       return `Кристали: ${n}`
     case 'hearts':
@@ -35,7 +38,7 @@ export function StatChip({ kind, value, active = true, href, size = 'md', classN
   const label = describe(kind, value, active)
   const body = (
     <>
-      <GameIcon name={ICON[kind]} size={size === 'sm' ? 20 : 24} muted={!active} />
+      {kind === 'bucks' ? <PixelIcon name="buck" size={size === 'sm' ? 20 : 24} /> : <GameIcon name={ICON[kind]} size={size === 'sm' ? 20 : 24} muted={!active} />}
       <CountUp value={value} />
     </>
   )

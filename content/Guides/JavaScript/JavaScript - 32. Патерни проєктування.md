@@ -148,10 +148,27 @@ function createEmitter() {
 }
 ```
 
-```text
-Observer:   Subject ──notify──► [Observer A, Observer B]       subject знає підписників
-Pub/sub:    Publisher ──► [ канал "order:paid" ] ──► Subscribers   ніхто ні про кого не знає
-```
+> [!diagram] Observer проти pub/sub
+> ```yaml
+> layout: compare
+> columns: { obs: "Observer", pub: "Pub/sub" }
+> nodes:
+>   - { id: os, col: obs, label: Subject, text: "order", note: "сам тримає список підписників", tone: violet }
+>   - { id: oo, col: obs, label: підписники, text: "Observer A · Observer B", tone: green }
+>   - { id: pp, col: pub, label: Publisher, text: "оплата", note: "не знає, хто слухає", tone: blue }
+>   - { id: pc, col: pub, label: канал, text: "\"order:paid\"", tone: violet, icon: "px:envelope" }
+>   - { id: ps, col: pub, label: Subscribers, text: "пошта · склад · аналітика", note: "не знають, хто надіслав", tone: green }
+> edges:
+>   - { from: os, to: oo, label: notify }
+>   - { from: pp, to: pc, label: publish }
+>   - { from: pc, to: ps, label: deliver }
+> steps:
+>   - { focus: os, note: "Observer: subject сам зберігає список підписників і знає кожного з них." }
+>   - { move: { from: os, to: oo, value: "notify(order)" }, note: "Змінився стан — subject напряму викликає кожного підписника." }
+>   - { move: { from: pp, to: pc, value: "emit('order:paid')" }, note: "Pub/sub: видавець кидає подію в канал і не знає, хто її отримає. Саме так працює createEmitter вище." }
+>   - { move: { from: pc, to: ps, value: "order" }, note: "Канал роздає подію всім, хто підписався через on('order:paid'). Видавець і підписники одне про одного не знають." }
+>   - { focus: [os, pc], note: "Ціна слабкого зв'язку — неявний потік керування і витоки через забуті підписки. Тому on() повертає unsubscribe." }
+> ```
 
 Ціна слабкого зв'язку — **неявний потік керування** (важко відстежити, хто реагує на подію) і **витоки** через забуті підписки ([[JavaScript - 13. Пам'ять і збирач сміття]]). Повертай `unsubscribe` і викликай його в cleanup.
 
@@ -282,10 +299,20 @@ export function createUserService({ db, mailer, now = () => new Date() }) {
 
 **Middleware** — ланцюжок обробників, кожен з яких може щось зробити **до** і **після** наступного (`next`). Так влаштовані Express, Koa, Redux middleware, перехоплювачі fetch-клієнтів. У Koa це «цибуля»:
 
-```text
-запит ──► [ logger ──► [ auth ──► [ handler ] ──► auth ] ──► logger ] ──► відповідь
-            до next()      до next()   ядро     після next()   після next()
-```
+> [!diagram] Middleware «цибуля»: до і після next()
+> ```yaml
+> layout: nest
+> nodes:
+>   - { id: logger, label: logger, code: "// до: запам'ятати час\nawait next()\n// після: записати тривалість", tone: blue }
+>   - { id: auth, label: auth, code: "// до: перевірити токен\nawait next()\n// після: додати заголовки", parent: logger, tone: violet }
+>   - { id: handler, label: "handler — ядро", text: "чекає запит", parent: auth, tone: green }
+> steps:
+>   - { line: "logger:1", note: "Запит заходить у зовнішній шар. logger робить свою частину «до» і викликає next()." }
+>   - { line: ["logger:2", "auth:1"], move: { from: logger, to: auth, value: "next()" }, note: "next() передає керування в наступний шар — auth перевіряє токен." }
+>   - { line: "auth:2", move: { from: auth, to: handler, value: "next()" }, set: { handler: "ctx.body = відповідь ✓" }, note: "auth пропускає далі — до ядра. handler формує відповідь." }
+>   - { line: "auth:3", note: "Ядро завершилось — await next() в auth повертається, і виконується його код «після»." }
+>   - { line: "logger:3", note: "Останнім виконується «після» зовнішнього шару: logger записує тривалість усього запиту. Порядок: до-до-ядро-після-після." }
+> ```
 
 ```js
 function compose(middlewares) {

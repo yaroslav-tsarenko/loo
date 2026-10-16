@@ -5,18 +5,19 @@
 export interface Budget {
   minutes: number
   id: string
-  emoji: string
+  // icon ref for <Icon name> (src/content/icons.ts)
+  icon: string
   title: string
   hint: string
 }
 
 export const BUDGETS: readonly Budget[] = [
-  { minutes: 10, id: 'sprint', emoji: '⚡', title: 'Спринт', hint: 'Повторення, міні-квіз і фішки — ідеально в дорозі' },
-  { minutes: 20, id: 'steady', emoji: '🎯', title: 'Стабільно', hint: 'Плюс шматок нового розділу' },
-  { minutes: 30, id: 'focus', emoji: '🔥', title: 'Фокус', hint: 'Плюс задача з кодом' },
-  { minutes: 45, id: 'deep', emoji: '🧠', title: 'Глибина', hint: 'Помилки, новий розділ, задача середньої складності' },
-  { minutes: 60, id: 'marathon', emoji: '🏔️', title: 'Марафон', hint: 'Усе більше, hard-задача' },
-  { minutes: 90, id: 'beast', emoji: '🦾', title: 'Звір', hint: 'Максимальне занурення' },
+  { minutes: 10, id: 'sprint', icon: 'px:bolt', title: 'Спринт', hint: 'Повторення, міні-квіз і фішки — ідеально в дорозі' },
+  { minutes: 20, id: 'steady', icon: 'px:target', title: 'Стабільно', hint: 'Плюс шматок нового розділу' },
+  { minutes: 30, id: 'focus', icon: 'px:fire', title: 'Фокус', hint: 'Плюс задача з кодом' },
+  { minutes: 45, id: 'deep', icon: 'px:brain', title: 'Глибина', hint: 'Помилки, новий розділ, задача середньої складності' },
+  { minutes: 60, id: 'marathon', icon: 'px:mountain', title: 'Марафон', hint: 'Усе більше, hard-задача' },
+  { minutes: 90, id: 'beast', icon: 'px:crown', title: 'Звір', hint: 'Максимальне занурення' },
 ]
 
 export const DEFAULT_BUDGET = 20
@@ -29,10 +30,21 @@ export function budgetFor(minutes: number): Budget {
 
 export type StepKind = 'review' | 'mistakes' | 'lessons' | 'read' | 'quiz' | 'boss' | 'task' | 'feed'
 
+// Icon ref per step kind (rendered by the mission card; old stored plans may still carry an `emoji` field — ignored).
+export const STEP_ICONS: Record<StepKind, string> = {
+  review: 'px:cards',
+  mistakes: 'px:bandage',
+  lessons: 'px:gradCap',
+  read: 'px:book',
+  quiz: 'px:dice',
+  boss: 'px:boss',
+  task: 'px:code',
+  feed: 'px:bolt',
+}
+
 export interface MissionStep {
   id: StepKind
   kind: StepKind
-  emoji: string
   title: string
   why: string
   target: number
@@ -87,7 +99,7 @@ export function planMission(input: MissionInput): MissionPlan {
   const review = Math.min(reviewCap, input.due + Math.min(input.newCards, Math.ceil(reviewCap / 3)))
   if (review > 0) {
     steps.push({
-      id: 'review', kind: 'review', emoji: '🔁', title: `Повторити ${review} карток`,
+      id: 'review', kind: 'review', title: `Повторити ${review} карток`,
       why: 'Інтервальне повторення: освіжаємо те, що ти от-от забудеш', target: review, unit: 'card', minutes: take(Math.ceil(review * PACE.card)),
     })
   }
@@ -97,7 +109,7 @@ export function planMission(input: MissionInput): MissionPlan {
     const n = Math.min(input.mistakes, Math.floor((budget * 0.12) / PACE.mistake), 10)
     if (n > 0) {
       steps.push({
-        id: 'mistakes', kind: 'mistakes', emoji: '🩹', title: `Закрити ${n} помилок`,
+        id: 'mistakes', kind: 'mistakes', title: `Закрити ${n} помилок`,
         why: 'Помилки — найкоротший шлях до прогресу', target: n, unit: 'question', minutes: take(Math.ceil(n * PACE.mistake)),
       })
     }
@@ -107,7 +119,7 @@ export function planMission(input: MissionInput): MissionPlan {
   const lessonTarget = Math.min(input.lessons, LESSONS_FOR.find(([b]) => budget >= b)![1])
   if (lessonTarget > 0) {
     steps.push({
-      id: 'lessons', kind: 'lessons', emoji: '🎓', title: `Пройти ${lessonTarget} ${lessonTarget === 1 ? 'урок' : lessonTarget < 5 ? 'уроки' : 'уроків'} шляху`,
+      id: 'lessons', kind: 'lessons', title: `Пройти ${lessonTarget} ${lessonTarget === 1 ? 'урок' : lessonTarget < 5 ? 'уроки' : 'уроків'} шляху`,
       why: 'Нове знання маленькими порціями: передбач → зрозумій → перевір', target: lessonTarget, unit: 'lesson', minutes: take(lessonTarget * PACE.lesson),
     })
   }
@@ -116,7 +128,7 @@ export function planMission(input: MissionInput): MissionPlan {
   if (budget >= 45 && input.nextChapter) {
     const minutes = clamp(Math.round(budget * 0.15), 6, Math.max(6, input.nextChapter.minutes))
     steps.push({
-      id: 'read', kind: 'read', emoji: '📖', title: `Читати «${input.nextChapter.title}»`,
+      id: 'read', kind: 'read', title: `Читати «${input.nextChapter.title}»`,
       why: 'Нове знання + перевірки «передбач» у тексті', target: minutes, unit: 'minute', minutes: take(minutes), chapterId: input.nextChapter.id,
     })
   }
@@ -128,8 +140,8 @@ export function planMission(input: MissionInput): MissionPlan {
   if (quizN > 0 && (boss || budget >= 20)) {
     steps.push(
       boss
-        ? { id: 'boss', kind: 'boss', emoji: '👹', title: `Бос тижня: ${quizN} питань`, why: 'Змішаний тест з усього, що ти вчив цього тижня', target: quizN, unit: 'question', minutes: take(Math.ceil(quizN * PACE.question)) }
-        : { id: 'quiz', kind: 'quiz', emoji: '🎲', title: `Міні-квіз: ${quizN} питань`, why: 'Перемішані теми — мозок вчиться розрізняти, а не вгадувати', target: quizN, unit: 'question', minutes: take(Math.ceil(quizN * PACE.question)) },
+        ? { id: 'boss', kind: 'boss', title: `Бос тижня: ${quizN} питань`, why: 'Змішаний тест з усього, що ти вчив цього тижня', target: quizN, unit: 'question', minutes: take(Math.ceil(quizN * PACE.question)) }
+        : { id: 'quiz', kind: 'quiz', title: `Міні-квіз: ${quizN} питань`, why: 'Перемішані теми — мозок вчиться розрізняти, а не вгадувати', target: quizN, unit: 'question', minutes: take(Math.ceil(quizN * PACE.question)) },
     )
   }
 
@@ -140,7 +152,7 @@ export function planMission(input: MissionInput): MissionPlan {
     if (difficulty) {
       const count = budget >= 90 && input.tasks[difficulty] > 1 ? 2 : 1
       steps.push({
-        id: 'task', kind: 'task', emoji: '🛠️', title: count > 1 ? `Розв'язати ${count} задачі` : 'Розв’язати задачу',
+        id: 'task', kind: 'task', title: count > 1 ? `Розв'язати ${count} задачі` : 'Розв’язати задачу',
         why: 'Код руками — єдиний спосіб перетворити розуміння на навичку', target: count, unit: 'task', minutes: take(TASK_MINUTES[difficulty] * count), difficulty,
       })
     }
@@ -150,7 +162,7 @@ export function planMission(input: MissionInput): MissionPlan {
   const reels = Math.min(input.reels > 0 ? input.reels : 0, Math.max(5, Math.floor(Math.max(left, 2) / PACE.reel)), 40)
   if (reels > 0) {
     steps.push({
-      id: 'feed', kind: 'feed', emoji: '⚡', title: `Гортати стрічку: ${reels} фішок`,
+      id: 'feed', kind: 'feed', title: `Гортати стрічку: ${reels} фішок`,
       why: 'Мікрофакти, які чіпляються в памʼяті', target: reels, unit: 'reel', minutes: Math.max(1, take(Math.ceil(reels * PACE.reel))),
     })
   }

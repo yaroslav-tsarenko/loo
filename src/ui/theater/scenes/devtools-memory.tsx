@@ -1,3 +1,4 @@
+import { PixelIcon } from '@/ui/design/PixelIcon'
 import { defineScene, erase } from '../define'
 import type { AnyScene, SceneViewProps } from '../types'
 import { Caret, Code, DevTools, PageStrip } from './kit'
@@ -37,7 +38,9 @@ function View({ s, focus }: SceneViewProps<S>) {
   return (
     <div className="sc-split">
       <PageStrip>
-        <span className="sc-page-logo">🪟</span>
+        <span className="sc-page-logo">
+          <PixelIcon name="monitor" size={22} />
+        </span>
         <span className="sc-page-title">Модальне вікно</span>
         <span className="sc-page-btn" data-demo="open-modal">
           Відкрити

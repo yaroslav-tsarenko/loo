@@ -3,13 +3,14 @@
 import { AnimatePresence, m } from 'motion/react'
 import { Play, RotateCcw } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { SPRING } from '../engine/Panel'
+import { SPRING, VizGlyph } from '../engine/Panel'
+import type { VizIcon } from '../engine/types'
 import { COMBINATORS, combine, type CombinatorInput } from './combinator-model'
 
-const NAMES = [
-  { name: 'A', value: '🍎', reason: '💥A' },
-  { name: 'B', value: '🍌', reason: '💥B' },
-  { name: 'C', value: '🍇', reason: '💥C' },
+const NAMES: Array<{ name: string; icon: VizIcon; value: string; reason: string }> = [
+  { name: 'A', icon: 'px:apple', value: 'яблуко', reason: 'помилка A' },
+  { name: 'B', icon: 'px:banana', value: 'банан', reason: 'помилка B' },
+  { name: 'C', icon: 'px:grapes', value: 'виноград', reason: 'помилка C' },
 ]
 
 const INITIAL = [
@@ -24,7 +25,7 @@ export function Combinators() {
   const [config, setConfig] = useState(INITIAL)
   const [t, setT] = useState<number | null>(null)
   const raf = useRef(0)
-  const inputs: CombinatorInput[] = config.map((c, i) => ({ ...NAMES[i]!, ...c }))
+  const inputs: Array<CombinatorInput & { icon: VizIcon }> = config.map((c, i) => ({ ...NAMES[i]!, ...c }))
   const end = Math.max(...config.map((c) => c.ms)) + 400
   const running = t !== null && t < end
 
@@ -60,10 +61,10 @@ export function Combinators() {
           return (
             <div key={input.name} className="viz-comb-input">
               <span className="viz-comb-name">
-                {input.name} <span aria-hidden="true">{input.value}</span>
+                {input.name} <VizGlyph icon={input.icon} />
               </span>
               <button type="button" className="viz-yn" data-yes={input.ok ? '' : undefined} aria-pressed={input.ok} onClick={() => update(i, { ok: !input.ok })} aria-label={`Проміс ${input.name}: ${input.ok ? 'виконається' : 'впаде'}. Перемкнути`}>
-                {input.ok ? '✅ resolve' : '❌ reject'}
+                <VizGlyph icon={input.ok ? 'pi:PiCheckCircleFill' : 'pi:PiXCircleFill'} size={14} /> {input.ok ? 'resolve' : 'reject'}
               </button>
               <label className="viz-comb-ms">
                 <input type="range" min={200} max={MAX_MS} step={100} value={input.ms} onChange={(e) => update(i, { ms: Number(e.target.value) })} aria-label={`Час проміса ${input.name}, мс`} />
@@ -71,7 +72,7 @@ export function Combinators() {
               </label>
               <div className="viz-track" aria-hidden="true">
                 <span className="viz-track-mark" data-ok={input.ok ? '' : undefined} data-on={settled ? '' : undefined} style={{ left: pct(input.ms) }}>
-                  {settled ? (input.ok ? input.value : '💥') : '⏳'}
+                  <VizGlyph icon={settled ? (input.ok ? input.icon : 'px:cross') : 'px:hourglass'} />
                 </span>
                 {t !== null ? <span className="viz-track-cursor" style={{ left: pct(Math.min(now, MAX_MS)) }} /> : null}
               </div>
@@ -108,10 +109,12 @@ export function Combinators() {
                 <m.div key={done ? 'done' : 'wait'} className="viz-comb-value" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={SPRING}>
                   {done ? (
                     <>
-                      {outcome.ok ? '✅ fulfilled' : '❌ rejected'} · <code>{outcome.value}</code> <span className="viz-muted">на {outcome.at} мс</span>
+                      <VizGlyph icon={outcome.ok ? 'px:check' : 'px:cross'} size={14} /> {outcome.ok ? 'fulfilled' : 'rejected'} · <code>{outcome.value}</code> <span className="viz-muted">на {outcome.at} мс</span>
                     </>
                   ) : (
-                    <>⏳ pending{t === null ? ' — натисни «Запустити»' : ''}</>
+                    <>
+                      <VizGlyph icon="px:hourglass" size={14} /> pending{t === null ? ' — натисни «Запустити»' : ''}
+                    </>
                   )}
                 </m.div>
               </AnimatePresence>

@@ -12,7 +12,8 @@ export interface VizScenarioInfo {
 
 export interface VizInfo {
   id: string
-  emoji: string
+  // icon ref for <Icon>: `px:…` (our pixel set) or a library glyph — never an emoji
+  icon: string
   title: string
   description: string
   // first scenario is the default
@@ -25,7 +26,7 @@ const interactive = (id: string, title: string, description: string): VizScenari
 export const VIZ_CATALOG: readonly VizInfo[] = [
   {
     id: 'call-stack',
-    emoji: '🥞',
+    icon: 'px:pancakes',
     title: 'Call Stack',
     description: 'Як рушій кладе і знімає кадри викликів',
     scenarios: [
@@ -36,7 +37,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'event-loop',
-    emoji: '🔄',
+    icon: 'px:alarm',
     title: 'Event Loop',
     description: 'Стек, Web APIs, черги мікро- і макрозадач',
     scenarios: [
@@ -48,7 +49,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'scope-chain',
-    emoji: '🪆',
+    icon: 'px:matryoshka',
     title: 'Scope chain і замикання',
     description: 'Лексичні оточення, посилання outer і захоплені змінні',
     scenarios: [
@@ -59,7 +60,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'hoisting',
-    emoji: '🎈',
+    icon: 'px:balloon',
     title: 'Hoisting і TDZ',
     description: 'Фаза створення контексту проти фази виконання',
     scenarios: [
@@ -69,7 +70,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'this-binding',
-    emoji: '🎯',
+    icon: 'px:target',
     title: 'this',
     description: 'Значення this визначає спосіб виклику',
     scenarios: [
@@ -80,7 +81,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'prototype-chain',
-    emoji: '🧬',
+    icon: 'px:rabbit',
     title: 'Ланцюжок прототипів',
     description: 'Пошук властивості через [[Prototype]] аж до null',
     scenarios: [
@@ -90,7 +91,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'promise-states',
-    emoji: '🤞',
+    icon: 'px:hourglass',
     title: 'Стани Promise',
     description: 'pending → fulfilled / rejected, ланцюжки і комбінатори',
     scenarios: [
@@ -101,7 +102,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'coercion',
-    emoji: '🪄',
+    icon: 'px:wand',
     title: 'Приведення типів',
     description: 'Алгоритми зі специфікації крок за кроком',
     scenarios: [
@@ -111,7 +112,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'memory-refs',
-    emoji: '📦',
+    icon: 'px:box',
     title: 'Значення і посилання',
     description: 'Стек проти купи: що копіюється при присвоєнні',
     scenarios: [
@@ -121,7 +122,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'gc',
-    emoji: '🧹',
+    icon: 'px:trash',
     title: 'Збирач сміття',
     description: 'Досяжність від коренів і mark & sweep',
     scenarios: [
@@ -131,49 +132,49 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'debounce-throttle',
-    emoji: '⏱️',
+    icon: 'px:clock',
     title: 'Debounce і throttle',
     description: 'Три таймлайни: сирі події, debounce, throttle',
     scenarios: [interactive('compare', 'Порівняння', 'натискай «подія» або запусти сплеск і підкрути мілісекунди')],
   },
   {
     id: 'array-pipeline',
-    emoji: '🏭',
+    icon: 'px:apple',
     title: 'map → filter → reduce',
     description: 'Елементи проходять через етапи конвеєра',
     scenarios: [steps('map-filter-reduce', 'Кошик фруктів', 'знижка через map, відбір через filter, сума через reduce')],
   },
   {
     id: 'generators',
-    emoji: '🏓',
+    icon: 'px:paddle',
     title: 'Генератори',
     description: 'Пінг-понг керування між викликом і генератором',
-    scenarios: [steps('yield-pingpong', 'next() ↔ yield', 'значення летять туди через next(x) і назад через yield')],
+    scenarios: [steps('yield-pingpong', 'next() ⇄ yield', 'значення летять туди через next(x) і назад через yield')],
   },
   {
     id: 'float-precision',
-    emoji: '🧮',
+    icon: 'px:abacus',
     title: 'IEEE 754: як лежить number',
     description: '64 біти double: знак, експонента, мантиса і точне значення',
     scenarios: [interactive('ieee754', 'Біти числа', 'обери число й побач біти, формулу і точне значення — звідси 0.1 + 0.2 ≠ 0.3')],
   },
   {
     id: 'regex-engine',
-    emoji: '🔍',
+    icon: 'px:magnifier',
     title: 'Рушій регулярних виразів',
     description: 'Backtracking крок за кроком: спроби, відступи, катастрофа',
     scenarios: [interactive('backtracking', 'Backtracking', 'жадібний і лінивий квантифікатори, альтернатива і вибух кроків у /(a+)+b/')],
   },
   {
     id: 'proxy-traps',
-    emoji: '🪞',
+    icon: 'px:mirror',
     title: 'Proxy і Reflect',
     description: 'Пастки handler перехоплюють операції над об’єктом',
     scenarios: [steps('get-set', 'get / set / has', 'читання і запис ідуть через пастки, без пастки — прямо в target; валідація кидає TypeError')],
   },
   {
     id: 'module-graph',
-    emoji: '🕸️',
+    icon: 'px:blocks',
     title: 'Модулі: ESM і CommonJS',
     description: 'Побудова, зв’язування й виконання графа модулів',
     scenarios: [
@@ -183,14 +184,14 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'unicode-string',
-    emoji: '🔤',
+    icon: 'px:letterTile',
     title: 'Рядки і Unicode',
     description: 'Графеми, code points, UTF-16 code units і байти UTF-8',
     scenarios: [interactive('code-units', 'Що таке довжина рядка', 'обери рядок: length, [...s], Intl.Segmenter і TextEncoder рахують різне')],
   },
   {
     id: 'event-propagation',
-    emoji: '🫧',
+    icon: 'px:bubbles',
     title: 'Поширення подій',
     description: 'Capture → target → bubble, target проти currentTarget і делегування',
     scenarios: [
@@ -200,7 +201,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'render-pipeline',
-    emoji: '🎞️',
+    icon: 'px:image',
     title: 'Конвеєр рендерингу',
     description: 'Кадр за 16.7 мс: Style → Layout → Paint → Composite',
     scenarios: [
@@ -210,7 +211,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'cors',
-    emoji: '🛂',
+    icon: 'px:shield',
     title: 'CORS',
     description: 'Origin, Access-Control-* заголовки і preflight',
     scenarios: [
@@ -220,21 +221,21 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'http-cache',
-    emoji: '💾',
+    icon: 'px:floppy',
     title: 'HTTP-кеш',
     description: 'max-age, ETag і ревалідація з 304',
     scenarios: [steps('revalidation', 'Свіжість і ревалідація', 'fresh → з кешу без мережі, stale → If-None-Match → 304 або нова 200')],
   },
   {
     id: 'service-worker',
-    emoji: '👷',
+    icon: 'px:hardHat',
     title: 'Service Worker',
     description: 'install → waiting → activate → fetch і оновлення версій',
     scenarios: [steps('lifecycle', 'Життєвий цикл', 'precache в install, очищення в activate, cache-first fetch і чому нова версія чекає')],
   },
   {
     id: 'hidden-classes',
-    emoji: '🗺️',
+    icon: 'px:map',
     title: 'Hidden classes і inline caches',
     description: 'Як V8 описує форму об’єкта і кешує доступ до властивостей',
     scenarios: [
@@ -244,7 +245,7 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'worker-messaging',
-    emoji: '🧵',
+    icon: 'px:spool',
     title: 'Обмін повідомленнями з воркером',
     description: 'Два потоки, дві черги: structured clone і transfer',
     scenarios: [
@@ -254,14 +255,14 @@ export const VIZ_CATALOG: readonly VizInfo[] = [
   },
   {
     id: 'xss',
-    emoji: '💉',
+    icon: 'px:syringe',
     title: 'DOM XSS',
     description: 'Від source до sink: як рядок з URL стає кодом',
     scenarios: [steps('dom-sink', 'innerHTML як sink', '<img onerror> з ?q= виконує код; textContent, санітизація і Trusted Types це зупиняють')],
   },
   {
     id: 'tc39-stages',
-    emoji: '🏛️',
+    icon: 'px:temple',
     title: 'Стадії TC39',
     description: 'Шлях пропозиції від ідеї до щорічного стандарту ECMAScript',
     scenarios: [steps('pipeline', 'Від Stage 0 до ES2020', 'optional chaining ?. проходить стадії 0 → 4 і потрапляє в ECMAScript 2020')],

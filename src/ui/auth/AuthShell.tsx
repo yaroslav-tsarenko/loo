@@ -3,22 +3,32 @@ import type { ReactNode } from 'react'
 import { t, type MessageKey } from '@/i18n'
 import { Logo } from '@/ui/design/brand/Logo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
+import { ThemeSwitch } from '@/ui/marketing/ThemeSwitch'
 import type { LooMood } from '@/ui/design/mascot/Loo'
 
-// Full-screen card used by /login, /signup, /forgot-password, /reset-password.
-export function AuthShell({ mood = 'wave', loo, title, lead, children, footer }: { mood?: LooMood; loo: string; title: string; lead?: ReactNode; children: ReactNode; footer?: ReactNode }) {
+// Full-screen card used by /login, /signup, /forgot-password, /reset-password. `icon` sits after the title (pixel icon).
+export function AuthShell({ mood = 'wave', loo, title, icon, lead, children, footer }: { mood?: LooMood; loo: string; title: string; icon?: ReactNode; lead?: ReactNode; children: ReactNode; footer?: ReactNode }) {
   return (
     <main className="auth-page">
       <header className="auth-top">
         <Link href="/" aria-label="Levelup — на головну">
           <Logo size={34} />
         </Link>
+        <ThemeSwitch />
       </header>
       <div className="auth-body">
         <LooSays mood={mood} size={88} text={loo} className="auth-loo" />
         <section className="auth-card lu-card" data-variant="raised" data-pad="lg" aria-labelledby="auth-title">
           <h1 id="auth-title" className="auth-title">
             {title}
+            {icon ? (
+              <>
+                {' '}
+                <span className="auth-title-icon" aria-hidden="true">
+                  {icon}
+                </span>
+              </>
+            ) : null}
           </h1>
           {lead ? <p className="auth-lead">{lead}</p> : null}
           {children}
@@ -84,7 +94,7 @@ export function OAuthButtons({ next, providers }: { next?: string; providers: re
   if (providers.length === 0) return null
   const href = (provider: string) => `/auth/oauth?provider=${provider}${next && next !== '/' ? `&next=${encodeURIComponent(next)}` : ''}`
   const button = (provider: string, label: string, mark: ReactNode) => (
-    <a key={provider} className="lu-btn auth-oauth-btn" data-variant="secondary" data-size="md" data-block="" href={href(provider)}>
+    <a key={provider} className="lu-btn auth-oauth-btn" data-variant="ghost" data-size="md" data-block="" href={href(provider)}>
       <span className="lu-btn-content">
         <span className="lu-btn-icon">{mark}</span>
         <span className="lu-btn-label">{label}</span>

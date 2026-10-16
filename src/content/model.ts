@@ -4,7 +4,7 @@ import { levelLabel } from '@/game/evolution'
 export const LEVELS = ['junior', 'middle', 'senior', 'techlead'] as const
 export type Level = (typeof LEVELS)[number]
 
-// Shown as the matching Loo form (src/game/evolution.ts): junior → Блок … techlead → Легендарний.
+// Shown as the matching IT rank (src/game/evolution.ts): junior → Junior … techlead → Staff.
 export const LEVEL_LABEL: Record<Level, string> = {
   junior: levelLabel('junior'),
   middle: levelLabel('middle'),
@@ -43,7 +43,7 @@ export interface ChapterMeta {
   description?: string
   guide?: string
   icon?: string
-  // Guide index only: path stages, e.g. "🧱 Ядро мови: 1-7".
+  // Guide index only: path stages, e.g. "🧱 Ядро мови: 1-7" (the emoji is mapped to an icon ref).
   parts?: string[]
 }
 
@@ -92,7 +92,8 @@ export interface Guide {
 }
 
 export interface GuidePart {
-  emoji: string | null
+  // icon ref (src/content/icons.ts)
+  icon: string | null
   title: string
   from: number
   to: number

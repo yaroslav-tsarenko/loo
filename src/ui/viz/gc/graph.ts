@@ -1,9 +1,11 @@
 // Object graph for the reachability demo + pure mark phase.
 
+import type { PixelIconName } from '@/ui/design/PixelIcon'
+
 export interface GraphNode {
   id: string
   label: string
-  emoji: string
+  icon: PixelIconName
   x: number
   y: number
   root?: boolean
@@ -17,17 +19,17 @@ export interface GraphEdge {
 }
 
 export const NODES: readonly GraphNode[] = [
-  { id: 'global', label: 'globalThis', emoji: '🌐', x: 40, y: 80, root: true },
-  { id: 'stack', label: 'стек', emoji: '📚', x: 40, y: 220, root: true },
-  { id: 'parent', label: 'parent', emoji: '👨', x: 140, y: 30 },
-  { id: 'child', label: 'child', emoji: '👶', x: 250, y: 30 },
-  { id: 'user', label: 'user', emoji: '👤', x: 140, y: 130 },
-  { id: 'cart', label: 'cart', emoji: '🛒', x: 240, y: 110 },
-  { id: 'apple', label: 'apple', emoji: '🍎', x: 330, y: 80 },
-  { id: 'book', label: 'book', emoji: '📕', x: 330, y: 150 },
-  { id: 'avatar', label: 'avatar', emoji: '🖼️', x: 240, y: 190 },
-  { id: 'session', label: 'session', emoji: '🔑', x: 140, y: 240 },
-  { id: 'temp', label: 'temp', emoji: '🗑️', x: 320, y: 245 },
+  { id: 'global', label: 'globalThis', icon: 'globe', x: 40, y: 80, root: true },
+  { id: 'stack', label: 'стек', icon: 'pancakes', x: 40, y: 220, root: true },
+  { id: 'parent', label: 'parent', icon: 'adult', x: 140, y: 30 },
+  { id: 'child', label: 'child', icon: 'baby', x: 250, y: 30 },
+  { id: 'user', label: 'user', icon: 'person', x: 140, y: 130 },
+  { id: 'cart', label: 'cart', icon: 'cart', x: 240, y: 110 },
+  { id: 'apple', label: 'apple', icon: 'apple', x: 330, y: 80 },
+  { id: 'book', label: 'book', icon: 'book', x: 330, y: 150 },
+  { id: 'avatar', label: 'avatar', icon: 'image', x: 240, y: 190 },
+  { id: 'session', label: 'session', icon: 'key', x: 140, y: 240 },
+  { id: 'temp', label: 'temp', icon: 'trash', x: 320, y: 245 },
 ]
 
 export const EDGES: readonly GraphEdge[] = [

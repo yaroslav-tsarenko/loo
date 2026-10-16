@@ -49,13 +49,21 @@ icon: "🖱️"
 
 Щоб «провести електрику», JavaScript має спершу **знайти** потрібну річ у кімнаті (кнопку), а потім **підписатися** на подію: «коли натиснуть — зроби ось це». Браузер надає для цього обʼєкт `document` — модель усієї сторінки, яку називають **DOM** (*Document Object Model*).
 
-```text
- HTML                           DOM (дерево обʼєктів)
- <body>                         document
-   <h1>0</h1>          ──►        └─ body
-   <button>+1</button>                ├─ h1  { textContent: '0' }
- </body>                              └─ button { textContent: '+1' }
-```
+> [!diagram] Як HTML стає деревом DOM
+> ```yaml
+> layout: tree
+> nodes:
+>   - { id: doc, label: "document", text: "уся сторінка", tone: violet, icon: "px:file" }
+>   - { id: body, parent: doc, label: "body", code: "<body>", tone: gray }
+>   - { id: h1, parent: body, label: "h1 · textContent", text: "'0'", tone: blue }
+>   - { id: btn, parent: body, label: "button · textContent", text: "'+1'", tone: blue }
+> steps:
+>   - { show: doc, note: "Браузер читає HTML і будує з нього дерево обʼєктів — DOM. На вершині — document, модель усієї сторінки." }
+>   - { show: body, note: "Тег <body> стає обʼєктом-гілкою. Усе, що всередині нього в HTML, стане його дітьми." }
+>   - { show: h1, note: "<h1>0</h1> → обʼєкт h1. Його текст доступний як властивість textContent = '0'." }
+>   - { show: btn, note: "<button>+1</button> → обʼєкт button із textContent = '+1'. Порядок дітей — як у HTML." }
+>   - { set: { h1: "'1'" }, note: "JavaScript знаходить h1 через document.querySelector і пише h1.textContent = '1' — браузер одразу перемальовує екран." }
+> ```
 
 ## 🔬 Як це працює
 
@@ -233,11 +241,29 @@ resetBtn.addEventListener('click', () => {
 
 **Крок 5.** Склади все в `index.html`: розмітка зверху, `<script>` з кодом кроків 2–4 — у кінці `<body>`. Відкрий у браузері й поклацай.
 
-```text
-   клік ──► обробник ──► змінити стан (count++) ──► render() ──► екран
-                                  ▲                                │
-                                  └────────── наступний клік ◄─────┘
-```
+> [!diagram] Коло інтерфейсу: клік → стан → render → екран
+> ```yaml
+> layout: flow
+> nodes:
+>   - { id: click, label: "клік", text: "+1", tone: blue, icon: "px:cursor" }
+>   - { id: handler, label: "обробник", code: "plusBtn.addEventListener('click', () => {\n  count++\n  render()\n})" }
+>   - { id: state, label: "стан count", text: "0", tone: yellow, icon: "px:box" }
+>   - { id: render, label: "render()", code: "countEl.textContent = count\ncountEl.classList.toggle('big', count >= 10)", tone: violet }
+>   - { id: screen, label: "екран", text: "0", tone: green, icon: "px:monitor" }
+> edges:
+>   - { from: click, to: handler, label: "click" }
+>   - { from: handler, to: state, label: "count++" }
+>   - { from: state, to: render }
+>   - { from: render, to: screen }
+>   - { from: screen, to: click, label: "наступний клік", dashed: true }
+> steps:
+>   - { move: { from: click, to: handler, value: "click" }, line: "handler:1", note: "Користувач натискає «+1». Браузер помічає подію click і викликає нашу функцію-обробник." }
+>   - { move: { from: handler, to: state, value: "count++" }, set: { state: "1" }, line: "handler:2", note: "Обробник не чіпає екран — він лише змінює стан: count було 0, стало 1." }
+>   - { move: { from: state, to: render, value: "1" }, line: ["handler:3", "render:1"], note: "Потім обробник викликає render(): функція читає свіжий count." }
+>   - { move: { from: render, to: screen, value: "1" }, set: { screen: "1" }, line: "render:1", note: "render записує count у textContent — на екрані тепер 1." }
+>   - { set: { state: "10", screen: "10" }, line: "render:2", note: "Ще 9 кліків — те саме коло 9 разів. Коли count = 10, умова count >= 10 true, і render додає клас big." }
+>   - { focus: [state, render, screen], note: "Головна ідея: стан → render → екран. Дані живуть у змінних, а екран лише показує їх." }
+> ```
 
 > [!important] Головна ідея інтерфейсів
 > **Стан → render → екран.** Дані живуть у змінних, а екран лише показує їх. Так працюють і React, і Vue, і будь-який сучасний фреймворк — ти щойно написав його мініатюрну версію.
