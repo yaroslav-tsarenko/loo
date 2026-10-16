@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { PiArrowRightBold, PiBookOpenTextFill, PiEyeFill, PiLightbulbFill, PiMapTrifoldFill, PiXBold } from 'react-icons/pi'
+import { PiArrowClockwiseBold, PiArrowRightBold, PiBookOpenTextFill, PiCheckBold, PiEyeFill, PiFlagCheckeredFill, PiLightbulbFill, PiMapTrifoldFill, PiXBold } from 'react-icons/pi'
 import { completeLesson, startLesson } from '@/server/actions/lessons'
 import { finishTask, rateFlashcard, recordQuizAnswer } from '@/server/actions/study'
+import { t } from '@/i18n'
+import { startTest, submitTest, type TestOutcome } from '@/server/actions/tests'
 import type { Effect, FlashRating } from '@/progress/types'
 import type { PlayerItem } from '@/server/services/lessons'
 import { Pill } from '@/ui/design/Badge'
@@ -24,6 +26,21 @@ import { RateButtons } from '@/ui/study/RateButtons'
 import { TaskInline, type TaskResult } from '@/ui/study/TaskInline'
 import type { FlashItem } from '@/ui/study/render-items'
 
+// A scored run (🏁 topic test / 👑 section exam): no retry queue, every question must be answered, the server grades.
+export interface TestSpec {
+  id: string
+  kind: 'topic-test' | 'section-exam'
+  attempt: number
+  needed: number
+  total: number
+  pass: number
+  // the section isn't finished yet: passing the exam skips it
+  testOut: boolean
+  bestScore: number | null
+  passedBefore: boolean
+  backHref: string
+}
+
 interface Props {
   lessonId: string
   title: string
@@ -32,6 +49,17 @@ interface Props {
   chapterHref: string
   items: PlayerItem[]
   nextHref: string | null
+  nextLabel?: string | null
+  // 🔥 above-level exercise ids
+  challenges?: readonly string[]
+  test?: TestSpec
+}
+
+interface TestAnswer {
+  id: string
+  chosen: string[]
+  text: string | null
+  rating: FlashRating | null
 }
 
 interface Step {
@@ -95,7 +123,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
   )
 }
 
-function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, chapterHref, bonus }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; chapterHref: string; bonus: number }) {
+function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number }) {
   const feedback = useFeedback()
   const [shown, setShown] = useState({ xp: 0, accuracy: 0, minutes: 0 })
   const accuracy = total ? Math.round((correct / total) * 100) : 100
@@ -166,7 +194,7 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, chapterH
       <div className="lesson-summary-actions">
         {nextHref ? (
           <Button href={nextHref} size="lg" block iconEnd={<PiArrowRightBold size={20} />}>
-            Наступний урок
+            {nextLabel ?? 'Наступний урок'}
           </Button>
         ) : null}
         <Button href="/path" variant={nextHref ? 'ghost' : 'primary'} size="lg" block icon={<PiMapTrifoldFill size={20} />}>
@@ -180,14 +208,142 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, chapterH
   )
 }
 
-export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref, items, nextHref }: Props) {
+function TestIntro({ test, title, emoji, chapterTitle, busy, error, onStart }: { test: TestSpec; title: string; emoji: string; chapterTitle: string; busy: boolean; error: string | null; onStart: () => void }) {
+  const exam = test.kind === 'section-exam'
+  return (
+    <div className="lesson-summary test-intro">
+      <div className="lesson-summary-hero">
+        <Loo mood={exam ? 'thinking' : 'happy'} size={150} className="lesson-summary-loo" />
+      </div>
+      <p className="test-intro-eyebrow">
+        <span aria-hidden="true">{emoji}</span> {exam ? (test.testOut ? t('tests.testOut') : t('tests.exam')) : t('tests.topic')}
+      </p>
+      <h1 className="lesson-summary-title">{title}</h1>
+      <p className="lesson-summary-note">{chapterTitle}</p>
+      <dl className="lesson-stats">
+        <div className="gstat" data-tone="blue">
+          <dt>{t('tests.questions')}</dt>
+          <dd className="tabular">{test.total}</dd>
+        </div>
+        <div className="gstat" data-tone="green">
+          <dt>{t('tests.toPass')}</dt>
+          <dd className="tabular">
+            {test.needed}/{test.total}
+          </dd>
+        </div>
+        <div className="gstat" data-tone="yellow">
+          <dt>{t('tests.best')}</dt>
+          <dd className="tabular">{test.bestScore === null ? '—' : `${Math.round(test.bestScore * 100)}%`}</dd>
+        </div>
+      </dl>
+      <ul className="test-intro-rules">
+        <li>{t('tests.ruleOrder')}</li>
+        <li>{t('tests.ruleFirst')}</li>
+        <li>{exam && test.testOut ? t('tests.ruleTestOut') : t('tests.rulePass', { pct: Math.round(test.pass * 100) })}</li>
+      </ul>
+      {error ? (
+        <p className="auth-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+      <div className="lesson-summary-actions">
+        <Button size="lg" block onClick={onStart} loading={busy} icon={<PiFlagCheckeredFill size={20} />}>
+          {test.passedBefore ? t('tests.again') : t('tests.start')}
+        </Button>
+        <Button href={test.backHref} variant="ghost" size="lg" block icon={<PiMapTrifoldFill size={20} />}>
+          {t('tests.toPath')}
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: TestSpec; outcome: TestOutcome; nextHref: string | null; nextLabel: string | null; onRetry: () => void }) {
   const feedback = useFeedback()
+  const exam = test.kind === 'section-exam'
+  const pct = Math.round(outcome.score * 100)
+  useEffect(() => {
+    feedback.play(outcome.passed ? 'complete' : 'wrong')
+  }, [feedback, outcome.passed])
+  const title = outcome.passed ? (exam ? (outcome.testOut ? t('tests.passedTestOut') : t('tests.passedExam')) : t('tests.passedTopic')) : t('tests.failed')
+  return (
+    <div className="lesson-summary test-summary" data-passed={outcome.passed ? '' : undefined}>
+      <div className="lesson-summary-hero">
+        <Loo mood={outcome.passed ? 'cheer' : 'sad'} size={168} className="lesson-summary-loo" />
+        <Confetti trigger={outcome.passed ? 1 : 0} count={outcome.score >= 1 ? 160 : 110} />
+      </div>
+      <h1 className="lesson-summary-title" data-perfect={outcome.score >= 1 ? '' : undefined}>
+        {title}
+      </h1>
+      <p className="lesson-summary-note">
+        {outcome.passed
+          ? outcome.bonusXp > 0
+            ? t('tests.bonus', { xp: outcome.bonusXp })
+            : t('tests.saved')
+          : t('tests.failedNote', { needed: outcome.needed, total: outcome.total, correct: outcome.correct })}
+      </p>
+      <dl className="lesson-stats">
+        <div className="gstat" data-tone={outcome.passed ? 'green' : 'orange'}>
+          <dt>{t('tests.result')}</dt>
+          <dd className="tabular">
+            {outcome.correct}/{outcome.total}
+          </dd>
+        </div>
+        <div className="gstat" data-tone="blue">
+          <dt>{t('tests.accuracy')}</dt>
+          <dd className="tabular">{pct}%</dd>
+        </div>
+        <div className="gstat" data-tone="yellow">
+          <dt>{t('tests.bonusXp')}</dt>
+          <dd className="tabular">
+            <GameIcon name="bolt" size={22} />
+            {outcome.bonusXp}
+          </dd>
+        </div>
+      </dl>
+      <ol className="test-dots" aria-label="Відповіді по питаннях">
+        {outcome.results.map((ok, i) => (
+          <li key={i} data-ok={ok ? '' : undefined} aria-label={`Питання ${i + 1}: ${ok ? 'правильно' : 'помилка'}`}>
+            {ok ? <PiCheckBold aria-hidden="true" /> : <PiXBold aria-hidden="true" />}
+          </li>
+        ))}
+      </ol>
+      <div className="lesson-summary-actions">
+        {outcome.passed && nextHref ? (
+          <Button href={nextHref} size="lg" block iconEnd={<PiArrowRightBold size={20} />}>
+            {nextLabel ?? t('tests.next')}
+          </Button>
+        ) : null}
+        {!outcome.passed ? (
+          <Button size="lg" block onClick={onRetry} icon={<PiArrowClockwiseBold size={20} />}>
+            {t('tests.retry')}
+          </Button>
+        ) : null}
+        <Button href={test.backHref} variant={outcome.passed && !nextHref ? 'primary' : 'ghost'} size="lg" block icon={<PiMapTrifoldFill size={20} />}>
+          {t('tests.toPath')}
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test }: Props) {
+  const feedback = useFeedback()
+  const [begun, setBegun] = useState(!test)
+  const [beginning, setBeginning] = useState(false)
+  const [testError, setTestError] = useState<string | null>(null)
+  const [testResult, setTestResult] = useState<TestOutcome | null>(null)
+  const [submitting, setSubmitting] = useState(false)
+  const answers = useRef<TestAnswer[]>([])
+  // key of the last graded step: a double submit (fast double tap, key + click) counts once
+  const graded = useRef<string | null>(null)
   const router = useRouter()
   const [queue, setQueue] = useState<Step[]>(() => items.map((item, i) => ({ item, retry: false, key: `${item.unitId}-${i}` })))
   const [pos, setPos] = useState(0)
   const [verdict, setVerdict] = useState<Verdict>(null)
   const [answered, setAnswered] = useState(false)
   const [combo, setCombo] = useState(0)
+  const [misses, setMisses] = useState(0)
   const [bestCombo, setBestCombo] = useState(0)
   const [streak, setStreak] = useState<number | null>(null)
   const [stats, setStats] = useState({ correct: 0, total: 0, xp: 0 })
@@ -199,9 +355,29 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
   const pending = useRef<Promise<unknown>>(Promise.resolve())
 
   useEffect(() => {
+    if (test) return
     started.current = Date.now()
     session.current = startLesson(lessonId).catch(() => null)
-  }, [lessonId])
+  }, [lessonId, test])
+
+  const begin = useCallback(async () => {
+    if (!test) return
+    setBeginning(true)
+    setTestError(null)
+    try {
+      const { ok } = await startTest({ testId: test.id, attempt: test.attempt })
+      if (!ok) {
+        setTestError(t('tests.stale'))
+        return
+      }
+      started.current = Date.now()
+      setBegun(true)
+    } catch {
+      setTestError(t('tests.startError'))
+    } finally {
+      setBeginning(false)
+    }
+  }, [test])
 
   const step = queue[pos]
   const total = queue.length
@@ -221,9 +397,11 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
   // Graded steps update combo, stats and the retry queue; the server call runs in the background.
   const grade = useCallback(
     (correct: boolean, call: (sessionId: string | null) => Promise<Effect[]>) => {
-      if (!step) return
+      if (!step || graded.current === step.key) return
+      graded.current = step.key
       setAnswered(true)
       setStats((s) => ({ ...s, correct: s.correct + (correct && !step.retry ? 1 : 0), total: s.total + (step.retry ? 0 : 1) }))
+      setMisses((m) => (correct ? 0 : m + 1))
       if (correct) {
         const next = combo + 1
         setCombo(next)
@@ -235,7 +413,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           }, 250)
       } else {
         setCombo(0)
-        if (!step.retry) setQueue((q) => [...q, { item: step.item, retry: true, key: `${step.key}-retry` }])
+        // Lessons bring a mistake back at the end; tests count the first answer only.
+        if (!step.retry && !test) setQueue((q) => [...q, { item: step.item, retry: true, key: `${step.key}-retry` }])
       }
       setVerdict({ correct, xp: 0 })
       pending.current = (async () => {
@@ -244,16 +423,28 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         setVerdict((v) => (v ? { ...v, xp: v.xp + gained } : v))
       })()
     },
-    [step, combo, feedback, absorb],
+    [step, combo, feedback, absorb, test],
   )
 
   const finish = useCallback(async () => {
     await pending.current
+    if (test) {
+      setSubmitting(true)
+      try {
+        const outcome = await submitTest({ testId: test.id, attempt: test.attempt, answers: answers.current })
+        absorb(outcome.effects)
+        setTestResult(outcome)
+        setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current })
+      } catch {
+        setTestError(t('tests.saveError'))
+      }
+      return
+    }
     const id = session.current ? await session.current : null
     const outcome = await completeLesson({ lessonId, sessionId: id, correct: stats.correct, total: stats.total })
     absorb(outcome.effects)
     setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current })
-  }, [lessonId, stats.correct, stats.total, absorb])
+  }, [lessonId, stats.correct, stats.total, absorb, test])
 
   const advance = useCallback(() => {
     setVerdict(null)
@@ -274,26 +465,57 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     return () => window.removeEventListener('keydown', onKey)
   }, [answered, advance])
 
-  const onQuiz = useCallback((r: QuizResult) => grade(r.correct, (id) => recordQuizAnswer({ unitId: r.unitId, correct: r.correct, durationMs: r.durationMs, sessionId: id })), [grade])
+  const onQuiz = useCallback(
+    (r: QuizResult) => {
+      if (!step || graded.current === step.key) return
+      if (test) answers.current[pos] = { id: r.unitId, chosen: r.chosen, text: r.text, rating: null }
+      grade(r.correct, (id) => recordQuizAnswer({ unitId: r.unitId, correct: r.correct, durationMs: r.durationMs, sessionId: id }))
+    },
+    [grade, test, step, pos],
+  )
   const onTask = useCallback(
     (r: TaskResult) => grade(r.solved, (id) => finishTask({ unitId: r.unitId, solved: r.solved, hintsUsed: r.hintsUsed, durationMs: r.durationMs, sessionId: id })),
     [grade],
   )
   const onRate = useCallback(
     (rating: FlashRating, ms: number) => {
-      if (!step) return
+      if (!step || graded.current === step.key) return
+      if (test) answers.current[pos] = { id: step.item.unitId, chosen: [], text: null, rating }
       feedback.answer(rating !== 'again')
       grade(rating !== 'again', (id) => rateFlashcard({ unitId: step.item.unitId, rating, durationMs: ms, sessionId: id }))
     },
-    [step, feedback, grade],
+    [step, feedback, grade, test, pos],
   )
 
-  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} chapterHref={chapterHref} bonus={done.bonus} />
+  if (test && !begun) return <TestIntro test={test} title={title} emoji={emoji} chapterTitle={chapterTitle} busy={beginning} error={testError} onStart={() => void begin()} />
+  if (test && testResult) return <TestSummary test={test} outcome={testResult} nextHref={nextHref} nextLabel={nextLabel} onRetry={() => router.refresh()} />
+  if (test && begun && (testError || (submitting && !testResult)))
+    return testError ? (
+      <div className="lesson-summary">
+        <p className="auth-error" role="alert">
+          {testError}
+        </p>
+        <div className="lesson-summary-actions">
+          <Button href={test.backHref} size="lg" block icon={<PiMapTrifoldFill size={20} />}>
+            {t('tests.toPath')}
+          </Button>
+        </div>
+      </div>
+    ) : (
+      <div className="lesson-summary" aria-busy="true">
+        <div className="lesson-summary-hero">
+          <Loo mood="thinking" size={150} className="lesson-summary-loo" />
+        </div>
+        <p className="lesson-summary-note">{t('tests.counting')}</p>
+      </div>
+    )
+  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} nextLabel={nextLabel} chapterHref={chapterHref} bonus={done.bonus} />
   if (!step) return null
 
   const progress = (pos + (answered ? 1 : 0)) / total
   const item = step.item
-  const mood: LooMood = verdict?.correct ? (combo >= 3 ? 'cheer' : 'happy') : pos % 2 ? 'thinking' : 'sad'
+  // Loo reacts: a fixed mistake is a eureka, a combo is a cheer; three misses in a row make him dizzy.
+  const mood: LooMood = verdict?.correct ? (step.retry ? 'eureka' : combo >= 3 ? 'cheer' : pos % 2 ? 'wink' : 'happy') : misses >= 3 ? 'dizzy' : pos % 2 ? 'thinking' : 'sad'
   const explanation = verdict && item.kind === 'quiz' ? item.explanation : null
   const freeReveal = verdict && !verdict.correct && item.kind === 'quiz' && item.options.length === 0 && item.freeAnswer && item.mode !== 'order' && item.mode !== 'fill' ? item.freeAnswer : null
   return (
@@ -304,7 +526,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           icon={<PiXBold size={24} />}
           className="lesson-close"
           onClick={() => {
-            if (pos === 0 || window.confirm('Вийти? Прогрес уроку не збережеться, але відповіді вже зараховано.')) router.push('/path')
+            const message = test ? t('tests.leave') : 'Вийти? Прогрес уроку не збережеться, але відповіді вже зараховано.'
+            if ((pos === 0 && !answered) || window.confirm(message)) router.push(test?.backHref ?? '/path')
           }}
         />
         <ProgressBar value={progress} label="Прогрес уроку" size="lg" striped={combo >= 3} className="lesson-progress" />
@@ -321,6 +544,16 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           {step.retry ? (
             <Pill tone="orange" size="sm" className="lesson-retry">
               повтор помилки
+            </Pill>
+          ) : null}
+          {test ? (
+            <Pill tone="blue" size="sm" className="lesson-retry tabular">
+              {pos + 1}/{total}
+            </Pill>
+          ) : null}
+          {challenges?.includes(item.unitId) ? (
+            <Pill tone="red" size="sm" className="lesson-retry">
+              🔥 челендж
             </Pill>
           ) : null}
         </p>

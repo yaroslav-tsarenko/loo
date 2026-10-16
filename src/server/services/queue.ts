@@ -69,11 +69,13 @@ export function unitOrder(snapshot: ContentSnapshot): Map<string, number> {
   return order
 }
 
-export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: UnitKind): LearningUnit[] {
+// scope: exercise ids of the active course (src/server/courses/enrollment.ts → studyScope); null = all content.
+export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: UnitKind, scope: ReadonlySet<string> | null = null): LearningUnit[] {
   const order = unitOrder(snapshot)
   const out: LearningUnit[] = []
   for (const unit of snapshot.units.values()) {
     if (unit.kind !== kind) continue
+    if (scope && !scope.has(unit.id)) continue
     if (f.guide && unit.guideId !== f.guide) continue
     if (f.chapter && unit.chapterId !== f.chapter) continue
     if (f.levels.length && (!unit.level || !f.levels.includes(unit.level))) continue
@@ -143,8 +145,8 @@ export interface FlashQueue {
   newLeft: number
 }
 
-export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now()): Promise<FlashQueue> {
-  const candidates = matchUnits(snapshot, f, 'flashcard')
+export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null): Promise<FlashQueue> {
+  const candidates = matchUnits(snapshot, f, 'flashcard', scope)
   const cards = await srsMap(candidates.map((u) => u.id))
   const due = candidates.filter((u) => cards.has(u.id) && cards.get(u.id)!.due <= now).sort((a, b) => cards.get(a.id)!.due - cards.get(b.id)!.due)
   const unseen = candidates.filter((u) => !cards.has(u.id))
@@ -245,8 +247,9 @@ export async function practiceQueue(
   f: StudyFilters,
   kind: 'quiz' | 'task',
   seed: number,
+  scope: ReadonlySet<string> | null = null,
 ): Promise<{ ids: string[]; total: number; unseen: number; wrong: number }> {
-  const candidates = matchUnits(snapshot, f, kind)
+  const candidates = matchUnits(snapshot, f, kind, scope)
   const last = await lastOutcomes(candidates.map((u) => u.id))
   const wrong = candidates.filter((u) => last.get(u.id) === false)
   const unseen = candidates.filter((u) => !last.has(u.id))

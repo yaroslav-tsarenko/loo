@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import { PiCheckBold, PiCodeBlockFill, PiExamFill, PiListChecksFill, PiPuzzlePieceFill, PiTerminalWindowFill, PiXBold } from 'react-icons/pi'
+import { normalizeFreeAnswer as normalize } from '@/content/blocks/quiz/grade'
 import type { QuizExercise, QuizMode } from '@/content/model'
 import { recordQuizAnswer } from '@/server/actions/study'
 import { Pill } from '@/ui/design/Badge'
@@ -23,6 +24,8 @@ export interface QuizResult {
   unitId: string
   correct: boolean
   chosen: string[]
+  // typed answer of a free «what does it print» quiz (graded again on the server in tests and placement)
+  text: string | null
   durationMs: number
 }
 
@@ -46,8 +49,6 @@ interface Props {
   /** `none`: the host shows the verdict and explanation itself (lesson player sheet). */
   verdict?: 'inline' | 'none'
 }
-
-const normalize = (s: string) => s.replace(/[\s,;]+/g, ' ').replace(/[`'"]/g, '').trim().toLowerCase()
 
 function kindOf(mode: QuizMode, free: boolean, multi: boolean): { label: string; tone: Tone; icon: ReactNode } {
   if (mode === 'order') return { label: 'Склади код', tone: 'orange', icon: <PiPuzzlePieceFill /> }
@@ -84,14 +85,14 @@ export function QuizInline(props: Props) {
       const right = options.filter((o) => o.correct).map((o) => o.id).sort()
       ok = right.length === picked.length && [...picked].sort().every((id, i) => id === right[i])
     }
-    finalize(ok, picked)
+    finalize(ok, picked, free ? text : null)
   }
 
-  const finalize = (ok: boolean, picked: string[]) => {
+  const finalize = (ok: boolean, picked: string[], text: string | null = null) => {
     if (checked) return
     setChecked(true)
     setCorrect(ok)
-    const result: QuizResult = { unitId, correct: ok, chosen: picked, durationMs: Date.now() - started.current }
+    const result: QuizResult = { unitId, correct: ok, chosen: picked, text, durationMs: Date.now() - started.current }
     feedback.answer(ok)
     if (onResult) onResult(result)
     else void recordQuizAnswer({ unitId, correct: ok, durationMs: result.durationMs, sessionId: sessionId ?? null }).then((effects) => feedback.effects(effects))

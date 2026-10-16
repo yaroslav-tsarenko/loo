@@ -10,6 +10,7 @@ import type { Effect } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
+import { findCourseLesson } from '../courses/lessons'
 import { findLesson, LESSON_XP } from '../services/lessons'
 import { settleMission } from '../services/mission'
 import { evaluateAchievements } from '../services/progress'
@@ -18,14 +19,32 @@ const completeInput = z
   .object({ lessonId: ids.lesson, sessionId: ids.session.nullable(), correct: z.number().int().min(0).max(1000), total: z.number().int().min(0).max(1000) })
   .refine((v) => v.correct <= v.total, 'correct > total')
 
+interface LessonRef {
+  id: string
+  courseId: string | null
+  guideId: string
+  chapterId: string
+  unitIds: string[]
+}
+
+// Course lessons (`<course>:<section>:<topic>:<kind>-<n>`) and lessons of guides no course covers (old ids).
+async function lessonRef(lessonId: string): Promise<LessonRef> {
+  const course = await findCourseLesson(lessonId)
+  if (course) {
+    const unitIds = course.lesson.items.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
+    return { id: course.lesson.id, courseId: course.bundle.course.id, guideId: course.topic.guideId, chapterId: course.topic.chapterId, unitIds }
+  }
+  const lesson = findLesson(await getContent(), lessonId)
+  if (!lesson) throw new Error('Unknown lesson')
+  return { id: lesson.id, courseId: null, guideId: lesson.guideId, chapterId: lesson.chapterId, unitIds: lesson.items.flatMap((i) => (i.kind === 'unit' ? [i.id] : [])) }
+}
+
 export async function startLesson(rawId: string): Promise<string> {
   await requireUser()
   const lessonId = parseInput(ids.lesson, rawId)
-  const snapshot = await getContent()
-  const lesson = findLesson(snapshot, lessonId)
-  if (!lesson) throw new Error('Unknown lesson')
+  const lesson = await lessonRef(lessonId)
   const id = randomUUID()
-  const unitIds = lesson.items.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
+  const unitIds = lesson.unitIds
   await userScope((db, userId) => db.insert(sessions).values({ id, userId, mode: 'lesson', filters: { lessonId }, unitIds, startedAt: Date.now() }))
   return id
 }
@@ -39,9 +58,8 @@ export interface LessonOutcome {
 export async function completeLesson(raw: { lessonId: string; sessionId: string | null; correct: number; total: number }): Promise<LessonOutcome> {
   await requireUser()
   const input = parseInput(completeInput, raw)
+  const lesson = await lessonRef(input.lessonId)
   const snapshot = await getContent()
-  const lesson = findLesson(snapshot, input.lessonId)
-  if (!lesson) throw new Error('Unknown lesson')
   const now = Date.now()
   const day = dayKey(now)
   const accuracy = input.total > 0 ? Math.max(0, Math.min(1, input.correct / input.total)) : 1
@@ -58,7 +76,7 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
       const bonusXp = (firstTime ? LESSON_XP.first : 0) + (accuracy === 1 && (before?.bestAccuracy ?? 0) < 1 ? LESSON_XP.perfect : 0)
       await tx
         .insert(lessonProgress)
-        .values({ userId, lessonId: lesson.id, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now })
+        .values({ userId, lessonId: lesson.id, courseId: lesson.courseId, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now })
         .onConflictDoUpdate({
           target: [lessonProgress.userId, lessonProgress.lessonId],
           set: { completions: sql`${lessonProgress.completions} + 1`, bestAccuracy: sql`greatest(${lessonProgress.bestAccuracy}, ${accuracy})`, lastXp: bonusXp, lastCompletedAt: now },

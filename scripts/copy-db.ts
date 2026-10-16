@@ -14,7 +14,7 @@ if (targetUrl === sourceUrl) throw new Error('Джерело і ціль одн�
 const TABLES = [
   'profiles', 'system_state', 'user_settings', 'units', 'unit_aliases', 'sessions', 'attempts', 'srs_cards', 'mistakes', 'chapter_progress',
   'task_state', 'xp_ledger', 'achievements', 'daily_activity', 'daily_missions', 'reel_state', 'lesson_progress', 'news_items', 'news_reads',
-  'generated_reels',
+  'generated_reels', 'enrollments', 'topic_results', 'exam_results',
 ]
 
 const src = postgres(sourceUrl, { max: 1, prepare: false, onnotice: () => {} })

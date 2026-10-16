@@ -18,6 +18,8 @@ export interface FilterFormProps {
   types?: { label: string; options: Option[] }
   modes?: Option[]
   sizes: number[]
+  // label of the empty «all» option of the material select (the active course, or all content)
+  allLabel?: string
   values: {
     guide: string | null
     chapter: string | null
@@ -68,7 +70,7 @@ export function FilterForm(props: FilterFormProps) {
     <Form ref={form} action={props.action} className="filters" onChange={submit} scroll={false} replace>
       <div className="filter-group">
         <label className="filter-label" htmlFor="f-guide">
-          Посібник
+          Матеріали
         </label>
         <select
           id="f-guide"
@@ -80,7 +82,7 @@ export function FilterForm(props: FilterFormProps) {
             if (chapter instanceof HTMLSelectElement) chapter.value = ''
           }}
         >
-          <option value="">Усі посібники</option>
+          <option value="">{props.allLabel ?? 'Усі матеріали'}</option>
           {props.guides.map((g) => (
             <option key={g.value} value={g.value}>
               {g.label}

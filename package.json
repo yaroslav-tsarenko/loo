@@ -26,7 +26,7 @@
     "db:local": "tsx scripts/local-db.ts",
     "news:preview": "tsx scripts/news-preview.ts",
     "db:copy": "tsx --env-file-if-exists=.env.local scripts/copy-db.ts",
-    "vercel-build": "tsx scripts/migrate.ts --if-configured && next build",
+    "vercel-build": "tsx scripts/migrate.ts --if-configured && tsx scripts/course-build.ts --if-sources && next build",
     "setup:prod": "bash scripts/setup-prod.sh",
     "env:secrets": "bash scripts/env-secrets.sh",
     "env:check": "tsx scripts/check-env.ts",

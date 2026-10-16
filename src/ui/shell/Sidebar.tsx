@@ -4,7 +4,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { BookOpen, Check, ChevronRight, ChevronsLeft, FileText } from 'lucide-react'
-import { PiGearSixFill, PiMagnifyingGlassBold } from 'react-icons/pi'
+import { PiCheckBold, PiGearSixFill, PiMagnifyingGlassBold, PiPlusBold } from 'react-icons/pi'
+import { t } from '@/i18n'
+import { switchCourse } from '@/server/actions/courses'
+import { Icon } from '@/ui/icons/Icon'
 import type { CSSProperties } from 'react'
 import type { TreeViewNode } from '@/server/services/library'
 import { levelInfo } from '@/progress/levels'
@@ -25,6 +28,13 @@ export interface SidebarGuide {
   id: string
   title: string
   href: string
+}
+
+export interface SidebarCourse {
+  id: string
+  title: string
+  icon: string | null
+  active: boolean
 }
 
 const OPEN_KEY = 'sidebar-open-nodes'
@@ -221,7 +231,47 @@ export interface SidebarAccount {
   avatarUrl: string | null
 }
 
-export function Sidebar({ guides, theme, account }: { guides: SidebarGuide[]; theme: ThemeSetting; account?: SidebarAccount }) {
+// «Курси»: the learner's library with the active-course switcher (any number of courses).
+function CourseRows({ courses }: { courses: SidebarCourse[] }) {
+  return (
+    <ul className="sb-courses">
+      {courses.map((c) => (
+        <li key={c.id}>
+          {c.active ? (
+            <Link href="/path" className="sb-course" data-active="" aria-current="true" onClick={() => setMobileSidebar(false)}>
+              <span className="sb-course-icon">
+                <Icon name={c.icon ?? '📘'} size={20} />
+              </span>
+              <span className="sb-course-title">{c.title}</span>
+              <PiCheckBold className="sb-course-check" aria-label={t('shell.activeCourse')} />
+            </Link>
+          ) : (
+            <form action={switchCourse}>
+              <input type="hidden" name="course" value={c.id} />
+              <input type="hidden" name="next" value="/path" />
+              <button type="submit" className="sb-course" onClick={() => setMobileSidebar(false)}>
+                <span className="sb-course-icon">
+                  <Icon name={c.icon ?? '📘'} size={20} />
+                </span>
+                <span className="sb-course-title">{c.title}</span>
+              </button>
+            </form>
+          )}
+        </li>
+      ))}
+      <li>
+        <Link href="/courses" className="sb-course sb-course-add" onClick={() => setMobileSidebar(false)}>
+          <span className="sb-course-icon">
+            <PiPlusBold size={16} aria-hidden="true" />
+          </span>
+          <span className="sb-course-title">{t('shell.catalog')}</span>
+        </Link>
+      </li>
+    </ul>
+  )
+}
+
+export function Sidebar({ guides, courses = [], theme, account }: { guides: SidebarGuide[]; courses?: SidebarCourse[]; theme: ThemeSetting; account?: SidebarAccount }) {
   const raw = usePathname()
   const path = decode(raw)
   const counts = useCounts()
@@ -264,8 +314,12 @@ export function Sidebar({ guides, theme, account }: { guides: SidebarGuide[]; th
           })}
         </nav>
         <div className="sb-section">
-          <div className="sb-section-title">Посібники</div>
-          <div role="tree" aria-label="Посібники">
+          <div className="sb-section-title">{t('shell.courses')}</div>
+          <CourseRows courses={courses} />
+        </div>
+        <div className="sb-section">
+          <div className="sb-section-title">{t('shell.theory')}</div>
+          <div role="tree" aria-label={t('shell.theory')}>
             {guides.map((g) => (
               <GuideRow key={g.id} guide={g} path={path} open={open} toggle={toggle} />
             ))}

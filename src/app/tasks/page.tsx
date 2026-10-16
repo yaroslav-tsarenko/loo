@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { PiArrowLeftBold, PiArrowRightBold, PiCheckBold, PiCodeBlockFill, PiPencilSimpleFill, PiTestTubeFill, PiXBold } from 'react-icons/pi'
 import { DIFFICULTIES, DIFFICULTY_LABEL, type TaskUnit } from '@/content/model'
 import { getContent } from '@/server/content'
+import { studyScope } from '@/server/courses/enrollment'
 import { matchUnits, parseFilters, taskStates } from '@/server/services/queue'
 import { renderStudyItems } from '@/ui/study/render-items'
 import { TaskInline } from '@/ui/study/TaskInline'
@@ -25,7 +26,8 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   const params = await searchParams
   const snapshot = await getContent()
   const filters = parseFilters(params, 200)
-  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task') as TaskUnit[]
+  const scope = await studyScope(filters)
+  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task', scope) as TaskUnit[]
   const states = await taskStates(tasks.map((t) => t.id))
   const unitParam = typeof params.unit === 'string' ? params.unit : null
   const guideQuery = filters.guide ? `guide=${encodeURIComponent(filters.guide)}&` : ''
@@ -117,9 +119,9 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
         </div>
         <ProgressBar value={tasks.length ? solved / tasks.length : 0} label="Розв’язано задач" size="lg" />
         {guides.length > 0 ? (
-          <nav className="gchips" aria-label="Посібник">
+          <nav className="gchips" aria-label="Матеріали">
             <Link className="gchip" href="/tasks" aria-current={!filters.guide ? 'true' : undefined}>
-              Усі
+              {scope ? 'Активний курс' : 'Усі'}
             </Link>
             {guides.map((g) => (
               <Link key={g.id} className="gchip" href={filters.guide === g.id ? '/tasks' : `/tasks?guide=${encodeURIComponent(g.id)}`} aria-current={filters.guide === g.id ? 'true' : undefined}>

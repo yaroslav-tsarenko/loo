@@ -1,27 +1,123 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { getContent } from '@/server/content'
-import { userXp } from '@/server/services/progress'
-import { trackPath } from '@/server/services/path'
-import { TRACKS } from '@/content/tracks'
+import { notFound, redirect } from 'next/navigation'
+import { PiFlaskFill, PiMapTrifoldFill } from 'react-icons/pi'
+import { LEVEL_EMOJI, LEVEL_LABEL } from '@/course'
+import { TRACKS, type Track } from '@/content/tracks'
+import type { ContentSnapshot } from '@/content/store'
 import { levelInfo } from '@/progress/levels'
-import { PiMapTrifoldFill } from 'react-icons/pi'
+import { getContent } from '@/server/content'
+import { activeCourse } from '@/server/courses/enrollment'
+import { courseChips, myLibrary } from '@/server/courses/library'
+import { coursePath } from '@/server/courses/path'
+import { pathSections } from '@/server/courses/path-view'
+import { listCourses, getCourse } from '@/server/courses/registry'
+import { trackPath } from '@/server/services/path'
+import { userXp } from '@/server/services/progress'
+import { Button } from '@/ui/design/Button'
 import { Card } from '@/ui/design/Card'
 import { GameIcon } from '@/ui/design/GameIcon'
+import { CourseChips } from '@/ui/courses/CourseChips'
+import { CoursePath } from '@/ui/courses/CoursePath'
 import { Icon } from '@/ui/icons/Icon'
 import { trackIcon } from '@/ui/icons/tracks'
 import { PathView, type PathStageView } from '@/ui/path/PathView'
 
 export const metadata: Metadata = { title: 'Шлях' }
 
+// Guides that some course covers: their tracks are shown as the course path.
+async function courseGuides(): Promise<Set<string>> {
+  const out = new Set<string>()
+  for (const c of await listCourses()) {
+    const bundle = await getCourse(c.id)
+    for (const s of bundle?.sections ?? []) out.add(s.guideId)
+  }
+  return out
+}
+
 export default async function PathPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const params = await searchParams
   const snapshot = await getContent()
+  // Tracks of guides that no course covers yet keep their guide-based path (engineer map links).
+  if (params.track || params.guide) {
+    const covered = await courseGuides()
+    const available = TRACKS.filter((t) => t.guides.some((g) => snapshot.guideById.has(g)))
+    const track = available.find((t) => t.id === params.track) ?? (params.guide ? available.find((t) => t.guides.includes(params.guide!)) : undefined)
+    if (track && !track.guides.some((g) => covered.has(g))) return <LegacyTrackPath snapshot={snapshot} track={track} />
+  }
+  const active = await activeCourse()
+  if (!active) redirect('/courses')
+  const [path, xp, library] = await Promise.all([coursePath(snapshot, active), userXp(), myLibrary()])
+  const { bundle, enrollment } = active
+  const level = levelInfo(xp)
+  const crowns = [...path.mastery.values()].reduce((s, m) => s + m.crowns, 0)
+  const sections = pathSections(path)
+  return (
+    <div className="page path-page" data-width="wide">
+      <header className="ghead">
+        <span className="ghead-badge path-track-badge" aria-hidden="true">
+          <Icon name={bundle.course.icon ?? '📘'} size={40} />
+        </span>
+        <div className="ghead-text">
+          <h1 className="ghead-title">{bundle.course.title}</h1>
+          <p className="ghead-lead">{bundle.course.subtitle}</p>
+        </div>
+      </header>
+      <div className="path-summary">
+        <Card variant="raised" tone="blue" padding="sm" className="path-summary-item">
+          <span className="path-summary-value tabular">
+            <GameIcon name="bolt" size={22} />
+            {level.level}
+          </span>
+          <span className="path-summary-label">рівень · {level.rank.title}</span>
+        </Card>
+        <Card variant="raised" tone="yellow" padding="sm" className="path-summary-item">
+          <span className="path-summary-value tabular">
+            <GameIcon name="crown" size={22} />
+            {crowns}
+            <small>/{path.mastery.size * 5}</small>
+          </span>
+          <span className="path-summary-label">корон майстерності</span>
+        </Card>
+        <Card variant="raised" tone="green" padding="sm" className="path-summary-item">
+          <span className="path-summary-value tabular">
+            {path.view.lessonsTotal - path.view.lessonsLeft}
+            <small>/{path.view.lessonsTotal}</small>
+          </span>
+          <span className="path-summary-label">уроків · {Math.round(path.view.ratio * 100)}%</span>
+        </Card>
+      </div>
+      <CourseChips courses={courseChips(library)} />
+      <div className="cp-level-row">
+        <Link href={`/courses/${bundle.course.id}#level`} className="cp-level-chip">
+          {LEVEL_EMOJI[enrollment.level]} Рівень курсу: <strong>{LEVEL_LABEL[enrollment.level]}</strong> · змінити
+        </Link>
+        <Link href="/roadmap" className="cp-level-chip">
+          <PiMapTrifoldFill aria-hidden="true" /> Мапа інженера
+        </Link>
+      </div>
+      {!enrollment.placement && bundle.placement.enabled ? (
+        <Card variant="raised" tone="purple" padding="md" className="cp-placement-card">
+          <span className="cp-placement-icon" aria-hidden="true">
+            <PiFlaskFill />
+          </span>
+          <span className="cp-placement-text">
+            <strong>Вступний тест · 5–7 хв</strong>
+            <span>Loo підбере рівень і перший розділ — те, що вже знаєш, буде зараховано.</span>
+          </span>
+          <Button href={`/placement?course=${bundle.course.id}`} variant="secondary">
+            Пройти
+          </Button>
+        </Card>
+      ) : null}
+      <CoursePath sections={sections} />
+    </div>
+  )
+}
+
+async function LegacyTrackPath({ snapshot, track }: { snapshot: ContentSnapshot; track: Track }) {
   const available = TRACKS.filter((t) => t.guides.some((g) => snapshot.guideById.has(g)))
-  const fromGuide = params.guide ? available.find((t) => t.guides.includes(params.guide!)) : undefined
-  const track = available.find((t) => t.id === params.track) ?? fromGuide ?? available[0]
-  if (!track) notFound()
+  if (!available.includes(track)) notFound()
   const [path, xp] = await Promise.all([trackPath(snapshot, track), userXp()])
   const level = levelInfo(xp)
   const stages: PathStageView[] = path.stages.map((s) => ({
@@ -55,7 +151,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
         </span>
         <div className="ghead-text">
           <h1 className="ghead-title">{track.title}: шлях</h1>
-          <p className="ghead-lead">{track.tagline}</p>
+          <p className="ghead-lead">{track.tagline} · за статтями (курс ще готується)</p>
         </div>
       </header>
       <div className="path-summary">
@@ -83,11 +179,9 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
         </Card>
       </div>
       <nav className="gchips path-guides" aria-label="Трек">
-        {available.map((t) => (
-          <Link key={t.id} href={`/path?track=${t.id}`} className="gchip" aria-current={t.id === track.id ? 'page' : undefined}>
-            <Icon name={trackIcon(t.id, t.emoji)} size={18} /> {t.title}
-          </Link>
-        ))}
+        <Link href="/path" className="gchip">
+          ← Мій курс
+        </Link>
         <Link href="/roadmap" className="gchip">
           <PiMapTrifoldFill aria-hidden="true" /> Уся мапа
         </Link>

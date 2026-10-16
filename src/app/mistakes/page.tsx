@@ -7,6 +7,7 @@ import { LEVEL_LABEL } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { studyScope } from '@/server/courses/enrollment'
 import { mistakeTopics, openMistakeRows, recentlyResolved } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
 import { Pill } from '@/ui/design/Badge'
@@ -49,7 +50,12 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
   const params = await searchParams
   const snapshot = await getContent()
   const now = nowMs()
-  const rows = await openMistakeRows(snapshot)
+  // Mistakes of the active course first; ?all=1 shows every open mistake.
+  const all = params.all === '1'
+  const pool = all ? null : await studyScope({ guide: null, chapter: null })
+  const everyRow = await openMistakeRows(snapshot)
+  const rows = pool ? everyRow.filter((r) => pool.has(r.unit.id)) : everyRow
+  const outside = everyRow.length - rows.length
   const eligible = rows.filter((r) => r.eligibleAt === null || r.eligibleAt <= now)
   const waiting = rows.length - eligible.length
 
@@ -58,7 +64,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
     const items = await renderStudyItems(snapshot, ids, now)
     return (
       <div className="page page-study">
-        <StudySession items={items} mode="mistakes" filters={{ source: 'mistakes' }} restartHref={`/mistakes?start=1&r=${now}`} backHref="/mistakes" backLabel="До списку помилок" />
+        <StudySession items={items} mode="mistakes" filters={{ source: 'mistakes', all }} restartHref={`/mistakes?start=1${all ? '&all=1' : ''}&r=${now}`} backHref={all ? '/mistakes?all=1' : '/mistakes'} backLabel="До списку помилок" />
       </div>
     )
   }
@@ -75,6 +81,16 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
           <p className="ghead-lead">
             Кожна неправильна відповідь, картка «Не знав» і задача, що не вийшла, потрапляє сюди. Питання виходить після двох правильних відповідей поспіль із перервою від 20 годин.
           </p>
+          {outside > 0 || all ? (
+            <nav className="gchips" aria-label="Які помилки">
+              <Link className="gchip" href="/mistakes" aria-current={!all ? 'true' : undefined}>
+                Активний курс
+              </Link>
+              <Link className="gchip" href="/mistakes?all=1" aria-current={all ? 'true' : undefined}>
+                Усі{outside > 0 && !all ? ` · ще ${outside}` : ''}
+              </Link>
+            </nav>
+          ) : null}
         </div>
       </header>
 
@@ -114,7 +130,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
                 </div>
               </div>
               {eligible.length > 0 ? (
-                <Button href="/mistakes?start=1" variant="super" size="lg" block icon={<PiLightningFill size={22} />}>
+                <Button href={all ? '/mistakes?start=1&all=1' : '/mistakes?start=1'} variant="super" size="lg" block icon={<PiLightningFill size={22} />}>
                   Пройти {count(eligible.length, 'помилку', 'помилки', 'помилок')}
                 </Button>
               ) : (

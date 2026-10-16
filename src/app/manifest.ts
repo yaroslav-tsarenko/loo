@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Levelup — навчання як гра',
     short_name: 'Levelup',
-    description: 'Курси як гра: уроки, серії, стрічка фішок і повторення FSRS. З лисом Loo 🦊',
+    description: 'Курси як гра: уроки, серії, стрічка фішок і повторення FSRS. З піксельним Loo 💡',
     start_url: '/',
     display: 'standalone',
     orientation: 'portrait',

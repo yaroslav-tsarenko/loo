@@ -13,7 +13,8 @@ import { Ring } from '@/ui/design/Ring'
 import { StatChip } from '@/ui/design/StatChip'
 import { Logo, LogoMark, Wordmark } from '@/ui/design/brand/Logo'
 import { TONES } from '@/ui/design/cx'
-import { LOO_LABEL, LOO_MOODS, Loo, type LooSkin } from '@/ui/design/mascot/Loo'
+import { LOO_EYES, LOO_EYES_LABEL, LOO_LABEL, LOO_MOODS, Loo, LooPixels, type LooBulb, type LooSkin } from '@/ui/design/mascot/Loo'
+import { LOO_GRID, LOO_TIMELINES, MARK_BOX, poseRects, timelineTicks, type LooMood } from '@/ui/design/mascot/pixels'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { ICON_NAMES } from '@/ui/icons/catalog'
 import { Icon } from '@/ui/icons/Icon'
@@ -22,7 +23,7 @@ import { ConfettiDemo, LoadingDemo, OverlayDemo, ProgressDemo, StatsDemo, TabsTo
 export const metadata: Metadata = { title: 'Дизайн-система' }
 
 const PALETTE = ['green', 'blue', 'red', 'yellow', 'orange', 'purple', 'pink'] as const
-const NAMES: Record<(typeof PALETTE)[number], string> = { green: 'Feather green', blue: 'Sky blue', red: 'Cardinal red', yellow: 'Bee yellow', orange: 'Fox orange', purple: 'Beetle purple', pink: 'Bubblegum pink' }
+const NAMES: Record<(typeof PALETTE)[number], string> = { green: 'Feather green', blue: 'Sky blue', red: 'Cardinal red', yellow: 'Bee yellow', orange: 'Flame orange', purple: 'Beetle purple', pink: 'Bubblegum pink' }
 const NEUTRALS = ['bg', 'bg-sunk', 'surface', 'surface-2', 'surface-3', 'border', 'border-strong', 'text', 'text-2', 'text-3'] as const
 const GAME_ICONS: GameIconName[] = ['fire', 'gem', 'heart', 'bolt', 'crown', 'chest']
 const SKINS: { label: string; skin: LooSkin }[] = [
@@ -34,7 +35,35 @@ const SKINS: { label: string; skin: LooSkin }[] = [
   { label: 'hoodie', skin: { hoodie: '#1CB0F6' } },
   { label: 'hoodie + beanie', skin: { hoodie: '#CE82FF', hat: 'beanie' } },
   { label: 'scarf', skin: { scarf: '#FF4B4B' } },
+  { label: 'scarf + crown + shades', skin: { scarf: '#FFC800', hat: 'crown', glasses: 'shades' } },
 ]
+const LOO_SIZES = [16, 24, 32, 48, 64, 96, 120, 160, 240]
+const LOO_BULBS: LooBulb[] = ['off', 'on', 'flicker']
+const LOO_TOKENS = ['loo', 'loo-lip', 'loo-ink', 'loo-spring', 'loo-bulb', 'loo-bulb-on', 'loo-glow', 'loo-cheek'] as const
+const MARK_SIZES = [16, 32, 48, 64]
+
+// Every frame of a mood laid out flat, with its hold in ticks — the timeline at a glance.
+function LooFilmstrip({ mood }: { mood: LooMood }) {
+  const t = LOO_TIMELINES[mood]
+  return (
+    <div className="ds-loo-strip">
+      <code>{mood}</code>
+      {t.frames.map((f, i) => (
+        <figure key={i} className="ds-loo-cell">
+          <svg width={60} height={60} viewBox={`0 0 ${LOO_GRID} ${LOO_GRID}`} shapeRendering="crispEdges" className="loo" aria-hidden="true">
+            <LooPixels px={poseRects(f.pose)} />
+          </svg>
+          <figcaption className="ds-muted">
+            {i === 0 ? 'key · ' : ''}×{f.hold}
+          </figcaption>
+        </figure>
+      ))}
+      <span className="ds-muted">
+        {timelineTicks(t)} × {t.tick} мс = {(timelineTicks(t) * t.tick) / 1000} с
+      </span>
+    </div>
+  )
+}
 
 function Section({ id, title, lead, children }: { id: string; title: string; lead?: ReactNode; children: ReactNode }) {
   return (
@@ -266,7 +295,7 @@ export default function DesignShowcasePage() {
           <Avatar name="Ярослав Царенко" size={56} ring="green" />
           <Avatar name="Олена" />
           <Avatar name="Max Payne" size={36} />
-          <Avatar name="Loo Fox" tone="orange" ring="orange" />
+          <Avatar name="Loo Пружинка" tone="purple" ring="purple" />
         </div>
         <div className="ds-grid">
           <Card>
@@ -282,7 +311,16 @@ export default function DesignShowcasePage() {
         </div>
       </Section>
 
-      <Section id="loo" title="Loo 🦊" lead={<>API: <code>{'<Loo mood="happy" size={120} skin={{ hat: "crown" }} />'}</code>, <code>{'<LooSays mood text />'}</code>. Анімації на CSS, без руху для prefers-reduced-motion.</>}>
+      <Section
+        id="loo"
+        title="Loo 💡"
+        lead={
+          <>
+            «Пружинка»: піксельний фіолетовий блок з антеною-пружинкою та лампочкою «еврика», сітка {LOO_GRID}×{LOO_GRID} клітинок (src/ui/design/mascot/pixels.ts). API: <code>{'<Loo mood="happy" eyes="wink" bulb="on" size={120} skin={{ hat: "crown" }} />'}</code>, <code>{'<LooSays mood eyes text />'}</code>. Кадрова анімація: усі кадри рендерить сервер, один CSS-годинник <code>steps()</code> перемикає їх; без руху (prefers-reduced-motion,{' '}
+            <code>animated={'{false}'}</code>) видно ключовий кадр.
+          </>
+        }
+      >
         <div className="ds-loo-grid">
           {LOO_MOODS.map((m) => (
             <figure key={m} className="ds-loo">
@@ -292,6 +330,61 @@ export default function DesignShowcasePage() {
                 <span className="ds-muted">{LOO_LABEL[m]}</span>
               </figcaption>
             </figure>
+          ))}
+        </div>
+        <h3 className="ds-h3">Кадри</h3>
+        <div className="ds-stack">
+          {LOO_MOODS.map((m) => (
+            <LooFilmstrip key={m} mood={m} />
+          ))}
+        </div>
+        <h3 className="ds-h3">Очі × настрої</h3>
+        <p className="ds-muted">
+          Очі — окремий шар виразу: <code>eyes</code> поєднується з будь-яким настроєм. Ключові кадри, 48 px.
+        </p>
+        <div className="ds-loo-matrix" role="table" aria-label="Очі × настрої">
+          <div role="row" className="ds-loo-matrix-row">
+            <span role="columnheader" />
+            {LOO_EYES.map((e) => (
+              <code key={e} role="columnheader" title={LOO_EYES_LABEL[e]}>
+                {e}
+              </code>
+            ))}
+          </div>
+          {LOO_MOODS.map((m) => (
+            <div key={m} role="row" className="ds-loo-matrix-row">
+              <code role="rowheader">{m}</code>
+              {LOO_EYES.map((e) => (
+                <span key={e} role="cell">
+                  <Loo mood={m} eyes={e} size={48} animated={false} label={`${m} · ${e}`} />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+        <h3 className="ds-h3">Лампочка «еврика»</h3>
+        <div className="ds-row">
+          {LOO_BULBS.map((b) => (
+            <figure key={b} className="ds-loo-cell">
+              <Loo mood="idle" bulb={b} size={112} decorative />
+              <figcaption>
+                <code>bulb=&quot;{b}&quot;</code>
+              </figcaption>
+            </figure>
+          ))}
+          <figure className="ds-loo-cell">
+            <Loo mood="eureka" size={112} decorative />
+            <figcaption>
+              <code>mood=&quot;eureka&quot;</code>
+            </figcaption>
+          </figure>
+        </div>
+        <div className="ds-swatches ds-swatches-sm">
+          {LOO_TOKENS.map((n) => (
+            <div key={n} className="ds-swatch">
+              <span className="ds-chip" style={{ background: `var(--lu-${n})` }} />
+              <code>--lu-{n}</code>
+            </div>
           ))}
         </div>
         <h3 className="ds-h3">Скіни (для магазину)</h3>
@@ -305,16 +398,31 @@ export default function DesignShowcasePage() {
             </figure>
           ))}
         </div>
-        <h3 className="ds-h3">Розміри та репліки</h3>
-        <div className="ds-row">
-          <Loo mood="happy" size={32} />
-          <Loo mood="happy" size={48} />
-          <Loo mood="happy" size={72} />
+        <h3 className="ds-h3">Розміри 16 → 240 px</h3>
+        <div className="ds-row ds-loo-sizes">
+          {LOO_SIZES.map((s) => (
+            <figure key={s} className="ds-loo-cell">
+              <Loo mood="happy" size={s} decorative />
+              <figcaption className="ds-muted">{s}</figcaption>
+            </figure>
+          ))}
         </div>
+        <h3 className="ds-h3">Логотип-марка ({MARK_BOX[2]}×{MARK_BOX[3]} клітинок, чітка на кратних 16 px)</h3>
+        <div className="ds-row ds-loo-sizes">
+          {MARK_SIZES.map((s) => (
+            <figure key={s} className="ds-loo-cell">
+              <LogoMark size={s} />
+              <figcaption className="ds-muted">{s}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <h3 className="ds-h3">Репліки</h3>
         <div className="ds-stack">
           <LooSays mood="thinking" text="Хм… а що поверне typeof null?" />
           <LooSays mood="sad" text="Ой! Майже. Подивись пояснення 👇" />
           <LooSays mood="fire" text="7 днів поспіль! Серія палає 🔥" />
+          <LooSays mood="eureka" text="Еврика! Тепер зрозуміло, чому замикання пам’ятає змінну." />
+          <LooSays mood="dizzy" text="Три помилки поспіль… Перепочинь і глянь підказку." />
           <LooSays mood="idle" side="top" size={80} text="Бульбашка зверху для вузьких екранів." />
         </div>
       </Section>

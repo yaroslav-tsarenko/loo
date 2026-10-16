@@ -7,6 +7,8 @@ import {
   chapterProgress,
   dailyActivity,
   dailyMissions,
+  enrollments,
+  examResults,
   lessonProgress,
   mistakes,
   newsReads,
@@ -15,6 +17,7 @@ import {
   sessions,
   srsCards,
   taskState,
+  topicResults,
   userSettings,
   xpLedger,
 } from '@/db/schema'
@@ -26,7 +29,7 @@ export async function exportUserData(): Promise<Record<string, unknown>> {
   return userScope(
     async (db, userId) => ({
       format: 'levelup/user-export',
-      version: 2,
+      version: 3,
       exportedAt: new Date().toISOString(),
       userId,
       profile: (await db.select().from(profiles).where(eq(profiles.id, userId)))[0] ?? null,
@@ -44,6 +47,9 @@ export async function exportUserData(): Promise<Record<string, unknown>> {
       sessions: await db.select().from(sessions).where(eq(sessions.userId, userId)),
       reelState: await db.select().from(reelState).where(eq(reelState.userId, userId)),
       newsReads: await db.select().from(newsReads).where(eq(newsReads.userId, userId)),
+      enrollments: await db.select().from(enrollments).where(eq(enrollments.userId, userId)),
+      topicResults: await db.select().from(topicResults).where(eq(topicResults.userId, userId)),
+      examResults: await db.select().from(examResults).where(eq(examResults.userId, userId)),
     }),
     { tx: true },
   )

@@ -73,3 +73,34 @@ export function testOutEligible(bundle: CourseBundle, sectionId: string, progres
   if (progress.passedSections.includes(section.id) || progress.passedSections.includes(section.key)) return { eligible: false, reason: 'already-passed' }
   return { eligible: true, reason: 'ok' }
 }
+
+// `<topic>:test` → topic test, `<course>:<section>:exam` → section exam.
+export function testKindOf(id: string): BuiltTest['kind'] | null {
+  if (/^[^:]+:[^:]+:[^:]+:test$/.test(id)) return 'topic-test'
+  if (/^[^:]+:[^:]+:exam$/.test(id)) return 'section-exam'
+  return null
+}
+
+export interface ScoredTest {
+  // false: the answers don't cover exactly the drawn questions, in order (skipped, reordered or foreign ids)
+  ok: boolean
+  correct: number
+  total: number
+  score: number
+  passed: boolean
+  // per question, in display order
+  results: boolean[]
+}
+
+export type TestAnswerVerdict = (exerciseId: string, index: number) => boolean
+
+// Scores a submitted attempt against the server's own draw of the test. No skipping: every question must be
+// answered, in the order it was shown. `grade` decides each answer (server-side checking, never the client's flag).
+export function scoreTest(test: BuiltTest, answers: readonly { id: string }[], grade: TestAnswerVerdict): ScoredTest {
+  const total = test.questions.length
+  const ok = answers.length === total && answers.every((a, i) => a.id === test.questions[i])
+  if (!ok) return { ok: false, correct: 0, total, score: 0, passed: false, results: [] }
+  const results = test.questions.map((id, i) => grade(id, i))
+  const correct = results.filter(Boolean).length
+  return { ok: true, correct, total, score: total > 0 ? correct / total : 0, passed: testPassed(test, correct), results }
+}

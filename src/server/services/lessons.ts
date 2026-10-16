@@ -53,40 +53,54 @@ export async function lessonProgressMap(guideId: string): Promise<Map<string, Le
 export type PlayerItem = StudyItem | { kind: 'reel'; unitId: string; emoji: string; title: string; body: React.ReactNode }
 
 export interface LessonPlayerData {
-  lesson: Lesson
+  lesson: { id: string; kind: string; emoji: string; title: string }
   chapterTitle: string
   chapterHref: string
   guideTitle: string
   items: PlayerItem[]
-  nextLessonId: string | null
+  // 🔥 above-level exercises of a course lesson
+  challenges: string[]
+  nextHref: string | null
+  nextLabel: string | null
 }
 
-export async function lessonPlayerData(snapshot: ContentSnapshot, lesson: Lesson): Promise<LessonPlayerData> {
-  const chapter = snapshot.chapters.get(lesson.chapterId)!
-  const guide = snapshot.guideById.get(lesson.guideId)!
-  const unitIds = lesson.items.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
+// Renders lesson items (exercises through the study renderers, reels as cards), keeping the lesson's order.
+export async function renderLessonItems(snapshot: ContentSnapshot, refs: ReadonlyArray<{ kind: 'unit' | 'reel'; id: string }>): Promise<PlayerItem[]> {
+  const unitIds = refs.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
   const rendered = new Map((await renderStudyItems(snapshot, unitIds)).map((r) => [r.unitId, r]))
   const reels = new Map(snapshot.reels.map((r) => [r.id, r]))
   const items: PlayerItem[] = []
-  for (const ref of lesson.items) {
+  for (const ref of refs) {
     if (ref.kind === 'unit') {
       const item = rendered.get(ref.id)
       if (item) items.push(item)
       continue
     }
     const reel = reels.get(ref.id)
-    if (!reel) continue
+    const chapter = reel ? snapshot.chapters.get(reel.chapterId) : undefined
+    if (!reel || !chapter) continue
     items.push({ kind: 'reel', unitId: reel.id, emoji: reel.emoji ?? '💡', title: reel.title, body: await renderMdast(reel.body, { snapshot, chapter, depth: 0, variant: 'card' }) })
   }
+  return items
+}
+
+// Lessons of guides that no course covers (old generator ids `<chapterId>::<kind>-<n>`).
+export async function lessonPlayerData(snapshot: ContentSnapshot, lesson: Lesson): Promise<LessonPlayerData> {
+  const chapter = snapshot.chapters.get(lesson.chapterId)!
+  const guide = snapshot.guideById.get(lesson.guideId)!
+  const items = await renderLessonItems(snapshot, lesson.items)
   const all = [...courseLessons(snapshot, guide).values()].flat().filter((l) => l.kind !== 'theory')
   const pos = all.findIndex((l) => l.id === lesson.id)
+  const next = all[pos + 1]?.id ?? null
   return {
     lesson,
     chapterTitle: chapter.title,
     chapterHref: chapterHref(snapshot, chapter),
     guideTitle: guide.title,
     items,
-    nextLessonId: all[pos + 1]?.id ?? null,
+    challenges: [],
+    nextHref: next ? `/learn/${encodeURIComponent(next)}` : null,
+    nextLabel: next ? 'Наступний урок' : null,
   }
 }
 

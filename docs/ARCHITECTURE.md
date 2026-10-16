@@ -118,6 +118,13 @@ src/
 `/onboarding` і обробники `/auth/*`; `/account` — профіль. Оболонку (сайдбар, нижня навігація) вимикає `AppFrame` для auth-сторінок.
 Налаштування Supabase — [AUTH.md](./AUTH.md), статус безпеки — [SECURITY.md §5](./SECURITY.md).
 
+**Фаза 3 (зроблено):** реєстр курсів `src/server/courses/` (bundle з `content/courses/*.json`, один раз на процес, схема `CourseBundleSchema`);
+записи учня `enrollments` (рівень, результат вступного тесту, один активний курс), `topic_results`, `exam_results`. Шлях —
+чиста функція `buildCoursePath` (`src/course/select/path.ts`) над bundle + прогресом. Маршрути: `/courses`, `/courses/[id]`, `/path`
+(активний курс), `/learn/<lesson id>` (старі id → редірект), `/test/<test|exam id>`, `/placement`. Тести, екзамени й вступний тест
+оцінюються на сервері (`src/server/courses/tests-core.ts`, `placement-core.ts`, спільна перевірка `src/content/blocks/quiz/grade.ts`).
+Старий `lesson_progress` переноситься на id курсу ліниво й ідемпотентно (`src/server/courses/legacy.ts`).
+
 ## 5. Дані (Postgres / Supabase)
 
 - `auth.users` — Supabase Auth. `profiles(id = auth.uid())` — ім'я, аватар, локаль, налаштування, інтереси.

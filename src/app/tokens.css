@@ -55,11 +55,15 @@
   --lu-pink-soft: light-dark(#ffe6f5, #3b1f31);
   --lu-pink-ink: light-dark(#d23f9b, #ff9fda);
 
-  /* Loo's coat — shared by the mascot and the logo mark */
-  --lu-fox: #ff8a1f;
-  --lu-fox-dark: #e46c06;
-  --lu-fox-cream: #fff4e3;
-  --lu-fox-ink: #2b1b12;
+  /* Loo «Пружинка» — mirrored by LOO_COLORS in src/ui/design/mascot/pixels.ts (the pixels need literal hex) */
+  --lu-loo: #8b5cf6;
+  --lu-loo-lip: #6d28d9;
+  --lu-loo-ink: #1e1033;
+  --lu-loo-spring: #4c1d95;
+  --lu-loo-bulb: #ddd6fe;
+  --lu-loo-bulb-on: #ffc800;
+  --lu-loo-glow: #fde68a;
+  --lu-loo-cheek: #f9a8d4;
 
   /* Neutrals. Dark canvas matches the legacy --bg so the reader and the shell sit on one surface. */
   --lu-bg: light-dark(#ffffff, #191919);

@@ -25,7 +25,7 @@ async function loadFeed(seedParam: string | undefined) {
           .where(and(eq(reelState.userId, userId), gte(reelState.lastSeenAt, dayStartMs(now)))),
       ),
     ),
-    getMission(snapshot, availableReelCount(snapshot), now),
+    availableReelCount(snapshot).then((reels) => getMission(snapshot, reels, now)),
   ])
   const target = mission.plan.steps.find((s) => s.kind === 'feed')?.target ?? 20
   return { slides, nextHref: `/feed?seed=${seed + 1}`, seenToday: Number(seenRow?.n ?? 0), target }

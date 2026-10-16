@@ -9,6 +9,8 @@ import { safeRedirectPath } from '@/lib/redirect'
 import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
 import { writeSetting } from '../settings'
+import { enrollIn } from '../courses/enrollment'
+import { getCourse } from '../courses/registry'
 import { GOALS, INTERESTS, LEVELS, MINUTES } from '../services/preferences'
 
 const interests = z.array(z.enum(INTERESTS)).max(INTERESTS.length)
@@ -18,7 +20,19 @@ const minutes = z.coerce
   .int()
   .refine((n) => (MINUTES as readonly number[]).includes(n))
 
-const onboardingInput = z.object({ goal: z.enum(GOALS), minutes, interests, level, next: z.string().max(2048).optional() })
+const courseId = z
+  .string()
+  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+  .max(64)
+const onboardingInput = z.object({
+  goal: z.enum(GOALS),
+  minutes,
+  interests,
+  level,
+  next: z.string().max(2048).optional(),
+  course: courseId.optional(),
+  start: z.enum(['placement', 'zero']).optional(),
+})
 
 function formInput(form: FormData) {
   const one = (k: string) => {
@@ -32,22 +46,42 @@ function formInput(form: FormData) {
 export async function completeOnboarding(form: FormData): Promise<void> {
   await requireUser()
   const { one, all } = formInput(form)
-  const input = parseInput(onboardingInput, { goal: one('goal'), minutes: one('minutes'), interests: all('interests'), level: one('level'), next: one('next') })
+  const input = parseInput(onboardingInput, {
+    goal: one('goal'),
+    minutes: one('minutes'),
+    interests: all('interests'),
+    level: one('level'),
+    next: one('next'),
+    course: one('course') || undefined,
+    start: one('start') || undefined,
+  })
   const profile = await getProfile()
   const now = Date.now()
-  await userScope((db, userId) =>
-    db
-      .update(profiles)
-      .set({
-        onboarding: { ...profile?.onboarding, completedAt: now, goal: input.goal },
-        preferences: { ...profile?.preferences, interests: input.interests, level: input.level },
-        updatedAt: now,
-      })
-      .where(eq(profiles.id, userId)),
+  const course = input.course ? await getCourse(input.course) : null
+  if (input.course && !course) throw new Error('Unknown course')
+  await userScope(
+    async (db, userId) => {
+      await db
+        .update(profiles)
+        .set({
+          onboarding: { ...profile?.onboarding, completedAt: now, goal: input.goal },
+          preferences: { ...profile?.preferences, interests: input.interests, level: input.level },
+          updatedAt: now,
+        })
+        .where(eq(profiles.id, userId))
+      if (course) {
+        // «Почати з нуля»: first section at the self-assessed level; the placement test sets its own result later.
+        const placement = input.start === 'zero' ? { level: input.level, sectionIndex: 0, sectionId: course.sections[0]?.id ?? null, confident: false, asked: 0, at: now, skipped: true } : null
+        await enrollIn(db, userId, course.course.id, { level: input.level, activate: true, placement, now })
+      }
+    },
+    { tx: true },
   )
   await writeSetting('dailyMinutes', input.minutes)
   revalidatePath('/', 'layout')
-  redirect(safeRedirectPath(input.next))
+  const next = safeRedirectPath(input.next)
+  if (course && input.start === 'placement') redirect(`/placement?course=${course.course.id}&next=${encodeURIComponent(next)}`)
+  redirect(next)
 }
 
 const profileInput = z.object({

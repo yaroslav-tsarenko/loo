@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PiExamFill } from 'react-icons/pi'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { studyScope } from '@/server/courses/enrollment'
 import { filterOptions } from '@/server/services/filter-options'
 import { filtersToQuery, parseFilters, practiceQueue } from '@/server/services/queue'
 import { count } from '@/ui/format'
@@ -20,7 +21,8 @@ export default async function QuizPage({ searchParams }: { searchParams: SearchP
   const filters = parseFilters(params, 10)
   if (filters.chapter && !filters.guide) filters.guide = snapshot.chapters.get(filters.chapter)?.guideId ?? null
   const seed = Number(params.r) || Math.floor(nowMs() / 60_000)
-  const queue = await practiceQueue(snapshot, filters, 'quiz', seed)
+  const scope = await studyScope(filters)
+  const queue = await practiceQueue(snapshot, filters, 'quiz', seed, scope)
   const startHref = `/quiz?${filtersToQuery(filters, { start: '1' })}`
 
   if (params.start === '1' && queue.ids.length > 0) {
@@ -32,7 +34,7 @@ export default async function QuizPage({ searchParams }: { searchParams: SearchP
     )
   }
 
-  const options = filterOptions(snapshot, 'quiz', filters)
+  const options = filterOptions(snapshot, 'quiz', filters, scope)
   return (
     <div className="page page-study">
       <header className="ghead">
@@ -46,6 +48,7 @@ export default async function QuizPage({ searchParams }: { searchParams: SearchP
       </header>
       <div className="study-setup">
         <FilterForm
+          allLabel={scope ? 'Увесь активний курс' : undefined}
           action="/quiz"
           guides={options.guides}
           chapters={options.chapters}

@@ -980,323 +980,29 @@
     stroke-linejoin: round;
   }
 
-  /* ── Loo the fox ──────────────────────────────────────────────────── */
+  /* ── Loo «Пружинка», the pixel mascot ───────────────────────────────────────────
+     Pixels and frames live in src/ui/design/mascot/pixels.ts. Every frame is its own <g class="loo-frame">
+     with a span (--a start tick, --h ticks); one stepped clock (--loo-f) on the <svg> shows the frame whose
+     span covers the current tick. No clock (static, reduced motion) → tick 0 → the key frame. */
   .loo {
+    --loo-f: 0;
     display: block;
     flex: none;
     overflow: visible;
     color: var(--lu-text);
   }
-  .loo * {
-    transform-box: view-box;
+  .loo-frame {
+    opacity: min(calc(var(--loo-f) - var(--a) + 1), calc(var(--a) + var(--h) - var(--loo-f)));
   }
-  .loo-tail {
-    transform-origin: 140px 172px;
+  .loo[data-animated] {
+    animation: loo-clock var(--loo-dur) steps(var(--loo-n), end) infinite;
   }
-  .loo-torso {
-    transform-origin: 100px 192px;
-  }
-  .loo-head {
-    transform-origin: 100px 132px;
-  }
-  .loo-eyes {
-    transform-origin: 100px 87px;
-  }
-  .loo-arm-l {
-    transform-origin: 66px 145px;
-  }
-  .loo-arm-r {
-    transform-origin: 134px 145px;
-  }
-  .loo-shadow {
-    transform-origin: 100px 194px;
-  }
-
-  .loo[data-animated] .loo-torso {
-    animation: loo-breathe 3.2s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-head {
-    animation: loo-nod 3.2s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-eyes {
-    animation: loo-blink 4.6s infinite;
-  }
-  .loo[data-animated] .loo-tail {
-    animation: loo-sway 2.8s ease-in-out infinite;
-  }
-
-  .loo[data-animated][data-mood='happy'] .loo-figure {
-    animation: loo-hop 1s var(--lu-ease) infinite;
-  }
-  .loo[data-animated][data-mood='happy'] .loo-tail,
-  .loo[data-animated][data-mood='cheer'] .loo-tail,
-  .loo[data-animated][data-mood='fire'] .loo-tail {
-    animation: loo-wag 0.45s ease-in-out infinite alternate;
-  }
-
-  .loo[data-animated][data-mood='cheer'] .loo-figure {
-    animation: loo-jump 0.9s var(--lu-ease) infinite;
-  }
-  .loo[data-animated][data-mood='cheer'] .loo-shadow {
-    animation: loo-shadow 0.9s var(--lu-ease) infinite;
-  }
-  .loo[data-animated][data-mood='cheer'] .loo-arm-l,
-  .loo[data-animated][data-mood='fire'] .loo-arm-l {
-    animation: loo-pump-l 0.45s ease-in-out infinite alternate;
-  }
-  .loo[data-animated][data-mood='cheer'] .loo-arm-r,
-  .loo[data-animated][data-mood='fire'] .loo-arm-r {
-    animation: loo-pump-r 0.45s ease-in-out infinite alternate;
-  }
-  .loo[data-animated] .loo-sparks path {
-    transform-origin: center;
-    transform-box: fill-box;
-    animation: loo-twinkle 1.2s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-sparks path:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  .loo[data-animated] .loo-sparks path:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  .loo[data-animated] .loo-sparks path:nth-child(4) {
-    animation-delay: 0.9s;
-  }
-
-  .loo[data-mood='sad'] .loo-head {
-    transform: translateY(3px) rotate(-4deg);
-  }
-  .loo[data-mood='sad'] .loo-tail {
-    transform: rotate(14deg);
-  }
-  .loo[data-animated][data-mood='sad'] .loo-head,
-  .loo[data-animated][data-mood='sad'] .loo-tail {
-    animation: none;
-  }
-  .loo[data-animated] .loo-tear {
-    animation: loo-tear 2.2s ease-in infinite;
-  }
-
-  .loo[data-mood='thinking'] .loo-head {
-    transform: rotate(-5deg);
-  }
-  .loo[data-animated][data-mood='thinking'] .loo-head {
-    animation: loo-ponder 3s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-think circle,
-  .loo[data-animated] .loo-think text {
-    animation: loo-bubble 2.4s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-think :nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .loo[data-animated] .loo-think :nth-child(n + 3) {
-    animation-delay: 0.4s;
-  }
-
-  .loo[data-animated][data-mood='sleeping'] .loo-torso {
-    animation-duration: 4.4s;
-  }
-  .loo[data-animated][data-mood='sleeping'] .loo-head {
-    animation: loo-doze 4.4s ease-in-out infinite;
-  }
-  .loo[data-animated][data-mood='sleeping'] .loo-eyes,
-  .loo[data-animated][data-mood='happy'] .loo-eyes,
-  .loo[data-animated][data-mood='cheer'] .loo-eyes {
-    animation: none;
-  }
-  .loo[data-animated] .loo-zzz text {
-    transform-origin: center;
-    transform-box: fill-box;
-    animation: loo-z 2.7s ease-in-out infinite;
-  }
-  .loo[data-animated] .loo-zzz text:nth-child(2) {
-    animation-delay: 0.9s;
-  }
-  .loo[data-animated] .loo-zzz text:nth-child(3) {
-    animation-delay: 1.8s;
-  }
-
-  .loo[data-animated] .loo-wave {
-    animation: loo-wave 0.6s ease-in-out infinite alternate;
-  }
-  .loo[data-animated] .loo-wave-marks {
-    animation: loo-bubble 0.6s ease-in-out infinite alternate;
-  }
-
-  .loo[data-animated][data-mood='fire'] .loo-figure {
-    animation: loo-hop 0.8s var(--lu-ease) infinite;
-  }
-  .loo[data-animated] .loo-flame path {
-    transform-box: fill-box;
-    transform-origin: 50% 100%;
-    animation: loo-flicker 0.5s ease-in-out infinite alternate;
-  }
-  .loo[data-animated] .loo-flame path:nth-child(odd) {
-    animation-delay: -0.25s;
-  }
-  .loo[data-animated] .loo-flame path:nth-child(3n) {
-    animation-duration: 0.42s;
-  }
-
-  @keyframes loo-breathe {
-    50% {
-      transform: scale(1.025, 0.985);
-    }
-  }
-  @keyframes loo-nod {
-    50% {
-      transform: translateY(1.5px);
-    }
-  }
-  @keyframes loo-blink {
-    0%,
-    92%,
-    100% {
-      transform: scaleY(1);
-    }
-    95% {
-      transform: scaleY(0.1);
-    }
-  }
-  @keyframes loo-sway {
-    50% {
-      transform: rotate(-6deg);
-    }
-  }
-  @keyframes loo-wag {
+  @keyframes loo-clock {
     from {
-      transform: rotate(-10deg);
+      --loo-f: 0;
     }
     to {
-      transform: rotate(8deg);
-    }
-  }
-  @keyframes loo-hop {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-7px);
-    }
-  }
-  @keyframes loo-jump {
-    0%,
-    100% {
-      transform: translateY(0) scale(1.04, 0.95);
-    }
-    15% {
-      transform: translateY(0) scale(1);
-    }
-    45% {
-      transform: translateY(-22px) scale(0.98, 1.03);
-    }
-    75% {
-      transform: translateY(0) scale(1);
-    }
-  }
-  @keyframes loo-shadow {
-    45% {
-      transform: scale(0.65);
-      opacity: 0.05;
-    }
-  }
-  @keyframes loo-pump-l {
-    from {
-      transform: rotate(-8deg);
-    }
-    to {
-      transform: rotate(8deg);
-    }
-  }
-  @keyframes loo-pump-r {
-    from {
-      transform: rotate(8deg);
-    }
-    to {
-      transform: rotate(-8deg);
-    }
-  }
-  @keyframes loo-twinkle {
-    0%,
-    100% {
-      transform: scale(0.4);
-      opacity: 0.3;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-  }
-  @keyframes loo-tear {
-    0% {
-      transform: translateY(0) scale(0.6);
-      opacity: 0;
-    }
-    20% {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    80% {
-      transform: translateY(26px);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(32px);
-      opacity: 0;
-    }
-  }
-  @keyframes loo-ponder {
-    0%,
-    100% {
-      transform: rotate(-5deg);
-    }
-    50% {
-      transform: rotate(-2deg) translateY(-1px);
-    }
-  }
-  @keyframes loo-bubble {
-    0%,
-    100% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-  @keyframes loo-doze {
-    50% {
-      transform: translateY(3px) rotate(2deg);
-    }
-  }
-  @keyframes loo-z {
-    0% {
-      transform: translate(0, 6px) scale(0.6);
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(6px, -10px) scale(1.05);
-      opacity: 0;
-    }
-  }
-  @keyframes loo-wave {
-    from {
-      transform: rotate(-12deg);
-    }
-    to {
-      transform: rotate(16deg);
-    }
-  }
-  @keyframes loo-flicker {
-    from {
-      transform: scale(1, 0.92) skewX(-2deg);
-    }
-    to {
-      transform: scale(1.05, 1.08) skewX(2deg);
+      --loo-f: var(--loo-n);
     }
   }
 
@@ -1357,7 +1063,15 @@
   }
 }
 
+/* Loo's frame clock: an integer so it steps 0, 1, 2… instead of interpolating. */
+@property --loo-f {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .loo,
   .loo *,
   .lu-progress-fill,
   .lu-spin {
@@ -1503,6 +1217,40 @@
     display: grid;
     justify-items: center;
     font-size: var(--lu-fs-xs);
+  }
+  .ds-loo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--lu-s-3);
+  }
+  .ds-loo-strip > code {
+    width: 72px;
+  }
+  .ds-loo-cell {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    margin: 0;
+    font-size: var(--lu-fs-xs);
+  }
+  .ds-loo-sizes {
+    align-items: flex-end;
+  }
+  .ds-loo-matrix {
+    display: grid;
+    gap: 2px;
+    overflow-x: auto;
+  }
+  .ds-loo-matrix-row {
+    display: grid;
+    grid-template-columns: 80px repeat(10, 56px);
+    align-items: center;
+    justify-items: center;
+    font-size: 11px;
+  }
+  .ds-loo-matrix-row > :first-child {
+    justify-self: start;
   }
   .ds-icons {
     display: grid;

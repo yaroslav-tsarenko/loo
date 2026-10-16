@@ -5,6 +5,7 @@ import { headers } from 'next/headers'
 import type { ReactNode } from 'react'
 import { getProfile, getUser } from '@/server/auth'
 import { getContent } from '@/server/content'
+import { myLibrary } from '@/server/courses/library'
 import { navCounts } from '@/server/services/counts'
 import { userXp } from '@/server/services/progress'
 import { readSettings } from '@/server/settings'
@@ -48,7 +49,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     )
   }
   const snapshot = await getContent()
-  const [settings, xp, counts, profile, nonce] = await Promise.all([readSettings(), userXp(), navCounts(snapshot), getProfile(), headers().then((h) => h.get('x-nonce') ?? undefined)])
+  const [settings, xp, counts, profile, nonce, library] = await Promise.all([
+    readSettings(),
+    userXp(),
+    navCounts(snapshot),
+    getProfile(),
+    headers().then((h) => h.get('x-nonce') ?? undefined),
+    myLibrary(),
+  ])
+  const courses = library.map((c) => ({ id: c.id, title: c.title, icon: c.icon, active: c.enrollment.active }))
   const guides = snapshot.guides.map((g) => ({ id: g.id, title: g.title, href: guideHref(g.id) }))
   const account = { name: profile?.displayName || user.name || user.email || 'Я', avatarUrl: profile?.avatarUrl ?? user.avatarUrl }
   return (
@@ -64,7 +73,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <FeedbackProvider initialXp={xp} sound={settings.sound} volume={settings.volume} haptics={settings.haptics}>
           <CountsProvider initial={counts}>
             <AppFrame
-              sidebar={<Sidebar guides={guides} theme={settings.theme} account={account} />}
+              sidebar={<Sidebar guides={guides} courses={courses} theme={settings.theme} account={account} />}
               banner={
                 snapshot.error ? (
                   <div className="vault-error" role="alert">

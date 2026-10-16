@@ -18,6 +18,10 @@ export const METRICS = [
   'mistakes.resolved',
   'chapters.mistakesCleared',
   'sessions.perfect',
+  'tests.passed',
+  'tests.perfect',
+  'exams.passed',
+  'sections.testedOut',
 ] as const
 
 export type Metric = (typeof METRICS)[number]

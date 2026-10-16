@@ -19,9 +19,11 @@ function tally<T extends string>(values: Iterable<T | null>): Map<T, number> {
   return map
 }
 
-export function filterOptions(snapshot: ContentSnapshot, kind: UnitKind, f: StudyFilters) {
-  const all = [...snapshot.units.values()].filter((u): u is LearningUnit => u.kind === kind)
-  const byGuide = tally(all.map((u) => u.guideId))
+export function filterOptions(snapshot: ContentSnapshot, kind: UnitKind, f: StudyFilters, pool: ReadonlySet<string> | null = null) {
+  const every = [...snapshot.units.values()].filter((u): u is LearningUnit => u.kind === kind)
+  // Any guide can be picked; without a pick, counts describe the active course (pool).
+  const all = pool && !f.guide ? every.filter((u) => pool.has(u.id)) : every
+  const byGuide = tally(every.map((u) => u.guideId))
   const guides: Option[] = snapshot.guides.filter((g) => byGuide.has(g.id)).map((g) => ({ value: g.id, label: g.title, count: byGuide.get(g.id) }))
   const inGuide = f.guide ? all.filter((u) => u.guideId === f.guide) : []
   const byChapter = tally(inGuide.map((u) => u.chapterId))

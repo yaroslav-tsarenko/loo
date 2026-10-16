@@ -5,8 +5,8 @@ import { LEVEL_LABEL } from '@/content/model'
 import { levelInfo, RANKS } from '@/progress/levels'
 import { getContent } from '@/server/content'
 import { profileData, type Accuracy } from '@/server/services/stats'
-import { MAIN_TRACK } from '@/server/services/mission'
-import { trackPath } from '@/server/services/path'
+import { activeCourse } from '@/server/courses/enrollment'
+import { coursePath } from '@/server/courses/path'
 import { count, duration, percent, relative } from '@/ui/format'
 import { Card } from '@/ui/design/Card'
 import { GameIcon } from '@/ui/design/GameIcon'
@@ -30,8 +30,17 @@ function AccCell({ a }: { a: Accuracy }) {
 
 export default async function ProfilePage() {
   const snapshot = await getContent()
-  const [data, course] = await Promise.all([profileData(snapshot), trackPath(snapshot, MAIN_TRACK)])
-  const perfectLessons = course.stages.flatMap((st) => st.nodes.flatMap((n) => n.lessons)).filter((l) => l.perfect).length
+  const active = await activeCourse()
+  const [data, path] = await Promise.all([profileData(snapshot), active ? coursePath(snapshot, active) : Promise.resolve(null)])
+  const lessons = path ? path.view.sections.flatMap((s) => s.topics.flatMap((t) => t.nodes)).filter((n) => n.type === 'lesson') : []
+  const course = {
+    title: active?.bundle.course.title ?? 'курсу',
+    lessonsDone: path ? path.view.lessonsTotal - path.view.lessonsLeft : 0,
+    lessonsTotal: path?.view.lessonsTotal ?? 0,
+    crowns: path ? [...path.mastery.values()].reduce((sum, m) => sum + m.crowns, 0) : 0,
+    maxCrowns: (path?.mastery.size ?? 0) * 5,
+  }
+  const perfectLessons = lessons.filter((l) => l.type === 'lesson' && l.perfect).length
   const info = levelInfo(data.xp)
   const toNext = info.ceiling - data.xp
   const unlocked = data.achievements.filter((a) => a.unlockedAt !== null)
@@ -70,7 +79,7 @@ export default async function ProfilePage() {
       </header>
 
       <section className="course-stats" aria-label="Курс">
-        <Card href={`/path?track=${MAIN_TRACK.id}`} tone="green" padding="sm" className="course-stat">
+        <Card href="/path" tone="green" padding="sm" className="course-stat">
           <span className="course-stat-icon" data-tone="green" aria-hidden="true">
             <PiGraduationCapFill />
           </span>
@@ -78,7 +87,7 @@ export default async function ProfilePage() {
             {course.lessonsDone}
             <small>/{course.lessonsTotal}</small>
           </span>
-          <span className="course-stat-label">уроків {MAIN_TRACK.title}</span>
+          <span className="course-stat-label">уроків · {course.title}</span>
         </Card>
         <Card variant="raised" tone="yellow" padding="sm" className="course-stat">
           <span className="course-stat-icon" data-tone="yellow" aria-hidden="true">

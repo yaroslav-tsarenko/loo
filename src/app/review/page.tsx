@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PiCardsThreeFill } from 'react-icons/pi'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { studyScope } from '@/server/courses/enrollment'
 import { filterOptions } from '@/server/services/filter-options'
 import { filtersToQuery, flashcardQueue, parseFilters } from '@/server/services/queue'
 import { readSettings } from '@/server/settings'
@@ -21,7 +22,8 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
   const settings = await readSettings()
   const filters = parseFilters(params, settings.sessionSize)
   if (filters.chapter && !filters.guide) filters.guide = snapshot.chapters.get(filters.chapter)?.guideId ?? null
-  const queue = await flashcardQueue(snapshot, filters)
+  const scope = await studyScope(filters)
+  const queue = await flashcardQueue(snapshot, filters, undefined, scope)
   const startHref = `/review?${filtersToQuery(filters, { start: '1' })}`
 
   if (params.start === '1' && queue.ids.length > 0) {
@@ -33,7 +35,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
     )
   }
 
-  const options = filterOptions(snapshot, 'flashcard', filters)
+  const options = filterOptions(snapshot, 'flashcard', filters, scope)
   return (
     <div className="page page-study">
       <header className="ghead">
@@ -47,6 +49,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Searc
       </header>
       <div className="study-setup">
         <FilterForm
+          allLabel={scope ? 'Увесь активний курс' : undefined}
           action="/review"
           guides={options.guides}
           chapters={options.chapters}

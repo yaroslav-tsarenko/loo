@@ -1,4 +1,5 @@
-import { bigint, boolean, doublePrecision, index, integer, jsonb, pgTable, primaryKey, text, uuid } from 'drizzle-orm/pg-core'
+import { sql } from 'drizzle-orm'
+import { bigint, boolean, doublePrecision, index, integer, jsonb, pgTable, primaryKey, text, uniqueIndex, uuid } from 'drizzle-orm/pg-core'
 
 // Timestamps are epoch milliseconds (bigint in Postgres, number in JS).
 const ms = (name: string) => bigint(name, { mode: 'number' })
@@ -290,12 +291,15 @@ export const newsReads = pgTable(
   (t) => [primaryKey({ columns: [t.userId, t.newsId] }), index('news_reads_news_idx').on(t.newsId)],
 )
 
-// Duolingo-style lessons (derived from chapter content): best result per lesson.
+// Duolingo-style lessons: best result per lesson. Course lessons have ids `<course>:<section>:<topic>:<kind>-<n>` and a
+// course_id; rows of the pre-course generator (`<chapterId>::<kind>-<n>`, course_id null) are carried over lazily
+// (src/server/courses/legacy.ts) and stay only for guides that no course covers.
 export const lessonProgress = pgTable(
   'lesson_progress',
   {
     userId: userId(),
     lessonId: text('lesson_id').notNull(),
+    courseId: text('course_id'),
     guideId: text('guide_id').notNull(),
     chapterId: text('chapter_id').notNull(),
     completions: integer('completions').notNull().default(0),
@@ -304,7 +308,80 @@ export const lessonProgress = pgTable(
     firstCompletedAt: ms('first_completed_at'),
     lastCompletedAt: ms('last_completed_at'),
   },
-  (t) => [primaryKey({ columns: [t.userId, t.lessonId] }), index('lesson_user_guide_idx').on(t.userId, t.guideId)],
+  (t) => [primaryKey({ columns: [t.userId, t.lessonId] }), index('lesson_user_guide_idx').on(t.userId, t.guideId), index('lesson_user_course_idx').on(t.userId, t.courseId)],
+)
+
+// ─── Courses (docs/ARCHITECTURE.md §5) ────────────────────────────────────────
+// Course bundles themselves are files (content/courses/<id>.json, src/server/courses/registry.ts); user-uploaded
+// courses will add courses / course_versions tables (source = 'user').
+
+export type CourseSource = 'official' | 'user'
+
+// Placement test outcome stored on the enrollment (src/course/select/placement.ts).
+export interface EnrollmentPlacement {
+  level: string
+  sectionIndex: number
+  sectionId: string | null
+  confident: boolean
+  asked: number
+  at: number
+  // true when the learner chose «start from zero» instead of taking the test
+  skipped?: boolean
+}
+
+// A course in the learner's library. Exactly one active enrollment per user (partial unique index).
+export const enrollments = pgTable(
+  'enrollments',
+  {
+    userId: userId(),
+    courseId: text('course_id').notNull(),
+    source: text('source', { enum: ['official', 'user'] }).notNull().default('official'),
+    level: text('level', { enum: ['noob', 'junior', 'middle', 'senior', 'god'] }).notNull().default('noob'),
+    placement: jsonb('placement').$type<EnrollmentPlacement>(),
+    active: boolean('active').notNull().default(false),
+    enrolledAt: ms('enrolled_at').notNull(),
+    lastOpenedAt: ms('last_opened_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.courseId] }), uniqueIndex('enrollments_one_active_idx').on(t.userId).where(sql`${t.active}`)],
+)
+
+// Topic tests (🏁, id `<topic>:test`). attempts = started attempts: attempt n draws its questions with the seed
+// `${userId}:${n}`; graded = the last attempt that was submitted (one grading per attempt).
+export const topicResults = pgTable(
+  'topic_results',
+  {
+    userId: userId(),
+    testId: text('test_id').notNull(),
+    courseId: text('course_id').notNull(),
+    attempts: integer('attempts').notNull().default(0),
+    graded: integer('graded').notNull().default(0),
+    lastSeed: text('last_seed'),
+    lastScore: doublePrecision('last_score'),
+    bestScore: doublePrecision('best_score').notNull().default(0),
+    passedAt: ms('passed_at'),
+    updatedAt: ms('updated_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.testId] }), index('topic_results_user_course_idx').on(t.userId, t.courseId)],
+)
+
+// Section exams (👑, id `<course>:<section>:exam`). test_out: passed before the section was finished (skipped it).
+export const examResults = pgTable(
+  'exam_results',
+  {
+    userId: userId(),
+    examId: text('exam_id').notNull(),
+    courseId: text('course_id').notNull(),
+    sectionId: text('section_id').notNull(),
+    attempts: integer('attempts').notNull().default(0),
+    graded: integer('graded').notNull().default(0),
+    lastSeed: text('last_seed'),
+    lastScore: doublePrecision('last_score'),
+    bestScore: doublePrecision('best_score').notNull().default(0),
+    passedAt: ms('passed_at'),
+    testOut: boolean('test_out').notNull().default(false),
+    updatedAt: ms('updated_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.examId] }), index('exam_results_user_course_idx').on(t.userId, t.courseId)],
 )
 
 // AI-generated micro-facts for the feed (daily cron), shown next to [!reel] blocks from the guides.

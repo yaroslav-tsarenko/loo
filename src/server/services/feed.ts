@@ -12,10 +12,17 @@ import { safeExternalUrl } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type FlashItem, type QuizItem } from '@/ui/study/render-items'
 import { userScope } from '../auth'
+import { activeScope } from '../courses/enrollment'
 import { lastOutcomes, shuffle } from './queue'
 
-// The feed focuses on these guides first (the user's current track); other guides fill in only if they run dry.
+// The feed focuses on the active course's guides; other guides fill in only if they run dry. FEED_GUIDES is the
+// fallback for learners without a course and for system jobs (AI reel generation).
 export const FEED_GUIDES = ['javascript', 'js-interview']
+
+async function feedGuides(): Promise<readonly string[]> {
+  const scope = await activeScope()
+  return scope ? [...scope.guides] : FEED_GUIDES
+}
 
 export interface ReelSlide {
   kind: 'reel'
@@ -38,13 +45,13 @@ export interface ReelSlide {
 
 export type FeedSlide = ReelSlide | { kind: 'flashcard'; item: FlashItem } | { kind: 'quiz'; item: QuizItem }
 
-function focus<T extends { guideId: string }>(items: readonly T[]): T[] {
-  const preferred = items.filter((i) => FEED_GUIDES.includes(i.guideId))
+function focus<T extends { guideId: string }>(items: readonly T[], guides: readonly string[]): T[] {
+  const preferred = items.filter((i) => guides.includes(i.guideId))
   return preferred.length > 0 ? preferred : [...items]
 }
 
-export function availableReelCount(snapshot: ContentSnapshot): number {
-  return focus(snapshot.reels).length
+export async function availableReelCount(snapshot: ContentSnapshot): Promise<number> {
+  return focus(snapshot.reels, await feedGuides()).length
 }
 
 // Stable pastel hue per chapter, so reels from one topic share a colour.
@@ -62,8 +69,9 @@ const GENERATED_WINDOW_MS = 60 * 86_400_000
 const PATTERN = ['reel', 'quiz', 'reel', 'flashcard', 'reel', 'quiz', 'flashcard', 'reel'] as const
 
 export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 24, now = Date.now()): Promise<FeedSlide[]> {
-  const reels = focus(snapshot.reels)
-  const units = focus([...snapshot.units.values()])
+  const guides = await feedGuides()
+  const reels = focus(snapshot.reels, guides)
+  const units = focus([...snapshot.units.values()], guides)
   const { generated, srsRows, reelRows } = await userScope(async (db, userId) => {
     const [allGenerated, srsRows] = await Promise.all([
       db

@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { messages, t } from '@/i18n'
 import { updateProfile } from '@/server/actions/account'
+import { setCourseLevel } from '@/server/actions/courses'
+import { myLibrary } from '@/server/courses/library'
+import { Icon } from '@/ui/icons/Icon'
 import { getProfile, isAdmin, requireUser } from '@/server/auth'
 import { INTERESTS, LEVELS, MINUTES } from '@/server/services/preferences'
 import { readSettings } from '@/server/settings'
@@ -15,7 +18,7 @@ export const metadata: Metadata = { title: 'Профіль і акаунт' }
 
 export default async function AccountPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const user = await requireUser()
-  const [params, profile, settings, admin] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin()])
+  const [params, profile, settings, admin, library] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin(), myLibrary()])
   const m = messages()
   const name = profile?.displayName || user.name || user.email || 'Я'
   const chosen = new Set(profile?.preferences.interests ?? [])
@@ -78,9 +81,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               <Choice key={i} type="checkbox" name="interests" value={i} defaultChecked={chosen.has(i)} title={m.interests[i]} />
             ))}
           </ChoiceGroup>
-          <p className="choice-hint">
-            🧪 {t('account.placementTodo')} {/* TODO(course engine): link to /placement */}
-          </p>
         </section>
 
         <section className="lu-card acct-section" data-pad="lg" aria-labelledby="a-sound">
@@ -104,6 +104,44 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           </Button>
         </div>
       </form>
+
+      <section className="lu-card acct-section" data-pad="lg" aria-labelledby="a-courses">
+        <h2 id="a-courses" className="acct-h2">
+          {t('account.courses')}
+        </h2>
+        <p className="choice-hint">{t('account.coursesHint')}</p>
+        {library.length === 0 ? (
+          <p className="choice-hint">
+            {t('account.coursesEmpty')} <Link href="/courses">{t('shell.catalog')} →</Link>
+          </p>
+        ) : null}
+        {library.map((c) => (
+          <form key={c.id} action={setCourseLevel} className="acct-course">
+            <input type="hidden" name="course" value={c.id} />
+            <input type="hidden" name="next" value="/account?saved=1" />
+            <span className="acct-course-title">
+              <Icon name={c.icon ?? '📘'} size={22} /> {c.title}
+              {c.enrollment.active ? <Pill tone="green" size="sm">{t('courses.active')}</Pill> : null}
+            </span>
+            <label className="sr-only" htmlFor={`lvl-${c.id}`}>
+              {t('courses.level.title')}
+            </label>
+            <select id={`lvl-${c.id}`} className="auth-input acct-course-level" name="level" defaultValue={c.enrollment.level}>
+              {LEVELS.map((l) => (
+                <option key={l} value={l}>
+                  {m.levels[l].title}
+                </option>
+              ))}
+            </select>
+            <Button type="submit" variant="secondary" size="sm">
+              {t('common.save')}
+            </Button>
+            <Link href={`/placement?course=${c.id}`} className="acct-course-link">
+              🧪 {t('account.placementLink')}
+            </Link>
+          </form>
+        ))}
+      </section>
 
       <section className="lu-card acct-section" data-pad="lg" aria-labelledby="a-session">
         <h2 id="a-session" className="acct-h2">

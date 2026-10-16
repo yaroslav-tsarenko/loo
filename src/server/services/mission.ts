@@ -2,6 +2,7 @@ import 'server-only'
 import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState, xpLedger } from '@/db/schema'
+import { lookup } from '@/course'
 import type { Chapter } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey, dayStartMs } from '@/progress/day'
@@ -10,21 +11,40 @@ import type { Effect } from '@/progress/types'
 import { chapterHref } from '@/ui/routes'
 import { userScope } from '../auth'
 import { readSettings } from '../settings'
-import { TRACKS } from '@/content/tracks'
+import { activeCourse, exerciseIds } from '../courses/enrollment'
+import { coursePathView, cursorHref } from '../courses/path'
 import { chapterProgressMap, nextChapterFor } from './library'
-import { courseCursor, type CourseCursor } from './lessons'
 
-// The learner's main course for now. Later this comes from the active track setting.
-export const MAIN_TRACK = TRACKS[0]!
+// Where the learner is in the active course: the next node of the course path (lesson, 🏁 test or 👑 exam).
+export interface MissionCursor {
+  href: string | null
+  emoji: string | null
+  title: string | null
+  topicTitle: string | null
+  // the next topic's chapter (for the «read» step)
+  chapterId: string | null
+  remaining: number
+  total: number
+  course: { id: string; title: string; icon: string | null } | null
+}
 
 export interface MissionView {
-  cursor: CourseCursor
+  cursor: MissionCursor
   plan: MissionPlan
   progress: StepProgress[]
   ratio: number
   complete: boolean
   completedAt: number | null
   hrefs: Record<string, string>
+}
+
+// The chapter to read next: the current topic of the active course while it isn't studied yet, else the guide the
+// learner is reading.
+async function cursorChapter(snapshot: ContentSnapshot, cursor: MissionCursor): Promise<Chapter | null> {
+  const progress = await chapterProgressMap()
+  const chapter = cursor.chapterId ? snapshot.chapters.get(cursor.chapterId) : undefined
+  if (chapter && progress.get(chapter.id)?.status !== 'studied') return chapter
+  return currentNextChapter(snapshot)
 }
 
 // The guide the learner is currently in: the last opened one, else the deep JavaScript guide, else the first.
@@ -40,7 +60,7 @@ async function currentNextChapter(snapshot: ContentSnapshot): Promise<Chapter | 
   return null
 }
 
-async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, budget: number, reels: number, lessons: number, now: number): Promise<MissionPlan> {
+async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cursor: MissionCursor, scope: ReadonlySet<string> | null, budget: number, reels: number, now: number): Promise<MissionPlan> {
   const [srsRows, openRows, solvedRows, next] = await Promise.all([
     db.select({ id: srsCards.unitId, due: srsCards.due }).from(srsCards).where(eq(srsCards.userId, userId)),
     db
@@ -51,7 +71,7 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, bu
       .select({ id: taskState.unitId })
       .from(taskState)
       .where(and(eq(taskState.userId, userId), eq(taskState.status, 'solved'))),
-    currentNextChapter(snapshot),
+    cursorChapter(snapshot, cursor),
   ])
   const srs = new Map(srsRows.map((r) => [r.id, r.due]))
   const solved = new Set(solvedRows.map((r) => r.id))
@@ -59,7 +79,9 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, bu
   let fresh = 0
   let quizzes = 0
   const tasks = { easy: 0, medium: 0, hard: 0 }
+  // Pools come from the active course; without one, from all content.
   for (const unit of snapshot.units.values()) {
+    if (scope && !scope.has(unit.id)) continue
     if (unit.kind === 'flashcard') {
       const at = srs.get(unit.id)
       if (at === undefined) fresh++
@@ -73,11 +95,11 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, bu
     weekday: new Date(dayStartMs(now)).getDay(),
     due,
     newCards: fresh,
-    mistakes: openRows.filter((r) => snapshot.units.has(r.id)).length,
+    mistakes: openRows.filter((r) => snapshot.units.has(r.id) && (!scope || scope.has(r.id))).length,
     quizzes,
     tasks,
     reels,
-    lessons,
+    lessons: cursor.remaining,
     nextChapter: next ? { id: next.id, title: next.title, minutes: next.estimatedMinutes } : null,
   })
 }
@@ -147,7 +169,7 @@ async function activity(conn: Conn, userId: string, plan: MissionPlan, now: numb
 }
 
 // Today's plan is created once and kept stable, unless the budget changed before any progress was made.
-async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, reels: number, lessons: number, now: number) {
+async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, cursor: MissionCursor, scope: ReadonlySet<string> | null, reels: number, now: number) {
   const day = dayKey(now)
   const { dailyMinutes } = await readSettings()
   const row = await first(
@@ -161,7 +183,7 @@ async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, r
     const progress = stepProgress(row.plan as MissionPlan, await activity(db, userId, row.plan as MissionPlan, now))
     if (missionRatio(progress) > 0) return row
   }
-  const plan = await buildPlan(db, userId, snapshot, dailyMinutes, reels, lessons, now)
+  const plan = await buildPlan(db, userId, snapshot, cursor, scope, dailyMinutes, reels, now)
   const values = { userId, day, budgetMinutes: dailyMinutes, plan, progress: {}, completedAt: null, createdAt: now }
   await db
     .insert(dailyMissions)
@@ -170,7 +192,7 @@ async function ensurePlan(db: Conn, userId: string, snapshot: ContentSnapshot, r
   return values
 }
 
-function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: CourseCursor): Record<string, string> {
+function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: MissionCursor): Record<string, string> {
   const out: Record<string, string> = {}
   for (const step of plan.steps) {
     switch (step.kind) {
@@ -181,7 +203,7 @@ function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: CourseCu
         out[step.id] = '/mistakes'
         break
       case 'lessons':
-        out[step.id] = cursor.lesson ? `/learn/${encodeURIComponent(cursor.lesson.id)}` : '/path'
+        out[step.id] = cursor.href ?? '/path'
         break
       case 'read': {
         const chapter = step.chapterId ? snapshot.chapters.get(step.chapterId) : undefined
@@ -203,10 +225,31 @@ function hrefsFor(snapshot: ContentSnapshot, plan: MissionPlan, cursor: CourseCu
   return out
 }
 
+const EMPTY_CURSOR: MissionCursor = { href: null, emoji: null, title: null, topicTitle: null, chapterId: null, remaining: 0, total: 0, course: null }
+
+// The mission's lesson cursor = the next node of the active course path.
+export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor: MissionCursor; scope: ReadonlySet<string> | null }> {
+  const active = await activeCourse()
+  if (!active) return { cursor: EMPTY_CURSOR, scope: null }
+  const { view } = await coursePathView(active)
+  const { bundle } = active
+  const course = { id: bundle.course.id, title: bundle.course.title, icon: bundle.course.icon }
+  const base = { ...EMPTY_CURSOR, remaining: view.lessonsLeft, total: view.lessonsTotal, course }
+  const at = view.current
+  if (!at) return { cursor: base, scope: exerciseIds(bundle) }
+  const topic = at.topicId ? lookup(bundle).topics.get(at.topicId) : undefined
+  const section = lookup(bundle).sections.get(at.sectionId)
+  const chapter = topic ? snapshot.chapters.get(topic.chapterId) : undefined
+  const href = cursorHref(at, { bundle, theoryHref: new Map(chapter ? [[chapter.id, chapterHref(snapshot, chapter)]] : []) })
+  const title = at.type === 'lesson' ? at.lesson?.title ?? null : at.type === 'test' ? 'Тест теми' : `Екзамен: ${section?.title ?? ''}`
+  const emoji = at.type === 'lesson' ? at.lesson?.emoji ?? null : at.type === 'test' ? '🏁' : '👑'
+  return { cursor: { ...base, href, title, emoji, topicTitle: topic?.title ?? section?.title ?? null, chapterId: topic?.chapterId ?? null }, scope: exerciseIds(bundle) }
+}
+
 export async function getMission(snapshot: ContentSnapshot, reels: number, now = Date.now()): Promise<MissionView> {
-  const cursor = await courseCursor(snapshot, MAIN_TRACK.guides)
+  const { cursor, scope } = await missionCursor(snapshot)
   return userScope(async (db, userId) => {
-    const row = await ensurePlan(db, userId, snapshot, reels, cursor.remaining, now)
+    const row = await ensurePlan(db, userId, snapshot, cursor, scope, reels, now)
     const plan = row.plan as MissionPlan
     const progress = stepProgress(plan, await activity(db, userId, plan, now))
     const ratio = missionRatio(progress)

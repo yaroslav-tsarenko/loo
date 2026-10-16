@@ -19,12 +19,19 @@ export const CLAIM_TABLES: ReadonlyArray<{ table: string; keys: readonly string[
   { table: 'lesson_progress', keys: ['lesson_id'] },
   { table: 'news_reads', keys: ['news_id'] },
   { table: 'user_settings', keys: ['key'] },
+  { table: 'enrollments', keys: ['course_id'] },
+  { table: 'topic_results', keys: ['test_id'] },
+  { table: 'exam_results', keys: ['exam_id'] },
 ]
 
 export function claimStatements(userId: string): SQL[] {
   const out: SQL[] = []
   for (const { table, keys } of CLAIM_TABLES) {
     const t = sql.identifier(table)
+    // One active enrollment per user: a legacy active course never overrides the user's own active one.
+    if (table === 'enrollments') {
+      out.push(sql`update ${t} set active = false where user_id = ${LEGACY_USER_ID} and exists (select 1 from ${t} where user_id = ${userId} and active)`)
+    }
     if (keys.length > 0) {
       const cols = sql.raw(keys.map((k) => `"${k}"`).join(', '))
       out.push(sql`delete from ${t} where user_id = ${LEGACY_USER_ID} and (${cols}) in (select ${cols} from ${t} where user_id = ${userId})`)

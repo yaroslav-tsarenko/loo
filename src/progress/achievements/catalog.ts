@@ -19,6 +19,11 @@ export const ACHIEVEMENTS: readonly AchievementDef[] = [
   { id: 'mistakes-25', title: 'Робота над помилками', description: 'Закрити 25 помилок', tier: 'silver', when: { metric: 'mistakes.resolved', gte: 25 } },
   { id: 'perfect-session', title: 'Без жодної помилки', description: 'Сесія з 10+ питань без помилок', tier: 'silver', when: { metric: 'sessions.perfect', gte: 1 } },
   { id: 'goals-7', title: 'Сім виконаних цілей', description: 'Виконати денну мету 7 разів', tier: 'bronze', when: { metric: 'goals.met', gte: 7 } },
+  { id: 'test-first', title: 'Перший тест теми', description: 'Скласти тест теми 🏁', tier: 'bronze', when: { metric: 'tests.passed', gte: 1 } },
+  { id: 'tests-10', title: 'Десять тем закрито', description: 'Скласти 10 тестів тем', tier: 'silver', when: { metric: 'tests.passed', gte: 10 } },
+  { id: 'test-perfect', title: 'Тест без помилок', description: 'Скласти тест теми на 100%', tier: 'silver', when: { metric: 'tests.perfect', gte: 1 } },
+  { id: 'exam-first', title: 'Екзамен розділу', description: 'Скласти екзамен розділу 👑', tier: 'gold', when: { metric: 'exams.passed', gte: 1 } },
+  { id: 'test-out', title: 'Перескочив розділ', description: 'Скласти екзамен розділу ще до кінця розділу', tier: 'gold', when: { metric: 'sections.testedOut', gte: 1 } },
   { id: 'rank-middle', title: 'Middle', description: 'Досягти рангу Middle', tier: 'silver', when: { metric: 'level', gte: 12 } },
   { id: 'rank-senior', title: 'Senior', description: 'Досягти рангу Senior', tier: 'gold', when: { metric: 'level', gte: 22 } },
 ]

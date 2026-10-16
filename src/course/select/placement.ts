@@ -104,9 +104,20 @@ export function placementTest(bundle: CourseBundle, answers: readonly PlacementA
   if (!enabled) return { done: true, next: null, probing: null, asked: 0, maxQuestions }
   const r = replay(bundle, answers)
   if (r.done || !r.probing) return { done: true, next: null, probing: null, asked: r.total, maxQuestions }
-  const queue = shuffle(bundle.placement.pool[r.probing] ?? [], rng(`placement|${r.probing}|${seed}`))
-  const next = queue.find((id) => !r.asked.has(id)) ?? null
+  const next = placementQueue(bundle, r.probing, seed).find((id) => !r.asked.has(id)) ?? null
   return { done: next === null, next, probing: next ? r.probing : null, asked: r.total, maxQuestions }
+}
+
+// The order in which a level's questions are asked for this seed.
+export function placementQueue(bundle: CourseBundle, level: Level, seed: Seed): string[] {
+  return shuffle(bundle.placement.pool[level] ?? [], rng(`placement|${level}|${seed}`))
+}
+
+// Every question the test can possibly ask for this seed: a level is decided within `perLevel` questions and
+// always takes them from the front of its queue. Lets a page pre-render the whole (small) candidate set.
+export function placementCandidates(bundle: CourseBundle, seed: Seed): string[] {
+  if (!bundle.placement.enabled) return []
+  return LEVELS.flatMap((l) => (bundle.course.levels.includes(l) && (bundle.placement.pool[l]?.length ?? 0) >= 2 ? placementQueue(bundle, l, seed).slice(0, bundle.placement.perLevel) : []))
 }
 
 export function placementResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): PlacementResult {

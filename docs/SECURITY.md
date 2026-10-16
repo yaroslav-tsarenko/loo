@@ -449,3 +449,13 @@ Legend: ✅ done · ⚠️ done differently (reason) · ⏳ not yet.
 `DEV_AUTH_BYPASS=1` signs every request in as the legacy owner **only** when `NODE_ENV=development` (never in `next build`/`start`),
 not on Vercel, and with no Supabase keys configured (`src/lib/supabase/config.ts`, unit-tested).
 
+
+### Course platform (Phase 3)
+
+| Item | Status | Where |
+|---|---|---|
+| `enrollments`, `topic_results`, `exam_results`: `user_id` FK → profiles, RLS `own_rows` (guarded like 0005), one active enrollment per user (partial unique index) | ✅ | `drizzle/0006_courses.sql`; verified on PGlite with a Supabase-like `auth` schema: cross-user read/update/insert denied |
+| Topic tests / section exams / placement graded on the server from raw answers (never the client's right/wrong flag); attempt must be the started one, graded once, answers must cover the server's own draw in order | ✅ | `src/server/actions/tests.ts`, `src/server/courses/tests-core.ts`, `placement-core.ts` |
+| zod on every course action; per-user rate limits (library 30/min, tests 30/min, placement 120/min) | ✅ | `src/server/actions/courses.ts`, `src/server/courses/limits.ts` |
+| Answer key not sent to the client during a test | ⏳ | the existing quiz UI grades locally for instant feedback, so options carry `correct`; a devtools user can read them (personal progress only — no leagues yet). Phase 4: per-question server check before leagues count test XP |
+| Bundles from disk are schema-validated; a broken file is skipped, never trusted | ✅ | `src/server/courses/bundles.ts` |

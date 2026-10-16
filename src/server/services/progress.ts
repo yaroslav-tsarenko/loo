@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, desc, eq, isNotNull, isNull, lte, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
-import { achievements, attempts, chapterProgress, dailyActivity, mistakes, sessions, srsCards, units, xpLedger } from '@/db/schema'
+import { achievements, attempts, chapterProgress, dailyActivity, examResults, mistakes, sessions, srsCards, topicResults, units, xpLedger } from '@/db/schema'
 import type { LearningUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { ACHIEVEMENTS } from '@/progress/achievements/catalog'
@@ -122,6 +122,22 @@ export async function computeStats(conn: Conn, userId: string, snapshot: Content
       .where(and(eq(sessions.userId, userId), isNotNull(sessions.endedAt), sql`${sessions.total} >= 10`, sql`${sessions.correct} = ${sessions.total}`)),
   )
   stats['sessions.perfect'] = Number(perfect?.n ?? 0)
+  const tests = await first(
+    conn
+      .select({ passed: sql<number>`count(*) filter (where ${topicResults.passedAt} is not null)`, perfect: sql<number>`count(*) filter (where ${topicResults.bestScore} >= 1)` })
+      .from(topicResults)
+      .where(eq(topicResults.userId, userId)),
+  )
+  stats['tests.passed'] = Number(tests?.passed ?? 0)
+  stats['tests.perfect'] = Number(tests?.perfect ?? 0)
+  const exams = await first(
+    conn
+      .select({ passed: sql<number>`count(*) filter (where ${examResults.passedAt} is not null)`, out: sql<number>`count(*) filter (where ${examResults.testOut})` })
+      .from(examResults)
+      .where(eq(examResults.userId, userId)),
+  )
+  stats['exams.passed'] = Number(exams?.passed ?? 0)
+  stats['sections.testedOut'] = Number(exams?.out ?? 0)
   return stats
 }
 
