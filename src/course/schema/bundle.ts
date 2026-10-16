@@ -15,6 +15,18 @@ export type ExerciseKind = z.infer<typeof ExerciseKindSchema>
 
 export const LevelSourceSchema = z.enum(['exercise', 'topic', 'section', 'default'])
 
+// What a language topic mainly trains (the topic's first kind tag: ENGLISH_SYLLABUS `tags: [english, a1, grammar, …]`).
+// Programming topics have none.
+export const TOPIC_KINDS = ['grammar', 'vocabulary', 'pronunciation', 'listening', 'skills', 'review'] as const
+export const TopicKindSchema = z.enum(TOPIC_KINDS)
+export type TopicKind = z.infer<typeof TopicKindSchema>
+
+// Skills of a language learner: the four the placement bank measures plus pronunciation ([!speak] / [!pair]).
+// Every exercise of a language course trains one of them (src/course/compile/difficulty.ts → exerciseSkill).
+export const LEARNER_SKILLS = ['grammar', 'vocabulary', 'reading', 'listening', 'pronunciation'] as const
+export const LearnerSkillSchema = z.enum(LEARNER_SKILLS)
+export type LearnerSkill = z.infer<typeof LearnerSkillSchema>
+
 export const ExerciseRefSchema = z.object({
   id: z.string(),
   kind: ExerciseKindSchema,
@@ -27,7 +39,11 @@ export const ExerciseRefSchema = z.object({
   topicId: z.string(),
   // document order inside the topic
   position: z.number().int(),
+  // easy | medium | hard inside the exercise's level: authored for tasks, derived at compile time for everything else
+  // (src/course/compile/difficulty.ts); null only in bundles compiled before it existed
   difficulty: z.enum(['easy', 'medium', 'hard']).nullable(),
+  // language courses: the skill it trains (absent: programming courses, older bundles)
+  skill: LearnerSkillSchema.optional(),
   autoTested: z.boolean(),
   minutes: z.number(),
 })
@@ -99,6 +115,8 @@ export const TopicSchema = z.object({
   icon: z.string().nullable(),
   level: LevelSchema,
   tags: z.array(z.string()),
+  // language courses: grammar | vocabulary | pronunciation | listening | skills | review (absent: no kind tag)
+  kind: TopicKindSchema.optional(),
   minutes: z.number(),
   // all exercises of the topic, document order
   exercises: z.array(z.string()),

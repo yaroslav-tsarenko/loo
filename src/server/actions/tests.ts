@@ -5,12 +5,13 @@ import { z } from 'zod'
 import { BUCKS, buckRef, canStartTest, GEMS, gemRef } from '@/game'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
-import { scoreTest } from '@/course'
+import { lookup, scoreTest } from '@/course'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { limitUser } from '../courses/limits'
 import { exerciseUnit } from '../courses/registry'
+import { recordTestSkills, type TestSkills } from '../courses/skills'
 import { readTestRecord, resolveTestById, saveGrade, sectionUnfinished, startAttempt } from '../courses/tests'
 import { attemptSeed, drawTest, fallbackPool, gradeAnswer, testBonus } from '../courses/tests-core'
 import { awardBucks, awardGems, grantXp, loadState, touchLeague } from '../game'
@@ -62,6 +63,15 @@ export interface TestOutcome {
   firstPass: boolean
   testOut: boolean
   effects: Effect[]
+  // language courses: the per-skill levels after this test and a skip-ahead / review offer (src/course/select/skills.ts)
+  skills: TestSkillsView | null
+}
+
+export interface TestSkillsView {
+  changes: TestSkills['changes']
+  overall: TestSkills['overall']
+  ielts: string | null
+  suggestion: { kind: 'skip-ahead' | 'review'; href: string; level: string; section: string } | null
 }
 
 export async function submitTest(raw: { testId: string; attempt: number; answers: Array<{ id: string; chosen: string[]; text: string | null; rating: 'again' | 'hard' | 'good' | null }> }): Promise<TestOutcome> {
@@ -99,6 +109,8 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
       }
       const testOut = test.kind === 'section-exam' && scored.passed && unfinished
       await saveGrade(tx, userId, test, input.attempt, scored.score, scored.passed, testOut, now)
+      // per-skill level estimate (language courses): one read + one upsert
+      const skills = await recordTestSkills(tx, userId, { test, built, results: scored.results, score: scored.score, passed: scored.passed, snapshot, now })
       const reason = test.kind === 'topic-test' ? 'topic-test' : 'section-exam'
       const bonusXp = await grantXp(tx, userId, { amount: testBonus(test.kind, { passed: record.passed, bestScore: record.bestScore }, { passed: scored.passed, score: scored.score, testOut }), reason, refId: test.id, now })
       const effects: Effect[] = []
@@ -125,6 +137,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
         firstPass: scored.passed && !record.passed,
         testOut,
         effects,
+        skills: skills ? skillsViewOf(test.bundle, skills) : null,
       }
     },
     { tx: true },
@@ -132,4 +145,15 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
   // Leagues are joined outside the user's transaction (src/server/game/leagues.ts), after the response.
   if (outcome.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))
   return outcome
+}
+
+function skillsViewOf(bundle: Parameters<typeof lookup>[0], skills: TestSkills): TestSkillsView {
+  const s = skills.suggestion
+  const section = s ? lookup(bundle).sections.get(s.sectionId) : undefined
+  return {
+    changes: skills.changes,
+    overall: skills.overall,
+    ielts: skills.ielts,
+    suggestion: s && section ? { kind: s.kind, href: `/test/${encodeURIComponent(s.testId)}`, level: s.level, section: section.title } : null,
+  }
 }

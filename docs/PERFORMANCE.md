@@ -129,7 +129,8 @@ data-modifying CTEs (`recordAttemptIn`).
 
 The common paths:
 
-- **Every page**: `userBase()` (src/server/base.ts — profile, settings, active enrollment; one statement) and
+- **Every page**: `userBase()` (src/server/base.ts — profile, settings, active enrollment, per-skill level estimates of
+  language courses; one statement) and
   `shellData()` (src/server/shell.ts — XP, badges, game state, library, chapter progress; one statement). Both are React
   `cache()`d: pages read `shellData().xp / .library / .game / .progress` instead of querying again.
 - **Answering** (`answerQuiz`): rate limit (1) + one transaction: the session, the locked hearts row and every read the

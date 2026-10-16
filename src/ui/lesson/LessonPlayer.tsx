@@ -25,6 +25,7 @@ import { ProgressBar } from '@/ui/design/ProgressBar'
 import { StatChip } from '@/ui/design/StatChip'
 import { Icon } from '@/ui/icons/Icon'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
+import { SkillLevels } from '@/ui/courses/SkillLevels'
 import { ActionBar } from '@/ui/study/ActionBar'
 import { formatLeft, useClock } from '@/ui/shell/clock'
 import { QuizInline, type QuizCheck, type QuizResult, type QuizVerdict } from '@/ui/study/QuizInline'
@@ -343,6 +344,21 @@ function TestIntro({ test, title, icon, chapterTitle, busy, error, onStart }: { 
   )
 }
 
+// Skip ahead (test-out of a level the learner already outgrew) or review the previous level — after a test, when the
+// per-skill estimate says so (src/course/select/skills.ts → levelSuggestion).
+function LevelOffer({ offer }: { offer: NonNullable<NonNullable<TestOutcome['skills']>['suggestion']> }) {
+  const skip = offer.kind === 'skip-ahead'
+  return (
+    <section className="level-offer" data-kind={offer.kind}>
+      <strong>{skip ? t('skills.skipTitle') : t('skills.reviewTitle', { level: offer.level })}</strong>
+      <p>{skip ? t('skills.skipBody', { section: offer.section }) : t('skills.reviewBody', { level: offer.level, section: offer.section })}</p>
+      <Button href={offer.href} variant="secondary" size="md" block>
+        {skip ? t('skills.skipCta') : t('skills.reviewCta', { level: offer.level })}
+      </Button>
+    </section>
+  )
+}
+
 function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: TestSpec; outcome: TestOutcome; nextHref: string | null; nextLabel: string | null; onRetry: () => void }) {
   const feedback = useFeedback()
   const exam = test.kind === 'section-exam'
@@ -393,6 +409,15 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
           </li>
         ))}
       </ol>
+      {outcome.skills ? (
+        <SkillLevels
+          rows={outcome.skills.changes.map((c) => ({ skill: c.skill, level: c.after, before: c.before, trend: c.trend }))}
+          overall={outcome.skills.overall}
+          ielts={outcome.skills.ielts}
+          note={t('skills.updated')}
+        />
+      ) : null}
+      {outcome.skills?.suggestion ? <LevelOffer offer={outcome.skills.suggestion} /> : null}
       <div className="lesson-summary-actions">
         {outcome.passed && nextHref ? (
           <Button href={nextHref} size="lg" block iconEnd={<PiArrowRightBold size={20} />}>

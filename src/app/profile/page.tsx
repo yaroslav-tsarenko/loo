@@ -11,6 +11,7 @@ import { levelInfo } from '@/progress/levels'
 import type { Tier } from '@/progress/stats'
 import { setDailyMinutes, toggleInterest } from '@/server/actions/preferences'
 import { getProfile, requireUser } from '@/server/auth'
+import { activeSkills } from '@/server/courses/skills'
 import { interestOptionsFor, getPreferences } from '@/server/preferences'
 import { MINUTES } from '@/server/services/preferences'
 import { readSettings } from '@/server/settings'
@@ -29,6 +30,7 @@ import { PixelIcon, type PixelIconName } from '@/ui/design/PixelIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { LooCharacter } from '@/ui/game/LooCharacter'
 import { Icon } from '@/ui/icons/Icon'
+import { SkillLevels } from '@/ui/courses/SkillLevels'
 import { Heatmap } from '@/ui/profile/Heatmap'
 import { topicAnchor } from '@/ui/routes'
 import { BarList, ChartCard, DayColumns, SpeedLine } from '@/ui/stats/Charts'
@@ -136,7 +138,7 @@ function AchievementCard({ a }: { a: ProfileView['achievements'][number] }) {
 export default async function ProfilePage() {
   const user = await requireUser()
   // base rows + shell come with the layout; the page's own reads are one transaction (src/server/stats/profile.ts)
-  const [shell, profile, prefs, settings] = await Promise.all([shellData(), getProfile(), getPreferences(), readSettings()])
+  const [shell, profile, prefs, settings, skills] = await Promise.all([shellData(), getProfile(), getPreferences(), readSettings(), activeSkills()])
   if (!shell) redirect('/login')
   const { snapshot } = shell
   const [{ view, cursor, coach }, options] = await Promise.all([profilePageData(snapshot, { active: shell.active, settings }), interestOptionsFor(shell.library.map((c) => c.id))])
@@ -445,6 +447,14 @@ export default async function ProfilePage() {
           ))}
         </form>
         <h3 className="st-h3">{t('stats.prefs.level')}</h3>
+        {skills ? (
+          <SkillLevels
+            rows={skills.view.skills.map((v) => ({ skill: v.skill, level: v.level }))}
+            overall={skills.view.overall}
+            ielts={skills.view.ielts?.label ?? null}
+            note={skills.view.answers > 0 ? t('skills.note') : t('skills.start')}
+          />
+        ) : null}
         <ul className="st-pref-courses">
           {prefs.courses.map((c) => (
             <li key={c.id}>

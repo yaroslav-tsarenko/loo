@@ -7,11 +7,13 @@ import type { LearningUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { adaptiveContext, adaptiveQueue, newWordOrder } from '@/server/courses/adaptive'
 import { activeScope, studyScope } from '@/server/courses/enrollment'
 import { speechLangFor } from '@/server/courses/target'
 import { filterOptions } from '@/server/services/filter-options'
-import { filtersToQuery, flashcardQueue, parseFilters, practiceQueue, type StudyFilters } from '@/server/services/queue'
+import { filtersToQuery, flashcardQueue, matchUnits, parseFilters, practiceQueue, type StudyFilters } from '@/server/services/queue'
 import { readSettings } from '@/server/settings'
+import { t } from '@/i18n'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { count } from '@/ui/format'
 import { chapterHref } from '@/ui/routes'
@@ -117,8 +119,13 @@ export async function LangPracticePage({ section, params }: { section: LangSecti
   if (section === 'pronunciation' && filters.types.length === 0) filters.types = ['speak', 'pair']
   const startHref = `${def.path}?${filtersToQuery(queryFilters, { start: '1' })}`
   const seed = Number(params.r) || Math.floor(nowMs() / 60_000)
-  const flash = def.kind === 'flashcard' ? await flashcardQueue(snapshot, filters, undefined, pool) : null
-  const quiz = def.kind === 'quiz' ? await practiceQueue(snapshot, filters, 'quiz', seed, pool) : null
+  // language course in its own scope: sessions under the learner's per-skill level ± 1, weighted towards topics with
+  // mistakes (src/course/select/adaptive.ts); «усі курси» keeps the classic queues
+  const adaptive = !filters.all ? await adaptiveContext() : null
+  const flash = def.kind === 'flashcard' ? await flashcardQueue(snapshot, filters, undefined, pool, adaptive ? newWordOrder(adaptive) : undefined) : null
+  const explicit = Boolean(filters.guide || filters.chapter || filters.levels.length > 0)
+  const smart = def.kind === 'quiz' && adaptive ? await adaptiveQueue(adaptive, matchUnits(snapshot, filters, 'quiz', pool).map((u) => u.id), filters.size, seed, explicit, nowMs()) : null
+  const quiz = def.kind === 'quiz' ? (smart ?? (await practiceQueue(snapshot, filters, 'quiz', seed, pool))) : null
   const ids = flash?.ids ?? quiz?.ids ?? []
 
   if (params.start === '1' && ids.length > 0) {
@@ -183,7 +190,12 @@ export async function LangPracticePage({ section, params }: { section: LangSecti
       ]}
       start={flash.ids.length > 0 ? { href: startHref, label: `Почати · ${count(flash.ids.length, 'слово', 'слова', 'слів')}` } : null}
       empty={flash.total === 0 ? 'За цим фільтром слів немає.' : 'На сьогодні все повторено! Можна вибрати «Усі за фільтром».'}
-      note={<>Нових карток на день: {settings.newCardsPerDay} — змінюється в налаштуваннях.</>}
+      note={
+        <>
+          Нових карток на день: {settings.newCardsPerDay} — змінюється в налаштуваннях.
+          {adaptive ? <> {t('skills.wordsFirst', { level: adaptive.skills.view.skills.find((v) => v.skill === 'vocabulary')?.level ?? adaptive.skills.view.overall })}</> : null}
+        </>
+      }
     />
   ) : quiz ? (
     <QueueCard
@@ -196,6 +208,7 @@ export async function LangPracticePage({ section, params }: { section: LangSecti
       ]}
       start={quiz.ids.length > 0 ? { href: startHref, label: `Почати · ${count(quiz.ids.length, 'вправа', 'вправи', 'вправ')}` } : null}
       empty="За цим фільтром вправ немає."
+      note={smart?.range ? t(smart.widened ? 'skills.bandWide' : 'skills.band', smart.range) : undefined}
     />
   ) : null
   return (

@@ -5,6 +5,7 @@ import { profiles } from '@/db/schema'
 import { ensureProfile, type Profile } from './auth/profile'
 import { getUser } from './auth/session'
 import { activeRead, fixActive, type Enrollment } from './courses/enrollment'
+import { skillStatesRead } from './courses/skills'
 import { read as dbRead, readAll } from './db/batch'
 import { withUser } from './db/with-user'
 import { settingsRead, type AppSettings } from './settings'
@@ -22,6 +23,8 @@ export interface UserBase {
   settings: Omit<AppSettings, 'vaultPath'>
   // the active enrollment (pre-course-platform learners are enrolled into the default course on first read)
   active: Enrollment | null
+  // per-skill level estimates of language courses: course id → stored jsonb (src/server/courses/skills.ts)
+  skillStates: Map<string, unknown>
 }
 
 export const userBase = cache(async (): Promise<UserBase | null> => {
@@ -31,18 +34,19 @@ export const userBase = cache(async (): Promise<UserBase | null> => {
     user,
     async (db) => {
       // one statement (src/server/db/batch.ts)
-      const [profile, settings, active] = await readAll(db, [
+      const [profile, settings, active, skillStates] = await readAll(db, [
         dbRead(db.select().from(profiles).where(eq(profiles.id, user.id)), (rows) => rows[0]),
         settingsRead(db, user.id),
         activeRead(db, user.id),
+        skillStatesRead(db, user.id),
       ])
       // rare: no active course yet (fix-up writes, same transaction)
-      return { profile, settings, active: active ?? (await fixActive(db, user.id, profile ?? null)) }
+      return { profile, settings, active: active ?? (await fixActive(db, user.id, profile ?? null)), skillStates }
     },
     { tx: true },
   )
   // First sign-in: the profile is created by the system, outside the user's scope (a new profile has no onboarding,
   // so the fix-up above had nothing to enroll).
   const profile = read.profile ?? (await ensureProfile(user))
-  return { profile, settings: read.settings, active: read.active ?? null }
+  return { profile, settings: read.settings, active: read.active ?? null, skillStates: read.skillStates }
 })

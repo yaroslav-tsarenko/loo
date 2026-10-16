@@ -177,6 +177,9 @@ estimatedMinutes: 35
 | `[!speak]`, `[!pair]` | вимова: мікрофон / мінімальні пари (`[!pair]` рахується як тест) | 1 (language) |
 
 Кожна вправа — **явний `id`**, унікальний у межах курсу: `<префікс>-NN-<тип>-NN`. Рівень — `level:` у meta-рядку або з заголовка `## 🟢 Junior`.
+Складність у межах рівня (`easy · medium · hard`) компілятор виводить сам — з формату вправи, її місця в темі й виду
+теми (`src/course/compile/difficulty.ts`, правило — LANGUAGE_COURSE.md «Етап 2»); задати вручну: `difficulty:` у задачі,
+`diff: 1|2|3` у мета-рядку тесту. Мовні курси отримують і навичку вправи (`skill:` можна вказати явно).
 Мовні блоки `[!word]` `[!listen]` `[!speak]` `[!pair]` — формат у [CONTENT_SPEC.md §15](../CONTENT_SPEC.md), курс — у
 [LANGUAGE_COURSE.md](./LANGUAGE_COURSE.md). У bundle вони — окремі типи вправ `word`, `listen`, `speak`, `pair`
 (`PRACTICE_NEEDS`: `words` ← word, `listening` ← listen, `pronunciation` ← speak / pair). `[!speak]` не йде в тести

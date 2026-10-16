@@ -34,6 +34,7 @@ import {
   kindForSubject,
   resolvePractice,
 } from '../schema'
+import { deriveDifficulty, exerciseSkill, topicKindOf } from './difficulty'
 import { PACE, isInterviewUnit, topicLessons } from './lessons'
 import { chapterUnits, findGuide, type CourseSource } from './source'
 
@@ -177,19 +178,30 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       }
       const contentLevel = toCourseLevel(chapter.level, ladder) ?? dominantLevel(units, ladder)
       const topicLevel: Level = sm.level ?? contentLevel ?? toCourseLevel(guide.level, ladder) ?? DEFAULT_LEVEL[ladder]
+      // language topics: grammar | vocabulary | pronunciation | listening | skills | review (difficulty.ts)
+      const topicKind = ladder === 'cefr' ? topicKindOf(chapter.tags) : undefined
+      // difficulty: place of the exercise among the topic's exercises of its kind (words first, quizzes later…)
+      const kindTotal = new Map<ExerciseKind, number>()
+      for (const u of units) kindTotal.set(exerciseKind(u), (kindTotal.get(exerciseKind(u)) ?? 0) + 1)
+      const kindSeen = new Map<ExerciseKind, number>()
       units.forEach((u, position) => {
         if (isQuick(u)) quick.add(u.id)
         const own = toCourseLevel(u.level, ladder)
+        const kind = exerciseKind(u)
+        const level = sm.level ?? own ?? topicLevel
+        const nth = kindSeen.get(kind) ?? 0
+        kindSeen.set(kind, nth + 1)
         exercises[u.id] = {
           id: u.id,
-          kind: exerciseKind(u),
+          kind,
           mode: u.kind === 'quiz' ? u.mode : null,
-          level: sm.level ?? own ?? topicLevel,
+          level,
           levelSource: sm.level ? 'section' : own ? 'exercise' : contentLevel ? 'topic' : 'default',
           tags: u.tags,
           topicId: tid,
           position,
-          difficulty: u.kind === 'task' ? u.difficulty : null,
+          difficulty: deriveDifficulty({ unit: u, kind, position: nth, count: kindTotal.get(kind) ?? 1, topicKind, ownLevel: ladder === 'cefr' ? own : null, assignedLevel: level }),
+          ...(ladder === 'cefr' ? { skill: exerciseSkill(u, kind, topicKind) } : {}),
           autoTested: u.kind === 'task' && Boolean(u.code?.tests),
           minutes: unitMinutes(u),
         }
@@ -243,6 +255,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
         icon: iconRef(chapter.icon),
         level: topicLevel,
         tags: chapter.tags,
+        ...(topicKind ? { kind: topicKind } : {}),
         minutes: lessons.reduce((sum, l) => sum + l.minutes, 0),
         exercises: units.map((u) => u.id),
         reels: chapterReels.map((r) => r.id),

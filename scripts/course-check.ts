@@ -58,6 +58,18 @@ function printSummary(b: CourseBundle) {
   if (st.words !== undefined) console.log(`  Слова ${fmt(st.words)} · аудіювання ${fmt(st.listening ?? 0)} · вимова ${fmt(st.speaking ?? 0)} · мінімальні пари ${fmt(st.pairs ?? 0)}`)
   const levels = courseLevels(c)
   console.log(`  Рівні вправ: ${levels.map((l) => `${l} (${LEVEL_LABEL[l]}) ${fmt(st.byLevel[l] ?? 0)}`).join(' · ')}`)
+  // derived difficulty (src/course/compile/difficulty.ts), per level: easy / medium / hard
+  const exList = Object.values(b.exercises)
+  const diffLine = levels
+    .map((l) => {
+      const of = exList.filter((e) => e.level === l)
+      return of.length ? `${l} ${of.filter((e) => e.difficulty === 'easy').length}/${of.filter((e) => e.difficulty === 'medium').length}/${of.filter((e) => e.difficulty === 'hard').length}` : null
+    })
+    .filter(Boolean)
+  if (diffLine.length > 0) console.log(`  Складність (легкі/середні/складні): ${diffLine.join(' · ')}`)
+  const skillCount = new Map<string, number>()
+  for (const e of exList) if (e.skill) skillCount.set(e.skill, (skillCount.get(e.skill) ?? 0) + 1)
+  if (skillCount.size > 0) console.log(`  Навички вправ: ${[...skillCount].map(([k, v]) => `${k} ${fmt(v)}`).join(' · ')}`)
   const planned = b.sections.filter((s) => s.status === 'planned')
   if (planned.length > 0) console.log(`  Заплановано («скоро»): ${planned.map((s) => s.title).join(', ')}`)
   if (b.placement.enabled) {

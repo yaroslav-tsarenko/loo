@@ -7,6 +7,7 @@ import { LEVEL_LABEL } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
+import { adaptiveContext, orderMistakes } from '@/server/courses/adaptive'
 import { studyScope } from '@/server/courses/enrollment'
 import { mistakesOverview } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
@@ -53,7 +54,9 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
   // Mistakes of the active course first; ?all=1 shows every open mistake.
   const all = params.all === '1'
   const { pool } = await studyScope({ guide: null, chapter: null, all })
-  const overview = await mistakesOverview(snapshot, now - 7 * 86_400_000)
+  // language course: the session goes by the learner's level ± 1 and topic trouble (src/course/select/adaptive.ts)
+  const adaptive = !all ? await adaptiveContext() : null
+  const overview = await mistakesOverview(snapshot, now - 7 * 86_400_000, adaptive ? { courseId: adaptive.bundle.course.id, now } : undefined)
   const everyRow = overview.open
   const rows = pool ? everyRow.filter((r) => pool.has(r.unit.id)) : everyRow
   const outside = everyRow.length - rows.length
@@ -61,7 +64,8 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
   const waiting = rows.length - eligible.length
 
   if (params.start === '1' && eligible.length > 0) {
-    const ids = [...eligible].sort((a, b) => a.lastWrongAt - b.lastWrongAt).slice(0, 40).map((r) => r.unit.id)
+    const ranked = adaptive && overview.signals ? orderMistakes(adaptive, eligible.map((r) => ({ id: r.unit.id, wrongCount: r.wrongCount, lastWrongAt: r.lastWrongAt })), overview.signals) : null
+    const ids = (ranked ?? [...eligible].sort((a, b) => a.lastWrongAt - b.lastWrongAt).map((r) => r.unit.id)).slice(0, 40)
     const items = await renderStudyItems(snapshot, ids, now)
     return (
       <div className="page page-study">

@@ -7,8 +7,10 @@ import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
 import { nextEligibleAt } from '@/progress/mistakes'
 import type { SrsCard } from '@/progress/srs'
+import type { PracticeSignals } from '@/course'
 import { userScope } from '../auth'
-import { read, readOne, type Read } from '../db/batch'
+import { read, readAll, readOne, type Read } from '../db/batch'
+import { signalReads } from '../courses/signals'
 import { readSettings } from '../settings'
 
 export interface StudyFilters {
@@ -159,13 +161,16 @@ export interface FlashQueue {
   newLeft: number
 }
 
-export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null): Promise<FlashQueue> {
+// orderNew: the order new cards are introduced in (language courses: the learner's level first —
+// src/server/courses/adaptive.ts → newWordOrder); default — document order.
+export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null, orderNew?: (units: readonly LearningUnit[]) => LearningUnit[]): Promise<FlashQueue> {
   const candidates = matchUnits(snapshot, f, 'flashcard', scope)
   const settings = await readSettings()
   // one transaction, both reads in one round trip
   const [cards, introduced] = await userScope((db, userId) => Promise.all([srsMapIn(db, userId, candidates.map((u) => u.id)), newIntroducedTodayIn(db, userId, now)]))
   const due = candidates.filter((u) => cards.has(u.id) && cards.get(u.id)!.due <= now).sort((a, b) => cards.get(a.id)!.due - cards.get(b.id)!.due)
-  const unseen = candidates.filter((u) => !cards.has(u.id))
+  const fresh = candidates.filter((u) => !cards.has(u.id))
+  const unseen = orderNew ? orderNew(fresh) : fresh
   const newLeft = Math.max(0, settings.newCardsPerDay - introduced)
   let ids: string[]
   if (f.mode === 'all') ids = candidates.map((u) => u.id).slice(0, f.size)
@@ -243,9 +248,23 @@ function topicsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mistak
 
 // «Мої помилки» in one query: open rows, per-topic counts and the ones resolved since `since` all come from the
 // learner's mistakes table (was three transactions).
-export async function mistakesOverview(snapshot: ContentSnapshot, since: number): Promise<{ open: MistakeRow[]; topics: Array<{ chapterId: string; open: number; ever: number }>; resolved: LearningUnit[] }> {
-  const rows = await userScope((db, userId) => db.select().from(mistakes).where(eq(mistakes.userId, userId)))
+// signalsFor (language courses): also the recent wrong answers and topic-test scores of that course, in the same
+// statement (src/server/courses/signals.ts) — for ordering the session by level and topic trouble.
+export async function mistakesOverview(
+  snapshot: ContentSnapshot,
+  since: number,
+  signalsFor?: { courseId: string; now: number },
+): Promise<{ open: MistakeRow[]; topics: Array<{ chapterId: string; open: number; ever: number }>; resolved: LearningUnit[]; signals: PracticeSignals | null }> {
+  const { rows, signals } = await userScope(async (db, userId) => {
+    const all = read(db.select().from(mistakes).where(eq(mistakes.userId, userId)), (r) => r)
+    if (!signalsFor) return { rows: await readOne(db, all), signals: null }
+    const [, recent, scores] = signalReads(db, userId, signalsFor.courseId, signalsFor.now)
+    const [rows, recentWrong, topicScores] = await readAll(db, [all, recent, scores])
+    const open = new Map(rows.filter((r) => r.resolvedAt === null).map((r) => [r.unitId, { wrongCount: r.wrongCount }]))
+    return { rows, signals: { mistakes: open, recentWrong, topicScores } satisfies PracticeSignals }
+  })
   return {
+    signals,
     open: openRowsFrom(snapshot, rows),
     topics: topicsFrom(snapshot, rows),
     resolved: rows.filter((r) => r.resolvedAt !== null && r.resolvedAt >= since).flatMap((r) => snapshot.units.get(r.unitId) ?? []),

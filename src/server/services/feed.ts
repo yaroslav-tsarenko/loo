@@ -13,6 +13,7 @@ import { safeExternalUrl } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type FlashItem, type QuizItem } from '@/ui/study/render-items'
 import { userScope } from '../auth'
+import { adaptiveContext, feedQuizOrder, newWordOrder } from '../courses/adaptive'
 import { activeScope } from '../courses/enrollment'
 import { lastOutcomes, shuffle } from './queue'
 
@@ -72,6 +73,9 @@ const PATTERN = ['reel', 'quiz', 'reel', 'flashcard', 'reel', 'quiz', 'flashcard
 
 export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 24, now = Date.now()): Promise<FeedSlide[]> {
   const guides = await feedGuides()
+  // language course: quizzes under the learner's level ± 1 and weak topics, new words of the level first
+  // (src/course/select/adaptive.ts); read before the user's transaction (cached loaders)
+  const adaptive = await adaptiveContext()
   const reels = focus(snapshot.reels, guides)
   const units = focus([...snapshot.units.values()], guides)
   const { generated, srsRows, reelRows } = await userScope(async (db, userId) => {
@@ -112,18 +116,26 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
   const srs = new Map(srsRows.map((r) => [r.id, r.due]))
   const flash = units.filter((u) => u.kind === 'flashcard')
   const due = shuffle(flash.filter((u) => (srs.get(u.id) ?? Infinity) <= now), seed + 1)
-  const fresh = shuffle(flash.filter((u) => !srs.has(u.id)), seed + 2)
+  const unseenCards = flash.filter((u) => !srs.has(u.id))
+  // shuffled first, so the level order keeps the feed varied inside a level
+  const fresh = adaptive ? newWordOrder(adaptive)(shuffle(unseenCards, seed + 2)) : shuffle(unseenCards, seed + 2)
   const cardQueue: LearningUnit[] = [...due, ...fresh]
 
   // Quizzes: wrong last time → never tried → previously right.
   // [!speak] needs a microphone: it stays in lessons and «Вимова», not in the feed
   const quizzes = units.filter((u) => u.kind === 'quiz' && u.mode !== 'speak')
-  const last = await lastOutcomes(quizzes.map((u) => u.id))
-  const quizQueue = [
-    ...shuffle(quizzes.filter((u) => last.get(u.id) === false), seed + 3),
-    ...shuffle(quizzes.filter((u) => !last.has(u.id)), seed + 4),
-    ...shuffle(quizzes.filter((u) => last.get(u.id) === true), seed + 5),
-  ]
+  let quizQueue: LearningUnit[]
+  if (adaptive) {
+    // one statement: last verdicts + mistakes + recent wrong answers + topic scores
+    quizQueue = await feedQuizOrder(adaptive, quizzes, shuffle(quizzes, seed + 3), Math.ceil(size / 2), seed, now)
+  } else {
+    const last = await lastOutcomes(quizzes.map((u) => u.id))
+    quizQueue = [
+      ...shuffle(quizzes.filter((u) => last.get(u.id) === false), seed + 3),
+      ...shuffle(quizzes.filter((u) => !last.has(u.id)), seed + 4),
+      ...shuffle(quizzes.filter((u) => last.get(u.id) === true), seed + 5),
+    ]
+  }
 
   const plan: Array<{ kind: 'reel'; item: QueuedReel } | { kind: 'unit'; id: string }> = []
   const queues = { reel: reelQueue, flashcard: cardQueue, quiz: quizQueue }

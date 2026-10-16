@@ -14,3 +14,6 @@ export { placementCandidates, placementQueue, placementTest, placementResult, se
 export { ieltsBand, type IeltsBand } from './select/ielts'
 export { lookup, type CourseLookup } from './select/lookup'
 export { checkCourse, validateCourse, MINIMUMS, type CourseCheck, type ValidateOptions } from './validate/validate'
+export { deriveDifficulty, difficultyOf, difficultyScore, diffNumber, exerciseSkill, topicKindOf, FORMAT_EFFORT, type Difficulty, type DifficultyInput } from './compile/difficulty'
+export { selectPractice, rankMistakes, orderNewWords, bandRange, levelDistance, fitWeight, topicWeight, itemWeight, practiceWeight, topicSignals, BAND, NEW_SHARE, RECENT_DAYS, ITEM_FACTOR, type LearnerLevels, type PracticeCandidate, type PracticeInput, type PracticePick, type PracticeSignals, type TopicSignal } from './select/adaptive'
+export { currentSkills, initialSkills, itemDifficulty, levelSuggestion, levelTheta, pRight, skillsView, skillThetas, testedTheta, thetaLevel, updateBelief, updateSkills, MIN_ANSWERS, SKIP_SCORE, SD_DEFAULT, SD_MIN, SD_PLACED, type LevelSuggestion, type SkillBasis, type SkillBelief, type SkillObservation, type SkillState, type SkillsView, type SkillView, type SuggestionInput } from './select/skills'
