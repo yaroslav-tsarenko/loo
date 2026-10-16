@@ -202,3 +202,19 @@ describe('reel reference links', () => {
     expect(calls).toEqual(['https://developer.mozilla.org/docs/x'])
   })
 })
+
+describe('failure-only rate limiting', () => {
+  it('peekAll blocks only after the limit is used up and never counts by itself', async () => {
+    const { MemoryRateLimitStore, peekAll, hitAll } = await import('@/lib/rate-limit')
+    const store = new MemoryRateLimitStore()
+    const checks = [{ key: 'signin:ip:1', rule: { limit: 2, windowMs: 60_000 } }]
+    for (let i = 0; i < 10; i++) expect((await peekAll(store, checks, 1000)).allowed).toBe(true)
+    await hitAll(store, checks, 1000)
+    expect((await peekAll(store, checks, 1000)).allowed).toBe(true)
+    await hitAll(store, checks, 1000)
+    const blocked = await peekAll(store, checks, 1000)
+    expect(blocked.allowed).toBe(false)
+    expect(blocked.retryAfterMs).toBe(60_000)
+    expect((await peekAll(store, checks, 61_001)).allowed).toBe(true)
+  })
+})

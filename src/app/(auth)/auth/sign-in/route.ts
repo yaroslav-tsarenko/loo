@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { isSameOrigin } from '@/lib/same-origin'
-import { afterSignIn, backTo, emailLimit, failureDelay, field, limited, nextPath, normalizeEmail, readForm, seeOther } from '@/server/auth/http'
+import { afterSignIn, backTo, emailLimit, failureDelay, failuresBlocked, field, nextPath, recordFailure, normalizeEmail, readForm, seeOther } from '@/server/auth/http'
 import { userFromAuthUser } from '@/server/auth/session'
 import { createSupabaseServerClient } from '@/server/supabase'
 
@@ -20,14 +20,15 @@ export async function POST(request: NextRequest): Promise<Response> {
   const password = field(form, 'password')
   if (!email || !password) return backTo('/login', { error: 'invalid', next })
 
-  if (await limited(request, 'signin', PER_IP, [await emailLimit('signin', email, PER_ACCOUNT), { key: 'signin:global', rule: GLOBAL }])) {
-    return backTo('/login', { error: 'rate', next })
-  }
+  const extra = [await emailLimit('signin', email, PER_ACCOUNT), { key: 'signin:global', rule: GLOBAL }]
+  const gate = await failuresBlocked(request, 'signin', PER_IP, extra)
+  if (gate !== 'ok') return backTo('/login', { error: gate, next })
   const supabase = await createSupabaseServerClient()
   if (!supabase) return backTo('/login', { error: 'setup' })
 
   const { data, error } = await supabase.auth.signInWithPassword({ email, password })
   if (error || !data.user) {
+    await recordFailure(request, 'signin', PER_IP, extra)
     await failureDelay()
     // Only reachable with the right password, so it doesn't reveal whether an address is registered.
     const unconfirmed = error?.code === 'email_not_confirmed'

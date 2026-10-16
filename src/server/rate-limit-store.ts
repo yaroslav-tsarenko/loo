@@ -1,5 +1,5 @@
 import 'server-only'
-import { lt, sql } from 'drizzle-orm'
+import { and, eq, gt, lt, sql } from 'drizzle-orm'
 import { getDb } from '@/db/client'
 import { rateLimits } from '@/db/schema'
 import type { RateLimitStore } from '@/lib/rate-limit'
@@ -23,5 +23,13 @@ export const dbRateLimitStore: RateLimitStore = {
     // Opportunistic cleanup of long-expired windows.
     if (Math.random() < 0.05) await db.delete(rateLimits).where(lt(rateLimits.resetAt, now - 86_400_000))
     return { count: row?.count ?? Number.MAX_SAFE_INTEGER, resetAt: row?.resetAt ?? resetAt }
+  },
+  async peek(key, now) {
+    const [row] = await getDb()
+      .select({ count: rateLimits.count, resetAt: rateLimits.resetAt })
+      .from(rateLimits)
+      .where(and(eq(rateLimits.key, key), gt(rateLimits.resetAt, now)))
+      .limit(1)
+    return row ?? null
   },
 }

@@ -29,7 +29,7 @@ export function AuthShell({ mood = 'wave', loo, title, lead, children, footer }:
   )
 }
 
-const ERROR_KEYS = new Set(['invalid', 'unconfirmed', 'rate', 'setup', 'callback', 'expired', 'weak', 'mismatch', 'email', 'provider', 'same'])
+const ERROR_KEYS = new Set(['invalid', 'unconfirmed', 'rate', 'unavailable', 'setup', 'callback', 'expired', 'weak', 'mismatch', 'email', 'provider', 'same'])
 
 export function FormError({ code }: { code: string | undefined }) {
   if (!code || !ERROR_KEYS.has(code)) return null

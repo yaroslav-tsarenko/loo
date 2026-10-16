@@ -16,7 +16,8 @@ export async function GET(request: NextRequest): Promise<Response> {
   const provider = params.get('provider') as Provider | null
   const next = nextPath(params.get('next'))
   if (!provider || !PROVIDERS.has(provider) || !(await enabledProviders()).includes(provider as 'google' | 'github')) return backTo('/login', { error: 'provider', next })
-  if (await limited(request, 'oauth', PER_IP)) return backTo('/login', { error: 'rate', next })
+  const gate = await limited(request, 'oauth', PER_IP)
+  if (gate !== 'ok') return backTo('/login', { error: gate, next })
   const supabase = await createSupabaseServerClient()
   if (!supabase) return backTo('/login', { error: 'setup' })
   const { data, error } = await supabase.auth.signInWithOAuth({

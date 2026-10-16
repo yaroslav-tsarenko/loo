@@ -21,7 +21,8 @@ export async function POST(request: NextRequest): Promise<Response> {
   if (!email) return backTo('/signup', { error: 'email' })
   if (passwordProblem(password)) return backTo('/signup', { error: 'weak' })
   if (password !== field(form, 'confirm')) return backTo('/signup', { error: 'mismatch' })
-  if (await limited(request, 'signup', PER_IP, [{ key: 'signup:global', rule: GLOBAL }])) return backTo('/signup', { error: 'rate' })
+  const gate = await limited(request, 'signup', PER_IP, [{ key: 'signup:global', rule: GLOBAL }])
+  if (gate !== 'ok') return backTo('/signup', { error: gate })
 
   const supabase = await createSupabaseServerClient()
   if (!supabase) return backTo('/signup', { error: 'setup' })

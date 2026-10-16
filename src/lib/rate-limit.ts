@@ -3,6 +3,8 @@
 export interface RateLimitStore {
   // Increments the counter for `key`, starting a new window when the old one has ended.
   increment(key: string, windowMs: number, now: number): Promise<{ count: number; resetAt: number }>
+  // Reads the live window without counting (null when there is none).
+  peek(key: string, now: number): Promise<{ count: number; resetAt: number } | null>
 }
 
 export interface RateLimitRule {
@@ -30,6 +32,16 @@ export async function hitAll(store: RateLimitStore, checks: { key: string; rule:
   return { allowed: false, remaining: 0, retryAfterMs: Math.max(...blocked.map((r) => r.retryAfterMs)) }
 }
 
+// Checks every rule without counting: blocked once a window has already used up its limit.
+export async function peekAll(store: RateLimitStore, checks: { key: string; rule: RateLimitRule }[], now = Date.now()): Promise<RateLimitResult> {
+  const windows = await Promise.all(checks.map((c) => store.peek(c.key, now)))
+  let retryAfterMs = 0
+  windows.forEach((w, i) => {
+    if (w && w.count >= checks[i]!.rule.limit) retryAfterMs = Math.max(retryAfterMs, w.resetAt - now)
+  })
+  return retryAfterMs > 0 ? { allowed: false, remaining: 0, retryAfterMs } : { allowed: true, remaining: 1, retryAfterMs: 0 }
+}
+
 export class MemoryRateLimitStore implements RateLimitStore {
   private readonly windows = new Map<string, { count: number; resetAt: number }>()
 
@@ -41,6 +53,11 @@ export class MemoryRateLimitStore implements RateLimitStore {
     this.windows.set(key, next)
     if (this.windows.size > this.maxKeys) this.prune(now)
     return next
+  }
+
+  async peek(key: string, now: number): Promise<{ count: number; resetAt: number } | null> {
+    const current = this.windows.get(key)
+    return current && current.resetAt > now ? current : null
   }
 
   private prune(now: number): void {

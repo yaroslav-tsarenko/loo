@@ -14,7 +14,8 @@ export async function POST(request: NextRequest): Promise<Response> {
   const form = await readForm(request)
   const email = form ? normalizeEmail(field(form, 'email', 320)) : null
   if (!email) return backTo('/forgot-password', { error: 'email' })
-  if (await limited(request, 'reset', PER_IP, [await emailLimit('reset', email, PER_ACCOUNT)])) return backTo('/forgot-password', { error: 'rate' })
+  const gate = await limited(request, 'reset', PER_IP, [await emailLimit('reset', email, PER_ACCOUNT)])
+  if (gate !== 'ok') return backTo('/forgot-password', { error: gate })
   const supabase = await createSupabaseServerClient()
   if (!supabase) return backTo('/forgot-password', { error: 'setup' })
   const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${siteOrigin(request)}/auth/callback?next=/reset-password` })

@@ -1,7 +1,7 @@
 import 'server-only'
 import { NextResponse, type NextRequest } from 'next/server'
 import { hashKey } from '@/lib/auth'
-import { clientIp, hitAll, type RateLimitRule } from '@/lib/rate-limit'
+import { clientIp, hitAll, peekAll, type RateLimitRule } from '@/lib/rate-limit'
 import { safeRedirectPath } from '@/lib/redirect'
 import { dbRateLimitStore } from '../rate-limit-store'
 import { ensureProfile } from './profile'
@@ -76,14 +76,42 @@ export interface LimitCheck {
 }
 
 // Fails closed: without a working limiter there is no brute-force protection.
-export async function limited(request: NextRequest, scope: string, perIp: RateLimitRule, extra: LimitCheck[] = []): Promise<boolean> {
+export type LimitState = 'ok' | 'rate' | 'unavailable'
+
+const checksFor = (request: NextRequest, scope: string, perIp: RateLimitRule, extra: LimitCheck[]): LimitCheck[] => [
+  { key: `${scope}:ip:${clientIp(request.headers)}`, rule: perIp },
+  ...extra,
+]
+
+// Counts this request against every rule. Fails closed, but reports an outage separately from a real limit.
+export async function limited(request: NextRequest, scope: string, perIp: RateLimitRule, extra: LimitCheck[] = []): Promise<LimitState> {
   try {
-    const result = await hitAll(dbRateLimitStore, [{ key: `${scope}:ip:${clientIp(request.headers)}`, rule: perIp }, ...extra])
+    const result = await hitAll(dbRateLimitStore, checksFor(request, scope, perIp, extra))
     if (!result.allowed) console.warn('[auth] rate-limited', { scope, retryAfterMs: result.retryAfterMs })
-    return !result.allowed
+    return result.allowed ? 'ok' : 'rate'
   } catch (error) {
     console.error('[auth] rate limiter unavailable', error)
-    return true
+    return 'unavailable'
+  }
+}
+
+// Sign-in only counts failures: a correct password is never locked out, guessing still is.
+export async function failuresBlocked(request: NextRequest, scope: string, perIp: RateLimitRule, extra: LimitCheck[] = []): Promise<LimitState> {
+  try {
+    const result = await peekAll(dbRateLimitStore, checksFor(request, scope, perIp, extra))
+    if (!result.allowed) console.warn('[auth] rate-limited', { scope, retryAfterMs: result.retryAfterMs })
+    return result.allowed ? 'ok' : 'rate'
+  } catch (error) {
+    console.error('[auth] rate limiter unavailable', error)
+    return 'unavailable'
+  }
+}
+
+export async function recordFailure(request: NextRequest, scope: string, perIp: RateLimitRule, extra: LimitCheck[] = []): Promise<void> {
+  try {
+    await hitAll(dbRateLimitStore, checksFor(request, scope, perIp, extra))
+  } catch (error) {
+    console.error('[auth] rate limiter unavailable', error)
   }
 }
 
