@@ -1,5 +1,5 @@
 import type { IconType } from 'react-icons'
-import { PiBandaidsFill, PiBooksFill, PiCardsThreeFill, PiCodeBlockFill, PiDeviceMobileFill, PiFileTextFill, PiHouseFill, PiListChecksFill, PiMapTrifoldFill, PiNewspaperFill, PiPathFill, PiUserCircleFill } from 'react-icons/pi'
+import { PiBandaidsFill, PiBooksFill, PiCardsThreeFill, PiCodeBlockFill, PiDeviceMobileFill, PiFileTextFill, PiHouseFill, PiListChecksFill, PiMapTrifoldFill, PiNewspaperFill, PiPathFill, PiStorefrontFill, PiTrophyFill, PiUserCircleFill } from 'react-icons/pi'
 
 export interface NavIcon {
   icon: IconType
@@ -12,6 +12,8 @@ export const NAV_ICONS: Record<string, NavIcon> = {
   '/': { icon: PiHouseFill, color: 'var(--lu-orange)' },
   '/feed': { icon: PiDeviceMobileFill, color: 'var(--lu-pink)' },
   '/path': { icon: PiPathFill, color: 'var(--lu-green)' },
+  '/leagues': { icon: PiTrophyFill, color: 'var(--lu-yellow-lip)' },
+  '/shop': { icon: PiStorefrontFill, color: 'var(--lu-red)' },
   '/courses': { icon: PiBooksFill, color: 'var(--lu-orange)' },
   '/review': { icon: PiCardsThreeFill, color: 'var(--lu-blue)' },
   '/quiz': { icon: PiListChecksFill, color: 'var(--lu-purple)' },

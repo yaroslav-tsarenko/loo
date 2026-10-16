@@ -10,6 +10,10 @@ export const COURSE_LIMITS = {
   test: { limit: 30, windowMs: 60_000 },
   // placement steps (one per answer) and applying the result
   placement: { limit: 120, windowMs: 60_000 },
+  // answerQuiz (one per answered question, any context)
+  answer: { limit: 120, windowMs: 60_000 },
+  // shop purchases and equipping skins
+  shop: { limit: 30, windowMs: 60_000 },
 } satisfies Record<string, RateLimitRule>
 
 export async function limitUser(userId: string, scope: keyof typeof COURSE_LIMITS): Promise<void> {

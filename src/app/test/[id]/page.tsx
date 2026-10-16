@@ -7,6 +7,7 @@ import { nextLabel } from '@/server/courses/player'
 import { courseFor } from '@/server/courses/registry'
 import { readTestRecord, sectionUnfinished } from '@/server/courses/tests'
 import { attemptSeed, drawTest, resolveTest } from '@/server/courses/tests-core'
+import { playerGame } from '@/server/game'
 import { renderLessonItems } from '@/server/services/lessons'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { Button } from '@/ui/design/Button'
@@ -46,6 +47,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
   }
   const exam = test.kind === 'section-exam'
   const next = nextStepAfter(bundle, level, test.id)
+  const game = await playerGame()
   const title = exam ? test.section.title : test.topic!.title
   return (
     <LessonPlayer
@@ -70,6 +72,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
         passedBefore: Boolean(record?.passed),
         backHref: '/path',
       }}
+      {...game}
     />
   )
 }

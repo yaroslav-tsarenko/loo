@@ -2,23 +2,24 @@
 
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { blankMatches } from '@/content/blocks/quiz/exercise'
-import type { FillExercise } from '@/content/model'
+import type { FillView } from '@/content/blocks/quiz/view'
 import { highlightCode } from '@/ui/code/tokens'
 import { Button } from '@/ui/design/Button'
 import { ActionBar } from '../ActionBar'
-import { seededShuffle } from './shuffle'
 
 interface Props {
-  unitId: string
-  exercise: FillExercise
+  // blanks without answers; the bank (if any) is shuffled on the server
+  exercise: FillView
   checked: boolean
+  // accepted answers per blank — known only after the server's verdict
+  answers: string[][] | null
   variant: 'inline' | 'session'
-  onSubmit: (correct: boolean, chosen: string[]) => void
+  onSubmit: (values: string[]) => void
   actionsSlot?: Element | null
 }
 
 // Blanks inside code: free inputs, or a word bank of chips when the quiz has the `bank` flag.
-export function FillBlanks({ unitId, exercise, checked, variant, onSubmit, actionsSlot }: Props) {
+export function FillBlanks({ exercise, checked, answers, variant, onSubmit, actionsSlot }: Props) {
   const blanks = exercise.segments.flatMap((s) => (s.kind === 'blank' ? [s] : []))
   const [values, setValues] = useState<Record<string, string>>({})
   // bank mode: blank id → chip index
@@ -26,18 +27,14 @@ export function FillBlanks({ unitId, exercise, checked, variant, onSubmit, actio
   const [active, setActive] = useState<string | null>(null)
   const root = useRef<HTMLDivElement>(null)
   const bank = exercise.bank
-  const chips = bank ? seededShuffle(bank.map((word, index) => ({ word, index })), unitId) : []
+  const chips = bank ? bank.map((word, index) => ({ word, index })) : []
   const usedChips = new Set(Object.values(placed))
   const valueOf = (id: string) => (bank ? (placed[id] !== undefined ? bank[placed[id]!] ?? '' : '') : values[id] ?? '')
   const filled = blanks.every((b) => valueOf(b.id).trim() !== '')
 
   const submit = () => {
     if (checked || !filled) return
-    const chosen = blanks.map((b) => valueOf(b.id))
-    onSubmit(
-      blanks.every((b, i) => blankMatches(b.answers, chosen[i]!)),
-      chosen,
-    )
+    onSubmit(blanks.map((b) => valueOf(b.id)))
   }
 
   const place = (chip: number) => {
@@ -99,9 +96,10 @@ export function FillBlanks({ unitId, exercise, checked, variant, onSubmit, actio
             if (s.kind === 'text') return <span key={i}>{highlightCode(s.value, `f${i}-`)}</span>
             const index = indexOf.get(s.id) ?? 0
             const value = valueOf(s.id)
-            const state = checked ? (blankMatches(s.answers, value) ? 'right' : 'wrong') : 'idle'
-            const width = `${Math.max(3, ...s.answers.map((a) => a.length)) + 1}ch`
-            const reveal = state === 'wrong' ? <span className="fill-correct">{s.answers[0]}</span> : null
+            const accepted = answers?.[index] ?? null
+            const state = checked && accepted ? (blankMatches(accepted, value) ? 'right' : 'wrong') : 'idle'
+            const width = `${s.width}ch`
+            const reveal = state === 'wrong' ? <span className="fill-correct">{accepted?.[0]}</span> : null
             if (bank)
               return (
                 <span key={i} className="fill-slot-wrap">

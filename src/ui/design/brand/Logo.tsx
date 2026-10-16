@@ -1,5 +1,5 @@
 import { cx } from '../cx'
-import { LooPixels } from '../mascot/Loo'
+import { LooPixels } from '../mascot/LooArt'
 import { MARK_BOX, markRects } from '../mascot/pixels'
 
 /** Pixel Loo on its own (16×16 cells, lit bulb to boots) — header logo, favicon-sized brand spots. Crispest at multiples of 16px. */

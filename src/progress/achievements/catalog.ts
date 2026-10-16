@@ -24,6 +24,28 @@ export const ACHIEVEMENTS: readonly AchievementDef[] = [
   { id: 'test-perfect', title: 'Тест без помилок', description: 'Скласти тест теми на 100%', tier: 'silver', when: { metric: 'tests.perfect', gte: 1 } },
   { id: 'exam-first', title: 'Екзамен розділу', description: 'Скласти екзамен розділу 👑', tier: 'gold', when: { metric: 'exams.passed', gte: 1 } },
   { id: 'test-out', title: 'Перескочив розділ', description: 'Скласти екзамен розділу ще до кінця розділу', tier: 'gold', when: { metric: 'sections.testedOut', gte: 1 } },
-  { id: 'rank-middle', title: 'Middle', description: 'Досягти рангу Middle', tier: 'silver', when: { metric: 'level', gte: 12 } },
-  { id: 'rank-senior', title: 'Senior', description: 'Досягти рангу Senior', tier: 'gold', when: { metric: 'level', gte: 22 } },
+  // Ranks (src/game/ranks.ts: 0 Noob · 1 Trainee · 2 Junior · 3 Middle · 4 Senior · 5 Staff · 6 Principal · 7 God)
+  { id: 'rank-junior', title: 'Junior', description: 'Досягти рангу Junior', tier: 'bronze', when: { metric: 'rank', gte: 2 } },
+  { id: 'rank-middle', title: 'Middle', description: 'Досягти рангу Middle', tier: 'silver', when: { metric: 'rank', gte: 3 } },
+  { id: 'rank-senior', title: 'Senior', description: 'Досягти рангу Senior', tier: 'gold', when: { metric: 'rank', gte: 4 } },
+  { id: 'rank-god', title: 'God mode', description: 'Досягти рангу God', tier: 'gold', when: { metric: 'rank', gte: 7 } },
+  // Course progress
+  { id: 'lesson-first', title: 'Перший урок', description: 'Пройти перший урок курсу', tier: 'bronze', when: { metric: 'lessons.completed', gte: 1 } },
+  { id: 'lessons-25', title: 'Чверть сотні', description: 'Пройти 25 уроків', tier: 'silver', when: { metric: 'lessons.completed', gte: 25 } },
+  { id: 'lessons-100', title: 'Сотня уроків', description: 'Пройти 100 уроків', tier: 'gold', when: { metric: 'lessons.completed', gte: 100 } },
+  { id: 'lessons-perfect-10', title: 'Без жодного ❤️', description: '10 уроків без жодної помилки (жодного втраченого сердечка)', tier: 'silver', when: { metric: 'lessons.perfect', gte: 10 } },
+  { id: 'exams-3', title: 'Три корони', description: 'Скласти 3 екзамени розділів 👑', tier: 'gold', when: { metric: 'exams.passed', gte: 3 } },
+  { id: 'course-complete', title: 'Курс пройдено', description: 'Скласти всі екзамени розділів одного курсу', tier: 'gold', when: { metric: 'courses.completed', gte: 1 } },
+  // Streaks, hearts, shop
+  { id: 'streak-100', title: 'Сто днів вогню', description: 'Серія зі 100 днів', tier: 'gold', when: { metric: 'streak.current', gte: 100 } },
+  { id: 'freeze-saved', title: 'Крижаний щит', description: 'Заморозка 🧊 врятувала серію', tier: 'bronze', when: { metric: 'freezes.used', gte: 1 } },
+  { id: 'practice-5', title: 'Сердечка повернуто', description: 'Пройти 5 практик «Робота над помилками»', tier: 'bronze', when: { metric: 'practice.sessions', gte: 5 } },
+  { id: 'shop-first', title: 'Перша покупка', description: 'Купити щось у крамниці 🛒', tier: 'bronze', when: { metric: 'shop.purchases', gte: 1 } },
+  { id: 'skins-3', title: 'Модник Loo', description: 'Мати 3 речі для Loo', tier: 'silver', when: { metric: 'skins.owned', gte: 3 } },
+  { id: 'gems-1000', title: 'Скарбничка', description: 'Заробити 1000 кристалів 💎', tier: 'gold', when: { metric: 'gems.earned', gte: 1000 } },
+  // Leagues
+  { id: 'league-join', title: 'Вітаємо в лізі', description: 'Потрапити в тижневу лігу 🏆', tier: 'bronze', when: { metric: 'league.joined', gte: 1 } },
+  { id: 'league-promo', title: 'Підвищення', description: 'Перейти в лігу вище', tier: 'silver', when: { metric: 'league.promotions', gte: 1 } },
+  { id: 'league-podium', title: 'Подіум', description: 'Завершити тиждень у трійці лідерів', tier: 'gold', when: { metric: 'league.podium', gte: 1 } },
+  { id: 'league-diamond', title: 'Діамантова ліга', description: 'Дійти до Діамантової ліги 💎', tier: 'gold', when: { metric: 'league.tier', gte: 10 } },
 ]

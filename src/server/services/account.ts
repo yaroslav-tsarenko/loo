@@ -9,6 +9,10 @@ import {
   dailyMissions,
   enrollments,
   examResults,
+  frozenDays,
+  gemLedger,
+  inventory,
+  leagueMembers,
   lessonProgress,
   mistakes,
   newsReads,
@@ -19,6 +23,7 @@ import {
   taskState,
   topicResults,
   userSettings,
+  userState,
   xpLedger,
 } from '@/db/schema'
 import { writeSystem } from '../settings'
@@ -29,7 +34,7 @@ export async function exportUserData(): Promise<Record<string, unknown>> {
   return userScope(
     async (db, userId) => ({
       format: 'levelup/user-export',
-      version: 3,
+      version: 4,
       exportedAt: new Date().toISOString(),
       userId,
       profile: (await db.select().from(profiles).where(eq(profiles.id, userId)))[0] ?? null,
@@ -50,6 +55,11 @@ export async function exportUserData(): Promise<Record<string, unknown>> {
       enrollments: await db.select().from(enrollments).where(eq(enrollments.userId, userId)),
       topicResults: await db.select().from(topicResults).where(eq(topicResults.userId, userId)),
       examResults: await db.select().from(examResults).where(eq(examResults.userId, userId)),
+      gameState: await db.select().from(userState).where(eq(userState.userId, userId)),
+      gemLedger: await db.select().from(gemLedger).where(eq(gemLedger.userId, userId)),
+      inventory: await db.select().from(inventory).where(eq(inventory.userId, userId)),
+      frozenDays: await db.select().from(frozenDays).where(eq(frozenDays.userId, userId)),
+      leagues: await db.select().from(leagueMembers).where(eq(leagueMembers.userId, userId)),
     }),
     { tx: true },
   )

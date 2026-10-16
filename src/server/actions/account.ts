@@ -112,10 +112,13 @@ export async function updateProfile(form: FormData): Promise<void> {
   const now = Date.now()
   // The avatar is never a user-supplied URL: either the identity provider's picture (https-validated) or initials.
   const avatarUrl = input.avatar === 'oauth' ? user.avatarUrl : null
+  // the form lists the broad interests only: keep topic tags picked on the profile («Мої уподобання»)
+  const extra = (profile?.preferences.interests ?? []).filter((i) => !(INTERESTS as readonly string[]).includes(i))
+  const interestList = [...new Set([...input.interests, ...extra])]
   await userScope((db, userId) =>
     db
       .update(profiles)
-      .set({ displayName: input.displayName, avatarUrl, locale: input.locale, preferences: { ...profile?.preferences, interests: input.interests, level: input.level }, updatedAt: now })
+      .set({ displayName: input.displayName, avatarUrl, locale: input.locale, preferences: { ...profile?.preferences, interests: interestList, level: input.level }, updatedAt: now })
       .where(eq(profiles.id, userId)),
   )
   await writeSetting('dailyMinutes', input.minutes)

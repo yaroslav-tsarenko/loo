@@ -50,6 +50,13 @@
       "when": 1792132978603,
       "tag": "0006_courses",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792136869718,
+      "tag": "0007_game",
+      "breakpoints": true
     }
   ]
 }

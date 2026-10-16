@@ -6,6 +6,7 @@ import { LEVEL_EMOJI, LEVEL_LABEL } from '@/course'
 import { TRACKS, type Track } from '@/content/tracks'
 import type { ContentSnapshot } from '@/content/store'
 import { levelInfo } from '@/progress/levels'
+import { shellGame } from '@/server/game'
 import { getContent } from '@/server/content'
 import { activeCourse } from '@/server/courses/enrollment'
 import { courseChips, myLibrary } from '@/server/courses/library'
@@ -47,7 +48,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
   }
   const active = await activeCourse()
   if (!active) redirect('/courses')
-  const [path, xp, library] = await Promise.all([coursePath(snapshot, active), userXp(), myLibrary()])
+  const [path, xp, library, game] = await Promise.all([coursePath(snapshot, active), userXp(), myLibrary(), shellGame()])
   const { bundle, enrollment } = active
   const level = levelInfo(xp)
   const crowns = [...path.mastery.values()].reduce((s, m) => s + m.crowns, 0)
@@ -69,7 +70,9 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
             <GameIcon name="bolt" size={22} />
             {level.level}
           </span>
-          <span className="path-summary-label">рівень · {level.rank.title}</span>
+          <span className="path-summary-label">
+            рівень · {game.rank.emoji} {game.rank.title}
+          </span>
         </Card>
         <Card variant="raised" tone="yellow" padding="sm" className="path-summary-item">
           <span className="path-summary-value tabular">

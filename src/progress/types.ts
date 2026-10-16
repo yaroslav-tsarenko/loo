@@ -34,12 +34,17 @@ export type Effect =
   | { type: 'xp'; amount: number; reason: string }
   | { type: 'level-up'; level: number; rank: string }
   | { type: 'rank-up'; rank: string }
-  | { type: 'achievement'; id: string; title: string; description: string }
+  | { type: 'achievement'; id: string; title: string; description: string; tier?: 'bronze' | 'silver' | 'gold' }
   | { type: 'mistake-added'; unitId: string }
   | { type: 'mistake-resolved'; unitId: string }
   | { type: 'streak'; days: number }
   | { type: 'daily-goal'; goal: number }
   | { type: 'mission'; budget: number; bonusXp: number }
+  // Phase 4 game layer (src/game)
+  | { type: 'gems'; amount: number; reason: string }
+  | { type: 'hearts'; hearts: number; delta: number }
+  | { type: 'freeze'; days: number }
+  | { type: 'league'; tier: string; result: 'promoted' | 'stayed' | 'demoted'; rank: number }
 
 export function isCorrectOutcome(outcome: Outcome): boolean {
   return outcome === 'good' || outcome === 'hard' || outcome === 'correct' || outcome === 'solved'

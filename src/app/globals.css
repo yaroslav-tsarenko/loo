@@ -17,6 +17,8 @@
 @import './scenes.css';
 @import './news.css';
 @import './auth.css'; /* landing, sign-in, onboarding, account */
+@import './game.css'; /* hearts, gems, shop, leagues, ranks */
+@import './stats.css'; /* profile statistics, «+1% щодня» coach */
 
 :root {
   color-scheme: light dark;

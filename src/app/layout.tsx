@@ -6,9 +6,11 @@ import type { ReactNode } from 'react'
 import { getProfile, getUser } from '@/server/auth'
 import { getContent } from '@/server/content'
 import { myLibrary } from '@/server/courses/library'
+import { shellGame } from '@/server/game'
 import { navCounts } from '@/server/services/counts'
 import { userXp } from '@/server/services/progress'
 import { readSettings } from '@/server/settings'
+import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
 import { CommandPalette } from '@/ui/search/CommandPalette'
 import { AppFrame } from '@/ui/shell/AppFrame'
@@ -49,13 +51,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     )
   }
   const snapshot = await getContent()
-  const [settings, xp, counts, profile, nonce, library] = await Promise.all([
+  const [settings, xp, counts, profile, nonce, library, game] = await Promise.all([
     readSettings(),
     userXp(),
     navCounts(snapshot),
     getProfile(),
     headers().then((h) => h.get('x-nonce') ?? undefined),
     myLibrary(),
+    shellGame(),
   ])
   const courses = library.map((c) => ({ id: c.id, title: c.title, icon: c.icon, active: c.enrollment.active }))
   const guides = snapshot.guides.map((g) => ({ id: g.id, title: g.title, href: guideHref(g.id) }))
@@ -71,9 +74,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           До вмісту
         </a>
         <FeedbackProvider initialXp={xp} sound={settings.sound} volume={settings.volume} haptics={settings.haptics}>
+          <LooSkinProvider skin={game.look}>
           <CountsProvider initial={counts}>
             <AppFrame
-              sidebar={<Sidebar guides={guides} courses={courses} theme={settings.theme} account={account} />}
+              sidebar={<Sidebar guides={guides} courses={courses} theme={settings.theme} account={account} rank={game.rank} />}
               banner={
                 snapshot.error ? (
                   <div className="vault-error" role="alert">
@@ -94,6 +98,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               {children}
             </AppFrame>
           </CountsProvider>
+          </LooSkinProvider>
         </FeedbackProvider>
         <ClientEnhancer />
       </body>

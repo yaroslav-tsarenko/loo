@@ -1154,93 +1154,6 @@
     --heat-3: light-dark(#5aa3de, #2672bd);
     --heat-4: light-dark(#2383e2, #3b95f0);
   }
-  .profile-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
-    gap: 40px;
-    align-items: end;
-  }
-  .profile-level {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 20px;
-    align-items: center;
-  }
-  .profile-level-num {
-    display: grid;
-    place-items: center;
-    width: 78px;
-    height: 78px;
-    border-radius: 8px;
-    background: var(--blue-bg);
-    color: var(--blue);
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .profile-level .page-title {
-    margin-top: 0;
-  }
-  .profile-progress {
-    display: grid;
-    gap: 6px;
-    margin: 10px 0 4px;
-    max-width: 420px;
-    font-size: 14px;
-    color: var(--t2);
-  }
-  .unit-meta {
-    font-size: 12px;
-    color: var(--t2);
-  }
-  .ranks {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-  }
-  .ranks li {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: var(--t3);
-  }
-  .ranks li[data-state='done'] {
-    color: var(--t2);
-  }
-  .ranks li[data-state='current'] {
-    color: var(--t1);
-    font-weight: 500;
-    background: var(--hover);
-  }
-  .figures {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 24px;
-  }
-  .figures > div {
-    display: grid;
-    gap: 2px;
-    padding: 12px 14px;
-    border-radius: 6px;
-    box-shadow: inset 0 0 0 1px var(--border);
-  }
-  .figure-num {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-  .figure-label {
-    font-size: 12px;
-    color: var(--t2);
-  }
-  .today-of {
-    font-size: 16px;
-    color: var(--t3);
-    font-weight: 400;
-  }
   .heatmap {
     margin: 8px 0 0;
   }
@@ -1279,83 +1192,6 @@
     align-items: center;
     gap: 4px;
     margin-top: 8px;
-    font-size: 12px;
-    color: var(--t2);
-  }
-  .profile-cols {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 40px;
-  }
-  .acc {
-    display: grid;
-    grid-template-columns: minmax(60px, 1fr) auto;
-    gap: 0 10px;
-    align-items: center;
-    min-width: 150px;
-  }
-  .acc .cell-sub {
-    grid-column: 2;
-    text-align: right;
-    margin: 0;
-  }
-  .level-cell::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border-radius: 2px;
-    background: var(--level-color);
-  }
-  .weak-list {
-    margin: 0;
-    padding-left: 1.6em;
-    display: grid;
-    gap: 6px;
-    font-size: 14px;
-  }
-  .achievements {
-    list-style: none;
-    margin: 8px 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
-  }
-  .achievements li {
-    display: grid;
-    gap: 2px;
-    align-content: start;
-    padding: 12px 14px;
-    border-radius: 6px;
-    box-shadow: inset 0 0 0 1px var(--border);
-    transition: background-color 60ms;
-  }
-  .achievements li:hover {
-    background: var(--hover);
-  }
-  .achievements li[data-state='unlocked'] {
-    box-shadow: none;
-    background: var(--yellow-bg);
-  }
-  .achievements li[data-state='unlocked'][data-tier='bronze'] {
-    background: var(--orange-bg);
-  }
-  .achievements li[data-state='unlocked'][data-tier='silver'] {
-    background: var(--gray-bg);
-  }
-  .achievements li[data-state='locked'] .ach-title {
-    color: var(--t2);
-  }
-  .achievements li .bar {
-    margin-top: 8px;
-  }
-  .ach-title {
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .ach-desc {
     font-size: 12px;
     color: var(--t2);
   }
@@ -1813,17 +1649,12 @@
     .db-open {
       display: none !important;
     }
-    .profile-head,
-    .profile-cols,
     .roadmap-body {
       grid-template-columns: 1fr;
       gap: 20px;
     }
     .recs {
       order: -1;
-    }
-    .figures {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .lane {
       grid-template-columns: 1fr;

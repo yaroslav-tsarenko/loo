@@ -9,6 +9,7 @@ import { myLibrary } from '@/server/courses/library'
 import { todaySummary } from '@/server/services/library'
 import { availableReelCount } from '@/server/services/feed'
 import { getMission } from '@/server/services/mission'
+import { getCoach } from '@/server/stats/coach'
 import { readSettings } from '@/server/settings'
 import { Pill } from '@/ui/design/Badge'
 import { Card } from '@/ui/design/Card'
@@ -18,6 +19,7 @@ import { LooSays } from '@/ui/design/mascot/LooSays'
 import { Ring } from '@/ui/design/Ring'
 import { Icon } from '@/ui/icons/Icon'
 import { MissionCard } from '@/ui/mission/MissionCard'
+import { CoachCard } from '@/ui/stats/CoachCard'
 import { count, relative } from '@/ui/format'
 import { Landing } from '@/ui/marketing/Landing'
 
@@ -49,6 +51,7 @@ async function LibraryPage() {
   const snapshot = await getContent()
   const [today, settings, library] = await Promise.all([todaySummary(snapshot), readSettings(), myLibrary()])
   const mission = await getMission(snapshot, await availableReelCount(snapshot))
+  const coach = await getCoach(snapshot, { href: mission.cursor.href })
   const continueTarget = today.continueChapter
     ? { href: today.continueChapter.href, title: today.continueChapter.chapter.title, meta: `${today.continueChapter.guide.title} · ${today.continueChapter.scrollPct}%`, label: 'Продовжити читання' }
     : null
@@ -102,6 +105,8 @@ async function LibraryPage() {
                 </span>
               </Link>
             ) : null}
+
+            <CoachCard coach={coach} variant="compact" />
 
             <MissionCard mission={mission} dailyMinutes={settings.dailyMinutes} streak={today.streak} />
           </div>

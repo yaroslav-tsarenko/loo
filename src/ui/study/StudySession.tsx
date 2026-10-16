@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { PiArrowRightBold, PiCheckBold, PiXBold } from 'react-icons/pi'
-import { exerciseSolution } from '@/content/blocks/quiz/exercise'
+import { solutionText, type QuizKey } from '@/content/blocks/quiz/view'
 import type { Effect, FlashRating } from '@/progress/types'
-import { endSession, finishTask, rateFlashcard, recordQuizAnswer, startSession } from '@/server/actions/study'
+import { answerQuiz } from '@/server/actions/answers'
+import { endSession, finishTask, rateFlashcard, startSession } from '@/server/actions/study'
 import { highlightCode } from '@/ui/code/tokens'
 import { Button } from '@/ui/design/Button'
 import { Confetti } from '@/ui/design/Confetti'
@@ -15,7 +16,7 @@ import { Loo } from '@/ui/design/mascot/Loo'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { FlashcardCard } from './FlashcardCard'
-import { QuizInline, type QuizResult } from './QuizInline'
+import { QuizInline, type QuizCheck, type QuizResult } from './QuizInline'
 import type { StudyItem } from './render-items'
 import { TaskInline, type TaskResult } from './TaskInline'
 
@@ -26,6 +27,9 @@ interface ResultRow {
   correct: boolean
   label: string
   chosen?: string[]
+  // revealed by the server after answering
+  key?: QuizKey | null
+  explanation?: ReactNode
 }
 
 const OUTCOME_LABEL: Record<FlashRating, string> = { again: 'не знав', hard: 'важко', good: 'знав' }
@@ -117,15 +121,22 @@ export function StudySession({
     [current, feedback, record, next],
   )
 
-  const onQuiz = useCallback(
-    (r: QuizResult) => {
-      setAnswered(true)
-      void record({ unitId: r.unitId, correct: r.correct, label: r.correct ? 'правильно' : 'помилка', chosen: r.chosen }, (id) =>
-        recordQuizAnswer({ unitId: r.unitId, correct: r.correct, durationMs: r.durationMs, sessionId: id }),
-      )
+  // The server grades (and records) the answer inside the session; the verdict comes back with the key.
+  const checkQuiz = useCallback<QuizCheck>(
+    async (answer) => {
+      const id = sessionId ?? (sessionPromise.current ? await sessionPromise.current : null)
+      const out = await answerQuiz({ ...answer, sessionId: id })
+      absorb(out.effects)
+      return out
     },
-    [record],
+    [sessionId, absorb],
   )
+
+  const onQuiz = useCallback((r: QuizResult) => {
+    setAnswered(true)
+    const correct = r.correct === true
+    setResults((rows) => [...rows, { unitId: r.unitId, correct, label: correct ? 'правильно' : 'помилка', chosen: r.chosen, key: r.verdict.key, explanation: r.verdict.explanation }])
+  }, [])
 
   const onTask = useCallback(
     (r: TaskResult) => {
@@ -256,13 +267,14 @@ export function StudySession({
             unitId={current.unitId}
             mode={current.mode}
             level={current.level}
+            multi={current.multi}
+            free={current.free}
             prompt={current.prompt}
             body={current.body}
-            explanation={current.explanation}
             options={current.options}
-            freeAnswer={current.freeAnswer}
             exercise={current.exercise}
             variant="session"
+            check={checkQuiz}
             onResult={onQuiz}
           />
         ) : (
@@ -321,14 +333,15 @@ function QuizReview({ items, results }: { items: StudyItem[]; results: ResultRow
               </summary>
               <div className="review-body prose-flow">
                 {item.body}
-                {item.options.length > 0 ? (
+                {!r.key ? null : item.options.length > 0 ? (
                   <ul className="review-options">
                     {item.options.map((o) => {
                       const picked = r.chosen?.includes(o.id) ?? false
-                      if (!o.correct && !picked) return null
+                      const right = r.key?.options.includes(o.id) ?? false
+                      if (!right && !picked) return null
                       return (
-                        <li key={o.id} data-state={o.correct ? 'right' : 'wrong'}>
-                          <span className="unit-meta">{o.correct ? (picked ? 'ваш вибір, правильно' : 'правильна відповідь') : 'ваш вибір'}</span> {o.content}
+                        <li key={o.id} data-state={right ? 'right' : 'wrong'}>
+                          <span className="unit-meta">{right ? (picked ? 'ваш вибір, правильно' : 'правильна відповідь') : 'ваш вибір'}</span> {o.content}
                         </li>
                       )
                     })}
@@ -337,15 +350,15 @@ function QuizReview({ items, results }: { items: StudyItem[]; results: ResultRow
                   <div className="exercise-solution">
                     <span className="unit-meta">Відповідь:</span>
                     <pre>
-                      <code>{highlightCode(exerciseSolution(item.exercise), 'r')}</code>
+                      <code>{highlightCode(solutionText(item.exercise, r.key), 'r')}</code>
                     </pre>
                   </div>
                 ) : (
                   <p>
-                    <span className="unit-meta">Відповідь:</span> <code>{item.freeAnswer}</code>
+                    <span className="unit-meta">Відповідь:</span> <code>{r.key.free}</code>
                   </p>
                 )}
-                {item.explanation}
+                {r.explanation}
               </div>
             </details>
           </li>

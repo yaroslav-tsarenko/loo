@@ -25,6 +25,26 @@
       ],
       "port": 3100,
       "autoPort": true
+    },
+    {
+      "name": "stats-3307",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "DEV_AUTH_BYPASS=1",
+        "NEXT_PUBLIC_SUPABASE_URL=",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=",
+        "DATABASE_URL=postgres://postgres@127.0.0.1:54339/postgres",
+        "DATABASE_POOL_MAX=1",
+        "pnpm",
+        "exec",
+        "next",
+        "dev",
+        "--hostname",
+        "127.0.0.1",
+        "--port",
+        "3307"
+      ],
+      "port": 3307
     }
   ]
 }

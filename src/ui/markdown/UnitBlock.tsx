@@ -1,5 +1,6 @@
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
+import { exerciseView, quizKey, quizShape } from '@/content/blocks/quiz/view'
 import { DIFFICULTY_LABEL, LEVEL_LABEL, type FlashcardUnit, type QuizUnit, type TaskUnit } from '@/content/model'
 import { QuizInline } from '@/ui/study/QuizInline'
 import { TaskInline } from '@/ui/study/TaskInline'
@@ -44,17 +45,21 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
     unit.explanation ? renderMdast(unit.explanation, env) : Promise.resolve(null),
     ...unit.options.map((o) => renderPhrasing(o.content, env)),
   ])
+  const shape = quizShape(unit)
+  // Article quizzes are practice: the key ships for an instant verdict; XP is granted only by the server's own check.
   return (
     <QuizInline
       unitId={unit.id}
       mode={unit.mode}
+      multi={shape.multi}
+      free={shape.free}
       level={unit.level ? LEVEL_LABEL[unit.level] : null}
       prompt={prompt}
       body={body}
       explanation={explanation}
-      options={unit.options.map((o, i) => ({ id: o.id, correct: o.correct, content: options[i] }))}
-      freeAnswer={unit.freeAnswer}
-      exercise={unit.exercise}
+      answerKey={quizKey(unit)}
+      options={unit.options.map((o, i) => ({ id: o.id, content: options[i] }))}
+      exercise={exerciseView(unit.exercise)}
       variant="inline"
     />
   )

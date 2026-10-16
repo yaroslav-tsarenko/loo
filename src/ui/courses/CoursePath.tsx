@@ -13,6 +13,7 @@ import { Loo } from '@/ui/design/mascot/Loo'
 import { Ring } from '@/ui/design/Ring'
 import { Sheet } from '@/ui/design/Sheet'
 import { Icon } from '@/ui/icons/Icon'
+import { topicAnchor } from '@/ui/routes'
 import type { CPNode, CPSection, CPTopic } from './types'
 
 // The active course as a Duolingo path: section banner → topic card → lesson bubbles → 🏁 topic test, and a
@@ -292,7 +293,7 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
                   </button>
                 ) : null}
                 {section.topics.map((topic) => (
-                  <div key={topic.id} className="skill" data-state={topic.state === 'current' ? 'current' : topic.state === 'done' ? 'done' : 'upcoming'}>
+                  <div key={topic.id} id={topicAnchor(topic.id)} className="skill" data-state={topic.state === 'current' ? 'current' : topic.state === 'done' ? 'done' : 'upcoming'}>
                     <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={topic.state === 'current' ? 'green' : undefined} onClick={() => setSheet(topic)}>
                       <Ring value={topic.ratio} size={56} stroke={6} tone={topic.crowns >= 5 ? 'yellow' : 'green'} label={`Опановано ${Math.round(topic.ratio * 100)}%`} className="skill-ring">
                         <span className="skill-icon" aria-hidden="true">

@@ -94,7 +94,7 @@ export function FeedbackProvider({ children, initialXp, sound, volume, haptics =
       const shown: Toast[] = []
       for (const effect of list) {
         if (effect.type === 'xp') gained += effect.amount
-        if (effect.type === 'mistake-added') continue
+        if (effect.type === 'mistake-added' || effect.type === 'hearts') continue
         shown.push({ id: ++counter.current, effect })
       }
       if (gained > 0) setXp((v) => v + gained)
@@ -130,10 +130,15 @@ export function FeedbackProvider({ children, initialXp, sound, volume, haptics =
   )
 }
 
+// One «+N XP» and one «+N 💎» toast per batch.
 function mergeXp(list: Toast[]): Toast[] {
-  const xpTotal = list.reduce((sum, t) => sum + (t.effect.type === 'xp' ? t.effect.amount : 0), 0)
-  const rest = list.filter((t) => t.effect.type !== 'xp')
-  const firstXp = list.find((t) => t.effect.type === 'xp')
-  if (!firstXp || xpTotal === 0) return rest
-  return [{ id: firstXp.id, effect: { type: 'xp', amount: xpTotal, reason: 'total' } }, ...rest]
+  const total = (type: 'xp' | 'gems') => list.reduce((sum, t) => sum + (t.effect.type === type ? t.effect.amount : 0), 0)
+  const rest = list.filter((t) => t.effect.type !== 'xp' && t.effect.type !== 'gems')
+  const out: Toast[] = []
+  for (const type of ['xp', 'gems'] as const) {
+    const firstOf = list.find((t) => t.effect.type === type)
+    const amount = total(type)
+    if (firstOf && amount > 0) out.push({ id: firstOf.id, effect: { type, amount, reason: 'total' } })
+  }
+  return [...out, ...rest]
 }

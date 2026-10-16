@@ -3,6 +3,7 @@ import { notFound, redirect } from 'next/navigation'
 import { getContent } from '@/server/content'
 import { courseLessonForLegacy, findCourseLesson, learnerLevel } from '@/server/courses/lessons'
 import { courseLessonPlayerData } from '@/server/courses/player'
+import { playerGame } from '@/server/game'
 import { findLesson, lessonPlayerData } from '@/server/services/lessons'
 import { LessonPlayer } from '@/ui/lesson/LessonPlayer'
 
@@ -25,6 +26,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
   if (course) {
     const data = await courseLessonPlayerData(snapshot, course, await learnerLevel(course.bundle.course.id))
     if (course.lesson.kind === 'theory' || data.items.length === 0) redirect(data.chapterHref)
+    const game = await playerGame()
     return (
       <LessonPlayer
         key={course.lesson.id}
@@ -37,6 +39,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
         challenges={data.challenges}
         nextHref={data.nextHref}
         nextLabel={data.nextLabel}
+        {...game}
       />
     )
   }
@@ -48,6 +51,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
   if (!lesson) notFound()
   const data = await lessonPlayerData(snapshot, lesson)
   if (lesson.kind === 'theory' || data.items.length === 0) redirect(data.chapterHref)
+  const game = await playerGame()
   return (
     <LessonPlayer
       key={lesson.id}
@@ -59,6 +63,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lesson:
       items={data.items}
       nextHref={data.nextHref}
       nextLabel={data.nextLabel}
+      {...game}
     />
   )
 }

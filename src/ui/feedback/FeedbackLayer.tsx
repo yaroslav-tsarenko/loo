@@ -2,10 +2,15 @@
 
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react'
 import { useEffect } from 'react'
+import { TIER_MOOD } from '@/progress/achievements/dsl'
+import { Loo } from '@/ui/design/mascot/Loo'
 import type { Toast } from './FeedbackProvider'
 
 const LIFETIME: Record<string, number> = {
   xp: 1600,
+  gems: 2200,
+  freeze: 4200,
+  league: 5200,
   'mistake-resolved': 2600,
   'daily-goal': 3600,
   streak: 3600,
@@ -35,6 +40,13 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
     return (
       <m.div layout className="toast toast-xp" {...motionProps}>
         +{effect.amount} XP
+      </m.div>
+    )
+  }
+  if (effect.type === 'gems') {
+    return (
+      <m.div layout className="toast toast-xp toast-gems" {...motionProps}>
+        +{effect.amount} 💎
       </m.div>
     )
   }
@@ -84,11 +96,26 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number)
       body = `${effect.budget} хв чистого прогресу. Серія 🔥 збережена`
       tone = 'gold'
       break
+    case 'freeze':
+      eyebrow = '🧊 Заморозка серії'
+      title = effect.days === 1 ? 'Пропущений день заморожено' : `Заморожено днів: ${effect.days}`
+      body = 'Серію врятовано — продовжуй!'
+      tone = 'accent'
+      break
+    case 'league':
+      eyebrow = '🏆 Ліга'
+      title = effect.result === 'promoted' ? 'Підвищення!' : effect.result === 'demoted' ? 'Ліга нижче' : 'Ліга збережена'
+      body = `Місце ${effect.rank} минулого тижня`
+      tone = effect.result === 'promoted' ? 'gold' : 'neutral'
+      break
     default:
       return null
   }
+  // Achievements: Loo celebrates by tier (bronze happy · silver cheer · gold fire).
+  const loo = effect.type === 'achievement' ? <Loo mood={TIER_MOOD[effect.tier ?? 'bronze']} size={44} decorative className="toast-loo" /> : null
   return (
-    <m.div layout className="toast" data-tone={tone} role="status" {...motionProps}>
+    <m.div layout className="toast" data-tone={tone} data-loo={loo ? '' : undefined} role="status" {...motionProps}>
+      {loo}
       <button type="button" className="toast-close" aria-label="Закрити" onClick={() => onDismiss(toast.id)}>
         ×
       </button>

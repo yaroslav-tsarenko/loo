@@ -10,6 +10,8 @@ import type { Effect, FlashRating } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
+import { PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
+import { addHearts, loadState, settleGame } from '../game'
 import { settleMission } from '../services/mission'
 import { evaluateAchievements, recordAttempt } from '../services/progress'
 
@@ -22,7 +24,6 @@ async function unitOrThrow(unitId: string) {
 
 const sessionRef = ids.session.nullable()
 
-const quizInput = z.object({ unitId: ids.unit, correct: z.boolean(), durationMs: ids.durationMs, sessionId: sessionRef })
 const flashInput = z.object({ unitId: ids.unit, rating: z.enum(['again', 'hard', 'good']), durationMs: ids.durationMs, sessionId: sessionRef })
 const hints = z.number().int().min(0).max(50)
 const taskInput = z.object({ unitId: ids.unit, solved: z.boolean(), hintsUsed: hints, durationMs: ids.durationMs, sessionId: sessionRef })
@@ -38,12 +39,8 @@ const sessionInput = z.object({
 })
 const endInput = z.object({ sessionId: ids.session })
 
-export async function recordQuizAnswer(raw: { unitId: string; correct: boolean; durationMs: number; sessionId: string | null }): Promise<Effect[]> {
-  await requireUser()
-  const input = parseInput(quizInput, raw)
-  const { snapshot, unit } = await unitOrThrow(input.unitId)
-  return await recordAttempt(snapshot, unit, { unitId: unit.id, outcome: input.correct ? 'correct' : 'wrong', durationMs: input.durationMs, sessionId: input.sessionId })
-}
+// Quizzes are answered through answerQuiz (./answers.ts): the server grades the raw answer — there is no action
+// that accepts a client-side «correct» flag any more.
 
 export async function rateFlashcard(raw: { unitId: string; rating: FlashRating; durationMs: number; sessionId: string | null }): Promise<Effect[]> {
   await requireUser()
@@ -104,7 +101,7 @@ export async function markChapter(raw: { chapterId: string; studied: boolean }):
         .insert(chapterProgress)
         .values({ userId, chapterId: chapter.id, guideId: chapter.guideId, status, scrollPct: input.studied ? 100 : 0, studiedAt: input.studied ? now : null, lastOpenedAt: now })
         .onConflictDoUpdate({ target: [chapterProgress.userId, chapterProgress.chapterId], set: { status, studiedAt: input.studied ? now : null, lastOpenedAt: now } })
-      return input.studied ? [...(await settleMission(tx, userId, now)), ...(await evaluateAchievements(tx, userId, snapshot, now))] : []
+      return input.studied ? [...(await settleMission(tx, userId, now)), ...(await settleGame(tx, userId, now)), ...(await evaluateAchievements(tx, userId, snapshot, now))] : []
     },
     { tx: true },
   )
@@ -166,7 +163,16 @@ export async function endSession(raw: { sessionId: string }): Promise<Effect[]> 
       )
       if (!row || row.endedAt) return []
       await tx.update(sessions).set({ endedAt: now }).where(and(eq(sessions.userId, userId), eq(sessions.id, input.sessionId)))
-      return await evaluateAchievements(tx, userId, snapshot, now)
+      const effects: Effect[] = []
+      // «Робота над помилками»: a finished practice session refills one ❤️.
+      if ((row.mode === 'mistakes' || row.mode === 'quiz') && row.total >= PRACTICE_MIN_ANSWERS) {
+        const before = (await loadState(tx, userId, now)).hearts.hearts
+        const after = await addHearts(tx, userId, PRACTICE_REFILL, now)
+        if (after.hearts > before) effects.push({ type: 'hearts', hearts: after.hearts, delta: after.hearts - before })
+      }
+      effects.push(...(await settleGame(tx, userId, now)))
+      effects.push(...(await evaluateAchievements(tx, userId, snapshot, now)))
+      return effects
     },
     { tx: true },
   )

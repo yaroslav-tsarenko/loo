@@ -6,8 +6,9 @@ import { createContext, use, useEffect, useState, type CSSProperties, type React
 import { NAV } from './nav'
 import { NAV_ICONS } from './nav-icons'
 
-// Mobile tab bar: the five daily destinations.
-const TABS = new Set(['/', '/feed', '/path', '/review', '/profile'])
+// Mobile tab bar: the five daily destinations (max 5). Leagues took the feed's slot — the feed stays one tap away on
+// «Сьогодні» and in the sidebar; due cards keep their badge.
+const TABS = new Set(['/', '/path', '/review', '/leagues', '/profile'])
 
 export const PROGRESS_EVENT = 'progress:changed'
 

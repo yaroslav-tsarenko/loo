@@ -22,6 +22,20 @@ export const METRICS = [
   'tests.perfect',
   'exams.passed',
   'sections.testedOut',
+  // Phase 4 game layer
+  'lessons.completed',
+  'lessons.perfect',
+  'courses.completed',
+  'rank',
+  'gems.earned',
+  'shop.purchases',
+  'skins.owned',
+  'freezes.used',
+  'practice.sessions',
+  'league.joined',
+  'league.promotions',
+  'league.podium',
+  'league.tier',
 ] as const
 
 export type Metric = (typeof METRICS)[number]
@@ -33,13 +47,18 @@ export type Condition =
   | { all: readonly Condition[] }
   | { any: readonly Condition[] }
 
+export type AchievementTier = 'bronze' | 'silver' | 'gold'
+
 export interface AchievementDef {
   id: string
   title: string
   description: string
-  tier: 'bronze' | 'silver' | 'gold'
+  tier: AchievementTier
   when: Condition
 }
+
+// Loo's mood when an achievement of this tier unlocks (toasts, profile).
+export const TIER_MOOD: Record<AchievementTier, 'happy' | 'cheer' | 'fire'> = { bronze: 'happy', silver: 'cheer', gold: 'fire' }
 
 export function holds(condition: Condition, stats: StatsSnapshot): boolean {
   if ('all' in condition) return condition.all.every((c) => holds(c, stats))

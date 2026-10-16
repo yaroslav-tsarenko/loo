@@ -1,6 +1,7 @@
 import 'server-only'
 import { Fragment, type ReactNode } from 'react'
-import { DIFFICULTY_LABEL, LEVEL_LABEL, type LearningUnit, type QuizExercise, type QuizMode, type TaskCode } from '@/content/model'
+import { gradedQuiz, type ExerciseView } from '@/content/blocks/quiz/view'
+import { DIFFICULTY_LABEL, LEVEL_LABEL, type LearningUnit, type QuizMode, type TaskCode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { previewIntervals } from '@/progress/srs'
 import { srsMap, taskStates } from '@/server/services/queue'
@@ -25,15 +26,17 @@ export interface FlashItem extends ItemBase {
   intervals: { again: number; hard: number; good: number }
 }
 
+// A graded quiz as the client sees it: no answer key (no `correct` flags, free answer, piece order or blank answers),
+// no explanation — the server's answerQuiz returns those after the answer (src/server/actions/answers.ts).
 export interface QuizItem extends ItemBase {
   kind: 'quiz'
   mode: QuizMode
+  multi: boolean
+  free: boolean
   prompt: ReactNode
   body: ReactNode
-  explanation: ReactNode
-  options: Array<{ id: string; correct: boolean; content: ReactNode }>
-  freeAnswer: string | null
-  exercise: QuizExercise | null
+  options: Array<{ id: string; content: ReactNode }>
+  exercise: ExerciseView | null
 }
 
 export interface TaskItem extends ItemBase {
@@ -78,22 +81,22 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
         }
       }
       if (unit.kind === 'quiz') {
-        const [prompt, body, explanation, ...options] = await Promise.all([
+        const [prompt, body, ...options] = await Promise.all([
           renderPhrasing(unit.prompt, env),
           unit.body.children.length > 0 ? renderMdast(unit.body, env) : Promise.resolve(null),
-          unit.explanation ? renderMdast(unit.explanation, env) : Promise.resolve(null),
           ...unit.options.map((o) => renderPhrasing(o.content, env)),
         ])
+        const payload = gradedQuiz(unit)
         return {
           ...base,
           kind: 'quiz',
-          mode: unit.mode,
+          mode: payload.mode,
+          multi: payload.multi,
+          free: payload.free,
           prompt,
           body,
-          explanation,
-          options: unit.options.map((o, i) => ({ id: o.id, correct: o.correct, content: options[i] })),
-          freeAnswer: unit.freeAnswer,
-          exercise: unit.exercise,
+          options: payload.optionIds.map((id, i) => ({ id, content: options[i] })),
+          exercise: payload.exercise,
         }
       }
       const [title, statement, solution, ...hints] = await Promise.all([

@@ -102,9 +102,12 @@ describe('server-side quiz grading', () => {
       freeAnswer: null,
       exercise: { kind: 'order', lang: 'js', pieces: [{ id: 'p0', code: 'a()', distractor: false }, { id: 'p1', code: 'x()', distractor: true }, { id: 'p2', code: 'b()', distractor: false }] },
     } as unknown as QuizUnit
-    expect(gradeQuiz(order, { chosen: ['p0', 'p2'] })).toBe(true)
-    expect(gradeQuiz(order, { chosen: ['p2', 'p0'] })).toBe(false)
-    expect(gradeQuiz(order, { chosen: ['p0', 'p1', 'p2'] })).toBe(false)
+    // Order answers are the pieces' code in order (clients only see shuffled pieces with positional ids).
+    expect(gradeQuiz(order, { chosen: ['a()', 'b()'] })).toBe(true)
+    expect(gradeQuiz(order, { chosen: ['b()', 'a()'] })).toBe(false)
+    expect(gradeQuiz(order, { chosen: ['a()', 'x()', 'b()'] })).toBe(false)
+    // authoring ids reveal the order, so they are not accepted
+    expect(gradeQuiz(order, { chosen: ['p0', 'p2'] })).toBe(false)
     const fill = {
       ...base,
       mode: 'fill',

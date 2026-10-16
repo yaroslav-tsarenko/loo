@@ -1,32 +1,31 @@
 'use client'
 
 import { useEffect, useState, type KeyboardEvent } from 'react'
-import { exerciseSolution, orderMatches } from '@/content/blocks/quiz/exercise'
 import { PiArrowCounterClockwiseBold, PiDotsSixVerticalBold } from 'react-icons/pi'
-import type { OrderExercise } from '@/content/model'
+import type { OrderView } from '@/content/blocks/quiz/view'
 import { highlightCode } from '@/ui/code/tokens'
 import { Button } from '@/ui/design/Button'
 import { ActionBar } from '../ActionBar'
-import { seededShuffle } from './shuffle'
 
 interface Props {
-  unitId: string
-  exercise: OrderExercise
+  // shuffled on the server; ids are positions, not answers
+  exercise: OrderView
   checked: boolean
+  // the right pieces' code in order — known only after the server's verdict
+  want: string[] | null
   variant: 'inline' | 'session'
-  onSubmit: (correct: boolean, chosen: string[]) => void
+  // the assembled code, piece by piece
+  onSubmit: (codes: string[]) => void
   actionsSlot?: Element | null
 }
 
 // Parsons problem: tap a piece in the pool to append it, tap a placed piece to send it back.
-export function OrderPuzzle({ unitId, exercise, checked, variant, onSubmit, actionsSlot }: Props) {
+export function OrderPuzzle({ exercise, checked, want, variant, onSubmit, actionsSlot }: Props) {
   const [answer, setAnswer] = useState<string[]>([])
   const byId = new Map(exercise.pieces.map((p) => [p.id, p]))
-  const want = exercise.pieces.filter((p) => !p.distractor).map((p) => p.code)
-  let shuffled = seededShuffle(exercise.pieces, unitId)
-  if (shuffled.every((p, i) => p.code === exercise.pieces[i]?.code)) shuffled = [...shuffled].reverse()
-  const pool = shuffled.filter((p) => !answer.includes(p.id))
-  const ok = checked && orderMatches(exercise, answer)
+  const pool = exercise.pieces.filter((p) => !answer.includes(p.id))
+  const codes = answer.map((id) => byId.get(id)?.code ?? '')
+  const ok = want !== null && codes.length === want.length && codes.every((c, i) => c === want[i])
 
   const add = (id: string) => {
     if (!checked) setAnswer((a) => (a.includes(id) ? a : [...a, id]))
@@ -36,7 +35,7 @@ export function OrderPuzzle({ unitId, exercise, checked, variant, onSubmit, acti
   }
   const submit = () => {
     if (checked || answer.length === 0) return
-    onSubmit(orderMatches(exercise, answer), answer)
+    onSubmit(codes)
   }
 
   const handleKey = (e: { key: string; preventDefault: () => void }) => {
@@ -71,7 +70,7 @@ export function OrderPuzzle({ unitId, exercise, checked, variant, onSubmit, acti
       <ol className="order-answer" data-empty={answer.length === 0 ? '' : undefined} aria-label="Зібраний код">
         {answer.map((id, i) => {
           const piece = byId.get(id)!
-          const state = checked ? (piece.code === want[i] ? 'right' : 'wrong') : 'idle'
+          const state = checked && want ? (piece.code === want[i] ? 'right' : 'wrong') : 'idle'
           return (
             <li key={id}>
               <button type="button" className="order-piece" data-state={state} onClick={() => remove(id)} disabled={checked} aria-label={`Рядок ${i + 1}: ${piece.code.trim()} — прибрати`}>
@@ -87,7 +86,7 @@ export function OrderPuzzle({ unitId, exercise, checked, variant, onSubmit, acti
       </ol>
       {!checked ? (
         <>
-          <span className="order-label">Шматки коду{exercise.pieces.some((p) => p.distractor) ? ' · є зайві' : ''}</span>
+          <span className="order-label">Шматки коду{exercise.distractors ? ' · є зайві' : ''}</span>
           <ul className="order-pool" aria-label="Доступні шматки">
             {pool.map((p, i) => (
               <li key={p.id}>
@@ -107,11 +106,11 @@ export function OrderPuzzle({ unitId, exercise, checked, variant, onSubmit, acti
             </Button>
           </ActionBar>
         </>
-      ) : !ok ? (
+      ) : want && !ok ? (
         <div className="exercise-solution">
           <span className="order-label">Правильний порядок</span>
           <pre>
-            <code>{highlightCode(exerciseSolution(exercise), 's')}</code>
+            <code>{highlightCode(want.join('\n'), 's')}</code>
           </pre>
         </div>
       ) : null}

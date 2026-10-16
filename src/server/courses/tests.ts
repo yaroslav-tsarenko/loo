@@ -2,10 +2,18 @@ import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { buildCoursePath } from '@/course'
 import { first, type Conn } from '@/db/client'
-import { examResults, topicResults } from '@/db/schema'
+import { examResults, topicResults, type StoredAnswer } from '@/db/schema'
 import { courseProgress } from './path'
 import { learnerLevel } from './lessons'
-import type { ResolvedTest } from './tests-core'
+import { courseFor } from './registry'
+import { attemptSeed, drawTest, resolveTest, type ResolvedTest } from './tests-core'
+
+export async function resolveTestById(id: string): Promise<ResolvedTest> {
+  const bundle = await courseFor(id)
+  const test = bundle ? resolveTest(bundle, id) : null
+  if (!test) throw new Error('Unknown test')
+  return test
+}
 
 export interface TestRecord {
   attempts: number
@@ -13,6 +21,8 @@ export interface TestRecord {
   lastSeed: string | null
   bestScore: number
   passed: boolean
+  // first server-checked answer per question index of the current attempt
+  answers: Record<string, StoredAnswer>
 }
 
 // The learner's row for a topic test or section exam (null = never started).
@@ -24,7 +34,7 @@ export async function readTestRecord(conn: Conn, userId: string, test: ResolvedT
         .from(topicResults)
         .where(and(eq(topicResults.userId, userId), eq(topicResults.testId, test.id))),
     )
-    return row ? { attempts: row.attempts, graded: row.graded, lastSeed: row.lastSeed, bestScore: row.bestScore, passed: row.passedAt !== null } : null
+    return row ? { attempts: row.attempts, graded: row.graded, lastSeed: row.lastSeed, bestScore: row.bestScore, passed: row.passedAt !== null, answers: row.answers ?? {} } : null
   }
   const row = await first(
     conn
@@ -32,7 +42,7 @@ export async function readTestRecord(conn: Conn, userId: string, test: ResolvedT
       .from(examResults)
       .where(and(eq(examResults.userId, userId), eq(examResults.examId, test.id))),
   )
-  return row ? { attempts: row.attempts, graded: row.graded, lastSeed: row.lastSeed, bestScore: row.bestScore, passed: row.passedAt !== null } : null
+  return row ? { attempts: row.attempts, graded: row.graded, lastSeed: row.lastSeed, bestScore: row.bestScore, passed: row.passedAt !== null, answers: row.answers ?? {} } : null
 }
 
 // Records that attempt n started (n = attempts + 1; re-starting the same ungraded attempt is a no-op).
@@ -47,12 +57,36 @@ export async function startAttempt(conn: Conn, userId: string, test: ResolvedTes
     await conn
       .insert(topicResults)
       .values({ userId, testId: test.id, courseId, attempts: attempt, lastSeed: seed, updatedAt: now })
-      .onConflictDoUpdate({ target: [topicResults.userId, topicResults.testId], set: { attempts: attempt, lastSeed: seed, lastScore: null, updatedAt: now } })
+      .onConflictDoUpdate({ target: [topicResults.userId, topicResults.testId], set: { attempts: attempt, lastSeed: seed, lastScore: null, answers: null, updatedAt: now } })
   } else {
     await conn
       .insert(examResults)
       .values({ userId, examId: test.id, courseId, sectionId: test.section.id, attempts: attempt, lastSeed: seed, updatedAt: now })
-      .onConflictDoUpdate({ target: [examResults.userId, examResults.examId], set: { attempts: attempt, lastSeed: seed, lastScore: null, updatedAt: now } })
+      .onConflictDoUpdate({ target: [examResults.userId, examResults.examId], set: { attempts: attempt, lastSeed: seed, lastScore: null, answers: null, updatedAt: now } })
+  }
+  return true
+}
+
+// answerQuiz during a test: the answer must belong to the started, ungraded attempt at that position. The first answer
+// per question is kept and the final grade (submitTest) uses it — a later resubmission can't change it.
+export async function storeTestAnswer(conn: Conn, userId: string, test: ResolvedTest, attempt: number, index: number, answer: StoredAnswer, now: number): Promise<boolean> {
+  const record = await readTestRecord(conn, userId, test)
+  const seed = attemptSeed(userId, attempt)
+  if (!record || record.attempts !== attempt || record.graded >= attempt || record.lastSeed !== seed) return false
+  const built = drawTest(test, seed)
+  if (!built || built.questions[index] !== answer.id) return false
+  if (record.answers[String(index)]) return true
+  const answers = { ...record.answers, [String(index)]: answer }
+  if (test.kind === 'topic-test') {
+    await conn
+      .update(topicResults)
+      .set({ answers, updatedAt: now })
+      .where(and(eq(topicResults.userId, userId), eq(topicResults.testId, test.id)))
+  } else {
+    await conn
+      .update(examResults)
+      .set({ answers, updatedAt: now })
+      .where(and(eq(examResults.userId, userId), eq(examResults.examId, test.id)))
   }
   return true
 }

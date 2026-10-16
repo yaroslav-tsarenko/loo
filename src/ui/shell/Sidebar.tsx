@@ -16,7 +16,8 @@ import { Logo } from '@/ui/design/brand/Logo'
 import { GameIcon } from '@/ui/design/GameIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
-import { OPEN_PALETTE } from './constants'
+import { RANKS } from '@/game/ranks'
+import { OPEN_PALETTE, RANK_KEY } from './constants'
 import { NAV } from './nav'
 import { FALLBACK_ICON, NAV_ICONS } from './nav-icons'
 import { PROGRESS_EVENT, useCounts } from './NavLinks'
@@ -205,19 +206,30 @@ function GuideRow({ guide, path, open, toggle }: { guide: SidebarGuide; path: st
   )
 }
 
-function LevelRow() {
+export interface SidebarRank {
+  title: string
+  emoji: string
+  index: number
+}
+
+// Level (from XP) + the game rank (src/game/ranks.ts; live through /api/counts).
+function LevelRow({ rank }: { rank?: SidebarRank }) {
   const { xp } = useFeedback()
+  const counts = useCounts()
   const info = levelInfo(xp)
   const pct = Math.round(info.progress * 100)
+  const live = RANKS[counts[RANK_KEY] ?? rank?.index ?? 0] ?? RANKS[0]!
   return (
-    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ${info.rank.title}, ${pct}% до наступного`}>
+    <Link href="/profile" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Рівень ${info.level}, ранг ${live.title}, ${pct}% до наступного рівня`}>
       <span className="sb-level-badge" aria-hidden="true">
         <GameIcon name="bolt" size={22} />
         <span className="tabular">{info.level}</span>
       </span>
       <span className="sb-level-body">
         <span className="sb-level-top">
-          <span>{info.rank.title}</span>
+          <span>
+            <span aria-hidden="true">{live.emoji}</span> {live.title}
+          </span>
           <span className="tabular">{pct}%</span>
         </span>
         <ProgressBar value={info.progress} tone="yellow" size="sm" label="Прогрес рівня" />
@@ -271,7 +283,7 @@ function CourseRows({ courses }: { courses: SidebarCourse[] }) {
   )
 }
 
-export function Sidebar({ guides, courses = [], theme, account }: { guides: SidebarGuide[]; courses?: SidebarCourse[]; theme: ThemeSetting; account?: SidebarAccount }) {
+export function Sidebar({ guides, courses = [], theme, account, rank }: { guides: SidebarGuide[]; courses?: SidebarCourse[]; theme: ThemeSetting; account?: SidebarAccount; rank?: SidebarRank }) {
   const raw = usePathname()
   const path = decode(raw)
   const counts = useCounts()
@@ -327,7 +339,7 @@ export function Sidebar({ guides, courses = [], theme, account }: { guides: Side
         </div>
         </div>
         <div className="sb-foot">
-          <LevelRow />
+          <LevelRow rank={rank} />
           <div className="sb-foot-tools">
             <SoundToggle />
             <ThemeToggle initial={theme} />

@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
-import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState, xpLedger } from '@/db/schema'
+import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState } from '@/db/schema'
 import { lookup } from '@/course'
 import type { Chapter } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
@@ -9,7 +9,9 @@ import { dayKey, dayStartMs } from '@/progress/day'
 import { missionRatio, planMission, stepProgress, type MissionActivity, type MissionPlan, type StepProgress } from '@/progress/mission'
 import type { Effect } from '@/progress/types'
 import { chapterHref } from '@/ui/routes'
+import { GEMS, gemRef } from '@/game'
 import { userScope } from '../auth'
+import { awardGems, grantXp } from '../game/ledger'
 import { readSettings } from '../settings'
 import { activeCourse, exerciseIds } from '../courses/enrollment'
 import { coursePathView, cursorHref } from '../courses/path'
@@ -274,15 +276,16 @@ export async function settleMission(conn: Conn, userId: string, now = Date.now()
     .update(dailyMissions)
     .set({ completedAt: now })
     .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day)))
-  await conn.insert(xpLedger).values({ userId, amount: plan.bonusXp, reason: 'mission', refId: day, createdAt: now, day })
+  const xp = await grantXp(conn, userId, { amount: plan.bonusXp, reason: 'mission', refId: day, now })
   await conn
     .insert(dailyActivity)
-    .values({ userId, day, xp: plan.bonusXp, goalMet: true })
-    .onConflictDoUpdate({ target: [dailyActivity.userId, dailyActivity.day], set: { xp: sql`${dailyActivity.xp} + ${plan.bonusXp}`, goalMet: true } })
-  return [
-    { type: 'mission', budget: plan.budget, bonusXp: plan.bonusXp },
-    { type: 'xp', amount: plan.bonusXp, reason: 'mission' },
-  ]
+    .values({ userId, day, xp, goalMet: true })
+    .onConflictDoUpdate({ target: [dailyActivity.userId, dailyActivity.day], set: { xp: sql`${dailyActivity.xp} + ${xp}`, goalMet: true } })
+  const gems = await awardGems(conn, userId, { amount: GEMS.mission, reason: 'mission', refId: gemRef.mission(day), now })
+  const effects: Effect[] = [{ type: 'mission', budget: plan.budget, bonusXp: xp }]
+  if (xp > 0) effects.push({ type: 'xp', amount: xp, reason: 'mission' })
+  if (gems > 0) effects.push({ type: 'gems', amount: gems, reason: 'mission' })
+  return effects
 }
 
 export async function missionHistory(days: string[]): Promise<Map<string, { budget: number; completed: boolean }>> {

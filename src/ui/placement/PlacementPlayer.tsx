@@ -12,7 +12,7 @@ import { Loo } from '@/ui/design/mascot/Loo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { Icon } from '@/ui/icons/Icon'
-import { QuizInline, type QuizResult } from '@/ui/study/QuizInline'
+import { QuizInline, type QuizCheck, type QuizResult } from '@/ui/study/QuizInline'
 
 interface Answer {
   id: string
@@ -31,6 +31,9 @@ interface Props {
   next: string
   zero: ReactNode
 }
+
+// Placement answers are graded by placementStep on the server (all at once); a single answer gets no verdict here.
+const collectOnly: QuizCheck = async () => ({ correct: null, key: null, explanation: null })
 
 // Adaptive placement in the lesson shell: one question at a time, the server picks the next one and grades.
 export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sections, levels, next, zero }: Props) {
@@ -172,15 +175,16 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
             <QuizInline
               unitId={item.unitId}
               mode={item.mode}
+              multi={item.multi}
+              free={item.free}
               level={item.level}
               prompt={item.prompt}
               body={item.body}
-              explanation={item.explanation}
               options={item.options}
-              freeAnswer={item.freeAnswer}
               exercise={item.exercise}
               variant="session"
               onResult={onResult}
+              check={collectOnly}
               actionsSlot={dock}
               verdict="none"
             />

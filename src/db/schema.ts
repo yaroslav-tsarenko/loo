@@ -198,7 +198,7 @@ export const xpLedger = pgTable(
     createdAt: ms('created_at').notNull(),
     day: text('day').notNull(),
   },
-  (t) => [index('xp_user_day_idx').on(t.userId, t.day)],
+  (t) => [index('xp_user_day_idx').on(t.userId, t.day), index('xp_user_created_idx').on(t.userId, t.createdAt)],
 )
 
 export const achievements = pgTable(
@@ -345,6 +345,13 @@ export const enrollments = pgTable(
   (t) => [primaryKey({ columns: [t.userId, t.courseId] }), uniqueIndex('enrollments_one_active_idx').on(t.userId).where(sql`${t.active}`)],
 )
 
+// A test answer checked by the server (checkAnswer), kept so the final grade uses the first answer, not a resubmission.
+export interface StoredAnswer {
+  id: string
+  chosen: string[]
+  text: string | null
+}
+
 // Topic tests (🏁, id `<topic>:test`). attempts = started attempts: attempt n draws its questions with the seed
 // `${userId}:${n}`; graded = the last attempt that was submitted (one grading per attempt).
 export const topicResults = pgTable(
@@ -359,6 +366,8 @@ export const topicResults = pgTable(
     lastScore: doublePrecision('last_score'),
     bestScore: doublePrecision('best_score').notNull().default(0),
     passedAt: ms('passed_at'),
+    // first answer per question of the current attempt, as checked on the server (index → answer)
+    answers: jsonb('answers').$type<Record<string, StoredAnswer>>(),
     updatedAt: ms('updated_at').notNull(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.testId] }), index('topic_results_user_course_idx').on(t.userId, t.courseId)],
@@ -379,6 +388,7 @@ export const examResults = pgTable(
     bestScore: doublePrecision('best_score').notNull().default(0),
     passedAt: ms('passed_at'),
     testOut: boolean('test_out').notNull().default(false),
+    answers: jsonb('answers').$type<Record<string, StoredAnswer>>(),
     updatedAt: ms('updated_at').notNull(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.examId] }), index('exam_results_user_course_idx').on(t.userId, t.courseId)],
@@ -414,4 +424,98 @@ export const rateLimits = pgTable(
     resetAt: ms('reset_at').notNull(),
   },
   (t) => [index('rate_limits_reset_idx').on(t.resetAt)],
+)
+
+// ─── Game layer (Phase 4, docs/ARCHITECTURE.md §6, rules in src/game) ─────────────────────────────────────────
+
+// Equipped Loo skin: shop item id per slot (src/game/shop.ts).
+export interface EquippedSkinState {
+  hat?: string
+  glasses?: string
+  hoodie?: string
+  scarf?: string
+}
+
+// One row per learner: hearts (refilled lazily from hearts_at), equipped streak freezes, double-XP window, Loo skin and
+// the last rank seen (to announce rank-ups). Created on first use.
+export const userState = pgTable('user_state', {
+  userId: userId().primaryKey(),
+  hearts: integer('hearts').notNull().default(5),
+  heartsAt: ms('hearts_at'),
+  streakFreezes: integer('streak_freezes').notNull().default(0),
+  doubleXpUntil: ms('double_xp_until'),
+  skin: jsonb('skin').$type<EquippedSkinState>().notNull().default({}),
+  rank: text('rank').notNull().default('noob'),
+  updatedAt: ms('updated_at').notNull(),
+})
+
+// 💎 Append-only, like xp_ledger: +earned / −spent. (user_id, reason, ref_id) is unique, so every award lands once.
+export const gemLedger = pgTable(
+  'gem_ledger',
+  {
+    id: integer('id').primaryKey().generatedByDefaultAsIdentity(),
+    userId: userId(),
+    amount: integer('amount').notNull(),
+    reason: text('reason').notNull(),
+    refId: text('ref_id').notNull(),
+    createdAt: ms('created_at').notNull(),
+    day: text('day').notNull(),
+  },
+  (t) => [uniqueIndex('gem_ledger_ref_idx').on(t.userId, t.reason, t.refId), index('gem_user_day_idx').on(t.userId, t.day)],
+)
+
+// Owned permanent shop items (Loo skins). Consumables (freezes, refills, boosts) live in user_state.
+export const inventory = pgTable(
+  'inventory',
+  {
+    userId: userId(),
+    itemId: text('item_id').notNull(),
+    acquiredAt: ms('acquired_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.itemId] })],
+)
+
+// 🧊 Days a streak freeze was spent on (they bridge the streak without counting as goal days).
+export const frozenDays = pgTable(
+  'frozen_days',
+  {
+    userId: userId(),
+    day: text('day').notNull(),
+    usedAt: ms('used_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.day] })],
+)
+
+// 🏆 A weekly league group (≤ 30 learners of one tier). Shared, written by the server only (no user grants).
+export const leagueCohorts = pgTable(
+  'league_cohorts',
+  {
+    id: text('id').primaryKey(),
+    // Monday of the league week in Europe/Kyiv, YYYY-MM-DD
+    week: text('week').notNull(),
+    tier: text('tier').notNull(),
+    size: integer('size').notNull().default(0),
+    createdAt: ms('created_at').notNull(),
+    finalizedAt: ms('finalized_at'),
+  },
+  (t) => [index('league_cohorts_week_tier_idx').on(t.week, t.tier)],
+)
+
+// A learner's place in one league week. final_* / result are filled when the week is finalized.
+export const leagueMembers = pgTable(
+  'league_members',
+  {
+    userId: userId(),
+    week: text('week').notNull(),
+    tier: text('tier').notNull(),
+    cohortId: text('cohort_id')
+      .notNull()
+      .references(() => leagueCohorts.id, { onDelete: 'cascade' }),
+    joinedAt: ms('joined_at').notNull(),
+    finalRank: integer('final_rank'),
+    finalXp: integer('final_xp'),
+    result: text('result', { enum: ['promoted', 'stayed', 'demoted'] }),
+    finalizedAt: ms('finalized_at'),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.week] }), index('league_members_cohort_idx').on(t.cohortId)],
 )

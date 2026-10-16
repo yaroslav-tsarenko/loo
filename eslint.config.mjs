@@ -30,6 +30,20 @@ const config = [
     },
   },
   {
+    files: ['src/game/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            { group: ['@/db/*', '@/db', '@/server/*', '@/ui/*', '@/app/*', '@/content/*', '@/course/*', '@/course', '@/i18n/*', '@/i18n'], message: 'game/ — чисті ігрові правила без I/O, БД, UI і тексту (дозволено лише @/progress/*)' },
+            { group: ['react', 'react/*', 'react-dom', 'next', 'next/*', 'node:*'], message: 'game/ — без React, Next і Node API' },
+          ],
+        },
+      ],
+    },
+  },
+  {
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],

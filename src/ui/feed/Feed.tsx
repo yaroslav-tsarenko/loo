@@ -321,18 +321,7 @@ export function Feed({ slides, nextHref, seenToday, target }: { slides: FeedSlid
                 <span className="reel-chip">
                   <span aria-hidden="true">🎲</span> Квіз · {q.chapterTitle}
                 </span>
-                <QuizInline
-                  unitId={q.unitId}
-                  mode={q.mode}
-                  level={q.level}
-                  prompt={q.prompt}
-                  body={q.body}
-                  explanation={q.explanation}
-                  options={q.options}
-                  freeAnswer={q.freeAnswer}
-                  exercise={q.exercise}
-                  variant="inline"
-                />
+                <QuizInline unitId={q.unitId} mode={q.mode} multi={q.multi} free={q.free} level={q.level} prompt={q.prompt} body={q.body} options={q.options} exercise={q.exercise} variant="inline" />
               </article>
             </Slide>
           )

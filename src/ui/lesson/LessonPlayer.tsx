@@ -3,9 +3,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { PiArrowClockwiseBold, PiArrowRightBold, PiBookOpenTextFill, PiCheckBold, PiEyeFill, PiFlagCheckeredFill, PiLightbulbFill, PiMapTrifoldFill, PiXBold } from 'react-icons/pi'
+import { PiArrowClockwiseBold, PiArrowRightBold, PiBandaidsFill, PiBookOpenTextFill, PiCheckBold, PiEyeFill, PiFlagCheckeredFill, PiLightbulbFill, PiMapTrifoldFill, PiXBold } from 'react-icons/pi'
+import { MAX_HEARTS, PRACTICE_MIN_ANSWERS, shopItem } from '@/game'
+import { answerQuiz } from '@/server/actions/answers'
 import { completeLesson, startLesson } from '@/server/actions/lessons'
-import { finishTask, rateFlashcard, recordQuizAnswer } from '@/server/actions/study'
+import { buyItem } from '@/server/actions/shop'
+import { finishTask, rateFlashcard } from '@/server/actions/study'
 import { t } from '@/i18n'
 import { startTest, submitTest, type TestOutcome } from '@/server/actions/tests'
 import type { Effect, FlashRating } from '@/progress/types'
@@ -21,7 +24,8 @@ import { ProgressBar } from '@/ui/design/ProgressBar'
 import { StatChip } from '@/ui/design/StatChip'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { ActionBar } from '@/ui/study/ActionBar'
-import { QuizInline, type QuizResult } from '@/ui/study/QuizInline'
+import { formatLeft, useClock } from '@/ui/shell/clock'
+import { QuizInline, type QuizCheck, type QuizResult, type QuizVerdict } from '@/ui/study/QuizInline'
 import { RateButtons } from '@/ui/study/RateButtons'
 import { TaskInline, type TaskResult } from '@/ui/study/TaskInline'
 import type { FlashItem } from '@/ui/study/render-items'
@@ -53,7 +57,19 @@ interface Props {
   // 🔥 above-level exercise ids
   challenges?: readonly string[]
   test?: TestSpec
+  // ❤️ at page load (lessons spend them; tests need ≥ 1 to start) and 💎 for an in-place refill
+  hearts: HeartsInfo
+  gems: number
+  // «Робота над помилками»: where practice refills hearts
+  practiceHref: string
 }
+
+export interface HeartsInfo {
+  hearts: number
+  nextAt: number | null
+}
+
+const REFILL = shopItem('heart-refill')!
 
 interface TestAnswer {
   id: string
@@ -68,7 +84,7 @@ interface Step {
   key: string
 }
 
-type Verdict = { correct: boolean; xp: number } | null
+type Verdict = { correct: boolean; xp: number; quiz?: QuizVerdict } | null
 
 const xpOf = (effects: readonly Effect[]) => effects.reduce((s, e) => s + (e.type === 'xp' ? e.amount : 0), 0)
 
@@ -123,7 +139,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
   )
 }
 
-function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number }) {
+function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus, gems }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number; gems: number }) {
   const feedback = useFeedback()
   const [shown, setShown] = useState({ xp: 0, accuracy: 0, minutes: 0 })
   const accuracy = total ? Math.round((correct / total) * 100) : 100
@@ -177,8 +193,13 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
           </dd>
         </div>
       </dl>
-      {streak || bestCombo >= 3 ? (
+      {streak || bestCombo >= 3 || gems > 0 ? (
         <div className="lesson-summary-chips">
+          {gems > 0 ? (
+            <span className="lesson-summary-chip" data-tone="blue">
+              <StatChip kind="gems" value={gems} size="sm" /> {t('game.gems.title').toLowerCase()}
+            </span>
+          ) : null}
           {streak ? (
             <span className="lesson-summary-chip" data-tone="orange">
               <StatChip kind="streak" value={streak} size="sm" /> днів поспіль
@@ -203,6 +224,67 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
         <Link href={chapterHref} className="lesson-summary-link">
           <PiBookOpenTextFill aria-hidden="true" /> Перечитати теорію
         </Link>
+      </div>
+    </div>
+  )
+}
+
+// 💔 No hearts left: practice («Робота над помилками») refills one per session, the shop refills all at once.
+function OutOfHearts({ hearts, gems, practiceHref, backHref, onRefilled }: { hearts: HeartsInfo; gems: number; practiceHref: string; backHref: string; onRefilled: (gems: number) => void }) {
+  const now = useClock(30_000)
+  const feedback = useFeedback()
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const canBuy = gems >= REFILL.price
+  const refill = async () => {
+    setBusy(true)
+    setError(null)
+    try {
+      const out = await buyItem({ itemId: REFILL.id })
+      if (!out.ok) {
+        setError(t(`game.shop.blocks.${out.reason}`))
+        return
+      }
+      feedback.effects(out.effects)
+      feedback.play('complete')
+      onRefilled(out.gems)
+    } catch {
+      setError(t('game.shop.error'))
+    } finally {
+      setBusy(false)
+    }
+  }
+  return (
+    <div className="lesson-summary hearts-out" role="alertdialog" aria-labelledby="hearts-out-title">
+      <div className="lesson-summary-hero">
+        <Loo mood="dizzy" size={160} className="lesson-summary-loo" />
+      </div>
+      <h1 className="lesson-summary-title" id="hearts-out-title">
+        {t('game.hearts.outTitle')}
+      </h1>
+      <p className="lesson-summary-note">{hearts.nextAt && now > 0 ? t('game.hearts.outLead', { when: `через ${formatLeft(hearts.nextAt - now)}` }) : t('game.hearts.outLeadFull')}</p>
+      <div className="hearts-row" aria-label={`${hearts.hearts} з ${MAX_HEARTS}`}>
+        {Array.from({ length: MAX_HEARTS }, (_, i) => (
+          <GameIcon key={i} name="heart" size={34} muted={i >= hearts.hearts} />
+        ))}
+      </div>
+      {error ? (
+        <p className="auth-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+      <div className="lesson-summary-actions">
+        <Button href={practiceHref} size="lg" block variant="secondary" icon={<PiBandaidsFill size={20} />}>
+          {t('game.hearts.practice')}
+        </Button>
+        <p className="choice-hint">{t('game.hearts.practiceHint', { n: PRACTICE_MIN_ANSWERS })}</p>
+        <Button size="lg" block onClick={() => void refill()} loading={busy} disabled={!canBuy} icon={<GameIcon name="gem" size={22} />}>
+          {t('game.hearts.refill', { price: REFILL.price })}
+        </Button>
+        {!canBuy ? <p className="choice-hint">{t('game.hearts.notEnough', { price: REFILL.price, gems })}</p> : null}
+        <Button href={backHref} variant="ghost" size="lg" block icon={<PiMapTrifoldFill size={20} />}>
+          {t('game.hearts.toPath')}
+        </Button>
       </div>
     </div>
   )
@@ -278,7 +360,7 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
       <p className="lesson-summary-note">
         {outcome.passed
           ? outcome.bonusXp > 0
-            ? t('tests.bonus', { xp: outcome.bonusXp })
+            ? `${t('tests.bonus', { xp: outcome.bonusXp })}${outcome.gems > 0 ? ` · ${t('game.gems.earned', { n: outcome.gems })}` : ''}`
             : t('tests.saved')
           : t('tests.failedNote', { needed: outcome.needed, total: outcome.total, correct: outcome.correct })}
       </p>
@@ -327,7 +409,7 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
   )
 }
 
-export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test }: Props) {
+export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test, hearts: initialHearts, gems: initialGems, practiceHref }: Props) {
   const feedback = useFeedback()
   const [begun, setBegun] = useState(!test)
   const [beginning, setBeginning] = useState(false)
@@ -347,27 +429,40 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
   const [bestCombo, setBestCombo] = useState(0)
   const [streak, setStreak] = useState<number | null>(null)
   const [stats, setStats] = useState({ correct: 0, total: 0, xp: 0 })
-  const [done, setDone] = useState<{ bonus: number; ms: number } | null>(null)
+  const [done, setDone] = useState<{ bonus: number; ms: number; gems: number } | null>(null)
+  const [hearts, setHearts] = useState<HeartsInfo>(initialHearts)
+  const [gems, setGems] = useState(initialGems)
+  // 💔 sheet: no hearts to start / continue a graded lesson
+  const [blocked, setBlocked] = useState(!test && initialHearts.hearts <= 0)
   const [dock, setDock] = useState<HTMLDivElement | null>(null)
   const comboRef = useRef<HTMLSpanElement>(null)
   const session = useRef<Promise<string | null> | null>(null)
   const started = useRef(0)
   const pending = useRef<Promise<unknown>>(Promise.resolve())
+  // XP the server granted for the quiz answer being graded (shown on the verdict sheet)
+  const quizXp = useRef(0)
 
-  useEffect(() => {
-    if (test) return
+  const openSession = useCallback(() => {
     started.current = Date.now()
     session.current = startLesson(lessonId).catch(() => null)
-  }, [lessonId, test])
+    void session.current.then((id) => {
+      if (id === null) setBlocked(true)
+    })
+  }, [lessonId])
+
+  useEffect(() => {
+    if (test || initialHearts.hearts <= 0) return
+    openSession()
+  }, [test, initialHearts.hearts, openSession])
 
   const begin = useCallback(async () => {
     if (!test) return
     setBeginning(true)
     setTestError(null)
     try {
-      const { ok } = await startTest({ testId: test.id, attempt: test.attempt })
+      const { ok, reason } = await startTest({ testId: test.id, attempt: test.attempt })
       if (!ok) {
-        setTestError(t('tests.stale'))
+        setTestError(reason === 'hearts' ? t('game.hearts.testNeedsHeart') : t('tests.stale'))
         return
       }
       started.current = Date.now()
@@ -394,9 +489,10 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     [feedback],
   )
 
-  // Graded steps update combo, stats and the retry queue; the server call runs in the background.
+  // Graded steps update combo, stats and the retry queue. Quizzes arrive already graded by the server (answerQuiz);
+  // self-rated cards and tasks are recorded in the background.
   const grade = useCallback(
-    (correct: boolean, call: (sessionId: string | null) => Promise<Effect[]>) => {
+    (correct: boolean, call: ((sessionId: string | null) => Promise<Effect[]>) | null, quiz?: QuizVerdict, xp = 0) => {
       if (!step || graded.current === step.key) return
       graded.current = step.key
       setAnswered(true)
@@ -416,7 +512,8 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         // Lessons bring a mistake back at the end; tests count the first answer only.
         if (!step.retry && !test) setQueue((q) => [...q, { item: step.item, retry: true, key: `${step.key}-retry` }])
       }
-      setVerdict({ correct, xp: 0 })
+      setVerdict({ correct, xp, quiz })
+      if (!call) return
       pending.current = (async () => {
         const id = session.current ? await session.current : null
         const gained = absorb(await call(id))
@@ -434,24 +531,28 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         const outcome = await submitTest({ testId: test.id, attempt: test.attempt, answers: answers.current })
         absorb(outcome.effects)
         setTestResult(outcome)
-        setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current })
+        setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, gems: outcome.gems })
       } catch {
         setTestError(t('tests.saveError'))
       }
       return
     }
     const id = session.current ? await session.current : null
-    const outcome = await completeLesson({ lessonId, sessionId: id, correct: stats.correct, total: stats.total })
+    const outcome = await completeLesson({ lessonId, sessionId: id })
     absorb(outcome.effects)
-    setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current })
-  }, [lessonId, stats.correct, stats.total, absorb, test])
+    setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, gems: outcome.gems })
+  }, [lessonId, absorb, test])
 
   const advance = useCallback(() => {
     setVerdict(null)
     setAnswered(false)
     if (pos + 1 >= queue.length) void finish()
-    else setPos((p) => p + 1)
-  }, [pos, queue.length, finish])
+    else {
+      // Out of hearts mid-lesson: stop here (the session stays open — a refill continues it).
+      if (!test && hearts.hearts <= 0) setBlocked(true)
+      setPos((p) => p + 1)
+    }
+  }, [pos, queue.length, finish, test, hearts.hearts])
 
   useEffect(() => {
     if (!answered) return
@@ -465,13 +566,45 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     return () => window.removeEventListener('keydown', onKey)
   }, [answered, advance])
 
+  // The server grades every quiz answer (lesson: in the session, charging ❤️ for a miss; test: stored as the
+  // attempt's first answer for this question). The client never had the key.
+  const checkQuiz = useCallback<QuizCheck>(
+    async (answer) => {
+      const id = test ? null : session.current ? await session.current : null
+      const out = await answerQuiz({ ...answer, sessionId: id, test: test ? { testId: test.id, attempt: test.attempt, index: pos } : null })
+      if (out.hearts) setHearts(out.hearts)
+      if (out.outOfHearts) {
+        setBlocked(true)
+        return out
+      }
+      quizXp.current = absorb(out.effects)
+      return out
+    },
+    [test, pos, absorb],
+  )
+
   const onQuiz = useCallback(
     (r: QuizResult) => {
-      if (!step || graded.current === step.key) return
+      if (!step || graded.current === step.key || r.correct === null) return
       if (test) answers.current[pos] = { id: r.unitId, chosen: r.chosen, text: r.text, rating: null }
-      grade(r.correct, (id) => recordQuizAnswer({ unitId: r.unitId, correct: r.correct, durationMs: r.durationMs, sessionId: id }))
+      grade(r.correct, null, r.verdict, quizXp.current)
+      quizXp.current = 0
     },
     [grade, test, step, pos],
+  )
+
+  const onRefilled = useCallback(
+    (left: number) => {
+      setGems(left)
+      setHearts({ hearts: MAX_HEARTS, nextAt: null })
+      setBlocked(false)
+      if (!session.current) openSession()
+      else
+        void session.current.then((id) => {
+          if (id === null) openSession()
+        })
+    },
+    [openSession],
   )
   const onTask = useCallback(
     (r: TaskResult) => grade(r.solved, (id) => finishTask({ unitId: r.unitId, solved: r.solved, hintsUsed: r.hintsUsed, durationMs: r.durationMs, sessionId: id })),
@@ -487,6 +620,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
     [step, feedback, grade, test, pos],
   )
 
+  if (blocked && !done) return <OutOfHearts hearts={hearts} gems={gems} practiceHref={practiceHref} backHref={test?.backHref ?? '/path'} onRefilled={onRefilled} />
   if (test && !begun) return <TestIntro test={test} title={title} emoji={emoji} chapterTitle={chapterTitle} busy={beginning} error={testError} onStart={() => void begin()} />
   if (test && testResult) return <TestSummary test={test} outcome={testResult} nextHref={nextHref} nextLabel={nextLabel} onRetry={() => router.refresh()} />
   if (test && begun && (testError || (submitting && !testResult)))
@@ -509,15 +643,16 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
         <p className="lesson-summary-note">{t('tests.counting')}</p>
       </div>
     )
-  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} nextLabel={nextLabel} chapterHref={chapterHref} bonus={done.bonus} />
+  if (done) return <Summary xp={stats.xp} correct={stats.correct} total={stats.total} ms={done.ms} bestCombo={bestCombo} streak={streak} nextHref={nextHref} nextLabel={nextLabel} chapterHref={chapterHref} bonus={done.bonus} gems={done.gems} />
   if (!step) return null
 
   const progress = (pos + (answered ? 1 : 0)) / total
   const item = step.item
-  // Loo reacts: a fixed mistake is a eureka, a combo is a cheer; three misses in a row make him dizzy.
-  const mood: LooMood = verdict?.correct ? (step.retry ? 'eureka' : combo >= 3 ? 'cheer' : pos % 2 ? 'wink' : 'happy') : misses >= 3 ? 'dizzy' : pos % 2 ? 'thinking' : 'sad'
-  const explanation = verdict && item.kind === 'quiz' ? item.explanation : null
-  const freeReveal = verdict && !verdict.correct && item.kind === 'quiz' && item.options.length === 0 && item.freeAnswer && item.mode !== 'order' && item.mode !== 'fill' ? item.freeAnswer : null
+  // Loo reacts: a fixed mistake is a eureka, a combo is a cheer; three misses in a row (or the last heart) make him dizzy.
+  const lowHearts = !test && hearts.hearts <= 1
+  const mood: LooMood = verdict?.correct ? (step.retry ? 'eureka' : combo >= 3 ? 'cheer' : pos % 2 ? 'wink' : 'happy') : misses >= 3 || lowHearts ? 'dizzy' : pos % 2 ? 'thinking' : 'sad'
+  const explanation = verdict?.quiz?.explanation ?? null
+  const freeReveal = verdict && !verdict.correct && item.kind === 'quiz' && item.free ? (verdict.quiz?.key?.free ?? null) : null
   return (
     <div className="lesson">
       <header className="lesson-top">
@@ -535,7 +670,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           <GameIcon name="fire" size={22} muted={combo === 0} />
           {combo}
         </span>
-        <StatChip kind="hearts" value={5} size="sm" className="lesson-hearts" />
+        {test ? null : <StatChip kind="hearts" value={hearts.hearts} size="sm" className="lesson-hearts" active={hearts.hearts > 0} />}
       </header>
 
       <main className="lesson-stage">
@@ -585,14 +720,15 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
             <QuizInline
               unitId={item.unitId}
               mode={item.mode}
+              multi={item.multi}
+              free={item.free}
               level={item.level}
               prompt={item.prompt}
               body={item.body}
-              explanation={item.explanation}
               options={item.options}
-              freeAnswer={item.freeAnswer}
               exercise={item.exercise}
               variant="session"
+              check={checkQuiz}
               onResult={onQuiz}
               actionsSlot={dock}
               verdict="none"
@@ -622,7 +758,7 @@ export function LessonPlayer({ lessonId, title, emoji, chapterTitle, chapterHref
           {verdict ? (
             <div className="lesson-verdict" role="status">
               <LooSays mood={mood} size={72} className="lesson-verdict-loo">
-                <strong className="lesson-verdict-title">{verdict.correct ? PRAISE[pos % PRAISE.length] : COMFORT[pos % COMFORT.length]}</strong>
+                <strong className="lesson-verdict-title">{verdict.correct ? PRAISE[pos % PRAISE.length] : lowHearts && hearts.hearts > 0 ? t('game.hearts.lowLoo', { n: hearts.hearts }) : hearts.hearts <= 0 && !test ? t('game.hearts.outTitle') : COMFORT[pos % COMFORT.length]}</strong>
                 {verdict.xp > 0 ? (
                   <span className="lesson-verdict-xp tabular">
                     <GameIcon name="bolt" size={18} />+{verdict.xp} XP

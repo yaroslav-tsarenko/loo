@@ -5,9 +5,9 @@ import { attempts, chapterProgress, dailyActivity, mistakes, srsCards, taskState
 import type { Chapter, Guide, TreeNode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
-import { computeStreak } from '@/progress/streak'
 import { chapterHref } from '@/ui/routes'
 import { userScope } from '../auth'
+import { streakNow } from '../game'
 import { readSettings } from '../settings'
 
 export type ChapterStatus = 'unread' | 'reading' | 'studied'
@@ -157,7 +157,8 @@ export async function todaySummary(snapshot: ContentSnapshot): Promise<TodaySumm
     mistakes: open,
     answeredToday: today?.total ?? 0,
     goal: settings.dailyGoal,
-    streak: computeStreak(goalDays, dayKey(now)).current,
+    // with 🧊 freezes applied (src/server/game/streak.ts)
+    streak: goalDays.length > 0 ? (await streakNow(now)).current : 0,
     continueChapter,
   }
 }
