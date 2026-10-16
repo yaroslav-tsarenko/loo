@@ -36,7 +36,10 @@ async function checkUrl(name: string, port: number) {
     ok(`${name}: підключення працює (користувач ${row!.u}, порт ${port})`)
   } catch (e) {
     const err = e as { code?: string; message: string }
-    bad(`${name}: ${err.code === '28P01' || /password/i.test(err.message) ? 'невірний пароль БД' : `${err.code ?? ''} ${err.message}`}`)
+    const wrong = err.code === '28P01' || /password/i.test(err.message)
+    // After a password reset the transaction pooler (6543) lags behind the session pooler by a minute or two.
+    const hint = wrong && port === 6543 ? ' (якщо пароль щойно скинуто — зачекай 1–2 хв, пулер 6543 оновлюється із затримкою)' : ''
+    bad(`${name}: ${wrong ? `невірний пароль БД${hint}` : `${err.code ?? ''} ${err.message}`}`)
   } finally {
     await sql.end({ timeout: 2 })
   }
