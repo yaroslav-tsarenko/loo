@@ -79,9 +79,16 @@ if [[ "${LOCAL:-Y}" =~ ^[Yy]?$ ]]; then
 fi
 
 echo
-echo "5/5 Деплой у продакшн…"
-pnpm content:sync >/dev/null
-vercel --prod
+echo "5/5 Деплой"
+echo "    Змінні й база готові. Деплой іде з GitHub: кожен push у main → продакшн на Vercel."
+read -rp "    Задеплоїти поточну папку прямо зараз через Vercel CLI (включно з незакоміченими змінами)? [y/N] " DEPLOY
+if [[ "${DEPLOY:-N}" =~ ^[Yy]$ ]]; then
+  pnpm content:sync >/dev/null
+  pnpm course:build >/dev/null
+  vercel --prod
+else
+  echo "    Пропущено. Для деплою: git push (або vercel --prod)."
+fi
 echo
 echo "✅ Готово. Далі: Supabase → Authentication → URL Configuration / Email Templates / Providers (docs/AUTH.md),"
 echo "   потім увійди адмін-email'ом — твій старий прогрес перейде на акаунт автоматично."
