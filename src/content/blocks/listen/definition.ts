@@ -1,20 +1,30 @@
 import type { Root, RootContent } from 'mdast'
 import { toString } from 'mdast-util-to-string'
-import type { AudioLine, ListenSpec, ListenType, QuizOption, QuizUnit } from '../../model'
+import type { AudioLine, FillExercise, ListenSpec, ListenType, QuizOption, QuizUnit } from '../../model'
 import { FieldBag, isSlow, readFields } from '../lang/fields'
 import { levelFrom, placementFields, splitTags } from '../meta'
 import { EXPLANATION, isTaskList, labeledParagraph, optionContent } from '../quiz/definition'
+import { isRoleFence, parseFill } from '../quiz/exercise'
 import type { UnitDefinition } from '../types'
 
 // `> [!listen] Що ти почув?` — listening (docs/LANGUAGE_COURSE.md). A quiz of mode 'listen' for the engine:
 //   type: choice    — pick what was said (options = transcripts; the right one is server-side only)
 //   type: answer    — a question about what was said (options = answers)
 //   type: dictation — type what you heard (graded without case / punctuation, src/content/blocks/lang/grade.ts)
+//   type: fill      — complete a form / notes while listening (IELTS Listening form, note, table completion): the
+//                     ```fill fence with [[answer]] blanks is the exercise; `bank: yes` or `bank: extra, words` → word bank
 // `audio:` lines are spoken in order; `audio: A: …` / `audio: B: …` make a dialogue with alternating voices.
 
 // skill / diff: placement bank items (docs/LANGUAGE_COURSE.md «Банк вступного тесту»)
-const KEYS = new Set(['level', 'type', 'id', 'audio', 'speed', 'accept', 'tags', 'lang', 'explain', 'skill', 'diff'])
-const TYPES: readonly ListenType[] = ['choice', 'dictation', 'answer']
+const KEYS = new Set(['level', 'type', 'id', 'audio', 'speed', 'accept', 'tags', 'lang', 'explain', 'skill', 'diff', 'bank'])
+const TYPES: readonly ListenType[] = ['choice', 'dictation', 'answer', 'fill']
+
+// `bank: yes` → a bank of the blanks' answers; `bank: extra, words` → plus these distractors; none → free inputs
+function fillBank(value: string | null): { bank: boolean; extra: string[] } {
+  if (!value) return { bank: false, extra: [] }
+  if (/^(yes|true|on|так)$/i.test(value)) return { bank: true, extra: [] }
+  return { bank: true, extra: value.split(',').map((w) => w.trim()).filter(Boolean) }
+}
 
 export const MAX_AUDIO_CHARS = 300
 
@@ -59,17 +69,36 @@ export const listenDefinition: UnitDefinition = {
     const explain = f.get('explain')
     if (!explanation && explain) explanation = { type: 'root', children: [{ type: 'paragraph', children: explain.phrasing }] }
     const declared = f.text('type')?.toLowerCase() as ListenType | undefined
-    const type: ListenType = declared && TYPES.includes(declared) ? declared : options.length > 0 ? 'choice' : 'dictation'
-    if (declared && !TYPES.includes(declared)) ctx.report?.('warning', `[!listen] «${promptText}»: невідомий type «${declared}» (choice | dictation | answer)`)
+    const fence = body.findIndex((n) => n.type === 'code' && isRoleFence(n, 'fill'))
+    const type: ListenType = declared && TYPES.includes(declared) ? declared : fence >= 0 ? 'fill' : options.length > 0 ? 'choice' : 'dictation'
+    if (declared && !TYPES.includes(declared)) ctx.report?.('warning', `[!listen] «${promptText}»: невідомий type «${declared}» (choice | dictation | answer | fill)`)
     if (lines.length === 0) ctx.report?.('error', `[!listen] «${promptText}»: немає рядка audio:`)
-    if (type !== 'dictation' && options.length < 2) ctx.report?.('error', `[!listen] «${promptText}» (type: ${type}): потрібно ≥ 2 варіанти - [ ] / - [x]`)
+    // type: fill — the tagged fence (or the first fence) is the form to complete
+    let exercise: FillExercise | null = null
+    let fillText = ''
+    if (type === 'fill') {
+      const at = fence >= 0 ? fence : body.findIndex((n) => n.type === 'code')
+      const node = body[at]
+      if (node?.type === 'code') {
+        body.splice(at, 1)
+        const { bank, extra } = fillBank(f.text('bank'))
+        exercise = parseFill(node, bank, extra)
+        fillText = node.value
+      }
+      if (!exercise || !exercise.segments.some((s) => s.kind === 'blank')) ctx.report?.('error', `[!listen] «${promptText}» (type: fill): потрібен блок \`\`\`fill із пропусками [[відповідь]]`)
+      if (options.length > 0) {
+        ctx.report?.('warning', `[!listen] «${promptText}» (type: fill): варіанти ігноруються`)
+        options = []
+      }
+    } else if (type !== 'dictation' && options.length < 2) ctx.report?.('error', `[!listen] «${promptText}» (type: ${type}): потрібно ≥ 2 варіанти - [ ] / - [x]`)
     if (type === 'dictation' && options.length > 0) {
       ctx.report?.('warning', `[!listen] «${promptText}»: у диктанті варіанти ігноруються`)
       options = []
     }
     const spoken = lines.reduce((n, l) => n + l.text.length, 0)
     if (spoken > MAX_AUDIO_CHARS) ctx.report?.('warning', `[!listen] «${promptText}»: ${spoken} символів аудіо — краще ≤ ${MAX_AUDIO_CHARS}`)
-    if (lines.length === 0 || (type !== 'dictation' && options.length < 2)) return null
+    if (lines.length === 0) return null
+    if (type === 'fill' ? !exercise?.segments.some((s) => s.kind === 'blank') : type !== 'dictation' && options.length < 2) return null
     const listen: ListenSpec = {
       type,
       lines,
@@ -80,7 +109,7 @@ export const listenDefinition: UnitDefinition = {
         .filter(Boolean),
     }
     const audioText = dictationText(lines)
-    const { id, source } = ctx.resolveId(f.text('id'), `listen:${promptText}\n${audioText}`)
+    const { id, source } = ctx.resolveId(f.text('id'), `listen:${promptText}\n${audioText}${fillText ? `\n${fillText}` : ''}`)
     const unit: QuizUnit = {
       id,
       kind: 'quiz',
@@ -97,7 +126,7 @@ export const listenDefinition: UnitDefinition = {
       options,
       freeAnswer: type === 'dictation' ? audioText : null,
       explanation,
-      exercise: null,
+      exercise,
       listen,
       ...(f.text('lang') ? { lang: f.text('lang')! } : {}),
       ...placementFields(f.text('skill'), f.text('diff')),

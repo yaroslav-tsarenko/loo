@@ -71,6 +71,7 @@ export function parseFill(node: Code, bank: boolean, extra: string[] = [], role 
 
 // Authoring problems surfaced by `pnpm content:check` and the settings panel
 export function exerciseProblems(unit: QuizUnit): string[] {
+  // [!listen] type: fill reports its own problems (src/content/blocks/listen/definition.ts)
   if (unit.mode !== 'order' && unit.mode !== 'fill') return []
   const ex = unit.exercise
   if (!ex || ex.kind !== unit.mode) return [`Тест ${unit.id} (type: ${unit.mode}) без блоку коду \`${unit.mode}\``]
@@ -93,9 +94,14 @@ export function exerciseSolution(ex: OrderExercise | FillExercise): string {
   return ex.segments.map((s) => (s.kind === 'text' ? s.value : s.answers[0])).join('')
 }
 
-export function blankMatches(answers: readonly string[], value: string): boolean {
+// `loose` — [!listen] type: fill (IELTS form completion): case, inner spacing and a final full stop don't matter
+const looseForm = (s: string) => s.trim().replace(/\s+/g, ' ').replace(/\.$/, '').toLowerCase()
+
+export function blankMatches(answers: readonly string[], value: string, loose = false): boolean {
   const v = value.trim()
-  return v !== '' && answers.some((a) => a.trim() === v)
+  if (v === '') return false
+  if (loose) return answers.some((a) => looseForm(a) === looseForm(v))
+  return answers.some((a) => a.trim() === v)
 }
 
 export function orderMatches(ex: OrderExercise, ids: readonly string[]): boolean {

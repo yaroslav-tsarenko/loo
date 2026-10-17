@@ -40,6 +40,16 @@ tags: [english, a1, vocabulary]
 >
 > **Пояснення:** B каже «from Ukraine».
 
+> [!listen] Заповни форму
+> level: A1 · type: fill · id: en-a1-hello-l05
+> audio: A: What's your name?
+> audio: B: Anna Kovalenko. I'm from Kyiv.
+>
+> ```fill
+> Name: Anna [[Kovalenko]]
+> City: [[Kyiv|Kiev]]
+> ```
+
 > [!listen] Без аудіо
 > level: A1 · id: en-a1-hello-l04
 > - [x] a

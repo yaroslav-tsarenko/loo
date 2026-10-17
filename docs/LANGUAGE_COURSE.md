@@ -54,6 +54,24 @@ Courses/english-a1-c2/course.yaml    ← маніфест курсу (kind: lang
 `audio:` з мовцем: `audio: A: Where are you from?` / `audio: B: I'm from Ukraine.` (голоси чергуються).
 `speed: slow` — для A1.
 
+`type: fill` — заповни форму / нотатки / таблицю під час слухання (IELTS Listening form, note, table completion):
+блок ```` ```fill ```` з пропусками `[[відповідь]]` (варіанти — `[[Kyiv|Kiev]]`), `bank: yes` або `bank: зайві, слова` —
+банк слів. Перевірка без урахування регістру, зайвих пробілів і крапки в кінці. Форма приходить без відповідей,
+відповіді — у вердикті сервера.
+
+```md
+> [!listen] Complete the booking form. Write ONE WORD AND/OR A NUMBER.
+> level: B1 · type: fill · id: en-b1-hotel-l07
+> audio: A: Can I take your surname? B: It's Hartley, H-A-R-T-L-E-Y.
+> audio: A: And how many nights? B: Three, from the fourteenth.
+>
+> ```fill
+> Surname: [[Hartley]]
+> Nights: [[3|three]]
+> Arrival: [[14th|14|fourteenth]] June
+> ```
+```
+
 ### `[!speak]` — вимова (мікрофон)
 
 ```md

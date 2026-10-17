@@ -66,7 +66,7 @@
 - [ ] Етап 2, далі: калібрувати пороги на даних; пропозиція перескочити на карті курсу; підбір під рівень і для «Тестів» / «Карток» курсу JavaScript
 - [x] B1 (30 тем, IELTS-формати з B1)
 - [x] B2 (29 тем, B2 ≈ IELTS 5.5–6.5; підсумок з міні-IELTS: Listening 3–4, Academic Reading, Writing 1–2, Speaking 2–3) · [ ] Етап 3+: контент C1, C2 за ENGLISH_SYLLABUS.md §8, з практикою у форматі IELTS
-- [ ] `audio:` у `[!quiz] type: fill` (IELTS Listening form/note completion: слухаєш і заповнюєш форму); поки що такі завдання — вибір відповіді в `[!listen]`
+- [x] `[!listen] type: fill` — IELTS Listening form/note/table completion: слухаєш і заповнюєш форму (без регістру, варіанти `[[a|b]]`, банк слів); форма без відповідей, ключ — у вердикті сервера
 - [ ] Розділ «IELTS: стратегії й пробні тести» (Listening, Reading Academic/General, Writing 1–2, Speaking 1–3)
 - [ ] Фінальний етап: AI-перевірка письма й говоріння за band descriptors (після підтвердження вартості)
 

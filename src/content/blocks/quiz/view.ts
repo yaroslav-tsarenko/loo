@@ -91,7 +91,7 @@ export function quizKey(unit: QuizUnit): QuizKey {
     options: unit.options.filter((o) => o.correct).map((o) => o.id),
     free: isFreeQuiz(unit) ? unit.freeAnswer : null,
     order: unit.mode === 'order' && ex?.kind === 'order' ? ex.pieces.filter((p) => !p.distractor).map((p) => p.code) : null,
-    blanks: unit.mode === 'fill' && ex?.kind === 'fill' ? ex.segments.flatMap((s) => (s.kind === 'blank' ? [s.answers] : [])) : null,
+    blanks: (unit.mode === 'fill' || unit.mode === 'listen') && ex?.kind === 'fill' ? ex.segments.flatMap((s) => (s.kind === 'blank' ? [s.answers] : [])) : null,
     ...(unit.mode === 'listen' && unit.listen?.accept.length ? { accept: unit.listen.accept } : {}),
   }
 }
@@ -100,7 +100,7 @@ export function quizKey(unit: QuizUnit): QuizKey {
 // Order answers are the pieces' code in the learner's order; fill answers are the blank values.
 export function gradeWithKey(shape: QuizShape, key: QuizKey, answer: QuizAnswer): boolean {
   if (shape.mode === 'order') return key.order !== null && answer.chosen.length === key.order.length && answer.chosen.every((c, i) => c === key.order![i])
-  if (shape.mode === 'fill') return key.blanks !== null && key.blanks.length > 0 && answer.chosen.length === key.blanks.length && key.blanks.every((b, i) => blankMatches(b, answer.chosen[i] ?? ''))
+  if (shape.mode === 'fill' || (shape.mode === 'listen' && key.blanks)) return key.blanks !== null && key.blanks.length > 0 && answer.chosen.length === key.blanks.length && key.blanks.every((b, i) => blankMatches(b, answer.chosen[i] ?? '', shape.mode === 'listen'))
   if (shape.mode === 'speak') return false
   if (shape.mode === 'listen' && shape.free) return dictationMatches(answer.text ?? '', key.free ?? '', key.accept ?? [])
   if (shape.free) {

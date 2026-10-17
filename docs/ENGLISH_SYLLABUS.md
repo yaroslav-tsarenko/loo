@@ -462,7 +462,7 @@ estimatedMinutes: 35
 - **Формат іспиту наскрізно з B1.** У кожному рівні B1–C2 частина практики — у форматі IELTS, щоб учень звикав
   до завдань ще до окремої підготовки:
   - **Listening** (4 частини: побутовий діалог, монолог, навчальна дискусія, лекція): form / note / table
-    completion (`type: fill`), multiple choice (`[!listen]`), matching, plan/map labelling (`[!quiz]` з варіантами),
+    completion (`[!listen] type: fill` — форма з пропусками під час слухання), multiple choice (`[!listen]`), matching, plan/map labelling (`[!quiz]` з варіантами),
     spelling імен і чисел (диктант).
   - **Reading** (Academic: 3 тексти з журналів/книжок; General: оголошення, робочі документи, довгий текст):
     True / False / Not Given і Yes / No / Not Given (`[!quiz]` з трьома варіантами), matching headings,

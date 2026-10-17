@@ -76,11 +76,14 @@ interface Props {
   lang?: string | null
 }
 
-function kindOf(mode: QuizMode, free: boolean, multi: boolean): { label: string; tone: Tone; icon: ReactNode } {
+// `code`: the exercise fence names a programming language (```js order); language courses' sentences: none or ```text
+const PLAIN_FENCE = /^(text|txt|plain|plaintext)$/i
+
+function kindOf(mode: QuizMode, free: boolean, multi: boolean, code: boolean): { label: string; tone: Tone; icon: ReactNode } {
   if (mode === 'listen') return { label: free ? 'Диктант' : 'Аудіювання', tone: 'pink', icon: <PiHeadphonesFill /> }
   if (mode === 'pair') return { label: 'Розрізни на слух', tone: 'orange', icon: <PiEarFill /> }
   if (mode === 'speak') return { label: 'Скажи вголос', tone: 'mint', icon: <PiMicrophoneFill /> }
-  if (mode === 'order') return { label: 'Склади код', tone: 'orange', icon: <PiPuzzlePieceFill /> }
+  if (mode === 'order') return { label: code ? 'Склади код' : 'Склади по порядку', tone: 'orange', icon: <PiPuzzlePieceFill /> }
   if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'mint', icon: <PiCodeBlockFill /> }
   if (free || mode === 'output') return { label: 'Що виведе код', tone: 'blue', icon: <PiTerminalWindowFill /> }
   if (multi) return { label: 'Кілька відповідей', tone: 'pink', icon: <PiListChecksFill /> }
@@ -93,7 +96,8 @@ export function QuizInline(props: Props) {
   const { unitId, mode, level, multi, free, prompt, body, options, variant, sessionId, onResult, actionsSlot, answerKey, check } = props
   const showVerdict = props.verdict !== 'none'
   const exercise = props.exercise ?? null
-  const interactive = mode === 'order' || mode === 'fill'
+  // [!listen] type: fill arrives as mode 'listen' with a fill exercise
+  const interactive = mode === 'order' || mode === 'fill' || exercise !== null
   const [chosen, setChosen] = useState<string[]>([])
   const [typed, setTyped] = useState('')
   const [phase, setPhase] = useState<Phase>('open')
@@ -105,7 +109,8 @@ export function QuizInline(props: Props) {
   }, [])
   const headingId = useId()
   const feedback = useFeedback()
-  const kind = kindOf(mode, free, multi)
+  const code = Boolean(exercise?.lang && !PLAIN_FENCE.test(exercise.lang))
+  const kind = kindOf(mode, free, multi, code)
   const checked = phase !== 'open'
   const key = verdict?.key ?? null
   const correct = verdict?.correct ?? null
@@ -187,7 +192,7 @@ export function QuizInline(props: Props) {
         ? 'Чудова вимова!'
         : 'Потренуйся ще — фраза повернеться.'
       : correct
-        ? interactive
+        ? interactive && code
           ? 'Правильно! Код зібрано'
           : 'Правильно!'
         : dictation

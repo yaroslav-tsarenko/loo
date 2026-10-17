@@ -138,7 +138,7 @@ export interface AudioLine {
   text: string
 }
 
-export type ListenType = 'choice' | 'dictation' | 'answer'
+export type ListenType = 'choice' | 'dictation' | 'answer' | 'fill'
 
 // [!listen]: what is played. The text reaches the browser only when the learner presses play (browser TTS needs it);
 // graded payloads never carry it or the right option (src/server/actions/speech.ts).

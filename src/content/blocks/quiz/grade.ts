@@ -24,10 +24,12 @@ export function gradeQuiz(unit: QuizUnit, answer: QuizAnswer): boolean {
   if (unit.mode === 'listen' && isFreeQuiz(unit)) return dictationMatches(answer.text ?? '', unit.freeAnswer ?? '', unit.listen?.accept ?? [])
   // Order answers are code, not piece ids: the client only ever sees shuffled pieces (src/content/blocks/quiz/view.ts).
   if (unit.mode === 'order') return unit.exercise?.kind === 'order' ? orderCodesMatch(unit.exercise, answer.chosen) : false
-  if (unit.mode === 'fill') {
+  // fill — also [!listen] type: fill (a form completed while listening)
+  if (unit.mode === 'fill' || (unit.mode === 'listen' && unit.listen?.type === 'fill')) {
     if (unit.exercise?.kind !== 'fill') return false
     const blanks = unit.exercise.segments.flatMap((s) => (s.kind === 'blank' ? [s] : []))
-    return blanks.length > 0 && answer.chosen.length === blanks.length && blanks.every((b, i) => blankMatches(b.answers, answer.chosen[i] ?? ''))
+    const loose = unit.mode === 'listen'
+    return blanks.length > 0 && answer.chosen.length === blanks.length && blanks.every((b, i) => blankMatches(b.answers, answer.chosen[i] ?? '', loose))
   }
   if (isFreeQuiz(unit)) {
     const text = answer.text ?? ''

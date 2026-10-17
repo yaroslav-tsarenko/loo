@@ -29,6 +29,7 @@ export const FORMAT_EFFORT = {
   interview: 2,
   fill: 2,
   order: 2,
+  'listen-fill': 2.5,
   'listen-dictation': 2.5,
 } as const
 
@@ -50,7 +51,10 @@ export function topicKindOf(tags: readonly string[]): TopicKind | undefined {
 function formatOf(unit: LearningUnit, kind: ExerciseKind): keyof typeof FORMAT_EFFORT | null {
   if (kind === 'word' || kind === 'flashcard' || kind === 'interview' || kind === 'pair' || kind === 'speak') return kind
   if (unit.kind !== 'quiz') return null
-  if (unit.mode === 'listen') return unit.listen?.type === 'dictation' ? 'listen-dictation' : unit.listen?.type === 'answer' ? 'listen-answer' : 'listen-choice'
+  if (unit.mode === 'listen') {
+    const type = unit.listen?.type
+    return type === 'dictation' ? 'listen-dictation' : type === 'fill' ? 'listen-fill' : type === 'answer' ? 'listen-answer' : 'listen-choice'
+  }
   if (unit.mode === 'single' || unit.mode === 'multi' || unit.mode === 'output' || unit.mode === 'fill' || unit.mode === 'order') return unit.mode
   return 'single'
 }

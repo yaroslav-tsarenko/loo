@@ -77,7 +77,8 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
         // listen / pair: the explanation may quote the transcript — it comes with the server's verdict instead
         explanation={unit.speak ? explanation : null}
         options={unit.options.map((o, i) => ({ id: o.id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang} /> : options[i] }))}
-        exercise={null}
+        // [!listen] type: fill — the form without its answers (they come with the verdict)
+        exercise={exerciseView(unit.exercise)}
         variant="inline"
         lang={lang}
         speak={unit.speak ? { text: unit.speak.text, ipa: unit.speak.ipa, ipaUs: unit.speak.ipaUs, translation: unit.speak.translation, slow: unit.speak.slow } : null}

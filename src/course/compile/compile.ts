@@ -64,7 +64,7 @@ export function exerciseKind(unit: LearningUnit): ExerciseKind {
 // recogniser, so it stays in lessons and «Вимова» only.
 export const isTestable = (unit: LearningUnit): boolean => unit.kind === 'quiz' && unit.mode !== 'speak'
 
-const isQuick = (unit: LearningUnit): boolean => unit.kind === 'quiz' && (QUICK_MODES.has(unit.mode) || (unit.mode === 'listen' && unit.listen?.type !== 'dictation'))
+const isQuick = (unit: LearningUnit): boolean => unit.kind === 'quiz' && (QUICK_MODES.has(unit.mode) || (unit.mode === 'listen' && (unit.listen?.type === 'choice' || unit.listen?.type === 'answer')))
 
 export function unitMinutes(unit: LearningUnit): number {
   return PACE[unit.kind]

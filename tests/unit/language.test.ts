@@ -158,6 +158,23 @@ describe('language blocks: parsing', () => {
     expect(dialogue.explanation).not.toBeNull()
   })
 
+  it('[!listen] type: fill — a form completed while listening (IELTS form completion)', () => {
+    const form = unit<'quiz'>('en-a1-hello-l05')
+    expect(form.mode).toBe('listen')
+    expect(form.listen!.type).toBe('fill')
+    expect(form.exercise?.kind).toBe('fill')
+    // the fence is the exercise, not part of the body
+    expect(JSON.stringify(form.body)).not.toContain('Kovalenko')
+    // case, spacing and a final full stop don't matter; alternatives count
+    expect(gradeQuiz(form, { chosen: ['kovalenko', 'kiev.'] })).toBe(true)
+    expect(gradeQuiz(form, { chosen: ['Kovalenko', 'Lviv'] })).toBe(false)
+    // the graded payload has the form without its answers
+    const payload = JSON.stringify(gradedQuiz(form))
+    expect(payload).toContain('Name: Anna')
+    expect(payload).not.toMatch(/Kovalenko|Kyiv|Kiev/)
+    expect(quizKey(form).blanks).toEqual([['Kovalenko'], ['Kyiv', 'Kiev']])
+  })
+
   it('[!pair] and [!speak]', () => {
     const pair = unit<'quiz'>('en-a1-hello-p01')
     expect(pair.mode).toBe('pair')
@@ -274,7 +291,7 @@ describe('language course: compile, path, placement, validation', () => {
     expect(bundle.course.target).toBe('en')
     expect(bundle.course.levels).toEqual(['A1', 'A2', 'B1'])
     expect(bundle.stats.words).toBe(2)
-    expect(bundle.stats.byLevel).toMatchObject({ A1: 9, A2: 4 })
+    expect(bundle.stats.byLevel).toMatchObject({ A1: 10, A2: 4 })
     expect(Object.keys(bundle.stats.byLevel)).not.toContain('noob')
   })
 
