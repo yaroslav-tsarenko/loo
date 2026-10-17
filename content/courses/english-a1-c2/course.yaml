@@ -6,7 +6,7 @@
 # (A1 → 101…, A2 → 201…, B1 → 301…, B2 → 401…, C1 → 501…, C2 → 601…) and sections pick topics by that number.
 # Frontmatter `order:` (same numbers) still works and wins when present.
 #
-# B1–C2 are planned (docs/ENGLISH_SYLLABUS.md §6–8): `status: planned` shows them on the path as «скоро» without
+# A1–B1 are active; B2–C2 are planned (docs/ENGLISH_SYLLABUS.md §7–8): `status: planned` shows them on the path as «скоро» without
 # requiring their articles. When a level's articles land, drop `status: planned` (topics are picked by `chapters:`).
 id: english-a1-c2
 version: 0.1.0
@@ -120,7 +120,6 @@ sections:
     from: English
     chapters: 301-330
     level: B1
-    status: planned
     # Теми (30), у порядку `order`:
     #   301  English - B1 - 01. Теперішні часи — Simple чи Continuous, дієслова стану  [grammar]
     #   302  English - B1 - 02. Стосунки й особистість  [vocabulary]
