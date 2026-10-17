@@ -2,7 +2,8 @@ import type { Code } from 'mdast'
 import type { FillExercise, FillSegment, OrderExercise, OrderPiece, QuizUnit } from '../../model'
 import { fenceWords } from '../meta'
 
-const DISTRACTOR = /\s*(?:\/\/|#|--)\s*✗\s*$/
+// `// ✗` · `# ✗` · `-- ✗` in code; a bare ` ✗` too (language courses' sentence pieces have no comment syntax)
+const DISTRACTOR = /\s*(?:(?:\/\/|#|--)\s*)?✗\s*$/
 const BLANK = /\[\[([\s\S]+?)\]\]/g
 
 // Real language of an exercise fence: ```js order → js, ```order → null

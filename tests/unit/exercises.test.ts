@@ -104,6 +104,13 @@ function sum(a, b) {
     expect(ex.pieces.map((p) => p.distractor)).toEqual([false, false, false, true])
   })
 
+  it('takes a bare ✗ as a distractor in sentence pieces', () => {
+    const result = extract(quote('[!quiz] Речення\ntype: order · id: o5\n\n```text order\nAre\nyou\nfrom\nUkraine?\nDo ✗\n```'))
+    const ex = (result.units[0] as QuizUnit).exercise as OrderExercise
+    expect(ex.pieces.map((p) => p.code)).toEqual(['Are', 'you', 'from', 'Ukraine?', 'Do'])
+    expect(ex.pieces.map((p) => p.distractor)).toEqual([false, false, false, false, true])
+  })
+
   it('flags order quizzes with fewer than 3 pieces or without a fence', () => {
     const short = extract(quote('[!quiz] Мало\ntype: order · id: o3\n\n```js order\na()\nb()\nc() // ✗\n```'))
     expect(short.issues.some((i) => i.code === 'exercise-invalid' && i.message.includes('≥ 3'))).toBe(true)
