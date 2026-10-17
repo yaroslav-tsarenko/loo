@@ -6,8 +6,8 @@
 # (A1 → 101…, A2 → 201…, B1 → 301…, B2 → 401…, C1 → 501…, C2 → 601…) and sections pick topics by that number.
 # Frontmatter `order:` (same numbers) still works and wins when present.
 #
-# A1–B2 are active (B2 ≈ IELTS 5.5–6.5); C1–C2 are planned (docs/ENGLISH_SYLLABUS.md §8): `status: planned` shows them on the
-# path as «скоро» without requiring their articles. When a level's articles land, drop `status: planned` (topics are picked by `chapters:`).
+# A1–C1 are active (B2 ≈ IELTS 5.5–6.5, C1 ≈ IELTS 7.0–8.0); C2 is planned (docs/ENGLISH_SYLLABUS.md §8): `status: planned` shows it on the
+# path as «скоро» without requiring its articles. When a level's articles land, drop `status: planned` (topics are picked by `chapters:`).
 id: english-a1-c2
 version: 0.1.0
 title: English A1 → C2
@@ -197,7 +197,6 @@ sections:
     from: English
     chapters: 501-525
     level: C1
-    status: planned
     # Теми (25), у порядку `order`:
     #   501  English - C1 - 01. Інверсія — Never have I, Not only, Hardly  [grammar]
     #   502  English - C1 - 02. Розщеплені речення — What I need is, It was … that  [grammar]
