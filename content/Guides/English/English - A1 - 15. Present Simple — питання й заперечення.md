@@ -471,7 +471,7 @@ estimatedMinutes: 40
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділ *Present simple: questions and negatives*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — статті *Questions* і *Negation*.
-- R. Murphy — *Essential Grammar in Use*, units 6–8 (don't / doesn't, Do you…?, питальні слова).
+- R. Murphy — *Essential Grammar in Use* — розділи: don't / doesn't, Do you…?, питальні слова.
 
 > [!important] Підсумок
 > - Заперечення: *don't / doesn't* + початкова форма: *She doesn't work.*

@@ -519,7 +519,7 @@ estimatedMinutes: 35
 - [BBC Learning English — Pronunciation: -ed endings](https://www.bbc.co.uk/learningenglish/english/features/pronunciation) — відео з прикладами /t d ɪd/.
 - [British Council LearnEnglish — Past simple](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar/past-simple) — граматика й вимова правильних дієслів.
 - [Cambridge Dictionary](https://dictionary.cambridge.org/) — послухай *naked*, *learned*, *wicked*.
-- R. Murphy — *Essential Grammar in Use*, Unit 11 і Appendix про правопис -ed.
+- R. Murphy — *Essential Grammar in Use* — розділ про Past Simple і додаток про правопис -ed.
 
 > [!important] Підсумок
 > - -ed має три вимови, вибір — за **останнім звуком** основи.

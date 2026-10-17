@@ -426,7 +426,7 @@ estimatedMinutes: 35
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділ *have got*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — стаття *Have got and have*.
-- R. Murphy — *Essential Grammar in Use*, units 9–10 (have got, have).
+- R. Murphy — *Essential Grammar in Use* — розділи: have got, have.
 - M. Swan — *Practical English Usage*, розділ про *have* і *have got*.
 
 > [!important] Підсумок

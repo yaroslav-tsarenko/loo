@@ -461,7 +461,7 @@ estimatedMinutes: 35
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділ про verb *be*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — статті *Be* і *Pronouns*.
-- R. Murphy — *Essential Grammar in Use*, units 1–3 (am / is / are, питання).
+- R. Murphy — *Essential Grammar in Use* — розділи: am / is / are, питання.
 - M. Swan — *Practical English Usage*, розділи про be і короткі відповіді.
 
 > [!important] Підсумок

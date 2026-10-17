@@ -456,7 +456,7 @@ estimatedMinutes: 35
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділи *a / an*, *the* і *plural nouns*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — статті *A / an* і *Nouns: singular and plural*.
-- R. Murphy — *Essential Grammar in Use*, units 65–67 (a / an, множина).
+- R. Murphy — *Essential Grammar in Use* — розділи: a / an, множина.
 - M. Swan — *Practical English Usage*, розділи про артиклі.
 
 > [!important] Підсумок

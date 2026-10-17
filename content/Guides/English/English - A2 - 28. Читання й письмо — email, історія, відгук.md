@@ -4,7 +4,7 @@ order: 228
 id: en-a2-read-write
 level: A2
 icon: px:envelope
-tags: [english, a2, skills, reading, writing, email, linkers, review]
+tags: [english, a2, skills, reading, writing, email, linkers, reviews]
 prerequisites: ["[[English - A1 - 29. Читання й письмо — анкета, оголошення, листівка]]", "[[English - A2 - 19. Past Continuous — дія в процесі в минулому]]", "[[English - A2 - 27. Перші фразові дієслова]]"]
 estimatedMinutes: 45
 ---

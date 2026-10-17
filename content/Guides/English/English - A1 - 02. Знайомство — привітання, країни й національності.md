@@ -649,7 +649,7 @@ estimatedMinutes: 35
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — короткі пояснення з вправами.
 - [BBC Learning English](https://www.bbc.co.uk/learningenglish/) — відео й аудіо для початківців, розділ про привітання й знайомство.
 - [Cambridge Dictionary](https://dictionary.cambridge.org/) — вимова британська й американська, приклади до кожного слова.
-- R. Murphy — *Essential Grammar in Use*, units 1–2 (am / is / are).
+- R. Murphy — *Essential Grammar in Use* — розділи: am / is / are.
 
 > [!important] Підсумок
 > - Hello / Hi — будь-коли; Good morning / afternoon / evening — за часом дня; Good night — лише на прощання.

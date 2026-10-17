@@ -747,7 +747,7 @@ estimatedMinutes: 55
 - [Council of Europe — CEFR](https://www.coe.int/en/web/common-european-framework-reference-languages) — що означає рівень A2 (Waystage).
 - [Cambridge English — A2 Key](https://www.cambridgeenglish.org/exams-and-tests/key/) — формат і зразки екзамену рівня A2.
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — повторення граматики з вправами.
-- R. Murphy — *Essential Grammar in Use*, units 31–80 — Past, Present Perfect, Future, модальні дієслова.
+- R. Murphy — *Essential Grammar in Use* — Past, Present Perfect, Future, модальні дієслова.
 
 > [!important] Підсумок
 > - A2 = Past Simple і Continuous, Present Perfect, going to і will, порівняння, must / have to / should, кількість, -ing і to.

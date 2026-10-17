@@ -428,7 +428,7 @@ estimatedMinutes: 35
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділи *pronouns* і *possessives*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — статті *Pronouns: possessive* і *Possession ('s)*.
-- R. Murphy — *Essential Grammar in Use*, units 59–64 (I / me, my / mine, whose, 's).
+- R. Murphy — *Essential Grammar in Use* — розділи: I / me, my / mine, whose, 's.
 
 > [!important] Підсумок
 > - Після дієслова й прийменника — *me, him, her, us, them*: *Call me. With us.*

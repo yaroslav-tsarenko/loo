@@ -713,7 +713,7 @@ estimatedMinutes: 50
 - [Council of Europe — CEFR](https://www.coe.int/en/web/common-european-framework-reference-languages) — що означає рівень A1.
 - [Cambridge English — A1 Movers / A2 Key](https://www.cambridgeenglish.org/exams-and-tests/) — формат і зразки тестів початкового рівня.
 - [British Council LearnEnglish — A1 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — повторення всіх тем A1–A2.
-- R. Murphy — *Essential Grammar in Use*, units 1–30 — для тих, хто хоче ще вправ.
+- R. Murphy — *Essential Grammar in Use* — для тих, хто хоче ще вправ.
 
 > [!important] Підсумок
 > - A1 = be, have got, can, Present Simple і Continuous, a / an, some / any, there is / are, in / on / at.

@@ -469,7 +469,7 @@ estimatedMinutes: 30
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділ *this, that, these, those*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — стаття *This, that, these, those*.
-- R. Murphy — *Essential Grammar in Use*, unit 76 (this / that / these / those).
+- R. Murphy — *Essential Grammar in Use* — розділи: this / that / these / those.
 
 > [!important] Підсумок
 > - Близько: *this* (одне) / *these* (кілька); далеко: *that* (одне) / *those* (кілька).

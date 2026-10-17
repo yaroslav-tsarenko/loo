@@ -470,7 +470,7 @@ Present Simple — час для того, що **буває регулярно 
 
 - [British Council LearnEnglish — A1–A2 grammar](https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar) — розділ *Present simple*.
 - [Cambridge Dictionary — English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/) — стаття *Present simple*.
-- R. Murphy — *Essential Grammar in Use*, units 5–6 (Present Simple, ствердження).
+- R. Murphy — *Essential Grammar in Use* — розділи: Present Simple, ствердження.
 
 > [!important] Підсумок
 > - Present Simple — звички, розклад, постійні стани, факти: *I work in IT. Water boils at 100 °C.*
