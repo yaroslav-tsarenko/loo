@@ -334,6 +334,12 @@ export class ContentStore {
     return this.loading
   }
 
+  // dev: a newer copy of this module (the parser or a block definition was edited) replaces this store
+  async dispose(): Promise<void> {
+    await this.stopWatch?.()
+    this.stopWatch = null
+  }
+
   async setConfig(config: VaultConfig): Promise<ContentSnapshot> {
     if (config.vaultPath === this.config.vaultPath && config.guidesDir === this.config.guidesDir && this.snapshot) return this.snapshot
     this.config = config
@@ -401,6 +407,14 @@ type GlobalWithStore = typeof globalThis & { [globalKey]?: ContentStore }
 
 export function getContentStore(): ContentStore {
   const g = globalThis as GlobalWithStore
+  // The store outlives hot reloads (globalThis), but its parsed files were made by the module copy that created it:
+  // after an edit to the parser or a block definition this module is re-evaluated — start over with the new code.
+  const held = g[globalKey] as { dispose?: () => Promise<void> } | undefined
+  if (held && !(held instanceof ContentStore)) {
+    void held.dispose?.()
+    g[globalKey] = undefined
+    console.info('[content] код парсера змінився — вміст перечитується')
+  }
   if (!g[globalKey]) {
     const config = defaultVaultConfig()
     const watch = process.env.CONTENT_WATCH !== '0' && !process.env.VERCEL
