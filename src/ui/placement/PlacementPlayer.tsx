@@ -563,18 +563,18 @@ function Review({ review, items }: { review: PlacementReviewItem[]; items: Map<s
           return (
             <li key={r.id}>
               <div className="review-item">
-                <p className="review-q">
+                <div className="review-q">
                   <span className="review-mark" role="img" aria-label="помилка">
                     <PiXBold />
-                  </span>{' '}
-                  {item.prompt}
-                </p>
+                  </span>
+                  <span className="review-q-text">{item.prompt}</span>
+                </div>
                 <div className="review-body prose-flow">
                   {item.body}
                   <ul className="review-options">
                     {r.dontKnow ? (
                       <li data-state="wrong">
-                        <span className="unit-meta">{t('placement.reviewDontKnow')}</span>
+                        <span className="review-tag">{t('placement.reviewDontKnow')}</span>
                       </li>
                     ) : null}
                     {item.options.map((o) => {
@@ -583,10 +583,11 @@ function Review({ review, items }: { review: PlacementReviewItem[]; items: Map<s
                       if (!right && !picked) return null
                       return (
                         <li key={o.id} data-state={right ? 'right' : 'wrong'}>
-                          <span className="unit-meta">
-                            {right ? <PiCheckBold aria-hidden="true" /> : null} {right ? t('placement.reviewRight') : t('placement.reviewYours')}
-                          </span>{' '}
-                          {o.content}
+                          <span className="review-tag">
+                            {right ? <PiCheckBold aria-hidden="true" /> : <PiXBold aria-hidden="true" />}
+                            {right ? t('placement.reviewRight') : t('placement.reviewYours')}
+                          </span>
+                          <span className="review-answer">{o.content}</span>
                         </li>
                       )
                     })}

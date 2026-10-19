@@ -1063,6 +1063,59 @@
 .placement-review > summary {
   cursor: pointer;
 }
+/* a mistake: ✕ + question on one row, then the passage / audio, the two answers and the explanation — all on one
+   left edge (the question text), so nothing hangs off to the side */
+.placement-review .review-item {
+  overflow: hidden;
+}
+.placement-review .review-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 14px 10px;
+}
+.placement-review .review-q-text {
+  min-width: 0;
+  padding-top: 2px;
+  line-height: 1.35;
+}
+.placement-review .review-body {
+  display: grid;
+  gap: 10px;
+  padding: 0 14px 14px 50px;
+}
+.placement-review .review-body > * {
+  margin: 0;
+}
+.placement-review .review-options {
+  margin: 0;
+}
+.placement-review .review-options li {
+  display: grid;
+  gap: 2px;
+  line-height: 1.45;
+}
+.placement-review .review-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-red-ink);
+}
+.placement-review .review-options li[data-state='right'] .review-tag {
+  color: var(--lu-green-ink);
+}
+.placement-review .review-answer {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 560px) {
+  .placement-review .review-body {
+    padding-left: 14px;
+  }
+}
 
 /* ── Per-skill levels of language courses (src/ui/courses/SkillLevels.tsx) ── */
 .skill-levels {
