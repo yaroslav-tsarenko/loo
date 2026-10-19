@@ -11,30 +11,11 @@ import { parseInput } from '../auth-guard'
 import { writeSetting } from '../settings'
 import { courseLevelOf, enrollIn } from '../courses/enrollment'
 import { getCourse } from '../courses/registry'
-import { GOALS, INTERESTS, LEVELS, MINUTES } from '../services/preferences'
+import { minutesSchema as minutes, onboardingInput, purposeFits } from '../services/onboarding-input'
+import { goalOf, INTERESTS, LEVELS } from '../services/preferences'
 
 const interests = z.array(z.enum(INTERESTS)).max(INTERESTS.length)
 const level = z.enum(LEVELS)
-const minutes = z.coerce
-  .number()
-  .int()
-  .refine((n) => (MINUTES as readonly number[]).includes(n))
-
-const courseId = z
-  .string()
-  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
-  .max(64)
-// The questionnaire is subject-neutral (any course: languages, code, …): no interests or self-level — the course choice
-// says what, the placement test (or «з нуля») says where to start. Old fields stay optional for older clients.
-const onboardingInput = z.object({
-  goal: z.enum(GOALS),
-  minutes,
-  interests: interests.optional(),
-  level: level.optional(),
-  next: z.string().max(2048).optional(),
-  course: courseId.optional(),
-  start: z.enum(['placement', 'zero']).optional(),
-})
 
 function formInput(form: FormData) {
   const one = (k: string) => {
@@ -44,15 +25,18 @@ function formInput(form: FormData) {
   return { one, all: (k: string) => form.getAll(k).filter((v): v is string => typeof v === 'string') }
 }
 
-// First sign-in questionnaire → profile (goal, interests, level) + the daily time budget setting.
+// First sign-in wizard (src/ui/auth/OnboardingWizard.tsx), one submit at the end: course, «Для чого?» (purpose → the
+// coarse goal the rest of the app reads), «Хто ти?», daily minutes, where to start and the «Хочу це» votes →
+// profile.onboarding + the dailyMinutes setting + the first enrollment. Subject-neutral: no self-assessed level — the
+// course's own placement test (or «з нуля») says where to start.
 export async function completeOnboarding(form: FormData): Promise<void> {
   await requireUser()
   const { one, all } = formInput(form)
   const input = parseInput(onboardingInput, {
-    goal: one('goal'),
     minutes: one('minutes'),
-    interests: all('interests'),
-    level: one('level'),
+    purpose: one('purpose'),
+    role: one('role'),
+    wishes: all('wishes'),
     next: one('next'),
     course: one('course') || undefined,
     start: one('start') || undefined,
@@ -61,20 +45,22 @@ export async function completeOnboarding(form: FormData): Promise<void> {
   const now = Date.now()
   const course = input.course ? await getCourse(input.course) : null
   if (input.course && !course) throw new Error('Unknown course')
+  // the purpose list depends on what the course teaches
+  if (!purposeFits(input.purpose, course?.course.subject)) throw new Error('Invalid input')
   await userScope(
     async (db, userId) => {
       await db
         .update(profiles)
         .set({
-          onboarding: { ...profile?.onboarding, completedAt: now, goal: input.goal },
-          preferences: { ...profile?.preferences, interests: input.interests?.length ? input.interests : (profile?.preferences.interests ?? []), level: input.level ?? profile?.preferences.level ?? 'noob' },
+          onboarding: { ...profile?.onboarding, completedAt: now, goal: goalOf(input.purpose), purpose: input.purpose, role: input.role, wishes: input.wishes },
+          preferences: { ...profile?.preferences, interests: profile?.preferences.interests ?? [], level: profile?.preferences.level ?? 'noob' },
           updatedAt: now,
         })
         .where(eq(profiles.id, userId))
       if (course) {
         // «Почати з нуля»: the first section at the course's own first level (A1 for a language, the bottom rung for code);
         // the placement test sets its own result later.
-        const startLevel = courseLevelOf(input.level ?? 'noob', course.course)
+        const startLevel = courseLevelOf('noob', course.course)
         const placement = input.start === 'zero' ? { level: startLevel, sectionIndex: 0, sectionId: course.sections[0]?.id ?? null, confident: false, asked: 0, at: now, skipped: true } : null
         await enrollIn(db, userId, course.course.id, { level: startLevel, activate: true, placement, now })
       }

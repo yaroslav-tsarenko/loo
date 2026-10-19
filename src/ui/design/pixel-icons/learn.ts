@@ -182,4 +182,23 @@ export const LEARN_ICONS = {
     '..k....kwwk.....',
     '........kk......',
   ],
+  // Onboarding direction «Фотографія».
+  camera: [
+    '................',
+    '................',
+    '.....kkkkk......',
+    '....knnnnnk.....',
+    '.kkkkkkkkkkkkkk.',
+    '.kNNNNNNNNNNyNk.',
+    '.kNNNNkkkkNNNNk.',
+    '.kNNNkcccbkNNNk.',
+    '.kNNkccwcbbkNNk.',
+    '.kNNkcwccbbkNNk.',
+    '.kNNkcccbbbkNNk.',
+    '.kNNNkbbbbkNNNk.',
+    '.kNNNNkkkkNNNNk.',
+    '.kkkkkkkkkkkkkk.',
+    '................',
+    '................',
+  ],
 } as const satisfies Record<string, readonly string[]>
