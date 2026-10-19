@@ -5,7 +5,7 @@ import { PiArrowCounterClockwiseBold, PiDotsSixVerticalBold } from 'react-icons/
 import type { OrderView } from '@/content/blocks/quiz/view'
 import { highlightCode } from '@/ui/code/tokens'
 import { Button } from '@/ui/design/Button'
-import { ActionBar } from '../ActionBar'
+import { ActionBar, submitLabel } from '../ActionBar'
 
 interface Props {
   // shuffled on the server; ids are positions, not answers
@@ -102,7 +102,7 @@ export function OrderPuzzle({ exercise, checked, want, variant, onSubmit, action
           <ActionBar slot={actionsSlot} className="exercise-actions">
             {answer.length > 0 ? <Button variant="ghost" size={actionsSlot ? 'lg' : 'sm'} icon={<PiArrowCounterClockwiseBold size={18} />} onClick={() => setAnswer([])} aria-label="Очистити" className="exercise-clear" /> : null}
             <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : 'sm'} disabled={answer.length === 0} onClick={submit}>
-              Перевірити
+              {submitLabel(variant)}
             </Button>
           </ActionBar>
         </>

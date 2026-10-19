@@ -24,7 +24,9 @@ export async function updateSetting<K extends UserSettingKey>(rawKey: K, rawValu
   const value = parseInput(settingValue, rawValue) as AppSettings[K]
   // writeSetting coerces per key (type and range), falling back to the default.
   const saved = await writeSetting(key, value)
-  if (key === 'theme' || key === 'dailyGoal' || key === 'dailyMinutes' || key === 'haptics' || key === 'accent') revalidatePath('/', 'layout')
+  // accent: the client already switched (SpeechSettings state) — re-rendering the layout would remount open players
+  // (the placement test lost its run on every UK/US tap); the next full load reads the saved value.
+  if (key === 'theme' || key === 'dailyGoal' || key === 'dailyMinutes' || key === 'haptics') revalidatePath('/', 'layout')
   return saved
 }
 

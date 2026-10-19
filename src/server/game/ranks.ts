@@ -31,6 +31,8 @@ export interface RankParts {
   lessons: number
   tests: number
   exams: string[]
+  // section exams counted by a placement credit (no exam ids: they don't finish a course)
+  creditExams?: number
   enrolled: string[]
 }
 
@@ -43,18 +45,28 @@ export function rankRead(conn: Conn, userId: string): Read<RankParts> {
         tests: sql<string>`(select count(*) from ${topicResults} t where t.user_id = ${userId} and t.passed_at is not null)`,
         exams: sql<string[] | null>`(select array_agg(e.exam_id) from ${examResults} e where e.user_id = ${userId} and e.passed_at is not null)`,
         enrolled: sql<string[] | null>`(select array_agg(c.course_id) from ${enrollments} c where c.user_id = ${userId})`,
+        // placement credit (src/game/placement-credit.ts): a floor, so the largest one counts — courses don't stack
+        credit: sql<{ lessons: number; tests: number; exams: number } | null>`(select json_build_object('lessons', coalesce(max((c.placement->'credit'->>'lessons')::int), 0), 'tests', coalesce(max((c.placement->'credit'->>'tests')::int), 0), 'exams', coalesce(max((c.placement->'credit'->>'exams')::int), 0)) from ${enrollments} c where c.user_id = ${userId})`,
       })
       .from(sql`(select 1) as one`),
     (rows) => {
       const row = rows[0]
-      return { xp: Number(row?.xp ?? 0), lessons: Number(row?.lessons ?? 0), tests: Number(row?.tests ?? 0), exams: row?.exams ?? [], enrolled: row?.enrolled ?? [] }
+      const credit = row?.credit
+      return {
+        xp: Number(row?.xp ?? 0),
+        lessons: Number(row?.lessons ?? 0) + Number(credit?.lessons ?? 0),
+        tests: Number(row?.tests ?? 0) + Number(credit?.tests ?? 0),
+        exams: row?.exams ?? [],
+        creditExams: Number(credit?.exams ?? 0),
+        enrolled: row?.enrolled ?? [],
+      }
     },
   )
 }
 
 export async function rankInputFrom(parts: RankParts): Promise<RankInput> {
   const passed = new Set(parts.exams)
-  return { xp: parts.xp, lessons: parts.lessons, tests: parts.tests, exams: passed.size, courses: await coursesFinished(parts.enrolled, passed) }
+  return { xp: parts.xp, lessons: parts.lessons, tests: parts.tests, exams: passed.size + (parts.creditExams ?? 0), courses: await coursesFinished(parts.enrolled, passed) }
 }
 
 // Progress on «шлях воїна»; the stored step is a floor (ranks never go down).

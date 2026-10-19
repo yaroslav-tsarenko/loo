@@ -5,7 +5,7 @@ import { blankMatches } from '@/content/blocks/quiz/exercise'
 import type { FillView } from '@/content/blocks/quiz/view'
 import { highlightCode } from '@/ui/code/tokens'
 import { Button } from '@/ui/design/Button'
-import { ActionBar } from '../ActionBar'
+import { ActionBar, submitLabel } from '../ActionBar'
 
 interface Props {
   // blanks without answers; the bank (if any) is shuffled on the server
@@ -161,7 +161,7 @@ export function FillBlanks({ exercise, checked, answers, variant, onSubmit, acti
         <ActionBar slot={actionsSlot} className="exercise-actions">
           {!filled ? <span className="quiz-hint">Лишилось пропусків: {blanks.filter((b) => !valueOf(b.id).trim()).length}</span> : null}
           <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : 'sm'} disabled={!filled} onClick={submit}>
-            Перевірити
+            {submitLabel(variant)}
           </Button>
         </ActionBar>
       ) : null}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useCallback, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { PiArrowRightBold, PiCheckBold, PiFlaskFill, PiQuestionBold, PiSlidersHorizontalFill, PiTargetBold, PiXBold } from 'react-icons/pi'
 import { t } from '@/i18n'
 import { applyPlacement, placementStep, type PlacementReviewItem, type PlacementStepResult } from '@/server/actions/courses'
@@ -45,13 +45,52 @@ interface Props {
 // Placement answers are graded by placementStep on the server (all at once); a single answer gets no verdict here.
 const collectOnly: QuizCheck = async () => ({ correct: null, key: null, explanation: null })
 
-// Adaptive placement in the lesson shell: one question at a time, the server picks the next one and grades.
-export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sections, levels, next, zero, zeroHint, bank }: Props) {
+// A run in progress, saved after every answer (localStorage): reloading the page, switching the accent or coming back
+// tomorrow continues the same run — placementStep replays it statelessly from (nonce, answers).
+interface SavedRun {
+  v: 1
+  nonce: string
+  answers: Answer[]
+  followUp: boolean
+  phase: 'main' | 'follow-up'
+  mainCount: number
+  at: number
+}
+
+const SAVE_TTL = 14 * 24 * 3600_000
+// a run touched this recently was interrupted (remount, reload) rather than left: resume it without asking
+const LIVE_MS = 20 * 60_000
+const saveKey = (courseId: string) => `levelup.placement.${courseId}`
+
+function readSaved(raw: string | null): SavedRun | null {
+  if (!raw) return null
+  try {
+    const run = JSON.parse(raw) as SavedRun
+    if (run.v !== 1 || !Array.isArray(run.answers) || run.answers.length === 0 || Date.now() - run.at > SAVE_TTL) return null
+    return run
+  } catch {
+    return null
+  }
+}
+
+// hydration renders the server snapshot (null); this tick makes React read localStorage right after mount
+const afterMount = (notify: () => void) => {
+  const id = window.setTimeout(notify, 0)
+  return () => window.clearTimeout(id)
+}
+
+// Adaptive placement in the lesson shell: one question at a time. The learner picks an answer (can change it) and
+// «Далі» sends it; the server grades it and picks the next question, which opens right away — no per-question verdict.
+export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions, items, sections, levels, next, zero, zeroHint, bank }: Props) {
   const router = useRouter()
+  const key = saveKey(course.id)
+  // the saved run as of the first render (null on the server)
+  const savedRaw = useSyncExternalStore(afterMount, () => window.localStorage.getItem(key), () => null)
+  const saved = useMemo(() => readSaved(savedRaw), [savedRaw])
+  const [nonce, setNonce] = useState(pageNonce)
   const [started, setStarted] = useState(false)
   const [current, setCurrent] = useState<string | null>(first)
   const [answers, setAnswers] = useState<Answer[]>([])
-  const [pending, setPending] = useState<PlacementStepResult | null>(null)
   const [answered, setAnswered] = useState<'answer' | 'dontKnow' | null>(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -66,83 +105,121 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
   const byId = useMemo(() => new Map([...items, ...extra].map((i) => [i.unitId, i])), [items, extra])
   const item = current ? byId.get(current) : undefined
 
+  const persist = useCallback(
+    (run: Omit<SavedRun, 'v' | 'at'>) => {
+      try {
+        window.localStorage.setItem(key, JSON.stringify({ v: 1, at: Date.now(), ...run } satisfies SavedRun))
+      } catch {
+        // private mode / quota: the run just isn't resumable
+      }
+    },
+    [key],
+  )
+  const forget = useCallback(() => {
+    try {
+      window.localStorage.removeItem(key)
+    } catch {
+      // ignore
+    }
+  }, [key])
+
+  // Shows the step's next question (or the result).
+  const goTo = useCallback((step: PlacementStepResult, known: ReadonlyMap<string, PlayerItem>) => {
+    setAnswered(null)
+    if (step.done || !step.next || !(known.has(step.next) || step.item?.unitId === step.next)) {
+      setResult(step.result)
+      setReview(step.review)
+      setCurrent(null)
+    } else {
+      if (step.phase) setPhase(step.phase)
+      setCurrent(step.next)
+    }
+  }, [])
+
   const send = useCallback(
-    async (list: Answer[], more = followUp) => {
+    async (list: Answer[], opts: { more?: boolean; run?: string; withItem?: boolean } = {}) => {
       setBusy(true)
       setError(null)
       try {
-        const step = await placementStep({ course: course.id, nonce, answers: list, followUp: more })
+        const step = await placementStep({ course: course.id, nonce: opts.run ?? nonce, answers: list, followUp: opts.more ?? followUp, withItem: opts.withItem })
         const fetched = step.item
         if (fetched) setExtra((x) => [...x, fetched])
-        setPending(step)
+        goTo(step, fetched ? new Map([...byId, [fetched.unitId, fetched]]) : byId)
+        return step
       } catch {
         setError(t('placement.error'))
+        return null
       } finally {
         setBusy(false)
       }
     },
-    [course.id, nonce, followUp],
+    [course.id, nonce, followUp, goTo, byId],
   )
 
   const record = useCallback(
     (answer: Answer) => {
-      // one answer per question: a late click on the options after «Не знаю» changes nothing
+      // one answer per question: a late tap after «Не знаю» changes nothing
       if (answered || answer.id !== current) return
       const list = [...answers, answer]
       setAnswers(list)
       setAnswered(answer.dontKnow ? 'dontKnow' : 'answer')
+      persist({ nonce, answers: list, followUp, phase, mainCount })
       void send(list)
     },
-    [answers, answered, current, send],
+    [answers, answered, current, send, persist, nonce, followUp, phase, mainCount],
   )
 
   const onResult = useCallback((r: QuizResult) => record({ id: r.unitId, chosen: r.chosen, text: r.text }), [record])
 
-  const advance = useCallback(() => {
-    if (!pending) return
-    setAnswered(null)
-    if (pending.done || !pending.next || !(byId.has(pending.next) || pending.item?.unitId === pending.next)) {
-      setResult(pending.result)
-      setReview(pending.review)
-      setCurrent(null)
-    } else {
-      if (pending.phase) setPhase(pending.phase)
-      setCurrent(pending.next)
-    }
-    setPending(null)
-  }, [pending, byId])
+  // Continue a saved run: its own nonce, its answers; the server renders the next question for this page.
+  const resume = useCallback(
+    async (run: SavedRun) => {
+      setNonce(run.nonce)
+      setAnswers(run.answers)
+      setFollowUp(run.followUp)
+      setPhase(run.phase)
+      setMainCount(run.mainCount)
+      setStarted(true)
+      setAnswered('answer')
+      const step = await send(run.answers, { more: run.followUp, run: run.nonce, withItem: true })
+      if (!step) {
+        // the saved run no longer replays (content changed): start over
+        forget()
+        setNonce(pageNonce)
+        setAnswers([])
+        setFollowUp(false)
+        setPhase('main')
+        setMainCount(0)
+        setCurrent(first)
+        setAnswered(null)
+        setError(null)
+      }
+    },
+    [send, forget, pageNonce, first],
+  )
+
+  const restart = useCallback(() => {
+    forget()
+    setStarted(true)
+  }, [forget])
 
   // «Уточнити»: the same run continues with a few questions around the boundary
   const startFollowUp = useCallback(async () => {
-    setBusy(true)
-    setError(null)
-    try {
-      const step = await placementStep({ course: course.id, nonce, answers, followUp: true })
-      const fetched = step.item
-      if (fetched) setExtra((x) => [...x, fetched])
-      if (step.done || !step.next || !(byId.has(step.next) || fetched?.unitId === step.next)) {
-        setResult(step.result)
-        setReview(step.review)
-        return
-      }
-      setFollowUp(true)
-      setMainCount(answers.length)
-      setPhase('follow-up')
-      setResult(null)
-      setReview([])
-      setCurrent(step.next)
-    } catch {
-      setError(t('placement.error'))
-    } finally {
-      setBusy(false)
-    }
-  }, [answers, byId, course.id, nonce])
+    setFollowUp(true)
+    setMainCount(answers.length)
+    setPhase('follow-up')
+    setResult(null)
+    setReview([])
+    persist({ nonce, answers, followUp: true, phase: 'follow-up', mainCount: answers.length })
+    await send(answers, { more: true })
+  }, [answers, nonce, persist, send])
 
   const apply = useCallback(
     async (start?: string) => {
       setBusy(true)
       try {
         await applyPlacement({ course: course.id, nonce, answers, followUp, start })
+        forget()
         router.push(next)
         router.refresh()
       } catch {
@@ -150,8 +227,16 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
         setBusy(false)
       }
     },
-    [answers, course.id, followUp, nonce, next, router],
+    [answers, course.id, followUp, nonce, next, router, forget],
   )
+
+  // an interrupted run (remount, reload a moment ago) continues by itself
+  const autoResumed = useRef(false)
+  useEffect(() => {
+    if (autoResumed.current || started || !saved || Date.now() - saved.at > LIVE_MS) return
+    autoResumed.current = true
+    void resume(saved)
+  }, [saved, started, resume])
 
   if (!started) {
     return (
@@ -163,11 +248,27 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
           <Icon name={course.icon ?? 'px:book'} size={20} /> {course.title}
         </p>
         <h1 className="lesson-summary-title">{t('placement.title')}</h1>
-        <p className="lesson-summary-note">{bank ? t('placement.bankLead', { max: maxQuestions }) : t('placement.lead', { max: maxQuestions })}</p>
+        <p className="lesson-summary-note">{saved ? t('placement.resumeLead', { n: saved.answers.length }) : bank ? t('placement.bankLead', { max: maxQuestions }) : t('placement.lead', { max: maxQuestions })}</p>
         <div className="lesson-summary-actions">
-          <Button size="lg" block icon={<PiFlaskFill size={20} />} onClick={() => setStarted(true)} disabled={!first}>
-            {t('placement.start')}
-          </Button>
+          {saved ? (
+            <>
+              <Button size="lg" block icon={<PiFlaskFill size={20} />} onClick={() => void resume(saved)} loading={busy}>
+                {t('placement.resume', { n: saved.answers.length + 1 })}
+              </Button>
+              <Button variant="ghost" size="lg" block onClick={restart} disabled={!first || busy}>
+                {t('placement.restart')}
+              </Button>
+            </>
+          ) : (
+            <Button size="lg" block icon={<PiFlaskFill size={20} />} onClick={() => setStarted(true)} disabled={!first}>
+              {t('placement.start')}
+            </Button>
+          )}
+          {error ? (
+            <p className="auth-error" role="alert">
+              {error}
+            </p>
+          ) : null}
           {zero}
           <p className="choice-hint">{zeroHint ?? t('placement.zeroHint')}</p>
         </div>
@@ -176,6 +277,23 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
   }
 
   if (!current || !item) {
+    if (!result && (busy || answered)) {
+      return (
+        <div className="lesson-summary placement-intro" aria-busy="true">
+          <div className="lesson-summary-hero">
+            <Loo mood="thinking" size={150} className="lesson-summary-loo" />
+          </div>
+          <p className="lesson-summary-note">{error ?? t('placement.checking')}</p>
+          {error ? (
+            <div className="lesson-summary-actions">
+              <Button size="lg" block onClick={() => void send(answers, { withItem: true })}>
+                {t('placement.retry')}
+              </Button>
+            </div>
+          ) : null}
+        </div>
+      )
+    }
     if (result && bank) return <BankResult result={result} review={review} items={byId} sections={sections} levels={levels} course={course} busy={busy} error={error} followUpCount={bank.followUp} onApply={apply} onFollowUp={startFollowUp} />
     const section = result ? sections[result.sectionIndex] : undefined
     const level = result ? levels[result.level] ?? result.level : '—'
@@ -251,10 +369,10 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
       </main>
       <footer className="lesson-foot">
         <div className="lesson-foot-inner">
-          {answered ? (
-            <div className="lesson-verdict" role="status">
-              <LooSays mood={answered === 'dontKnow' ? 'thinking' : 'happy'} size={64} className="lesson-verdict-loo">
-                <strong className="lesson-verdict-title">{error ?? (answered === 'dontKnow' ? t('placement.recordedDontKnow') : t('placement.recorded'))}</strong>
+          {answered && error ? (
+            <div className="lesson-verdict" role="alert">
+              <LooSays mood="thinking" size={64} className="lesson-verdict-loo">
+                <strong className="lesson-verdict-title">{error}</strong>
               </LooSays>
             </div>
           ) : null}
@@ -265,8 +383,8 @@ export function PlacementPlayer({ course, nonce, first, maxQuestions, items, sec
             </Button>
           ) : null}
           {answered ? (
-            <Button size="lg" block onClick={pending ? advance : () => void send(answers)} disabled={busy} loading={busy} className="lesson-cta">
-              {t('placement.next')}
+            <Button size="lg" block onClick={() => void send(answers)} disabled={busy} loading={busy} className="lesson-cta">
+              {error ? t('placement.retry') : t('placement.next')}
             </Button>
           ) : null}
         </div>

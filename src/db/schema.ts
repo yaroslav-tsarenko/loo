@@ -341,6 +341,8 @@ export interface EnrollmentPlacement {
   skills?: Partial<Record<'grammar' | 'vocabulary' | 'reading' | 'listening', { level: string; asked: number; correct: number; measured: boolean; ielts: string | null }>>
   ielts?: string | null
   followUp?: boolean
+  // rank credit for the verified level (src/game/placement-credit.ts): milestones counted by rankInput, XP in xp_ledger
+  credit?: { xp: number; lessons: number; tests: number; exams: number }
 }
 
 // A course in the learner's library. Exactly one active enrollment per user (partial unique index).

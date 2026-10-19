@@ -10,7 +10,11 @@ import { quizKey } from '@/content/blocks/quiz/view'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
 import { first } from '@/db/client'
-import { enrollments, profiles, type EnrollmentPlacement } from '@/db/schema'
+import { enrollments, profiles, xpLedger, type EnrollmentPlacement } from '@/db/schema'
+import { maxCredit, placementCredit, rankOf, type PlacementCredit } from '@/game'
+import { dayKey } from '@/progress/day'
+import { loadState, saveState } from '../game/state'
+import { rankInput } from '../game/ranks'
 import { safeRedirectPath } from '@/lib/redirect'
 import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
@@ -121,7 +125,9 @@ export async function setCourseLevel(form: FormData): Promise<void> {
 
 const nonce = z.string().regex(/^[a-f0-9]{8,32}$/)
 const rawAnswer = z.object({ id: z.string().min(1).max(200), chosen: z.array(z.string().max(2000)).max(64), text: z.string().max(2000).nullable(), dontKnow: z.boolean().optional() })
-const placementInput = z.object({ course: courseId, nonce, answers: z.array(rawAnswer).max(60), followUp: z.boolean().optional() })
+// withItem: the client resumes a saved run (localStorage) on a page rendered for another nonce — render the next
+// question whatever the page pre-rendered.
+const placementInput = z.object({ course: courseId, nonce, answers: z.array(rawAnswer).max(60), followUp: z.boolean().optional(), withItem: z.boolean().optional() })
 
 type RawAnswer = { id: string; chosen: string[]; text: string | null; dontKnow?: boolean }
 
@@ -222,7 +228,7 @@ function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultVi
   }
 }
 
-export async function placementStep(raw: { course: string; nonce: string; answers: RawAnswer[]; followUp?: boolean }): Promise<PlacementStepResult> {
+export async function placementStep(raw: { course: string; nonce: string; answers: RawAnswer[]; followUp?: boolean; withItem?: boolean }): Promise<PlacementStepResult> {
   const { run, input, bundle, snapshot, unitOf, seed } = await replay(raw)
   const last = run.graded.at(-1)
   const review: PlacementReviewItem[] = []
@@ -246,19 +252,32 @@ export async function placementStep(raw: { course: string; nonce: string; answer
     lastCorrect: last ? last.correct : null,
     result: run.result ? resultView(bundle, run.result) : null,
     review,
-    item: run.step.next && !placementCandidates(bundle, seed).includes(run.step.next) ? ((await renderLessonItems(snapshot, [{ kind: 'unit', id: run.step.next }]))[0] ?? null) : null,
+    item: run.step.next && (input.withItem || !placementCandidates(bundle, seed).includes(run.step.next)) ? ((await renderLessonItems(snapshot, [{ kind: 'unit', id: run.step.next }]))[0] ?? null) : null,
   }
 }
 
-async function savePlacement(courseIdValue: string, placement: EnrollmentPlacement, lvl: Level): Promise<void> {
+// `credit`: a test-verified level lifts the character's rank (src/game/placement-credit.ts) — XP and milestones up to
+// a fixed step, once per course (topped up by a better retake), no gems. Every save keeps the credit already earned.
+async function savePlacement(courseIdValue: string, placement: EnrollmentPlacement, lvl: Level, credit?: PlacementCredit): Promise<void> {
   const profile = await getProfile()
   await userScope(
     async (tx, userId) => {
       await enrollIn(tx, userId, courseIdValue, { level: lvl, activate: true, placement })
+      const prev = (await first(tx.select({ placement: enrollments.placement }).from(enrollments).where(and(eq(enrollments.userId, userId), eq(enrollments.courseId, courseIdValue)))))?.placement?.credit
+      const merged = credit ? maxCredit(prev, credit) : prev
+      const saved: EnrollmentPlacement = merged ? { ...placement, credit: merged } : placement
       await tx
         .update(enrollments)
-        .set({ level: lvl, placement })
+        .set({ level: lvl, placement: saved })
         .where(and(eq(enrollments.userId, userId), eq(enrollments.courseId, courseIdValue)))
+      const xpDelta = (merged?.xp ?? 0) - (prev?.xp ?? 0)
+      if (xpDelta > 0) await tx.insert(xpLedger).values({ userId, amount: xpDelta, reason: 'placement', refId: courseIdValue, createdAt: placement.at, day: dayKey(placement.at) })
+      if (credit) {
+        // the steps reached by the credit: stored without their gems and without the full-screen rank-up moment
+        const [state, input] = await Promise.all([loadState(tx, userId, placement.at), rankInput(tx, userId)])
+        const step = rankOf(input).index
+        if (step > state.evoStep) await saveState(tx, userId, { evoStep: step, evoSeen: Math.max(state.evoSeen, step) }, placement.at)
+      }
       await tx
         .update(profiles)
         .set({ onboarding: { ...profile?.onboarding, placement: { level: placement.level, at: placement.at } }, updatedAt: placement.at })
@@ -285,7 +304,7 @@ export async function applyPlacement(raw: { course: string; nonce: string; answe
   const sectionIndex = chosen?.index ?? r.sectionIndex
   const sectionId = chosen?.id ?? r.sectionId
   const extra: Partial<EnrollmentPlacement> = r.confidence ? { confidence: r.confidence, skills: view.skills ?? undefined, ielts: view.ielts, followUp: r.followedUp ?? false } : {}
-  await savePlacement(input.course, { level: r.level, sectionIndex, sectionId, confident: r.confident, asked: run.step.asked, at: now, ...extra }, r.level)
+  await savePlacement(input.course, { level: r.level, sectionIndex, sectionId, confident: r.confident, asked: run.step.asked, at: now, ...extra }, r.level, placementCredit(levelRank(r.level)))
   return { ok: true }
 }
 

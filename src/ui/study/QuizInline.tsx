@@ -12,7 +12,7 @@ import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { DictationInput } from '@/ui/lang/DictationInput'
 import { SpeakExercise, type SpeakVerdict, type SpeakView } from '@/ui/lang/SpeakExercise'
-import { ActionBar } from './ActionBar'
+import { ActionBar, submitLabel } from './ActionBar'
 import { LevelPill } from './LevelPill'
 import { FillBlanks } from './exercises/FillBlanks'
 import { OrderPuzzle } from './exercises/OrderPuzzle'
@@ -149,13 +149,12 @@ export function QuizInline(props: Props) {
     }
   }
 
+  // A tap only selects (and can be changed); the answer button sends it — no instant check on tap.
   const toggle = (id: string) => {
     if (checked) return
     if (multi) setChosen((c) => (c.includes(id) ? c.filter((x) => x !== id) : [...c, id]))
-    else {
-      setChosen([id])
-      void submit([id], null)
-    }
+    else setChosen((c) => (c[0] === id ? c : [id]))
+    feedback.play('tap')
   }
 
   const handleKey = (e: { key: string; preventDefault: () => void }) => {
@@ -164,7 +163,7 @@ export function QuizInline(props: Props) {
     if (n >= 1 && n <= options.length) {
       e.preventDefault()
       toggle(options[n - 1]!.id)
-    } else if (e.key === 'Enter' && multi && chosen.length > 0) {
+    } else if (e.key === 'Enter' && chosen.length > 0) {
       e.preventDefault()
       void submit(chosen, null)
     }
@@ -243,7 +242,7 @@ export function QuizInline(props: Props) {
           {phase !== 'done' ? (
             <ActionBar slot={actionsSlot}>
               <Button type={actionsSlot ? 'button' : 'submit'} block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'} onClick={actionsSlot ? () => void submit([], typed) : undefined}>
-                Перевірити
+                {submitLabel(variant)}
               </Button>
             </ActionBar>
           ) : null}
@@ -276,12 +275,12 @@ export function QuizInline(props: Props) {
             actionsSlot ? (
               <ActionBar slot={actionsSlot}>
                 <Button block size="lg" disabled={!typed.trim()} loading={phase === 'checking'} onClick={() => void submit([], typed)}>
-                  Перевірити
+                  {submitLabel(variant)}
                 </Button>
               </ActionBar>
             ) : (
               <Button type="submit" size={compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'}>
-                Перевірити
+                {submitLabel(variant)}
               </Button>
             )
           ) : null}
@@ -316,31 +315,13 @@ export function QuizInline(props: Props) {
           })}
         </ol>
       )}
-      {multi && phase !== 'done' && !free && !interactive && mode !== 'speak' ? (
+      {phase !== 'done' && !free && !interactive && mode !== 'speak' ? (
         <ActionBar slot={actionsSlot}>
           <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={chosen.length === 0} loading={phase === 'checking'} onClick={() => void submit(chosen, null)}>
-            Перевірити
+            {submitLabel(variant)}
           </Button>
-          {!actionsSlot ? <span className="quiz-hint">або Enter · обрано {chosen.length}</span> : null}
+          {!actionsSlot && multi ? <span className="quiz-hint">обрано {chosen.length}</span> : null}
         </ActionBar>
-      ) : null}
-      {!multi && phase !== 'done' && !free && !interactive && mode !== 'speak' && actionsSlot ? (
-        <ActionBar slot={actionsSlot}>
-          <p className="quiz-dock-hint">
-            {phase === 'checking' ? (
-              'Перевіряю…'
-            ) : (
-              <>
-                Торкнись відповіді <span className="quiz-dock-keys">· або клавіші 1–{options.length}</span>
-              </>
-            )}
-          </p>
-        </ActionBar>
-      ) : null}
-      {phase === 'checking' && !actionsSlot && !multi && !free && !interactive && mode !== 'speak' ? (
-        <p className="quiz-hint" role="status">
-          Перевіряю…
-        </p>
       ) : null}
       {error ? (
         <p className="quiz-error" role="alert">
