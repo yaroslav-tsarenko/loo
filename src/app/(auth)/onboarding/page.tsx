@@ -4,7 +4,8 @@ import { safeRedirectPath } from '@/lib/redirect'
 import { completeOnboarding } from '@/server/actions/account'
 import { getProfile, requireUser } from '@/server/auth'
 import { listCourses } from '@/server/courses/registry'
-import { GOALS, INTERESTS, LEVELS, MINUTES } from '@/server/services/preferences'
+import { levelShort, SUBJECTS, type Subject } from '@/course'
+import { GOALS, MINUTES } from '@/server/services/preferences'
 import { readSettings } from '@/server/settings'
 import { param } from '@/ui/auth/AuthShell'
 import { Choice, ChoiceGroup } from '@/ui/auth/Choices'
@@ -15,18 +16,29 @@ import { Icon } from '@/ui/icons/Icon'
 
 // Goal choices get an icon (the strings themselves carry no emoji).
 const GOAL_ICON: Record<(typeof GOALS)[number], string> = { job: 'px:target', grow: 'px:rocket', school: 'px:gradCap', fun: 'px:star' }
+const SUBJECT_ICON: Record<Subject, string> = {
+  language: 'px:globe',
+  programming: 'px:code',
+  science: 'px:microscope',
+  psychology: 'px:brain',
+  business: 'px:clipboard',
+  security: 'px:shield',
+  other: 'px:books',
+}
+const subjectOf = (s: string): Subject => ((SUBJECTS as readonly string[]).includes(s) ? (s as Subject) : 'other')
 
 export const metadata: Metadata = { title: 'Налаштуймо шлях', robots: { index: false, follow: false } }
 
-// First sign-in: course, goal, daily minutes, interests, self-assessed level → profile (+ dailyMinutes setting) and the
-// first enrollment; «Пройти вступний тест» continues at /placement, «Почати з нуля» starts at the first section.
+// First sign-in, subject-neutral (languages, code, psychology… — whatever the catalog has): course, goal, daily minutes →
+// profile (+ dailyMinutes setting) and the first enrollment; «Пройти вступний тест» continues at /placement, «Почати з
+// нуля» starts at the course's first section. No coding-specific questions: the course's own placement finds the level.
 export default async function OnboardingPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   await requireUser()
   const [params, profile, settings, courses] = await Promise.all([searchParams, getProfile(), readSettings(), listCourses()])
   const m = messages()
   const goal = profile?.onboarding.goal ?? 'grow'
-  const level = profile?.preferences.level ?? 'noob'
-  const chosen = new Set(profile?.preferences.interests ?? ['javascript'])
+  // courses grouped by subject, groups in SUBJECTS order; nothing pre-selected unless there is only one course
+  const groups = SUBJECTS.map((subject) => ({ subject, courses: courses.filter((c) => subjectOf(c.meta.subject) === subject) })).filter((g) => g.courses.length > 0)
   const daily = (MINUTES as readonly number[]).includes(settings.dailyMinutes) ? settings.dailyMinutes : 10
   return (
     <main className="onb-page">
@@ -41,21 +53,39 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
 
         {courses.length > 0 ? (
           <ChoiceGroup legend={t('onboarding.course.title')} hint={t('onboarding.course.hint')} wide>
-            {courses.map((c, i) => (
-              <Choice
-                key={c.id}
-                type="radio"
-                name="course"
-                value={c.id}
-                defaultChecked={i === 0}
-                required
-                title={
-                  <span className="onb-course">
-                    <Icon name={c.meta.icon ?? 'px:book'} size={26} /> {c.meta.title}
-                  </span>
-                }
-                sub={c.meta.subtitle ?? undefined}
-              />
+            {groups.map((g) => (
+              <div key={g.subject} className="onb-subject" role="group" aria-label={m.onboarding.subjects[g.subject]}>
+                {groups.length > 1 ? (
+                  <p className="onb-subject-title">
+                    <Icon name={SUBJECT_ICON[g.subject]} size={18} /> {m.onboarding.subjects[g.subject]}
+                  </p>
+                ) : null}
+                <div className="choice-grid">
+                  {g.courses.map((c) => (
+                    <Choice
+                      key={c.id}
+                      type="radio"
+                      name="course"
+                      value={c.id}
+                      defaultChecked={courses.length === 1}
+                      required
+                      title={
+                        <span className="onb-course">
+                          <Icon name={c.meta.icon ?? 'px:book'} size={26} /> {c.meta.title}
+                        </span>
+                      }
+                      sub={
+                        <>
+                          {c.meta.subtitle ? <span className="onb-course-sub">{c.meta.subtitle}</span> : null}
+                          <span className="onb-course-range">
+                            {levelShort(c.levels.from)} → {levelShort(c.levels.to)}
+                          </span>
+                        </>
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </ChoiceGroup>
         ) : null}
@@ -69,18 +99,6 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
         <ChoiceGroup legend={t('onboarding.minutes.title')}>
           {MINUTES.map((n) => (
             <Choice key={n} type="radio" name="minutes" value={String(n)} defaultChecked={n === daily} required title={t('onboarding.minutes.option', { n })} sub={m.onboarding.minutes.labels[n]} />
-          ))}
-        </ChoiceGroup>
-
-        <ChoiceGroup legend={t('onboarding.interests.title')} hint={t('onboarding.interests.hint')}>
-          {INTERESTS.map((i) => (
-            <Choice key={i} type="checkbox" name="interests" value={i} defaultChecked={chosen.has(i)} title={m.interests[i]} />
-          ))}
-        </ChoiceGroup>
-
-        <ChoiceGroup legend={t('onboarding.level.title')} hint={t('onboarding.level.hint')} wide>
-          {LEVELS.map((l) => (
-            <Choice key={l} type="radio" name="level" value={l} defaultChecked={l === level} required title={m.levels[l].title} sub={m.levels[l].body} />
           ))}
         </ChoiceGroup>
 

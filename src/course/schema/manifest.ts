@@ -63,6 +63,10 @@ export const PlacementSchema = z
   .prefault({})
 export type PlacementConfig = z.infer<typeof PlacementSchema>
 
+// What a course teaches — the catalog and onboarding group courses by it (languages, code, psychology, …), in this order.
+export const SUBJECTS = ['language', 'programming', 'science', 'psychology', 'business', 'security', 'other'] as const
+export type Subject = (typeof SUBJECTS)[number]
+
 export const AuthorSchema = z.object({ name: z.string().min(1), url: z.url().optional() })
 
 export const CourseManifestSchema = z
@@ -72,7 +76,7 @@ export const CourseManifestSchema = z
     title: z.string().min(1).max(80),
     subtitle: z.string().max(160).optional(),
     description: z.string().max(2000).optional(),
-    subject: z.enum(['programming', 'language', 'security', 'science', 'other']).default('other'),
+    subject: z.enum(SUBJECTS).default('other'),
     // programming | language | general; default from subject (src/course/schema/practice.ts → kindForSubject)
     kind: CourseKindSchema.optional(),
     // practice sections in sidebar order; default per kind (DEFAULT_PRACTICE); `path` is always first

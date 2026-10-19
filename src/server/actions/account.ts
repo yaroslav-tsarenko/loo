@@ -9,7 +9,7 @@ import { safeRedirectPath } from '@/lib/redirect'
 import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
 import { writeSetting } from '../settings'
-import { enrollIn } from '../courses/enrollment'
+import { courseLevelOf, enrollIn } from '../courses/enrollment'
 import { getCourse } from '../courses/registry'
 import { GOALS, INTERESTS, LEVELS, MINUTES } from '../services/preferences'
 
@@ -24,11 +24,13 @@ const courseId = z
   .string()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
   .max(64)
+// The questionnaire is subject-neutral (any course: languages, code, …): no interests or self-level — the course choice
+// says what, the placement test (or «з нуля») says where to start. Old fields stay optional for older clients.
 const onboardingInput = z.object({
   goal: z.enum(GOALS),
   minutes,
-  interests,
-  level,
+  interests: interests.optional(),
+  level: level.optional(),
   next: z.string().max(2048).optional(),
   course: courseId.optional(),
   start: z.enum(['placement', 'zero']).optional(),
@@ -65,14 +67,16 @@ export async function completeOnboarding(form: FormData): Promise<void> {
         .update(profiles)
         .set({
           onboarding: { ...profile?.onboarding, completedAt: now, goal: input.goal },
-          preferences: { ...profile?.preferences, interests: input.interests, level: input.level },
+          preferences: { ...profile?.preferences, interests: input.interests?.length ? input.interests : (profile?.preferences.interests ?? []), level: input.level ?? profile?.preferences.level ?? 'noob' },
           updatedAt: now,
         })
         .where(eq(profiles.id, userId))
       if (course) {
-        // «Почати з нуля»: first section at the self-assessed level; the placement test sets its own result later.
-        const placement = input.start === 'zero' ? { level: input.level, sectionIndex: 0, sectionId: course.sections[0]?.id ?? null, confident: false, asked: 0, at: now, skipped: true } : null
-        await enrollIn(db, userId, course.course.id, { level: input.level, activate: true, placement, now })
+        // «Почати з нуля»: the first section at the course's own first level (A1 for a language, the bottom rung for code);
+        // the placement test sets its own result later.
+        const startLevel = courseLevelOf(input.level ?? 'noob', course.course)
+        const placement = input.start === 'zero' ? { level: startLevel, sectionIndex: 0, sectionId: course.sections[0]?.id ?? null, confident: false, asked: 0, at: now, skipped: true } : null
+        await enrollIn(db, userId, course.course.id, { level: startLevel, activate: true, placement, now })
       }
     },
     { tx: true },
