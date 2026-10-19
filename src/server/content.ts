@@ -4,7 +4,6 @@ import { defaultVaultConfig, normalizeVaultPath } from '@/content/config'
 import { getContentStore, type ChapterDocument, type ContentSnapshot } from '@/content/store'
 import { readVaultPath } from './settings'
 import { syncUnits } from './services/units-sync'
-import { warmSearchIndex } from '@/content/search'
 
 const bootKey = Symbol.for('interview-prep.boot')
 type GlobalWithBoot = typeof globalThis & { [bootKey]?: Promise<void>; [key: symbol]: unknown }
@@ -30,7 +29,6 @@ export async function getContent(): Promise<ContentSnapshot> {
   await boot()
   const snapshot = await getContentStore().get()
   await syncUnits(snapshot)
-  warmSearch(snapshot)
   return snapshot
 }
 
@@ -39,11 +37,3 @@ export async function getDocument(chapterId: string): Promise<ChapterDocument | 
   return getContentStore().document(chapterId)
 }
 
-const warmed = new WeakSet<ContentSnapshot>()
-
-function warmSearch(snapshot: ContentSnapshot): void {
-  if (warmed.has(snapshot)) return
-  warmed.add(snapshot)
-  // in chunks, off the request path (src/content/search.ts)
-  setTimeout(() => void warmSearchIndex(snapshot).catch(() => {}), 1500)
-}

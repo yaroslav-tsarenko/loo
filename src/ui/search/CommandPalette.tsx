@@ -35,6 +35,8 @@ const COMMANDS: Hit[] = [
 
 const PRACTICE_HREFS = new Set(ALL_PRACTICE_NAV.map((p) => p.href))
 
+let warmed = false
+
 export function CommandPalette() {
   const router = useRouter()
   const dialog = useRef<HTMLDialogElement>(null)
@@ -48,6 +50,11 @@ export function CommandPalette() {
   const open = useCallback(() => {
     const d = dialog.current
     if (!d || d.open) return
+    // the server builds the search index on demand: start it while the learner types
+    if (!warmed) {
+      warmed = true
+      void fetch('/api/search?warm=1').catch(() => {})
+    }
     d.showModal()
     requestAnimationFrame(() => input.current?.select())
   }, [])

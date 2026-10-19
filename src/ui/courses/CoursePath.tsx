@@ -294,8 +294,9 @@ export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
       {sections.map((section, si) => {
         if (section.kind === 'path') pathNo++
         const locked = section.state === 'locked'
-        // sections skipped by placement / test-out collapse to a topic list (lessons stay one tap away)
-        const compact = section.known !== null && !expanded.has(section.id)
+        // sections skipped by placement / test-out, and finished ones, collapse to a topic list (lessons one tap away)
+        const collapsible = section.known !== null || section.state === 'done'
+        const compact = collapsible && !expanded.has(section.id)
         const number = pathNo
         return (
           <section key={section.id} className="path-stage cp-section" data-tone={SECTION_TONES[si % SECTION_TONES.length]} data-state={section.state} data-known={section.known ?? undefined}>
@@ -342,7 +343,7 @@ export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
               </ul>
             ) : (
               <>
-                {section.known ? (
+                {collapsible ? (
                   <button type="button" className="cp-expand" onClick={() => setExpanded((e) => new Set([...e].filter((id) => id !== section.id)))}>
                     Згорнути розділ
                   </button>
