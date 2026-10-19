@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { defaultVaultConfig } from '@/content/config'
 import { isAdmin } from '@/server/auth'
+import { grantTestBucks } from '@/server/actions/admin'
+import { Button } from '@/ui/design/Button'
 import { getContent } from '@/server/content'
 import { readSettings } from '@/server/settings'
 import { SettingsForm } from '@/ui/settings/SettingsForm'
@@ -39,6 +41,18 @@ export default async function SettingsPage() {
         </p>
       </header>
       <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} admin={admin} />
+      {admin ? (
+        <section aria-labelledby="s-admin-bucks">
+          <h2 id="s-admin-bucks" className="section-title rule-title">
+            Адмін · тестові бакси
+          </h2>
+          <p className="unit-meta">Нараховує бакси лише на твій акаунт — щоб перевірити магазин і спорядження.</p>
+          <form action={grantTestBucks} className="admin-grant">
+            <input className="text-input number-input tabular" type="number" name="amount" min={1} max={10000} defaultValue={10000} aria-label="Скільки баксів" />
+            <Button type="submit">Нарахувати</Button>
+          </form>
+        </section>
+      ) : null}
       <section aria-labelledby="s-session">
         <h2 id="s-session" className="section-title rule-title">
           Акаунт
