@@ -18,7 +18,7 @@ export { awardBucks, awardGems, bucksEarnedToday, grantXp, gemsEarnedToday, spen
 export { addHearts, bucksOf, gemsOf, loadGame, loadState, ownedItems, spendHeart, spendHeartFrom, type GameRead, type GameState } from './state'
 export { settleStreak, streakInputs, streakRewards, goalDays, frozenDayList, type StreakInputs, type StreakState } from './streak'
 export { ackEvolution, rankInput, rankOfUser, settleRank } from './ranks'
-export { finalizeDue, leagueSummary, leagueView, touchLeague, type LeagueRow, type LeagueView } from './leagues'
+export { finalizeDue, leagueSummary, leagueView, moveToTier, touchLeague, type LeagueRow, type LeagueView } from './leagues'
 
 // End-of-transaction bookkeeping for anything that can move XP / goals: freezes, streak milestone gems, rank-ups.
 // Reads first (one round trip: streak inputs + rank input), then only the writes something actually changed.

@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { buckLedger } from '@/db/schema'
 import { dayKey } from '@/progress/day'
 import { requireAdmin, userScope } from '../auth'
+import { moveToTier } from '../game'
 import { parseInput } from '../auth-guard'
 
 // Owner testing: credit test bucks to the admin's OWN account (shop, gear, refills). Admin only (ADMIN_EMAILS role),
@@ -17,4 +18,11 @@ export async function grantTestBucks(form: FormData): Promise<void> {
   const now = Date.now()
   await userScope((db, userId) => db.insert(buckLedger).values({ userId, amount, reason: 'admin-grant', refId: `admin:${now}`, createdAt: now, day: dayKey(now) }).then(() => undefined))
   revalidatePath('/', 'layout')
+}
+
+// Owner testing: join this week's bronze league with the newcomers (the fullest open bronze cohort). Admin only, self only.
+export async function joinBronzeLeague(): Promise<void> {
+  const user = await requireAdmin()
+  await moveToTier(user.id, 'bronze', Date.now())
+  revalidatePath('/leagues')
 }

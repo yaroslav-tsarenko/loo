@@ -138,6 +138,44 @@ export async function touchLeague(userId: string, now: number): Promise<void> {
   })
 }
 
+// Admin testing: move a learner this week into the fullest open cohort of `tier` (where the newcomers are) — or a new
+// one. Their old cohort shrinks; their weekly XP goes with them (it is read from xp_ledger). Next week continues from
+// this tier's result as usual. System operation (shared cohort tables), called only by an admin action for themselves.
+export async function moveToTier(userId: string, tier: LeagueTier, now: number): Promise<void> {
+  const week = weekKey(now)
+  await db().transaction(async (tx) => {
+    const mine = await membership(tx, userId, week)
+    const open = await tx
+      .select({ id: leagueCohorts.id, size: leagueCohorts.size })
+      .from(leagueCohorts)
+      .where(and(eq(leagueCohorts.week, week), eq(leagueCohorts.tier, tier), isNull(leagueCohorts.finalizedAt), lt(leagueCohorts.size, COHORT_SIZE)))
+      .for('update')
+    const target = pickCohort(open)
+    // already in the fullest open cohort of this tier (or in a full one of it)
+    if (mine && mine.tier === tier && (!target || target.id === mine.cohortId)) return
+    if (mine) {
+      // cross-user: the old cohort's size (shared table)
+      await tx.delete(leagueMembers).where(and(eq(leagueMembers.userId, userId), eq(leagueMembers.week, week)))
+      await tx
+        .update(leagueCohorts)
+        .set({ size: sql`greatest(${leagueCohorts.size} - 1, 0)` })
+        .where(eq(leagueCohorts.id, mine.cohortId))
+    }
+    let cohortId: string
+    if (target) {
+      cohortId = target.id
+      await tx
+        .update(leagueCohorts)
+        .set({ size: sql`${leagueCohorts.size} + 1` })
+        .where(eq(leagueCohorts.id, cohortId))
+    } else {
+      cohortId = randomUUID()
+      await tx.insert(leagueCohorts).values({ id: cohortId, week, tier, size: 1, createdAt: now })
+    }
+    await tx.insert(leagueMembers).values({ userId, week, tier, cohortId, joinedAt: now })
+  })
+}
+
 export interface LeagueRow {
   rank: number
   name: string

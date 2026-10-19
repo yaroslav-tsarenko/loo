@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 import { t } from '@/i18n'
 import { DEMOTE_COUNT, LEAGUE_TIERS, PROMOTE_COUNT, tierIndex, type LeagueTier } from '@/game'
 import { nowMs } from '@/server/clock'
-import { requireUser } from '@/server/auth'
+import { isAdmin, requireUser } from '@/server/auth'
+import { joinBronzeLeague } from '@/server/actions/admin'
 import { leagueView, type LeagueRow } from '@/server/game'
 import { Avatar } from '@/ui/design/Avatar'
 import { Button } from '@/ui/design/Button'
@@ -43,7 +44,7 @@ function Row({ row, size }: { row: LeagueRow; size: number }) {
 export default async function LeaguesPage() {
   const user = await requireUser()
   const now = nowMs()
-  const view = await leagueView(user.id, now)
+  const [view, admin] = await Promise.all([leagueView(user.id, now), isAdmin()])
   const look = TIER_LOOK[view.tier]
   const alone = view.joined && view.rows.length === 1
   const last = view.last
@@ -109,6 +110,15 @@ export default async function LeaguesPage() {
       <p className="league-note">
         <GameIcon name="bolt" size={18} /> {t('game.leagues.onlyGraded')}
       </p>
+      {admin && (view.tier !== 'bronze' || !view.joined || alone) ? (
+        // owner testing: watch the newcomers' league from inside
+        <form action={joinBronzeLeague} className="admin-grant">
+          <span className="unit-meta">Адмін:</span>
+          <Button type="submit" variant="ghost" size="sm">
+            Перейти в бронзову лігу до новачків
+          </Button>
+        </form>
+      ) : null}
     </div>
   )
 }
