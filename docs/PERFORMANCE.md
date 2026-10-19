@@ -55,6 +55,25 @@ Other numbers:
 | HTML of `/path` (English course) | 2.6 MB (137 KB gzip) | 1.3 MB (73 KB gzip) |
 | JWKS fetches (Supabase Auth, ES256) | — | once per instance and 10 min (proxy and app each); 2 fetches for 20 requests in the lab |
 
+### October 2026, second pass — page weight and request count
+
+Server time was already small (40–130 ms per page at a 2 ms database RTT in the lab); what users felt on phones was
+the weight of the pages, extra requests and one regression:
+
+| | before | after |
+| --- | --- | --- |
+| content store | re-read the whole content whenever a page and a route handler alternated (separate bundles → separate class copies; an `instanceof` check replaced the store) | one store per process |
+| `/words` HTML (English course) | 9.6 MB (700 KB gzip): all 4 287 words inside closed groups | 285 KB (48 KB gzip); a group loads its words when opened (`/api/vocab`, built once per snapshot, browser cache 1 h) |
+| `/path` HTML | 2.1 MB | 1.35 MB for a learner at A1; less after a placement — locked / credited sections ship topic titles only, lessons via `/api/path-section` on demand |
+| `/api/counts` | on every page change | on progress events, after 60 s, or when the tab comes back |
+| repeat navigation | always a server render | client router cache: `staleTimes` 30 s (dynamic) / 5 min (static) |
+| placement «Далі» | a server round trip after the tap | the step is requested when an option is picked (stateless replay, no writes) |
+
+What is cached where: course bundles and the parsed content snapshot live in memory per instance (shared by all
+users); `/api/vocab` responses are built once per snapshot; browsers cache vocab groups for an hour and the router cache
+keeps visited pages for 30 s. Per-learner data (progress, counts, hearts) is never shared — it stays a few batched
+statements per request (2–10). Pages stay dynamic on purpose: the CSP carries a per-request nonce.
+
 ## 3. Measuring
 
 ### Per-request log: `PERF_TRACE=1`
