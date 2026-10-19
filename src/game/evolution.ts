@@ -24,6 +24,22 @@ export const WARRIOR_LABEL: Record<WarriorRank, string> = {
 }
 
 // «від Лицаря» — genitive for rank requirements.
+// Pixel emblem of each rank (src/ui/design/pixel-icons/ranks.ts) — a different silhouette per rung of the path.
+export const WARRIOR_ICON = {
+  novice: 'rankNovice',
+  recruit: 'rankRecruit',
+  fighter: 'rankFighter',
+  warrior: 'rankWarrior',
+  sentinel: 'rankSentinel',
+  veteran: 'rankVeteran',
+  knight: 'rankKnight',
+  paladin: 'rankPaladin',
+  champion: 'rankChampion',
+  warlord: 'rankWarlord',
+  hero: 'rankHero',
+  legend: 'rankLegend',
+} as const satisfies Record<WarriorRank, string>
+
 export const WARRIOR_FROM: Record<WarriorRank, string> = {
   novice: 'Новобранця',
   recruit: 'Рекрута',

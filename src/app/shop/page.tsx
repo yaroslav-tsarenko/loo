@@ -19,6 +19,7 @@ import {
   STATS,
   tryOn,
   WARRIOR_FROM,
+  WARRIOR_ICON,
   type EquippedGear,
   type EquippedSkin,
   type GearItem,
@@ -167,7 +168,7 @@ export default async function ShopPage() {
             </div>
             <span className="shop-wallet-meta">
               <span>
-                <PixelIcon name="insignia" size={18} /> {game.rank.rank.title}
+                <PixelIcon name={WARRIOR_ICON[game.rank.rank.rank]} size={18} /> {game.rank.rank.title}
               </span>
               <span>
                 <GameIcon name="heart" size={18} /> {game.hearts.hearts}/{MAX_HEARTS}

@@ -41,6 +41,7 @@ import {
   STAGE_FROM,
   stageOf,
   tryOn,
+  WARRIOR_ICON,
   WARRIOR_RANKS,
   LEAGUE_TIERS,
   levelBadge,
@@ -542,6 +543,12 @@ describe('game icons (no emoji in the UI)', () => {
     for (const icon of ['buck', 'sword', 'staff', 'helmet', 'armor', 'amulet', 'spark', 'insignia']) expect(PIXEL_ICONS, icon).toContain(icon)
     for (const icon of Object.values(ATTRIBUTE_ICON)) expect(known(icon), icon).toBe(true)
     for (const a of ACHIEVEMENTS) expect(known(a.icon), a.id).toBe(true)
+  })
+
+  it('every warrior rank has its own emblem', () => {
+    const icons = WARRIOR_RANKS.map((r) => WARRIOR_ICON[r])
+    for (const icon of icons) expect(PIXEL_ICONS, icon).toContain(icon)
+    expect(new Set(icons).size).toBe(WARRIOR_RANKS.length)
   })
 
   it('league tiers have pixel badges and titles have icons', () => {

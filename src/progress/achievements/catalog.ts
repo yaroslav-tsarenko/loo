@@ -27,11 +27,11 @@ export const ACHIEVEMENTS: readonly AchievementDef[] = [
   // «Шлях воїна» (src/game/ranks.ts steps: 2 Новобранець III — Loo hatches · 5 Рекрут I · 15 Воїн I · 30 Лицар I ·
   // 40 Чемпіон I · 55 Легенда). Ids are kept from the old ladders so unlocked achievements stay unlocked.
   { id: 'evo-pixel', title: 'Вилупився!', description: 'Loo вилупився з яйця', icon: 'loo:small', tier: 'bronze', when: { metric: 'evolution', gte: 2 } },
-  { id: 'rank-junior', title: 'Рекрут', description: 'Досягти рангу «Рекрут»', icon: 'px:insignia', tier: 'bronze', when: { metric: 'evolution', gte: 5 } },
-  { id: 'rank-middle', title: 'Воїн', description: 'Досягти рангу «Воїн»', icon: 'px:sword', tier: 'silver', when: { metric: 'evolution', gte: 15 } },
-  { id: 'rank-senior', title: 'Лицар', description: 'Досягти рангу «Лицар» — відкриває епічне спорядження', icon: 'px:helmet', tier: 'gold', when: { metric: 'evolution', gte: 30 } },
-  { id: 'rank-champion', title: 'Чемпіон', description: 'Досягти рангу «Чемпіон» — відкриває легендарне спорядження', icon: 'px:medal', tier: 'gold', when: { metric: 'evolution', gte: 40 } },
-  { id: 'rank-god', title: 'Легенда', description: 'Пройти шлях воїна до кінця', icon: 'px:crown', tier: 'gold', when: { metric: 'evolution', gte: 55 } },
+  { id: 'rank-junior', title: 'Рекрут', description: 'Досягти рангу «Рекрут»', icon: 'px:rankRecruit', tier: 'bronze', when: { metric: 'evolution', gte: 5 } },
+  { id: 'rank-middle', title: 'Воїн', description: 'Досягти рангу «Воїн»', icon: 'px:rankWarrior', tier: 'silver', when: { metric: 'evolution', gte: 15 } },
+  { id: 'rank-senior', title: 'Лицар', description: 'Досягти рангу «Лицар» — відкриває епічне спорядження', icon: 'px:rankKnight', tier: 'gold', when: { metric: 'evolution', gte: 30 } },
+  { id: 'rank-champion', title: 'Чемпіон', description: 'Досягти рангу «Чемпіон» — відкриває легендарне спорядження', icon: 'px:rankChampion', tier: 'gold', when: { metric: 'evolution', gte: 40 } },
+  { id: 'rank-god', title: 'Легенда', description: 'Пройти шлях воїна до кінця', icon: 'px:rankLegend', tier: 'gold', when: { metric: 'evolution', gte: 55 } },
   // Course progress
   { id: 'lesson-first', title: 'Перший урок', description: 'Пройти перший урок курсу', icon: 'px:bulb', tier: 'bronze', when: { metric: 'lessons.completed', gte: 1 } },
   { id: 'lessons-25', title: 'Чверть сотні', description: 'Пройти 25 уроків', icon: 'px:dumbbell', tier: 'silver', when: { metric: 'lessons.completed', gte: 25 } },

@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 import { PiBrainFill, PiChatCircleTextFill, PiCheckBold, PiCodeBlockFill, PiExamFill, PiGearSixFill, PiLightningFill, PiPlusBold, PiTargetFill, PiTimerFill, PiTrendDownBold, PiTrendUpBold, PiWarningFill } from 'react-icons/pi'
 import { LEVEL_LABEL as COURSE_LEVEL_LABEL } from '@/course'
 import { LEVEL_LABEL, LEVELS } from '@/content/model'
-import { isLooStage, levelIcon } from '@/game'
+import { isLooStage, levelIcon, WARRIOR_ICON } from '@/game'
 import { messages, t } from '@/i18n'
 import { levelInfo } from '@/progress/levels'
 import type { Tier } from '@/progress/stats'
@@ -168,7 +168,7 @@ export default async function ProfilePage() {
           <h1 className="st-hero-name">{name}</h1>
           <p className="st-hero-pills">
             <Link href="/loo" className="st-hero-evo">
-              <Pill tone="purple" solid icon={<PixelIcon name="insignia" size={18} />}>
+              <Pill tone="purple" solid icon={<PixelIcon name={WARRIOR_ICON[rank.rank.rank]} size={18} />}>
                 {rank.rank.title}
               </Pill>
             </Link>

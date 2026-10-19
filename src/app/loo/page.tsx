@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import type { Metadata } from 'next'
 import { PiSwordFill } from 'react-icons/pi'
 import { t } from '@/i18n'
-import { ATTRIBUTE_ICON, courseRankIcon, courseRankLabel, GEAR_SLOTS, IT_RANKS, RANK_TIERS, RANKS, rarityOf, shopItem, STAT_ICON, STATS, WARRIOR_LABEL, WARRIOR_RANKS, type Attribute } from '@/game'
+import { ATTRIBUTE_ICON, courseRankIcon, courseRankLabel, GEAR_SLOTS, IT_RANKS, RANK_TIERS, RANKS, rarityOf, shopItem, STAT_ICON, STATS, WARRIOR_ICON, WARRIOR_LABEL, WARRIOR_RANKS, type Attribute } from '@/game'
 import { requireUser } from '@/server/auth'
 import { myCharacter } from '@/server/game/character'
 import { Button } from '@/ui/design/Button'
@@ -52,7 +52,7 @@ export default async function LooPage() {
         <div className="loo-hero-text">
           <p className="loo-eyebrow">{t('game.character.title')}</p>
           <h1 className="loo-title">
-            <PixelIcon name="insignia" size={36} /> {rank.rank.title}
+            <PixelIcon name={WARRIOR_ICON[rank.rank.rank]} size={36} /> {rank.rank.title}
           </h1>
           <p className="loo-lead">{t('game.character.lead')}</p>
           <p className="loo-meta">
@@ -231,7 +231,7 @@ export default async function LooPage() {
           const state = current ? 'current' : first.index < rank.rank.index ? 'reached' : 'locked'
           return (
             <li key={r} className="rank-rung" data-state={state}>
-              <PixelIcon name="insignia" size={state === 'current' ? 40 : 32} />
+              <PixelIcon name={WARRIOR_ICON[r]} size={state === 'current' ? 40 : 32} />
               <span className="rank-rung-text">
                 <strong className="rank-rung-title">{WARRIOR_LABEL[r]}</strong>
                 <span className="rank-rung-sub tabular">

@@ -49,7 +49,9 @@ export function CourseCard({ course, enrolled, active }: CourseCardProps) {
           </Pill>
         </div>
         <p className="course-card-meta tabular">
-          {count(stats.topics, 'тема', 'теми', 'тем')} · {count(stats.lessons, 'урок', 'уроки', 'уроків')} · {count(stats.tasks, 'задача', 'задачі', 'задач')}
+          {count(stats.topics, 'тема', 'теми', 'тем')} · {count(stats.lessons, 'урок', 'уроки', 'уроків')}
+          {/* coding courses: tasks; language courses have none — their own unit is words */}
+          {stats.tasks > 0 ? ` · ${count(stats.tasks, 'задача', 'задачі', 'задач')}` : stats.words ? ` · ${count(stats.words, 'слово', 'слова', 'слів')}` : null}
         </p>
         <div className="course-card-actions">
           {active ? (

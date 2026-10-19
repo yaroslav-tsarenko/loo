@@ -4,13 +4,14 @@ import { CONTENT_ICONS } from './pixel-icons/content'
 import { GAME_ICONS } from './pixel-icons/game'
 import { LEARN_ICONS } from './pixel-icons/learn'
 import { PIXEL_PALETTE } from './pixel-icons/palette'
+import { RANK_ICONS } from './pixel-icons/ranks'
 import { VIZ_ICONS } from './pixel-icons/viz'
 
 // Levelup's own pixel icon set (16×16, same pixel language as Loo). Grids live in ./pixel-icons/*.ts (one file per
 // area), colours in ./pixel-icons/palette.ts.
 // Preview: /design → «Піксельні іконки».
 
-const ART = { ...BASE_ICONS, ...CONTENT_ICONS, ...GAME_ICONS, ...LEARN_ICONS, ...VIZ_ICONS }
+const ART = { ...BASE_ICONS, ...CONTENT_ICONS, ...GAME_ICONS, ...LEARN_ICONS, ...RANK_ICONS, ...VIZ_ICONS }
 const PAL = PIXEL_PALETTE
 
 export type PixelIconName = keyof typeof ART
