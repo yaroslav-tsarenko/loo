@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { createContext, use, useEffect, useState, type CSSProperties, type ReactNode } from 'react'
+import { createContext, use, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import type { IconType } from 'react-icons'
 import type { PracticeSectionId } from '@/course/practice'
 import { FALLBACK_PRACTICE, practiceNav, type PracticeNavItem } from './course-nav'
@@ -22,6 +22,8 @@ export function useCounts(): Record<string, number> {
   return use(CountsContext)
 }
 
+const COUNTS_TTL_MS = 60_000
+
 function useLiveCounts(initial: Record<string, number>): Record<string, number> {
   const path = usePathname()
   const [counts, setCounts] = useState(initial)
@@ -31,20 +33,32 @@ function useLiveCounts(initial: Record<string, number>): Record<string, number> 
     setSeed(initial)
     setCounts(initial)
   }
+  // Server load: the counts came with the page, so a page change refetches them only when they're older than a minute;
+  // a progress event (an answer, a purchase…) refetches at once, and so does coming back to a tab left a while ago.
+  const loadedAt = useRef(0)
   useEffect(() => {
     let alive = true
-    const load = () =>
-      fetch('/api/counts', { cache: 'no-store' })
+    const load = () => {
+      loadedAt.current = Date.now()
+      return fetch('/api/counts', { cache: 'no-store' })
         .then((r) => r.json() as Promise<{ counts: Record<string, number> }>)
         .then((d) => {
           if (alive) setCounts(d.counts)
         })
         .catch(() => {})
-    load()
+    }
+    const stale = () => Date.now() - loadedAt.current > COUNTS_TTL_MS
+    if (loadedAt.current === 0) loadedAt.current = Date.now()
+    else if (stale()) void load()
+    const onVisible = () => {
+      if (document.visibilityState === 'visible' && stale()) void load()
+    }
     window.addEventListener(PROGRESS_EVENT, load)
+    document.addEventListener('visibilitychange', onVisible)
     return () => {
       alive = false
       window.removeEventListener(PROGRESS_EVENT, load)
+      document.removeEventListener('visibilitychange', onVisible)
     }
   }, [path])
   return counts

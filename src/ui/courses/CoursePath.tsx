@@ -185,6 +185,11 @@ function TopicSheet({ topic, onClose }: { topic: CPTopic; onClose: () => void })
           Задачі <small className="tabular">{topic.counts.tasks}</small>
         </Card>
       </div>
+      {topic.nodes.length === 0 && topic.total > 0 ? (
+        <p className="unit-meta" role="status">
+          Завантажую уроки…
+        </p>
+      ) : null}
       <ol className="cp-sheet-lessons">
         {topic.nodes.map((n) => (
           <li key={n.id} data-done={n.done ? '' : undefined}>
@@ -239,10 +244,37 @@ function TestOutCard({ section }: { section: CPSection }) {
   )
 }
 
-export function CoursePath({ sections }: { sections: CPSection[] }) {
+export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
   const [sheet, setSheet] = useState<CPTopic | null>(null)
   const [open, setOpen] = useState<string | null>(null)
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(new Set())
+  // lessons of lazy sections, fetched on demand (/api/path-section)
+  const [loaded, setLoaded] = useState<ReadonlyMap<string, CPTopic[]>>(new Map())
+  const sections = shipped.map((s) => {
+    const topics = loaded.get(s.id)
+    return topics ? { ...s, topics, lazy: false } : s
+  })
+  const loadSection = async (section: CPSection): Promise<CPTopic[] | null> => {
+    if (!section.lazy) return section.topics
+    try {
+      const r = await fetch(`/api/path-section?id=${encodeURIComponent(section.id)}`)
+      if (!r.ok) return null
+      const { topics } = (await r.json()) as { topics: CPTopic[] }
+      setLoaded((m) => new Map(m).set(section.id, topics))
+      return topics
+    } catch {
+      return null
+    }
+  }
+  // a topic of a lazy section opens at once (header, counts) and gets its lesson list when it arrives
+  const openTopic = (section: CPSection, topic: CPTopic) => {
+    setSheet(topic)
+    if (!section.lazy) return
+    void loadSection(section).then((topics) => {
+      const full = topics?.find((t) => t.id === topic.id)
+      if (full) setSheet((cur) => (cur?.id === topic.id ? full : cur))
+    })
+  }
   const currentRef = useRef<HTMLButtonElement>(null)
   useEffect(() => {
     currentRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' })
@@ -280,7 +312,7 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
               <ul className="cp-locked-topics" data-known={compact ? '' : undefined}>
                 {section.topics.map((t) => (
                   <li key={t.id}>
-                    <button type="button" className="cp-locked-topic" onClick={() => setSheet(t)}>
+                    <button type="button" className="cp-locked-topic" onClick={() => openTopic(section, t)}>
                       <span className="cp-locked-icon" aria-hidden="true">
                         <Icon name={t.icon} size={22} />
                       </span>
@@ -294,7 +326,15 @@ export function CoursePath({ sections }: { sections: CPSection[] }) {
                 ))}
                 {compact ? (
                   <li>
-                    <button type="button" className="cp-expand" onClick={() => setExpanded((e) => new Set([...e, section.id]))}>
+                    <button
+                      type="button"
+                      className="cp-expand"
+                      onClick={() => {
+                        void loadSection(section).then((topics) => {
+                          if (topics) setExpanded((e) => new Set([...e, section.id]))
+                        })
+                      }}
+                    >
                       Показати всі уроки розділу
                     </button>
                   </li>

@@ -44,6 +44,13 @@ function node(n: PathLessonNode | PathTestNode | PathExamNode, theoryHref: strin
 }
 
 // CoursePath → what the client path component renders.
+// Page weight: a locked or credited section shows only its topic list, so its lessons stay on the server until the
+// learner opens a topic or expands the section (/api/path-section). The English course's map went from 2.1 MB of
+// HTML to a fraction of it.
+export function lightSections(sections: CPSection[]): CPSection[] {
+  return sections.map((s) => (s.state === 'locked' || s.known !== null ? { ...s, lazy: true, topics: s.topics.map((t) => ({ ...t, nodes: [] })) } : s))
+}
+
 export function pathSections(path: CoursePath): CPSection[] {
   let topicNo = 0
   return path.view.sections.map((s) => {

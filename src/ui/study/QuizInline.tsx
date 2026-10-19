@@ -74,6 +74,8 @@ interface Props {
   /** [!speak]: the phrase to say (mode 'speak'); `lang` — the course's target language (BCP 47 base). */
   speak?: SpeakView | null
   lang?: string | null
+  /** single choice: a tap picked this option (not sent yet) — the placement test prefetches its next step */
+  onChoose?: (chosen: string[]) => void
 }
 
 // `code`: the exercise fence names a programming language (```js order); language courses' sentences: none or ```text
@@ -153,7 +155,10 @@ export function QuizInline(props: Props) {
   const toggle = (id: string) => {
     if (checked) return
     if (multi) setChosen((c) => (c.includes(id) ? c.filter((x) => x !== id) : [...c, id]))
-    else setChosen((c) => (c[0] === id ? c : [id]))
+    else {
+      setChosen((c) => (c[0] === id ? c : [id]))
+      props.onChoose?.([id])
+    }
     feedback.play('tap')
   }
 

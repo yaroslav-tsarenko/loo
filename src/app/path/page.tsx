@@ -10,7 +10,7 @@ import { getContent } from '@/server/content'
 import { activeCourse } from '@/server/courses/enrollment'
 import { courseChips } from '@/server/courses/library'
 import { coursePath } from '@/server/courses/path'
-import { pathSections } from '@/server/courses/path-view'
+import { lightSections, pathSections } from '@/server/courses/path-view'
 import { listCourses, getCourse } from '@/server/courses/registry'
 import { trackPath } from '@/server/services/path'
 import { shellData } from '@/server/shell'
@@ -53,7 +53,7 @@ export default async function PathPage({ searchParams }: { searchParams: Promise
   const { bundle, enrollment } = active
   const level = levelInfo(xp)
   const crowns = [...path.mastery.values()].reduce((s, m) => s + m.crowns, 0)
-  const sections = pathSections(path)
+  const sections = lightSections(pathSections(path))
   return (
     <div className="page path-page" data-width="wide">
       <header className="ghead">

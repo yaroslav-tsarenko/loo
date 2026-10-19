@@ -136,12 +136,34 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
     }
   }, [])
 
+  // Speculative steps: a picked (not yet sent) option already asks the server for the next question — the test is a
+  // stateless replay with no writes, so «Далі» usually finds the answer waiting. Keyed by the whole request.
+  const ahead = useRef(new Map<string, Promise<PlacementStepResult>>())
+  const stepFor = useCallback(
+    (list: Answer[], run: string, more: boolean, withItem?: boolean) => {
+      // a resumed run (its own nonce) can't use the questions this page pre-rendered: the server sends each one
+      const req = { course: course.id, nonce: run, answers: list, followUp: more, withItem: withItem || run !== pageNonce }
+      const k = JSON.stringify(req)
+      let p = ahead.current.get(k)
+      if (!p) {
+        p = placementStep(req)
+        // a failed guess must not poison the real request
+        p.catch(() => ahead.current.delete(k))
+        ahead.current.set(k, p)
+      }
+      return p
+    },
+    [course.id, pageNonce],
+  )
+
   const send = useCallback(
     async (list: Answer[], opts: { more?: boolean; run?: string; withItem?: boolean } = {}) => {
       setBusy(true)
       setError(null)
       try {
-        const step = await placementStep({ course: course.id, nonce: opts.run ?? nonce, answers: list, followUp: opts.more ?? followUp, withItem: opts.withItem })
+        let step = await stepFor(list, opts.run ?? nonce, opts.more ?? followUp, opts.withItem)
+        // the next question isn't on this page and didn't come with the step: ask for it rather than end the test
+        if (!step.done && step.next && !step.item && !byId.has(step.next)) step = await stepFor(list, opts.run ?? nonce, opts.more ?? followUp, true)
         const fetched = step.item
         if (fetched) setExtra((x) => [...x, fetched])
         goTo(step, fetched ? new Map([...byId, [fetched.unitId, fetched]]) : byId)
@@ -153,7 +175,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
         setBusy(false)
       }
     },
-    [course.id, nonce, followUp, goTo, byId],
+    [stepFor, nonce, followUp, goTo, byId],
   )
 
   const record = useCallback(
@@ -170,6 +192,13 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
   )
 
   const onResult = useCallback((r: QuizResult) => record({ id: r.unitId, chosen: r.chosen, text: r.text }), [record])
+  const onChoose = useCallback(
+    (chosen: string[]) => {
+      if (answered || !current) return
+      void stepFor([...answers, { id: current, chosen, text: null }], nonce, followUp).catch(() => {})
+    },
+    [answered, current, answers, nonce, followUp, stepFor],
+  )
 
   // Continue a saved run: its own nonce, its answers; the server renders the next question for this page.
   const resume = useCallback(
@@ -277,14 +306,15 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
   }
 
   if (!current || !item) {
-    if (!result && (busy || answered)) {
+    // no question and no result: still loading — or stuck (offer a retry instead of an empty «твій рівень»)
+    if (!result) {
       return (
         <div className="lesson-summary placement-intro" aria-busy="true">
           <div className="lesson-summary-hero">
             <Loo mood="thinking" size={150} className="lesson-summary-loo" />
           </div>
-          <p className="lesson-summary-note">{error ?? t('placement.checking')}</p>
-          {error ? (
+          <p className="lesson-summary-note">{error ?? (busy ? t('placement.checking') : t('placement.error'))}</p>
+          {error || !busy ? (
             <div className="lesson-summary-actions">
               <Button size="lg" block onClick={() => void send(answers, { withItem: true })}>
                 {t('placement.retry')}
@@ -360,6 +390,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
               lang={item.lang}
               variant="session"
               onResult={onResult}
+              onChoose={onChoose}
               check={collectOnly}
               actionsSlot={dock}
               verdict="none"

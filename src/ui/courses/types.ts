@@ -58,4 +58,6 @@ export interface CPSection {
   exam: CPNode | null
   // «Перескочити розділ» is available
   testOut: boolean
+  // locked / credited sections ship their topics without lesson nodes (page weight); the client loads them on demand
+  lazy?: boolean
 }

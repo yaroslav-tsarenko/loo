@@ -21,8 +21,7 @@ import { FilterForm } from '@/ui/study/FilterForm'
 import { QueueCard } from '@/ui/study/QueueCard'
 import { renderStudyItems } from '@/ui/study/render-items'
 import { StudySession } from '@/ui/study/StudySession'
-import { AudioButton } from './AudioButton'
-import { IpaChip } from './IpaChip'
+import { VocabGroup } from './VocabGroup'
 
 // Practice sections of language courses (docs/COURSE_FORMAT.md §2.1, src/ui/shell/course-nav.ts): one hub per section,
 // scoped to the active course — «Слова» (SRS of [!word] cards with audio), «Аудіювання» ([!listen]), «Вимова»
@@ -229,7 +228,8 @@ export async function LangPracticePage({ section, params }: { section: LangSecti
   )
 }
 
-// The course's words by topic, with audio: a quick dictionary to listen through.
+// The course's words by topic, with audio: a quick dictionary to listen through. Only the topic titles are rendered;
+// each group loads its words when opened (VocabGroup → /api/vocab).
 async function Vocabulary({ snapshot, pool }: { snapshot: ContentSnapshot; pool: ReadonlySet<string> }) {
   const byChapter = new Map<string, LearningUnit[]>()
   for (const id of pool) {
@@ -249,26 +249,18 @@ async function Vocabulary({ snapshot, pool }: { snapshot: ContentSnapshot; pool:
         Словник курсу
       </h2>
       {chapters.map((c) => (
-        <details key={c.id} className="issue-group">
-          <summary>
-            <span>{c.title}</span>
-            <span className="tabular unit-meta">{byChapter.get(c.id)!.length}</span>
-          </summary>
-          <ul className="lang-vocab">
-            {byChapter.get(c.id)!.map((u) =>
-              u.kind === 'flashcard' && u.word ? (
-                <li key={u.id}>
-                  <AudioButton text={u.word.word} lang={u.lang ?? lang} size="sm" showSlow={false} label={`Прослухати «${u.word.word}»`} />
-                  <Link href={`${chapterHref(snapshot, c)}#u-${u.id}`} className="lang-vocab-word" lang={u.lang ?? lang}>
-                    {u.word.word}
-                  </Link>
-                  <IpaChip ipa={u.word.ipa} ipaUs={u.word.ipaUs} />
-                  <span className="lang-vocab-tr">{u.word.translations.join('; ')}</span>
-                </li>
-              ) : null,
-            )}
-          </ul>
-        </details>
+        <VocabGroup
+          key={c.id}
+          chapterId={c.id}
+          href={chapterHref(snapshot, c)}
+          lang={lang}
+          summary={
+            <>
+              <span>{c.title}</span>
+              <span className="tabular unit-meta">{byChapter.get(c.id)!.length}</span>
+            </>
+          }
+        />
       ))}
     </section>
   )

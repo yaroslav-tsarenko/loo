@@ -27,6 +27,9 @@ const config: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],
+    // Client router cache: a page visited (or fully prefetched — the bottom bar) in the last 30 s / 5 min opens
+    // instantly instead of waiting for a server render. Server actions revalidate what they change, which clears it.
+    staleTimes: { dynamic: 30, static: 300 },
     serverActions: {
       // Largest legit payload is a task draft (≤ 20k chars); default is 1 MB.
       bodySizeLimit: '256kb',
