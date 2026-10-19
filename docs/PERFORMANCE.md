@@ -74,6 +74,34 @@ users); `/api/vocab` responses are built once per snapshot; browsers cache vocab
 keeps visited pages for 30 s. Per-learner data (progress, counts, hearts) is never shared — it stays a few batched
 statements per request (2–10). Pages stay dynamic on purpose: the CSP carries a per-request nonce.
 
+### Capacity (load test, October 2026)
+
+`scripts/load-test.ts` against the lab (production build, Postgres 16 with the real RLS, 2 ms database RTT), virtual
+learners looping home → map → lesson (start + 5 answers) → words → counts → profile with ~0.3 s think time:
+
+| Setup | Throughput of one instance | Latency | Bottleneck |
+| --- | --- | --- | --- |
+| pool 1 connection (old prod) | ~10 req/s | pages p50 1–1.5 s at 10 learners | queueing for the connection |
+| pool 3 (prod default) | ~25 req/s | pages p50 0.4–0.65 s at 20 learners; answers p50 21 ms | one CPU core at 100 % |
+
+CPU of a busy instance (profile): React/Next render ~33 %, network & encoding ~22 %, the search index ~10 % (built on
+every cold start in every bundle — now only on demand), drizzle SQL building ~8 %. Database: ~10 round trips per
+request (2–3 transactions × BEGIN / RLS `set_config` / query / COMMIT).
+
+For 1 000–10 000 learners a day (peaks of ~20–100 req/s) Vercel scales instances (Fluid compute), so the limits are
+cost and the database: Active CPU on the Vercel plan and Supabase's connections / compute.
+
+Next steps, in order of value:
+1. Shared cache of rendered content (Next.js 16 `use cache` / Vercel Runtime Cache, keyed by the content version):
+   articles and lesson items are the same for everyone — render once per deploy, not per request. Needs a spike: Cache
+   Components with the nonce CSP and dynamic pages.
+2. Lesson player prefetches the next lesson's content as immutable JSON (CDN, `?v=<build>`), so a session is one page
+   load + answers.
+3. Database: one transaction per page instead of 2–3 (`userBase` + `shellData` reads in one statement); drizzle
+   prepared queries for the hot reads.
+4. PWA: the course content cached on the device (later, owner's decision).
+5. A stress test on a preview deployment with its own Supabase project (preview has no `DATABASE_URL` today).
+
 ## 3. Measuring
 
 ### Per-request log: `PERF_TRACE=1`
