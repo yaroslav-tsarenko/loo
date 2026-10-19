@@ -77,6 +77,13 @@ export const EMOJI_ICON: Readonly<Record<string, PixelIconName>> = {
   '🇺🇦': 'flagUa',
   '🇬🇧': 'flagUk',
   '🇩🇪': 'flagDe',
+  '🇪🇸': 'flagEs',
+  '🇮🇹': 'flagIt',
+  '🇫🇷': 'flagFr',
+  '🇵🇱': 'flagPl',
+  '🇯🇵': 'flagJp',
+  '🇰🇷': 'flagKr',
+  '🇨🇳': 'flagCn',
 }
 
 // One emoji grapheme: flag pairs, or a pictograph with optional VS16 / skin tone / ZWJ sequence.

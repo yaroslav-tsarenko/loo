@@ -13,7 +13,13 @@ export type ProfileRole = 'user' | 'admin'
 
 export interface OnboardingState {
   completedAt?: number
+  // coarse goal (GOALS: job | grow | school | fun), derived from `purpose`
   goal?: string
+  // first sign-in wizard answers (src/server/services/preferences.ts PURPOSES / ROLES)
+  purpose?: string
+  role?: string
+  // «Хочу це» votes for directions / courses that are not there yet (src/course/catalog-soon.ts WISH_IDS)
+  wishes?: string[]
   // Placement test result, filled by the course engine later (/placement).
   placement?: { level: string; at: number }
 }
