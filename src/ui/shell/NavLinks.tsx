@@ -89,7 +89,7 @@ export function BottomNav() {
         return (
           <Link key={item.href} href={item.href} className="bottomnav-link" aria-current={active ? 'page' : undefined} style={{ '--nav-c': color } as CSSProperties}>
             <span className="bottomnav-icon">
-              <Icon size={28} aria-hidden="true" />
+              <Icon size={24} aria-hidden="true" />
               {count ? (
                 <span className="lu-badge bottomnav-dot" data-tone="red">
                   {count > 99 ? '99+' : count}

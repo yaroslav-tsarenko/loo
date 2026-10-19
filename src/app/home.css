@@ -502,6 +502,22 @@
   flex-wrap: wrap;
   gap: 4px;
 }
+/* «Мої курси»: head (icon + title + subtitle) on top, pills on their own row — never a side column that squeezes the
+   text (courses.css lays guide cards out as a flex row; this list is a stack) */
+.home-courses .guide-card.lu-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 10px;
+}
+.home-courses .guide-card-head {
+  align-items: flex-start;
+}
+.home-courses .guide-card-meta {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
 
 @media (max-width: 899px) {
   .home-grid {
@@ -530,15 +546,30 @@
   .budget-chips {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  /* phones: ring + text on top, the «Далі» button full width below — the text keeps the whole card width */
   .home-continue {
+    flex-wrap: wrap;
     gap: 12px;
     padding: 14px;
   }
+  .home-continue-text {
+    flex: 1 1 0;
+  }
   .home-continue-go {
+    flex: 1 0 100%;
+    justify-content: center;
     padding: 0 14px;
   }
   .mission.lu-card {
     padding: 16px;
+  }
+  /* the step text keeps the width: the count shrinks to «0/5», the unit is in the title anyway */
+  .mission-step-link {
+    gap: 10px;
+    padding: 10px 8px;
+  }
+  .mission-step-unit {
+    display: none;
   }
 }
 

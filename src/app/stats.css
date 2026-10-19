@@ -926,6 +926,7 @@
     color: var(--lu-text);
   }
   .coach-why-icon {
+    display: inline-block;
     margin-right: 2px;
     vertical-align: -3px;
   }
@@ -1021,8 +1022,30 @@
       display: flex;
       justify-content: center;
     }
+    /* compact (home): a small Loo beside the badge and title; everything else takes the full card width */
     .coach[data-variant='compact'].lu-card {
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: 48px minmax(0, 1fr);
+      column-gap: 12px;
+      row-gap: 6px;
+    }
+    .coach[data-variant='compact'] .coach-body {
+      display: contents;
+    }
+    .coach[data-variant='compact'] .coach-loo {
+      grid-row: 1 / span 2;
+      width: 48px;
+      overflow: hidden;
+    }
+    .coach[data-variant='compact'] .coach-loo svg {
+      width: 48px;
+      height: auto;
+    }
+    .coach[data-variant='compact'] .coach-body > * {
+      grid-column: 1 / -1;
+    }
+    .coach[data-variant='compact'] .coach-body > .coach-eyebrow,
+    .coach[data-variant='compact'] .coach-body > .coach-title {
+      grid-column: 2;
     }
   }
 }

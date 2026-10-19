@@ -15,6 +15,10 @@
   }
   .sr-only {
     position: absolute;
+    /* pinned to the containing block's corner: at its static spot (after a long label, inside a scroller) the 1px box
+       stretched the page / scroll width on phones */
+    top: 0;
+    left: 0;
     width: 1px;
     height: 1px;
     padding: 0;
@@ -124,6 +128,8 @@
   .island-viewport {
     flex: 1 1 auto;
     min-height: 0;
+    /* vertical only: a long label (or its sr-only twin) must never make the tree pan sideways on a phone */
+    overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
@@ -432,6 +438,8 @@
     background: var(--lu-green);
   }
   .tt-label {
+    /* contains its absolutely positioned sr-only text, which otherwise sat past the ellipsis and widened the tree */
+    position: relative;
     flex: 1;
     min-width: 0;
     overflow: hidden;
@@ -627,6 +635,7 @@
     display: flex;
     align-items: center;
     gap: 2px;
+    min-width: 0;
   }
   .topbar-search {
     display: none;
@@ -1732,8 +1741,14 @@
     :root[data-sidebar='closed'] .app {
       grid-template-columns: minmax(0, 1fr);
     }
+    /* phones: nothing may widen the page or pan the drawer sideways */
+    html,
+    body {
+      overflow-x: clip;
+    }
     .sidebar,
     :root[data-sidebar='closed'] .sidebar {
+      overflow-x: clip;
       position: fixed;
       left: 0;
       top: 0;
@@ -1782,17 +1797,17 @@
       z-index: 30;
       background: var(--lu-surface);
       border-top: 2px solid var(--lu-border);
-      padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
+      padding: 4px 4px calc(4px + env(safe-area-inset-bottom));
       font-family: var(--lu-font);
     }
     .bottomnav-link {
       position: relative;
       display: grid;
       justify-items: center;
-      gap: 3px;
+      gap: 1px;
       min-height: var(--lu-target);
-      padding: 2px 0;
-      font-size: 11px;
+      padding: 0;
+      font-size: 10.5px;
       font-weight: var(--lu-fw-bold);
       color: var(--lu-text-3);
       border-radius: var(--lu-r-sm);
@@ -1806,7 +1821,7 @@
     .bottomnav-link[aria-current='page']::before {
       content: '';
       position: absolute;
-      top: -8px;
+      top: -6px;
       left: calc(50% - 12px);
       width: 24px;
       height: 4px;
@@ -1817,8 +1832,8 @@
       position: relative;
       display: grid;
       place-items: center;
-      width: 52px;
-      height: 38px;
+      width: 48px;
+      height: 30px;
       border: 2px solid transparent;
       border-radius: var(--lu-r-sm);
       color: var(--nav-c, var(--lu-text-3));
@@ -1857,8 +1872,15 @@
       margin-left: 0;
       gap: 0;
     }
+    /* narrow phones: the essentials only (streak, gems, hearts); bucks and XP live in the shop / profile */
+    @media (max-width: 420px) {
+      .shell-stat-bucks,
+      .shell-stat-xp {
+        display: none;
+      }
+    }
     .toast-stack {
-      bottom: calc(84px + env(safe-area-inset-bottom));
+      bottom: calc(72px + env(safe-area-inset-bottom));
       width: calc(100vw - 24px);
     }
     .toast {

@@ -467,6 +467,9 @@
 }
 /* The scroller clips anything outside its padding box, so the current-tier ring is drawn inside each tile. */
 .league-ladder {
+  /* a horizontal scroller inside the page: never wider than it (a grid / flex parent would size it to the content) */
+  min-width: 0;
+  max-width: calc(100% + 12px);
   display: flex;
   gap: 6px;
   margin: 20px -6px 8px;
