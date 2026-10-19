@@ -107,7 +107,7 @@ estimatedMinutes: 40
 | *kitchen* — кухня | *fridge, cooker, sink, cupboard, table* |
 | *bathroom* — ванна кімната | *bath, sink, mirror, washing machine* |
 | *hall* — передпокій | *mirror, stairs* (у будинку) |
-| надворі | *balcony, garden* |
+| ззовні | *balcony, garden* |
 
 ## Де саме — прийменники місця
 
@@ -191,8 +191,8 @@ estimatedMinutes: 40
 > [!word] stairs
 > ipa: /steəz/ · ipa-us: /sterz/ · pos: noun · level: A1 · id: en-a1-there-is-w09
 > uk: сходи
-> example: The bathroom is at the top of the **stairs**. — Ванна нагорі, одразу після сходів.
-> note: звучить так само, як *stares*.
+> example: The bathroom is at the top of the **stairs**. — Ванна — нагорі, щойно піднімешся сходами.
+> note: звучить так само, як *stares* («пильно дивиться»).
 
 > [!word] floor
 > ipa: /flɔː/ · ipa-us: /flɔːr/ · pos: noun · level: A1 · id: en-a1-there-is-w10
@@ -210,7 +210,7 @@ estimatedMinutes: 40
 > ipa: /ˈɑːmtʃeə/ · ipa-us: /ˈɑːrmtʃer/ · pos: noun · level: A1 · id: en-a1-there-is-w12
 > uk: крісло
 > example: There are two **armchairs** next to the sofa. — Біля дивана два крісла.
-> note: *arm* — рука, тобто «стілець з підлокітниками».
+> note: *arm* — рука, а тут — підлокітник: «стілець з підлокітниками».
 
 > [!word] bed
 > ipa: /bed/ · pos: noun · level: A1 · id: en-a1-there-is-w13
@@ -254,7 +254,7 @@ estimatedMinutes: 40
 > ipa: /frɪdʒ/ · pos: noun · level: A1 · id: en-a1-there-is-w20
 > uk: холодильник
 > example: Is there any milk in the **fridge**? — У холодильнику є молоко?
-> note: повне слово — *refrigerator*, але в житті кажуть *fridge*.
+> note: повне слово — *refrigerator*, але в розмові кажуть *fridge*.
 
 > [!word] cooker
 > ipa: /ˈkʊkə/ · ipa-us: /ˈkʊkər/ · pos: noun · level: A1 · id: en-a1-there-is-w21
@@ -288,7 +288,7 @@ estimatedMinutes: 40
 > ipa: /ˈkʌbəd/ · ipa-us: /ˈkʌbərd/ · pos: noun · level: A1 · id: en-a1-there-is-w26
 > uk: шафка; кухонна шафа
 > example: The cups are in the **cupboard**. — Чашки в шафці.
-> note: *p* німа: «КА-бəд».
+> note: *p* не читається: «КА-бəд».
 
 > [!word] under
 > ipa: /ˈʌndə/ · ipa-us: /ˈʌndər/ · pos: prep · level: A1 · id: en-a1-there-is-w27
@@ -349,11 +349,11 @@ estimatedMinutes: 40
 > - [x] Is there a washing machine in the kitchen?
 > - [ ] Is there a washing machine in the bathroom?
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-there-is-l03
 > audio: There isn't a garden, but there's a big balcony.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-there-is-l04
 > audio: The lamp is next to the sofa.
 
@@ -393,7 +393,7 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] «In the kitchen is a fridge» — калька з «На кухні є холодильник»
-> Англійською так не будують. Починай з ***there***: *There's a fridge in the kitchen.* Місце — у кінці речення.
+> Англійською так не кажуть. Починай з ***there***: *There's a fridge in the kitchen.* Місце — у кінці речення.
 
 > [!pitfall] «It is a park near my house» — it замість there
 > *It is* описує вже відоме: *It's a nice park.* А щоб сказати, що щось **є**, — *There is*: ***There's** a park near my house. **It's** really big.*
@@ -402,7 +402,7 @@ estimatedMinutes: 40
 > «Навпроти» (через дорогу, обличчям одне до одного) — ***opposite***: *The bank is opposite the school.* «Перед» (з того боку, куди дивиться предмет) — ***in front of***: *There's a tree in front of the school.*
 
 > [!pitfall] «Cooker» — це не кухар
-> *Cooker* — плита (UK). Кухар — *cook*: *My dad is a great cook.* Схожих слів багато, тому вчи їх у парі.
+> *Cooker* — плита (UK). Кухар — *cook*: *My dad is a great cook.* Таких пар-пасток багато, тому вчи ці слова разом.
 
 ## Ситуація: дивимося квартиру
 
@@ -552,7 +552,7 @@ estimatedMinutes: 40
 ## Джерела та що почитати
 
 - [Cambridge Dictionary — There is, there's and there are](https://dictionary.cambridge.org/grammar/british-grammar/there-is-there-are) — форми й уживання.
-- [Cambridge Dictionary — Opposite or in front of?](https://dictionary.cambridge.org/grammar/british-grammar/opposite) — різниця, що плутає всіх.
+- [Cambridge Dictionary — Opposite or in front of?](https://dictionary.cambridge.org/grammar/british-grammar/opposite) — різниця, у якій плутаються всі.
 - [Cambridge Dictionary — Between](https://dictionary.cambridge.org/grammar/british-grammar/between), [Under](https://dictionary.cambridge.org/grammar/british-grammar/under), [Above](https://dictionary.cambridge.org/grammar/british-grammar/above) — прийменники місця.
 - [Cambridge Dictionary — Furniture](https://dictionary.cambridge.org/grammar/british-grammar/furniture) — чому меблі не рахуються.
 - R. Murphy — *Essential Grammar in Use*, розділи про *there is / there are* і прийменники місця.

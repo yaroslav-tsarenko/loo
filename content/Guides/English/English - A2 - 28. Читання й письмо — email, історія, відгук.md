@@ -40,7 +40,7 @@ estimatedMinutes: 45
 > nodes:
 >   - { id: head, label: "1. skim", text: "headline + перше речення", note: "15–20 секунд", tone: blue, icon: "px:magnifier" }
 >   - { id: gist, label: "gist", text: "Про що текст?", note: "одне речення своїми словами", tone: violet }
->   - { id: scan, label: "2. scan", text: "шукаю ключ", note: "Saturday, 100, Danylo", tone: orange, icon: "px:target" }
+>   - { id: scan, label: "2. scan", text: "шукаю ключове слово", note: "Saturday, 100, Danylo", tone: orange, icon: "px:target" }
 >   - { id: detail, label: "detail", text: "Відповідь на питання", note: "читаю уважно лише цей абзац", tone: green, icon: "px:check" }
 > steps:
 >   - { focus: head, note: "Читаємо заголовок і перше речення. Більше поки не треба." }
@@ -135,11 +135,11 @@ estimatedMinutes: 45
 - *I've attached the photos from the party.* — Додаю фото з вечірки.
 - *Looking forward to seeing you on Saturday.* — Чекаю на зустріч у суботу.
 - *First we went to the museum. Then we had lunch.* — Спочатку ми пішли в музей. Потім пообідали.
-- *We missed the bus, so we took a taxi.* — Ми спізнилися на автобус, тож узяли таксі.
+- *We missed the bus, so we took a taxi.* — Ми не встигли на автобус, тож поїхали на таксі.
 - *Later that evening, Max called me.* — Пізніше того вечора мені подзвонив Макс.
 - *In the end, everything was fine.* — Зрештою все було добре.
 - *The hotel is in a great location, but the rooms are small.* — Готель у чудовому місці, але кімнати маленькі.
-- *The museum is definitely worth a visit.* — Музей точно вартий відвідування.
+- *The museum is definitely worth a visit.* — Музей точно варто відвідати.
 
 ## Слова
 
@@ -198,7 +198,7 @@ estimatedMinutes: 45
 > [!word] Take care
 > ipa: /ˌteɪk ˈkeə/ · ipa-us: /ˌteɪk ˈker/ · pos: phrase · level: A2 · id: en-a2-read-write-w10
 > uk: бережи себе (прощання)
-> example: See you soon. **Take care**, Olena. — До зустрічі. Бережи себе, Олена.
+> example: See you soon. **Take care**, Olena. — До зустрічі. Бережи себе. Олена.
 
 > [!word] then
 > ipa: /ðen/ · pos: adv · level: A2 · id: en-a2-read-write-w11
@@ -266,7 +266,7 @@ estimatedMinutes: 45
 > - [x] вона була зайнята іспитами
 > - [ ] вона була у відпустці
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-read-write-l02
 > audio: Thanks for your email. See you on Saturday!
 
@@ -343,7 +343,7 @@ estimatedMinutes: 45
 > - [ ] Yours faithfully,
 > - [ ] Dear Sir,
 >
-> **Пояснення:** *Take care*, *Love*, *See you soon* — неформальні прощання. *Yours faithfully* — офіційний лист незнайомій людині, *Dear Sir* — це взагалі початок.
+> **Пояснення:** *Take care*, *Love*, *See you soon* — неформальні прощання. *Yours faithfully* — завершення офіційного листа незнайомій людині, *Dear Sir* — це взагалі початок.
 
 > [!quiz] Як почати email подрузі Кейт?
 > level: A2 · id: en-a2-read-write-q05

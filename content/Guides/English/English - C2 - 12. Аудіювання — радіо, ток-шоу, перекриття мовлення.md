@@ -14,9 +14,9 @@ estimatedMinutes: 55
 > [!success] Після цієї теми ти зможеш
 > - розуміти радіо й телеефір будь-якого жанру — новини, phone-in, chat show, панельну дискусію, спортивний коментар, подкаст;
 > - стежити за розмовою трьох-чотирьох мовців, які перебивають одне одного, договорюють чужі фрази й говорять водночас;
-> - чути **непрямі** значення: ухильну відповідь, іронію ведучого, «так, але ні», завантажене питання;
+> - чути **непрямі** значення: ухильну відповідь, іронію ведучого, «так, але ні», запитання з пасткою;
 > - упізнавати сигнали ефіру (*we'll have to leave it there, line two, you're on air*) і передбачати, що буде далі;
-> - тримати IELTS Listening на рівні 8.5–9.0: майже без помилок у формах, нотатках і питаннях на ставлення.
+> - тримати IELTS Listening на рівні 8.5–9.0: майже без помилок у формах, нотатках і завданнях на ставлення.
 
 ## Передбач
 
@@ -37,7 +37,7 @@ estimatedMinutes: 55
 На C1 ти слухав швидку розмову двох людей і лекції. На C2 додаються три труднощі:
 
 1. **Кілька мовців** — ведучий, гості, слухачі на лінії; хтось перебиває, хтось договорює за іншого.
-2. **Непрямі значення** — гість ухиляється, ведучий іронізує, політик відповідає не на те питання.
+2. **Непрямі значення** — гість ухиляється, ведучий іронізує, політик відповідає не на те запитання.
 3. **Умови ефіру** — телефонна лінія, оплески, сміх, музична заставка, обірвана фраза.
 
 IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 правильних із 40**: помилки в одному-двох пропусках, у написанні чи ліміті слів уже коштують пів бала. Тож мета — не «зрозуміти загалом», а **не пропустити жодної деталі й жодного ставлення**.
@@ -100,18 +100,18 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 >   - { show: [k2], note: "Праворуч B хоче забрати слово. A відбивається (Let me finish) і повторює головне — саме цю версію записуй." }
 > ```
 
-### Непрямі значення: ухильність, іронія, завантажені питання
+### Непрямі значення: ухильність, іронія, запитання з пасткою
 
 На Band 9 питають не «що сказали», а **що мали на увазі** й **як ставляться**.
 
 - **Ухильна відповідь (*evasive answer*)**: гість говорить про інше, ніж питали. *Will you raise taxes? — What families need is stability…* Відповідь — **немає відповіді**.
 - **Невизначена (*noncommittal*)**: *We're looking at all options. · It's something we're keeping under review. · We'll see.* — ні «так», ні «ні».
 - **Іронія ведучого**: позитивні слова + негативний зміст. *Well, that's reassuring.* (після тривожної новини) = «зовсім не заспокоює».
-- **Завантажене питання (*loaded question*)**: питання з прихованим твердженням. *Why did your government ignore the warnings?* — уже стверджує, що ігнорував. Гість часто **заперечує передумову**: *I don't accept the premise of that question.*
+- **Запитання з пасткою (*loaded question*)**: запитання з прихованим твердженням. *Why did your government ignore the warnings?* — уже стверджує, що ігнорував. Гість часто **заперечує передумову**: *I don't accept the premise of that question.*
 - **«Так, але»**: *I take the point, but… · In principle, yes… · To be fair…* — позиція **після** *but*.
 
-> [!tip] Пастки IELTS Part 3 і 4 у питаннях на ставлення
-> - **Ті самі слова — не та думка.** Дистрактор повторює слова з запису, але приписує їх **іншому** мовцеві або **першій** (згодом змінений) версії.
+> [!tip] Пастки IELTS Part 3 і 4 у завданнях на ставлення
+> - **Ті самі слова — не та думка.** Дистрактор повторює слова із запису, але приписує їх **іншому** мовцеві або **першій** (згодом змінений) версії.
 > - **Мовець змінює думку.** *I was sceptical at first, but…* — правильна відповідь — **після** зміни.
 > - **Поступка ≠ позиція.** *Admittedly, it's expensive. Still, it's the only option.* — позиція: «єдиний варіант», а не «задорого».
 
@@ -134,7 +134,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 
 ### Стратегія: слухати ефір на рівні C2
 
-1. **Перед записом** — прочитай питання й визнач, **чию** думку питають (ведучого? першого гостя? слухача?).
+1. **Перед записом** — прочитай завдання й визнач, **чию** думку питають (ведучого? першого гостя? слухача?).
 2. **Познач мовців** у нотатках: *H* (host), *G1*, *G2*, *C* (caller) — і записуй позиції коротко: *G1: against — cost*.
 3. **Сигнали зміни**: *actually, sorry, I mean, having said that, to be fair, but* — після них — правильна відповідь.
 4. **Не губися в crosstalk**: коли говорять двоє, чекай, хто «переможе», — думку повторять.
@@ -144,12 +144,12 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 
 - *We've got Sarah on line three — Sarah, you're on air.* — У нас на третій лінії Сара — Саро, ви в ефірі.
 - *I couldn't get a word in edgeways — he talked for twenty minutes straight.* — Я не міг і слова вставити — він говорив двадцять хвилин без зупинки.
-- *The minister sidestepped the question about funding.* — Міністр ухилився від питання про фінансування.
+- *The minister sidestepped the question about funding.* — Міністр ухилився від запитання про фінансування.
 - *Sorry to butt in, but I think you've got the date wrong.* — Вибач, що вклинююсь, але, здається, ти переплутав дату.
 - *Her answer was polite but completely noncommittal.* — Її відповідь була ввічливою, але цілком невизначеною.
 - *The host cut him off mid-sentence.* — Ведучий обірвав його на півслові.
 - *Three seconds of dead air feels like an eternity on radio.* — Три секунди тиші в ефірі на радіо здаються вічністю.
-- *That's a loaded question, and I don't accept its premise.* — Це питання з підтекстом, і я не погоджуюсь з його передумовою.
+- *That's a loaded question, and I don't accept its premise.* — Це запитання з підтекстом, і я не погоджуюся з його передумовою.
 - *We were talking at cross purposes: I meant the old budget, she meant the new one.* — Ми говорили про різне: я мав на увазі старий бюджет, вона — новий.
 - *He backtracked on his earlier claim when the presenter read out the figures.* — Він відступився від своєї попередньої заяви, коли ведучий зачитав цифри.
 
@@ -185,7 +185,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > [!word] on air
 > ipa: /ˌɒn ˈeə/ · ipa-us: /ˌɑːn ˈer/ · pos: phrase · level: C2 · id: en-c2-listen-radio-w06
 > uk: в ефірі
-> example: You're **on air** — go ahead with your question. — Ви в ефірі — ставте ваше питання.
+> example: You're **on air** — go ahead with your question. — Ви в ефірі — ставте своє запитання.
 > note: off air — поза ефіром: They argued off air.
 
 > [!word] dead air
@@ -260,19 +260,19 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 
 > [!word] loaded question
 > ipa: /ˌləʊdɪd ˈkwestʃən/ · ipa-us: /ˌloʊdɪd ˈkwestʃən/ · pos: noun · level: C2 · id: en-c2-listen-radio-w19
-> uk: питання з підтекстом (з прихованим твердженням чи пасткою)
-> example: "When did you stop lying?" is a classic **loaded question**. — «Коли ви перестали брехати?» — класичне питання з пасткою.
+> uk: запитання з підтекстом (з прихованим твердженням чи пасткою)
+> example: "When did you stop lying?" is a classic **loaded question**. — «Коли ви перестали брехати?» — класичне запитання з пасткою.
 
 > [!word] dodge
 > ipa: /dɒdʒ/ · ipa-us: /dɑːdʒ/ · pos: verb · level: C2 · id: en-c2-listen-radio-w20
-> uk: ухилятися (від питання, удару, обовʼязку)
-> example: She skilfully **dodged** the question about her salary. — Вона вправно ухилилася від питання про свою зарплату.
+> uk: ухилятися (від запитання, удару, обовʼязку)
+> example: She skilfully **dodged** the question about her salary. — Вона вправно ухилилася від запитання про свою зарплату.
 > forms: dodge → dodged → dodged
 
 > [!word] sidestep
 > ipa: /ˈsaɪdstep/ · pos: verb · level: C2 · id: en-c2-listen-radio-w21
 > uk: обійти (питання, проблему), не відповісти прямо
-> example: The CEO **sidestepped** questions about job cuts. — Генеральний директор обійшов питання про скорочення.
+> example: The CEO **sidestepped** questions about job cuts. — Генеральний директор ухилився від запитань про скорочення.
 > forms: sidestep → sidestepped → sidestepped
 
 > [!word] backtrack
@@ -290,7 +290,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > ipa: /ɪˈveɪsɪv/ · pos: adj · level: C2 · id: en-c2-listen-radio-w24
 > uk: ухильний, що уникає прямої відповіді
 > example: The spokesperson gave an **evasive** answer. — Речник дав ухильну відповідь.
-> note: evade the question — ухилитися від питання.
+> note: evade the question — ухилитися від запитання.
 
 > [!word] plug
 > ipa: /plʌɡ/ · pos: noun · level: C2 · id: en-c2-listen-radio-w25
@@ -306,7 +306,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 
 ## Слухаємо
 
-Записи 2–4 — сигнали ефіру, 5–10 — перекриття й перебивання, 11–12 — непрямі значення, 13–18 — у форматі IELTS. Перед кожним записом прочитай питання й визнач, **чию** думку чи **яку** деталь треба почути.
+Записи 2–4 — сигнали ефіру, 5–10 — перекриття й перебивання, 11–12 — непрямі значення, 13–18 — у форматі IELTS. Перед кожним записом прочитай завдання й визнач, **чию** думку чи **яку** деталь треба почути.
 
 ### Сигнали ефіру
 
@@ -332,7 +332,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 >
 > **Пояснення:** *From next week* — зміна (раніше був інший день). *Depot* /ˈdepəʊ/, US /ˈdiːpoʊ/ — американець скаже «ДІ-поу»: тримайся за контекст *old bus…*.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-GB · id: en-c2-listen-radio-l04
 > audio: We'll have to leave it there, but thank you both for coming in.
 >
@@ -351,7 +351,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 >
 > **Пояснення:** B договорив за A — і **помилився**. *No, actually* — виправлення власника думки. Записуй версію того, чия це думка.
 
-> [!listen] Як гість відповідає на питання про податки?
+> [!listen] Як гість відповідає на запитання про податки?
 > level: C2 · type: answer · lang: en-US · id: en-c2-listen-radio-l06
 > audio: Host: Senator, will you rule out raising taxes?
 > audio: Guest: Look, what families need right now is stability—
@@ -361,7 +361,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > - [ ] прямо визнає, що податки зростуть
 > - [x] ухиляється: так і не каже ні «так», ні «ні»
 >
-> **Пояснення:** класична ухильна відповідь (*evasive*): гість говорить про «стабільність» і продовжує свою фразу, ніби не почув перебивання ведучого. Відповідь на питання — **відсутність відповіді**.
+> **Пояснення:** класична ухильна відповідь (*evasive*): гість говорить про «стабільність» і продовжує свою фразу, ніби не почув перебивання ведучого. Відповідь на запитання — **відсутність відповіді**.
 
 > [!listen] Що зрештою каже B?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-listen-radio-l07
@@ -482,11 +482,11 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 >
 > **Пояснення:** перше речення — **чужа** думка (*Some researchers claim*), позиція лекторки — після *I'm not convinced*. Класичний дистрактор Part 4 — перший варіант.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-GB · id: en-c2-listen-radio-l17
 > audio: I'm going to have to stop you there, because we're out of time.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-US · id: en-c2-listen-radio-l18
 > audio: Let me finish my point, and then you can come back on that.
 >
@@ -501,14 +501,14 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > text: Sorry, can I just come in on that point?
 > ipa: /ˈsɒri | kən aɪ dʒəst ˌkʌm ˈɪn ɒn ðæt ˈpɔɪnt/
 > ipa-us: /ˈsɑːri | kən aɪ dʒəst ˌkʌm ˈɪn ɑːn ðæt ˈpɔɪnt/
-> tip: can і just — слабкі. Удари: IN, POINT. Підйом на кінці — прохання, а не вимога.
-> uk: Вибачте, можна мені додати щодо цього?
+> tip: can і just — слабкі. Наголоси: IN, POINT. Підйом на кінці — прохання, а не вимога.
+> uk: Вибачте, можна я тут додам?
 
 > [!speak] Втримати слово
 > level: C2 · id: en-c2-listen-radio-s02
 > text: If I could just finish my point, I'll come straight back to you.
 > ipa: /ɪf aɪ kəd dʒəst ˈfɪnɪʃ maɪ ˈpɔɪnt | aɪl ˌkʌm ˈstreɪt ˈbæk tə juː/
-> tip: спокійно й рівно, без підвищення голосу: удари FIN-, POINT, STRAIGHT, BACK. Пауза | після point.
+> tip: спокійно й рівно, без підвищення голосу: наголоси FIN-, POINT, STRAIGHT, BACK. Пауза | після point.
 > uk: Якщо дозволите договорити — я одразу повернуся до вас.
 
 > [!speak] Завершити розмову, як ведучий
@@ -516,7 +516,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > text: We'll have to leave it there, I'm afraid. Thank you both.
 > ipa: /wiːl ˈhæv tə ˈliːv ɪt ðeə | aɪm əˈfreɪd ‖ ˈθæŋk juː ˈbəʊθ/
 > ipa-us: /wiːl ˈhæv tə ˈliːv ɪt ðer | aɪm əˈfreɪd ‖ ˈθæŋk juː ˈboʊθ/
-> tip: I'm afraid — низько й тихіше, як вставка. Thank you BOTH — удар на both.
+> tip: I'm afraid — низько й тихіше, як вставка. Thank you BOTH — наголос на both.
 > uk: На жаль, мусимо на цьому зупинитися. Дякую вам обом.
 
 ## Типові помилки українців
@@ -558,10 +558,10 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > level: C2 · id: en-c2-listen-radio-q03
 > - [ ] пряма відмова від відставки
 > - [ ] згода піти у відставку
-> - [x] ухильна — питання проігноровано
+> - [x] ухильна — запитання проігноровано
 > - [ ] іронічна
 >
-> **Пояснення:** *evasive answer*: мовець відповідає на інше, зручне питання.
+> **Пояснення:** *evasive answer*: мовець відповідає на інше, зручне запитання.
 
 > [!quiz] Що означає «I couldn't get a word in edgeways»?
 > level: C2 · id: en-c2-listen-radio-q04
@@ -591,14 +591,14 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 >
 > **Пояснення:** конкурентне перебивання — боротьба за слово: *Let me finish*, підвищення голосу, повтори.
 
-> [!quiz] «Why did your company ignore the safety warnings?» — що це за питання?
+> [!quiz] «Why did your company ignore the safety warnings?» — що це за запитання?
 > level: C2 · id: en-c2-listen-radio-q07
 > - [ ] нейтральне уточнювальне
 > - [x] loaded question — уже стверджує, що попередження проігнорували
-> - [ ] риторичне питання без відповіді
+> - [ ] риторичне запитання без відповіді
 > - [ ] noncommittal question
 >
-> **Пояснення:** передумова (*you ignored warnings*) захована в питанні. Типова реакція: *I don't accept the premise of that question.*
+> **Пояснення:** передумова (*you ignored warnings*) захована в запитанні. Типова реакція: *I don't accept the premise of that question.*
 
 > [!quiz] Допиши слова з теми
 > level: C2 · type: fill · id: en-c2-listen-radio-q08 · bank: dead air, phone-in, pundits, soundbite, plug, crosstalk
@@ -661,7 +661,7 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > - [ ] обирати варіант, у якому найбільше слів із запису
 > - [ ] записувати першу почуту цифру
 >
-> **Пояснення:** дистрактори IELTS навмисно повторюють слова з запису; перша цифра часто виправляється.
+> **Пояснення:** дистрактори IELTS навмисно повторюють слова із запису; перша цифра часто виправляється.
 
 > [!quiz] Політик змінив свою позицію під тиском ведучого. Як це сказати?
 > level: C2 · id: en-c2-listen-radio-q14
@@ -705,5 +705,5 @@ IELTS Listening на Band 8.5–9 — це орієнтовно **37–40 пра
 > - Ефір — це жанри: новини, phone-in, chat show, панель, коментар, подкаст; кожен має свої «місця», де ховається відповідь.
 > - Сигнали ефіру (*coming up, line two, we'll have to leave it there, so what you're saying is*) підказують, що буде далі.
 > - У перекритті стеж за тим, хто **тримає слово**; записуй версію **власника думки** й останню версію після *actually, no, sorry*.
-> - Непрямі значення: ухильна й невизначена відповідь, іронія, завантажене питання; позиція — після *but, still, to be fair*.
+> - Непрямі значення: ухильна й невизначена відповідь, іронія, запитання з пасткою; позиція — після *but, still, to be fair*.
 > - Band 8.5–9 — це майже 40 з 40: і зміст, і ставлення, і написання, і ліміт слів.

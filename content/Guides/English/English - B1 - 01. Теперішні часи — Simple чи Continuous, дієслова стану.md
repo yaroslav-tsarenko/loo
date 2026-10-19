@@ -14,7 +14,7 @@ estimatedMinutes: 40
 > [!success] Після цієї теми ти зможеш
 > - розрізняти постійне й тимчасове: **I live in Kyiv**, але **I'm living with my parents this year**;
 > - говорити про тенденції й зміни: **Prices are going up**, **My English is getting better**;
-> - не ставити -ing до дієслів стану: **I know**, **it belongs**, **it depends**, а не ~~I'm knowing~~;
+> - не додавати -ing до дієслів стану: **I know**, **it belongs**, **it depends**, а не ~~I'm knowing~~;
 > - відчувати різницю між **I think** (думка) і **I'm thinking** (процес), **I have** і **I'm having**;
 > - відповідати на питання IELTS Speaking Part 1 про роботу, навчання й звички.
 
@@ -44,14 +44,14 @@ estimatedMinutes: 40
 > columns: { simple: "Present Simple — постійне, регулярне", cont: "Present Continuous — тимчасове, в процесі" }
 > nodes:
 >   - { id: s1, col: simple, label: "постійно", text: "I live in Kyiv.", note: "Мій дім — у Києві.", tone: green, icon: "px:house" }
->   - { id: c1, col: cont, label: "тимчасово", text: "I'm living in Lviv this year.", note: "Цього року я в Львові (потім повернуся).", tone: blue }
+>   - { id: c1, col: cont, label: "тимчасово", text: "I'm living in Lviv this year.", note: "Цього року я у Львові (потім повернуся).", tone: blue }
 >   - { id: s2, col: simple, label: "звичка", text: "I usually work from home.", note: "Зазвичай працюю вдома.", tone: green }
 >   - { id: c2, col: cont, label: "ці дні", text: "This week I'm working in the office.", note: "Цього тижня — в офісі, виняток.", tone: blue }
 >   - { id: s3, col: simple, label: "факт", text: "Water boils at 100°C.", note: "Так влаштований світ.", tone: green }
 >   - { id: c3, col: cont, label: "зміна, тренд", text: "Prices are going up.", note: "Ціни ростуть — процес триває.", tone: blue, icon: "px:spark" }
 > steps:
 >   - { show: [s1, c1], note: "Дім, адреса, робота «назавжди» — Present Simple. Те саме дієслово з «цього року» — тимчасово, тому Continuous." }
->   - { show: [s2, c2], note: "Звичка — Simple з usually. Виняток із звички в ці дні — Continuous з this week." }
+>   - { show: [s2, c2], note: "Звичка — Simple з usually. Виняток зі звички в ці дні — Continuous з this week." }
 >   - { show: [s3, c3], note: "Факти про світ — Simple. Те, що змінюється просто зараз (ціни, клімат, твоя англійська), — Continuous." }
 >   - { focus: [c1, c2, c3], note: "Спільне для правої колонки: це не назавжди. Ситуація почалася, триває і колись скінчиться або зміниться." }
 > ```
@@ -168,13 +168,13 @@ estimatedMinutes: 40
 - My sister **lives** in Warsaw, but at the moment she'**s staying** with us. — Сестра живе у Варшаві, але зараз гостює в нас.
 - What **do** you **do**? — I'm a nurse. — Ким ти працюєш? — Я медсестра.
 - What **are** you **doing**? — I'm **looking for** my glasses. — Що ти робиш? — Шукаю окуляри.
-- More and more people **are working** from home nowadays. — Нині все більше людей працюють з дому.
+- More and more people **are working** from home nowadays. — Нині дедалі більше людей працюють з дому.
 - I **don't believe** him. He'**s always making** excuses. — Я йому не вірю. Він вічно вигадує відмовки.
 - This old house **belongs** to my grandparents. — Цей старий будинок належить моїм дідусеві й бабусі.
 - **Do** you **know** where the station is? — Ти знаєш, де вокзал?
-- I **think** you're right, but I'**m** still **thinking** about it. — Думаю, ти маєш рацію, але я ще обмірковую.
+- I **think** you're right, but I'**m** still **thinking** about it. — Думаю, ти маєш рацію, але я ще над цим думаю.
 - We'**re having** a party on Saturday. Can you come? — У суботу в нас вечірка. Прийдеш?
-- It **doesn't matter**. It **depends** on what you want. — Це не важливо. Залежить від того, чого ти хочеш.
+- It **doesn't matter**. It **depends** on what you want. — Це неважливо. Залежить від того, чого ти хочеш.
 - My English **is getting** better because I'**m reading** a lot these days. — Моя англійська покращується, бо останнім часом я багато читаю.
 
 ## Слова
@@ -196,7 +196,7 @@ estimatedMinutes: 40
 > ipa: /dɪˈpend/ · pos: verb · level: B1 · id: en-b1-present-tenses-w03
 > uk: залежати
 > example: Are you coming tomorrow? — It **depends** on the weather. — Прийдеш завтра? — Залежить від погоди.
-> note: depend **on**, не «from». It depends — «як вийде, залежить».
+> note: depend **on**, не «from». It depends — «як коли», «залежить від обставин».
 
 > [!word] contain
 > ipa: /kənˈteɪn/ · pos: verb · level: B1 · id: en-b1-present-tenses-w04
@@ -230,14 +230,14 @@ estimatedMinutes: 40
 
 > [!word] currently
 > ipa: /ˈkʌr.ənt.li/ · ipa-us: /ˈkɝː.ənt.li/ · pos: adv · level: B1 · id: en-b1-present-tenses-w09
-> uk: зараз, на даний час
+> uk: зараз, наразі, нині
 > example: She's **currently** working on a new project. — Зараз вона працює над новим проєктом.
 > note: хибний друг: «актуально» — це relevant, а не currently / actually.
 
 > [!word] temporary
 > ipa: /ˈtem.pər.ər.i/ · ipa-us: /ˈtem.pə.rer.i/ · pos: adj · level: B1 · id: en-b1-present-tenses-w10
 > uk: тимчасовий
-> example: It's only a **temporary** job — I'm leaving in September. — Це лише тимчасова робота: у вересні я йду.
+> example: It's only a **temporary** job — I'm leaving in September. — Це лише тимчасова робота: у вересні я звільняюся.
 
 > [!word] permanent
 > ipa: /ˈpɜː.mə.nənt/ · ipa-us: /ˈpɝː.mə.nənt/ · pos: adj · level: B1 · id: en-b1-present-tenses-w11
@@ -265,11 +265,11 @@ estimatedMinutes: 40
 > - [x] I don't remember his name.
 > - [ ] I don't remember her name.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-present-tenses-l03
 > audio: The soup smells delicious.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-present-tenses-l04
 > audio: What are you working on at the moment?
 
@@ -319,7 +319,7 @@ estimatedMinutes: 40
 > text: I'm thinking about changing jobs.
 > ipa: /aɪm ˈθɪŋ.kɪŋ əˈbaʊt ˈtʃeɪn.dʒɪŋ dʒɒbz/
 > tip: -ing — носове /ŋ/ без «г» у кінці; jobs — дзвінке /z/ наприкінці.
-> uk: Я думаю про зміну роботи.
+> uk: Я подумую змінити роботу.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-present-tenses-s04
@@ -385,9 +385,9 @@ estimatedMinutes: 40
 > - [x] She's seeing her dentist this afternoon.
 > - [ ] How much is this jacket costing?
 >
-> **Пояснення:** *belong, need, cost* — дієслова стану: *belongs*, *I need*, *How much does it cost?* А *have lunch* і *see the dentist* (= мати прийом) — дії, тому Continuous можливий.
+> **Пояснення:** *belong, need, cost* — дієслова стану: *belongs*, *I need*, *How much does it cost?* А *have lunch* і *see the dentist* (= піти на прийом) — дії, тому Continuous можливий.
 
-> [!quiz] «Я думаю переїхати до Канади». Як сказати?
+> [!quiz] «Я подумую переїхати до Канади». Як сказати?
 > level: B1 · id: en-b1-present-tenses-q07
 > - [ ] I think of moving to Canada.
 > - [x] I'm thinking of moving to Canada.
@@ -445,7 +445,7 @@ estimatedMinutes: 40
 > at the moment?
 > ```
 >
-> **Пояснення:** *What + are + you + reading* — допоміжне дієслово перед підметом. «Зараз» тут — ці дні, книжка, яку ти читаєш цього тижня.
+> **Пояснення:** *What + are + you + reading* — допоміжне дієслово перед підметом. «Зараз» тут означає «в ці дні»: книжка, яку ти читаєш цього тижня.
 
 > [!quiz] Яке речення звучить як скарга?
 > level: B1 · id: en-b1-present-tenses-q12
@@ -482,7 +482,7 @@ estimatedMinutes: 40
 > - [ ] False
 > - [x] Not Given
 >
-> **Пояснення:** про ірландську мову в тексті **нічого немає** — ні так, ні ні. Це Not Given. Не плутай із False: False — коли текст прямо каже протилежне.
+> **Пояснення:** про ірландську мову в тексті **нічого немає** — ні підтвердження, ні заперечення. Це Not Given. Не плутай із False: False — коли текст прямо каже протилежне.
 
 > [!quiz] IELTS Reading — summary completion
 > level: B1 · type: fill · bank: works, is staying, is getting · id: en-b1-present-tenses-q15
@@ -506,7 +506,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🍔 «I'm lovin' it» — граматика проти маркетингу
-> Слоган McDonald's (2003) порушує «правило» навмисно: Continuous робить любов живою, тутешньою, «просто зараз». Носії так жартують, але в тесті пиши I love it.
+> Слоган McDonald's (2003) порушує «правило» навмисно: Continuous робить любов живою, миттєвою, «просто зараз». Носії так жартують, але в тесті пиши I love it.
 
 > [!reel] 🧠 Чому know не має -ing
 > Continuous показує процес, що розгортається в часі. Знання не розгортається: ти або знаєш, або ні. Тому «I'm knowing» звучить так само дивно, як «я в процесі знання».

@@ -13,7 +13,7 @@ estimatedMinutes: 45
 
 > [!success] Після цієї теми ти зможеш
 > - читати голосну у відкритому й закритому складі: *hat* — *hate*, *bit* — *bite*, *hop* — *hope*;
-> - пояснити, як працює «магічна» німа e і навіщо подвоюють приголосну (*hoping* — *hopping*);
+> - пояснити, як працює «магічна» e, яку не читають, і навіщо подвоюють приголосну (*hoping* — *hopping*);
 > - читати найчастіші буквосполучення: *ee, ea, oo, ai, ou, ow, igh, sh, ch, ph, wh, ck, ng*;
 > - не вимовляти німі літери: *knife, write, climb, hour, half, listen, sign, island*;
 > - вгадувати вимову незнайомого слова — і знати, коли краще перевірити в словнику.
@@ -23,7 +23,7 @@ estimatedMinutes: 45
 > [!quiz] Чому слово hate читається /heɪt/, а hat — /hæt/?
 > level: A2 · id: en-a2-spelling-q01
 > - [ ] це випадковість, правила немає
-> - [x] німа e в кінці «відкриває» склад, і a читається як у назві літери — /eɪ/
+> - [x] e в кінці не читається, але «відкриває» склад, і a читається як у назві літери — /eɪ/
 > - [ ] у hate наголос на e
 > - [ ] e в кінці читається як «і»
 >
@@ -43,9 +43,9 @@ estimatedMinutes: 45
 | o | *hop* /ɒ/, *not*, *rob* | *hope* /əʊ/, *note*, *robe* |
 | u | *cut* /ʌ/, *tub*, *us* | *cute* /juː/, *tube*, *use* |
 
-**Закритий склад** закінчується на приголосну: *hat*, *bit* — голосна коротка. **Відкритий** закінчується голосною (*me*, *go*, *hi*) або «відкривається» німою *e*: *hate*, *bite*. Тоді голосна звучить **як назва літери**.
+**Закритий склад** закінчується на приголосну: *hat*, *bit* — голосна коротка. **Відкритий** закінчується голосною (*me*, *go*, *hi*) або «відкривається» кінцевою *e*, яку не читають: *hate*, *bite*. Тоді голосна звучить **як назва літери**.
 
-> [!diagram] Як німа e змінює слово
+> [!diagram] Як кінцева e змінює слово
 > ```yaml
 > layout: flow
 > nodes:
@@ -107,13 +107,13 @@ estimatedMinutes: 45
 | th | /θ/ або /ð/ | *think* · *this* | |
 | qu | /kw/ | *quick, queen* | |
 | dge | /dʒ/ | *bridge, judge* | |
-| gh | — або /f/ | *night* (німе) · *laugh, enough* /f/ | |
+| gh | — або /f/ | *night* (не читається) · *laugh, enough* /f/ | |
 | c + e, i, y | /s/ | *city, centre, cycle* | інакше /k/: *cat, cup* |
 | g + e, i, y | /dʒ/ | *gym, page, giant* | винятки: *get, give, girl* |
 
 ### Німі літери
 
-| Літера | Де мовчить | Приклади |
+| Літера | Де не читається | Приклади |
 |---|---|---|
 | k | kn- на початку | *know, knife, knock, knee, knit, knowledge* |
 | w | wr- на початку; ще кілька слів | *write, wrong, wrap* · *two, answer, sword* |
@@ -126,7 +126,7 @@ estimatedMinutes: 45
 | p | ps- на початку | *psychology* · ще *receipt* |
 | s | у кількох словах | *island, aisle* |
 | n | -mn у кінці | *autumn, column* |
-| u | після g | *guest, guitar, build* |
+| u | після g; у build | *guest, guitar, build* |
 
 > [!important] Коли правила не працюють
 > Найчастіші слова англійської — найстаріші, і вони часто «неправильні»: *one, two, said, does, have, give, come, done, women, busy, friend*. Їх не виводять з правил — їх просто запамʼятовують з транскрипцією.
@@ -139,8 +139,8 @@ estimatedMinutes: 45
 - *The plane leaves at nine. That's the plan.* — Літак вилітає о девʼятій. Такий план.
 - *I know the answer.* — Я знаю відповідь.
 - *Knock on the door before you come in.* — Постукай у двері, перш ніж увійти.
-- *Fasten your seat belt, please.* — Пристебніть пасок безпеки, будь ласка.
-- *There's an old castle on the island.* — На острові старий замок.
+- *Fasten your seat belt, please.* — Пристебніть ремінь безпеки, будь ласка.
+- *There's an old castle on the island.* — На острові є старий замок.
 - *I'll wait half an hour.* — Я почекаю пів години.
 - *Sign here, please.* — Підпишіть тут, будь ласка.
 
@@ -150,7 +150,7 @@ estimatedMinutes: 45
 > ipa: /ˈnɒlɪdʒ/ · ipa-us: /ˈnɑːlɪdʒ/ · pos: noun · level: A2 · id: en-a2-spelling-w01
 > uk: знання
 > example: Reading improves your **knowledge**. — Читання поглиблює знання.
-> note: k німе; o тут коротке /ɒ/, хоча know — /nəʊ/.
+> note: k не читається; o тут коротке /ɒ/, хоча know — /nəʊ/.
 
 > [!word] knit
 > ipa: /nɪt/ · pos: verb · level: A2 · id: en-a2-spelling-w02
@@ -161,13 +161,13 @@ estimatedMinutes: 45
 > ipa: /ræp/ · pos: verb · level: A2 · id: en-a2-spelling-w03
 > uk: загортати; пакувати
 > example: Let's **wrap** the present. — Загорнімо подарунок.
-> note: w німе — звучить так само, як rap.
+> note: w не читається, тож слово звучить так само, як rap.
 
 > [!word] sword
 > ipa: /sɔːd/ · ipa-us: /sɔːrd/ · pos: noun · level: A2 · id: en-a2-spelling-w04
 > uk: меч
 > example: The knight had a long **sword**. — Лицар мав довгий меч.
-> note: w німе: «со-од».
+> note: w не читається: «со-од».
 
 > [!word] whole
 > ipa: /həʊl/ · ipa-us: /hoʊl/ · pos: adj · level: A2 · id: en-a2-spelling-w05
@@ -179,91 +179,91 @@ estimatedMinutes: 45
 > ipa: /daʊt/ · pos: noun · level: A2 · id: en-a2-spelling-w06
 > uk: сумнів; сумніватися (verb)
 > example: There's no **doubt** about it. — У цьому немає сумніву.
-> note: b німе.
+> note: b не читається.
 
 > [!word] comb
 > ipa: /kəʊm/ · ipa-us: /koʊm/ · pos: noun · level: A2 · id: en-a2-spelling-w07
 > uk: гребінець; розчісувати (verb)
 > example: Where's my **comb**? — Де мій гребінець?
-> note: b у кінці після m німе.
+> note: b у кінці після m не читається.
 
 > [!word] debt
 > ipa: /det/ · pos: noun · level: A2 · id: en-a2-spelling-w08
 > uk: борг
 > example: He has a big **debt**. — У нього великий борг.
-> note: b німе.
+> note: b не читається.
 
 > [!word] ghost
 > ipa: /ɡəʊst/ · ipa-us: /ɡoʊst/ · pos: noun · level: A2 · id: en-a2-spelling-w09
 > uk: привид
 > example: Do you believe in **ghosts**? — Ти віриш у привидів?
-> note: h німе: gh на початку = /ɡ/.
+> note: h не читається: gh на початку = /ɡ/.
 
 > [!word] folk
 > ipa: /fəʊk/ · ipa-us: /foʊk/ · pos: noun · level: A2 · id: en-a2-spelling-w10
 > uk: народний (folk music); люди (розм.)
 > example: I like Ukrainian **folk** songs. — Я люблю українські народні пісні.
-> note: l німе.
+> note: l не читається.
 
 > [!word] chalk
 > ipa: /tʃɔːk/ · ipa-us: /tʃɑːk/ · pos: noun · level: A2 · id: en-a2-spelling-w11
 > uk: крейда
 > example: The teacher writes with **chalk**. — Учителька пише крейдою.
-> note: l німе, як у walk і talk.
+> note: l не читається, як у walk і talk.
 
 > [!word] castle
 > ipa: /ˈkɑːsəl/ · ipa-us: /ˈkæsəl/ · pos: noun · level: A2 · id: en-a2-spelling-w12
 > uk: замок (споруда)
 > example: We visited an old **castle**. — Ми відвідали старий замок.
-> note: t німе: «КА-сел».
+> note: t не читається: «КА-сел».
 
 > [!word] whistle
 > ipa: /ˈwɪsəl/ · pos: noun · level: A2 · id: en-a2-spelling-w13
 > uk: свисток; свистіти (verb)
 > example: The referee blew his **whistle**. — Суддя засвистів у свисток.
-> note: t німе.
+> note: t не читається.
 
 > [!word] fasten
 > ipa: /ˈfɑːsən/ · ipa-us: /ˈfæsən/ · pos: verb · level: A2 · id: en-a2-spelling-w14
 > uk: застібати; пристібати
-> example: Please **fasten** your seat belt. — Будь ласка, пристебніть пасок.
-> note: t німе: «ФА-сен».
+> example: Please **fasten** your seat belt. — Будь ласка, пристебніть ремінь безпеки.
+> note: t не читається: «ФА-сен».
 
 > [!word] sign
 > ipa: /saɪn/ · pos: verb · level: A2 · id: en-a2-spelling-w15
 > uk: підписувати; знак, табличка (noun)
 > example: Please **sign** here. — Підпишіть тут, будь ласка.
-> note: g німе; але signature /ˈsɪɡnətʃə/ — з /ɡ/!
+> note: g не читається; але в signature /ˈsɪɡnətʃə/ — читається!
 
 > [!word] foreign
 > ipa: /ˈfɒrən/ · ipa-us: /ˈfɔːrən/ · pos: adj · level: A2 · id: en-a2-spelling-w16
 > uk: іноземний; закордонний
 > example: Do you speak any **foreign** languages? — Ти розмовляєш іноземними мовами?
-> note: g німе: «ФО-рен».
+> note: g не читається: «ФО-рен».
 
 > [!word] weigh
 > ipa: /weɪ/ · pos: verb · level: A2 · id: en-a2-spelling-w17
 > uk: важити; зважувати
 > example: How much do you **weigh**? — Скільки ти важиш?
-> note: gh німе; звучить як way. Іменник — weight /weɪt/.
+> note: gh не читається; звучить як way. Іменник — weight /weɪt/.
 
 > [!word] psychology
 > ipa: /saɪˈkɒlədʒi/ · ipa-us: /saɪˈkɑːlədʒi/ · pos: noun · level: A2 · id: en-a2-spelling-w18
 > uk: психологія
 > example: She studies **psychology**. — Вона вивчає психологію.
-> note: p німе; ch = /k/; наголос — правило -logy.
+> note: p не читається; ch = /k/; наголос — за правилом -logy.
 
 > [!word] island
 > ipa: /ˈaɪlənd/ · pos: noun · level: A2 · id: en-a2-spelling-w19
 > uk: острів
 > example: Britain is an **island**. — Британія — острів.
-> note: s німе: «АЙ-ленд».
+> note: s не читається: «АЙ-ленд».
 
 > [!word] column
 > ipa: /ˈkɒləm/ · ipa-us: /ˈkɑːləm/ · pos: noun · level: A2 · id: en-a2-spelling-w20
 > uk: колона; стовпчик; колонка (в газеті)
-> example: Write the answers in the first **column**. — Запишіть відповіді в першому стовпчику.
-> note: n у кінці після m німе.
+> example: Write the answers in the first **column**. — Запиши відповіді в першому стовпчику.
+> note: n у кінці після m не читається.
 
 > [!word] cute
 > ipa: /kjuːt/ · pos: adj · level: A2 · id: en-a2-spelling-w21
@@ -274,7 +274,7 @@ estimatedMinutes: 45
 > [!word] tube
 > ipa: /tjuːb/ · ipa-us: /tuːb/ · pos: noun · level: A2 · id: en-a2-spelling-w22
 > uk: тюбик; трубка; the Tube — лондонське метро
-> example: Let's take the **Tube**. — Поїхали на метро.
+> example: Let's take the **Tube**. — Поїдьмо на метро.
 > note: магічна e: u = /juː/; американці часто кажуть /tuːb/.
 
 > [!word] phrase
@@ -293,38 +293,38 @@ estimatedMinutes: 45
 > ipa: /ɡest/ · pos: noun · level: A2 · id: en-a2-spelling-w25
 > uk: гість
 > example: We have **guests** tonight. — У нас сьогодні гості.
-> note: u німе — лише показує, що g тверде /ɡ/.
+> note: u не читається — лише показує, що g звучить як /ɡ/.
 
 > [!word] guitar
 > ipa: /ɡɪˈtɑː/ · ipa-us: /ɡɪˈtɑːr/ · pos: noun · level: A2 · id: en-a2-spelling-w26
 > uk: гітара
 > example: He plays the **guitar**. — Він грає на гітарі.
-> note: u німе; наголос gui-TAR.
+> note: u не читається; наголос gui-TAR.
 
 > [!word] salmon
 > ipa: /ˈsæmən/ · pos: noun · level: A2 · id: en-a2-spelling-w27
 > uk: лосось; сьомга
 > example: I'd like the **salmon**, please. — Мені лосося, будь ласка.
-> note: l німе: «СЕ-мен».
+> note: l не читається: «СЕ-мен».
 
 > [!word] lamb
 > ipa: /læm/ · pos: noun · level: A2 · id: en-a2-spelling-w28
 > uk: ягня; баранина
 > example: We had **lamb** for dinner. — На вечерю в нас була баранина.
-> note: b німе.
+> note: b не читається.
 
 > [!word] thumb
 > ipa: /θʌm/ · pos: noun · level: A2 · id: en-a2-spelling-w29
 > uk: великий палець (руки)
 > example: He gave me a **thumbs**-up. — Він показав мені «клас».
-> note: b німе; th = /θ/.
+> note: b не читається; th = /θ/.
 
 > [!word] half
 > ipa: /hɑːf/ · ipa-us: /hæf/ · pos: noun · level: A2 · id: en-a2-spelling-w30
 > uk: половина
 > example: I'll be there in **half** an hour. — Я буду там за пів години.
 > forms: half → halves
-> note: l німе.
+> note: l не читається.
 
 ## Слухаємо
 
@@ -340,15 +340,15 @@ estimatedMinutes: 45
 > - [ ] The plan is late.
 > - [x] The plane is late.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: en-a2-spelling-l03
 > audio: I know the answer.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-spelling-l04
 > audio: We walked to the castle on the island.
 
-> [!listen] Яка літера в слові німа?
+> [!listen] Яка літера в цьому слові не читається?
 > level: A2 · type: answer · id: en-a2-spelling-l05
 > audio: A: How do you spell "knife"?
 > audio: B: K, N, I, F, E. The K is silent.
@@ -371,7 +371,7 @@ estimatedMinutes: 45
 > [!pair] hat /hæt/ — hate /heɪt/
 > level: A2 · id: en-a2-spelling-p01
 > say: hate
-> tip: німа e перетворює /æ/ на /eɪ/ — назву літери A.
+> tip: кінцева e, яку не читають, перетворює /æ/ на /eɪ/ — назву літери A.
 
 > [!pair] bit /bɪt/ — bite /baɪt/
 > level: A2 · id: en-a2-spelling-p02
@@ -414,13 +414,13 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-spelling-s01
 > text: I hate this hat.
 > ipa: /aɪ ˈheɪt ðɪs ˈhæt/
-> tip: hate — /eɪ/, hat — /æ/. Різниця лише в німій e.
+> tip: hate — /eɪ/, hat — /æ/. Різниця лише в кінцевій e, яку не читають.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s02
 > text: I know the answer.
 > ipa: /aɪ ˈnəʊ ði ˈɑːnsə/
-> tip: k у know і w в answer — німі.
+> tip: у know не читається k, а в answer — w.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s03
@@ -432,42 +432,42 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-spelling-s04
 > text: Please fasten your seat belt.
 > ipa: /pliːz ˈfɑːsən jɔː ˈsiːt belt/
-> tip: fasten — «ФА-сен», t німе.
+> tip: fasten — «ФА-сен», t не читається.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s05
 > text: There's an old castle on the island.
 > ipa: /ðeəz ən ˈəʊld ˈkɑːsəl ɒn ði ˈaɪlənd/
-> tip: castle — t німе; island — s німе: «АЙ-ленд».
+> tip: у castle не читається t, а в island — s: «АЙ-ленд».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s06
 > text: I'll wait half an hour.
 > ipa: /aɪl ˈweɪt ˈhɑːf ən ˈaʊə/
-> tip: half — l німе; hour — h німе, тому an, а не a.
+> tip: у half не читається l, а в hour — h, тому an, а не a.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s07
 > text: Please sign here.
 > ipa: /pliːz ˈsaɪn ˈhɪə/
-> tip: sign — «сайн», g німе.
+> tip: sign — «сайн», g не читається.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-spelling-s08
 > text: The whole night was quiet.
 > ipa: /ðə ˈhəʊl ˈnaɪt wəz ˈkwaɪət/
-> tip: whole — /h/, w німе; night — gh німе.
+> tip: whole починається з /h/, w не читається; у night не читається gh.
 
 ## Типові помилки українців
 
 > [!pitfall] Читати все, що написано
-> «Кніфе», «врайт», «касл» з «т», «айсленд» з «с» — так читаємо, бо в українській німих літер немає. В англійських словах їх багато, і вони мовчать завжди. Запамʼятай групи: **kn-**, **wr-**, **-mb**, **-stle**, **gn**, **igh**.
+> «Кніфе», «врайт», «касл» з «т», «айсленд» з «с» — так читаємо, бо в українській майже всі літери вимовляють. В англійській багато літер не читаються взагалі. Запамʼятай групи: **kn-**, **wr-**, **-mb**, **-stle**, **gn**, **igh**.
 
 > [!pitfall] Читати a як «а», i як «і»
-> В українській *а* завжди «а». В англійській *a* у *name* — /eɪ/, у *cat* — /æ/, у *car* — /ɑː/, в *about* — /ə/. Перевір склад: закритий — короткий звук, відкритий чи з німою *e* — як назва літери.
+> В українській *а* завжди «а». В англійській *a* у *name* — /eɪ/, у *cat* — /æ/, у *car* — /ɑː/, в *about* — /ə/. Перевір склад: закритий — короткий звук, відкритий чи з кінцевою *e* — як назва літери.
 
 > [!pitfall] Вимовляти кінцеву e
-> «Наме», «тайме», «хоупе» — кінцева *e* після приголосної майже завжди німа. Вона не звучить, а лише «перемикає» попередню голосну.
+> «Наме», «тайме», «хоупе» — кінцеву *e* після приголосної майже ніколи не читають. Вона не звучить, а лише «перемикає» попередню голосну.
 
 ## Практика
 
@@ -478,9 +478,9 @@ estimatedMinutes: 45
 > - [ ] /iː/
 > - [ ] «і»
 >
-> **Пояснення:** німа *e* відкриває склад, тож *i* читається як назва літери: /aɪ/.
+> **Пояснення:** кінцева *e* відкриває склад, тож *i* читається як назва літери: /aɪ/.
 
-> [!quiz] У яких словах є німа літера? Обери всі.
+> [!quiz] У яких словах є літера, яка не читається? Обери всі.
 > level: A2 · type: multi · id: en-a2-spelling-q03
 > - [x] knife
 > - [ ] kind
@@ -489,7 +489,7 @@ estimatedMinutes: 45
 > - [x] doubt
 > - [x] island
 >
-> **Пояснення:** k у *knife*, t у *castle*, b у *doubt*, s в *island* — німі. У *kind* і *cast* звучать усі приголосні.
+> **Пояснення:** k у *knife*, t у *castle*, b у *doubt*, s в *island* не читаються. У *kind* і *cast* звучать усі приголосні.
 
 > [!quiz] Яке буквосполучення в слові phrase звучить як /f/?
 > level: A2 · id: en-a2-spelling-q04
@@ -498,7 +498,7 @@ estimatedMinutes: 45
 > - [ ] se
 > - [ ] ra
 >
-> **Пояснення:** *ph* = /f/: *phone*, *photo*, *phrase*. Прийшло з грецьких слів.
+> **Пояснення:** *ph* = /f/: *phone*, *photo*, *phrase*. Це сполучення прийшло з грецької.
 
 > [!quiz] Як читається ch у слові machine?
 > level: A2 · id: en-a2-spelling-q05
@@ -528,7 +528,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *hop* + -ing → *hopping* /ˈhɒpɪŋ/. А *hope* + -ing → *hoping* /ˈhəʊpɪŋ/ з однією p — довгий звук.
 
-> [!quiz] Встав пропущену німу літеру
+> [!quiz] Встав пропущену літеру, яку не читають
 > level: A2 · type: fill · id: en-a2-spelling-q08 · bank: h, p
 >
 > ```text fill
@@ -557,7 +557,7 @@ estimatedMinutes: 45
 > f
 > ```
 >
-> **Пояснення:** /naɪf/ — три звуки на пʼять літер: *k* і *e* німі.
+> **Пояснення:** /naɪf/ — три звуки на пʼять літер: *k* і *e* не читаються.
 
 > [!quiz] Склади речення «Я знаю відповідь»
 > level: A2 · type: order · id: en-a2-spelling-q11
@@ -569,12 +569,12 @@ estimatedMinutes: 45
 > answer.
 > ```
 >
-> **Пояснення:** дві німі літери: *k* у *know* і *w* в *answer*.
+> **Пояснення:** тут дві літери не читаються: *k* у *know* і *w* в *answer*.
 
 > [!quiz] Чому кажуть an hour, а не a hour?
 > level: A2 · id: en-a2-spelling-q12
 > - [ ] це виняток без причини
-> - [x] h у hour німа, слово починається з голосного звука /aʊ/
+> - [x] h у hour не читається, і слово починається з голосного звука /aʊ/
 > - [ ] hour — множина
 > - [ ] так кажуть лише американці
 >
@@ -586,10 +586,10 @@ estimatedMinutes: 45
 > До XVII століття англійці вимовляли *k* у *knife*, *knight*, *know*. Звук зник, а написання залишилося — як у *ghost* і *light*, де теж колись звучали «зниклі» звуки.
 
 > [!reel] 🤔 Doubt і debt — b «для краси»
-> У середньовічній англійській писали *dout* і *dette*. Вчені XVI століття додали *b*, щоб показати звʼязок з латинськими *dubitare* і *debitum*. Вимова не змінилася — так з'явилася німа b.
+> У середньовічній англійській писали *dout* і *dette*. Вчені XVI століття додали *b*, щоб показати звʼязок з латинськими *dubitare* і *debitum*. Вимова не змінилася — так зʼявилася b, яку не читають.
 
 > [!reel] 👻 Ghost — h від голландців
-> Давньоанглійське слово писалося *gast*. *H* додали голландські друкарі, які працювали в Англії наприкінці XV століття, — за звичкою своєї мови. Відтоді h у *ghost* мовчить.
+> Давньоанглійське слово писалося *gast*. *H* додали голландські друкарі, які працювали в Англії наприкінці XV століття, — за звичкою своєї мови. Відтоді h у *ghost* не читається.
 
 ## Джерела та що почитати
 
@@ -600,8 +600,8 @@ estimatedMinutes: 45
 - M. Hancock — *English Pronunciation in Use*, розділи про spelling and sounds.
 
 > [!important] Підсумок
-> - Закритий склад — короткий звук (*hat, bit, hop, cut*), відкритий або з німою *e* — як назва літери (*hate, bite, hope, cute*).
+> - Закритий склад — короткий звук (*hat, bit, hop, cut*), відкритий або з кінцевою *e* — як назва літери (*hate, bite, hope, cute*).
 > - Подвоєна приголосна зберігає короткий звук: *hopping* — *hoping*.
 > - Надійні сполучення: *ee* /iː/, *igh* /aɪ/, *oa* /əʊ/, *ph* /f/, *ck* /k/, *ng* /ŋ/; ненадійні — *ea*, *oo*, *ou*, *ow*.
 > - Німі літери: kn-, wr-, -mb, -stle, gn, igh, а також *hour, half, island, salmon*.
-> - Найчастіші слова часто неправильні — їх вивчай з транскрипцією.
+> - Найчастіші слова часто «неправильні» — вивчай їх із транскрипцією.

@@ -28,7 +28,7 @@ estimatedMinutes: 60
 > - [ ] Вона просить тебе підготувати детальний план до наступного кварталу.
 > - [ ] Вона не зрозуміла ідею й просить пояснити ще раз.
 >
-> **Пояснення:** у британському діловому мовленні *interesting* без продовження і *perhaps… next quarter* — класичні **пом'якшувачі** (downgraders): «ні», загорнуте у ввічливість. Буквальне прочитання («їй цікаво!») — найчастіша помилка тих, хто вчив мову за підручником. Саме цьому — розшифровці й побудові дипломатичних фраз — присвячена тема.
+> **Пояснення:** у британському діловому мовленні *interesting* без продовження і *perhaps… next quarter* — класичні **помʼякшувачі** (downgraders): «ні», загорнуте у ввічливість. Буквальне прочитання («їй цікаво!») — найчастіша помилка тих, хто вчив мову за підручником. Саме цьому — розшифровці й побудові дипломатичних фраз — присвячена тема.
 
 ## Простими словами
 
@@ -65,14 +65,14 @@ estimatedMinutes: 60
 
 ### Дипломатична мова: як сказати «ні», щоб тебе почули
 
-Українська ділова мова допускає пряме *«Це не спрацює»* — і це не грубо. Англійською (особливо британською) пряме *This won't work* звучить різко, а іноді й агресивно. Носії **пом'якшують** висловлювання кількома інструментами одночасно:
+Українська ділова мова допускає пряме *«Це не спрацює»* — і це не грубо. Англійською (особливо британською) пряме *This won't work* звучить різко, а іноді й агресивно. Носії **помʼякшують** висловлювання кількома інструментами одночасно:
 
 | Інструмент | Пряма версія | Дипломатична версія |
 |---|---|---|
 | **модальні й умовний спосіб** | *This is a problem.* | *This **could** be a problem.* |
 | **минулий час / continuous** (дистанціювання) | *I want to ask…* | *I **was wondering** whether…* |
 | **заперечення позитивного** | *The plan is bad.* | *I'm **not sure** the plan is quite there yet.* |
-| **пом'якшувачі** (downgraders) | *It's expensive.* | *It's **slightly / a little / somewhat** more than we expected.* |
+| **помʼякшувачі** (downgraders) | *It's expensive.* | *It's **slightly / a little / somewhat** more than we expected.* |
 | **визнання перед «але»** | *You're wrong.* | *I **see where you're coming from**, but…* |
 | **питання замість твердження** | *We need more time.* | ***Would it be possible to** extend the deadline?* |
 | **«ми» замість «ви»** | *You made a mistake.* | *It looks like **we** missed a step here.* |
@@ -92,13 +92,13 @@ estimatedMinutes: 60
 >   - { id: p4, col: p, text: "Could you send the file over by the end of today?", note: "прохання + межа", tone: green }
 > steps:
 >   - { show: [d1, p1], note: "Категоричне won't замінюємо на would і заперечуємо позитив: not convinced. Зміст той самий — «ні», — але залишаємо простір для дискусії." }
->   - { show: [d2, p2], note: "Пом'якшувач a little і «ми» замість «ви»: проблема не у вашій ціні, а в нашому бюджеті. Партнерові легше поступитися." }
+>   - { show: [d2, p2], note: "Помʼякшувач a little і «ми» замість «ви»: проблема не у вашій ціні, а в нашому бюджеті. Партнерові легше поступитися." }
 >   - { show: [d3, p3], note: "Факт без звинувачення (seems to have slipped) + відкрите питання. Людина пояснює, а не захищається." }
 >   - { show: [d4, p4], note: "Наказ стає проханням (Could you…?), але межа часу лишається чіткою. Ввічливість ≠ розмитість." }
 > ```
 
 > [!warning] Ввічливо — не означає розмито
-> Пом'якшуй **форму**, а не **зміст**. Бути **forthright** — прямим і відвертим — у діловій англійській цінують; не цінують різкості (*blunt*) без потреби. *Could you possibly maybe look at it at some point if you have time?* — це вже не ввічливість, а відсутність прохання. Формула C1: **м'яка рамка + чітке ядро**: *I'm afraid we can't go below €40,000* — тут *I'm afraid* пом'якшує, а сума — тверда.
+> Помʼякшуй **форму**, а не **зміст**. Бути **forthright** — прямим і відвертим — у діловій англійській цінують; не цінують різкості (*blunt*) без потреби. *Could you possibly maybe look at it at some point if you have time?* — це вже не ввічливість, а відсутність прохання. Формула C1: **мʼяка рамка + чітке ядро**: *I'm afraid we can't go below €40,000* — тут *I'm afraid* помʼякшує, а сума — тверда.
 
 ### Як розшифрувати британську стриманість
 
@@ -111,7 +111,7 @@ estimatedMinutes: 60
 | *I hear you.* | Зі мною згодні. | Я чую тебе — але рішення не змінюю. |
 | *Quite good.* (UK) | Дуже добре. | Так собі, нормально. |
 | *I'll bear it in mind.* | Врахують. | Найімовірніше, нічого не зміниться. |
-| *Not bad at all.* | Не погано. | Справді добре (британський understatement). |
+| *Not bad at all.* | Так собі, непогано. | Справді добре (британський understatement). |
 
 Це тенденції, а не закони: багато залежить від людини, контексту й інтонації. Але якщо після *interesting* немає жодного питання чи наступного кроку — варто перепитати: *Would you like me to develop this further, or shall we leave it for now?*
 
@@ -133,7 +133,7 @@ estimatedMinutes: 60
 >   - { move: { from: prep, to: anc, value: "€48 000" }, note: "Якір — перша цифра, від якої відштовхуються всі подальші. Дослідження показують: перша пропозиція сильно впливає на результат. Тому вона амбітна, але з аргументом." }
 >   - { focus: int, note: "Позиція — «нам треба дешевше». Інтерес — «у нас фіксований річний бюджет». Питання Why is that important? відкриває варіанти: етапи, інші строки оплати." }
 >   - { move: { from: int, to: trade, value: "if → then" }, note: "Жодної безкоштовної поступки: If you can sign a two-year contract, then we could bring the rate down to €44 000." }
->   - { focus: close, note: "Наприкінці — усний підсумок і лист того ж дня: Just to confirm what we agreed… Те, що не записано, через тиждень кожна сторона пам'ятає по-своєму." }
+>   - { focus: close, note: "Наприкінці — усний підсумок і лист того ж дня: Just to confirm what we agreed… Те, що не записано, через тиждень кожна сторона памʼятає по-своєму." }
 > ```
 
 **Мова переговорів C1** — значно точніша, ніж *I want a lower price*:
@@ -148,7 +148,7 @@ estimatedMinutes: 60
 | Назвати обмін прямо | *That would have to be a **quid pro quo**: a lower rate for a longer contract.* |
 | Спертися на свою перевагу | *Our delivery speed is our strongest **bargaining chip**.* |
 | Знайти компроміс | *Perhaps there's some **middle ground** here: a fixed fee for phase one, hourly after that.* |
-| Згода без зобов'язань | *We agree **in principle**, but we'll need to check the details with our legal team.* |
+| Згода без зобовʼязань | *We agree **in principle**, but we'll need to check the details with our legal team.* |
 | Довести до угоди | *We still need to **hammer out** the payment terms. · Let's **iron out** the last details by email.* |
 
 > [!important] Компроміс — це обмін, а не знижка
@@ -192,7 +192,7 @@ estimatedMinutes: 60
 
 Нейтральний діловий тон C1: *Could you send over the Q3 report by Thursday? I'd like to review it before Friday's board meeting.* — прохання + межа + **причина**.
 
-> [!diagram] Нагадування: від м'якого до твердого
+> [!diagram] Нагадування: від мʼякого до твердого
 > ```yaml
 > layout: timeline
 > nodes:
@@ -208,7 +208,7 @@ estimatedMinutes: 60
 > ```
 
 > [!warning] Пасивна агресія в листах
-> Деякі «ввічливі» фрази носії давно читають як роздратування: *Per my last email…* («я ж уже писав!»), *As previously stated…*, *Going forward, please ensure…*, *Thanks in advance* (тиск: «ти вже зобов'язаний»), *Not sure if you saw my email…*. Вони не заборонені, але в напруженому листуванні краще прямо й спокійно: *I mentioned this on Monday, but it may have got lost — here are the details again.*
+> Деякі «ввічливі» фрази носії давно читають як роздратування: *Per my last email…* («я ж уже писав!»), *As previously stated…*, *Going forward, please ensure…*, *Thanks in advance* (тиск: «ти вже зобовʼязаний»), *Not sure if you saw my email…*. Вони не заборонені, але в напруженому листуванні краще прямо й спокійно: *I mentioned this on Monday, but it may have got lost — here are the details again.*
 
 ### Для IELTS: робота й лідерство в Speaking Part 3
 
@@ -224,13 +224,13 @@ estimatedMinutes: 60
 - *I see where you're coming from, but I'm not entirely convinced.* — Я розумію вашу логіку, але я не зовсім переконаний.
 - *Our BATNA is to stay with our current supplier.* — Наша найкраща альтернатива без угоди — залишитися з поточним постачальником.
 - *Delivery within six weeks is a red line for us.* — Постачання протягом шести тижнів — для нас непорушна умова.
-- *We agree in principle, subject to approval by our board.* — Ми згодні в принципі, за умови схвалення нашою радою.
+- *We agree in principle, subject to approval by our board.* — У принципі ми згодні, якщо це схвалить наша рада директорів.
 - *If you could commit to a two-year contract, we'd be able to offer a 10% discount.* — Якби ви погодилися на дворічний контракт, ми змогли б запропонувати знижку 10 %.
-- *I'd like to commend the team for the way they handled the launch.* — Хочу відзначити команду за те, як вона впоралася із запуском.
+- *I'd like to commend the team for the way they handled the launch.* — Хочу окремо похвалити команду за те, як вона впоралася із запуском.
 - *The feedback was candid but constructive.* — Відгук був відвертим, але конструктивним.
 - *Just a gentle reminder that the invoice is due on Friday.* — Лише нагадую, що рахунок треба сплатити до пʼятниці.
 - *Without the team's buy-in, the new process won't stick.* — Без підтримки команди новий процес не приживеться.
-- *Thanks for being upfront about the delay.* — Дякую, що чесно сказали про затримку одразу.
+- *Thanks for being upfront about the delay.* — Дякую, що одразу чесно сказали про затримку.
 - *Let's not sugar-coat it: we've lost the client.* — Не прикрашаймо: ми втратили клієнта.
 
 ## Слова
@@ -246,7 +246,7 @@ estimatedMinutes: 60
 > [!word] chime in
 > ipa: /ˌtʃaɪm ˈɪn/ · pos: verb · level: C1 · id: en-c1-professional-w02
 > uk: долучитися до розмови, вставити своє слово
-> example: Feel free to **chime in** if you have any thoughts. — Долучайтеся, якщо маєте думки.
+> example: Feel free to **chime in** if you have any thoughts. — Долучайтеся, якщо маєте що сказати.
 > note: неформально-нейтральне; дружнє запрошення до розмови. *Chime* — бій дзвонів.
 
 > [!word] circle back
@@ -270,7 +270,7 @@ estimatedMinutes: 60
 > [!word] steer
 > ipa: /stɪə/ · ipa-us: /stɪr/ · pos: verb · level: C1 · id: en-c1-professional-w06
 > uk: спрямовувати, скеровувати (розмову, процес)
-> example: Can I **steer** us back to the main question? — Можна я поверну нас до головного питання?
+> example: Can I **steer** us back to the main question? — Дозвольте повернути розмову до головного питання.
 > note: буквально — кермувати. *Steer the conversation / steer clear of* (уникати).
 
 > [!word] parking lot
@@ -283,7 +283,7 @@ estimatedMinutes: 60
 > ipa: /ɪn ə ˈnʌtʃel/ · pos: phrase · level: C1 · id: en-c1-professional-w08
 > uk: коротко кажучи, у двох словах
 > example: **In a nutshell**, we need more time and a bigger budget. — Коротко: нам потрібно більше часу й більший бюджет.
-> note: буквально — «в шкаралупі горіха». Зручно для підсумку наприкінці зустрічі.
+> note: дослівно — «у горіховій шкаралупі». Зручно для підсумку наприкінці зустрічі.
 
 > [!word] time-box
 > ipa: /ˈtaɪmbɒks/ · ipa-us: /ˈtaɪmbɑːks/ · pos: verb · level: C1 · id: en-c1-professional-w09
@@ -296,7 +296,7 @@ estimatedMinutes: 60
 > [!word] push back
 > ipa: /ˌpʊʃ ˈbæk/ · pos: verb · level: C1 · id: en-c1-professional-w10
 > uk: заперечувати, чинити опір (пропозиції, рішенню)
-> example: The team **pushed back on** the new deadline. — Команда заперечила проти нового дедлайну.
+> example: The team **pushed back on** the new deadline. — Команда виступила проти нового дедлайну.
 > note: *push back on sth*; іменник — *pushback*: *We got a lot of pushback from sales.*
 
 > [!word] I hear you
@@ -327,7 +327,7 @@ estimatedMinutes: 60
 > ipa: /ˈʃʊɡəkəʊt/ · ipa-us: /ˈʃʊɡərkoʊt/ · pos: verb · level: C1 · id: en-c1-professional-w15
 > uk: прикрашати, підсолоджувати (неприємну правду)
 > example: I won't **sugar-coat** it: the results are disappointing. — Не буду прикрашати: результати невтішні.
-> note: часто з запереченням: *Don't sugar-coat it.* Буквально — покривати цукровою глазур'ю.
+> note: часто із запереченням: *Don't sugar-coat it.* Дослівно — вкривати цукровою глазурʼю.
 
 > [!word] upfront
 > ipa: /ˌʌpˈfrʌnt/ · pos: adj · level: C1 · id: en-c1-professional-w16
@@ -365,12 +365,12 @@ estimatedMinutes: 60
 > ipa: /ˈæŋkə/ · ipa-us: /ˈæŋkər/ · pos: verb · level: C1 · id: en-c1-professional-w21
 > uk: «поставити якір» (задати точку відліку першою пропозицією)
 > example: They **anchored** the discussion with a very high price. — Вони задали точку відліку дуже високою ціною.
-> note: як іменник — *anchor* (якір; також ведучий новин). *k* читається: [ЕН-ке].
+> note: як іменник — *anchor* (якір; також ведучий новин). *ch* тут читається як /k/: [ЕН-ке].
 
 > [!word] quid pro quo
 > ipa: /ˌkwɪd prəʊ ˈkwəʊ/ · ipa-us: /ˌkwɪd proʊ ˈkwoʊ/ · pos: noun · level: C1 · id: en-c1-professional-w22
 > uk: послуга за послугу, взаємний обмін
-> example: The discount was a **quid pro quo** for the longer contract. — Знижка була обміном на довший контракт.
+> example: The discount was a **quid pro quo** for the longer contract. — Знижку надали в обмін на довший контракт.
 > note: латина — «щось за щось». У переговорах нейтральне; у політиці часто з відтінком непрозорої угоди.
 
 > [!word] sticking point
@@ -429,7 +429,7 @@ estimatedMinutes: 60
 
 > [!word] in principle
 > ipa: /ɪn ˈprɪnsəpəl/ · pos: phrase · level: C1 · id: en-c1-professional-w32
-> uk: у принципі, загалом (без остаточного зобов'язання)
+> uk: у принципі, загалом (без остаточного зобовʼязання)
 > example: We've agreed **in principle**, but the details are still open. — У принципі ми домовилися, але деталі ще відкриті.
 > note: *principle* (принцип) ≠ *principal* (головний; директор школи) — вимова однакова.
 
@@ -443,7 +443,7 @@ estimatedMinutes: 60
 > ipa: /ˌbɪld ræˈpɔː/ · ipa-us: /ˌbɪld ræˈpɔːr/ · pos: phrase · level: C1 · id: en-c1-professional-w34
 > uk: налагодити контакт, порозуміння
 > example: A few minutes of small talk helps **build rapport**. — Кілька хвилин невимушеної розмови допомагають налагодити контакт.
-> note: французьке слово: *t* німа — [ре-ПО].
+> note: слово французьке, тому кінцева *t* не читається: [ре-ПО].
 
 ### Фідбек
 
@@ -462,7 +462,7 @@ estimatedMinutes: 60
 > [!word] commend
 > ipa: /kəˈmend/ · pos: verb · level: C1 · id: en-c1-professional-w37
 > uk: хвалити, відзначати (офіційно)
-> example: I'd like to **commend** Oksana for her work on the audit. — Хочу відзначити Оксану за роботу над аудитом.
+> example: I'd like to **commend** Oksana for her work on the audit. — Хочу окремо похвалити Оксану за роботу над аудитом.
 > note: *commend sb for sth*. Формальніше за *praise*. Прикметник — *commendable*.
 
 > [!word] shortcoming
@@ -523,8 +523,8 @@ estimatedMinutes: 60
 
 > [!word] nudge
 > ipa: /nʌdʒ/ · pos: verb · level: C1 · id: en-c1-professional-w47
-> uk: легенько підштовхнути; м'яко нагадати
-> example: I'll **nudge** them again if we don't hear back by Monday. — Я ще раз м'яко нагадаю, якщо до понеділка не відповідять.
+> uk: легенько підштовхнути; мʼяко нагадати
+> example: I'll **nudge** them again if we don't hear back by Monday. — Я ще раз мʼяко нагадаю, якщо до понеділка не відповідять.
 > note: також іменник: *a gentle nudge*. Звідси «теорія підштовхування» (*nudge theory*) в економіці.
 
 > [!word] passive-aggressive
@@ -542,7 +542,7 @@ estimatedMinutes: 60
 > - [ ] We could agree to that, provided the payment terms are sixteen days rather than thirty.
 > - [ ] We can't agree to that, unless the payment terms are sixty days rather than thirty.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-professional-l02
 > audio: I think we're getting sidetracked, so let's park that and circle back to it at the end.
 
@@ -555,7 +555,7 @@ estimatedMinutes: 60
 > - [ ] Вона просить збільшити бюджет проєкту.
 > - [ ] Вона критикує якість роботи над пропозицією.
 >
-> **Пояснення:** *very ambitious* — часто евфемізм для «нереалістично»; *I'm just not sure our board would be comfortable* — дистанціювання (*would*, *not sure*) замість «ні»; *Perhaps we could revisit it* — відкладення. Похвала *a lot of work has gone into it* — пом'якшення перед відмовою.
+> **Пояснення:** *very ambitious* — часто евфемізм для «нереалістично»; *I'm just not sure our board would be comfortable* — дистанціювання (*would*, *not sure*) замість «ні»; *Perhaps we could revisit it* — відкладення. Похвала *a lot of work has gone into it* — помʼякшення перед відмовою.
 
 > [!listen] Яку модель фідбеку використовує керівник?
 > level: C1 · type: answer · id: en-c1-professional-l04
@@ -580,7 +580,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** продавець не опускається нижче свого walk-away point (42 000); покупець просить **«підсолодити» угоду** підтримкою (*sweeten the deal*), а продавець погоджується за умови (*as long as*) дворічного контракту. Класичний обмін *if → then*.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-professional-l06
 > audio: Just a gentle reminder that we still need your sign-off by Friday.
 
@@ -596,7 +596,7 @@ estimatedMinutes: 60
 > **Pieter:** Hm. We agree **in principle**. Legal will need to look at the support terms.
 > **Iryna:** Of course. Let me **recap**: an eight percent discount, a two-year support contract, a free PM, and a guaranteed May launch. I'll send the details today so we can **iron out** the rest.
 >
-> Ірина не захищає ціну, а **з'ясовує інтерес** (*speed*), поступається **лише в обмін** (*if you could commit…*) і додає цінність замість ще більшої знижки. Наприкінці — **усний підсумок**, щоб не було двох різних «версій» домовленості.
+> Ірина не захищає ціну, а **зʼясовує інтерес** (*speed*), поступається **лише в обмін** (*if you could commit…*) і додає цінність замість ще більшої знижки. Наприкінці — **усний підсумок**, щоб не було двох різних «версій» домовленості.
 
 > [!example] Фідбек: тімлід і розробник
 > **Lead:** Have you got ten minutes? I wanted to talk about yesterday's demo.
@@ -628,14 +628,14 @@ estimatedMinutes: 60
 > level: C1 · id: en-c1-professional-s03
 > text: If you could commit to a two-year contract, we'd be able to lower the rate.
 > ipa: /ɪf ju kəd kəˈmɪt tu ə ˌtuː ˈjɪə ˈkɒntrækt wiːd bi ˈeɪbəl tə ˈləʊə ðə ˈreɪt/
-> tip: commit — наголос на другий склад: [ке-МІТ]. we'd — коротке /d/ перед be, не пропускай його: інакше звучить як *we be*.
+> tip: commit — наголос на другому складі: [ке-МІТ]. we'd — коротке /d/ перед be, не пропускай його: інакше звучить як *we be*.
 > uk: Якби ви погодилися на дворічний контракт, ми змогли б знизити ставку.
 
 > [!speak] Червона лінія
 > level: C1 · id: en-c1-professional-s04
 > text: I'm afraid delivery within six weeks is a red line for us.
 > ipa: /aɪm əˈfreɪd dɪˈlɪvəri wɪˈðɪn ˈsɪks ˈwiːks ɪz ə ˈred ˈlaɪn fər ʌs/
-> tip: I'm afraid — м'яка рамка, вимовляй спокійно; red line — два наголоси, обидва сильні: тут зміст твердий.
+> tip: I'm afraid — мʼяка рамка, вимовляй спокійно; red line — два наголоси, обидва сильні: тут зміст твердий.
 > uk: На жаль, постачання протягом шести тижнів — для нас непорушна умова.
 
 > [!speak] Згода в принципі
@@ -657,14 +657,14 @@ estimatedMinutes: 60
 > text: I'd like to commend the team for the way they handled a very difficult launch.
 > ipa: /aɪd ˈlaɪk tə kəˈmend ðə ˈtiːm fə ðə ˈweɪ ðeɪ ˈhændəld ə ˈveri ˈdɪfɪkəlt ˈlɔːntʃ/
 > tip: commend — [ке-МЕНД], не плутай з command [ке-МААНД]; launch — /ɔː/: [ЛООНЧ].
-> uk: Хочу відзначити команду за те, як вона впоралася з дуже складним запуском.
+> uk: Хочу окремо похвалити команду за те, як вона впоралася з дуже складним запуском.
 
-> [!speak] М'яке нагадування
+> [!speak] Мʼяке нагадування
 > level: C1 · id: en-c1-professional-s08
 > text: Just nudging this up your inbox — could you let me know by Friday?
 > ipa: /dʒʌst ˈnʌdʒɪŋ ðɪs ˈʌp jər ˈɪnbɒks kəd ju ˈlet mi ˈnəʊ baɪ ˈfraɪdeɪ/
 > tip: nudging — /ʌ/ коротке, як у *but*: [НА-джинг]; could you — злиття /d/ + /j/ → [ку-джу].
-> uk: Просто піднімаю цей лист у твоїй пошті — даси знати до пʼятниці?
+> uk: Нагадую про свій лист, щоб він не загубився, — даси знати до пʼятниці?
 
 > [!speak] IELTS Speaking Part 3 — «Should feedback be given in public or in private?»
 > level: C1 · id: en-c1-professional-s09
@@ -677,8 +677,8 @@ estimatedMinutes: 60
 > level: C1 · id: en-c1-professional-s10
 > text: To a large extent, yes. Techniques like knowing your alternatives can be taught, although confidence probably comes with experience.
 > ipa: /tu ə ˈlɑːdʒ ɪkˈstent ˈjes tekˈniːks laɪk ˈnəʊɪŋ jər ɔːlˈtɜːnətɪvz kən bi ˈtɔːt ɔːlˈðəʊ ˈkɒnfɪdəns ˈprɒbəbli ˈkʌmz wɪð ɪkˈspɪəriəns/
-> tip: alternatives — UK [ол-ТЕ-не-тівз]; taught — /ɔː/ і німі gh: [ТООТ]; although — [ол-ЗОУ], /ð/ дзвінке.
-> uk: Здебільшого так. Прийомів на кшталт знання своїх альтернатив можна навчити, хоча впевненість, мабуть, приходить з досвідом.
+> tip: alternatives — UK [ол-ТЕ-не-тівз]; у taught літери gh не читаються, голосний — /ɔː/: [ТООТ]; although — [ол-ЗОУ], /ð/ дзвінке.
+> uk: Здебільшого так. Певних прийомів — скажімо, заздалегідь знати свої альтернативи — можна навчити, хоча впевненість, мабуть, приходить з досвідом.
 
 ## Типові помилки українців
 
@@ -696,7 +696,7 @@ estimatedMinutes: 60
 
 ## Практика
 
-> [!quiz] Які фрази пом'якшують незгоду? Обери всі.
+> [!quiz] Які фрази помʼякшують незгоду? Обери всі.
 > level: C1 · type: multi · id: en-c1-professional-q02
 > - [x] I'm not entirely convinced that's the best option.
 > - [x] I see where you're coming from, but…
@@ -757,7 +757,7 @@ estimatedMinutes: 60
 > - [x] I wanted to follow up on the contract. Could you send the signed copy by Thursday? Otherwise the June start date may be at risk.
 > - [ ] Why haven't you sent the contract yet? This is unacceptable.
 >
-> **Пояснення:** третій варіант — **прохання + чітка межа + наслідок**, без емоцій. Перший — пасивно-агресивний (*Per my last email*, *ensure*, *ASAP*); другий — настільки м'який, що прохання зникає; четвертий — відкрита агресія.
+> **Пояснення:** третій варіант — **прохання + чітка межа + наслідок**, без емоцій. Перший — пасивно-агресивний (*Per my last email*, *ensure*, *ASAP*); другий — настільки мʼякий, що прохання зникає; четвертий — відкрита агресія.
 
 > [!quiz] Перепиши дипломатично: обери пропущені слова
 > level: C1 · type: fill · id: en-c1-professional-q08 · bank: must, never
@@ -769,7 +769,7 @@ estimatedMinutes: 60
 > You made a mistake. → It looks like [[we]] missed a step here.
 > ```
 >
-> **Пояснення:** пом'якшувачі (*slightly / a little / somewhat*), дистанціювання (*I was wondering*), заперечення позитиву (*not convinced*) і «ми» замість «ви». *Must* і *never* — навпаки, підсилюють категоричність.
+> **Пояснення:** помʼякшувачі (*slightly / a little / somewhat*), дистанціювання (*I was wondering*), заперечення позитиву (*not convinced*) і «ми» замість «ви». *Must* і *never* — навпаки, підсилюють категоричність.
 
 > [!quiz] Колега каже на нараді: «Can we take this offline?» Що вона пропонує?
 > level: C1 · id: en-c1-professional-q09
@@ -829,7 +829,7 @@ estimatedMinutes: 60
 > - [ ] Hey Helen!!! Need more time for the report, OK?
 > - [ ] To whom it may concern, I hereby request an extension.
 >
-> **Пояснення:** IELTS оцінює, чи відповідає тон адресатові (*Task Achievement*). Знайомій менеджерці — **ім'я** й ввічливе непряме прохання (*whether it might be possible*). *Dear Madam* і *To whom it may concern* — для незнайомих; *I am writing to you because I want to inform you about my problem* — завчена порожня фраза; *Hey!!!* — занадто неформально.
+> **Пояснення:** IELTS оцінює, чи відповідає тон адресатові (*Task Achievement*). Знайомій менеджерці — **імʼя** й ввічливе непряме прохання (*whether it might be possible*). *Dear Madam* і *To whom it may concern* — для незнайомих; *I am writing to you because I want to inform you about my problem* — завчена порожня фраза; *Hey!!!* — занадто неформально.
 
 > [!quiz] IELTS Reading (True / False / Not Given) · Текст: «Under the agreement, the supplier will cut its prices by 5% in exchange for a three-year contract. Both sides described the talks as difficult.» Твердження: «The supplier agreed to lower its prices without receiving anything in return.»
 > level: C1 · id: en-c1-professional-q15
@@ -842,7 +842,7 @@ estimatedMinutes: 60
 > [!quiz] Знайди для кожного «підтексту» правильну розшифровку. Що найчастіше означає *I hear you* у робочій суперечці?
 > level: C1 · id: en-c1-professional-q16
 > - [ ] Я з тобою повністю згоден.
-> - [x] Я розумію твою позицію, але не обов'язково змінюю свою.
+> - [x] Я розумію твою позицію, але не обовʼязково змінюю свою.
 > - [ ] Говори голосніше, мені погано чути.
 > - [ ] Я передам твої слова керівництву.
 >
@@ -870,7 +870,7 @@ estimatedMinutes: 60
 > Feedback зʼявилося в 1920-х як термін електротехніки: частина вихідного сигналу повертається на вхід. Звідси й «завивання» мікрофона біля колонки. У значенні «відгук на роботу» слово закріпилося пізніше — і досі незлічуване: some feedback.
 
 > [!reel] 🌍 Британці «зменшують», американці «збільшують»
-> Ерін Маєр у «The Culture Map» (2014) описує downgraders — слова, що пом'якшують критику (slightly, a bit), і upgraders — що її підсилюють (totally, absolutely). Британська критика часто «зменшена», тож іноземці можуть узагалі не помітити, що їх покритикували.
+> Ерін Маєр у «The Culture Map» (2014) описує downgraders — слова, що помʼякшують критику (slightly, a bit), і upgraders — що її підсилюють (totally, absolutely). Британська критика часто «зменшена», тож іноземці можуть узагалі не помітити, що їх покритикували.
 
 ## Джерела та що почитати
 
@@ -883,7 +883,7 @@ estimatedMinutes: 60
 
 > [!important] Підсумок
 > - **Фасилітація:** мета й рамка часу → залучення (*chime in*) → контроль теми (*steer, sidetracked, park, take offline*) → підсумок (*in a nutshell*) → follow-up.
-> - **Дипломатія:** модальні, дистанціювання, заперечення позитиву, пом'якшувачі, «ми» замість «ви» — **м'яка рамка + чітке ядро**. Розшифровуй *interesting, I hear you, with all due respect*.
+> - **Дипломатія:** модальні, дистанціювання, заперечення позитиву, помʼякшувачі, «ми» замість «ви» — **мʼяка рамка + чітке ядро**. Розшифровуй *interesting, I hear you, with all due respect*.
 > - **Переговори:** BATNA і walk-away point до зустрічі → якір → інтереси, а не позиції → поступки лише *if…, then…* → усний recap і лист того ж дня.
 > - **Фідбек:** SBI — ситуація, поведінка, вплив, наступний крок; конкретно й **actionable**, без ярликів і порожніх «сендвічів».
 > - **Тон листа:** прохання + межа + причина; без пасивної агресії (*per my last email*) і без канцеляриту (*hereby, aforementioned*).

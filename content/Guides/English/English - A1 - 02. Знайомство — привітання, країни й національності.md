@@ -72,7 +72,7 @@ estimatedMinutes: 35
 
 Зверни увагу: *Nice to meet you* кажуть **під час першої зустрічі**. Наступного разу — *Nice to see you* («радий тебе бачити»).
 
-> [!diagram] Знайомство за чотири репліки
+> [!diagram] Знайомство за пʼять реплік
 > ```yaml
 > layout: flow
 > nodes:
@@ -123,7 +123,7 @@ estimatedMinutes: 35
 | India | Indian | Hindi, English | Індія |
 | Australia | Australian | English | Австралія |
 
-Підглянь закінчення — вони групуються:
+Зверни увагу на закінчення — їх легко згрупувати:
 
 - **-ian / -an:** Ukrainian, Italian, Brazilian, Canadian, Mexican, American, Australian;
 - **-ish:** Polish, Spanish, Swedish, Turkish, British, English, Irish;
@@ -131,27 +131,27 @@ estimatedMinutes: 35
 - **окремі:** French, Greek, Dutch, Swiss, Czech.
 
 > [!tip] Артикль the перед деякими країнами
-> *the UK, the USA, the Netherlands, the Czech Republic* — бо в назві є слово «королівство», «штати», «республіка» або множина. Решта країн — без артикля: *I'm from Poland*, а не «from the Poland».
+> *the UK, the USA, the Netherlands, the Czech Republic* — бо в назві є слово «королівство», «штати» чи «республіка» або назва стоїть у множині. Решта країн — без артикля: *I'm from Poland*, а не «from the Poland».
 
 ## Фрази уроку
 
-На занятті, у дзвінку чи на вулиці ти часто не почуєш з першого разу — і це нормально. Головне — **перепитати**, а не кивати.
+На занятті, у дзвінку чи на вулиці ти часто не все почуєш з першого разу — і це нормально. Головне — **перепитати**, а не кивати.
 
 | Англійською | Переклад |
 |---|---|
 | Sorry? / Pardon? | Перепрошую? (не почув) |
 | Can you repeat that, please? | Можете повторити, будь ласка? |
-| Can you speak more slowly, please? | Можете говорити повільніше? |
+| Can you speak more slowly, please? | Можете говорити повільніше, будь ласка? |
 | How do you spell that? | Як це пишеться? |
 | What does "nationality" mean? | Що означає «nationality»? |
 | I don't understand. | Я не розумію. |
 
 ## Приклади
 
-- Good morning, Mr Smith. How are you? — Доброго ранку, пане Сміт. Як ви?
+- Good morning, Mr Smith. How are you? — Доброго ранку, пане Сміт. Як ваші справи?
 - Hi, I'm Ivan. Nice to meet you. — Привіт, я Іван. Приємно познайомитися.
-- Where are you from? — I'm from Lviv, in Ukraine. — Звідки ти? — Я зі Львова, в Україні.
-- Marco is Italian. He's from Rome. — Марко італієць. Він з Рима.
+- Where are you from? — I'm from Lviv, in Ukraine. — Звідки ти? — Я зі Львова, це в Україні.
+- Marco is Italian. He's from Rome. — Марко — італієць. Він з Рима.
 - I speak Ukrainian, English and a little Polish. — Я розмовляю українською, англійською і трохи польською.
 - She's Japanese, but she lives in Canada. — Вона японка, але живе в Канаді.
 - Sorry? Can you repeat that, please? — Перепрошую? Можете повторити, будь ласка?
@@ -415,15 +415,15 @@ estimatedMinutes: 35
 > - [ ] I'm from Poland, but I live in Spain.
 > - [ ] I'm Spanish and I live in Spain.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-hello-l03
 > audio: Nice to meet you, too.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-hello-l04
 > audio: Where are you from?
 
-> [!listen] Послухай діалог. Яка національність у Марко?
+> [!listen] Послухай діалог. Хто Марко за національністю?
 > level: A1 · type: answer · speed: slow · id: en-a1-hello-l05
 > audio: A: Hello, I'm Marco.
 > audio: B: Hi, Marco. I'm Olena. Where are you from?
@@ -447,7 +447,7 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-hello-s01
 > text: Hello! My name is Olena.
 > ipa: /həˈləʊ maɪ ˈneɪm ɪz əˈlenə/
-> tip: «h» у hello — легкий видих, а не українське «г». Наголос — на другий склад: he-LLO.
+> tip: «h» у hello — легкий видих, а не українське «г». Наголос — на другому складі: he-LLO.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-hello-s02
@@ -483,7 +483,7 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-hello-s07
 > text: Sorry? Can you repeat that, please?
 > ipa: /ˈsɒri kən juː rɪˈpiːt ðæt pliːz/
-> tip: Sorry? — голос угору ↗, бо це перепитування. В «that» — дзвінкий /ð/: язик між зубами.
+> tip: Sorry? — голос угору ↗, бо це перепитування. У that — дзвінкий /ð/: язик між зубами.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-hello-s08
@@ -523,7 +523,7 @@ estimatedMinutes: 35
 > ipa: /ɡʊd ˈmɔːnɪŋ maɪ ˈneɪm ɪz ɪˈrɪnə/
 > tip: можеш назвати своє імʼя — головне, щоб звучали Good morning і My name is.
 
-> [!speak] Відповідай: «Я з Харкова, в Україні».
+> [!speak] Відповідай: «Я з Харкова, це в Україні».
 > level: A1 · id: en-a1-hello-s10
 > text: I'm from Kharkiv, in Ukraine.
 > ipa: /aɪm frəm ˈkɑːkɪv ɪn juːˈkreɪn/
@@ -540,7 +540,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** з полудня до вечора — *Good afternoon*. *Good night* — лише на прощання ввечері.
 
-> [!quiz] Як перекласти «Я з Польщі, але я живу в Україні»?
+> [!quiz] Як перекласти «Я з Польщі, але живу в Україні»?
 > level: A1 · id: en-a1-hello-q03
 > - [ ] I from Poland, but I live in Ukraine.
 > - [ ] I'm Poland, but I live in Ukraine.
@@ -593,7 +593,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** питальне слово → *are* → *you* → *from* у самому кінці.
 
-> [!quiz] Склади речення: «Приємно познайомитися теж»
+> [!quiz] Склади речення: «Мені теж приємно познайомитися»
 > level: A1 · type: order · id: en-a1-hello-q08
 >
 > ```text order

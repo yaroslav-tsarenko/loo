@@ -27,7 +27,7 @@ estimatedMinutes: 45
 > - [x] I've been working here for five years.
 > - [ ] I worked here for five years.
 >
-> **Пояснення:** українською тут теперішній час («працюю»), але англієць бачить інше: дія почалася в минулому й **тягнеться до тепер** — це перфектний аспект (*have been working*). *I worked here for five years* означає, що ти там уже не працюєш. Саме такі розбіжності між мовами ми сьогодні розкладемо по поличках.
+> **Пояснення:** українською тут теперішній час («працюю»), але англійська бачить це інакше: дія почалася в минулому й **тягнеться до тепер** — це перфектний аспект (*have been working*). *I worked here for five years* означає, що ти там уже не працюєш. Саме такі розбіжності між мовами ми сьогодні розкладемо по поличках.
 
 ## Простими словами
 
@@ -54,10 +54,10 @@ estimatedMinutes: 45
 >   - { id: nc, col: present, label: "Continuous · be + -ing", text: "I am working", note: "процес зараз, тимчасово", tone: blue }
 >   - { id: fc, col: future, label: "Continuous · be + -ing", text: "I will be working", note: "процес у момент майбутнього", tone: blue }
 >   - { id: pp, col: past, label: "Perfect · have + V3", text: "I had worked", note: "раніше за момент у минулому", tone: violet }
->   - { id: np, col: present, label: "Perfect · have + V3", text: "I have worked", note: "минуле, повʼязане з тепер", tone: violet }
+>   - { id: np, col: present, label: "Perfect · have + V3", text: "I have worked", note: "минуле, повʼязане з теперішнім", tone: violet }
 >   - { id: fp, col: future, label: "Perfect · have + V3", text: "I will have worked", note: "уже буде до моменту в майбутньому", tone: violet }
 >   - { id: ppc, col: past, label: "Perfect Continuous", text: "I had been working", note: "тривало до моменту в минулому", tone: orange }
->   - { id: npc, col: present, label: "Perfect Continuous", text: "I have been working", note: "триває до тепер", tone: orange }
+>   - { id: npc, col: present, label: "Perfect Continuous", text: "I have been working", note: "триває досі", tone: orange }
 >   - { id: fpc, col: future, label: "Perfect Continuous", text: "I will have been working", note: "тривало до моменту в майбутньому", tone: orange }
 > steps:
 >   - { show: [ps, ns, fs], note: "Перший рядок — Simple: подія як ціле. Час змінює лише форма дієслова: worked, work, will work." }
@@ -87,7 +87,7 @@ estimatedMinutes: 45
 - **Is** he **working** today? — Він сьогодні працює?
 
 > [!tip] Хитрість для довгих форм
-> Розбирай форму з кінця: *will have been working* → **working** (процес) + **have been** (до точки відліку) + **will** (у майбутньому). Так само її й будуй — справа наліво від змісту до часу.
+> Розбирай форму з кінця: *will have been working* → **working** (процес) + **have been** (до точки відліку) + **will** (у майбутньому). Так само її й будуй — справа наліво: від змісту до часу.
 
 > [!quiz] Перевір себе: збери форму
 > level: B2 · id: en-b2-tense-system-q02
@@ -99,7 +99,7 @@ estimatedMinutes: 45
 > - [x] will have been working
 > - [ ] has been working
 >
-> **Пояснення:** точка відліку — *next June* (майбутнє → **will**), рахуємо тривалість до неї (**have been + -ing**). *Has been working* відраховує до *тепер*, а не до червня.
+> **Пояснення:** точка відліку — *next June* (майбутнє → **will**), рахуємо тривалість до неї (**have been + -ing**). *Has been working* рахує тривалість до *теперішнього моменту*, а не до червня.
 
 ### Simple — подія як ціле
 
@@ -221,7 +221,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 | Сигнал | Зазвичай | Приклад |
 |---|---|---|
 | yesterday, ago, last…, in 2019 | Past Simple | I **moved** here two years ago. |
-| since, for (до тепер) | Present Perfect (Continuous) | I**'ve lived** here since 2021. |
+| since, for (до сьогодні) | Present Perfect (Continuous) | I**'ve lived** here since 2021. |
 | at this time tomorrow | Future Continuous | At this time tomorrow I**'ll be flying**. |
 | by + момент | Perfect (будь-якого часу) | By then, she **had left** / **will have left**. |
 | while, at that moment | Continuous | **While** I **was driving**, … |
@@ -239,19 +239,19 @@ Present Perfect дивиться з *теперішнього* моменту, �
   - зміни до сьогодні (якщо графік доходить до «now») → **Present Perfect**: *Since 2015, the figure **has fluctuated**.*
   - прогнози → **will / is expected to / will have + V3**: *By 2040, the figure **will have doubled**.*
   - процеси → **Present Simple Passive** (див. [[English - B2 - 05. Пасив глибше — have something done, it is said that]]).
-- **Speaking Part 3.** Питання на кшталт *How has… changed?* чекають контрасту часів: *In the past, people **used to**… Nowadays, more people **are working** remotely, and this **has changed**…* Кілька аспектів в одній відповіді — плюс до критерію Grammatical Range & Accuracy.
+- **Speaking Part 3.** Питання на кшталт *How has… changed?* чекають контрасту часів: *In the past, people **used to**… Nowadays, more people **are working** remotely, and this **has changed**…* Кілька аспектів в одній відповіді — плюс за критерієм Grammatical Range & Accuracy.
 
 ## Приклади
 
 - I **work** for a logistics company, but this month I**'m working** on a project in Poland. — Я працюю в логістичній компанії, але цього місяця працюю над проєктом у Польщі.
-- I**'ve worked** with three different teams so far. — Досі я встиг попрацювати з трьома командами.
+- I**'ve worked** with three different teams so far. — Поки що я встиг попрацювати з трьома різними командами.
 - She **was living** in Berlin when the war started. — Коли почалася війна, вона жила в Берліні.
-- By the time the ambulance arrived, he **had stopped** breathing. — Поки приїхала швидка, він уже перестав дихати.
+- By the time the ambulance arrived, he **had stopped** breathing. — Коли приїхала швидка, він уже не дихав.
 - They **had been arguing** for hours before they finally agreed. — Вони сперечалися годинами, перш ніж нарешті погодилися.
 - Don't call at nine — I**'ll be having** dinner with my parents. — Не дзвони о девʼятій — я вечерятиму з батьками.
 - By 2030, the city **will have built** fifty kilometres of cycle lanes. — До 2030 року місто збудує пʼятдесят кілометрів велодоріжок.
 - Next month I **will have been teaching** for twenty years. — Наступного місяця буде двадцять років, як я викладаю.
-- Prices **are rising** faster than wages. — Ціни ростуть швидше за зарплати.
+- Prices **are rising** faster than wages. — Ціни зростають швидше за зарплати.
 - **Have** you ever **been** to Japan? — Yes, I **went** there in 2018. — Ти колись бував у Японії? — Так, їздив туди 2018 року.
 
 ## Слова
@@ -264,7 +264,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 
 > [!word] ongoing
 > ipa: /ˈɒnˌɡəʊ.ɪŋ/ · ipa-us: /ˈɑːnˌɡoʊ.ɪŋ/ · pos: adj · level: B2 · id: en-b2-tense-system-w02
-> uk: триваючий, поточний, що не припиняється
+> uk: що триває; поточний, незавершений
 > example: The investigation is still **ongoing**. — Розслідування ще триває.
 > note: стоїть і перед іменником (an ongoing project), і після be (it's ongoing).
 
@@ -289,7 +289,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > ipa: /ˈbæk.ɡraʊnd/ · pos: noun · level: B2 · id: en-b2-tense-system-w06
 > uk: фон, тло; походження, освіта й досвід (людини)
 > example: I could hear music in the **background**. — На фоні було чути музику.
-> example: She comes from a medical **background**. — Вона з медичного середовища.
+> example: She comes from a medical **background**. — Вона має медичну освіту.
 
 > [!word] time frame
 > ipa: /ˈtaɪm ˌfreɪm/ · pos: noun · level: B2 · id: en-b2-tense-system-w07
@@ -324,7 +324,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > - [x] I've been waiting for you for over an hour.
 > - [ ] I'd been waiting for you for over an hour.
 >
-> **Пояснення:** скорочення *I've* звучить як [айв] — ледь чутне [в] перед *been*. Почути його — значить зрозуміти, що людина чекає досі.
+> **Пояснення:** скорочення *I've* звучить як [айв] — ледь чутне [в] перед *been*. Почуєш його — зрозумієш, що людина досі чекає.
 
 > [!listen] Що ти почув?
 > level: B2 · type: choice · id: en-b2-tense-system-l02
@@ -335,11 +335,11 @@ Present Perfect дивиться з *теперішнього* моменту, �
 >
 > **Пояснення:** *she'd already had* — Past Perfect: вечеря закінчилася ще до дзвінка. *She'd* у швидкому мовленні — майже [шид].
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-tense-system-l03
 > audio: By the time we got there, everyone had left.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-tense-system-l04
 > audio: She's been learning English since she was six.
 
@@ -410,10 +410,10 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > Українське «живу тут пʼять років» — теперішній час, тому рука тягнеться до Present Simple. Але англійська бачить дію, що почалася в минулому й триває досі, — це перфект: *I**'ve lived** / I**'ve been living** here for five years.* ~~*I live here for five years*~~ ~~*I'm living here since 2021*~~.
 
 > [!pitfall] Доконаний вид ≠ Present Perfect
-> «Я **прочитав** цю книжку вчора» — доконаний вид, але англійською це **Past Simple**: *I **read** this book yesterday.* Present Perfect потрібен не для «завершеності», а для звʼязку з *тепер* і без конкретного минулого часу: *I**'ve read** this book* (я її знаю, маю цей досвід). ~~*I have read it yesterday*~~.
+> «Я **прочитав** цю книжку вчора» — доконаний вид, але англійською це **Past Simple**: *I **read** this book yesterday.* Present Perfect потрібен не для «завершеності», а для звʼязку з теперішнім моментом і без конкретного минулого часу: *I**'ve read** this book* (я її знаю, маю цей досвід). ~~*I have read it yesterday*~~.
 
 > [!pitfall] Недоконаний вид ≠ Continuous
-> «Я **читав** цю книжку» — недоконаний вид, але часто це досвід, а не процес: *I**'ve read** this book* (так, знайомий з нею). Continuous — лише коли ти справді «всередині» дії: *I **was reading** it when you called.*
+> «Я **читав** цю книжку» — недоконаний вид, але часто це досвід, а не процес: *I**'ve read** this book* (так, я з нею знайомий). Continuous — лише коли ти справді «всередині» дії: *I **was reading** it when you called.*
 
 > [!pitfall] Сигнальне слово замість змісту
 > *for* не завжди означає перфект, а *always* — не завжди Simple. *I **lived** in Odesa **for** ten years* — ти там більше не живеш (Past Simple). *She's **always** complaining* — роздратування (Continuous). Спершу думай про зміст, потім перевіряй слово-сигнал.
@@ -497,7 +497,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > [!quiz] Що означає речення? *When I arrived, Marta was leaving.*
 > level: B2 · id: en-b2-tense-system-q11
 > - [ ] Марта пішла задовго до мого приходу.
-> - [x] Коли я прийшов, Марта саме виходила — ми ледь розминулися.
+> - [x] Коли я прийшов, Марта саме виходила.
 > - [ ] Марта пішла, бо я прийшов.
 > - [ ] Марта ще не збиралася йти.
 >
@@ -538,7 +538,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > - [x] False
 > - [ ] Not Given
 >
-> **Пояснення:** *are now considering* (лише розглядають) + *no decision has been made yet* (рішення ще немає) → вони **не** працюють чотири дні. Текст прямо суперечить твердженню → **False**. Not Given було б, якби текст узагалі не згадував склад.
+> **Пояснення:** *are now considering* (лише розглядають) + *no decision has been made yet* (рішення ще немає) → вони **не** працюють чотири дні. Текст прямо суперечить твердженню → **False**. Not Given було б, якби текст узагалі не згадував працівників складу.
 
 > [!quiz] IELTS Reading — Summary completion. Choose ONE word from the box for each gap.
 > level: B2 · type: fill · bank: banned, decreased, ignoring · tags: ielts · id: en-b2-tense-system-q15
@@ -576,7 +576,7 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > Слоган McDonald's (2003) порушує «правило»: love — дієслово стану, і continuous з ним рідкісний. Але саме тому фраза звучить живо: «я кайфую просто зараз». Носії так грають аспектом свідомо.
 
 > [!reel] 📈 Continuous стає популярнішим
-> Корпусні дослідження британської й американської англійської XX століття показують: форм be + -ing стає дедалі більше, особливо в розмовній мові. Англійці все частіше «знімають відео», а не «фотографують» дію.
+> Корпусні дослідження британської й американської англійської XX століття показують: форм be + -ing стає дедалі більше, особливо в розмовній мові. Носії англійської дедалі частіше «знімають відео», а не «фотографують» дію.
 
 ## Джерела та що почитати
 
@@ -591,4 +591,4 @@ Present Perfect дивиться з *теперішнього* моменту, �
 > - **Simple** — подія цілком; **Continuous** (*be + -ing*) — процес, тимчасове, фон; **Perfect** (*have + V3*) — погляд назад від точки відліку; **Perfect Continuous** (*have been + -ing*) — тривалість до точки.
 > - Present Perfect не вживається з завершеним часом (*yesterday, ago, in 2019*).
 > - Українські вид і час не перекладаються напряму: думай про точку відліку й про те, як ти бачиш дію.
-> - IELTS Task 1: минулі дані — Past Simple, зміни до тепер — Present Perfect, прогнози — *will / will have + V3*.
+> - IELTS Task 1: минулі дані — Past Simple, зміни до сьогодні — Present Perfect, прогнози — *will / will have + V3*.

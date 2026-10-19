@@ -55,7 +55,7 @@ estimatedMinutes: 35
 >   - { show: how, note: "Далі — як? Прислівник способу дії: beautifully." }
 >   - { show: where, note: "Потім — де? Місце: at home." }
 >   - { show: when, note: "І в кінці — коли? Час: every evening. Підсумок: She plays the piano beautifully at home every evening." }
->   - { focus: [how, where, when], note: "Запам'ятай хвіст речення як «ЯК — ДЕ — КОЛИ». Час можна винести й на початок: Every evening she plays…" }
+>   - { focus: [how, where, when], note: "Запамʼятай хвіст речення як «ЯК — ДЕ — КОЛИ». Час можна винести й на початок: Every evening she plays…" }
 > ```
 
 ## Пояснення
@@ -101,12 +101,12 @@ estimatedMinutes: 35
 
 | ✓ | ✗ |
 |---|---|
-| You **look tired**. — Ти виглядаєш утомленим. | ~~You look tiredly.~~ |
+| You **look tired**. — Ти маєш утомлений вигляд. | ~~You look tiredly.~~ |
 | This soup **tastes great**. | ~~tastes greatly~~ |
-| That **sounds good**! — Звучить добре! | ~~sounds well~~ |
+| That **sounds good**! — Чудова ідея! (дослівно: звучить добре) | ~~sounds well~~ |
 | I **feel bad** about it. — Мені через це незручно. | ~~I feel badly~~ |
 
-Порівняй: *She **looked** angry* (виглядала сердитою — стан) vs *She **looked** at me angrily* (подивилася сердито — дія).
+Порівняй: *She **looked** angry* (мала сердитий вигляд — стан) vs *She **looked** at me angrily* (подивилася сердито — дія).
 
 > [!quiz] Перевір себе: прикметник чи прислівник?
 > level: A2 · id: en-a2-adverbs-q03
@@ -227,7 +227,7 @@ estimatedMinutes: 35
 > [!word] finally
 > ipa: /ˈfaɪ.nəl.i/ · pos: adv · level: A2 · id: en-a2-adverbs-w13
 > uk: нарешті; насамкінець
-> example: We **finally** found the hotel at midnight. — Ми нарешті знайшли готель опівночі.
+> example: We **finally** found the hotel at midnight. — Лише опівночі ми нарешті знайшли готель.
 
 > [!word] clearly
 > ipa: /ˈklɪə.li/ · ipa-us: /ˈklɪr.li/ · pos: adv · level: A2 · id: en-a2-adverbs-w14
@@ -237,12 +237,12 @@ estimatedMinutes: 35
 > [!word] politely
 > ipa: /pəˈlaɪt.li/ · pos: adv · level: A2 · id: en-a2-adverbs-w15
 > uk: ввічливо
-> example: He **politely** asked us to wait. — Він ввічливо попросив нас зачекати.
+> example: He **politely** asked us to wait. — Він увічливо попросив нас зачекати.
 
 > [!word] safely
 > ipa: /ˈseɪf.li/ · pos: adv · level: A2 · id: en-a2-adverbs-w16
-> uk: безпечно, благополучно
-> example: The plane landed **safely**. — Літак благополучно приземлився.
+> uk: безпечно, без пригод
+> example: The plane landed **safely**. — Літак успішно приземлився.
 
 > [!word] perfectly
 > ipa: /ˈpɜː.fekt.li/ · ipa-us: /ˈpɝː.fekt.li/ · pos: adv · level: A2 · id: en-a2-adverbs-w17
@@ -273,11 +273,11 @@ estimatedMinutes: 35
 > - [ ] He hardly works.
 > - [ ] He works hardly.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-adverbs-l02
 > audio: Please speak more slowly.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-adverbs-l03
 > audio: She speaks English very well.
 
@@ -286,7 +286,7 @@ estimatedMinutes: 35
 > audio: A: How was your driving test, Andriy?
 > audio: B: Well, I started badly — I was nervous and drove too slowly. But then I relaxed and parked perfectly. And luckily, I passed!
 > - [ ] Він не склав, бо їхав надто швидко
-> - [x] Почав погано, але потім ідеально запаркувався й склав іспит
+> - [x] Почав погано, але потім ідеально припаркувався й склав іспит
 > - [ ] Усе пройшло ідеально від початку до кінця
 > - [ ] Він не прийшов на іспит
 

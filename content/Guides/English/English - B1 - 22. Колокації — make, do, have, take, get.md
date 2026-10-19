@@ -27,11 +27,11 @@ estimatedMinutes: 45
 > - [ ] I took a mistake in the letter.
 > - [ ] I had a mistake in the letter.
 >
-> **Пояснення:** помилки англійці «виготовляють» — **make a mistake**. Українське «зробити» перекладається то *make*, то *do*, то *take* — і саме цього стосується тема.
+> **Пояснення:** помилку англійською «виготовляють» — **make a mistake**. Українське «зробити» перекладається то *make*, то *do*, то *take* — і саме цього стосується тема.
 
 ## Простими словами
 
-**Колокація** — це слова, які «дружать»: носії ставлять їх разом за звичкою, а не за логікою. Українською ми **приймаємо** рішення і **робимо** фото, англійською — *make a decision* і *take a photo*. Логіки «чому саме так» часто немає, як немає її і в українському «приймати душ».
+**Колокація** — це слова, які «дружать»: носії ставлять їх разом за звичкою, а не за логікою. Українською ми **ухвалюємо** рішення і **робимо** фото, англійською — *make a decision* і *take a photo*. Логіки «чому саме так» часто немає, як немає її і в українському «приймати душ».
 
 Тому колокації вчать **блоками**, а не окремими словами: не *decision*, а *make a decision*; не *break*, а *take a break*. Саме колокації роблять мову природною — і за них дають бали в IELTS у критерії *Lexical Resource*.
 
@@ -102,7 +102,7 @@ estimatedMinutes: 45
 | | take **it easy** — не перенапружуватися |
 | | take **turns** — робити по черзі |
 
-**UK vs US.** Британці частіше кажуть *have a shower, have a break, have a look*, американці — *take a shower, take a break, take a look*. Обидва варіанти зрозумілі всюди. *Take a decision* — теж існує в британській, але звучить формально; *make a decision* — універсальне.
+**UK vs US.** Британці частіше кажуть *have a shower, have a break, have a look*, американці — *take a shower, take a break, take a look*. Обидва варіанти зрозумілі всюди. *Take a decision* теж трапляється в британській англійській, але звучить офіційно; *make a decision* — універсальне.
 
 ### get — «стати», «отримати», «дістатися»
 
@@ -137,15 +137,15 @@ estimatedMinutes: 45
 ## Приклади
 
 - It took me a week to **make up my mind**. — Мені знадобився тиждень, щоб вирішити.
-- You've **made** a lot of **progress** this year! — Ти дуже покращився цього року!
+- You've **made** a lot of **progress** this year! — Цього року ти зробив великі успіхи!
 - I always **do my best**, but sometimes it's not enough. — Я завжди роблю все можливе, але іноді цього замало.
-- Can I **have a go**? It looks fun. — Можна спробувати? Виглядає весело.
+- Can I **have a go**? It looks fun. — Можна мені спробувати? Здається, це весело.
 - Let's **take a break** and get a coffee. — Зробімо перерву й візьмімо каву.
 - The meeting will **take place** on Friday at ten. — Зустріч відбудеться в пʼятницю о десятій.
 - More than 200 runners **took part in** the race. — У забігу взяли участь понад 200 бігунів.
 - We **got lost** in the old town without a map. — Ми заблукали в старому місті без мапи.
 - Please **get in touch** if you have any questions. — Будь ласка, звертайтеся, якщо маєте запитання.
-- **Make sure** you lock the door. — Переконайся, що замкнув двері.
+- **Make sure** you lock the door. — Обовʼязково замкни двері.
 
 ## Слова
 
@@ -258,7 +258,7 @@ estimatedMinutes: 45
 > [!word] do someone a favour
 > ipa: /duː ˈsʌm.wʌn ə ˈfeɪ.və/ · ipa-us: /duː ˈsʌm.wʌn ə ˈfeɪ.vɚ/ · pos: phrase · level: B1 · id: en-b1-collocations-w19
 > uk: зробити комусь послугу
-> example: Could you **do me a favour**? — Можеш зробити мені послугу?
+> example: Could you **do me a favour**? — Можна попросити тебе про послугу?
 > note: US — favor.
 
 > [!word] do damage
@@ -290,7 +290,7 @@ estimatedMinutes: 45
 > [!word] have a go
 > ipa: /hæv ə ˈɡəʊ/ · ipa-us: /hæv ə ˈɡoʊ/ · pos: phrase · level: B1 · id: en-b1-collocations-w24
 > uk: спробувати (щось нове)
-> example: I've never surfed, but I'd love to **have a go**. — Я ніколи не серфив, але залюбки спробую.
+> example: I've never surfed, but I'd love to **have a go**. — Я ніколи не займався серфінгом, але залюбки спробую.
 > note: UK, розмовне; have a go at something.
 
 > [!word] have a look
@@ -307,13 +307,13 @@ estimatedMinutes: 45
 > [!word] have fun
 > ipa: /hæv ˈfʌn/ · pos: phrase · level: B1 · id: en-b1-collocations-w27
 > uk: розважатися, добре проводити час
-> example: **Have fun** at the concert! — Гарно повеселися на концерті!
+> example: **Have fun** at the concert! — Гарно повеселитися на концерті!
 > note: fun — нелічильне: не «a fun».
 
 > [!word] have a rest
 > ipa: /hæv ə ˈrest/ · pos: phrase · level: B1 · id: en-b1-collocations-w28
 > uk: відпочити
-> example: You look tired — sit down and **have a rest**. — Ти виглядаєш втомленим, сядь і відпочинь.
+> example: You look tired — sit down and **have a rest**. — У тебе втомлений вигляд: сядь і відпочинь.
 
 > [!word] have an argument
 > ipa: /hæv ən ˈɑːɡ.jə.mənt/ · ipa-us: /hæv ən ˈɑːrɡ.jə.mənt/ · pos: phrase · level: B1 · id: en-b1-collocations-w29
@@ -328,7 +328,7 @@ estimatedMinutes: 45
 
 > [!word] have trouble
 > ipa: /hæv ˈtrʌb.əl/ · pos: phrase · level: B1 · id: en-b1-collocations-w31
-> uk: мати труднощі, ледве (щось робити)
+> uk: мати труднощі; насилу (щось робити)
 > example: I **have trouble** sleeping when it's hot. — Мені важко заснути, коли спекотно.
 > note: have trouble + -ing; синонім — have difficulty (in) + -ing.
 
@@ -348,12 +348,12 @@ estimatedMinutes: 45
 > [!word] take a risk
 > ipa: /teɪk ə ˈrɪsk/ · pos: phrase · level: B1 · id: en-b1-collocations-w34
 > uk: ризикнути, ризикувати
-> example: Starting a business means **taking a risk**. — Почати бізнес — означає ризикнути.
+> example: Starting a business means **taking a risk**. — Почати бізнес означає ризикнути.
 
 > [!word] take your time
 > ipa: /teɪk jə ˈtaɪm/ · ipa-us: /teɪk jɚ ˈtaɪm/ · pos: phrase · level: B1 · id: en-b1-collocations-w35
 > uk: не поспішати
-> example: There's no rush — **take your time**. — Не треба поспішати, не квапся.
+> example: There's no rush — **take your time**. — Нема куди поспішати, не квапся.
 
 > [!word] take care of
 > ipa: /teɪk ˈkeər əv/ · ipa-us: /teɪk ˈker əv/ · pos: phrase · level: B1 · id: en-b1-collocations-w36
@@ -425,7 +425,7 @@ estimatedMinutes: 45
 
 > [!word] get stuck
 > ipa: /ɡet ˈstʌk/ · pos: phrase · level: B1 · id: en-b1-collocations-w48
-> uk: застрягнути
+> uk: застрягти
 > example: We **got stuck** in traffic for two hours. — Ми дві години простояли в заторі.
 > note: також «застрягти» в задачі: I got stuck on question 5.
 
@@ -456,7 +456,7 @@ estimatedMinutes: 45
 > - [x] Let's take a break.
 > - [ ] Let's have a rest.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-collocations-l03
 > audio: Could you do me a favour?
 
@@ -495,7 +495,7 @@ estimatedMinutes: 45
 > **Admin:** Just a notebook to **take notes**. And **make sure** you **do** your **homework** — it really **makes a difference**.
 > **Ira:** I'll **do my best**. Thanks!
 >
-> Зверни увагу: шість колокацій із *make*, *do* і *take* в одній короткій розмові — так звучить природна англійська.
+> Зверни увагу: десять колокацій із *make*, *do* і *take* в одній короткій розмові — так звучить природна англійська.
 
 ## Вимова
 
@@ -524,7 +524,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-collocations-s04
 > text: Please get in touch if you have any questions.
 > ipa: /pliːz ɡet ɪn ˈtʌtʃ ɪf juː hæv ˈen.i ˈkwes.tʃənz/
-> tip: get‿in — [ге-тін]; touch — коротке [ʌ]: [тач].
+> tip: get‿in — [ґе-тін]; touch — коротке [ʌ]: [тач].
 > uk: Будь ласка, звертайтеся, якщо маєте запитання.
 
 > [!speak] Скажи вголос
@@ -578,7 +578,7 @@ estimatedMinutes: 45
 > I've never tried windsurfing, but I'd love to [[have]] a go.
 > ```
 >
-> **Пояснення:** **take part in** (Past — *took*), **have a chat** (*had*), **get wet** (стати мокрим), **have a go** (спробувати).
+> **Пояснення:** **take part in** (Past — *took*), **have a chat** (*had*), **get wet** (промокнути), **have a go** (спробувати).
 
 > [!quiz] «Конференція відбудеться в Києві». Як сказати?
 > level: B1 · id: en-b1-collocations-q06
@@ -611,7 +611,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** **make up your mind** — займенник змінюється за особою: *my mind*, *her mind*.
 
-> [!quiz] Склади речення: «Можеш зробити мені послугу?»
+> [!quiz] Склади речення: «Можна попросити тебе про послугу?»
 > level: B1 · type: order · id: en-b1-collocations-q09
 >
 > ```text order
@@ -622,7 +622,7 @@ estimatedMinutes: 45
 > a favour?
 > ```
 >
-> **Пояснення:** **do someone a favour** — кому послуга (*me*) стоїть одразу після *do*.
+> **Пояснення:** **do someone a favour** — той, кому роблять послугу (*me*), стоїть одразу після *do*.
 
 > [!quiz] IELTS Summary completion: встав ОДНЕ слово з банку
 > level: B1 · type: fill · id: en-b1-collocations-q10 · bank: made, get
@@ -631,7 +631,7 @@ estimatedMinutes: 45
 > Many language learners worry when they [[make]] mistakes, but teachers say this is how we learn. To [[make]] real progress, students should [[do]] some practice every day, [[take]] notes during lessons and not be afraid to [[have]] a go at speaking.
 > ```
 >
-> **Пояснення:** *make mistakes*, *make progress*, *do practice*, *take notes*, *have a go*. Дистрактори: *made* не підходить граматично (після *they* у Present потрібно *make*), *get* — не утворює тут колокації. В IELTS слово мусить пасувати і за змістом, і за формою.
+> **Пояснення:** *make mistakes*, *make progress*, *do practice*, *take notes*, *have a go*. Дистрактори: *made* не підходить граматично (після *they* у Present потрібно *make*), *get* тут не утворює колокації. В IELTS слово мусить пасувати і за змістом, і за формою.
 
 > [!quiz] IELTS Reading · True / False / Not Given
 > level: B1 · id: en-b1-collocations-q11

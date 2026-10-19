@@ -15,7 +15,7 @@ estimatedMinutes: 60
 > - вести переговори англійською від підготовки до домовленості: умовні поступки (*If you…, we could…*), тверді межі без грубості, підсумок, що фіксує угоду;
 > - упізнавати й нейтралізувати тактики (*lowball, take it or leave it*, тиск дедлайном, мовчання) — спокійно й дипломатично;
 > - знімати напругу: визнати емоцію, переформулювати, запропонувати вихід, що дозволяє «зберегти обличчя» обом;
-> - імпровізувати: відповідати на несподіване питання без паніки (*yes, and*, PREP, «міст» до своєї думки) і вигравати час природно;
+> - імпровізувати: відповідати на несподіване запитання без паніки (*yes, and*, PREP, «міст» до своєї думки) і вигравати час природно;
 > - говорити на IELTS Speaking на рівні Band 9: легкість, гнучка ідіоматика, повний діапазон граматики — без завчених шаблонів.
 
 ## Передбач
@@ -40,7 +40,7 @@ estimatedMinutes: 60
 | **мова** | знаєш помʼякшувачі | дозуєш їх: де мʼякість, а де твердість |
 | **слухання** | розумієш сказане | чуєш **несказане**: що означає *interesting*, чому співрозмовник замовк |
 | **тактика** | реагуєш на пропозиції | керуєш рамкою: першим називаєш цифру, повертаєш до інтересів, фіксуєш підсумок |
-| **несподіванка** | губишся, коли питання поза планом | імпровізуєш: виграєш час, будуєш «міст», відповідаєш спокійно |
+| **несподіванка** | губишся, коли запитання поза планом | імпровізуєш: виграєш час, будуєш «міст», відповідаєш спокійно |
 
 ### Пʼять фаз переговорів
 
@@ -54,9 +54,9 @@ estimatedMinutes: 60
 >   - { id: bargain, label: "4. торг", text: "If you…, we could…", tone: orange }
 >   - { id: close, label: "5. закриття", text: "So, just to recap…", tone: green, icon: "px:scales" }
 > steps:
->   - { focus: prep, note: "До розмови: чого ти хочеш насправді (інтерес), що зробиш, якщо угоди не буде (BATNA), і де твоя межа — точка, нижче якої ти йдеш." }
+>   - { focus: prep, note: "До розмови: чого ти хочеш насправді (інтерес), що зробиш, якщо угоди не буде (BATNA), і де твоя межа — точка, нижче якої ти виходиш із переговорів." }
 >   - { focus: open, note: "Рамка розмови й перша цифра. Хто першим називає обґрунтоване число — задає «якір» (anchoring), від якого рахуватимуть." }
->   - { focus: explore, note: "Питання про інтереси: Why is the deadline so important? What would make this work for you? Тут знаходять варіанти, де виграють обидва." }
+>   - { focus: explore, note: "Запитання про інтереси: Why is the deadline so important? What would make this work for you? Тут знаходять варіанти, де виграють обидва." }
 >   - { focus: bargain, note: "Жодної поступки безкоштовно: кожна — в обмін. If you can commit to two years, we could look again at the price." }
 >   - { focus: close, note: "Підсумок уголос і письмово: хто, що, коли. Без цього половина «домовленостей» розсипається наступного дня." }
 > ```
@@ -137,9 +137,9 @@ estimatedMinutes: 60
 > [!tip] «Olive branch» — перший крок до примирення
 > Маленька добровільна поступка чи жест (*Let me start by saying we got the timeline wrong last time*) часто знімає більше напруги, ніж будь-які аргументи. Це не слабкість — це інвестиція в довіру.
 
-### Імпровізація: коли питання поза планом
+### Імпровізація: коли запитання поза планом
 
-На переговорах, на співбесіді й на IELTS Part 3 найважче — **несподіване** питання (*curveball*). Чотири інструменти:
+На переговорах, на співбесіді й на IELTS Part 3 найважче — **несподіване** запитання (*curveball*). Чотири інструменти:
 
 **1. Виграти час природно** — 2–3 секунди, без паніки й без *erm*:
 
@@ -152,9 +152,9 @@ estimatedMinutes: 60
 
 **3. PREP** — структура для відповіді «з нуля»: **P**oint (думка) → **R**eason (причина) → **E**xample (приклад) → **P**oint (думка ще раз, ширше).
 
-**4. Міст (ABC)** — коли питання незручне або не по темі: **A**cknowledge (визнай питання) → **B**ridge (перехід) → **C**ommunicate (твоє головне).
+**4. Міст (ABC)** — коли запитання незручне або не по темі: **A**cknowledge (визнай запитання) → **B**ridge (перехід) → **C**ommunicate (твоє головне).
 
-> [!diagram] Міст: від незручного питання до твоєї думки
+> [!diagram] Міст: від незручного запитання до твоєї думки
 > ```yaml
 > layout: flow
 > nodes:
@@ -163,10 +163,10 @@ estimatedMinutes: 60
 >   - { id: b, label: "B — міст", text: "What we've found, though, is…", tone: violet }
 >   - { id: c, label: "C — твоє головне", text: "…it halves maintenance costs within a year.", tone: green }
 > steps:
->   - { focus: q, note: "Незручне питання. Погано: заперечувати (No, it isn't!) або виправдовуватися." }
->   - { focus: a, note: "Визнай питання чесно — це знімає захисну реакцію і в тебе, і в співрозмовника." }
+>   - { focus: q, note: "Незручне запитання. Погано: заперечувати (No, it isn't!) або виправдовуватися." }
+>   - { focus: a, note: "Визнай запитання чесно — це знімає захисну реакцію і в тебе, і в співрозмовника." }
 >   - { focus: b, note: "Місток: What we've found, though… · The bigger question is… · What really matters here is…" }
->   - { focus: c, note: "Твоє головне — з фактом. Ти відповів, але на своїх умовах. Не зловживай: якщо на пряме питання ніколи немає прямої відповіді, це вже ухильність." }
+>   - { focus: c, note: "Твоє головне — з фактом. Ти відповів, але на своїх умовах. Не зловживай: якщо на пряме запитання ніколи немає прямої відповіді, це вже ухильність." }
 > ```
 
 ### IELTS Speaking Band 9: що це насправді
@@ -176,11 +176,11 @@ estimatedMinutes: 60
 | Критерій | Band 8 | Band 9 |
 |---|---|---|
 | **Fluency & Coherence** | вільно, з поодинокими повторами й самовиправленнями; пауза інколи — на пошук слова | вільно, повтори й самовиправлення — рідкісні; пауза — лише щоб подумати над **змістом**; звʼязність бездоганна, теми розкрито повно й доречно |
-| **Lexical Resource** | широкий запас, менш поширена й ідіоматична лексика вміло, з поодинокими неточностями | **повна гнучкість** і точність у будь-якій темі; ідіоматика природна й точна |
-| **Grammatical Range & Accuracy** | широкий діапазон, більшість речень без помилок | повний діапазон природно; помилки лише такі, які роблять і носії (обмовки) |
-| **Pronunciation** | широкий діапазон рис, акцент мінімально впливає | повний діапазон рис, тонко й точно; без зусиль зрозуміло; акцент не впливає |
+| **Lexical Resource** | широкий запас; менш поширену й ідіоматичну лексику вживає вміло, з поодинокими неточностями | **повна гнучкість** і точність у будь-якій темі; ідіоматика природна й точна |
+| **Grammatical Range & Accuracy** | широкий діапазон, більшість речень без помилок | повний діапазон, ужитий природно; помилки лише такі, яких припускаються й носії (обмовки) |
+| **Pronunciation** | широкий діапазон рис, акцент мінімально впливає на зрозумілість | повний діапазон рис, тонко й точно; зрозуміло без зусиль; акцент не впливає на зрозумілість |
 
-**Коротко:** Band 9 звучить не «як ідеальний учень», а **як розумна людина, яка думає вголос** — з позицією, нюансом, природною ідіоматикою й без жодного завченого шаблону (*In my opinion, there are many advantages and disadvantages…* — антипаттерн).
+**Коротко:** Band 9 звучить не «як ідеальний учень», а **як розумна людина, яка думає вголос** — з позицією, нюансом, природною ідіоматикою й без жодного завченого шаблону (*In my opinion, there are many advantages and disadvantages…* — антипатерн).
 
 ## IELTS Speaking — зразки Band 9 з коментарями
 
@@ -229,7 +229,7 @@ estimatedMinutes: 60
 > - **Fluency & Coherence:** історія з напругою й розвʼязкою: ситуація → дві позиції → глухий кут → поворот → рішення → висновок. Звʼязки природні (*on the other hand, funnily enough, once it was put like that*), а не «Firstly… Secondly…».
 > - **Lexical Resource:** *fell out over, shut out, staring at the spreadsheet, at a complete stalemate, went round in circles, broke the deadlock, mutually exclusive, settled on, turned away, sheepish* — точно й до місця; ідіоми не «вставлені», а несуть зміст.
 > - **Grammar:** *whether to charge*, *the whole point, as she saw it, was to…*, *I couldn't see how we'd raise…*, *What broke the deadlock was…* (cleft), *once it was put like that*, *whereas…* — повний діапазон без жодного відчуття показухи.
-> - **Висновок, а не «that's all»:** узагальнення (*positions vs interests*) показує зрілість думки — саме те, що чекає Part 3.
+> - **Висновок, а не «that's all»:** узагальнення (*positions vs interests*) показує зрілість думки — саме те, чого чекають у Part 3.
 > - **Порівняй із Band 6:** *I disagreed with my friend about the tickets. She wanted free tickets but I wanted to sell them. We talked many times and finally we agreed. I felt happy.* — граматично правильно, але без розвитку, нюансу й лексичної точності.
 
 ### Part 3
@@ -344,8 +344,8 @@ estimatedMinutes: 60
 
 > [!word] non-starter
 > ipa: /ˌnɒn ˈstɑːtə/ · ipa-us: /ˌnɑːn ˈstɑːrt̬ɚ/ · pos: noun · level: C2 · id: en-c2-negotiation-w12
-> uk: те, що приречене з самого початку; «навіть не варіант»
-> example: A price rise of that size is a **non-starter**. — Підвищення ціни на стільки навіть не обговорюється.
+> uk: те, що приречене від самого початку; «навіть не варіант»
+> example: A price rise of that size is a **non-starter**. — Таке значне підвищення ціни навіть не обговорюється.
 
 > [!word] take it or leave it
 > ipa: /ˌteɪk ɪt ɔː ˈliːv ɪt/ · ipa-us: /ˌteɪk ɪt ɔːr ˈliːv ɪt/ · pos: phrase · level: C2 · id: en-c2-negotiation-w13
@@ -391,32 +391,32 @@ estimatedMinutes: 60
 > [!word] ad-lib
 > ipa: /ˌædˈlɪb/ · pos: verb · level: C2 · id: en-c2-negotiation-w20
 > uk: імпровізувати (без тексту, на ходу)
-> example: When the slides crashed, she **ad-libbed** brilliantly. — Коли слайди зламалися, вона блискуче імпровізувала.
+> example: When the slides crashed, she **ad-libbed** brilliantly. — Коли презентація зависла, вона блискуче імпровізувала.
 > forms: ad-lib → ad-libbed → ad-libbed
 > note: з латини ad libitum — «на власний розсуд».
 
 > [!word] off the cuff
 > ipa: /ˌɒf ðə ˈkʌf/ · ipa-us: /ˌɑːf ðə ˈkʌf/ · pos: phrase · level: C2 · id: en-c2-negotiation-w21
 > uk: експромтом, без підготовки
-> example: He answered **off the cuff**, but it sounded rehearsed. — Він відповідав експромтом, але звучало як відрепетируване.
+> example: He answered **off the cuff**, but it sounded rehearsed. — Він відповідав експромтом, але це звучало так, ніби він усе відрепетирував.
 > note: також прикметник: an off-the-cuff remark — побіжне зауваження.
 
 > [!word] pivot
 > ipa: /ˈpɪvət/ · pos: verb · level: C2 · id: en-c2-negotiation-w22
 > uk: різко змінити напрям (розмови, стратегії)
-> example: When the question got personal, she **pivoted** to the bigger picture. — Коли питання стало особистим, вона перевела розмову на ширшу картину.
+> example: When the question got personal, she **pivoted** to the bigger picture. — Коли запитання стало надто особистим, вона перевела розмову на ширшу картину.
 > forms: pivot → pivoted → pivoted
 
 > [!word] curveball
 > ipa: /ˈkɜːvbɔːl/ · ipa-us: /ˈkɝːvbɑːl/ · pos: noun · level: C2 · id: en-c2-negotiation-w23
-> uk: несподіване (складне) питання чи поворот
-> example: The interviewer threw me a **curveball** about my biggest failure. — Співбесідник кинув мені несподіване питання про мою найбільшу невдачу.
+> uk: несподіване (складне) запитання чи поворот
+> example: The interviewer threw me a **curveball** about my biggest failure. — Співбесідник поставив мені несподіване запитання про мою найбільшу невдачу.
 > note: з бейсболу: кручена подача. throw someone a curveball.
 
 > [!word] deflect
 > ipa: /dɪˈflekt/ · pos: verb · level: C2 · id: en-c2-negotiation-w24
-> uk: відвести (питання, критику, увагу), відбити
-> example: He tried to **deflect** criticism by blaming the weather. — Він намагався відвести критику, звинувачуючи погоду.
+> uk: відвести (запитання, критику, увагу), відбити
+> example: He tried to **deflect** criticism by blaming the weather. — Він намагався відвести критику, списуючи все на погоду.
 > forms: deflect → deflected → deflected
 
 > [!word] room for manoeuvre
@@ -508,21 +508,21 @@ estimatedMinutes: 60
 > - [x] виграє час, щоб дати обґрунтовану відповідь, і називає конкретний термін
 > - [ ] погоджується з усіма умовами
 >
-> **Пояснення:** *buying time* професійно: визнати питання, пояснити, чому не зараз (*half-baked* — непродумана), і **дати термін** — інакше це звучить як ухиляння.
+> **Пояснення:** *buying time* професійно: визнати запитання, пояснити, чому не зараз (*half-baked* — непродумана), і **дати термін** — інакше це звучить як ухиляння.
 
 ### Імпровізація
 
-> [!listen] Як кандидат відповідає на несподіване питання?
+> [!listen] Як кандидат відповідає на несподіване запитання?
 > level: C2 · type: answer · lang: en-IE · id: en-c2-negotiation-l07
 > audio: Interviewer: If you could abolish one meeting forever, which would it be?
 > audio: Candidate: Ooh, good one. Honestly? I'd keep the meetings and abolish the slides. Half the time, the slides are the meeting.
 > - [ ] відмовляється відповідати
-> - [x] виграє секунду, а потім несподівано перевертає питання — з гумором і думкою
+> - [x] виграє секунду, а потім несподівано перевертає запитання — з гумором і думкою
 > - [ ] називає щотижневу нараду команди
 >
-> **Пояснення:** *Ooh, good one* — природний виграш часу. Далі *pivot*: замість наради — слайди. *The slides are the meeting* — дотепний висновок. Це і є імпровізація: прийняти питання й додати своє.
+> **Пояснення:** *Ooh, good one* — природний виграш часу. Далі *pivot*: замість наради — слайди. *The slides are the meeting* — дотепний висновок. Це і є імпровізація: прийняти запитання й додати своє.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-AU · id: en-c2-negotiation-l08
 > audio: If you can move on the deadline, we can move on the price.
 >
@@ -544,7 +544,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-negotiation-s02
 > text: If you could commit to two years, we might be able to move on price.
 > ipa: /ɪf ju kəd kəˈmɪt tə ˌtuː ˈjɪəz | wi maɪt bi ˌeɪbl tə ˈmuːv ɒn ˈpraɪs/
-> tip: If you could comMIT to two YEARS, | we might be able to MOVE on ↘PRICE. Удар на умову й на те, що даєш.
+> tip: If you could comMIT to two YEARS, | we might be able to MOVE on ↘PRICE. Наголос на умові й на тому, що даєш.
 > uk: Якби ви погодилися на два роки, ми, можливо, змогли б поступитися з ціною.
 
 > [!speak] Мʼяке «ні»
@@ -561,12 +561,12 @@ estimatedMinutes: 60
 > tip: I'm aFRAID | that's a red ↘LINE for us. Твердо, тверде падіння на LINE. I'm afraid — ввічливість, а не вагання.
 > uk: Боюся, для нас це червона лінія.
 
-> [!speak] Питання про інтерес
+> [!speak] Запитання про інтерес
 > level: C2 · id: en-c2-negotiation-s05
 > text: What would it take for you to say yes today?
 > ipa: /ˌwɒt wəd ɪt ˈteɪk fə ju tə ˌseɪ ˈjes təˈdeɪ/
 > ipa-us: /ˌwɑːt wəd ɪt ˈteɪk fɚ ju tə ˌseɪ ˈjes təˈdeɪ/
-> tip: What would it TAKE | for you to say YES toDAY? — падіння на кінці, як у звичайному wh-питанні.
+> tip: What would it TAKE | for you to say YES toDAY? — падіння на кінці, як у звичайному wh-запитанні.
 > uk: Що потрібно, щоб ви сказали «так» уже сьогодні?
 
 > [!speak] Запропонувати ідею на пробу
@@ -597,7 +597,7 @@ estimatedMinutes: 60
 > text: I hear your concern, and I think there's a way to address it.
 > ipa: /aɪ ˈhɪə jə kənˈsɜːn | ən aɪ ˈθɪŋk ðəz ə ˈweɪ tu əˈdres ɪt/
 > ipa-us: /aɪ ˈhɪr jɚ kənˈsɝːn | ən aɪ ˈθɪŋk ðɚz ə ˈweɪ tu əˈdres ɪt/
-> tip: I HEAR your conCERN, | and I think there's a WAY to adDRESS it. — address (дієслово) з ударом на другому складі.
+> tip: I HEAR your conCERN, | and I think there's a WAY to adDRESS it. — address (дієслово) з наголосом на другому складі.
 > uk: Я чую ваше занепокоєння, і думаю, є спосіб його розвʼязати.
 
 > [!speak] Незгода з повагою
@@ -613,15 +613,15 @@ estimatedMinutes: 60
 > text: Let me get back to you on that by Friday.
 > ipa: /ˌlet mi ˌɡet ˈbæk tə ju ɒn ˈðæt baɪ ˈfraɪdeɪ/
 > tip: Let me get BACK to you on that | by ↘FRIday. Конкретний день — і це звучить як обіцянка, а не ухиляння.
-> uk: Дозвольте я відповім вам на це до пʼятниці.
+> uk: Я відповім вам на це до пʼятниці.
 
-> [!speak] Чесно про несподіване питання
+> [!speak] Чесно про несподіване запитання
 > level: C2 · id: en-c2-negotiation-s12
 > text: That's a great question, and to be honest, I hadn't thought about it.
 > ipa: /ðæts ə ˌɡreɪt ˈkwestʃən | ən tə bi ˈɒnɪst | aɪ ˈhædnt ˈθɔːt əˈbaʊt ɪt/
 > ipa-us: /ðæts ə ˌɡreɪt ˈkwestʃən | ən tə bi ˈɑːnɪst | aɪ ˈhædnt ˈθɑːt əˈbaʊt ɪt/
 > tip: That's a great QUEStion, | and to be HONest, | I HADn't thought about it. Далі — «…but off the top of my head, I'd say…».
-> uk: Чудове питання, і, чесно кажучи, я про це не думав.
+> uk: Чудове запитання, і, чесно кажучи, я про це не думав.
 
 > [!speak] Yes, and
 > level: C2 · id: en-c2-negotiation-s13
@@ -637,7 +637,7 @@ estimatedMinutes: 60
 > ipa: /ˈpraɪs ɪz ə ˌfeə kənˈsɜːn ‖ ˌwɒt wiv ˈfaʊnd | ˈðəʊ | ɪz ðət ɪt ˈpeɪz fər ɪtˈself/
 > ipa-us: /ˈpraɪs ɪz ə ˌfer kənˈsɝːn ‖ ˌwɑːt wiv ˈfaʊnd | ˈðoʊ | ɪz ðət ɪt ˈpeɪz fɚ ɪtˈself/
 > tip: PRICE is a fair conCERN. ‖ What we've FOUND, | THOUGH, | is that it PAYS for itSELF. Though — окрема коротка група.
-> uk: Ціна — справедливе занепокоєння. Але ми побачили, що це окупається.
+> uk: Ціна — цілком слушний привід для занепокоєння. Але ми побачили, що все окупається.
 
 > [!speak] Підсумок угоди
 > level: C2 · id: en-c2-negotiation-s15
@@ -645,7 +645,7 @@ estimatedMinutes: 60
 > ipa: /ˈsəʊ | tə ˌsʌm ˈʌp | wiv əˈɡriːd ɒn ˈpraɪs | ən dɪˈlɪvəri ɪz ˌstɪl ˈəʊpən/
 > ipa-us: /ˈsoʊ | tə ˌsʌm ˈʌp | wiv əˈɡriːd ɑːn ˈpraɪs | ən dɪˈlɪvɚi ɪz ˌstɪl ˈoʊpən/
 > tip: SO, | to sum UP, | we've agreed on ↗PRICE, | and deLIVery is still ↘Open. Перелік: підйом — підйом — падіння.
-> uk: Отже, підсумуємо: про ціну домовилися, доставка ще відкрита.
+> uk: Отже, підсумуємо: про ціну домовилися, а доставку ще треба обговорити.
 
 > [!speak] Позитивне завершення
 > level: C2 · id: en-c2-negotiation-s16
@@ -667,7 +667,7 @@ estimatedMinutes: 60
 > Співрозмовник замовк — і ти поспішаєш: *…but maybe we could do a bit less.* Мовчання в переговорах — нормальна пауза (а іноді й тактика), а не сигнал «погоджуйся». Витримай 3–5 секунд або спитай: *What are your thoughts?*
 
 > [!pitfall] Перестаратися з помʼякшенням
-> Вивчивши дипломатичні фрази, учні складають їх «стосом»: *I was just wondering if perhaps we might possibly consider…* Звучить невпевнено, і тебе починають тиснути. Мʼякість — до **людини**, ясність — щодо **суті**: *I appreciate the offer. For us, sixty is the minimum.*
+> Вивчивши дипломатичні фрази, учні складають їх «стосом»: *I was just wondering if perhaps we might possibly consider…* Звучить невпевнено, і на тебе починають тиснути. Мʼякість — до **людини**, ясність — щодо **суті**: *I appreciate the offer. For us, sixty is the minimum.*
 
 ## Практика
 
@@ -708,7 +708,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** *call their bluff* працює лише з реальною BATNA. Без неї — краще змістити фокус: *Can we look at the terms rather than the price?*
 
-> [!quiz] Зістав тактику і її опис
+> [!quiz] Зістав тактику з її описом
 > level: C2 · type: fill · id: en-c2-negotiation-q05 · bank: lowball, stonewall, brinkmanship, olive branch, split the difference, buy time
 >
 > ```text fill
@@ -720,7 +720,7 @@ estimatedMinutes: 60
 > delay to get more time to think         → [[buy time]]
 > ```
 >
-> **Пояснення:** знати назву тактики — означає помітити її й не піддатися.
+> **Пояснення:** знаєш назву тактики — помітиш її й не піддасися.
 
 > [!quiz] Які кроки допомагають розрядити напругу? Обери всі.
 > level: C2 · type: multi · id: en-c2-negotiation-q06
@@ -733,14 +733,14 @@ estimatedMinutes: 60
 >
 > **Пояснення:** виправдання й доведення правоти «підливають масла». Визнання + конкретика — знімають напругу.
 
-> [!quiz] Що таке ABC-«міст» у відповіді на незручне питання?
+> [!quiz] Що таке ABC-«міст» у відповіді на незручне запитання?
 > level: C2 · id: en-c2-negotiation-q07
 > - [ ] відповісти «Always Be Closing» — завжди тиснути на угоду
-> - [x] Acknowledge (визнати питання) → Bridge (перехід) → Communicate (своя головна думка)
+> - [x] Acknowledge (визнати запитання) → Bridge (перехід) → Communicate (своя головна думка)
 > - [ ] відмовитися відповідати й змінити тему
 > - [ ] Agree, Bargain, Close — фази торгу
 >
-> **Пояснення:** міст — чесна техніка: ти визнаєш питання й відповідаєш на своїх умовах. Без визнання це вже ухильність.
+> **Пояснення:** міст — чесна техніка: ти визнаєш запитання й відповідаєш на своїх умовах. Без визнання це вже ухильність.
 
 > [!quiz] Склади умовну поступку
 > level: C2 · type: order · id: en-c2-negotiation-q08
@@ -795,12 +795,12 @@ estimatedMinutes: 60
 >
 > **Пояснення:** лексика переговорів — для розуміння новин, ділових листів і IELTS Part 3.
 
-> [!quiz] Тобі на співбесіді ставлять несподіване питання. Що найкраще?
+> [!quiz] Тобі на співбесіді ставлять несподіване запитання. Що найкраще?
 > level: C2 · id: en-c2-negotiation-q13
-> - [ ] одразу сказати «I don't know» і чекати наступного питання
+> - [ ] одразу сказати «I don't know» і чекати наступного запитання
 > - [x] природно виграти 2–3 секунди («That's a great question — let me think…») і відповісти за PREP
 > - [ ] говорити без зупинки, поки не спаде на думку відповідь
-> - [ ] попросити поставити інше питання
+> - [ ] попросити поставити інше запитання
 >
 > **Пояснення:** коротка пауза на думку — ознака впевненості, а PREP (Point–Reason–Example–Point) дає каркас навіть для експромту.
 
@@ -836,7 +836,7 @@ estimatedMinutes: 60
 ## Джерела та що почитати
 
 - R. Fisher, W. Ury — *Getting to Yes* (Penguin): інтереси замість позицій, BATNA, обʼєктивні критерії.
-- C. Voss — *Never Split the Difference*: тактичне слухання, мовчання, калібровані питання.
+- C. Voss — *Never Split the Difference*: тактичне слухання, мовчання, калібровані запитання.
 - [IELTS — Speaking band descriptors](https://ielts.org/) — публічні дескриптори всіх чотирьох критеріїв.
 - [British Council LearnEnglish — Speaking](https://learnenglish.britishcouncil.org/skills/speaking) — уроки з говоріння з типовими розмовними ситуаціями (рівні A1–B2).
 - K. Johnstone — *Impro: Improvisation and the Theatre*: класика імпровізації («yes, and», статус, спонтанність).

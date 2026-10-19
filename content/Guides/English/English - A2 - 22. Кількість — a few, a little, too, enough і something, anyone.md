@@ -30,7 +30,7 @@ estimatedMinutes: 40
 
 ## Простими словами
 
-Пам'ятаєш з [[English - A1 - 19. Some, any, much, many — лічильні й нелічильні|A1]]: англійські іменники бувають **лічильні** (*an apple, two apples*) і **нелічильні** (*water, money, time*). Майже всі слова кількості мають «пару» — одну для лічильних, другу для нелічильних. Головне — спершу спитати себе: **«Можу я це порахувати: один, два, три?»**
+Памʼятаєш з [[English - A1 - 19. Some, any, much, many — лічильні й нелічильні|A1]]: англійські іменники бувають **лічильні** (*an apple, two apples*) і **нелічильні** (*water, money, time*). Майже всі слова кількості мають «пару» — одну для лічильних, другу для нелічильних. Головне — спершу спитати себе: **«Можу я це порахувати: один, два, три?»**
 
 > [!diagram] Слова кількості: лічильні vs нелічильні
 > ```yaml
@@ -63,7 +63,7 @@ estimatedMinutes: 40
 - *I've got **a few** friends in Kyiv.* — У мене є кілька друзів у Києві (і мені не самотньо).
 - ***Few** people came to the meeting.* — На зустріч прийшло мало людей (розчарування).
 
-У розмові замість *few / little* частіше кажуть **not many / not much**: *Not many people came.* *We haven't got much time.* А **a few / a little** — дуже вживані щодня.
+У розмові замість *few / little* частіше кажуть **not many / not much**: *Not many people came.* *We haven't got much time.* А **a few / a little** вживають щодня й дуже часто.
 
 > [!quiz] Перевір себе: a few чи a little?
 > level: A2 · type: fill · bank · id: en-a2-quantifiers-q02
@@ -92,7 +92,7 @@ estimatedMinutes: 40
 
 ### enough — достатньо
 
-Слово **enough** /ɪˈnʌf/ любить стояти в різних місцях:
+Слово **enough** /ɪˈnʌf/ може стояти в різних місцях:
 
 | Позиція | Приклад |
 |---|---|
@@ -110,7 +110,7 @@ estimatedMinutes: 40
 > steps:
 >   - { show: toomuch, note: "Too + прикметник: більше, ніж треба. Too hot — пити неможливо." }
 >   - { show: ok, note: "Прикметник + enough: якраз достатньо. Cool enough — уже можна пити. Enough стоїть після прикметника!" }
->   - { show: notenough, note: "Not + прикметник + enough: недостатньо. Isn't hot enough — чай остиг занадто." }
+>   - { show: notenough, note: "Not + прикметник + enough: недостатньо. Isn't hot enough — чай уже надто вистиг." }
 > ```
 
 > [!quiz] Перевір себе: де стоїть enough?
@@ -135,7 +135,7 @@ estimatedMinutes: 40
 
 *-one* і *-body* означають те саме; *-one* трохи частіше в письмі, *-body* — у розмові.
 
-- *There's **someone** at the door.* — Там хтось біля дверей.
+- *There's **someone** at the door.* — Хтось стоїть під дверима.
 - *Is there **anything** to eat?* — Є щось поїсти?
 - *I didn't see **anyone**.* = *I saw **no one**.* — Я нікого не бачив.
 - ***Everyone** is here.* — Усі тут. (однина: **is**!)
@@ -161,7 +161,7 @@ estimatedMinutes: 40
 - There are **a few** good cafés near my office. — Біля мого офісу є кілька хороших кафе.
 - Could you speak **a little** slower, please? — Можете говорити трохи повільніше?
 - There's **too much** salt in this soup. — У цьому супі забагато солі.
-- **Too many** people want tickets for the concert. — Забагато людей хоче квитки на концерт.
+- **Too many** people want tickets for the concert. — Квитки на концерт хоче купити забагато людей.
 - I'm not tall **enough** to reach the top shelf. — Я недостатньо високий, щоб дістати до верхньої полиці.
 - Have we got **enough** time for a coffee? — У нас вистачить часу на каву?
 - I can't find my glasses **anywhere**. — Не можу ніде знайти окуляри.
@@ -211,7 +211,7 @@ estimatedMinutes: 40
 
 > [!word] plenty of
 > ipa: /ˈplen.ti əv/ · pos: phrase · level: A2 · id: en-a2-quantifiers-w08
-> uk: багато, доволі (більше, ніж треба)
+> uk: багато, повно (навіть більше, ніж треба)
 > example: Don't hurry — we've got **plenty of** time. — Не поспішай, у нас купа часу.
 
 > [!word] something
@@ -228,7 +228,7 @@ estimatedMinutes: 40
 > ipa: /ˈnʌθ.ɪŋ/ · pos: pron · level: A2 · id: en-a2-quantifiers-w11
 > uk: нічого
 > example: There's **nothing** on TV tonight. — Сьогодні по телевізору нічого немає.
-> note: o читається як /ʌ/: [НА-сінг].
+> note: o читається як /ʌ/, тож перший склад — «на»; th — /θ/, язик між зубами.
 
 > [!word] everything
 > ipa: /ˈev.ri.θɪŋ/ · pos: pron · level: A2 · id: en-a2-quantifiers-w12
@@ -261,7 +261,7 @@ estimatedMinutes: 40
 > [!word] somewhere
 > ipa: /ˈsʌm.weə/ · ipa-us: /ˈsʌm.wer/ · pos: adv · level: A2 · id: en-a2-quantifiers-w17
 > uk: десь, кудись
-> example: Let's go **somewhere** warm this winter. — Поїхали цієї зими кудись, де тепло.
+> example: Let's go **somewhere** warm this winter. — Поїдьмо цієї зими кудись, де тепло.
 
 > [!word] anywhere
 > ipa: /ˈen.i.weə/ · ipa-us: /ˈen.i.wer/ · pos: adv · level: A2 · id: en-a2-quantifiers-w18
@@ -271,7 +271,7 @@ estimatedMinutes: 40
 > [!word] nowhere
 > ipa: /ˈnəʊ.weə/ · ipa-us: /ˈnoʊ.wer/ · pos: adv · level: A2 · id: en-a2-quantifiers-w19
 > uk: ніде, нікуди
-> example: There's **nowhere** to park in the city centre. — У центрі ніде запаркуватися.
+> example: There's **nowhere** to park in the city centre. — У центрі міста ніде припаркуватися.
 
 > [!word] everywhere
 > ipa: /ˈev.ri.weə/ · ipa-us: /ˈev.ri.wer/ · pos: adv · level: A2 · id: en-a2-quantifiers-w20
@@ -294,11 +294,11 @@ estimatedMinutes: 40
 > - [ ] I didn't see anything.
 > - [ ] I saw someone.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-quantifiers-l03
 > audio: We haven't got enough time.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-quantifiers-l04
 > audio: Would you like something to eat?
 
@@ -342,7 +342,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-quantifiers-s05
 > text: I can't find it anywhere.
 > ipa: /aɪ kɑːnt faɪnd ɪt ˈen.i.weə/
-> tip: can't — довге [кааːнт] (UK); anywhere — [Е-ні-веə], на початку e, не «ені».
+> tip: can't — [ка-а-нт] з довгим /ɑː/ (UK); anywhere — [Е-ні-веə]: на початку звук «е», а не «а».
 
 ## Типові помилки українців
 
@@ -350,7 +350,7 @@ estimatedMinutes: 40
 > «Я нічого не бачив» — *I didn't see **anything*** або *I saw **nothing***. Так само «Ніхто не прийшов» — *Nobody came*, а не ~~*Nobody didn't come*~~. Одне заперечення — на все речення.
 
 > [!pitfall] «enough big», «enough old»
-> З прикметниками **enough** стоїть **після**: *big enough*, *old enough*. Перед іменником — **перед**: *enough money*. Українське «досить великий» тягне поставити enough першим — не піддавайся.
+> З прикметниками **enough** стоїть **після**: *big enough*, *old enough*. З іменником — **перед** ним: *enough money*. Українське «досить великий» тягне поставити enough першим — не піддавайся.
 
 > [!pitfall] «Everyone are», «a few money»
 > **Everyone, everybody, everything** — граматично однина: *Everyone **is** happy*. А **money, time, advice, information** — нелічильні: *a little money*, а не ~~*a few money*~~.
@@ -479,7 +479,7 @@ estimatedMinutes: 40
 > У піснях і розмовних діалектах часто чуєш «I don't need nothing» — це навмисний стиль, а не норма. На іспиті й у листі: I don't need anything.
 
 > [!reel] 🍰 Little і a little — різний настрій
-> «I have a little money» — є трохи, вистачить на каву. «I have little money» — грошей майже нема. Одна буква a змінює настрій речення.
+> «I have a little money» — є трохи, вистачить на каву. «I have little money» — грошей майже нема. Одна літера a змінює настрій речення.
 
 ## Джерела та що почитати
 

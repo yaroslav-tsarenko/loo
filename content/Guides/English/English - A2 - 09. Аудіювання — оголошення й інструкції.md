@@ -15,7 +15,7 @@ estimatedMinutes: 40
 > - зрозуміти оголошення на вокзалі й в аеропорту: номер платформи чи виходу, час, затримку, скасування;
 > - вихопити головне з оголошення в магазині, прогнозу погоди й автовідповідача;
 > - виконати інструкцію на слух: рецепт, маршрут, «натисніть 1»;
-> - користуватися «скелетом» оголошення, щоб знати, де чекати потрібну цифру.
+> - користуватися «скелетом» оголошення, щоб знати, коли прозвучить потрібна цифра.
 
 ## Передбач
 
@@ -56,8 +56,8 @@ estimatedMinutes: 40
 | вокзал | *platform*, *calling at*, *change at*, *delayed*, *cancelled*, *mind the gap* | платформа, із зупинками в, пересадка в, затримується, скасовано, обережно — проміжок |
 | аеропорт | *gate*, *boarding*, *final call*, *departure time*, *passengers* | вихід, посадка, останнє запрошення, час вильоту, пасажири |
 | магазин | *aisle*, *half price*, *special offer*, *checkouts*, *the store will close* | ряд, пів ціни, спецпропозиція, каси, магазин зачиняється |
-| погода | *sunny*, *cloudy*, *showers*, *degrees*, *in the morning / afternoon* | сонячно, хмарно, злива, градуси, зранку / вдень |
-| автовідповідач | *opening hours*, *press one*, *please hold*, *we are closed on…* | години роботи, натисніть 1, зачекайте, вихідний день |
+| погода | *sunny*, *cloudy*, *showers*, *degrees*, *in the morning / afternoon* | сонячно, хмарно, короткочасний дощ, градуси, зранку / вдень |
+| автовідповідач | *opening hours*, *press one*, *please hold*, *we are closed on…* | години роботи, натисніть 1, залишайтеся на лінії, вихідний день |
 | інструкція | *first, then, next, after that, finally*, наказовий спосіб | спершу, потім, далі, після цього, нарешті |
 
 > [!tip] Інструкції — слухай дієслова й порядок
@@ -67,7 +67,7 @@ estimatedMinutes: 40
 
 - *The next train to Leeds will depart from platform six.* — Наступний потяг до Лідса відправиться з шостої платформи.
 - *This train is calling at York and Durham.* — Цей потяг робить зупинки в Йорку й Даремі.
-- *Change at Peterborough for Ely.* — До Іллі — з пересадкою в Пітерборо.
+- *Change at Peterborough for Ely.* — До Ілі — з пересадкою в Пітерборо.
 - *Flight BA472 is now boarding at gate twelve.* — На рейс BA472 триває посадка біля виходу 12.
 - *This is the final call for passengers to Warsaw.* — Останнє запрошення для пасажирів до Варшави.
 - *All T-shirts are half price in aisle seven.* — Усі футболки — за пів ціни в сьомому ряду.
@@ -86,7 +86,7 @@ estimatedMinutes: 40
 > [!word] delay
 > ipa: /dɪˈleɪ/ · pos: noun · level: A2 · id: en-a2-listen-announcements-w02
 > uk: затримка; затримувати (verb)
-> example: There's a **delay** of thirty minutes. — Затримка тридцять хвилин.
+> example: There's a **delay** of thirty minutes. — Затримка — тридцять хвилин.
 > note: be delayed by 20 minutes — затримується на 20 хвилин.
 
 > [!word] cancel
@@ -116,7 +116,7 @@ estimatedMinutes: 40
 > ipa: /aɪl/ · pos: noun · level: A2 · id: en-a2-listen-announcements-w07
 > uk: ряд, прохід (у магазині, літаку, церкві)
 > example: Milk is in **aisle** four. — Молоко — у четвертому ряду.
-> note: s німа: «айл», так само як isle (острів).
+> note: s не читається: «айл», так само як isle (острів).
 
 > [!word] opening hours
 > ipa: /ˈəʊpənɪŋ ˌaʊəz/ · ipa-us: /ˈoʊpənɪŋ ˌaʊrz/ · pos: phrase · level: A2 · id: en-a2-listen-announcements-w08
@@ -174,7 +174,7 @@ estimatedMinutes: 40
 > - [ ] він затримується на 40 хвилин
 > - [ ] він відходить з іншої платформи
 
-> [!listen] Де треба пересісти, щоб доїхати до Іллі (Ely)?
+> [!listen] Де треба пересісти, щоб доїхати до Ілі (Ely)?
 > level: A2 · type: answer · speed: slow · id: en-a2-listen-announcements-l04
 > audio: This train is for London King's Cross, calling at Peterborough and Stevenage. Passengers for Ely, please change at Peterborough.
 > - [ ] у Стівениджі
@@ -213,7 +213,7 @@ estimatedMinutes: 40
 
 ### Магазин
 
-> [!listen] Що зі знижкою і де це шукати?
+> [!listen] Що продають зі знижкою і де це шукати?
 > level: A2 · type: answer · id: en-a2-listen-announcements-l09
 > audio: Good afternoon, shoppers. Today only, all T-shirts are half price in aisle seven.
 > - [ ] усі футболки — мінус 7 %
@@ -268,7 +268,7 @@ estimatedMinutes: 40
 
 ### Інструкції
 
-> [!listen] Що треба зробити одразу після того, як додали цукор?
+> [!listen] Що треба зробити одразу після того, як додаси цукор?
 > level: A2 · type: answer · id: en-a2-listen-announcements-l16
 > audio: First, pour the milk into a small pan. Then add two spoons of sugar and stir. After that, heat it for two minutes, but don't let it boil.
 > - [ ] довести до кипіння
@@ -282,7 +282,7 @@ estimatedMinutes: 40
 > - [ ] навпроти банку
 > - [x] ліворуч, після переходу дороги на світлофорі
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-listen-announcements-l18
 > audio: Please keep your bags with you at all times.
 
@@ -446,7 +446,7 @@ estimatedMinutes: 40
 - [Cambridge English — A2 Key: Listening](https://www.cambridgeenglish.org/exams-and-tests/key/) — формат «запиши час, номер, місце».
 
 > [!important] Підсумок
-> - Оголошення мають скелет: увага → що → зміна → де → що робити. Чекай потрібну частину.
+> - Оголошення мають скелет: увага → що → зміна → де → що робити. Чекай на потрібну частину.
 > - Ключові слова: *platform, gate, delayed, cancelled, calling at, change at, final call, aisle, half price*.
 > - *Delayed* — затримується, *cancelled* — скасовано, *on time* — вчасно.
 > - В інструкціях слухай дієслова й «нумерацію»: *first, then, after that, finally*.

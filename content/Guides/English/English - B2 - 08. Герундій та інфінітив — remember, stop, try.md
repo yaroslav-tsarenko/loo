@@ -170,7 +170,7 @@ estimatedMinutes: 45
 - If you can't sleep, **try reading** a boring book. — Якщо не можеш заснути, спробуй почитати нудну книжку.
 - I **regret not learning** English earlier. — Шкодую, що не вивчила англійську раніше.
 - After the break, the speaker **went on to talk** about solutions. — Після перерви доповідач перейшов до рішень.
-- **Taking** a gap year **means delaying** university. — Узяти рік перерви означає відкласти університет.
+- **Taking** a gap year **means delaying** university. — Рік перерви означає, що вступ до університету доведеться відкласти.
 - **There's no point in arguing** — he never changes his mind. — Немає сенсу сперечатися — він ніколи не змінює думки.
 - I **can't help thinking** we've made a mistake. — Не можу позбутися думки, що ми помилилися.
 - Nobody likes **being criticised** in public. — Ніхто не любить, коли його критикують при всіх.
@@ -188,14 +188,14 @@ estimatedMinutes: 45
 > [!word] dread
 > ipa: /dred/ · pos: verb · level: B2 · id: en-b2-gerund-infinitive-w02
 > uk: дуже боятися, з жахом чекати
-> example: I **dread** going to the dentist. — Я з жахом чекаю походу до стоматолога.
+> example: I **dread** going to the dentist. — Я з жахом думаю про похід до стоматолога.
 > note: dread + -ing; I dread to think… — страшно й подумати…
 
 > [!word] resent
 > ipa: /rɪˈzent/ · pos: verb · level: B2 · id: en-b2-gerund-infinitive-w03
 > uk: обурюватися, ображатися (на щось)
 > example: She **resents** being treated like a child. — Її обурює, що з нею поводяться як з дитиною.
-> note: хибний друг: не «відправити знову» (це resend). s читається як /z/.
+> note: не плутай з resend (надіслати повторно). s читається як /z/.
 
 > [!word] risk
 > ipa: /rɪsk/ · pos: verb · level: B2 · id: en-b2-gerund-infinitive-w04
@@ -269,7 +269,7 @@ estimatedMinutes: 45
 > [!word] be keen on
 > ipa: /bi kiːn ɒn/ · ipa-us: /bi kiːn ɑːn/ · pos: phrase · level: B2 · id: en-b2-gerund-infinitive-w15
 > uk: захоплюватися, дуже хотіти
-> example: My son **is** really **keen on** playing the drums. — Мій син дуже захоплюється барабанами.
+> example: My son **is** really **keen on** playing the drums. — Мій син дуже захоплюється грою на барабанах.
 > note: переважно UK; US частіше — be into / be excited about.
 
 > [!word] be fond of
@@ -322,11 +322,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *remember locking* — спогад: «памʼятаю, що замикав». Перший варіант — прохання-нагадування, третій — «не забув замкнути».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-gerund-infinitive-l03
 > audio: Have you tried turning it off and on again?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-gerund-infinitive-l04
 > audio: There's no point in waiting any longer.
 
@@ -338,7 +338,7 @@ estimatedMinutes: 45
 > - [ ] Оглядатимуть замок
 > - [ ] Припинять піший маршрут
 >
-> **Пояснення:** *we'll **stop to have** lunch at a small farm* — зупиняться, **щоб** пообідати. Замок — *after that* (потім): *go on to visit* — «перейдемо до відвідин». Куртки треба **взяти з собою**, а не купувати.
+> **Пояснення:** *we'll **stop to have** lunch at a small farm* — зупиняться, **щоб** пообідати. Замок — *after that* (потім): *go on to visit* — «далі вирушимо оглядати замок». Куртки треба **взяти з собою**, а не купувати.
 
 ## Вимова
 
@@ -375,7 +375,7 @@ estimatedMinutes: 45
 > text: Learning a foreign language involves making mistakes, so there's no point in being afraid of them.
 > ipa: /ˈlɜː.nɪŋ ə ˈfɒr.ən ˈlæŋ.ɡwɪdʒ ɪnˈvɒlvz ˈmeɪ.kɪŋ mɪˈsteɪks səʊ ðeəz nəʊ pɔɪnt ɪn ˈbiː.ɪŋ əˈfreɪd əv ðəm/
 > tip: питання Part 3 — «Why are some adults afraid to speak a foreign language?». Герундій-підмет + involves + -ing + there's no point in — три конструкції в одному реченні (Grammatical Range). language — [ЛЕН-гвідж].
-> uk: Вивчення іноземної мови передбачає помилки, тож немає сенсу їх боятися.
+> uk: Вивчати іноземну мову без помилок неможливо, тож боятися їх немає сенсу.
 
 ## Типові помилки українців
 
@@ -528,7 +528,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🥛 It's no use crying over spilt milk
-> «Марно плакати над розлитим молоком» — тобто шкодувати про те, чого не зміниш. Ідею записали ще в 17 столітті (No weeping for shed milk), а сучасна форма тримається на no use + -ing.
+> «Марно плакати над розлитим молоком» — тобто шкодувати про те, чого не зміниш. Ідею записали ще в XVII столітті (No weeping for shed milk), а сучасна форма тримається на no use + -ing.
 
 > [!reel] 🔌 «Have you tried turning it off and on again?»
 > Фраза-мем з британського ситкому The IT Crowd (2006): так техпідтримка відповідає на будь-яку проблему. Try + -ing — «спробуй як експеримент»: а раптом спрацює.

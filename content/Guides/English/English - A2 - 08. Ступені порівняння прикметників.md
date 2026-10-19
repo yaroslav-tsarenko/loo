@@ -173,7 +173,7 @@ estimatedMinutes: 40
 > ipa: /ˈkʌmf.tə.bəl/ · ipa-us: /ˈkʌmf.tɚ.bəl/ · pos: adj · level: A2 · id: en-a2-comparison-w01
 > uk: зручний, комфортний
 > example: These shoes are **more comfortable** than my old ones. — Ці черевики зручніші за мої старі.
-> note: вимовляється три склади: КАМФ-те-бл, «-for-» ковтається.
+> note: вимовляють три склади: КАМФ-те-бл, «-for-» випадає.
 
 > [!word] convenient
 > ipa: /kənˈviː.ni.ənt/ · pos: adj · level: A2 · id: en-a2-comparison-w02
@@ -195,7 +195,7 @@ estimatedMinutes: 40
 > ipa: /ˈmɒd.ən/ · ipa-us: /ˈmɑː.dɚn/ · pos: adj · level: A2 · id: en-a2-comparison-w05
 > uk: сучасний
 > example: The new station is much **more modern**. — Новий вокзал набагато сучасніший.
-> note: наголос на перший склад: МО-дн, не «мо-ДЕРН».
+> note: наголос на першому складі: МО-дн, не «мо-ДЕРН».
 
 > [!word] ancient
 > ipa: /ˈeɪn.ʃənt/ · pos: adj · level: A2 · id: en-a2-comparison-w06
@@ -206,7 +206,7 @@ estimatedMinutes: 40
 > ipa: /hjuːdʒ/ · pos: adj · level: A2 · id: en-a2-comparison-w07
 > uk: величезний
 > example: Their new house is **huge**! — Їхній новий будинок величезний!
-> note: «дуже великий» уже сам по собі, тож very huge не кажуть — absolutely huge.
+> note: huge уже означає «дуже великий», тому не кажуть very huge, а кажуть absolutely huge.
 
 > [!word] narrow
 > ipa: /ˈnær.əʊ/ · ipa-us: /ˈner.oʊ/ · pos: adj · level: A2 · id: en-a2-comparison-w08
@@ -226,12 +226,12 @@ estimatedMinutes: 40
 > [!word] wet
 > ipa: /wet/ · pos: adj · level: A2 · id: en-a2-comparison-w11
 > uk: мокрий; дощовий
-> example: This summer was **wetter** than last year. — Це літо було дощовішим, ніж торік.
+> example: This summer was **wetter** than last summer. — Це літо було дощовішим за минуле.
 
 > [!word] dry
 > ipa: /draɪ/ · pos: adj · level: A2 · id: en-a2-comparison-w12
 > uk: сухий
-> example: The south is **drier** than the north. — Південь посушливіший за північ.
+> example: The south is **drier** than the north. — На півдні сухіше, ніж на півночі.
 > note: dry → drier → the driest (y → i).
 
 > [!word] shallow
@@ -282,7 +282,7 @@ estimatedMinutes: 40
 > [!word] as … as
 > ipa: /əz … əz/ · pos: phrase · level: A2 · id: en-a2-comparison-w21
 > uk: такий самий … як
-> example: The film was **as good as** the book. — Фільм був такий самий гарний, як книжка.
+> example: The film was **as good as** the book. — Фільм був так само гарний, як і книжка.
 > note: not as … as — не такий … як; twice as … as — удвічі більш…
 
 > [!word] the same as
@@ -323,7 +323,7 @@ estimatedMinutes: 40
 > - [x] She isn't as tall as her brother.
 > - [ ] She's taller than her brother.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-comparison-l03
 > audio: This is the most comfortable chair in the house.
 
@@ -375,7 +375,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-comparison-s05
 > text: It's the most expensive hotel in the city.
 > ipa: /ɪts ðə ˌməʊst ɪkˈspen.sɪv həʊˈtel ɪn ðə ˈsɪt.i/
-> tip: hotel — наголос на другий склад: хоу-ТЕЛ. expensive — ік-СПЕН-сів.
+> tip: hotel — наголос на другому складі: хоу-ТЕЛ. expensive — ік-СПЕН-сів.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-comparison-s06
@@ -488,7 +488,7 @@ estimatedMinutes: 40
 > - [ ] more far
 > - [ ] farest
 >
-> **Пояснення:** *far* — неправильний: *further / farther*. *Farer* і *more far* не існують.
+> **Пояснення:** у *far* неправильні форми: *further / farther*. *Farer* і *more far* не існують.
 
 > [!quiz] Встав as … as
 > level: A2 · type: fill · bank: than · id: en-a2-comparison-q13
@@ -507,7 +507,7 @@ estimatedMinutes: 40
 > - [ ] Вона виглядає на свій вік.
 > - [ ] Вона така ж стара, як її подруга.
 >
-> **Пояснення:** *not as old as she looks* — «не така стара, як виглядає», тобто насправді молодша.
+> **Пояснення:** *not as old as she looks* — «не така стара, як здається», тобто насправді молодша.
 
 ## Фішки
 

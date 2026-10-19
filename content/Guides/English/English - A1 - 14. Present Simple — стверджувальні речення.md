@@ -30,14 +30,14 @@ estimatedMinutes: 40
 
 ## Коли вживаємо Present Simple
 
-Present Simple — час для того, що **буває регулярно або є правдою завжди**, а не для того, що відбувається просто зараз.
+Present Simple — час для того, що **буває регулярно або є правдою завжди**, а не для того, що відбувається саме зараз.
 
 | Що | Приклад | Переклад |
 |---|---|---|
 | звички й рутина | I **drink** coffee every morning. | Я щоранку пʼю каву. |
 | постійні стани | We **live** in Odesa. | Ми живемо в Одесі. |
 | робота, навчання | She **studies** law. | Вона вивчає право. |
-| факти й загальні істини | Water **boils** at 100 °C. | Вода кипить за 100 °C. |
+| факти й загальні істини | Water **boils** at 100 °C. | Вода кипить за температури 100 °C. |
 | смаки й почуття | He **loves** jazz. | Він обожнює джаз. |
 
 > [!diagram] Present Simple: одна дія — багато разів
@@ -84,7 +84,7 @@ Present Simple — час для того, що **буває регулярно 
 > steps:
 >   - { focus: [b1, s1], note: "Спершу питаємо: хто підмет? My parents = they. My sister = she." }
 >   - { focus: b2, note: "they → початкова форма без змін: My parents live in Kyiv." }
->   - { set: { s2: "lives" }, focus: s2, note: "she → додаємо -s: My sister lives in Lviv. Це те «s», яке найчастіше забувають." }
+>   - { set: { s2: "lives" }, focus: s2, note: "she → додаємо -s: My sister lives in Lviv. Саме цю -s найчастіше забувають." }
 >   - { set: { s1: "Tom / the cat / it", s2: "likes", s3: "fish." }, note: "Будь-яка одна людина, тварина чи річ = he / she / it → -s: The cat likes fish." }
 > ```
 
@@ -120,7 +120,7 @@ Present Simple — час для того, що **буває регулярно 
 - I live in Kharkiv and work as a designer. — Я живу в Харкові й працюю дизайнером.
 - My brother studies medicine. — Мій брат вивчає медицину.
 - She goes to bed at eleven every night. — Вона щовечора лягає спати об одинадцятій.
-- They have two dogs. — У них дві собаки.
+- They have two dogs. — У них два собаки.
 - Our shop opens at nine and closes at six. — Наш магазин відчиняється о девʼятій і зачиняється о шостій.
 - My dad watches the news every evening. — Тато щовечора дивиться новини.
 - The baby cries a lot at night. — Малюк багато плаче вночі.
@@ -161,7 +161,7 @@ Present Simple — час для того, що **буває регулярно 
 > [!word] hate
 > ipa: /heɪt/ · pos: verb · level: A1 · id: en-a1-present-simple-w06
 > uk: ненавидіти; дуже не любити
-> example: I **hate** Mondays! — Терпіти не можу понеділки!
+> example: I **hate** Mondays! — Терпіти не можу понеділків!
 
 > [!word] want
 > ipa: /wɒnt/ · ipa-us: /wɑːnt/ · pos: verb · level: A1 · id: en-a1-present-simple-w07
@@ -194,7 +194,7 @@ Present Simple — час для того, що **буває регулярно 
 > [!word] visit
 > ipa: /ˈvɪzɪt/ · pos: verb · level: A1 · id: en-a1-present-simple-w12
 > uk: відвідувати; ходити в гості
-> example: We **visit** my grandma every Sunday. — Ми щонеділі відвідуємо бабусю.
+> example: We **visit** my grandma every Sunday. — Ми щонеділі ходимо в гості до бабусі.
 
 > [!word] open
 > ipa: /ˈəʊpən/ · ipa-us: /ˈoʊpən/ · pos: verb · level: A1 · id: en-a1-present-simple-w13
@@ -259,11 +259,11 @@ Present Simple — час для того, що **буває регулярно 
 > - [x] My dad watches TV every evening.
 > - [ ] My dad watches TV every morning.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-simple-l03
 > audio: He studies English.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-simple-l04
 > audio: We visit our grandparents on Sundays.
 
@@ -311,11 +311,11 @@ Present Simple — час для того, що **буває регулярно 
 > [!pitfall] Забута -s: «He work», «My mum cook»
 > Найчастіша помилка навіть у тих, хто давно вчить англійську. Тренуй рефлекс: **he / she / it / одне імʼя → -s**. *He work**s**. My mum cook**s**. The shop open**s** at nine.*
 
-> [!pitfall] «I am work», «She is live» — be там, де є дієслово
+> [!pitfall] «I am work», «She is live» — зайве be поруч із дієсловом
 > Present Simple **не потребує be**: *I work, she lives*. «I am work» — суміш двох часів. А *I'm working* — це вже Present Continuous, про те, що відбувається саме зараз.
 
 > [!pitfall] «They likes», «She haves»
-> -s — **лише** для he / she / it: *They like*. А *have* для he / she / it — неправильне: **has**. «She haves» не буває.
+> -s — **лише** для he / she / it: *They like*. А *have* для he / she / it має особливу форму: **has**. «She haves» не буває.
 
 ## Ситуація: знайомство на курсах
 
@@ -325,7 +325,7 @@ Present Simple — час для того, що **буває регулярно 
 > audio: B: I'm a programmer. I work from home. And my wife teaches maths at a school.
 > audio: A: Nice! And your kids?
 > audio: B: Our son studies in Poland and our daughter lives with us.
-> - [x] Андрій працює з дому, дружина викладає математику.
+> - [x] Андрій працює вдома, дружина викладає математику.
 > - [ ] Андрій викладає математику, дружина — програмістка.
 > - [ ] Син живе з батьками, донька навчається в Польщі.
 
@@ -335,7 +335,7 @@ Present Simple — час для того, що **буває регулярно 
 > level: A1 · id: en-a1-present-simple-s06
 > text: I live in Lviv. My sister works at a hospital.
 > ipa: /aɪ ˈlɪv ɪn ləˈviːv maɪ ˈsɪstə ˈwɜːks ət ə ˈhɒspɪtl/
-> tip: works ət — зливається: «вьоркс-ет». Не ковтай -s!
+> tip: works at зливаються в одне: «вьоркс-ет». Не ковтай -s!
 
 ## Практика
 
@@ -382,7 +382,7 @@ Present Simple — час для того, що **буває регулярно 
 > - [x] My brother plays the guitar and likes jazz.
 > - [ ] My brother plays the guitar and like jazz.
 >
-> **Пояснення:** -s потрібне **обом** дієсловам, бо підмет той самий — *he*.
+> **Пояснення:** -s потрібна **обом** дієсловам, бо підмет той самий — *he*.
 
 > [!quiz] Заповни пропуски: -s чи без
 > level: A1 · type: fill · bank · id: en-a1-present-simple-q07
@@ -430,7 +430,7 @@ Present Simple — час для того, що **буває регулярно 
 > is // ✗
 > ```
 >
-> **Пояснення:** підмет → дієслово з -s → обʼєкт → маркер часу в кінці. *Is* не потрібне.
+> **Пояснення:** підмет → дієслово з -s → додаток (кому?) → маркер часу в кінці. *Is* не потрібне.
 
 > [!quiz] Склади речення: «Мої друзі живуть у Варшаві»
 > level: A1 · type: order · id: en-a1-present-simple-q11
@@ -458,7 +458,7 @@ Present Simple — час для того, що **буває регулярно 
 ## Фішки
 
 > [!reel] 🐍 Самотня -s
-> Колись у англійських дієсловах були закінчення майже для кожної особи, як в українській: *I love, thou lovest, he loveth*. Усі зникли, крім одного — *-s* для he / she / it. Тому про неї так легко забути.
+> Колись в англійських дієсловах були закінчення майже для кожної особи, як в українській: *I love, thou lovest, he loveth*. Усі зникли, крім одного — *-s* для he / she / it. Тому про неї так легко забути.
 
 > [!reel] 📰 Заголовки живуть у Present Simple
 > *President visits Kyiv. Team wins cup.* Газетні заголовки пишуть у Present Simple навіть про те, що вже сталося: так коротше й «живіше».

@@ -44,7 +44,7 @@ estimatedMinutes: 55
 
 Антрополог Кейт Фокс (*Watching the English*) описує британське неписане правило: **не бути надто серйозним** — пряма серйозність про особисте здається незручною, тому її «розряджають» іронією. Американський гумор, за поширеним спостереженням, частіше прямий, з яскравою інтонацією і менше «приглушений» — але це узагальнення, а не закон.
 
-Для **IELTS** гумор важливий передусім у **Reading** і **Listening**: питання на *writer's attitude / speaker's tone* часто мають відповідь *ironic, satirical, sceptical* — і треба помітити іронію, якої не сказано прямо. У **Speaking** легкий самоіронічний жарт звучить природно (Band 9 — це *natural*), а от сарказм ризикований: екзаменатор може прочитати його буквально. У **Writing** іронія й сарказм недоречні: скепсис висловлюємо академічно (*This claim is difficult to sustain*).
+Для **IELTS** гумор важливий передусім у **Reading** і **Listening**: завдання на *writer's attitude / speaker's tone* часто мають відповідь *ironic, satirical, sceptical* — і треба помітити іронію, якої не сказано прямо. У **Speaking** легкий самоіронічний жарт звучить природно (Band 9 — це *natural*), а от сарказм ризикований: екзаменатор може прочитати його буквально. У **Writing** іронія й сарказм недоречні: скепсис висловлюємо академічно (*This claim is difficult to sustain*).
 
 > [!warning] Гумор на IELTS
 > **Speaking:** легка самоіронія чи дотепне спостереження — так, якщо воно не відволікає від відповіді. Сарказм, «чорний» гумор і жарти про національності — ні. **Writing:** ніякої іронії — критику передають академічною лексикою. **Reading / Listening:** шукай невідповідність між словами й ситуацією — це головний маркер іронічного тону.
@@ -144,7 +144,7 @@ estimatedMinutes: 55
 
 ## Приклади
 
-- *Oh, **brilliant**. The printer's jammed again.* — О, чудово. Принтер знову зажувало. (сарказм)
+- *Oh, **brilliant**. The printer's jammed again.* — О, чудово. Принтер знову зажував папір. (сарказм)
 - *I used to be a banker, but I lost **interest**.* — Я був банкіром, але втратив інтерес. (каламбур: інтерес / відсотки)
 - *He told the story with a completely **straight face**.* — Він розповів цю історію з абсолютно серйозним обличчям.
 - *Are you **pulling my leg**?* — Ти мене розігруєш?
@@ -154,7 +154,7 @@ estimatedMinutes: 55
 - *The joke **went right over my head**.* — Я взагалі не зрозумів жарту.
 - *It's become a **running joke** that Tom is always late.* — Те, що Том завжди спізнюється, стало вже постійним жартом.
 - *He **cracked a joke** to break the tension.* — Він пожартував, щоб розрядити напругу.
-- *Sorry, it was just **an in-joke** — you had to be there.* — Вибач, це наш внутрішній жарт — треба було бути там.
+- *Sorry, it was just **an in-joke** — you had to be there.* — Вибач, це наш внутрішній жарт — щоб зрозуміти, треба було там бути.
 - *— Another meeting? — **Yeah, right**, because the last six were so useful.* — Ще одна нарада? — Ага, звісно, попередні шість були такі корисні.
 
 ## Слова
@@ -200,7 +200,7 @@ estimatedMinutes: 55
 > [!word] a dad joke
 > ipa: /ə ˈdæd ˌdʒəʊk/ · ipa-us: /ə ˈdæd ˌdʒoʊk/ · pos: noun · level: C2 · id: en-c2-humour-w07
 > uk: «татовий жарт» — навмисно банальний каламбур
-> example: "I'm afraid for the calendar — its days are numbered." Classic **dad joke**. — «Боюся за календар — його дні пораховані». Класичний «татовий жарт».
+> example: "I'm afraid for the calendar — its days are numbered." Classic **dad joke**. — «Боюся за календар — його дні полічені». Класичний «татовий жарт».
 > note: розмовне, тепле. Слухачі закочують очі — і саме це частина задоволення того, хто жартує.
 
 ### Іронія і сарказм
@@ -247,7 +247,7 @@ estimatedMinutes: 55
 > ipa: /ˈsætaɪə/ · ipa-us: /ˈsætaɪər/ · pos: noun · level: C2 · id: en-c2-humour-w14
 > uk: сатира
 > example: Swift's *A Modest Proposal* is a savage **satire** on the treatment of the Irish poor. — «Скромна пропозиція» Свіфта — нищівна сатира на ставлення до бідних ірландців.
-> note: нейтральне; прикм. *satirical* [səˈtɪrɪkəl], дієсл. *satirise* (US *satirize*). Часто відповідь у IELTS Reading на питання про тон.
+> note: нейтральне; прикм. *satirical* [səˈtɪrɪkəl], дієсл. *satirise* (US *satirize*). Часто це відповідь на запитання про тон в IELTS Reading.
 
 > [!word] parody
 > ipa: /ˈpærədi/ · ipa-us: /ˈperədi/ · pos: noun · level: C2 · id: en-c2-humour-w15
@@ -265,7 +265,7 @@ estimatedMinutes: 55
 > ipa: /ˈslæpstɪk/ · pos: noun · level: C2 · id: en-c2-humour-w17
 > uk: слепстик, фізична комедія (падіння, удари, торт в обличчя)
 > example: Kids love the **slapstick** in silent films. — Діти обожнюють фізичну комедію в німому кіно.
-> note: нейтральне. Від палиці арлекіна, що голосно ляскала, але не боліла.
+> note: нейтральне. Від палиці арлекіна, що голосно ляскала, але болю не завдавала.
 
 > [!word] dark humour
 > ipa: /ˌdɑːk ˈhjuːmə/ · ipa-us: /ˌdɑːrk ˈhjuːmər/ · pos: noun · level: C2 · id: en-c2-humour-w18
@@ -290,13 +290,13 @@ estimatedMinutes: 55
 > [!word] quip
 > ipa: /kwɪp/ · pos: noun · level: C2 · id: en-c2-humour-w21
 > uk: дотеп, дотепна репліка
-> example: When asked about his age, he answered with a quick **quip**. — На питання про вік він відповів швидким дотепом.
+> example: When asked about his age, he answered with a quick **quip**. — На запитання про вік він відповів швидким дотепом.
 > note: нейтральне, публіцистика; також дієслово *to quip* (*"Better late than never," she quipped*).
 
 > [!word] one-liner
 > ipa: /ˌwʌn ˈlaɪnə/ · ipa-us: /ˌwʌn ˈlaɪnər/ · pos: noun · level: C2 · id: en-c2-humour-w22
 > uk: жарт в одне речення
-> example: The comedian is famous for his **one-liners**. — Комік відомий своїми жартами-одноріччями.
+> example: The comedian is famous for his **one-liners**. — Комік славиться короткими жартами в одне речення.
 > note: нейтральне; жанр стендапу.
 
 > [!word] running joke
@@ -327,7 +327,7 @@ estimatedMinutes: 55
 > ipa: /ˌpʊl ˌsʌmwʌnz ˈleɡ/ · pos: phrase · level: C2 · id: en-c2-humour-w27
 > uk: розігрувати когось, жартувати над кимось
 > example: Relax, I'm just **pulling your leg** — the exam isn't tomorrow. — Розслабся, я жартую: іспит не завтра.
-> note: розмовне, дружнє, UK і US. Питання-реакція: *Are you pulling my leg?* Пор. *wind sb up* (UK, тема 07).
+> note: розмовне, дружнє, UK і US. Типова реакція — запитання *Are you pulling my leg?* Пор. *wind sb up* (UK, тема 07).
 
 > [!word] keep a straight face
 > ipa: /ˌkiːp ə ˌstreɪt ˈfeɪs/ · pos: phrase · level: C2 · id: en-c2-humour-w28
@@ -357,7 +357,7 @@ estimatedMinutes: 55
 > [!word] in jest
 > ipa: /ɪn ˈdʒest/ · pos: phrase · level: C2 · id: en-c2-humour-w32
 > uk: жартома, не всерйоз
-> example: The remark was made **in jest**, but it still hurt. — Це зауваження було жартома, але все одно зачепило.
+> example: The remark was made **in jest**, but it still hurt. — Це сказали жартома, але все одно зачепило.
 > note: книжне, трохи старомодне — доречне в письмі. Пор. приказку *Many a true word is spoken in jest* — у кожному жарті є частка правди.
 
 ## Слухаємо
@@ -371,7 +371,7 @@ estimatedMinutes: 55
 > - [ ] Вона любить незвичні рецепти бургерів.
 > - [ ] Вона не хоче починати барбекю, бо голодна.
 >
-> **Пояснення:** *Lovely day for it* — класична британська іронія, а *I especially enjoy the hailstones in my burger* — абсурдна деталь, що прибирає сумніви: йде град. Тон — гумор, не скарга.
+> **Пояснення:** *Lovely day for it* — класична британська іронія, а *I especially enjoy the hailstones in my burger* — абсурдна деталь, що прибирає сумніви: падає град. Тон — гумор, не скарга.
 
 > [!listen] Як Майк ставиться до наради?
 > level: C2 · type: answer · lang: en-US · id: en-c2-humour-l02
@@ -395,7 +395,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *deadpan*: *Wonderful* і *Can't wait to go back* сказано спокійно, без сміху, — а між ними перелік катастроф. Контраст слів і фактів = іронія. Відповідати *Oh, so you'll go back?* — не зрозуміти жарту.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-humour-l04
 > audio: I used to be a banker, but I lost interest.
 
@@ -409,7 +409,7 @@ estimatedMinutes: 55
 > - [ ] Скелети не вміють битися, бо не мають мʼязів.
 > - [ ] Жарт про те, що скелети живуть у шафі.
 >
-> **Пояснення:** класичний формат «питання — відповідь» і каламбур на *guts*: буквально «нутрощі», переносно (розмовне) «сміливість»: *She has the guts to say no*. Скелет справді не має нутрощів — і не має «духу» битися.
+> **Пояснення:** класичний формат «запитання — відповідь» і каламбур на *guts*: буквально «нутрощі», переносно (розмовне) «сміливість»: *She has the guts to say no*. Скелет справді не має нутрощів — і не має «духу» битися.
 
 > [!listen] Яка Сара кухарка?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-humour-l06
@@ -434,7 +434,7 @@ estimatedMinutes: 55
 > Swift's tone: a perfectly [[straight]] face
 > ```
 >
-> **Пояснення:** *seventeen twenty-nine* — 1729. *With a perfectly straight face* — головна ознака сатири: абсурд подано серйозно. Саме цей прийом IELTS просить розпізнати в питаннях про *writer's attitude*.
+> **Пояснення:** *seventeen twenty-nine* — 1729. *With a perfectly straight face* — головна ознака сатири: абсурд подано серйозно. Саме цей прийом IELTS просить розпізнати в завданнях на *writer's attitude*.
 
 > [!listen] Що відповідає Ніна?
 > level: C2 · type: answer · lang: en-US · id: en-c2-humour-l08
@@ -473,7 +473,7 @@ estimatedMinutes: 55
 > level: C2 · id: en-c2-humour-s02
 > text: I used to be a banker, but I lost interest.
 > ipa: /aɪ ˈjuːst tə bi ə ˈbæŋkə bət aɪ ˌlɒst ˈɪntrəst/
-> tip: Коротка пауза після banker — це таймінг. interest — два склади [ІН-трест], наголос на перший. used to — [ЮС-те], s глухе.
+> tip: Коротка пауза після banker — це таймінг. interest — два склади [ІН-трест], наголос на першому складі. used to — [ЮС-те], s глухе.
 > uk: Я був банкіром, але втратив інтерес (і відсотки).
 
 > [!speak] Ти мене розігруєш?
@@ -487,7 +487,7 @@ estimatedMinutes: 55
 > level: C2 · id: en-c2-humour-s04
 > text: I'm a brilliant cook. The fire brigade knows me by name.
 > ipa: /aɪm ə ˈbrɪljənt ˈkʊk ðə ˈfaɪə brɪˌɡeɪd ˌnəʊz mi baɪ ˈneɪm/
-> tip: Говори рівно й серйозно — deadpan. brigade — наголос на другий склад [брі-ГЕЙД]. Пауза перед другим реченням.
+> tip: Говори рівно й серйозно — deadpan. brigade — наголос на другому складі [брі-ГЕЙД]. Пауза перед другим реченням.
 > uk: Я блискуча кухарка. Пожежники знають мене на імʼя.
 
 > [!speak] Не каламбур
@@ -502,7 +502,7 @@ estimatedMinutes: 55
 > text: I've got quite a dry sense of humour, so I love comedians who can keep a straight face.
 > ipa: /aɪv ɡɒt kwaɪt ə ˌdraɪ ˌsens əv ˈhjuːmə səʊ aɪ ˈlʌv kəˈmiːdiənz huː kən ˌkiːp ə ˌstreɪt ˈfeɪs/
 > tip: humour — [ХЬЮ-ме], з [h] на початку, не «юмор». straight face — t у straight перед f майже не чути: [стрей-ФЕЙС].
-> uk: У мене досить сухе почуття гумору, тож я люблю коміків, які вміють зберігати серйозне обличчя.
+> uk: У мене досить сухе почуття гумору, тож я люблю коміків, які вміють жартувати з камʼяним обличчям.
 
 ## Типові помилки українців
 
@@ -630,7 +630,7 @@ estimatedMinutes: 55
 > - [ ] Це жарт про тебе.
 > - [ ] Жарт заборонений в офісі.
 >
-> **Пояснення:** *an in-joke* (US також *inside joke*) — жарт «для своїх». Часто з додатком *you had to be there* — «треба було бути там». Це не образа, а пояснення.
+> **Пояснення:** *an in-joke* (US також *inside joke*) — жарт «для своїх». Часто з додатком *you had to be there* — «щоб зрозуміти, треба було там бути». Це не образа, а пояснення.
 
 > [!quiz] Встав вислів про жарти
 > level: C2 · type: fill · id: en-c2-humour-q13 · bank: arm, serious
@@ -656,12 +656,12 @@ estimatedMinutes: 55
 > [!quiz] Що з цього доречно в IELTS Speaking? Обери всі.
 > level: C2 · type: multi · id: en-c2-humour-q15
 > - [x] Легка самоіронія: «I'm hopeless at cooking, so I mostly live on pasta.»
-> - [ ] Сарказм щодо питання: «Oh, great question. Really original.»
+> - [ ] Сарказм щодо запитання: «Oh, great question. Really original.»
 > - [x] Дотепне спостереження з поясненням: «Queues are almost a national sport here — people actually seem to enjoy them.»
 > - [ ] Жарт про національності.
 > - [x] Термін про гумор у відповіді: «My dad loves dad jokes, which is fitting.»
 >
-> **Пояснення:** природний легкий гумор, що працює на відповідь, — плюс до *Fluency* і *Lexical Resource*. Сарказм щодо екзаменатора чи питання звучить грубо; жарти про національності — недоречні будь-де.
+> **Пояснення:** природний легкий гумор, що працює на відповідь, — плюс до *Fluency* і *Lexical Resource*. Сарказм щодо екзаменатора чи запитання звучить грубо; жарти про національності — недоречні будь-де.
 
 > [!quiz] «Why did the chicken cross the road? — To get to the other side.» Чому це вважають жартом?
 > level: C2 · id: en-c2-humour-q16
@@ -691,7 +691,7 @@ estimatedMinutes: 55
 - 🟡 R. B. Sheridan — *The Rivals* (1775), суспільне надбання: місіс Малапроп і малапропізми.
 - 🟡 David Crystal — *Language Play* (Penguin, 1998): як і навіщо носії грають зі словами.
 - 🟡 [BBC Learning English](https://www.bbc.co.uk/learningenglish/) — випуски про британський гумор, сарказм і каламбури.
-- 🟡 [IELTS — band descriptors](https://ielts.org/) — Reading і Listening: питання про *attitude*, *tone*; Speaking: природність і доречність.
+- 🟡 [IELTS — band descriptors](https://ielts.org/) — Reading і Listening: завдання на *attitude*, *tone*; Speaking: природність і доречність.
 
 > [!important] Підсумок
 > - **Іронія** — невідповідність: словесна (*Lovely weather!* під дощем), **сарказм** (колюча, *Oh, great job*), ситуативна (пожежна частина згоріла), драматична (глядач знає більше).

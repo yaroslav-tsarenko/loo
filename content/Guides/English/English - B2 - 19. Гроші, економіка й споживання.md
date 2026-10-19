@@ -110,7 +110,7 @@ estimatedMinutes: 45
 ## Приклади
 
 - ***Inflation** hit 10% last year, so everything costs more.* — Торік інфляція сягнула 10 %, тож усе подорожчало.
-- *The country fell into **recession** after the crisis.* — Після кризи країна впала в рецесію.
+- *The country fell into **recession** after the crisis.* — Після кризи країна поринула в рецесію.
 - *The bank has raised **interest rates** again.* — Банк знову підвищив процентні ставки.
 - *We're saving for a deposit so that we can get a **mortgage**.* — Ми відкладаємо на перший внесок, щоб отримати іпотеку.
 - *I'm completely **broke** until payday.* — До зарплати я зовсім без грошей.
@@ -238,7 +238,7 @@ estimatedMinutes: 45
 > ipa: /ˈmɔːɡɪdʒ/ · ipa-us: /ˈmɔːrɡɪdʒ/ · pos: noun · level: B2 · id: en-b2-economy-w19
 > uk: іпотека; іпотечний кредит
 > example: They took out a 25-year **mortgage** to buy the house. — Вони взяли іпотеку на 25 років, щоб купити будинок.
-> note: нейтральне. *t* німа: [МОО-гідж]. *take out / pay off a mortgage*.
+> note: нейтральне. Літера *t* не читається: [МОО-гідж]. *take out / pay off a mortgage*.
 
 > [!word] pension
 > ipa: /ˈpenʃən/ · pos: noun · level: B2 · id: en-b2-economy-w20
@@ -291,7 +291,7 @@ estimatedMinutes: 45
 > [!word] allowance
 > ipa: /əˈlaʊəns/ · pos: noun · level: B2 · id: en-b2-economy-w28
 > uk: кишенькові гроші; допомога, виплата
-> example: My parents gave me a weekly **allowance**. — Батьки давали мені кишенькові на тиждень.
+> example: My parents gave me a weekly **allowance**. — Батьки щотижня давали мені кишенькові гроші.
 > note: нейтральне. US *allowance* = UK *pocket money*. Також *a travel allowance* — компенсація на дорогу; *baggage allowance* — норма багажу.
 
 > [!word] instalment
@@ -341,7 +341,7 @@ estimatedMinutes: 45
 > [!word] retailer
 > ipa: /ˈriːteɪlə/ · ipa-us: /ˈriːteɪlər/ · pos: noun · level: B2 · id: en-b2-economy-w36
 > uk: роздрібний продавець; ритейлер
-> example: Online **retailers** have taken customers away from high-street shops. — Онлайн-ритейлери забрали покупців у магазинів на головних вулицях.
+> example: Online **retailers** have taken customers away from high-street shops. — Онлайн-ритейлери переманили покупців у звичайних магазинів на центральних вулицях.
 > note: нейтральне. *retail* — роздрібна торгівля; *wholesale* — гуртова.
 
 > [!word] purchase
@@ -425,7 +425,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** британське *can't* /kɑːnt/ має довгий голосний, а *can* у реченні звучить слабко [кен]. Це головна підказка, коли *t* у кінці майже не чути.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-economy-l03
 > audio: The cost of living has gone up a lot this year.
 
@@ -452,7 +452,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** лектор визнає, що *some manufacturers clearly do* — тож варіант «не існує» хибний; але *in many cases* причина інша — *technology moves on*. Правильний варіант — найточніший парафраз цього балансу.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-economy-l06
 > audio: Impulse buying is one of the main reasons people overspend.
 
@@ -490,7 +490,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-economy-s03
 > text: We took out a mortgage to buy our flat.
 > ipa: /wi ˈtʊk ˈaʊt ə ˈmɔːɡɪdʒ tə ˈbaɪ aʊə ˈflæt/
-> tip: mortgage — *t* німа: [МОО-гідж]; took‿out — зливаються [ту-каут].
+> tip: mortgage — літера *t* не читається: [МОО-гідж]; took‿out — зливаються [ту-каут].
 > uk: Ми взяли іпотеку, щоб купити квартиру.
 
 > [!speak] IELTS Speaking, Part 3 — «Do people today buy too many things they don't need?»
@@ -504,7 +504,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-economy-s05
 > text: Absolutely. If teenagers learn about interest and debt early, they're less likely to get into financial trouble later.
 > ipa: /ˌæbsəˈluːtli ɪf ˈtiːneɪdʒəz ˈlɜːn əˈbaʊt ˈɪntrəst ən ˈdet ˈɜːli ðeə ˈles ˈlaɪkli tə ˈɡet ˈɪntə faɪˈnænʃəl ˈtrʌbəl ˈleɪtə/
-> tip: debt — *b* німа: [ДЕТ]; interest — два склади [ІН-трест]; financial — UK [фай-НЕН-шл].
+> tip: debt — літера *b* не читається: [ДЕТ]; interest — два склади [ІН-трест]; financial — UK [фай-НЕН-шл].
 > uk: Безумовно. Якщо підлітки рано дізнаються про відсотки й борги, вони рідше матимуть фінансові проблеми згодом.
 
 > [!speak] IELTS Speaking, Part 3 — «Is it better to rent or buy a home?»
@@ -687,7 +687,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🏠 Mortgage — «мертва застава»
-> *Mortgage* прийшло зі старофранцузької: *mort* — мертвий, *gage* — застава. «Мертвою» угода ставала у двох випадках: коли борг сплачено — для кредитора, або коли боржник не платить — тоді «помирала» для нього: житло забирав банк. Тому й *t* у слові давно не вимовляють, а «мертва застава» живе вже понад 600 років.
+> *Mortgage* прийшло зі старофранцузької: *mort* — мертвий, *gage* — застава. «Мертвою» угода ставала у двох випадках: коли борг сплачено — для кредитора, або коли боржник не платить — тоді «помирала» для нього: житло забирав банк. Літеру *t* у слові давно не вимовляють, а сама «мертва застава» живе вже понад 600 років.
 
 > [!reel] 🪑 Bankrupt — зламана лава
 > *Bankrupt* часто виводять з італійського *banca rotta* — «зламана лава». За найпоширенішою версією, середньовічні міняйли працювали за лавами на площах, і коли хтось не міг розрахуватися, його лаву ламали на знак банкрутства. Від тієї ж «лави» — і слово *bank*.

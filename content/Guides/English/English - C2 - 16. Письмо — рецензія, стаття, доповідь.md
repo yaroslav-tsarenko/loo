@@ -27,7 +27,7 @@ estimatedMinutes: 85
 > - [x] When did you last do absolutely nothing? Not scroll, not "quickly check" anything — simply wait, alone with your thoughts?
 > - [ ] Introduction. Boredom: definition, causes and consequences.
 >
-> **Пояснення:** статтю читають **добровільно**, тому перші рядки мусять зачепити: питання до читача, конкретна сцена, несподіване твердження. *The aim of this article is…* — мова **звіту**; варіант 2 — кліше; варіант 4 — структура доповіді. Жанр визначає не лише тему, а й **перший рядок**.
+> **Пояснення:** статтю читають **добровільно**, тому перші рядки мусять зачепити: запитання до читача, конкретна сцена, несподіване твердження. *The aim of this article is…* — мова **звіту**; варіант 2 — кліше; варіант 4 — структура доповіді. Жанр визначає не лише тему, а й **перший рядок**.
 
 ## Простими словами
 
@@ -40,7 +40,7 @@ estimatedMinutes: 85
 | **Заголовок** | дотепний, часто з оцінкою | короткий, яскравий + standfirst | інформативний: *Report on…* |
 | **Структура** | контекст → опис → оцінка → рекомендація | гачок → суть → розвиток → фінал | вступ (мета) → розділи з заголовками → висновки → рекомендації |
 | **Регістр** | напівформальний, особистий | напівформальний, «розмова з читачем» | формальний, безособовий |
-| **Прийоми** | оцінна лексика, баланс, іронія | питання, анекдот, звертання *you* | пасив, *It is recommended that…*, списки |
+| **Прийоми** | оцінна лексика, баланс, іронія | запитання, анекдот, звертання *you* | пасив, *It is recommended that…*, списки |
 
 ### Де ці жанри на іспитах
 
@@ -64,7 +64,7 @@ estimatedMinutes: 85
 >   - { id: p2, col: rep, label: "голос", text: "It is recommended that evening opening be continued.", note: "безособово, субʼюнктив", tone: blue }
 > steps:
 >   - { show: [r1, r2], note: "Рецензія: оцінка — серцевина жанру. Автор говорить від себе, але кожна оцінка підкріплена конкретикою з книжки чи фільму." }
->   - { show: [a1, a2], note: "Стаття: читач може піти будь-якої секунди. Тому — короткий яскравий заголовок і пряме звертання: you, we, питання." }
+>   - { show: [a1, a2], note: "Стаття: читач може піти будь-якої секунди. Тому — короткий яскравий заголовок і пряме звертання: you, we, запитання." }
 >   - { show: [p1, p2], note: "Звіт: читач має ухвалити рішення. Ніякої гри слів — заголовок каже, що всередині; рекомендації — безособово й чітко." }
 > ```
 
@@ -72,7 +72,7 @@ estimatedMinutes: 85
 
 ### 1. Рецензія: оцінка, а не переказ
 
-Рецензія відповідає на одне питання читача: **«Чи варто мені це читати / дивитися / відвідати?»** Тому опису — мінімум, оцінки — максимум, і кожна оцінка має **доказ**.
+Рецензія відповідає на одне запитання читача: **«Чи варто мені це читати / дивитися / відвідати?»** Тому опису — мінімум, оцінки — максимум, і кожна оцінка має **доказ**.
 
 | Частина | Що робить | Обсяг (з 300 слів) | Мова |
 |---|---|---|---|
@@ -85,7 +85,7 @@ estimatedMinutes: 85
 **Мова збалансованої оцінки** — те, що відрізняє рецензію C2 від «сподобалося / не сподобалося»:
 
 - *For all its flaws, this is a film that stays with you.* — Попри всі вади…
-- *What it lacks in subtlety, it more than makes up for in energy.* — Чого бракує в тонкості, з лишком компенсує енергією.
+- *What it lacks in subtlety, it more than makes up for in energy.* — Брак тонкості він із лишком компенсує енергією.
 - *If the second act sags, the third more than compensates.* — Якщо друга дія «провисає»…
 - *It is not without its longueurs, but…* — Не без затягнутих місць, але…
 - *These are minor complaints about a book that does so much well.* — Це дрібні закиди до книжки, яка стільки робить добре.
@@ -107,7 +107,7 @@ estimatedMinutes: 85
 >
 > *Small Hours* may not keep you up at night, but it will change the way you think about the hours you spend asleep.
 
-**Чому це C2:** заголовок-гра слів з питанням (*Sleepwalking* — і про сон, і про «бездумно пройти історією»); баланс — дві сильні сторони, дві слабкі, кожна з прикладом; рекомендація **диференційована** (кому так, кому ні); фінал повертає тему сну дотепом. Опис займає менше п'ятої частини тексту.
+**Чому це C2:** заголовок-гра слів з питанням (*Sleepwalking* — і про сон, і про «бездумно пройти історією»); баланс — дві сильні сторони, дві слабкі, кожна з прикладом; рекомендація **диференційована** (кому так, кому ні); фінал повертає тему сну дотепом. Опис займає менше пʼятої частини тексту.
 
 ### 2. Стаття: заголовок, standfirst, лід
 
@@ -119,14 +119,14 @@ estimatedMinutes: 85
 > nodes:
 >   - { id: hl, label: "headline", text: "Bored? Good.", note: "2–7 слів, гра слів чи парадокс", tone: red, icon: "px:flag" }
 >   - { id: sf, label: "standfirst", text: "We have spent twenty years engineering boredom out of our lives…", note: "1–2 речення: про що і чому читати", tone: orange }
->   - { id: lede, label: "lede", text: "When did you last do absolutely nothing?", note: "гачок: питання, сцена, анекдот", tone: yellow }
+>   - { id: lede, label: "lede", text: "When did you last do absolutely nothing?", note: "гачок: запитання, сцена, анекдот", tone: yellow }
 >   - { id: nut, label: "nut graf", text: "We have, in effect, abolished boredom — and only now see the cost.", note: "суть статті одним абзацом", tone: violet }
 >   - { id: body, label: "body", text: "докази, приклади, поступка", note: "Psychologists have long suspected…", tone: blue }
 >   - { id: kick, label: "kicker", text: "You might be bored. That may be the point.", note: "фінал, що повертає до початку", tone: green, icon: "px:target" }
 > steps:
 >   - { focus: hl, note: "Заголовок продає статтю. Короткий, з парадоксом чи грою слів. У газетах — особлива граматика: Minister to resign, Scientists find…" }
 >   - { focus: sf, note: "Standfirst — підзаголовок-анонс під заголовком: про що стаття і чому вона важлива. У британських виданнях — звичний елемент." }
->   - { focus: lede, note: "Лід — перші 1–3 речення. Не «Nowadays…», а сцена, питання до читача чи несподіваний факт." }
+>   - { focus: lede, note: "Лід — перші 1–3 речення. Не «Nowadays…», а сцена, запитання до читача чи несподіваний факт." }
 >   - { focus: nut, note: "Nut graf — абзац, що пояснює суть: що відбувається і чому це важливо. Без нього стаття — набір анекдотів." }
 >   - { focus: body, note: "Основна частина: докази з обережністю (several small studies have suggested…), поступка (None of this means…)." }
 >   - { focus: kick, note: "Кікер — останні рядки. Найкращий повертається до ліду й закриває коло — читач іде з думкою, а не з підсумком." }
@@ -230,7 +230,7 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 - *The report falls outside the committee's remit.* — Звіт виходить за межі повноважень комісії.
 - *The full survey results are given in the appendix.* — Повні результати опитування наведено в додатку.
 - *It is recommended that the scheme be extended for a further six months.* — Рекомендується продовжити програму ще на шість місяців.
-- *The salient point is that demand fell on Fridays.* — Найважливіше — попит у пʼятниці впав.
+- *The salient point is that demand fell on Fridays.* — Найважливіше те, що в пʼятниці попит упав.
 - *Visits to Riverside rose by 40%, bucking the overall downward trend.* — Відвідування Riverside зросли на 40 %, всупереч загальній тенденції до спаду.
 
 ## Слова
@@ -258,7 +258,7 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 > [!word] tour de force
 > ipa: /ˌtʊə də ˈfɔːs/ · ipa-us: /ˌtʊr də ˈfɔːrs/ · pos: noun · level: C2 · id: en-c2-genres-w04
 > uk: блискуче досягнення, віртуозна робота
-> example: Her performance as the ageing queen is a **tour de force**. — Її роль старіючої королеви — справжній тріумф майстерності.
+> example: Her performance as the ageing queen is a **tour de force**. — Її роль королеви на схилі віку — справжній тріумф майстерності.
 > note: з французької «вияв сили». Множина — *tours de force*.
 
 > [!word] underrated
@@ -294,7 +294,7 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 > [!word] self-indulgent
 > ipa: /ˌself ɪnˈdʌldʒənt/ · pos: adj · level: C2 · id: en-c2-genres-w10
 > uk: самозакоханий, що потурає власним забаганкам (про автора)
-> example: At three hours, the director's cut feels **self-indulgent**. — Режисерська версія на три години здається самозакоханою.
+> example: At three hours, the director's cut feels **self-indulgent**. — Тригодинна режисерська версія здається самолюбуванням автора.
 > note: автор робить те, що подобається йому, а не глядачеві.
 
 > [!word] slick
@@ -305,7 +305,7 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 
 > [!word] understated
 > ipa: /ˌʌndəˈsteɪtɪd/ · ipa-us: /ˌʌndərˈsteɪtɪd/ · pos: adj · level: C2 · id: en-c2-genres-w12
-> uk: стриманий, ненав'язливий (схвально)
+> uk: стриманий, ненавʼязливий (схвально)
 > example: Her **understated** performance is all the more moving for it. — Її стримана гра від цього ще зворушливіша.
 > note: протилежне — *overstated, over the top*.
 
@@ -364,7 +364,7 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 > ipa: /ˈkɒləmnɪst/ · ipa-us: /ˈkɑːləmnɪst/ · pos: noun · level: C2 · id: en-c2-genres-w21
 > uk: колумніст, автор постійної колонки
 > example: She is a **columnist** for a Sunday paper. — Вона веде постійну колонку в недільній газеті.
-> note: *n* у *column* німе, а в *columnist* вимовляється.
+> note: *n* у *column* не читається, а в *columnist* вимовляється.
 
 > [!word] subheading
 > ipa: /ˈsʌbhedɪŋ/ · pos: noun · level: C2 · id: en-c2-genres-w22
@@ -435,13 +435,13 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 > level: C2 · type: answer · id: en-c2-genres-l01
 > audio: Is it a masterpiece? No. The middle hour drags, and the dialogue is occasionally clunky. But the last twenty minutes are as good as anything I've seen this year, and the lead performance is quietly extraordinary. Flawed, then, but well worth your evening.
 > - [ ] Захоплений: фільм бездоганний від початку до кінця.
-> - [x] Позитивний, але з застереженнями: фільм нерівний, проте варто подивитися.
+> - [x] Позитивний, але із застереженнями: фільм нерівний, проте варто подивитися.
 > - [ ] Негативний: фільм затягнутий і не вартий уваги.
 > - [ ] Нейтральний: критик лише описує сюжет.
 >
 > **Пояснення:** класична збалансована рецензія: заперечення (*Is it a masterpiece? No.*), дві вади (*drags, clunky*), дві сильні сторони (*the last twenty minutes, quietly extraordinary*) і вердикт *Flawed… but well worth your evening*. Рецензентський «бутерброд»: оцінка з обох боків і чітка рекомендація в кінці.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-genres-l02
 > audio: It is therefore recommended that evening opening be continued from Monday to Thursday.
 
@@ -464,13 +464,13 @@ IELTS Academic Task 1 — це по суті **міні-звіт** без вис
 ## Типові помилки українців
 
 > [!pitfall] Рецензія як шкільний переказ
-> Шкільний «відгук про прочитаний твір» часто — переказ сюжету й одне речення «мені сподобалося». Англомовна рецензія — навпаки: **опис — до п'ятої частини**, решта — оцінка з доказами й рекомендація. Екзаменатор C2 Proficiency, побачивши три абзаци сюжету, оцінить невідповідність жанру, хоч би якою гарною була мова.
+> Шкільний «відгук про прочитаний твір» часто — переказ сюжету й одне речення «мені сподобалося». Англомовна рецензія — навпаки: **опис — до пʼятої частини**, решта — оцінка з доказами й рекомендація. Екзаменатор C2 Proficiency, побачивши три абзаци сюжету, оцінить невідповідність жанру, хоч би якою гарною була мова.
 
 > [!pitfall] «Recommend you to do» і «review on»
 > Калька «рекомендую вам відвідати» → ~~*I recommend you to visit*~~. Правильно: *I recommend visiting…*, *I recommend that you visit…*, *I'd recommend it to anyone who…* Так само прийменники жанрів: *a review **of** a film* (не ~~*on*~~), *a report **on** sth*, *an article **about / on** sth*.
 
 > [!pitfall] Змішувати жанри: «I think» у звіті, «The aim of this article» у статті
-> Звіт — безособовий: не *I think the library should…*, а *It is recommended that…* Стаття — навпаки, розмова з читачем: не *The aim of this article is to…*, а питання чи сцена. Найчастіша помилка на C2 Proficiency — писати **все як есе**: без заголовка, без звертання до читача, з *In conclusion* у кінці статті.
+> Звіт — безособовий: не *I think the library should…*, а *It is recommended that…* Стаття — навпаки, розмова з читачем: не *The aim of this article is to…*, а запитання чи сцена. Найчастіша помилка на C2 Proficiency — писати **все як есе**: без заголовка, без звертання до читача, з *In conclusion* у кінці статті.
 
 > [!pitfall] Оцінка у фактичній частині звіту чи IELTS Task 1
 > «На жаль, кількість відвідувачів катастрофічно впала» — оцінка там, де мають бути факти. У розділах *findings* і в **IELTS Task 1** — лише дані й порівняння: *Visits fell by just over a quarter.* Причини, думки й рекомендації в Task 1 знижують бал за Task Achievement.

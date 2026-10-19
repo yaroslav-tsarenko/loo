@@ -119,7 +119,7 @@ estimatedMinutes: 50
 
 *Were* для всіх осіб — у **нереальних** ситуаціях: *If I **were** you…*, *I wish it **were** Friday*, *She talks as if she **were** the boss*, *Suppose he **were** to refuse…* У розмові часто кажуть *was* (*If I was you*) — це норма неформальної мови; *If I were you* — стала фраза в будь-якому стилі.
 
-C2-нюанс: якщо умова **реальна** (могло бути правдою в минулому), потрібне саме ***was***:
+C2-нюанс: якщо умова **реальна** (це могло бути правдою в минулому), потрібне саме ***was***:
 
 - *If she **was** angry, she didn't show it.* — Якщо вона й сердилася, то не показала цього. (реальна можливість)
 - *If she **were** angry, she'd tell us.* — Якби вона сердилася, вона б нам сказала. (уявне зараз)
@@ -150,7 +150,7 @@ C2-нюанс: якщо умова **реальна** (могло бути пр�
 | ***Woe betide** anyone who…* | горе тому, хто… | жартівливо-архаїчно |
 | ***Perish the thought!*** | боронь Боже, і не думай! | іронічно |
 | ***Long live** the King!* | хай живе | урочисто |
-| *…, **be they** large or small* / *whether it **be**…* | хай то буде…, чи то… | формально, юридично |
+| *…, **be they** large or small* / *whether it **be**…* | чи то…, чи…; хай би що це було | формально, юридично |
 | ***lest** + субʼюнктив / should* | щоб не; аби не | книжно, урочисто |
 
 > [!quiz] Перевір себе: доповни сталі вирази
@@ -194,11 +194,11 @@ C2-нюанс: якщо умова **реальна** (могло бути пр�
 
 **General Training, Task 1 (скарга):** *I would ask **that the matter be resolved** within fourteen days.* — твердо й ввічливо.
 
-**Де стає штучним:** ~~*Far be it from me to criticise the government, but…*~~ в есе (іронія й особистий тон); ~~*Woe betide the society that ignores…*~~ (архаїка); три формули на абзац. У **Speaking Part 3** природно звучать *Truth be told…*, *Suffice it to say…*, *If I were in their shoes…*, а от *lest* — як цитата з проповіді.
+**Де це звучить штучно:** ~~*Far be it from me to criticise the government, but…*~~ в есе (іронія й особистий тон); ~~*Woe betide the society that ignores…*~~ (архаїка); три формули на абзац. У **Speaking Part 3** природно звучать *Truth be told…*, *Suffice it to say…*, *If I were in their shoes…*, а от *lest* — як цитата з проповіді.
 
 ## Приклади
 
-- The landlord insists that the rent **be** paid by the first of the month. — Орендодавець наполягає, щоб оренду сплачували до першого числа.
+- The landlord insists that the rent **be** paid by the first of the month. — Орендодавець наполягає, щоб орендну плату вносили до першого числа.
 - It is imperative that the samples **not be** exposed to light. — Конче потрібно, щоб зразки не потрапляли на світло.
 - We recommend that each applicant **submit** two references. — Радимо кожному кандидатові подати дві рекомендації.
 - She suggested that I **was** exaggerating. — Вона натякнула, що я перебільшую.
@@ -294,9 +294,9 @@ C2-нюанс: якщо умова **реальна** (могло бути пр�
 > - [x] The doctor recommended that he stay at home for a few more days.
 > - [ ] The doctor recommended that he stayed at home for a few more days.
 >
-> **Пояснення:** почуто *he stay* без *-s* — американський мандативний субʼюнктив. Розрізнити на слух *stay / stays* — тренування уважності до кінцевих звуків.
+> **Пояснення:** прозвучало *he stay* — без *-s* — американський мандативний субʼюнктив. Розрізнити на слух *stay / stays* — тренування уважності до кінцевих звуків.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-GB · id: en-c2-subjunctive-l02
 > audio: It is essential that every passenger be screened before boarding.
 
@@ -347,7 +347,7 @@ C2-нюанс: якщо умова **реальна** (могло бути пр�
 > level: C2 · id: en-c2-subjunctive-s04
 > text: Truth be told, I think it's vital that every child be given the same chance, whatever their background.
 > ipa: /ˌtruːθ bi ˈtəʊld aɪ θɪŋk ɪts ˈvaɪ.təl ðət ˈev.ri tʃaɪld bi ˈɡɪv.ən ðə ˈseɪm ˈtʃɑːns ˈwɒt.ev.ə ðeə ˈbæk.ɡraʊnd/
-> tip: питання екзаменатора — «Should education be free for everyone?». Truth be told — розмовний зачин, а субʼюнктив be given — точність. Vital — /ˈvaɪ.təl/, не «вітал».
+> tip: запитання екзаменатора — «Should education be free for everyone?». Truth be told — розмовний зачин, а субʼюнктив be given додає точності. Vital — /ˈvaɪ.təl/, не «вітал».
 
 ## Типові помилки українців
 

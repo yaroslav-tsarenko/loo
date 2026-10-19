@@ -58,9 +58,9 @@ estimatedMinutes: 60
 >   - { show: r1, note: "Імператив без please. Українською «Зачини вікно» між рідними — норма, англійською навіть із колегою звучить як наказ." }
 >   - { show: r2, note: "Імператив + tag will you? — фамільярне прохання, між друзями й рідними." }
 >   - { show: r3, note: "Could you…, please? — безпечний стандарт у більшості ситуацій: магазин, офіс, незнайомці." }
->   - { show: r4, note: "Would you mind + -ing — більше дистанції. Відповідь «так» = No, not at all! (не заперечую)." }
+>   - { show: r4, note: "Would you mind + -ing — більше дистанції. Щоб погодитися, відповідають No, not at all! (не заперечую)." }
 >   - { show: r5, note: "Негатив + possibly — максимум обережності: прохання, яке легко відхилити. Типово для британської ввічливості." }
->   - { show: r6, note: "Натяк — найнепрямший рівень. Носій зрозуміє, що його просять зачинити вікно, хоча прохання не прозвучало." }
+>   - { show: r6, note: "Натяк — найнепряміший рівень. Носій зрозуміє, що його просять зачинити вікно, хоча прохання не прозвучало." }
 > ```
 
 ## Пояснення
@@ -72,8 +72,8 @@ estimatedMinutes: 60
 | **the NHS** | державна система охорони здоровʼя Британії (з 1948 р.), безоплатна в момент звернення | у США — переважно медичне страхування (*health insurance*) |
 | **GP** (картка A2) | сімейний лікар; до спеціаліста — через *referral* | US: *primary care physician* |
 | **A&E** | відділення невідкладної допомоги | US: *the ER* (emergency room) |
-| **999 / 111** | екстрена служба / медична довідка NHS | US: *911* |
-| **council tax** | місцевий податок на житло (за «бендом» вартості) | US: *property tax* |
+| **999 / 111** | екстрена служба / медична довідкова лінія NHS | US: *911* |
+| **council tax** | місцевий податок на житло (залежно від категорії вартості — *band*) | US: *property tax* |
 | **VAT** | ПДВ, **уже в ціні** на полиці | US: **sales tax** додають на касі; ставка залежить від штату |
 | **high street** | головна торгова вулиця | US: *Main Street* |
 | **ground floor / first floor** | перший / другий поверх | US: *first floor / second floor* |
@@ -122,7 +122,7 @@ estimatedMinutes: 60
 | 11 листопада / найближча неділя | **Remembrance Day / Sunday** (UK) | памʼять загиблих у війнах; червоний мак — **poppy** |
 | 26 грудня | **Boxing Day** (UK) | вихідний після Різдва; нині — день розпродажів і футболу |
 | — | **bank holidays** | державні вихідні: в Англії й Уельсі — 8 на рік, переважно понеділки |
-| 4-й четвер листопада | **Thanksgiving** (US) | родинна вечеря, індичка; найбільший «поїздковий» тиждень року |
+| 4-й четвер листопада | **Thanksgiving** (US) | родинна вечеря, індичка; тиждень, коли найбільше людей подорожує |
 | 4 липня | **Independence Day / the Fourth of July** (US) | Декларація незалежності 1776 року, феєрверки |
 
 ### Ввічливість: формули, які варто мати напоготові
@@ -146,13 +146,13 @@ estimatedMinutes: 60
 > ```yaml
 > layout: stack
 > nodes:
->   - { id: g, label: "зелене — безпечно", text: "погода · подорожі · вихідні · їжа · фільми, серіали", note: "відкриті питання: How was your weekend?", tone: green }
+>   - { id: g, label: "зелене — безпечно", text: "погода · подорожі · вихідні · їжа · фільми, серіали", note: "відкриті запитання: How was your weekend?", tone: green }
 >   - { id: y, label: "жовте — обережно, залежно від людини", text: "робота загалом · спорт · діти · місце походження", note: "слухай, чи людина хоче розвивати тему", tone: yellow }
 >   - { id: r, label: "червоне — не з малознайомими", text: "зарплата · ціна житла · вага, вік · релігія · політика · «Why aren't you married?»", note: "intrusive questions", tone: red }
 > steps:
 >   - { show: g, note: "Погода — не банальність, а «соціальний клей»: безпечна тема, у якій усі можуть погодитися. How was your weekend? відкриває розмову." }
->   - { show: y, note: "Жовті теми — нормальні, але стеж за реакцією. Where are you from? — ок; Where are you REALLY from? — сприймають як сумнів, що людина «своя»." }
->   - { show: r, note: "Червоні теми — особисте. How much do you earn? чи Have you put on weight? від малознайомих звучать нав'язливо, навіть якщо в іншій культурі це звичайна турбота." }
+>   - { show: y, note: "Жовті теми — нормальні, але стеж за реакцією. Where are you from? — нормально; Where are you REALLY from? — сприймають як сумнів, що людина «своя»." }
+>   - { show: r, note: "Червоні теми — особисте. How much do you earn? чи Have you put on weight? від малознайомих звучать навʼязливо, навіть якщо в іншій культурі це звичайна турбота." }
 > ```
 
 ### Інклюзивна мова
@@ -176,11 +176,11 @@ estimatedMinutes: 60
 - *I ended up in **A&E** with a broken wrist.* — Я опинився у відділенні невідкладної допомоги зі зламаним запʼястям.
 - *Students in full-time education don't pay **council tax**.* — Студенти денної форми не платять місцевого податку на житло.
 - *She's taking three **A levels**: maths, physics and chemistry.* — Вона складає три випускні іспити: математику, фізику й хімію.
-- *Prices in US shops don't include **sales tax**.* — Ціни в американських магазинах не враховують податку з продажу.
+- *Prices in US shops don't include **sales tax**.* — Ціни в американських магазинах не включають податку з продажу.
 - *We're going to my parents' for **Thanksgiving**.* — На День подяки ми їдемо до моїх батьків.
 - *It's my **round** — what are you having?* — Цього разу пригощаю я — що тобі взяти?
-- *Asking about someone's salary is a bit of a **faux pas** here.* — Питати когось про зарплату тут — певний ляп.
-- *It's a **potluck**, so bring a dish to share.* — Кожен приносить страву, тож візьми щось, щоб поділитися.
+- *Asking about someone's salary is a bit of a **faux pas** here.* — Питати когось про зарплату тут нетактовно.
+- *It's a **potluck**, so bring a dish to share.* — На цю вечірку кожен приносить страву, тож візьми щось для всіх.
 - *Please **RSVP** by Friday.* — Будь ласка, підтвердіть участь до пʼятниці.
 - *I'm so sorry for your loss. Please accept my **condolences**.* — Мені дуже шкода вашої втрати. Прийміть мої співчуття.
 - *Religion can be a **touchy** subject at work.* — Релігія на роботі може бути делікатною темою.
@@ -200,13 +200,13 @@ estimatedMinutes: 60
 > ipa: /ˌeɪ ənd ˈiː/ · pos: noun · level: C2 · id: en-c2-culture-w02
 > uk: відділення невідкладної допомоги, «приймальне» (UK)
 > example: The waiting time in **A&E** was over four hours. — Чекати у відділенні невідкладної допомоги довелося понад чотири години.
-> note: Accident and Emergency. US — *the ER* (emergency room). Екстрений номер UK — 999 (також 112), медична довідка — NHS 111; US — 911.
+> note: Accident and Emergency. US — *the ER* (emergency room). Екстрений номер UK — 999 (також 112), медична довідкова лінія — NHS 111; US — 911.
 
 > [!word] council tax
 > ipa: /ˈkaʊnsəl ˌtæks/ · pos: noun · level: C2 · id: en-c2-culture-w03
 > uk: місцевий податок на житло (UK)
 > example: Our **council tax** went up again this year. — Наш податок на житло цього року знову зріс.
-> note: платять місцевій раді (*council*) за «бендом» вартості житла; повністю звільнені, напр., студенти денної форми. US-аналог — *property tax*.
+> note: платять місцевій раді (*council*) залежно від категорії вартості житла (*band*); повністю звільнені, напр., студенти денної форми. US-аналог — *property tax*.
 
 > [!word] bank holiday
 > ipa: /ˌbæŋk ˈhɒlədeɪ/ · ipa-us: /ˌbæŋk ˈhɑːlədeɪ/ · pos: noun · level: C2 · id: en-c2-culture-w04
@@ -249,14 +249,14 @@ estimatedMinutes: 60
 > [!word] public school
 > ipa: /ˌpʌblɪk ˈskuːl/ · pos: noun · level: C2 · id: en-c2-culture-w10
 > uk: (UK) приватна елітна школа; (US) державна школа
-> example: Several prime ministers went to the same **public school**. — Кілька прем'єр-міністрів навчалися в одній приватній школі.
+> example: Several prime ministers went to the same **public school**. — Кілька премʼєр-міністрів навчалися в одній приватній школі.
 > note: пастка! В Англії *public school* — старі платні школи (Eton, Harrow); загальніше — *private / independent school*. Державна в UK — *state school*.
 
 > [!word] sixth form
 > ipa: /ˈsɪksθ ˌfɔːm/ · pos: noun · level: C2 · id: en-c2-culture-w11
 > uk: два старші класи школи (Years 12–13), де готуються до A levels (UK)
 > example: She's in the **sixth form** and wants to study medicine. — Вона у старших класах і хоче вивчати медицину.
-> note: також окремий *sixth-form college*. Вимова: [сікс-с-фом] — *xth* важко: /ksθ/.
+> note: також окремий *sixth-form college*. Вимова: [сікс-с-фом] — *xth* вимовляти важко: /ksθ/.
 
 > [!word] A level
 > ipa: /ˈeɪ ˌlevəl/ · pos: noun · level: C2 · id: en-c2-culture-w12
@@ -311,7 +311,7 @@ estimatedMinutes: 60
 > [!word] Boxing Day
 > ipa: /ˈbɒksɪŋ ˌdeɪ/ · ipa-us: /ˈbɑːksɪŋ ˌdeɪ/ · pos: noun · level: C2 · id: en-c2-culture-w20
 > uk: 26 грудня, вихідний день після Різдва (UK, країни Співдружності)
-> example: The **Boxing Day** sales start at 8 a.m. — Розпродажі на Boxing Day стартують о 8-й ранку.
+> example: The **Boxing Day** sales start at 8 a.m. — Розпродажі на Boxing Day починаються о 8-й ранку.
 > note: не про бокс! Назву зазвичай повʼязують із «різдвяними коробками» (*Christmas boxes*) — подарунками слугам і торговцям.
 
 > [!word] poppy
@@ -332,7 +332,7 @@ estimatedMinutes: 60
 > ipa: /ˌfəʊ ˈpɑː/ · ipa-us: /ˌfoʊ ˈpɑː/ · pos: noun · level: C2 · id: en-c2-culture-w23
 > uk: ляп, нетактовність, порушення етикету
 > example: Forgetting her name was a terrible **faux pas**. — Забути її імʼя було жахливим ляпом.
-> note: з французької «хибний крок». Вимова: [фоу-ПА], *x* і *s* німі; множина пишеться так само.
+> note: з французької «хибний крок». Вимова: [фоу-ПА], *x* і *s* не читаються; множина пишеться так само.
 
 > [!word] taboo
 > ipa: /təˈbuː/ · pos: noun; adj · level: C2 · id: en-c2-culture-w24
@@ -348,14 +348,14 @@ estimatedMinutes: 60
 
 > [!word] intrusive
 > ipa: /ɪnˈtruːsɪv/ · pos: adj · level: C2 · id: en-c2-culture-w26
-> uk: нав'язливий, що втручається в особисте
-> example: Questions about salary can feel **intrusive**. — Питання про зарплату можуть здаватися нав'язливими.
+> uk: навʼязливий, що втручається в особисте
+> example: Questions about salary can feel **intrusive**. — Запитання про зарплату можуть здаватися навʼязливими.
 > note: *intrusive questions / media*. Від лат. *trudere* «штовхати» — *intrude* (втручатися). Фонетичний термін *intrusive r* — інше значення (тема B2).
 
 > [!word] pleasantries
 > ipa: /ˈplezəntriz/ · pos: noun · level: C2 · id: en-c2-culture-w27
-> uk: люб'язності, ввічливі формальні фрази
-> example: After exchanging **pleasantries**, we got down to business. — Обмінявшись люб'язностями, ми перейшли до справи.
+> uk: любʼязності, ввічливі формальні фрази
+> example: After exchanging **pleasantries**, we got down to business. — Обмінявшись любʼязностями, ми перейшли до справи.
 > note: майже завжди у множині: *exchange pleasantries*. Те, що відбувається перед переговорами чи нарадою, — частина small talk.
 
 > [!word] condolences
@@ -423,7 +423,7 @@ estimatedMinutes: 60
 > - [ ] The seminar room is on the third floor, not the ground floor.
 > - [ ] The seminar room is on the first floor, near the ground floor.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-culture-l02
 > audio: Would you mind if I opened the window?
 
@@ -442,14 +442,14 @@ estimatedMinutes: 60
 > level: C2 · type: answer · id: en-c2-culture-l04
 > audio: A: So, James, how much do you earn at your new job?
 > audio: B: Oh… well, it's, um, fine. Enough to get by! Anyway, how was your trip to Lisbon?
-> - [ ] Джеймс не почув питання.
+> - [ ] Джеймс не почув запитання.
 > - [x] Джеймсу незручно говорити про зарплату, тож він ухилився й змінив тему.
 > - [ ] Джеймс хоче поскаржитися на низьку зарплату.
 > - [ ] Джеймс радий поділитися подробицями.
 >
-> **Пояснення:** паузи (*Oh… well, um*), розмита відповідь (*Enough to get by*) і різка зміна теми (*Anyway…*) — сигнали, що питання здалося *intrusive*. Носії рідко скажуть «Це особисте» прямо; вони просто відведуть розмову.
+> **Пояснення:** паузи (*Oh… well, um*), розмита відповідь (*Enough to get by*) і різка зміна теми (*Anyway…*) — сигнали, що запитання здалося *intrusive*. Носії рідко скажуть «Це особисте» прямо; вони просто відведуть розмову.
 
-> [!listen] IELTS Listening · Part 1: реєстрація в поліклініці. ONE WORD AND/OR A NUMBER.
+> [!listen] IELTS Listening · Part 1: реєстрація в практиці сімейного лікаря. ONE WORD AND/OR A NUMBER.
 > level: C2 · type: fill · id: en-c2-culture-l05
 > audio: A: Good morning, I'd like to register with the surgery. I've just moved here.
 > audio: B: Of course. Can I take your surname?
@@ -464,7 +464,7 @@ estimatedMinutes: 60
 > Evening appointments: on [[Tuesdays|Tuesday]] until [[8|eight|8 pm|8 p.m.]]
 > ```
 >
-> **Пояснення:** IELTS Part 1 — побутова розмова з реаліями: *register with the surgery* (записатися до поліклініки GP), британський *postcode* (букви + цифри). Імена й коди диктують по літерах — правопис має бути точним.
+> **Пояснення:** IELTS Part 1 — побутова розмова з реаліями: *register with the surgery* (прикріпитися до практики сімейного лікаря, GP), британський *postcode* (букви + цифри). Імена й коди диктують по літерах — правопис має бути точним.
 
 > [!listen] IELTS Listening · Part 4 (лекція): яку думку висловлює лектор про «прямоту»?
 > level: C2 · type: answer · id: en-c2-culture-l06
@@ -488,7 +488,7 @@ estimatedMinutes: 60
 > **Daniel:** Pretty much. But don't worry — if you're not drinking much, just get a lemonade on your round.
 > **Marta:** Good to know. I'd hate to make a **faux pas** in my first week!
 >
-> Зверни увагу: Марта підтримує жарт про погоду (а не скаржиться всерйоз), відповідає на *How are you settling in?* коротко й позитивно (*Not bad, thanks*) і ставить відкрите питання про звичаї — це безпечний і дружній small talk.
+> Зверни увагу: Марта підтримує жарт про погоду (а не скаржиться всерйоз), відповідає на *How are you settling in?* коротко й позитивно (*Not bad, thanks*) і ставить відкрите запитання про звичаї — це безпечний і дружній small talk.
 
 ## Вимова
 
@@ -511,7 +511,7 @@ estimatedMinutes: 60
 > text: Sorry to bother you, but is this seat taken?
 > ipa: /ˈsɒri tə ˈbɒðə ju bət ɪz ðɪs ˈsiːt ˈteɪkən/
 > tip: bother — [ð] дзвінке, язик між зубами; seat — довге [iː]. Sorry тут не вибачення, а «перепрошую» перед звертанням.
-> uk: Перепрошую, що турбую, це місце зайняте?
+> uk: Перепрошую, що турбую, — тут не зайнято?
 
 > [!speak] У пабі
 > level: C2 · id: en-c2-culture-s04
@@ -542,8 +542,8 @@ estimatedMinutes: 60
 > [!pitfall] Ритуальні фрази розуміють буквально
 > На *How are you?* від касира не розповідають про здоровʼя — відповідь *Fine, thanks, you?* На *We should grab coffee sometime* не відкривають календар — кажуть *Definitely!* А *I'll bear it in mind* чи *That's an interesting idea* від британського колеги може означати ввічливе «ні» чи сумнів — суди з тону й контексту (детальніше — тема про understatement). Стеж за конкретикою: дата, час, місце — ознака справжнього плану.
 
-> [!pitfall] Особисті питання, що звучать нав'язливо
-> Звичні в багатьох українських розмовах питання — *How much do you earn? How much is your rent? Why don't you have children yet? Have you put on weight?* — з малознайомими англомовними співрозмовниками звучать *intrusive*. Так само *Where are you really from?* людині, що народилася в Британії: питання натякає, що вона «не своя». Безпечніше — відкриті нейтральні питання: *What do you do? How long have you lived here? How was your weekend?*
+> [!pitfall] Особисті запитання, що звучать навʼязливо
+> Звичні в багатьох українських розмовах запитання — *How much do you earn? How much is your rent? Why don't you have children yet? Have you put on weight?* — з малознайомими англомовними співрозмовниками звучать *intrusive*. Так само *Where are you really from?* людині, що народилася в Британії: запитання натякає, що вона «не своя». Безпечніше — відкриті нейтральні запитання: *What do you do? How long have you lived here? How was your weekend?*
 
 > [!pitfall] Стереотипи в есе й розмові
 > ~~All British people are cold~~, ~~Americans are loud and superficial~~ — узагальнення знижують бал IELTS за Task Response і Lexical Resource і звучать упереджено. Хеджуй і уточнюй: *In many British workplaces, requests tend to be phrased indirectly*; *Some visitors perceive American friendliness as superficial, although…* Говори про **норми й тенденції**, а не про «натуру» народу.
@@ -562,7 +562,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** UK — *ground floor* (на рівні вулиці); US — *the ER* (у UK — *A&E*); US — *sales tax* (додають на касі; у UK — *VAT*, уже в ціні); UK *public schools* — приватні платні школи. *First floor* у Лондоні — другий поверх, *Main Street* — американський відповідник *high street*.
 
-> [!quiz] Які питання доречні в розмові з малознайомим колегою на корпоративі? Обери всі.
+> [!quiz] Які запитання доречні в розмові з малознайомим колегою на корпоративі? Обери всі.
 > level: C2 · type: multi · id: en-c2-culture-q03
 > - [x] How long have you been with the company?
 > - [ ] How much do they pay you?
@@ -571,7 +571,7 @@ estimatedMinutes: 60
 > - [x] Have you seen any good films lately?
 > - [ ] Where are you really from?
 >
-> **Пояснення:** робота загалом, плани на вихідні, фільми — «зелені» теми. Зарплата, шлюб і *Where are you really from?* — особисте й нав'язливе (*intrusive*); останнє ще й натякає, що людина «не звідси».
+> **Пояснення:** робота загалом, плани на вихідні, фільми — «зелені» теми. Зарплата, шлюб і *Where are you really from?* — особисте й навʼязливе (*intrusive*); останнє ще й натякає, що людина «не звідси».
 
 > [!quiz] Яке прохання найдоречніше в листі до незнайомого професора?
 > level: C2 · id: en-c2-culture-q04
@@ -707,12 +707,12 @@ estimatedMinutes: 60
 > - [ ] Don't be sad, everything will be fine.
 > - [ ] What did he die of?
 >
-> **Пояснення:** стандартна формула — *I'm so sorry for your loss* + пропозиція допомоги. ~~I sympathise you~~ — помилка (*sympathise with*) і звучить дивно; «не сумуй» знецінює почуття; питання про причину смерті — надто особисте, якщо людина сама не розповідає.
+> **Пояснення:** стандартна формула — *I'm so sorry for your loss* + пропозиція допомоги. ~~I sympathise you~~ — помилка (*sympathise with*) і звучить дивно; «не сумуй» знецінює почуття; запитання про причину смерті — надто особисте, якщо людина сама не розповідає.
 
 ## Фішки
 
 > [!reel] 🍺 Пінта в Лондоні більша, ніж у Нью-Йорку
-> Британська пінта — ≈ 568 мл, американська — ≈ 473 мл. У Британії історично склалася імперська система мір, у США — своя, на основі старіших англійських. Тож «a pint» у пабі Лондона на п'яту частину більша.
+> Британська пінта — ≈ 568 мл, американська — ≈ 473 мл. У Британії історично склалася імперська система мір, у США — своя, на основі старіших англійських. Тож «a pint» у пабі Лондона на пʼяту частину більша.
 
 > [!reel] 🌺 Taboo привіз капітан Кук
 > Слово taboo прийшло з мови тонга (Полінезія): капітан Джеймс Кук записав його 1777 року, описуючи заборони острівʼян. Сьогодні це звичайне англійське слово для заборонених тем — від грошей до смерті.

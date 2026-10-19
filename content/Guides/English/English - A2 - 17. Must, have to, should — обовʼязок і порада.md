@@ -136,10 +136,10 @@ estimatedMinutes: 40
 У **must** немає минулої форми, тож про обовʼязки в минулому говоримо через **had to**:
 
 - I **had to** work late yesterday. — Мені довелося вчора працювати допізна.
-- We **didn't have to** wait — the doctor saw us immediately. — Нам не довелося чекати.
+- We **didn't have to** wait — the doctor saw us immediately. — Нам не довелося чекати: лікар прийняв нас одразу.
 - **Did** you **have to** show your passport? — Тобі треба було показувати паспорт?
 
-> [!quiz] Перевір себе: «Вчора мені довелося йти пішки»
+> [!quiz] Перевір себе: «Учора мені довелося йти пішки»
 > level: A2 · id: en-a2-modals-q04
 > - [ ] Yesterday I must walk.
 > - [ ] Yesterday I musted walk.
@@ -157,7 +157,7 @@ estimatedMinutes: 40
 - **Do** we **have to** bring our own food? — Нам треба брати свою їжу?
 - You **should** take an umbrella — it might rain. — Варто взяти парасольку: може піти дощ.
 - You **shouldn't** work so hard. — Тобі не варто так багато працювати.
-- When I was at school, we **had to** wear a uniform. — Коли я був у школі, нам доводилося носити форму.
+- When I was at school, we **had to** wear a uniform. — Коли я навчався в школі, нам доводилося носити форму.
 - Are dogs **allowed** in the café? — No, they aren't. — У кафе можна з собаками? — Ні.
 - It isn't **necessary** to book a table. — Бронювати столик не обовʼязково.
 
@@ -174,13 +174,13 @@ estimatedMinutes: 40
 > uk: мусити, доводиться (через обставини)
 > forms: have to → has to → had to
 > example: I **have to** leave at five. — Мені треба піти о пʼятій.
-> note: у значенні «мусити» читається з глухим [f]: [ГЕФ-те], has to — [ГЕС-те].
+> note: у значенні «мусити» вимовляється з глухим [f]: [ХЕФ-те], has to — [ХЕС-те].
 
 > [!word] mustn't
 > ipa: /ˈmʌs.ənt/ · pos: verb · level: A2 · id: en-a2-modals-w03
 > uk: не можна, заборонено
 > example: You **mustn't** cross the road here. — Тут не можна переходити дорогу.
-> note: перше t німе: [МАС-нт].
+> note: перше t не вимовляють: [МАС-нт].
 
 > [!word] don't have to
 > ipa: /dəʊnt ˈhæf tə/ · ipa-us: /doʊnt ˈhæf tə/ · pos: phrase · level: A2 · id: en-a2-modals-w04
@@ -190,8 +190,8 @@ estimatedMinutes: 40
 > [!word] should
 > ipa: /ʃʊd/ · pos: verb · level: A2 · id: en-a2-modals-w05
 > uk: варто, слід (порада)
-> example: You **should** try this soup — it's delicious. — Скуштуй цей суп — він смачнющий.
-> note: l німе; заперечення shouldn't /ˈʃʊd.ənt/.
+> example: You **should** try this soup — it's delicious. — Тобі варто скуштувати цей суп — він дуже смачний.
+> note: l не читається; заперечення — shouldn't /ˈʃʊd.ənt/.
 
 > [!word] had to
 > ipa: /ˈhæd tə/ · pos: phrase · level: A2 · id: en-a2-modals-w06
@@ -206,7 +206,7 @@ estimatedMinutes: 40
 > [!word] law
 > ipa: /lɔː/ · ipa-us: /lɑː/ · pos: noun · level: A2 · id: en-a2-modals-w08
 > uk: закон
-> example: In the UK, it's the **law** to wear a seat belt. — У Британії пристібатися вимагає закон.
+> example: In the UK, it's the **law** to wear a seat belt. — У Британії закон вимагає пристібатися.
 
 > [!word] allowed
 > ipa: /əˈlaʊd/ · pos: adj · level: A2 · id: en-a2-modals-w09
@@ -223,8 +223,8 @@ estimatedMinutes: 40
 > [!word] permission
 > ipa: /pəˈmɪʃ.ən/ · ipa-us: /pɚˈmɪʃ.ən/ · pos: noun · level: A2 · id: en-a2-modals-w11
 > uk: дозвіл
-> example: You need **permission** to take photos here. — Тут потрібен дозвіл, щоб фотографувати.
-> note: ask for permission — попросити дозволу; синонім до be allowed to.
+> example: You need **permission** to take photos here. — Щоб фотографувати тут, потрібен дозвіл.
+> note: ask for permission — попросити дозволу; have permission to = be allowed to.
 
 > [!word] seat belt
 > ipa: /ˈsiːt belt/ · pos: noun · level: A2 · id: en-a2-modals-w12
@@ -247,7 +247,7 @@ estimatedMinutes: 40
 > - [x] She had to work late on Friday.
 > - [ ] She doesn't have to work late on Friday.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-modals-l03
 > audio: You should go to bed earlier.
 
@@ -278,13 +278,13 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-modals-s01
 > text: I have to go now.
 > ipa: /aɪ ˈhæf tə ɡəʊ naʊ/
-> tip: have to — [ГЕФ-те]: v оглушується до f перед to.
+> tip: have to — [ХЕФ-те]: v оглушується до f перед to.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-modals-s02
 > text: She has to work on Saturdays.
 > ipa: /ʃiː ˈhæs tə wɜːk ɒn ˈsæt.ə.deɪz/
-> tip: has to — [ГЕС-те], глухе s; work — /ɜː/, губи не округлюй.
+> tip: has to — [ХЕС-те], глухе s; work — /ɜː/, губи не округлюй.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-modals-s03
@@ -308,7 +308,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-modals-s06
 > text: We had to wait for an hour.
 > ipa: /wiː ˈhæd tə weɪt fər ən ˈaʊə/
-> tip: hour — h німе, тому an hour; for‿an зливаються: [фе-рен].
+> tip: hour — h не читається, тому an hour; for‿an зливаються: [фе-рен].
 
 ## Типові помилки українців
 
@@ -397,7 +397,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** «не треба» = нема потреби → **don't have to**. *Mustn't* заборонило б поспішати.
 
-> [!quiz] Склади питання: «Мені треба заповнити цю форму?»
+> [!quiz] Склади питання: «Мені треба заповнити цей бланк?»
 > level: A2 · type: order · id: en-a2-modals-q12
 >
 > ```text order
@@ -430,12 +430,12 @@ estimatedMinutes: 40
 > - [ ] We mustn't to eat at our desks.
 > - [ ] We haven't allowed eat at our desks.
 >
-> **Пояснення:** «нам не дозволено» — **be not allowed to**: *We aren't allowed to…* Це майже те саме, що *We mustn't…*, але звучить як чуже правило.
+> **Пояснення:** «нам не дозволено» — **be not allowed to**: *We aren't allowed to…* Це майже те саме, що *We mustn't…*, але підкреслює, що правило встановив хтось інший.
 
 ## Фішки
 
 > [!reel] 🗿 Must застиг у минулому
-> Колись must була формою минулого часу (від староанглійського mōtan). Тепер вона застигла й не змінюється, тому минуле позичаємо в have to: had to.
+> Колись must було формою минулого часу (від староанглійського mōtan). Тепер воно застигло й не змінюється, тому минуле позичаємо в have to: had to.
 
 > [!reel] 🎧 Have to звучить як «хефте»
 > У значенні «мусити» v оглушується: have to /ˈhæf tə/, has to /ˈhæs tə/. Носії чують різницю: I have two cats /hæv/ vs I have to go /hæf/.

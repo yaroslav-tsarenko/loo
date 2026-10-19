@@ -109,7 +109,7 @@ estimatedMinutes: 45
 - *He smoked for twenty years before he finally **kicked the habit**.* — Він курив двадцять років, перш ніж нарешті кинув.
 - *Regular exercise can **boost** your mood and your **immune system**.* — Регулярні тренування можуть покращити настрій та імунітет.
 - *Chocolate is fine **in moderation**.* — Шоколад — це нормально, якщо в міру.
-- *The doctor said my **recovery** would take about six weeks.* — Лікар сказав, що одужання займе близько шести тижнів.
+- *The doctor said my **recovery** would take about six weeks.* — Лікар сказав, що одужання триватиме близько шести тижнів.
 - ***Life expectancy** in Ukraine has changed a lot over the past century.* — Тривалість життя в Україні дуже змінилася за останнє століття.
 - *Stay **hydrated** — drink water before you feel thirsty.* — Пий достатньо води — ще до того, як відчуєш спрагу.
 
@@ -138,7 +138,7 @@ estimatedMinutes: 45
 > [!word] anxious
 > ipa: /ˈæŋkʃəs/ · pos: adj · level: B2 · id: en-b2-wellbeing-w04
 > uk: стривожений; тривожний
-> example: I always feel **anxious** before a job interview. — Перед співбесідою я завжди тривожуся.
+> example: I always feel **anxious** before a job interview. — Перед співбесідою я завжди хвилююся.
 > note: нейтральне. *anxious about something*. Вимова інша, ніж в *anxiety*: [ЕНК-шес].
 
 > [!word] depression
@@ -220,7 +220,7 @@ estimatedMinutes: 45
 > [!word] lifestyle
 > ipa: /ˈlaɪfstaɪl/ · pos: noun · level: B2 · id: en-b2-wellbeing-w17
 > uk: спосіб життя
-> example: Small **lifestyle** changes can add years to your life. — Невеликі зміни способу життя можуть додати років до життя.
+> example: Small **lifestyle** changes can add years to your life. — Невеликі зміни в способі життя можуть подовжити життя на кілька років.
 > note: нейтральне. *lead / have a healthy lifestyle*; *lifestyle choices*.
 
 > [!word] sedentary
@@ -232,7 +232,7 @@ estimatedMinutes: 45
 > [!word] balanced diet
 > ipa: /ˌbælənst ˈdaɪət/ · pos: noun · level: B2 · id: en-b2-wellbeing-w19
 > uk: збалансоване харчування
-> example: A **balanced diet** includes plenty of fruit and vegetables. — Збалансоване харчування включає багато фруктів і овочів.
+> example: A **balanced diet** includes plenty of fruit and vegetables. — У збалансованому раціоні багато фруктів і овочів.
 > note: нейтральне. *diet* — це не лише «дієта для схуднення», а й раціон загалом: *a healthy diet, a vegetarian diet*.
 
 > [!word] processed food
@@ -415,7 +415,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *anxious* [ЕНК-шес] — тривожний; *angry* — злий. *I've been feeling* — тривалий стан до сьогодні, а не минуле.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-wellbeing-l03
 > audio: A balanced diet can boost your immune system.
 
@@ -440,7 +440,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *Agreed, but… isn't enough* — він погоджується й **додає**: *Teachers need some training too, so they can spot the warning signs early.*
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-wellbeing-l06
 > audio: Mental health problems are nothing to be ashamed of.
 
@@ -486,7 +486,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-wellbeing-s04
 > text: Social media creates constant pressure to look perfect, and many teenagers feel overwhelmed by it.
 > ipa: /ˈsəʊʃəl ˈmiːdiə kriˈeɪts ˈkɒnstənt ˈpreʃə tə ˈlʊk ˈpɜːfɪkt ən ˈmeni ˈtiːneɪdʒəz ˈfiːl ˌəʊvəˈwelmd baɪ ɪt/
-> tip: Причина + наслідок в одному реченні. overwhelmed — [оу-ве-ВЕЛМД], *h* не вимовляється; perfect — [ПЕ-фікт].
+> tip: Причина + наслідок в одному реченні. overwhelmed — [оу-ве-ВЕЛМД], літера *h* не читається; perfect — [ПЕ-фікт].
 > uk: Соцмережі створюють постійний тиск виглядати ідеально, і багато підлітків почуваються від цього перевантаженими.
 
 > [!speak] IELTS Speaking, Part 3 — «Should the government be responsible for people's health?»

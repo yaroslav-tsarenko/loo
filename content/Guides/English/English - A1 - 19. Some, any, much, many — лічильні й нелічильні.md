@@ -13,9 +13,9 @@ estimatedMinutes: 35
 
 > [!success] Після цієї теми ти зможеш
 > - відрізнити лічильні іменники (*an egg, two eggs*) від нелічильних (*water, money, advice*);
-> - вибрати *some* чи *any* у ствердженні, запереченні, питанні й ввічливій пропозиції;
+> - вибрати *some* чи *any* у ствердженні, запереченні, питанні та ввічливій пропозиції;
 > - спитати *How many…?* і *How much…?* та сказати «багато» — *many, much, a lot of*;
-> - порахувати нерахівне: *a bottle of water, a slice of bread, a piece of advice*.
+> - порахувати нелічильне: *a bottle of water, a slice of bread, a piece of advice*.
 
 ## Передбач
 
@@ -26,7 +26,7 @@ estimatedMinutes: 35
 > - [x] I need some advice.
 > - [ ] I need advices.
 >
-> **Пояснення:** українські «поради» — множина, а англійське *advice* — **нелічильне**: без *a / an* і без *-s*. Одну пораду кажуть *a piece of advice*.
+> **Пояснення:** українські «поради» — множина, а англійське *advice* — **нелічильне**: без *a / an* і без *-s*. «Одна порада» — *a piece of advice*.
 
 ## Лічильні й нелічильні
 
@@ -45,7 +45,7 @@ estimatedMinutes: 35
 | дієслово | *The eggs **are** fresh.* | *The bread **is** fresh.* |
 | «скільки?» | *How **many** eggs?* | *How **much** bread?* |
 
-Підступ для україномовних — слова, які **в нас у множині**, а в англійській нелічильні й однина:
+Пастка для україномовних — слова, які **в нас у множині**, а в англійській нелічильні й однина:
 
 | Українською | Англійською | Правильно |
 |---|---|---|
@@ -122,9 +122,9 @@ estimatedMinutes: 35
 > - [ ] much
 > - [ ] a lot
 >
-> **Пояснення:** *apples* — лічильні, у множині, тому *How many*. *A lot* без *of* питання не будує.
+> **Пояснення:** *apples* — лічильні, у множині, тому *How many*. А *a lot* без *of* перед іменником не вживають.
 
-## Як порахувати нерахівне
+## Як порахувати нелічильне
 
 Нелічильне не можна порахувати поштучно, але можна порахувати **порції й упаковки**: *a + одиниця + of + іменник*.
 
@@ -140,7 +140,7 @@ estimatedMinutes: 35
 | *a tin of* (US *a can of*) | бляшанка | *tomatoes, beans, soup* |
 | *a jar of* | банка (скляна) | *jam, honey, coffee* |
 
-Множина — в одиниці: *two **bottles** of water, three **slices** of pizza*. Слово після *of* не змінюється.
+Множину отримує одиниця: *two **bottles** of water, three **slices** of pizza*. Слово після *of* не змінюється.
 
 ## Приклади
 
@@ -150,9 +150,9 @@ estimatedMinutes: 35
 - How many brothers and sisters do you have? — Скільки в тебе братів і сестер?
 - How much money do you need? — Скільки тобі потрібно грошей?
 - I don't have much time today. — У мене сьогодні небагато часу.
-- Can I give you a piece of advice? — Можна дам тобі одну пораду?
+- Can I give you a piece of advice? — Можна дати тобі одну пораду?
 - The news is bad, I'm afraid. — На жаль, новини погані.
-- I'd like two slices of pizza and a bottle of water. — Мені дві скибки піци й пляшку води.
+- I'd like two slices of pizza and a bottle of water. — Мені два шматки піци й пляшку води.
 - Our new furniture is from IKEA. — Наші нові меблі з IKEA.
 
 ## Слова
@@ -166,7 +166,7 @@ estimatedMinutes: 35
 > [!word] advice
 > ipa: /ədˈvaɪs/ · pos: noun · level: A1 · id: en-a1-countable-w02
 > uk: порада; поради
-> example: Can you give me some **advice**? — Можеш дати мені пораду?
+> example: Can you give me some **advice**? — Можеш мені щось порадити?
 > note: нелічильне: *a piece of advice*, не ~~an advice~~. Дієслово «радити» — *advise* /ədˈvaɪz/ зі звуком «з».
 
 > [!word] information
@@ -184,7 +184,7 @@ estimatedMinutes: 35
 > [!word] homework
 > ipa: /ˈhəʊmwɜːk/ · ipa-us: /ˈhoʊmwɝːk/ · pos: noun · level: A1 · id: en-a1-countable-w05
 > uk: домашнє завдання
-> example: We have a lot of **homework** today. — Сьогодні в нас багато домашнього завдання.
+> example: We have a lot of **homework** today. — Сьогодні в нас багато домашніх завдань.
 > note: нелічильне: *do your homework*, не ~~homeworks~~.
 
 > [!word] furniture
@@ -213,7 +213,7 @@ estimatedMinutes: 35
 > [!word] slice
 > ipa: /slaɪs/ · pos: noun · level: A1 · id: en-a1-countable-w10
 > uk: скибка; тонкий шматочок
-> example: Two **slices** of pizza, please. — Дві скибки піци, будь ласка.
+> example: Two **slices** of pizza, please. — Два шматки піци, будь ласка.
 
 > [!word] loaf
 > ipa: /ləʊf/ · ipa-us: /loʊf/ · pos: noun · level: A1 · id: en-a1-countable-w11
@@ -290,11 +290,11 @@ estimatedMinutes: 35
 > - [x] Can I have a bottle of water and two slices of pizza?
 > - [ ] Can I have a bottle of water and two pieces of cake?
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-countable-l03
 > audio: Would you like some tea?
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-countable-l04
 > audio: I don't have any money.
 
@@ -340,14 +340,14 @@ estimatedMinutes: 35
 
 ## Типові помилки українців
 
-> [!pitfall] «Money are», «the news are» — бо «гроші є», «новини є»
+> [!pitfall] «Money are», «the news are» — бо в нас «гроші», «новини» — множина
 > В українській *гроші, новини, меблі* — множина. В англійській *money, news, furniture* — однина: *My money **is** here. The news **is** good. This furniture **is** new.*
 
 > [!pitfall] «Advices», «informations», «furnitures»
 > Нелічильні не мають множини. Хочеш порахувати — додай одиницю: *a piece of advice, two pieces of information, three pieces of furniture*. Або просто *some advice, a lot of information*.
 
 > [!pitfall] «How much apples?», «many water»
-> «Скільки» українською одне, а англійською два: ***How many*** + лічильні (*apples, people, days*), ***How much*** + нелічильні (*water, money, time*) і ціна. Перевір іменник: можна сказати *two …s*? Тоді *many*.
+> «Скільки» в українській — одне слово, а в англійській — два: ***How many*** + лічильні (*apples, people, days*), ***How much*** + нелічильні (*water, money, time*) і ціна. Перевір іменник: можна сказати *two …s*? Тоді *many*.
 
 > [!pitfall] «I have any questions» — any у ствердженні
 > У ствердженні майже завжди *some*: *I have **some** questions.* *Any* — для заперечення й питання: *I don't have **any** questions. Do you have **any** questions?*

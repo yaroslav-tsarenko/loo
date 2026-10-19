@@ -95,13 +95,13 @@ estimatedMinutes: 45
 
 | Без артикля | З **the** |
 |---|---|
-| більшість країн: *Ukraine, France, Japan* | країни-«обʼєднання» і в множині: *the UK, the USA, the Czech Republic, the Netherlands, the Philippines* |
+| більшість країн: *Ukraine, France, Japan* | країни-«обʼєднання» і назви в множині: *the UK, the USA, the Czech Republic, the Netherlands, the Philippines* |
 | міста: *Kyiv, London* | річки: *the Dnipro, the Thames, the Danube* |
 | континенти: *Europe, Asia* | моря й океани: *the Black Sea, the Atlantic (Ocean)* |
 | окремі гори: *Hoverla, Everest* | гірські пасма: *the Carpathians, the Alps* |
 | озера: *Lake Svitiaz, Lake Geneva* | групи островів: *the Canaries, the Maldives* |
 | окремі острови: *Crete, Malta* | пустелі: *the Sahara* |
-| вулиці: *Khreshchatyk, Oxford Street* | частини світу: *the north of England* (але *northern England*) |
+| вулиці: *Khreshchatyk, Oxford Street* | частини країни: *the north of England* (але *northern England*) |
 
 **Ukraine — без the.** Форма *the Ukraine* застаріла й сприймається як неправильна (ніби «околиця», а не держава). Офіційно і в сучасних медіа — **Ukraine**.
 
@@ -132,7 +132,7 @@ estimatedMinutes: 45
 >   - { id: b3, col: building, label: "оглядати", text: "We visited the church — it's 800 years old.", tone: green }
 > steps:
 >   - { show: [p1, b1], note: "Учень іде до школи вчитися — go to school, без артикля. Мама йде до школи як гість — go to the school." }
->   - { show: [p2, b2], note: "Злочинця посадили — go to prison / be in prison. Відвідувач іде у в'язницю як у будівлю — the prison." }
+>   - { show: [p2, b2], note: "Злочинця посадили — go to prison / be in prison. Відвідувач іде у вʼязницю як у будівлю — the prison." }
 >   - { show: [p3, b3], note: "Вірянин іде молитися — go to church. Турист оглядає храм — the church." }
 >   - { focus: [p1, p2, p3], note: "Так само: go to bed, go to university, go to court, be at work, be at home. UK: go to hospital (як пацієнт), US: go to the hospital." }
 > ```
@@ -155,7 +155,7 @@ estimatedMinutes: 45
 - **The police** are looking for the driver. — Поліція шукає водія.
 - **The government** has promised to build new schools. — Уряд пообіцяв збудувати нові школи.
 - She plays **the piano** and **tennis**. — Вона грає на піаніно і в теніс.
-- I heard the news on **the radio**. — Я почув новину по радіо.
+- I heard the news on **the radio**. — Я почув новину на радіо.
 - Have you ever been to **the Carpathians**? — Ти колись бував у Карпатах?
 - We spent a week on **the coast** of **Crete**. — Ми провели тиждень на узбережжі Криту.
 - My grandad was **in hospital** for two weeks. — Дідусь два тижні лежав у лікарні. (UK)
@@ -178,7 +178,7 @@ estimatedMinutes: 45
 
 > [!word] in general
 > ipa: /ɪn ˈdʒen.ər.əl/ · ipa-us: /ɪn ˈdʒen.ɚ.əl/ · pos: phrase · level: B1 · id: en-b1-articles-w03
-> uk: загалом, у цілому
+> uk: загалом, взагалі
 > example: **In general**, people here are very friendly. — Загалом люди тут дуже привітні.
 > note: корисний вираз для есе IELTS; також generally.
 
@@ -186,7 +186,7 @@ estimatedMinutes: 45
 > ipa: /ˈprɪz.ən/ · pos: noun · level: B1 · id: en-b1-articles-w04
 > uk: вʼязниця
 > example: He spent five years in **prison**. — Він провів пʼять років у вʼязниці.
-> note: in prison — як ув'язнений; the prison — будівля.
+> note: in prison — як увʼязнений; the prison — будівля.
 
 > [!word] church
 > ipa: /tʃɜːtʃ/ · ipa-us: /tʃɝːtʃ/ · pos: noun · level: B1 · id: en-b1-articles-w05
@@ -262,9 +262,9 @@ estimatedMinutes: 45
 > - [ ] He's in the prison.
 > - [ ] He's at a prison.
 >
-> **Пояснення:** *in prison* — він ув'язнений. *In the prison* — у будівлі (наприклад, працює чи відвідує).
+> **Пояснення:** *in prison* — він увʼязнений. *In the prison* — у будівлі (наприклад, працює чи відвідує).
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-articles-l02
 > audio: The police are looking for the driver.
 
@@ -279,7 +279,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *music in general* — музика загалом (без артикля); *the music at Kate's party* — конкретна музика на конкретній вечірці.
 
-> [!listen] IELTS Listening · Part 2: куди поїде група в третій день туру?
+> [!listen] IELTS Listening · Part 2: куди поїде група на третій день туру?
 > level: B1 · type: answer · id: en-b1-articles-l04
 > audio: Welcome to our tour of Western Ukraine. On day one we'll explore Lviv. On day two we'll drive to the Carpathians and stay near Hoverla. On day three, if the weather is good, we'll climb Hoverla, and on day four we'll relax by Lake Synevyr.
 > - [ ] До Львова
@@ -322,7 +322,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «I have dog», «She is doctor»
-> Лічильний іменник в однині **ніколи не стоїть сам**: потрібен *a / an*, *the*, *my*, *this*… *I have **a** dog*, *She's **a** doctor*. В українській «вона лікар» — норма, в англійській без *a* речення зламане.
+> Лічильний іменник в однині **ніколи не стоїть сам**: потрібен *a / an*, *the*, *my*, *this*… *I have **a** dog*, *She's **a** doctor*. В українській «вона лікар» — норма, а в англійській без *a* речення граматично неправильне.
 
 > [!pitfall] «The life is beautiful», «I like the music»
 > Українська не має артиклів, тож хочеться «підстрахуватися» *the*. Але про речі **загалом** — без артикля: *Life is beautiful*, *I like music*, *Dogs are loyal*. *The* — тільки коли є уточнення: *the music **in this film***.
@@ -363,7 +363,7 @@ estimatedMinutes: 45
 > She was [[the]] first woman to fly to the space station.
 > ```
 >
-> **Пояснення:** перша згадка — *a documentary*; друга — *the documentary* (вже знаємо, який). *An astronaut* — один з багатьох, голосний звук. *The first* — порядкові числівники завжди з *the*.
+> **Пояснення:** перша згадка — *a documentary*; друга — *the documentary* (вже знаємо, який). *An astronaut* — один із багатьох; *an*, бо слово починається з голосного звуку. *The first* — порядкові числівники завжди з *the*.
 
 > [!quiz] Обери правильне речення
 > level: B1 · id: en-b1-articles-q08
@@ -470,7 +470,7 @@ estimatedMinutes: 45
 > «The Ukraine» звучало як назва регіону (як the Midlands). Після 1991 року англомовні медіа й уряди перейшли на Ukraine — як назву незалежної держави. Пиши так і ти.
 
 > [!reel] 🎹 The piano, але football
-> Інструменти беруть the, бо мається на увазі «цей тип інструмента»: play the piano. Спорт — це діяльність, а діяльність без артикля: play football, do yoga.
+> Інструменти беруть the, бо йдеться про інструмент як тип: play the piano. Спорт — це діяльність, а діяльність без артикля: play football, do yoga.
 
 > [!reel] 🏥 In hospital через океан
 > Британець лежить in hospital, американець — in the hospital. Так само UK: at university, US: in college. Одна мова — дві звички.

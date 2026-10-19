@@ -48,9 +48,9 @@ estimatedMinutes: 60
 >   - { id: calque, label: "3. кальки-сполучення", text: "make a photo → take a photo", note: "слова правильні, сполучення — ні", tone: yellow }
 >   - { id: pseudo, label: "4. псевдоанглізми", text: "ноутбук → laptop · кемпінг → campsite", note: "«англійське» слово, якого англійці так не вживають", tone: violet }
 > steps:
->   - { show: full, note: "Повні хибні друзі — слова, що звучать схоже, але значать зовсім інше. Їх легко вивчити: помилка очевидна, носій перепитає." }
+>   - { show: full, note: "Повні хибні друзі — слова, що звучать схоже, але означають зовсім інше. Їх легко вивчити: помилка очевидна, носій перепитає." }
 >   - { show: part, note: "Часткові — найпідступніші: concrete справді «конкретний», але й «бетон». Ти вживаєш слово правильно в одному значенні й переносиш на інше." }
->   - { show: calque, note: "Кальки — переклад сполучень «слово в слово»: пити ліки → drink pills (а треба take medicine). Граматично ок, але не по-англійськи." }
+>   - { show: calque, note: "Кальки — переклад сполучень «слово в слово»: пити ліки → drink pills (а треба take medicine). Граматично все гаразд, але англійці так не кажуть." }
 >   - { show: pseudo, note: "Псевдоанглізми — «англійські» слова з української: ноутбук, смокінг, секонд-хенд. В Англії тебе зрозуміють не завжди." }
 > ```
 
@@ -60,7 +60,7 @@ estimatedMinutes: 60
 
 Систематизуймо — ці слова вже мають картки в курсі, тут лише нагадування:
 
-| Слово | Значить | ≠ українське | Де вивчали |
+| Слово | Значення | ≠ українське | Де вивчали |
 |---|---|---|---|
 | *magazine* | журнал | магазин (*shop*) | A1 |
 | *eventually* | зрештою | евентуально (*possibly*) | A2 |
@@ -83,7 +83,7 @@ estimatedMinutes: 60
 
 ### Люди й характер
 
-| Англійське | Що значить | ~~Українська пастка~~ → як сказати |
+| Англійське | Що означає | ~~Українська пастка~~ → як сказати |
 |---|---|---|
 | **artist** | художник, митець | ~~артист~~ → *performer, actor* |
 | **genial** | привітний, добродушний | ~~геніальний~~ → *brilliant, ingenious* |
@@ -97,7 +97,7 @@ estimatedMinutes: 60
 
 ### Професії й посади
 
-| Англійське | Що значить | ~~Українська пастка~~ → як сказати |
+| Англійське | Що означає | ~~Українська пастка~~ → як сказати |
 |---|---|---|
 | **physician** | лікар | ~~фізик~~ → *physicist* |
 | **mayor** | мер | ~~майор~~ → *major* |
@@ -109,7 +109,7 @@ estimatedMinutes: 60
 
 ### Речі й місця
 
-| Англійське | Що значить | ~~Українська пастка~~ → як сказати |
+| Англійське | Що означає | ~~Українська пастка~~ → як сказати |
 |---|---|---|
 | **fabric** | тканина | ~~фабрика~~ → *factory* |
 | **clay** | глина | ~~клей~~ → *glue* |
@@ -130,7 +130,7 @@ estimatedMinutes: 60
 
 ### Абстрактні слова, бізнес, право
 
-| Англійське | Що значить | ~~Українська пастка~~ → як сказати |
+| Англійське | Що означає | ~~Українська пастка~~ → як сказати |
 |---|---|---|
 | **accurate** | точний | ~~акуратний~~ → *neat, tidy, careful* |
 | **actual** | справжній, фактичний | ~~актуальний~~ → *relevant, up to date* |
@@ -231,10 +231,10 @@ estimatedMinutes: 60
 - *She has a pale **complexion** and red hair.* — У неї бліда шкіра й руде волосся.
 - *Our host was a **genial** man in his sixties.* — Господар був привітним чоловіком років шістдесяти.
 - *The job offers excellent career **prospects**.* — Робота дає чудові перспективи карʼєрного зростання.
-- *This ticket is **invalid** — it expired yesterday.* — Цей квиток недійсний — термін минув учора.
+- *This ticket is **invalid** — it expired yesterday.* — Цей квиток недійсний — термін дії минув учора.
 - *Meet me on the station **concourse** at nine.* — Зустрінемося в залі вокзалу о девʼятій.
 - *He was released on **parole** after five years.* — Його звільнили умовно-достроково через пʼять років.
-- *His evidence was purely **anecdotal**.* — Його докази були суто анекдотичними — на основі окремих випадків.
+- *His evidence was purely **anecdotal**.* — Його докази ґрунтувалися лише на окремих випадках.
 - *The new **mayor** promised to fix the potholes.* — Новий мер пообіцяв залатати ями.
 - *Most chips are made of **silicon**.* — Більшість мікросхем виготовляють із кремнію.
 
@@ -299,13 +299,13 @@ estimatedMinutes: 60
 > [!word] invalid
 > ipa: /ɪnˈvælɪd/ · pos: adj · level: C2 · id: en-c2-false-friends-w10
 > uk: недійсний; необґрунтований
-> example: Your passport is **invalid** — it has expired. — Ваш паспорт недійсний — термін минув.
+> example: Your passport is **invalid** — it has expired. — Ваш паспорт недійсний — термін дії минув.
 > note: пастка «інвалід» → *disabled person* (UK) / *person with a disability*. Іменник *an invalid* /ˈɪnvəlɪd/ — застарілий і образливий.
 
 > [!word] parole
 > ipa: /pəˈrəʊl/ · ipa-us: /pəˈroʊl/ · pos: noun · level: C2 · id: en-c2-false-friends-w11
 > uk: умовно-дострокове звільнення
-> example: He will be eligible for **parole** in ten years. — Через десять років він матиме право на умовно-дострокове.
+> example: He will be eligible for **parole** in ten years. — Через десять років він матиме право на умовно-дострокове звільнення.
 > note: пастка «пароль» → *password*. Від французького *parole* «слово» — вʼязня відпускали «під слово честі».
 
 > [!word] affair
@@ -336,7 +336,7 @@ estimatedMinutes: 60
 > ipa: /ˈsɒlɪd/ · ipa-us: /ˈsɑːlɪd/ · pos: adj · level: C2 · id: en-c2-false-friends-w16
 > uk: твердий, суцільний; надійний, ґрунтовний
 > example: She has a **solid** understanding of statistics. — Вона ґрунтовно розуміється на статистиці.
-> note: часткова пастка «солідний» → *reputable, respectable* (фірма), *distinguished* (чоловік), *substantial* (сума). *Solid gold* — чисте золото.
+> note: часткова пастка «солідний» → *reputable, respectable* (фірма), *distinguished* (чоловік), *substantial* (сума). *Solid gold* — суцільне (не позолочене) золото.
 
 ### Люди й характер
 
@@ -374,7 +374,7 @@ estimatedMinutes: 60
 > ipa: /fəˈmɪliə/ · ipa-us: /fəˈmɪljər/ · pos: adj · level: C2 · id: en-c2-false-friends-w22
 > uk: знайомий; обізнаний (з чимось)
 > example: Are you **familiar with** this software? — Ви знайомі з цією програмою?
-> note: пастка «фамільярний» → *overfamiliar*, *too familiar* (заслабко формально): *He was a bit too familiar with the staff.* Основне значення — просто «знайомий».
+> note: пастка «фамільярний» → *overfamiliar*, *too familiar* (надто невимушено, без належної дистанції): *He was a bit too familiar with the staff.* Основне значення — просто «знайомий».
 
 > [!word] extravagant
 > ipa: /ɪkˈstrævəɡənt/ · pos: adj · level: C2 · id: en-c2-false-friends-w23
@@ -385,7 +385,7 @@ estimatedMinutes: 60
 > [!word] adequate
 > ipa: /ˈædɪkwət/ · pos: adj · level: C2 · id: en-c2-false-friends-w24
 > uk: достатній, прийнятний; задовільний (часто — «не більше»)
-> example: The hotel was **adequate**, but nothing special. — Готель був прийнятним, але нічим не особливим.
+> example: The hotel was **adequate**, but nothing special. — Готель був пристойним, але нічим не вирізнявся.
 > note: пастка «адекватний (про людину)» → *reasonable, sensible, level-headed, sane*. *Inadequate* (недостатній) — картка B2.
 
 > [!word] lunatic
@@ -411,7 +411,7 @@ estimatedMinutes: 60
 > [!word] magistrate
 > ipa: /ˈmædʒɪstreɪt/ · pos: noun · level: C2 · id: en-c2-false-friends-w28
 > uk: мировий суддя (суддя нижчого суду)
-> example: He appeared before **magistrates** charged with speeding. — Він постав перед мировими суддями за перевищення швидкості.
+> example: He appeared before **magistrates** charged with speeding. — Він постав перед мировим судом за звинуваченням у перевищенні швидкості.
 > note: пастка «магістр» → *Master's degree*, *Master's graduate*; магістрант — *Master's student*. В Англії й Уельсі *magistrates* — здебільшого судді-неюристи, що працюють на волонтерських засадах.
 
 > [!word] academic
@@ -430,7 +430,7 @@ estimatedMinutes: 60
 > ipa: /ˈprɪnsəpəl/ · pos: adj; noun · level: C2 · id: en-c2-false-friends-w31
 > uk: головний, основний; директор (школи, коледжу)
 > example: Tourism is the island's **principal** source of income. — Туризм — головне джерело доходу острова.
-> note: пастка «принциповий» → *principled* (людина), *a matter of principle* (питання). Не плутай з *principle* — принцип (той самий звук!).
+> note: пастка «принциповий» → *principled* (людина), *a matter of principle* (питання). Не плутай з *principle* — принцип (однакова вимова!).
 
 > [!word] patron
 > ipa: /ˈpeɪtrən/ · pos: noun · level: C2 · id: en-c2-false-friends-w32
@@ -480,7 +480,7 @@ estimatedMinutes: 60
 > ipa: /ˈklɒzɪt/ · ipa-us: /ˈklɑːzɪt/ · pos: noun · level: C2 · id: en-c2-false-friends-w39
 > uk: шафа (вбудована), комора (US); UK — частіше *wardrobe, cupboard*
 > example: Hang your coat in the **closet**. — Повісь пальто в шафу.
-> note: пастка «клозет» → *toilet, loo* (UK), *bathroom* (US). *Water closet* (WC) — застаріле. *Come out of the closet* — відкрито заявити про себе.
+> note: пастка «клозет» → *toilet, loo* (UK), *bathroom* (US). *Water closet* (WC) — застаріле. *Come out of the closet* — відкрито заявити про свою орієнтацію, зробити камінг-аут.
 
 > [!word] alley
 > ipa: /ˈæli/ · pos: noun · level: C2 · id: en-c2-false-friends-w40
@@ -540,7 +540,7 @@ estimatedMinutes: 60
 > ipa: /ˈspektəkəlz/ · pos: noun · level: C2 · id: en-c2-false-friends-w49
 > uk: окуляри (формально, UK)
 > example: He took off his **spectacles** and rubbed his eyes. — Він зняв окуляри й протер очі.
-> note: пастка «спектакль» → *performance, play, show*. Однина *spectacle* — видовище: *make a spectacle of yourself* — ганьбитися на людях.
+> note: пастка «спектакль» → *performance, play, show*. Однина *spectacle* — видовище: *make a spectacle of yourself* — виставляти себе на посміховисько.
 
 > [!word] angina
 > ipa: /ænˈdʒaɪnə/ · pos: noun · level: C2 · id: en-c2-false-friends-w50
@@ -557,7 +557,7 @@ estimatedMinutes: 60
 > - [ ] The actual figures were far more accurate than we thought.
 > - [ ] The actual factors were far less accurate than we thought.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-false-friends-l02
 > audio: He was released on parole after serving half his sentence.
 
@@ -571,7 +571,7 @@ estimatedMinutes: 60
 > - [ ] Лікар неправильно поставив діагноз через погану англійську.
 > - [ ] Вона відмовилася від обстеження серця.
 >
-> **Пояснення:** *angina* англійською — стенокардія, тому лікар *ordered a heart test*. Насправді — *a sore throat, tonsillitis*. Зверни увагу на *actually* у питанні Б — «насправді», а не «актуально».
+> **Пояснення:** *angina* англійською — стенокардія, тому лікар *ordered a heart test*. Насправді — *a sore throat, tonsillitis*. Зверни увагу на *actually* у запитанні B — «насправді», а не «актуально».
 
 > [!listen] IELTS Listening · Part 2: заповни нотатки про екскурсію. ONE WORD ONLY.
 > level: C2 · type: fill · id: en-c2-false-friends-l04
@@ -605,14 +605,14 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-false-friends-s01
 > text: The data are accurate, but the actual cost is much higher.
 > ipa: /ðə ˈdeɪtə ər ˈækjərət bət ði ˈæktʃuəl ˈkɒst ɪz ˌmʌtʃ ˈhaɪə/
-> tip: AC-cu-rate — наголос на перший склад, кінець [рет], не «ейт». AC-tual — [ЕК-чуел], три короткі склади.
+> tip: AC-cu-rate — наголос на першому складі, кінець [рет], не «ейт». AC-tual — [ЕК-чуел], три короткі склади.
 > uk: Дані точні, але фактична вартість значно вища.
 
 > [!speak] Mayor, а не major
 > level: C2 · id: en-c2-false-friends-s02
 > text: The mayor met a retired army major at the cathedral.
 > ipa: /ðə ˈmeə ˈmet ə rɪˌtaɪəd ˈɑːmi ˈmeɪdʒə ət ðə kəˈθiːdrəl/
-> tip: mayor (UK) — [мее], один склад; major — [МЕЙ-джер]. ca-THE-dral: th — [θ], наголос на другий склад.
+> tip: mayor (UK) — [мее], один склад; major — [МЕЙ-джер]. ca-THE-dral: th — [θ], наголос на другому складі.
 > uk: Мер зустрівся з відставним армійським майором біля собору.
 
 > [!speak] Кремній і силікон
@@ -626,7 +626,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-false-friends-s04
 > text: I'm a PhD student, not an academician, and I'm sitting my exams in June.
 > ipa: /aɪm ə ˌpiː eɪtʃ ˈdiː ˈstjuːdənt ˌnɒt ən əˌkædəˈmɪʃən ənd aɪm ˈsɪtɪŋ maɪ ɪɡˈzæmz ɪn ˈdʒuːn/
-> tip: «аспірант» — PhD student, «академік» — a-ca-de-MI-cian, наголос на передостанній склад. «Складаю іспити» — I'm sitting / taking my exams, не «giving» і не «passing».
+> tip: «аспірант» — PhD student, «академік» — a-ca-de-MI-cian, наголос на передостанньому складі. «Складаю іспити» — I'm sitting / taking my exams, не «giving» і не «passing».
 > uk: Я аспірант, а не академік, і в червні складаю іспити.
 
 ## Типові помилки українців
@@ -645,7 +645,7 @@ estimatedMinutes: 60
 
 ## Практика
 
-> [!quiz] Встав слово-«друга»: правильного, а не хибного
+> [!quiz] Встав правильне слово, а не хибного друга
 > level: C2 · type: fill · id: en-c2-false-friends-q02 · bank: actual, fabric, intelligent, angina
 >
 > ```text fill
@@ -807,14 +807,14 @@ estimatedMinutes: 60
 > Грецьке kathedra — «сидіння». У церкві це трон єпископа, тож cathedral — «церква з кріслом». В університеті — крісло професора: звідси «кафедра» і англійське chair (завідувач, професорська посада). Один предмет меблів — два різні слова.
 
 > [!reel] 🎻 Чому conservatory — веранда
-> Conservatory спершу означало місце, де щось зберігають (лат. conservare). З XVII ст. в Англії так називали скляні оранжереї для рослин, а в Італії conservatorio — сирітські притулки, де вчили музики й що стали музичними школами. Англійська зберегла обидва, британська — частіше перше.
+> Conservatory спершу означало місце, де щось зберігають (лат. conservare). З XVII ст. в Англії так називали скляні оранжереї для рослин, а в Італії conservatorio називали сирітські притулки, де дітей учили музики; згодом вони стали музичними школами. Англійська зберегла обидва значення, британська — частіше перше.
 
 ## Джерела та що почитати
 
 - 🟢 [Oxford Learner's Dictionaries](https://www.oxfordlearnersdictionaries.com/) — перше значення, приклади й позначки *formal / offensive* для кожного слова-пастки.
 - 🟢 [Cambridge Dictionary](https://dictionary.cambridge.org/) — UK / US варіанти (*closet / wardrobe*, *car park / parking lot*).
 - 🟢 [Online Etymology Dictionary](https://www.etymonline.com/) — чому значення розійшлися (*parole, cathedral, conservatory*).
-- 🟡 M. Swan, B. Smith — *Learner English* (Cambridge): типові помилки носіїв різних мов, зокрема слов'янських.
+- 🟡 M. Swan, B. Smith — *Learner English* (Cambridge): типові помилки носіїв різних мов, зокрема словʼянських.
 - 🟡 *Oxford Collocations Dictionary for Students of English* — перевірка кальок: *take a photo, heavy rain, make a decision*.
 - 🟡 [IELTS — Writing band descriptors](https://ielts.org/) — Lexical Resource: як оцінюються помилки у виборі слова.
 

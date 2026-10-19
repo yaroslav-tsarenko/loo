@@ -27,7 +27,7 @@ estimatedMinutes: 40
 > - [ ] усі слова однаково чітко
 > - [ ] лише tea
 >
-> **Пояснення:** наголошують **змістові** слова — дієслова, іменники, прикметники: *WANT, BUY, CUP, TEA*. Службові *to, a, of* звучать коротко й слабко: /tə/, /ə/, /əv/. Саме тому в англійській мові на слух «зникають» маленькі слова — і тому їх треба вчитися чути.
+> **Пояснення:** наголошують **змістові** слова — дієслова, іменники, прикметники: *WANT, BUY, CUP, TEA*. Службові *to, a, of* звучать коротко й слабко: /tə/, /ə/, /əv/. Тому на слух маленькі слова ніби «зникають», і їх треба вчитися чути.
 
 ## Пояснення
 
@@ -160,14 +160,14 @@ estimatedMinutes: 40
 > [!word] fish and chips
 > ipa: /ˌfɪʃ ən ˈtʃɪps/ · pos: phrase · level: A2 · id: en-a2-sentence-stress-w08
 > uk: риба з картоплею фрі (британська страва)
-> example: Let's get **fish and chips**. — Візьмімо рибу з картоплею.
+> example: Let's get **fish and chips**. — Візьмімо рибу з картоплею фрі.
 > note: and звучить як /ən/ — «фіш-ен-чіпс».
 
 > [!word] rhythm
 > ipa: /ˈrɪðəm/ · pos: noun · level: A2 · id: en-a2-sentence-stress-w09
 > uk: ритм
 > example: English has a strong **rhythm**. — В англійській виразний ритм.
-> note: h німе, th — /ð/: «РІ-зем» з язиком між зубами.
+> note: h не читається, th — /ð/: «РІ-зем» з язиком між зубами.
 
 > [!word] weak
 > ipa: /wiːk/ · pos: adj · level: A2 · id: en-a2-sentence-stress-w10
@@ -188,12 +188,12 @@ estimatedMinutes: 40
 > [!word] meaning
 > ipa: /ˈmiːnɪŋ/ · pos: noun · level: A2 · id: en-a2-sentence-stress-w13
 > uk: значення; сенс
-> example: What's the **meaning** of this word? — Яке значення цього слова?
+> example: What's the **meaning** of this word? — Що означає це слово?
 
 > [!word] important
 > ipa: /ɪmˈpɔːtənt/ · ipa-us: /ɪmˈpɔːrtənt/ · pos: adj · level: A2 · id: en-a2-sentence-stress-w14
 > uk: важливий
-> example: Stress the **important** words. — Наголошуй важливі слова.
+> example: Stress the **important** words. — Виділяй наголосом важливі слова.
 > note: im-POR-tant.
 
 > [!word] pause
@@ -224,11 +224,11 @@ estimatedMinutes: 40
 > - [x] I'd like a cup of tea.
 > - [ ] I'd like a cup or tea.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: en-a2-sentence-stress-l03
 > audio: I want to go to the shops.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-sentence-stress-l04
 > audio: She was at home with her mum.
 
@@ -328,7 +328,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-sentence-stress-s06
 > text: Where are you from?
 > ipa: /ˈweər ə juː ˈfrɒm/
-> tip: WHERE are you FROM? — у кінці from сильне /frɒm/, бо стоїть останнім.
+> tip: WHERE are you FROM? — from сильне /frɒm/, бо стоїть у кінці.
 
 > [!speak] Коротка відповідь
 > level: A2 · id: en-a2-sentence-stress-s07
@@ -388,7 +388,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** перед приголосним — слабке /tə/. Перед голосним (*to eat*) — /tu/.
 
-> [!quiz] В якому реченні from звучить сильно — /frɒm/?
+> [!quiz] У якому реченні from звучить сильно — /frɒm/?
 > level: A2 · id: en-a2-sentence-stress-q04
 > - [ ] I'm from Lviv.
 > - [ ] A letter from my mum.
@@ -424,7 +424,7 @@ estimatedMinutes: 40
 > - [ ] в англійській кожен склад однаково довгий
 > - [ ] в англійській немає наголосу
 >
-> **Пояснення:** англійська «стрибає» від удару до удару. Чим більше слабких складів між ударами, тим швидше їх кажуть.
+> **Пояснення:** англійська «стрибає» від удару до удару. Чим більше слабких складів між ударами, тим швидше їх вимовляють.
 
 > [!quiz] Впиши слабку форму
 > level: A2 · type: fill · id: en-a2-sentence-stress-q08 · bank: tuː, ɒv
@@ -486,7 +486,7 @@ estimatedMinutes: 40
 > *Rock 'n' roll*, *fish 'n' chips*: на письмі навіть позначають, що від *and* лишилося одне /n/. Це найслабша форма *and*.
 
 > [!reel] 🔤 Найчастіші слова — найслабші
-> *the, of, and, to, a* — пʼять найчастіших слів англійської, і всі вони майже завжди звучать зі шва /ə/. Тому /ə/ — найчастіший звук мови.
+> *the, of, and, to, a* — пʼять найчастіших слів англійської, і всі вони майже завжди звучать зі звуком шва /ə/. Тому /ə/ — найчастіший звук мови.
 
 ## Джерела та що почитати
 

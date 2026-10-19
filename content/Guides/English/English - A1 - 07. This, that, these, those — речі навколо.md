@@ -51,7 +51,7 @@ estimatedMinutes: 30
 >   - { focus: n2, note: "Кілька ручок на моєму столі — багато й близько: these pens. this → these." }
 >   - { focus: f1, note: "Сумка в іншому кінці кімнати — одна й далеко: that bag." }
 >   - { focus: f2, note: "Кілька сумок там, біля дверей — багато й далеко: those bags. that → those." }
->   - { focus: [n2, f2], note: "Множина «вмикає» множину всюди: these / those + pens / bags + are." }
+>   - { focus: [n2, f2], note: "Якщо речей кілька, усе стає множиною: these / those + pens / bags + are." }
 > ```
 
 Підказка для памʼяті: *this — these* (обидва з **i**-звуком, обидва «тут»), *that — those* (обидва «там»).
@@ -65,7 +65,7 @@ estimatedMinutes: 30
 | перед іменником | **This** phone is new. | Цей телефон новий. |
 | | **Those** shoes are expensive. | Ті черевики дорогі. |
 | замість іменника | **This** is my phone. | Це мій телефон. |
-| | **Are those** your keys? | Це (ті) твої ключі? |
+| | **Are those** your keys? | То твої ключі? |
 
 Дієслово be узгоджується з кількістю: **this / that + is**, **these / those + are**.
 
@@ -90,7 +90,7 @@ estimatedMinutes: 30
 *This* має ще дві дуже корисні ролі:
 
 - **представити людину:** *Mum, **this is** Sarah, my friend.* — Мамо, це Сара, моя подруга.
-- **назватися по телефону:** *Hi, **this is** Taras.* — Привіт, це Тарас. (Не «I am Taras».) А спитати, хто дзвонить: *Who's **that**?* / *Who is this?*
+- **назватися по телефону:** *Hi, **this is** Taras.* — Привіт, це Тарас. (Не «I am Taras».) А щоб спитати, хто дзвонить: *Who's **that**?* / *Who is this?*
 
 А *that* часто «реагує» на сказане: *That's great! That's right. That's a good idea.* — Чудово! Правильно. Гарна ідея.
 
@@ -99,7 +99,7 @@ estimatedMinutes: 30
 - This is my desk and that's Anna's desk. — Це мій стіл, а то стіл Анни.
 - These headphones are great. — Ці навушники класні.
 - Are those your sunglasses on the table? — То твої сонцезахисні окуляри на столі?
-- What's that? — It's a picture of Kyiv. — Що то? — Це картина з Києвом.
+- What's that? — It's a picture of Kyiv. — Що то? — Це картина, на якій Київ.
 - What are these? — They're old photos. — Що це? — Це старі фото.
 - This book is interesting, but that one is boring. — Ця книжка цікава, а та — нудна.
 - Hello, this is Mark from the bank. — Добрий день, це Марк з банку.
@@ -136,7 +136,7 @@ estimatedMinutes: 30
 > ipa: /pɜːs/ · ipa-us: /pɝːs/ · pos: noun · level: A1 · id: en-a1-this-that-w05
 > uk: (UK) жіночий гаманець; (US) жіноча сумочка
 > example: That **purse** is very small. — Той гаманець дуже маленький.
-> note: у Британії purse — гаманець для монет; в Америці — дамська сумочка.
+> note: у Британії purse — гаманець для монет; в Америці — жіноча сумочка.
 
 > [!word] glasses
 > ipa: /ˈɡlɑːsɪz/ · ipa-us: /ˈɡlæsɪz/ · pos: noun · level: A1 · id: en-a1-this-that-w06
@@ -152,14 +152,14 @@ estimatedMinutes: 30
 > [!word] charger
 > ipa: /ˈtʃɑːdʒə/ · ipa-us: /ˈtʃɑːrdʒər/ · pos: noun · level: A1 · id: en-a1-this-that-w08
 > uk: зарядний пристрій; зарядка
-> example: Is that your phone **charger**? — То твоя зарядка для телефона?
+> example: Is that your phone **charger**? — То твоя зарядка для телефону?
 
 > [!word] tissue
 > ipa: /ˈtɪʃuː/ · pos: noun · level: A1 · id: en-a1-this-that-w09
 > uk: паперова серветка; носовичок
 > example: Have you got a **tissue**? — У тебе є серветка?
 
-### На навчанні й робочому столі
+### У класі й на робочому столі
 
 > [!word] pen
 > ipa: /pen/ · pos: noun · level: A1 · id: en-a1-this-that-w10
@@ -217,7 +217,7 @@ estimatedMinutes: 30
 > [!word] picture
 > ipa: /ˈpɪktʃə/ · ipa-us: /ˈpɪktʃər/ · pos: noun · level: A1 · id: en-a1-this-that-w20
 > uk: картина; малюнок; зображення
-> example: I love that **picture** on the wall. — Мені подобається та картина на стіні.
+> example: I love that **picture** on the wall. — Мені дуже подобається та картина на стіні.
 
 > [!word] magazine
 > ipa: /ˌmæɡəˈziːn/ · pos: noun · level: A1 · id: en-a1-this-that-w21
@@ -263,11 +263,11 @@ estimatedMinutes: 30
 > - [ ] Is this your laptop?
 > - [ ] It's your laptop.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-this-that-l03
 > audio: What are those?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-this-that-l04
 > audio: This is my friend Sam.
 
@@ -298,7 +298,7 @@ estimatedMinutes: 30
 > level: A1 · id: en-a1-this-that-s01
 > text: this, these, that, those
 > ipa: /ðɪs ðiːz ðæt ðəʊz/
-> tip: усі чотири починаються з /ð/: кінчик язика між зубами й голос. Не «з» і не «д».
+> tip: усі чотири починаються з /ð/: кінчик язика між зубами, звук дзвінкий. Не «з» і не «д».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-this-that-s02
@@ -350,7 +350,7 @@ estimatedMinutes: 30
 
 Твоя черга. Відповідай працівникові бюро.
 
-> [!speak] «Ні. Он моя сумка, там!»
+> [!speak] «Ні, не моя. Моя сумка — он там!»
 > level: A1 · id: en-a1-this-that-s06
 > text: No, it isn't. That's my bag, over there!
 > ipa: /nəʊ ɪt ˈɪznt ˌðæts maɪ ˈbæɡ ˌəʊvə ˈðeə/

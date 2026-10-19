@@ -14,7 +14,7 @@ estimatedMinutes: 45
 > [!success] Після цієї теми ти зможеш
 > - зрозуміти головну думку (*gist*) коротких новин, прогнозу погоди й дорожнього огляду;
 > - стежити за подкастом: хто ведучий і гість, про що випуск, куди «повертає» розмова;
-> - витягти з оголошення на вокзалі, в аеропорту чи музеї те, що змінилося, і що робити;
+> - зрозуміти з оголошення на вокзалі, в аеропорту чи музеї, що змінилося і що робити далі;
 > - знати формат IELTS Listening і виконувати завдання Part 1 (форма) і Part 2 (вибір відповіді, план);
 > - не потрапляти в пастки: перефразування, самовиправлення мовця, ліміт слів і правопис.
 
@@ -51,7 +51,7 @@ estimatedMinutes: 45
 >   - { id: det, label: "2-й прохід", text: "Деталі", note: "числа, імена, зміни", tone: orange }
 >   - { id: chk, label: "після", text: "Перевір", note: "ліміт слів, правопис", tone: green }
 > steps:
->   - { focus: pre, note: "До аудіо: заголовок і питання підказують тему. Підкресли ключові слова й вирішуй, що чекаєш — число, імʼя, місце." }
+>   - { focus: pre, note: "До аудіо: заголовок і питання підказують тему. Підкресли ключові слова й визнач, чого чекаєш: числа, імені чи назви місця." }
 >   - { focus: gist, note: "Слухай загальну картину. Незнайоме слово — пропусти, не зупиняйся: наступне речення важливіше." }
 >   - { focus: det, note: "Тепер полюй на конкретику під кожне питання. Записуй одразу, скорочено, цифрами." }
 >   - { focus: chk, note: "Наприкінці перевір: відповідь логічна? граматично пасує в пропуск? не більше слів, ніж дозволено?" }
@@ -119,10 +119,10 @@ estimatedMinutes: 45
 - *According to police, nobody was hurt.* — За даними поліції, ніхто не постраждав.
 - *Drivers should expect delays of around twenty minutes.* — Водіям варто очікувати затримок близько двадцяти хвилин.
 - *Tomorrow will start cloudy, with scattered showers.* — Завтра зранку хмарно, місцями короткочасні дощі.
-- *Welcome back to the show. My guest today is a sleep scientist.* — Знову вітаю на шоу. Моя сьогоднішня гостя — дослідниця сну.
+- *Welcome back to the show. My guest today is a sleep scientist.* — Знову вітаю вас у нашому шоу. Моя сьогоднішня гостя — дослідниця сну.
 - *Let's move on to something more practical.* — Перейдімо до чогось практичнішого.
-- *The 10.15 service to Manchester will now depart from platform 9.* — Потяг о 10:15 до Манчестера тепер відправляється з платформи 9.
-- *This is the final call for flight BA274.* — Це остання посадка на рейс BA274.
+- *The 10.15 service to Manchester will now depart from platform 9.* — Потяг до Манчестера о 10:15 відправлятиметься з платформи 9.
+- *This is the final call for flight BA274.* — Завершується посадка на рейс BA274.
 - *A replacement bus service will run every thirty minutes.* — Замість потягів кожні тридцять хвилин курсуватиме автобус.
 - *Please keep your belongings with you at all times.* — Будь ласка, весь час тримайте свої речі при собі.
 
@@ -161,7 +161,7 @@ estimatedMinutes: 45
 > ipa: /ˈlɪsənə/ · ipa-us: /ˈlɪsənɚ/ · pos: noun · level: B1 · id: en-b1-listen-news-w06
 > uk: слухач
 > example: Thanks to all our **listeners** for your messages. — Дякуємо всім нашим слухачам за повідомлення.
-> note: t німе: «ЛІ-се-не».
+> note: t не вимовляється: «ЛІ-се-не».
 
 > [!word] signposting
 > ipa: /ˈsaɪnpəʊstɪŋ/ · ipa-us: /ˈsaɪnpoʊstɪŋ/ · pos: noun · level: B1 · id: en-b1-listen-news-w07
@@ -172,7 +172,7 @@ estimatedMinutes: 45
 > [!word] brighten up
 > ipa: /ˌbraɪtən‿ˈʌp/ · pos: verb · level: B1 · id: en-b1-listen-news-w08
 > uk: прояснюватися (про погоду); пожвавлюватися
-> example: It'll **brighten up** later this afternoon. — Пізніше по обіді проясниться.
+> example: It'll **brighten up** later this afternoon. — Пізніше, після обіду, проясниться.
 > forms: brighten up → brightened up → brightened up
 
 > [!word] stay tuned
@@ -211,7 +211,7 @@ estimatedMinutes: 45
 > [!word] due to
 > ipa: /ˈdjuː tə/ · ipa-us: /ˈduː tə/ · pos: prep · level: B1 · id: en-b1-listen-news-w15
 > uk: через; з причини (офіційно)
-> example: The train is delayed **due to** a signal failure. — Потяг затримується через несправність світлофора.
+> example: The train is delayed **due to** a signal failure. — Потяг затримується через несправність сигналізації.
 > note: офіційніше за because of — типове слово оголошень.
 
 ## Слухаємо
@@ -248,7 +248,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *nobody was hurt* = *no one was injured* — перефразування. *Badly damaged* ≠ *completely destroyed*, а *midnight* ≠ *midday*.
 
-> [!listen] Якою буде погода завтра по обіді?
+> [!listen] Якою буде погода завтра після обіду?
 > level: B1 · type: answer · id: en-b1-listen-news-l04
 > audio: Tomorrow will start cloudy, with scattered showers in the morning. It'll brighten up in the afternoon, with highs of fourteen degrees. The weekend looks dry but much colder.
 > - [ ] дощ увесь день
@@ -334,7 +334,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *replacement bus service* — автобус замість потяга. *Due to* — через.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-listen-news-l13
 > audio: Please keep your belongings with you at all times.
 
@@ -445,7 +445,7 @@ estimatedMinutes: 45
 > Застряг на незнайомому слові — і пропустив наступні три речення, де була відповідь. Новини й подкасти не треба перекладати дослівно: тримай у голові питання і слухай далі. Суть зазвичай повторюють або пояснюють іншими словами.
 
 > [!pitfall] Записати перше почуте число
-> *Twelve adults — oh, and two children, so fourteen.* *Platform nine, not six.* Мовці виправляють себе, а оголошення повідомляють про зміни. Слухай до кінця фрази: правильною буває **остання** цифра.
+> *Twelve adults — oh, and two children, so fourteen.* *Platform nine, not six.* Мовці виправляють себе, а оголошення повідомляють про зміни. Слухай до кінця фрази: правильним буває **останнє** число.
 
 > [!pitfall] Чекати тих самих слів, що в питанні
 > У питанні *injured* — в аудіо *hurt*; у питанні *free* — в аудіо *you get the coin back*. IELTS навмисно перефразовує. Шукай **зміст**, а слова з питання, що прозвучали дослівно, часто ведуть до неправильної відповіді.
@@ -600,10 +600,10 @@ estimatedMinutes: 45
 > З 1924 року BBC Radio передає сигнал точного часу — шість коротких «піпів» (*the pips*). Нова година починається з початком шостого, довшого сигналу. Британці досі звіряють за ними годинники.
 
 > [!reel] 🎙️ Звідки слово «podcast»
-> У 2004 році журналіст Бен Гаммерслі в The Guardian шукав назву для нового явища і склав *iPod* + *broadcast*. Уже 2005-го *podcast* став «словом року» за версією New Oxford American Dictionary.
+> У 2004 році журналіст Бен Гаммерслі у статті для The Guardian шукав назву для нового явища і склав *iPod* + *broadcast*. Уже 2005-го *podcast* став «словом року» за версією New Oxford American Dictionary.
 
 > [!reel] 🌾 Broadcast — це про насіння
-> Спершу *broadcast* означало «сіяти врозкид»: *broad* (широко) + *cast* (кидати). Коли зʼявилося радіо, слово чудово підійшло: сигнал так само «розкидають» на всіх.
+> Спершу *broadcast* означало «сіяти врозкид»: *broad* (широко) + *cast* (кидати). Коли зʼявилося радіо, слово чудово підійшло: сигнал так само «розкидають» на всі боки.
 
 ## Джерела та що почитати
 

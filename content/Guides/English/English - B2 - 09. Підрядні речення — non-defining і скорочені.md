@@ -36,7 +36,7 @@ estimatedMinutes: 40
 - **Визначальні** (defining) — без них незрозуміло, про кого мова: *The man **who lives next door** is a pilot.* Ком немає.
 - **Невизначальні** (non-defining) — ми вже знаємо, про кого мова, і просто **додаємо інформацію**: *My father, **who is 70**, still works.* Інформація в комах — її можна викинути, і речення не зламається.
 
-В українській кома ставиться перед «який» **завжди**. В англійській кома — це **зміст**: вона каже «це додаткова інформація». Тому одне й те саме речення з комами і без них означає різне.
+В українській кома ставиться перед «який» **завжди**. В англійській кома несе **зміст**: вона каже «це додаткова інформація». Тому одне й те саме речення з комами і без них означає різне.
 
 > [!diagram] Кома змінює зміст
 > ```yaml
@@ -166,12 +166,12 @@ estimatedMinutes: 40
 - My grandmother, **who** turned 90 last week, still bakes bread every Sunday. — Моя бабуся, якій минулого тижня виповнилося 90, досі щонеділі пече хліб.
 - We spent a week in Uzhhorod, **where** my parents first met. — Ми провели тиждень в Ужгороді, де познайомилися мої батьки.
 - The flight was delayed by six hours, **which** ruined our plans. — Рейс затримали на шість годин, що зруйнувало наші плани.
-- The company employs 300 people, **most of whom** work remotely. — Компанія має 300 працівників, більшість з яких працюють віддалено.
+- The company employs 300 people, **most of whom** work remotely. — У компанії 300 працівників, більшість з яких працюють віддалено.
 - I've read both of her novels, **neither of which** I really enjoyed. — Я прочитав обидва її романи, і жоден мені особливо не сподобався.
 - Children **living** in big cities often lack contact with nature. — Дітям, які живуть у великих містах, часто бракує контакту з природою.
 - Most of the paintings **stolen** from the museum were never found. — Більшість картин, викрадених з музею, так і не знайшли.
-- She was the youngest athlete **to qualify** for the final. — Вона була наймолодшою спортсменкою, що пройшла у фінал.
-- The church, **built** in the 17th century, is now a museum. — Церкву, збудовану в 17 столітті, тепер перетворено на музей.
+- She was the youngest athlete **to qualify** for the final. — Вона була наймолодшою спортсменкою, яка вийшла у фінал.
+- The church, **built** in the 17th century, is now a museum. — У церкві, збудованій у XVII столітті, тепер музей.
 - This is the colleague **with whom** I wrote the report. — Це колега, з яким я писала звіт.
 
 ## Слова
@@ -247,7 +247,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** пауза перед *which* — це «кома на слух»: далі коментар до всього речення. Тут дивує сам факт, що вона все склала.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-relative-advanced-l02
 > audio: The castle, built in the twelfth century, overlooks the river.
 > accept: The castle, built in the 12th century, overlooks the river.
@@ -313,7 +313,7 @@ estimatedMinutes: 40
 > Українське «**що** мене здивувало» про цілу ситуацію — це ***, which***: *He forgot my birthday, **which** upset me.* ~~*what upset me*~~ — дуже поширена помилка. *What* = «те, що» і не стоїть після коми з посиланням на попереднє речення.
 
 > [!pitfall] «Two brothers, both of them are doctors»
-> Після коми ~~*both of them are*~~ — це два речення, склеєні комою (comma splice). Правильно: *two brothers, **both of whom** are doctors* або дві окремі думки: *two brothers. **Both of them** are doctors.* Так само: *most of **which***, *none of **whom***.
+> Після коми ~~*both of them are*~~ — це два речення, склеєні комою (comma splice). Правильно: *two brothers, **both of whom** are doctors* або два окремі речення: *two brothers. **Both of them** are doctors.* Так само: *most of **which***, *none of **whom***.
 
 > [!pitfall] «, that» і пропущений займенник у комах
 > Після коми — тільки **who / which / whose / where / when**: *My phone, **which** I bought in May, …* (не ~~*, that*~~). І займенник у комах не пропускають: ~~*My phone, I bought in May, …*~~.

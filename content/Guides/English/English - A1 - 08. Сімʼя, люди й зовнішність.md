@@ -27,7 +27,7 @@ estimatedMinutes: 40
 > - [ ] мої батьківщини
 > - [ ] мої друзі
 >
-> **Пояснення:** *parents* — це лише мама й тато. «Родичі» — *relatives*. Українцям хочеться сказати «parents» про всю рідню, але це хибний друг.
+> **Пояснення:** *parents* — це лише мама й тато. «Родичі» — *relatives*. Не називай словом *parents* усю рідню — це часта помилка.
 
 ## Сімʼя
 
@@ -60,7 +60,7 @@ estimatedMinutes: 40
 | cousin — двоюрідний брат | cousin — двоюрідна сестра | cousins |
 
 > [!tip] Mum чи Mom
-> Британці кажуть **mum**, американці — **mom**. Обидва — розмовні, як «мама». Офіційно — *mother*.
+> Британці кажуть **mum**, американці — **mom**. Обидва слова розмовні, як «мама». Офіційно — *mother*.
 
 Як розповідати про сімʼю:
 
@@ -101,7 +101,7 @@ estimatedMinutes: 40
 | friendly — привітний, дружній | unfriendly — непривітний |
 | funny — смішний, з почуттям гумору | boring — нудний |
 | clever — розумний | — |
-| quiet — тихий, спокійний | loud — гучний |
+| quiet — тихий, спокійний | loud — галасливий |
 | hard-working — працьовитий | lazy — лінивий |
 
 > [!diagram] look like чи be like
@@ -170,7 +170,7 @@ estimatedMinutes: 40
 > ipa: /ˈpeərənts/ · ipa-us: /ˈperənts/ · pos: noun · level: A1 · id: en-a1-family-w04
 > uk: батьки (мама й тато)
 > example: My **parents** are in Lviv. — Мої батьки у Львові.
-> note: хибний друг: «родичі» — relatives.
+> note: не плутай: «родичі» — relatives.
 
 > [!word] brother
 > ipa: /ˈbrʌðə/ · ipa-us: /ˈbrʌðər/ · pos: noun · level: A1 · id: en-a1-family-w05
@@ -198,7 +198,7 @@ estimatedMinutes: 40
 > ipa: /ˈhʌzbənd/ · pos: noun · level: A1 · id: en-a1-family-w09
 > uk: чоловік (у шлюбі)
 > example: Her **husband** is from Canada. — Її чоловік з Канади.
-> note: «чоловік» як стать — man; як «мій чоловік» — my husband.
+> note: «чоловік» (про стать) — man; «мій чоловік» (у шлюбі) — my husband.
 
 > [!word] wife
 > ipa: /waɪf/ · pos: noun · level: A1 · id: en-a1-family-w10
@@ -351,7 +351,7 @@ estimatedMinutes: 40
 > [!word] head
 > ipa: /hed/ · pos: noun · level: A1 · id: en-a1-family-w36
 > uk: голова
-> example: Put your hat on your **head**. — Одягни шапку.
+> example: Put your hat on your **head**. — Надінь шапку.
 
 > [!word] face
 > ipa: /feɪs/ · pos: noun · level: A1 · id: en-a1-family-w37
@@ -389,11 +389,11 @@ estimatedMinutes: 40
 > - [x] Her husband is tall and quiet.
 > - [ ] His wife is tall and quiet.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-family-l03
 > audio: My parents are very kind.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-family-l04
 > audio: What does your sister look like?
 
@@ -420,19 +420,19 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-family-s01
 > text: mother, father, brother
 > ipa: /ˈmʌðə ˈfɑːðə ˈbrʌðə/
-> tip: th тут дзвінкий /ð/ — язик між зубами й голос. Не «мазер» і не «мадер».
+> tip: th тут дзвінкий /ð/: кінчик язика між зубами. Не «мазер» і не «мадер».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-family-s02
 > text: This is my daughter and this is my son.
 > ipa: /ˌðɪs ɪz maɪ ˈdɔːtə ənd ˌðɪs ɪz maɪ ˈsʌn/
-> tip: daughter — «до-оте», gh мовчить; son — коротке /ʌ/, як «сан».
+> tip: daughter — «до-оте», gh не читається; son — коротке /ʌ/, як «сан».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-family-s03
 > text: She has long dark hair and blue eyes.
 > ipa: /ʃi hæz lɒŋ dɑːk ˈheər ənd bluː ˈaɪz/
-> tip: hair — «хеə», з видихом /h/; eyes — «айз», дзвінке z.
+> tip: hair — «хеа», з видихом /h/; eyes — «айз», дзвінке z.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-family-s04
@@ -475,7 +475,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-family-s06
 > text: This is my mum. She's kind and funny.
 > ipa: /ˌðɪs ɪz maɪ ˈmʌm ʃiːz ˈkaɪnd ən ˈfʌni/
-> tip: mum — коротке /ʌ/: «мам». Американська мама — mom /mɑːm/.
+> tip: mum — коротке /ʌ/: «мам». Американці кажуть mom /mɑːm/.
 
 ## Практика
 
@@ -574,18 +574,18 @@ estimatedMinutes: 40
 > - [ ] My wife is a tall and clever.
 > - [ ] My wife tall and clever.
 >
-> **Пояснення:** людина — *tall*; перед самими прикметниками артикль не потрібен; і не забудь *is*.
+> **Пояснення:** людина — *tall*; перед прикметником без іменника артикль не потрібен; і не забудь *is*.
 
 ## Фішки
 
 > [!reel] 👫 Чому cousin один на всіх
-> *Cousin* прийшло з французької і не має роду: двоюрідний брат і двоюрідна сестра — одне слово. Хочеш уточнити — кажи *my cousin Anna* або *my female cousin*.
+> Слово *cousin* прийшло з французької і не має роду: двоюрідний брат і двоюрідна сестра — одне слово. Хочеш уточнити — кажи *my cousin Anna* або *my female cousin*.
 
 > [!reel] 👨‍👩‍👧 Mum, Mom, Mam
 > В Англії — *mum*, у США — *mom*, в Ірландії та на півночі Англії часто — *mam*. А малеча всюди каже *mummy* (UK) чи *mommy* (US).
 
 > [!reel] 💇 Fair — це і «світлий», і «чесний»
-> *Fair hair* — світле волосся, *a fair price* — чесна ціна, *It's not fair!* — Це нечесно! Одне слово, кілька значень — пам'ятай про контекст.
+> *Fair hair* — світле волосся, *a fair price* — чесна ціна, *It's not fair!* — Це нечесно! Одне слово, кілька значень — памʼятай про контекст.
 
 ## Джерела та що почитати
 

@@ -50,7 +50,7 @@ estimatedMinutes: 90
 >   - { focus: root, note: "B2 — рівень, на якому ти не просто будуєш речення, а обираєш відтінок: процес чи результат, факт чи припущення, жаль чи критика." }
 >   - { focus: tenses, note: "Часи як система: аспект (simple, continuous, perfect) × час. Плюс майбутнє з поглядом назад: By 2030 I'll have finished." }
 >   - { focus: unreal, note: "Нереальне: що було б, якби (If I had known…), змішані умовні (If I'd taken the job, I'd be rich now) і жаль (I wish I had…)." }
->   - { focus: passive, note: "Пасив усіх часів, каузатив (I had my car repaired), безособовий пасив (He is said to be…) і дієслова-репортери з їхніми моделями." }
+>   - { focus: passive, note: "Пасив усіх часів, каузатив (I had my car repaired), безособовий пасив (He is said to be…) і дієслова переказу з їхніми моделями." }
 >   - { focus: [modals, patterns], note: "Модальні в минулому — висновки й критика (She must have forgotten. You should have told me). Герундій чи інфінітив змінює значення: stop smoking ≠ stop to smoke." }
 >   - { focus: clauses, note: "Складні речення: non-defining з комами, which про все речення, participle clauses; звʼязки контрасту, причини й мети з правильною пунктуацією." }
 > ```
@@ -168,19 +168,19 @@ estimatedMinutes: 90
 ## Приклади
 
 - *By the time I got to the station, the train had already left, so I'll be working from home tomorrow.* — Коли я дістався до вокзалу, поїзд уже пішов, тож завтра я працюватиму з дому.
-- *If I had listened to my parents, I wouldn't be in this mess now.* — Якби я послухав батьків, я б зараз не вскочив у цю халепу.
+- *If I had listened to my parents, I wouldn't be in this mess now.* — Якби я послухав батьків, то зараз не був би в такій халепі.
 - *I wish I had taken that job — it's high time I changed careers.* — Шкода, що я не взяв ту роботу, — мені давно пора змінити професію.
 - *The castle is said to have been built in the 12th century.* — Кажуть, замок збудували в XII столітті.
-- *She denied breaking the vase, but she must have done it — nobody else was at home.* — Вона заперечила, що розбила вазу, але це точно вона — більше нікого вдома не було.
+- *She denied breaking the vase, but she must have done it — nobody else was at home.* — Вона заперечила, що розбила вазу, але це, напевно, таки вона — більше нікого вдома не було.
 - *Have you tried turning it off and on again?* — Ти пробував вимкнути й увімкнути знову?
 - *My sister, who works in a bank, lent me the money, which was very kind of her.* — Моя сестра, яка працює в банку, позичила мені гроші, що було дуже мило з її боку.
 - *Despite the rain, the match went ahead, whereas the concert was cancelled.* — Попри дощ, матч відбувся, тоді як концерт скасували.
-- *We need to get the ball rolling — the deadline has been brought forward.* — Треба братися до справи — дедлайн перенесли на раніше.
+- *We need to get the ball rolling — the deadline has been brought forward.* — Треба братися до справи — дедлайн перенесли на раніший термін.
 - *I take your point, but on balance I think the benefits outweigh the drawbacks.* — Я розумію твій аргумент, але загалом, гадаю, переваги переважують недоліки.
 
 ## Слова
 
-Нових карток тут немає — повтори в розділі «Слова» картки B2. Перевір, чи знаєш хоча б по 5 слів у кожній групі:
+Нових карток тут немає — повтори картки з розділів «Слова» тем B2. Перевір, чи знаєш хоча б по 5 слів у кожній групі:
 
 | Група | Приклади | Тема |
 |---|---|---|
@@ -220,14 +220,14 @@ estimatedMinutes: 90
 >
 > **Пояснення:** *wanna* = want to, *gotta* = have got to, *lemme* = let me. На слух це одне «слово» — вчися впізнавати, але в листі й есе пиши повні форми. (тема 12)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-review-l03
 > audio: I'd rather you didn't tell anyone.
 > accept: I would rather you didn't tell anyone. | I'd rather you did not tell anyone.
 >
 > **Пояснення:** *I'd rather* + інша особа + Past: *you didn't tell* — хоча мова про тепер чи майбутнє. *I'd* /aɪd/ звучить коротко, *didn't* — часто без кінцевого /t/. (тема 04)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-review-l04
 > audio: We should have left a bit earlier.
 > accept: We should've left a bit earlier.
@@ -303,7 +303,7 @@ estimatedMinutes: 90
 > [!pair] I wish I had /aɪ wɪʃ aɪ ˈhæd/ — I wish I'd had /aɪ wɪʃ aɪd ˈhæd/
 > level: B2 · id: en-b2-review-p05
 > say: I wish I'd had
-> tip: *I'd had* — /aɪd hæd/, перед *had* коротка «зупинка» /d/. *I wish I had* — шкода про тепер, *I wish I'd had* — шкода про минуле. (тема 04)
+> tip: *I'd had* — /aɪd hæd/, перед *had* коротка «зупинка» /d/. *I wish I had* — жаль про теперішнє, *I wish I'd had* — жаль про минуле. (тема 04)
 
 ### Скажи вголос
 
@@ -319,7 +319,7 @@ estimatedMinutes: 90
 > text: By this time next year, I'll have finished my degree.
 > ipa: /baɪ ðɪs ˈtaɪm nekst ˈjɪə aɪl əv ˈfɪnɪʃt maɪ dɪˈɡriː/
 > tip: *next year* — /t/ у *next* майже зникає (elision); *degree* — наголос на другому складі.
-> uk: До цього часу наступного року я вже закінчу навчання.
+> uk: Через рік у цей час я вже закінчу навчання.
 
 > [!speak] Зроби висновок про минуле.
 > level: B2 · id: en-b2-review-s03
@@ -339,10 +339,10 @@ estimatedMinutes: 90
 > level: B2 · id: en-b2-review-s05
 > text: I take your point, but with all due respect, that's not entirely true.
 > ipa: /aɪ ˈteɪk jə ˈpɔɪnt bət wɪð ˈɔːl ˈdjuː rɪˈspekt ðæts ˈnɒt ɪnˈtaɪəli ˈtruː/
-> tip: *your* і *but* — слабкі /jə bət/; *not entirely* — наголос на *TIRE*, голос м'який, не агресивний.
-> uk: Я розумію твою думку, але, при всій повазі, це не зовсім так.
+> tip: *your* і *but* — слабкі /jə bət/; *not entirely* — наголос на *TIRE*, голос мʼякий, не агресивний.
+> uk: Я розумію твою думку, але, з усією повагою, це не зовсім так.
 
-> [!speak] Ескалюй скаргу ввічливо.
+> [!speak] Ввічливо передай скаргу вище.
 > level: B2 · id: en-b2-review-s06
 > text: I'd like to take this further, so could you give me a reference number?
 > ipa: /aɪd ˈlaɪk tə ˈteɪk ðɪs ˈfɜːðə səʊ kʊdʒu ˈɡɪv mi ə ˈrefrəns ˈnʌmbə/
@@ -352,7 +352,7 @@ estimatedMinutes: 90
 ## Типові помилки українців
 
 > [!pitfall] «Якби я знав…» — If I knew замість If I had known
-> Українське «якби» однакове для тепер і минулого, англійська — ні. Про **минуле**: *If I ~~knew~~ **had known**, I ~~would tell~~ **would have told** you.* Про тепер: *If I knew his number, I'd call him.* Те саме з *wish*: *I wish I ~~didn't say~~ **hadn't said** that.*
+> Українське «якби» однакове і для теперішнього, і для минулого, англійська — ні. Про **минуле**: *If I ~~knew~~ **had known**, I ~~would tell~~ **would have told** you.* Про тепер: *If I knew his number, I'd call him.* Те саме з *wish*: *I wish I ~~didn't say~~ **hadn't said** that.*
 
 > [!pitfall] Despite of, suggest to, deny to
 > *~~Despite of~~ **Despite** the rain* (або *in spite **of***). *He ~~suggested me to go~~ **suggested going** / **suggested that I (should) go**.* *She ~~denied to take~~ **denied taking** it.* Дієслова непрямої мови мають свої моделі — вчи їх разом із дієсловом.
@@ -860,7 +860,7 @@ estimatedMinutes: 90
 > - [ ] went broke
 > - [ ] cut back
 >
-> **Пояснення:** *splash out (on)* — розщедритися, витратити багато; *rip-off* — «обдираловка». *Haggle* — торгуватися, *cut back* — скоротити витрати. (тема 19)
+> **Пояснення:** *splash out (on)* — розщедритися, витратити багато; *rip-off* — «здирство». *Haggle* — торгуватися, *cut back* — скоротити витрати. (тема 19)
 
 > [!quiz] The plot was so ___ that I guessed the ending in the first ten minutes.
 > level: B2 · id: en-b2-review-q54
@@ -1014,7 +1014,7 @@ estimatedMinutes: 90
 >
 > **Пояснення:** *standing order* — ти сам налаштовуєш фіксований регулярний платіж. *Direct debit* — компанія сама списує суму (може змінюватися), *bank statement* — виписка. (тема 28)
 
-> [!quiz] Ти скаржишся в службу підтримки втретє. Що найкраще сказати, щоб ескалювати скаргу ввічливо, але твердо?
+> [!quiz] Ти скаржишся в службу підтримки втретє. Що найкраще сказати, щоб ввічливо, але твердо передати скаргу вище?
 > level: B2 · id: en-b2-review-q70
 > - [ ] This is ridiculous, I hate your company!
 > - [ ] OK, no problem, I'll wait.
@@ -1027,7 +1027,7 @@ estimatedMinutes: 90
 
 > [!important] IELTS і рівень B2
 > - За офіційним узгодженням Cambridge / British Council рівень **B2 ≈ IELTS 5.5–6.5** (орієнтовно). Саме цей діапазон часто просять університети й роботодавці; C1 — уже 7.0–8.0.
-> - Бал — середнє чотирьох модулів: Listening, Reading, Writing, Speaking. Письмо й говоріння тут не оцінюються автоматично — перевір себе за чеклістами з критеріями банда.
+> - Бал — середнє чотирьох модулів: Listening, Reading, Writing, Speaking. Письмо й говоріння тут не оцінюються автоматично — перевір себе за чеклістами з критеріями оцінювання.
 > - Завдання нижче — власні, у форматі іспиту. Справжні пробні тести — у джерелах наприкінці.
 
 > [!diagram] Міні-IELTS: чотири модулі
@@ -1307,7 +1307,7 @@ estimatedMinutes: 90
 **Чекліст перед здачею Task 1** (тема 25; критерії — Task Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy):
 
 - [ ] **Task Achievement**: вступ перефразовує завдання (*The table compares…*), є чіткий **overview**, ключові цифри наведено й порівняно; без власних думок і причин;
-- [ ] **Coherence & Cohesion**: 4 абзаци — вступ, overview, деталі групою 1 (IT і бухгалтери), деталі групою 2 (вчителі й медсестри); референція замість повторів (*the figure for…, the latter*);
+- [ ] **Coherence & Cohesion**: 4 абзаци — вступ, overview, деталі про групу 1 (IT і бухгалтери), деталі про групу 2 (вчителі й медсестри); референція замість повторів (*the figure for…, the latter*);
 - [ ] **Lexical Resource**: різні дієслова трендів (*rose sharply, peaked at, fell back, remained low*), приблизність (*just under two-thirds, roughly a third*), без повторів *increase / increase*;
 - [ ] **Grammatical Range & Accuracy**: Past Simple для минулих років, порівняння (*twice as high as*, *whereas*), participle clause (*…, reaching a peak of 72%*), правильні прийменники *to / by / at*;
 - [ ] 150+ слів, приблизно 20 хвилин.
@@ -1369,7 +1369,7 @@ estimatedMinutes: 90
 > text: That's a tricky one, but I'd imagine that by 2040 most of our planning will have been done by apps.
 > ipa: /ðæts ə ˈtrɪki wʌn bət aɪd ɪˈmædʒɪn ðət baɪ ˌtwenti ˈfɔːti ˈməʊst əv aʊə ˈplænɪŋ wɪl əv bɪn ˈdʌn baɪ ˈæps/
 > tip: *I'd imagine* — /aɪd ɪˈmædʒɪn/, наголос на *MA*; *will have been done* — слабкі /wɪl əv bɪn/, наголос на *DONE*.
-> uk: Складне питання, але, гадаю, до 2040 року більшість нашого планування робитимуть застосунки.
+> uk: Складне питання, але, гадаю, до 2040 року більшу частину планування за нас робитимуть застосунки.
 
 > [!tip] Твоя черга — і критерії Speaking
 > Постав таймер: 1 хвилина на нотатки, 2 хвилини — говори, потім 4 хвилини на три питання Part 3. Запиши себе й переслухай за чотирма критеріями:
@@ -1405,4 +1405,4 @@ estimatedMinutes: 90
 > - B2 = система часів, Future Perfect, третій і змішані умовні, *wish*, пасив усіх часів і каузатив, дієслова непрямої мови, модальні в минулому, герундій vs інфінітив, non-defining і participle clauses, звʼязки.
 > - Найчастіші помилки: *If I knew* замість *If I had known*, *despite of*, *suggest me to*, *deny to do*, *that* після коми, *however* як сполучник, *I didn't need to* замість *needn't have*.
 > - Помилився — відкрий тему з номером у поясненні й пройди її тест ще раз.
-> - 80 % і більше — ти готовий до C1, а в IELTS орієнтовно цілишся в 6.0–6.5.
+> - 80 % і більше — ти готовий до C1, а в IELTS можеш орієнтуватися на 6.0–6.5.

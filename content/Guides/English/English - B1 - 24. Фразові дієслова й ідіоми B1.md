@@ -13,7 +13,7 @@ estimatedMinutes: 45
 
 > [!success] Після цієї теми ти зможеш
 > - уживати 30 частих фразових дієслів B1: **run out of, put off, come across, get over, take over, set off, end up…**;
-> - правильно будувати трискладові дієслова: *put up **with** it*, *run out **of** milk*;
+> - правильно будувати трислівові дієслова: *put up **with** it*, *run out **of** milk*;
 > - розуміти й доречно вживати 15 ідіом: **piece of cake, under the weather, once in a blue moon, call it a day…**;
 > - відчувати регістр: що доречно в розмові, а що краще замінити в офіційному листі чи есе IELTS.
 
@@ -26,15 +26,15 @@ estimatedMinutes: 45
 > - [ ] We've ended milk.
 > - [ ] We've run off milk.
 >
-> **Пояснення:** **run out of** something — щось закінчилося (запас). Три частини: дієслово + *out* + *of*. Розбираємо, як такі дієслова працюють.
+> **Пояснення:** **run out of** something — щось закінчилося (запас). Три частини: дієслово + *out* + *of*. Нижче розберемо, як працюють такі дієслова.
 
 ## Простими словами
 
 На A2 ти вивчив перші фразові дієслова — *turn on, look for, give up*. На B1 їх стає більше, і вони все менше «прозорі»: з *come* + *across* не вгадаєш, що *come across* — «випадково натрапити». Тому вчи їх **у реченнях і ситуаціях**, а не списком.
 
-**Ідіоми** — ще крок далі: це цілі фрази, значення яких не складається зі слів. *It's a piece of cake* — не про торт, а «це легко». В українській так само: «вішати локшину на вуха» — не про макарони. Ідіоми роблять мову живою, але їх легко вжити недоречно — тож вчимося і значенню, і **доречності**.
+**Ідіоми** — ще крок далі: це цілі фрази, значення яких не складається зі слів. *It's a piece of cake* — не про торт, а «це легко». В українській так само: «вішати локшину на вуха» — не про макарони. Ідіоми роблять мову живою, але їх легко вжити недоречно — тож учимося розуміти і значення, і **доречність**.
 
-> [!diagram] Трискладове фразове дієслово — нерозлучне
+> [!diagram] Трислівове фразове дієслово — нерозлучне
 > ```yaml
 > layout: flow
 > nodes:
@@ -43,9 +43,9 @@ estimatedMinutes: 45
 >   - { id: prep, label: "прийменник", text: "of", tone: orange }
 >   - { id: o, label: "обʼєкт — тільки в кінці", text: "milk / it", tone: green }
 > steps:
->   - { focus: v, note: "Звичайне дієслово run — бігти. Само по собі — нічого про молоко." }
+>   - { focus: v, note: "Звичайне дієслово run — бігти. Саме по собі воно нічого не каже про молоко." }
 >   - { show: p, focus: p, note: "Частка out дає нове значення: run out — закінчитися (про запас)." }
->   - { show: prep, focus: prep, note: "Прийменник of з'єднує з тим, що закінчилося. Без нього речення неповне: не «run out milk»." }
+>   - { show: prep, focus: prep, note: "Прийменник of вводить те, що закінчилося. Без нього речення неповне: не «run out milk»." }
 >   - { show: o, focus: o, note: "Обʼєкт — завжди після всіх трьох частин, навіть займенник: We've run out of it. Так само put up with it, come up with an idea." }
 > ```
 
@@ -58,9 +58,9 @@ estimatedMinutes: 45
 | **без обʼєкта** | give in, get by, end up, turn out, show up, stand out, drop by, set off | *He **showed up** late.* · *It **turned out** well.* |
 | **розділювані** (займенник усередині) | put off, sort out, take over, figure out, call off, put out, try out, mix up, point out, hand in, drop off (а також set up, work out) | *Let's **put** it **off**.* · *I'll **sort** it **out**.* |
 | **нерозділювані** (обʼєкт після частки) | come across, get over, look into, go through, run into | *I **came across** an old photo.* · *She **got over** it.* |
-| **трискладові** (обʼєкт у кінці) | run out of, put up with, come up with, cut down on, catch up with, keep up with | *I can't **put up with** it.* · *We **came up with** a plan.* |
+| **трислівові** (обʼєкт у кінці) | run out of, put up with, come up with, cut down on, catch up with, keep up with | *I can't **put up with** it.* · *We **came up with** a plan.* |
 
-**Займенник — найкращий тест.** З розділюваними: *put **it** off* (не ~~*put off it*~~). З нерозділюваними і трискладовими: *come across **it***, *put up with **him*** — займенник іде в кінець.
+**Займенник — найкращий тест.** З розділюваними: *put **it** off* (не ~~*put off it*~~). З нерозділюваними і трислівовими: *come across **it***, *put up with **him*** — займенник іде в кінець.
 
 ### Одне дієслово — кілька значень
 
@@ -106,7 +106,7 @@ estimatedMinutes: 45
 | **out of the blue** | раптово, як грім серед ясного неба | нейтральне |
 | **sleep on it** | відкласти рішення до ранку | розмовне |
 
-**Для IELTS.** У Speaking доречна ідіома — плюс до *Lexical Resource*, але тільки якщо вона природна в контексті. Нав'язані ідіоми на кшталт *It's raining cats and dogs* звучать штучно. У Writing (есе, офіційний лист) розмовні ідіоми й більшість фразових дієслів краще замінити нейтральними словами: *put off* → *postpone*, *find out* → *discover*, *a piece of cake* → *easy*.
+**Для IELTS.** У Speaking доречна ідіома — плюс до *Lexical Resource*, але тільки якщо вона природна в контексті. Навʼязані ідіоми на кшталт *It's raining cats and dogs* звучать штучно. У Writing (есе, офіційний лист) розмовні ідіоми й більшість фразових дієслів краще замінити нейтральними словами: *put off* → *postpone*, *find out* → *discover*, *a piece of cake* → *easy*.
 
 > [!diagram] Буквально чи насправді?
 > ```yaml
@@ -121,7 +121,7 @@ estimatedMinutes: 45
 >   - { id: r3, col: real, text: "вибовкати секрет", note: "Who spilled the beans about the party?", tone: green }
 > steps:
 >   - { show: [l1, r1], note: "Ідіому не перекладають по словах: a piece of cake — не торт, а «простіше простого»." }
->   - { show: [l2, r2], note: "Under the weather — «трохи нездужаю»: м'яко і ввічливо про легку хворобу." }
+>   - { show: [l2, r2], note: "Under the weather — «трохи нездужаю»: мʼяко і ввічливо про легку хворобу." }
 >   - { show: [l3, r3], note: "Spill the beans — вибовкати таємницю. Українською кажуть «пробовкатися»." }
 > ```
 
@@ -129,7 +129,7 @@ estimatedMinutes: 45
 
 - We've **run out of** coffee — can you get some? — У нас закінчилася кава, купиш?
 - They've **put off** the meeting until next week. — Нараду перенесли на наступний тиждень.
-- I **ran into** my old teacher at the station. — Я випадково зустрів свою вчительку на вокзалі.
+- I **ran into** my old teacher at the station. — Я випадково зустрів свою колишню вчительку на вокзалі.
 - She **came up with** a brilliant idea. — Їй спала на думку чудова ідея.
 - I can't **put up with** his jokes any more. — Я більше не можу терпіти його жартів.
 - We got lost and **ended up** in a tiny village. — Ми заблукали й опинилися в крихітному селі.
@@ -190,7 +190,7 @@ estimatedMinutes: 45
 > uk: вирушати (в дорогу)
 > forms: set → set → set
 > example: We **set off** at six to avoid the traffic. — Ми вирушили о шостій, щоб уникнути заторів.
-> note: синонім — set out. З обʼєктом інше значення: set off an alarm — увімкнути (спрацювати) сигналізацію.
+> note: синонім — set out. З обʼєктом інше значення: set off an alarm — змусити сигналізацію спрацювати.
 
 ### Розділювані
 
@@ -280,10 +280,10 @@ estimatedMinutes: 45
 
 > [!word] go through
 > ipa: /ɡəʊ ˈθruː/ · ipa-us: /ɡoʊ ˈθruː/ · pos: verb · level: B1 · id: en-b1-phrasal-idioms-w23
-> uk: пережити (важке); переглянути, пройтися по
+> uk: пережити (важке); переглянути, обговорити по пунктах
 > forms: go → went → gone
 > example: She's **going through** a difficult time. — Вона переживає важкий період.
-> note: Let's go through the plan again — пройдімося планом ще раз.
+> note: Let's go through the plan again — давай ще раз обговоримо план по пунктах.
 
 > [!word] run into
 > ipa: /rʌn ˈɪn.tuː/ · pos: verb · level: B1 · id: en-b1-phrasal-idioms-w24
@@ -292,12 +292,12 @@ estimatedMinutes: 45
 > example: Guess who I **ran into** at the airport! — Вгадай, кого я випадково зустрів в аеропорту!
 > note: run into problems — зіткнутися з проблемами.
 
-### Трискладові
+### Трислівові
 
 > [!word] run out of
 > ipa: /rʌn ˈaʊt əv/ · pos: verb · level: B1 · id: en-b1-phrasal-idioms-w25
 > uk: закінчитися (про запас); вичерпати
-> example: My phone has **run out of** battery. — У телефона сіла батарея.
+> example: My phone has **run out of** battery. — У мене розрядився телефон.
 > note: без обʼєкта — без of: Time is running out. — Час спливає.
 
 > [!word] put up with
@@ -321,7 +321,7 @@ estimatedMinutes: 45
 > uk: наздогнати; поспілкуватися після довгої перерви
 > forms: catch → caught → caught
 > example: Go on ahead — I'll **catch up with** you later. — Іди вперед, я тебе згодом наздожену.
-> note: Let's meet and catch up! — Зустріньмося й поговоримо про все, що сталося.
+> note: Let's meet and catch up! — Зустріньмося й розкажемо одне одному всі новини!
 
 > [!word] keep up with
 > ipa: /kiːp ˈʌp wɪð/ · pos: verb · level: B1 · id: en-b1-phrasal-idioms-w30
@@ -409,7 +409,7 @@ estimatedMinutes: 45
 
 > [!word] sleep on it
 > ipa: /ˈsliːp ɒn ɪt/ · ipa-us: /ˈsliːp ɑːn ɪt/ · pos: phrase · level: B1 · id: en-b1-phrasal-idioms-w45
-> uk: відкласти рішення до ранку, «переспати з думкою»
+> uk: відкласти рішення до ранку (ранок вечора мудріший)
 > example: It's a big decision — let me **sleep on it**. — Це важливе рішення, дай мені подумати до ранку.
 
 ## Слухаємо
@@ -428,11 +428,11 @@ estimatedMinutes: 45
 > - [ ] I ran after her at the station.
 > - [ ] I came across her at the station.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-phrasal-idioms-l03
 > audio: They've called off the match.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-phrasal-idioms-l04
 > audio: I can't put up with this noise any more.
 
@@ -453,7 +453,7 @@ estimatedMinutes: 45
 > level: B1 · type: answer · id: en-b1-phrasal-idioms-l06
 > audio: Good evening and welcome to the festival. Unfortunately, tonight's concert in the park has been called off. The weather is fine, but the main singer is feeling under the weather. The organisers are looking into a new date, and all tickets will be valid.
 > - [ ] Через погану погоду
-> - [x] Через хворобу головного співака
+> - [x] Через хворобу соліста
 > - [ ] Бо не продали квитків
 > - [ ] Бо парк зачинили на ремонт
 >
@@ -498,7 +498,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-phrasal-idioms-s04
 > text: I'm feeling a bit under the weather.
 > ipa: /aɪm ˈfiː.lɪŋ ə bɪt ˈʌn.də ðə ˈweð.ə/
-> tip: weather — /ð/ в середині, кінцеве -er — слабке [ə] (UK); не плутай з whether — звучать однаково!
+> tip: weather — /ð/ в середині, кінцеве -er — слабке [ə] (UK); на письмі не плутай із whether — вимовляються вони однаково!
 > uk: Я трохи нездужаю.
 
 > [!speak] Скажи вголос
@@ -518,16 +518,16 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «Run out milk», «put up this noise»
-> У трискладових дієсловах **не губи прийменник**: *run out **of** milk*, *put up **with** this noise*, *come up **with** an idea*, *cut down **on** sugar*. Без нього речення граматично неповне.
+> У трислівових дієсловах **не губи прийменник**: *run out **of** milk*, *put up **with** this noise*, *come up **with** an idea*, *cut down **on** sugar*. Без нього речення граматично неповне.
 
 > [!pitfall] «Put off it», «put up it with»
-> Розділювані дієслова беруть займенник **усередину**: *put **it** off*, *sort **it** out*, *call **it** off*. А трискладові — ніколи не розриваються: *put up with **it*** (не ~~*put it up with*~~).
+> Розділювані дієслова беруть займенник **усередину**: *put **it** off*, *sort **it** out*, *call **it** off*. А трислівові — ніколи не розриваються: *put up with **it*** (не ~~*put it up with*~~).
 
 > [!pitfall] Калька українських ідіом
-> «Вішати локшину на вуха» англійською — не про noodles, а *pull the wool over someone's eyes* (обдурювати); жартома «дурити» — *pull someone's leg*. «Остання крапля» — *the last straw* (соломинка!), «раз на сто років» — *once in a blue moon*. Ідіоми не перекладають по словах — шукай відповідник.
+> «Вішати локшину на вуха» англійською — не про noodles, а *pull the wool over someone's eyes* (обдурювати); а «розігрувати когось» — *pull someone's leg*. «Остання крапля» — *the last straw* (соломинка!), «раз на сто років» — *once in a blue moon*. Ідіоми не перекладають по словах — шукай відповідник.
 
 > [!pitfall] Ідіоми не в тому регістрі
-> *The exam was a piece of cake* — чудово для розмови, але не для есе IELTS чи листа роботодавцю. В офіційному тексті: *The exam was straightforward*, *The meeting was postponed* (не *put off*), *We will investigate* (не *look into it*, хоч воно нейтральніше).
+> *The exam was a piece of cake* — чудово для розмови, але не для есе IELTS чи листа роботодавцю. В офіційному тексті: *The exam was straightforward*, *The meeting was postponed* (не *put off*), *We will investigate* (не *look into it*, хоча воно й досить нейтральне).
 
 ## Практика
 
@@ -539,11 +539,11 @@ estimatedMinutes: 45
 > - [x] I can't put up with it any more.
 > - [ ] I can't put it up with any more.
 >
-> **Пояснення:** *put off* — розділюване (*put it off*); *come across* — нерозділюване (*come across it*); *put up with* — трискладове, обʼєкт тільки в кінці (*put up with it*).
+> **Пояснення:** *put off* — розділюване (*put it off*); *come across* — нерозділюване (*come across it*); *put up with* — трислівове, обʼєкт тільки в кінці (*put up with it*).
 
 > [!quiz] «The match was called off». Що сталося?
 > level: B1 · id: en-b1-phrasal-idioms-q04
-> - [ ] Матч транслювали по телевізору.
+> - [ ] Матч транслювали на телебаченні.
 > - [ ] Матч почався пізніше.
 > - [x] Матч скасували.
 > - [ ] Про матч оголосили.
@@ -594,7 +594,7 @@ estimatedMinutes: 45
 > any more.
 > ```
 >
-> **Пояснення:** **put up with** — нерозривне трискладове дієслово, обʼєкт *this noise* — після нього. *Any more* (US — *anymore*) — у кінці.
+> **Пояснення:** **put up with** — нерозривне трислівове дієслово, обʼєкт *this noise* — після нього. *Any more* (US — *anymore*) — у кінці.
 
 > [!quiz] Склади речення: «Можеш наглянути за моєю сумкою?»
 > level: B1 · type: order · id: en-b1-phrasal-idioms-q09
@@ -646,21 +646,21 @@ estimatedMinutes: 45
 > «Блакитний місяць» — друга повня в одному календарному місяці. Таке трапляється приблизно раз на 2–3 роки — звідси once in a blue moon, «дуже рідко».
 
 > [!reel] 🐪 Соломинка замість краплі
-> Українці кажуть «остання крапля», англійці — the last straw: з прислівʼя про соломинку, яка зламала спину верблюду. Образ інший, суть та сама.
+> Українці кажуть «остання крапля», а носії англійської — the last straw: з прислівʼя про соломинку, яка зламала спину верблюду. Образ інший, суть та сама.
 
 > [!reel] ☔ Ідіоми, які носії не вживають
 > It's raining cats and dogs є в кожному підручнику, але звучить старомодно — частіше кажуть It's pouring (UK також It's bucketing down). Вчи живі ідіоми, а не музейні.
 
 ## Джерела та що почитати
 
-- 🟢 M. McCarthy, F. O'Dell — *English Phrasal Verbs in Use: Intermediate* (Cambridge): розділи за частками і трискладові дієслова.
+- 🟢 M. McCarthy, F. O'Dell — *English Phrasal Verbs in Use: Intermediate* (Cambridge): розділи за частками і трислівові дієслова.
 - 🟢 M. McCarthy, F. O'Dell — *English Idioms in Use: Intermediate* (Cambridge): ідіоми за темами з позначкою регістру.
 - 🟡 [Cambridge Dictionary](https://dictionary.cambridge.org/) — позначки *informal*, *UK*, розділюваність (*put sth off*).
 - 🟡 [IELTS — Speaking band descriptors](https://ielts.org/) — «idiomatic language» у критерії Lexical Resource.
 
 > [!important] Підсумок
 > - Розділювані: *put **it** off, sort **it** out, call **it** off*; нерозділювані: *come across it, get over it*.
-> - Трискладові — нерозлучні, обʼєкт у кінці: *run out **of**, put up **with**, come up **with**, cut down **on***.
-> - Багато фразових мають кілька значень: *work out* — тренуватися / розвʼязати; *turn out* — виявитися.
+> - Трислівові — нерозлучні, обʼєкт у кінці: *run out **of**, put up **with**, come up **with**, cut down **on***.
+> - Багато фразових дієслів мають кілька значень: *work out* — тренуватися / розвʼязати; *turn out* — виявитися.
 > - Ідіоми не перекладають по словах: *a piece of cake* — легко, *under the weather* — нездужати, *the last straw* — остання крапля.
-> - Регістр: у розмові — фразові й ідіоми; в есе й офіційному листі — *postpone, cancel, investigate, easy*.
+> - Регістр: у розмові — фразові дієслова й ідіоми; в есе й офіційному листі — *postpone, cancel, investigate, easy*.

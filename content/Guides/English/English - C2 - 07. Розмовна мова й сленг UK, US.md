@@ -34,7 +34,7 @@ estimatedMinutes: 60
 Розмовна англійська — це три різні поверхи, і C2 означає відчувати, на якому ти стоїш:
 
 1. **Розмовне (colloquial / informal)** — звичайна мова друзів і колег: *a no-brainer, peckish, a doddle, no biggie*. Нікого не ображає, просто не для офіційних текстів.
-2. **Сленг (slang)** — слова певної групи: віку, регіону, субкультури, інтернету (*sus, no cap, rizz, bloke, dude*). Сленг швидко старіє: те, що звучало круто у 2015, у 2026 може звучати як «тато намагається бути молодим».
+2. **Сленг (slang)** — слова певної групи: віку, регіону, субкультури, інтернету (*sus, no cap, rizz, bloke, dude*). Сленг швидко старіє: те, що звучало круто у 2015-му, у 2026-му може звучати як «тато намагається бути молодим».
 3. **Вульгарне й табуйоване (vulgar / taboo)** — лайка й грубі слова. Деякі з них у Британії майже побутові (*bloody*), інші — ні. Наше правило: такі слова треба **розуміти**, а вживати — лише коли ти точно знаєш, з ким говориш.
 
 Друга вісь — **UK vs US**. Більшість розмовних слів зрозуміють по обидва боки Атлантики, але звучатимуть «іноземно»: *quid, bloke, gobsmacked* — британське, *bucks, dude, stoked* — американське. А кілька слів мають **різні значення** — і там помилка може бути смішною або незручною (див. схему нижче).
@@ -160,7 +160,7 @@ estimatedMinutes: 60
 > steps:
 >   - { show: [u1, a1], note: "Американець, що скаже британцю «I love your pants», зробить комплімент його білизні." }
 >   - { show: [u2, a2], note: "I was pissed last night: британець був пʼяний, американець — злий. Обидва — вульгарні, при начальстві краще drunk і angry." }
->   - { show: [u3, a3], note: "Wicked у Бостоні — просто «дуже», у Лондоні 90-х — «класно». Злого значення в сленгу немає." }
+>   - { show: [u3, a3], note: "Wicked у Бостоні — просто «дуже», у Лондоні 90-х — «класно». Значення «злий» у сленгу немає." }
 >   - { show: [u4, a4], note: "Сумка на поясі: у Британії bum bag. Американське fanny pack британця змусить ніяково всміхнутися: у UK fanny — грубе анатомічне слово." }
 > ```
 
@@ -221,7 +221,7 @@ estimatedMinutes: 60
 > [!word] cheeky
 > ipa: /ˈtʃiːki/ · pos: adj · level: C2 · id: en-c2-colloquial-w05
 > uk: зухвалий, нахабнуватий (часто мило, з усмішкою)
-> example: He gave me a **cheeky** wink. — Він зухвало мені підморгнув.
+> example: He gave me a **cheeky** wink. — Він грайливо мені підморгнув.
 > note: розмовне, переважно UK; часто позитивне: *a cheeky pint* — «по пиву, поки ніхто не бачить». Пор. нейтральне *rude* — грубий.
 
 > [!word] take the mickey
@@ -326,7 +326,7 @@ estimatedMinutes: 60
 > [!word] use your loaf
 > ipa: /ˌjuːz jə ˈləʊf/ · ipa-us: /ˌjuːz jər ˈloʊf/ · pos: phrase · level: C2 · id: en-c2-colloquial-w22
 > uk: подумай головою
-> example: **Use your loaf** — the shop won't be open on Christmas Day! — Подумай головою: в Різдво крамниця не працюватиме!
+> example: **Use your loaf** — the shop won't be open on Christmas Day! — Подумай головою: на Різдво крамниця не працюватиме!
 > note: римований сленг: *loaf of bread* = *head*. Розмовне, UK, трохи старомодне; між своїми — не образливо.
 
 ### Регіоналізми
@@ -340,7 +340,7 @@ estimatedMinutes: 60
 > [!word] mardy
 > ipa: /ˈmɑːdi/ · ipa-us: /ˈmɑːrdi/ · pos: adj · level: C2 · id: en-c2-colloquial-w24
 > uk: вередливий, надутий, примхливий
-> example: Don't be so **mardy** — it was only a joke. — Не дмися так, це був лише жарт.
+> example: Don't be so **mardy** — it was only a joke. — Не дуйся так, це був лише жарт.
 > note: регіональне — північ і центр Англії. На півдні Британії й у США кажуть *moody, sulky*.
 
 > [!word] y'all
@@ -461,7 +461,7 @@ estimatedMinutes: 60
 > ipa: /vaɪb/ · pos: noun · level: C2 · id: en-c2-colloquial-w43
 > uk: атмосфера, настрій, енергія
 > example: I love the **vibe** in this café. — Мені подобається атмосфера в цій кавʼярні.
-> note: розмовне; *good vibes*, *a vibe check*, *it's a vibe* (це настрій!). Від *vibrations* (1960-ті).
+> note: розмовне; *good vibes*, *a vibe check*, *it's a vibe* (оце кайф!). Від *vibrations* (1960-ті).
 
 > [!word] ghost someone
 > ipa: /ˈɡəʊst ˌsʌmwʌn/ · ipa-us: /ˈɡoʊst ˌsʌmwʌn/ · pos: verb · level: C2 · id: en-c2-colloquial-w44
@@ -490,7 +490,7 @@ estimatedMinutes: 60
 > [!word] the ick
 > ipa: /ði ˈɪk/ · pos: noun · level: C2 · id: en-c2-colloquial-w48
 > uk: раптова відраза до того, хто подобався
-> example: He chewed with his mouth open and I instantly got **the ick**. — Він жував з відкритим ротом — і мене одразу відвернуло.
+> example: He chewed with his mouth open and I instantly got **the ick**. — Він жував з відкритим ротом — і мене від нього одразу відвернуло.
 > note: сленг, про побачення; *give sb the ick*, *get the ick*.
 
 > [!word] GOAT
@@ -544,7 +544,7 @@ estimatedMinutes: 60
 > - [ ] I'm a bit picky. Fancy a cup and a biscuit?
 > - [ ] I'm a bit peckish. Fancy a cup of tea and a biscuit?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-US · id: en-c2-colloquial-l02
 > audio: You can crash at my place. It's a no-brainer.
 
@@ -583,7 +583,7 @@ estimatedMinutes: 60
 > - [ ] Ліам пропонує купити свинячих пирогів на святкування.
 > - [ ] Ліам хоче піти до мʼясника.
 >
-> **Пояснення:** три вирази римованого сленгу: *have a butcher's* (*butcher's hook* = look) — глянь; *telling porkies* (*pork pies* = lies) — бреше; *use your loaf* (*loaf of bread* = head) — подумай головою. М'ясники й пироги — пастка буквального прочитання.
+> **Пояснення:** три вирази римованого сленгу: *have a butcher's* (*butcher's hook* = look) — глянь; *telling porkies* (*pork pies* = lies) — бреше; *use your loaf* (*loaf of bread* = head) — подумай головою. Мʼясники й пироги — пастка буквального прочитання.
 
 > [!listen] IELTS Listening · Part 1: заповни нотатки покупки на ринку. Write NUMBERS.
 > level: C2 · type: fill · lang: en-GB · id: en-c2-colloquial-l06
@@ -637,7 +637,7 @@ estimatedMinutes: 60
 > **Jake:** **No biggie**. I'll make coffee. Also, those were your **pants** on the sofa, right?
 > **Fern:** My *trousers*, Jake. Please say trousers.
 >
-> Два непорозуміння за хвилину: *pissed* (UK — пʼяний, US — злий) і *pants* (UK — білизна, US — штани). Обидва персонажі розмовляють природно — і саме тому міжнародному спікеру корисно знати обидва варіанти, а вульгарне *pissed* і сленгове *wasted* лишати для близьких друзів.
+> Два непорозуміння за хвилину: *pissed* (UK — пʼяний, US — злий) і *pants* (UK — білизна, US — штани). Обидва персонажі розмовляють природно — і саме тому, спілкуючись із людьми з різних країн, корисно знати обидва варіанти, а вульгарне *pissed* і сленгове *wasted* лишати для близьких друзів.
 
 ## Вимова
 
@@ -645,7 +645,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-colloquial-s01
 > text: I'm a bit peckish. Fancy a cuppa?
 > ipa: /aɪm ə bɪt ˈpekɪʃ ˈfænsi ə ˈkʌpə/
-> tip: a bit — злито [е-біт], t майже не вибухає. cuppa — [КА-пе], обидва голосні короткі; кінцеве a — слабке [ə].
+> tip: a bit — злито [е-біт], t майже не чути. cuppa — [КА-пе], обидва голосні короткі; кінцеве a — слабке [ə].
 > uk: Я трохи зголоднів. Може, чашечку чаю?
 
 > [!speak] Усе пішло шкереберть
@@ -681,7 +681,7 @@ estimatedMinutes: 60
 > text: Not really. I'm a bit lazy, so if something's a doddle to make, I'm happy.
 > ipa: /ˌnɒt ˈrɪəli aɪm ə bɪt ˈleɪzi səʊ ɪf ˌsʌmθɪŋz ə ˈdɒdəl tə ˈmeɪk aɪm ˈhæpi/
 > tip: Розмовне a doddle тут доречне: Part 1 — невимушена розмова. doddle — [ДО-дл], кінцеве l «темне». Пауза після Not really.
-> uk: Не дуже. Я трохи лінивий, тож якщо щось готується елементарно, я щасливий.
+> uk: Не дуже. Я трохи лінивий, тож якщо страву приготувати — раз плюнути, я задоволений.
 
 ## Типові помилки українців
 
@@ -759,7 +759,7 @@ estimatedMinutes: 60
 > - [ ] Yes. I eat between meals. I eat fruit. I eat nuts.
 > - [ ] I am pissed off when I am hungry, so I bloody eat everything.
 >
-> **Пояснення:** варіант 2 — розмовне, але доречне (*a bit peckish, grab*), природна пом'якшувальна відповідь і деталі. Варіант 1 — інтернет-сленг, що в розмові з екзаменатором звучить неприродно; 3 — без лексичного діапазону; 4 — вульгарні слова: мінус за доречність.
+> **Пояснення:** варіант 2 — розмовне, але доречне (*a bit peckish, grab*), природна, трохи помʼякшена відповідь і деталі. Варіант 1 — інтернет-сленг, що в розмові з екзаменатором звучить неприродно; 3 — без лексичного діапазону; 4 — вульгарні слова: мінус за доречність.
 
 > [!quiz] IELTS General Training · Writing Task 1 (формальний лист орендодавцю): яке речення найкраще замінює чернетку?
 > level: C2 · id: en-c2-colloquial-q08
@@ -801,7 +801,7 @@ estimatedMinutes: 60
 > - [ ] False
 > - [x] Not Given
 >
-> **Пояснення:** текст каже, що більшість колишнього «обурливого» сленгу **або зник, або тихо потрапив у словник**. Чи вживає його молодь сьогодні — не сказано. Пастка: *settled into the dictionary* ≠ *widely used by young people*. Отже, **Not Given**.
+> **Пояснення:** текст каже, що більшість колишнього «обурливого» сленгу **або зникла, або тихо потрапила в словник**. Чи вживає його молодь сьогодні — не сказано. Пастка: *settled into the dictionary* ≠ *widely used by young people*. Отже, **Not Given**.
 
 > [!quiz] «I'm lowkey nervous about tomorrow.» Що означає lowkey?
 > level: C2 · id: en-c2-colloquial-q12
@@ -869,7 +869,7 @@ estimatedMinutes: 60
 ## Фішки
 
 > [!reel] 🍐 Римований сленг: код Іст-Енду
-> *Have a butcher's* = *look* (butcher's hook), *porkies* = *lies* (pork pies). Рима потрібна лише, щоб утворити код, — потім її відкидають. Точно невідомо, хто його вигадав: популярні версії — злодії, ринкові торговці чи просто гра.
+> *Have a butcher's* = *look* (butcher's hook), *porkies* = *lies* (pork pies). Рима потрібна лише для того, щоб утворити код, — потім її відкидають. Точно невідомо, хто його вигадав: популярні версії — злодії, ринкові торговці чи просто гра.
 
 > [!reel] 🗣️ Слово року — rizz
 > Oxford Languages обирав словом року *rizz* (2023) і *brain rot* (2024). Rizz, ймовірно, — середина слова *charisma*. Словники фіксують сленг, коли він живе довше за мем.

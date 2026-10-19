@@ -122,7 +122,7 @@ estimatedMinutes: 35
 
 ## Приклади
 
-- I've got two cousins in Canada. — У мене два двоюрідні брати в Канаді.
+- I've got two cousins in Canada. — У мене в Канаді двоє двоюрідних братів.
 - My grandad hasn't got a mobile. — У мого дідуся немає мобільного.
 - Have you got any brothers or sisters? — Yes, I have. One sister. — У тебе є брати чи сестри? — Так, одна сестра.
 - She's got long red hair. — У неї довге руде волосся.
@@ -169,7 +169,7 @@ estimatedMinutes: 35
 > [!word] camera
 > ipa: /ˈkæmərə/ · pos: noun · level: A1 · id: en-a1-have-got-w07
 > uk: фотоапарат; камера
-> example: Has your phone got a good **camera**? — У твого телефона хороша камера?
+> example: Has your phone got a good **camera**? — У твоєму телефоні хороша камера?
 
 > [!word] computer
 > ipa: /kəmˈpjuːtə/ · ipa-us: /kəmˈpjuːt̬ər/ · pos: noun · level: A1 · id: en-a1-have-got-w08
@@ -212,11 +212,11 @@ estimatedMinutes: 35
 > - [x] Do you have a minute?
 > - [ ] Do you have a meeting?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-have-got-l03
 > audio: I haven't got time.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-have-got-l04
 > audio: Has he got any children?
 
@@ -265,10 +265,10 @@ estimatedMinutes: 35
 ## Типові помилки українців
 
 > [!pitfall] «I have 20 years»
-> Вік — це не річ, яку «мають». **I'm 20** (*I'm 20 years old*). Пастка з'являється саме тут, бо «have» вже асоціюється з «у мене є». Див. [[English - A1 - 04. Числа, вік і номер телефону]].
+> Вік — це не річ, яку «мають». **I'm 20** (*I'm 20 years old*). Пастка зʼявляється саме тут, бо «have» вже асоціюється з «у мене є». Див. [[English - A1 - 04. Числа, вік і номер телефону]].
 
 > [!pitfall] «Do you have got…?», «I don't have got…»
-> Дві системи не змішуються: або **Have you got…? / I haven't got**, або **Do you have…? / I don't have**. Got живе лише з have-помічником.
+> Дві системи не змішуються: або **Have you got…? / I haven't got**, або **Do you have…? / I don't have**. *Got* буває лише там, де питання й заперечення будує сам *have* — без *do*.
 
 > [!pitfall] «I've got breakfast at 8»
 > *Have got* — тільки про володіння. Для дій — *have* без got: **I have breakfast at 8. We have a lesson on Monday. Have a nice day!**
@@ -282,7 +282,7 @@ estimatedMinutes: 35
 > audio: A: OK. Have you got time after the meeting?
 > audio: B: Yes, I have. Let's talk at four.
 > - [x] Зараз Ольга зайнята, поговорять о четвертій.
-> - [ ] Ольга вільна прямо зараз.
+> - [ ] Ольга вільна вже зараз.
 > - [ ] Зустріч о четвертій, розмова о другій.
 
 Відповідай колезі вголос.
@@ -321,7 +321,7 @@ estimatedMinutes: 35
 > - [ ] I haven't a car got.
 > - [x] Does she have a dog?
 >
-> **Пояснення:** правильні дві системи: *haven't got* і *don't have*. Змішувати їх не можна.
+> **Пояснення:** правильні обидві системи: *haven't got* і *don't have*. Змішувати їх не можна.
 
 > [!quiz] Що означає «She's got blue eyes»?
 > level: A1 · id: en-a1-have-got-q05
@@ -402,14 +402,14 @@ estimatedMinutes: 35
 >
 > **Пояснення:** *she* → *hasn't got*.
 
-> [!quiz] Що означає «He's tired» і «He's got a car»?
+> [!quiz] Що означає 's у «He's tired» і «He's got a car»?
 > level: A1 · id: en-a1-have-got-q12
 > - [ ] обидва 's = has
 > - [ ] обидва 's = is
 > - [x] у першому 's = is, у другому 's = has
 > - [ ] у першому 's = has, у другому 's = is
 >
-> **Пояснення:** після *'s* стоїть прикметник *tired* → *is*; стоїть *got* → *has*.
+> **Пояснення:** якщо після *'s* стоїть прикметник (*tired*) → *is*; якщо *got* → *has*.
 
 ## Фішки
 
@@ -417,10 +417,10 @@ estimatedMinutes: 35
 > Формально *got* у *have got* нічого не додає: *I have a car* = *I've got a car*. Але скорочене *I've* звучить надто коротко, і *got* дає реченню «опору». Тому в розмові британці обожнюють *have got*.
 
 > [!reel] 🇺🇸 Gotten — американське слово
-> В американській є форма *gotten* (*I've gotten better* — мені стало краще). Але *have got* у значенні «мати» навіть американці кажуть з *got*: *I've got a question.*
+> В американській англійській є форма *gotten* (*I've gotten better* — мені стало краще). Але *have got* у значенні «мати» навіть американці кажуть з *got*: *I've got a question.*
 
 > [!reel] 🎵 I've got a feeling
-> *I've got* звучить у сотнях пісень: від The Beatles (*I've Got a Feeling*) до сучасного попу. Слухаєш — і граматика заходить сама.
+> *I've got* звучить у сотнях пісень: від The Beatles (*I've Got a Feeling*) до сучасного попу. Слухаєш — і граматика запамʼятовується сама.
 
 ## Джерела та що почитати
 

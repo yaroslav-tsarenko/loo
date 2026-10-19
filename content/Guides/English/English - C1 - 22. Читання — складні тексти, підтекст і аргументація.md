@@ -37,7 +37,7 @@ estimatedMinutes: 80
 
 | B2 | C1 |
 |---|---|
-| хто що думає | **наскільки** автор погоджується: повністю, частково, з застереженням |
+| хто що думає | **наскільки** автор погоджується: повністю, частково, із застереженням |
 | тон: позитивний / критичний / іронічний | **функція** кожного абзацу й прикладу: ілюструє, заперечує, поступається, готує поворот |
 | висновок з одного речення | **неявний аргумент** усього тексту: що автор пропонує, не кажучи цього прямо |
 | один текст | **кілька текстів**: хто з авторів з ким погоджується (cross-text) |
@@ -61,7 +61,7 @@ estimatedMinutes: 80
 >   - { id: chk, at: "58–60 хв", text: "перевірка бланку", note: "жодної порожньої клітинки", tone: gray, icon: "px:check" }
 > steps:
 >   - { show: p1, note: "Перший текст найпростіший — тут Band 8 «заробляє» час. Ціль: 13 з 13 за 15–17 хвилин." }
->   - { show: p2, note: "Другий — 20 хвилин. Питання, що не дається 90 секунд, — найімовірніша відповідь, позначка, далі." }
+>   - { show: p2, note: "Другий — 20 хвилин. Якщо питання не вдається розвʼязати за 90 секунд, постав найімовірнішу відповідь, познач його й рухайся далі." }
 >   - { show: p3, note: "Третій — найскладніший: на нього лишай понад 20 хвилин. Спершу прочитай питання й визнач, які з них про думку автора." }
 >   - { show: chk, note: "За помилку балів не знімають — порожня клітинка завжди нуль. Останні 2 хвилини — перевір, що всі 40 відповідей стоять." }
 > ```
@@ -118,14 +118,14 @@ estimatedMinutes: 80
 
 ### Підтекст: іронія, недомовленість, лапки
 
-| Прийом | Приклад | Що мається на увазі |
+| Прийом | Приклад | Що мають на увазі |
 |---|---|---|
 | **іронія** — сказати протилежне | *It is a triumph, by any measure — and that is precisely the problem.* | «тріумф» лише за хибним вимірником |
 | **лапки-сумнів** (scare quotes) | *those who 'gamed the system'* | автор дистанціюється від чужого ярлика |
-| **недомовленість** (understatement) | *The study has yet to be replicated.* | обережно: «не довіряйте надто сильно» |
+| **недомовленість** (understatement) | *The study has yet to be replicated.* | обережний натяк: «не довіряйте цьому надто» |
 | **риторичне завершення** | *That, perhaps, is the point.* | неявний висновок: складність — це ціна чесності |
 | **вибір слова з конотацією** | *as they **supposedly** were in some earlier age* | автор сумнівається в міфі про «золотий вік» |
-| **тенденційні слова** (loaded language) | *an "invasion" of tourists* | автор нав'язує оцінку замість опису |
+| **тенденційні слова** (loaded language) | *an "invasion" of tourists* | автор навʼязує оцінку замість опису |
 
 **Слова для питань про ставлення автора** (*The writer's attitude can best be described as…*): *measured, even-handed* — зважено, обидва боки; *polemical* — свідомо однобічно; *wry* — з легкою іронією; *sardonic* — глузливо; *grudging* — визнає неохоче; *scathing* — нищівно. Відповідь Band 8 спирається на **сукупність** сигналів у тексті, а не на одне слово.
 
@@ -179,14 +179,14 @@ estimatedMinutes: 80
 > layout: flow
 > nodes:
 >   - { id: hook, label: "A–B · гачок і теза", text: "цифри точні, але більше не описують реальність", note: "проблема — у винагороді за цифру", tone: blue, icon: "px:flag" }
->   - { id: mech, label: "C · механізм", text: "metric displacement", note: "приклади: колцентр, навчання під тест", tone: violet }
+>   - { id: mech, label: "C · механізм", text: "metric displacement", note: "приклади: кол-центр, навчання під тест", tone: violet }
 >   - { id: conc, label: "D · поступка", text: "без вимірювання — упередження й звʼязки", note: "This is a serious argument", tone: gray }
 >   - { id: reb, label: "E · спростування", text: "«просто довіряти» — вибіркова памʼять", note: "Nor is the alternative… convincing", tone: orange }
 >   - { id: prop, label: "F–G · пропозиція", text: "learning ≠ judgement; кілька індикаторів", note: "обережно з доказами", tone: green }
 >   - { id: impl, label: "H · неявний висновок", text: "питати про систему, а не лише про людей", note: "без «I believe»", tone: pink, icon: "px:target" }
 > steps:
 >   - { focus: hook, note: "A — іронічний приклад; B — теза автора в кінці абзацу: the problem lies less with the people… than with the decision to reward them." }
->   - { focus: mech, note: "C пояснює механізм. Приклад колцентру — для ілюстрації: цифра покращується, сервіс погіршується." }
+>   - { focus: mech, note: "C пояснює механізм. Приклад кол-центру — для ілюстрації: цифра покращується, сервіс погіршується." }
 >   - { focus: conc, note: "D — поступка: автор чесно визнає силу протилежного аргументу (Osei). Це не зміна позиції, а її «зрілість»." }
 >   - { focus: reb, note: "E — спростування альтернативи критиків. Слово supposedly і selective memory — сигнали сумніву." }
 >   - { focus: prop, note: "F–G — власна пропозиція: розрізняти вимірювання для навчання й для оцінки. Доказ (Ruiz) поданий з обмежувачем: treated with some caution." }
@@ -203,7 +203,7 @@ estimatedMinutes: 80
 - *The writer alludes to an earlier debate without naming it.* — Автор натякає на попередню дискусію, не називаючи її.
 - *Her tone is wry rather than openly hostile.* — Її тон радше іронічний, ніж відкрито ворожий.
 - *The link between the two findings is tenuous at best.* — Звʼязок між цими двома результатами в кращому разі слабкий.
-- *Critics have taken issue with the study's methods.* — Критики заперечують методи дослідження.
+- *Critics have taken issue with the study's methods.* — Критики не погоджуються з методами дослідження.
 - *The report glosses over the costs of the scheme.* — Звіт оминає увагою витрати на програму.
 
 ## Слова
@@ -213,12 +213,12 @@ estimatedMinutes: 80
 > [!word] subtext
 > ipa: /ˈsʌbtekst/ · pos: noun · level: C1 · id: en-c1-reading-w01
 > uk: підтекст
-> example: The **subtext** of the article is that the reform has failed. — Підтекст статті — реформа провалилася.
-> note: те, що мається на увазі, але не сказано прямо.
+> example: The **subtext** of the article is that the reform has failed. — Підтекст статті такий: реформа провалилася.
+> note: те, що мають на увазі, але не кажуть прямо.
 
 > [!word] implicit
 > ipa: /ɪmˈplɪsɪt/ · pos: adj · level: C1 · id: en-c1-reading-w02
-> uk: неявний, прихований, що мається на увазі
+> uk: неявний, прихований; той, що мають на увазі
 > example: There is an **implicit** criticism of the government in the final paragraph. — В останньому абзаці є неявна критика уряду.
 > note: від *imply*. *Implicit trust* — беззастережна довіра.
 
@@ -244,19 +244,19 @@ estimatedMinutes: 80
 > ipa: /raɪ/ · pos: adj · level: C1 · id: en-c1-reading-w06
 > uk: іронічний, з легкою (сухою) іронією
 > example: She ends the essay on a **wry** note. — Вона завершує есе з легкою іронією.
-> note: *a wry smile / sense of humour*. *w* німа: [РАЙ].
+> note: *a wry smile / sense of humour*. у wry літера *w* не читається: /raɪ/.
 
 > [!word] sardonic
 > ipa: /sɑːˈdɒnɪk/ · ipa-us: /sɑːrˈdɑːnɪk/ · pos: adj · level: C1 · id: en-c1-reading-w07
 > uk: саркастичний, глузливий
-> example: His **sardonic** comments about "progress" run through the book. — Його саркастичні коментарі про «прогрес» проходять крізь усю книжку.
+> example: His **sardonic** comments about "progress" run through the book. — Його саркастичні коментарі про «прогрес» пронизують усю книжку.
 > note: різкіше за *wry*: з насмішкою й зневагою.
 
 > [!word] facetious
 > ipa: /fəˈsiːʃəs/ · pos: adj · level: C1 · id: en-c1-reading-w08
 > uk: недоречно жартівливий, блазнівський
 > example: His **facetious** remarks about the budget annoyed the committee. — Його недоречні жарти про бюджет роздратували комісію.
-> note: негативне: жарт там, де чекають серйозності. Вимова: [фе-СІІ-шес].
+> note: негативне: жарт там, де чекають серйозності. Вимова: /fəˈsiːʃəs/, наголос на другому складі.
 
 > [!word] scathing
 > ipa: /ˈskeɪðɪŋ/ · pos: adj · level: C1 · id: en-c1-reading-w09
@@ -288,7 +288,7 @@ estimatedMinutes: 80
 > ipa: /ˌpriːsəˈpəʊz/ · ipa-us: /ˌpriːsəˈpoʊz/ · pos: verb · level: C1 · id: en-c1-reading-w13
 > uk: передбачати, мати за (неявну) передумову
 > example: The argument **presupposes** that people always act rationally. — Аргумент неявно виходить з того, що люди завжди діють раціонально.
-> note: іменник — *presupposition*. Неявна передумова аргументу — улюблений об'єкт критики в академічних текстах.
+> note: іменник — *presupposition*. Неявна передумова аргументу — улюблений обʼєкт критики в академічних текстах.
 
 > [!word] non sequitur
 > ipa: /ˌnɒn ˈsekwɪtə/ · ipa-us: /ˌnɑːn ˈsekwɪtər/ · pos: noun · level: C1 · id: en-c1-reading-w14
@@ -330,7 +330,7 @@ estimatedMinutes: 80
 > ipa: /ˌəʊvərˈɑːtʃɪŋ/ · ipa-us: /ˌoʊvərˈɑːrtʃɪŋ/ · pos: adj · level: C1 · id: en-c1-reading-w20
 > uk: головний, всеохопний (що обʼєднує все)
 > example: The **overarching** argument is that numbers are asked to do too much. — Головна думка тексту — від цифр вимагають забагато.
-> note: *an overarching theme / aim / argument*. Буквально — «що аркою накриває все».
+> note: *an overarching theme / aim / argument*. Дослівно — «що аркою накриває все».
 
 > [!word] specious
 > ipa: /ˈspiːʃəs/ · pos: adj · level: C1 · id: en-c1-reading-w21
@@ -403,7 +403,7 @@ estimatedMinutes: 80
 > [!word] read between the lines
 > ipa: /ˌriːd bɪˌtwiːn ðə ˈlaɪnz/ · pos: phrase · level: C1 · id: en-c1-reading-w32
 > uk: читати між рядків
-> example: **Reading between the lines**, the company is in serious trouble. — Якщо читати між рядків, компанія має серйозні проблеми.
+> example: **Reading between the lines**, the company is in serious trouble. — Якщо читати між рядків, у компанії серйозні проблеми.
 > note: *Reading between the lines, …* — зручний вступ до висновку з підтексту.
 
 > [!word] take issue with
@@ -433,7 +433,7 @@ estimatedMinutes: 80
 > - [ ] The study is small and has already been replicated, so its conclusions should be treated with some caution.
 > - [ ] The study is small and has yet to be replicated, so its conclusions should be treated with great confidence.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-reading-l02
 > audio: The case for counting is stronger than its critics usually allow.
 
@@ -453,21 +453,21 @@ estimatedMinutes: 80
 > level: C1 · id: en-c1-reading-s01
 > text: The evidence is suggestive, but it is by no means conclusive.
 > ipa: /ði ˈevɪdəns ɪz səˈdʒestɪv bət ɪt ɪz baɪ ˈnəʊ ˌmiːnz kənˈkluːsɪv/
-> tip: suggestive — UK [се-ДЖЕС-тів]; конструкція з *but* — наголос на контрасті: sugGEStive ↔ by NO means.
-> uk: Докази наводять на думку, але аж ніяк не є остаточними.
+> tip: suggestive — наголос на другому складі: /səˈdʒestɪv/; конструкція з *but* — наголос на контрасті: sugGEStive ↔ by NO means.
+> uk: Ці дані дають певні підстави для висновків, але аж ніяк не остаточні.
 
 > [!speak] Поступка і спростування
 > level: C1 · id: en-c1-reading-s02
 > text: This is a serious argument, and critics too often wave it away.
 > ipa: /ðɪs ɪz ə ˈsɪəriəs ˈɑːɡjumənt ənd ˈkrɪtɪks ˈtuː ˈɒfən ˈweɪv ɪt əˈweɪ/
-> tip: serious — [СІЕ-рі-ес]; often — без /t/ (найпоширеніше в UK): [О-фен]; wave‿it‿away — злиття: [вей-ві-те-вей].
+> tip: serious — /ˈsɪəriəs/; often у британській найчастіше вимовляють без /t/: /ˈɒfən/; wave‿it‿away зливається в одне ціле: /ˈweɪv ɪt əˈweɪ/.
 > uk: Це серйозний аргумент, і критики надто часто від нього відмахуються.
 
 > [!speak] Неявний висновок уголос
 > level: C1 · id: en-c1-reading-s03
 > text: A less comfortable question is why the system made gaming so rational in the first place.
 > ipa: /ə ˈles ˈkʌmftəbəl ˈkwestʃən ɪz ˈwaɪ ðə ˈsɪstəm ˈmeɪd ˈɡeɪmɪŋ ˈsəʊ ˈræʃənəl ɪn ðə ˈfɜːst ˈpleɪs/
-> tip: comfortable — три склади: [КАМФ-те-бл]; rational — /æ/: [РЕ-ше-нл], не «рейшнл».
+> tip: comfortable — три склади: /ˈkʌmftəbəl/; rational — з /æ/: /ˈræʃənəl/, не «рейшнл».
 > uk: Менш зручне питання — чому система взагалі зробила маніпуляції такими раціональними.
 
 ## Типові помилки українців
@@ -476,7 +476,7 @@ estimatedMinutes: 80
 > Звичка шукати в тексті **ті самі слова**, що й у питанні, на C1 шкодить: дистрактори навмисне повторюють слова тексту (*target, funding, hospital*), а правильні відповіді — **парафразують** (*stronger than its critics usually allow* ↔ *critics underestimate*). Збіг слів — не доказ. Доказ — збіг **змісту й ступеня**.
 
 > [!pitfall] Ігнорувати обмежувачі: «usually», «largely», «less… than»
-> Українською «здебільшого» і «повністю» легко «проковтнути» при швидкому читанні; в англійському YNNG вони і є відповіддю. *The problem lies less with the people than with the system* ≠ «люди не винні зовсім» і ≠ «винні люди». Підкреслюй у твердженні слова **кількості, впевненості й ступеня** — і шукай їхні відповідники в тексті.
+> Українською «здебільшого» і «повністю» легко «проковтнути», коли читаєш швидко; в англійському YNNG вони і є відповіддю. *The problem lies less with the people than with the system* ≠ «люди не винні зовсім» і ≠ «винні люди». Підкреслюй у твердженні слова **кількості, впевненості й ступеня** — і шукай їхні відповідники в тексті.
 
 > [!pitfall] Читати іронію буквально
 > *It is a triumph, by any measure — and that is precisely the problem.* Буквальне прочитання («автор хвалить лікарні») дає хибну відповідь. Британська публіцистика любить **іронію й недомовленість**: *wonderful news* рівним тоном, *supposedly*, лапки навколо чужих слів. Якщо «похвала» супроводжується поворотом (*and that is the problem*, *I only wonder why*), — це критика.
@@ -528,14 +528,14 @@ estimatedMinutes: 80
 >
 > **Пояснення:** абзац B: *the problem lies less with the people being measured than with the decision to reward them*; абзац H: звинувачувати людей — *a comforting reaction*, а *a less comfortable question* — про систему. Позиція автора суперечить слову *mainly* → **No**. Зверни увагу: автор не каже, що люди **зовсім** не винні, — але «головна» відповідальність, на його думку, в іншому.
 
-> [!quiz] IELTS · Writer's purpose: навіщо автор згадує **колцентр** в абзаці C?
+> [!quiz] IELTS · Writer's purpose: навіщо автор згадує **кол-центр** в абзаці C?
 > level: C1 · id: en-c1-reading-q07
-> - [ ] щоб показати, що колцентри погано навчають працівників
+> - [ ] щоб показати, що кол-центри погано навчають працівників
 > - [x] щоб проілюструвати, як покращення показника може погіршити саму послугу, яку він мав відстежувати
 > - [ ] щоб довести, що вимірювати тривалість дзвінків незаконно
 > - [ ] щоб протиставити приватні компанії державним службам
 >
-> **Пояснення:** приклад стоїть одразу після загального твердження (*Organisations measure what is easy to count…*) і закінчується словами *the statistic improves while the service it was meant to track deteriorates*. Функція — **ілюстрація** механізму, а не критика колцентрів як таких.
+> **Пояснення:** приклад стоїть одразу після загального твердження (*Organisations measure what is easy to count…*) і закінчується словами *the statistic improves while the service it was meant to track deteriorates*. Функція — **ілюстрація** механізму, а не критика кол-центрів як таких.
 
 > [!quiz] IELTS · Writer's purpose: фраза «It is a triumph, by any measure» в абзаці A вжита…
 > level: C1 · id: en-c1-reading-q08
@@ -620,7 +620,7 @@ estimatedMinutes: 80
 > - [x] C
 > - [ ] D
 >
-> **Пояснення:** A і D прямо підтримують навчання письма; B — *I would not abandon handwriting altogether*. Лише C пропонує замінити його друком наосліп: *Replace handwriting lessons with touch-typing*.
+> **Пояснення:** A і D прямо підтримують навчання письма; B — *I would not abandon handwriting altogether*. Лише C пропонує замінити його сліпим друком: *Replace handwriting lessons with touch-typing*.
 
 > [!quiz] Cross-text: хто з авторів **поділяє думку B** щодо досліджень про памʼять?
 > level: C1 · id: en-c1-reading-q16
@@ -628,7 +628,7 @@ estimatedMinutes: 80
 > - [ ] C
 > - [x] D
 >
-> **Пояснення:** B: *the headlines… went well beyond the data*; D: *the popular articles run far ahead of what the studies actually show* — той самий скепсис, парафразований. A, навпаки, спирається на ці дослідження (хоч і з застереженням); C про них не говорить.
+> **Пояснення:** B: *the headlines… went well beyond the data*; D: *the popular articles run far ahead of what the studies actually show* — той самий скепсис, парафразований. A, навпаки, спирається на ці дослідження (хоч і з певним застереженням); C про них не говорить.
 
 > [!quiz] Cross-text: хто, **як і D**, наголошує на користі письма для розвитку маленьких дітей?
 > level: C1 · id: en-c1-reading-q17

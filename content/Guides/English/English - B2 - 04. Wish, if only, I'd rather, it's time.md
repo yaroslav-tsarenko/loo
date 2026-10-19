@@ -116,7 +116,7 @@ estimatedMinutes: 40
 **If only** має ту саму граматику, що й *wish*, але звучить емоційніше — як вигук жалю чи мрії:
 
 - ***If only** I **had** more time!* — Ох, якби ж у мене було більше часу!
-- ***If only** I **hadn't** sent that email!* — Ох, якби ж я не надсилав того листа!
+- ***If only** I **hadn't** sent that email!* — Ох, якби ж я не надіслав того листа!
 - ***If only** she **would** call!* — Якби ж вона подзвонила!
 
 ### Wish чи hope?
@@ -195,12 +195,12 @@ estimatedMinutes: 40
 > It was a secret! I'd rather you [[hadn't told|had not told]] anyone. (not tell)
 > ```
 >
-> **Пояснення:** сам дію — **V1** без *to* (*stay, walk*). Інший діє зараз / потім — **Past Simple** (*didn't call*). Інший уже зробив у минулому — **Past Perfect** (*hadn't told*).
+> **Пояснення:** дієш сам — **V1** без *to* (*stay, walk*). Інший діє зараз / потім — **Past Simple** (*didn't call*). Інший уже зробив у минулому — **Past Perfect** (*hadn't told*).
 
-### It's time — час уже давно
+### It's time — давно пора
 
 - **It's time + to + V1** — просто «пора»: *It's time **to go**.* *It's time **for** us **to go**.*
-- **It's time + хтось + Past Simple** — «давно пора» (і це ще не зроблено, трохи критики): *It's time we **left**.* — Нам пора йти.
+- **It's time + хтось + Past Simple** — «давно пора» (це досі не зроблено, і звучить як легкий докір): *It's time we **left**.* — Нам пора йти.
 - **It's high time / It's about time** + Past Simple — ще сильніше: «давно вже пора!» *It's high time you **got** a job.* — Тобі давно пора знайти роботу.
 
 > [!quiz] Перевір себе: it's time
@@ -224,8 +224,8 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- I **wish** I **had** a bigger kitchen. — Шкода, що в мене не більша кухня.
-- I **wish** I **were** better at maths. — Хотів би я краще знати математику.
+- I **wish** I **had** a bigger kitchen. — Шкода, що в мене така маленька кухня.
+- I **wish** I **were** better at maths. — Хотів би я краще знатися на математиці.
 - I **wish** I **hadn't spent** all my money on clothes. — Шкода, що я витратив усі гроші на одяг.
 - I **wish** I **could have stayed** longer. — Шкода, що я не зміг залишитися довше.
 - I **wish** you **wouldn't** leave your shoes in the hall. — Ну не залишай ти взуття в коридорі!
@@ -252,9 +252,9 @@ estimatedMinutes: 40
 > [!word] would rather
 > ipa: /wʊd ˈrɑː.ðə/ · ipa-us: /wʊd ˈræð.ɚ/ · pos: phrase · level: B2 · id: en-b2-wish-w03
 > uk: волів би, краще б
-> example: I'**d rather** take the train than drive. — Я б краще поїхав потягом, ніж за кермом.
+> example: I'**d rather** take the train than drive. — Я б краще поїхав потягом, ніж сам сів за кермо.
 > example: I'**d rather** you didn't tell anyone. — Я б волів, щоб ти нікому не казав.
-> note: після нього — V1 без to; якщо діє інша людина — Past Simple. Британське розмовне синонімічне — I'd sooner.
+> note: після нього — V1 без to; якщо діє інша людина — Past Simple. Розмовний британський синонім — I'd sooner.
 
 > [!word] it's high time
 > ipa: /ɪts ˌhaɪ ˈtaɪm/ · pos: phrase · level: B2 · id: en-b2-wish-w04
@@ -277,7 +277,7 @@ estimatedMinutes: 40
 > [!word] fed up with
 > ipa: /ˌfed ˈʌp wɪð/ · pos: phrase · level: B2 · id: en-b2-wish-w07
 > uk: набридло, остогидло (щось)
-> example: I'm **fed up with** this weather — I wish it would stop raining! — Мені набрид цей дощ — хоч би він уже перестав!
+> example: I'm **fed up with** this weather — I wish it would stop raining! — Мені набридла ця погода — хоч би вже перестав дощ!
 > note: розмовне. Також fed up of (британське розмовне) і просто I'm fed up.
 
 > [!word] bother
@@ -289,7 +289,7 @@ estimatedMinutes: 40
 > [!word] procrastinate
 > ipa: /prəˈkræs.tɪ.neɪt/ · ipa-us: /proʊˈkræs.tə.neɪt/ · pos: verb · level: B2 · id: en-b2-wish-w09
 > uk: прокрастинувати, відкладати на потім
-> example: I wish I didn't **procrastinate** so much. — Шкода, що я так багато все відкладаю.
+> example: I wish I didn't **procrastinate** so much. — Шкода, що я так часто все відкладаю на потім.
 > note: noun — procrastination.
 
 > [!word] nag
@@ -319,11 +319,11 @@ estimatedMinutes: 40
 >
 > **Пояснення:** про іншу людину — *you didn't* (Past Simple). *I'd rather not tell* означало б, що ти сам не хочеш розповідати.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-wish-l03
 > audio: If only I had more free time.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-wish-l04
 > audio: It's high time we bought a new car.
 
@@ -362,7 +362,7 @@ estimatedMinutes: 40
 > level: B2 · id: en-b2-wish-s02
 > text: If only I had listened to you!
 > ipa: /ɪf ˈəʊn.li aɪ həd ˈlɪs.ənd tə juː/
-> tip: listened — t не вимовляється: [лісənд]; only — дифтонг /əʊ/: [оун-лі].
+> tip: listened — літера t не читається: [лісənд]; only — дифтонг /əʊ/: [оун-лі].
 
 > [!speak] Скажи вголос
 > level: B2 · id: en-b2-wish-s03
@@ -479,7 +479,7 @@ estimatedMinutes: 40
 > - [ ] No
 > - [ ] Not Given
 >
-> **Пояснення:** *It is high time schools stopped treating failure as something shameful* — «школам давно пора перестати вважати помилки ганебними». *It is high time* + Past Simple — це критика й заклик до змін, тобто думка автора збігається з твердженням → **Yes**.
+> **Пояснення:** *It is high time schools stopped treating failure as something shameful* — «школам давно пора перестати вважати невдачі ганебними». *It is high time* + Past Simple — це критика й заклик до змін, тобто думка автора збігається з твердженням → **Yes**.
 
 > [!quiz] IELTS Reading — Summary completion. Choose ONE word from the box for each gap.
 > level: B2 · type: fill · bank: proud, taken, ignored · tags: ielts · id: en-b2-wish-q13
@@ -509,7 +509,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 👻 Were — привид старої граматики
-> «I wish I were» і «If I were you» — залишки англійського умовного способу (subjunctive), якого в живій мові вже майже немає. Тому were з I / he / she поступово витісняє was, але в письмі й на іспитах воно досі звучить «правильніше».
+> «I wish I were» і «If I were you» — залишки англійського умовного способу (subjunctive), якого в живій мові вже майже немає. Тому з I / he / she was поступово витісняє were, але в письмі й на іспитах were досі звучить «правильніше».
 
 > [!reel] 🎂 Make a wish!
 > Задуваючи свічки на торті, англомовні діти чують «Make a wish!» — «Загадай бажання!». Головне правило: нікому не казати, інакше не збудеться. Wish тут — іменник, і граматика проста.

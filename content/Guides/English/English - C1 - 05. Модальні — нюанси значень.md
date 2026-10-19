@@ -31,7 +31,7 @@ estimatedMinutes: 45
 
 ## Простими словами
 
-На B1 ти вивчив шкалу *must — might — can't*, на B2 — модальні в минулому. На C1 модальні стають **інструментами тону**: як сильно ти впевнений, наскільки ти ввічливий, чи ти роздратований. Одне маленьке слово змінює все:
+На B1 ти вивчив шкалу *must — might — can't*, на B2 — модальні в минулому. На C1 модальні стають **інструментами тону**: наскільки ти впевнений, наскільки ввічливий, чи роздратований. Одне маленьке слово змінює все:
 
 - *You **might** be right.* — Можливо, ти маєш рацію.
 - *You **might well** be right.* — Цілком імовірно, що ти маєш рацію.
@@ -83,7 +83,7 @@ estimatedMinutes: 45
 | офіційний план (новини) | *The factory **is to** close in May.* | Завод мають закрити в травні. |
 | наказ, інструкція | *Nobody **is to** leave the room.* | Ніхто не повинен виходити з кімнати. |
 | доля (у минулому) | *He left in 1915. He **was never to** return.* | Йому не судилося повернутися. |
-| умова: «якщо ми хочемо» | ***If we are to** finish on time, we need more staff.* | Якщо хочемо встигнути, потрібні люди. |
+| умова: «якщо ми хочемо» | ***If we are to** finish on time, we need more staff.* | Якщо хочемо встигнути, нам потрібно більше людей. |
 | пасив в інструкціях | *The form **is to be** completed in black ink.* | Форму слід заповнювати чорним чорнилом. |
 | план, що зірвався | *We **were to have** married in June, but…* | Ми мали побратися в червні, але… |
 
@@ -132,7 +132,7 @@ estimatedMinutes: 45
 
 - ***might have / could have*** + V3 — докір («міг би й…»): *You **might have** told me you were leaving!* *You **could have** warned me!*
 - наголошене ***will*** — дратівлива звичка: *He **WILL** leave his socks on the floor!* Ненаголошене *will* — нейтральна звичка: *She'**ll** sit for hours reading.*
-- наголошене ***would*** — «це так на нього схоже»: *Well, she **WOULD** say that, wouldn't she?* — Ну звісно, що ще вона могла сказати.
+- наголошене ***would*** — «це так на нього схоже»: *Well, she **WOULD** say that, wouldn't she?* — Ну звісно, а що ще вона могла сказати?
 - ***won't / wouldn't*** — відмова, навіть у речей: *The car **wouldn't** start.* *This lid **won't** come off.*
 
 ### Might well чи might as well
@@ -143,7 +143,7 @@ estimatedMinutes: 45
 > columns: { mw: "might well — імовірність", maw: "might / may as well — «а чом би й ні»" }
 > nodes:
 >   - { id: a1, col: mw, text: "Prices might well go up.", note: "ціни цілком можуть зрости", tone: blue }
->   - { id: b1, col: maw, text: "We might as well walk.", note: "автобусів уже немає — кращого варіанту нема", tone: orange }
+>   - { id: b1, col: maw, text: "We might as well walk.", note: "автобусів уже немає, тож кращого варіанту не лишається", tone: orange }
 >   - { id: a2, col: mw, label: "питання, на яке відповідає", text: "Наскільки це ймовірно?", tone: blue }
 >   - { id: b2, col: maw, label: "питання, на яке відповідає", text: "Що найрозумніше зробити?", tone: orange }
 > steps:
@@ -165,7 +165,7 @@ estimatedMinutes: 45
 ***May*** часто не про ймовірність, а про **визнання** перед запереченням — «хай і так, але…»:
 
 - *He **may** be rich, **but** he isn't happy.* — Хай він і багатий, але не щасливий.
-- *The plan **may** sound ambitious, **but** it is entirely affordable.* — План може здаватися амбітним, але він цілком доступний за коштами.
+- *The plan **may** sound ambitious, **but** it is entirely affordable.* — План може здаватися надто амбітним, але його цілком реально профінансувати.
 
 Це класичний хід есе: визнати контраргумент і відповісти на нього.
 
@@ -209,7 +209,7 @@ estimatedMinutes: 45
 - You **might have** told me the meeting was cancelled! — Міг би й сказати, що нараду скасували!
 - My printer **won't** print anything in colour. — Мій принтер відмовляється друкувати кольором.
 - The film **might well** win an Oscar. — Фільм цілком може отримати «Оскар».
-- Nobody's answering, so we **may as well** leave a message. — Ніхто не відповідає, тож можна вже й залишити повідомлення.
+- Nobody's answering, so we **may as well** leave a message. — Ніхто не відповідає, тож можна просто залишити повідомлення.
 - The idea **may** be unpopular, **but** it is the only realistic option. — Хай ідея й непопулярна, але це єдиний реалістичний варіант.
 
 ## Слова
@@ -235,7 +235,7 @@ estimatedMinutes: 45
 > [!word] be liable to
 > ipa: /bi ˈlaɪ.ə.bəl tə/ · pos: phrase · level: C1 · id: en-c1-modals-w04
 > uk: легко може (щось погане), схильний до
-> example: This road **is liable to** flood after heavy rain. — Цю дорогу легко затоплює після сильного дощу.
+> example: This road **is liable to** flood after heavy rain. — Цю дорогу часто затоплює після сильних дощів.
 > note: liable for — юридично відповідальний за: You are liable for any damage.
 
 > [!word] be meant to
@@ -299,13 +299,13 @@ estimatedMinutes: 45
 > uk: схильний до (чогось поганого)
 > example: Teenagers **are prone to** risky behaviour. — Підлітки схильні до ризикованої поведінки.
 > example: He**'s prone to** exaggerate. — Він схильний перебільшувати.
-> note: + іменник або V1. Складне слово: accident-prone — з тих, з ким постійно щось стається.
+> note: + іменник або V1. Складне слово: accident-prone — той, з ким постійно щось трапляється.
 
 > [!word] be poised to
 > ipa: /bi ˈpɔɪzd tə/ · pos: phrase · level: C1 · id: en-c1-modals-w15
 > uk: бути готовим (ось-ось), от-от
 > example: The company **is poised to** become the market leader. — Компанія от-от стане лідером ринку.
-> note: мова новин і бізнесу. Буквально — «зависла в рівновазі перед стрибком».
+> note: мова новин і бізнесу. Дослівно — «завмерла в рівновазі перед стрибком».
 
 ## Слухаємо
 
@@ -327,11 +327,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *needn't have bought* — купив, але даремно. *Needn't buy* — порада про майбутнє: «не купуй, не треба».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-modals-l03
 > audio: The new bridge is to be opened next spring.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-modals-l04
 > audio: He's bound to be late. He always is.
 
@@ -369,13 +369,13 @@ estimatedMinutes: 45
 > level: C1 · id: en-c1-modals-s02
 > text: We may as well start. Nobody else is coming.
 > ipa: /wi ˈmeɪ əz wel stɑːt ˈnəʊ.bə.di els ɪz ˈkʌm.ɪŋ/
-> tip: may as well — одним шматком [мейəзвел], as — слабке /əz/.
+> tip: may as well — вимовляй одним блоком: /ˈmeɪ əz wel/, as — слабке /əz/.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-modals-s03
 > text: You needn't have waited for me.
 > ipa: /ju ˈniːd.ənt əv ˈweɪ.tɪd fə miː/
-> tip: needn't have — злито [ніднтəв]; waited — /ɪd/ у кінці.
+> tip: needn't have — злито: /ˈniːd.ənt əv/, have тут слабке /əv/; waited — /ɪd/ у кінці.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-modals-s04
@@ -433,7 +433,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *will* — упевнене припущення, *should* — очікування за розкладом, *needn't have* — зайва дія в минулому, *are set to* — прогноз. *Can* не вживають для конкретного припущення, *mustn't* — заборона, а не ймовірність.
 
-> [!quiz] Склади речення: «Якщо ми хочемо встигнути вчасно, нам потрібна допомога»
+> [!quiz] Склади речення: «Якщо ми хочемо вкластися в терміни, нам знадобиться допомога»
 > level: C1 · type: order · id: en-c1-modals-q08
 >
 > ```text order
@@ -470,7 +470,7 @@ estimatedMinutes: 45
 > [!quiz] Що означає *Well, he would say that, wouldn't he?* (наголос на *would*)
 > level: C1 · id: en-c1-modals-q11
 > - [ ] Він часто казав це в минулому.
-> - [x] Цього від нього й слід було чекати — він зацікавлений так казати.
+> - [x] Цього від нього й слід було чекати — йому вигідно так казати.
 > - [ ] Він хотів би це сказати, але не наважився.
 > - [ ] Можливо, він скаже це в майбутньому.
 >

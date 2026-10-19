@@ -99,7 +99,7 @@ estimatedMinutes: 40
 > [!quiz] Перевір себе: в якому віці?
 > level: A2 · id: en-a2-life-events-q03
 >
-> «Він почав свій бізнес у 30 років».
+> «Він відкрив свій бізнес у 30 років».
 >
 > - [ ] He started a business in 30 years.
 > - [x] He started a business at the age of 30.
@@ -116,7 +116,7 @@ estimatedMinutes: 40
 - *They fell in love on holiday and got married a year later.* — Вони закохалися у відпустці й одружилися через рік.
 - *We moved house three times when I was a child.* — У дитинстві ми тричі переїжджали.
 - *My grandparents brought me up.* — Мене виховали бабуся з дідусем.
-- *He learnt to drive in his forties.* — Він навчився водити після сорока.
+- *He learnt to drive in his forties.* — Він навчився водити, коли йому було за сорок.
 - *Eventually they settled down in a quiet town by the sea.* — Зрештою вони осіли в тихому містечку біля моря.
 - *My grandfather passed away last year.* — Мій дідусь помер торік.
 - *I was named after my grandmother.* — Мене назвали на честь бабусі.
@@ -161,7 +161,7 @@ estimatedMinutes: 40
 > ipa: /ˈɡrædʒ.u.eɪt/ · pos: verb · level: A2 · id: en-a2-life-events-w07
 > uk: закінчити університет (здобути диплом)
 > example: He **graduated** from Lviv University in 2018. — Він закінчив Львівський університет 2018 року.
-> note: дієслово /ˈɡrædʒ.u.eɪt/, іменник a graduate (випускник) — /ˈɡrædʒ.u.ət/. Після нього — from.
+> note: дієслово /ˈɡrædʒ.u.eɪt/, іменник a graduate (випускник) — /ˈɡrædʒ.u.ət/. Після дієслова — from: graduate from.
 
 > [!word] get a job
 > ipa: /ˌɡet ə ˈdʒɒb/ · ipa-us: /ˌɡet ə ˈdʒɑːb/ · pos: phrase · level: A2 · id: en-a2-life-events-w08
@@ -242,8 +242,8 @@ estimatedMinutes: 40
 
 > [!word] settle down
 > ipa: /ˌset.əl ˈdaʊn/ · pos: verb · level: A2 · id: en-a2-life-events-w22
-> uk: осісти; остепенитися, завести сімʼю
-> example: After years of travelling, he **settled down** in Odesa. — Після років мандрів він осів в Одесі.
+> uk: осісти на одному місці; завести сімʼю, почати спокійне життя
+> example: After years of travelling, he **settled down** in Odesa. — Після багатьох років мандрів він осів в Одесі.
 
 > [!word] take a gap year
 > ipa: /ˌteɪk ə ˈɡæp ˌjɪə/ · ipa-us: /ˌteɪk ə ˈɡæp ˌjɪr/ · pos: phrase · level: A2 · id: en-a2-life-events-w23
@@ -270,7 +270,7 @@ estimatedMinutes: 40
 > [!word] start a business
 > ipa: /ˌstɑːt ə ˈbɪz.nɪs/ · ipa-us: /ˌstɑːrt ə ˈbɪz.nɪs/ · pos: phrase · level: A2 · id: en-a2-life-events-w27
 > uk: започаткувати бізнес, відкрити власну справу
-> example: She **started a business** selling handmade bags. — Вона відкрила справу — продаж сумок ручної роботи.
+> example: She **started a business** selling handmade bags. — Вона відкрила власну справу: продає сумки ручної роботи.
 > note: business — два склади: БІЗ-ніс, i посередині не читається.
 
 > [!word] die
@@ -283,7 +283,7 @@ estimatedMinutes: 40
 > [!word] pass away
 > ipa: /ˌpɑːs əˈweɪ/ · ipa-us: /ˌpæs əˈweɪ/ · pos: verb · level: A2 · id: en-a2-life-events-w29
 > uk: піти з життя, померти (делікатно)
-> example: Her grandmother **passed away** peacefully. — Її бабуся спокійно відійшла.
+> example: Her grandmother **passed away** peacefully. — Її бабуся тихо пішла з життя.
 
 > [!word] anniversary
 > ipa: /ˌæn.ɪˈvɜː.sər.i/ · ipa-us: /ˌæn.əˈvɝː.sɚ.i/ · pos: noun · level: A2 · id: en-a2-life-events-w30
@@ -336,12 +336,12 @@ estimatedMinutes: 40
 > [!word] at the age of
 > ipa: /ət ði ˈeɪdʒ əv/ · pos: phrase · level: A2 · id: en-a2-life-events-w39
 > uk: у віці
-> example: Mozart wrote his first music **at the age of** five. — Моцарт написав першу музику в пʼять років.
+> example: Mozart wrote his first piece of music **at the age of** five. — Моцарт написав свій перший музичний твір у пʼять років.
 
 > [!word] in my twenties
 > ipa: /ɪn maɪ ˈtwen.tiz/ · pos: phrase · level: A2 · id: en-a2-life-events-w40
 > uk: у двадцять із чимось років (від 20 до 29)
-> example: I travelled a lot **in my twenties**. — Після двадцяти я багато подорожував.
+> example: I travelled a lot **in my twenties**. — Коли мені було за двадцять, я багато подорожував.
 > note: in her thirties, in their sixties — так само для будь-якого десятка.
 
 ## Ситуація: «Where did you grow up?»
@@ -352,7 +352,7 @@ estimatedMinutes: 40
 |---|---|
 | **A:** So, where did you grow up, Kate? | Тож де ти виросла, Кейт? |
 | **B:** In Manchester. But I moved to London when I was eighteen. | У Манчестері. Але у вісімнадцять переїхала до Лондона. |
-| **A:** To go to university? | Щоб вступити до університету? |
+| **A:** To go to university? | Щоб навчатися в університеті? |
 | **B:** Yes. And after I graduated, I got a job in Bristol. | Так. А після випуску влаштувалася на роботу в Бристолі. |
 | **A:** Do you still live there? | Ти досі там живеш? |
 | **B:** Yes, I eventually settled down there. I love it! | Так, зрештою я там осіла. Мені дуже подобається! |
@@ -375,11 +375,11 @@ estimatedMinutes: 40
 > - [ ] My grandfather retired at sixteen.
 > - [ ] My grandfather was tired at sixty.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-life-events-l03
 > audio: I grew up in a small town near the sea.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-life-events-l04
 > audio: We moved house when I was twelve.
 
@@ -412,7 +412,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-life-events-s01
 > text: I grew up in Ukraine.
 > ipa: /aɪ ˌɡruː ˈʌp ɪn juːˈkreɪn/
-> tip: grew up звучить разом: «ґру-ап». Ukraine — наголос на другий склад: ю-КРЕЙН.
+> tip: grew up звучить разом: «ґру-ап». У Ukraine наголос на другому складі: ю-КРЕЙН.
 
 > [!speak] When did you leave school?
 > level: A2 · id: en-a2-life-events-s02
@@ -430,7 +430,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-life-events-s04
 > text: My parents retired last year.
 > ipa: /maɪ ˈpeə.rənts rɪˈtaɪəd lɑːst ˈjɪə/
-> tip: retired — наголос на TIRE: рі-ТАЙ-ед, але кінцеве -ed — лише /d/.
+> tip: retired — наголос на другому складі: рі-ТАЙД. Кінцеве -ed — лише /d/, без «-ед».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-life-events-s05
@@ -537,10 +537,10 @@ estimatedMinutes: 40
 > Англійці теж кажуть «медовий місяць»: honey + moon. Ідея та сама: перший місяць шлюбу найсолодший, а потім — як місяць на небі — «спадає».
 
 > [!reel] 🎓 Graduate — лише після університету
-> У Британії graduate — це про університет. Школу ти leave. Американці ж «graduate from high school» і навіть з дитсадка — з мантіями й шапочками.
+> У Британії graduate — це про університет. Школу ти leave. А американці «graduate» і зі школи (graduate from high school), і навіть із дитсадка — у мантіях і шапочках.
 
 > [!reel] 🔢 In my twenties — десятиліття життя
-> Twenties, thirties, forties — так англійці кажуть і про вік (in her forties — їй за сорок), і про епоху: the twenties — 1920-ті. Зручно, коли точний вік — не твоя справа.
+> Twenties, thirties, forties — так англійці кажуть і про вік (in her forties — їй за сорок), і про епоху: the twenties — 1920-ті. Зручно, коли називати точний вік не хочеться.
 
 ## Джерела та що почитати
 

@@ -33,7 +33,7 @@ estimatedMinutes: 45
 
 На A2 ти вже описував людей: *kind, shy, generous, lazy*. На B1 розмова стає дорослішою: ми не лише кажемо, **яка** людина, а й розповідаємо, **що відбувається між людьми** — як познайомилися, чому посварилися, як помирилися.
 
-Для цього англійці найчастіше беруть **фразові дієслова**: *get on with* (ладнати), *fall out* (посваритися), *make up* (помиритися), *break up* (розійтися). Українською це окремі слова з префіксами, англійською — дієслово + частка. Якщо вивчиш десяток таких дієслів, зможеш переказати будь-який серіал.
+Для цього в англійській найчастіше вживають **фразові дієслова**: *get on with* (ладнати), *fall out* (посваритися), *make up* (помиритися), *break up* (розійтися). Українською це окремі слова з префіксами, англійською — дієслово + частка. Якщо вивчиш десяток таких дієслів, зможеш переказати будь-який серіал.
 
 > [!diagram] Історія стосунків — від знайомства до «назавжди» (або ні)
 > ```yaml
@@ -72,7 +72,7 @@ estimatedMinutes: 45
 | **sensible** | розсудливий, практичний | | |
 | **sensitive** | чутливий, вразливий | | |
 
-Деякі слова залежать від тону. **Ambitious** — комплімент на співбесіді, але *too ambitious* — уже критика. **Talkative** про дитину звучить мило, про колегу на нараді — не дуже. Щоб пом'якшити негатив, носії кажуть *a bit* або *can be*: *He **can be** a bit stubborn.*
+Деякі слова залежать від тону. **Ambitious** — комплімент на співбесіді, але *too ambitious* — уже критика. **Talkative** про дитину звучить мило, про колегу на нараді — не дуже. Щоб помʼякшити негатив, носії кажуть *a bit* або *can be*: *He **can be** a bit stubborn.*
 
 > [!quiz] Перевір себе: «Мій брат дуже розсудливий — ніколи не витрачає гроші на дурниці»
 > level: B1 · id: en-b1-relationships-q02
@@ -89,7 +89,7 @@ estimatedMinutes: 45
 |---|---|
 | **acquaintance** | знайомий (знаємо одне одного, але не друзі) |
 | **close friend** | близький друг (*close* тут читається з /s/) |
-| **partner** | партнер, другий з пари (і в шлюбі, і без) |
+| **partner** | партнер, партнерка (у шлюбі чи без нього) |
 | **couple** | пара (двоє людей у стосунках) |
 | **ex** | колишній / колишня |
 | **relationship** | стосунки (між людьми); *be in a relationship* |
@@ -135,7 +135,7 @@ estimatedMinutes: 45
 - I know I can always **count on** my sister. — Я знаю, що завжди можу покластися на сестру.
 - She **let** me **down** — she promised to come and didn't. — Вона мене підвела: обіцяла прийти й не прийшла.
 - Don't be so **stubborn**! Just say sorry. — Не будь таким упертим! Просто вибачся.
-- We've **kept in touch** since school. — Ми підтримуємо зв'язок ще зі школи.
+- We've **kept in touch** since school. — Ми підтримуємо звʼязок ще зі школи.
 
 ## Слова
 
@@ -150,7 +150,7 @@ estimatedMinutes: 45
 > [!word] sensitive
 > ipa: /ˈsen.sɪ.tɪv/ · ipa-us: /ˈsen.sə.tɪv/ · pos: adj · level: B1 · id: en-b1-relationships-w02
 > uk: чутливий, вразливий
-> example: Be careful what you say — he's very **sensitive**. — Обережно зі словами, він дуже вразливий.
+> example: Be careful what you say — he's very **sensitive**. — Обережніше зі словами: він дуже вразливий.
 > note: sensitive to criticism — чутливий до критики; sensitive skin — чутлива шкіра.
 
 > [!word] sensible
@@ -177,7 +177,7 @@ estimatedMinutes: 45
 > [!word] bossy
 > ipa: /ˈbɒs.i/ · ipa-us: /ˈbɑː.si/ · pos: adj · level: B1 · id: en-b1-relationships-w07
 > uk: владний, який любить командувати
-> example: Stop being so **bossy** — I can do it myself! — Годі командувати, я сам можу!
+> example: Stop being so **bossy** — I can do it myself! — Годі командувати, я й сам можу!
 > note: від boss — начальник.
 
 > [!word] stingy
@@ -195,7 +195,7 @@ estimatedMinutes: 45
 > [!word] thoughtful
 > ipa: /ˈθɔːt.fəl/ · ipa-us: /ˈθɑːt.fəl/ · pos: adj · level: B1 · id: en-b1-relationships-w10
 > uk: уважний до інших, турботливий; замислений
-> example: It was very **thoughtful** of you to bring flowers. — Дуже мило з твого боку, що приніс квіти.
+> example: It was very **thoughtful** of you to bring flowers. — Дуже мило з твого боку, що ти приніс квіти.
 
 > [!word] caring
 > ipa: /ˈkeə.rɪŋ/ · ipa-us: /ˈker.ɪŋ/ · pos: adj · level: B1 · id: en-b1-relationships-w11
@@ -212,7 +212,7 @@ estimatedMinutes: 45
 > ipa: /ˈtɔː.kə.tɪv/ · ipa-us: /ˈtɑː.kə.tɪv/ · pos: adj · level: B1 · id: en-b1-relationships-w13
 > uk: балакучий, говіркий
 > example: You're very **talkative** today! — Ти сьогодні дуже балакучий!
-> note: l у talk німе: [ТОО-кə-тів].
+> note: l у talk не читається: [ТОО-кə-тів].
 
 > [!word] reserved
 > ipa: /rɪˈzɜːvd/ · ipa-us: /rɪˈzɝːvd/ · pos: adj · level: B1 · id: en-b1-relationships-w14
@@ -252,7 +252,7 @@ estimatedMinutes: 45
 > [!word] couple
 > ipa: /ˈkʌp.əl/ · pos: noun · level: B1 · id: en-b1-relationships-w20
 > uk: пара (двоє людей)
-> example: They've been a **couple** for five years. — Вони пара вже п'ять років.
+> example: They've been a **couple** for five years. — Вони пара вже пʼять років.
 > note: a couple of — кілька, пара (a couple of days).
 
 > [!word] acquaintance
@@ -322,9 +322,9 @@ estimatedMinutes: 45
 
 > [!word] keep in touch
 > ipa: /kiːp ɪn ˈtʌtʃ/ · pos: phrase · level: B1 · id: en-b1-relationships-w32
-> uk: підтримувати зв'язок
+> uk: підтримувати звʼязок
 > example: Let's **keep in touch** after the course. — Давай не губитися після курсу.
-> note: keep in touch with someone; lose touch — втратити зв'язок.
+> note: keep in touch with someone; lose touch — втратити звʼязок.
 
 ### Фразові дієслова й ідіоми
 
@@ -404,7 +404,7 @@ estimatedMinutes: 45
 > ipa: /taɪ ðə ˈnɒt/ · ipa-us: /taɪ ðə ˈnɑːt/ · pos: phrase · level: B1 · id: en-b1-relationships-w44
 > uk: одружитися (розмовне)
 > example: They finally **tied the knot** after ten years together. — Після десяти років разом вони нарешті побралися.
-> note: k у knot німе. Нейтрально — get married.
+> note: k у knot не читається. Нейтрально — get married.
 
 > [!word] get on like a house on fire
 > ipa: /ɡet ɒn laɪk ə ˌhaʊs ɒn ˈfaɪə/ · ipa-us: /ɡet ɑːn laɪk ə ˌhaʊs ɑːn ˈfaɪr/ · pos: phrase · level: B1 · id: en-b1-relationships-w45
@@ -428,11 +428,11 @@ estimatedMinutes: 45
 > - [x] He's very sensible.
 > - [ ] He's very sociable.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-relationships-l03
 > audio: We fell out last year, but we've made up now.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-relationships-l04
 > audio: I've always looked up to my grandmother.
 
@@ -499,7 +499,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-relationships-s04
 > text: She's very thoughtful and caring.
 > ipa: /ʃiːz ˈver.i ˈθɔːt.fəl ən ˈkeə.rɪŋ/
-> tip: thoughtful — /θ/ на початку й довге [ɔː]: ТОО-тфл (не «соут»); gh німе.
+> tip: thoughtful — /θ/ на початку й довге [ɔː]: ТОО-тфл (не «соут»); gh не читається.
 > uk: Вона дуже уважна й турботлива.
 
 > [!speak] Скажи вголос
@@ -574,7 +574,7 @@ estimatedMinutes: 45
 > - [x] False
 > - [ ] Not Given
 >
-> **Пояснення:** у тексті — *often lose touch with old friends within two years*. Твердження каже протилежне (*keep in touch with all*), тож **False**. Пам'ятай: False — текст **суперечить** твердженню; Not Given — текст про це **мовчить**.
+> **Пояснення:** у тексті — *often lose touch with old friends within two years*. Твердження каже протилежне (*keep in touch with all*), тож **False**. Памʼятай: False — текст **суперечить** твердженню; Not Given — текст про це **мовчить**.
 
 > [!quiz] IELTS Reading · True / False / Not Given (той самий текст)
 > level: B1 · id: en-b1-relationships-q08
@@ -636,10 +636,10 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🔥 Дружба, що горить як дім
-> Get on like a house on fire — не про пожежу, а про миттєву симпатію. Вогонь у старому дерев'яному домі поширюється дуже швидко — так само швидко двоє людей знаходять спільну мову.
+> Get on like a house on fire — не про пожежу, а про миттєву симпатію. Вогонь у старому деревʼяному домі поширюється дуже швидко — так само швидко двоє людей знаходять спільну мову.
 
-> [!reel] 🪢 Чому «зав'язати вузол» — одружитися
-> Tie the knot походить від давніх весільних обрядів, коли руки молодят символічно зв'язували шнуром. Звідси й українське «пов'язати долю».
+> [!reel] 🪢 Чому «завʼязати вузол» — одружитися
+> Tie the knot походить від давніх весільних обрядів, коли руки молодят символічно звʼязували шнуром. Схожий образ є й в українській: «повʼязати долю».
 
 > [!reel] 🇬🇧 Mean у Лондоні й у Нью-Йорку
 > Скажеш британцю «He's mean» — він подумає, що людина скупа. Американець частіше почує «злий, недобрий». Контекст вирішує, тож для «скупого» є ще stingy.
@@ -652,7 +652,7 @@ estimatedMinutes: 45
 - 🟡 [IELTS — Reading test format](https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading) — офіційний опис типу True / False / Not Given.
 
 > [!important] Підсумок
-> - Характер: **easy-going, outgoing, thoughtful, loyal, modest** — плюси; **stubborn, bossy, moody, arrogant, mean** — мінуси. Пом'якшуй: *He can be a bit stubborn.*
+> - Характер: **easy-going, outgoing, thoughtful, loyal, modest** — плюси; **stubborn, bossy, moody, arrogant, mean** — мінуси. Помʼякшуй: *He can be a bit stubborn.*
 > - Стосунки: **get to know → get on with → fall out → make up / break up**.
 > - **take after** — схожий на родича, **look up to** — захоплюватися, **count on / rely on** — покладатися.
 > - **sensible** — розсудливий, **sensitive** — чутливий.

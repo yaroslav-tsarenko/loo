@@ -12,7 +12,7 @@ estimatedMinutes: 40
 # Аудіювання — телефонні розмови й повідомлення
 
 > [!success] Після цієї теми ти зможеш
-> - зрозуміти телефонну розмову: хто дзвонить, навіщо і що домовились;
+> - зрозуміти телефонну розмову: хто дзвонить, навіщо і про що домовилися;
 > - записати з голосового повідомлення імʼя, номер, час і причину дзвінка;
 > - упізнати типові «телефонні» фрази: *Who's calling?*, *Hold on*, *I'll put you through*, *Can I take a message?*;
 > - записатися до лікаря, забронювати столик і перенести зустріч по телефону;
@@ -90,7 +90,7 @@ estimatedMinutes: 40
 - *Hold on, I'll put you through.* — Зачекайте, зараз зʼєдную.
 - *I'm afraid she's not available. Can I take a message?* — На жаль, вона зараз не може говорити. Що їй передати?
 - *Could you ask her to call me back?* — Попросіть її, будь ласка, передзвонити мені.
-- *I'd like to reschedule my appointment.* — Я хотів би перенести свій запис.
+- *I'd like to reschedule my appointment.* — Я хотів би перенести прийом на інший час.
 - *Let me confirm: a table for six on Saturday at 7.30.* — Підтверджую: столик на шістьох у суботу о 19:30.
 - *Sorry, you're breaking up. I'll call you back.* — Вибачте, ви пропадаєте. Я передзвоню.
 - *I had three missed calls from you. Is it urgent?* — У мене три пропущені від тебе. Щось термінове?
@@ -315,11 +315,11 @@ estimatedMinutes: 40
 > - [x] k.levchenko@outlook.com
 > - [ ] klevchenko@outlook.co
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-listen-phone-l16
 > audio: Can I take a message?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-listen-phone-l17
 > audio: I'll call you back later.
 
@@ -332,7 +332,7 @@ estimatedMinutes: 40
 > - [x] через результати аналізів
 > - [ ] щоб перенести запис на іншу дату
 
-Тепер передзвони сама: відповідай уголос за Ірину.
+Тепер уяви, що ти Ірина, і передзвони: відповідай уголос.
 
 > [!speak] Назви себе
 > level: A2 · id: en-a2-listen-phone-s01
@@ -495,7 +495,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] ☎️ Перше слово по телефону — «Ahoy!»
-> Олександр Белл пропонував відповідати на дзвінок морським *Ahoy!*. Переміг варіант Томаса Едісона — *Hello!*. Відтоді це слово стало найпоширенішим привітанням англійською.
+> Александер Грем Белл пропонував відповідати на дзвінок морським *Ahoy!*. Переміг варіант Томаса Едісона — *Hello!*. Відтоді це слово стало найпоширенішим привітанням англійською.
 
 > [!reel] 📞 Ring, call, phone — одне й те саме
 > *I'll call you*, *I'll ring you* (UK), *I'll phone you*, *I'll give you a call/ring* — усе означає «я тобі подзвоню». *Ring* — більш британське.

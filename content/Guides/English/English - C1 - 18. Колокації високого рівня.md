@@ -27,7 +27,7 @@ estimatedMinutes: 60
 > - [x] exert
 > - [ ] put
 >
-> **Пояснення:** *exert influence / pressure / control* — «здійснювати вплив, тиск». ~~Make influence~~ — калька з «робити вплив»; *have influence* — теж можна, але звучить загальніше. На C1 саме такі пари (*exert influence, wield power*) відрізняють Band 7 від Band 6.
+> **Пояснення:** *exert influence / pressure / control* — «чинити вплив, тиск». ~~Make influence~~ — калька з «робити вплив»; *have influence* — теж можна, але звучить загальніше. На C1 саме такі пари (*exert influence, wield power*) відрізняють Band 7 від Band 6.
 
 ## Простими словами
 
@@ -60,9 +60,9 @@ estimatedMinutes: 60
 
 | Колокація | Значення | Чим замінити на B2 |
 |---|---|---|
-| **exert influence / pressure** | здійснювати вплив / тиск | have influence |
+| **exert influence / pressure** | чинити вплив / тиск | have influence |
 | **wield power** | мати й використовувати владу | have power |
-| **bear the brunt of** | зазнати найбільшого удару | suffer most from |
+| **bear the brunt of** | прийняти на себе основний удар | suffer most from |
 | **strike a balance (between)** | знайти баланс | find a balance |
 | **bridge the gap (between)** | подолати розрив | reduce the difference |
 | **pave the way for** | прокласти шлях до | make possible |
@@ -101,7 +101,7 @@ estimatedMinutes: 60
 | **sorely tempted** | дуже кортить | лише з *tempted / missed* |
 | **blissfully unaware** | у блаженному невіданні | іронічно |
 | **richly deserved** | цілком заслужений | про нагороду, успіх |
-| **fiercely independent** | палко незалежний | про характер |
+| **fiercely independent** | вкрай незалежний | про характер |
 | **inextricably linked** | нерозривно повʼязаний | академічне |
 | **diametrically opposed** | діаметрально протилежний | про погляди |
 | **wholeheartedly agree** | цілком погоджуватися | з дієсловом |
@@ -113,7 +113,7 @@ estimatedMinutes: 60
 | Колокація | Значення |
 |---|---|
 | **a sweeping generalisation** | огульне узагальнення |
-| **a glaring error** | кричуща помилка |
+| **a glaring error** | груба, очевидна помилка |
 | **a pressing need / issue** | нагальна потреба / проблема |
 | **a heated debate** | гаряча дискусія |
 | **a blatant disregard for** | відверте нехтування |
@@ -122,16 +122,16 @@ estimatedMinutes: 60
 | **a stark contrast** | разючий контраст |
 | **tacit approval** | мовчазна згода |
 | **a fundamental flaw** | фундаментальна вада |
-| **a remote possibility** | малоймовірна можливість |
+| **a remote possibility** | мізерна ймовірність |
 | **a profound effect** | глибокий вплив |
-| **a formidable challenge** | грізний, дуже важкий виклик |
+| **a formidable challenge** | надзвичайно складне завдання, серйозний виклик |
 | **an uphill battle** | важка боротьба (під гору) |
 | **a burning question** | пекуче питання |
 | **an acute shortage** | гострий дефіцит |
 | **gross negligence** | груба недбалість (право) |
 | **a tenuous link** | слабкий, сумнівний звʼязок |
 | **a lasting impression** | незабутнє враження |
-| **a token gesture** | символічний (показовий) жест |
+| **a token gesture** | суто символічний жест (для годиться) |
 | **an informed decision** | зважене, поінформоване рішення |
 
 > [!diagram] Апгрейд колокацій для есе: B2 → C1
@@ -173,7 +173,7 @@ estimatedMinutes: 60
 
 ## Приклади
 
-- *Lobby groups **exert considerable influence** on lawmakers.* — Лобістські групи здійснюють значний вплив на законодавців.
+- *Lobby groups **exert considerable influence** on lawmakers.* — Лобістські групи чинять значний вплив на законодавців.
 - *Low-income families **bear the brunt of** rising prices.* — Сімʼї з низьким доходом найбільше страждають від зростання цін.
 - *Schools must **strike a balance** between academic and practical skills.* — Школи мають знайти баланс між академічними й практичними навичками.
 - *The new evidence **casts doubt on** the official version.* — Нові докази ставлять під сумнів офіційну версію.
@@ -192,15 +192,15 @@ estimatedMinutes: 60
 
 > [!word] exert influence
 > ipa: /ɪɡˌzɜːt ˈɪnfluəns/ · ipa-us: /ɪɡˌzɜːrt ˈɪnfluəns/ · pos: phrase · level: C1 · id: en-c1-collocations-w01
-> uk: здійснювати вплив
-> example: Social media **exerts** enormous **influence** on teenagers. — Соцмережі здійснюють величезний вплив на підлітків.
+> uk: чинити вплив
+> example: Social media **exerts** enormous **influence** on teenagers. — Соцмережі мають величезний вплив на підлітків.
 > note: формальне; *exert influence / pressure / control on / over sb*. Не ~~make influence~~.
 
 > [!word] wield power
 > ipa: /ˌwiːld ˈpaʊə/ · ipa-us: /ˌwiːld ˈpaʊər/ · pos: phrase · level: C1 · id: en-c1-collocations-w02
 > uk: мати й застосовувати владу
 > example: A few tech companies now **wield** enormous **power**. — Кілька технологічних компаній тепер мають величезну владу.
-> note: нейтрально-формальне; *wield* — буквально «орудувати» (мечем); *wield influence / authority*.
+> note: нейтрально-формальне; *wield* — дослівно «орудувати» (мечем); *wield influence / authority*.
 
 > [!word] bear the brunt of
 > ipa: /ˌbeə ðə ˈbrʌnt əv/ · ipa-us: /ˌber ðə ˈbrʌnt əv/ · pos: phrase · level: C1 · id: en-c1-collocations-w03
@@ -262,7 +262,7 @@ estimatedMinutes: 60
 > [!word] lodge a complaint
 > ipa: /ˌlɒdʒ ə kəmˈpleɪnt/ · ipa-us: /ˌlɑːdʒ ə kəmˈpleɪnt/ · pos: phrase · level: C1 · id: en-c1-collocations-w12
 > uk: подати (офіційну) скаргу
-> example: Several passengers **lodged a complaint** with the airline. — Кілька пасажирів подали скаргу до авіакомпанії.
+> example: Several passengers **lodged a complaint** with the airline. — Кілька пасажирів звернулися до авіакомпанії з офіційною скаргою.
 > note: формальне, UK; *lodge a complaint with sb / against sb*; також *file a complaint* (частіше US).
 
 > [!word] undergo changes
@@ -335,7 +335,7 @@ estimatedMinutes: 60
 > [!word] voice concern
 > ipa: /ˌvɔɪs kənˈsɜːn/ · ipa-us: /ˌvɔɪs kənˈsɜːrn/ · pos: phrase · level: C1 · id: en-c1-collocations-w23
 > uk: висловити занепокоєння
-> example: Doctors have **voiced concern** about the new rules. — Лікарі висловили занепокоєння новими правилами.
+> example: Doctors have **voiced concern** about the new rules. — Лікарі висловили занепокоєння через нові правила.
 > note: нейтрально-формальне, новини; *voice concern(s) / opposition / support*.
 
 > [!word] heed a warning
@@ -356,7 +356,7 @@ estimatedMinutes: 60
 > [!word] acutely aware
 > ipa: /əˌkjuːtli əˈweə/ · ipa-us: /əˌkjuːtli əˈwer/ · pos: phrase · level: C1 · id: en-c1-collocations-w26
 > uk: гостро усвідомлювати
-> example: We are **acutely aware of** the pressure on nurses. — Ми гостро усвідомлюємо тиск на медсестер.
+> example: We are **acutely aware of** the pressure on nurses. — Ми гостро усвідомлюємо, під яким тиском працюють медсестри.
 > note: формальне; сильніше за *fully aware*; *acutely aware of sth / that…*
 
 > [!word] deeply rooted
@@ -403,7 +403,7 @@ estimatedMinutes: 60
 
 > [!word] fiercely independent
 > ipa: /ˌfɪəsli ˌɪndɪˈpendənt/ · ipa-us: /ˌfɪrsli ˌɪndɪˈpendənt/ · pos: phrase · level: C1 · id: en-c1-collocations-w34
-> uk: палко незалежний, що цінує свою незалежність
+> uk: вкрай незалежний; той, хто дуже цінує свою незалежність
 > example: My grandmother is **fiercely independent** and refuses any help. — Моя бабуся дуже цінує незалежність і відмовляється від будь-якої допомоги.
 > note: нейтральне; *fiercely* також з *loyal, competitive, protective*.
 
@@ -435,7 +435,7 @@ estimatedMinutes: 60
 > ipa: /ˌemɪnəntli ˈsensəbəl/ · pos: phrase · level: C1 · id: en-c1-collocations-w39
 > uk: надзвичайно розсудливий, цілком слушний
 > example: It seems an **eminently sensible** solution. — Це видається цілком слушним рішенням.
-> note: книжне, британське; *eminently qualified / suitable*. Не плутай з *imminently* (неминуче, найближчим часом).
+> note: книжне, британське; *eminently qualified / suitable*. Не плутай з *imminently* (от-от, найближчим часом).
 
 ### Прикметник + іменник
 
@@ -447,8 +447,8 @@ estimatedMinutes: 60
 
 > [!word] a glaring error
 > ipa: /ə ˌɡleərɪŋ ˈerə/ · ipa-us: /ə ˌɡlerɪŋ ˈerər/ · pos: phrase · level: C1 · id: en-c1-collocations-w41
-> uk: кричуща, очевидна помилка
-> example: The report contained several **glaring errors**. — Звіт містив кілька кричущих помилок.
+> uk: груба, очевидна помилка
+> example: The report contained several **glaring errors**. — Звіт містив кілька грубих помилок.
 > note: негативне; *a glaring omission / inconsistency*.
 
 > [!word] a pressing need
@@ -501,7 +501,7 @@ estimatedMinutes: 60
 
 > [!word] a remote possibility
 > ipa: /ə rɪˌməʊt ˌpɒsəˈbɪləti/ · ipa-us: /ə rɪˌmoʊt ˌpɑːsəˈbɪləti/ · pos: phrase · level: C1 · id: en-c1-collocations-w50
-> uk: малоймовірна можливість
+> uk: мізерна ймовірність
 > example: There is only **a remote possibility** of rain tomorrow. — Завтра дощ малоймовірний.
 > note: нейтральне; *a remote chance*; *not even remotely interested* — анітрохи не цікаво.
 
@@ -513,8 +513,8 @@ estimatedMinutes: 60
 
 > [!word] a formidable challenge
 > ipa: /ə ˌfɔːmɪdəbəl ˈtʃælɪndʒ/ · ipa-us: /ə ˌfɔːrmɪdəbəl ˈtʃælɪndʒ/ · pos: phrase · level: C1 · id: en-c1-collocations-w52
-> uk: грізний, надзвичайно складний виклик
-> example: Rebuilding the economy is **a formidable challenge**. — Відбудова економіки — надзвичайно складний виклик.
+> uk: надзвичайно складне завдання, серйозний виклик
+> example: Rebuilding the economy is **a formidable challenge**. — Відбудова економіки — надзвичайно складне завдання.
 > note: нейтрально-формальне; UK також /fəˈmɪdəbəl/; *a formidable opponent* — грізний суперник.
 
 > [!word] an uphill battle
@@ -555,7 +555,7 @@ estimatedMinutes: 60
 
 > [!word] a token gesture
 > ipa: /ə ˌtəʊkən ˈdʒestʃə/ · ipa-us: /ə ˌtoʊkən ˈdʒestʃər/ · pos: phrase · level: C1 · id: en-c1-collocations-w59
-> uk: символічний, показовий жест (без реальної дії)
+> uk: суто символічний жест (без реальних дій), жест для годиться
 > example: Planting ten trees was just **a token gesture**. — Посадити десять дерев — суто символічний жест.
 > note: осудливе; *token* як прикметник — «формальний, для галочки».
 
@@ -574,7 +574,7 @@ estimatedMinutes: 60
 > - [ ] Low-income families bear the burden of rising prices.
 > - [ ] Low-income families bare the front of rising prices.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-collocations-l02
 > audio: Poverty and poor health are inextricably linked.
 
@@ -589,7 +589,7 @@ estimatedMinutes: 60
 > - [ ] Обидва вважають, що звʼязок між соцмережами й оцінками доведено.
 > - [ ] Перший студент знайшов помилку в графіку.
 >
-> **Пояснення:** *a sweeping generalisation* — огульне узагальнення; *tenuous* — сумнівний, слабкий; *a glaring error* — кричуща помилка. Але на *draws attention to a pressing need* другий студент відповідає *True* — це визнання. Помилку в графіку знайшов **другий** студент, тож варіант 4 хибний.
+> **Пояснення:** *a sweeping generalisation* — огульне узагальнення; *tenuous* — сумнівний, слабкий; *a glaring error* — груба помилка. Але на *draws attention to a pressing need* другий студент відповідає *True* — це визнання. Помилку в графіку знайшов **другий** студент, тож варіант 4 хибний.
 
 > [!listen] Новини: що сталося?
 > level: C1 · type: answer · id: en-c1-collocations-l04
@@ -620,28 +620,28 @@ estimatedMinutes: 60
 > level: C1 · id: en-c1-collocations-s01
 > text: Low-income families bear the brunt of rising prices.
 > ipa: /ˌləʊ ˈɪnkʌm ˈfæməliz ˈbeə ðə ˈbrʌnt əv ˌraɪzɪŋ ˈpraɪsɪz/
-> tip: brunt — коротке [ʌ], як у but: [брант]. brunt‿of — злиття [бран-тев].
+> tip: brunt — короткий звук /ʌ/, як у but; brunt‿of вимовляй злито: /ˈbrʌnt əv/.
 > uk: Сімʼї з низьким доходом найбільше страждають від зростання цін.
 
 > [!speak] Нерозривно повʼязані
 > level: C1 · id: en-c1-collocations-s02
 > text: Health and education are inextricably linked.
 > ipa: /ˈhelθ ənd ˌedʒuˈkeɪʃən ər ˌɪnɪkˈstrɪkəbli ˈlɪŋkt/
-> tip: in-ex-TRIC-ab-ly — наголос на третій склад; linked — один склад, [лінкт]. health — [θ] у кінці.
+> tip: in-ex-TRIC-ab-ly — наголос на третьому складі; linked — один склад: /lɪŋkt/; health — у кінці /θ/.
 > uk: Здоровʼя й освіта нерозривно повʼязані.
 
 > [!speak] IELTS Speaking · Part 3: обережна незгода
 > level: C1 · id: en-c1-collocations-s03
 > text: That's a bit of a sweeping generalisation, to be honest.
 > ipa: /ðæts ə ˈbɪt əv ə ˌswiːpɪŋ ˌdʒenərəlaɪˈzeɪʃən tə bi ˈɒnɪst/
-> tip: generalisation — gen-er-al-i-SA-tion, наголос на -sa-; honest — h німе: [О-ніст].
+> tip: generalisation — gen-er-al-i-SA-tion, наголос на -sa-; у honest літера h не читається: /ˈɒnɪst/.
 > uk: Чесно кажучи, це трохи огульне узагальнення.
 
 > [!speak] Разючий контраст
 > level: C1 · id: en-c1-collocations-s04
 > text: The village stands in stark contrast to the busy capital.
 > ipa: /ðə ˈvɪlɪdʒ ˈstændz ɪn ˌstɑːk ˈkɒntrɑːst tə ðə ˌbɪzi ˈkæpɪtəl/
-> tip: CON-trast — іменник, наголос на перший склад (дієслово — con-TRAST). stark — довге [ɑː].
+> tip: CON-trast — іменник, наголос на першому складі (дієслово — con-TRAST). stark — довге [ɑː].
 > uk: Село разюче контрастує з галасливою столицею.
 
 ## Типові помилки українців
@@ -650,7 +650,7 @@ estimatedMinutes: 60
 > *Actual* — **справжній, фактичний**: *the actual cost* — фактична вартість. «Актуальна проблема» — *a pressing issue*, *a topical issue* (на часі, обговорювана), *a current / relevant issue*. ~~This is a very actual problem~~ ✗ → *This is a pressing issue* ✓. Так само «зрештою» — *eventually*, а не «евентуально».
 
 > [!pitfall] Кальки з «робити» й «давати»
-> «Приділяти (велику) увагу» — *pay (close) attention to*, не ~~give big attention~~. «Здійснювати вплив» — *exert / have influence*, не ~~make influence~~. «Зробити внесок» — *make a contribution*, не ~~do a contribution~~. «Вжити заходів» — *take measures / steps*, не ~~make measures~~. «Ставити під сумнів» — *cast doubt on / call into question*, не ~~put under doubt~~.
+> «Приділяти (велику) увагу» — *pay (close) attention to*, не ~~give big attention~~. «Чинити вплив» — *exert / have influence*, не ~~make influence~~. «Зробити внесок» — *make a contribution*, не ~~do a contribution~~. «Вжити заходів» — *take measures / steps*, не ~~make measures~~. «Ставити під сумнів» — *cast doubt on / call into question*, не ~~put under doubt~~.
 
 > [!pitfall] Прийменник у колокації
 > *Pave the way **for*** (не ~~to~~), *bear the brunt **of*** (не ~~from~~), *shed light **on*** (не ~~to~~), *in stark contrast **to / with***, *take precedence **over***, *a disregard **for***, *a vested interest **in***. Прийменник — частина колокації: вивчай пару разом з ним.
@@ -776,7 +776,7 @@ estimatedMinutes: 60
 > - [ ] Що дерева посадили на знак подяки.
 > - [ ] Що це перший етап великої програми.
 >
-> **Пояснення:** *a token gesture* — показовий жест без реального ефекту; осудлива оцінка. *Token* як прикметник — «формальний, символічний».
+> **Пояснення:** *a token gesture* — суто символічний жест без реального ефекту; осудлива оцінка. *Token* як прикметник — «формальний, символічний».
 
 > [!quiz] Яка колокація найкраще пасує? «The scandal ___ the minister's reputation and her ability to lead.»
 > level: C1 · id: en-c1-collocations-q13

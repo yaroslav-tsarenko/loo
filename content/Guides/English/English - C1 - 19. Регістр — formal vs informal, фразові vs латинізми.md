@@ -53,7 +53,7 @@ estimatedMinutes: 55
 > steps:
 >   - { show: r1, note: "Ідіома give me a shout і need a hand — розмовна мова. Так пишуть друзям і в чатах." }
 >   - { show: r2, note: "Let me know і help — нейтрально: підходить для робочого листа колезі." }
->   - { show: r3, note: "Do not hesitate, require, assistance — латинізми й повні форми. Тон компанії до клієнта." }
+>   - { show: r3, note: "Do not hesitate, require, assistance — латинізми й повні форми. Так компанія звертається до клієнта." }
 >   - { show: r4, note: "Should you require — умовне з інверсією замість if. Найформальніше: офіційні листи й документи." }
 > ```
 
@@ -174,7 +174,7 @@ estimatedMinutes: 55
 - The project was **deemed** too expensive. — Проєкт визнали надто дорогим.
 - **Prior to** joining the company, she worked as a teacher. — До того як прийти в компанію, вона працювала вчителькою.
 - We will **endeavour** to resolve the issue as quickly as possible. — Ми докладемо зусиль, щоб розвʼязати проблему якомога швидше.
-- Please **consult** your doctor before taking this medicine. — Перед прийомом цього препарату порадьтеся з лікарем.
+- Please **consult** your doctor before taking this medicine. — Перш ніж приймати цей препарат, порадьтеся з лікарем.
 - **Fancy** grabbing a pizza after work? — Може, зʼїмо піцу після роботи?
 - I've got loads of **stuff** to do this weekend. — У мене на вихідних купа справ.
 
@@ -203,7 +203,7 @@ estimatedMinutes: 55
 > [!word] eliminate
 > ipa: /iˈlɪm.ɪ.neɪt/ · ipa-us: /iˈlɪm.ə.neɪt/ · pos: verb · level: C1 · id: en-c1-register-w04
 > uk: усувати, ліквідувати; вибувати (зі змагань)
-> example: The new system will **eliminate** most paperwork. — Нова система усуне більшість паперової роботи.
+> example: The new system will **eliminate** most paperwork. — Нова система усуне більшу частину паперової роботи.
 > note: формальний; = get rid of. be eliminated — вибути з турніру.
 
 > [!word] exceed
@@ -227,7 +227,7 @@ estimatedMinutes: 55
 > [!word] dispatch
 > ipa: /dɪˈspætʃ/ · pos: verb · level: C1 · id: en-c1-register-w08
 > uk: відправляти, надсилати
-> example: Your order will be **dispatched** within 24 hours. — Ваше замовлення буде відправлено протягом 24 годин.
+> example: Your order will be **dispatched** within 24 hours. — Ваше замовлення відправлять протягом 24 годин.
 > note: формальний (магазини, логістика); = send (out). Британське написання також despatch.
 
 > [!word] notify
@@ -250,7 +250,7 @@ estimatedMinutes: 55
 
 > [!word] discontinue
 > ipa: /ˌdɪs.kənˈtɪn.juː/ · pos: verb · level: C1 · id: en-c1-register-w12
-> uk: припиняти (випуск, послугу, прийом ліків)
+> uk: припиняти (випуск, послугу, лікування)
 > example: This model has been **discontinued**. — Цю модель зняли з виробництва.
 > note: формальний; про товари, послуги, лікування. Розмовно — stop making / stop selling.
 
@@ -270,7 +270,7 @@ estimatedMinutes: 55
 > [!word] retain
 > ipa: /rɪˈteɪn/ · pos: verb · level: C1 · id: en-c1-register-w15
 > uk: зберігати, утримувати
-> example: Please **retain** this letter for your records. — Будь ласка, збережіть цей лист для своїх записів.
+> example: Please **retain** this letter for your records. — Будь ласка, збережіть цей лист для довідки.
 > note: формальний; = keep. retain staff — утримати працівників.
 
 > [!word] reside
@@ -368,7 +368,7 @@ estimatedMinutes: 55
 > [!word] additional
 > ipa: /əˈdɪʃ.ən.əl/ · pos: adj · level: C1 · id: en-c1-register-w31
 > uk: додатковий
-> example: **Additional** charges may apply. — Можуть стягуватися додаткові платежі.
+> example: **Additional** charges may apply. — Може стягуватися додаткова плата.
 > note: формально-нейтральний; = extra, more.
 
 > [!word] enquiry
@@ -386,7 +386,7 @@ estimatedMinutes: 55
 > [!word] beverage
 > ipa: /ˈbev.ər.ɪdʒ/ · ipa-us: /ˈbev.ɚ.ɪdʒ/ · pos: noun · level: C1 · id: en-c1-register-w34
 > uk: напій
-> example: Hot **beverages** are served in the lounge. — Гарячі напої подають у лаунжі.
+> example: Hot **beverages** are served in the lounge. — Гарячі напої подають у лаунж-зоні.
 > note: формальний (меню, оголошення); у розмові — drink.
 
 ### Про регістр і розмовні слова
@@ -400,7 +400,7 @@ estimatedMinutes: 55
 > [!word] Latinate
 > ipa: /ˈlæt.ɪ.neɪt/ · ipa-us: /ˈlæt̬.ən.eɪt/ · pos: adj · level: C1 · id: en-c1-register-w36
 > uk: латинського походження, латинізований (про слова, стиль)
-> example: Legal English is full of **Latinate** words. — Юридична англійська повна слів латинського походження.
+> example: Legal English is full of **Latinate** words. — У юридичній англійській повно слів латинського походження.
 > note: термін; Latinate vocabulary — латинізми: commence, terminate, reside.
 
 > [!word] fancy
@@ -419,7 +419,7 @@ estimatedMinutes: 55
 > ipa: /ɡræb/ · pos: verb · level: C1 · id: en-c1-register-w39
 > uk: хапати; швиденько взяти, перекусити (розм.)
 > example: Let's **grab** a sandwich before the meeting. — Давай перехопимо сендвіч перед зустріччю.
-> note: розмовний; grab a coffee / a bite to eat. Буквально — схопити.
+> note: розмовний; grab a coffee / a bite to eat. Дослівно — схопити.
 
 > [!word] stuff
 > ipa: /stʌf/ · pos: noun · level: C1 · id: en-c1-register-w40
@@ -438,7 +438,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** формальний варіант — повні форми (*do not*), латинізми (*require, assistance*) й інверсія *should you…* замість *if you…*. *Acquire* (набути) звучить схоже на *require*, але зміст інший.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-register-l02
 > audio: We regret to inform you that your application has been unsuccessful.
 
@@ -490,7 +490,7 @@ estimatedMinutes: 55
 > text: I am writing to enquire about the position advertised on your website.
 > ipa: /aɪ æm ˈraɪ.tɪŋ tʊ ɪnˈkwaɪər əˈbaʊt ðə pəˈzɪʃ.ən ˈæd.və.taɪzd ɒn jɔː ˈweb.saɪt/
 > tip: enquire — наголос на другому складі [ɪnˈkwaɪə]; advertised — на першому: AD-ver-tised. Повна форма I am — без скорочення.
-> uk: Пишу, щоб дізнатися про вакансію, оголошену на вашому сайті.
+> uk: Пишу, щоб дізнатися про вакансію, розміщену на вашому сайті.
 
 > [!speak] Скажи вголос — дуже формально
 > level: C1 · id: en-c1-register-s02
@@ -517,7 +517,7 @@ estimatedMinutes: 55
 > level: C1 · id: en-c1-register-s05
 > text: To be honest, I'd say my style is pretty casual most of the time.
 > ipa: /tə bi ˈɒn.ɪst aɪd ˈseɪ maɪ ˈstaɪl ɪz ˈprɪt.i ˈkæʒ.u.əl ˈməʊst əv ðə ˈtaɪm/
-> tip: питання Part 1 — «What kind of clothes do you usually wear?». honest — h не вимовляється; casual — [ˈkæʒuəl], з [ʒ]. У Speaking формальна лексика звучала б неприродно.
+> tip: питання Part 1 — «What kind of clothes do you usually wear?». у honest літера h не читається; casual — [ˈkæʒuəl], з [ʒ]. У Speaking формальна лексика звучала б неприродно.
 > uk: Чесно кажучи, мій стиль здебільшого досить невимушений.
 
 > [!speak] IELTS Speaking · Part 3 — про регістр
@@ -708,7 +708,7 @@ estimatedMinutes: 55
 > - [ ] False
 > - [ ] Not Given
 >
-> **Пояснення:** *Some sixteenth-century writers mocked these as "inkhorn terms"* — висміювали, тобто заперечували проти запозичень → **True**. *Objected to* перефразовує *mocked … arguing that English already had…*.
+> **Пояснення:** *Some sixteenth-century writers mocked these as "inkhorn terms"* — висміювали, тобто виступали проти запозичень → **True**. *Objected to* перефразовує *mocked … arguing that English already had…*.
 
 > [!quiz] IELTS Reading · True / False / Not Given: «Most Latin words borrowed during the Renaissance are no longer used today.»
 > level: C1 · tags: ielts · id: en-c1-register-q18

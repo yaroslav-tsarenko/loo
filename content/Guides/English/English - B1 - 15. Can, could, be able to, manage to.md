@@ -27,11 +27,11 @@ estimatedMinutes: 40
 > - [ ] Everyone can escape.
 > - [ ] Everyone could to escape.
 >
-> **Пояснення:** йдеться про **одну конкретну ситуацію**, де щось вдалося попри труднощі. Тут англійці кажуть **managed to** або **was / were able to**, а не *could*. *Could* — про загальне вміння в минулому: *When I was young, I could run fast.*
+> **Пояснення:** йдеться про **одну конкретну ситуацію**, де щось вдалося попри труднощі. Тут носії англійської кажуть **managed to** або **was / were able to**, а не *could*. *Could* — про загальне вміння в минулому: *When I was young, I could run fast.*
 
 ## Простими словами
 
-Українське «могти / вміти / змогти / вдалося» англійською розкладається на кілька інструментів:
+Українські «могти / вміти / змогти / вдалося» англійською передають кількома способами:
 
 - **can** — вмію зараз: *I **can** swim.*
 - **could** — умів колись, загалом: *At five, I **could** read.*
@@ -46,7 +46,7 @@ estimatedMinutes: 40
 > nodes:
 >   - { id: past, at: "колись, загалом", text: "When I was six, I could ride a bike.", note: "could — умів", tone: blue }
 >   - { id: once, at: "одного разу", text: "The bike broke, but I managed to get home.", note: "managed to / was able to — вдалося", tone: violet }
->   - { id: perf, at: "до тепер", text: "I haven't been able to ride since I hurt my knee.", note: "have been able to — у can немає такої форми", tone: orange }
+>   - { id: perf, at: "досі", text: "I haven't been able to ride since I hurt my knee.", note: "have been able to — у can немає такої форми", tone: orange }
 >   - { id: now, at: "зараз", text: "I can ride with no hands!", note: "can — вмію", tone: green }
 >   - { id: fut, at: "у майбутньому", text: "Next year I'll be able to ride to work.", note: "will be able to — ніколи не will can", tone: mint }
 > steps:
@@ -54,7 +54,7 @@ estimatedMinutes: 40
 >   - { show: once, note: "Один конкретний успіх — managed to або was able to. Не could!" }
 >   - { show: perf, note: "У can немає Present Perfect, тож беремо have been able to." }
 >   - { show: now, note: "Зараз — звичайне can." }
->   - { show: fut, note: "Майбутнє нове вміння — will be able to. Двох модальних поспіль (will can) в англійській не буває." }
+>   - { show: fut, note: "Нове вміння в майбутньому — will be able to. Двох модальних поспіль (will can) в англійській не буває." }
 > ```
 
 ## Пояснення
@@ -77,7 +77,7 @@ estimatedMinutes: 40
 | Present Perfect | I **haven't been able to** sleep lately. | Останнім часом я не можу заснути. |
 | після іншого модального | You **might be able to** get a ticket online. | Можливо, ти зможеш купити квиток онлайн. |
 | інфінітив | I'd love **to be able to** play the piano. | Я б дуже хотів уміти грати на піаніно. |
-| -ing | I hate **not being able to** understand the news. | Ненавиджу не розуміти новин. |
+| -ing | I hate **not being able to** understand the news. | Ненавиджу, коли не можу зрозуміти новини. |
 
 > [!tip] Can чи will be able to про майбутнє?
 > Домовленість чи рішення зараз — **can**: *I **can** meet you tomorrow at six.* Нове вміння, якого ще немає, — **will be able to**: *After this course, you**'ll be able to** write a formal letter.*
@@ -102,20 +102,20 @@ estimatedMinutes: 40
 > columns: { gen: "could — умів (загалом)", once: "was able to / managed to — вдалося (один раз)" }
 > nodes:
 >   - { id: g1, col: gen, text: "My grandad could fix any car.", note: "вміння роками", tone: blue }
->   - { id: o1, col: once, text: "The car broke down, but he managed to fix it.", note: "конкретний випадок, з зусиллям", tone: violet }
+>   - { id: o1, col: once, text: "The car broke down, but he managed to fix it.", note: "конкретний випадок, із зусиллям", tone: violet }
 >   - { id: g2, col: gen, text: "I couldn't open the window.", note: "заперечення — можна couldn't", tone: gray }
 >   - { id: o2, col: once, text: "I didn't manage to / wasn't able to open the window.", note: "теж правильно", tone: gray }
 >   - { id: g3, col: gen, text: "I could see the mountains from the hotel.", note: "виняток: see, hear, smell, understand", tone: green }
 > steps:
->   - { show: [g1, o1], note: "Дідусь умів лагодити машини взагалі — could. А того дня з поломкою йому вдалося — managed to." }
+>   - { show: [g1, o1], note: "Дідусь умів лагодити машини взагалі — could. А того дня, коли машина зламалася, полагодити її йому вдалося — managed to." }
 >   - { show: [g2, o2], note: "У запереченні різниці немає: couldn't = didn't manage to = wasn't able to." }
->   - { show: g3, note: "Виняток: з дієсловами чуття й розуміння (see, hear, smell, taste, feel, understand, remember) could вживають і про один випадок." }
+>   - { show: g3, note: "Виняток: з дієсловами сприйняття й розуміння (see, hear, smell, taste, feel, understand, remember) could вживають і про один випадок." }
 > ```
 
 - I **could** play chess when I was seven. — Я вмів грати в шахи в сім років. (загалом)
 - The exam was hard, but I **was able to** answer all the questions. — Іспит був важкий, але я зміг відповісти на всі питання. (конкретний іспит)
-- It took hours, but we **managed to** find the hotel. — Це забрало кілька годин, але ми таки знайшли готель. (з зусиллям)
-- I **couldn't** find my keys this morning. — Я не міг знайти ключі сьогодні вранці. (заперечення — норм)
+- It took hours, but we **managed to** find the hotel. — Ми шукали кілька годин, але таки знайшли готель. (із зусиллям)
+- I **couldn't** find my keys this morning. — Я не міг знайти ключі сьогодні вранці. (у запереченні — можна)
 
 > [!quiz] Перевір себе: could чи managed to?
 > level: B1 · type: fill · bank · id: en-b1-ability-q03
@@ -127,7 +127,7 @@ estimatedMinutes: 40
 > She [[could]] speak French and German by the age of ten.
 > ```
 >
-> **Пояснення:** вміння дитинства — **could**; конкретний успіх попри труднощі (магазин зачинявся, корки) — **managed to**.
+> **Пояснення:** вміння дитинства — **could**; конкретний успіх попри труднощі (магазин зачинявся, затори) — **managed to**.
 
 ### Manage to і succeed in
 
@@ -191,7 +191,7 @@ estimatedMinutes: 40
 > [!word] escape
 > ipa: /ɪˈskeɪp/ · pos: verb · level: B1 · id: en-b1-ability-w07
 > uk: втекти, врятуватися; (noun) втеча
-> example: The prisoners **managed to escape**. — В'язням вдалося втекти.
+> example: The prisoners **managed to escape**. — Вʼязням вдалося втекти.
 > note: escape from a place; клавіша Esc — escape.
 
 > [!word] rescue
@@ -202,14 +202,14 @@ estimatedMinutes: 40
 
 > [!word] work out
 > ipa: /wɜːk ˈaʊt/ · ipa-us: /wɝːk ˈaʊt/ · pos: phrase · level: B1 · id: en-b1-ability-w09
-> uk: зрозуміти, з'ясувати; розрахувати; (про спорт) тренуватися
+> uk: зрозуміти, зʼясувати; розрахувати; (про спорт) тренуватися
 > example: I can't **work out** how to use this app. — Не можу зрозуміти, як користуватися цим застосунком.
 > note: things will work out — усе владнається.
 
 > [!word] cope with
 > ipa: /ˈkəʊp wɪð/ · ipa-us: /ˈkoʊp wɪð/ · pos: phrase · level: B1 · id: en-b1-ability-w10
 > uk: впоратися з, давати раду
-> example: How do you **cope with** stress at work? — Як ти справляєшся зі стресом на роботі?
+> example: How do you **cope with** stress at work? — Як ти даєш раду стресові на роботі?
 
 ## Слухаємо
 
@@ -220,11 +220,11 @@ estimatedMinutes: 40
 > - [ ] I was able to finish the report.
 > - [ ] I won't be able to finish the report.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-ability-l02
 > audio: In the end, we managed to find a taxi.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-ability-l03
 > audio: I haven't been able to sleep this week.
 
@@ -249,7 +249,7 @@ estimatedMinutes: 40
 > - [ ] Stay at school until fifteen.
 > - [ ] Leave school at twelve.
 >
-> **Пояснення:** *most adults could read* — загальне вміння. До 15 років у школі змогли лишатися лише у 1950-х — це пастка з іншої дати, типова для IELTS Part 4.
+> **Пояснення:** *most adults could read* — загальне вміння. Лишатися в школі до 15 років майже всі діти могли лише станом на 1950 рік — це пастка з іншої дати, типова для IELTS Part 4.
 
 ## Вимова
 
@@ -269,7 +269,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-ability-s03
 > text: I couldn't swim until I was ten.
 > ipa: /aɪ ˈkʊd.ənt swɪm ənˈtɪl aɪ wəz ten/
-> tip: couldn't — l німе: [куд-нт]; was у середині — слабке /wəz/.
+> tip: у couldn't літера l не читається: [куд-нт]; was у середині — слабке /wəz/.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-ability-s04
@@ -325,7 +325,7 @@ estimatedMinutes: 40
 > Sorry, I [[wasn't|was not]] able to call you yesterday.
 > ```
 >
-> **Пояснення:** до тепер — **haven't been able to**; майбутнє — **will be able to**; після *would be great* — інфінітив **to be able to**; минуле одного дня — **wasn't able to**.
+> **Пояснення:** до тепер — **haven't been able to**; майбутнє — **will be able to**; після *would be great* — інфінітив **to be able to**; конкретний випадок у минулому — **wasn't able to**.
 
 > [!quiz] Встав could, couldn't або managed to
 > level: B1 · type: fill · bank · id: en-b1-ability-q07
@@ -420,6 +420,6 @@ estimatedMinutes: 40
 > [!important] Підсумок
 > - **can** — вмію зараз; **could** — умів колись (загалом).
 > - **be able to** — для всіх інших форм: *will be able to, have been able to, to be able to, might be able to*.
-> - Один успіх у минулому — **managed to / was able to**, а не *could* (крім *couldn't* і дієслів чуття: *I could see…*).
+> - Один успіх у минулому — **managed to / was able to**, а не *could* (крім *couldn't* і дієслів сприйняття: *I could see…*).
 > - **manage to + V1**, **succeed in + -ing**.
 > - Двох модальних поспіль не буває: ~~*will can*~~.

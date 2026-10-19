@@ -41,7 +41,7 @@ estimatedMinutes: 45
 | **Part 2** | 3–4 хв | картка з темою (*cue card*): **1 хвилина** на підготовку з олівцем і папером, потім говориш **до 2 хвилин**; далі 1–2 короткі питання |
 | **Part 3** | 4–5 хв | дискусія на загальніші теми, повʼязані з Part 2: думки, порівняння, причини, майбутнє |
 
-Відповідь оцінюють за чотирма рівноважними критеріями:
+Відповідь оцінюють за чотирма рівноцінними критеріями:
 
 | Критерій | Що це | Що допомагає |
 |---|---|---|
@@ -98,10 +98,10 @@ estimatedMinutes: 45
 >   - { id: a4, label: "ввічлива незгода", text: "I see your point, but… · I'm not so sure.", tone: orange }
 >   - { id: a5, label: "незгода", text: "I'm afraid I don't agree.", tone: red }
 > steps:
->   - { show: a1, note: "Найсильніша згода. I couldn't agree more — дослівно «я не міг би погодитися більше», тобто повністю згоден." }
->   - { show: a2, note: "Звичайна згода. Fair enough — «справедливо, приймаю»: часто після чужого аргументу." }
+>   - { show: a1, note: "Найсильніша згода. I couldn't agree more — «повністю згоден» (дослівно «я не міг би погодитися більше»)." }
+>   - { show: a2, note: "Звичайна згода. Fair enough — «слушно», «справедливо»: часто після чужого аргументу." }
 >   - { show: a3, note: "Up to a point — «до певної міри». Після but — твоє обмеження." }
->   - { show: a4, note: "Спершу визнаєш думку співрозмовника, потім — своя. Так не погоджуються в Британії, і так безпечно в IELTS." }
+>   - { show: a4, note: "Спершу визнаєш думку співрозмовника, потім кажеш свою. Саме так незгоду висловлюють британці, і це безпечний варіант для IELTS." }
 >   - { show: a5, note: "I'm afraid тут — не «боюся», а ввічливе «на жаль». Навіть пряма незгода звучить мʼяко." }
 > ```
 
@@ -122,7 +122,7 @@ estimatedMinutes: 45
 | Проблема | Як сказати | Що попросити |
 |---|---|---|
 | пропустив пересадку | *I've missed my connection.* | *What are my options?* · *Could you put me on the next flight?* |
-| рейс overbooked | *They say the flight is overbooked.* | *Am I entitled to compensation?* |
+| на рейс продали забагато квитків (overbooked) | *They say the flight is overbooked.* | *Am I entitled to compensation?* |
 | загубився багаж | *My suitcase hasn't arrived.* | *Could you help me fill in a report?* |
 | забув річ | *I left my bag on the train.* | *Is there a lost property office?* |
 | запізнення потяга | *The train was two hours late.* | *Could I get a refund?* |
@@ -155,7 +155,7 @@ estimatedMinutes: 45
 >   - { focus: prep, note: "Хвилина підготовки: ключові слова за пунктами картки. Не пиши речень — не встигнеш, і почнеш читати." }
 >   - { focus: intro, note: "Перше речення відповідає на тему картки: I'd like to talk about a trip to Kraków that I took last December." }
 >   - { focus: story, note: "Пункти картки по черзі: куди, з ким, що пішло не так. Past Continuous — фон, Past Simple — події, linkers — переходи." }
->   - { focus: feel, note: "Останній пункт картки — and explain how you felt. Його часто забувають, а це половина оцінки звʼязності." }
+>   - { focus: feel, note: "Останній пункт картки — and explain how you felt. Його часто забувають, а без нього відповідь звучить незавершено." }
 >   - { focus: end, note: "Заверши думкою: Looking back… / It taught me that… Якщо екзаменатор зупинить на 2-й хвилині — це нормально." }
 > ```
 
@@ -169,14 +169,14 @@ estimatedMinutes: 45
 >
 > *Looking back, it was actually one of the best trips I've ever had. It taught me that you can't plan everything, and sometimes the unplanned part is the most memorable.*
 
-Зверни увагу: різні часи (*we'd planned, we were waiting, it turned out*), linkers (*at first, then, in the end, looking back*), почуття (*annoyed, in a great mood*) — і жодного завченого шаблону.
+Зверни увагу: різні часи (*we'd planned, we were losing, it turned out*), linkers (*at first, then, in the end, looking back*), почуття (*annoyed, in a great mood*) — і жодного завченого шаблону.
 
 > [!tip] Твоя черга
-> Візьми ту саму картку й розкажи **свою** історію. Постав таймер: 1 хвилина на нотатки, 2 хвилини — говориш. Запиши себе на диктофон і переслухай: чи всі пункти картки є? чи були паузи довші за 3 секунди? скільки різних linkers ти вжив?
+> Візьми ту саму картку й розкажи **свою** історію. Постав таймер: 1 хвилина на нотатки, 2 хвилини — говориш. Запиши себе на диктофон і переслухай: чи охопив ти всі пункти картки? чи були паузи довші за 3 секунди? скільки різних linkers ти вжив?
 
 ## Приклади
 
-- *In my opinion, working from home is better for most people.* — На мою думку, працювати з дому краще для більшості людей.
+- *In my opinion, working from home is better for most people.* — На мою думку, для більшості людей краще працювати вдома.
 - *As far as I'm concerned, it's a waste of money.* — Як на мене, це марнування грошей.
 - *I see your point, but I'm not sure that's always true.* — Я розумію твою думку, але не впевнений, що це завжди так.
 - *I couldn't agree more.* — Повністю згоден.
@@ -193,11 +193,11 @@ estimatedMinutes: 45
 > ipa: /ɪn maɪ əˈpɪnjən/ · pos: phrase · level: B1 · id: en-b1-speaking-w01
 > uk: на мою думку
 > example: **In my opinion**, the film was too long. — На мою думку, фільм був задовгий.
-> note: не додавай I think: «In my opinion, I think» — подвійно.
+> note: не додавай I think: «In my opinion, I think» — зайвий повтор.
 
 > [!word] as far as I'm concerned
 > ipa: /əz ˈfɑːr‿əz aɪm kənˈsɜːnd/ · ipa-us: /əz ˈfɑːr‿əz aɪm kənˈsɝːnd/ · pos: phrase · level: B1 · id: en-b1-speaking-w02
-> uk: як на мене; щодо мене
+> uk: як на мене; на мій погляд
 > example: **As far as I'm concerned**, it's a great idea. — Як на мене, це чудова ідея.
 
 > [!word] personally
@@ -213,7 +213,7 @@ estimatedMinutes: 45
 
 > [!word] I couldn't agree more
 > ipa: /aɪ ˌkʊdənt‿əˈɡriː ˈmɔː/ · ipa-us: /aɪ ˌkʊdənt‿əˈɡriː ˈmɔːr/ · pos: phrase · level: B1 · id: en-b1-speaking-w05
-> uk: повністю згоден; не можу не погодитися
+> uk: повністю згоден; цілком погоджуюся
 > example: We need more parks. — **I couldn't agree more.** — Нам треба більше парків. — Повністю згоден.
 > note: попри заперечення — це найсильніша згода.
 
@@ -227,12 +227,12 @@ estimatedMinutes: 45
 > ipa: /ɪɡˈzæktli/ · pos: adv · level: B1 · id: en-b1-speaking-w07
 > uk: точно; саме так
 > example: So we need more time? — **Exactly.** — Тобто нам потрібно більше часу? — Саме так.
-> note: x тут — /ɡz/: «іг-ЗЕКТ-лі».
+> note: x тут читається як /ɡz/: «іг-ЗЕКТ-лі».
 
 > [!word] I'm not so sure
 > ipa: /aɪm ˌnɒt səʊ ˈʃʊə/ · ipa-us: /aɪm ˌnɑːt soʊ ˈʃʊr/ · pos: phrase · level: B1 · id: en-b1-speaking-w08
-> uk: я не такий певний; сумніваюся (мʼяка незгода)
-> example: Online lessons are better than real ones. — **I'm not so sure.** — Онлайн-уроки кращі за звичайні. — Я не такий певний.
+> uk: я не впевнений; сумніваюся (мʼяка незгода)
+> example: Online lessons are better than real ones. — **I'm not so sure.** — Онлайн-уроки кращі за звичайні. — Я в цьому не впевнений.
 
 > [!word] up to a point
 > ipa: /ˌʌp tu‿(w)ə ˈpɔɪnt/ · pos: phrase · level: B1 · id: en-b1-speaking-w09
@@ -243,7 +243,7 @@ estimatedMinutes: 45
 > ipa: /aɪm əˈfreɪd/ · pos: phrase · level: B1 · id: en-b1-speaking-w10
 > uk: на жаль; боюся, що (ввічливо)
 > example: **I'm afraid** I don't agree. — На жаль, я не згоден.
-> note: пом'якшує погану новину чи незгоду; не про страх.
+> note: помʼякшує погану новину чи незгоду; не про страх.
 
 > [!word] on the one hand
 > ipa: /ɒn ðə ˈwʌn ˌhænd/ · ipa-us: /ɑːn ðə ˈwʌn ˌhænd/ · pos: phrase · level: B1 · id: en-b1-speaking-w11
@@ -265,7 +265,7 @@ estimatedMinutes: 45
 > ipa: /tə bi ˈɒnɪst/ · ipa-us: /tə bi ˈɑːnɪst/ · pos: phrase · level: B1 · id: en-b1-speaking-w14
 > uk: чесно кажучи; якщо чесно
 > example: **To be honest**, I didn't enjoy it. — Чесно кажучи, мені не сподобалося.
-> note: h німе: «ОН-іст».
+> note: літера h не читається: «ОН-іст».
 
 > [!word] let me think
 > ipa: /ˌlet mi ˈθɪŋk/ · pos: phrase · level: B1 · id: en-b1-speaking-w15
@@ -292,12 +292,12 @@ estimatedMinutes: 45
 > [!word] looking back
 > ipa: /ˌlʊkɪŋ ˈbæk/ · pos: phrase · level: B1 · id: en-b1-speaking-w19
 > uk: озираючись назад; згадуючи тепер
-> example: **Looking back**, it was the right decision. — Озираючись назад, це було правильне рішення.
+> example: **Looking back**, it was the right decision. — Озираючись назад, я розумію, що це було правильне рішення.
 
 > [!word] memorable
 > ipa: /ˈmemərəbəl/ · pos: adj · level: B1 · id: en-b1-speaking-w20
-> uk: незабутній; пам'ятний
-> example: It was the most **memorable** day of my life. — Це був найнезабутніший день мого життя.
+> uk: незабутній; памʼятний
+> example: It was the most **memorable** day of my life. — Це був найпамʼятніший день мого життя.
 > note: наголос на першому складі: ME-mo-ra-ble.
 
 > [!word] miss a connection
@@ -307,7 +307,7 @@ estimatedMinutes: 45
 
 > [!word] overbooked
 > ipa: /ˌəʊvəˈbʊkt/ · ipa-us: /ˌoʊvɚˈbʊkt/ · pos: adj · level: B1 · id: en-b1-speaking-w22
-> uk: з перебронюванням (продали більше місць, ніж є)
+> uk: перепроданий (про рейс: продали більше квитків, ніж є місць)
 > example: The flight was **overbooked**, so I had to wait for the next one. — На рейс продали забагато квитків, тож мені довелося чекати наступного.
 
 > [!word] lost property
@@ -388,11 +388,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** Past Continuous (*we were… an hour from the top*) — фон, *suddenly changed* — подія, *so we decided* — результат.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-speaking-l07
 > audio: In my opinion, it depends on the situation.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-speaking-l08
 > audio: Looking back, it was one of the best trips I've ever had.
 
@@ -413,8 +413,8 @@ estimatedMinutes: 45
 > text: To be honest, I don't watch much TV these days, because I prefer podcasts.
 > ipa: /tə bi ˈɒnɪst | aɪ ˈdəʊnt ˈwɒtʃ mʌtʃ ˌtiːˈviː ðiːz ˈdeɪz | bɪˈkɒz‿aɪ prɪˈfɜː ˈpɒdkɑːsts/
 > ipa-us: /tə bi ˈɑːnɪst | aɪ ˈdoʊnt ˈwɑːtʃ mʌtʃ ˌtiːˈviː ðiːz ˈdeɪz | bɪˈkʌz‿aɪ prɪˈfɝː ˈpɑːdkæsts/
-> tip: honest — h німе; to be — слабке «те-бі». Пауза перед because.
-> uk: Чесно кажучи, зараз я мало дивлюся телевізор, бо віддаю перевагу подкастам.
+> tip: у honest h не читається; to be — слабке «те-бі». Пауза перед because.
+> uk: Чесно кажучи, зараз я мало дивлюся телевізор, бо більше люблю подкасти.
 
 > [!speak] Висловлюй думку
 > level: B1 · id: en-b1-speaking-s03
@@ -430,7 +430,7 @@ estimatedMinutes: 45
 > ipa: /ðə ˈmeɪn ˈriːzən‿ɪz ðət‿ɪt wəd rɪˈdjuːs ˈtræfɪk/
 > ipa-us: /ðə ˈmeɪn ˈriːzən‿ɪz ðət‿ɪt wəd rɪˈduːs ˈtræfɪk/
 > tip: that — слабке /ðət/, would — /wəd/; удари: MAIN, REA-, -DUCE, TRAF-.
-> uk: Головна причина — це зменшило б затори.
+> uk: Головна причина в тому, що це зменшило б затори.
 
 > [!speak] Наведи приклад
 > level: B1 · id: en-b1-speaking-s05
@@ -464,7 +464,7 @@ estimatedMinutes: 45
 > ipa: /aɪm‿əˈfreɪd aɪ ˈdəʊnt ˌkwaɪt‿əˈɡriː wɪð ju/
 > ipa-us: /aɪm‿əˈfreɪd aɪ ˈdoʊnt ˌkwaɪt̬‿əˈɡriː wɪð ju/
 > tip: I'm‿afraid — «ай-ме-ФРЕЙД»; quite‿agree — t до a. Тон мʼякий, без натиску.
-> uk: Боюся, я не зовсім з вами згоден.
+> uk: Вибачте, але я не зовсім з вами згоден.
 
 > [!speak] Виграй час
 > level: B1 · id: en-b1-speaking-s09
@@ -480,8 +480,8 @@ estimatedMinutes: 45
 > text: I'd like to talk about a trip to Kraków that I took with my sister last December.
 > ipa: /aɪd ˈlaɪk tə ˈtɔːk‿əˌbaʊt‿ə ˈtrɪp tə ˈkrækaʊ ðət‿aɪ ˈtʊk wɪð maɪ ˈsɪstə ˌlɑːst dɪˈsembə/
 > ipa-us: /aɪd ˈlaɪk tə ˈtɑːk‿əˌbaʊt̬‿ə ˈtrɪp tə ˈkrɑːkaʊ ðət‿aɪ ˈtʊk wɪð maɪ ˈsɪstɚ ˌlæst dɪˈsembɚ/
-> tip: talk — l німе: /tɔːk/; that — слабке /ðət/. Перше речення = тема картки.
-> uk: Я хочу розповісти про поїздку до Кракова, у яку ми з сестрою вирушили минулого грудня.
+> tip: у talk літера l не читається: /tɔːk/; that — слабке /ðət/. Перше речення = тема картки.
+> uk: Я хотів би розповісти про нашу з сестрою поїздку до Кракова минулого грудня.
 
 > [!speak] Фон і подія
 > level: B1 · id: en-b1-speaking-s11
@@ -496,7 +496,7 @@ estimatedMinutes: 45
 > text: It turned out that there was a problem with the line, so we had to wait for almost three hours.
 > ipa: /ɪt ˌtɜːnd‿ˈaʊt ðət ðə wəz‿ə ˈprɒbləm wɪð ðə ˈlaɪn | səʊ wi ˈhæd tə ˈweɪt fər‿ˈɔːlməʊst ˌθriː‿(j)ˈaʊəz/
 > ipa-us: /ɪt ˌtɝːnd‿ˈaʊt ðət ðɚ wəz‿ə ˈprɑːbləm wɪð ðə ˈlaɪn | soʊ wi ˈhæd tə ˈweɪt fɚ‿ˈɑːlmoʊst ˌθriː‿(j)ˈaʊɚz/
-> tip: turned‿out — «тьорн-ДАУТ»; had to — /ˈhæd tə/, одне t; three‿(j)hours — h німе, місток /j/.
+> tip: turned‿out — «тьорн-ДАУТ»; had to — /ˈhæd tə/, одне t; three‿(j)hours — у hours h не читається, тому зʼявляється місток /j/.
 > uk: Виявилося, що на колії була проблема, тож нам довелося чекати майже три години.
 
 > [!speak] Заверши історію
@@ -505,7 +505,7 @@ estimatedMinutes: 45
 > ipa: /ˌlʊkɪŋ ˈbæk | ɪt wəz‿ˈæktʃuəli ˈwʌn‿əv ðə ˈbest ˈtrɪps aɪv‿ˈevə ˈhæd/
 > ipa-us: /ˌlʊkɪŋ ˈbæk | ɪt wəz‿ˈæktʃuəli ˈwʌn‿əv ðə ˈbest ˈtrɪps aɪv‿ˈevɚ ˈhæd/
 > tip: actually — «ЕК-чу-е-лі»; one‿of — «ВА-нев»; I've‿ever — v до e.
-> uk: Озираючись назад, це була, мабуть, одна з найкращих моїх подорожей.
+> uk: Тепер, озираючись назад, я розумію, що це була одна з найкращих моїх подорожей.
 
 ## Ситуація: проблема в аеропорту
 
@@ -530,7 +530,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «I am agree»
-> «Я згоден» — це не прикметник, а дієслово: **I agree**, **I don't agree** (не «I am not agree»). Так само **I disagree**. А от *I'm sure*, *I'm not convinced* — з *am*, бо це прикметники.
+> В англійській *agree* — це дієслово, а не прикметник: **I agree**, **I don't agree** (не «I am not agree»). Так само **I disagree**. А от *I'm sure*, *I'm not convinced* — з *am*, бо це прикметники.
 
 > [!pitfall] Відповідь в одне слово або завчений монолог
 > *Do you like music? — Yes.* — екзаменаторові нема що оцінювати. Протилежна крайність — вивчений напамʼять текст: його легко впізнати за неприродною інтонацією, і бал за нього не зарахують. Твоя схема: відповідь + причина + приклад.
@@ -539,7 +539,7 @@ estimatedMinutes: 45
 > Українці часто замовкають, поки шукають ідеальне слово, або кажуть «how to say…» і зупиняються. Довгі паузи знижують *Fluency*. Краще — *Let me think…*, *The thing is…*, а забуте слово — перефразуй: *the thing you use to…*.
 
 > [!pitfall] «In my opinion, I think…» і «and then… and then…»
-> Подвійна думка (*In my opinion, I think*) і одноманітні звʼязки звучать бідно. Обери одне: *In my opinion,…* або *I think…*. Чергуй linkers: *at first, then, after that, all of a sudden, in the end*.
+> Зайвий повтор (*In my opinion, I think*) і одноманітні звʼязки звучать бідно. Обери одне: *In my opinion,…* або *I think…*. Чергуй linkers: *at first, then, after that, all of a sudden, in the end*.
 
 ## Практика
 
@@ -569,7 +569,7 @@ estimatedMinutes: 45
 > - [x] I'm not so sure about that.
 > - [ ] No. Wrong.
 >
-> **Пояснення:** визнай думку співрозмовника або помʼякши (*I'm afraid*, *not so sure*). *You are not right* і *No. Wrong* звучать різко.
+> **Пояснення:** визнай думку співрозмовника або помʼякши незгоду (*I'm afraid*, *not so sure*). *You are not right* і *No. Wrong* звучать різко.
 
 > [!quiz] Розстав частини відповіді Part 2 у правильному порядку
 > level: B1 · type: order · id: en-b1-speaking-q05
@@ -690,7 +690,7 @@ estimatedMinutes: 45
 > [!reel] 🧑‍🏫 IELTS Speaking — завжди з людиною
 > Навіть на компʼютерному IELTS говоріння складають з живим екзаменатором — віч-на-віч або через відеозвʼязок. Тож можна усміхатися, перепитувати (*Could you repeat the question, please?*) і говорити як у звичайній розмові.
 
-> [!reel] 🍪 OREO — схема думки, що смакує
+> [!reel] 🍪 OREO — смачна схема думки
 > Opinion — Reason — Example — Opinion. Як печиво: думка зверху й знизу, а «крем» усередині — причина й приклад. Цю схему легко згадати навіть під стресом на іспиті.
 
 > [!reel] 🇬🇧 «I'm afraid» — нічого не боїться

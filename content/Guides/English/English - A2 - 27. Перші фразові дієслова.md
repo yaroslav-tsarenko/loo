@@ -180,7 +180,7 @@ estimatedMinutes: 40
 > ipa: /ɡɪv ˈʌp/ · pos: verb · level: A2 · id: en-a2-phrasal-verbs-w10
 > uk: кидати (звичку); здаватися
 > forms: give → gave → given
-> example: Don't **give up** — you're nearly there! — Не здавайся, ти майже у цілі!
+> example: Don't **give up** — you're nearly there! — Не здавайся, ти майже біля мети!
 > note: give up + -ing: give up eating sugar.
 
 > [!word] look up
@@ -191,7 +191,7 @@ estimatedMinutes: 40
 > [!word] hurry up
 > ipa: /ˌhʌr.i ˈʌp/ · ipa-us: /ˌhɝː.i ˈʌp/ · pos: verb · level: A2 · id: en-a2-phrasal-verbs-w12
 > uk: поспішати; (наказ) швидше!
-> example: **Hurry up**, or we'll miss the bus! — Швидше, бо пропустимо автобус!
+> example: **Hurry up**, or we'll miss the bus! — Швидше, бо не встигнемо на автобус!
 
 > [!word] cheer up
 > ipa: /ˌtʃɪər ˈʌp/ · ipa-us: /ˌtʃɪr ˈʌp/ · pos: verb · level: A2 · id: en-a2-phrasal-verbs-w13
@@ -298,7 +298,7 @@ estimatedMinutes: 40
 > [!word] fill in
 > ipa: /fɪl ˈɪn/ · pos: verb · level: A2 · id: en-a2-phrasal-verbs-w30
 > uk: заповнювати (анкету, бланк)
-> example: Please **fill in** this form. — Будь ласка, заповніть цю форму.
+> example: Please **fill in** this form. — Заповни, будь ласка, цей бланк.
 > note: US — fill out.
 
 ## Слухаємо
@@ -317,11 +317,11 @@ estimatedMinutes: 40
 > - [x] I'm looking after my sister's kids.
 > - [ ] I'm looking at my sister's kids.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-phrasal-verbs-l03
 > audio: Please fill in this form.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-phrasal-verbs-l04
 > audio: Don't give up.
 
@@ -340,7 +340,7 @@ estimatedMinutes: 40
 > audio: A: Hi, I'd like to try the gym today.
 > audio: B: Sure. First, please fill in this form. Then take off your shoes and put them in a locker. And please put the weights away after you use them.
 > - [ ] Купити абонемент і принести рушник
-> - [x] Заповнити форму, зняти взуття й прибирати гантелі на місце
+> - [x] Заповнити анкету, зняти взуття й прибирати гантелі на місце
 > - [ ] Записатися до тренера
 > - [ ] Залишити телефон на рецепції
 
@@ -368,7 +368,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-phrasal-verbs-s04
 > text: Calm down, it's OK.
 > ipa: /kɑːm ˈdaʊn ɪts ˌəʊˈkeɪ/
-> tip: calm — l німе: [кааːм]; OK — наголос на другому складі.
+> tip: calm — l не читається: [каам]; OK — наголос на другому складі.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-phrasal-verbs-s05

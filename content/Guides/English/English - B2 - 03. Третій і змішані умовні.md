@@ -116,7 +116,7 @@ estimatedMinutes: 45
 **If + Past Perfect, would + V1** (*now, today, still*)
 
 - *If I **had taken** that job in 2019, I**'d be living** in London **now**.* — Якби я тоді погодився на ту роботу, зараз жив би в Лондоні.
-- *If you **hadn't eaten** all that cake, you **wouldn't feel** sick.* — Якби ти не зʼїв увесь торт, тобі б зараз не було погано.
+- *If you **hadn't eaten** all that cake, you **wouldn't feel** sick.* — Якби ти не зʼїв увесь той торт, тебе б зараз не нудило.
 - *If they **had booked** earlier, they **would be** on the beach today.* — Якби вони забронювали раніше, сьогодні вже були б на пляжі.
 
 > [!diagram] Змішаний умовний: інше минуле → інше тепер
@@ -131,7 +131,7 @@ estimatedMinutes: 45
 >   - { show: [real1, real2], note: "Реальність: 2019 року я відмовився від роботи, і тому тепер живу в Києві." }
 >   - { show: unreal1, note: "Переписуємо минуле: умова про 2019 рік, якої не було, — Past Perfect (had taken)." }
 >   - { show: unreal2, note: "А результат — не в минулому, а зараз (now): тому would + V1, тут would be living. Не would have lived!" }
->   - { focus: [unreal1, unreal2], note: "Змішаний: half третього (if + had + V3) + half другого (would + V1). Слово now — головна підказка." }
+>   - { focus: [unreal1, unreal2], note: "Змішаний: половина від третього (if + had + V3) + половина від другого (would + V1). Слово now — головна підказка." }
 > ```
 
 > [!quiz] Перевір себе: результат зараз
@@ -166,7 +166,7 @@ estimatedMinutes: 45
 > steps:
 >   - { focus: trait, note: "Умова — не про один день, а про мою вдачу взагалі. Тому Past Simple / were, як у другому умовному." }
 >   - { focus: event, note: "Наслідок — конкретна подія в минулому (вчорашній дедлайн): would have + V3, як у третьому." }
->   - { set: { trait: "If she weren't so shy,", event: "she would have spoken at the meeting." }, focus: [trait, event], note: "Ще приклад: вона сором'язлива завжди — тому вчора на зборах промовчала." }
+>   - { set: { trait: "If she weren't so shy,", event: "she would have spoken at the meeting." }, focus: [trait, event], note: "Ще приклад: вона завжди соромʼязлива — тому вчора на зборах промовчала." }
 > ```
 
 > [!quiz] Перевір себе: який тип?
@@ -174,7 +174,7 @@ estimatedMinutes: 45
 >
 > *If Taras weren't so stubborn, he would have apologised yesterday.*
 >
-> - [ ] Тарас учора був упертим лише того дня.
+> - [ ] Тарас був упертим лише вчора.
 > - [x] Тарас упертий за вдачею, тому вчора не вибачився.
 > - [ ] Тарас учора вибачився, бо він упертий.
 > - [ ] Тарас перестав бути впертим.
@@ -240,7 +240,7 @@ estimatedMinutes: 45
 > [!word] make it
 > ipa: /ˈmeɪk ɪt/ · pos: phrase · level: B2 · id: en-b2-conditionals-3-w06
 > uk: встигнути, дістатися вчасно; досягти успіху; змогти прийти
-> example: If the traffic had been lighter, we would have **made it** on time. — Якби не було такого руху, ми б устигли вчасно.
+> example: If the traffic had been lighter, we would have **made it** on time. — Якби не такі затори, ми б устигли вчасно.
 > example: Sorry, I can't **make it** on Friday. — Вибач, у пʼятницю я не зможу.
 
 > [!word] prevent
@@ -287,11 +287,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *We'd have won* = *We would have won*. Без *have* (*We'd won*) це був би Past Perfect, і речення втратило б зміст.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-conditionals-3-l03
 > audio: If you had asked me, I would have helped you.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-conditionals-3-l04
 > audio: If I hadn't missed the bus, I wouldn't be so late now.
 
@@ -324,7 +324,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-conditionals-3-s01
 > text: If I'd known, I would have come earlier.
 > ipa: /ɪf aɪd nəʊn aɪ wʊd əv kʌm ˈɜː.li.ə/
-> tip: would have — злито [вудəв]; known — /nəʊn/, k не вимовляється.
+> tip: would have — злито [вудəв]; known — /nəʊn/, літера k не читається.
 
 > [!speak] Скажи вголос
 > level: B2 · id: en-b2-conditionals-3-s02
@@ -342,7 +342,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-conditionals-3-s04
 > text: If I had taken that job, I'd be living in London now.
 > ipa: /ɪf aɪ həd ˈteɪ.kən ðæt dʒɒb aɪd bi ˈlɪv.ɪŋ ɪn ˈlʌn.dən naʊ/
-> tip: London — обидва склади з /ʌ/ і /ə/: [лАн-дəн], не «Лондон».
+> tip: London — у першому складі /ʌ/, у другому /ə/: [лАн-дəн], не «Лондон».
 
 > [!speak] Скажи вголос
 > level: B2 · id: en-b2-conditionals-3-s05
@@ -359,7 +359,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] Одне «якби» на всі випадки
-> Українське «якби я знав, я б прийшов» однакове для тепер і для минулого — зміст підказує контекст. В англійській треба обрати форму: тепер → *If I **knew**, I **would come***; минуле → *If I **had known**, I **would have come***. Спершу спитай себе: *про коли я говорю?*
+> Українське «якби я знав, я б прийшов» однакове і для теперішнього, і для минулого — про час підказує контекст. В англійській треба обрати форму: тепер → *If I **knew**, I **would come***; минуле → *If I **had known**, I **would have come***. Спершу спитай себе: *про коли я говорю?*
 
 > [!pitfall] «If I would have known…»
 > *Would* не ставимо в умову: ~~*If I would have known*~~ ~~*If I would know*~~ → *If I **had known***. (В американській розмовній мові таке іноді чути, але це вважають помилкою, і в IELTS його точно не пиши.)
@@ -439,7 +439,7 @@ estimatedMinutes: 45
 > [!quiz] Що означає речення? *If he had been more careful, he wouldn't be in hospital now.*
 > level: B2 · id: en-b2-conditionals-3-q11
 > - [ ] Він був обережним, але все одно потрапив у лікарню.
-> - [x] Він не був обережним тоді, і тому зараз у лікарні.
+> - [x] Тоді він не був обережним, і тому зараз у лікарні.
 > - [ ] Він буде обережнішим, коли вийде з лікарні.
 > - [ ] Він не в лікарні, бо був обережним.
 >
@@ -489,7 +489,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🚪 Sliding Doors
-> Фільм «Sliding Doors» (1998) — це третій умовний на весь екран: героїня або встигає на потяг метро, або ні, і її життя ділиться на дві версії. Англійці навіть кажуть «a sliding doors moment» про випадок, що змінив усе.
+> Фільм «Sliding Doors» (1998) — це третій умовний на весь екран: героїня або встигає на потяг метро, або ні, і її життя ділиться на дві версії. Англійською навіть кажуть «a sliding doors moment» про випадок, що змінив усе.
 
 > [!reel] ✍️ «Would of» пишуть і носії
 > Would've на слух — /ˈwʊd.əv/, тож навіть британці й американці іноді пишуть «would of», «should of», «could of». Учителі воюють із цим десятиліттями. Ти тепер знаєш: там завжди have.

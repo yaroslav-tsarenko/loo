@@ -192,7 +192,7 @@ estimatedMinutes: 45
 > [!word] genre
 > ipa: /ˈʒɒnrə/ · ipa-us: /ˈʒɑːnrə/ · pos: noun · level: B2 · id: en-b2-culture-w13
 > uk: жанр
-> example: Horror is my least favourite **genre**. — Горор — мій найменш улюблений жанр.
+> example: Horror is my least favourite **genre**. — Жахи — жанр, який я люблю найменше.
 > note: нейтральне. Французьке слово, починається з /ʒ/ — [ЖОН-ре], не «джанр».
 
 ### Література
@@ -206,7 +206,7 @@ estimatedMinutes: 45
 > [!word] fiction
 > ipa: /ˈfɪkʃən/ · pos: noun · level: B2 · id: en-b2-culture-w15
 > uk: художня література; вигадка
-> example: I prefer **fiction** to biographies. — Я віддаю перевагу художній літературі над біографіями.
+> example: I prefer **fiction** to biographies. — Художню літературу я люблю більше, ніж біографії.
 > note: нейтральне. *non-fiction* — нон-фікшн (документальна, наукова); *science fiction (sci-fi)* — наукова фантастика.
 
 > [!word] protagonist
@@ -225,7 +225,7 @@ estimatedMinutes: 45
 > ipa: /ˈpleɪraɪt/ · pos: noun · level: B2 · id: en-b2-culture-w18
 > uk: драматург
 > example: Shakespeare is the world's most famous **playwright**. — Шекспір — найвідоміший драматург світу.
-> note: нейтральне. Пишеться *-wright* (майстер, як *shipwright*), а не *-write*! *w* і *gh* — німі: [ПЛЕЙ-райт].
+> note: нейтральне. Пишеться *-wright* (майстер, як *shipwright*), а не *-write*! літери *w* і *gh* не читаються: [ПЛЕЙ-райт].
 
 ### Музика й сцена
 
@@ -245,7 +245,7 @@ estimatedMinutes: 45
 > ipa: /ɡɪɡ/ · pos: noun · level: B2 · id: en-b2-culture-w21
 > uk: концерт (особливо невеликий, живий)
 > example: Are you coming to the **gig** on Saturday? — Ти прийдеш на концерт у суботу?
-> note: розмовне. Також — тимчасова підробітка: *the gig economy*. Формально — *concert, performance*.
+> note: розмовне. Також — тимчасовий підробіток: *the gig economy*. Формально — *concert, performance*.
 
 > [!word] performance
 > ipa: /pəˈfɔːməns/ · ipa-us: /pərˈfɔːrməns/ · pos: noun · level: B2 · id: en-b2-culture-w22
@@ -271,12 +271,12 @@ estimatedMinutes: 45
 > ipa: /ˌeksɪˈbɪʃən/ · pos: noun · level: B2 · id: en-b2-culture-w25
 > uk: виставка
 > example: There's a new photography **exhibition** at the museum. — У музеї нова фотовиставка.
-> note: нейтральне. *h* німа: [ек-сі-БІ-шн]. *hold / put on an exhibition*; US також *exhibit*.
+> note: нейтральне. Літера *h* не читається: [ек-сі-БІ-шн]. *hold / put on an exhibition*; US також *exhibit*.
 
 > [!word] gallery
 > ipa: /ˈɡæləri/ · pos: noun · level: B2 · id: en-b2-culture-w26
 > uk: галерея
-> example: The **gallery** has a large collection of Ukrainian avant-garde art. — Галерея має велику колекцію українського авангарду.
+> example: The **gallery** has a large collection of Ukrainian avant-garde art. — У галереї велика колекція українського авангарду.
 > note: нейтральне. *an art gallery*. У театрі *the gallery* — гальорка.
 
 > [!word] masterpiece
@@ -320,7 +320,7 @@ estimatedMinutes: 45
 > [!word] riveting
 > ipa: /ˈrɪvɪtɪŋ/ · ipa-us: /ˈrɪvɪt̬ɪŋ/ · pos: adj · level: B2 · id: en-b2-culture-w33
 > uk: захопливий; від якого неможливо відірватися
-> example: Her performance in the final scene is absolutely **riveting**. — Її гра у фінальній сцені абсолютно захоплива.
+> example: Her performance in the final scene is absolutely **riveting**. — Від її гри у фінальній сцені неможливо відірватися.
 > note: нейтральне, сильніше за *interesting*. Від *rivet* — заклепка: тебе ніби «пришпилює» до екрана. Синонім — *gripping*.
 
 > [!word] thought-provoking
@@ -362,7 +362,7 @@ estimatedMinutes: 45
 > [!word] far-fetched
 > ipa: /ˌfɑː ˈfetʃt/ · ipa-us: /ˌfɑːr ˈfetʃt/ · pos: adj · level: B2 · id: en-b2-culture-w40
 > uk: неправдоподібний; притягнутий за вуха
-> example: The idea that a teenager could hack the Pentagon is a bit **far-fetched**. — Ідея, що підліток зламав Пентагон, трохи притягнута за вуха.
+> example: The idea that a teenager could hack the Pentagon is a bit **far-fetched**. — Ідея, що підліток міг би зламати Пентагон, трохи притягнута за вуха.
 > note: нейтральне. Протилежне — *convincing, believable, realistic*.
 
 > [!word] convincing
@@ -425,7 +425,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *over-* (пере-) ↔ *under-* (недо-): *overrated* — переоцінений, *underrated* — недооцінений. Протилежні оцінки, тож слухай префікс.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-culture-l03
 > audio: The exhibition features works by contemporary Ukrainian artists.
 
@@ -450,7 +450,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *Let's focus on how the director presents the protagonist instead* — головний герой (*protagonist*) у фільмі. Фінал — причина, чому порівнювати його **не** варто.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-culture-l06
 > audio: The novel is a real page-turner, but the ending falls flat.
 
@@ -488,7 +488,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-culture-s03
 > text: What genre of music do you listen to?
 > ipa: /ˈwɒt ˈʒɒnrə əv ˈmjuːzɪk də ju ˈlɪsən tuː/
-> tip: genre — /ʒ/ як «ж»: [ЖОН-ре]; listen — *t* німа; to в кінці — сильна форма [ту].
+> tip: genre — /ʒ/ як «ж»: [ЖОН-ре]; listen — літера *t* не читається; to в кінці — сильна форма [ту].
 > uk: Яку музику (якого жанру) ти слухаєш?
 
 > [!speak] IELTS Speaking, Part 3 — «Should governments spend money on the arts?»

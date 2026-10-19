@@ -123,7 +123,7 @@ estimatedMinutes: 55
 
 | Хиба | Суть | Як звучить |
 |---|---|---|
-| **correlation ≠ causation** | дві речі ростуть разом, але одна не спричиняє іншу | *Cities with more cycle lanes have less traffic — so cycle lanes cut traffic.* (а може, ці міста просто щільніші?) |
+| **correlation ≠ causation** | дві речі зростають разом, але одна не спричиняє іншу | *Cities with more cycle lanes have less traffic — so cycle lanes cut traffic.* (а може, ці міста просто щільніші?) |
 | **anecdotal evidence** | висновок з одного-двох випадків | *My grandad smoked and lived to 95.* |
 | **straw man** («опудало») | спотворити думку опонента й розбити спотворену версію | *They want to ban all cars from cities!* (а пропонували лише платний вʼїзд у центр) |
 | **red herring** | відволікти на іншу тему | *Why talk about pollution when unemployment is so high?* |
@@ -197,7 +197,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > [!word] anecdotal
 > ipa: /ˌænɪkˈdəʊtəl/ · ipa-us: /ˌænɪkˈdoʊt̬əl/ · pos: adj · level: C1 · id: en-c1-listen-talks-w04
 > uk: заснований на окремих випадках (не на дослідженнях)
-> example: The evidence is purely **anecdotal**. — Докази суто випадкові, з особистих історій.
+> example: The evidence is purely **anecdotal**. — Ці докази ґрунтуються лише на особистих історіях.
 > note: anecdotal evidence — «докази з життя», а не з досліджень. Не плутай з «анекдотичний» (смішний).
 
 > [!word] caveat
@@ -221,7 +221,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > [!word] cherry-pick
 > ipa: /ˈtʃeri pɪk/ · pos: verb · level: C1 · id: en-c1-listen-talks-w08
 > uk: вибирати лише вигідні факти (замовчуючи інші)
-> example: The report **cherry-picks** the data that supports its conclusion. — Звіт вибирає лише ті дані, що підтверджують висновок.
+> example: The report **cherry-picks** the data that supports its conclusion. — У звіті наведено лише ті дані, що підтверджують висновок.
 > forms: cherry-pick → cherry-picked → cherry-picked
 
 > [!word] debunk
@@ -262,7 +262,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > [!word] conventional wisdom
 > ipa: /kənˌvenʃənəl ˈwɪzdəm/ · pos: noun · level: C1 · id: en-c1-listen-talks-w15
 > uk: загальноприйнята думка
-> example: The **conventional wisdom** is that breakfast is the most important meal. — Загальноприйнята думка — що сніданок найважливіший прийом їжі.
+> example: The **conventional wisdom** is that breakfast is the most important meal. — Прийнято вважати, що сніданок — найважливіший прийом їжі.
 > note: у лекції часто вводить думку, яку мовець збирається спростувати.
 
 > [!word] confounding factor
@@ -278,7 +278,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > [!word] fallacy
 > ipa: /ˈfæləsi/ · pos: noun · level: C1 · id: en-c1-listen-talks-w18
 > uk: хибне уявлення; логічна хиба
-> example: It's a **fallacy** that you need talent to learn languages. — Це хибне уявлення, що для мов потрібен талант.
+> example: It's a **fallacy** that you need talent to learn languages. — Те, що для вивчення мов потрібен талант, — хибне уявлення.
 > note: прикметник — fallacious /fəˈleɪʃəs/ (формальне).
 
 > [!word] hook
@@ -290,7 +290,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > [!word] sample size
 > ipa: /ˈsɑːmpəl saɪz/ · ipa-us: /ˈsæmpəl saɪz/ · pos: noun · level: C1 · id: en-c1-listen-talks-w20
 > uk: розмір вибірки
-> example: With such a small **sample size**, the results aren't reliable. — З такою малою вибіркою результати ненадійні.
+> example: With such a small **sample size**, the results aren't reliable. — За такої малої вибірки результати ненадійні.
 
 > [!word] hold water
 > ipa: /ˌhəʊld ˈwɔːtə/ · ipa-us: /ˌhoʊld ˈwɑːt̬ɚ/ · pos: phrase · level: C1 · id: en-c1-listen-talks-w21
@@ -458,7 +458,7 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 
 ### Диктант і акцент
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · lang: en-GB · id: en-c1-listen-talks-l15
 > audio: The evidence, such as it is, points in the opposite direction.
 
@@ -484,15 +484,15 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > text: Could you clarify what you meant by induced demand?
 > ipa: /kʊdʒu ˈklærəfaɪ wɒt ju ˈment baɪ ɪnˌdjuːst dɪˈmɑːnd/
 > ipa-us: /kʊdʒu ˈklerəfaɪ wʌt ju ˈment baɪ ɪnˌduːst dɪˈmænd/
-> tip: CLARify — удар на першому складі. induced demand — «ін-ДЮСТ ді-МАНД». Наприкінці — підйом: ввічливе питання.
-> uk: Чи могли б ви пояснити, що ви мали на увазі під індукованим попитом?
+> tip: CLARify — наголос на першому складі. induced demand — «ін-ДЮСТ ді-МАНД». Наприкінці — підйом: ввічливе питання.
+> uk: Чи могли б ви уточнити, що ви мали на увазі, коли говорили про індукований попит?
 
 > [!speak] Підсумуй чужу думку
 > level: C1 · id: en-c1-listen-talks-s02
 > text: So, in a nutshell, your argument is that more roads mean more traffic.
 > ipa: /səʊ | ɪn‿ə ˈnʌtʃel | jɔːr‿ˈɑːɡjumənt‿ɪz ðət ˈmɔː ˈrəʊdz miːn ˌmɔː ↘træfɪk/
 > ipa-us: /soʊ | ɪn‿ə ˈnʌtʃel | jʊr‿ˈɑːrɡjəmənt‿ɪz ðət ˈmɔːr ˈroʊdz miːn ˌmɔːr ↘træfɪk/
-> tip: nutshell — /t/ майже зникає перед /ʃ/: «НАЧ-шел». Контраст двох MORE — обидва під ударом.
+> tip: nutshell — /t/ майже зникає перед /ʃ/: «НАЧ-шел». Контраст двох MORE — обидва під наголосом.
 > uk: Тобто, коротко кажучи, ваш аргумент у тому, що більше доріг — більше заторів.
 
 > [!speak] Ввічливо постав під сумнів
@@ -500,8 +500,8 @@ R  case study: 20 lanes → journeys longer after 3 yrs
 > text: Isn't that a case of correlation rather than causation?
 > ipa: /ˈɪzənt ðæt‿ə ˈkeɪs‿əv ˌkɒrəˈleɪʃən ˌrɑːðə ðən kɔːˈzeɪʃən/
 > ipa-us: /ˈɪzənt ðæt‿ə ˈkeɪs‿əv ˌkɔːrəˈleɪʃən ˌræðɚ ðən kɑːˈzeɪʃən/
-> tip: корелЕЙшн — каЗЕЙшн: удари на -LA- і -ZA-, контраст двох слів. Заперечне питання з падінням звучить як мʼяке заперечення, а не грубість.
-> uk: Хіба це не випадок кореляції, а не причинності?
+> tip: корелЕЙшн — каЗЕЙшн: наголоси на -LA- і -ZA-, контраст двох слів. Заперечне питання з падінням звучить як мʼяке заперечення, а не грубість.
+> uk: Хіба це не той випадок, коли є кореляція, але немає причинності?
 
 ## Типові помилки українців
 

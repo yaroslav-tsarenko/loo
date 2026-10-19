@@ -33,7 +33,7 @@ estimatedMinutes: 40
 В українській один минулий час: «я загубив ключі» — і все. В англійській два погляди на ту саму подію:
 
 - **Past Simple — фото з датою.** Подія лежить в альбомі, підписана: *yesterday*, *in 2020*, *last Friday*. Вона закінчилася й відрізана від «зараз». *I lost my keys yesterday* — історія, можливо, вони вже знайшлися.
-- **Present Perfect — новина з наслідком.** Коли саме — неважливо або ще не скінчилося; важливо, що це означає **зараз**. *I've lost my keys!* — і я досі стою під дверима.
+- **Present Perfect — новина з наслідком.** Коли саме — неважливо (або період ще не скінчився); важливо, що це означає **зараз**. *I've lost my keys!* — і я досі стою під дверима.
 
 > [!diagram] Одна подія — два погляди
 > ```yaml
@@ -84,11 +84,11 @@ estimatedMinutes: 40
 | сталося раніше, ніж чекали | **already** | She**'s already** **left**. — Вона вже пішла. |
 | ще не сталося / чи сталося? | **yet** | **Have** you **finished yet**? — Ти вже закінчив? |
 | досвід за все життя | ever, never | I**'ve never been** to Rome. — Я ніколи не був у Римі. |
-| незакінчений період | today, this week, so far | I**'ve drunk** three coffees **today**. — Я сьогодні випив три кави. |
+| незакінчений період | today, this week, so far | I**'ve drunk** three coffees **today**. — Сьогодні я випив уже три чашки кави. |
 | останнім часом | recently, lately | **Have** you **seen** any good films **recently**? |
 
 > [!tip] Today чи yesterday?
-> **Today** ще не скінчився — тому *I've drunk three coffees today* (і, можливо, вип'ю четверту). **Yesterday** скінчився — *I drank three coffees yesterday*. Так само *this morning*: о 9:00 кажеш *I've had a busy morning*, а о 15:00 вже *I had a busy morning*.
+> **Today** ще не скінчився — тому *I've drunk three coffees today* (і, можливо, випʼю четверту). **Yesterday** скінчився — *I drank three coffees yesterday*. Так само *this morning*: о 9:00 кажеш *I've had a busy morning*, а о 15:00 вже *I had a busy morning*.
 
 > [!quiz] Перевір себе: обери правильне речення
 > level: A2 · id: en-a2-perfect-vs-past-q02
@@ -128,7 +128,7 @@ I still haven't finished!        Я досі не закінчив! (і мене
 > A: Oh, my phone! He's [[just]] texted me.
 > ```
 >
-> **Пояснення:** **yet** — у кінці питання; **already** — «вже» в ствердженні; **still** — перед *hasn't*: «досі не»; **just** — «щойно», між *has* і V3.
+> **Пояснення:** **yet** — у кінці питання; **already** — «вже» у ствердженні; **still** — перед *hasn't*: «досі не»; **just** — «щойно», між *has* і V3.
 
 ### For і since — скільки триває до сьогодні
 
@@ -155,7 +155,7 @@ I still haven't finished!        Я досі не закінчив! (і мене
 
 ### Розмова: Present Perfect відкриває — Past Simple розповідає
 
-Типова розмова починається з загального питання (без «коли») і переходить у деталі (з «коли», «де», «як»):
+Типова розмова починається із загального питання (без «коли») і переходить у деталі (з «коли», «де», «як»):
 
 ```text
 A: Have you ever been to Poland?      ← досвід: Present Perfect
@@ -187,7 +187,7 @@ B: I loved it! The food was amazing.
 > [!word] just
 > ipa: /dʒʌst/ · pos: adv · level: A2 · id: en-a2-perfect-vs-past-w01
 > uk: щойно, тільки-но
-> example: The bus has **just** left. — Автобус щойно поїхав.
+> example: The bus has **just** left. — Автобус щойно відʼїхав.
 > note: також «просто», «лише»: just a minute — хвилинку.
 
 > [!word] already
@@ -254,11 +254,11 @@ B: I loved it! The food was amazing.
 > - [x] I haven't seen it yet.
 > - [ ] I didn't see it yet.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-perfect-vs-past-l03
 > audio: We've already bought the tickets.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-perfect-vs-past-l04
 > audio: I've lived here for three years.
 
@@ -294,7 +294,7 @@ B: I loved it! The food was amazing.
 > level: A2 · id: en-a2-perfect-vs-past-s02
 > text: She's already left.
 > ipa: /ʃiːz ɔːlˈred.i left/
-> tip: наголос already — на «RED»: ол-РЕ-ді. «She's» тут = she has.
+> tip: в already наголос на «RED»: ол-РЕ-ді. «She's» тут = she has.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-perfect-vs-past-s03
@@ -306,7 +306,7 @@ B: I loved it! The food was amazing.
 > level: A2 · id: en-a2-perfect-vs-past-s04
 > text: I still haven't found my keys.
 > ipa: /aɪ stɪl ˈhæv.ənt faʊnd maɪ kiːz/
-> tip: haven't — [ГЕВнт] з /h/-видихом, не «гевент»; keys — дзвінке [z] у кінці.
+> tip: haven't — [ХЕВнт] з легким видихом /h/, не «гевент»; keys — дзвінке [z] у кінці.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-perfect-vs-past-s05
@@ -326,7 +326,7 @@ B: I loved it! The food was amazing.
 > В українській один минулий час, тож хочеться «прикрутити» have до будь-якої дати. Але **yesterday, last week, ago, in 2020, When…?** — це сигнал Past Simple: *I **saw** him yesterday*. Present Perfect і точна дата в минулому — несумісні.
 
 > [!pitfall] «I live here since 2020»
-> Українською «живу з 2020-го» — теперішній час. Англійською ситуація тягнеться з минулого до тепер, і потрібен Present Perfect: *I**'ve lived** here since 2020*. Так само: «Я знаю його п'ять років» — *I**'ve known** him for five years*, а не *I know him for five years*.
+> Українською «живу з 2020-го» — теперішній час. Англійською ситуація тягнеться з минулого до тепер, і потрібен Present Perfect: *I**'ve lived** here since 2020*. Так само: «Я знаю його пʼять років» — *I**'ve known** him for five years*, а не *I know him for five years*.
 
 > [!pitfall] «Have you already done it?» замість «yet» і «I haven't done it already»
 > «Вже?» у питанні британці зазвичай кажуть через **yet**: *Have you done it **yet**?* (*already* у питанні — це здивування: «Що, вже?!»). А «ще не» — тільки **not … yet**: *I haven't done it **yet***.

@@ -73,7 +73,7 @@ estimatedMinutes: 40
 | **oO** | *ho-TEL, e-VENT, per-CENT, be-GIN* |
 | **Ooo** | *IN-dus-try, CA-te-go-ry* (Oooo), *IN-ter-net, HIS-to-ry* |
 | **oOo** | *com-PU-ter, a-BI-li-ty* (oOoo), *e-CO-no-my* (oOoo) |
-| **ooO** | *un-der-STAND, Ja-pa-NESE, fif-TEEN* |
+| **ooO** | *un-der-STAND, Ja-pa-NESE, en-gi-NEER* |
 
 ### Правила, які справді працюють
 
@@ -127,7 +127,7 @@ estimatedMinutes: 40
 - *I'd like a dessert, not a desert!* — Я хочу десерт, а не пустелю!
 - *Can I record our conversation?* — Можна записати нашу розмову?
 - *She broke the world record.* — Вона побила світовий рекорд.
-- *This present is for you. Let me present my colleague.* — Цей подарунок — тобі. Дозвольте представити мого колегу.
+- *This present is for you. Let me present my colleague.* — Цей подарунок — тобі. Дозволь представити мого колегу.
 - *My brother is a photographer. He took this photograph.* — Мій брат — фотограф. Він зробив цю фотографію.
 - *Prices increased by ten percent.* — Ціни зросли на десять відсотків.
 - *The Internet is part of our history now.* — Інтернет — тепер частина нашої історії.
@@ -179,7 +179,7 @@ estimatedMinutes: 40
 > [!word] category
 > ipa: /ˈkætəɡəri/ · ipa-us: /ˈkætəɡɔːri/ · pos: noun · level: A2 · id: en-a2-word-stress-w08
 > uk: категорія
-> example: Choose a **category**. — Оберіть категорію.
+> example: Choose a **category**. — Обери категорію.
 > note: CA-te-go-ry, на відміну від «категОрія».
 
 > [!word] democracy
@@ -203,14 +203,14 @@ estimatedMinutes: 40
 > [!word] increase
 > ipa: /ˈɪŋkriːs/ · pos: noun · level: A2 · id: en-a2-word-stress-w12
 > uk: зростання; збільшення
-> example: There's an **increase** in prices. — Ціни зростають (є зростання цін).
+> example: There's an **increase** in prices. — Ціни зростають (дослівно: є зростання цін).
 > note: дієслово — inCREASE /ɪnˈkriːs/: збільшуватися.
 
 > [!word] progress
 > ipa: /ˈprəʊɡres/ · ipa-us: /ˈprɑːɡres/ · pos: noun · level: A2 · id: en-a2-word-stress-w13
 > uk: прогрес; успіхи
-> example: You're making good **progress**! — Ти добре просуваєшся!
-> note: незлічуване: progress, не «a progress». Дієслово — proGRESS.
+> example: You're making good **progress**! — У тебе гарні успіхи!
+> note: незлічуваний іменник: progress, не «a progress». Дієслово — proGRESS.
 
 > [!word] present
 > ipa: /ˈprezənt/ · pos: noun · level: A2 · id: en-a2-word-stress-w14
@@ -307,7 +307,7 @@ estimatedMinutes: 40
 > - [x] e-lec-TRI-ci-ty
 > - [ ] e-lec-tri-CI-ty
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-word-stress-l05
 > audio: The economy is growing.
 
@@ -403,7 +403,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-word-stress-s08
 > text: The economy needs more industry.
 > ipa: /ði ɪˈkɒnəmi niːdz mɔːr ˈɪndəstri/
-> tip: e-CO-no-my, IN-dus-try — обидва не так, як в українській.
+> tip: e-CO-no-my, IN-dus-try — в обох наголос не такий, як в українській.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-word-stress-s09
@@ -420,13 +420,13 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] Український наголос в інтернаціоналізмах
-> *Technology*, *category*, *Internet*, *industry*, *democracy*, *analysis* схожі на українські слова — і рука сама ставить «наш» наголос: «технолОджі», «кетегОрі», «інтернЕт». Англієць може просто не впізнати слово. Кожен «знайомий» інтернаціоналізм перевіряй у словнику.
+> *Technology*, *category*, *Internet*, *industry*, *democracy*, *analysis* схожі на українські слова — і язик сам ставить «наш» наголос: «технолОджі», «кетегОрі», «інтернЕт». Англієць може просто не впізнати слово. Кожен «знайомий» інтернаціоналізм перевіряй у словнику.
 
 > [!pitfall] Повні голосні в ненаголошених складах
 > Українська майже не «ковтає» ненаголошені голосні, тому ми кажемо *banana* як «ба-на-на», *chocolate* як «чо-ко-лейт». В англійській ненаголошені склади слабшають до /ə/ або зовсім зникають: /bəˈnɑːnə/, /ˈtʃɒklət/. Саме цей контраст «сильний — слабкий» робить мову англійською.
 
 > [!pitfall] Однаковий наголос в іменнику й дієслові
-> *I want to REcord a song* — неправильно: дієслово *reCORD*. А *a new reCORD* — неправильно: іменник *REcord*. Слова з однаковим написанням — це не одне слово.
+> *I want to REcord a song* — неправильно: дієслово *reCORD*. А *a new reCORD* — неправильно: іменник *REcord*. Однакове написання ще не означає, що це одне слово.
 
 ## Практика
 
@@ -447,7 +447,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *e-VENT* /ɪˈvent/. *IN-ter-net*, *HIS-to-ry*, *IN-dus-try* — на першому.
 
-> [!quiz] В якому реченні record — дієслово з наголосом re-CORD? Обери всі.
+> [!quiz] У яких реченнях record — дієслово з наголосом re-CORD? Обери всі.
 > level: A2 · type: multi · id: en-a2-word-stress-q04
 > - [x] Can I record our lesson?
 > - [ ] It's a new world record.
@@ -537,7 +537,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🍫 Chocolate — два склади, не три
-> Англійці кажуть /ˈtʃɒklət/ — «ЧОК-лет»: середній склад зник через слабкий наголос. Так само *vegetable* /ˈvedʒtəbəl/, *comfortable* /ˈkʌmftəbəl/, *different* /ˈdɪfrənt/.
+> Англійці кажуть /ˈtʃɒklət/ — «ЧОК-лет»: середній склад ненаголошений, тому він випав. Так само *vegetable* /ˈvedʒtəbəl/, *comfortable* /ˈkʌmftəbəl/, *different* /ˈdɪfrənt/.
 
 > [!reel] 🏜️ Пустеля з однією s, десерт — із двома
 > Підказка англійських школярів: *dessert* має дві s, бо десерту хочеться двічі. А наголос — у кінці: de-SSERT.

@@ -49,7 +49,7 @@ estimatedMinutes: 120
 >   - { focus: gram, note: "Граматика стилю: фронтування й повна інверсія керують наголосом, тонкощі часів — дистанцією й оповіддю, субʼюнктив — офіційним тоном, абсолютні звороти й паралелізм — ритмом речення." }
 >   - { focus: lex, note: "Лексика: алюзії й обрізані прислівʼя, розмовна мова UK / US, корені для розшифровки незнайомих слів, недомовленість і евфемізми, пастки-хибні друзі й фахові терміни." }
 >   - { focus: sound, note: "Звук: впізнавати RP, General American, австралійський, шотландський, ірландський та індійський акценти; стежити за кількома мовцями в ефірі; ділити мовлення на смислові групи." }
->   - { focus: skills, note: "Навички: гумор і іронія, художня проза й юридичні тексти, редагування й жанри письма, переговори, культурний контекст і медіація — переказ для іншої аудиторії." }
+>   - { focus: skills, note: "Навички: гумор та іронія, художня проза й юридичні тексти, редагування й жанри письма, переговори, культурний контекст і медіація — переказ для іншої аудиторії." }
 > ```
 
 ### C1 → C2: та сама думка, інший рівень
@@ -171,7 +171,7 @@ estimatedMinutes: 120
 - *The board recommended that the scheme be extended for another year.* — Рада рекомендувала продовжити програму ще на рік.
 - *The talks over, the delegates retreated to their hotels.* — Коли переговори скінчилися, делегати розійшлися по готелях.
 - *For a first attempt, it's no mean feat.* — Як для першої спроби — це неабияке досягнення.
-- *Reckon we'll make it by this arvo?* — Думаєш, встигнемо до обіду? (австралійське розмовне)
+- *Reckon we'll make it by this arvo?* — Думаєш, устигнемо сьогодні по обіді? (австралійське розмовне)
 - *Notwithstanding clause 4, the Tenant shall be liable for any damage caused.* — Незважаючи на пункт 4, Орендар несе відповідальність за будь-яку заподіяну шкоду.
 - *In layman's terms, either side can walk away with a month's notice.* — Простими словами, будь-яка сторона може вийти з угоди, попередивши за місяць.
 
@@ -239,13 +239,13 @@ estimatedMinutes: 120
 > [!listen] Що робить ведучий?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-review-l05
 > audio: I'm afraid we'll have to leave it there. My thanks to both my guests, and do stay with us — the news headlines are coming up after the break.
-> - [ ] ставить наступне питання гостям
+> - [ ] ставить наступне запитання гостям
 > - [x] завершує дискусію й оголошує перерву
 > - [ ] вибачається за технічні проблеми
 >
 > **Пояснення:** *We'll have to leave it there* — стандартний сигнал ефіру: розмову закінчено, навіть якщо гості не договорили. *I'm afraid* тут — ввічлива формула, а не страх. (тема 12)
 
-> [!listen] Чи відповіла міністерка на питання?
+> [!listen] Чи відповіла міністерка на запитання?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-review-l06
 > audio: A: Minister, have waiting lists gone up or down this year?
 > audio: B: What I would say is that we've invested record sums in the health service, and that investment will make a real difference.
@@ -253,7 +253,7 @@ estimatedMinutes: 120
 > - [ ] так — списки скоротилися
 > - [ ] так — списки зросли, але це тимчасово
 >
-> **Пояснення:** *What I would say is…* — класичний «міст» до власного меседжу. Питання про напрямок змін, відповідь — про гроші. Ухильна відповідь ≠ відповідь. (тема 12)
+> **Пояснення:** *What I would say is…* — класичний «міст» до власного меседжу. Запитання — про напрямок змін, відповідь — про гроші. Ухильна відповідь ≠ відповідь. (тема 12)
 
 > [!listen] Що мовець каже про лекцію?
 > level: C2 · type: answer · lang: en-US · id: en-c2-review-l07
@@ -264,19 +264,19 @@ estimatedMinutes: 120
 >
 > **Пояснення:** *riveting* («захопливий») + перелік катастроф = невідповідність слів і ситуації. Так і розпізнають сарказм, навіть без інтонації. (тема 10)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-review-l08
 > audio: Strange as it may seem, the cheapest option proved the most durable.
 >
 > **Пояснення:** *Strange as it may seem* — поступка з фронтуванням; *proved* без *to be* — книжне «виявився»; *durable* — /ˈdjʊərəbl/. (теми 01, 08)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-US · id: en-c2-review-l09
 > audio: It is essential that every applicant be interviewed in person.
 >
 > **Пояснення:** мандативний субʼюнктив — *be*, а не *is*, навіть з *every applicant*. На слух *be* легко пропустити: воно слабке /bi/. (тема 04)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-GB · id: en-c2-review-l10
 > audio: The talks over, the delegates retreated to their hotels.
 >
@@ -308,7 +308,7 @@ estimatedMinutes: 120
 > [!pair] an object /ˈɒbdʒɪkt/ — to object /əbˈdʒekt/
 > level: C2 · id: en-c2-review-p02
 > say: to object
-> tip: іменник — удар на першому складі, дієслово — на другому; ненаголошений склад слабшає до /ə/. Так само *a REcord / to reCORD*, *a PROtest / to proTEST*. (тема 13)
+> tip: іменник — наголос на першому складі, дієслово — на другому; ненаголошений склад слабшає до /ə/. Так само *a REcord / to reCORD*, *a PROtest / to proTEST*. (тема 13)
 
 > [!pair] wary /ˈweəri/ — weary /ˈwɪəri/
 > level: C2 · id: en-c2-review-p03
@@ -323,7 +323,7 @@ estimatedMinutes: 120
 > [!pair] a greenhouse /ˈɡriːnhaʊs/ — a green house /ˌɡriːn ˈhaʊs/
 > level: C2 · id: en-c2-review-p05
 > say: a greenhouse
-> tip: складне слово — удар на першій частині: *GREENhouse* (теплиця). Прикметник + іменник — на іменнику: *a green HOUSE* (зелений будинок). (тема 13)
+> tip: складне слово — наголос на першій частині: *GREENhouse* (теплиця). Прикметник + іменник — на іменнику: *a green HOUSE* (зелений будинок). (тема 13)
 
 ### Скажи вголос
 
@@ -331,7 +331,7 @@ estimatedMinutes: 120
 > level: C2 · id: en-c2-review-s01
 > text: Strange as it may seem, the cheapest option proved the most durable.
 > ipa: /ˈstreɪndʒ əz ɪt meɪ ˈsiːm | ðə ˈtʃiːpɪst ˈɒpʃn ˈpruːvd ðə ˈməʊst ˈdjʊərəbl/
-> tip: удар на *STRANGE*, пауза після *seem*. *As it may* — слабкі й швидкі /əz ɪt meɪ/; контраст *CHEAPest* ↔ *MOST DURable*.
+> tip: наголос на *STRANGE*, пауза після *seem*. *As it may* — слабкі й швидкі /əz ɪt meɪ/; контраст *CHEAPest* ↔ *MOST DURable*.
 > uk: Хоч як дивно, найдешевший варіант виявився найдовговічнішим.
 
 > [!speak] Офіційна вимога
@@ -339,7 +339,7 @@ estimatedMinutes: 120
 > text: It is essential that every applicant be interviewed in person.
 > ipa: /ɪt ɪz ɪˈsenʃl ðət ˈevri ˈæplɪkənt bi ˈɪntəvjuːd ɪn ˈpɜːsn/
 > tip: *be* — слабке /bi/, але не ковтай його: без нього речення граматично інше. *Essential* — наголос на другому складі.
-> uk: Важливо, щоб кожного кандидата співбесідували особисто.
+> uk: Важливо, щоб із кожним кандидатом провели особисту співбесіду.
 
 > [!speak] Абсолютний зворот
 > level: C2 · id: en-c2-review-s03
@@ -352,7 +352,7 @@ estimatedMinutes: 120
 > level: C2 · id: en-c2-review-s04
 > text: It's not quite what we had in mind.
 > ipa: /ɪts ˈnɒt ˈkwaɪt wɒt wi həd ɪn ˈmaɪnd/
-> tip: спокійний, рівний тон без емоції — сила саме в стриманості. Удар на *QUITE* і *MIND*.
+> tip: спокійний, рівний тон без емоції — сила саме в стриманості. Наголос на *QUITE* і *MIND*.
 > uk: Це не зовсім те, що ми мали на увазі.
 
 > [!speak] Паузи в довгому реченні
@@ -383,14 +383,14 @@ estimatedMinutes: 120
 > Інверсія, фронтування, субʼюнктив і алюзії в кожному реченні звучать штучно — і в IELTS знижують бал за природність. Одна доречна *Much as I admire…* переконує більше, ніж три вимучені. На C2 оцінюють не рідкісність форми, а те, чи вона **працює** в цьому контексті й регістрі.
 
 > [!pitfall] Хибні друзі й кальки, що пережили всі рівні
-> *~~actual problem~~ **pressing / current issue***, *~~accurate person~~ **neat / tidy person***, *~~sympathetic girl~~ **likeable / nice girl***, *~~make a photo~~ **take a photo***, *~~in the modern world~~* кожне есе, *~~give an exam~~ **take / sit an exam***. Саме такі slips відділяють Band 8 від Band 9 у Lexical Resource.
+> *~~actual problem~~ **pressing / current issue***, *~~accurate person~~ **neat / tidy person***, *~~sympathetic girl~~ **likeable / nice girl***, *~~make a photo~~ **take a photo***, *~~in the modern world~~* у кожному есе, *~~give an exam~~ **take / sit an exam***. Саме такі slips відділяють Band 8 від Band 9 у Lexical Resource.
 
 > [!pitfall] Slips: артиклі, узгодження, числа
 > *~~the society~~ **society***, *~~the life is short~~ **life is short***, *~~The number of cars were~~ **The number of cars was***, *~~rose by 40 %~~*, коли йдеться про **відсоткові пункти**. На C2 правило ти знаєш — помилка зʼявляється від поспіху. Тому редагування в кілька проходів (тема 15) — не розкіш, а частина письма.
 
 ## Практика
 
-Екзамен рівня — питання з усіх 21 теми C2. Номер теми для повторення — у кінці пояснення.
+Екзамен рівня — завдання з усіх 21 теми C2. Номер теми для повторення — у кінці пояснення.
 
 ### Частина 1. Граматика стилю
 
@@ -424,7 +424,7 @@ estimatedMinutes: 120
 > - [ ] це помилка: треба *was standing* і *came*
 > - [ ] мовець описує свою звичку
 >
-> **Пояснення:** у розмовних історіях і анекдотах носії часто переходять на теперішній: *I'm standing… this guy comes up…*. Це прийом, а не slip — але в одному абзаці есе часи не змішують. (тема 02)
+> **Пояснення:** у розмовних історіях й анекдотах носії часто переходять на теперішній: *I'm standing… this guy comes up…*. Це прийом, а не slip — але в одному абзаці есе часи не змішують. (тема 02)
 
 > [!quiz] Розстав від найпрямішого до найобережнішого.
 > level: C2 · type: order · id: en-c2-review-q05
@@ -529,7 +529,7 @@ estimatedMinutes: 120
 > - [ ] The campaign not only aims to inform but also it persuades.
 > - [ ] The aim is to inform voters, persuasion and getting them to act.
 >
-> **Пояснення:** після *not only* і *but also* — однакова форма: *to inform* … *to persuade*. Змішування інфінітива, *-ing* і іменника — типовий slip на Band 8. (тема 05)
+> **Пояснення:** після *not only* і *but also* — однакова форма: *to inform* … *to persuade*. Змішування інфінітива, *-ing* та іменника — типовий slip на Band 8. (тема 05)
 
 ### Частина 2. Ідіоматика, розмовна мова, корені, точність
 
@@ -633,7 +633,7 @@ estimatedMinutes: 120
 > Please [[pay]] attention to the deadline.
 > ```
 >
-> **Пояснення:** українське «зробити фото», «здавати екзамен», «звернути увагу» підштовхує до ~~*make a photo, give an exam*~~. Правильно: *take a photo*, *take / sit an exam*, *pay attention*. (тема 18)
+> **Пояснення:** українське «зробити фото», «здавати екзамен», «звернути увагу» підштовхують до ~~*make a photo, give an exam*~~. Правильно: *take a photo*, *take / sit an exam*, *pay attention*. (тема 18)
 
 > [!quiz] The court awarded her £20,000 in ___.
 > level: C2 · id: en-c2-review-q27
@@ -743,10 +743,10 @@ estimatedMinutes: 120
 > level: C2 · id: en-c2-review-q38
 > - [x] ухильна відповідь — «міст» до власного меседжу
 > - [ ] пряма відповідь із доказами
-> - [ ] прохання повторити питання
+> - [ ] прохання повторити запитання
 > - [ ] поступка опонентові
 >
-> **Пояснення:** *What I would say is…*, *The real issue here is…* — сигнали, що мовець відповідає не на те питання. На C2 це чують і в Listening, і в Reading про ставлення. (тема 12)
+> **Пояснення:** *What I would say is…*, *The real issue here is…* — сигнали, що мовець відповідає не на те запитання. На C2 це чують і в Listening, і в Reading про ставлення. (тема 12)
 
 > [!quiz] «She read the letter again. Of course he would forget. He always forgot.» Чий це голос у двох останніх реченнях?
 > level: C2 · id: en-c2-review-q39
@@ -925,7 +925,7 @@ estimatedMinutes: 120
 > Transcripts go in an [[appendix]]
 > ```
 >
-> **Пояснення:** дистрактор — старий дедлайн (*not the tenth*). *Excluding references* — уточнення, яке не пишемо, бо не питають. Правопис *appendix* — частий slip. (тема 12)
+> **Пояснення:** дистрактор — старий дедлайн (*not the tenth*). *Excluding references* — уточнення, яке не пишемо, бо про нього не запитують. Правопис *appendix* — частий slip. (тема 12)
 
 ### Listening Part 4 — лекція
 
@@ -1061,7 +1061,7 @@ estimatedMinutes: 120
 > - [ ] щоб порадити зберігати лише приватні листи
 > - [ ] щоб довести, що оцифрування шкодить історії
 >
-> **Пояснення:** приклади підтримують тезу *the most revealing sources are precisely those… regarded as ephemeral*. Питання про мету: не «що сказано», а «навіщо». (тема 14)
+> **Пояснення:** приклади підтримують тезу *the most revealing sources are precisely those… regarded as ephemeral*. Це завдання на мету автора: не «що сказано», а «навіщо». (тема 14)
 
 > [!quiz] IELTS Summary completion: обери слово з банку
 > level: C2 · type: fill · id: en-c2-review-q57 · bank: durability, enthusiasm, duplication
@@ -1193,7 +1193,7 @@ estimatedMinutes: 120
 > level: C2 · id: en-c2-review-s08
 > text: To be honest, I'm not much of a morning person, so weekends are when I really come into my own.
 > ipa: /tə bi ˈɒnɪst | aɪm ˈnɒt ˈmʌtʃ əv ə ˈmɔːnɪŋ ˈpɜːsn | səʊ ˌwiːkˈendz ə wen aɪ ˈrɪəli ˈkʌm ɪntə maɪ ˈəʊn/
-> tip: *not much of a…* — природна недомовленість; *come into my own* — «розкриватися». Ритм: удари на *MUCH*, *MORNing*, *WEEKends*, *OWN*; решта стиснута.
+> tip: *not much of a…* — природна недомовленість; *come into my own* — «розкриватися». Ритм: наголоси на *MUCH*, *MORNing*, *WEEKends*, *OWN*; решта стиснута.
 > uk: Чесно кажучи, я не дуже ранкова людина, тож по-справжньому розкриваюся на вихідних.
 
 ### Speaking Part 2 — cue card
@@ -1207,7 +1207,7 @@ estimatedMinutes: 120
 >
 > and explain why it means more to you now.
 
-**1 хвилина** — нотатки (5–7 ключових слів), **2 хвилини** — монолог. Мова C2 природно, без «феєрверку»: історичний теперішній для яскравого епізоду (02), *Much as I hate to admit it…* (01), *I was to have stayed only a week* (02), *a sea change* (06), недомовленість (09), пауза перед головним (13).
+**1 хвилина** — нотатки (5–7 ключових слів), **2 хвилини** — монолог. Мова C2 — природно, без «феєрверку»: історичний теперішній для яскравого епізоду (02), *Much as I hate to admit it…* (01), *I was to have stayed only a week* (02), *a sea change* (06), недомовленість (09), пауза перед головним (13).
 
 > [!speak] Почни відповідь Part 2.
 > level: C2 · id: en-c2-review-s09
@@ -1228,7 +1228,7 @@ estimatedMinutes: 120
 > level: C2 · id: en-c2-review-s10
 > text: It's not so much that we value the past less, as that we've never had so much of it to keep.
 > ipa: /ɪts ˈnɒt ˈsəʊ ˈmʌtʃ ðət wi ˈvæljuː ðə ˈpɑːst ˈles | əz ðət wiːv ˈnevə hæd ˈsəʊ ˈmʌtʃ əv ɪt tə ˈkiːp/
-> tip: конструкція *not so much X as Y* — контраст двох частин: удари на *LESS* і *NEVer*, пауза перед *as*. Друга частина — головна, тон падає на *KEEP*.
+> tip: конструкція *not so much X as Y* — контраст двох частин: наголоси на *LESS* і *NEVer*, пауза перед *as*. Друга частина — головна, тон падає на *KEEP*.
 > uk: Справа не стільки в тому, що ми менше цінуємо минуле, скільки в тому, що його ще ніколи не було так багато.
 
 > [!tip] Твоя черга — і критерії Speaking на Band 9

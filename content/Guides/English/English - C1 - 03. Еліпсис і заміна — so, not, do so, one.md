@@ -36,19 +36,19 @@ estimatedMinutes: 40
 1. **Заміна (substitution)** — ставимо коротке слово замість частини речення: ***so / not*** (замість речення), ***one / ones*** (замість іменника), ***do / do so*** (замість дієслова з усім, що після нього).
 2. **Еліпсис (ellipsis)** — просто пропускаємо частину, але лишаємо **«якір»**: допоміжне чи модальне дієслово або частку *to*. *Have you finished? — Yes, I **have**.* *Would you like to come? — I'd love **to**.*
 
-Головне правило: англійці охоче викидають слова, але **не викидають каркас** — допоміжне дієслово й *to* лишаються.
+Головне правило: в англійській охоче пропускають слова, але **не викидають каркас** — допоміжне дієслово й *to* лишаються.
 
 > [!diagram] Від повтору до заміни й еліпсиса
 > ```yaml
 > layout: flow
 > nodes:
 >   - { id: q, label: "питання", text: "Are you coming to the party?", tone: gray }
->   - { id: full, label: "повтор (важко)", text: "Yes, I'm coming to the party.", tone: orange }
+>   - { id: full, label: "повтор (громіздко)", text: "Yes, I'm coming to the party.", tone: orange }
 >   - { id: ell, label: "еліпсис — лишаємо якір", text: "Yes, I am.", tone: green }
 >   - { id: sub, label: "заміна — so / not", text: "I hope so. / I'm afraid not.", tone: violet }
 > steps:
 >   - { focus: q, note: "Співрозмовник уже назвав дію — coming to the party." }
->   - { move: { from: q, to: full, value: "повтор" }, note: "Повторити все можна, але звучить важко й неприродно." }
+>   - { move: { from: q, to: full, value: "повтор" }, note: "Повторити все можна, але звучить громіздко й неприродно." }
 >   - { move: { from: full, to: ell, value: "coming to the party ✂" }, note: "Еліпсис: викидаємо відоме, лишаємо допоміжне am. Не просто Yes, і не Yes, I." }
 >   - { move: { from: ell, to: sub, value: "so / not" }, note: "Якщо відповідь — думка чи надія, ціле речення замінює so або not: I hope so, I'm afraid not." }
 >   - { set: { q: "Would you like to join us?", full: "I'd love to join you.", ell: "I'd love to.", sub: "I'm afraid I can't." }, focus: ell, note: "Те саме з інфінітивом: викидаємо join us, але to лишається — I'd love to." }
@@ -152,9 +152,9 @@ estimatedMinutes: 40
 - *She can speak French and (she can) write it.*
 - Формальне письмо любить пропускати повторене дієслово: *Olha ordered pasta, and Max (ordered) pizza.*
 
-**Ситуативний еліпсис** — лише в розмові й повідомленнях: *Sounds good.* *Want a coffee?* *Seen Max?* *No idea.* *Told you!* — у підметі й допоміжному немає потреби, бо ситуація все пояснює. В есе — ні.
+**Ситуативний еліпсис** — лише в розмові й повідомленнях: *Sounds good.* *Want a coffee?* *Seen Max?* *No idea.* *Told you!* — підмет і допоміжне дієслово не потрібні, бо ситуація все пояснює. В есе — ні.
 
-> [!quiz] Перевір себе: «Хочеш приєднатися до нас за вечерею? — Дуже хотів би!»
+> [!quiz] Перевір себе: «Повечеряєш із нами? — Залюбки!»
 > level: C1 · id: en-c1-ellipsis-q05
 > - [x] I'd love to!
 > - [ ] I'd love!
@@ -179,7 +179,7 @@ estimatedMinutes: 40
 > steps:
 >   - { show: [u1, e1], note: "Українське «що так» — це ціле підрядне. Англійська замінює його одним so." }
 >   - { show: [u2, e2], note: "З hope і be afraid заперечення — not після дієслова: I hope not, I'm afraid not." }
->   - { show: [u3, e3], note: "Українська викидає й дієслово, і частку. Англійська викидає дієслово, але лишає to." }
+>   - { show: [u3, e3], note: "Українською можна відповісти одним словом. Англійська викидає дієслово, але to лишає." }
 >   - { show: [u4, e4], note: "«Якщо так / якщо ні» → If so / If not. Yes і no в такій ролі не вживають." }
 > ```
 
@@ -198,7 +198,7 @@ estimatedMinutes: 40
 
 ### IELTS: звʼязність без повторів
 
-У **Writing Task 2** критерій **Coherence & Cohesion** оцінює, як повʼязані речення, — зокрема відсилання й заміну (*it, this, one, do so*). У публічних band descriptors на Band 6 відсилання ще може бути нечітким, на Band 7 — різноманітні звʼязувальні засоби, хоч і з деяким пере- чи недовживанням, на Band 8 — звʼязність, якою автор керує добре в усіх аспектах.
+У **Writing Task 2** критерій **Coherence & Cohesion** оцінює, як повʼязані речення, — зокрема відсилання й заміну (*it, this, one, do so*). У публічних band descriptors на Band 6 відсилання ще може бути нечітким, на Band 7 — різноманітні звʼязувальні засоби, хоч і з деяким пере- чи недовживанням, на Band 8 — автор добре керує всіма аспектами звʼязності.
 
 **Band 6 → Band 7–8:**
 
@@ -214,8 +214,8 @@ estimatedMinutes: 40
 
 - "Will the shop be open on Sunday?" — "**I doubt it**." — «Магазин працюватиме в неділю?» — «Навряд чи».
 - "Is the train late again?" — "**I'm afraid so**." — «Потяг знову запізнюється?» — «На жаль, так».
-- Check your booking. **If not** confirmed, call the hotel. — Перевір бронювання. Якщо не підтверджене, подзвони в готель.
-- I wanted to visit Odesa this summer, but I couldn't **afford to**. — Я хотів поїхати в Одесу цього літа, але не зміг собі дозволити.
+- Check your booking. **If not** confirmed, call the hotel. — Перевір бронювання. Якщо його не підтверджено, подзвони в готель.
+- I wanted to visit Odesa this summer, but I couldn't **afford to**. — Я хотів поїхати в Одесу цього літа, але не зміг собі цього дозволити.
 - "Have you ever been to Japan?" — "No, but I'd love **to**." — «Ти колись був у Японії?» — «Ні, але дуже хотів би».
 - My laptop is slower than **yours**, but the screen is better than **the one** you've got. — Мій ноутбук повільніший за твій, але екран кращий, ніж у тебе.
 - Residents may park here overnight, but visitors may not **do so**. — Мешканці можуть паркуватися тут уночі, а відвідувачі — ні.
@@ -229,7 +229,7 @@ estimatedMinutes: 40
 > ipa: /aɪ ˈdaʊt ɪt/ · pos: phrase · level: C1 · id: en-c1-ellipsis-w01
 > uk: навряд чи; сумніваюся
 > example: "Will they lower the prices?" — "**I doubt it**." — «Вони знизять ціни?» — «Навряд чи».
-> note: b у doubt німа. Мʼякше за No і зручніше за I don't think so, коли ти скептичний.
+> note: у doubt літера b не вимовляється. Мʼякше за No і зручніше за I don't think so, коли ти скептичний.
 
 > [!word] if so
 > ipa: /ɪf ˈsəʊ/ · ipa-us: /ɪf ˈsoʊ/ · pos: phrase · level: C1 · id: en-c1-ellipsis-w02
@@ -258,7 +258,7 @@ estimatedMinutes: 40
 > [!word] I'd like to think so
 > ipa: /aɪd ˌlaɪk tə ˈθɪŋk səʊ/ · ipa-us: /aɪd ˌlaɪk tə ˈθɪŋk soʊ/ · pos: phrase · level: C1 · id: en-c1-ellipsis-w06
 > uk: хотілося б вірити, що так
-> example: "Are we making progress?" — "**I'd like to think so**." — «Ми робимо поступ?» — «Хотілося б вірити».
+> example: "Are we making progress?" — "**I'd like to think so**." — «Є якийсь прогрес?» — «Хотілося б вірити».
 > note: скромна, обережна згода. Заперечення — I'd like to think not.
 
 > [!word] the same goes for
@@ -276,8 +276,8 @@ estimatedMinutes: 40
 > [!word] me neither
 > ipa: /ˌmiː ˈnaɪ.ðə/ · ipa-us: /ˌmiː ˈniː.ðɚ/ · pos: phrase · level: C1 · id: en-c1-ellipsis-w09
 > uk: я теж ні
-> example: "I can't stand horror films." — "**Me neither**." — «Терпіти не можу жахастики». — «Я теж».
-> note: розмовно. Нейтрально — Neither can I. Після заперечення не Me too!
+> example: "I can't stand horror films." — "**Me neither**." — «Терпіти не можу жахастики». — «Я теж не можу».
+> note: розмовно. Нейтрально — Neither can I. Після заперечення — не Me too!
 
 ## Слухаємо
 
@@ -297,13 +297,13 @@ estimatedMinutes: 40
 > - [ ] I'd love it, but I can't make it on Saturday.
 > - [ ] I'd love to go, but I can't make it on Saturday.
 >
-> **Пояснення:** у живій мові *to* в кінці фрази слабке, але чути: /tuː/ перед паузою звучить повно.
+> **Пояснення:** у кінці фрази *to* не редукується: перед паузою воно звучить повно — /tuː/.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-ellipsis-l03
 > audio: She said she would call, but she didn't.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-ellipsis-l04
 > audio: If so, we'll need to book the tickets today.
 
@@ -317,7 +317,7 @@ estimatedMinutes: 40
 > - [ ] It has been cancelled because the library was closed.
 > - [ ] It will be done after the questionnaire.
 >
-> **Пояснення:** *I meant to* = *I meant to finish it*; *I should be able to by Friday* = *to finish it by Friday*. Еліпсис ховає дієслово, але якір *to* підказує, що мова про *finish*. Останній варіант — пастка: тьютор радить почати з анкети, а не відкласти огляд.
+> **Пояснення:** *I meant to* = *I meant to finish it*; *I should be able to by Friday* = *to finish it by Friday*. Еліпсис ховає дієслово, але якір *to* підказує, що йдеться про *finish*. Останній варіант — пастка: тьютор радить почати з анкети, а не відкласти огляд.
 
 > [!listen] IELTS Listening, Part 4 (лекція). According to the lecturer, when do speakers leave words out?
 > level: C1 · type: answer · tags: ielts · id: en-c1-ellipsis-l06

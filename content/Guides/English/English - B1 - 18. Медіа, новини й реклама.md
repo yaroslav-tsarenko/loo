@@ -50,7 +50,7 @@ estimatedMinutes: 45
 | Present Simple замість минулого | *Storm **hits** coast* | A storm **hit** the coast. |
 | to + дієслово = майбутнє | *Mayor **to open** new bridge* | The mayor **is going to open** a new bridge. |
 | V3 без *be* = пасив | *Two men **arrested*** | Two men **have been arrested**. |
-| без артиклів і *be* | *Prices up again* | **The** prices **are** up again. |
+| без артиклів і *be* | *President in Kyiv* | **The** president **is** in Kyiv. |
 | короткі «газетні» слова | *PM **vows** to **axe** tax*; *Police **probe** fire* | The Prime Minister **promises** to **cut** a tax; the police **are investigating** a fire. |
 
 > [!diagram] Розшифровуємо заголовок
@@ -75,7 +75,7 @@ estimatedMinutes: 45
 
 ### Реклама: як нас переконують
 
-Реклама (*advertising*) хоче нас **persuade** — переконати. Для цього в неї є **brand** (бренд), **logo** (логотип), **slogan** (гасло) — бажано **catchy** (що легко запамʼятовується). Рекламу показують як **commercial** на телебаченні, як **billboard** на вулиці або як спонсорований допис в інфлюенсера. Компанія, що платить за подію чи команду, — **sponsor**.
+Реклама (*advertising*) хоче нас переконати — **persuade**. Для цього в неї є **brand** (бренд), **logo** (логотип), **slogan** (гасло) — бажано **catchy** (таке, що легко запамʼятовується). Рекламу показують як **commercial** на телебаченні, як **billboard** на вулиці або як спонсорований допис в інфлюенсера. Компанія, що платить за подію чи команду, — **sponsor**.
 
 > [!tip] Ad, advert, advertisement, commercial
 > Усі означають «реклама», але: *advertisement* — повне й формальне; *advert* — британське розмовне; *ad* — розмовне (UK і US); *commercial* — рекламний ролик на ТБ чи радіо. Вимова різна: UK *adVERtisement* /ədˈvɜːtɪsmənt/, US *adverTISEment* /ˌædvərˈtaɪzmənt/.
@@ -117,7 +117,7 @@ estimatedMinutes: 45
 
 > [!word] broadcast
 > ipa: /ˈbrɔːdkɑːst/ · ipa-us: /ˈbrɑːdkæst/ · pos: verb · level: B1 · id: en-b1-media-w03
-> uk: транслювати; передавати (по ТБ, радіо)
+> uk: транслювати; передавати в ефір (на ТБ, радіо)
 > example: The concert was **broadcast** live. — Концерт транслювали наживо.
 > forms: broadcast → broadcast → broadcast
 > note: іменник — *a broadcast* (трансляція, передача).
@@ -131,7 +131,7 @@ estimatedMinutes: 45
 > [!word] programme
 > ipa: /ˈprəʊɡræm/ · ipa-us: /ˈproʊɡræm/ · pos: noun · level: B1 · id: en-b1-media-w05
 > uk: програма; телепередача
-> example: My favourite **programme** is on at eight. — Моя улюблена передача о восьмій.
+> example: My favourite **programme** is on at eight. — Моя улюблена передача починається о восьмій.
 > note: UK *programme* (передача), US *program*. Компʼютерна програма всюди — *program*.
 
 > [!word] documentary
@@ -169,7 +169,7 @@ estimatedMinutes: 45
 > [!word] audience
 > ipa: /ˈɔːdiəns/ · ipa-us: /ˈɑːdiəns/ · pos: noun · level: B1 · id: en-b1-media-w12
 > uk: аудиторія; глядачі; слухачі
-> example: The show has an **audience** of two million. — Шоу має аудиторію два мільйони.
+> example: The show has an **audience** of two million. — Аудиторія шоу — два мільйони людей.
 
 > [!word] viewer
 > ipa: /ˈvjuːə/ · ipa-us: /ˈvjuːər/ · pos: noun · level: B1 · id: en-b1-media-w13
@@ -221,13 +221,13 @@ estimatedMinutes: 45
 > [!word] fact-check
 > ipa: /ˈfækt ˌtʃek/ · pos: verb · level: B1 · id: en-b1-media-w21
 > uk: перевіряти факти
-> example: Journalists must **fact-check** every story. — Журналісти мусять перевіряти факти в кожній історії.
+> example: Journalists must **fact-check** every story. — Журналісти мусять перевіряти факти в кожному матеріалі.
 > note: *fact-checker* — фактчекер.
 
 > [!word] misleading
 > ipa: /ˌmɪsˈliːdɪŋ/ · pos: adj · level: B1 · id: en-b1-media-w22
 > uk: оманливий; що вводить в оману
-> example: The headline was very **misleading**. — Заголовок дуже вводив в оману.
+> example: The headline was very **misleading**. — Заголовок був дуже оманливим.
 
 > [!word] rumour
 > ipa: /ˈruːmə/ · ipa-us: /ˈruːmər/ · pos: noun · level: B1 · id: en-b1-media-w23
@@ -244,7 +244,7 @@ estimatedMinutes: 45
 > ipa: /kleɪm/ · pos: verb · level: B1 · id: en-b1-media-w25
 > uk: стверджувати (без доказів)
 > example: The company **claims** its product is the best. — Компанія стверджує, що її продукт найкращий.
-> note: *claim* натякає «каже, але не факт». Іменник — *a claim*.
+> note: *claim* натякає: «так кажуть, але це не обовʼязково факт». Іменник — *a claim*.
 
 ### Мова заголовків
 
@@ -268,7 +268,7 @@ estimatedMinutes: 45
 > [!word] bid
 > ipa: /bɪd/ · pos: noun · level: B1 · id: en-b1-media-w29
 > uk: спроба; заявка (у заголовках)
-> example: Kyiv in **bid** to host Olympics. — Київ намагається прийняти Олімпіаду.
+> example: Kyiv in **bid** to host Olympics. — Київ бореться за право прийняти Олімпіаду.
 
 > [!word] probe
 > ipa: /prəʊb/ · ipa-us: /proʊb/ · pos: noun · level: B1 · id: en-b1-media-w30
@@ -307,7 +307,7 @@ estimatedMinutes: 45
 
 > [!word] catchy
 > ipa: /ˈkætʃi/ · pos: adj · level: B1 · id: en-b1-media-w36
-> uk: що легко запамʼятовується; «чіпкий»
+> uk: що легко запамʼятовується; привʼязливий (про мелодію)
 > example: The song from the advert is really **catchy**. — Пісня з реклами дуже привʼязлива.
 
 > [!word] persuade
@@ -338,7 +338,7 @@ estimatedMinutes: 45
 > level: B1 · type: answer · id: en-b1-media-l01
 > audio: And now some breaking news. A storm has hit the south coast this afternoon. Several roads are closed, and two trains have been cancelled. Nobody has been hurt.
 > - [ ] на узбережжі відкрили нову дорогу
-> - [x] буря вдарила по південному узбережжю, частину доріг і потягів скасовано
+> - [x] на південне узбережжя обрушилася буря, частину доріг перекрито, два потяги скасовано
 > - [ ] під час бурі постраждали люди
 > - [ ] на узбережжі страйкують залізничники
 
@@ -349,7 +349,7 @@ estimatedMinutes: 45
 > - [ ] The headline was very interesting.
 > - [ ] The headlines were very misleading.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-media-l03
 > audio: Always check the source before you share a story.
 
@@ -370,7 +370,7 @@ estimatedMinutes: 45
 > - [ ] інфлюенсери — найчесніша реклама
 > - [ ] під час реклами вона завжди дивиться інший канал
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-media-l06
 > audio: Their new slogan is really catchy.
 
@@ -393,21 +393,21 @@ estimatedMinutes: 45
 > text: The news is on at nine o'clock.
 > ipa: /ðə ˈnjuːz ɪz ɒn ət ˈnaɪn əˈklɒk/
 > tip: news — дзвінке [z] у кінці: [ньюз], не «ньюс»; US — [нуз].
-> uk: Новини о девʼятій.
+> uk: Новини починаються о девʼятій.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-media-s02
 > text: Always check the source before you share a story.
 > ipa: /ˈɔːlweɪz ˈtʃek ðə ˈsɔːs bɪˈfɔː ju ˈʃeər ə ˈstɔːri/
 > tip: source — довге [ɔː]: [СООС]; share — [шеə], не «шар».
-> uk: Завжди перевіряй джерело, перш ніж ділитися історією.
+> uk: Завжди перевіряй джерело, перш ніж поширювати новину.
 
 > [!speak] Твоя думка (IELTS Speaking Part 3)
 > level: B1 · id: en-b1-media-s03
 > text: I think adverts persuade people to buy things they don't need.
 > ipa: /aɪ ˈθɪŋk ˈædvɜːts pəˈsweɪd ˈpiːpəl tə ˈbaɪ ˈθɪŋz ðeɪ ˈdəʊnt ˈniːd/
-> tip: persuade — [пе-СВЕЙД], наголос на другому; things — /θ/.
-> uk: Я думаю, реклама переконує людей купувати непотрібні речі.
+> tip: persuade — [пе-СВЕЙД], наголос на другому складі; things — /θ/.
+> uk: Я вважаю, що реклама переконує людей купувати непотрібні речі.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-media-s04
@@ -504,7 +504,7 @@ estimatedMinutes: 45
 > are ✗
 > ```
 
-> [!quiz] Склади пораду: «Завжди перевіряй джерело, перш ніж ділитися».
+> [!quiz] Склади пораду: «Завжди перевіряй джерело, перш ніж ділитися новиною».
 > level: B1 · type: order · id: en-b1-media-q08
 >
 > ```text order
@@ -547,7 +547,7 @@ estimatedMinutes: 45
 > - [ ] False
 > - [x] Not Given
 >
-> **Пояснення:** текст каже лише, що молодь **не повністю довіряє** соцмережам. Порівняння з довірою до газет **немає** → **Not Given**. Не плутай з False: False був би, якби текст прямо казав, що газетам вони довіряють більше.
+> **Пояснення:** у тексті сказано лише, що молодь **не повністю довіряє** соцмережам. Порівняння з довірою до газет **немає** → **Not Given**. Не плутай з False: False був би, якби в тексті прямо було сказано, що газетам вони довіряють більше.
 
 > [!quiz] IELTS Matching: який заголовок підходить до новини?
 > level: B1 · id: en-b1-media-q12
@@ -575,7 +575,7 @@ estimatedMinutes: 45
 > 1884 року фармацевтична компанія Burroughs Wellcome зареєструвала торгову марку *Tabloid* для пресованих таблеток. Слово стало означати «щось стиснуте», а потім — газети маленького формату з короткими, «стиснутими» новинами.
 
 > [!reel] 📢 Broadcast — це про насіння
-> *Broadcast* спочатку був сільськогосподарським терміном: сіяти насіння, розкидаючи його рукою широко (*broad*) навсібіч (*cast*). Коли зʼявилося радіо, слово ідеально описало сигнал, що летить на всі боки одразу.
+> *Broadcast* спочатку був сільськогосподарським терміном: сіяти, широко (*broad*) розкидаючи (*cast*) насіння рукою навсібіч. Коли зʼявилося радіо, слово ідеально підійшло для сигналу, що летить на всі боки одразу.
 
 > [!reel] 🗞️ Чому «hits», а не «hit»
 > Англійські заголовки пишуть минулі події в Present Simple — *Storm hits coast* — бо так новина звучить «живою», ніби відбувається зараз. Цей стиль називають *headlinese*, і в ньому діють свої правила — без артиклів і без *be*.

@@ -12,8 +12,8 @@ estimatedMinutes: 45
 # Умовні речення — нульовий і перший
 
 > [!success] Після цієї теми ти зможеш
-> - говорити про загальні істини й закономірності: **If you heat ice, it melts.**;
-> - говорити про реальні можливості в майбутньому: **If it rains, we'll stay at home.**;
+> - говорити про загальні істини й закономірності: **If you heat ice, it melts**;
+> - говорити про реальні можливості в майбутньому: **If it rains, we'll stay at home**;
 > - вживати **unless**, **as soon as**, **when**, **until**, **before**, **after** без *will* після них;
 > - розрізняти **if** («якщо, можливо») і **when** («коли, точно»), а також **in case** («про всяк випадок»);
 > - відповідати на питання IELTS Speaking Part 1 про звички й плани з умовою.
@@ -31,7 +31,7 @@ estimatedMinutes: 45
 
 ## Простими словами
 
-Умовне речення — це дві половинки: **умова** (*if…*) і **результат**. Англійці мають кілька «типів» таких речень, і на B1 тобі потрібні перші три. Сьогодні — два найреальніші:
+Умовне речення — це дві половинки: **умова** (*if…*) і **результат**. В англійській є кілька «типів» таких речень, і на B1 тобі потрібні перші три. Сьогодні — два найреальніші:
 
 - **Нульовий (zero)** — як закон фізики або твоя незмінна звичка: «якщо… то завжди…». *If you heat ice, it melts.* *If I drink coffee after six, I can't sleep.*
 - **Перший (first)** — конкретна ситуація в майбутньому, яка цілком може статися: «якщо… то буде…». *If it rains tomorrow, we'll stay at home.*
@@ -89,7 +89,7 @@ estimatedMinutes: 45
 - If she **doesn't call** me, I**'ll call** her. — Якщо вона мені не подзвонить, я подзвоню їй.
 - What **will** you **do** if you **don't get** the job? — Що ти робитимеш, якщо не отримаєш цю роботу?
 
-У результаті замість *will* бувають й інші форми:
+У результаті замість *will* бувають також інші форми:
 
 | Форма | Приклад | Значення |
 |---|---|---|
@@ -193,7 +193,7 @@ estimatedMinutes: 45
 > [!word] unless
 > ipa: /ənˈles/ · pos: conj · level: B1 · id: en-b1-conditionals-1-w02
 > uk: якщо не; хіба що
-> example: I won't go **unless** you come too. — Я не піду, якщо ти теж не підеш.
+> example: I won't go **unless** you come too. — Я піду, тільки якщо ти теж підеш.
 > note: = if … not; після unless — стверджувальне дієслово. Наголос на другому складі: un-LESS.
 
 > [!word] as soon as
@@ -204,7 +204,7 @@ estimatedMinutes: 45
 > [!word] until
 > ipa: /ənˈtɪl/ · pos: conj · level: B1 · id: en-b1-conditionals-1-w04
 > uk: доки не; до (якогось часу)
-> example: Stay here **until** I come back. — Будь тут, доки я не повернуся.
+> example: Stay here **until** I come back. — Побудь тут, доки я не повернуся.
 > note: розмовне скорочення — till. Українське «не» в until уже сховане.
 
 > [!word] in case
@@ -220,25 +220,25 @@ estimatedMinutes: 45
 
 > [!word] heat
 > ipa: /hiːt/ · pos: verb · level: B1 · id: en-b1-conditionals-1-w07
-> uk: нагрівати, гріти; (noun) спека, тепло
-> example: If you **heat** chocolate, it melts. — Якщо нагріти шоколад, він тане.
+> uk: нагрівати, гріти; (іменник) спека, тепло
+> example: If you **heat** chocolate, it melts. — Якщо нагріти шоколад, він плавиться.
 > note: не плутай з hate /heɪt/ — ненавидіти.
 
 > [!word] boil
 > ipa: /bɔɪl/ · pos: verb · level: B1 · id: en-b1-conditionals-1-w08
-> uk: кипіти; варити, кип'ятити
+> uk: кипіти; варити, кипʼятити
 > example: Water **boils** at 100 degrees. — Вода кипить за 100 градусів.
 > note: boil an egg — зварити яйце; boil the kettle (UK) — поставити чайник.
 
 > [!word] float
 > ipa: /fləʊt/ · ipa-us: /floʊt/ · pos: verb · level: B1 · id: en-b1-conditionals-1-w09
 > uk: плавати (на поверхні), триматися на воді
-> example: If you drop wood into water, it **floats**. — Якщо кинути дерево у воду, воно тримається на поверхні.
+> example: If you drop wood into water, it **floats**. — Якщо кинути шматок дерева у воду, він не тоне.
 > note: протилежне — sink (тонути).
 
 > [!word] traffic jam
 > ipa: /ˈtræf.ɪk dʒæm/ · pos: noun · level: B1 · id: en-b1-conditionals-1-w10
-> uk: затор, корок
+> uk: затор (на дорозі)
 > example: If we get stuck in a **traffic jam**, we'll miss the start. — Якщо застрягнемо в заторі, пропустимо початок.
 > note: be stuck in traffic — стояти в заторі.
 
@@ -258,11 +258,11 @@ estimatedMinutes: 45
 > - [x] I won't go unless you come with me.
 > - [ ] I want to go unless you come with me.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-conditionals-1-l03
 > audio: I'll text you as soon as I get home.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-conditionals-1-l04
 > audio: If you heat ice, it melts.
 
@@ -329,7 +329,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-conditionals-1-s06
 > text: If I have some free time this weekend, I'll probably go hiking.
 > ipa: /ɪf aɪ həv səm friː taɪm ðɪs ˌwiːkˈend aɪl ˈprɒb.əb.li ɡəʊ ˈhaɪ.kɪŋ/
-> tip: питання екзаменатора — «What are you going to do this weekend?». Відповідь з if + причина — плюс до Grammatical Range.
+> tip: питання екзаменатора — «What are you going to do this weekend?». Відповідь з умовою (if…) — плюс до Grammatical Range.
 
 ## Типові помилки українців
 

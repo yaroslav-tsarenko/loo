@@ -33,7 +33,7 @@ estimatedMinutes: 55
 
 **Денотація** — словникове значення слова: *thin* = «з малою вагою тіла». **Конотація** — емоційний і оцінний «присмак», який слово несе додатково: *slender* звучить як комплімент, *scrawny* — як образа, хоча людина та сама.
 
-В українській це теж є: «стрункий», «худий», «худорлявий», «кощавий», «шкіра та кістки». Але англійська **значно багатша на синоніми**: вона увібрала германську основу, нормандську французьку й латину. Тому в англійській часто є три слова для одного поняття — розмовне германське (*smell*), нейтральне французьке (*odour*) і книжне латинське чи книжне французьке (*fragrance*, *aroma*) — і кожне має свій відтінок.
+В українській це теж є: «стрункий», «худий», «худорлявий», «кощавий», «шкіра та кістки». Але англійська **значно багатша на синоніми**: вона увібрала германську основу, нормандську французьку й латину. Тому в англійській часто є три слова для одного поняття — розмовне германське (*smell*), нейтральне французьке (*odour*) і книжне латинське чи французьке (*fragrance*, *aroma*) — і кожне має свій відтінок.
 
 Для IELTS це важливо в усіх модулях. **Reading:** автор рідко прямо каже «я проти» — його позицію видають оцінні слова (*a notorious* scheme, *the regime*). **Writing:** дескриптор Lexical Resource для Band 7–8 вимагає «awareness of style and collocation» і точного значення; негативно забарвлене слово там, де ти хотів нейтрального, — помилка. **Speaking:** точний синонім звучить як Band 8: не *very thin*, а *gaunt after the illness*.
 
@@ -87,7 +87,7 @@ estimatedMinutes: 55
 | **slender**, slim, **lean** | thin | **skinny**, **scrawny**, **gaunt** |
 | **plump** (мʼяко), **chubby** (про дітей — мило) | **overweight** | fat (грубо), obese (медичний термін) |
 
-Про вагу людини англомовні говорять **дуже обережно**: *fat* у очі — образа; *overweight* — нейтрально-медичне; *plump* — евфемізм («пухкенька»); *chubby* — мило про дітей і щічки.
+Про вагу людини англомовні говорять **дуже обережно**: сказати *fat* в очі — образа; *overweight* — нейтрально-медичне; *plump* — евфемізм («пухкенька»); *chubby* — мило про дітей і щічки.
 
 ### Характер: та сама риса — різна оцінка
 
@@ -138,13 +138,13 @@ estimatedMinutes: 55
 ## Приклади
 
 - *She has a **slender** figure and long dark hair.* — У неї струнка фігура й довге темне волосся.
-- *After months in hospital, he looked pale and **gaunt**.* — Після місяців у лікарні він виглядав блідим і змарнілим.
+- *After months in hospital, he looked pale and **gaunt**.* — Після кількох місяців у лікарні він був блідий і змарнілий.
 - *She is a **tenacious** negotiator who never gives up.* — Вона наполеглива переговорниця, яка ніколи не здається.
 - *My grandparents were **thrifty** people who never wasted food.* — Мої дідусь і бабуся були ощадливими людьми й ніколи не викидали їжу.
 - *I hate it when **nosy** neighbours ask about my salary.* — Ненавиджу, коли цікаві сусіди розпитують про мою зарплату.
-- *Let me be **frank** with you: the project is in trouble.* — Скажу відверто: проєкт у біді.
+- *Let me be **frank** with you: the project is in trouble.* — Скажу відверто: з проєктом серйозні проблеми.
 - *His answer was **long-winded** and confusing.* — Його відповідь була багатослівною й заплутаною.
-- *The city is **notorious** for its traffic jams.* — Місто сумнозвісне своїми заторами.
+- *The city is **notorious** for its traffic jams.* — Місто сумно відоме своїми заторами.
 - *The **aroma** of fresh coffee filled the kitchen.* — Аромат свіжої кави наповнив кухню.
 - *My boss is very **laid-back** about deadlines.* — Мій начальник дуже спокійно ставиться до дедлайнів.
 - *Thank you for being so **sympathetic** when my father was ill.* — Дякую, що ти так співчував мені, коли батько хворів.
@@ -199,7 +199,7 @@ estimatedMinutes: 55
 > [!word] overweight
 > ipa: /ˌəʊvəˈweɪt/ · ipa-us: /ˌoʊvərˈweɪt/ · pos: adj · level: C1 · id: en-c1-nuance-w08
 > uk: з надмірною вагою
-> example: Nearly a third of adults in the country are **overweight**. — Майже третина дорослих у країні мають надмірну вагу.
+> example: Nearly a third of adults in the country are **overweight**. — Майже третина дорослих у країні має надмірну вагу.
 > note: нейтральне, медичне й статистичне — доречне в есе. *Obese* — медичний термін (ожиріння), *fat* — грубо.
 
 ### Наполегливість
@@ -219,7 +219,7 @@ estimatedMinutes: 55
 > [!word] tenacious
 > ipa: /təˈneɪʃəs/ · pos: adj · level: C1 · id: en-c1-nuance-w11
 > uk: наполегливий, чіпкий, завзятий
-> example: She is a **tenacious** journalist who never drops a story. — Вона завзята журналістка, яка ніколи не кидає історію.
+> example: She is a **tenacious** journalist who never drops a story. — Вона завзята журналістка, яка ніколи не кидає розпочатого розслідування.
 > note: позитивне, книжне; від лат. *tenere* — тримати.
 
 > [!word] single-minded
@@ -252,7 +252,7 @@ estimatedMinutes: 55
 > ipa: /ˌiːkəˈnɒmɪkəl/ · ipa-us: /ˌiːkəˈnɑːmɪkəl/ · pos: adj · level: C1 · id: en-c1-nuance-w16
 > uk: економний, ощадливий (про речі й людей)
 > example: Small cars are more **economical** to run. — Малі авто економніші в експлуатації.
-> note: нейтрально-позитивне. Не плутай з *economic* — економічний (*economic growth*). *Economical with the truth* — іронічно: брехливий.
+> note: нейтрально-позитивне. Не плутай з *economic* — економічний (*economic growth*). *Economical with the truth* — іронічно: що недоговорює правду.
 
 > [!word] tight-fisted
 > ipa: /ˌtaɪt ˈfɪstɪd/ · pos: adj · level: C1 · id: en-c1-nuance-w17
@@ -343,7 +343,7 @@ estimatedMinutes: 55
 > [!word] youthful
 > ipa: /ˈjuːθfəl/ · pos: adj · level: C1 · id: en-c1-nuance-w30
 > uk: юнацький, молодечий; моложавий
-> example: At seventy, she still has a **youthful** energy. — У сімдесят вона досі має юнацьку енергію.
+> example: At seventy, she still has a **youthful** energy. — У свої сімдесят вона досі сповнена юнацької енергії.
 > note: позитивне; *youthful looks / enthusiasm*. Про людей старшого віку — комплімент.
 
 > [!word] childlike
@@ -369,14 +369,14 @@ estimatedMinutes: 55
 > [!word] notorious
 > ipa: /nəʊˈtɔːriəs/ · ipa-us: /noʊˈtɔːriəs/ · pos: adj · level: C1 · id: en-c1-nuance-w34
 > uk: сумнозвісний, горезвісний
-> example: This road is **notorious for** accidents. — Ця дорога сумнозвісна аваріями.
+> example: This road is **notorious for** accidents. — Ця дорога сумно відома частими аваріями.
 > note: негативне! *notorious for sth*. Не вживай як «відомий» у хорошому сенсі.
 
 > [!word] infamous
 > ipa: /ˈɪnfəməs/ · pos: adj · level: C1 · id: en-c1-nuance-w35
 > uk: ганебно відомий, ганебний
 > example: The prison was **infamous** for its cruelty. — Вʼязниця була ганебно відома своєю жорстокістю.
-> note: негативне, сильніше за *notorious*. Наголос на перший склад: IN-fa-mous — не як *famous*!
+> note: негативне, сильніше за *notorious*. Наголос на першому складі: IN-fa-mous — не як *famous*!
 
 > [!word] celebrated
 > ipa: /ˈseləbreɪtɪd/ · pos: adj · level: C1 · id: en-c1-nuance-w36
@@ -401,8 +401,8 @@ estimatedMinutes: 55
 > [!word] scent
 > ipa: /sent/ · pos: noun · level: C1 · id: en-c1-nuance-w39
 > uk: (легкий) запах; парфуми; слід (нюх тварини)
-> example: The dogs followed the **scent** into the forest. — Собаки пішли слідом у ліс.
-> note: нейтрально-позитивне; *throw sb off the scent* — збити зі сліду. *c* німе: [сент].
+> example: The dogs followed the **scent** into the forest. — Собаки взяли слід і пішли в ліс.
+> note: нейтрально-позитивне; *throw sb off the scent* — збити зі сліду. У *scent* літера *c* не читається: [сент].
 
 > [!word] odour
 > ipa: /ˈəʊdə/ · ipa-us: /ˈoʊdər/ · pos: noun · level: C1 · id: en-c1-nuance-w40
@@ -447,7 +447,7 @@ estimatedMinutes: 55
 > [!word] aggressive
 > ipa: /əˈɡresɪv/ · pos: adj · level: C1 · id: en-c1-nuance-w46
 > uk: агресивний; напористий, активний (у бізнесі)
-> example: The company has an **aggressive** growth strategy. — Компанія має напористу стратегію зростання.
+> example: The company has an **aggressive** growth strategy. — Компанія дотримується напористої стратегії зростання.
 > note: про людей — негативне; у бізнесі (особливо US) — часто схвальне: *aggressive marketing*, *aggressive treatment* (інтенсивне лікування).
 
 ### Суспільство
@@ -455,7 +455,7 @@ estimatedMinutes: 55
 > [!word] regime
 > ipa: /reɪˈʒiːm/ · pos: noun · level: C1 · id: en-c1-nuance-w47
 > uk: режим (політичний, зазвичай авторитарний); режим (харчування, тренувань)
-> example: The **regime** has imprisoned hundreds of journalists. — Режим ув'язнив сотні журналістів.
+> example: The **regime** has imprisoned hundreds of journalists. — Режим увʼязнив сотні журналістів.
 > note: про владу — негативне, оцінне; нейтрально — *government, administration*. Без оцінки: *a fitness regime* (UK).
 
 > [!word] propaganda
@@ -469,7 +469,7 @@ estimatedMinutes: 55
 > [!word] sympathetic
 > ipa: /ˌsɪmpəˈθetɪk/ · pos: adj · level: C1 · id: en-c1-nuance-w49
 > uk: співчутливий, чуйний; прихильний (до ідеї)
-> example: My manager was very **sympathetic** when my mother was ill. — Мій менеджер дуже співчував, коли хворіла мама.
+> example: My manager was very **sympathetic** when my mother was ill. — Мій менеджер дуже мені співчував, коли хворіла мама.
 > note: хибний друг! «Симпатичний» — *nice, likeable, attractive*. *Sympathetic to an idea* — прихильний до ідеї.
 
 > [!word] pathetic
@@ -487,7 +487,7 @@ estimatedMinutes: 55
 > - [ ] She was very pathetic when I told her about my exam.
 > - [ ] She was very sympathetic when I sold her my exam.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-nuance-l02
 > audio: The city is notorious for its traffic jams.
 
@@ -499,7 +499,7 @@ estimatedMinutes: 55
 > audio: B: Oh, he's tenacious, I'll give him that.
 > - [ ] Повністю захоплюється ним.
 > - [x] Визнає його наполегливість, але вважає пихатим і нетактовним.
-> - [ ] Вважає його лінивим і сором'язливим.
+> - [ ] Вважає його лінивим і соромʼязливим.
 > - [ ] Ще не встигла скласти про нього думку.
 >
 > **Пояснення:** співрозмовниця підбирає слова з різною конотацією: *self-assured* (+) одразу «виправляє» на *conceited* (−); *tactless* — осуд. А *tenacious, I'll give him that* — визнання позитивної риси. Позицію мовця видає саме вибір синонімів.
@@ -541,14 +541,14 @@ estimatedMinutes: 55
 > level: C1 · id: en-c1-nuance-s02
 > text: My manager was very sympathetic when I was ill.
 > ipa: /maɪ ˈmænɪdʒə wəz ˈveri ˌsɪmpəˈθetɪk wen aɪ wəz ˈɪl/
-> tip: sym-pa-THE-tic — наголос на третій склад, th — [θ], язик між зубами.
-> uk: Мій менеджер дуже співчував, коли я хворів.
+> tip: sym-pa-THE-tic — наголос на третьому складі, th — [θ], язик між зубами.
+> uk: Мій менеджер дуже мені співчував, коли я хворів.
 
 > [!speak] Сумнозвісний
 > level: C1 · id: en-c1-nuance-s03
 > text: The prison was infamous for its cruelty.
 > ipa: /ðə ˈprɪzən wəz ˈɪnfəməs fər ɪts ˈkruːəlti/
-> tip: IN-fa-mous — наголос на перший склад, [ІН-фе-мес], а не «ін-ФЕЙ-мес». cruelty — [КРУ-ел-ті].
+> tip: IN-fa-mous — наголос на першому складі, [ІН-фе-мес], а не «ін-ФЕЙ-мес». cruelty — [КРУ-ел-ті].
 > uk: Вʼязниця була ганебно відома своєю жорстокістю.
 
 > [!speak] IELTS Speaking · Part 2: опис людини
@@ -754,5 +754,5 @@ estimatedMinutes: 55
 > - Чотири фільтри: значення → конотація → регістр → колокація.
 > - Пари «+ / −»: *determined / obstinate*, *thrifty / tight-fisted*, *frank / blunt*, *inquisitive / nosy*, *assertive / pushy*, *laid-back / idle*, *childlike / childish*.
 > - Оцінні слова видають автора в Reading: *so-called, notorious, regime, propaganda*.
-> - У есе — нейтральні слова (*overweight, elderly, reluctant*), без образливих узагальнень.
+> - В есе — нейтральні слова (*overweight, elderly, reluctant*), без образливих узагальнень.
 > - Хибні друзі: *sympathetic* = співчутливий, *pathetic* = жалюгідний, *resin* = смола, *eventually* = зрештою, *intelligent* = розумний.

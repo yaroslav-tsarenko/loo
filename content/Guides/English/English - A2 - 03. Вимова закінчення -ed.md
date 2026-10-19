@@ -25,7 +25,7 @@ estimatedMinutes: 35
 > - [ ] два: «вор-кед»
 > - [ ] три
 >
-> **Пояснення:** *worked* — один склад: /wɜːkt/. Закінчення -ed тут — просто звук /t/, без голосного. Склад «-ід» /ɪd/ зʼявляється лише після /t/ і /d/: *wanted*, *needed*. Читати «-ед» в кожному дієслові — найчастіша помилка в минулому часі.
+> **Пояснення:** *worked* — один склад: /wɜːkt/. Закінчення -ed тут — просто звук /t/, без голосного. Склад «-ід» /ɪd/ зʼявляється лише після /t/ і /d/: *wanted*, *needed*. Читати «-ед» у кожному дієслові — найчастіша помилка в минулому часі.
 
 ## Пояснення
 
@@ -138,12 +138,12 @@ estimatedMinutes: 35
 > uk: вгадувати; здогадуватися
 > example: I **guessed** the answer. — Я вгадав відповідь.
 > forms: guess → guessed → guessed
-> note: guessed — /ɡest/, звучить так само, як guest (гість). u у guess — німе.
+> note: guessed — /ɡest/, звучить так само, як guest (гість). u в guess не читається.
 
 > [!word] mix
 > ipa: /mɪks/ · pos: verb · level: A2 · id: en-a2-ed-endings-w06
 > uk: змішувати
-> example: **Mix** the eggs and the sugar. — Змішайте яйця й цукор.
+> example: **Mix** the eggs and the sugar. — Змішай яйця з цукром.
 > forms: mix → mixed → mixed
 > note: mixed — /mɪkst/: x = /ks/, тому /t/.
 
@@ -164,9 +164,9 @@ estimatedMinutes: 35
 > [!word] answer
 > ipa: /ˈɑːnsə/ · ipa-us: /ˈænsər/ · pos: verb · level: A2 · id: en-a2-ed-endings-w09
 > uk: відповідати; відповідь (noun)
-> example: Nobody **answered** the phone. — Ніхто не відповів на дзвінок.
+> example: Nobody **answered** the phone. — Ніхто не взяв слухавку.
 > forms: answer → answered → answered
-> note: w німе; answered — /ˈɑːnsəd/.
+> note: w не читається; answered — /ˈɑːnsəd/.
 
 > [!word] allow
 > ipa: /əˈlaʊ/ · pos: verb · level: A2 · id: en-a2-ed-endings-w10
@@ -252,7 +252,7 @@ estimatedMinutes: 35
 > - [x] They wanted a bigger flat.
 > - [ ] They wanted a bigger flight.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-ed-endings-l04
 > audio: She called me and invited me to a party.
 
@@ -313,12 +313,12 @@ estimatedMinutes: 35
 > [!pair] love /lʌv/ — loved /lʌvd/
 > level: A2 · id: en-a2-ed-endings-p07
 > say: loved
-> tip: loved — /vd/ дзвінко, зуби на губу і короткий /d/.
+> tip: loved — дзвінке /vd/: верхні зуби на нижній губі, а потім коротке /d/.
 
 > [!pair] kiss /kɪs/ — kissed /kɪst/
 > level: A2 · id: en-a2-ed-endings-p08
 > say: kiss
-> tip: kissed звучить так само, як kist: /kɪst/ — свист і коротке /t/.
+> tip: kissed — /kɪst/: свистяче /s/ і коротке /t/ у кінці, без «-ед».
 
 ### Скажи вголос
 
@@ -362,13 +362,13 @@ estimatedMinutes: 35
 > level: A2 · id: en-a2-ed-endings-s07
 > text: I asked, but nobody answered.
 > ipa: /aɪ ɑːskt bət ˈnəʊbədi ˈɑːnsəd/
-> tip: asked — /skt/ (можна спростити до /st/); answered — /əd/, w німе.
+> tip: asked — /skt/ (можна спростити до /st/); answered — /əd/, w не читається.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-ed-endings-s08
 > text: We ordered pizza and enjoyed the film.
 > ipa: /wi ˈɔːdəd ˈpiːtsə ən ɪnˈdʒɔɪd ðə fɪlm/
-> tip: ordered і enjoyed — обидва /d/, бо перед ним голосний звук.
+> tip: ordered і enjoyed — обидва з /d/, бо основа закінчується на голосний звук.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-ed-endings-s09
@@ -391,7 +391,7 @@ estimatedMinutes: 35
 > Інша крайність — оглушувати все до /t/. Після дзвінких і голосних -ed **дзвінке**: *played* /pleɪd/, *called* /kɔːld/, *opened* /ˈəʊpənd/. Як і з -s, найчастіший варіант — саме дзвінкий /d/.
 
 > [!pitfall] Ковтати -ed повністю
-> «Yesterday I work late» — якщо зовсім не вимовити закінчення, співрозмовник почує теперішній час. Навіть коли /t/ або /d/ коротке, воно має бути: язик торкається ясен і зупиняє звук.
+> «Yesterday I work late» — якщо зовсім не вимовити закінчення, співрозмовник почує теперішній час. Навіть коли /t/ або /d/ коротке, воно має прозвучати: язик торкається ясен і зупиняє звук.
 
 ## Практика
 
@@ -468,7 +468,7 @@ estimatedMinutes: 35
 > allowed — /əˈlaʊ[[d]]/
 > ```
 
-> [!quiz] Склади речення «Вчора я працював допізна»
+> [!quiz] Склади речення «Учора я працював допізна»
 > level: A2 · type: order · id: en-a2-ed-endings-q10
 >
 > ```text order
@@ -509,7 +509,7 @@ estimatedMinutes: 35
 > -s: /s/ — /z/ — /ɪz/. -ed: /t/ — /d/ — /ɪd/. Логіка однакова: глухий після глухого, дзвінкий після дзвінкого, а коли звуки «зливаються» — додається склад. Вивчив одне — знаєш обидва.
 
 > [!reel] 👂 Passed і past звучать однаково
-> *I passed the exam* і *in the past* — /pɑːst/ в обох. Через це англійці самі плутають їх на письмі: «I past the exam» — часта помилка навіть у носіїв.
+> *I passed the exam* і *in the past* — /pɑːst/ в обох. Через це навіть носії плутають їх на письмі: «I past the exam» — часта помилка.
 
 > [!reel] 😈 Wicked — слово з двома обличчями
 > *wicked* /ˈwɪkɪd/ — «злий, лихий» (*the Wicked Witch*). Але в британському сленгу *Wicked!* — «Круто!». Вимова з /ɪd/ однакова в обох значеннях.

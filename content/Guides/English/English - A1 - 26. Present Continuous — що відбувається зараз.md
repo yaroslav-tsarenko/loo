@@ -31,7 +31,7 @@ estimatedMinutes: 40
 
 ## Одне українське «працюю» — два англійські часи
 
-Українською «Я працюю» може означати і «я маю роботу», і «я саме зараз працюю». Англійці ці два значення розділяють:
+Українською «Я працюю» може означати і «я маю роботу», і «я саме зараз працюю». В англійській ці два значення розрізняють:
 
 - **Present Simple** — звички, факти, «завжди так»: *I **work** in a bank.* (див. [[English - A1 - 14. Present Simple — стверджувальні речення]])
 - **Present Continuous** — дія **в процесі**, зараз або в цей період: *I'm **working** from home today.*
@@ -46,7 +46,7 @@ estimatedMinutes: 40
 > steps:
 >   - { show: start, focus: start, note: "О сьомій Оля почала готувати вечерю." }
 >   - { show: now, note: "Ти дзвониш о 19:20 — дія ще триває: Olya is cooking. Вона «всередині» процесу." }
->   - { show: end, note: "Колись дія закінчиться, але зараз — у розпалі. Саме це й показує Present Continuous." }
+>   - { show: end, note: "Згодом дія закінчиться, але зараз вона в розпалі. Саме це й показує Present Continuous." }
 >   - { focus: now, note: "Сигнальні слова: now, right now, at the moment, Look!, Listen!" }
 > ```
 
@@ -81,13 +81,13 @@ estimatedMinutes: 40
 
 | Правило | Приклади |
 |---|---|
-| звичайно — просто *+ing* | *read → reading, play → playing, study → studying, see → seeing* |
-| німе *-e* в кінці зникає | *make → making, write → writing, dance → dancing* (але *see → seeing*) |
+| зазвичай — просто *+ing* | *read → reading, play → playing, study → studying, see → seeing* |
+| *-e*, яке не читається, у кінці зникає | *make → making, write → writing, dance → dancing* (але *see → seeing*) |
 | короткий наголошений голосний + один приголосний → подвоєння | *run → running, sit → sitting, swim → swimming, stop → stopping* |
 | *-ie* → *-y* | *lie → lying, die → dying* |
-| не подвоюємо *w, x, y* і ненаголошений склад | *fix → fixing, play → playing, visit → visiting* |
+| не подвоюємо *w, x, y*, а також коли останній склад ненаголошений | *fix → fixing, play → playing, visit → visiting* |
 
-У британській ще подвоюють *l*: *travel → travelling* (US *traveling*).
+У британському варіанті ще подвоюють *l*: *travel → travelling* (US *traveling*).
 
 > [!quiz] Перевір себе: як правильно написати run + -ing?
 > level: A1 · id: en-a1-present-continuous-q02
@@ -177,14 +177,14 @@ estimatedMinutes: 40
 
 > [!word] take a photo
 > ipa: /teɪk ə ˈfəʊtəʊ/ · ipa-us: /teɪk ə ˈfoʊtoʊ/ · pos: phrase · level: A1 · id: en-a1-present-continuous-w06
-> uk: фотографувати; зробити фото
+> uk: фотографувати; сфотографувати
 > example: Smile! I'm **taking a photo**. — Усміхніться! Я фотографую.
 > note: *take*, а не ~~make a photo~~ — типова калька з «зробити фото».
 
 > [!word] whisper
 > ipa: /ˈwɪspə/ · ipa-us: /ˈwɪspər/ · pos: verb · level: A1 · id: en-a1-present-continuous-w07
 > uk: шепотіти
-> example: Why are you **whispering**? — Чого ти шепочеш?
+> example: Why are you **whispering**? — Чому ти шепочеш?
 > note: *wh* тут читається як /w/: «ВІС-пə».
 
 > [!word] text
@@ -221,7 +221,7 @@ estimatedMinutes: 40
 > ipa: /ˌdaʊnˈləʊd/ · ipa-us: /ˌdaʊnˈloʊd/ · pos: verb · level: A1 · id: en-a1-present-continuous-w13
 > uk: завантажувати (з інтернету)
 > example: Wait, I'm **downloading** the tickets. — Зачекай, я завантажую квитки.
-> note: як іменник наголос на першому складі: *a DOWNload*.
+> note: як іменник — наголос на першому складі: *a DOWNload*.
 
 > [!word] wait for
 > ipa: /ˈweɪt fə/ · ipa-us: /ˈweɪt fər/ · pos: phrase · level: A1 · id: en-a1-present-continuous-w14
@@ -251,11 +251,11 @@ estimatedMinutes: 40
 > - [ ] Are they listening to me?
 > - [ ] You're listening to me.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-continuous-l03
 > audio: We're having dinner at the moment.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-continuous-l04
 > audio: It isn't raining now.
 
@@ -298,7 +298,7 @@ estimatedMinutes: 40
 > В українській допоміжного дієслова немає, тож його легко загубити. Present Continuous — це **завжди два шматки**: *I'**m** read**ing**. She'**s** cook**ing**.*
 
 > [!pitfall] «I am work now» — забули -ing
-> Друга половина помилки: *be* є, а *-ing* немає. *I am work* — не англійською. Правильно: *I'**m** work**ing** now.*
+> Друга половина помилки: *be* є, а *-ing* немає. *I am work* — так англійською не кажуть. Правильно: *I'**m** work**ing** now.*
 
 > [!pitfall] «I'm going to the gym every day» про звичку
 > Регулярні дії, розклад, «завжди» — Present Simple: *I **go** to the gym every day.* Present Continuous — лише про «зараз» і «в цей період».
@@ -342,7 +342,7 @@ estimatedMinutes: 40
 > - [ ] makking
 > - [ ] makin
 >
-> **Пояснення:** німе *-e* в кінці зникає: *make → making, write → writing, dance → dancing*.
+> **Пояснення:** *-e*, яке не читається, у кінці зникає: *make → making, write → writing, dance → dancing*.
 
 > [!quiz] Заповни пропуски: am, is чи are
 > level: A1 · type: fill · bank · id: en-a1-present-continuous-q04
@@ -418,7 +418,7 @@ estimatedMinutes: 40
 > - [ ] Yes, I do.
 > - [ ] Yes, I working.
 >
-> **Пояснення:** питали з *are* — відповідаємо *am*. У короткій відповіді «так» без скорочення: *Yes, I am.*
+> **Пояснення:** питали з *are* — відповідаємо *am*. У короткій відповіді «так» скорочення немає: *Yes, I am*, а не ~~Yes, I'm~~.
 
 > [!quiz] Яке речення описує те, що відбувається саме зараз?
 > level: A1 · id: en-a1-present-continuous-q11

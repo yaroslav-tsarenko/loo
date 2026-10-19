@@ -13,7 +13,7 @@ estimatedMinutes: 40
 
 > [!success] Після цієї теми ти зможеш
 > - вимовити 12 англійських голосних і знати, як для кожного поставити губи, язик і щелепу;
-> - чути й робити різницю між короткими й довгими звуками: *ship* — *sheep*, *full* — *fool*;
+> - чути й вимовляти різницю між короткими й довгими звуками: *ship* — *sheep*, *full* — *fool*;
 > - вимовляти звук /æ/, якого немає в українській, і не плутати *bad* і *bed*, *man* і *men*;
 > - відрізняти *work* від *walk* (звук /ɜː/) і «ковтати» ненаголошені склади до /ə/;
 > - упізнавати ці звуки в транскрипції карток.
@@ -36,7 +36,7 @@ estimatedMinutes: 40
 
 Але є підступ: довгий звук відрізняється від короткого **не лише тривалістю**, а й **якістю** — положенням язика і губ. Короткі звуки розслаблені, довгі — напружені. Тому «просто потягнути» мало: треба змінити форму рота.
 
-> [!diagram] П'ять пар «короткий — довгий»
+> [!diagram] Пʼять пар «короткий — довгий»
 > ```yaml
 > layout: compare
 > columns: { short: "Короткі — розслаблено", long: "Довгі ː — напружено" }
@@ -80,7 +80,7 @@ estimatedMinutes: 40
 > [!tip] Американська вимова
 > - /ɒ/ у США звучить як /ɑː/: *hot* /hɑːt/, *stop* /stɑːp/.
 > - Після /ɑː ɔː ɜː/ американці вимовляють r: *start* /stɑːrt/, *horse* /hɔːrs/, *bird* /bɝːd/.
-> - Багато американців не розрізняють /ɑː/ і /ɔː/: *cot* і *caught* звучать однаково. Тобі це не заважає — вчимо британську пару, а американську впізнаєш.
+> - Багато американців не розрізняють /ɑː/ і /ɔː/: *cot* і *caught* звучать однаково. Тобі це не завадить: учимо британську пару, а американську вимову просто впізнаватимеш.
 
 ### Звук /æ/ — головний новачок
 
@@ -111,14 +111,14 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *The ship is full of sheep.* — Корабель повний овець.
+- *The ship is full of sheep.* — На кораблі повно овець.
 - *Please don't leave. Live here with us!* — Будь ласка, не їдь. Живи тут з нами!
 - *It's not a bad bed.* — Це непогане ліжко.
 - *One man, two men.* — Один чоловік, два чоловіки.
 - *Good luck with the test!* — Хай щастить на тесті!
 - *I walk to work.* — Я ходжу на роботу пішки.
 - *Don't be a fool. Pull, don't push.* — Не будь дурнем. Тягни, а не штовхай.
-- *Start again from the top.* — Почни знову спочатку.
+- *Start again from the top.* — Почни ще раз спочатку.
 - *Birds learn songs.* — Птахи вчать пісні.
 - *It's about a horse.* — Це про коня.
 
@@ -145,7 +145,7 @@ estimatedMinutes: 40
 > [!word] field
 > ipa: /fiːld/ · pos: noun · level: A1 · id: en-a1-vowels-w04
 > uk: поле
-> example: There are sheep in the **field**. — У полі вівці.
+> example: There are sheep in the **field**. — У полі пасуться вівці.
 > note: ie тут — довге /iː/, як у piece.
 
 > [!word] fill
@@ -201,13 +201,13 @@ estimatedMinutes: 40
 > [!word] top
 > ipa: /tɒp/ · ipa-us: /tɑːp/ · pos: noun · level: A1 · id: en-a1-vowels-w14
 > uk: верх; верхівка
-> example: Start again from the **top**. — Почни знову спочатку (згори).
+> example: Start again from the **top**. — Почни ще раз спочатку (top — «верх»).
 
 > [!word] talk
 > ipa: /tɔːk/ · ipa-us: /tɑːk/ · pos: verb · level: A1 · id: en-a1-vowels-w15
 > uk: розмовляти; говорити
 > example: Can we **talk**? — Можемо поговорити?
-> note: l німа: «то-ок».
+> note: l не читається: «то-ок».
 
 > [!word] horse
 > ipa: /hɔːs/ · ipa-us: /hɔːrs/ · pos: noun · level: A1 · id: en-a1-vowels-w16
@@ -288,11 +288,11 @@ estimatedMinutes: 40
 > - [ ] I work to walk.
 > - [ ] I work at work.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-vowels-l05
 > audio: The bus is full.
 
-> [!listen] Куди хоче піти дівчина?
+> [!listen] Куди вирішили піти друзі?
 > level: A1 · type: answer · speed: slow · id: en-a1-vowels-l06
 > audio: A: Let's go to the pool!
 > audio: B: The pool? It's cold today. Let's go to the park.
@@ -325,7 +325,7 @@ estimatedMinutes: 40
 > [!pair] bed /bed/ — bad /bæd/
 > level: A1 · id: en-a1-vowels-p04
 > say: bad
-> tip: у bad щелепа падає вниз — між зубами палець.
+> tip: у bad щелепа падає вниз — між зубами поміститься палець.
 
 > [!pair] men /men/ — man /mæn/
 > level: A1 · id: en-a1-vowels-p05
@@ -437,7 +437,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-vowels-s10
 > text: It's a story about a banana.
 > ipa: /ɪts ə ˈstɔːri əˈbaʊt ə bəˈnɑːnə/
-> tip: банан — «бе-НА-не»: наголошене лише друге a, інші — слабкі /ə/.
+> tip: banana — «бе-НА-не»: наголошене лише друге a, інші — слабкі /ə/.
 
 ## Типові помилки українців
 

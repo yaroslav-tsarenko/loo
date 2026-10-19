@@ -169,7 +169,7 @@ estimatedMinutes: 55
 
 ## Приклади
 
-- **The rapid expansion** of the city has put pressure on water supplies. — Швидке розростання міста посилило тиск на водопостачання.
+- **The rapid expansion** of the city has put pressure on water supplies. — Через швидке розростання міста зросло навантаження на водопостачання.
 - **The government's refusal** to negotiate led to a national strike. — Відмова уряду вести переговори призвела до загальнонаціонального страйку.
 - **A lack of** affordable housing is forcing young people to leave. — Брак доступного житла змушує молодь виїжджати.
 - **The availability of** cheap flights has transformed tourism. — Доступність дешевих авіарейсів змінила туризм.
@@ -177,7 +177,7 @@ estimatedMinutes: 55
 - There has been **a steady decline in** the number of smokers. — Кількість курців неухильно зменшується.
 - **Investment in** renewable energy has doubled since 2015. — Інвестиції у відновлювану енергетику подвоїлися з 2015 року.
 - **The emergence of** online banking has led to **the closure of** many branches. — Поява онлайн-банкінгу призвела до закриття багатьох відділень.
-- **The prevalence of** obesity among children is a growing concern. — Поширеність ожиріння серед дітей викликає дедалі більше занепокоєння.
+- **The prevalence of** obesity among children is a growing concern. — Поширеність ожиріння серед дітей непокоїть дедалі більше.
 - Many parents distrust the new app. **This reluctance** is understandable. — Багато батьків не довіряють новому застосунку. Це небажання зрозуміле.
 
 ## Слова
@@ -205,7 +205,7 @@ estimatedMinutes: 55
 > [!word] growth
 > ipa: /ɡrəʊθ/ · ipa-us: /ɡroʊθ/ · pos: noun · level: C1 · id: en-c1-nominalisation-w04
 > uk: зростання, ріст
-> example: The country saw rapid economic **growth** in the 2000s. — У 2000-х країна мала швидке економічне зростання.
+> example: The country saw rapid economic **growth** in the 2000s. — У 2000-х економіка країни швидко зростала.
 > note: нейтральний; grow → growth; growth **in** sales / population growth. Часто без артикля: there was strong growth.
 
 > [!word] fluctuation
@@ -235,7 +235,7 @@ estimatedMinutes: 55
 > [!word] closure
 > ipa: /ˈkləʊ.ʒə/ · ipa-us: /ˈkloʊ.ʒɚ/ · pos: noun · level: C1 · id: en-c1-nominalisation-w09
 > uk: закриття
-> example: **The closure of** the factory cost 500 jobs. — Закриття фабрики коштувало 500 робочих місць.
+> example: **The closure of** the factory cost 500 jobs. — Через закриття фабрики без роботи залишилися 500 людей.
 > note: нейтральний; close → closure of sth. Розмовне значення — емоційна завершеність (I need closure).
 
 > [!word] removal
@@ -273,7 +273,7 @@ estimatedMinutes: 55
 > [!word] shortage
 > ipa: /ˈʃɔː.tɪdʒ/ · ipa-us: /ˈʃɔːr.t̬ɪdʒ/ · pos: noun · level: C1 · id: en-c1-nominalisation-w15
 > uk: нестача, дефіцит
-> example: Hospitals are facing a **shortage of** nurses. — Лікарні стикаються з нестачею медсестер.
+> example: Hospitals are facing a **shortage of** nurses. — Лікарням бракує медсестер.
 > note: нейтральний; a shortage of sth — тимчасово бракує (людей, товарів).
 
 > [!word] lack
@@ -303,7 +303,7 @@ estimatedMinutes: 55
 > [!word] provision
 > ipa: /prəˈvɪʒ.ən/ · pos: noun · level: C1 · id: en-c1-nominalisation-w20
 > uk: забезпечення, надання; положення (документа)
-> example: **The provision of** free school meals improved attendance. — Забезпечення безкоштовного шкільного харчування покращило відвідуваність.
+> example: **The provision of** free school meals improved attendance. — Запровадження безкоштовного шкільного харчування покращило відвідуваність.
 > note: формальний; provide → provision of sth. У договорах — пункт, положення.
 
 > [!word] investment
@@ -329,13 +329,13 @@ estimatedMinutes: 55
 > [!word] refusal
 > ipa: /rɪˈfjuː.zəl/ · pos: noun · level: C1 · id: en-c1-nominalisation-w24
 > uk: відмова
-> example: Her **refusal to** answer questions surprised the journalists. — Її відмова відповідати на питання здивувала журналістів.
+> example: Her **refusal to** answer questions surprised the journalists. — Її відмова відповідати на запитання здивувала журналістів.
 > note: нейтральний; refuse → refusal **to** do sth.
 
 > [!word] failure
 > ipa: /ˈfeɪ.ljə/ · ipa-us: /ˈfeɪ.ljɚ/ · pos: noun · level: C1 · id: en-c1-nominalisation-w25
 > uk: невдача, провал; неспроможність (щось зробити)
-> example: **The failure to** act quickly made the crisis worse. — Те, що не діяли швидко, погіршило кризу.
+> example: **The failure to** act quickly made the crisis worse. — Через те що вчасно не вжили заходів, криза поглибилася.
 > note: нейтральний; fail → failure **to** do sth; також heart failure, power failure.
 
 > [!word] reluctance
@@ -347,7 +347,7 @@ estimatedMinutes: 55
 > [!word] reliance
 > ipa: /rɪˈlaɪ.əns/ · pos: noun · level: C1 · id: en-c1-nominalisation-w27
 > uk: залежність, покладання (на щось)
-> example: Our heavy **reliance on** imported gas is risky. — Наша сильна залежність від імпортного газу ризикована.
+> example: Our heavy **reliance on** imported gas is risky. — Наша значна залежність від імпортного газу небезпечна.
 > note: формальний; rely → reliance **on** sth; heavy / growing reliance.
 
 > [!word] assessment
@@ -379,7 +379,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *a sharp **rise in** the cost of living* — іменникова група: прикметник *sharp* + іменник *rise* + *in*. *Rise in* звучить як одне слово [ˈraɪzɪn].
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-nominalisation-l02
 > audio: The closure of the factory led to a sharp rise in unemployment.
 
@@ -428,7 +428,7 @@ estimatedMinutes: 55
 > «Причина **чогось**» → ~~*the reason of*~~ → *the reason **for***; «вплив **на**» — *impact / influence / effect **on*** ✓, але ~~*influence to*~~; «зростання **цін**» → ~~*the increase of prices*~~ → *the increase **in** prices* (*of* — лише кількість: *an increase **of** 10 %*); ~~*demand on*~~ → *demand **for***; ~~*lack in*~~ → *a lack **of***.
 
 > [!pitfall] Без артикля перед іменником з of
-> В українській артиклів немає, тому їх губляють саме в номіналізації: ~~*Implementation of policy was slow*~~ → ***The** implementation of **the** policy was slow*. Іменник + *of* + конкретне доповнення майже завжди бере ***the***. Альтернатива без *of* і без артикля — складений іменник: *population growth, energy consumption*.
+> В українській артиклів немає, тому їх гублять саме в номіналізації: ~~*Implementation of policy was slow*~~ → ***The** implementation of **the** policy was slow*. Іменник + *of* + конкретне доповнення майже завжди бере ***the***. Альтернатива без *of* і без артикля — складений іменник: *population growth, energy consumption*.
 
 ## Практика
 
@@ -527,7 +527,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** конструкція ***The period … saw a significant increase in…*** — типова для Task 1 і показує range. Перший — розмовний; третій — перевантажений і з неправильним *increase of the number*; четвертий — висячий зворот і неясний зміст.
 
-> [!quiz] IELTS Writing Task 1 · Переклади опис у іменникові конструкції
+> [!quiz] IELTS Writing Task 1 · Перепиши опис іменниковими конструкціями
 > level: C1 · type: fill · tags: ielts · id: en-c1-nominalisation-q12
 >
 > ```text fill
@@ -604,7 +604,7 @@ estimatedMinutes: 55
 > Дослідниця академічного письма Гелен Сворд у колонці для The New York Times (2012) назвала надмірні номіналізації «зомбі-іменниками»: вони «висмоктують життя» з дієслів. Її порада — не забороняти їх, а щоразу питати, чи не краще тут дієслово.
 
 > [!reel] 🔁 Граматична метафора
-> Лінгвіст Майкл Голлідей назвав номіналізацію «граматичною метафорою»: процес (щось росте) подано як предмет (ріст). Саме тому наукова мова здається абстрактною — вона перетворює події на речі, які можна виміряти й порівняти.
+> Лінгвіст Майкл Голлідей назвав номіналізацію «граматичною метафорою»: процес (щось зростає) подано як предмет (зростання). Саме тому наукова мова здається абстрактною — вона перетворює події на речі, які можна виміряти й порівняти.
 
 > [!reel] 📰 Мова заголовків
 > Британські газетні заголовки складаються майже з самих іменників: «Council tax rise anger» — «гнів через підвищення муніципального податку». Без артиклів і дієслів — гранична номіналізація, яку в есе краще не копіювати.

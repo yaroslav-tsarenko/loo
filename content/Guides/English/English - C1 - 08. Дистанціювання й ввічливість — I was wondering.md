@@ -53,7 +53,7 @@ estimatedMinutes: 50
 > steps:
 >   - { show: r1, note: "Наказовий спосіб — для друзів і термінових ситуацій. З незнайомими навіть з please звучить різко." }
 >   - { show: [r2, r3], note: "Can — нейтральне прохання; could — уже на крок далі: модальне «відсуває» прохання." }
->   - { show: r4, note: "Would you mind + -ing питає, чи не заважає прохання. Відповідь «так, будь ласка» — No, not at all." }
+>   - { show: r4, note: "Would you mind + -ing питає, чи не заважає прохання. Згода звучить як заперечення: No, not at all (тобто «ні, не заперечую»)." }
 >   - { show: r5, note: "I was wondering if you could… — минулий час і тривалий вид разом: стандарт ввічливого прохання в роботі й листах." }
 >   - { show: r6, note: "Заперечне питання дає людині легкий спосіб відмовити. Це найбільша дистанція — для великих прохань." }
 > ```
@@ -162,8 +162,8 @@ estimatedMinutes: 50
 
 ## Приклади
 
-- **I was wondering if** you'd like to join us for dinner on Saturday. — Може, ти хотів би приєднатися до нас на вечерю в суботу?
-- **I was hoping** to have a word with you about my contract. — Я хотів би поговорити з вами про мій контракт.
+- **I was wondering if** you'd like to join us for dinner on Saturday. — Може, повечеряєш із нами в суботу?
+- **I was hoping** to have a word with you about my contract. — Я хотів би поговорити з вами про свій контракт.
 - **We were thinking of** holding the workshop online this year. — Ми думали цього року провести воркшоп онлайн.
 - **Would it be possible to** pay in two instalments? — Чи можна заплатити двома частинами?
 - **I'd appreciate it if** you could keep this between us. — Я буду вдячний, якщо це залишиться між нами.
@@ -235,8 +235,8 @@ estimatedMinutes: 50
 
 > [!word] Would it be too much trouble to…?
 > ipa: /wʊd ɪt bi ˈtuː mʌtʃ ˈtrʌb.əl tə/ · pos: phrase · level: C1 · id: en-c1-distancing-w10
-> uk: чи не буде вам надто складно…?
-> example: **Would it be too much trouble to** send me a copy? — Чи не буде вам надто складно надіслати мені копію?
+> uk: чи не важко вам буде…?
+> example: **Would it be too much trouble to** send me a copy? — Чи не важко вам буде надіслати мені копію?
 > note: формально-ввічливий; для прохань, що вимагають зусиль. Також Would it be too much trouble for you to…?
 
 > [!word] impose
@@ -262,13 +262,13 @@ estimatedMinutes: 50
 > [!word] I see where you're coming from
 > ipa: /aɪ ˈsiː weə jɔː ˈkʌm.ɪŋ frɒm/ · ipa-us: /aɪ ˈsiː wer jʊr ˈkʌm.ɪŋ frʌm/ · pos: phrase · level: C1 · id: en-c1-distancing-w14
 > uk: я розумію твою логіку / позицію
-> example: **I see where you're coming from**, but I still think it's too risky. — Я розумію твою позицію, але все одно вважаю, що це заризиковано.
+> example: **I see where you're coming from**, but I still think it's too risky. — Я розумію твою позицію, але все одно вважаю, що це надто ризиковано.
 > note: розмовно-нейтральний; визнаєш думку співрозмовника перед незгодою. Корисно в IELTS Speaking Part 3.
 
 > [!word] I'm not sure I agree
 > ipa: /aɪm ˌnɒt ˈʃɔːr aɪ əˈɡriː/ · ipa-us: /aɪm ˌnɑːt ˈʃʊr aɪ əˈɡriː/ · pos: phrase · level: C1 · id: en-c1-distancing-w15
-> uk: не впевнений, що погоджуюся
-> example: **I'm not sure I agree** that prices will keep falling. — Не впевнений, що погоджуюся, ніби ціни й далі падатимуть.
+> uk: я не зовсім згоден; не певен, що згоден
+> example: **I'm not sure I agree** that prices will keep falling. — Я не зовсім згоден, що ціни й далі падатимуть.
 > note: нейтральний; мʼяка незгода. Ще мʼякше — I'm not sure I entirely agree.
 
 > [!word] softener
@@ -287,7 +287,7 @@ estimatedMinutes: 50
 > ipa: /ˌdɪp.ləˈmæt.ɪk/ · ipa-us: /ˌdɪp.ləˈmæt̬.ɪk/ · pos: adj · level: C1 · id: en-c1-distancing-w18
 > uk: дипломатичний, тактовний
 > example: She gave a **diplomatic** answer that didn't upset anyone. — Вона дала дипломатичну відповідь, яка нікого не образила.
-> note: нейтральний; також прямо — дипломатичний (diplomatic relations). diplomatically — дипломатично.
+> note: нейтральний; також у прямому значенні: diplomatic relations — дипломатичні відносини. diplomatically — дипломатично.
 
 > [!word] presumptuous
 > ipa: /prɪˈzʌmp.tʃu.əs/ · pos: adj · level: C1 · id: en-c1-distancing-w19
@@ -312,7 +312,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** *was* — слабке [wəz], легко пропустити. Слухай [ɪŋ] у *wondering* і *could*, а не *can*: минулий час і модальне йдуть разом.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-distancing-l02
 > audio: I don't suppose you could give me a lift to the station?
 
@@ -370,7 +370,7 @@ estimatedMinutes: 50
 > text: I was wondering if you could help me with something.
 > ipa: /aɪ wəz ˈwʌn.dər.ɪŋ ɪf juː kʊd ˈhelp miː wɪð ˈsʌm.θɪŋ/
 > tip: was — слабке [wəz]; wondering — [ʌ], як у «love», не «вондерінг». Тон — плавно вниз наприкінці, без різкого падіння.
-> uk: Чи не могли б ви мені дещо допомогти?
+> uk: Чи не могли б ви мені з дечим допомогти?
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-distancing-s02
@@ -398,7 +398,7 @@ estimatedMinutes: 50
 > text: I see where you're coming from, but I'm not sure I agree.
 > ipa: /aɪ ˈsiː weə jɔː ˈkʌm.ɪŋ frɒm bət aɪm ˌnɒt ˈʃɔːr aɪ əˈɡriː/
 > tip: на but — легка пауза; sure I — британське звʼязувальне [r]: [ʃɔːr aɪ]. Тон спокійний, без натиску.
-> uk: Я розумію твою позицію, але не впевнений, що погоджуюся.
+> uk: Я розумію твою позицію, але не певен, що згоден.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-distancing-s06
@@ -419,7 +419,7 @@ estimatedMinutes: 50
 > text: I'd have to say I'm not really a morning person.
 > ipa: /aɪd hæv tə ˈseɪ aɪm ˌnɒt ˈrɪə.li ə ˈmɔː.nɪŋ ˌpɜː.sən/
 > tip: питання Part 1 — «Do you prefer mornings or evenings?». have to — [ˈhæf tə]: перед to звук [v] оглушується. morning person — наголос на MORning.
-> uk: Мушу сказати, що я не дуже ранкова людина.
+> uk: Мушу визнати, що я не жайворонок.
 
 ## Типові помилки українців
 
@@ -481,7 +481,7 @@ estimatedMinutes: 50
 > borrow me // ✗
 > ```
 >
-> **Пояснення:** *I don't suppose you could…?* — заперечне питання для прохання. *Lend* — давати в борг, *borrow* — брати; ~~*borrow me*~~ — типова помилка.
+> **Пояснення:** *I don't suppose you could…?* — заперечне питання для прохання. *Lend* — позичати комусь (давати), *borrow* — позичати в когось (брати); ~~*borrow me*~~ — типова помилка.
 
 > [!quiz] Як найкраще відмовити клієнтові, який просить знижку 50 %?
 > level: C1 · id: en-c1-distancing-q07

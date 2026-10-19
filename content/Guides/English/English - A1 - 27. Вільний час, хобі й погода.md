@@ -30,7 +30,7 @@ estimatedMinutes: 40
 
 ## Хобі й спорт: play, go чи do
 
-Англійці розкладають заняття на три «кошики» — і для кожного своє дієслово:
+В англійській заняття розкладають на три «кошики» — і для кожного своє дієслово:
 
 | Дієслово | З чим | Приклади |
 |---|---|---|
@@ -90,11 +90,11 @@ estimatedMinutes: 40
 
 Не плутай: ***I like** swimming* — мені подобається плавати (взагалі). ***I'd like** to swim* — я б хотів поплавати (зараз, конкретно).
 
-Після *like, love, hate* можна також *to*: *I like to swim*. На A1 спокійно тримайся *-ing* — так звучить найприродніше в британській.
+Після *like, love, hate* можна також *to*: *I like to swim*. На A1 спокійно тримайся *-ing* — так звучить найприродніше в британському варіанті.
 
 ## Погода
 
-Українською «Холодно», «Іде дощ» — без підмета. Англійське речення без підмета не живе, тому про погоду завжди кажемо ***it***:
+Українською «Холодно», «Іде дощ» — без підмета. Англійське речення без підмета не буває, тому про погоду завжди кажемо ***it***:
 
 | Питання / відповідь | Українською |
 |---|---|
@@ -186,8 +186,8 @@ estimatedMinutes: 40
 
 > [!word] go shopping
 > ipa: /ɡəʊ ˈʃɒpɪŋ/ · ipa-us: /ɡoʊ ˈʃɑːpɪŋ/ · pos: phrase · level: A1 · id: en-a1-free-time-w11
-> uk: ходити по магазинах; на шопінг
-> example: I hate **going shopping** on Saturdays. — Ненавиджу ходити по магазинах у суботу.
+> uk: ходити по магазинах; ходити на шопінг
+> example: I hate **going shopping** on Saturdays. — Ненавиджу ходити по магазинах у суботи.
 > note: купувати продукти — *do the shopping*.
 
 > [!word] go camping
@@ -332,7 +332,7 @@ estimatedMinutes: 40
 > ipa: /ˈɔːtəm/ · pos: noun · level: A1 · id: en-a1-free-time-w37
 > uk: осінь
 > example: It often rains in **autumn**. — Восени часто дощить.
-> note: *n* у кінці німа: «О-тəм». У США — *fall*.
+> note: *n* у кінці не читається: «О-тəм». У США — *fall*.
 
 > [!word] winter
 > ipa: /ˈwɪntə/ · ipa-us: /ˈwɪntər/ · pos: noun · level: A1 · id: en-a1-free-time-w38
@@ -355,11 +355,11 @@ estimatedMinutes: 40
 > - [x] It's cloudy and windy today.
 > - [ ] It's cloudy and rainy today.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-free-time-l03
 > audio: I don't mind cooking.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-free-time-l04
 > audio: What's the weather like in Lviv?
 
@@ -402,13 +402,13 @@ estimatedMinutes: 40
 > Ігри — просто ***play*** + назва: *play football, play tennis, play chess*. Без *in* і без *the*. *The* — лише з інструментами: *play the guitar*.
 
 > [!pitfall] «Is cold», «Raining» — речення без it
-> Українське «Холодно. Іде дощ» англійською потребує підмета-пустушки ***it***: ***It's** cold. **It's** raining.* Без *it* речення неповне.
+> Українське «Холодно. Іде дощ» англійською потребує формального підмета ***it***: ***It's** cold. **It's** raining.* Без *it* речення неповне.
 
 > [!pitfall] «I like swim», «I enjoy to cook»
 > Після *like, love, hate, enjoy, don't mind* про заняття — ***-ing***: *I like swimm**ing**. I enjoy cook**ing**.* Після *enjoy* *to* не буває взагалі.
 
 > [!pitfall] «It's very fun» чи «It's very funny»?
-> *Fun* — весело, цікаво проводити час: *The party was great fun.* *Funny* — смішно: *a funny joke*. «Похід був дуже кумедний» — дивно; «дуже веселий» — *great fun*.
+> *Fun* — весело, цікаво проводити час: *The party was great fun.* *Funny* — смішно: *a funny joke*. Про похід *It was very funny* означає «було кумедно, смішно» — звучить дивно. «Було дуже весело» — *It was great fun*.
 
 ## Ситуація: плани на вихідні
 
@@ -425,7 +425,7 @@ estimatedMinutes: 40
 
 Тепер ти — B. Скажи вголос:
 
-> [!speak] «Я обожнюю кататися на велосипеді».
+> [!speak] «Я обожнюю кататися на велосипеді на вихідних».
 > level: A1 · id: en-a1-free-time-s05
 > text: I love going cycling at the weekend.
 > ipa: /aɪ ˈlʌv ˈɡəʊɪŋ ˈsaɪklɪŋ ət ðə ˌwiːkˈend/
@@ -435,7 +435,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-free-time-s06
 > text: Let's go for a walk in the park.
 > ipa: /lets ɡəʊ fər ə ˈwɔːk ɪn ðə ˈpɑːk/
-> tip: *walk* — «вок», *l* німа. *Park* — довге /ɑː/: «пак», без «р».
+> tip: *walk* — «вок», *l* не читається. *Park* — довге /ɑː/: «пак», без «р».
 
 ## Практика
 
@@ -528,10 +528,10 @@ estimatedMinutes: 40
 > Слово *soccer* — британський студентський сленг 1880-х від *Association football*: *assoc* → *soccer*. Британія повернулася до *football*, а в США прижилося *soccer*.
 
 > [!reel] ☁️ Погода — головна тема small talk
-> Не знаєш, як почати розмову з британцем? *Lovely weather, isn't it?* або *Freezing today!* Погода — безпечна тема, яка зближує незнайомців у черзі, ліфті, на зупинці.
+> Не знаєш, як почати розмову з британцем? *Lovely weather, isn't it?* або *Freezing today!* Погода — безпечна тема, яка зближує незнайомців у черзі, у ліфті, на зупинці.
 
 > [!reel] 🌡️ Сімдесят градусів — це тепло
-> У США температуру міряють за Фаренгейтом. *It's seventy degrees* — це близько +21 °C, приємна погода. А +100 °F — уже спека майже +38 °C.
+> У США температуру міряють за Фаренгейтом. *It's seventy degrees* — це близько +21 °C, приємна погода. А 100 °F — це вже спека, майже +38 °C.
 
 ## Джерела та що почитати
 

@@ -26,7 +26,7 @@ estimatedMinutes: 35
 > - [ ] I were at home yesterday.
 > - [ ] I at home yesterday.
 >
-> **Пояснення:** минуле від *am* — **was**. Без дієслова англійське речення не існує навіть у минулому, тому «я вдома вчора» без *was* — помилка.
+> **Пояснення:** минуле від *am* — **was**. Англійське речення не обходиться без дієслова навіть у минулому, тому *I at home yesterday* — помилка.
 
 ## Простими словами
 
@@ -35,7 +35,7 @@ estimatedMinutes: 35
 - де було **am** або **is** → тепер **was**;
 - де було **are** → тепер **were**.
 
-Українське «був / була / було / були» змінюється за родом і числом. Англійському *was* байдуже, хто ти — він, вона чи воно: *He was tired. She was tired. It was tired.* Важить лише одне — **одна особа (крім you) чи кілька**.
+Українське «був / була / було / були» змінюється за родом і числом. Англійському *was* байдуже, хто це — він, вона чи воно: *He was tired. She was tired. It was late.* Важить лише одне — **одна особа (крім you) чи кілька**.
 
 > [!diagram] Теперішнє → минуле: am, is, are → was, were
 > ```yaml
@@ -222,7 +222,7 @@ estimatedMinutes: 35
 > [!word] noisy
 > ipa: /ˈnɔɪ.zi/ · pos: adj · level: A2 · id: en-a2-was-were-w12
 > uk: галасливий, шумний
-> example: Our hotel room **was** very **noisy**. — Наш номер у готелі був дуже галасливий.
+> example: Our hotel room **was** very **noisy**. — У нашому номері в готелі було дуже шумно.
 
 ## Слухаємо
 
@@ -240,11 +240,11 @@ estimatedMinutes: 35
 > - [x] Were they at the party?
 > - [ ] Are they at the party?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-was-were-l03
 > audio: We were in London last week.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-was-were-l04
 > audio: There wasn't a cloud in the sky.
 
@@ -294,7 +294,7 @@ estimatedMinutes: 35
 > level: A2 · id: en-a2-was-were-s04
 > text: They weren't very happy.
 > ipa: /ðeɪ ˈwɜːnt ˈver.i ˈhæp.i/
-> tip: weren't — один склад /wɜːnt/, звук як у word, bird. «R» у британській вимові не читається.
+> tip: weren't — один склад /wɜːnt/, звук як у word, bird. «R» у британській вимові не вимовляють.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-was-were-s05

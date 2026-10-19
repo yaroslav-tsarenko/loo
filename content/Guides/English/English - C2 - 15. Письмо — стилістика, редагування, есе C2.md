@@ -51,7 +51,7 @@ estimatedMinutes: 95
 > columns: { b8: "Band 8 — дуже добре", b9: "Band 9 — бездоганно" }
 > nodes:
 >   - { id: t8, col: b8, label: "Task Response", text: "позиція чітка й добре розвинена", note: "ідеї розгорнуті; можливі поодинокі прогалини", tone: blue }
->   - { id: t9, col: b9, label: "Task Response", text: "питання досліджено в глибину", note: "позиція повністю розгорнута; прогалини — вкрай рідко", tone: green }
+>   - { id: t9, col: b9, label: "Task Response", text: "тему завдання досліджено вглиб", note: "позиція повністю розгорнута; прогалини — вкрай рідко", tone: green }
 >   - { id: c8, col: b8, label: "Coherence & Cohesion", text: "логіка легко простежується", note: "звʼязність добре керована; трапляються збої", tone: blue }
 >   - { id: c9, col: b9, label: "Coherence & Cohesion", text: "текст читається без жодних зусиль", note: "засоби звʼязності майже не привертають уваги", tone: green }
 >   - { id: l8, col: b8, label: "Lexical Resource", text: "широкий запас, точні значення", note: "поодинокі неточності у виборі слова чи колокації", tone: blue }
@@ -105,7 +105,7 @@ estimatedMinutes: 95
 | *completely unanimous* | одностайність не буває частковою | *unanimous* |
 
 > [!tip] Тест «що втратить читач?»
-> Закресли слово чи фразу й перечитай. Якщо зміст і тон не змінилися — це був **баласт** (*padding, dead wood*). Перший чернетковий абзац зазвичай можна скоротити на чверть. Блез Паскаль в одному з «Листів до провінціала» (1656–1657) вибачався, що лист вийшов довгим, бо не мав часу написати коротше: стислість — це **робота**, а не дар.
+> Закресли слово чи фразу й перечитай. Якщо зміст і тон не змінилися — це був **баласт** (*padding, dead wood*). Абзац першої чернетки зазвичай можна скоротити на чверть. Блез Паскаль в одному з «Листів до провінціала» (1656–1657) вибачався, що лист вийшов довгим, бо не мав часу написати коротше: стислість — це **робота**, а не дар.
 
 ### 2. Ритм: довге, коротке, і що стоїть у кінці
 
@@ -130,7 +130,7 @@ estimatedMinutes: 95
 > [!warning] Not only… but also, either… or, both… and — стоять перед однаковими частинами
 > Парні сполучники мають стояти **безпосередньо** перед однорідними членами: *either **by** train **or by** bus*, а не ~~*either by train or bus*~~ у формальному письмі. Найчастіша помилка — *not only* перед дієсловом, а *but also* перед іменником.
 
-**Трійка** (*tricolon*) — три паралельні елементи, часто з наростанням — один із найсильніших ритмічних прийомів англійської риторики: *To mend something is to say that it was worth the trouble. To throw it away is to say that it was not. To leave it in the drawer is to say nothing at all.*
+**Тріада** (*tricolon*) — три паралельні елементи, часто з наростанням — один із найсильніших ритмічних прийомів англійської риторики: *To mend something is to say that it was worth the trouble. To throw it away is to say that it was not. To leave it in the drawer is to say nothing at all.*
 
 ### 4. Невидима звʼязність
 
@@ -158,7 +158,7 @@ Band 9 описують так: засоби звʼязності вживают
 >   - { move: { from: s1, to: s2, value: "That decision" }, note: "That decision — підхоплює кінець попереднього речення. Жодного However на початку не потрібно: звʼязок уже є." }
 >   - { move: { from: s2, to: s3, value: "information" }, note: "Слово information з кінця речення 2 стає темою речення 3. Читач рухається без зусиль." }
 >   - { move: { from: s3, to: s4, value: "signals" }, note: "Приклади вводять нове поняття — signals. For example не потрібне: конкретика сама показує, що це ілюстрація." }
->   - { move: { from: s4, to: s5, value: "Such signals" }, note: "Such signals — знову відоме на початку. Ланцюжок замкнувся на висновку. П'ять речень — і жодного Moreover." }
+>   - { move: { from: s4, to: s5, value: "Such signals" }, note: "Such signals — знову відоме на початку. Ланцюжок замкнувся на висновку. Пʼять речень — і жодного Moreover." }
 > ```
 
 > [!warning] «Elegant variation»: не міняй термін без потреби
@@ -170,13 +170,13 @@ Band 9 описують так: засоби звʼязності вживают
 > ```yaml
 > layout: flow
 > nodes:
->   - { id: idea, label: "1. ідея", text: "чи відповідає текст на питання?", note: "теза, позиція, жодної частини не пропущено", tone: red, icon: "px:target" }
+>   - { id: idea, label: "1. ідея", text: "чи відповідає текст на завдання?", note: "теза, позиція, жодної частини не пропущено", tone: red, icon: "px:target" }
 >   - { id: struct, label: "2. структура", text: "чи рухається аргумент?", note: "кожен абзац — новий крок", tone: orange }
 >   - { id: para, label: "3. абзац", text: "одна думка, розвинена до кінця", note: "твердження → пояснення → доказ → наслідок", tone: yellow }
 >   - { id: sent, label: "4. речення", text: "ритм, паралелізм, відоме → нове", note: "скорочення на 20–30 %", tone: blue }
 >   - { id: word, label: "5. слово і кома", text: "точність, колокації, коректура", note: "артиклі, узгодження, пунктуація", tone: green, icon: "px:check" }
 > steps:
->   - { focus: idea, note: "Почни з найбільшого: якщо есей відповідає не на те питання, шліфувати речення марно. Перечитай завдання й тезу." }
+>   - { focus: idea, note: "Почни з найбільшого: якщо есей відповідає не на те запитання, шліфувати речення марно. Перечитай завдання й тезу." }
 >   - { focus: struct, note: "Чи кожен абзац рухає думку вперед, чи деякі просто стоять поруч? Переставити абзац — дешевше, ніж переписати." }
 >   - { focus: para, note: "Кожен абзац — одна ідея, розгорнута до кінця. Якщо ідея лише названа — розвинь або викресли." }
 >   - { focus: sent, note: "Тепер речення: виріж баласт, вирівняй паралелізм, переклади нове в кінець, перемішай довгі й короткі." }
@@ -230,7 +230,7 @@ Band 9 описують так: засоби звʼязності вживают
 
 - *Cut every word that does not earn its place.* — Викресли кожне слово, яке не заробляє свого місця.
 - *The first draft is for you; the second is for the reader.* — Перша чернетка — для тебе, друга — для читача.
-- *Her prose is lucid, economical and quietly ironic.* — Її проза ясна, економна й тихо іронічна.
+- *Her prose is lucid, economical and quietly ironic.* — Її проза ясна, стисла й тихо іронічна.
 - *The argument is sound, but the paragraph is padded with clichés.* — Аргумент слушний, але абзац набитий кліше.
 - *Try reading the sentence aloud: if you run out of breath, split it.* — Прочитай речення вголос: якщо забракло дихання — розбий його.
 - *The report needs tightening rather than rewriting.* — Звіт треба не переписувати, а стиснути.
@@ -382,7 +382,7 @@ Band 9 описують так: засоби звʼязності вживают
 > [!word] felicitous
 > ipa: /fəˈlɪsɪtəs/ · pos: adj · level: C2 · id: en-c2-style-w23
 > uk: влучний, вдалий (про слово, вираз)
-> example: "Expensive anachronism" is a **felicitous** phrase. — «Дороговартісний анахронізм» — влучний вираз.
+> example: "Expensive anachronism" is a **felicitous** phrase. — «Дорогий анахронізм» — влучний вираз.
 > note: книжне. Протилежне — *infelicitous* (невдалий, недоречний).
 
 > [!word] incisive
@@ -433,7 +433,7 @@ Band 9 описують так: засоби звʼязності вживают
 > - [ ] The proposal is cheap, quickly implemented and it is easy to reverse if it fails.
 > - [ ] The proposal is cheap, quick to implement and easily reversed if it fails.
 >
-> **Пояснення:** почуте речення — зразок паралелізму: три прикметники (*cheap, quick, easy*), два з них з інфінітивом. Другий варіант ламає паралель (*quickly implemented… it is easy*), третій — граматично можливий, але не той, що прозвучав.
+> **Пояснення:** речення, яке прозвучало, — зразок паралелізму: три прикметники (*cheap, quick, easy*), два з них з інфінітивом. Другий варіант ламає паралель (*quickly implemented… it is easy*), третій — граматично можливий, але не той, що прозвучав.
 
 > [!listen] Яка головна порада редактора?
 > level: C2 · type: answer · id: en-c2-style-l02
@@ -470,7 +470,7 @@ Band 9 описують так: засоби звʼязності вживают
 > «Повернутися назад», «повторити знову», «спільна співпраця», «вільна вакансія» — в українській часто непомітні. Англійською *return back*, *repeat again*, *mutual cooperation*, *past experience* екзаменатор бачить як **надлишковість** — мінус у Lexical Resource. Перевіряй: чи не містить дієслово чи іменник уже того, що ти додаєш.
 
 > [!pitfall] Кома перед «that» і «because»
-> Українська вимагає коми перед «що», «який», «тому що». Англійська — **ні**: ~~*I believe, that languages matter.*~~ → *I believe that languages matter.*; ~~*the tools, that we use*~~ → *the tools that we use* (обмежувальне підрядне — без коми). Кома змінює зміст: *the students, who failed* = усі студенти провалили; *the students who failed* = лише ті, що провалили.
+> Українська вимагає коми перед «що», «який», «тому що». Англійська — **ні**: ~~*I believe, that languages matter.*~~ → *I believe that languages matter.*; ~~*the tools, that we use*~~ → *the tools that we use* (обмежувальне підрядне — без коми). Кома змінює зміст: *the students, who failed* = усі студенти провалилися; *the students who failed* = лише ті, хто провалився.
 
 > [!pitfall] «Firstly… Secondly… Moreover…» на кожному кроці
 > Шкільні шаблони вчать починати кожне речення зі звʼязки. Для Band 7 це ще працює, для Band 9 — **заважає**: дескриптори 9 описують звʼязність, яка майже не привертає уваги. Заміни частину звʼязок на референцію (*this assumption, such signals*) і порядок «відоме → нове».
@@ -484,7 +484,7 @@ Band 9 описують так: засоби звʼязності вживают
 > - [x] Far from making language learning pointless, machine translation has exposed what was always its real value: understanding people rather than merely exchanging information.
 > - [ ] In this essay, I will discuss the advantages and disadvantages of machine translation and then give my opinion.
 >
-> **Пояснення:** Band 9 — **повністю розвинена позиція**, що прямо відповідає на питання. Варіант 1 — позиції немає; 2 — чітка, але пласка й навряд чи захищена на Band 9; 4 — анонс структури замість позиції. Третій — конкретна, нюансована теза, яку есей далі доводить.
+> **Пояснення:** Band 9 — **повністю розвинена позиція**, що прямо відповідає на запитання. Варіант 1 — позиції немає; 2 — чітка, але пласка й навряд чи захищена на Band 9; 4 — анонс структури замість позиції. Третій — конкретна, нюансована теза, яку есей далі доводить.
 
 > [!quiz] IELTS Task 2 · Що найбільше тримає **третій абзац** Відповіді A на Band 8 за Task Response?
 > level: C2 · id: en-c2-style-q03
@@ -520,7 +520,7 @@ Band 9 описують так: засоби звʼязності вживают
 > - [x] Machine translation, then, has not made language learning obsolete so much as clarified its purpose.
 > - [ ] In conclusion, I strongly believe that technology will replace all teachers in the near future.
 >
-> **Пояснення:** Band 9 висновок **уточнює** тезу, а не повторює її: *not obsolete so much as clarified its purpose*. Варіант 1 — відмова від позиції; 2 — повтор з *as I mentioned above*; 4 — нова, не доведена думка (і не про те питання).
+> **Пояснення:** Band 9 висновок **уточнює** тезу, а не повторює її: *not obsolete so much as clarified its purpose*. Варіант 1 — відмова від позиції; 2 — повтор з *as I mentioned above*; 4 — нова, не доведена думка (і не на тему завдання).
 
 > [!quiz] IELTS Task 2 · Що з цього **не** допоможе піднятися з Band 8 до Band 9? Обери всі.
 > level: C2 · type: multi · id: en-c2-style-q07
@@ -623,7 +623,7 @@ Band 9 описують так: засоби звʼязності вживают
 > - [x] Many people assume that translation apps are neutral, but the tools that we use every day shape what we notice.
 > - [ ] Many people assume, that translation apps are neutral but, the tools we use shape what we notice.
 >
-> **Пояснення:** без коми перед *that* (і в додатковому, і в обмежувальному означальному підрядному); кома — перед *but*, що зʼєднує два незалежні речення. Українська кома перед «що» — найчастіша пунктуаційна калька у есеях українців.
+> **Пояснення:** без коми перед *that* (і в додатковому, і в обмежувальному означальному підрядному); кома — перед *but*, що зʼєднує два незалежні речення. Українська кома перед «що» — найчастіша пунктуаційна калька в есеях українців.
 
 > [!quiz] Стиль · Що з цього — **elegant variation**, яку варто прибрати з аргументативного есею?
 > level: C2 · id: en-c2-style-q16
@@ -667,7 +667,7 @@ Band 9 описують так: засоби звʼязності вживают
 > Блез Паскаль закінчив один із «Листів до провінціала» (1656–1657) вибаченням: лист вийшов довшим за звичайний, бо в автора не було часу зробити його коротшим. Стислість — це не талант, а додатковий етап роботи.
 
 > [!reel] 📏 Шість правил Орвелла
-> У есеї «Politics and the English Language» (1946) Джордж Орвелл дав шість правил: без заїжджених метафор, короткі слова, викреслювати зайве, активний стан, без жаргону — і порушити будь-яке, щоб не написати щось незграбне. Останнє правило — найважливіше.
+> В есеї «Politics and the English Language» (1946) Джордж Орвелл дав шість правил: без заїжджених метафор, короткі слова, викреслювати зайве, активний стан, без жаргону — і порушити будь-яке, щоб не написати щось незграбне. Останнє правило — найважливіше.
 
 > [!reel] 🎯 Task 2 важить удвічі більше
 > У IELTS Writing есей (Task 2) впливає на бал за письмо вдвічі сильніше, ніж Task 1. Тому 40 хвилин на есей — не порада, а стратегія: не віддавай йому менше часу.

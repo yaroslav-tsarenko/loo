@@ -33,7 +33,7 @@ estimatedMinutes: 45
 
 ### Три блоки теми: проблема, причина, рішення
 
-Майже кожна розмова чи есе про довкілля будується однаково: **проблема** (*air pollution*) → **причина** (*too many cars*) → **наслідок** (*health problems*) → **рішення** (*better public transport*). Якщо в тебе є слова для кожного блоку, ти можеш говорити на цю тему 2 хвилини — саме стільки триває монолог IELTS Speaking Part 2.
+Майже кожна розмова чи есе про довкілля будується однаково: **проблема** (*air pollution*) → **причина** (*too many cars*) → **наслідок** (*health problems*) → **рішення** (*better public transport*). Якщо в тебе є слова для кожного блоку, ти зможеш говорити на цю тему дві хвилини — саме стільки триває монолог IELTS Speaking Part 2.
 
 > [!diagram] Ланцюжок: від причини до рішення
 > ```yaml
@@ -46,9 +46,9 @@ estimatedMinutes: 45
 > steps:
 >   - { focus: cause, note: "Причина: ми спалюємо викопне паливо — fossil fuels (вугілля, нафту, газ) — для електрики й транспорту." }
 >   - { move: { from: cause, to: gas, value: "CO₂" }, note: "Від цього в повітрі більшає парникових газів — greenhouse gases. Вони затримують тепло, як скло в теплиці." }
->   - { move: { from: gas, to: effect, value: "+1.5°C" }, note: "Наслідок — глобальне потепління: частіші повені (floods), посухи (droughts) і спека (heatwaves)." }
->   - { move: { from: effect, to: fix, value: "?" }, note: "Рішення: відновлювана енергія — renewable energy. Сонячні панелі й вітрові електростанції не дають CO₂." }
->   - { focus: [cause, fix], note: "Саме так будуй абзац есе: cause → effect → solution. Звʼязки: because of, as a result, one solution is…" }
+>   - { move: { from: gas, to: effect, value: "+1.5°C" }, note: "Наслідок — глобальне потепління: частіші повені (floods), посухи (droughts) і хвилі спеки (heatwaves)." }
+>   - { move: { from: effect, to: fix, value: "?" }, note: "Рішення: відновлювана енергія — renewable energy. Сонячні панелі й вітрові електростанції не викидають CO₂." }
+>   - { focus: [cause, fix], note: "Саме так будуй абзац есе: cause → effect → solution. Звʼязувальні слова: because of, as a result, one solution is…" }
 > ```
 
 ### Сполучення, які звучать «по-англійськи»
@@ -66,14 +66,14 @@ estimatedMinutes: 45
 
 ### Граматика в контексті: якщо… то…
 
-Про довкілля часто говорять через **перший умовний** (реальна ситуація в майбутньому) — це сильний аргумент в есе:
+Про довкілля часто говорять за допомогою **першого умовного** (реальна ситуація в майбутньому) — це сильний аргумент в есе:
 
 - *If we **don't reduce** emissions, sea levels **will rise**.* — Якщо ми не зменшимо викиди, рівень моря підніметься.
 - *If more people **use** public transport, the air **will be** cleaner.* — Якщо більше людей їздитиме громадським транспортом, повітря буде чистішим.
 
 Після *if* — **Present Simple**, без *will* (*If we don't…*, а не «If we won't…»). Детально — у темі B1-10.
 
-> [!tip] Слова-родини: вчи по три
+> [!tip] Родини слів: вчи по три
 > **pollute** (дієслово) → **pollution** (іменник) → **polluted** (прикметник): *Factories **pollute** rivers. — Air **pollution** is a big problem. — The river is **polluted**.* Так само: *protect → protection*, *recycle → recycling → recycled*. В IELTS це прямо оцінюється: Lexical Resource — «наскільки різноманітна лексика».
 
 ## Приклади
@@ -102,7 +102,7 @@ estimatedMinutes: 45
 > [!word] climate
 > ipa: /ˈklaɪmət/ · pos: noun · level: B1 · id: en-b1-environment-w02
 > uk: клімат
-> example: Ukraine has a mild **climate**. — В Україні помірний клімат.
+> example: Ukraine has a temperate **climate**. — В Україні помірний клімат.
 > note: вимова [КЛАЙ-мет], не «клі-мат».
 
 > [!word] climate change
@@ -165,7 +165,7 @@ estimatedMinutes: 45
 > ipa: /draʊt/ · pos: noun · level: B1 · id: en-b1-environment-w13
 > uk: посуха
 > example: There was no rain for months — it was a terrible **drought**. — Місяцями не було дощу — страшна посуха.
-> note: вимова [драут], *gh* — німе.
+> note: вимова [драут], *gh* не читається.
 
 > [!word] heatwave
 > ipa: /ˈhiːtweɪv/ · pos: noun · level: B1 · id: en-b1-environment-w14
@@ -206,13 +206,13 @@ estimatedMinutes: 45
 > ipa: /ˈrʌbɪʃ/ · pos: noun · level: B1 · id: en-b1-environment-w20
 > uk: сміття
 > example: Please put your **rubbish** in the bin. — Будь ласка, викинь сміття в смітник.
-> note: UK *rubbish*, US *trash* / *garbage*. У розмові *rubbish* ще й «нісенітниця».
+> note: UK *rubbish*, US *trash* / *garbage*. У розмові *rubbish* означає ще й «нісенітниця».
 
 > [!word] litter
 > ipa: /ˈlɪtə/ · ipa-us: /ˈlɪt̬ər/ · pos: noun · level: B1 · id: en-b1-environment-w21
 > uk: сміття (на вулиці); смітити
 > example: The park was full of **litter** after the concert. — Після концерту парк був повний сміття.
-> note: *litter* — сміття, кинуте де попало; дієслово *to litter* — смітити.
+> note: *litter* — сміття, кинуте абиде; дієслово *to litter* — смітити.
 
 > [!word] landfill
 > ipa: /ˈlændfɪl/ · pos: noun · level: B1 · id: en-b1-environment-w22
@@ -249,7 +249,7 @@ estimatedMinutes: 45
 > ipa: /rɪˈdjuːs/ · ipa-us: /rɪˈduːs/ · pos: verb · level: B1 · id: en-b1-environment-w28
 > uk: зменшувати; скорочувати
 > example: We need to **reduce** the amount of waste we produce. — Нам треба зменшити кількість відходів.
-> note: гасло *Reduce, Reuse, Recycle* — «Менше, повторно, на переробку».
+> note: гасло *Reduce, Reuse, Recycle* — «Скорочуй, використовуй повторно, переробляй».
 
 ### Енергія й рішення
 
@@ -257,7 +257,7 @@ estimatedMinutes: 45
 > ipa: /ˈenədʒi/ · ipa-us: /ˈenərdʒi/ · pos: noun · level: B1 · id: en-b1-environment-w29
 > uk: енергія
 > example: Turn off the lights to save **energy**. — Вимикай світло, щоб заощаджувати енергію.
-> note: наголос на першому: [Е-нерджі], не «е-нер-ГІ-я».
+> note: наголос на першому складі: [Е-неджі], не «е-нер-ГІ-я».
 
 > [!word] renewable
 > ipa: /rɪˈnjuːəbəl/ · ipa-us: /rɪˈnuːəbəl/ · pos: adj · level: B1 · id: en-b1-environment-w30
@@ -277,7 +277,7 @@ estimatedMinutes: 45
 > [!word] sustainable
 > ipa: /səˈsteɪnəbəl/ · pos: adj · level: B1 · id: en-b1-environment-w33
 > uk: сталий; екологічно відповідальний
-> example: We need a more **sustainable** way of life. — Нам потрібен сталіший спосіб життя.
+> example: We need a more **sustainable** way of life. — Нам потрібен екологічніший спосіб життя.
 > note: дуже часте слово в IELTS Task 2: *sustainable energy, sustainable tourism*.
 
 > [!word] eco-friendly
@@ -330,8 +330,8 @@ estimatedMinutes: 45
 
 > [!word] habitat
 > ipa: /ˈhæbɪtæt/ · pos: noun · level: B1 · id: en-b1-environment-w42
-> uk: природне середовище; ареал
-> example: Polar bears are losing their **habitat**. — Білі ведмеді втрачають своє природне середовище.
+> uk: середовище існування; ареал
+> example: Polar bears are losing their **habitat**. — Білі ведмеді втрачають середовище існування.
 
 > [!word] rainforest
 > ipa: /ˈreɪnfɒrɪst/ · ipa-us: /ˈreɪnfɔːrɪst/ · pos: noun · level: B1 · id: en-b1-environment-w43
@@ -368,11 +368,11 @@ estimatedMinutes: 45
 > - [ ] If we won't reduce emissions, sea levels rise.
 > - [ ] If we reduce emissions, sea levels will rise.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-environment-l03
 > audio: Tigers are an endangered species.
 
-> [!listen] Чому фермер хвилюється?
+> [!listen] Чому врожай цього року поганий?
 > level: B1 · type: answer · id: en-b1-environment-l04
 > audio: A: How was the harvest this year?
 > audio: B: Terrible, to be honest. We had no rain for two months — a real drought. And then in September, a storm destroyed half the field.
@@ -386,10 +386,10 @@ estimatedMinutes: 45
 > audio: I'm not perfect, but I try. I cycle to work instead of driving, I always carry a reusable bottle, and we recycle everything at home. I've also cut down on meat — I eat it maybe once a week now.
 > - [ ] їздить на роботу машиною, але переробляє сміття
 > - [ ] повністю відмовилася від мʼяса
-> - [x] їздить велосипедом, носить багаторазову пляшку й їсть менше мʼяса
+> - [x] їздить велосипедом, носить багаторазову пляшку і їсть менше мʼяса
 > - [ ] встановила сонячні панелі
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-environment-l06
 > audio: We need to switch to renewable energy.
 
@@ -426,7 +426,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-environment-s03
 > text: There was a terrible drought last summer.
 > ipa: /ðeə wəz ə ˈterəbəl ˈdraʊt ˌlɑːst ˈsʌmə/
-> tip: drought — [драут], gh німе; was — слабке [wəz].
+> tip: drought — [драут], gh не читається; was — слабке [wəz].
 > uk: Минулого літа була страшна посуха.
 
 > [!speak] Аргумент для дискусії
@@ -440,7 +440,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-environment-s05
 > text: The snow leopard is an endangered species.
 > ipa: /ðə ˈsnəʊ ˌlepəd ɪz ən ɪnˈdeɪndʒəd ˈspiːʃiːz/
-> tip: leopard — [ЛЕ-пед], «о» німа; species — [СПІЙ-шіз].
+> tip: leopard — [ЛЕ-пед], «о» не читається; species — [СПІЙ-шіз].
 > uk: Сніговий барс — вид під загрозою зникнення.
 
 > [!speak] IELTS Part 3 — рішення
@@ -453,7 +453,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «The nature», «environment» без the
-> Українською артиклів немає, тож їх легко переплутати. ***Nature*** як «природа взагалі» — **без** артикля: *I love **nature**.* ***The environment*** — **з** артиклем: *protect **the** environment*. ***The climate***, ***the planet***, ***the ocean*** — теж з *the*.
+> В українській артиклів немає, тож тут легко помилитися. ***Nature*** як «природа взагалі» — **без** артикля: *I love **nature**.* ***The environment*** — **з** артиклем: *protect **the** environment*. ***The climate***, ***the planet***, ***the ocean*** — теж з *the*.
 
 > [!pitfall] «Ecological problems», «ecology is bad»
 > *Ecology* — це **наука** про звʼязки в природі, а не стан довкілля. «Погана екологія в місті» — *The **air is polluted*** або *There's a lot of **pollution***. «Екологічні проблеми» — ***environmental** problems*. «Екологічний продукт» — *eco-friendly* або *organic*.
@@ -480,7 +480,7 @@ estimatedMinutes: 45
 > - [ ] oil
 > - [x] hydropower (water)
 >
-> **Пояснення:** сонце, вітер і вода не закінчуються — це *renewable energy*. Вугілля, нафта й газ — *fossil fuels*: їх запас обмежений, і вони дають *greenhouse gases*.
+> **Пояснення:** сонце, вітер і вода не вичерпуються — це *renewable energy*. Вугілля, нафта й газ — *fossil fuels*: їхні запаси обмежені, і вони дають *greenhouse gases*.
 
 > [!quiz] Заповни колокації
 > level: B1 · type: fill · id: en-b1-environment-q04 · bank: make, defend
@@ -492,7 +492,7 @@ estimatedMinutes: 45
 > We need to [[reduce]] the amount of waste we produce.
 > ```
 
-> [!quiz] Слова-родини: заповни правильну форму
+> [!quiz] Родини слів: заповни правильну форму
 > level: B1 · type: fill · id: en-b1-environment-q05 · bank: polluting
 >
 > ```text fill
@@ -533,7 +533,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *litter* — сміття, недбало кинуте на вулиці, в парку, у воді: пляшки, пакети, обгортки.
 
-> [!quiz] Що протилежне до drought?
+> [!quiz] Яке слово протилежне за значенням до drought?
 > level: B1 · id: en-b1-environment-q09
 > - [ ] heatwave
 > - [ ] storm
@@ -552,7 +552,7 @@ estimatedMinutes: 45
 > - [ ] False
 > - [ ] Not Given
 >
-> **Пояснення:** система діє *since 2019* — від 2019 року, тобто менше десяти років. Це перевіряють арифметикою, а не пошуком однакових слів — типовий прийом IELTS.
+> **Пояснення:** система діє *since 2019* — від 2019 року, тобто менше десяти років. Тут треба порахувати, а не шукати однакові слова, — типовий прийом IELTS.
 
 > [!quiz] IELTS Reading: True, False чи Not Given? (той самий текст)
 > level: B1 · id: en-b1-environment-q11
@@ -587,7 +587,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🌡️ Чому «greenhouse» — теплиця
-> Атмосфера працює як скло теплиці: пропускає сонячне світло всередину, але затримує тепло. Звідси *greenhouse effect* — парниковий ефект. Сам ефект корисний: без нього Земля була б холодною, близько −18°C. Проблема — коли газів забагато.
+> Атмосфера працює як скло теплиці: пропускає сонячне світло всередину, але затримує тепло. Звідси *greenhouse effect* — парниковий ефект. Сам ефект корисний: без нього на Землі було б холодно — близько −18°C. Проблема — коли газів забагато.
 
 > [!reel] 🦣 Мамонтів можна «повернути»?
 > Слово *extinct* означає «назавжди», але генетики вже працюють над «de-extinction» — спробою відродити вимерлі види, зокрема шерстистого мамонта. Поки що це лише експерименти, а вчені сперечаються, чи це взагалі добра ідея.

@@ -110,8 +110,8 @@ estimatedMinutes: 50
 | **a blessing in disguise** | прихована удача, нещастя на краще | «не було б щастя, та нещастя допомогло» |
 | **the tip of the iceberg** | лише верхівка айсберга | дослівно так само |
 | **a drop in the ocean** (UK) / **in the bucket** (US) | крапля в морі | дослівно так само |
-| **a vicious circle** | зачароване коло | «замкнене коло» |
-| **a double-edged sword** | палиця з двома кінцями | образ інший — меч з двома лезами |
+| **a vicious circle** | одна проблема посилює іншу | «замкнене коло» |
+| **a double-edged sword** | і користь, і шкода водночас | «палиця з двома кінцями» (образ інший — дослівно: «двосічний меч») |
 | **a grey area** | сіра зона, неврегульоване питання | дослівно так само |
 
 > [!tip] Коли ідіоми збігаються
@@ -119,7 +119,7 @@ estimatedMinutes: 50
 
 ### Біноміали: порядок слів не змінюється
 
-Біноміал — «заморожена» пара. Переставиш слова — носій почує помилку, як ми почули б «кінці з кінцями зводити… з-кінцями-кінці».
+Біноміал — «заморожена» пара. Переставиш слова — носій почує помилку, як ми почули б «пізно чи рано» замість «рано чи пізно».
 
 | Біноміал | Значення | ❌ |
 |---|---|---|
@@ -186,13 +186,13 @@ estimatedMinutes: 50
 
 ## Приклади
 
-- *Some team members aren't **pulling their weight**, and the rest of us are **on edge**.* — Дехто в команді не робить своєї частини, а решта з нас на взводі.
+- *Some team members aren't **pulling their weight**, and the rest of us are **on edge**.* — Дехто в команді не виконує своєї частини роботи, і решта вже на взводі.
 - *Many families are struggling to **make ends meet**.* — Багато родин ледве зводять кінці з кінцями.
 - *A good laptop doesn't have to **break the bank**.* — Хороший ноутбук не обовʼязково має коштувати шалених грошей.
 - *I finally told my boss how I felt — it was such **a weight off my mind**.* — Я нарешті сказала начальниці, що відчуваю, — наче камінь з плечей.
 - *We caught the last train **in the nick of time**.* — Ми встигли на останній поїзд в останню мить.
 - *Stop **beating about the bush** and tell me what happened.* — Годі ходити околяса, скажи, що сталося.
-- *Most of our customers come through **word of mouth**.* — Більшість наших клієнтів приходить через рекомендації.
+- *Most of our customers come through **word of mouth**.* — Більшість клієнтів приходять до нас за рекомендаціями знайомих.
 - *Losing that job was **a blessing in disguise** — I started my own business.* — Втрата тієї роботи виявилася на краще: я почав власну справу.
 - *The reported cases are just **the tip of the iceberg**.* — Відомі випадки — лише верхівка айсберга.
 - ***By and large**, the new system works well.* — Загалом нова система працює добре.
@@ -219,12 +219,12 @@ estimatedMinutes: 50
 > ipa: /ˌθɪŋk ˌaʊtsaɪd ðə ˈbɒks/ · ipa-us: /ˌθɪŋk ˌaʊtsaɪd ðə ˈbɑːks/ · pos: phrase · level: B2 · id: en-b2-idioms-w03
 > uk: мислити нестандартно, творчо
 > example: To solve this, we'll have to **think outside the box**. — Щоб це розвʼязати, доведеться мислити нестандартно.
-> note: офісне кліше — у Speaking ок, але не зловживай.
+> note: офісне кліше — у Speaking доречне, але не зловживай.
 
 > [!word] get the ball rolling
 > ipa: /ˌɡet ðə ˈbɔːl ˈrəʊlɪŋ/ · ipa-us: /ˌɡet ðə ˈbɔːl ˈroʊlɪŋ/ · pos: phrase · level: B2 · id: en-b2-idioms-w04
 > uk: почати, зрушити справу з місця
-> example: Let me **get the ball rolling** by introducing myself. — Дозвольте почати: я представлюся.
+> example: Let me **get the ball rolling** by introducing myself. — Дозвольте, я почну й спершу представлюся.
 > note: часто на початку зустрічі; синонім — *kick off* (див. тему 21).
 
 > [!word] back to square one
@@ -248,7 +248,7 @@ estimatedMinutes: 50
 > [!word] on the same page
 > ipa: /ɒn ðə ˌseɪm ˈpeɪdʒ/ · ipa-us: /ɑːn ðə ˌseɪm ˈpeɪdʒ/ · pos: phrase · level: B2 · id: en-b2-idioms-w08
 > uk: однаково розуміти ситуацію, бути «на одній хвилі»
-> example: Let's check that we're all **on the same page** before the client call. — Перевірмо, що ми всі однаково розуміємо задачу, перед дзвінком клієнту.
+> example: Let's check that we're all **on the same page** before the client call. — Перед дзвінком клієнтові перевірмо, що всі однаково розуміємо завдання.
 > note: американського походження, тепер скрізь в офісах.
 
 ### Гроші
@@ -280,7 +280,7 @@ estimatedMinutes: 50
 > [!word] pay through the nose
 > ipa: /ˌpeɪ θruː ðə ˈnəʊz/ · ipa-us: /ˌpeɪ θruː ðə ˈnoʊz/ · pos: phrase · level: B2 · id: en-b2-idioms-w13
 > uk: переплатити, заплатити шалені гроші
-> example: We **paid through the nose** for tickets at the last minute. — Ми переплатили купу грошей за квитки в останню хвилину.
+> example: We **paid through the nose** for tickets at the last minute. — Ми купили квитки в останню хвилину й шалено переплатили.
 > note: розмовне; *pay through the nose for sth*.
 
 ### Почуття
@@ -377,7 +377,7 @@ estimatedMinutes: 50
 > [!word] the elephant in the room
 > ipa: /ði ˌelɪfənt ɪn ðə ˈruːm/ · pos: phrase · level: B2 · id: en-b2-idioms-w28
 > uk: очевидна проблема, яку всі ігнорують
-> example: Let's talk about **the elephant in the room**: the budget is too small. — Поговорімо про очевидне, що всі обходять: бюджет замалий.
+> example: Let's talk about **the elephant in the room**: the budget is too small. — Поговорімо про те, що всі старанно обходять: бюджет замалий.
 > note: вводить незручну тему; *to address the elephant in the room*.
 
 > [!word] speak your mind
@@ -408,7 +408,7 @@ estimatedMinutes: 50
 
 > [!word] a vicious circle
 > ipa: /ə ˌvɪʃəs ˈsɜːkəl/ · ipa-us: /ə ˌvɪʃəs ˈsɜːrkəl/ · pos: phrase · level: B2 · id: en-b2-idioms-w33
-> uk: замкнене (зачароване) коло
+> uk: замкнене коло
 > example: Poverty and poor health create **a vicious circle**. — Бідність і погане здоровʼя утворюють замкнене коло.
 > note: доречно в есе Task 2. *Vicious* = злий, жорстокий — не «віціозний».
 
@@ -416,7 +416,7 @@ estimatedMinutes: 50
 > ipa: /ə ˌdʌbəl ˌedʒd ˈsɔːd/ · ipa-us: /ə ˌdʌbəl ˌedʒd ˈsɔːrd/ · pos: phrase · level: B2 · id: en-b2-idioms-w34
 > uk: палиця з двома кінцями
 > example: Social media is **a double-edged sword** for young people. — Соцмережі для молоді — палиця з двома кінцями.
-> note: *sword* — *w* німе: [сорд].
+> note: у *sword* літера *w* не читається: [сорд].
 
 > [!word] a grey area
 > ipa: /ə ˌɡreɪ ˈeəriə/ · ipa-us: /ə ˌɡreɪ ˈeriə/ · pos: phrase · level: B2 · id: en-b2-idioms-w35
@@ -505,8 +505,8 @@ estimatedMinutes: 50
 > [!word] as a matter of fact
 > ipa: /əz ə ˌmætər əv ˈfækt/ · pos: phrase · level: B2 · id: en-b2-idioms-w49
 > uk: насправді, власне кажучи
-> example: "You don't like jazz, do you?" — "**As a matter of fact**, I love it." — «Ти ж не любиш джаз?» — «Власне кажучи, я його обожнюю.»
-> note: часто м'яко заперечує сказане або додає несподіваний факт.
+> example: "You don't like jazz, do you?" — "**As a matter of fact**, I love it." — «Ти ж не любиш джаз?» — «Власне кажучи, я його обожнюю».
+> note: часто мʼяко заперечує сказане або додає несподіваний факт.
 
 ## Слухаємо
 
@@ -517,7 +517,7 @@ estimatedMinutes: 50
 > - [ ] Let's make sure we're all on the same pace before the meeting.
 > - [ ] Let's make sure we're all on this page before the meeting.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-idioms-l02
 > audio: The new system works well by and large.
 
@@ -554,7 +554,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** *back to square one* — усе спочатку; *up in the air* — невирішене; *I don't want to cut corners* — не хочу халтурити, тож варіант 3 — навпаки.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-idioms-l06
 > audio: Sooner or later we will have to tighten our belts.
 
@@ -568,7 +568,7 @@ estimatedMinutes: 50
 > **Tom:** **To be fair**, you'd **pay through the nose** for a flat here too. Look, I won't **beat about the bush** — you're bored here. Everyone can see it. It's **the elephant in the room**.
 > **Oksana:** You've **hit the nail on the head**. OK, I'll sleep on it. Thanks for being honest.
 >
-> Тут вісім ідіом — і жодна не «пришита»: кожна замінює довше пояснення. У реальній розмові 2–3 ідіоми на хвилину — уже багато; не намагайся вставити всі одразу.
+> Тут близько десяти ідіом і сталих виразів — і жоден не «пришитий»: кожна замінює довше пояснення. У реальній розмові 2–3 ідіоми на хвилину — уже багато; не намагайся вставити всі одразу.
 
 ## Вимова
 
@@ -597,7 +597,7 @@ estimatedMinutes: 50
 > level: B2 · id: en-b2-idioms-s04
 > text: I moved to the countryside for some peace and quiet.
 > ipa: /aɪ ˈmuːvd tə ðə ˈkʌntrisaɪd fə səm ˌpiːs ən ˈkwaɪət/
-> tip: quiet — ДВА склади: [КВАЙ-ет]. country — [КАН-трі], не «кантрі» з «о».
+> tip: quiet — ДВА склади: [КВАЙ-ет]. country — [КАН-трі], а не «КОН-трі».
 > uk: Я переїхав за місто заради тиші й спокою.
 
 > [!speak] IELTS Speaking · Part 2: кінець історії
@@ -618,7 +618,7 @@ estimatedMinutes: 50
 > level: B2 · id: en-b2-idioms-s07
 > text: Let's talk about the elephant in the room.
 > ipa: /lets ˈtɔːk əˌbaʊt ði ˈelɪfənt ɪn ðə ˈruːm/
-> tip: the перед голосним — [ðі]: the‿elephant. talk — l німе: [тоок].
+> tip: the перед голосним — [ðі]: the‿elephant. у talk літера l не читається: [тоок].
 > uk: Поговорімо про проблему, яку всі обходять.
 
 > [!speak] Есе: довгострокова перспектива
@@ -637,7 +637,7 @@ estimatedMinutes: 50
 > Ідіома — **заморожена**: не змінюй артиклі, прийменники й слова. *Hit **the** nail on **the** head*, ***the** tip of **the** iceberg*, *in the long **run*** (або *in the long term* — інший вираз, без *run*). Змінювати можна лише присвійний займенник і час дієслова: *pull **their** weight*, *we **were** back to square one*.
 
 > [!pitfall] «Cons and pros», «later or sooner»
-> Біноміали мають сталий порядок. Українською «рано чи пізно» = *sooner or later* — збігається, але «за і проти» — *pros and cons*, а «туди-сюди» не перекладається як ~~there and here~~ — *back and forth*. Переставлені слова звучать для носія так само дивно, як для нас «мʼясо-хліб» замість «хліб і мʼясо».
+> Біноміали мають сталий порядок. Українською «рано чи пізно» = *sooner or later* — збігається, але «за і проти» — *pros and cons*, а «туди-сюди» не перекладається як ~~there and here~~ — *back and forth*. Переставлені слова звучать для носія так само дивно, як для нас «сіль-хліб» замість «хліб-сіль».
 
 > [!pitfall] Ідіоми, «запхані» в есе IELTS
 > *It's raining cats and dogs in the economy, and governments must pay through the nose…* — екзаменатор бачить завчені фрази без відчуття регістру, і бал за *Lexical Resource* **падає**, а не росте. У Task 2 — максимум 1–2 нейтральні сталі вирази (*in the long run, by and large, a vicious circle*), і лише там, де вони точно передають думку.

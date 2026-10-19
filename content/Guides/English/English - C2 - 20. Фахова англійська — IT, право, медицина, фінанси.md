@@ -34,7 +34,7 @@ estimatedMinutes: 70
 
 ## Простими словами
 
-**ESP** (*English for Specific Purposes*) — англійська для конкретної професії. Т. Гатчінсон і А. Вотерс (1987) описали її як підхід, у якому вибір лексики й текстів визначає **потреба учня**: програмістові — баг-репорти й документація, юристові — договори й рішення суду, лікарю — історії хвороб і статті.
+**ESP** (*English for Specific Purposes*) — англійська для конкретної професії. Т. Гатчінсон і А. Вотерс (1987) описали її як підхід, у якому вибір лексики й текстів визначає **потреба учня**: програмістові — баг-репорти й документація, юристові — договори й рішення суду, лікареві — історії хвороб і статті.
 
 Фахова мова має три шари:
 
@@ -107,7 +107,7 @@ estimatedMinutes: 70
 >   - { id: a3, col: us, label: "обвинувач", text: "prosecutor · District Attorney", tone: blue }
 > steps:
 >   - { show: [u1, a1], note: "Позивач: в Англії після реформи цивільного процесу 1999 року — claimant, у США — plaintiff. Відповідач — defendant в обох." }
->   - { show: [u2, a2], note: "В Англії професія поділена: solicitor — радить клієнтів і готує справу. У США attorney (lawyer) робить і те, і те." }
+>   - { show: [u2, a2], note: "В Англії професія поділена: solicitor — консультує клієнтів і готує справу. У США attorney (lawyer) робить і те, і те." }
 >   - { show: [u3, a3], note: "Barrister — адвокат, що виступає в суді. У США державного обвинувача часто називають District Attorney (DA)." }
 > ```
 
@@ -136,7 +136,7 @@ estimatedMinutes: 70
 
 **Баланс компанії** (*balance sheet*): *assets* (активи) = *liabilities* (зобовʼязання) + *equity* (власний капітал). Те саме *liability*, що в праві, — «зобовʼязання», тільки в грошах.
 
-**Звіт про прибутки:** *turnover* (UK) / *revenue* (виручка) → мінус *overheads* (накладні витрати) й інші витрати → *profit*. Окремо — *cash flow* (рух грошових коштів): прибуткова компанія може збанкрутувати через брак «живих» грошей.
+**Звіт про прибутки та збитки:** *turnover* (UK) / *revenue* (виручка) → мінус *overheads* (накладні витрати) й інші витрати → *profit*. Окремо — *cash flow* (рух грошових коштів): прибуткова компанія може збанкрутувати через брак «живих» грошей.
 
 **Ринки:** *shares* (UK) / *stock* (US) — акції, *dividends* — дивіденди, *bonds* — облігації, *yield* — дохідність, *liquidity* — ліквідність. *A bull market* — ринок, що росте; *a bear market* — що падає.
 
@@ -156,13 +156,13 @@ estimatedMinutes: 70
 - *The **outage** lasted three hours and affected millions of users.* — Збій тривав три години й зачепив мільйони користувачів.
 - *The **claimant** is seeking **damages** for **breach** of contract.* — Позивач вимагає компенсації за порушення договору.
 - *The court granted an **injunction** preventing publication.* — Суд заборонив публікацію.
-- *She was **acquitted** of all charges.* — Її виправдали за всіма звинуваченнями.
-- *The GP made a **referral** to a cardiologist.* — Сімейний лікар направив до кардіолога.
+- *She was **acquitted** of all charges.* — Її виправдали за всіма пунктами обвинувачення.
+- *The GP made a **referral** to a cardiologist.* — Сімейний лікар направив пацієнта до кардіолога.
 - *With early treatment, the **prognosis** is good.* — За раннього лікування прогноз добрий.
 - *Pregnancy is a **contraindication** for this drug.* — Вагітність — протипоказання для цього препарату.
-- *The company paid a **dividend** of 20p per share.* — Компанія виплатила дивіденди 20 пенсів на акцію.
+- *The company paid a **dividend** of 20p per share.* — Компанія виплатила дивіденди в розмірі 20 пенсів на акцію.
 - *Bond **yields** rose after the announcement.* — Після оголошення дохідність облігацій зросла.
-- *The bank asked for the house as **collateral**.* — Банк попросив будинок як заставу.
+- *The bank asked for the house as **collateral**.* — Банк попросив надати будинок у заставу.
 - *Rising **overheads** are squeezing small businesses.* — Зростання накладних витрат тисне на малий бізнес.
 
 ## Слова
@@ -215,13 +215,13 @@ estimatedMinutes: 70
 > ipa: /ˌteknɪkəl ˈdet/ · pos: noun · level: C2 · id: en-c2-esp-w08
 > uk: технічний борг — ціна швидких, неідеальних рішень у коді
 > example: Quick fixes have left us with a lot of **technical debt**. — Через швидкі латки в нас накопичився великий технічний борг.
-> note: метафора боргу: «відсотки» — повільніша розробка. *Pay down / accumulate technical debt*. *b* у *debt* німе.
+> note: метафора боргу: «відсотки» — повільніша розробка. *Pay down / accumulate technical debt*. *b* у *debt* не читається.
 
 > [!word] scalable
 > ipa: /ˈskeɪləbəl/ · pos: adj · level: C2 · id: en-c2-esp-w09
 > uk: масштабований, що витримує зростання (навантаження, бізнесу)
 > example: We need a **scalable** architecture for millions of users. — Нам потрібна масштабована архітектура для мільйонів користувачів.
-> note: іменник *scalability*. У бізнесі: *a scalable business model* — модель, що росте без пропорційного росту витрат.
+> note: іменник *scalability*. У бізнесі: *a scalable business model* — модель, що зростає без пропорційного зростання витрат.
 
 > [!word] latency
 > ipa: /ˈleɪtənsi/ · pos: noun · level: C2 · id: en-c2-esp-w10
@@ -232,7 +232,7 @@ estimatedMinutes: 70
 > [!word] outage
 > ipa: /ˈaʊtɪdʒ/ · pos: noun · level: C2 · id: en-c2-esp-w11
 > uk: збій, відключення (сервісу, електрики)
-> example: A power **outage** knocked the data centre offline. — Відключення електрики вивело дата-центр з ладу.
+> example: A power **outage** knocked the data centre offline. — Через відключення електрики дата-центр перестав працювати.
 > note: *a power outage* (US) = *a power cut* (UK). *Service outage, network outage*.
 
 > [!word] rollback
@@ -283,12 +283,12 @@ estimatedMinutes: 70
 > ipa: /ˈbærɪstə/ · ipa-us: /ˈbærɪstər/ · pos: noun · level: C2 · id: en-c2-esp-w19
 > uk: баристер — адвокат, що виступає в суді (UK)
 > example: The **barrister** cross-examined the witness. — Адвокат провів перехресний допит свідка.
-> note: Англія й Уельс; у Шотландії — *advocate*. Від *bar* — бар'єр у суді: *be called to the Bar* — отримати право адвокатської практики.
+> note: Англія й Уельс; у Шотландії — *advocate*. Від *bar* — барʼєр у суді: *be called to the Bar* — отримати право адвокатської практики.
 
 > [!word] attorney
 > ipa: /əˈtɜːni/ · ipa-us: /əˈtɜːrni/ · pos: noun · level: C2 · id: en-c2-esp-w20
 > uk: адвокат, юрист (US); уповноважений
-> example: She hired an **attorney** to fight the case. — Вона найняла адвоката, щоб боротися у справі.
+> example: She hired an **attorney** to fight the case. — Вона найняла адвоката, щоб відстоювати свої інтереси в суді.
 > note: US: *attorney (at law) = lawyer*; *District Attorney* — окружний прокурор. UK: *power of attorney* — довіреність.
 
 > [!word] litigation
@@ -319,7 +319,7 @@ estimatedMinutes: 70
 > ipa: /ˈneɡlɪdʒəns/ · pos: noun · level: C2 · id: en-c2-esp-w25
 > uk: недбалість, халатність
 > example: The hospital was sued for medical **negligence**. — На лікарню подали до суду через лікарську недбалість.
-> note: юридично — порушення *duty of care* (обовʼязку дбайливості), що спричинило шкоду. Прикм. *negligent*; не плутай з *negligible* — незначний.
+> note: юридично — порушення *duty of care* (обовʼязку належної обачності), що спричинило шкоду. Прикм. *negligent*; не плутай з *negligible* — незначний.
 
 > [!word] statute
 > ipa: /ˈstætʃuːt/ · pos: noun · level: C2 · id: en-c2-esp-w26
@@ -331,7 +331,7 @@ estimatedMinutes: 70
 > ipa: /ˈpresɪdənt/ · pos: noun · level: C2 · id: en-c2-esp-w27
 > uk: прецедент
 > example: The ruling set an important **precedent**. — Це рішення створило важливий прецедент.
-> note: *set / follow a precedent*; *unprecedented* — безпрецедентний. Вимова як *president*, але з /e/: [ПРЕ-сі-дент].
+> note: *set / follow a precedent*; *unprecedented* — безпрецедентний. Вимова схожа на *president*, але з /s/, а не /z/: [ПРЕ-сі-дент].
 
 > [!word] jurisdiction
 > ipa: /ˌdʒʊərɪsˈdɪkʃən/ · ipa-us: /ˌdʒʊrɪsˈdɪkʃən/ · pos: noun · level: C2 · id: en-c2-esp-w28
@@ -342,7 +342,7 @@ estimatedMinutes: 70
 > [!word] injunction
 > ipa: /ɪnˈdʒʌŋkʃən/ · pos: noun · level: C2 · id: en-c2-esp-w29
 > uk: судова заборона, судовий наказ (зробити чи не робити щось)
-> example: The newspaper was banned by an **injunction** from publishing the story. — Судова заборона не дозволила газеті опублікувати історію.
+> example: The newspaper was banned by an **injunction** from publishing the story. — Судова заборона не дозволила газеті опублікувати матеріал.
 > note: *grant / seek an injunction*. Загальне значення — наказ: *an injunction to keep quiet*.
 
 > [!word] acquit
@@ -375,7 +375,7 @@ estimatedMinutes: 70
 > ipa: /rɪˈfɜːrəl/ · pos: noun · level: C2 · id: en-c2-esp-w34
 > uk: направлення (до спеціаліста)
 > example: My GP gave me a **referral** to a dermatologist. — Сімейний лікар дав мені направлення до дерматолога.
-> note: дієслово *refer sb to sb*. Наголос на другий склад: re-FER-ral, подвоєне *r*.
+> note: дієслово *refer sb to sb*. Наголос на другому складі: re-FER-ral, подвоєне *r*.
 
 > [!word] outpatient
 > ipa: /ˈaʊtpeɪʃənt/ · pos: noun; adj · level: C2 · id: en-c2-esp-w35
@@ -398,7 +398,7 @@ estimatedMinutes: 70
 > [!word] triage
 > ipa: /ˈtriːɑːʒ/ · pos: noun; verb · level: C2 · id: en-c2-esp-w38
 > uk: тріаж, медичне сортування (за терміновістю)
-> example: Patients in A&E are seen in order of **triage**, not arrival. — У відділенні невідкладної допомоги приймають за терміновістю, а не за чергою.
+> example: Patients in A&E are seen in order of **triage**, not arrival. — У відділенні невідкладної допомоги пацієнтів приймають за ступенем терміновості, а не в порядку черги.
 > note: з французького *trier* «сортувати». Переносно: *triage the bug reports* — розсортувати за пріоритетом.
 
 > [!word] comorbidity
@@ -410,8 +410,8 @@ estimatedMinutes: 70
 > [!word] placebo
 > ipa: /pləˈsiːbəʊ/ · ipa-us: /pləˈsiːboʊ/ · pos: noun · level: C2 · id: en-c2-esp-w40
 > uk: плацебо
-> example: Half the participants were given a **placebo**. — Половина учасників отримали плацебо.
-> note: лат. «я сподобаюся». *The placebo effect* — покращення через очікування. *Placebo-controlled trial* — дослідження з контрольною групою на плацебо.
+> example: Half the participants were given a **placebo**. — Половина учасників отримала плацебо.
+> note: лат. «я сподобаюся». *The placebo effect* — покращення через очікування. *Placebo-controlled trial* — плацебо-контрольоване дослідження.
 
 > [!word] remission
 > ipa: /rɪˈmɪʃən/ · pos: noun · level: C2 · id: en-c2-esp-w41
@@ -449,7 +449,7 @@ estimatedMinutes: 70
 > ipa: /ˈekwəti/ · pos: noun · level: C2 · id: en-c2-esp-w46
 > uk: власний капітал; акції (частка власності); справедливість
 > example: The founders sold 20% of their **equity** to investors. — Засновники продали інвесторам 20 % своєї частки.
-> note: *equities* — акції як клас активів; *home equity* — частка житла, вже сплачена. Загальне значення — справедливість: *equity and diversity*. Лат. *aequus* «рівний».
+> note: *equities* — акції як клас активів; *home equity* — частка вартості житла, яку вже виплачено (за іпотекою). Загальне значення — справедливість: *equity and diversity*. Лат. *aequus* «рівний».
 
 > [!word] asset
 > ipa: /ˈæset/ · pos: noun · level: C2 · id: en-c2-esp-w47
@@ -485,7 +485,7 @@ estimatedMinutes: 70
 > ipa: /lɪˈkwɪdəti/ · pos: noun · level: C2 · id: en-c2-esp-w52
 > uk: ліквідність (здатність швидко перетворити активи на гроші)
 > example: The bank faced a **liquidity** crisis. — Банк опинився в кризі ліквідності.
-> note: прикм. *liquid assets* — ліквідні активи (гроші, легко продати). Лат. *liquidus* «рідкий». *Liquidation* — ліквідація компанії.
+> note: прикм. *liquid*: *liquid assets* — ліквідні активи (гроші, легко продати). Лат. *liquidus* «рідкий». *Liquidation* — ліквідація компанії.
 
 > [!word] collateral
 > ipa: /kəˈlætərəl/ · pos: noun · level: C2 · id: en-c2-esp-w53
@@ -544,7 +544,7 @@ estimatedMinutes: 70
 > - [ ] We rolled out the deployment after the outage.
 > - [ ] We rolled back the department after the outrage.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-esp-l02
 > audio: The defendant was acquitted of all charges.
 
@@ -615,14 +615,14 @@ estimatedMinutes: 70
 > level: C2 · id: en-c2-esp-s01
 > text: The latency is too high, so the system isn't scalable.
 > ipa: /ðə ˈleɪtənsi ɪz tuː ˈhaɪ səʊ ðə ˈsɪstəm ˈɪznt ˈskeɪləbəl/
-> tip: LA-ten-cy — [ЛЕЙ-тен-сі], наголос на перший склад; SCA-la-ble — [СКЕЙ-ле-бл].
+> tip: LA-ten-cy — [ЛЕЙ-тен-сі], наголос на першому складі; SCA-la-ble — [СКЕЙ-ле-бл].
 > uk: Затримка надто велика, тож система не масштабується.
 
 > [!speak] Право: позов і компенсація
 > level: C2 · id: en-c2-esp-s02
 > text: The claimant is seeking damages for breach of contract.
 > ipa: /ðə ˈkleɪmənt ɪz ˈsiːkɪŋ ˈdæmɪdʒɪz fə ˈbriːtʃ əv ˈkɒntrækt/
-> tip: DA-ma-ges — [ДЕ-мі-джіз], три склади; breach — довге [iː]: [бріч]. CON-tract (іменник) — наголос на перший склад.
+> tip: DA-ma-ges — [ДЕ-мі-джіз], три склади; breach — довге [iː]: [бріч]. CON-tract (іменник) — наголос на першому складі.
 > uk: Позивач вимагає компенсації за порушення договору.
 
 > [!speak] Право: виправдання
@@ -650,7 +650,7 @@ estimatedMinutes: 70
 > level: C2 · id: en-c2-esp-s06
 > text: In my field, the hardest part isn't the terminology itself but knowing which everyday words have a special meaning.
 > ipa: /ɪn maɪ ˈfiːld ðə ˈhɑːdɪst ˈpɑːt ˈɪznt ðə ˌtɜːmɪˈnɒlədʒi ɪtˈself bət ˈnəʊɪŋ wɪtʃ ˈevrideɪ ˈwɜːdz həv ə ˈspeʃəl ˈmiːnɪŋ/
-> tip: ter-mi-NO-lo-gy — наголос на третій склад; контраст isn't… but — наголос на TERMINOLOGY і EVERYDAY.
+> tip: ter-mi-NO-lo-gy — наголос на третьому складі; контраст isn't… but — наголос на TERMINOLOGY і EVERYDAY.
 > uk: У моїй галузі найважче — не самі терміни, а розуміння, які звичайні слова мають особливе значення.
 
 ## Типові помилки українців
@@ -661,11 +661,11 @@ estimatedMinutes: 70
 > [!pitfall] Хибні друзі фахової мови
 > «Акція» (цінний папір) — *share* (UK) / *stock* (US), а не ~~action~~. «Кредит» (позика) — *loan*; *credit* — кредит у ширшому сенсі, кредитна історія, а в бухгалтерії — кредит рахунку. «Адвокат» — *lawyer, solicitor, barrister, attorney*; *advocate* — так кажуть у Шотландії, а загалом — «прихильник» (*an advocate of reform*). «Поліклініка» — *GP surgery, health centre*; *clinic* у UK — спеціалізований прийом (*a diabetes clinic*). «Консультант» у NHS — старший лікар.
 
-> [!pitfall] Британський і американський варіант у одному тексті
+> [!pitfall] Британський і американський варіант в одному тексті
 > *Solicitor / attorney*, *claimant / plaintiff*, *anaesthetic / anesthetic*, *turnover / revenue*, *shares / stock*, *A&E / ER*, *paracetamol / acetaminophen*, *overheads / overhead*. Змішувати їх в одному документі — ознака неуважності. Обери варіант під аудиторію (британський клієнт, американська компанія) і тримайся його.
 
 > [!pitfall] Жаргон в есе IELTS
-> Есе Task 2 пишуть для освіченого **неспеціаліста**. ~~The SaaS paradigm leverages scalable latency-optimised microservices~~ — набір модних слів, що не відповідає на питання. Терміни вживай, коли вони точніші за загальні слова, і пояснюй їх: *technical debt — the hidden cost of quick fixes*. Band 9 оцінює точність і доречність, а не кількість термінів.
+> Есе Task 2 пишуть для освіченого **неспеціаліста**. ~~The SaaS paradigm leverages scalable latency-optimised microservices~~ — набір модних слів, що не відповідає на запитання. Терміни вживай, коли вони точніші за загальні слова, і пояснюй їх: *technical debt — the hidden cost of quick fixes*. Band 9 оцінює точність і доречність, а не кількість термінів.
 
 ## Практика
 
@@ -834,7 +834,7 @@ estimatedMinutes: 70
 > Placebo латиною — «я сподобаюся» (від placere). Так починався середньовічний текст заупокійної служби, а потім слово стало означати лестощі. Лікарі XVIII ст. назвали так «ліки», які заспокоюють пацієнта, а не лікують.
 
 > [!reel] 🐌 Равлик, що змінив право
-> 1928 р.: шотландка Мей Донох'ю заявила, що в її пляшці імбирного пива були рештки равлика. Справа Donoghue v Stevenson дійшла до Палати лордів (1932) і заклала сучасне поняття negligence — обовʼязок дбати про тих, кому твої дії можуть зашкодити.
+> 1928 р.: шотландка Мей Донохʼю заявила, що в її пляшці імбирного пива були рештки равлика. Справа Donoghue v Stevenson дійшла до Палати лордів (1932) і заклала сучасне поняття negligence — обовʼязок дбати про тих, кому твої дії можуть зашкодити.
 
 ## Джерела та що почитати
 

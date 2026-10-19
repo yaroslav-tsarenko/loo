@@ -127,7 +127,7 @@ estimatedMinutes: 40
 >   - { show: p1, note: "Used to + базова форма — тільки минуле: колись так було, тепер — ні." }
 >   - { show: b1, note: "Be used to — стан «мені це звично». Після to — -ing або іменник: used to working, used to the noise." }
 >   - { show: g1, note: "Get used to — процес «звикаю». Теж -ing або іменник після to." }
->   - { show: [b2, g2], note: "Be / get used to змінюються в будь-якому часі: wasn't used to, will get used to, have got used to." }
+>   - { show: [b2, g2], note: "Be / get used to вживаються в будь-якому часі: wasn't used to, will get used to, have got used to." }
 > ```
 
 > [!warning] Після be / get used to — -ing, не базова форма
@@ -147,12 +147,12 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- I **used to be** really shy, but now I love public speaking. — Раніше я був дуже сором'язливим, а тепер обожнюю виступати.
+- I **used to be** really shy, but now I love public speaking. — Раніше я був дуже соромʼязливим, а тепер обожнюю виступати.
 - **Did** you **use to** have a nickname at school? — У тебе в школі було прізвисько?
-- We **didn't use to** have a car, so we **would** cycle everywhere. — У нас не було машини, тож ми всюди їздили велосипедами.
+- We **didn't use to** have a car, so we **would** cycle everywhere. — У нас не було машини, тож ми всюди їздили на велосипедах.
 - There **used to be** a market here. Now it's a car park. — Колись тут був ринок. Тепер — парковка.
 - On winter evenings my grandma **would** tell us old stories. — Зимовими вечорами бабуся, бувало, розповідала нам старі історії.
-- I'm a nurse, so I'**m used to working** night shifts. — Я медсестра, тож звикла працювати в нічні зміни.
+- I'm a nurse, so I'**m used to working** night shifts. — Я медсестра, тож звикла до нічних змін.
 - It took me a year to **get used to** the British sense of humour. — Мені знадобився рік, щоб звикнути до британського гумору.
 - She **wasn't used to** such spicy food. — Вона не звикла до такої гострої їжі.
 - He **no longer** works here. — Він тут більше не працює.
@@ -234,7 +234,7 @@ estimatedMinutes: 40
 > - [x] I'm not used to getting up so early.
 > - [ ] I'm not getting used to getting up so early.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-used-to-l03
 > audio: We would spend every summer at the seaside.
 > accept: We'd spend every summer at the seaside.
@@ -342,7 +342,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-used-to-q06
 > - [ ] Раніше він рано вставав
 > - [ ] Він давно звик рано починати роботу
-> - [x] Він поступово звикає до ранніх початків
+> - [x] Він поступово звикає рано починати роботу
 > - [ ] Він не любить рано вставати й не збирається звикати
 >
 > **Пояснення:** **get used to** у Continuous — процес звикання, ще триває. «Давно звик» — *I'm used to*.
@@ -356,7 +356,7 @@ estimatedMinutes: 40
 > Don't worry about the new software. You'll soon [[get used to]] it.
 > ```
 >
-> **Пояснення:** вже звичне (стан) — **am used to**; процес звикання в минулому чи майбутньому — **get used to** (після *to take months to*, *will soon*).
+> **Пояснення:** вже звичне (стан) — **am used to**; процес звикання в минулому чи майбутньому — **get used to** (після *it took her months to*, *will soon*).
 
 > [!quiz] Де used to вжито неправильно?
 > level: B1 · id: en-b1-used-to-q08
@@ -454,7 +454,7 @@ estimatedMinutes: 40
 > The youngest child [[adapted]] very quickly.
 > ```
 >
-> **Пояснення:** минула звичка — *used to walk*; після *be used to* — іменник (*the accent*); *adapted* — синонім «швидко звик». *Use to* без *did* у ствердженні не буває, а *get used to* — процес, тоді як у тексті сказано про звичку в минулому.
+> **Пояснення:** минула звичка — *used to walk*; після *be used to* — іменник (*the accent*); *adapted* — «пристосувався», тобто швидко звик. *Use to* без *did* у ствердженні не буває, а *get used to* — процес, тоді як у тексті сказано про звичку в минулому.
 
 > [!tip] IELTS Writing — спробуй сам
 > **Task 2 (есе, 250+ слів).** *Some people say that life was better in the past than it is today. To what extent do you agree or disagree?*

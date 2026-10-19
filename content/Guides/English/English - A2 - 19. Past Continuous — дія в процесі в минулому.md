@@ -128,7 +128,7 @@ estimatedMinutes: 40
 - I **was driving** to work when I **saw** the accident. — Я їхав на роботу, коли побачив аварію.
 - **While** Mum **was cooking**, the kids **were playing** in the garden. — Поки мама готувала, діти гралися в саду.
 - The sun **was shining** and the birds **were singing**. — Світило сонце, співали птахи.
-- She **slipped** while she **was running** for the bus. — Вона послизнулася, коли бігла на автобус.
+- She **slipped** while she **was running** for the bus. — Вона посковзнулася, коли бігла на автобус.
 - I **wasn't listening**, sorry. What did you say? — Вибач, я не слухав. Що ти сказав?
 - **Were** you **working** when I **called**? — Ти працював, коли я дзвонив?
 - He **fell asleep** while he **was watching** TV. — Він заснув, коли дивився телевізор.
@@ -187,7 +187,7 @@ estimatedMinutes: 40
 > ipa: /nɒk/ · ipa-us: /nɑːk/ · pos: verb · level: A2 · id: en-a2-past-continuous-w09
 > uk: стукати
 > example: Someone was **knocking** on the door. — Хтось стукав у двері.
-> note: k на початку німе.
+> note: k на початку не читається.
 
 > [!word] power cut
 > ipa: /ˈpaʊə kʌt/ · ipa-us: /ˈpaʊ.ɚ kʌt/ · pos: noun · level: A2 · id: en-a2-past-continuous-w10
@@ -223,11 +223,11 @@ estimatedMinutes: 40
 > - [ ] I'm not listening.
 > - [ ] I didn't listen.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-continuous-l03
 > audio: It was raining when we left.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-continuous-l04
 > audio: What were you doing at eight o'clock?
 
@@ -287,7 +287,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-past-continuous-s06
 > text: We weren't listening.
 > ipa: /wiː wɜːnt ˈlɪs.ən.ɪŋ/
-> tip: weren't — один склад [wɜːnt]; у listen t німе: [ЛІС-ен].
+> tip: weren't — один склад [wɜːnt]; у listen t не читається: [ЛІС-ен].
 
 ## Типові помилки українців
 
@@ -311,7 +311,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** довга дія (душ) — *was having*; коротка (дзвінок) — *called*. *I* → **was**.
 
-> [!quiz] «Що ви робили о дев'ятій ранку?» — як спитати?
+> [!quiz] «Що ти робив о девʼятій ранку?» — як спитати?
 > level: A2 · id: en-a2-past-continuous-q05
 > - [ ] What you were doing at 9 am?
 > - [ ] What did you doing at 9 am?

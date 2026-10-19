@@ -71,7 +71,7 @@ estimatedMinutes: 40
 | neck — шия | chest — груди | knee — коліно |
 | throat — горло | stomach — живіт, шлунок | ankle — щиколотка |
 | shoulder — плече | back — спина | toe — палець ноги |
-| elbow — лікоть | wrist — зап'ясток | skin — шкіра |
+| elbow — лікоть | wrist — запʼясток | skin — шкіра |
 
 > [!tip] Пальці
 > **Finger** — палець руки, **toe** — палець ноги, **thumb** — великий палець руки. Українське «палець» англійською — три різні слова.
@@ -84,7 +84,7 @@ estimatedMinutes: 40
 | I've got a + **хвороба / симптом** | cold, cough, sore throat, temperature | I've got a **sore throat**. — У мене болить горло. |
 | I've got + **flu** (без *a*) | грип | I've got **flu**. — У мене грип. (US: *the flu*) |
 | My … **hurts** / **hurt** | будь-яка частина тіла | My **back hurts**. My **eyes hurt**. |
-| I've **hurt** my … | травма | I've **hurt** my wrist. — Я травмував зап'ясток. |
+| I've **hurt** my … | травма | I've **hurt** my wrist. — Я травмував запʼясток. |
 | I feel + **прикметник** | самопочуття | I feel **sick / dizzy / tired / better**. |
 | I've got a **pain in** my … | гострий біль у певному місці | I've got a **pain in** my chest. |
 
@@ -102,19 +102,19 @@ estimatedMinutes: 40
 
 ### Поради: should і shouldn't
 
-**Should** + базова форма дієслова — «варто, слід». Це м'яка порада, не наказ:
+**Should** + базова форма дієслова — «варто, слід». Це мʼяка порада, не наказ:
 
 | | Приклад |
 |---|---|
 | + | You **should** drink a lot of water. — Тобі варто пити багато води. |
 | − | You **shouldn't** (should not) go out. — Тобі не варто виходити. |
-| ? | **Should** I take these tablets before meals? — Мені пити ці таблетки до їди? |
+| ? | **Should** I take these tablets before meals? — Мені приймати ці таблетки перед їжею? |
 
 Ніяких *to* після should і ніякого *-s*: *She should rest*, не ~~*She shoulds to rest*~~. Детально про should, must і have to — у [[English - A2 - 17. Must, have to, should — обовʼязок і порада|наступній темі]].
 
 ### Ліки: take, а не drink
 
-Таблетки й ліки англійською **приймають** — **take**: *take a tablet*, *take medicine*, *take two tablets three times a day*. Слово *drink* — лише про воду, чай і сироп, який п'єш із пляшки.
+Таблетки й ліки англійською **приймають** — **take**: *take a tablet*, *take medicine*, *take two tablets three times a day*. Слово *drink* — лише про напої: воду, чай, сік.
 
 > [!quiz] Перевір себе: обери природну пораду
 > level: A2 · type: fill · bank · id: en-a2-health-q03
@@ -134,7 +134,7 @@ estimatedMinutes: 40
 - My **knees hurt** when I go downstairs. — У мене болять коліна, коли я спускаюся сходами.
 - I think I've got **flu** — I've got a **temperature** and a **cough**. — Здається, у мене грип: температура й кашель.
 - I **feel dizzy**. Can I **lie down** for a minute? — У мене паморочиться голова. Можна я на хвилинку ляжу?
-- I'd like to make an **appointment** with Dr Brown. — Я хочу записатися до доктора Брауна.
+- I'd like to make an **appointment** with Dr Brown. — Я хотів би записатися на прийом до доктора Брауна.
 - What are your **symptoms**? — Які у вас симптоми?
 - I'm **allergic** to cats. — У мене алергія на котів.
 - You should **rest** and drink plenty of water. — Вам слід відпочивати й пити багато води.
@@ -175,7 +175,7 @@ estimatedMinutes: 40
 > ipa: /niː/ · pos: noun · level: A2 · id: en-a2-health-w06
 > uk: коліно
 > example: He fell off his bike and hurt his **knee**. — Він упав з велосипеда й забив коліно.
-> note: k на початку німе.
+> note: k на початку не читається.
 
 > [!word] ankle
 > ipa: /ˈæŋ.kəl/ · pos: noun · level: A2 · id: en-a2-health-w07
@@ -184,9 +184,9 @@ estimatedMinutes: 40
 
 > [!word] wrist
 > ipa: /rɪst/ · pos: noun · level: A2 · id: en-a2-health-w08
-> uk: зап'ясток
+> uk: запʼясток
 > example: She wears a watch on her left **wrist**. — Вона носить годинник на лівій руці.
-> note: w на початку німе.
+> note: w на початку не читається.
 
 > [!word] elbow
 > ipa: /ˈel.bəʊ/ · ipa-us: /ˈel.boʊ/ · pos: noun · level: A2 · id: en-a2-health-w09
@@ -235,13 +235,13 @@ estimatedMinutes: 40
 > [!word] cough
 > ipa: /kɒf/ · ipa-us: /kɑːf/ · pos: noun · level: A2 · id: en-a2-health-w17
 > uk: кашель; кашляти
-> example: That's a bad **cough**. You should see a doctor. — Поганий кашель. Тобі варто піти до лікаря.
+> example: That's a bad **cough**. You should see a doctor. — У тебе сильний кашель. Тобі варто піти до лікаря.
 > note: gh читається як [f].
 
 > [!word] flu
 > ipa: /fluː/ · pos: noun · level: A2 · id: en-a2-health-w18
 > uk: грип
-> example: Half of my class is off with **flu**. — Пів класу на лікарняному з грипом.
+> example: Half of my class is off with **flu**. — Половина мого класу хворіє на грип.
 > note: UK — have flu, US — have the flu.
 
 > [!word] temperature
@@ -263,13 +263,13 @@ estimatedMinutes: 40
 
 > [!word] dizzy
 > ipa: /ˈdɪz.i/ · pos: adj · level: A2 · id: en-a2-health-w22
-> uk: у кого паморочиться голова
-> example: I stood up too fast and felt **dizzy**. — Я різко встав, і запаморочилося в голові.
+> uk: із запамороченням; feel dizzy — у когось паморочиться голова
+> example: I stood up too fast and felt **dizzy**. — Я різко встав, і в мене запаморочилася голова.
 
 > [!word] sneeze
 > ipa: /sniːz/ · pos: verb · level: A2 · id: en-a2-health-w23
 > uk: чхати
-> example: I can't stop **sneezing** — I think I'm allergic to something. — Не можу перестати чхати, здається, у мене на щось алергія.
+> example: I can't stop **sneezing** — I think I'm allergic to something. — Не можу перестати чхати — здається, у мене на щось алергія.
 > note: на чхання кажуть Bless you! — Будь здоров!
 
 > [!word] feel sick
@@ -292,13 +292,13 @@ estimatedMinutes: 40
 > [!word] GP
 > ipa: /ˌdʒiː ˈpiː/ · pos: noun · level: A2 · id: en-a2-health-w27
 > uk: сімейний лікар, терапевт (UK)
-> example: You should see your **GP** first. — Спочатку вам варто піти до сімейного лікаря.
+> example: You should see your **GP** first. — Спочатку тобі варто піти до сімейного лікаря.
 > note: від general practitioner; US — family doctor.
 
 > [!word] patient
 > ipa: /ˈpeɪ.ʃənt/ · pos: noun · level: A2 · id: en-a2-health-w28
 > uk: пацієнт
-> example: The doctor has five more **patients** this morning. — Сьогодні зранку в лікаря ще п'ять пацієнтів.
+> example: The doctor has five more **patients** this morning. — Сьогодні зранку в лікаря ще пʼять пацієнтів.
 > note: як прикметник — «терплячий».
 
 > [!word] symptom
@@ -315,7 +315,7 @@ estimatedMinutes: 40
 > [!word] tablet
 > ipa: /ˈtæb.lət/ · pos: noun · level: A2 · id: en-a2-health-w31
 > uk: таблетка; планшет
-> example: Take two **tablets** with water. — Прийміть дві таблетки, запиваючи водою.
+> example: Take two **tablets** with water. — Прийми дві таблетки й запий водою.
 > note: синонім — pill.
 
 > [!word] prescription
@@ -339,28 +339,28 @@ estimatedMinutes: 40
 > [!word] examine
 > ipa: /ɪɡˈzæm.ɪn/ · pos: verb · level: A2 · id: en-a2-health-w35
 > uk: оглядати (пацієнта)
-> example: The doctor **examined** my throat. — Лікар оглянув моє горло.
+> example: The doctor **examined** my throat. — Лікар оглянув мені горло.
 
 > [!word] allergic
 > ipa: /əˈlɜː.dʒɪk/ · ipa-us: /əˈlɝː.dʒɪk/ · pos: adj · level: A2 · id: en-a2-health-w36
 > uk: алергічний; (be allergic to) мати алергію на
 > example: Are you **allergic** to anything? — У вас є на щось алергія?
-> note: наголос на другий склад: а-ЛЕР-джик.
+> note: наголос на другому складі: а-ЛЕР-джик.
 
 > [!word] get better
 > ipa: /ɡet ˈbet.ə/ · ipa-us: /ɡet ˈbet̬.ɚ/ · pos: phrase · level: A2 · id: en-a2-health-w37
-> uk: одужувати, ставати краще
+> uk: одужувати, почуватися краще
 > example: Get well soon! I hope you **get better** quickly. — Одужуй! Сподіваюся, тобі швидко покращає.
 
 > [!word] rest
 > ipa: /rest/ · pos: verb · level: A2 · id: en-a2-health-w38
 > uk: відпочивати; (noun) відпочинок
-> example: You should **rest** for a few days. — Вам треба кілька днів відпочити.
+> example: You should **rest** for a few days. — Тобі треба кілька днів відпочити.
 
 > [!word] healthy
 > ipa: /ˈhel.θi/ · pos: adj · level: A2 · id: en-a2-health-w39
-> uk: здоровий; корисний для здоров'я
-> example: She eats **healthy** food and goes swimming. — Вона харчується здоровою їжею й ходить плавати.
+> uk: здоровий; корисний для здоровʼя
+> example: She eats **healthy** food and goes swimming. — Вона правильно харчується й ходить на плавання.
 
 > [!word] lie down
 > ipa: /laɪ ˈdaʊn/ · pos: phrase · level: A2 · id: en-a2-health-w40
@@ -384,11 +384,11 @@ estimatedMinutes: 40
 > - [ ] I've got a sore throat and a cough.
 > - [ ] I've got a headache and a runny nose.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-health-l03
 > audio: You should stay in bed for two days.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-health-l04
 > audio: Take one tablet three times a day.
 
@@ -433,7 +433,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-health-s01
 > text: I've got a terrible headache.
 > ipa: /aɪv ɡɒt ə ˈter.ə.bəl ˈhed.eɪk/
-> tip: headache — «ГЕД-ейк» з легким видихом /h/, а не «хедейч»: ch тут [k].
+> tip: headache — «ХЕД-ейк» з легким видихом /h/, а не «хедейч»: ch тут [k].
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-health-s02
@@ -445,13 +445,13 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-health-s03
 > text: I'd like to make an appointment, please.
 > ipa: /aɪd laɪk tə meɪk ən əˈpɔɪnt.mənt pliːz/
-> tip: make‿an зливаються: [мей-кен]; наголос appointment — на «POINT».
+> tip: make‿an зливаються: [мей-кен]; в appointment наголос на «POINT».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-health-s04
 > text: How often should I take them?
 > ipa: /haʊ ˈɒf.ən ʃʊd aɪ teɪk ðəm/
-> tip: should — [шуд], l німе; often — зазвичай без [t]: ОФ-ен.
+> tip: should — [шуд], l не читається; often — зазвичай без [t]: ОФ-ен.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-health-s05
@@ -468,10 +468,10 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] recipe — це не рецепт від лікаря
-> «Рецепт на ліки» — **prescription**. **Recipe** — рецепт пирога. А **receipt** /rɪˈsiːt/ (p німе) — чек. *Can I have a receipt?* — у магазині; *You need a prescription* — в аптеці.
+> «Рецепт на ліки» — **prescription**. **Recipe** — рецепт пирога. А **receipt** /rɪˈsiːt/ (p не читається) — чек. *Can I have a receipt?* — у магазині; *You need a prescription* — в аптеці.
 
 > [!pitfall] «My head is ill» і «I drink pills»
-> «Болить голова» — не *My head is ill*, а *I've got a headache* або *My head hurts*. **Ill / sick** — про людину: *I'm ill*. Таблетки не «п'ють», а **приймають**: *take a tablet / take medicine*.
+> «Болить голова» — не *My head is ill*, а *I've got a headache* або *My head hurts*. **Ill / sick** — про людину: *I'm ill*. Таблетки не «пʼють», а **приймають**: *take a tablet / take medicine*.
 
 > [!pitfall] «I have temperature» без артикля
 > Жар — *I've got **a** temperature* (UK) або *I have **a** fever* (US). Без *a* речення звучить як «у мене є температура» — вона є в усіх, навіть у здорових. Так само: *a headache, a cold, a cough, a sore throat*, але *flu* — без *a*.
@@ -515,7 +515,7 @@ estimatedMinutes: 40
 > Speak louder? Sorry, I've got a sore [[throat]].
 > ```
 >
-> **Пояснення:** годинник — на **wrist**; повертати голову — **neck**; підвернути ногу — **ankle**; хрипнути — **throat**.
+> **Пояснення:** годинник — на **wrist**; повертати голову — **neck**; підвернути ногу — **ankle**; болить горло — **throat**.
 
 > [!quiz] Встав hurt / hurts і правильну форму
 > level: A2 · type: fill · id: en-a2-health-q08

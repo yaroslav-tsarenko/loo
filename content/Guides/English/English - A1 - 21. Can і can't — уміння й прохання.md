@@ -95,7 +95,7 @@ estimatedMinutes: 35
 
 ## Can чи can't — як почути різницю
 
-Найбільша пастка — на слух. У ствердженні *can* **слабке й коротке** — /kən/, «кəн», а наголос падає на дієслово. *Can't* завжди **наголошене**, а в британській ще й з довгим /ɑː/.
+Найбільша пастка — на слух. У ствердженні *can* **слабке й коротке** — /kən/, «кəн», а наголос падає на дієслово. *Can't* завжди **наголошене**, а в британській вимові ще й з довгим /ɑː/.
 
 > [!diagram] I can swim чи I can't swim — слухаємо наголос
 > ```yaml
@@ -118,7 +118,7 @@ estimatedMinutes: 35
 
 - I can swim, but I can't dive. — Я вмію плавати, але не вмію пірнати.
 - My grandma can't use a smartphone. — Моя бабуся не вміє користуватися смартфоном.
-- Can you drive? — Yes, I can. — Ти вмієш водити? — Так.
+- Can you drive? — Yes, I can. — Ти вмієш водити? — Так, умію.
 - You can't park here. — Тут не можна паркуватися.
 - Can I borrow your charger? — Sure, here you are. — Можна позичити твою зарядку? — Звісно, тримай.
 - Could you say that again, please? — Не могли б ви повторити?
@@ -145,7 +145,7 @@ estimatedMinutes: 35
 > ipa: /kʊd/ · pos: verb · level: A1 · id: en-a1-can-w03
 > uk: міг би (ввічливе прохання)
 > example: **Could** you help me, please? — Не могли б ви мені допомогти?
-> note: *l* німа: «куд». Ввічливіше, ніж *can*.
+> note: *l* не читається: «куд». Ввічливіше, ніж *can*.
 
 > [!word] swim
 > ipa: /swɪm/ · pos: verb · level: A1 · id: en-a1-can-w04
@@ -177,7 +177,7 @@ estimatedMinutes: 35
 > uk: співати
 > example: She can **sing** really well. — Вона дуже гарно співає.
 > forms: sing → sang → sung
-> note: у кінці носовий /ŋ/ без «г»: «сінг» ледь чутно.
+> note: у кінці носовий звук /ŋ/, «г» майже не чути.
 
 > [!word] dance
 > ipa: /dɑːns/ · ipa-us: /dæns/ · pos: verb · level: A1 · id: en-a1-can-w09
@@ -187,7 +187,7 @@ estimatedMinutes: 35
 > [!word] draw
 > ipa: /drɔː/ · pos: verb · level: A1 · id: en-a1-can-w10
 > uk: малювати (олівцем, ручкою)
-> example: Can you **draw** a cat? — Ти вмієш намалювати кота?
+> example: Can you **draw** a cat? — Можеш намалювати кота?
 > forms: draw → drew → drawn
 > note: фарбами — *paint*.
 
@@ -206,7 +206,7 @@ estimatedMinutes: 35
 > ipa: /klaɪm/ · pos: verb · level: A1 · id: en-a1-can-w13
 > uk: лазити; підійматися
 > example: Cats can **climb** trees. — Коти вміють лазити по деревах.
-> note: *b* у кінці німа: «клайм».
+> note: *b* у кінці не читається: «клайм».
 
 > [!word] fix
 > ipa: /fɪks/ · pos: verb · level: A1 · id: en-a1-can-w14
@@ -234,7 +234,7 @@ estimatedMinutes: 35
 > ipa: /wel/ · pos: adv · level: A1 · id: en-a1-can-w18
 > uk: добре
 > example: She can swim very **well**. — Вона дуже добре плаває.
-> note: прислівник до *good*: *a good swimmer — swims well*.
+> note: *good* — прикметник, *well* — прислівник: *a good swimmer — swims well*.
 
 > [!word] at all
 > ipa: /ət ˈɔːl/ · pos: phrase · level: A1 · id: en-a1-can-w19
@@ -264,11 +264,11 @@ estimatedMinutes: 35
 > - [ ] Can you play the piano?
 > - [ ] You can play the guitar.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-can-l03
 > audio: Could you open the window, please?
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-can-l04
 > audio: She can speak three languages.
 
@@ -361,7 +361,7 @@ estimatedMinutes: 35
 > ipa: /ɪkˈskjuːz mi kən aɪ ˈsɪt hɪə/
 > tip: *excuse* — «ік-СКЮЗ» з дзвінким /z/. *Sit* — короткий /ɪ/; з довгим /iː/ вийде інше слово.
 
-> [!speak] «Не могли б ви наглянути за моєю сумкою хвилинку?»
+> [!speak] «Не могли б ви хвилинку наглянути за моєю сумкою?»
 > level: A1 · id: en-a1-can-s06
 > text: Could you watch my bag for a minute?
 > ipa: /kʊd jə ˈwɒtʃ maɪ ˈbæɡ fər ə ˈmɪnɪt/
@@ -378,7 +378,7 @@ estimatedMinutes: 35
 > Fish [[can]] swim, but they [[can't]] walk.
 > ```
 >
-> **Пояснення:** «не можу прийти» — *can't come*; прохання — *Can you…?*; уміння й неуміння риб — *can / can't*.
+> **Пояснення:** «не можу прийти» — *can't come*; прохання — *Can you…?*; що риби вміють і чого не вміють — *can / can't*.
 
 > [!quiz] Яке прохання найввічливіше?
 > level: A1 · id: en-a1-can-q04
@@ -433,7 +433,7 @@ estimatedMinutes: 35
 > speaks # ✗
 > ```
 >
-> **Пояснення:** про вміння говорити мовою природно сказати з *can*. Після *can* — *speak* без *-s*.
+> **Пояснення:** про знання мов природно говорити з *can*. Після *can* — *speak* без *-s*.
 
 > [!quiz] Як правильно написати заперечну форму повністю?
 > level: A1 · id: en-a1-can-q09
@@ -477,8 +477,8 @@ estimatedMinutes: 35
 
 ## Фішки
 
-> [!reel] 🧠 «Можу» колись означало «знаю»
-> Давньоанглійське *cunnan* означало «знати, вміти». Воно споріднене з *know* і з *cunning* — хитрий, «знаючий». Тому *I can swim* — буквально «я знаю, як плавати».
+> [!reel] 🧠 *Can* колись означало «знати»
+> Давньоанглійське *cunnan* означало «знати, вміти». Воно споріднене з *know* і з *cunning* — хитрий, «знаючий». Тому *I can swim* — дослівно «я знаю, як плавати».
 
 > [!reel] 🥫 Can you open a can?
 > «Можеш відкрити бляшанку?» Модальне *can* і бляшанка *a can* — випадкові близнюки: друге походить від давнього слова «посудина». Пишуться й звучать однаково.

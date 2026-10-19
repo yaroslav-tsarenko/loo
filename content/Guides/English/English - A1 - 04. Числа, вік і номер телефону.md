@@ -26,7 +26,7 @@ estimatedMinutes: 35
 > - [x] I'm 30.
 > - [ ] I'm 30 years.
 >
-> **Пояснення:** вік — це не те, що ти «маєш», а те, чим ти «є»: *I'm 30* або повніше *I'm 30 years old*. «I'm 30 years» без *old* — помилка, а «I have 30 years» — найпоширеніша калька українців.
+> **Пояснення:** вік — це не те, що ти «маєш», а те, чим ти «є»: *I'm 30* або повніше *I'm 30 years old*. «I'm 30 years» без *old* — помилка, а «I have 30 years» — найпоширеніша калька в українців.
 
 ## Від 0 до 12 — просто вивчити
 
@@ -100,7 +100,7 @@ estimatedMinutes: 35
 - У британській після сотень перед десятками/одиницями ставлять **and**: *three hundred and twelve*. У США його часто пропускають.
 - *Hundred, thousand, million* після числа **без -s**: *two hundred, five thousand*. З -s лише «сотні / тисячі» взагалі: *hundreds of people* — сотні людей.
 
-> [!diagram] Читаємо 2,345 по шматочках
+> [!diagram] Читаємо 2,345 частинами
 > ```yaml
 > layout: flow
 > nodes:
@@ -109,7 +109,7 @@ estimatedMinutes: 35
 >   - { id: hu, label: "сотні", text: "?", tone: mint }
 >   - { id: rest, label: "and + решта", text: "?", tone: green }
 > steps:
->   - { focus: num, note: "Кома в 2,345 — це не дріб, а розділювач тисяч (в українській тут пробіл: 2 345)." }
+>   - { focus: num, note: "Кома в 2,345 — це не дріб, а роздільник тисяч (в українській тут пробіл: 2 345)." }
 >   - { move: { from: num, to: th, value: "2" }, set: { th: "two thousand" }, note: "Усе до коми — тисячі: two thousand. Без -s!" }
 >   - { move: { from: th, to: hu, value: "3" }, set: { hu: "three hundred" }, note: "Наступна цифра — сотні: three hundred." }
 >   - { move: { from: hu, to: rest, value: "45" }, set: { rest: "and forty-five" }, note: "Решту читаємо як звичайне двоцифрове число, з and перед ним (британський варіант)." }
@@ -117,7 +117,7 @@ estimatedMinutes: 35
 > ```
 
 > [!tip] Кома і крапка навпаки
-> Англійською **1,500** — тисяча пʼятсот, а **1.5** — півтора (*one point five*). В українській навпаки: 1 500 і 1,5. Помилка в цьому — і ціна в тисячу разів більша!
+> Англійською **1,500** — тисяча пʼятсот, а **1.5** — півтора (*one point five*). В українській навпаки: 1 500 і 1,5. Переплутаєш — і ціна стане в тисячу разів більшою!
 
 ## Вік
 
@@ -145,7 +145,7 @@ estimatedMinutes: 35
 | Фраза | Переклад |
 |---|---|
 | What's your phone number? | Який у тебе номер телефону? |
-| It's 067 225 8143. | Це 067 225 8143. |
+| It's 067 225 8143. | Мій номер — 067 225 8143. |
 | Can you say that again, please? | Можете повторити, будь ласка? |
 | Call me on 0771 234 567. (UK) / Call me at… (US) | Подзвони мені на номер… |
 
@@ -157,7 +157,7 @@ estimatedMinutes: 35
 - The ticket is fifteen euros. — Квиток коштує пʼятнадцять євро.
 - Kyiv is about 1,500 years old. — Києву близько 1 500 років.
 - My phone number is oh nine seven, double five, two eight one. — Мій номер — 097 55 281.
-- Room one hundred and twelve is on the first floor. — Кімната сто дванадцять на першому поверсі.
+- Room one hundred and twelve is on the first floor. — Кімната сто дванадцять на другому поверсі (британський first floor — це наш другий поверх).
 - About two hundred people work here. — Тут працює близько двохсот людей.
 
 ## Слова
@@ -348,7 +348,7 @@ estimatedMinutes: 35
 > [!word] about
 > ipa: /əˈbaʊt/ · pos: adv · level: A1 · id: en-a1-numbers-w35
 > uk: приблизно; близько
-> example: It takes **about** twenty minutes. — Це займає приблизно двадцять хвилин.
+> example: It takes **about** twenty minutes. — Це триває приблизно двадцять хвилин.
 
 ## Слухаємо
 
@@ -380,11 +380,11 @@ estimatedMinutes: 35
 > - [x] 360
 > - [ ] 3,060
 
-> [!listen] Надрукуй почуте (цифрами або словами)
+> [!listen] Напиши або скажи, що почув (цифрами або словами)
 > level: A1 · type: dictation · speed: slow · id: en-a1-numbers-l05
 > audio: I'm twenty-seven years old.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-numbers-l06
 > audio: How old is your brother?
 
@@ -520,7 +520,7 @@ estimatedMinutes: 35
 > - [ ] fourteen
 > - [ ] fourthy
 >
-> **Пояснення:** *four*, *fourteen*, але **forty** — без u. Улюблена пастка навіть носіїв.
+> **Пояснення:** *four*, *fourteen*, але **forty** — без u. Тут помиляються навіть носії мови.
 
 > [!quiz] Як прочитати 315 (британський варіант)?
 > level: A1 · id: en-a1-numbers-q03
@@ -548,7 +548,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** номери читають по цифрі, нуль — *oh*, дві однакові поспіль — *double*.
 
-> [!quiz] Заповни пропуски числами словами
+> [!quiz] Запиши числа словами
 > level: A1 · type: fill · id: en-a1-numbers-q06
 >
 > ```text fill
@@ -605,12 +605,12 @@ estimatedMinutes: 35
 > - [x] one pound fifty
 > - [ ] one comma fifty pounds
 >
-> **Пояснення:** крапка відділяє пенси від фунтів: *one pound fifty* (або *one fifty*). Тисяча пʼятсот було б £1,500.
+> **Пояснення:** крапка відділяє пенси від фунтів: *one pound fifty* (або *one fifty*). А тисяча пʼятсот фунтів — це £1,500.
 
 ## Фішки
 
 > [!reel] 🔢 Чому eleven, а не «oneteen»?
-> *Eleven* і *twelve* — давньогерманські слова: «один лишився» і «два лишилося» (понад десять). Тобто рахували пальці, а що не влізло — «лишалося». Звідси й незвичні назви.
+> *Eleven* і *twelve* — давньогерманські слова: «один лишився» і «два лишилося» (понад десять). Тобто рахували на пальцях, а те, що понад десять, «лишалося». Звідси й незвичні назви.
 
 > [!reel] ☎️ Чому британці кажуть «oh» замість нуля
 > Цифра 0 схожа на літеру O, а «oh» — коротше й легше, ніж «zero». Тому в номерах телефону, рахунках і роках (*nineteen oh five* — 1905) британці кажуть «оу».

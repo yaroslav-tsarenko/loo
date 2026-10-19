@@ -45,7 +45,7 @@ estimatedMinutes: 40
 
 - ***These** jeans **are** new.* — Ці джинси нові. (не ~~This jeans is~~)
 - ***How much are they?*** — Скільки вони коштують?
-- Порахувати — через ***a pair of***: *a pair of jeans, two pairs of trousers.*
+- Щоб порахувати, кажи ***a pair of***: *a pair of jeans, two pairs of trousers.*
 
 ### Носити — wear
 
@@ -106,7 +106,7 @@ estimatedMinutes: 40
 | Ти кажеш | Українською |
 |---|---|
 | *I'm just looking, thanks.* | Я просто дивлюся, дякую. |
-| *Have you got this in blue?* | У вас є така сама в синьому? |
+| *Have you got this in blue?* | У вас є таке саме в синьому кольорі? |
 | *Can I try it on? / Can I try them on?* | Можна поміряти? |
 | *Where are the changing rooms?* | Де примірочні? |
 | *It's too big / too small / too long.* | Завелика / замала / задовга. |
@@ -135,7 +135,7 @@ estimatedMinutes: 40
 - How much are these boots? — They're eighty-five. — Скільки коштують ці черевики? — Вісімдесят пʼять.
 - Can I try these trousers on? — Можна поміряти ці штани?
 - This dress is too small. Have you got a bigger size? — Ця сукня замала. У вас є більший розмір?
-- Have you got this shirt in white? — У вас є ця сорочка в білому кольорі?
+- Have you got this shirt in white? — У вас є така сорочка білого кольору?
 - These shoes are cheap, but those are really expensive. — Ці туфлі дешеві, а ті — дуже дорогі.
 - Grey really suits you. — Тобі дуже личить сірий.
 - I'm just looking, thanks. — Я просто дивлюся, дякую.
@@ -146,7 +146,7 @@ estimatedMinutes: 40
 > ipa: /kləʊðz/ · ipa-us: /kloʊðz/ · pos: noun · level: A1 · id: en-a1-clothes-w01
 > uk: одяг
 > example: My **clothes** are in the wardrobe. — Мій одяг у шафі.
-> note: лише множина: *clothes are*. У швидкій мові часто звучить як /kləʊz/. *Cloth* — тканина.
+> note: лише множина: *clothes are*. У швидкому мовленні часто звучить як /kləʊz/. *Cloth* — тканина.
 
 > [!word] shirt
 > ipa: /ʃɜːt/ · ipa-us: /ʃɝːt/ · pos: noun · level: A1 · id: en-a1-clothes-w02
@@ -230,13 +230,13 @@ estimatedMinutes: 40
 > [!word] hat
 > ipa: /hæt/ · pos: noun · level: A1 · id: en-a1-clothes-w16
 > uk: капелюх; шапка
-> example: Take a **hat** — it's sunny. — Візьми капелюх, сонячно.
+> example: Take a **hat** — it's sunny. — Візьми капелюх, надворі сонце.
 > note: бейсболка — *cap*. Перший звук — легкий видих /h/.
 
 > [!word] scarf
 > ipa: /skɑːf/ · ipa-us: /skɑːrf/ · pos: noun · level: A1 · id: en-a1-clothes-w17
 > uk: шарф; хустка
-> example: My grandma knits **scarves** for everyone. — Моя бабуся вʼяже шарфи всім.
+> example: My grandma knits **scarves** for everyone. — Моя бабуся всім вʼяже шарфи.
 > forms: scarf → scarves
 
 > [!word] gloves
@@ -265,7 +265,7 @@ estimatedMinutes: 40
 > [!word] green
 > ipa: /ɡriːn/ · pos: adj · level: A1 · id: en-a1-clothes-w22
 > uk: зелений
-> example: Have you got this in **green**? — У вас є таке в зеленому?
+> example: Have you got this in **green**? — У вас є таке в зеленому кольорі?
 
 > [!word] yellow
 > ipa: /ˈjeləʊ/ · ipa-us: /ˈjeloʊ/ · pos: adj · level: A1 · id: en-a1-clothes-w23
@@ -319,7 +319,7 @@ estimatedMinutes: 40
 > [!word] large
 > ipa: /lɑːdʒ/ · ipa-us: /lɑːrdʒ/ · pos: adj · level: A1 · id: en-a1-clothes-w32
 > uk: великий (розмір L)
-> example: Have you got this in **large**? — Є такий розміру L?
+> example: Have you got this in **large**? — У вас є такий розміру L?
 > note: хибний друг: *large* — великий, а не «широкий» (широкий — *wide*).
 
 > [!word] cheap
@@ -337,7 +337,7 @@ estimatedMinutes: 40
 > ipa: /traɪ ˈɒn/ · ipa-us: /traɪ ˈɑːn/ · pos: phrase · level: A1 · id: en-a1-clothes-w35
 > uk: міряти; приміряти
 > example: Can I **try** this jacket **on**? — Можна поміряти цю куртку?
-> note: *it / them* стає посередині: *try it on, try them on*.
+> note: *it* і *them* стоять посередині: *try it on, try them on*.
 
 > [!word] fit
 > ipa: /fɪt/ · pos: verb · level: A1 · id: en-a1-clothes-w36
@@ -384,11 +384,11 @@ estimatedMinutes: 40
 > - [ ] £20.49
 > - [ ] £24.90
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-clothes-l03
 > audio: Can I try it on?
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-clothes-l04
 > audio: These shoes are too small.
 
@@ -440,7 +440,7 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] «A dress red», «reds shoes»
-> Колір — **перед** іменником і **без** множини: *a red dress, red shoes*. Українською «сукня червона» звучить можливо, англійською — ні.
+> Колір — **перед** іменником і **без** множини: *a red dress, red shoes*. Українською можна сказати «сукня червона», англійською — ні.
 
 > [!pitfall] «This jeans is…», «a trousers»
 > *Jeans, trousers, shorts, pyjamas* — завжди множина: ***These** jeans **are** nice. How much **are they**?* Одну річ рахуємо так: *a pair of trousers*.
@@ -453,7 +453,7 @@ estimatedMinutes: 40
 
 ## Ситуація: купуємо куртку
 
-> [!listen] Послухай діалог. Що купує покупець?
+> [!listen] Послухай діалог. Що купує B?
 > level: A1 · type: answer · speed: slow · id: en-a1-clothes-l06
 > audio: A: Hi, can I help you?
 > audio: B: Yes, have you got this jacket in black?
@@ -533,7 +533,7 @@ estimatedMinutes: 40
 > trainers  →  [[sneakers]]
 > ```
 >
-> **Пояснення:** в американській штани — *pants*, светр — *sweater*, кросівки — *sneakers*. Обережно: британські *pants* — це труси.
+> **Пояснення:** в американській англійській штани — *pants*, светр — *sweater*, кросівки — *sneakers*. Обережно: британські *pants* — це труси.
 
 > [!quiz] Продавець питає «Can I help you?», а ти відповідаєш «I'm just looking». Що ти сказав?
 > level: A1 · id: en-a1-clothes-q08

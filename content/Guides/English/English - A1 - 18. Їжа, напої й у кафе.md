@@ -43,7 +43,7 @@ estimatedMinutes: 40
 
 Зверни увагу: *bread, butter, cheese, rice, meat, water, milk, sugar* англійською **не рахують** — не кажуть ~~a bread~~ чи ~~two milks~~. Про це детально в наступній темі [[English - A1 - 19. Some, any, much, many — лічильні й нелічильні]]. Поки запамʼятай: *some bread, a glass of milk, a cup of tea*.
 
-### Британська й американська кухня слів
+### Британські й американські назви
 
 | Британія | США | Українською |
 |---|---|---|
@@ -256,7 +256,7 @@ estimatedMinutes: 40
 > ipa: /ˈʃʊɡə/ · ipa-us: /ˈʃʊɡər/ · pos: noun · level: A1 · id: en-a1-food-w21
 > uk: цукор
 > example: Coffee with milk and no **sugar**. — Кава з молоком без цукру.
-> note: починається зі звука «ш»: «ШУ-гə».
+> note: починається зі звуку «ш»: «ШУ-гə».
 
 > [!word] water
 > ipa: /ˈwɔːtə/ · ipa-us: /ˈwɑːtər/ · pos: noun · level: A1 · id: en-a1-food-w22
@@ -288,7 +288,7 @@ estimatedMinutes: 40
 > [!word] sparkling
 > ipa: /ˈspɑːklɪŋ/ · ipa-us: /ˈspɑːrklɪŋ/ · pos: adj · level: A1 · id: en-a1-food-w27
 > uk: газований (про воду)
-> example: Still or **sparkling** water? — Воду негазовану чи газовану?
+> example: Still or **sparkling** water? — Вам негазовану чи газовану воду?
 > note: негазована — *still water*.
 
 > [!word] meal
@@ -322,7 +322,7 @@ estimatedMinutes: 40
 
 > [!word] starter
 > ipa: /ˈstɑːtə/ · ipa-us: /ˈstɑːrtər/ · pos: noun · level: A1 · id: en-a1-food-w33
-> uk: закуска; перша страва
+> uk: закуска (перед основною стравою)
 > example: For a **starter**, I'd like the soup. — На закуску я візьму суп.
 > note: у США — *appetizer*.
 
@@ -398,11 +398,11 @@ estimatedMinutes: 40
 > - [x] £4.50
 > - [ ] £14.50
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-food-l03
 > audio: I'd like the chicken soup, please.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-food-l04
 > audio: Could we have the bill, please?
 
@@ -431,7 +431,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-food-s03
 > text: Sparkling water, please.
 > ipa: /ˈspɑːklɪŋ ˈwɔːtə pliːz/
-> tip: *-ing* без «г» у кінці: «СПАК-лінг» з носовим /ŋ/.
+> tip: у кінці — носове /ŋ/ без «г»: не «спарклінг», а приблизно «СПАК-лін».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-food-s04
@@ -449,7 +449,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-food-s06
 > text: A coffee with milk and no sugar, please.
 > ipa: /ə ˈkɒfi wɪð ˈmɪlk ən nəʊ ˈʃʊɡə pliːz/
-> tip: *sugar* — «ШУ-гə», з «ш» на початку. *And* звучить як коротке «ən».
+> tip: *sugar* — «ШУ-гə», з «ш» на початку. *And* звучить як коротке «əн».
 
 ## Типові помилки українців
 
@@ -459,7 +459,7 @@ estimatedMinutes: 40
 > [!pitfall] «The account, please» — хибний рахунок
 > Рахунок у ресторані — ***the bill*** (US *the check*). *Account* — банківський рахунок, акаунт у застосунку. А *score* — рахунок у грі.
 
-> [!pitfall] «A bread», «two milks», «breads» — рахуємо нерахівне
+> [!pitfall] «A bread», «two milks», «breads» — рахуємо нелічильне
 > *Bread, butter, cheese, rice, meat, sugar, milk, water* в англійській — як «вода» в українській: їх не рахують поштучно. *Some bread, a loaf of bread, a glass of milk.* Детально — у [[English - A1 - 19. Some, any, much, many — лічильні й нелічильні]].
 
 > [!pitfall] «I'm vegetables» замість «I'm a vegetarian»

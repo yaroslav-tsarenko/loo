@@ -63,7 +63,7 @@ estimatedMinutes: 45
 |---|---|---|---|
 | майже точно так | **must have** + V3 | The lights are off. They **must have gone** to bed. | Світло вимкнене. Мабуть, вони вже лягли спати. |
 | можливо | **may / might / could have** + V3 | She's late. She **might have missed** the bus. | Вона запізнюється. Можливо, пропустила автобус. |
-| майже точно ні | **can't / couldn't have** + V3 | He **can't have finished** already — he only started at ten. | Не може бути, що він уже закінчив, — почав лише о десятій. |
+| майже точно ні | **can't / couldn't have** + V3 | He **can't have finished** already — he only started at ten. | Не може бути, щоб він уже закінчив: він почав лише о десятій. |
 | процес у минулому | **must / might have been** + -ing | Your eyes are red. You **must have been crying**. | У тебе червоні очі. Ти, мабуть, плакала. |
 
 > [!tip] Британська і американська норма
@@ -151,7 +151,7 @@ estimatedMinutes: 45
 - They **could have been** killed — the driver was going way too fast. — Вони могли загинути — водій їхав надто швидко.
 - I **would have called**, but my phone was dead. — Я б подзвонила, але телефон розрядився.
 - You **needn't have bought** flowers — but thank you! — Не треба було купувати квіти — але дякую!
-- In hindsight, the company **should have invested** more in training. — Заднім числом зрозуміло: компанії слід було більше вкладати в навчання.
+- In hindsight, the company **should have invested** more in training. — Тепер зрозуміло, що компанії слід було більше вкладати в навчання працівників.
 
 ## Слова
 
@@ -169,8 +169,8 @@ estimatedMinutes: 45
 
 > [!word] in hindsight
 > ipa: /ɪn ˈhaɪnd.saɪt/ · pos: phrase · level: B2 · id: en-b2-past-modals-w03
-> uk: заднім числом, оглядаючись назад
-> example: **In hindsight**, I should have taken the job. — Оглядаючись назад, мені слід було погодитися на ту роботу.
+> uk: оглядаючись назад; як тепер зрозуміло
+> example: **In hindsight**, I should have taken the job. — Оглядаючись назад, я розумію, що мав погодитися на ту роботу.
 > note: також with hindsight. Ідеально поєднується з should have.
 
 > [!word] jump to conclusions
@@ -182,7 +182,7 @@ estimatedMinutes: 45
 > ipa: /ˌmɪsˈpleɪs/ · pos: verb · level: B2 · id: en-b2-past-modals-w05
 > uk: покласти не на місце, загубити (на час)
 > example: I must have **misplaced** my glasses somewhere. — Я, мабуть, кудись поклав окуляри.
-> note: м'якше за lose: річ десь поруч, просто не там.
+> note: мʼякше за lose: річ десь поруч, просто не там.
 
 > [!word] suspect
 > ipa: /səˈspekt/ · pos: verb · level: B2 · id: en-b2-past-modals-w06
@@ -232,11 +232,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *might've* /ˈmaɪ.təv/ — дифтонг /aɪ/; *must've* /ˈmʌs.təv/ — коротке /ʌ/. Різниця у впевненості: «можливо» проти «мабуть».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-past-modals-l03
 > audio: He can't have finished the report already.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-past-modals-l04
 > audio: We needn't have taken a taxi.
 > accept: We need not have taken a taxi.
@@ -295,7 +295,7 @@ estimatedMinutes: 45
 > text: They can't have finished already.
 > ipa: /ðeɪ kɑːnt əv ˈfɪn.ɪʃt ɔːlˈred.i/
 > tip: can't у британській — довге /ɑː/ [каант], в американській — /æ/ [кент]. Наголос: CAN'T і FIN-ished.
-> uk: Не може бути, що вони вже закінчили.
+> uk: Не може бути, щоб вони вже закінчили.
 
 > [!speak] Скажи вголос
 > level: B2 · id: en-b2-past-modals-s04
@@ -316,7 +316,7 @@ estimatedMinutes: 45
 > text: In hindsight, the city should have invested in public transport instead of building more roads.
 > ipa: /ɪn ˈhaɪnd.saɪt ðə ˈsɪt.i ʃʊd əv ɪnˈves.tɪd ɪn ˌpʌb.lɪk ˈtræn.spɔːt ɪnˈsted əv ˈbɪl.dɪŋ mɔː rəʊdz/
 > tip: питання Part 3 — «What mistakes have cities made in the past?». Should have + V3 — точна критика минулого рішення (Grammatical Range). instead‿of — звʼяжи d з голосним.
-> uk: Заднім числом зрозуміло: місту слід було інвестувати в громадський транспорт, а не будувати більше доріг.
+> uk: Тепер зрозуміло, що місту слід було інвестувати в громадський транспорт, а не будувати нові дороги.
 
 ## Типові помилки українців
 
@@ -483,7 +483,7 @@ estimatedMinutes: 45
 > Шерлок Голмс у першій же зустрічі з Ватсоном здогадується, що той був в Афганістані. Його дедукція — це, по суті, must have і can't have: висновок про минуле з дрібних доказів.
 
 > [!reel] 👓 Hindsight is 20/20
-> Американська приказка «hindsight is 20/20» — заднім числом бачиш ідеально. 20/20 — це норма зору в США (тест з 20 футів). Британці тест міряють у метрах — 6/6.
+> Американська приказка «hindsight is 20/20» — оглядаючись назад, усе бачиш ідеально чітко. 20/20 — це норма зору в США (перевірка з відстані 20 футів). У Британії відстань міряють у метрах, тож норма там — 6/6.
 
 ## Джерела та що почитати
 

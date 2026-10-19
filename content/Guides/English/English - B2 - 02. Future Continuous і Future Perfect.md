@@ -33,7 +33,7 @@ estimatedMinutes: 40
 
 Ти вже знаєш просте майбутнє: *I'll call you* (вирішив), *I'm going to call* (план), *I'm meeting her at six* (домовленість). Сьогодні — ще дві «камери» для майбутнього з [[English - B2 - 01. Система часів — simple, continuous, perfect|карти часів]]:
 
-- **Future Continuous** (*will be + -ing*) — уяви, що ти переніс камеру в майбутнє і знімаєш відео: о 10:00 завтра ти *будеш саме летіти*. Дія вже почалася й ще не закінчилася.
+- **Future Continuous** (*will be + -ing*) — уяви, що ти переніс камеру в майбутнє і знімаєш відео: завтра о 10:00 ти *саме летітимеш*. Дія вже почалася й ще не закінчилася.
 - **Future Perfect** (*will have + V3*) — ти стоїш у майбутній точці й дивишся назад: до пʼятниці звіт *уже буде готовий*.
 - **Future Perfect Continuous** (*will have been + -ing*) — та сама точка, але рахуємо, *скільки часу* дія тривала до неї.
 
@@ -66,7 +66,7 @@ estimatedMinutes: 40
 
 1. **Процес у певний момент майбутнього.** *At this time tomorrow, I**'ll be sitting** my exam.* — Завтра о цій порі я складатиму іспит.
 2. **Подія, що станеться «сама собою», за звичним ходом справ** — без нового рішення. *I**'ll be seeing** Anna tomorrow anyway, so I can give her the keys.* — Я завтра й так побачу Анну, тож можу передати їй ключі.
-3. **Ввічливе питання про плани** — ти не тиснеш і нічого не просиш напряму. *Will you be using the car tonight?* (м'якше, ніж *Will you use…?*, яке звучить як прохання чи вимога).
+3. **Ввічливе питання про плани** — ти не тиснеш і нічого не просиш напряму. *Will you be using the car tonight?* (мʼякше, ніж *Will you use…?*, яке звучить як прохання чи вимога).
 4. **Припущення про те, що відбувається зараз.** *Don't call him now — he**'ll be sleeping**.* — Не дзвони йому — він, мабуть, спить.
 
 > [!tip] Звідки ввічливість?
@@ -103,7 +103,7 @@ estimatedMinutes: 40
 Рідкісна, але корисна форма: тривалість до точки в майбутньому, зазвичай з **for**.
 
 - *In September, I**'ll have been living** in Kyiv for six years.* — У вересні буде шість років, як я живу в Києві.
-- *By the time we land, we**'ll have been travelling** for twenty hours.* — Поки ми приземлимося, ми будемо в дорозі двадцять годин.
+- *By the time we land, we**'ll have been travelling** for twenty hours.* — На момент посадки ми будемо в дорозі вже двадцять годин.
 
 > [!quiz] Перевір себе: результат чи тривалість?
 > level: B2 · id: en-b2-future-perfect-q03
@@ -199,9 +199,9 @@ estimatedMinutes: 40
 - Don't ring them now — they**'ll be putting** the kids to bed. — Не дзвони їм зараз — вони, мабуть, укладають дітей спати.
 - By the end of the year, the company **will have opened** five new offices. — До кінця року компанія відкриє пʼять нових офісів.
 - She **won't have finished** her thesis by June. — До червня вона ще не допише дипломну.
-- **Will** the builders **have finished** by the time we move in? — Будівельники закінчать до того, як ми заїдемо?
+- **Will** the builders **have finished** by the time we move in? — Будівельники встигнуть закінчити до того, як ми заїдемо?
 - In May, they**'ll have been married** for twenty-five years. — У травні буде двадцять пʼять років, як вони одружені.
-- By the time the train reaches Odesa, we**'ll have been travelling** for eleven hours. — Поки потяг доїде до Одеси, ми будемо в дорозі одинадцять годин.
+- By the time the train reaches Odesa, we**'ll have been travelling** for eleven hours. — Коли потяг доїде до Одеси, ми будемо в дорозі вже одинадцять годин.
 - I**'ll be working** until late, so don't wait up. — Я працюватиму допізна, тож не чекай на мене.
 
 ## Слова
@@ -214,14 +214,14 @@ estimatedMinutes: 40
 > [!word] on track
 > ipa: /ɒn ˈtræk/ · ipa-us: /ɑːn ˈtræk/ · pos: phrase · level: B2 · id: en-b2-future-perfect-w02
 > uk: за планом, на правильному шляху
-> example: We're **on track** to finish the project by March. — Ми йдемо за планом і закінчимо проєкт до березня.
+> example: We're **on track** to finish the project by March. — Ми вкладаємося в графік і встигнемо закінчити проєкт до березня.
 > note: протилежне — behind schedule (відставати від графіка).
 
 > [!word] milestone
 > ipa: /ˈmaɪl.stəʊn/ · ipa-us: /ˈmaɪl.stoʊn/ · pos: noun · level: B2 · id: en-b2-future-perfect-w03
 > uk: важливий етап, віха
 > example: Graduating from university is a big **milestone**. — Закінчення університету — важлива віха.
-> note: буквально — придорожній камінь із кількістю миль.
+> note: дослівно — верстовий камінь, що показує відстань у милях.
 
 > [!word] complete
 > ipa: /kəmˈpliːt/ · pos: verb · level: B2 · id: en-b2-future-perfect-w04
@@ -286,11 +286,11 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *we'll have* у мовленні — [віл əв], *have* майже зникає до слабкого /əv/. Почути його допомагає закінчення *finished* (V3) після нього.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-future-perfect-l03
 > audio: This time tomorrow, I'll be sitting my final exam.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-future-perfect-l04
 > audio: By the end of the year, they'll have opened three new stores.
 
@@ -303,7 +303,7 @@ estimatedMinutes: 40
 > - [ ] The museum will open to the public.
 > - [ ] The builders will start work.
 >
-> **Пояснення:** *in April… will be moving the collection back* — у квітні триватиме процес перенесення колекції (*exhibits* — перефраз до *collection*). Дах буде готовий **до** кінця березня (*will have finished*), а відкриття — у травні. Типова пастка IELTS: усі варіанти звучать в аудіо, але відносяться до різних моментів часу.
+> **Пояснення:** *in April… will be moving the collection back* — у квітні триватиме процес перенесення колекції (*exhibits* — перефраз до *collection*). Дах буде готовий **до** кінця березня (*will have finished*), а відкриття — у травні. Типова пастка IELTS: усі варіанти звучать в аудіо, але стосуються різних моментів часу.
 
 > [!listen] Чого хоче Том?
 > level: B2 · type: answer · id: en-b2-future-perfect-l06

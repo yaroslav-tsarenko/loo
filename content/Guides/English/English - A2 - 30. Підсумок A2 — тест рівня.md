@@ -49,7 +49,7 @@ estimatedMinutes: 55
 >   - { show: pp, note: "Present Perfect — минуле без дати, важливе зараз: досвід (ever, never), результат (just, already, yet)." }
 >   - { show: gt, note: "Майбутнє-план: be going to — я вже вирішив. Ще — прогноз із доказом: Look at the clouds! It's going to rain." }
 >   - { show: arr, note: "Домовленість з часом і місцем — Present Continuous: I'm meeting Kate on Friday." }
->   - { show: will, note: "will — думка про майбутнє, обіцянка, пропозиція і рішення, прийняте просто зараз: I'll get it!" }
+>   - { show: will, note: "will — думка про майбутнє, обіцянка, пропозиція і рішення, ухвалене просто зараз: I'll get it!" }
 > ```
 
 ### Усі теми A2
@@ -127,11 +127,11 @@ estimatedMinutes: 55
 
 - *I was born in Kharkiv, but I grew up in Kyiv.* — Я народилася в Харкові, але виросла в Києві.
 - *What were you doing at eight? — I was watching a film.* — Що ти робив о восьмій? — Дивився фільм.
-- *Have you ever been to Italy? — Yes, I went there in 2019.* — Ти колись був в Італії? — Так, їздив у 2019.
-- *I've just finished my report, but I haven't sent it yet.* — Я щойно закінчив звіт, але ще не надіслав.
+- *Have you ever been to Italy? — Yes, I went there in 2019.* — Ти колись був в Італії? — Так, їздив у 2019-му.
+- *I've just finished my report, but I haven't sent it yet.* — Я щойно закінчив звіт, але ще не надіслав його.
 - *We're going to buy a flat next year.* — Ми збираємося купити квартиру наступного року.
 - *Don't worry, I'll call you when I arrive.* — Не хвилюйся, я подзвоню, коли приїду.
-- *Lviv is smaller than Kyiv, but it's just as beautiful.* — Львів менший за Київ, але такий самий гарний.
+- *Lviv is smaller than Kyiv, but it's just as beautiful.* — Львів менший за Київ, але не менш гарний.
 - *You don't have to come, but you mustn't be late if you do.* — Тобі не обовʼязково приходити, але якщо прийдеш — не запізнюйся.
 - *I've decided to learn Spanish. I really enjoy learning languages.* — Я вирішив вивчати іспанську. Мені дуже подобається вчити мови.
 - *Could you turn the music down, please?* — Ти не міг би зробити музику тихіше?
@@ -165,7 +165,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** -ed після /k/ звучить як /t/: *walked* /wɔːkt/. Його легко «загубити» — слухай кінець слова. (тема 03)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-review-l02
 > audio: I was born in Kharkiv in two thousand and one.
 > accept: I was born in Kharkiv in 2001.
@@ -218,7 +218,7 @@ estimatedMinutes: 55
 > - [ ] що вона запізниться на зустріч
 > - [ ] що вона подзвонить пізніше сама
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-review-l09
 > audio: I've already finished my homework.
 > accept: I have already finished my homework.
@@ -251,7 +251,7 @@ estimatedMinutes: 55
 > [!pair] work /wɜːk/ — walk /wɔːk/
 > level: A2 · id: en-a2-review-p01
 > say: walk
-> tip: /ɔː/ у *walk* — губи округлі, «во-ок», l німа. /ɜː/ у *work* — губи нейтральні, звук між «е» і «о».
+> tip: /ɔː/ у *walk* — губи округлі, «во-ок», l не читається. /ɜː/ у *work* — губи нейтральні, звук між «е» і «о».
 
 > [!pair] play /pleɪ/ — played /pleɪd/
 > level: A2 · id: en-a2-review-p02
@@ -302,7 +302,7 @@ estimatedMinutes: 55
 > level: A2 · id: en-a2-review-s04
 > text: You should see a doctor.
 > ipa: /juː ʃəd ˈsiː ə ˈdɒktə/
-> tip: should — l німа, у реченні слабке /ʃəd/.
+> tip: should — l не читається, у реченні слабке /ʃəd/.
 
 > [!speak] Порівняй два готелі.
 > level: A2 · id: en-a2-review-s05
@@ -382,7 +382,7 @@ estimatedMinutes: 55
 > went ✗
 > ```
 
-> [!quiz] Тобі хтось дзвонив, і ти питаєш хто. Як правильно?
+> [!quiz] Твоєму другові хтось подзвонив. Ти питаєш, хто це був. Як правильно?
 > level: A2 · id: en-a2-review-q07
 > - [x] Who called you?
 > - [ ] Who did call you?
@@ -474,7 +474,7 @@ estimatedMinutes: 55
 > - [ ] get
 > - [ ] am getting
 >
-> **Пояснення:** рішення, прийняте просто зараз, — *will*: *I'll get it!* (тема 11)
+> **Пояснення:** рішення, ухвалене просто зараз, — *will*: *I'll get it!* (тема 11)
 
 > [!quiz] It's cold in here. ___ I close the window?
 > level: A2 · id: en-a2-review-q17
@@ -577,7 +577,7 @@ estimatedMinutes: 55
 > - [ ] care
 > - [ ] more careful
 >
-> **Пояснення:** як діє — прислівник: *careful → carefully*. Але *good → well*, *fast → fast*, *hard → hard*. (тема 23)
+> **Пояснення:** як виконується дія — прислівник: *careful → carefully*. Але *good → well*, *fast → fast*, *hard → hard*. (тема 23)
 
 > [!quiz] To чи -ing?
 > level: A2 · type: fill · id: en-a2-review-q28 · bank: swim, learning, stay
@@ -643,7 +643,7 @@ estimatedMinutes: 55
 > - [ ] bore
 > - [ ] boredom
 >
-> **Пояснення:** *-ing* — яка річ (*a boring film*), *-ed* — як я почуваюся (*I was bored*). (тема 20)
+> **Пояснення:** *-ing* — яке враження справляє річ (*a boring film*), *-ed* — як я почуваюся (*I was bored*). (тема 20)
 
 > [!quiz] I've left my wallet at home. Can you ___ me £10?
 > level: A2 · id: en-a2-review-q35
@@ -688,7 +688,7 @@ estimatedMinutes: 55
 > - [ ] поїзд затримується
 > - [x] поїзд скасовано
 > - [ ] змінилася платформа
-> - [ ] поїзд уже пішов
+> - [ ] поїзд уже відʼїхав
 >
 > **Пояснення:** *cancelled* — скасовано, *delayed* — затримується. (тема 09)
 
@@ -721,7 +721,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** yes / no-питання — зазвичай ↗; wh-питання (*Where are you from?*) і твердження — ↘. (тема 18)
 
-> [!quiz] У яких словах є німа літера? Обери всі.
+> [!quiz] У яких словах є літера, яка не читається? Обери всі.
 > level: A2 · type: multi · id: en-a2-review-q43
 > - [x] knife
 > - [x] hour
@@ -729,7 +729,7 @@ estimatedMinutes: 55
 > - [ ] pen
 > - [ ] glass
 >
-> **Пояснення:** **k**nife — k німа, **h**our — h німа, lis**t**en — t німа. У *pen* і *glass* читаються всі літери (подвоєне ss — один звук). (тема 26)
+> **Пояснення:** у **k**nife не читається k, в **h**our — h, у lis**t**en — t. У *pen* і *glass* читаються всі літери (подвоєне ss — один звук). (тема 26)
 
 ## Фішки
 

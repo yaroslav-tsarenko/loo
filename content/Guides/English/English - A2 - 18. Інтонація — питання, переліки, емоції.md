@@ -15,7 +15,7 @@ estimatedMinutes: 35
 > - опускати голос ↘ у твердженнях і wh-питаннях і піднімати ↗ у питаннях «так / ні»;
 > - вимовляти переліки й питання-вибір: *apples ↗, bananas ↗ and pears ↘*, *Tea ↗ or coffee ↘?*;
 > - перепитувати й дивуватися: *Sorry? ↗*, *Really? ↗*;
-> - звучати зацікавлено й ввічливо, а не байдуже чи різко;
+> - звучати зацікавлено та ввічливо, а не байдуже чи різко;
 > - розрізняти «справжнє» питання-хвостик і хвостик, що просить згоди: *isn't it ↗* / *isn't it ↘*.
 
 ## Передбач
@@ -95,7 +95,7 @@ estimatedMinutes: 35
 >   - { focus: d, note: "and BREAD ↘ — and і падіння голосу разом кажуть: перелік завершено." }
 > ```
 
-### Емоції й ввічливість
+### Емоції та ввічливість
 
 Англійці говорять у **ширшому діапазоні**, ніж ми: голос піднімається вище й опускається нижче. Для українського вуха це іноді звучить «театрально», але для англійського **вузький діапазон звучить байдуже, сумно або грубо**.
 
@@ -159,7 +159,7 @@ estimatedMinutes: 35
 > [!word] Fair enough.
 > ipa: /ˌfeər ɪˈnʌf/ · ipa-us: /ˌfer ɪˈnʌf/ · pos: phrase · level: A2 · id: en-a2-intonation-w06
 > uk: справедливо; резонно; гаразд
-> example: I can't come — I'm working. — **Fair enough.** — Не можу прийти — працюю. — Зрозуміло, резонно.
+> example: I can't come — I'm working. — **Fair enough.** — Не можу прийти — працюю. — Що ж, зрозуміло.
 
 > [!word] How come?
 > ipa: /ˌhaʊ ˈkʌm/ · pos: phrase · level: A2 · id: en-a2-intonation-w07
@@ -206,7 +206,7 @@ estimatedMinutes: 35
 > - [ ] Yes, please.
 > - [ ] I'm fine, thanks.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-intonation-l04
 > audio: What time does the film start?
 
@@ -277,7 +277,7 @@ estimatedMinutes: 35
 > level: A2 · id: en-a2-intonation-s01
 > text: Where do you live?
 > ipa: /ˈweə də jə ˈlɪv ↘/
-> tip: wh-питання — голос падає на LIVE ↘. Не підіймай у кінці.
+> tip: wh-питання — голос падає на LIVE ↘. Не піднімай голос у кінці.
 
 > [!speak] Спитай, чи людина живе поблизу
 > level: A2 · id: en-a2-intonation-s02
@@ -313,9 +313,9 @@ estimatedMinutes: 35
 > level: A2 · id: en-a2-intonation-s07
 > text: Thank you so much!
 > ipa: /ˈθæŋk juː səʊ ˈmʌtʃ ↘/
-> tip: почни високо і падай на MUCH ↘. Рівний голос звучить холодно.
+> tip: почни високо й опусти голос на MUCH ↘. Рівний голос звучить холодно.
 
-> [!speak] Висловлюй співчуття
+> [!speak] Вислови співчуття
 > level: A2 · id: en-a2-intonation-s08
 > text: Oh dear. What a pity!
 > ipa: /əʊ ˈdɪə ↘ ˌwɒt ə ˈpɪti ↘/
@@ -337,7 +337,7 @@ estimatedMinutes: 35
 > level: A2 · id: en-a2-intonation-s11
 > text: Could you open the window, please?
 > ipa: /kʊd juː ˈəʊpən ðə ˈwɪndəʊ ↗ pliːz/
-> tip: м'який підйом на WINdow ↗ робить прохання ввічливим.
+> tip: мʼякий підйом на WINdow ↗ робить прохання ввічливим.
 
 > [!speak] Поділися новиною
 > level: A2 · id: en-a2-intonation-s12

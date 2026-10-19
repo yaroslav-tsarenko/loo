@@ -206,7 +206,7 @@ estimatedMinutes: 45
 ## Приклади
 
 - *I'll see you next week.* — Побачимося наступного тижня. (/ˌneks ˈwiːk/)
-- *Most people work from home on Fridays.* — Більшість людей у пʼятницю працюють з дому. (/ˌməʊs ˈpiːpəl/)
+- *Most people work from home on Fridays.* — Більшість людей по пʼятницях працюють з дому. (/ˌməʊs ˈpiːpəl/)
 - *Did you get my message last night?* — Ти отримав моє повідомлення вчора ввечері? (/ˈdɪdʒu/, /ˌlɑːs ˈnaɪt/)
 - *Ten boys and ten girls signed up.* — Записалися десять хлопців і десять дівчат. (/tem/, /teŋ/)
 - *Good morning, everyone!* — Доброго ранку всім! (/ɡʊb ˈmɔːnɪŋ ˈevriwʌn/)
@@ -234,7 +234,7 @@ estimatedMinutes: 45
 > ipa: /ɪnˈtruːsɪv ˈɑː/ · ipa-us: /ɪnˈtruːsɪv ˈɑːr/ · pos: noun · level: B2 · id: en-b2-connected-speech-w03
 > uk: вставне r (якого немає в написанні)
 > example: Many British speakers use an **intrusive r** in "law and order". — Багато британців вимовляють вставне r у «law and order».
-> note: intrusive — нав'язливий, той, що втручається.
+> note: intrusive — навʼязливий, той, що втручається.
 
 > [!word] glottal stop
 > ipa: /ˌɡlɒtəl ˈstɒp/ · ipa-us: /ˌɡlɑːt̬əl ˈstɑːp/ · pos: noun · level: B2 · id: en-b2-connected-speech-w04
@@ -275,7 +275,7 @@ estimatedMinutes: 45
 > [!word] last-minute
 > ipa: /ˌlɑːs(t) ˈmɪnɪt/ · ipa-us: /ˌlæs(t) ˈmɪnɪt/ · pos: adj · level: B2 · id: en-b2-connected-speech-w10
 > uk: зроблений в останню хвилину
-> example: We got a **last-minute** deal on a flight to Rome. — Ми взяли гарячу пропозицію на рейс до Рима.
+> example: We got a **last-minute** deal on a flight to Rome. — Ми в останній момент ухопили дешевий квиток до Рима.
 > note: /t/ між /s/ і /m/ випадає: «лас-МІ-ніт». Прислівник — at the last minute.
 
 > [!word] law and order
@@ -286,8 +286,8 @@ estimatedMinutes: 45
 
 > [!word] first thing
 > ipa: /ˌfɜːs(t) ˈθɪŋ/ · ipa-us: /ˌfɝːs(t) ˈθɪŋ/ · pos: adv · level: B2 · id: en-b2-connected-speech-w12
-> uk: найперше; одразу зранку
-> example: I'll call you **first thing** tomorrow. — Я подзвоню тобі завтра зранку найперше.
+> uk: першим ділом; одразу зранку
+> example: I'll call you **first thing** tomorrow. — Завтра зранку першим ділом тобі подзвоню.
 > note: /t/ між /s/ і /θ/ майже не чути. first thing in the morning — одразу зранку.
 
 > [!word] handbag
@@ -327,19 +327,19 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *green bag* — /ˌɡriːm ˈbæɡ/: /n/ перед /b/ стає /m/. Не плутай із *grey* — у ньому немає носового звука взагалі.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-connected-speech-l04
 > audio: I don't know what you mean.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-connected-speech-l05
 > audio: Would you like a sandwich?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-connected-speech-l06
 > audio: The idea is really simple.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-connected-speech-l07
 > audio: Did you see it last week?
 
@@ -389,7 +389,7 @@ estimatedMinutes: 45
 > - [ ] сьогодні ввечері
 > - [ ] наступного тижня
 >
-> **Пояснення:** *Did you* — /ˈdɪdʒu/, *last night* — /ˌlɑːs ˈnaɪt/, *first thing* — /ˌfɜːs ˈθɪŋ/: «найперше». Три процеси в одному діалозі.
+> **Пояснення:** *Did you* — /ˈdɪdʒu/, *last night* — /ˌlɑːs ˈnaɪt/, *first thing* — /ˌfɜːs ˈθɪŋ/: «першим ділом». Три процеси в одному діалозі.
 
 ## Вимова
 
@@ -398,7 +398,7 @@ estimatedMinutes: 45
 > [!pair] a name /ə ˈneɪm/ — an aim /ən ˈeɪm/
 > level: B2 · id: en-b2-connected-speech-p01
 > say: an aim
-> tip: майже однаково! У «an aim» /n/ трохи коротший і склад «ейм» починається м'якше. Носії теж розрізняють такі пари переважно за контекстом.
+> tip: майже однаково! У «an aim» /n/ трохи коротший і склад «ейм» починається мʼякше. Носії теж розрізняють такі пари переважно за контекстом.
 
 > [!pair] grey tape /ˌɡreɪ ˈteɪp/ — great ape /ˌɡreɪt‿ˈeɪp/
 > level: B2 · id: en-b2-connected-speech-p02
@@ -526,7 +526,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] Українське уподібнення за дзвінкістю
-> В українській *вокзал* звучить з [ґз], *просьба* — з [з']. Ця звичка «переїжджає» в англійську: *black dog* → «блеґ доґ», *nice boy* → «найз бой». Англійське уподібнення між словами змінює **місце** звука (*ten boys* → /tem/), а **дзвінкість** — ні. Глухий лишається глухим: /ˌblæk ˈdɒɡ/, /ˌnaɪs ˈbɔɪ/.
+> В українській *вокзал* звучить з [ґз], *боротьба* — з [д']. Ця звичка «переїжджає» в англійську: *black dog* → «блеґ доґ», *nice boy* → «найз бой». Англійське уподібнення між словами змінює **місце** звука (*ten boys* → /tem/), а **дзвінкість** — ні. Глухий лишається глухим: /ˌblæk ˈdɒɡ/, /ˌnaɪs ˈbɔɪ/.
 
 > [!pitfall] Писати те, що почув
 > *Nex day*, *Wensday*, *hanbag*, *sanwich*, *I walk yesterday* — так виглядають відповіді в IELTS Listening, коли записують «звук». Літери, яких не чути, на письмі **є**: *next, Wednesday, handbag, sandwich, walked*. Відповідь із помилкою в правописі не зарахують.
@@ -651,7 +651,7 @@ estimatedMinutes: 45
 > - [ ] banana
 > - [ ] hotel
 >
-> **Пояснення:** голосний випадає **після** наголошеного складу перед /r l n/: /ˈtʃɒklət/, /ˈfæmli/, /ˈkæmrə/, /ˈdɪfrənt/. У *baNAna* і *hoTEL* потрібні склади наголошені або стоять так, що випадіння неможливе.
+> **Пояснення:** голосний випадає **після** наголошеного складу перед /r l n/: /ˈtʃɒklət/, /ˈfæmli/, /ˈkæmrə/, /ˈdɪfrənt/. У *baNAna* і *hoTEL* ненаголошений голосний стоїть **перед** наголосом, а не після нього, тож у звичайному темпі він не випадає.
 
 > [!quiz] Чому «ten boys» звучить як /tem ˈbɔɪz/?
 > level: B2 · id: en-b2-connected-speech-q13

@@ -68,10 +68,10 @@ estimatedMinutes: 45
 >   - { id: share, label: "share", text: "5,000 shares", note: "поширюють далі", tone: orange, icon: "px:repeat" }
 >   - { id: viral, label: "go viral", text: "2 million views", note: "стати вірусним", tone: green, icon: "px:rocket" }
 > steps:
->   - { focus: post, note: "Іра публікує відео: Ira posts a video. Дієслово post — без «make a post» у простій мові." }
+>   - { focus: post, note: "Іра публікує відео: Ira posts a video. Достатньо дієслова post — make a post у розмові звучить менш природно." }
 >   - { move: { from: post, to: react, value: "followers" }, note: "Підписники (followers) бачать його в стрічці: ставлять лайки й коментують — comment ON a post." }
 >   - { move: { from: react, to: share, value: "share" }, note: "Люди діляться відео з друзями — share it. Тепер його бачать не лише підписники Іри." }
->   - { move: { from: share, to: viral, value: "2M views" }, note: "Мільйони переглядів за добу — the video went viral. Форма минулого: go → went viral." }
+>   - { move: { from: share, to: viral, value: "2M views" }, note: "Мільйони переглядів за добу — the video went viral. Минулий час: go → went viral." }
 > ```
 
 ### Онлайн-безпека: як про неї говорити
@@ -96,7 +96,7 @@ estimatedMinutes: 45
 - *I spent an hour **scrolling through** my feed last night.* — Учора ввечері я годину гортав стрічку.
 - *Don't click on that **link** — it looks like a **scam**.* — Не натискай на це посилання — схоже на шахрайство.
 - *Have you **backed up** your files?* — Ти зробив резервну копію файлів?
-- *Most of my friends are **online** in the evening.* — Більшість моїх друзів онлайн увечері.
+- *Most of my friends are **online** in the evening.* — Увечері більшість моїх друзів онлайн.
 - *I'm trying to reduce my **screen time** to two hours a day.* — Я намагаюся скоротити екранний час до двох годин на день.
 - *He has over 50,000 **followers** on Instagram.* — У нього понад 50 000 підписників в Instagram.
 
@@ -129,7 +129,7 @@ estimatedMinutes: 45
 > ipa: /ˈbætəri/ · pos: noun · level: B1 · id: en-b1-tech-w05
 > uk: батарея; акумулятор
 > example: My **battery** is low — I need to charge my phone. — Батарея сідає — треба зарядити телефон.
-> note: *the battery is dead / flat* — повністю розрядився.
+> note: *the battery is dead / flat* — акумулятор повністю розрядився.
 
 > [!word] charge
 > ipa: /tʃɑːdʒ/ · ipa-us: /tʃɑːrdʒ/ · pos: verb · level: B1 · id: en-b1-tech-w06
@@ -159,7 +159,7 @@ estimatedMinutes: 45
 > [!word] app
 > ipa: /æp/ · pos: noun · level: B1 · id: en-b1-tech-w10
 > uk: застосунок; програма
-> example: There's an **app** for everything these days. — Сьогодні є застосунок для всього.
+> example: There's an **app** for everything these days. — Нині на все є свій застосунок.
 > note: скорочення від *application*; звук /æ/, як у *cat*.
 
 > [!word] install
@@ -222,7 +222,7 @@ estimatedMinutes: 45
 > [!word] browse
 > ipa: /braʊz/ · pos: verb · level: B1 · id: en-b1-tech-w21
 > uk: переглядати (сайти, товари); гортати
-> example: I was just **browsing** the internet. — Я просто переглядав інтернет.
+> example: I was just **browsing** the internet. — Я просто сидів в інтернеті.
 > note: *browser* — браузер.
 
 > [!word] search engine
@@ -327,7 +327,7 @@ estimatedMinutes: 45
 > [!word] follower
 > ipa: /ˈfɒləʊə/ · ipa-us: /ˈfɑːloʊər/ · pos: noun · level: B1 · id: en-b1-tech-w39
 > uk: підписник
-> example: Her channel has 10,000 **followers**. — Її канал має 10 000 підписників.
+> example: Her channel has 10,000 **followers**. — У її каналу 10 000 підписників.
 > note: дієслово — *follow*: *I follow a few chefs on Instagram.*
 
 > [!word] comment
@@ -360,7 +360,7 @@ estimatedMinutes: 45
 > [!word] addicted
 > ipa: /əˈdɪktɪd/ · pos: adj · level: B1 · id: en-b1-tech-w45
 > uk: залежний
-> example: I think I'm **addicted to** my phone. — Здається, я залежний від телефона.
+> example: I think I'm **addicted to** my phone. — Здається, я залежний від телефону.
 > note: *addicted **to** something*; іменник — *addiction*.
 
 ## Слухаємо
@@ -382,7 +382,7 @@ estimatedMinutes: 45
 > - [ ] Don't forget to upload your photos before the update.
 > - [ ] Don't forget to delete your photos after the update.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-tech-l03
 > audio: My video went viral and now I have thousands of followers.
 
@@ -405,7 +405,7 @@ estimatedMinutes: 45
 > - [ ] пʼять годин на тиждень
 > - [ ] вона не перевіряла
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-tech-l06
 > audio: Can you help me set up my new phone?
 
@@ -435,7 +435,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-tech-s02
 > text: I can't log in because I've forgotten my password.
 > ipa: /aɪ kɑːnt ˌlɒɡ ˈɪn bɪˈkɒz aɪv fəˈɡɒtən maɪ ˈpɑːswɜːd/
-> tip: log‿in — [ло-ГІН]; password — w німа: [ПААС-вьорд].
+> tip: log‿in — [ло-ГІН]; password — w не читається: [ПААС-вьорд].
 > uk: Я не можу увійти, бо забув пароль.
 
 > [!speak] Скажи вголос
@@ -547,7 +547,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-tech-q08
 > - [ ] у мене зламався телефон
 > - [x] хтось зламав мій акаунт
-> - [ ] я втратив усі підписники
+> - [ ] я втратив усіх підписників
 > - [ ] мене заблокували за коментар
 >
 > **Пояснення:** *hack* — незаконно отримати доступ до акаунта чи компʼютера. *My account was hacked* — «Мій акаунт зламали».
@@ -605,10 +605,10 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🐞 Чому помилка в програмі — «bug»
-> 1947 року інженери Гарвардського компʼютера Mark II знайшли в ньому справжню міль, яка спричинила збій. Вони вклеїли її в журнал з підписом «first actual case of bug being found». Слово *bug* для технічних несправностей існувало й раніше, але ця історія зробила його легендою.
+> 1947 року інженери, які працювали з гарвардським компʼютером Mark II, знайшли всередині справжню міль, що спричинила збій. Вони вклеїли її в журнал з підписом «first actual case of bug being found». Слово *bug* для технічних несправностей існувало й раніше, але ця історія зробила його легендою.
 
 > [!reel] 📧 Spam — це консерви
-> *Spam* — марка консервованого мʼяса. У скетчі Monty Python 1970 року в кафе всі страви були зі Spam, а відвідувачі співали «Spam, Spam, Spam», заглушаючи розмову. Звідси непотрібні повідомлення, що «заглушають» пошту, — *spam*.
+> *Spam* — марка консервованого мʼяса. У скетчі Monty Python 1970 року в кафе всі страви були зі Spam, а відвідувачі співали «Spam, Spam, Spam», заглушаючи розмову. Звідси й назва непотрібних листів, що «засмічують» пошту, — *spam*.
 
 > [!reel] 🦷 Bluetooth названо на честь короля
 > Данський король Гаральд Синьозубий (*Harald Bluetooth*) у X столітті обʼєднав племена Данії й Норвегії. Інженери назвали технологію на його честь, бо вона «обʼєднує» пристрої. Логотип — його ініціали скандинавськими рунами.

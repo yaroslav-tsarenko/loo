@@ -20,7 +20,7 @@ estimatedMinutes: 85
 
 ## Передбач
 
-> [!quiz] Британська колега питає, що за папір тобі треба отримати. Ти кажеш англійською про «довідку з місця роботи». Який варіант — найкраща **медіація**?
+> [!quiz] Британська колега питає, який документ тобі треба отримати, а йдеться про «довідку з місця роботи». Який варіант — найкраща **медіація**?
 > level: C2 · id: en-c2-mediation-q01
 > - [ ] I need a reference from the place of work.
 > - [ ] I need a dovidka.
@@ -57,14 +57,14 @@ estimatedMinutes: 85
 > steps:
 >   - { focus: med, note: "Companion Volume (2020) додав до CEFR детальні шкали медіації: це вже не «просто переклад», а окрема навичка з дескрипторами від Pre-A1 до C2." }
 >   - { focus: txt, note: "Медіація тексту: передати зміст тексту комусь іншому — коротше, простіше, іншою мовою або для іншої мети." }
->   - { focus: con, note: "Медіація понять: допомогти групі зрозуміти ідею — поставити питання, підсумувати, повʼязати думки учасників." }
+>   - { focus: con, note: "Медіація понять: допомогти групі зрозуміти ідею — ставити запитання, підсумовувати, повʼязати думки учасників." }
 >   - { focus: com, note: "Медіація комунікації: бути посередником між людьми з різними мовами, культурами чи позиціями — зокрема в напружених ситуаціях." }
 >   - { focus: [str, s1, s2], note: "Стратегії — інструменти для всіх трьох видів: пояснити нове поняття (повʼязати з відомим, адаптувати мову, розбити на кроки) і спростити текст (розгорнути щільний або стиснути розлогий)." }
 > ```
 
 ### Що вміє медіатор рівня C2
 
-Переказ дескрипторів CEFR (не цитата): на C2 людина може **підсумувати інформацію з різних усних і письмових джерел, відтворюючи аргументи** в зв'язному викладі; пояснювати не лише факти, а й **те, як вони подані** — з оцінками й відтінками; передавати складний фаховий текст неспеціалістам **точно й природно**; і робити все це **гнучко**, змінюючи регістр під аудиторію.
+Переказ дескрипторів CEFR (не цитата): на C2 людина може **підсумувати інформацію з різних усних і письмових джерел, відтворюючи аргументи** у звʼязному викладі; пояснювати не лише факти, а й **те, як вони подані** — з оцінками й відтінками; передавати складний фаховий текст неспеціалістам **точно й природно**; і робити все це **гнучко**, змінюючи регістр під аудиторію.
 
 ### Де медіація на іспитах
 
@@ -130,7 +130,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 | **адаптація мови** | короткі речення, звичайні слова, *you*, активний стан | *The scheme pays…* → *You can get…* |
 | **розбиття на кроки** | послідовність, нумерація | *First… Then… Only after that…* |
 | **конкретний приклад** | цифри, ситуація | *If your rent is £800, that means…* |
-| **перевірка розуміння** | питання, а не «зрозуміло?» | *So what would you do if…?* |
+| **перевірка розуміння** | запитання, а не «зрозуміло?» | *So what would you do if…?* |
 
 > [!example] Щільний текст → plain English (оригінальні тексти)
 > **Оригінал:** *Under the scheme, eligible households may apply for a one-off payment towards energy costs, provided that their combined annual income does not exceed £24,000 and that no member of the household is already in receipt of the winter support allowance.*
@@ -164,7 +164,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 >   - { id: str, label: "3. стратегія", text: "опис функції + назва для пошуку", note: "gloss, а не калька", tone: orange }
 >   - { id: out, label: "англійською", text: "You need an official certificate from the local administrative services centre — it's called a TsNAP.", tone: green, icon: "px:flagUk" }
 > steps:
->   - { focus: src, note: "Буквально «довідка в ЦНАПі» нічого не скаже британцю: ні слово довідка, ні абревіатура." }
+>   - { focus: src, note: "Буквально «довідка в ЦНАПі» нічого не скаже британцеві: ні слово довідка, ні абревіатура." }
 >   - { focus: fn, note: "Спитай себе: яку функцію виконує ця річ? Довідка — офіційне підтвердження. ЦНАП — місце, де видають документи." }
 >   - { focus: aud, note: "Кому ти пояснюєш і навіщо? Іноземцю, якому треба піти й отримати папір, назва знадобиться — щоб знайти будівлю." }
 >   - { focus: str, note: "Тому — опис функції англійською плюс оригінальна назва в транслітерації: так людина і зрозуміє, і знайде." }
@@ -244,7 +244,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > [!word] faithful
 > ipa: /ˈfeɪθfəl/ · pos: adj · level: C2 · id: en-c2-mediation-w04
 > uk: точний, вірний (оригіналу — про переклад)
-> example: The translation is **faithful** to the original but reads awkwardly. — Переклад точний щодо оригіналу, але читається незграбно.
+> example: The translation is **faithful** to the original but reads awkwardly. — Переклад вірний оригіналу, але читається незграбно.
 > note: *faithful to sth*. Інше значення — вірний (людині).
 
 > [!word] literal
@@ -318,7 +318,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > [!word] pertinent
 > ipa: /ˈpɜːtɪnənt/ · ipa-us: /ˈpɝːtənənt/ · pos: adj · level: C2 · id: en-c2-mediation-w16
 > uk: доречний, що стосується справи
-> example: Include only the details that are **pertinent** to the reader. — Залиш лише ті деталі, що стосуються читача.
+> example: Include only the details that are **pertinent** to the reader. — Залиш лише ті деталі, що важливі для читача.
 > note: *pertinent to sth*; *a pertinent question*.
 
 > [!word] extraneous
@@ -333,7 +333,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > ipa: /ˈdʒɑːɡən/ · ipa-us: /ˈdʒɑːrɡən/ · pos: noun · level: C2 · id: en-c2-mediation-w18
 > uk: жаргон, фахова мова (незрозуміла стороннім)
 > example: The letter is full of legal **jargon**. — Лист повний юридичного жаргону.
-> note: нелічильне: *a lot of jargon*, не ~~*jargons*~~. *Jargon-free* — без жаргону.
+> note: незлічуване: *a lot of jargon*, не ~~*jargons*~~. *Jargon-free* — без жаргону.
 
 > [!word] plain English
 > ipa: /ˌpleɪn ˈɪŋɡlɪʃ/ · pos: noun · level: C2 · id: en-c2-mediation-w19
@@ -374,7 +374,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > [!word] oversimplify
 > ipa: /ˌəʊvəˈsɪmplɪfaɪ/ · ipa-us: /ˌoʊvərˈsɪmplɪfaɪ/ · pos: verb · level: C2 · id: en-c2-mediation-w25
 > uk: надмірно спрощувати (аж до неточності)
-> example: To say the law "bans all pets" **oversimplifies** it. — Сказати, що закон «забороняє всіх тварин», — надмірне спрощення.
+> example: To say the law "bans all pets" **oversimplifies** it. — Сказати, що закон «забороняє тримати будь-яких тварин», — надмірне спрощення.
 > note: іменник — *oversimplification*.
 
 ## Слухаємо
@@ -386,7 +386,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > - [ ] The upside is that the deadline has been moved to Friday, so we've gained two days.
 > - [ ] The upshot is that the deadline has been moved from Friday, so we've lost two days.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-mediation-l02
 > audio: In layman's terms, the contract lets either side walk away with two months' notice.
 
@@ -460,7 +460,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > text: Let me put that another way.
 > ipa: /ˈlet mi ˈpʊt ðæt əˈnʌðə ˈweɪ/
 > tip: *put that* — [t] у *put* майже не чути: [пу-ðет]; наголос на *another*.
-> uk: Дозволь сказати це інакше.
+> uk: Спробую сказати це інакше.
 
 > [!speak] Функціональний відповідник
 > level: C2 · id: en-c2-mediation-s05
@@ -508,7 +508,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 
 > [!quiz] Що з цього — **медіація** в розумінні CEFR Companion Volume? Обери всі.
 > level: C2 · type: multi · id: en-c2-mediation-q02
-> - [x] Пояснити британській колезі українською мовою написаний лист із податкової англійською.
+> - [x] Пояснити британській колезі англійською, про що йдеться в листі з податкової, написаному українською.
 > - [x] Стиснути 30-сторінковий звіт до однієї сторінки для керівника.
 > - [x] На зустрічі переформулювати різку репліку колеги, щоб інші зрозуміли її суть.
 > - [ ] Написати власне есе на вільну тему.
@@ -566,7 +566,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > - [x] Don't worry about all the complicated stuff — basically, just sign here, OK?
 > - [ ] In plain terms, the price is fixed for a year and then may go up.
 >
-> **Пояснення:** *Don't worry about all the complicated stuff* і *just sign here, OK?* — приховує зміст і применшує співрозмовника. Інші варіанти спрощують **мову**, але не **зміст** — і поважають слухача.
+> **Пояснення:** *Don't worry about all the complicated stuff* і *just sign here, OK?* — приховують зміст і применшують співрозмовника. Інші варіанти спрощують **мову**, але не **зміст** — і поважають слухача.
 
 > [!quiz] Українська → англійська · Як найкраще передати «ЦНАП» іноземцеві, якому треба туди піти?
 > level: C2 · id: en-c2-mediation-q08
@@ -586,7 +586,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 >
 > **Пояснення:** функціональний відповідник (*sole trader*) + пояснення специфіки (*simplified "single tax" system*, група з податком у відсотках від обороту). *Physical person entrepreneur* — калька з «фізична особа-підприємець», носієві нічого не каже. *Businessman* — надто загально для бухгалтера.
 
-> [!quiz] Ідіома · Колега хвилюється через дрібну помилку у звіті. Як по-англійськи сказати «не роби з мухи слона»?
+> [!quiz] Ідіома · Колега хвилюється через дрібну помилку у звіті. Як англійською сказати «не роби з мухи слона»?
 > level: C2 · id: en-c2-mediation-q10
 > - [ ] Don't make an elephant out of a fly.
 > - [x] Don't make a mountain out of a molehill.
@@ -613,7 +613,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 > - [ ] Ignore him, he's always like that.
 > - [ ] Let's move on to the next item.
 >
-> **Пояснення:** медіація комунікації: передати **зміст** (терміни занадто стислі), а не грубість; *I think… is getting at* — обережне переформулювання; *is that right, Ivan?* — перевірка в самого автора. Варіант 1 — «вірний», але руйнує розмову; 3 і 4 — уникання.
+> **Пояснення:** медіація комунікації: передати **зміст** (терміни занадто стислі), а не грубість; *I think… is getting at* — обережне переформулювання; *is that right, Ivan?* — перевірка в самого автора. Варіант 1 — дослівно точний, але руйнує розмову; 3 і 4 — уникання.
 
 > [!quiz] IELTS Speaking Part 3 · «Why do some people find official documents hard to understand?» Яка відповідь найкраще пояснює ідею?
 > level: C2 · id: en-c2-mediation-q13
@@ -700,7 +700,7 @@ Companion Volume описує **стратегії пояснення**: пов�
 - 🟢 [IELTS — офіційний сайт](https://ielts.org) — формати Reading (summary completion), Writing Task 1 і Speaking Part 3.
 - 🟢 [Plain English Campaign](https://www.plainenglish.co.uk/) — безкоштовні посібники, як переписувати документи зрозуміло.
 - 🟢 [plainlanguage.gov](https://www.plainlanguage.gov/) — американські настанови зрозумілої мови для документів.
-- 🟡 M. Baker — *In Other Words: A Coursebook on Translation* (Routledge, 3rd ed., 2018) — стратегії передачі реалій і ідіом, коли відповідника немає.
+- 🟡 M. Baker — *In Other Words: A Coursebook on Translation* (Routledge, 3rd ed., 2018) — стратегії передачі реалій та ідіом, коли відповідника немає.
 
 > [!important] Підсумок
 > - **Медіація** — зробити зміст доступним іншому: іншою мовою, простіше, коротше чи в іншому регістрі (тексти, поняття, комунікація).

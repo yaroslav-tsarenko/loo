@@ -27,7 +27,7 @@ estimatedMinutes: 45
 > - [ ] I'll meet Anna tomorrow at six.
 > - [ ] I meeting Anna tomorrow at six.
 >
-> **Пояснення:** є **домовленість** з іншою людиною, час і місце відомі — англійці кажуть Present Continuous: *I'm meeting*. *I'll meet* звучить як рішення, прийняте просто зараз, а *I meet* — як розклад або звичка.
+> **Пояснення:** є **домовленість** з іншою людиною, час і місце відомі — тож носії англійської вживають Present Continuous: *I'm meeting*. *I'll meet* звучить як рішення, прийняте просто зараз, а *I meet* — як розклад або звичка.
 
 ## Простими словами
 
@@ -94,7 +94,7 @@ estimatedMinutes: 45
 Коли подія залежить від **графіка, а не від тебе** — транспорт, кіно, уроки, магазини, офіційні заходи, — бери Present Simple:
 
 - *What time **does** the film **start**?* — О котрій починається фільм?
-- *The conference **begins** on 3 March and **ends** on 5 March.* — Конференція триває з 3 по 5 березня.
+- *The conference **begins** on 3 March and **ends** on 5 March.* — Конференція починається 3 березня й закінчується 5-го.
 - *Term **starts** next Monday.* — Семестр починається наступного понеділка.
 
 > [!quiz] Перевір себе: обери природний варіант
@@ -116,7 +116,7 @@ estimatedMinutes: 45
 
 ### Майбутнє після when, as soon as, before, after, until
 
-У підрядних часу про майбутнє — **Present Simple**, не *will*:
+У підрядних реченнях часу про майбутнє — **Present Simple**, не *will*:
 
 - *I'll call you **when** I **get** home.* — а не ~~*when I will get home*~~.
 - ***As soon as** the results **come** out, we'll let you know.*
@@ -132,11 +132,11 @@ estimatedMinutes: 45
 - I'**m going to** learn to drive this summer. — Цього літа я збираюся навчитися водити.
 - I'**m meeting** my lawyer at 3 pm tomorrow. — Завтра о 15:00 у мене зустріч з адвокатом.
 - What time **does** your flight **land**? — О котрій приземляється твій рейс?
-- The meeting **has been postponed**, so I'**ll** have more time to prepare. — Нараду перенесли, тож я матиму більше часу підготуватися.
+- The meeting **has been postponed**, so I'**ll** have more time to prepare. — Нараду перенесли, тож я матиму більше часу на підготовку.
 - I'm sure you'**ll love** Lviv. — Я впевнений, тобі сподобається Львів.
 - Look at the score! They'**re going to lose**. — Подивись на рахунок! Вони програють.
 - A: This box is too heavy. — B: Wait, I'**ll help** you. — Ця коробка заважка. — Зачекай, я допоможу.
-- The hotel is **fully booked**, so we'**re staying** with friends. — Готель заповнений, тож ми зупиняємося в друзів.
+- The hotel is **fully booked**, so we'**re staying** with friends. — У готелі немає вільних місць, тож ми зупиняємося в друзів.
 - Experts **predict** that prices **will** rise again next year. — Експерти прогнозують, що наступного року ціни знову зростуть.
 - Quick, the shop **is about to close**! — Швидше, магазин зараз зачиниться!
 - I'll text you **as soon as** I **land**. — Напишу тобі, щойно приземлюся.
@@ -153,7 +153,7 @@ estimatedMinutes: 45
 > ipa: /bi ˈdjuː tə/ · ipa-us: /bi ˈduː tə/ · pos: phrase · level: B1 · id: en-b1-future-forms-w02
 > uk: мати відбутися (за планом, графіком)
 > example: The train **is due to** arrive at 10:15. — Потяг має прибути о 10:15.
-> note: be due — мати бути зданим: The essay is due on Monday.
+> note: be due без to — про крайній термін: The essay is due on Monday. — Есей треба здати в понеділок.
 
 > [!word] be about to
 > ipa: /bi əˈbaʊt tə/ · pos: phrase · level: B1 · id: en-b1-future-forms-w03
@@ -170,7 +170,7 @@ estimatedMinutes: 45
 > [!word] depart
 > ipa: /dɪˈpɑːt/ · ipa-us: /dɪˈpɑːrt/ · pos: verb · level: B1 · id: en-b1-future-forms-w05
 > uk: відправлятися, вирушати (офіційно)
-> example: Flight BA302 **departs** from gate 14. — Рейс BA302 відправляється з виходу 14.
+> example: Flight BA302 **departs** from gate 14. — Рейс BA302 вилітає від виходу 14.
 > note: формальне; у розмові — leave.
 
 > [!word] postpone
@@ -217,12 +217,12 @@ estimatedMinutes: 45
 > - [ ] The train will leave at a quarter to eight.
 > - [ ] The train is leaving at a quarter past eight.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-future-forms-l03
 > audio: I think it'll rain tomorrow.
 > accept: I think it will rain tomorrow.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-future-forms-l04
 > audio: We're going to buy a new car.
 > accept: We are going to buy a new car.
@@ -295,12 +295,12 @@ estimatedMinutes: 45
 > text: I'm meeting some friends on Saturday, and on Sunday I'm going to catch up on some reading.
 > ipa: /aɪm ˈmiː.tɪŋ səm frendz ɒn ˈsæt.ə.deɪ ən ɒn ˈsʌn.deɪ aɪm ˈɡəʊ.ɪŋ tə kætʃ ˈʌp ɒn səm ˈriː.dɪŋ/
 > tip: дві різні форми майбутнього в одній відповіді (домовленість + намір) показують екзаменатору граматичний діапазон.
-> uk: У суботу я зустрічаюся з друзями, а в неділю збираюся надолужити читання.
+> uk: У суботу я зустрічаюся з друзями, а в неділю нарешті збираюся трохи почитати.
 
 ## Типові помилки українців
 
 > [!pitfall] «I will meet my friend tomorrow» — про домовленість
-> Українське «завтра я зустрічаюся з другом» або «зустрінуся» природно перекласти через *will*. Але якщо зустріч уже домовлена, носій скаже *I'**m meeting** my friend tomorrow*. *I'll meet* звучить як щойно прийняте рішення або обіцянка.
+> Українське «завтра я зустрічаюся з другом» або «зустрінуся» так і хочеться перекласти через *will*. Але якщо зустріч уже домовлена, носій скаже *I'**m meeting** my friend tomorrow*. *I'll meet* звучить як щойно прийняте рішення або обіцянка.
 
 > [!pitfall] «I'll call you when I will arrive»
 > Українською «коли приїду» — майбутній час, і хочеться поставити *will* двічі. В англійській після **when, as soon as, before, after, until, if** про майбутнє — Present Simple: *I'll call you when I **arrive**.*
@@ -464,7 +464,7 @@ estimatedMinutes: 45
 > Простий тест: чи можна записати це в Google Calendar з часом і людьми? Якщо так — Continuous: I'm meeting Olha at 6. Якщо це лише бажання — going to.
 
 > [!reel] 🚆 Потяги говорять Present Simple
-> Табло на вокзалах і в аеропортах: «The train to Bristol departs from platform 4». Розклад — це факт, як закон природи, тому теперішній простий.
+> Табло на вокзалах і в аеропортах: «The train to Bristol departs from platform 4». Розклад — це факт, як закон природи, тому — Present Simple.
 
 > [!reel] 🎬 «I'll be back» — чому will?
 > Термінатор не планував заздалегідь і не мав домовленості: це обіцянка, дана просто зараз. Обіцянки й погрози — територія will.

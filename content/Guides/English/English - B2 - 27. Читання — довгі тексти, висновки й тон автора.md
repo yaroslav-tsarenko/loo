@@ -412,7 +412,7 @@ estimatedMinutes: 65
 > - [ ] The evidence is fairly conclusive.
 > - [ ] The evidence is not so far conclusive.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-reading-l02
 > audio: The writer implies that the benefits have been overstated.
 
@@ -442,7 +442,7 @@ estimatedMinutes: 65
 > level: B2 · id: en-b2-reading-s02
 > text: The writer acknowledges some benefits but remains cautious.
 > ipa: /ðə ˈraɪtər əkˈnɒlɪdʒɪz səm ˈbenɪfɪts bət rɪˈmeɪnz ˈkɔːʃəs/
-> tip: acknowledges — k німе: [ек-НО-лі-джіз]. cautious — [КОО-шес], без «у».
+> tip: acknowledges — літера k у -know- не читається: [ек-НО-лі-джіз]. cautious — [КОО-шес], без «у».
 > uk: Автор визнає певні переваги, але залишається обережним.
 
 > [!speak] Кореляція не причина
@@ -470,14 +470,14 @@ estimatedMinutes: 65
 
 Питання 4–16 — до тексту **«The Uses of Boredom»**.
 
-> [!quiz] IELTS · Matching information: який абзац містить згадку про **розмір вибірки** дослідження?
+> [!quiz] IELTS · Matching information: який абзац містить згадку про **замалу вибірку** дослідження?
 > level: B2 · id: en-b2-reading-q04
 > - [ ] B
 > - [x] D
 > - [ ] E
 > - [ ] G
 >
-> **Пояснення:** абзац D: *Kerr's study involved only forty participants* — розмір вибірки (sample size). Пастка: в абзаці E теж є число учасників (*a survey of 1,200 adults*), але питання — про **обмеження експерименту**, і саме D каже, що вибірка мала. Matching information шукає **деталь**, а не головну думку абзацу.
+> **Пояснення:** абзац D: *Kerr's study involved only forty participants* — розмір вибірки (sample size). Пастка: в абзаці E теж є число учасників (*a survey of 1,200 adults*), але там його не подано як недолік — лише D каже, що вибірка мала. Matching information шукає **деталь**, а не головну думку абзацу.
 
 > [!quiz] IELTS · Matching information: який абзац містить **приклади того, як організації відреагували** на дослідження?
 > level: B2 · id: en-b2-reading-q05

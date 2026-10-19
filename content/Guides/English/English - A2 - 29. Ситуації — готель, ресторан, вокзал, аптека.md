@@ -13,7 +13,7 @@ estimatedMinutes: 45
 
 > [!success] Після цієї теми ти зможеш
 > - заселитися в готель, поскаржитися на проблему в номері й виселитися: *I've got a reservation… I'm afraid the shower doesn't work.*;
-> - попросити столик, замовити страву й ввічливо поскаржитися в ресторані;
+> - попросити столик, замовити страву і ввічливо поскаржитися в ресторані;
 > - купити квиток в один бік чи туди й назад і спитати про пересадку й платформу;
 > - пояснити в аптеці, що тебе турбує, і зрозуміти, як приймати ліки;
 > - просити ввічливо: **Could I…?**, **Could you…?**, **Would you mind + -ing?**
@@ -59,7 +59,7 @@ estimatedMinutes: 45
 >   - { show: [r1, p1], note: "Річ просимо питанням: Could I have…? І обовʼязково please." }
 >   - { show: [r2, p2], note: "Просимо щось зробити: Could you…? або ще ввічливіше — Would you mind + -ing?" }
 >   - { show: [r3, p3], note: "Скаргу починаємо з I'm afraid… або I'm sorry, but… — це не страх, а «на жаль»." }
->   - { focus: [p1, p2, p3], note: "Правило: питання замість наказу, please, і жодних оклику й звинувачень — так проблему вирішать швидше." }
+>   - { focus: [p1, p2, p3], note: "Правило: питання замість наказу, please, і жодних окликів чи звинувачень — так проблему вирішать швидше." }
 > ```
 
 ### Готель
@@ -104,8 +104,8 @@ estimatedMinutes: 45
 
 ## Приклади
 
-- *I've got a reservation for three nights.* — У мене бронювання на три ночі.
-- *I'm afraid there's a problem with my room.* — На жаль, з моїм номером проблема.
+- *I've got a reservation for three nights.* — У мене заброньовано номер на три ночі.
+- *I'm afraid there's a problem with my room.* — На жаль, у моєму номері проблема.
 - *Is it possible to change rooms? It's very noisy.* — Можна змінити номер? Тут дуже шумно.
 - *Could we have a table by the window?* — Можна нам столик біля вікна?
 - *I'll have the fish, please.* — Я візьму рибу, будь ласка.
@@ -127,7 +127,7 @@ estimatedMinutes: 45
 > [!word] reservation
 > ipa: /ˌrezəˈveɪʃən/ · ipa-us: /ˌrezərˈveɪʃən/ · pos: noun · level: A2 · id: en-a2-situations-w02
 > uk: бронювання; замовлення (номера, столика)
-> example: I've got a **reservation** in the name of Bondar. — У мене бронювання на прізвище Бондар.
+> example: I've got a **reservation** in the name of Bondar. — У мене заброньовано номер на прізвище Бондар.
 > note: синонім — *booking*.
 
 > [!word] single room
@@ -185,7 +185,7 @@ estimatedMinutes: 45
 > [!word] reserve
 > ipa: /rɪˈzɜːv/ · ipa-us: /rɪˈzɜːrv/ · pos: verb · level: A2 · id: en-a2-situations-w12
 > uk: бронювати; резервувати
-> example: I'd like to **reserve** a table for eight o'clock. — Я хочу забронювати столик на восьму.
+> example: I'd like to **reserve** a table for eight o'clock. — Я хотів би забронювати столик на восьму.
 > note: у розмові частіше *book*.
 
 > [!word] Are you ready to order?
@@ -202,7 +202,7 @@ estimatedMinutes: 45
 > [!word] steak
 > ipa: /steɪk/ · pos: noun · level: A2 · id: en-a2-situations-w15
 > uk: стейк
-> example: How would you like your **steak**? — Medium, please. — Якої просмаженості стейк? — Середньої, будь ласка.
+> example: How would you like your **steak**? — Medium, please. — Якої просмаженості вам стейк? — Середньої, будь ласка.
 > note: вимова /eɪ/ — як *make*, не «стік». Просмаженість: *rare*, *medium*, *well done*.
 
 > [!word] undercooked
@@ -420,7 +420,7 @@ estimatedMinutes: 45
 > ipa: /haɪ aɪv ɡɒt ə ˌrezəˈveɪʃən fə ˈtuː ˈnaɪts/
 > tip: reservation — наголос на -VA-: «ре-зе-ВЕЙ-шн»; for — слабке /fə/.
 
-> [!speak] У номері не працює душ. Повідом ввічливо.
+> [!speak] У номері не працює душ. Повідом про це ввічливо.
 > level: A2 · id: en-a2-situations-s02
 > text: I'm afraid the shower doesn't work.
 > ipa: /aɪm əˈfreɪd ðə ˈʃaʊə ˈdʌznt ˈwɜːk/
@@ -484,13 +484,13 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-situations-s11
 > text: How often should I take it?
 > ipa: /haʊ ˈɒfən ʃəd aɪ ˈteɪk ɪt/
-> tip: often — зазвичай без t: /ˈɒfən/; should — слабке /ʃəd/, l німа.
+> tip: often — зазвичай без t: /ˈɒfən/; should — слабке /ʃəd/, l не читається.
 
 > [!speak] Попроси фармацевта записати інструкцію.
 > level: A2 · id: en-a2-situations-s12
 > text: Would you mind writing it down, please?
 > ipa: /wʊd juː ˈmaɪnd ˈraɪtɪŋ ɪt ˈdaʊn pliːz/
-> tip: would you зливається: «вуджу»; writing — w у write німа: /ˈraɪtɪŋ/.
+> tip: would you зливається: «вуджу»; writing — у write не читається w: /ˈraɪtɪŋ/.
 
 ## Типові помилки українців
 

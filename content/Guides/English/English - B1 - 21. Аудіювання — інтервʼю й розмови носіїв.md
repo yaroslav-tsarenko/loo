@@ -74,7 +74,7 @@ estimatedMinutes: 45
 >   - { id: s4, col: said, text: "Oh, brilliant. The train's late again.", tone: gray }
 >   - { id: m4, col: meant, text: "Сарказм: це жахливо.", tone: red }
 > steps:
->   - { show: [s1, m1], note: "Протяжне Well… і I suppose — сигнали неохочої, слабкої згоди. Похвала однієї деталі = загалом не сподобалося." }
+>   - { show: [s1, m1], note: "Протяжне Well… і I suppose — сигнали неохочої, слабкої згоди. Хвалять лише одну деталь — отже, загалом не сподобалося." }
 >   - { show: [s2, m2], note: "Interesting з паузою після нього — часто ввічливе «ні». Слухай, що буде далі: зазвичай іде but." }
 >   - { show: [s3, m3], note: "Британська стриманість: not bad — це похвала. Not bad at all — справді добре." }
 >   - { show: [s4, m4], note: "Позитивне слово + погана ситуація + рівна, «плоска» інтонація = сарказм. Слова кажуть «чудово», а ситуація — ні." }
@@ -107,7 +107,7 @@ estimatedMinutes: 45
 >   - { id: change, label: "3", text: "Чи змінилася думка?", note: "actually, OK, fair point", tone: orange }
 >   - { id: decide, label: "4", text: "Що вирішили?", note: "So let's…, OK then…", tone: green }
 > steps:
->   - { focus: who, note: "Перед записом подивись, скільки людей і хто вони. Імена з питань почуєш у перших репліках." }
+>   - { focus: who, note: "Перед початком запису подивись, скільки людей і хто вони. Імена з питань почуєш у перших репліках." }
 >   - { focus: what, note: "Лови сигнали думки. Факт (we got 140 responses) і думка (I wasn't surprised) — різні речі." }
 >   - { focus: change, note: "Хтось каже Actually… або That's a fair point — позиція зсувається. Перша думка може бути дистрактором." }
 >   - { focus: decide, note: "Питання «What do they decide…?» — відповідь наприкінці фрагмента: So let's…, OK, then we'll…" }
@@ -122,7 +122,7 @@ estimatedMinutes: 45
 - *Apparently, the café is closing next month.* — Кажуть, кафе наступного місяця закривається.
 - *A hundred and forty, actually.* — Насправді сто сорок.
 - *That's a fair point.* — Слушне зауваження.
-- *Coming to the gym later? — Can't, sorry. Got a deadline.* — Підеш пізніше в спортзал? — Не можу, вибач. Маю дедлайн.
+- *Coming to the gym later? — Can't, sorry. Got a deadline.* — Підеш пізніше в спортзал? — Не можу, вибач. У мене дедлайн.
 - *On the whole, the project went well.* — Загалом проєкт пройшов добре.
 - *It depends on the person, I reckon.* — Гадаю, це залежить від людини.
 
@@ -131,7 +131,7 @@ estimatedMinutes: 45
 > [!word] point of view
 > ipa: /ˌpɔɪnt əv ˈvjuː/ · pos: noun · level: B1 · id: en-b1-listen-interviews-w01
 > uk: точка зору
-> example: From my **point of view**, it's too expensive. — З моєї точки зору, це задорого.
+> example: From my **point of view**, it's too expensive. — На мою думку, це задорого.
 
 > [!word] sceptical
 > ipa: /ˈskeptɪkəl/ · pos: adj · level: B1 · id: en-b1-listen-interviews-w02
@@ -153,9 +153,9 @@ estimatedMinutes: 45
 
 > [!word] on the whole
 > ipa: /ˌɒn ðə ˈhəʊl/ · ipa-us: /ˌɑːn ðə ˈhoʊl/ · pos: phrase · level: B1 · id: en-b1-listen-interviews-w05
-> uk: загалом; в цілому
-> example: **On the whole**, I enjoyed the course. — Загалом мені сподобався курс.
-> note: whole звучить як hole — /həʊl/, w німе.
+> uk: загалом; здебільшого
+> example: **On the whole**, I enjoyed the course. — Загалом курс мені сподобався.
+> note: whole звучить як hole — /həʊl/, w не читається.
 
 > [!word] it depends
 > ipa: /ɪt dɪˈpendz/ · pos: phrase · level: B1 · id: en-b1-listen-interviews-w06
@@ -177,7 +177,7 @@ estimatedMinutes: 45
 > [!word] I suppose
 > ipa: /aɪ səˈpəʊz/ · ipa-us: /aɪ səˈpoʊz/ · pos: phrase · level: B1 · id: en-b1-listen-interviews-w09
 > uk: мабуть; я так думаю (без ентузіазму)
-> example: Is it worth it? — **I suppose** so. — Воно того варте? — Мабуть, так.
+> example: Is it worth it? — **I suppose** so. — Це того варте? — Мабуть, так.
 > note: часто звучить як неохоча, слабка згода.
 
 > [!word] convinced
@@ -202,7 +202,7 @@ estimatedMinutes: 45
 > ipa: /əˈsaɪnmənt/ · pos: noun · level: B1 · id: en-b1-listen-interviews-w13
 > uk: завдання (навчальне); письмова робота
 > example: The **assignment** is due on Friday. — Роботу треба здати в пʼятницю.
-> note: g німе: «е-САЙН-мент».
+> note: g не читається: «е-САЙН-мент».
 
 > [!word] tutor
 > ipa: /ˈtjuːtə/ · ipa-us: /ˈtuːt̬ɚ/ · pos: noun · level: B1 · id: en-b1-listen-interviews-w14
@@ -290,7 +290,7 @@ estimatedMinutes: 45
 > audio: A: Coming to the gym later?
 > audio: B: Can't, sorry. Got a deadline. Tomorrow, maybe?
 > - [ ] погано почувається
-> - [x] має дедлайн, можливо, піде завтра
+> - [x] у нього дедлайн; можливо, піде завтра
 > - [ ] не любить спортзал
 >
 > **Пояснення:** розмовні скорочення: *Coming…?* = *Are you coming…?*, *Got a deadline* = *I've got a deadline*.
@@ -310,7 +310,7 @@ estimatedMinutes: 45
 > audio: Oh, great. The train's late again. Brilliant. Just brilliant.
 > - [ ] радість
 > - [x] роздратування — це сарказм
-> - [ ] здивування, бо потяги завжди вчасно
+> - [ ] здивування, бо потяги завжди приходять вчасно
 >
 > **Пояснення:** *great*, *brilliant* + погана новина = сарказм. Слова позитивні, ситуація — ні.
 
@@ -366,7 +366,7 @@ estimatedMinutes: 45
 > - [x] графіки — у презентації, повні таблиці — у письмовому звіті
 > - [ ] нічого не вирішили
 >
-> **Пояснення:** рішення — у останній репліці: *OK, but let's…*. Обидві думки обʼєдналися.
+> **Пояснення:** рішення — в останній репліці: *OK, but let's…*. Обидві думки обʼєдналися.
 
 > [!listen] Яку проблему онлайн-опитувань називає Анна?
 > level: B1 · type: answer · id: en-b1-listen-interviews-l15
@@ -378,11 +378,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *quick* — перевага (до *but*), проблема — після *but*. «Повільні» — це Марк про паперові опитування.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-listen-interviews-l16
 > audio: I see what you mean, but I'm not so sure.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-listen-interviews-l17
 > audio: To be honest, it depends on the person.
 
@@ -422,7 +422,7 @@ estimatedMinutes: 45
 > ipa: /səʊ ˈwɒt jə ˈseɪɪŋ‿ɪz ðət‿ɪt dɪˈpendz‿ɒn ðə ˈpɜːsən/
 > ipa-us: /soʊ ˈwɑːt jɚ ˈseɪɪŋ‿ɪz ðət‿ɪt dɪˈpendz‿ɑːn ðə ˈpɝːsən/
 > tip: that — слабке /ðət/; depends‿on — «ді-ПЕН-зон». Голос угору в кінці — це питання.
-> uk: Тобто ти кажеш, що це залежить від людини?
+> uk: Тобто ти хочеш сказати, що це залежить від людини?
 
 > [!speak] Погодься з аргументом
 > level: B1 · id: en-b1-listen-interviews-s04
@@ -587,7 +587,7 @@ estimatedMinutes: 45
 > Британці славляться стриманістю: *not bad* — добре, *quite good* — іноді «так собі», *I'll bear it in mind* — найімовірніше, ні. Тому слухай інтонацію й контекст, а не лише слова.
 
 > [!reel] 🗣️ Um чи uh — це не випадковість
-> Психолінгвісти Герберт Кларк і Жан Фокс Трі (2002) показали: носії англійської обирають *uh* перед короткою паузою, а *um* — перед довшою. Тож навіть «паузи» щось кажуть слухачу.
+> Психолінгвісти Герберт Кларк і Джин Фокс Трі (2002) показали: носії англійської обирають *uh* перед короткою паузою, а *um* — перед довшою. Тож навіть «паузи» щось кажуть слухачу.
 
 > [!reel] 👂 Мовчазний слухач — підозрілий
 > В англійській розмові слухач щокілька секунд вставляє *mm-hm*, *yeah*, *right*. Якщо мовчати, співрозмовник може подумати, що ти не слухаєш або не згоден. Ці звуки — частина ввічливості.

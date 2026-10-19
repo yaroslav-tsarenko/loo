@@ -57,7 +57,7 @@ estimatedMinutes: 50
 >   - { id: c2, col: c, text: "Of particular concern is the cost.", note: "be + довгий підмет у кінці", tone: green }
 > steps:
 >   - { show: [a1, a2], note: "Фронтування: щось виносимо наперед, але далі звичайне I can't, it may. Ні do, ні інверсії." }
->   - { show: [b1, b2], note: "Інверсія після заперечних і обмежувальних слів — як у питанні: have I, did we. Це тема C1." }
+>   - { show: [b1, b2], note: "Інверсія після заперечних і обмежувальних слів — як у питальному реченні: have I, did we. Це тема C1." }
 >   - { show: [c1, c2], note: "Повна інверсія: наперед — обставина місця чи частина присудка, а підмет іде в кінець. Без do." }
 > ```
 
@@ -68,7 +68,7 @@ estimatedMinutes: 50
 Англійське речення зазвичай починається з того, що читач **уже знає** (тема), і закінчується **новим** (рема). Порівняй:
 
 - *The committee rejected the proposal. **The proposal** had been drafted by a junior minister.* — природний ланцюжок: кінець одного речення стає початком наступного.
-- *The committee rejected the proposal. **A junior minister** had drafted it.* — граматично, але звʼязок слабший: новий персонаж вискакує на початку.
+- *The committee rejected the proposal. **A junior minister** had drafted it.* — граматично правильно, але звʼязок слабший: новий персонаж вискакує на початку.
 
 Фронтування, повна інверсія і пасив — це насамперед **інструменти звʼязності**: вони ставлять відоме наперед, а нове й «важке» — в кінець. Ефект наголосу — побічний, але відчутний.
 
@@ -78,7 +78,7 @@ estimatedMinutes: 50
 
 - ***That** I can't accept.* — Ось із цим я погодитися не можу.
 - ***Some of it** I understood; **most of it** I didn't.* — Дещо я зрозумів, а більшість — ні.
-- ***This** I have to see!* — Ну, на це я маю подивитися!
+- ***This** I have to see!* — Ну, це я маю побачити на власні очі!
 - ***What he did next** nobody could have predicted.* — Що він зробив далі, ніхто не міг передбачити.
 
 Головна мета — **контраст** або відсилання до щойно сказаного (*that, this, such*). Без контрасту англійською це звучить дивно — і саме тут найчастіше помиляються українці (див. «Типові помилки»).
@@ -166,7 +166,7 @@ estimatedMinutes: 50
 >   - { id: out, label: "3 · результат", text: "Of particular concern is the impact of social media on teenagers' sleep.", tone: green }
 > steps:
 >   - { focus: base, note: "Звичайний порядок: читач тримає в голові довгий підмет і лише в кінці дізнається, що про нього сказано." }
->   - { focus: heavy, note: "Підмет — девʼять слів, і це головна нова інформація. За end-focus і end-weight їй місце в кінці." }
+>   - { focus: heavy, note: "Підмет — вісім слів, і це головна нова інформація. За end-focus і end-weight їй місце в кінці." }
 >   - { move: { from: base, to: front, value: "of particular concern" }, note: "Виносимо коротку оцінку наперед — вона звʼязує речення з попереднім." }
 >   - { move: { from: front, to: out, value: "is + підмет" }, note: "be стоїть перед підметом і узгоджується з ним: is the impact, але are the effects." }
 > ```
@@ -191,7 +191,7 @@ estimatedMinutes: 50
 |---|---|---|---|
 | *Down came the rain. Into the room walked…* | ✓ типово | ✗ звучить як роман | лише жартома |
 | *Here comes… / Off we go / Away she ran* | ✓ | ✗ | ✓ природно |
-| *Of particular concern is… / Equally important is…* | — | ✓ звіти, есе | ✗ звучить, як читаєш папірець |
+| *Of particular concern is… / Equally important is…* | — | ✓ звіти, есе | ✗ звучить, ніби читаєш з папірця |
 | *Gone are the days when…* | ✓ | ✓ публіцистика, есе | ✓ з ноткою ностальгії чи іронії |
 | *Strange as it may seem / Much as I…* | ✓ | ✓ | ✓ *Much as I'd love to…* — ввічлива відмова |
 | *Try as I might / Child though he was* | ✓ | ✓ книжно | рідко |
@@ -209,7 +209,7 @@ estimatedMinutes: 50
 - ***Gone are the days when** a degree guaranteed a job; graduates now…* — сильний вступ до абзацу;
 - ***Equally significant are** the long-term health costs.* — перехід до другого аргументу.
 
-**Де стає штучним (affected):**
+**Де це звучить штучно (affected):**
 
 - ~~*Into the debate stepped the government with a new law.*~~ — художній прийом в академічному тексті;
 - ~~*Rare is the person who has not used social media, and rare is the child who…*~~ — анафора заради ефекту, без нової думки;
@@ -250,13 +250,13 @@ estimatedMinutes: 50
 > [!word] strange as it may seem
 > ipa: /ˌstreɪndʒ əz ɪt meɪ ˈsiːm/ · pos: phrase · level: C2 · id: en-c2-word-order-w03
 > uk: хоч як дивно; як не дивно
-> example: **Strange as it may seem**, the quietest pupils often ask the best questions. — Хоч як дивно, найтихіші учні часто ставлять найкращі питання.
+> example: **Strange as it may seem**, the quietest pupils often ask the best questions. — Хоч як дивно, найтихіші учні часто ставлять найкращі запитання.
 > note: так само odd as it may sound, hard as it is to believe. Без but у головному реченні. Американський варіант: as strange as it may seem.
 
 > [!word] gone are the days when
 > ipa: /ˌɡɒn ə ðə ˈdeɪz wen/ · ipa-us: /ˌɡɑːn ɚ ðə ˈdeɪz wen/ · pos: phrase · level: C2 · id: en-c2-word-order-w04
 > uk: минули ті часи, коли
-> example: **Gone are the days when** you had to queue for hours to buy a train ticket. — Минули ті часи, коли по квиток на потяг доводилося годинами стояти в черзі.
+> example: **Gone are the days when** you had to queue for hours to buy a train ticket. — Минули ті часи, коли за квитком на потяг доводилося годинами стояти в черзі.
 > note: повна інверсія (are the days). Добрий зачин абзацу в есе й публіцистиці; може звучати ностальгійно або іронічно.
 
 > [!word] therein lies
@@ -292,7 +292,7 @@ estimatedMinutes: 50
 > - [x] Much as I'd love to join you, I've got a deadline on Friday.
 > - [ ] So much I'd love to join you, but I've got a deadline on Friday.
 >
-> **Пояснення:** почуто ***Much as*** без першого *as*. Варіант з *As much as* має те саме значення (у розмові поширений), але це інша фраза.
+> **Пояснення:** прозвучало ***Much as*** — без першого *as*. Варіант з *As much as* має те саме значення (у розмові поширений), але це інша фраза.
 
 > [!listen] Що ти почув?
 > level: C2 · type: choice · lang: en-GB · id: en-c2-word-order-l02
@@ -303,7 +303,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** повна інверсія: обставина *Into the kitchen* наперед, далі дієслово *walked* і лише потім підмет *my grandmother*. Ефект — як у кадрі фільму: спершу місце, потім персонаж.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-word-order-l03
 > audio: Strange as it may seem, the busiest people often answer emails the fastest.
 
@@ -318,7 +318,7 @@ estimatedMinutes: 50
 > Fronting: mainly signals [[contrast]] or links back to previous text.
 > ```
 >
-> **Пояснення:** типова для Part 4 note completion: слова з лекції йдуть у тому самому порядку, що й пропуски. *Stress* і *process* — пастки на правопис; *contrast* — головна функція фронтування.
+> **Пояснення:** типове для Part 4 завдання note completion: слова з лекції йдуть у тому самому порядку, що й пропуски. *Stress* і *process* — пастки на правопис; *contrast* — головна функція фронтування.
 
 > [!listen] IELTS Listening, Part 3 (обговорення есе). What does the tutor criticise in the student's introduction?
 > level: C2 · type: answer · lang: en-AU · tags: ielts · id: en-c2-word-order-l05
@@ -337,7 +337,7 @@ estimatedMinutes: 50
 > level: C2 · id: en-c2-word-order-s01
 > text: Strange as it may seem, I actually enjoy exams.
 > ipa: /ˈstreɪndʒ əz ɪt meɪ ˈsiːm aɪ ˈæk.tʃu.ə.li ɪnˈdʒɔɪ ɪɡˈzæmz/
-> tip: as — слабке /əz/; після seem — коротка пауза й підйом тону, головний наголос — на ENjoy.
+> tip: as — слабке /əz/; після seem — коротка пауза й підйом тону, головний наголос — на enJOY.
 
 > [!speak] Скажи вголос
 > level: C2 · id: en-c2-word-order-s02
@@ -367,7 +367,7 @@ estimatedMinutes: 50
 > level: C2 · id: en-c2-word-order-s06
 > text: Gone are the days when you had to wait a week for a letter, but much as I value the speed, I'm not sure we're any less busy.
 > ipa: /ˈɡɒn ə ðə ˈdeɪz wen ju həd tə ˈweɪt ə ˈwiːk fər ə ˈlet.ə bət ˈmʌtʃ əz aɪ ˈvæl.juː ðə ˈspiːd aɪm nɒt ˈʃɔː wɪə ˈen.i les ˈbɪz.i/
-> tip: питання екзаменатора — «Has technology made our lives easier?». Дві марковані конструкції працюють на зміст: факт → поступка → власна позиція. Пауза перед much as.
+> tip: запитання екзаменатора — «Has technology made our lives easier?». Дві марковані конструкції працюють на зміст: факт → поступка → власна позиція. Пауза перед much as.
 
 ## Типові помилки українців
 
@@ -449,7 +449,7 @@ estimatedMinutes: 50
 > - [ ] Of particular concern is my trip this weekend.
 > - [ ] Away this weekend am I, unfortunately.
 >
-> **Пояснення:** *Much as I'd like to…* добре почувається і в розмові — це ввічлива відмова. Інші варіанти або книжні до комізму (*Rare is…*, *Of particular concern…*), або неграмотні (*Away … am I*).
+> **Пояснення:** *Much as I'd like to…* цілком доречне і в розмові — це ввічлива відмова. Інші варіанти або книжні до комізму (*Rare is…*, *Of particular concern…*), або неграмотні (*Away … am I*).
 
 > [!quiz] Ти пишеш оповідання. Яке речення найкраще створює «кінематографічний» ефект?
 > level: C2 · id: en-c2-word-order-q11
@@ -460,7 +460,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** повна інверсія спершу показує **місце**, а персонажа — в кінці, як камера. Перший варіант нейтральний, четвертий (cleft) — про контраст «саме вона, а не хтось інший», а третій неграмотний.
 
-> [!quiz] Які речення звучать розмовно й природні саме в усному мовленні? Обери всі.
+> [!quiz] Які речення звучать розмовно й природно саме в усному мовленні? Обери всі.
 > level: C2 · type: multi · id: en-c2-word-order-q12
 > - [x] She's brilliant, your sister.
 > - [x] That new café on the corner, have you been there yet?

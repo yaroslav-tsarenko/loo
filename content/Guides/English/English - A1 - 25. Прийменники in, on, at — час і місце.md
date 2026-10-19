@@ -30,7 +30,7 @@ estimatedMinutes: 35
 
 ## Від точки до простору
 
-Українське «в / у / на» не мапиться на англійські прийменники один до одного. Зате в англійських є проста логіка — **розмір**:
+Українські «в / у / на» не відповідають англійським прийменникам один в один. Зате в англійській є проста логіка — **розмір**:
 
 - ***at*** — **точка**: момент на годиннику, точка на мапі;
 - ***on*** — **поверхня, лінія**: день у календарі, стіл, стіна;
@@ -64,7 +64,7 @@ estimatedMinutes: 35
 | ***in*** | місяці, роки, пори року, століття | *in May, in 2026, in summer, in the 21st century* |
 | | частини доби | *in the morning, in the afternoon, in the evening* |
 
-Зверни увагу на пару, що плутає всіх: ***in** the morning*, але ***at** night*. А *Monday morning* — уже день, тож *on Monday morning*.
+Зверни увагу на пару, яку всі плутають: ***in** the morning*, але ***at** night*. А *Monday morning* — уже день, тож *on Monday morning*.
 
 ### Коли прийменника немає взагалі
 
@@ -113,7 +113,7 @@ estimatedMinutes: 35
 >   - { focus: [p2, p3], note: "Тонкий момент: on the bus / on the train, але in the car / in a taxi — у маленькому транспорті ти «всередині коробки»." }
 > ```
 
-***At home, at work, at school*** — без артикля. А «вдома» в значенні «в будинку» теж буває *in the house* — коли важливо, що саме всередині.
+***At home, at work, at school*** — без артикля. А якщо важливо, що ти саме всередині будинку, кажуть *in the house*.
 
 ## Приклади
 
@@ -191,7 +191,7 @@ estimatedMinutes: 35
 > [!word] in the middle
 > ipa: /ɪn ðə ˈmɪdl/ · pos: phrase · level: A1 · id: en-a1-prepositions-w11
 > uk: посередині; в центрі
-> example: There's a big table **in the middle** of the room. — Посеред кімнати великий стіл.
+> example: There's a big table **in the middle** of the room. — Посеред кімнати стоїть великий стіл.
 
 > [!word] at the end
 > ipa: /ət ði ˈend/ · pos: phrase · level: A1 · id: en-a1-prepositions-w12
@@ -208,11 +208,11 @@ estimatedMinutes: 35
 > - [ ] The meeting is on Sunday at ten.
 > - [ ] The meeting is on Monday at two.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-prepositions-l02
 > audio: My birthday is in May.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-prepositions-l03
 > audio: She's at work at the moment.
 
@@ -247,7 +247,7 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-prepositions-s04
 > text: I'm usually at home at the weekend.
 > ipa: /aɪm ˈjuːʒuəli ət ˈhəʊm ət ðə ˌwiːkˈend/
-> tip: два *at* — обидва слабкі «ət». *Weekend* у британській — з наголосом на *end*.
+> tip: два *at* — обидва слабкі «ət». *Weekend* у британській вимові — з наголосом на *end*.
 
 ## Типові помилки українців
 
@@ -373,7 +373,7 @@ estimatedMinutes: 35
 > [[In]] the morning I'm [[at]] home, but [[in]] the afternoon I'm [[at]] work.
 > ```
 >
-> **Пояснення:** частини дня — *in the morning / in the afternoon*; сталі фрази — *at home, at work*.
+> **Пояснення:** частини доби — *in the morning / in the afternoon*; сталі фрази — *at home, at work*.
 
 > [!quiz] Який варіант — американський?
 > level: A1 · id: en-a1-prepositions-q14
@@ -393,7 +393,7 @@ estimatedMinutes: 35
 > Чому так? В автобусі можна встати й пройтися — ти ніби «на платформі». У легковику сидиш усередині «коробки». Тому *on the bus, on the train*, але *in the car, in a taxi*.
 
 > [!reel] 🕛 Noon колись був о третій
-> *Noon* (*at noon* — опівдні) походить від латинського *nona hora* — «девʼята година» від світанку, тобто близько 15:00. З часом «девʼята година» зʼїхала на полудень.
+> *Noon* (*at noon* — опівдні) походить від латинського *nona hora* — «девʼята година» від світанку, тобто близько 15:00. З часом «девʼята година» змістилася на полудень.
 
 ## Джерела та що почитати
 

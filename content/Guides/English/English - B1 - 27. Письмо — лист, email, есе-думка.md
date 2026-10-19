@@ -16,7 +16,7 @@ estimatedMinutes: 55
 > - написати лист за форматом **IELTS General Training, Writing Task 1** (150+ слів, три пункти завдання);
 > - побудувати **есе-думку** (opinion essay) за форматом **IELTS Writing Task 2**: вступ з позицією → 2 абзаци аргументів → висновок;
 > - звʼязувати думки: **however, although, in addition, therefore, on the other hand, such as**;
-> - простими словами розуміти 4 критерії оцінки IELTS Writing і знати, що саме підняти з Band 5–6 до Band 6–7.
+> - розуміти простими словами 4 критерії оцінювання IELTS Writing і знати, що саме покращити, щоб піднятися з Band 5–6 до Band 6–7.
 
 ## Передбач
 
@@ -33,7 +33,7 @@ estimatedMinutes: 55
 
 ### Регістр: хто читатиме лист?
 
-Перше питання перед будь-яким листом — **кому** я пишу. Від цього залежить усе: привітання, прощання, скорочення, слова. В IELTS General Training Writing Task 1 тобі не кажуть «напиши формальний лист» — ти маєш **сам** зрозуміти регістр з адресата:
+Перше питання перед будь-яким листом — **кому** я пишу. Від цього залежить усе: привітання, прощання, скорочення, слова. В IELTS General Training Writing Task 1 тобі не кажуть «напиши формальний лист» — ти маєш **сам** визначити регістр за адресатом:
 
 - **formal** — незнайома людина або організація: менеджер готелю, директор коледжу, компанія;
 - **semi-formal** — людина, яку знаєш, але не близько: сусід, колега, викладач, орендодавець (*Dear Mr Collins*);
@@ -136,7 +136,7 @@ estimatedMinutes: 55
 
 ### Звʼязки (linking words)
 
-Звʼязки — «клей» тексту. За них прямо дають бали в критерії **Coherence & Cohesion**. Головне — не кількість, а **точність**.
+Звʼязки — «клей» тексту. Від них безпосередньо залежить бал за критерієм **Coherence & Cohesion**. Головне — не кількість, а **точність**.
 
 | Функція | Звʼязки | Приклад |
 |---|---|---|
@@ -149,11 +149,11 @@ estimatedMinutes: 55
 | висновок | *in conclusion, to sum up* | ***In conclusion**, the advantages outweigh…* |
 
 > [!warning] However vs although — різна пунктуація
-> ***However*** починає **нове речення** й має кому: *The course was expensive. **However,** it was very useful.* ***Although*** зʼєднує дві частини **одного** речення: ***Although** the course was expensive, it was very useful.* «Although…, but…» — помилка: в англійській **одне** сполучення на речення.
+> ***However*** починає **нове речення** й має кому: *The course was expensive. **However,** it was very useful.* ***Although*** зʼєднує дві частини **одного** речення: ***Although** the course was expensive, it was very useful.* «Although…, but…» — помилка: в англійському реченні тут потрібен лише **один** сполучник.
 
 ### IELTS Writing Task 2: есе-думка
 
-**Формат:** 40 хвилин, **мінімум 250 слів** (на B1 ми тренуємось на 180–250, справжній іспит — 250+). Task 2 важить **удвічі більше** за Task 1. Найчастіший тип питання для початку — **opinion**: *To what extent do you agree or disagree?* або *Do you agree or disagree?*
+**Формат:** 40 хвилин, **мінімум 250 слів** (на B1 ми тренуємось на 180–250, справжній іспит — 250+). Task 2 важить **удвічі більше** за Task 1. Почнімо з найпоширенішого типу питання — **opinion**: *To what extent do you agree or disagree?* або *Do you agree or disagree?*
 
 > [!diagram] Будова есе-думки (4 абзаци)
 > ```yaml
@@ -183,7 +183,7 @@ estimatedMinutes: 55
 | **Grammatical Range & Accuracy** | різноманітність і точність граматики | переважно прості речення, помилки помітні | багато складних речень, більшість речень без помилок |
 
 > [!important] Три «дешеві» бали
-> 1. **Кількість слів**: менше 150 (Task 1) чи 250 (Task 2) — штраф. Порахуй слова в рядку × рядки.
+> 1. **Кількість слів**: менше 150 (Task 1) чи 250 (Task 2) — штраф. Порахуй: середня кількість слів у рядку × кількість рядків.
 > 2. **Чітка позиція** у вступі й висновку — *I strongly agree that…* — найпростіший спосіб не втратити Task Response.
 > 3. **Абзаци з порожнім рядком між ними** — без абзаців Coherence & Cohesion не буде вище 5.
 
@@ -222,7 +222,7 @@ estimatedMinutes: 55
 | *Parents can not control everything what children do* | *It is almost impossible for parents to monitor everything their children do online.* |
 
 > [!tip] Секрет Band 7 у трьох діях
-> **Заміни повтори** синонімами й займенниками (*smartphone → device, phone, it*). **Об'єднуй прості речення** через *although, which, because of, as a result*. **Конкретизуй**: замість *bad* — *harmful, dangerous, addictive*; замість *many people* — *online scammers*.
+> **Заміни повтори** синонімами й займенниками (*smartphone → device, phone, it*). **Обʼєднуй прості речення** через *although, which, because of, as a result*. **Конкретизуй**: замість *bad* — *harmful, dangerous, addictive*; замість *many people* — *online scammers*.
 
 ## Приклади
 
@@ -232,10 +232,10 @@ estimatedMinutes: 55
 - *Regarding the payment, I have attached a copy of my receipt.* — Щодо оплати: додаю копію чека.
 - *Unfortunately, I will not be able to attend the meeting.* — На жаль, я не зможу бути на зустрічі.
 - *The hotel was cheap. However, the rooms were very small.* — Готель був дешевий. Однак кімнати були дуже маленькі.
-- *Although public transport is cheap, many people still prefer to drive.* — Хоча громадський транспорт дешевий, багато людей досі воліють їздити авто.
+- *Although public transport is cheap, many people still prefer to drive.* — Хоча громадський транспорт дешевий, багато людей досі воліють їздити на авто.
 - *Many cities, such as Lviv and Kraków, are popular with tourists.* — Багато міст, як-от Львів і Краків, популярні серед туристів.
-- *Online learning has many advantages. On the other hand, it can be lonely.* — Онлайн-навчання має багато переваг. З іншого боку, воно може бути самотнім.
-- *In conclusion, I strongly believe that the benefits outweigh the drawbacks.* — Отже, я переконаний, що переваги переважують недоліки.
+- *Online learning has many advantages. On the other hand, it can be lonely.* — Онлайн-навчання має багато переваг. З іншого боку, під час нього можна почуватися самотньо.
+- *In conclusion, I strongly believe that the benefits outweigh the drawbacks.* — Отже, я переконаний, що переваги важать більше за недоліки.
 
 ## Слова
 
@@ -244,12 +244,12 @@ estimatedMinutes: 55
 > [!word] formal
 > ipa: /ˈfɔːməl/ · ipa-us: /ˈfɔːrməl/ · pos: adj · level: B1 · id: en-b1-writing-w01
 > uk: офіційний; формальний
-> example: Use **formal** language in a letter to a company. — У листі до компанії вживай офіційну мову.
+> example: Use **formal** language in a letter to a company. — У листі до компанії пиши офіційним стилем.
 
 > [!word] informal
 > ipa: /ɪnˈfɔːməl/ · ipa-us: /ɪnˈfɔːrməl/ · pos: adj · level: B1 · id: en-b1-writing-w02
 > uk: неофіційний; неформальний
-> example: An **informal** letter to a friend can include jokes. — У неформальному листі другові можуть бути жарти.
+> example: An **informal** letter to a friend can include jokes. — У неформальному листі другові доречні жарти.
 
 > [!word] I am writing to…
 > ipa: /aɪ əm ˈraɪtɪŋ tə/ · pos: phrase · level: B1 · id: en-b1-writing-w03
@@ -302,7 +302,7 @@ estimatedMinutes: 55
 > [!word] unfortunately
 > ipa: /ʌnˈfɔːtʃənətli/ · ipa-us: /ʌnˈfɔːrtʃənətli/ · pos: adv · level: B1 · id: en-b1-writing-w11
 > uk: на жаль
-> example: **Unfortunately**, the product arrived damaged. — На жаль, товар прибув пошкодженим.
+> example: **Unfortunately**, the product arrived damaged. — На жаль, товар доставили пошкодженим.
 
 ### Звʼязки
 
@@ -332,13 +332,13 @@ estimatedMinutes: 55
 > [!word] therefore
 > ipa: /ˈðeəfɔː/ · ipa-us: /ˈðerfɔːr/ · pos: adv · level: B1 · id: en-b1-writing-w16
 > uk: тому; отже
-> example: The course was cancelled. **Therefore**, I would like a refund. — Курс скасували. Тому я хотів би повернення коштів.
+> example: The course was cancelled. **Therefore**, I would like a refund. — Курс скасували. Тому я хотів би, щоб мені повернули кошти.
 > note: формальніше за *so*.
 
 > [!word] such as
 > ipa: /ˈsʌtʃ əz/ · pos: phrase · level: B1 · id: en-b1-writing-w17
 > uk: такі як; як-от
-> example: I enjoy outdoor sports **such as** cycling and hiking. — Я люблю спорт просто неба, як-от велосипед і походи.
+> example: I enjoy outdoor sports **such as** cycling and hiking. — Я люблю спорт просто неба, як-от велоспорт і піші походи.
 > note: *such as* + іменники; *for example* — на початку речення.
 
 > [!word] I strongly believe that…
@@ -356,7 +356,7 @@ estimatedMinutes: 55
 > [!word] in conclusion
 > ipa: /ɪn kənˈkluːʒən/ · pos: phrase · level: B1 · id: en-b1-writing-w20
 > uk: отже; на завершення
-> example: **In conclusion**, the advantages outweigh the disadvantages. — Отже, переваги переважують недоліки.
+> example: **In conclusion**, the advantages outweigh the disadvantages. — Отже, переваги важать більше за недоліки.
 > note: лише в есе; у листі звучить дивно.
 
 > [!word] firstly
@@ -385,9 +385,9 @@ estimatedMinutes: 55
 
 > [!word] outweigh
 > ipa: /ˌaʊtˈweɪ/ · pos: verb · level: B1 · id: en-b1-writing-w25
-> uk: переважувати
-> example: The advantages **outweigh** the disadvantages. — Переваги переважують недоліки.
-> note: класична фраза для висновку есе; *gh* — німе: [аут-ВЕЙ].
+> uk: переважувати; важити більше
+> example: The advantages **outweigh** the disadvantages. — Переваги важать більше за недоліки.
+> note: класична фраза для висновку есе; *gh* не читається: [аут-ВЕЙ].
 
 ## Слухаємо
 
@@ -398,7 +398,7 @@ estimatedMinutes: 55
 > - [ ] I would be great if you could send me a full refund.
 > - [ ] I will be grateful if you send me a full refund.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-writing-l02
 > audio: I look forward to hearing from you.
 
@@ -423,20 +423,20 @@ estimatedMinutes: 55
 > level: B1 · id: en-b1-writing-s02
 > text: I would be grateful if you could reply by Friday.
 > ipa: /aɪ wʊd bi ˈɡreɪtfəl ɪf ju kʊd rɪˈplaɪ baɪ ˈfraɪdeɪ/
-> tip: grateful — [ГРЕЙТ-фл]; could — l німа: [куд].
+> tip: grateful — [ГРЕЙТ-фл]; у could літера l не читається: [куд].
 > uk: Буду вдячний, якщо ви відповісте до пʼятниці.
 
 > [!speak] Позиція в есе
 > level: B1 · id: en-b1-writing-s03
 > text: I strongly believe that the advantages outweigh the disadvantages.
 > ipa: /aɪ ˈstrɒŋli bɪˈliːv ðət ði ədˈvɑːntɪdʒɪz ˌaʊtˈweɪ ðə ˌdɪsədˈvɑːntɪdʒɪz/
-> tip: advantages — наголос на -VAN-: [ед-ВААН-ті-джіз]; outweigh — gh німе: [аут-ВЕЙ].
-> uk: Я твердо переконаний, що переваги переважують недоліки.
+> tip: advantages — наголос на -VAN-: [ед-ВААН-ті-джіз]; в outweigh gh не читається: [аут-ВЕЙ].
+> uk: Я твердо переконаний, що переваги важать більше за недоліки.
 
 ## Типові помилки українців
 
 > [!pitfall] «I want to say that…», «I write you because…»
-> Кальки з «Хочу сказати, що…» і «Пишу вам, бо…» звучать по-дитячому й неформально. Мету листа називай одразу: ***I am writing to** complain about…*, ***I am writing to** ask whether…*. У британській англійській *write **to** someone* — з прийменником (*I'm writing **to** you*; US допускає *write you*). А «Хочу сказати, що» в есе просто видали — одразу думку: *~~I want to say that~~ Public transport should be free.*
+> Кальки з «Хочу сказати, що…» і «Пишу вам, бо…» звучать по-дитячому й неформально. Мету листа називай одразу: ***I am writing to** complain about…*, ***I am writing to** ask whether…*. У британській англійській *write **to** someone* — з прийменником (*I'm writing **to** you*; US допускає *write you*). А «I want to say that» в есе просто прибери й одразу висловлюй думку: *~~I want to say that~~ Public transport should be free.*
 
 > [!pitfall] Змішування регістрів
 > *Hi Mr Brown! I'm writing to complain… Yours faithfully, Olena* — тут три регістри в одному листі: *Hi* (неформальне), *Mr Brown* (напівформальне), *Yours faithfully* (формальне до незнайомця). Обери **один** і тримайся його: *Dear Mr Brown, … Yours sincerely,*. У формальному листі — без *I'm, don't, can't* і без знаків оклику.
@@ -445,7 +445,7 @@ estimatedMinutes: 55
 > Англійською — титул **+ прізвище**: *Dear **Mr Petrenko***, *Dear **Ms Kovalenko*** (без імені й без повного *Mister*). *Mr / Mrs / Ms* — UK без крапки, US з крапкою (*Mr.*). Не знаєш, заміжня жінка чи ні, — *Ms* /mɪz/. Не знаєш імені — *Dear Sir or Madam*.
 
 > [!pitfall] «Although…, but…», «In my opinion, I think…»
-> В українській «хоча… але…» — норма, в англійській — **одне** сполучення: ***Although** it was cheap, the hotel was good* (без *but*). Так само подвійна думка — зайва: або *In my opinion, …*, або *I think…*, не обидва разом.
+> В українській «хоча… але…» — норма, а в англійській — лише **один** сполучник: ***Although** it was cheap, the hotel was good* (без *but*). Так само подвійна думка — зайва: або *In my opinion, …*, або *I think…*, не обидва разом.
 
 ## Практика
 
@@ -519,7 +519,7 @@ estimatedMinutes: 55
 > - [ ] informal: *Hi mate! … Cheers,*
 > - [ ] будь-який — регістр в IELTS не оцінюють
 >
-> **Пояснення:** сусіда ти знаєш (є імʼя), але він не друг → **semi-formal**: ввічливо, можна скорочення, звернення *Mr Collins*. Регістр оцінюють у **Task Achievement** — його треба вгадати з завдання.
+> **Пояснення:** сусіда ти знаєш (є імʼя), але він не друг → **semi-formal**: ввічливо, можна скорочення, звернення *Mr Collins*. Регістр оцінюють у **Task Achievement** — його треба визначити із завдання.
 
 > [!quiz] IELTS Writing Task 2: яке речення — найкращий вступ?
 > level: B1 · id: en-b1-writing-q09
@@ -558,7 +558,7 @@ estimatedMinutes: 55
 > - [ ] cheap → cheaply
 > - [ ] were → was
 >
-> **Пояснення:** в англійській **одне** сполучення на дві частини речення: *Although the hotel was cheap, the rooms were clean.* Або: *The hotel was cheap, but the rooms were clean.*
+> **Пояснення:** в англійській дві частини речення зʼєднує лише **один** сполучник: *Although the hotel was cheap, the rooms were clean.* Або: *The hotel was cheap, but the rooms were clean.*
 
 > [!quiz] Неформальний → формальний: заповни
 > level: B1 · type: fill · id: en-b1-writing-q13 · bank: get, Thanks, Love
@@ -594,4 +594,4 @@ estimatedMinutes: 55
 > - IELTS GT Task 1: 20 хв, 150+ слів, **усі три пункти** — кожен в окремому абзаці.
 > - IELTS Task 2 (opinion): 40 хв, 250+ слів; вступ (перефраз + позиція) → 2 абзаци «причина → пояснення → приклад» → висновок (та сама позиція).
 > - Критерії: Task Response · Coherence & Cohesion · Lexical Resource · Grammatical Range & Accuracy — по 25 %.
-> - *However.* — нове речення; *although* — без *but*; не «I want to say that», а одразу думку.
+> - *However.* — нове речення; *although* — без *but*; не «I want to say that», а одразу висловлюй думку.

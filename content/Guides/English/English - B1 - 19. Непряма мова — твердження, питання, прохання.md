@@ -31,7 +31,7 @@ estimatedMinutes: 45
 
 ## Простими словами
 
-Українською ми переказуємо легко: «Олег сказав, що **втомився**» — час не міняється, міняємо лише особу. Англійська зазвичай робить ще один крок: якщо дієслово переказу в минулому (*said, told, asked*), то й переказане **«відступає» на крок у минуле** — це називається **backshift**.
+Українською ми переказуємо легко: «Олег сказав, що **втомився**» — час не міняється, міняємо лише особу. В англійській зазвичай роблять ще один крок: якщо дієслово переказу в минулому (*said, told, asked*), то й переказане **«відступає» на крок у минуле** — це називається **backshift**.
 
 - *"I **am** tired."* → He said he **was** tired.
 - *"I **will** call you."* → She said she **would** call me.
@@ -207,13 +207,13 @@ estimatedMinutes: 45
 > [!word] mention
 > ipa: /ˈmen.ʃən/ · pos: verb · level: B1 · id: en-b1-reported-speech-w03
 > uk: згадувати (у розмові)
-> example: She **mentioned** that she had a new job. — Вона згадала, що має нову роботу.
+> example: She **mentioned** that she had a new job. — Вона згадала, що в неї нова робота.
 > note: Don't mention it! — Нема за що! (UK, у відповідь на подяку).
 
 > [!word] warn
 > ipa: /wɔːn/ · ipa-us: /wɔːrn/ · pos: verb · level: B1 · id: en-b1-reported-speech-w04
 > uk: попереджати
-> example: The guide **warned** us not to go near the edge. — Гід попередив нас не підходити до краю.
+> example: The guide **warned** us not to go near the edge. — Гід попередив, щоб ми не підходили до краю.
 > note: warn sb (not) to do sth; warning — попередження. Звучить як worn.
 
 > [!word] remind
@@ -267,11 +267,11 @@ estimatedMinutes: 45
 > - [x] He asked if I could help him.
 > - [ ] He asked me to help him.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-reported-speech-l03
 > audio: The doctor told me not to worry.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-reported-speech-l04
 > audio: She asked me where I was from.
 
@@ -299,7 +299,7 @@ estimatedMinutes: 45
 > - [ ] Hand in the project after Friday.
 > - [ ] Stop interviewing local people.
 >
-> **Пояснення:** *She told us to focus on just one city* — у варіанті перефразовано як *concentrate on*. Додаткового часу не дали: дедлайн усе ще пʼятниця.
+> **Пояснення:** *She told us to focus on just one city* — у варіанті перефразовано як *concentrate on*. Додаткового часу не дали: дедлайн, як і раніше, у пʼятницю.
 
 ## Вимова
 
@@ -347,7 +347,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «He said me», «He told that»
-> Українське «він сказав мені» має одне дієслово, англійське — два. **tell** — завжди з особою: *He **told me** that…* **say** — без особи або з *to*: *He **said** (to me) that…* ~~*He said me*~~, ~~*He told that*~~.
+> В українській «сказати» — одне дієслово, а в англійській їх два: *say* і *tell*. **tell** — завжди з особою: *He **told me** that…* **say** — без особи або з *to*: *He **said** (to me) that…* ~~*He said me*~~, ~~*He told that*~~.
 
 > [!pitfall] Порядок слів у непрямих питаннях
 > «Вона спитала, де я живу» — ~~*She asked where do I live*~~. У непрямому питанні — **порядок ствердження** без *do / did*: *She asked **where I lived***. Те саме у ввічливих питаннях: *Could you tell me **where the station is**?*

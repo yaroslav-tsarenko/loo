@@ -121,7 +121,7 @@ estimatedMinutes: 40
 Тут українцям легко заплутатися, бо в нас різниця лише у відмінку: «**хто** подзвонив» і «**кому** ти дзвонив».
 
 - Якщо *who / what* — **підмет** (той, хто виконує дію), *did* **не потрібен**, а дієслово стоїть у минулій формі: ***Who called** you?* — Хто тобі подзвонив? ***What happened?*** — Що сталося?
-- Якщо *who / what* — **додаток** (над ким / чим виконують дію), працює звичайна схема з *did*: ***Who did** you **call**?* — Кому ти дзвонив?
+- Якщо *who / what* — **додаток** (на кого / що спрямована дія), працює звичайна схема з *did*: ***Who did** you **call**?* — Кому ти дзвонив?
 
 > [!diagram] Who — підмет чи додаток?
 > ```yaml
@@ -152,7 +152,7 @@ estimatedMinutes: 40
 - *Did you have a good time? — Yes, I did, thanks!* — Ти добре провів час? — Так, дякую!
 - *Where did you buy that jacket?* — Де ти купив цю куртку?
 - *Why didn't you tell me?* — Чому ти мені не сказав?
-- *How did you get to the airport? — We took a taxi.* — Як ви дісталися аеропорту? — Взяли таксі.
+- *How did you get to the airport? — We took a taxi.* — Як ви дісталися аеропорту? — На таксі.
 - *What happened? — I fell off my bike.* — Що сталося? — Я впав з велосипеда.
 - *Who told you about the party?* — Хто тобі сказав про вечірку?
 - *Who did you invite?* — Кого ти запросив?
@@ -233,11 +233,11 @@ estimatedMinutes: 40
 > - [ ] She doesn't come.
 > - [ ] She did come.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-questions-l03
 > audio: Why did you leave so early?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-questions-l04
 > audio: We didn't have time for lunch.
 
@@ -260,7 +260,7 @@ estimatedMinutes: 40
 > audio: B: No, it didn't, luckily. But there's a scratch on the screen.
 > - [ ] Його вкрали
 > - [ ] Він розбився
-> - [x] Його впустили, він не зламався, але на екрані подряпина
+> - [x] Його впустили на вулиці: він не розбився, але на екрані подряпина
 > - [ ] Його забули в автобусі
 
 ## Вимова
@@ -287,7 +287,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-past-questions-s04
 > text: Where did you go on holiday?
 > ipa: /ˈweə dɪd ju ˈɡəʊ ɒn ˈhɒl.ə.deɪ/
-> tip: holiday — наголос на перший склад: ХО-лі-дей. Голос униз у кінці: це wh-питання.
+> tip: holiday — наголос на першому складі: ХО-лі-дей. Голос униз у кінці: це wh-питання.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-past-questions-s05
@@ -409,7 +409,7 @@ estimatedMinutes: 40
 > - [ ] Хто кого зустрів?
 > - [ ] Ти когось зустрів?
 >
-> **Пояснення:** є *did* і підмет *you* — отже, *you* зустрічав, а *who* — це **кого**. «Хто тебе зустрів?» = *Who met you?*
+> **Пояснення:** є *did* і підмет *you* — отже, зустрічав саме ти, а *who* — це **кого**. «Хто тебе зустрів?» = *Who met you?*
 
 > [!quiz] Склади речення: «Вона не сказала мені правду»
 > level: A2 · type: order · id: en-a2-past-questions-q13
@@ -432,7 +432,7 @@ estimatedMinutes: 40
 > - [x] Why didn't you call me?
 > - [ ] Why not you called me?
 >
-> **Пояснення:** у запереченому питанні *didn't* стоїть одразу після питального слова, перед підметом: *Why **didn't** you call…?*
+> **Пояснення:** у заперечному питанні *didn't* стоїть одразу після питального слова, перед підметом: *Why **didn't** you call…?*
 
 ## Фішки
 
@@ -458,4 +458,4 @@ estimatedMinutes: 40
 > - Питання: **Did + підмет + V1?** — *Did you go?*; спеціальне — **QASI**: *Where did you go?*
 > - Короткі відповіді: *Yes, I did. / No, I didn't.*
 > - *Who / what* — підмет → без *did*: *Who called you? What happened?*; додаток → з *did*: *Who did you call?*
-> - *Was / were* питання й заперечення будують без *did*.
+> - З *was / were* питання й заперечення будують без *did*.

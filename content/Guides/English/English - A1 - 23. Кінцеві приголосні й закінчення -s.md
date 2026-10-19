@@ -13,7 +13,7 @@ estimatedMinutes: 35
 
 > [!success] Після цієї теми ти зможеш
 > - вимовляти дзвінкі приголосні в кінці слова і не плутати *bag* — *back*, *eyes* — *ice*, *prize* — *price*;
-> - чути й робити довший голосний перед дзвінким кінцем;
+> - чути й вимовляти довший голосний перед дзвінким кінцем;
 > - обирати правильну вимову закінчення -s: /s/ у *cats*, /z/ у *dogs*, /ɪz/ у *buses*;
 > - вимовляти слово до кінця без зайвого голосного: *bag*, а не «бег-а».
 
@@ -25,13 +25,13 @@ estimatedMinutes: 35
 > - [ ] ні: у cats /s/, а в dogs і buses — /z/
 > - [x] ні: cats — /s/, dogs — /z/, buses — /ɪz/
 >
-> **Пояснення:** -s має **три** вимови, і вибір залежить від останнього звука слова: *cats* /kæts/, *dogs* /dɒɡz/, *buses* /ˈbʌsɪz/. Правило просте й логічне — розберемо його нижче.
+> **Пояснення:** -s має **три** вимови, і вибір залежить від останнього звуку слова: *cats* /kæts/, *dogs* /dɒɡz/, *buses* /ˈbʌsɪz/. Правило просте й логічне — розберемо його нижче.
 
 ## Пояснення
 
 ### Дзвінкий кінець — тримай його
 
-У літературній українській дзвінкі в кінці слова **не оглушуються**: «дуб», «сад», «ніж» звучать із дзвінкими [б], [д], [ж]. Це твоя перевага — тримай цю звичку і в англійській. Бо там від одного звука в кінці залежить значення:
+У літературній українській дзвінкі в кінці слова **не оглушуються**: «дуб», «сад», «ніж» звучать із дзвінкими [б], [д], [ж]. Це твоя перевага — тримай цю звичку і в англійській. Бо там від одного звуку в кінці залежить значення:
 
 | Дзвінкий кінець | Глухий кінець |
 |---|---|
@@ -39,12 +39,12 @@ estimatedMinutes: 35
 | *bed* /bed/ — ліжко | *bet* /bet/ — ставка |
 | *eyes* /aɪz/ — очі | *ice* /aɪs/ — лід |
 | *prize* /praɪz/ — приз | *price* /praɪs/ — ціна |
-| *leave* /liːv/ — йти | *leaf* /liːf/ — листок |
+| *leave* /liːv/ — іти геть; залишати | *leaf* /liːf/ — листок |
 | *dog* /dɒɡ/ — пес | *dock* /dɒk/ — причал |
 
 ### Секрет носіїв: довжина голосного
 
-Цікаво, що англійці самі часто вимовляють кінцевий дзвінкий **не повністю дзвінко**. Як же вони розрізняють *bag* і *back*? За **голосним перед ним**: перед дзвінким приголосним голосний **довший**, перед глухим — **коротший і «обрізаний»**.
+Цікаво, що самі англійці часто вимовляють кінцевий дзвінкий приголосний **не зовсім дзвінко**. Як же вони розрізняють *bag* і *back*? За **голосним перед ним**: перед дзвінким приголосним голосний **довший**, перед глухим — **коротший і «обрізаний»**.
 
 > [!diagram] bag і back: різниця ховається в голосному
 > ```yaml
@@ -71,14 +71,14 @@ estimatedMinutes: 35
 
 ### Закінчення -s: /s/, /z/ чи /ɪz/
 
-Ті самі правила працюють для **всіх** -s в англійській:
+Ті самі правила діють для **всіх** -s в англійській:
 
 - множина іменників: *cats, dogs, buses*;
 - he / she / it у Present Simple: *works, plays, watches*;
 - присвійне *'s*: *Kate's, Tom's, George's*;
 - скорочення *is / has*: *it's* /ɪts/, *he's* /hiːz/.
 
-Вибір залежить від **останнього звука** (не літери!) слова:
+Вибір залежить від **останнього звуку** (не літери!) слова:
 
 > [!diagram] Як вимовити -s
 > ```yaml
@@ -101,8 +101,8 @@ estimatedMinutes: 35
 | -b, -d, -g, -l, -m, -n, -v(e), -r, голосні | дзвінкі й голосні | /z/ | *cabs, kids, dogs, hugs, dreams, waves, plays, cars* |
 | -s, -ss, -x, -z, -sh, -ch, -ge, -dge, -se, -ce | /s z ʃ ʒ tʃ dʒ/ | /ɪz/ | *buses, kisses, boxes, dishes, matches, pages, bridges, roses, prices* |
 
-> [!warning] Пастка з німою e
-> *page*, *rose*, *price* закінчуються на німу *e*, але останній **звук** — /dʒ/, /z/, /s/. Тому *pages* /ˈpeɪdʒɪz/, *roses* /ˈrəʊzɪz/, *prices* /ˈpraɪsɪz/ — з додатковим складом. А *likes* /laɪks/ — без, бо останній звук /k/.
+> [!warning] Пастка з e, яка не читається
+> *page*, *rose*, *price* закінчуються на *e*, яка не читається, але останній **звук** — /dʒ/, /z/, /s/. Тому *pages* /ˈpeɪdʒɪz/, *roses* /ˈrəʊzɪz/, *prices* /ˈpraɪsɪz/ — з додатковим складом. А *likes* /laɪks/ — без, бо останній звук /k/.
 
 ## Приклади
 
@@ -112,9 +112,9 @@ estimatedMinutes: 35
 - *My cat likes dogs.* — Мій кіт любить собак.
 - *He washes the dishes and watches TV.* — Він миє посуд і дивиться телевізор.
 - *Two buses and three cabs.* — Два автобуси й три таксі.
-- *She laughs and hugs her kids.* — Вона сміється й обіймає своїх дітей.
+- *She laughs and hugs her kids.* — Вона сміється й обіймає дітей.
 - *These roses are for Kate's birthday.* — Ці троянди — на день народження Кейт.
-- *Read pages ten to twelve.* — Прочитай сторінки з десятої по дванадцяту.
+- *Read pages ten to twelve.* — Прочитай сторінки з десятої до дванадцятої.
 - *We want peace.* — Ми хочемо миру.
 
 ## Слова
@@ -122,7 +122,7 @@ estimatedMinutes: 35
 > [!word] prize
 > ipa: /praɪz/ · pos: noun · level: A1 · id: en-a1-final-consonants-w01
 > uk: приз; нагорода
-> example: She won first **prize**. — Вона отримала перший приз.
+> example: She won first **prize**. — Вона виграла перший приз.
 > note: дзвінке /z/ у кінці; з /s/ вийде price — ціна.
 
 > [!word] peace
@@ -135,7 +135,7 @@ estimatedMinutes: 35
 > ipa: /luːs/ · pos: adj · level: A1 · id: en-a1-final-consonants-w03
 > uk: вільний (про одяг); нещільний
 > example: These jeans are too **loose**. — Ці джинси завеликі (вільні).
-> note: глухе /s/; lose /luːz/ — губити — з дзвінким.
+> note: глухе /s/; lose /luːz/ (губити) — з дзвінким /z/.
 
 > [!word] feed
 > ipa: /fiːd/ · pos: verb · level: A1 · id: en-a1-final-consonants-w04
@@ -177,31 +177,31 @@ estimatedMinutes: 35
 
 > [!word] kiss
 > ipa: /kɪs/ · pos: noun · level: A1 · id: en-a1-final-consonants-w10
-> uk: поцілунок; цілувати (verb)
+> uk: поцілунок; (дієслово) цілувати
 > example: Give me a **kiss**! — Поцілуй мене!
 > note: kisses — /ˈkɪsɪz/.
 
 > [!word] laugh
 > ipa: /lɑːf/ · ipa-us: /læf/ · pos: verb · level: A1 · id: en-a1-final-consonants-w11
-> uk: сміятися; сміх (noun)
+> uk: сміятися; (іменник) сміх
 > example: He always **laughs** at my jokes. — Він завжди сміється з моїх жартів.
 > note: gh = /f/, тому laughs — /lɑːfs/, з глухим /s/.
 
 > [!word] judge
 > ipa: /dʒʌdʒ/ · pos: noun · level: A1 · id: en-a1-final-consonants-w12
-> uk: суддя; судити (verb)
+> uk: суддя; (дієслово) судити
 > example: The **judge** is very strict. — Суддя дуже суворий.
 > note: dge = /dʒ/; judges — /ˈdʒʌdʒɪz/.
 
 > [!word] wave
 > ipa: /weɪv/ · pos: verb · level: A1 · id: en-a1-final-consonants-w13
-> uk: махати (рукою); хвиля (noun)
+> uk: махати (рукою); (іменник) хвиля
 > example: She **waves** goodbye. — Вона махає на прощання.
 > note: дзвінке /v/ у кінці, waves — /weɪvz/.
 
 > [!word] lock
 > ipa: /lɒk/ · ipa-us: /lɑːk/ · pos: verb · level: A1 · id: en-a1-final-consonants-w14
-> uk: замикати; замок (noun)
+> uk: замикати; (іменник) замок
 > example: Don't forget to **lock** the door. — Не забудь замкнути двері.
 > note: locks — /lɒks/.
 
@@ -213,7 +213,7 @@ estimatedMinutes: 35
 
 > [!word] hug
 > ipa: /hʌɡ/ · pos: verb · level: A1 · id: en-a1-final-consonants-w16
-> uk: обіймати; обійми (noun)
+> uk: обіймати; (іменник) обійми
 > example: She **hugs** her mum. — Вона обіймає маму.
 > note: кінцеве /ɡ/ — як «ґ», дзвінко; hugs — /hʌɡz/.
 
@@ -261,7 +261,7 @@ estimatedMinutes: 35
 > - [x] She has blue eyes.
 > - [ ] She has blue ice.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-final-consonants-l04
 > audio: She watches films and plays games.
 
@@ -301,7 +301,7 @@ estimatedMinutes: 35
 > [!pair] eyes /aɪz/ — ice /aɪs/
 > level: A1 · id: en-a1-final-consonants-p03
 > say: eyes
-> tip: eyes — дифтонг довше, кінець дзижчить /z/; ice — коротше й свистить /s/.
+> tip: eyes — дифтонг довший, у кінці дзижчить /z/; ice — коротший, у кінці свистить /s/.
 
 > [!pair] cap /kæp/ — cab /kæb/
 > level: A1 · id: en-a1-final-consonants-p04
@@ -316,7 +316,7 @@ estimatedMinutes: 35
 > [!pair] prize /praɪz/ — price /praɪs/
 > level: A1 · id: en-a1-final-consonants-p06
 > say: price
-> tip: price — коротше, із свистом /s/ у кінці.
+> tip: price — коротше, зі свистом /s/ у кінці.
 
 > [!pair] leaf /liːf/ — leave /liːv/
 > level: A1 · id: en-a1-final-consonants-p07
@@ -326,7 +326,7 @@ estimatedMinutes: 35
 > [!pair] sat /sæt/ — sad /sæd/
 > level: A1 · id: en-a1-final-consonants-p08
 > say: sad
-> tip: sad — /æ/ довше й мʼякий кінець.
+> tip: sad — /æ/ довший, кінець мʼякий.
 
 > [!pair] peas /piːz/ — peace /piːs/
 > level: A1 · id: en-a1-final-consonants-p09
@@ -396,13 +396,13 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-final-consonants-s08
 > text: Feed the dog, please.
 > ipa: /fiːd ðə dɒɡ pliːz/
-> tip: три дзвінкі кінці: /d/, /ɡ/, /z/. Тягни голосні перед ними.
+> tip: три слова закінчуються дзвінким: /d/, /ɡ/, /z/. Тягни голосні перед ними.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-final-consonants-s09
 > text: What's the price of this prize?
 > ipa: /wɒts ðə praɪs əv ðɪs praɪz/
-> tip: price — коротко й свист /s/; prize — довше й дзижчання /z/.
+> tip: price — коротко, зі свистом /s/; prize — довше, з дзижчанням /z/.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-final-consonants-s10

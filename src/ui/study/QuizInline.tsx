@@ -239,7 +239,7 @@ export function QuizInline(props: Props) {
             if (typed.trim()) void submit([], typed)
           }}
         >
-          <DictationInput id={`${headingId}-answer`} value={typed} onChange={setTyped} disabled={checked} state={phase === 'done' && correct !== null ? (correct ? 'right' : 'wrong') : undefined} expected={key?.free ?? null} onSubmit={() => void submit([], typed)} />
+          <DictationInput id={`${headingId}-answer`} value={typed} onChange={setTyped} disabled={checked} state={phase === 'done' && correct !== null ? (correct ? 'right' : 'wrong') : undefined} expected={key?.free ?? null} onSubmit={() => void submit([], typed)} lang={props.lang ?? 'en'} />
           {phase !== 'done' ? (
             <ActionBar slot={actionsSlot}>
               <Button type={actionsSlot ? 'button' : 'submit'} block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'} onClick={actionsSlot ? () => void submit([], typed) : undefined}>

@@ -61,7 +61,7 @@ estimatedMinutes: 45
 
 | Конструкція | Приклад | Переклад |
 |---|---|---|
-| *is said / believed / thought to + infinitive* | *The suspect **is believed to** be in Poland.* | Вважають, що підозрюваний у Польщі. |
+| *is said / believed / thought to + infinitive* | *The suspect **is believed to** be in Poland.* | Вважають, що підозрюваний перебуває в Польщі. |
 | *… to have + V3* (про минуле) | *He **is said to have stolen** €2 million.* | Кажуть, що він викрав 2 мільйони євро. |
 | *It is alleged / reported that…* | ***It is alleged that** the mayor took bribes.* | Стверджують, що мер брав хабарі. |
 | *allegedly* | *The man **allegedly** sold fake tickets.* | Чоловік нібито продавав підроблені квитки. |
@@ -113,7 +113,7 @@ estimatedMinutes: 45
 - *Three **witnesses** saw the attack.* — Напад бачили троє свідків.
 - *After two days, the **jury** reached a **verdict**: not **guilty**.* — Через два дні присяжні винесли вердикт: невинуватий.
 - *She **was sentenced to** 200 hours of **community service**.* — Її засудили до 200 годин громадських робіт.
-- *He got a **fine** for dropping litter.* — Він отримав штраф за викинуте сміття.
+- *He got a **fine** for dropping litter.* — Його оштрафували за те, що він смітив на вулиці.
 - *The new **legislation** **bans** smoking in all public places.* — Новий закон забороняє куріння в усіх громадських місцях.
 - *Many people feel that **CCTV** cameras invade their privacy.* — Багато людей вважають, що камери спостереження порушують їхню приватність.
 - *The government must **tackle** the **root causes** of **poverty**.* — Уряд має боротися з корінними причинами бідності.
@@ -321,7 +321,7 @@ estimatedMinutes: 45
 > [!word] ban
 > ipa: /bæn/ · pos: verb · level: B2 · id: en-b2-society-w33
 > uk: забороняти; (іменник) заборона
-> example: Many cities have **banned** cars from the centre. — Багато міст заборонили авто в центрі.
+> example: Many cities have **banned** cars from the centre. — Багато міст заборонили вʼїзд автомобілів до центру.
 > forms: ban → banned → banned
 > note: нейтральне, частіше в новинах, ніж *forbid*. *ban something*, *ban somebody from doing something*, *a ban on smoking*.
 
@@ -353,8 +353,8 @@ estimatedMinutes: 45
 
 > [!word] homelessness
 > ipa: /ˈhəʊmləsnəs/ · ipa-us: /ˈhoʊmləsnəs/ · pos: noun · level: B2 · id: en-b2-society-w38
-> uk: безпритульність; безхатченко як явище
-> example: Rising rents have led to an increase in **homelessness**. — Зростання оренди призвело до збільшення безпритульності.
+> uk: безпритульність; безхатність
+> example: Rising rents have led to an increase in **homelessness**. — Через зростання орендної плати безпритульних стало більше.
 > note: нейтральне. Люди — *homeless people* або *the homeless*.
 
 > [!word] citizen
@@ -445,7 +445,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *not* у швидкому мовленні короткий, але змінює все: *found not guilty* — визнаний невинуватим. *Plead guilty* — сам визнав провину.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-society-l03
 > audio: The suspect was sentenced to two years in prison.
 
@@ -472,7 +472,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** IELTS Part 1 перевіряє дати, час і правопис. *Tuesday* ≠ *Thursday*, *fourteenth* ≠ *fourth*; *between two and four in the afternoon* — 14:00–16:00.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-society-l06
 > audio: Community service can be more effective than a short prison sentence.
 
@@ -504,14 +504,14 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-society-s02
 > text: The jury found her not guilty.
 > ipa: /ðə ˈdʒʊəri ˈfaʊnd hə ˈnɒt ˈɡɪlti/
-> tip: guilty — *u* німа: [ГІЛ-ті]; jury — [ДЖУ-рі]; виділи голосом *not*.
+> tip: guilty — літера *u* не читається: [ГІЛ-ті]; jury — [ДЖУ-рі]; виділи голосом *not*.
 > uk: Присяжні визнали її невинуватою.
 
 > [!speak] IELTS Speaking, Part 3 — «Why do young people commit crimes?»
 > level: B2 · id: en-b2-society-s03
 > text: Often the root cause is poverty or boredom, so we should give teenagers more opportunities, not just punish them.
 > ipa: /ˈɒfən ðə ˈruːt ˈkɔːz ɪz ˈpɒvəti ɔː ˈbɔːdəm səʊ wi ʃəd ˈɡɪv ˈtiːneɪdʒəz ˈmɔːr ˌɒpəˈtjuːnətiz ˈnɒt ˈdʒʌst ˈpʌnɪʃ ðəm/
-> tip: Причина → рішення: так будується відповідь Part 3. often — *t* зазвичай німа [О-фн]; opportunities — [о-пе-ТЬЮ-не-тіз].
+> tip: Причина → рішення: так будується відповідь Part 3. в often *t* зазвичай не вимовляють: [О-фн]; opportunities — [о-пе-ТЬЮ-не-тіз].
 > uk: Часто корінна причина — бідність або нудьга, тож підліткам треба давати більше можливостей, а не лише карати їх.
 
 > [!speak] IELTS Speaking, Part 3 — «Is prison the best way to deal with criminals?»

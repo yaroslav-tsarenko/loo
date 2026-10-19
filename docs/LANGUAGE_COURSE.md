@@ -49,7 +49,7 @@ Courses/english-a1-c2/course.yaml    ← маніфест курсу (kind: lang
 > - [x] I have two brothers and one sister.
 > - [ ] I have three brothers.
 ```
-`type`: `choice` (обери почуте), `dictation` (надрукуй почуте; перевірка без урахування регістру й пунктуації),
+`type`: `choice` (обери почуте), `dictation` (надрукуй або скажи почуте — кнопка мікрофона кладе розпізнаний текст у поле, його можна поправити; перевірка без урахування регістру й пунктуації),
 `answer` (питання до почутого — варіанти відповіді українською чи англійською). Діалог — кілька рядків
 `audio:` з мовцем: `audio: A: Where are you from?` / `audio: B: I'm from Ukraine.` (голоси чергуються).
 `speed: slow` — для A1.

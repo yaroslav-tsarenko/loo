@@ -14,9 +14,9 @@ estimatedMinutes: 45
 > [!success] Після цієї теми ти зможеш
 > - підсилювати думку інверсією після заперечних і обмежувальних слів: ***Never have I** seen…*, ***Rarely do we**…*, ***Little did she know**…*;
 > - будувати пари ***Not only** … but also*, ***Hardly** … when*, ***No sooner** … than*;
-> - ставити інверсію в правильне речення після ***Only when** / **Not until***: *Only when I got home **did I realise**…*;
+> - ставити інверсію в головне речення після ***Only when** / **Not until***: *Only when I got home **did I realise**…*;
 > - коротко погоджуватися: *So do I*, *Neither have I*, *…, nor did he*;
-> - відчувати межу: де інверсія додає балів в IELTS Writing Task 2 і Speaking Part 3 (C1 ≈ IELTS 7.0–8.0), а де звучить штучно.
+> - відчувати межу: де інверсія додає балів у IELTS Writing Task 2 і Speaking Part 3 (C1 ≈ IELTS 7.0–8.0), а де звучить штучно.
 
 ## Передбач
 
@@ -87,7 +87,7 @@ estimatedMinutes: 45
 Слова, які роблять речення **запереченим або «майже запереченим»**:
 
 - ***Never (before)** has the company made such a loss.* — Ніколи раніше компанія не зазнавала таких збитків.
-- ***Rarely / Seldom** do we get a second chance.* — Рідко нам дають другий шанс.
+- ***Rarely / Seldom** do we get a second chance.* — Нечасто нам випадає другий шанс.
 - ***Little did** I know that…* — Я й гадки не мав, що… (*little* + *know, realise, suspect, imagine*).
 - ***At no time** was the public informed.* — Громадськість жодного разу не поінформували.
 - ***Nowhere** is this more evident than in big cities.* — Ніде це не помітно так, як у великих містах. (Улюблена фраза есеїстів.)
@@ -167,7 +167,7 @@ estimatedMinutes: 45
 
 Категоричні заборони й заперечення — мова правил, інструкцій, офіційних листів:
 
-- ***Under no circumstances should** you share your password.* — За жодних обставин не повідомляй свій пароль.
+- ***Under no circumstances should** you share your password.* — За жодних обставин нікому не кажи свого пароля.
 - ***On no account must** the fire doors be locked.* — У жодному разі не можна замикати пожежні двері.
 - ***In no way does** this affect your contract.* — Це жодним чином не впливає на твій контракт.
 - ***By no means is** this the only solution.* — Це аж ніяк не єдиний вихід.
@@ -180,7 +180,7 @@ estimatedMinutes: 45
 ### Коли інверсії немає
 
 - Слово **не на початку**: *I have **never** seen…* — звичайний порядок.
-- Заперечне слово належить **до підмета**, а не до всього речення: ***Hardly anyone** came.* ***Only Olena** knew the answer.* ***Not many people** know this.* — тут *hardly / only / not* описують підмет, тому жодного *did*.
+- Заперечне слово належить **до підмета**, а не до всього речення: ***Hardly anyone** came.* ***Only Olena** knew the answer.* ***Not many people** know this.* — тут *hardly / only / not* стосуються підмета, тому жодного *did*.
 - ***In no time*** = «миттю» — речення не стає запереченим, тому інверсії немає: *In no time, we had finished the pizza.*
 
 > [!quiz] У яких реченнях інверсія НЕ потрібна (вони правильні як є)? Обери всі.
@@ -197,7 +197,7 @@ estimatedMinutes: 45
 
 | Конструкція | Природно | Звучить дивно |
 |---|---|---|
-| *Not only … but also* | есе, презентації, і в розмові теж | — майже всюди ок |
+| *Not only … but also* | есе, презентації, і в розмові теж | — доречно майже всюди |
 | *Only by / Only when … can / did* | аргумент в есе, промова | дружня балачка |
 | *Never have I… / Never in my life have I…* | емоційна розмова, обурення, гумор | академічне есе (надто особисто) |
 | *Little did I know…* | історія, оповідь, журналістика | звіт, інструкція |
@@ -211,7 +211,7 @@ estimatedMinutes: 45
 
 ### IELTS: інверсія у Writing Task 2 і Speaking Part 3
 
-У публічних band descriptors IELTS критерій **Grammatical Range and Accuracy** на Band 7 — це *різноманітні складні структури* і *часті речення без помилок*; на Band 8 — *широкий діапазон структур*, гнучко, і *більшість речень без помилок*. Інверсія — один з інструментів, а не обовʼязкова «фішка»: екзаменатор оцінює **точність і доречність**, а не кількість ефектних конструкцій.
+У публічних band descriptors IELTS критерій **Grammatical Range and Accuracy** на Band 7 — це *різноманітні складні структури* і *чимало речень без помилок*; на Band 8 — *широкий діапазон структур*, гнучко, і *більшість речень без помилок*. Інверсія — один з інструментів, а не обовʼязкова «фішка»: екзаменатор оцінює **точність і доречність**, а не кількість ефектних конструкцій.
 
 **Writing Task 2 — де інверсія працює** (1–2 рази на есе, там, де справді потрібен наголос: теза, ключовий аргумент, висновок):
 
@@ -234,8 +234,8 @@ estimatedMinutes: 45
 - **Not only did** he forget my birthday, **but** he **also** booked a football match that evening. — Він не лише забув про мій день народження, а й запланував на той вечір футбол.
 - **Hardly had** the film started **when** the fire alarm went off. — Ледве почався фільм, як спрацювала пожежна сигналізація.
 - **No sooner had** I sent the email **than** I spotted the typo. — Щойно я надіслав лист, як помітив одруківку.
-- **Only after** the interview **did** I realise how nervous I had been. — Лише після співбесіди я зрозумів, як нервувався.
-- **Under no circumstances should** patients stop taking the medicine without advice. — За жодних обставин пацієнти не повинні припиняти прийом ліків без поради лікаря.
+- **Only after** the interview **did** I realise how nervous I had been. — Лише після співбесіди я зрозумів, як сильно нервував.
+- **Under no circumstances should** patients stop taking the medicine without advice. — Пацієнтам за жодних обставин не можна припиняти приймати ліки, не порадившись із лікарем.
 - **Little did** we **know** that the café would become our second home. — Ми й гадки не мали, що кафе стане нашим другим домом.
 - **So convincing was** her argument **that** nobody dared to object. — Її аргумент був настільки переконливим, що ніхто не наважився заперечити.
 - She doesn't eat meat, **nor does** she drink milk. — Вона не їсть мʼяса і не пʼє молока.
@@ -263,7 +263,7 @@ estimatedMinutes: 45
 > [!word] under no circumstances
 > ipa: /ˌʌn.də nəʊ ˈsɜː.kəm.stɑːn.sɪz/ · ipa-us: /ˌʌn.dɚ noʊ ˈsɝː.kəm.stæn.sɪz/ · pos: phrase · level: C1 · id: en-c1-inversion-w04
 > uk: за жодних обставин
-> example: **Under no circumstances** should you share your password. — За жодних обставин не повідомляй свій пароль.
+> example: **Under no circumstances** should you share your password. — За жодних обставин нікому не кажи свого пароля.
 > note: на початку речення — з інверсією. У кінці кажуть інакше: You shouldn't share it under any circumstances.
 
 > [!word] on no account
@@ -322,11 +322,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *Hardly had we* — інверсія. Перший варіант має той самий зміст, але звичайний порядок; третій — про те, що майже ніхто не вийшов.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-inversion-l03
 > audio: Under no circumstances should you leave the building.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-inversion-l04
 > audio: Only when the results came in did we realise how serious it was.
 
@@ -339,7 +339,7 @@ estimatedMinutes: 45
 > - [ ] Doctors had ignored the poorest streets.
 > - [ ] The outbreak started in a hospital.
 >
-> **Пояснення:** *the cases clustered around a single water pump* = смерті зосередилися біля однієї колонки. Теорію «поганого повітря» лектор згадує як тодішню хибну думку — це пастка. Інверсія *Not until … did a pattern appear* підкреслює: лише після мапи це стало видно.
+> **Пояснення:** *the cases clustered around a single water pump* = випадки зосереджувалися довкола однієї водяної колонки. Теорію «поганого повітря» лектор згадує як тодішню хибну думку — це пастка. Інверсія *Not until … did a pattern appear* підкреслює: лише після мапи це стало видно.
 
 > [!listen] IELTS Listening, Part 3 (обговорення проєкту). What reservation does the second speaker have about the four-day week?
 > level: C1 · type: answer · tags: ielts · id: en-c1-inversion-l06
@@ -358,7 +358,7 @@ estimatedMinutes: 45
 > level: C1 · id: en-c1-inversion-s01
 > text: Never have I seen such a beautiful sunset.
 > ipa: /ˈnev.ə həv aɪ siːn sʌtʃ ə ˈbjuː.tɪ.fəl ˈsʌn.set/
-> tip: головний наголос — на Never; have — слабке /həv/, майже «гəв».
+> tip: головний наголос — на Never; have — ненаголошене, слабка форма /həv/.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-inversion-s02
@@ -382,7 +382,7 @@ estimatedMinutes: 45
 > level: C1 · id: en-c1-inversion-s05
 > text: Little did I know that she was listening.
 > ipa: /ˈlɪt.əl dɪd aɪ nəʊ ðət ʃi wəz ˈlɪs.ən.ɪŋ/
-> tip: listening — t німа: /ˈlɪs.ən.ɪŋ/; that — слабке /ðət/.
+> tip: у listening літера t не читається: /ˈlɪs.ən.ɪŋ/; that — слабка форма /ðət/.
 
 > [!speak] IELTS Speaking, Part 3 — як змінити звички людей
 > level: C1 · id: en-c1-inversion-s06
@@ -565,7 +565,7 @@ estimatedMinutes: 45
 > [!reel] 🔁 Ти вже давно вживаєш інверсію
 > Кожне питання — інверсія: Have you…? Do you…? І коротка згода теж: So do I, Neither have I. На C1 ти просто переносиш цей механізм у стверджувальні речення — для наголосу.
 
-> [!reel] 📜 Чому з'являється do?
+> [!reel] 📜 Чому зʼявляється do?
 > За часів Шекспіра можна було сказати What say you? — дієслово саме ставало перед підметом. Згодом закріпилося допоміжне do, і тепер міняються місцями лише допоміжні: Never did I say that.
 
 > [!reel] 🎬 Little did they know…

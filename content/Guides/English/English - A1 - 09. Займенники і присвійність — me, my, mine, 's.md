@@ -31,7 +31,7 @@ estimatedMinutes: 35
 
 ## Чотири форми одного займенника
 
-Українською «я» змінюється за відмінками: я, мене, мені, мною, мій. В англійській відмінків майже немає — лише **чотири форми**:
+Українською «я» змінюється за відмінками: я, мене, мені, мною; а «чий» — окреме слово «мій». В англійській відмінків майже немає — у кожного займенника лише **чотири форми**:
 
 | Хто діє (підмет) | Кого / кому (обʼєкт) | Чий + іменник | Чий (без іменника) |
 |---|---|---|---|
@@ -83,7 +83,7 @@ estimatedMinutes: 35
 >   - { focus: uk, note: "«Свій» — зручне українське слово для будь-якої особи. В англійській його немає." }
 >   - { set: { who: "Olya = she" }, focus: who, note: "Шукаємо, хто виконує дію. Оля — це she." }
 >   - { set: { poss: "she → her" }, focus: poss, note: "Беремо присвійне слово цієї ж особи: she → her." }
->   - { set: { en: "Olya is looking for her phone." }, focus: en, note: "Готово: her phone. Неважливо, що телефон «він»." }
+>   - { set: { en: "Olya is looking for her phone." }, focus: en, note: "Готово: her phone. Неважливо, що «телефон» — чоловічого роду." }
 >   - { set: { uk: "Ми шукаємо свій телефон.", who: "we", poss: "we → our", en: "We're looking for our phone." }, note: "Те саме для «ми»: свій → our. Для «я» — my, для «вони» — their." }
 > ```
 
@@ -139,12 +139,12 @@ estimatedMinutes: 35
 
 - This is my friend Max. I see him every day. — Це мій друг Макс. Я бачу його щодня.
 - Their kids are at school with ours. — Їхні діти ходять до школи разом із нашими.
-- Is this pen yours? — No, it's Ira's. — Це твоя ручка? — Ні, Ірина.
-- My neighbour's dog is very friendly. — Собака мого сусіда дуже привітна.
+- Is this pen yours? — No, it's Ira's. — Це твоя ручка? — Ні, Іри.
+- My neighbour's dog is very friendly. — Собака мого сусіда дуже привітний.
 - The cat is eating its dinner. — Кіт їсть свою вечерю.
 - Can you help us, please? — Можете нам допомогти, будь ласка?
 - Whose bike is that? — It's my sister's. — Чий то велосипед? — Моєї сестри.
-- We love our new flat. — Ми любимо нашу нову квартиру.
+- We love our new flat. — Нам дуже подобається наша нова квартира.
 - My parents' car is old, but it's still fast. — Машина моїх батьків стара, але досі швидка.
 
 ## Слова
@@ -176,7 +176,7 @@ estimatedMinutes: 35
 > ipa: /ˈkɒliːɡ/ · ipa-us: /ˈkɑːliːɡ/ · pos: noun · level: A1 · id: en-a1-pronouns-w05
 > uk: колега
 > example: This is my **colleague**, Sam. — Це мій колега Сем.
-> note: наголос на перший склад: KOL-leeg.
+> note: наголос на першому складі: KOL-leeg.
 
 > [!word] boss
 > ipa: /bɒs/ · ipa-us: /bɔːs/ · pos: noun · level: A1 · id: en-a1-pronouns-w06
@@ -220,11 +220,11 @@ estimatedMinutes: 35
 > - [ ] That's my brothers' cars.
 > - [ ] That's my brother car.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-pronouns-l03
 > audio: Please call me tomorrow.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-pronouns-l04
 > audio: Whose keys are these?
 
@@ -289,7 +289,7 @@ estimatedMinutes: 35
 
 Твоя черга відповісти.
 
-> [!speak] «Ні, вони не мої. Вони Макса».
+> [!speak] «Ні, не мої. Це Максові».
 > level: A1 · id: en-a1-pronouns-s05
 > text: No, they aren't mine. They're Max's.
 > ipa: /nəʊ ðeɪ ˈɑːnt ˈmaɪn ðeə ˈmæksɪz/
@@ -404,7 +404,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** *hers, mine* — без іменника після них.
 
-> [!quiz] Подруга питає: «Is this your coffee?» Як коротко сказати «Ні, це Тома»?
+> [!quiz] Подруга питає: «Is this your coffee?» Як коротко сказати «Ні, це Томова»?
 > level: A1 · id: en-a1-pronouns-q12
 > - [ ] No, it's Tom.
 > - [x] No, it's Tom's.
@@ -435,4 +435,4 @@ estimatedMinutes: 35
 > - Перед іменником — *my, your, his, her, its, our, their*; без іменника — *mine, yours, his, hers, ours, theirs*.
 > - «Свій» — присвійне слово того, хто діє: *She loves her job.*
 > - Власник + *'s* + річ: *Anna's phone*; множина на -s — лише *'*: *my parents' house*.
-> - *Whose* — чий, *who's* — хто є; *its* — його (про річ), *it's* — це є.
+> - *Whose* — чий, *who's* — хто є; *its* — його (про річ), *it's* = *it is*.

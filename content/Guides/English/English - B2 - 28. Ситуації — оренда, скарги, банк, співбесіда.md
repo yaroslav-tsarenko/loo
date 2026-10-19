@@ -33,14 +33,14 @@ estimatedMinutes: 55
 
 На A2 ти бронював готель і купував ліки — прості, передбачувані розмови. На B2 ситуації **складніші**: щось пішло не так, на кону гроші чи робота, а співрозмовник не завжди хоче допомагати. Тут потрібні три навички одночасно:
 
-1. **Ввічливість** — пом'якшувачі (*I'm afraid…, I was wondering if…, Would it be possible to…?*). Англійці чутливі до тону: пряме «Give me…» звучить грубо навіть у справедливій скарзі.
+1. **Ввічливість** — помʼякшувачі (*I'm afraid…, I was wondering if…, Would it be possible to…?*). Англійці чутливі до тону: пряме «Give me…» звучить грубо навіть у справедливій скарзі.
 2. **Конкретика** — дати, суми, номери: *on 3 March, £45, reference number 4471*. Розмиту скаргу легко відкласти.
 3. **Твердість** — чітко сказати, **чого** ти хочеш і **до коли**, і знати наступний крок, якщо не допоможуть.
 
 Формула, що працює в будь-якій складній ситуації:
 
 > [!tip] Формула складної розмови
-> **Пом'якшувач** + **факт** + **вплив** + **чого хочу** + **до коли**.
+> **Помʼякшувач** + **факт** + **вплив** + **чого хочу** + **до коли**.
 > *I'm afraid **the washing machine you delivered on Monday** has stopped working. **We haven't been able to do any washing for three days**, so **I'd like a replacement** **by the end of the week**.*
 
 ## Пояснення
@@ -199,7 +199,7 @@ estimatedMinutes: 55
 - *There's a leak under the kitchen sink.* — Під кухонною мийкою протікає.
 - *I'd like to make a formal complaint.* — Я хотів би подати офіційну скаргу.
 - *Could you give me a reference number, please?* — Дайте, будь ласка, номер звернення.
-- *If this isn't resolved within 14 days, I'll take it further.* — Якщо це не розвʼяжуть за 14 днів, я звернуся далі.
+- *If this isn't resolved within 14 days, I'll take it further.* — Якщо цього не владнають за 14 днів, я дам справі хід.
 - *I'd like to open a current account.* — Я хотів би відкрити поточний рахунок.
 - *I've set up a standing order for the rent.* — Я налаштував регулярний платіж за оренду.
 - *I think there's a fraudulent payment on my statement.* — Здається, у моїй виписці є шахрайський платіж.
@@ -262,7 +262,7 @@ estimatedMinutes: 55
 > [!word] damp
 > ipa: /dæmp/ · pos: noun · level: B2 · id: en-b2-situations-w09
 > uk: вогкість, сирість (у стінах); вологий
-> example: There's **damp** in the bathroom, and the walls smell. — У ванній сирість, і стіни пахнуть.
+> example: There's **damp** in the bathroom, and the walls smell. — У ванній сирість, і від стін тхне вогкістю.
 > note: прикметник *damp* — вологий (неприємно): *damp clothes*. ≠ *humid* (про погоду).
 
 > [!word] leak
@@ -356,7 +356,7 @@ estimatedMinutes: 55
 > [!word] sort code
 > ipa: /ˈsɔːt ˌkəʊd/ · ipa-us: /ˈsɔːrt ˌkoʊd/ · pos: noun · level: B2 · id: en-b2-situations-w24
 > uk: код відділення банку (UK, шість цифр)
-> example: To set up the transfer, I need your **sort code** and account number. — Щоб налаштувати переказ, мені потрібні код банку й номер рахунку.
+> example: To set up the transfer, I need your **sort code** and account number. — Щоб налаштувати переказ, мені потрібні код відділення й номер рахунку.
 > note: UK; формат *12-34-56*. У США — *routing number*, у Європі — *IBAN*.
 
 > [!word] transfer
@@ -418,7 +418,7 @@ estimatedMinutes: 55
 > [!word] a steep learning curve
 > ipa: /ə ˌstiːp ˈlɜːnɪŋ ˌkɜːv/ · ipa-us: /ə ˌstiːp ˈlɜːrnɪŋ ˌkɜːrv/ · pos: phrase · level: B2 · id: en-b2-situations-w34
 > uk: необхідність швидко багато навчитися
-> example: My first month was **a steep learning curve**. — Мій перший місяць — це було багато нового й швидко.
+> example: My first month was **a steep learning curve**. — За перший місяць мені довелося дуже швидко багато чого навчитися.
 > note: позитивно на співбесіді: показує, що ти не боїшся складного.
 
 > [!word] probation period
@@ -463,7 +463,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *eight hundred and fifty* (не *fifteen*), *only water*, *five weeks' rent*, *the third of September*, *two months* notice. Пастки IELTS Part 1: схожі числа (*fifty / fifteen*, *third / thirteenth*) і плутанина двох строків — депозиту й попередження.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-situations-l04
 > audio: I'd like to make a formal complaint about my last bill.
 
@@ -517,7 +517,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *our ticket system went down* — Situation; *I had to keep customers informed* — Task; *I set up… and split…* — Action; *We cleared the backlog in two days* — Result. Саме так звучить сильна відповідь на «Tell me about a time when…».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-situations-l10
 > audio: I'm keen to take on more responsibility in my next role.
 
@@ -527,7 +527,7 @@ estimatedMinutes: 55
 > level: B2 · id: en-b2-situations-s01
 > text: Could I arrange a viewing for Saturday morning?
 > ipa: /kʊd aɪ əˈreɪndʒ ə ˈvjuːɪŋ fə ˌsætədeɪ ˈmɔːnɪŋ/
-> tip: could — l німе: [куд]. viewing — [ВЬЮ-інг].
+> tip: у could літера l не читається: [куд]. viewing — [ВЬЮ-інг].
 > uk: Чи можна домовитися про огляд на суботу зранку?
 
 > [!speak] Питання про рахунки
@@ -541,14 +541,14 @@ estimatedMinutes: 55
 > level: B2 · id: en-b2-situations-s03
 > text: Could you put that in writing, please?
 > ipa: /kʊd ju ˌpʊt ðæt ɪn ˈraɪtɪŋ pliːz/
-> tip: put‿that‿in — злито: [пут-ðе-тін]. writing — w німе: [РАЙ-тінг].
+> tip: put‿that‿in — злито: [пут-ðе-тін]. у writing літера w не читається: [РАЙ-тінг].
 > uk: Чи могли б ви зафіксувати це письмово?
 
 > [!speak] Ввічлива скарга
 > level: B2 · id: en-b2-situations-s04
 > text: I'm afraid the washing machine you delivered on Monday has stopped working.
 > ipa: /aɪm əˈfreɪd ðə ˈwɒʃɪŋ məˌʃiːn ju dɪˈlɪvəd ɒn ˈmʌndeɪ həz ˈstɒpt ˈwɜːkɪŋ/
-> tip: I'm afraid — інтонація м'яко вниз. machine — наголос на -CHINE: [ме-ШІІН].
+> tip: I'm afraid — інтонація мʼяко вниз. machine — наголос на -CHINE: [ме-ШІІН].
 > uk: На жаль, пральна машина, яку ви доставили в понеділок, перестала працювати.
 
 > [!speak] Підвищити рівень скарги
@@ -610,7 +610,7 @@ estimatedMinutes: 55
 ## Типові помилки українців
 
 > [!pitfall] Занадто прямо — звучить грубо
-> Українська пряма форма «Дайте мені…», «Поверніть гроші» англійською (*Give me…*, *Return my money*) звучить **агресивно**, навіть якщо ти правий. Додавай пом'якшувачі: ***I'm afraid…, I'd like…, Could you…, please?, Would it be possible to…?*** Твердість — у **конкретиці й дедлайні**, а не в імперативі.
+> Українська пряма форма «Дайте мені…», «Поверніть гроші» англійською (*Give me…*, *Return my money*) звучить **агресивно**, навіть якщо ти правий. Додавай помʼякшувачі: ***I'm afraid…, I'd like…, Could you…, please?, Would it be possible to…?*** Твердість — у **конкретиці й дедлайні**, а не в імперативі.
 
 > [!pitfall] «Commission», «chief», «complain on»
 > Банківська «комісія» — ***fee / charge***, не *commission* (це винагорода агентові). «Начальник» — ***manager / supervisor***, не *chief* (звучить як вождь чи головнокомандувач). Скаржитися — *complain **about** sth* / *complain **to** sb*, а не ~~complain on~~. «Кредит» — частіше ***loan***, а *credit* — це «кошти на рахунку» або «довіра до позичальника».
@@ -630,7 +630,7 @@ estimatedMinutes: 55
 > - [ ] Sorry, sorry, it's probably my fault, but maybe the parcel is lost?
 > - [ ] Parcel. Not here. Why?
 >
-> **Пояснення:** формула: пом'якшувач (*I'm afraid*) + факт (*a week overdue*) + конкретне прохання (*what's happened and when*). Варіант 1 — агресивний; 3 — надто невпевнений, ще й бере провину на себе; 4 — грубо й незрозуміло.
+> **Пояснення:** формула: помʼякшувач (*I'm afraid*) + факт (*a week overdue*) + конкретне прохання (*what's happened and when*). Варіант 1 — агресивний; 3 — надто невпевнений, ще й бере провину на себе; 4 — грубо й незрозуміло.
 
 > [!quiz] Які питання варто поставити на огляді квартири? Обери всі.
 > level: B2 · type: multi · id: en-b2-situations-q03
@@ -807,7 +807,7 @@ estimatedMinutes: 55
 - 🟡 [GOV.UK — Renting a home](https://www.gov.uk/private-renting) — депозит, договір, права орендаря простою англійською.
 
 > [!important] Підсумок
-> - Формула складної розмови: **пом'якшувач + факт + вплив + чого хочу + до коли**.
+> - Формула складної розмови: **помʼякшувач + факт + вплив + чого хочу + до коли**.
 > - Оренда: *viewing, tenancy agreement, inventory, notice period, utility bills, deposit*; обіцянки — *in writing*.
 > - Скарга — сходи: прохання → повторно з *reference number* → письмово → *escalate* → *take it further*; твердо, але без погроз.
 > - Банк: *current account, proof of address, direct debit* (компанія, змінна сума) vs *standing order* (ти, фіксована сума), *fraud* — картку *freeze*, PIN нікому.

@@ -41,7 +41,7 @@ estimatedMinutes: 40
 > edges:
 >   - { from: taras, to: me, label: "£20" }
 > steps:
->   - { focus: me, note: "У мене порожній гаманець, а в Тараса є гроші. Я питаю: Can I borrow £20? — Можна позичити (взяти) 20 фунтів?" }
+>   - { focus: me, note: "У мене порожній гаманець, а в Тараса є гроші. Я питаю: Can I borrow £20? — Можна в тебе позичити 20 фунтів?" }
 >   - { move: { from: taras, to: me, value: "£20" }, set: { me: "£20", taras: "£30" }, note: "Гроші йдуть від Тараса до мене. Про мене: I borrowed £20 from Taras. Про Тараса: Taras lent me £20." }
 >   - { focus: [taras, me], note: "Та сама подія — два дієслова. Borrow — брати (from), lend — давати (to / кому). Тепер I owe Taras £20 — я винен Тарасові." }
 >   - { move: { from: me, to: taras, value: "£20" }, set: { me: "£0", taras: "£50" }, note: "Через тиждень: I paid him back — я повернув борг. Тепер ми квити." }
@@ -58,7 +58,7 @@ estimatedMinutes: 40
 | **pay** (paid, paid) | **людина** | pay + сума + **for** + річ | I **paid** £15 **for** the ticket. — Я заплатив 15 фунтів за квиток. |
 
 - *How much **does** it **cost**?* = *How much **is** it?* — Скільки це коштує?
-- Платимо **за щось** — *pay **for***: *I'll pay for the drinks*. Але рахунок чи людину — без *for*: *pay **the bill***, *pay **the waiter***.
+- Платимо **за щось** — *pay **for***: *I'll pay for the drinks*. Але з рахунком чи людиною *for* не потрібен: *pay **the bill***, *pay **the waiter***.
 - **Spend** — ще й про час: *I spent two hours in the shop.*
 
 ### Як платити
@@ -97,7 +97,7 @@ estimatedMinutes: 40
 
 ### Як поскаржитися ввічливо
 
-Англійська скарга — спокійна й ввічлива, навіть коли ти злий. Формула: **що купив → що не так → чого хочеш**.
+Англійська скарга — спокійна та ввічлива, навіть коли ти сердишся. Формула: **що купив → що не так → чого хочеш**.
 
 | Крок | Фрази |
 |---|---|
@@ -124,8 +124,8 @@ estimatedMinutes: 40
 - I still **owe** you ten pounds, don't I? — Я ж досі винен тобі десять фунтів?
 - These trainers were a real **bargain** — only £20 in the **sale**! — Ці кросівки — справжня знахідка: лише 20 фунтів на розпродажі!
 - Is there a **cash machine** near here? — Тут поблизу є банкомат?
-- How much is the **rent** for this flat? — Яка оренда за цю квартиру?
-- I'd like to send this **parcel** to Ukraine. — Я хочу надіслати цю посилку в Україну.
+- How much is the **rent** for this flat? — Скільки коштує оренда цієї квартири?
+- I'd like to send this **parcel** to Ukraine. — Я хотів би надіслати цю посилку в Україну.
 - Don't **waste** your money on that rubbish. — Не марнуй гроші на цей мотлох.
 
 ## Слова
@@ -152,8 +152,8 @@ estimatedMinutes: 40
 > [!word] receipt
 > ipa: /rɪˈsiːt/ · pos: noun · level: A2 · id: en-a2-money-w04
 > uk: чек, квитанція
-> example: Keep the **receipt** in case you want to return it. — Збережіть чек на випадок, якщо захочете повернути.
-> note: p німе: [рі-СІЇТ].
+> example: Keep the **receipt** in case you want to return it. — Збережи чек на випадок, якщо захочеш повернути товар.
+> note: p не читається: [рі-СІЇТ].
 
 > [!word] refund
 > ipa: /ˈriː.fʌnd/ · pos: noun · level: A2 · id: en-a2-money-w05
@@ -182,7 +182,7 @@ estimatedMinutes: 40
 > uk: повертати борг
 > forms: pay → paid → paid
 > example: I'll **pay** you **back** on Friday. — Я поверну тобі гроші в пʼятницю.
-> note: розділюване: pay me back, pay it back.
+> note: частини можна розділити: pay me back, pay it back.
 
 > [!word] lend
 > ipa: /lend/ · pos: verb · level: A2 · id: en-a2-money-w10
@@ -229,7 +229,7 @@ estimatedMinutes: 40
 > [!word] note
 > ipa: /nəʊt/ · ipa-us: /noʊt/ · pos: noun · level: A2 · id: en-a2-money-w17
 > uk: банкнота, купюра (UK)
-> example: Have you got anything smaller than a fifty-pound **note**? — У вас є щось менше за купюру в пʼятдесят фунтів?
+> example: Have you got anything smaller than a fifty-pound **note**? — У вас немає купюри, дрібнішої за пʼятдесят фунтів?
 > note: US — bill.
 
 > [!word] budget
@@ -242,7 +242,7 @@ estimatedMinutes: 40
 > ipa: /kæʃˈɪə/ · ipa-us: /kæʃˈɪr/ · pos: noun · level: A2 · id: en-a2-money-w19
 > uk: касир
 > example: Please pay the **cashier** at the exit. — Будь ласка, розрахуйтеся з касиром на виході.
-> note: наголос на другий склад.
+> note: наголос на другому складі.
 
 > [!word] loan
 > ipa: /ləʊn/ · ipa-us: /loʊn/ · pos: noun · level: A2 · id: en-a2-money-w20
@@ -376,11 +376,11 @@ estimatedMinutes: 40
 > - [x] I spent fifty pounds on clothes.
 > - [ ] I paid fifty pounds for the clothes.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-money-l03
 > audio: Could I have a receipt, please?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-money-l04
 > audio: How much do I owe you?
 
@@ -419,7 +419,7 @@ estimatedMinutes: 40
 > **Customer:** No, **in cash**.
 > **Assistant:** Here's your money — twelve ninety-nine. Sorry again!
 >
-> Зверни увагу на ввічливі «пом'якшувачі»: *Excuse me*, *Actually*, *could I…, please?* Прямо «Give me my money» англійською звучить грубо.
+> Зверни увагу на ввічливі «помʼякшувачі»: *Excuse me*, *Actually*, *could I…, please?* Прямо «Give me my money» англійською звучить грубо.
 
 ## Вимова
 
@@ -427,13 +427,13 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-money-s01
 > text: Could I have a receipt, please?
 > ipa: /kʊd aɪ hæv ə rɪˈsiːt pliːz/
-> tip: receipt — p німе: [рі-СІЇТ]; could I — зливаються: [ку-дай].
+> tip: receipt — p не читається: [рі-СІЇТ]; could I — зливаються: [ку-дай].
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-money-s02
 > text: Can I pay by card?
 > ipa: /kən aɪ peɪ baɪ kɑːd/
-> tip: card — довге [кааːд], r не вимовляється (UK); can — слабке [kən].
+> tip: card — довге [каад], r не вимовляється (UK); can — слабке [kən].
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-money-s03
@@ -555,7 +555,7 @@ estimatedMinutes: 40
 > Знак £ — це стилізована L від латинського libra, «фунт» (міра ваги). Колись фунт стерлінгів справді дорівнював фунту срібла.
 
 > [!reel] 🇬🇧 Черга — національний спорт
-> Британці дуже серйозно ставляться до queue. Пролізти без черги (jump the queue) — серйозне порушення етикету. Тихо стань у кінець і чекай.
+> Британці дуже серйозно ставляться до queue. Пролізти без черги (jump the queue) — серйозне порушення етикету. Тихо стань у кінець черги й чекай.
 
 > [!reel] 👛 Purse у Лондоні й Нью-Йорку
 > У Британії purse — маленький жіночий гаманець. В Америці purse — жіноча сумочка (UK handbag). Одне слово — різні речі по обидва боки океану.

@@ -27,7 +27,7 @@ estimatedMinutes: 40
 > - [ ] 8:30
 > - [ ] 7:15
 >
-> **Пояснення:** *half past seven* — «половина **після** сьомої», тобто 7:30. Українське «пів на восьму» — той самий час, але ми рахуємо до наступної години, а англійці — від попередньої. Тут легко заплутатися!
+> **Пояснення:** *half past seven* — дослівно «половина **після** сьомої», тобто 7:30. Українське «пів на восьму» — той самий час, але ми рахуємо до наступної години, а англійці — від попередньої. Тут легко заплутатися!
 
 ## Котра година?
 
@@ -55,10 +55,10 @@ estimatedMinutes: 40
 >   - { id: say, label: "кажемо", text: "?", tone: green }
 > steps:
 >   - { focus: clock, note: "Маємо 7:45. Спершу дивимося, в якій половині години стрілка." }
->   - { set: { half: "друга → to" }, focus: half, note: "45 хвилин — це друга половина (після :30). Значить, рахуємо до наступної години — to." }
+>   - { set: { half: "друга → to" }, focus: half, note: "45 хвилин — це друга половина (після :30). Отже, рахуємо до наступної години — to." }
 >   - { set: { mins: "60 − 45 = 15" }, focus: mins, note: "До восьмої лишилося 15 хвилин. А 15 хвилин — це quarter (чверть)." }
 >   - { set: { say: "quarter to eight" }, focus: say, note: "Разом: It's quarter to eight. Година — наступна, восьма!" }
->   - { set: { clock: "7:20", half: "перша → past", mins: "20", say: "twenty past seven" }, note: "А 7:20 — перша половина: twenty past seven, двадцять хвилин після сьомої." }
+>   - { set: { clock: "7:20", half: "перша → past", mins: "20", say: "twenty past seven" }, note: "А 7:20 — перша половина: twenty past seven (дослівно «двадцять після сьомої»), тобто двадцять хвилин на восьму." }
 > ```
 
 > [!tip] o'clock — лише рівно
@@ -66,7 +66,7 @@ estimatedMinutes: 40
 
 ### a.m. і p.m.
 
-У побуті англійці користуються 12-годинним циферблатом. Щоб уточнити, яка половина доби:
+У побуті англійці називають час у 12-годинному форматі. Щоб уточнити, яка половина доби:
 
 | | Що означає | Приклад |
 |---|---|---|
@@ -75,13 +75,13 @@ estimatedMinutes: 40
 | **midday / noon** | 12:00 | at midday — опівдні |
 | **midnight** | 00:00 | at midnight — опівночі |
 
-У розмові частіше кажуть *in the morning / in the afternoon / in the evening / at night*: *at seven in the evening*. 24-годинний формат (*eighteen thirty*) чутно здебільшого в розкладах потягів і літаків.
+У розмові частіше кажуть *in the morning / in the afternoon / in the evening / at night*: *at seven in the evening*. 24-годинний формат (*eighteen thirty*) трапляється здебільшого в розкладах потягів і літаків.
 
 Про конкретний час — прийменник **at**: *The film starts **at** 8 p.m. I get up **at** half past six.*
 
 ## Дні тижня
 
-Дні тижня **завжди з великої літери** і з прийменником **on**: *on Monday, on Fridays* (щоп'ятниці).
+Дні тижня **завжди з великої літери** і з прийменником **on**: *on Monday, on Fridays* (щопʼятниці).
 
 | День | Переклад | Скорочення |
 |---|---|---|
@@ -93,10 +93,10 @@ estimatedMinutes: 40
 | Saturday | субота | Sat |
 | Sunday | неділя | Sun |
 
-*Saturday* і *Sunday* разом — **the weekend** (UK: *at the weekend*, US: *on the weekend*). Решта — weekdays.
+*Saturday* і *Sunday* разом — **the weekend** (UK: *at the weekend*, US: *on the weekend*). Решта днів — *weekdays* (будні).
 
 > [!warning] Wednesday читається «венздей»
-> Перше *d* у *Wednesday* /ˈwenzdeɪ/ німе. А *Tuesday* /ˈtjuːzdeɪ/ і *Thursday* /ˈθɜːzdeɪ/ легко сплутати на слух: у четвергу — /θ/ і довге /ɜː/.
+> У *Wednesday* /ˈwenzdeɪ/ перше *d* не читається. А *Tuesday* /ˈtjuːzdeɪ/ і *Thursday* /ˈθɜːzdeɪ/ легко сплутати на слух: у *Thursday* — /θ/ і довге /ɜː/.
 
 ## Місяці
 
@@ -110,7 +110,7 @@ estimatedMinutes: 40
 
 ## Порядкові числівники: first, second, third…
 
-Для дат, поверхів і рейтингів потрібні порядкові числа. Більшість — це звичайне число + **-th**:
+Для дат, поверхів і рейтингів потрібні порядкові числівники. Більшість — це звичайний числівник + **-th**:
 
 | | | | |
 |---|---|---|---|
@@ -119,9 +119,9 @@ estimatedMinutes: 40
 | 9th **ninth** | 10th tenth | 12th **twelfth** | 13th thirteenth |
 | 20th **twentieth** | 21st twenty-first | 22nd twenty-second | 31st thirty-first |
 
-- Виділені — з особливим написанням: *five → fifth, nine → ninth, twelve → twelfth, twenty → twentieth*.
+- Виділені — особливі: *first, second, third* — окремі слова, а в інших змінюється написання: *five → fifth, eight → eighth, nine → ninth, twelve → twelfth, twenty → twentieth*.
 - У складених змінюється лише остання частина: *twenty-**first**, thirty-**second***.
-- Скорочення беруть останні літери слова: 1**st**, 2**nd**, 3**rd**, 4**th**.
+- У скороченні до цифри додають дві останні літери слова: 1**st**, 2**nd**, 3**rd**, 4**th**.
 
 ## Дати
 
@@ -146,8 +146,8 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: [u1, s1], note: "Однаковий запис цифрами. Але читають його по-різному!" }
 >   - { focus: [u2, s2], note: "У Британії (як і в Україні) спершу день, потім місяць. У США — спершу місяць." }
->   - { set: { u3: "the 5th of June" }, focus: u3, note: "Британець прочитає 5 червня." }
->   - { set: { s3: "May 6th" }, focus: s3, note: "Американець — 6 травня. Різниця — місяць! Для квитків і віз пиши місяць словом: 5 June 2026." }
+>   - { set: { u3: "the 5th of June" }, focus: u3, note: "Британець прочитає це як 5 червня." }
+>   - { set: { s3: "May 6th" }, focus: s3, note: "Американець — 6 травня. Різниця — цілий місяць! Для квитків і віз пиши місяць словом: 5 June 2026." }
 > ```
 
 ### Роки
@@ -166,11 +166,11 @@ estimatedMinutes: 40
 
 - What time is it? — It's ten past nine. — Котра година? — Десять хвилин на десяту.
 - The shop opens at 9 a.m. and closes at 6 p.m. — Магазин відчиняється о 9 ранку й зачиняється о 6 вечора.
-- My English class is on Tuesday and Thursday. — Моє заняття з англійської — у вівторок і четвер.
+- My English class is on Tuesday and Thursday. — Заняття з англійської в мене у вівторок і четвер.
 - We go to the sea in August. — Ми їздимо на море в серпні.
-- My birthday is on the twelfth of October. — Мій день народження дванадцятого жовтня.
+- My birthday is on the twelfth of October. — У мене день народження дванадцятого жовтня.
 - What's the date today? — It's the first of September. — Яке сьогодні число? — Перше вересня.
-- I was born in nineteen ninety-eight. — Я народився в тисяча девʼятсот девʼяносто восьмому.
+- I was born in nineteen ninety-eight. — Я народився в тисяча девʼятсот девʼяносто восьмому році.
 - See you tomorrow at half past five! — До завтра, о пів на шосту!
 - The office is on the third floor. — Офіс на третьому поверсі.
 
@@ -191,7 +191,7 @@ estimatedMinutes: 40
 
 > [!word] o'clock
 > ipa: /əˈklɒk/ · ipa-us: /əˈklɑːk/ · pos: adv · level: A1 · id: en-a1-time-w03
-> uk: (рівно) година
+> uk: рівно (про повну годину)
 > example: The train leaves at six **o'clock**. — Потяг відходить рівно о шостій.
 
 > [!word] half past
@@ -276,6 +276,7 @@ estimatedMinutes: 40
 > ipa: /ˈsekənd/ · pos: adj · level: A1 · id: en-a1-time-w18
 > uk: другий; (іменник) секунда
 > example: My flat is on the **second** floor. — Моя квартира на другому поверсі.
+> note: так рахують у США. У Британії перший поверх — ground floor, тож second floor — це наш третій.
 
 > [!word] third
 > ipa: /θɜːd/ · ipa-us: /θɝːd/ · pos: adj · level: A1 · id: en-a1-time-w19
@@ -298,7 +299,7 @@ estimatedMinutes: 40
 > ipa: /ˈwenzdeɪ/ · pos: noun · level: A1 · id: en-a1-time-w22
 > uk: середа
 > example: We have football on **Wednesdays**. — У нас футбол по середах.
-> note: перше d німе: «венздей».
+> note: перше d не читається: «венздей».
 
 > [!word] Thursday
 > ipa: /ˈθɜːzdeɪ/ · ipa-us: /ˈθɝːzdeɪ/ · pos: noun · level: A1 · id: en-a1-time-w23
@@ -318,7 +319,7 @@ estimatedMinutes: 40
 > [!word] Sunday
 > ipa: /ˈsʌndeɪ/ · pos: noun · level: A1 · id: en-a1-time-w26
 > uk: неділя
-> example: On **Sunday** we visit my grandparents. — У неділю ми відвідуємо бабусю й дідуся.
+> example: On **Sunday** we visit my grandparents. — У неділю ми їздимо до бабусі й дідуся.
 
 ### Місяці
 
@@ -341,7 +342,7 @@ estimatedMinutes: 40
 > [!word] April
 > ipa: /ˈeɪprəl/ · pos: noun · level: A1 · id: en-a1-time-w30
 > uk: квітень
-> example: My birthday is in **April**. — Мій день народження у квітні.
+> example: My birthday is in **April**. — У мене день народження у квітні.
 
 > [!word] May
 > ipa: /meɪ/ · pos: noun · level: A1 · id: en-a1-time-w31
@@ -357,7 +358,7 @@ estimatedMinutes: 40
 > ipa: /dʒuˈlaɪ/ · pos: noun · level: A1 · id: en-a1-time-w33
 > uk: липень
 > example: We go to the sea in **July**. — У липні ми їдемо на море.
-> note: наголос на другий склад: ju-LY.
+> note: наголос на другому складі: ju-LY.
 
 > [!word] August
 > ipa: /ˈɔːɡəst/ · ipa-us: /ˈɑːɡəst/ · pos: noun · level: A1 · id: en-a1-time-w34
@@ -433,11 +434,11 @@ estimatedMinutes: 40
 > - [ ] 2 лютого
 > - [ ] 22 листопада
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-time-l06
 > audio: What time is it?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-time-l07
 > audio: My birthday is in June.
 
@@ -461,7 +462,7 @@ estimatedMinutes: 40
 > [!pair] fourteenth /ˌfɔːˈtiːnθ/ — fortieth /ˈfɔːtiəθ/
 > level: A1 · id: en-a1-time-p02
 > say: fourteenth
-> tip: як і в числах, -teenth наголошене й довге, а -tieth — коротке з наголосом на початку.
+> tip: як і в кількісних числівниках (fourteen — forty), -teenth наголошене й довге, а -tieth — коротке з наголосом на початку.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-time-s01
@@ -485,7 +486,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-time-s04
 > text: It's the twenty-first of July.
 > ipa: /ɪts ðə ˌtwenti ˈfɜːst əv dʒuˈlaɪ/
-> tip: of тут слабке /əv/; July — наголос у кінці.
+> tip: of тут слабке /əv/; у July наголос на останньому складі.
 
 > [!speak] Скажи рік
 > level: A1 · id: en-a1-time-s05
@@ -522,7 +523,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-time-s06
 > text: Half past four on Friday? Perfect!
 > ipa: /ˌhɑːf pɑːst ˈfɔːr ɒn ˈfraɪdeɪ ˈpɜːfɪkt/
-> tip: half — l німе: «га-аф» з видихом /h/.
+> tip: у half l не читається: «га-аф» з видихом /h/.
 
 ## Практика
 
@@ -535,7 +536,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** друга половина години → *to* + наступна година: до десятої лишилася чверть.
 
-> [!quiz] Ти маєш потяг о «8 p.m.». Коли це?
+> [!quiz] Твій потяг відходить о «8 p.m.». Коли це?
 > level: A1 · id: en-a1-time-q03
 > - [ ] о 8 ранку
 > - [x] о 20:00
@@ -628,7 +629,7 @@ estimatedMinutes: 40
 > *Septem* латиною — сім, *octo* — вісім, *novem* — девʼять, *decem* — десять. У давньому римському календарі рік починався з березня, тож вересень справді був сьомим.
 
 > [!reel] ⏰ Звідки o'clock
-> *O'clock* — скорочення від *of the clock*, «за годинником». Колись так відрізняли час з годинника від часу «за сонцем».
+> *O'clock* — скорочення від *of the clock*, «за годинником». Колись так відрізняли час на годиннику від часу «за сонцем».
 
 ## Джерела та що почитати
 

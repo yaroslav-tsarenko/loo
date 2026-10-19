@@ -154,7 +154,7 @@ estimatedMinutes: 40
 ## Приклади
 
 - *I think you'll love this film.* — Думаю, тобі сподобається цей фільм.
-- *It's late. I'll take a taxi.* — Пізно. Візьму таксі.
+- *It's late. I'll take a taxi.* — Уже пізно. Поїду на таксі.
 - *Don't worry, I won't tell anyone.* — Не хвилюйся, я нікому не скажу.
 - *Will you marry me?* — Ти вийдеш за мене?
 - *I'll probably stay at home tonight.* — Сьогодні ввечері я, мабуть, буду вдома.
@@ -225,7 +225,7 @@ estimatedMinutes: 40
 > [!word] Shall I…?
 > ipa: /ʃəl aɪ/ · ipa-us: /ʃəl aɪ/ · pos: phrase · level: A2 · id: en-a2-will-w11
 > uk: Мені …? (пропозиція допомоги: «Відчинити? Допомогти?»)
-> example: **Shall I** call a taxi for you? — Викликати вам таксі?
+> example: **Shall I** call a taxi for you? — Викликати тобі таксі?
 > note: британське; в американській — Should I…? / Do you want me to…?
 
 > [!word] Shall we…?
@@ -250,11 +250,11 @@ estimatedMinutes: 40
 > - [x] I won't forget.
 > - [ ] I don't forget.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-will-l03
 > audio: I think it will be sunny tomorrow.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-will-l04
 > audio: Shall I open the window?
 
@@ -301,13 +301,13 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-will-s02
 > text: I won't tell anyone, I promise.
 > ipa: /aɪ ˈwəʊnt ˈtel ˈen.i.wʌn aɪ ˈprɒm.ɪs/
-> tip: won't — «воунт», не want. promise — ПРО-міс, наголос на перший склад.
+> tip: won't — «воунт», не want. promise — ПРО-міс, наголос на першому складі.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-will-s03
 > text: Shall we go for a walk?
 > ipa: /ʃəl wi ˌɡəʊ fər ə ˈwɔːk/
-> tip: shall тут слабке /ʃəl/. walk — l мовчить: /wɔːk/, «во-ок».
+> tip: shall тут слабке /ʃəl/. walk — l не читається: /wɔːk/, «во-ок».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-will-s04
@@ -336,7 +336,7 @@ estimatedMinutes: 40
 > Українською «Відчинити вікно?» — і все зрозуміло. Англійською пропозиція допомоги — ***Shall I open the window?*** «Will I…?» питає про прогноз: «Чи відчиню я вікно (у майбутньому)?».
 
 > [!pitfall] «I think it won't rain»
-> Граматично можливо, але англійці природніше заперечують *think*: ***I don't think** it'll rain.* А «буду робити» і «зроблю» — обидва просто *will*: англійська не розрізняє вид, як українська.
+> Граматично можливо, але англійці зазвичай заперечують *think*: ***I don't think** it'll rain.* А «буду робити» і «зроблю» — обидва просто *will*: англійська не розрізняє вид, як українська.
 
 ## Практика
 
@@ -457,7 +457,7 @@ estimatedMinutes: 40
 > Давньоанглійське willan — «хотіти». Німці досі кажуть ich will — «я хочу». В англійській «бажання» перетворилося на майбутнє, а «хотіти» залишилося в іменнику will — воля.
 
 > [!reel] 🫖 Shall I make some tea?
-> Shall майже зникло зі щоденної мови, але живе в британських пропозиціях: Shall I…? Shall we…? У США замість нього — Should I…? або Do you want me to…?
+> Shall майже зникло з повсякденної мови, але живе в британських пропозиціях: Shall I…? Shall we…? У США замість нього — Should I…? або Do you want me to…?
 
 > [!reel] 🍽️ «I'll have…» — ключ до будь-якого кафе
 > I'll have a latte. I'll have the burger. Офіціант чує рішення «зараз» — і все. Не «I want», яке звучить різкувато, і не «Give me».

@@ -107,7 +107,7 @@ estimatedMinutes: 40
 > **I like swimming** — мені подобається плавати (взагалі). **I'd like to swim** — я б хотів поплавати (зараз, конкретно). Після **would like / would love / would prefer** — тільки **to**.
 
 > [!note] stop — дві різні історії
-> **Stop + -ing** — припинити: *He **stopped smoking*** (кинув курити). **Stop + to** — зупинитися, **щоб** зробити: *He **stopped to smoke*** (зупинився, щоб покурити). Цю тонкість детально — на B1.
+> **Stop + -ing** — припинити: *He **stopped smoking*** (кинув курити). **Stop + to** — зупинитися, **щоб** зробити: *He **stopped to smoke*** (зупинився, щоб покурити). Детальніше про цю тонкість — на рівні B1.
 
 ### Навіщо? Інфінітив мети
 
@@ -255,7 +255,7 @@ estimatedMinutes: 40
 > [!word] mind
 > ipa: /maɪnd/ · pos: verb · level: A2 · id: en-a2-verb-patterns-w14
 > uk: заперечувати, бути проти
-> example: Do you **mind** closing the door? — Ви не могли б зачинити двері?
+> example: Do you **mind** closing the door? — Ти не міг би зачинити двері?
 > note: + -ing; I don't mind — мені все одно, я не проти.
 
 > [!word] avoid
@@ -311,19 +311,19 @@ estimatedMinutes: 40
 > [!word] prefer
 > ipa: /prɪˈfɜː/ · ipa-us: /prɪˈfɝː/ · pos: verb · level: A2 · id: en-a2-verb-patterns-w23
 > uk: віддавати перевагу
-> example: I **prefer** working from home. — Мені більше подобається працювати з дому.
-> note: наголос на другий склад; preferred — подвоєне r. Would prefer + to.
+> example: I **prefer** working from home. — Мені більше подобається працювати вдома.
+> note: наголос на другому складі; preferred — подвоєне r. Would prefer + to.
 
 > [!word] would love
 > ipa: /wʊd ˈlʌv/ · pos: phrase · level: A2 · id: en-a2-verb-patterns-w24
-> uk: дуже хотіти б, із радістю
+> uk: дуже хотів би; із радістю (зробив би)
 > example: I'**d love** to come to your party! — Я б із радістю прийшов на твою вечірку!
 > note: тільки + to, як would like; love + обидві форми.
 
 > [!word] continue
 > ipa: /kənˈtɪn.juː/ · pos: verb · level: A2 · id: en-a2-verb-patterns-w25
 > uk: продовжувати
-> example: Please **continue** reading. — Будь ласка, читайте далі.
+> example: Please **continue** reading. — Читай далі, будь ласка.
 > note: + to або -ing.
 
 ## Слухаємо
@@ -335,11 +335,11 @@ estimatedMinutes: 40
 > - [ ] I like going swimming.
 > - [ ] I'd like going swimming.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-verb-patterns-l02
 > audio: Don't forget to call me.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-verb-patterns-l03
 > audio: I don't mind waiting.
 
@@ -518,7 +518,7 @@ estimatedMinutes: 40
 > a few minutes?
 > ```
 >
-> **Пояснення:** **Do you mind + -ing?** — ввічливе прохання. Відповідь «так, будь ласка» звучить як *No, not at all* — «зовсім не проти».
+> **Пояснення:** **Do you mind + -ing?** — ввічливе прохання. Якщо ти погоджуєшся, відповідай *No, not at all* — «Зовсім не проти».
 
 > [!quiz] Друг: «Do you mind if I open the window?» Ти не проти. Що відповіси?
 > level: A2 · id: en-a2-verb-patterns-q14

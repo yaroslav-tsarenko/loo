@@ -16,7 +16,7 @@ estimatedMinutes: 45
 > - правильно заперечувати: ***Had I not** seen…*, ***Were it not for**…*, ***Should it not** be possible…*;
 > - обирати слово, що заміняє *if*, за відтінком: *provided, as long as, on condition that, only if, otherwise, but for, supposing, what if, in the event of*;
 > - не плутати ***in case*** (на всяк випадок) з ***if***;
-> - урізноманітнювати умовні в IELTS Writing (Task 2 і лист General Training) та говорити природно в Speaking Part 3 (C1 ≈ IELTS 7.0–8.0).
+> - урізноманітнювати умовні речення в IELTS Writing (Task 2 і лист General Training) та говорити природно в Speaking Part 3 (C1 ≈ IELTS 7.0–8.0).
 
 ## Передбач
 
@@ -79,7 +79,7 @@ estimatedMinutes: 45
 ### Had + підмет + V3 — уявне минуле
 
 - ***Had I known**, I would have called.* — Якби я знав, я б подзвонив.
-- ***Had the government acted** sooner, fewer people would have lost their jobs.* — Якби уряд діяв раніше, менше людей утратили б роботу.
+- ***Had the government acted** sooner, fewer people would have lost their jobs.* — Якби уряд діяв раніше, менше людей утратило б роботу.
 - Змішаний: ***Had I taken** that job, I'd be living in London now.*
 - Заперечення: ***Had it not been for** the satnav, we'd have got lost.* ***Had we not left** early, we'd have missed the train.*
 
@@ -88,7 +88,7 @@ estimatedMinutes: 45
 > layout: flow
 > nodes:
 >   - { id: base, label: "з if", text: "If we hadn't left early,", tone: gray }
->   - { id: cut, label: "1 · if геть, had наперед", text: "Had we … left early,", tone: orange }
+>   - { id: cut, label: "1 · прибираємо if, had наперед", text: "Had we … left early,", tone: orange }
 >   - { id: out, label: "2 · not після підмета", text: "Had we not left early,", tone: green }
 >   - { id: bad, label: "так не можна", text: "✗ Hadn't we left early,", tone: red }
 > steps:
@@ -111,7 +111,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** перший тип — *Should*, другий — *Were* (навіть з *I*), третій — *Had*. У запереченні *not* іде після підмета: *Were it **not** for…*
 
-> [!quiz] Перевір себе: «Якби ми не вийшли рано, ми б застрягли в заторі»
+> [!quiz] Перевір себе: «Якби ми не виїхали рано, то застрягли б у заторі»
 > level: C1 · id: en-c1-conditionals-q03
 > - [ ] Hadn't we left early, we would have got stuck in traffic.
 > - [x] Had we not left early, we would have got stuck in traffic.
@@ -134,14 +134,14 @@ estimatedMinutes: 45
 | **supposing / suppose / what if** | уявімо, що | ***Supposing** you won the lottery, what would you do?* |
 | **assuming (that)** | якщо припустити | ***Assuming** the train is on time, we'll arrive at six.* |
 | **in the event of** + іменник | у разі (офіційно) | ***In the event of** a fire, do not use the lift.* |
-| **whether or not** | незалежно від | ***Whether or not** you agree, the rule stays.* |
+| **whether or not** | незалежно від того, чи | ***Whether or not** you agree, the rule stays.* |
 
 Умова буває й **прихованою**:
 
 - ***Without** your help, I would have failed.* — Без твоєї допомоги я б провалився.
 - ***With** a bit more luck, we'd have won.* — Якби нам трохи більше пощастило, ми б виграли.
 - Наказ + *and / or*: *Ask her nicely **and** she'll help.* *Don't be late, **or** they'll start without you.*
-- Розмовне *Say…*: ***Say** you lost your job — what would you do?* — Припустімо, ти втратив роботу. Що робитимеш?
+- Розмовне *Say…*: ***Say** you lost your job — what would you do?* — Припустімо, ти втратив роботу. Що б ти робив?
 
 > [!quiz] Які слова означають «якщо не» / «а інакше»? Обери всі.
 > level: C1 · type: multi · id: en-c1-conditionals-q04
@@ -151,7 +151,7 @@ estimatedMinutes: 45
 > - [ ] in case
 > - [ ] provided that
 >
-> **Пояснення:** *unless* = *if not*; *otherwise* і *or else* — «а якщо ні, то…». *In case* — запобіжність («на всяк випадок»), *provided that* — «за умови, що».
+> **Пояснення:** *unless* = *if not*; *otherwise* і *or else* — «а якщо ні, то…». *In case* — «на всяк випадок», *provided that* — «за умови, що».
 
 ### In case — це не if
 
@@ -209,7 +209,7 @@ estimatedMinutes: 45
 
 - ~~*Should you be a government, you should…*~~ — есе не звертається до читача, та ще й два *should* поспіль;
 - ~~*Were I the president, I would…*~~ — особисті фантазії замість аргументу;
-- три інверсії в одному абзаці — текст стає показовим, а не переконливим;
+- три інверсії в одному абзаці — текст стає демонстративним, а не переконливим;
 - ~~*Would the government invest more, …*~~ — *would* умовну інверсію не утворює.
 
 **General Training, Task 1 (офіційний лист):** *Should you require any further information, please do not hesitate to contact me.* — доречна стандартна формула наприкінці листа.
@@ -218,10 +218,10 @@ estimatedMinutes: 45
 
 ## Приклади
 
-- **Should** you **change** your mind, the offer is still open. — Якщо раптом передумаєш, пропозиція в силі.
+- **Should** you **change** your mind, the offer is still open. — Якщо раптом передумаєш, пропозиція залишається в силі.
 - **Were** I a few years younger, I'd apply for that job myself. — Якби я був на кілька років молодший, сам би подав заявку.
 - **Were** prices **to rise** again, many families would struggle. — Якби ціни знову зросли, багатьом родинам було б важко.
-- **Had** I **listened** to my mum, I wouldn't be in this mess now. — Якби я послухав маму, не вскочив би зараз у цю халепу.
+- **Had** I **listened** to my mum, I wouldn't be in this mess now. — Якби я послухав маму, то зараз не був би в такій халепі.
 - **But for** the volunteers, the festival would never have happened. — Якби не волонтери, фестиваль ніколи б не відбувся.
 - You can work from home **as long as** you're online by nine. — Можеш працювати з дому, аби тільки о девʼятій був онлайн.
 - **Unless** the weather improves, the flight will be cancelled. — Якщо погода не покращиться, рейс скасують.
@@ -314,7 +314,7 @@ estimatedMinutes: 45
 > ipa: /ˌkʌm wɒt ˈmeɪ/ · ipa-us: /ˌkʌm wɑːt ˈmeɪ/ · pos: phrase · level: C1 · id: en-c1-conditionals-w14
 > uk: хоч би що сталося
 > example: **Come what may**, I'm going to finish this degree. — Хоч би що сталося, я закінчу навчання.
-> note: стара форма без to і без will — як застигла фраза. Нейтрально: whatever happens.
+> note: застигла давня форма умовного способу — без will і без if. Нейтрально: whatever happens.
 
 > [!word] eventuality
 > ipa: /ɪˌven.tʃuˈæl.ə.ti/ · ipa-us: /ɪˌven.tʃuˈæl.ə.t̬i/ · pos: noun · level: C1 · id: en-c1-conditionals-w15
@@ -342,11 +342,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** початок без *if* — *Had I known*; результат у минулому — *I'd have stayed*.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-conditionals-l03
 > audio: Had it not been for her help, we would never have finished on time.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-conditionals-l04
 > audio: You can come with us, as long as you're ready by seven.
 
@@ -385,13 +385,13 @@ estimatedMinutes: 45
 > level: C1 · id: en-c1-conditionals-s02
 > text: Were I in your position, I'd take the job.
 > ipa: /wɜːr aɪ ɪn jɔː pəˈzɪʃ.ən aɪd teɪk ðə dʒɒb/
-> tip: were I — звʼязуючий /r/: [wɜːraɪ]; position — po-SI-tion.
+> tip: were I — звʼязувальний /r/: [wɜːraɪ]; position — po-SI-tion.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-conditionals-s03
 > text: Had we left earlier, we wouldn't have missed the train.
 > ipa: /hæd wi left ˈɜː.li.ə wi ˈwʊd.ənt əv mɪst ðə treɪn/
-> tip: had на початку — сильне /hæd/; wouldn't have — злито [вуднтəв].
+> tip: had на початку — сильне /hæd/; wouldn't have — вимовляй злито: /ˈwʊd.ənt əv/, have тут слабке /əv/.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-conditionals-s04
@@ -447,7 +447,7 @@ estimatedMinutes: 45
 > [[In the event of]] a fire, do not use the lift.
 > ```
 >
-> **Пояснення:** умова-вимога — *as long as*; «а інакше» — *otherwise*; уявна ситуація — *Supposing*; офіційне «у разі» + іменник — *In the event of*. *In case* — запобіжність, *unless* — «якщо не»: тут вони ламають зміст.
+> **Пояснення:** умова-вимога — *as long as*; «а інакше» — *otherwise*; уявна ситуація — *Supposing*; офіційне «у разі» + іменник — *In the event of*. *In case* — «на всяк випадок», *unless* — «якщо не»: тут вони ламають зміст.
 
 > [!quiz] Склади речення: «Якби не твоя допомога, я б ніколи не впорався»
 > level: C1 · type: order · id: en-c1-conditionals-q08
@@ -462,7 +462,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** формальна інверсія третього типу: ***Had it not been for*** + іменник. Скорочення *Hadn't* тут неможливе.
 
-> [!quiz] Склади речення: «Якби уряд раптом підняв податки, багато малих підприємств закрилися б»
+> [!quiz] Склади речення: «Якби уряд раптом підняв податки, багато малих підприємств закрилося б»
 > level: C1 · type: order · id: en-c1-conditionals-q09
 >
 > ```text order
@@ -533,7 +533,7 @@ estimatedMinutes: 45
 > - [ ] False
 > - [x] Not Given
 >
-> **Пояснення:** текст згадує критиків (*Critics argue…*), але про думку більшості мешканців — нічого → **Not Given**.
+> **Пояснення:** у тексті згадано критиків (*Critics argue…*), але про думку більшості мешканців — ані слова → **Not Given**.
 
 > [!quiz] IELTS Reading · Sentence endings: «The second barrier will be delayed if…»
 > level: C1 · tags: ielts · id: en-c1-conditionals-q16
@@ -566,7 +566,7 @@ estimatedMinutes: 45
 > - [ ] Should governments to invest more in public transport, traffic will reduce.
 > - [ ] Would governments invest more in public transport, congestion would ease.
 >
-> **Пояснення:** ***Were** + підмет + **to** V1 … would* — точна формальна гіпотеза, плюс точніша лексика (*invest more heavily, congestion would ease, air quality*). Другий — без *to*, третій — *should to*, четвертий — *would* інверсії не утворює. Памʼятай: *Were … to* подає ідею як гіпотезу; якщо ти впевнено рекомендуєш захід, звичайне *If governments invest…, … will…* теж цілком на Band 7.
+> **Пояснення:** ***Were** + підмет + **to** V1 … would* — точна формальна гіпотеза, плюс точніша лексика (*invest more heavily, congestion would ease, air quality*). Другий — без *to*, третій — *should to*, четвертий — *would* інверсії не утворює. Памʼятай: *Were … to* подає ідею як гіпотезу; якщо ти впевнено рекомендуєш захід, звичайне *If governments invest…, … will…* теж цілком відповідає Band 7.
 
 > [!quiz] IELTS General Training, Writing Task 1 · Збери фінальне речення офіційного листа
 > level: C1 · type: order · tags: ielts · id: en-c1-conditionals-q19
@@ -584,7 +584,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🎵 Come what may
-> Так називається пісня з мюзиклу «Moulin Rouge!» (2001). Сама фраза — застигла старовинна умова без if і без will: буквально «хай прийде, що прийде». Звідси й переклад: «хоч би що сталося».
+> Так називається пісня з мюзиклу «Moulin Rouge!» (2001). Сама фраза — застигла старовинна умова без if і без will: дослівно «хай прийде, що прийде». Звідси й переклад: «хоч би що сталося».
 
 > [!reel] 🧭 Otherwise — «іншим способом»
 > Otherwise походить зі староанглійського on ōþre wīsan — «іншим чином». Wise тут — не «мудрий», а «спосіб», як у clockwise (за годинниковою стрілкою) і likewise (так само).

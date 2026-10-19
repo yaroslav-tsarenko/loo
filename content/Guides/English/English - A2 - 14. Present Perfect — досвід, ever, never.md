@@ -158,11 +158,11 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 - *I've been to Poland three times.* — Я тричі був у Польщі.
 - *Have you ever tried skydiving? — No, never!* — Ти колись стрибав з парашутом? — Ніколи!
 - *My grandparents have never flown.* — Мої бабуся з дідусем ніколи не літали літаком.
-- *She's met a lot of celebrities.* — Вона знайомилася з багатьма знаменитостями.
+- *She's met a lot of celebrities.* — Вона зустрічала багатьох знаменитостей.
 - *We haven't seen the Northern Lights yet, but we'd love to.* — Ми ще не бачили північного сяйва, але дуже хочемо.
 - *Has your dog ever bitten anyone?* — Твій собака колись когось кусав?
 - *I've broken my arm twice in my life.* — За життя я двічі ламав руку.
-- *It's the most beautiful place I've ever visited.* — Це найгарніше місце, де я колись бував.
+- *It's the most beautiful place I've ever visited.* — Це найгарніше місце з усіх, де я бував.
 - *Dad isn't here — he's gone to work.* — Тата немає: він пішов на роботу.
 - *Have you ever been on TV? — Yes, once, in 2020.* — Тебе колись показували по телевізору? — Так, раз, у 2020-му.
 
@@ -256,7 +256,7 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 > ipa: /hɪt/ · pos: verb · level: A2 · id: en-a2-present-perfect-w15
 > forms: hit → hit → hit
 > uk: ударяти, влучати
-> example: Have you ever **hit** your head on this door? — Ти колись бився головою об ці двері?
+> example: Have you ever **hit** your head on this door? — Ти колись ударявся головою об ці двері?
 
 > [!word] win a prize
 > ipa: /ˌwɪn ə ˈpraɪz/ · pos: phrase · level: A2 · id: en-a2-present-perfect-w16
@@ -287,7 +287,7 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 > ipa: /ˌklaɪm ə ˈmaʊn.tɪn/ · ipa-us: /ˌklaɪm ə ˈmaʊn.tən/ · pos: phrase · level: A2 · id: en-a2-present-perfect-w20
 > uk: піднятися на гору
 > example: We've **climbed** three **mountains** in the Carpathians. — Ми піднялися на три гори в Карпатах.
-> note: climb — b мовчить: /klaɪm/.
+> note: climb — b не читається: /klaɪm/.
 
 > [!word] run a marathon
 > ipa: /ˌrʌn ə ˈmær.ə.θən/ · ipa-us: /ˌrʌn ə ˈmer.ə.θɑːn/ · pos: phrase · level: A2 · id: en-a2-present-perfect-w21
@@ -362,11 +362,11 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 > - [ ] I never see it.
 > - [ ] I haven't seen it.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-present-perfect-l03
 > audio: She has never eaten sushi.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-present-perfect-l04
 > audio: Have you ever ridden a horse?
 
@@ -538,7 +538,7 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 > I've [[been]] to Rome three times — I love it!
 > ```
 >
-> **Пояснення:** Тома немає, бо він досі в банку → *gone*. Римський досвід «туди й назад» → *been*.
+> **Пояснення:** Тома немає, бо він досі в банку → *gone*. У Римі був і повернувся → *been*.
 
 > [!quiz] «How many times have you been to Lviv?» Яка відповідь підходить?
 > level: A2 · id: en-a2-present-perfect-q14
@@ -552,13 +552,13 @@ Present Perfect каже **що** (досвід є). Щойно зʼявляєт
 ## Фішки
 
 > [!reel] 🎒 «I have seen» = «маю побачене»
-> Present Perfect виріс зі звичайного have — «мати». Колись казали щось на зразок «I have the letter written» — маю лист написаним. Звідси й логіка: досвід — це те, що в тебе є.
+> Present Perfect виріс зі звичайного have — «мати». Колись казали щось на зразок «I have the letter written» — «маю написаний лист». Звідси й логіка: досвід — це те, що в тебе є.
 
 > [!reel] 🌕 Лише 12 людей have walked on the Moon
 > Тут ідеальний Present Perfect: «за всю історію людства до сьогодні». Дати немає — є досвід. Додаси «in 1969» — і буде Past Simple: Neil Armstrong walked on the Moon in 1969.
 
 > [!reel] 🇺🇸 «Did you ever…?» — по-американськи
-> У розмовній американській про досвід часто питають у Past Simple: Did you ever see that film? Британці скажуть Have you ever seen…? Обидва зрозуміють, але на іспиті за британською нормою — перфект.
+> У розмовній американській про досвід часто питають у Past Simple: Did you ever see that film? Британці скажуть Have you ever seen…? Тебе зрозуміють в обох випадках, але на іспиті за британською нормою — перфект.
 
 ## Джерела та що почитати
 

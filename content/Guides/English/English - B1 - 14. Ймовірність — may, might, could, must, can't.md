@@ -38,7 +38,7 @@ estimatedMinutes: 40
 - **might not / may not** — «можливо, ні»: *She **may not** know about it.*
 - **can't** — «я майже впевнений, що НІ»: *That **can't** be true!*
 
-Українською це «мабуть / напевно», «може», «не може бути». Англійці частіше, ніж ми, ховають упевненість у модальне дієслово замість слів на кшталт *probably*.
+Українською це «мабуть / напевно», «може», «не може бути». Носії англійської частіше, ніж ми, передають ступінь упевненості модальним дієсловом, а не словами на кшталт *probably*.
 
 > [!diagram] Шкала впевненості
 > ```yaml
@@ -49,9 +49,9 @@ estimatedMinutes: 40
 >   - { id: mightnt, label: "≈ 30 %", text: "She may not / might not be at work.", note: "можливо, ні", tone: orange }
 >   - { id: cant, label: "≈ 5 % — майже точно ні", text: "She can't be at work.", note: "не може бути (є докази)", tone: red, icon: "px:cross" }
 > steps:
->   - { show: must, note: "Нагорі — must: висновок з доказів. Її сумки немає, комп'ютер увімкнений — must be at work." }
+>   - { show: must, note: "Нагорі — must: висновок з доказів. Її сумки немає, компʼютер увімкнений — must be at work." }
 >   - { show: might, note: "Посередині — may, might, could: просто можливість. Ніяких доказів, лише припущення." }
->   - { show: mightnt, note: "Might not / may not — «можливо, ні». Тут не можна could not: couldn't означає «не може бути», як can't." }
+>   - { show: mightnt, note: "Might not / may not — «можливо, ні». Тут не можна сказати could not: couldn't означає «не може бути», як can't." }
 >   - { show: cant, note: "Внизу — can't: висновок «точно ні». Не mustn't! Mustn't — заборона, а не ймовірність." }
 > ```
 
@@ -104,8 +104,8 @@ estimatedMinutes: 40
 >   - { set: { clue: "Her phone is on the table.", concl: "She can't be far away." }, focus: [clue, concl], note: "Сильні докази «ні» → can't. Телефон на столі — вона не могла далеко піти." }
 > ```
 
-- The phone's ringing. It **must be** my mum — she always calls at eight. — Мабуть, це мама: вона завжди дзвонить о восьмій.
-- You've only just eaten. You **can't be** hungry again! — Ти щойно поїв. Не може бути, що ти знову голодний!
+- The phone's ringing. It **must be** my mum — she always calls at eight. — Телефон дзвонить. Мабуть, це мама: вона завжди дзвонить о восьмій.
+- You've only just eaten. You **can't be** hungry again! — Ти ж щойно поїв. Не може бути, щоб ти знову зголоднів!
 - She's not answering. She **might be** in a meeting. — Вона не відповідає. Можливо, вона на нараді.
 
 ### Можливість у майбутньому: may, might, could
@@ -141,15 +141,15 @@ estimatedMinutes: 40
 ## Приклади
 
 - You **must be** Anna's sister — you look just like her! — Ти, мабуть, сестра Анни — ви дуже схожі!
-- This **can't be** the right address. There's no house here. — Не може бути, що це правильна адреса. Тут немає будинку.
+- This **can't be** the right address. There's no house here. — Не може бути, щоб це була правильна адреса. Тут немає будинку.
 - She **might be** at the gym. She usually goes on Tuesdays. — Можливо, вона в спортзалі: зазвичай вона ходить по вівторках.
 - I **may not** have time to call you tomorrow. — Можливо, завтра я не матиму часу тобі подзвонити.
 - Don't eat that mushroom — it **could** be poisonous. — Не їж цей гриб, він може бути отруйним.
 - They **must be having** dinner — I can smell something delicious. — Вони, мабуть, вечеряють: я чую смачний запах.
 - It's **likely** to snow tonight. — Уночі, ймовірно, буде сніг.
-- **Maybe** we should ask someone for directions. — Може, варто спитати когось дорогу?
+- **Maybe** we should ask someone for directions. — Може, варто в когось спитати дорогу?
 - That's **impossible**! He **can't** have two jobs and study full-time. — Це неможливо! Він не може мати дві роботи й ще вчитися на денному.
-- The detective found a **clue** — the thief **must be** someone from the hotel. — Детектив знайшов доказ: злодій, напевно, хтось із готелю.
+- The detective found a **clue** — the thief **must be** someone from the hotel. — Детектив знайшов зачіпку: злодій, напевно, хтось із готелю.
 
 ## Слова
 
@@ -157,7 +157,7 @@ estimatedMinutes: 40
 > ipa: /maɪt/ · pos: verb · level: B1 · id: en-b1-modals-possibility-w01
 > uk: можливо (щось станеться / є), може
 > example: Take an umbrella — it **might** rain. — Візьми парасольку: може піти дощ.
-> note: заперечення might not / mightn't (UK); gh німе.
+> note: заперечення might not / mightn't (UK); gh не читається.
 
 > [!word] may
 > ipa: /meɪ/ · pos: verb · level: B1 · id: en-b1-modals-possibility-w02
@@ -174,7 +174,7 @@ estimatedMinutes: 40
 > [!word] possible
 > ipa: /ˈpɒs.ə.bəl/ · ipa-us: /ˈpɑː.sə.bəl/ · pos: adj · level: B1 · id: en-b1-modals-possibility-w04
 > uk: можливий
-> example: Is it **possible** to change my ticket? — Чи можна змінити мій квиток?
+> example: Is it **possible** to change my ticket? — Чи можна поміняти квиток?
 > note: as soon as possible (ASAP) — якнайшвидше.
 
 > [!word] conclusion
@@ -227,11 +227,11 @@ estimatedMinutes: 40
 > - [x] It might rain later.
 > - [ ] It must rain later.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-modals-possibility-l03
 > audio: You must be very tired after your journey.
 
-> [!listen] Наскільки Макс упевнений, де його ключі?
+> [!listen] Наскільки Макс упевнений, де ключі?
 > level: B1 · type: answer · id: en-b1-modals-possibility-l04
 > audio: A: Max, have you seen my keys?
 > audio: B: They might be in your jacket. Or they could be in the car.
@@ -260,10 +260,10 @@ estimatedMinutes: 40
 > audio: B: It can't be the pizza. We only ordered five minutes ago.
 > audio: A: Then who could it be?
 > audio: B: It must be Dan. He said he'd bring my charger back.
-> - [ ] Кур'єр з піцою.
+> - [ ] Курʼєр з піцою.
 > - [x] Мабуть, Ден, який мав повернути зарядку.
 > - [ ] Сусід, який скаржиться на шум.
-> - [ ] Вона не має жодної гадки.
+> - [ ] Вона гадки не має.
 >
 > **Пояснення:** піцу виключено (*can't be* — замовили 5 хвилин тому), а *must be Dan* — висновок: він обіцяв занести зарядку.
 
@@ -273,7 +273,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-modals-possibility-s01
 > text: You must be joking!
 > ipa: /juː məst bi ˈdʒəʊ.kɪŋ/
-> tip: must у середині фрази — слабке /məst/, а t майже зникає: [мəс-бі].
+> tip: must у середині фрази — слабке /məst/, а t майже зникає: [мес-бі].
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-modals-possibility-s02
@@ -286,13 +286,13 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-modals-possibility-s03
 > text: It might rain this afternoon.
 > ipa: /ɪt maɪt reɪn ðɪs ˌɑːf.təˈnuːn/
-> tip: might — дифтонг /aɪ/, gh німе: [майт]; afternoon — наголос у кінці: af-ter-NOON.
+> tip: might — дифтонг /aɪ/, gh не читається: [майт]; afternoon — наголос у кінці: af-ter-NOON.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-modals-possibility-s04
 > text: She may not know about it.
 > ipa: /ʃiː meɪ nɒt nəʊ əˈbaʊt ɪt/
-> tip: know — k німе: [ноу]; not і know — не зливай в одне слово, легка пауза.
+> tip: у know літера k не читається: [ноу]; not і know — не зливай в одне слово, легка пауза.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-modals-possibility-s05
@@ -304,7 +304,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-modals-possibility-s06
 > text: It might be because young people spend more time online.
 > ipa: /ɪt maɪt bi bɪˈkɒz jʌŋ ˈpiː.pəl spend mɔː taɪm ˌɒnˈlaɪn/
-> tip: питання — «Why do young people read fewer books today?». Might be because… — так звучить обережна, зважена думка (hedging), за яку в IELTS хвалять.
+> tip: питання — «Why do young people read fewer books today?». Might be because… — так звучить обережна, зважена думка (hedging), яку в IELTS цінують.
 
 ## Типові помилки українців
 
@@ -318,7 +318,7 @@ estimatedMinutes: 40
 > Українське «завтра **може** піти дощ» — про конкретний випадок. Англійською — **might / may / could**: *It might rain tomorrow.* **Can** — для загальної можливості: *It can rain a lot in autumn.*
 
 > [!pitfall] «She must to be…», «He mights…»
-> Модальні не мають *to* після себе і закінчення *-s*: *She **must be** at work*, *He **might know***.
+> Після модальних немає *to*, і вони не мають закінчення *-s*: *She **must be** at work*, *He **might know***.
 
 ## Практика
 
@@ -353,7 +353,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** докази «так» → **must**; невпевненість → **might**; докази «ні» → **can't**.
 
-> [!quiz] Перепиши зі зміною слова: «Maybe he is at work»
+> [!quiz] Перефразуй за допомогою модального дієслова: «Maybe he is at work»
 > level: B1 · type: fill · id: en-b1-modals-possibility-q07
 >
 > ```text fill
@@ -450,7 +450,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🕵️ Must be — улюблене слово Шерлока
-> «You have been in Afghanistan, I perceive». Шерлок Голмс робить висновки з дрібниць — засмага, постава. Англійська дедукція тримається на must і can't: факт → висновок.
+> «You have been in Afghanistan, I perceive». Шерлок Голмс робить висновки з дрібниць — засмаги, постави. Англійська дедукція тримається на must і can't: факт → висновок.
 
 > [!reel] 🌦️ May чи might — що впевненіше?
 > Колись might було минулим від may. Тепер вони майже рівні, але багато носіїв відчувають may трохи впевненішим і формальнішим, а might — розмовним і обережнішим. У прогнозі погоди почуєш обидва.

@@ -67,7 +67,7 @@ estimatedMinutes: 50
 |---|---|---|
 | **збільшити, посилити** | *speed up, step up, shoot up, put up* (ціни) | *The government has **stepped up** security at airports.* — Уряд посилив безпеку в аеропортах. |
 | **до кінця, повністю** | *use up, clear up, wrap up* | *We've **used up** all the printer paper.* — Ми витратили весь папір для принтера. |
-| **зʼявитися, виринути** | *crop up, own up* (зізнатися — «вийти на поверхню») | *Something has **cropped up** at work.* — На роботі дещо несподівано виникло. |
+| **зʼявитися, виринути** | *crop up, own up* (зізнатися — «вийти на поверхню») | *Something has **cropped up** at work.* — На роботі виникла непередбачена справа. |
 | **створити, скласти** | *draw up* (документ, план) | *The lawyer **drew up** a contract.* — Юрист склав договір. |
 
 ### OUT — назовні, до нуля, ретельно
@@ -126,7 +126,7 @@ estimatedMinutes: 50
 > [!diagram] Out — до нуля, down — менше, off — відпадає
 > ```yaml
 > layout: compare
-> columns: { a: "OUT / OFF — зникає зовсім", b: "DOWN / OFF — слабшає" }
+> columns: { a: "повністю — зникає, зупиняється", b: "поступово — слабшає, минає" }
 > nodes:
 >   - { id: a1, col: a, label: "die out", text: "The tradition died out.", note: "традиція зникла назавжди", tone: blue }
 >   - { id: b1, col: b, label: "die down", text: "The noise died down.", note: "шум стих", tone: violet }
@@ -197,9 +197,9 @@ estimatedMinutes: 50
 ## Приклади
 
 - *Can we **speed up** the process? The client is waiting.* — Можемо пришвидшити процес? Клієнт чекає.
-- *I'm afraid something has **cropped up**, so I'll be late.* — Боюся, дещо несподівано виникло, тож я запізнюся.
+- *I'm afraid something has **cropped up**, so I'll be late.* — Боюся, виникла непередбачена справа, тож я запізнюся.
 - *We'll have to **leave out** the last chapter — there's no time.* — Доведеться пропустити останній розділ — часу нема.
-- *Doctors haven't **ruled out** surgery.* — Лікарі не виключили операції.
+- *Doctors haven't **ruled out** surgery.* — Лікарі не виключають, що знадобиться операція.
 - *Thousands of people came to **see** the team **off** at the airport.* — Тисячі людей прийшли провести команду в аеропорту.
 - *The festival **kicks off** on Friday with a free concert.* — Фестиваль стартує в пʼятницю безкоштовним концертом.
 - *He **dozed off** in the middle of the film.* — Він задрімав посеред фільму.
@@ -229,7 +229,7 @@ estimatedMinutes: 50
 > [!word] clear up
 > ipa: /ˌklɪər ˈʌp/ · ipa-us: /ˌklɪr ˈʌp/ · pos: verb · level: B2 · id: en-b2-particles-w03
 > uk: прибрати; прояснитися (про погоду); зʼясувати
-> example: I hope the weather **clears up** before the weekend. — Сподіваюся, до вихідних розвиднеться.
+> example: I hope the weather **clears up** before the weekend. — Сподіваюся, до вихідних розпогодиться.
 > example: Let's **clear up** this misunderstanding. — Давай зʼясуємо це непорозуміння.
 > note: три значення, спільна картинка — «зробити чистим до кінця».
 
@@ -250,7 +250,7 @@ estimatedMinutes: 50
 > ipa: /ˌpʊt ˈʌp/ · pos: verb · level: B2 · id: en-b2-particles-w06
 > uk: піднімати (ціни, податки); дати переночувати
 > example: The landlord has **put up** the rent again. — Орендодавець знову підняв орендну плату.
-> example: Can you **put** me **up** for a night? — Можна в тебе переночувати одну ніч?
+> example: Can you **put** me **up** for a night? — Можна я в тебе переночую?
 > forms: put up → put up → put up
 > note: UK, розмовно-нейтральне. Не плутай з *put up with* — терпіти.
 
@@ -425,7 +425,7 @@ estimatedMinutes: 50
 > ipa: /ˌdaɪ ˈdaʊn/ · pos: verb · level: B2 · id: en-b2-particles-w31
 > uk: стихати, ущухати, вщухати
 > example: The applause **died down** and the speaker began. — Оплески стихли, і промовець почав.
-> note: про вітер, шум, оплески, скандал. Протилежне за змістом до *die out* (зникнути назавжди).
+> note: про вітер, шум, оплески, скандал. Не плутай з *die out* (зникнути назавжди).
 
 > [!word] wind down
 > ipa: /ˌwaɪnd ˈdaʊn/ · pos: verb · level: B2 · id: en-b2-particles-w32
@@ -457,7 +457,7 @@ estimatedMinutes: 50
 > ipa: /ˌkræk ˈdaʊn ɒn/ · ipa-us: /ˌkræk ˈdaʊn ɑːn/ · pos: verb · level: B2 · id: en-b2-particles-w36
 > uk: суворо взятися за, посилити боротьбу з
 > example: The city is **cracking down on** illegal parking. — Місто посилює боротьбу з незаконним паркуванням.
-> note: нерозлучне: обʼєкт після *on*. Мова новин; іменник — *a crackdown on*.
+> note: нерозділюване: обʼєкт після *on*. Мова новин; іменник — *a crackdown on*.
 
 > [!word] back down
 > ipa: /ˌbæk ˈdaʊn/ · pos: verb · level: B2 · id: en-b2-particles-w37
@@ -488,7 +488,7 @@ estimatedMinutes: 50
 > [!word] hand over
 > ipa: /ˌhænd ˈəʊvə/ · ipa-us: /ˌhænd ˈoʊvər/ · pos: verb · level: B2 · id: en-b2-particles-w41
 > uk: передати, здати (ключі, владу, справи)
-> example: Before you leave, please **hand over** your project to Anna. — Перед відходом передай, будь ласка, свій проєкт Анні.
+> example: Before you leave, please **hand over** your project to Anna. — Перш ніж піти, передай, будь ласка, свій проєкт Анні.
 > note: іменник — *a handover* (передача справ). Займенник усередині: *hand it over*.
 
 > [!word] think over
@@ -534,7 +534,7 @@ estimatedMinutes: 50
 > ipa: /ˌnɒk ˈəʊvə/ · ipa-us: /ˌnɑːk ˈoʊvər/ · pos: verb · level: B2 · id: en-b2-particles-w48
 > uk: перекинути, збити (з ніг)
 > example: The dog **knocked over** my coffee. — Пес перекинув мою каву.
-> note: *k* німе: [нок]. Про людину: *She was knocked over by a bike.*
+> note: літера *k* не читається: [нок]. Про людину: *She was knocked over by a bike.*
 
 > [!word] blow over
 > ipa: /ˌbləʊ ˈəʊvə/ · ipa-us: /ˌbloʊ ˈoʊvər/ · pos: verb · level: B2 · id: en-b2-particles-w49
@@ -557,7 +557,7 @@ estimatedMinutes: 50
 > - [ ] The effect of the medicine wore out after a couple of hours.
 > - [ ] The effect of the medicine was off after a couple of hours.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-particles-l02
 > audio: Can I think it over and get back to you on Monday?
 
@@ -597,7 +597,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** *shut down its factory* — закрити фабрику; *be laid off* — бути скороченими; *played down fears of further cuts* — применшила побоювання нових скорочень. Зверни увагу на позицію: «played down» натякає, що побоювання є.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-particles-l06
 > audio: The old tradition has almost died out in our village.
 
@@ -611,7 +611,7 @@ estimatedMinutes: 50
 > **Olha:** Call Petra first. And if the client gets angry, don't **back down** on the budget — we've already **cut** it twice.
 > **Mark:** Fine. Let me **jot down** Petra's number… OK. Go and enjoy your holiday — you've earned it before you **burn out**!
 >
-> Вісім фразових дієслів за хвилину — і жодне не звучить штучно: так справді говорять в офісі.
+> Девʼять фразових дієслів за хвилину — і жодне не звучить штучно: так справді говорять в офісі.
 
 ## Вимова
 
@@ -640,14 +640,14 @@ estimatedMinutes: 50
 > level: B2 · id: en-b2-particles-s04
 > text: I usually go for a walk to wind down after work.
 > ipa: /aɪ ˈjuːʒuəli ˌɡəʊ fər ə ˈwɔːk tə ˌwaɪnd ˈdaʊn ˈɑːftə ˈwɜːk/
-> tip: wind down — [ВАЙНД], як у «заводити годинник»; wind — вітер — [ВІНД]. walk — l німе.
+> tip: wind down — [ВАЙНД], як у «заводити годинник»; wind — вітер — [ВІНД]. у walk літера l не читається.
 > uk: Зазвичай я гуляю, щоб розслабитися після роботи.
 
 > [!speak] IELTS Speaking · Part 1
 > level: B2 · id: en-b2-particles-s05
 > text: To be honest, I tend to doze off if I read in bed, so I listen to podcasts instead.
 > ipa: /tə bi ˈɒnɪst aɪ ˈtend tə ˌdəʊz ˈɒf ɪf aɪ ˈred ɪn ˈbed səʊ aɪ ˈlɪsən tə ˈpɒdkæsts ɪnˈsted/
-> tip: honest — h німе: [ОНіст]. doze‿off — [доу-ЗОФ], дзвінке z.
+> tip: у honest літера h не читається: [ОНіст]. doze‿off — [доу-ЗОФ], дзвінке z.
 > uk: Чесно кажучи, я зазвичай засинаю, якщо читаю в ліжку, тож слухаю подкасти.
 
 > [!speak] Академічний регістр
@@ -704,7 +704,7 @@ estimatedMinutes: 50
 > - [x] Let's go over it once more.
 > - [ ] The police are cracking it down on.
 >
-> **Пояснення:** *think over*, *hand over* — розділювані: займенник усередині (*think it over*, *hand them over*). *Go over* у значенні «повторити» — нерозділюване: *go over it*. *Crack down on* — трискладове, обʼєкт тільки в кінці: *cracking down on it*.
+> **Пояснення:** *think over*, *hand over* — розділювані: займенник усередині (*think it over*, *hand them over*). *Go over* у значенні «повторити» — нерозділюване: *go over it*. *Crack down on* — трислівне, обʼєкт тільки в кінці: *cracking down on it*.
 
 > [!quiz] «My grandmother's ring was **handed down** to me.» Що це означає?
 > level: B2 · id: en-b2-particles-q06
@@ -769,7 +769,7 @@ estimatedMinutes: 50
 > - [ ] Sales of electric cars went over 100,000 and kicked off.
 > - [ ] Sales of electric cars were put up.
 >
-> **Пояснення:** у звіті Task 1 — нейтральний академічний регістр: *rose sharply* (а не розмовне *shot up like crazy*). *Put up* означає «підняти ціни» — і дія тут не в пасиві. *Quintuple* — збільшитися вп'ятеро (20 000 → 110 000 — навіть більше, ніж у 5 разів).
+> **Пояснення:** у звіті Task 1 — нейтральний академічний регістр: *rose sharply* (а не розмовне *shot up like crazy*). *Put up* означає «підняти ціни» — і дія тут не в пасиві. *Quintuple* — збільшитися впʼятеро (20 000 → 110 000 — навіть більше, ніж у 5 разів).
 
 > [!quiz] Постав у правильну форму
 > level: B2 · type: fill · id: en-b2-particles-q12

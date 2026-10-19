@@ -15,7 +15,7 @@ estimatedMinutes: 75
 > - писати **ділові листи й email** так, як пишуть носії: мета в першому реченні, чіткий заклик до дії, нейтральний тон без канцеляриту;
 > - писати «складні» листи: **відмову**, **нагадування про оплату**, **скаргу** й **відповідь на скаргу** — твердо, але ввічливо;
 > - скласти **CV / résumé** за британськими й американськими конвенціями: досягнення замість обовʼязків, сильні дієслова, цифри, без фото й дати народження;
-> - написати **cover letter**, яку дочитають: гачок → два докази відповідності → заклик до дії;
+> - написати **cover letter**, який дочитають до кінця: гачок → два докази відповідності → заклик до дії;
 > - виконати **IELTS General Training Writing Task 1** (формальний лист) на Band 7–8: усі пункти завдання, правильний тон, природні формули.
 
 ## Передбач
@@ -48,18 +48,18 @@ estimatedMinutes: 75
 > layout: flow
 > nodes:
 >   - { id: subj, label: "subject line", text: "Q3 invoice 1042 — payment overdue", note: "тема = суть листа", tone: gray, icon: "px:envelope" }
->   - { id: greet, label: "greeting", text: "Dear Ms Kowalska,", note: "ім'я, якщо відоме", tone: blue }
+>   - { id: greet, label: "greeting", text: "Dear Ms Kowalska,", note: "імʼя, якщо відоме", tone: blue }
 >   - { id: bluf, label: "1. мета", text: "I'm writing about invoice 1042, which is now two weeks overdue.", note: "головне — в першому реченні", tone: orange, icon: "px:target" }
 >   - { id: det, label: "2. деталі", text: "сума, дати, вкладення", note: "коротко; списком, якщо пунктів 3+", tone: violet }
 >   - { id: cta, label: "3. заклик до дії", text: "Could you confirm a payment date by Friday?", note: "що, хто, до коли", tone: green }
 >   - { id: close, label: "closing", text: "Kind regards, Andrii Bondar", note: "посада й контакти в підписі", tone: gray }
 > steps:
 >   - { focus: subj, note: "Тема — це перше, що бачить адресат у списку листів. Не «Question» чи «Hello», а суть: що і про що. Багато хто вирішує, чи відкривати лист, саме за темою." }
->   - { focus: greet, note: "Звертання на ім'я: Dear Ms Kowalska (формально), Hi Marta (нейтрально з колегами). Dear Sir or Madam — лише якщо ім'я справді невідоме." }
+>   - { focus: greet, note: "Звертання на імʼя: Dear Ms Kowalska (формально), Hi Marta (нейтрально з колегами). Dear Sir or Madam — лише якщо імʼя справді невідоме." }
 >   - { focus: bluf, note: "Перше речення — мета. У військовому й діловому письмі США це називають BLUF — bottom line up front: висновок на початку." }
 >   - { focus: det, note: "Деталі — стільки, скільки треба для дії. Три й більше пунктів — маркований список: його легше читати з телефона." }
 >   - { focus: cta, note: "Лист закінчується конкретним проханням з датою. Не «I hope to hear from you», а «Could you confirm by Friday?»." }
->   - { focus: close, note: "Kind regards / Best regards — нейтрально. Yours sincerely / faithfully — у формальних листах. Підпис: ім'я, посада, компанія, телефон." }
+>   - { focus: close, note: "Kind regards / Best regards — нейтрально. Yours sincerely / faithfully — у формальних листах. Підпис: імʼя, посада, компанія, телефон." }
 > ```
 
 | Регістр | Привітання | Перше речення | Завершення |
@@ -82,7 +82,7 @@ estimatedMinutes: 75
 >   - { id: us1, col: us, label: "дата", text: "October 17, 2026", tone: red }
 >   - { id: uk2, col: uk, label: "звертання", text: "Dear Ms Smith,", note: "без крапки після Ms; кома або нічого", tone: blue }
 >   - { id: us2, col: us, label: "звертання", text: "Dear Ms. Smith:", note: "крапка після Ms.; двокрапка в діловому листі", tone: red }
->   - { id: uk3, col: uk, label: "завершення", text: "Yours sincerely (ім'я відоме) / Yours faithfully (Sir or Madam)", tone: blue }
+>   - { id: uk3, col: uk, label: "завершення", text: "Yours sincerely (імʼя відоме) / Yours faithfully (Sir or Madam)", tone: blue }
 >   - { id: us3, col: us, label: "завершення", text: "Sincerely, / Sincerely yours,", note: "незалежно від звертання", tone: red }
 >   - { id: uk4, col: uk, label: "документ", text: "CV · зазвичай до 2 сторінок", note: "profile / personal statement", tone: blue }
 >   - { id: us4, col: us, label: "документ", text: "résumé · часто 1 сторінка", note: "CV у США — академічне резюме", tone: red }
@@ -129,7 +129,7 @@ estimatedMinutes: 75
 3. **Experience** — у **зворотному хронологічному** порядку: посада, компанія, роки; 3–6 рядків-досягнень.
 4. **Education** — заклад, ступінь, роки (оцінки — лише якщо сильні й недавні).
 5. **Skills** — конкретні: мови з рівнем (*Ukrainian (native), English (C1), Polish (B1)*), інструменти, сертифікати.
-6. **References** — британці часто пишуть *References available on request*, але багато кар'єрних консультантів вважають цей рядок зайвим: це й так очевидно.
+6. **References** — британці часто пишуть *References available on request*, але багато карʼєрних консультантів вважають цей рядок зайвим: це й так очевидно.
 
 > [!warning] Адаптуй CV під кожну вакансію
 > Багато компаній фільтрують резюме через **ATS** (*applicant tracking system*) — програму, що шукає в тексті ключові слова з вакансії. Якщо в оголошенні *stakeholder management*, а в тебе *work with clients*, система й рекрутер можуть цього не побачити. **Tailor** — підлаштуй формулювання під мову вакансії (чесно, без вигаданих навичок).
@@ -286,7 +286,7 @@ estimatedMinutes: 75
 > ipa: /ˌpɜːsənəl ˈsteɪtmənt/ · ipa-us: /ˌpɜːrsənəl ˈsteɪtmənt/ · pos: noun · level: C1 · id: en-c1-correspondence-w02
 > uk: короткий профіль на початку CV; мотиваційний текст (при вступі)
 > example: Your **personal statement** should be no more than four lines. — Твій профіль має займати не більше чотирьох рядків.
-> note: UK; також *profile*. У США — *summary*. Для британських університетів — мотиваційний есей при вступі.
+> note: UK; також *profile*. У США — *summary*. Для британських університетів — мотиваційне есе під час вступу.
 
 > [!word] referee
 > ipa: /ˌrefəˈriː/ · pos: noun · level: C1 · id: en-c1-correspondence-w03
@@ -296,8 +296,8 @@ estimatedMinutes: 75
 
 > [!word] hiring manager
 > ipa: /ˈhaɪərɪŋ ˌmænɪdʒə/ · ipa-us: /ˈhaɪrɪŋ ˌmænɪdʒər/ · pos: noun · level: C1 · id: en-c1-correspondence-w04
-> uk: менеджер, який наймає (майбутній безпосередній керівник)
-> example: Address your cover letter to the **hiring manager** by name. — Адресуй супровідний лист менеджерові, який наймає, на ім'я.
+> uk: менеджер з найму (зазвичай майбутній безпосередній керівник)
+> example: Address your cover letter to the **hiring manager** by name. — У супровідному листі звертайся до менеджера з найму на імʼя.
 > note: не те саме, що *recruiter* (рекрутер, часто зовнішній) чи *HR*.
 
 > [!word] applicant tracking system
@@ -322,13 +322,13 @@ estimatedMinutes: 75
 > ipa: /ˈspɪəhed/ · ipa-us: /ˈspɪrhed/ · pos: verb · level: C1 · id: en-c1-correspondence-w08
 > uk: очолювати, ініціювати (нову справу)
 > example: She **spearheaded** the company's move into Poland. — Вона очолила вихід компанії на польський ринок.
-> note: буквально — вістря списа. Сильне дієслово для CV: ти був ініціатором.
+> note: дослівно — «вістря списа». Сильне дієслово для CV: ти був ініціатором.
 
 > [!word] streamline
 > ipa: /ˈstriːmlaɪn/ · pos: verb · level: C1 · id: en-c1-correspondence-w09
 > uk: оптимізувати, спростити (процес)
 > example: We **streamlined** the approval process from five steps to two. — Ми спростили процес погодження з пʼяти кроків до двох.
-> note: буквально — зробити обтічним. *A streamlined process*.
+> note: дослівно — «надати обтічної форми». *A streamlined process*.
 
 > [!word] oversee
 > ipa: /ˌəʊvəˈsiː/ · ipa-us: /ˌoʊvərˈsiː/ · pos: verb · level: C1 · id: en-c1-correspondence-w10
@@ -402,7 +402,7 @@ estimatedMinutes: 75
 > ipa: /əkˌnɒlɪdʒ rɪˈsiːt/ · ipa-us: /əkˌnɑːlɪdʒ rɪˈsiːt/ · pos: phrase · level: C1 · id: en-c1-correspondence-w21
 > uk: підтвердити отримання
 > example: Please **acknowledge receipt** of this letter. — Будь ласка, підтвердьте отримання цього листа.
-> note: *receipt* — *p* німа: [ри-СІІТ]. Також — чек (*Keep the receipt*).
+> note: у *receipt* літера *p* не читається: /rɪˈsiːt/. Також — чек (*Keep the receipt*).
 
 > [!word] regrettably
 > ipa: /rɪˈɡretəbli/ · pos: adv · level: C1 · id: en-c1-correspondence-w22
@@ -497,7 +497,7 @@ estimatedMinutes: 75
 > - [ ] We would be grateful if you could settle the outstanding balance by the thirteenth of October.
 > - [ ] We will be grateful if you can send the outstanding balance by the thirty-first of October.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-correspondence-l02
 > audio: Regrettably, we are unable to proceed with your proposal at this time.
 
@@ -517,21 +517,21 @@ estimatedMinutes: 75
 > level: C1 · id: en-c1-correspondence-s01
 > text: According to our records, invoice 1042 is still outstanding.
 > ipa: /əˈkɔːdɪŋ tu ˈaʊə ˈrekɔːdz ˈɪnvɔɪs ˈten ˈfɔːti ˈtuː ɪz ˈstɪl aʊtˈstændɪŋ/
-> tip: records (іменник) — наголос на першому: [РЕ-кодз]; invoice — [ІН-войс]; номери читають парами: ten forty-two.
+> tip: records (іменник) — наголос на першому складі: RE-cords; invoice — IN-voice; номери читають парами: ten forty-two.
 > uk: За нашими даними, рахунок 1042 досі не оплачено.
 
 > [!speak] Рядок CV уголос (на співбесіді)
 > level: C1 · id: en-c1-correspondence-s02
 > text: I spearheaded the move to a new CRM and trained forty sales staff in two weeks.
 > ipa: /aɪ ˈspɪəhedɪd ðə ˈmuːv tu ə ˌnjuː ˌsiː ɑːr ˈem ən ˈtreɪnd ˈfɔːti ˈseɪlz stɑːf ɪn ˈtuː ˈwiːks/
-> tip: spearheaded — [СПІЕ-хе-дід]; CRM — по літерах: [сі-ар-ЕМ]; forty — без r у британській: [ФОО-ті].
+> tip: spearheaded — наголос на першому складі: SPEAR-head-ed; CRM читають по літерах із наголосом на M; forty — у британській без /r/: /ˈfɔːti/.
 > uk: Я очолив(-ла) перехід на нову CRM і навчив(-ла) сорок продавців за два тижні.
 
 > [!speak] Відповідь на скаргу
 > level: C1 · id: en-c1-correspondence-s03
 > text: As a gesture of goodwill, we have waived the delivery charge on your next order.
 > ipa: /əz ə ˈdʒestʃər əv ˌɡʊdˈwɪl wi həv ˈweɪvd ðə dɪˈlɪvəri ˈtʃɑːdʒ ɒn jə ˈnekst ˈɔːdə/
-> tip: gesture — [ДЖЕС-че]; waived звучить як waved: [ВЕЙВД]; next order — /t/ майже зникає.
+> tip: gesture — /ˈdʒestʃə/; waived звучить так само, як waved: /weɪvd/; у next order звук /t/ майже зникає.
 > uk: На знак доброї волі ми скасували плату за доставку для вашого наступного замовлення.
 
 ## Типові помилки українців
@@ -546,7 +546,7 @@ estimatedMinutes: 75
 > «Цим повідомляємо», «Просимо Вас…», «З повагою» дослівно дають ~~*Hereby we inform you*~~, ~~*We kindly ask you to*~~, ~~*With respect, Ivan*~~ — звучить або як суд, або як помилка. Нормально: *We would like to let you know…*, *Could you please…?*, *Kind regards / Best regards, Ivan*. ~~*I send you in attachment*~~ («надсилаю у вкладенні») → *I've attached… / Please find attached…*.
 
 > [!pitfall] Неправильна пара звертання й завершення
-> ~~*Dear Sir or Madam, … Yours sincerely*~~ і ~~*Dear Mr Brown, … Yours faithfully*~~ — у британському листі це помітна помилка. Правило: **знаєш ім'я → sincerely; не знаєш → faithfully**. Також ~~*Dear Mr Olena Shevchenko*~~ — після *Mr / Ms* лише прізвище: *Dear Ms Shevchenko*. Не знаєш, як звертатися до людини, — використай повне ім'я: *Dear Alex Morgan*.
+> ~~*Dear Sir or Madam, … Yours sincerely*~~ і ~~*Dear Mr Brown, … Yours faithfully*~~ — у британському листі це помітна помилка. Правило: **знаєш імʼя → sincerely; не знаєш → faithfully**. Також ~~*Dear Mr Olena Shevchenko*~~ — після *Mr / Ms* лише прізвище: *Dear Ms Shevchenko*. Не знаєш, як звертатися до людини, — використай повне імʼя: *Dear Alex Morgan*.
 
 ## Практика
 
@@ -557,7 +557,7 @@ estimatedMinutes: 75
 > - [ ] With respect,
 > - [ ] Cheers,
 >
-> **Пояснення:** британське правило: невідоме ім'я (*Sir or Madam*) → *Yours faithfully*; відоме (*Dear Ms Patel*) → *Yours sincerely*. *With respect* — калька «З повагою»; *Cheers* — неформально. У США в обох випадках найчастіше просто *Sincerely*.
+> **Пояснення:** британське правило: невідоме імʼя (*Sir or Madam*) → *Yours faithfully*; відоме (*Dear Ms Patel*) → *Yours sincerely*. *With respect* — калька «З повагою»; *Cheers* — неформально. У США в обох випадках найчастіше просто *Sincerely*.
 
 > [!quiz] Що зазвичай **не** включають у CV / résumé для UK чи US? Обери всі.
 > level: C1 · type: multi · id: en-c1-correspondence-q03

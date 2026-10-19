@@ -120,10 +120,10 @@ estimatedMinutes: 45
 
 ## Приклади
 
-- *There are four **items** on the **agenda**, so let's be quick.* — На порядку денному чотири пункти, тож будьмо швидкими.
+- *There are four **items** on the **agenda**, so let's be quick.* — На порядку денному чотири пункти, тож не затягуймо.
 - *Could you **take the minutes** today, Ira?* — Іро, можеш сьогодні вести протокол?
 - *The meeting **overran** by half an hour.* — Зустріч затяглася на пів години.
-- *We've **brought** the launch **forward** to 1 May.* — Ми перенесли запуск на раніше — на 1 травня.
+- *We've **brought** the launch **forward** to 1 May.* — Ми перенесли запуск на раніший термін — на 1 травня.
 - *After three hours of talks, we finally **struck a deal**.* — Після трьох годин перемовин ми нарешті уклали угоду.
 - *They refused to make any **concessions** on price.* — Вони відмовилися поступатися в ціні.
 - *Please find attached the **draft** contract.* — У вкладенні — проєкт договору.
@@ -163,7 +163,7 @@ estimatedMinutes: 45
 > [!word] action point
 > ipa: /ˈækʃən ˌpɔɪnt/ · pos: noun · level: B2 · id: en-b2-business-w05
 > uk: завдання за підсумками зустрічі
-> example: Let's go through the **action points** before we finish. — Пройдімося по завданнях, перш ніж закінчимо.
+> example: Let's go through the **action points** before we finish. — Давайте ще раз переглянемо завдання, перш ніж закінчити.
 > note: нейтральне, UK. US — *action item*.
 
 > [!word] attendee
@@ -181,7 +181,7 @@ estimatedMinutes: 45
 > [!word] bring forward
 > ipa: /ˌbrɪŋ ˈfɔːwəd/ · ipa-us: /ˌbrɪŋ ˈfɔːrwərd/ · pos: phrase · level: B2 · id: en-b2-business-w08
 > uk: перенести на раніший час
-> example: We've **brought** the meeting **forward** to Monday. — Ми перенесли зустріч на раніше — на понеділок.
+> example: We've **brought** the meeting **forward** to Monday. — Ми перенесли зустріч на раніший день — на понеділок.
 > forms: bring → brought → brought
 > note: нейтральне. Протилежне — *put back / push back* (перенести на пізніше) або *postpone* (B1).
 
@@ -207,14 +207,14 @@ estimatedMinutes: 45
 > [!word] run something by somebody
 > ipa: /ˌrʌn ˈsʌmθɪŋ baɪ ˈsʌmbədi/ · pos: phrase · level: B2 · id: en-b2-business-w12
 > uk: показати (ідею, план) комусь, щоб дізнатися думку
-> example: Let me **run it by** my manager first. — Дай мені спершу показати це менеджерові.
+> example: Let me **run it by** my manager first. — Спершу я покажу це своєму менеджерові.
 > forms: run → ran → run
 > note: розмовне-нейтральне. *Can I run something by you?* — Можна з тобою дещо обговорити? Формально — *consult somebody about something*.
 
 > [!word] touch base
 > ipa: /ˌtʌtʃ ˈbeɪs/ · pos: phrase · level: B2 · id: en-b2-business-w13
 > uk: коротко звʼязатися; звірити годинники
-> example: Let's **touch base** next week to see how it's going. — Давай коротко звʼяжемося наступного тижня й подивимося, як іде.
+> example: Let's **touch base** next week to see how it's going. — Давай коротко звʼяжемося наступного тижня й подивимося, як просуваються справи.
 > note: розмовне, корпоративний жаргон. *touch base with somebody*.
 
 > [!word] follow up
@@ -227,7 +227,7 @@ estimatedMinutes: 45
 > ipa: /əˈdʒɜːn/ · ipa-us: /əˈdʒɝːn/ · pos: verb · level: B2 · id: en-b2-business-w15
 > uk: оголосити перерву; закрити засідання (до наступного разу)
 > example: The meeting was **adjourned** until Friday. — Засідання перенесли (оголосили перерву) до пʼятниці.
-> note: формальне (збори, суд, рада директорів). У звичайній зустрічі кажуть *let's wrap up* або *let's stop there*. *d* німа: [е-ДЖЕРН].
+> note: формальне (збори, суд, рада директорів). У звичайній зустрічі кажуть *let's wrap up* або *let's stop there*. Літера *d* не читається: [е-ДЖЕРН].
 
 ### Переговори
 
@@ -263,7 +263,7 @@ estimatedMinutes: 45
 
 > [!word] deal
 > ipa: /diːl/ · pos: noun · level: B2 · id: en-b2-business-w21
-> uk: угода; оборудка
+> uk: угода; домовленість
 > example: After weeks of talks, they finally **struck a deal**. — Після тижнів перемовин вони нарешті уклали угоду.
 > note: нейтральне. *strike / close / seal a deal*; *It's a deal!* — Домовилися! *a good deal* — вигідна покупка.
 
@@ -400,7 +400,7 @@ estimatedMinutes: 45
 > [!word] Please find attached
 > ipa: /ˌpliːz faɪnd əˈtætʃt/ · pos: phrase · level: B2 · id: en-b2-business-w43
 > uk: у вкладенні (ви знайдете)…
-> example: **Please find attached** our latest price list. — У вкладенні — наш актуальний прайс.
+> example: **Please find attached** our latest price list. — У вкладенні — наш актуальний прайс-лист.
 > note: формальне. Нейтрально — *I've attached…*; не «I send you in attachment».
 
 > [!word] further to
@@ -467,7 +467,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *bring forward* — на **раніше**; *push back* і *put off* — на пізніше. Значення протилежні, тож слухай частку.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-business-l03
 > audio: Please find attached the minutes of Monday's meeting.
 
@@ -505,7 +505,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *but I think the merger gives them more market share* — після *but* іде її справжня думка. Про робочі місця каже перший студент, і це **мінус** злиття, а не причина його обрати.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-business-l07
 > audio: We couldn't reach a consensus, so let's touch base next week.
 
@@ -544,8 +544,8 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-business-s03
 > text: Could we meet halfway on the price?
 > ipa: /kʊd wi ˈmiːt ˌhɑːfˈweɪ ɒn ðə ˈpraɪs/
-> tip: halfway — *l* німа, /h/ — легкий видих, не «г»: [хааф-ВЕЙ]; could — /d/ ледь чутно.
-> uk: Чи могли б ми зійтися посередині щодо ціни?
+> tip: halfway — літера *l* не читається, /h/ — легкий видих, не «г»: [хааф-ВЕЙ]; could — /d/ ледь чутно.
+> uk: Може, зійдемося в ціні десь посередині?
 
 > [!speak] Формальний лист уголос
 > level: B2 · id: en-b2-business-s04
@@ -565,7 +565,7 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-business-s06
 > text: Good negotiators listen more than they talk and look for a deal that works for both sides.
 > ipa: /ˈɡʊd nɪˈɡəʊʃieɪtəz ˈlɪsən ˈmɔː ðən ðeɪ ˈtɔːk ən ˈlʊk fər ə ˈdiːl ðət ˈwɜːks fə ˈbəʊθ ˈsaɪdz/
-> tip: negotiators — [ні-ГОУ-ші-ей-терз], /ʃ/ у середині; listen — *t* німа; both — /θ/ у кінці.
+> tip: negotiators — [ні-ГОУ-ші-ей-терз], /ʃ/ у середині; listen — літера *t* не читається; both — /θ/ у кінці.
 > uk: Добрі переговорники більше слухають, ніж говорять, і шукають угоду, вигідну обом сторонам.
 
 > [!speak] IELTS Speaking, Part 3 — «Is it better to work for a large company or a start-up?»
@@ -573,7 +573,7 @@ estimatedMinutes: 45
 > text: It depends. Large companies offer more job security, whereas start-ups give you responsibility early on.
 > ipa: /ɪt dɪˈpendz ˈlɑːdʒ ˈkʌmpəniz ˈɒfə ˈmɔː ˈdʒɒb sɪˈkjʊərəti weərˈæz ˈstɑːtʌps ˈɡɪv ju rɪˌspɒnsəˈbɪləti ˈɜːli ˈɒn/
 > tip: *whereas* показує контраст двох сторін — сильний хід для Band 7. responsibility — наголос на -BI-.
-> uk: Залежить від людини. Великі компанії дають більшу гарантію роботи, а стартапи рано дають відповідальність.
+> uk: Усе залежить від обставин. Великі компанії дають більшу гарантію роботи, а стартапи рано дають відповідальність.
 
 > [!speak] IELTS Speaking, Part 3 — «How has technology changed communication at work?»
 > level: B2 · id: en-b2-business-s08

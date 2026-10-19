@@ -147,7 +147,7 @@ estimatedMinutes: 50
 - *Incidentally, the idea isn't new. Anyway, back to cost.* — До речі, ідея не нова. Але повернімося до вартості.
 - *To put it another way, time matters more than money.* — Іншими словами, час важить більше за гроші.
 - *Could you go over the last point again?* — Чи могли б ви ще раз пояснити останній пункт?
-- *To sum up, the benefits outweigh the costs in the long term.* — Підсумовуючи, у довгостроковій перспективі переваги переважують витрати.
+- *To sum up, the benefits outweigh the costs in the long term.* — Отже, у довгостроковій перспективі переваги переважують витрати.
 - *Let me jot down that figure before I forget it.* — Дай-но я запишу цю цифру, поки не забув.
 
 ## Слова
@@ -167,7 +167,7 @@ estimatedMinutes: 50
 > [!word] handout
 > ipa: /ˈhændaʊt/ · pos: noun · level: B2 · id: en-b2-listen-lectures-w03
 > uk: роздатковий матеріал
-> example: Take a **handout** — it has all the key figures. — Візьміть роздатку — там усі ключові цифри.
+> example: Take a **handout** — it has all the key figures. — Візьміть роздатковий матеріал — там усі ключові цифри.
 > note: також «грошова допомога»: government handouts.
 
 > [!word] slide
@@ -251,7 +251,7 @@ estimatedMinutes: 50
 > [!word] shorthand
 > ipa: /ˈʃɔːthænd/ · ipa-us: /ˈʃɔːrthænd/ · pos: noun · level: B2 · id: en-b2-listen-lectures-w17
 > uk: стенографія; скорочений запис
-> example: I use my own **shorthand** in lectures. — На лекціях я пишу власним скороченим записом.
+> example: I use my own **shorthand** in lectures. — На лекціях я користуюся власною системою скорочень.
 
 > [!word] bullet point
 > ipa: /ˈbʊlɪt ˌpɔɪnt/ · pos: noun · level: B2 · id: en-b2-listen-lectures-w18
@@ -435,11 +435,11 @@ estimatedMinutes: 50
 
 ### Диктант
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-listen-lectures-l15
 > audio: The key point here is that costs fell dramatically.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-listen-lectures-l16
 > audio: To put it another way, the problem isn't money but time.
 

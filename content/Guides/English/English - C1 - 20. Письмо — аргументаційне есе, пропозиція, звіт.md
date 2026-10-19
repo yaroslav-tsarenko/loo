@@ -115,7 +115,7 @@ estimatedMinutes: 90
 >   - { show: y05, note: "Вугілля на піку (125), а загальне виробництво далі майже не змінюється: 235–243 TWh. Це теж ключова особливість — її часто пропускають." }
 >   - { show: y15, note: "Газ росте до 75 і тимчасово «підхоплює» спад вугілля. Деталь для body, не для overview." }
 >   - { show: y20, note: "Між 2015 і 2020 відновлювані обганяють і вугілля, і газ. Момент перетину — сильна деталь: by 2020 they had outstripped every other source." }
->   - { show: y25, note: "Фінал: 110 з 234 — almost half. Вугілля впало вшестеро (120 → 20). Атом стабільний 44–50. Overview: структурна зміна при стабільному загальному обсязі." }
+>   - { show: y25, note: "Фінал: 110 з 234 — almost half. Виробництво з вугілля впало вшестеро (120 → 20). Атом стабільний 44–50. Overview: структурна зміна при стабільному загальному обсязі." }
 > ```
 
 > [!example] Відповідь A (≈ 170 слів, орієнтовно Band 7)
@@ -157,7 +157,7 @@ estimatedMinutes: 90
 | Тип позиції | Приклад тези | Оцінка |
 |---|---|---|
 | розмита | *There are advantages and disadvantages to this.* | позиції немає → Task Response ≤ 6 |
-| чітка, але пласка | *I completely agree that universities should focus on jobs.* | ок для 7, якщо добре розвинено |
+| чітка, але пласка | *I completely agree that universities should focus on jobs.* | достатньо для 7, якщо позицію добре розвинено |
 | **нюансована** | *While preparing students for work is one of a university's central duties, I disagree that it should be the main one.* | Band 8: позиція з межею, яку есе далі доводить |
 
 **Прогресія** — кожен абзац **рухає** аргумент уперед, а не стоїть поруч з іншими. Найкраща схема для нюансованої позиції — **поступка → головний аргумент → наслідок**:
@@ -207,7 +207,7 @@ estimatedMinutes: 90
 | **Task Response** | позиція чітка й послідовна (*should not focus only on…*), але ідеї переважно **названі**: «математику вважали марною» — без конкретики | **нюансована теза** (*one of the central responsibilities… but not the main one*), і **головний аргумент розгорнуто** конкретним доказом (Hardy, теорія чисел → шифрування) і наслідком (*would therefore risk…*) |
 | **Coherence & Cohesion** | структура *On the one hand / On the other hand* — збалансована, але **пласка**: два списки; звʼязки механічні (*Firstly ×2, Moreover, Furthermore, In addition*) | **прогресія**: поступка → *However, the assumption…* → наслідок; звʼязність тримається на референції (*the employability argument, these needs, the assumption*) |
 | **Lexical Resource** | доречна, але передбачувана лексика: *very expensive, large debts, bring benefits* | точні колокації: *fierce competition, vocational payoff, considerable merit, does not stand up to scrutiny, weighing evidence* |
-| **Grammar** | складні речення є, але помилка узгодження: *subjects… ~~develops~~* | діапазон: звороти на кшталт *not least because*, умовні (*A university that ignored… would be failing*), Past Perfect, — і жодної помилки |
+| **Grammar** | складні речення є, але помилка узгодження: *subjects… ~~develops~~* | діапазон: звороти на кшталт *not least because*, умовні (*A university that ignored… would be failing*), Past Perfect — і жодної помилки |
 | **Вступ** | *Nowadays, many people think…* — завчений початок | конкретний контекст (*rising tuition fees, fierce competition*) одразу вводить у суть |
 
 > [!warning] «Розумні слова» не роблять Band 8
@@ -258,7 +258,7 @@ estimatedMinutes: 90
 > I propose that the college pilot a peer mentoring scheme in which volunteer second-year students each support three to four newcomers. Mentors would receive a day's training from the counselling team and meet their mentees fortnightly during the first term. A small part of the budget could be allocated to vouchers for the college café, so that meetings take place in a relaxed setting.
 >
 > **Costs and benefits**
-> Apart from training, the scheme would be highly cost-effective, as mentors are volunteers and the training materials could be produced in-house. Crucially, it would ease pressure on the counselling service, allowing counsellors to focus on students with more serious needs. Mentors, for their part, would gain experience that strengthens their CVs.
+> The scheme would be highly cost-effective, as mentors are volunteers and the training materials could be produced in-house. Crucially, it would ease pressure on the counselling service, allowing counsellors to focus on students with more serious needs. Mentors, for their part, would gain experience that strengthens their CVs.
 >
 > **Conclusion**
 > A peer mentoring scheme is a feasible, low-cost way of tackling isolation at the point when students are most vulnerable. If the pilot proves successful, it could be extended to all departments next year.
@@ -341,8 +341,8 @@ estimatedMinutes: 90
 > [!word] albeit
 > ipa: /ɔːlˈbiːɪt/ · pos: conj · level: C1 · id: en-c1-writing-w07
 > uk: хоча, хоч і
-> example: The trial was a success, **albeit** a limited one. — Експеримент був успішним, хоч і обмежено.
-> note: після нього — не повне речення, а прикметник / іменник / прислівник: *albeit slowly, albeit at a cost*. Вимова: [ол-БІ-іт].
+> example: The trial was a success, **albeit** a limited one. — Експеримент мав успіх, хоч і обмежений.
+> note: після нього — не повне речення, а прикметник / іменник / прислівник: *albeit slowly, albeit at a cost*. Вимова: /ɔːlˈbiːɪt/, наголос на другому складі.
 
 > [!word] insofar as
 > ipa: /ˌɪnsəˈfɑːr əz/ · pos: conj · level: C1 · id: en-c1-writing-w08
@@ -392,7 +392,7 @@ estimatedMinutes: 90
 > ipa: /trɒf/ · ipa-us: /trɔːf/ · pos: noun · level: C1 · id: en-c1-writing-w15
 > uk: найнижча точка (графіка), спад; корито
 > example: Sales hit a **trough** in 2009 before recovering. — Продажі досягли найнижчої точки у 2009 році, а потім відновилися.
-> note: пара до *peak*: *peaks and troughs*. *gh* = [f]: [ТРОФ].
+> note: пара до *peak*: *peaks and troughs*. *gh* читається як /f/: /trɒf/.
 
 > [!word] outstrip
 > ipa: /ˌaʊtˈstrɪp/ · pos: verb · level: C1 · id: en-c1-writing-w16
@@ -442,7 +442,7 @@ estimatedMinutes: 90
 > ipa: /ˈɪmplɪment/ · pos: verb · level: C1 · id: en-c1-writing-w23
 > uk: впроваджувати, втілювати
 > example: The changes will be **implemented** in September. — Зміни впровадять у вересні.
-> note: дієслово — [ІМ-плі-мент], іменник *implement* (знаряддя) — [ІМ-плі-мент] з /ə/. *Implementation* — впровадження.
+> note: дієслово — /ˈɪmplɪment/ (повне /e/ в останньому складі), іменник *implement* (знаряддя) — /ˈɪmplɪmənt/ (слабке /ə/). *Implementation* — впровадження.
 
 > [!word] allocate
 > ipa: /ˈæləkeɪt/ · pos: verb · level: C1 · id: en-c1-writing-w24
@@ -454,7 +454,7 @@ estimatedMinutes: 90
 > ipa: /ˌræʃəˈnɑːl/ · ipa-us: /ˌræʃəˈnæl/ · pos: noun · level: C1 · id: en-c1-writing-w25
 > uk: обґрунтування, логіка (рішення)
 > example: The report explains the **rationale** behind the changes. — Звіт пояснює логіку змін.
-> note: *the rationale behind / for sth*. Наголос на останній склад: [ре-ше-НААЛ].
+> note: *the rationale behind / for sth*. Наголос на останньому складі: /ˌræʃəˈnɑːl/.
 
 > [!word] cost-effective
 > ipa: /ˌkɒst ɪˈfektɪv/ · ipa-us: /ˌkɔːst ɪˈfektɪv/ · pos: adj · level: C1 · id: en-c1-writing-w26
@@ -465,12 +465,12 @@ estimatedMinutes: 90
 > [!word] pilot
 > ipa: /ˈpaɪlət/ · pos: verb · level: C1 · id: en-c1-writing-w27
 > uk: випробувати, запустити пілотно
-> example: The college will **pilot** the scheme in two departments. — Коледж пілотно запустить програму у двох відділах.
-> note: також прикметник-іменник: *a pilot scheme / project / study*.
+> example: The college will **pilot** the scheme in two departments. — Коледж запустить пілотну програму на двох факультетах.
+> note: також як означення: *a pilot scheme / project / study*.
 
 > [!word] mitigate
 > ipa: /ˈmɪtɪɡeɪt/ · pos: verb · level: C1 · id: en-c1-writing-w28
-> uk: пом'якшувати, зменшувати (шкоду, ризик)
+> uk: помʼякшувати, зменшувати (шкоду, ризик)
 > example: Clear guidelines would **mitigate** the risks. — Чіткі правила зменшили б ризики.
 > note: *mitigate risks / effects / damage*. Не плутай з *militate against* (перешкоджати).
 
@@ -483,7 +483,7 @@ estimatedMinutes: 90
 > [!word] with a view to
 > ipa: /wɪð ə ˈvjuː tə/ · pos: phrase · level: C1 · id: en-c1-writing-w30
 > uk: з метою, з наміром
-> example: The survey was carried out **with a view to** improving services. — Опитування провели з метою покращити послуги.
+> example: The survey was carried out **with a view to** improving services. — Опитування провели, щоб покращити послуги.
 > note: після *to* — **-ing**: ~~*with a view to improve*~~. Формальне; у звітах і листах.
 
 ## Слухаємо
@@ -495,7 +495,7 @@ estimatedMinutes: 90
 > - [ ] By 2020, wind and solar power had overtaken every other source of electricity.
 > - [ ] By 2012, wind and solar power had outstripped every other source of electricity.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-writing-l02
 > audio: There is, admittedly, considerable merit in the employability argument.
 
@@ -515,21 +515,21 @@ estimatedMinutes: 90
 > level: C1 · id: en-c1-writing-s01
 > text: Overall, the period saw a fundamental shift in the country's energy mix.
 > ipa: /ˌəʊvərˈɔːl ðə ˈpɪəriəd ˈsɔː ə ˌfʌndəˈmentəl ˈʃɪft ɪn ðə ˈkʌntriz ˈenədʒi ˈmɪks/
-> tip: fundamental — наголос на MEN: [фан-де-МЕН-тл]; shift — /ʃ/ м'яке, але не «щ».
+> tip: fundamental — наголос на MEN: fun-da-MEN-tal; shift — звук /ʃ/, а не «щ».
 > uk: Загалом за цей період структура енергетики країни докорінно змінилася.
 
 > [!speak] Нюансована теза
 > level: C1 · id: en-c1-writing-s02
 > text: While I accept that employability matters, I disagree that it should be the main aim of a university.
 > ipa: /waɪl aɪ əkˈsept ðət ɪmˌplɔɪəˈbɪləti ˈmætəz aɪ ˌdɪsəˈɡriː ðət ɪt ʃəd bi ðə ˈmeɪn ˈeɪm əv ə ˌjuːnɪˈvɜːsəti/
-> tip: employability — шість складів, наголос на BIL: [ім-плой-е-БІ-лі-ті]; disagree — [ді-се-ГРІІ].
+> tip: employability — шість складів, наголос на BIL: em-ploy-a-BIL-i-ty; disagree — наголос на останньому складі: dis-a-GREE.
 > uk: Хоч я й визнаю, що працевлаштування важливе, я не згоден, що це має бути головна мета університету.
 
 > [!speak] Рекомендація у звіті
 > level: C1 · id: en-c1-writing-s03
 > text: In light of the findings, it is recommended that the trial be extended.
 > ipa: /ɪn ˈlaɪt əv ðə ˈfaɪndɪŋz ɪt ɪz ˌrekəˈmendɪd ðət ðə ˈtraɪəl bi ɪkˈstendɪd/
-> tip: be extended — subjunctive: *be*, не *is*. trial — два склади: [ТРАЙ-ел].
+> tip: be extended — subjunctive: *be*, не *is*. trial — два склади: /ˈtraɪəl/.
 > uk: З огляду на результати рекомендується продовжити експеримент.
 
 ## Типові помилки українців
@@ -621,7 +621,7 @@ estimatedMinutes: 90
 > - [ ] Students graduate with large debts, students expect good jobs, the economy needs engineers.
 > - [ ] In addition, students graduate with debts. In addition, they expect jobs. In addition, the economy needs engineers.
 >
-> **Пояснення:** Band 8 — звʼязність **всередині речень**: підрядне *who graduate…*, логічний звʼязок *understandably*, *for its part* для переходу до другого суб'єкта. Варіанти 1 і 4 — механічні звʼязки; 3 — comma splice і повтори.
+> **Пояснення:** Band 8 — звʼязність **всередині речень**: підрядне *who graduate…*, логічний звʼязок *understandably*, *for its part* для переходу до другого субʼєкта. Варіанти 1 і 4 — механічні звʼязки; 3 — comma splice і повтори.
 
 > [!quiz] IELTS Writing · Що характерне для Lexical Resource на Band 8? Обери всі.
 > level: C1 · type: multi · id: en-c1-writing-q09
@@ -727,7 +727,7 @@ estimatedMinutes: 90
 > IELTS попереджає: якщо в Task 1 менше 150 слів, а в Task 2 менше 250, бал знижується. Але й понад 350 слів у Task 2 бонусів не дає — лише більше шансів на помилки й менше часу на перевірку.
 
 > [!reel] 🎓 C1 Advanced: два тексти за 90 хвилин
-> У Cambridge C1 Advanced письмо — це обовʼязкове есе й одне завдання на вибір: лист чи email, пропозиція, звіт або відгук. Обидва — по 220–260 слів за 90 хвилин. Тобто приблизно 45 хвилин на текст разом з планом і перевіркою.
+> У Cambridge C1 Advanced письмо — це обовʼязкове есе й одне завдання на вибір: лист чи email, пропозиція, звіт або відгук. Кожен — 220–260 слів, а на обидва дають 90 хвилин. Тобто приблизно 45 хвилин на текст разом з планом і перевіркою.
 
 ## Джерела та що почитати
 

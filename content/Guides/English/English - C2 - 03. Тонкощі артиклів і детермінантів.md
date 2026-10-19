@@ -31,7 +31,7 @@ estimatedMinutes: 50
 
 ## Простими словами
 
-На B1 артиклі — це правила: «уперше — *a*, вдруге — *the*», «загалом — без артикля». На C2 зрозуміло головне: артикль показує, **що мовець припускає про знання слухача**.
+На B1 артиклі — це правила: «уперше — *a*, вдруге — *the*», «загалом — без артикля». На C2 важливо розуміти головне: артикль показує, **що мовець припускає про знання слухача**.
 
 - ***the*** — «ти можеш визначити, про що я» (з контексту, із загального знання, бо воно одне);
 - ***a / an*** — «один представник класу; якого саме — неважливо або ти не знаєш»;
@@ -43,7 +43,7 @@ estimatedMinutes: 50
 > ```yaml
 > layout: flow
 > nodes:
->   - { id: q, label: "питання мовця", text: "Чи слухач може визначити, про що я?", tone: gray }
+>   - { id: q, label: "запитання мовця", text: "Чи слухач може визначити, про що я?", tone: gray }
 >   - { id: the, label: "так", text: "the: the report I sent you", tone: green }
 >   - { id: a, label: "ні · одиниця", text: "a / an: a Mr Smith, a report", tone: blue }
 >   - { id: zero, label: "ні · взагалі", text: "Ø: Life is short. Reports take time.", tone: violet }
@@ -131,13 +131,13 @@ estimatedMinutes: 50
 | *the* — обмежене, конкретне | ***The life** of a soldier is hard. **The freedom of the press**.* | *of*-фраза чи контекст визначає |
 | *a* + прикметник / *of*-фраза | *She has **a good knowledge of** Latin. He received **an excellent education**. **A deep love of** music.* | «різновид» знання, освіти, любові |
 
-С2-нюанс: *knowledge, education, understanding, command, love, fear, sense* з означенням часто беруть ***a***: *a thorough understanding of*, *an excellent command of English*, *a sense of humour*. Без означення — Ø: *Knowledge is power.* ~~*I have a knowledge*~~.
+C2-нюанс: *knowledge, education, understanding, command, love, fear, sense* з означенням часто беруть ***a***: *a thorough understanding of*, *an excellent command of English*, *a sense of humour*. Без означення — Ø: *Knowledge is power.* ~~*I have a knowledge*~~.
 
 ### Без артикля: ролі, посади, пари
 
 - **унікальна посада** після *elect, appoint, become, as, named*: *She was elected **president**. He served **as chairman** for ten years.*
 - **посада + імʼя**: ***President** Zelensky*, ***Professor** Hill* (але ***the** president*, якщо без імені).
-- ***the then*** + посада = «тодішній»: ***the then** Prime Minister* — книжно, у новинах і історії.
+- ***the then*** + посада = «тодішній»: ***the then** Prime Minister* — книжно, у новинах та історичних текстах.
 - **сталі пари**: *arm in arm, hand in hand, from door to door, husband and wife, day after day*.
 - **заголовки, нотатки, інструкції**: *Man bites dog. Insert card. Press button to open.*
 
@@ -152,11 +152,11 @@ estimatedMinutes: 50
 |---|---|---|
 | *each* vs *every* | *each* — по одному, від 2; *every* — усі разом, від 3 | ***Each** twin has a room. **Every** seat was taken.* |
 | *each of / every one of* | лише з *the / these / my* + множина; ~~*every of*~~ | ***Every one of** the students passed.* |
-| *every other* | через один | *We meet **every other** Friday.* — що другу пʼятницю |
+| *every other* | через один | *We meet **every other** Friday.* — кожної другої пʼятниці |
 | *either side / end* | **обидві** сторони | *Trees grow on **either side** of the road.* |
 | *neither of* + множина | дієслово в однині (формально) / множині (розмовно) | ***Neither of** the plans **is** ideal.* |
 | *many a* + однина | книжно: «не один» | ***Many a** student **has** made this mistake.* |
-| *what little / what few* | «той небагатий, який є» | *She gave **what little** money she had.* |
+| *what little / what few* | «те небагато, що є» | *She gave **what little** money she had.* |
 | *the odd* | зрідка, поодинокий | *The text is good, apart from **the odd** typo.* |
 | *a great many / a handful of / the bulk of* | дуже багато / жменька / основна частина | ***The bulk of** the budget goes on salaries.* |
 | *no fewer than* | «аж» (з лічильними; *no less than* — з незлічуваними) | ***No fewer than** twelve people applied.* |
@@ -172,7 +172,7 @@ estimatedMinutes: 50
 > We visit my grandparents every [[other]] weekend — so twice a month.
 > ```
 >
-> **Пояснення:** *twenty pounds each* — кожен по одному; *Every one / Each of* + множина; *either side* = обидві сторони; *neither* — жоден із двох; *every other* — через раз.
+> **Пояснення:** *twenty pounds each* — по двадцять фунтів за кожен; *Every one / Each of* + множина; *either side* = обидві сторони; *neither* — жоден із двох; *every other* — через раз.
 
 ### Регістр
 
@@ -199,7 +199,7 @@ estimatedMinutes: 50
 
 **Writing Task 1:** *the bulk of spending, a handful of countries, no fewer than six regions, every other year* — точні кількісні формули.
 
-**Де стає штучним:** *Many a…* у кожному абзаці; *the tiger* / *the computer* у розмовному Speaking (*I really like the tiger* звучить як енциклопедія — скажи *I love tigers*); *the poor* там, де доречніше *people on low incomes*.
+**Де це звучить штучно:** *Many a…* у кожному абзаці; *the tiger* / *the computer* у розмовному Speaking (*I really like the tiger* звучить як енциклопедія — скажи *I love tigers*); *the poor* там, де доречніше *people on low incomes*.
 
 ## Приклади
 
@@ -212,7 +212,7 @@ estimatedMinutes: 50
 - She was appointed **head** of department at thirty-two. — Її призначили завідувачкою кафедри у тридцять два.
 - **The then** mayor refused to comment. — Тодішній мер відмовився коментувати.
 - **Many a** traveller has got lost in these hills. — Не один мандрівник заблукав у цих пагорбах.
-- He spent **what little** free time he had in the garden. — Той небагатий вільний час, що мав, він проводив у саду.
+- He spent **what little** free time he had in the garden. — Те небагато вільного часу, що мав, він проводив у саду.
 - The service was excellent, apart from **the odd** delay. — Обслуговування було чудове, якщо не рахувати поодиноких затримок.
 - **That** brother **of yours** has borrowed my bike again! — Цей твій брат знову взяв мій велосипед!
 
@@ -222,12 +222,12 @@ estimatedMinutes: 50
 > ipa: /ˈmen.i ə/ · pos: det · level: C2 · id: en-c2-determiners-w01
 > uk: не один; багато (книжно)
 > example: **Many a** student has fallen asleep in this lecture hall. — Не один студент заснув у цій аудиторії.
-> note: + однина й дієслово в однині: many a student has (не have). Книжно, літературно; also many a time — не раз.
+> note: + однина й дієслово в однині: many a student has (не have). Книжно, літературно; також many a time — не раз.
 
 > [!word] what little
 > ipa: /wɒt ˈlɪt.əl/ · ipa-us: /wʌt ˈlɪt̬.əl/ · pos: det · level: C2 · id: en-c2-determiners-w02
-> uk: той небагатий (який є); усе те небагато
-> example: They shared **what little** food they had. — Вони поділилися тією небагатою їжею, що мали.
+> uk: те небагато, що є; усе, що є (хоч і мало)
+> example: They shared **what little** food they had. — Вони поділилися тією дещицею їжі, що мали.
 > note: з незлічуваними; з лічильними — what few: what few friends he had.
 
 > [!word] each and every
@@ -246,7 +246,7 @@ estimatedMinutes: 50
 > ipa: /ðə ˈlaɪks əv/ · pos: phrase · level: C2 · id: en-c2-determiners-w05
 > uk: такі, як; подібні до
 > example: The festival has attracted **the likes of** Jamala and Okean Elzy. — Фестиваль приваблював таких артистів, як Джамала й «Океан Ельзи».
-> note: розмовно-нейтрально; іноді з відтінком «такі, як ти, нам не рівня»: It's not for the likes of us.
+> note: розмовно-нейтрально; іноді з відтінком зневаги чи самоіронії: It's not for the likes of us — це не для таких, як ми.
 
 > [!word] a certain
 > ipa: /ə ˈsɜː.tən/ · ipa-us: /ə ˈsɝː.tən/ · pos: det · level: C2 · id: en-c2-determiners-w06
@@ -269,14 +269,14 @@ estimatedMinutes: 50
 > [!word] the odd
 > ipa: /ði ˈɒd/ · ipa-us: /ði ˈɑːd/ · pos: det · level: C2 · id: en-c2-determiners-w09
 > uk: поодинокий, випадковий; зрідка
-> example: I still have **the odd** cigarette at parties. — Я ще зрідка викурюю сигарету на вечірках.
+> example: I still have **the odd** cigarette at parties. — На вечірках я ще часом можу викурити сигарету.
 > note: + однина: the odd mistake = кілька випадкових помилок. Не плутай з an odd mistake — дивна помилка.
 
 > [!word] every other
 > ipa: /ˌev.ri ˈʌð.ə/ · ipa-us: /ˌev.ri ˈʌð.ɚ/ · pos: det · level: C2 · id: en-c2-determiners-w10
 > uk: через один; кожен другий
-> example: The bin is collected **every other** Tuesday. — Сміття вивозять що другий вівторок.
-> note: also every second; другий зміст — «усі інші»: Every other student passed except me.
+> example: The bin is collected **every other** Tuesday. — Сміття вивозять кожного другого вівторка.
+> note: також every second; друге значення — «усі інші»: Every other student passed except me.
 
 > [!word] a great many
 > ipa: /ə ˌɡreɪt ˈmen.i/ · pos: det · level: C2 · id: en-c2-determiners-w11
@@ -298,7 +298,7 @@ estimatedMinutes: 50
 
 > [!word] all and sundry
 > ipa: /ˌɔːl ən ˈsʌn.dri/ · ipa-us: /ˌɑːl ən ˈsʌn.dri/ · pos: phrase · level: C2 · id: en-c2-determiners-w14
-> uk: усі підряд, усі кому не лінь
+> uk: усі підряд, усі, кому не лінь
 > example: He told **all and sundry** about his promotion. — Він розповів про своє підвищення всім підряд.
 > note: трохи несхвально; розмовно-нейтрально. Sundry окремо — «різний»: sundry items.
 
@@ -319,7 +319,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** ***a** Dr Hartley* — «якась доктор Гартлі»: мовець її не знає. Третій варіант означав би, що вона знайома.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-determiners-l02
 > audio: Neither of the candidates has answered the question.
 
@@ -335,7 +335,7 @@ estimatedMinutes: 50
 > Most of the route is [[uphill]].
 > ```
 >
-> **Пояснення:** *every other Sunday* = що другу неділю (тому підходить і *second*, і *other*); *the under-twelves* — діти до 12; *the bulk of the route* = більша частина маршруту. Детермінанти тут несуть ключову інформацію.
+> **Пояснення:** *every other Sunday* = кожної другої неділі (тому підходить і *second*, і *other*); *the under-twelves* — діти до 12; *the bulk of the route* = більша частина маршруту. Детермінанти тут несуть ключову інформацію.
 
 > [!listen] IELTS Listening, Part 4 (лекція з історії технологій). What does the lecturer mean by "the bicycle"?
 > level: C2 · type: answer · lang: en-US · tags: ielts · id: en-c2-determiners-l04
@@ -371,7 +371,7 @@ estimatedMinutes: 50
 > level: C2 · id: en-c2-determiners-s04
 > text: The elderly are often the first to be left behind, and what little help they get is usually from their grandchildren.
 > ipa: /ði ˈel.də.li ə ˈɒf.ən ðə ˈfɜːst tə bi ˌleft bɪˈhaɪnd ən wɒt ˈlɪt.əl ˈhelp ðeɪ ˈɡet ɪz ˈjuː.ʒu.ə.li frəm ðeə ˈɡræn.tʃaɪl.drən/
-> tip: the перед голосним — /ði/; elderly — три склади, наголос на першому. Питання екзаменатора — «How has technology affected older people?».
+> tip: the перед голосним — /ði/; elderly — три склади, наголос на першому. Запитання екзаменатора — «How has technology affected older people?».
 
 ## Типові помилки українців
 
@@ -441,7 +441,7 @@ estimatedMinutes: 50
 > - [ ] Вона не знала, скільки грошей у неї було.
 > - [ ] Вона витратила на книжки менше, ніж мала.
 >
-> **Пояснення:** ***what little*** = «усе те небагате, що було». Два значення в одній фразі: грошей мало + витрачено все.
+> **Пояснення:** ***what little*** = «усе те небагато, що було». Два значення в одній фразі: грошей мало + витрачено все.
 
 > [!quiz] Колега розповідає про вечірку. Який варіант звучить природно саме в розмові?
 > level: C2 · id: en-c2-determiners-q10

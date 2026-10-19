@@ -33,9 +33,9 @@ estimatedMinutes: 40
 
 Уяви секундомір. Ти натиснув «старт» три роки тому, і він досі цокає. Present Perfect Continuous — це питання **«скільки показує секундомір просто зараз?»**: *I've been learning English for three years.*
 
-Українська тут бере теперішній час: «вчу три роки», «чекаю годину», «живу тут з 2020-го». Англійська **так не може**: якщо є «скільки часу» до тепер — потрібен перфект.
+В українській тут теперішній час: «вчу три роки», «чекаю годину», «живу тут з 2020-го». Англійська **так не може**: якщо є «скільки часу» до тепер — потрібен перфект.
 
-І друге значення: **сліди недавньої дії**. Ти бачиш мокрі вулиці — значить, *it's been raining*. Друг червоний і задиханий — *he's been running*. Дія могла щойно закінчитися, але її наслідки видно зараз.
+І друге значення: **сліди недавньої дії**. Ти бачиш мокрі вулиці — отже, *it's been raining*. Друг червоний і задиханий — *he's been running*. Дія могла щойно закінчитися, але її наслідки видно зараз.
 
 > [!diagram] Від старту до «зараз»
 > ```yaml
@@ -135,11 +135,11 @@ estimatedMinutes: 40
 - **How long have** you **been studying** at this university? — For two years. — Скільки ти вже вчишся в цьому університеті? — Два роки.
 - It'**s been raining** since Monday. I'm so tired of it! — Дощ іде з понеділка. Мені це вже набридло!
 - I'**ve been trying** to call you **all day**. Where were you? — Я цілий день намагаюся тобі додзвонитися. Де ти був?
-- You're **out of breath**. **Have** you **been running**? — Ти задихався. Ти бігав?
+- You're **out of breath**. **Have** you **been running**? — Ти весь захеканий. Ти бігав?
 - We'**ve been saving up** for a new car since last year. — Ми відкладаємо на нову машину з минулого року.
 - She **hasn't been feeling** well lately. — Останнім часом вона погано почувається.
 - I'**ve known** Oksana since we were kids. — Я знаю Оксану з дитинства.
-- The kids are **covered in** mud — they'**ve been playing** football. — Діти всі в болоті: вони грали у футбол.
+- The kids are **covered in** mud — they'**ve been playing** football. — Діти всі в багнюці: вони грали у футбол.
 - My phone **hasn't been working** properly for a week. — Мій телефон уже тиждень погано працює.
 - How many cups of coffee **have** you **had** today? — Скільки чашок кави ти сьогодні випив?
 
@@ -171,8 +171,8 @@ estimatedMinutes: 40
 
 > [!word] out of breath
 > ipa: /ˌaʊt əv ˈbreθ/ · pos: phrase · level: B1 · id: en-b1-perfect-continuous-w05
-> uk: задиханий, без подиху
-> example: Why are you so **out of breath**? — I've been running. — Чого ти такий задиханий? — Я бігав.
+> uk: задиханий, захеканий
+> example: Why are you so **out of breath**? — I've been running. — Чому ти такий задиханий? — Я бігав.
 > note: breath /breθ/ — іменник; breathe /briːð/ — дієслово.
 
 > [!word] covered in
@@ -190,14 +190,14 @@ estimatedMinutes: 40
 > [!word] soaked
 > ipa: /səʊkt/ · ipa-us: /soʊkt/ · pos: adj · level: B1 · id: en-b1-perfect-continuous-w08
 > uk: мокрий до нитки
-> example: I'm **soaked**! It's been pouring all afternoon. — Я мокрий до нитки! Злива весь день.
+> example: I'm **soaked**! It's been pouring all afternoon. — Я змок до нитки! Усе пообіддя ллє як із відра.
 > note: розмовне також soaking wet.
 
 > [!word] sweat
 > ipa: /swet/ · pos: verb · level: B1 · id: en-b1-perfect-continuous-w09
 > uk: пітніти
 > forms: sweat → sweated → sweated (US також sweat)
-> example: He's **sweating** because he's been cycling in the heat. — Він спітнів, бо їхав велосипедом у спеку.
+> example: He's **sweating** because he's been cycling in the heat. — Він весь спітнілий, бо катався на велосипеді в спеку.
 > note: іменник той самий: sweat — піт.
 
 > [!word] rehearse
@@ -234,17 +234,17 @@ estimatedMinutes: 40
 > - [ ] How long did you live here?
 > - [x] How long have you been living here?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-perfect-continuous-l03
 > audio: It's been raining all day.
 > accept: It has been raining all day.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-perfect-continuous-l04
 > audio: She's been working here since March.
 > accept: She has been working here since March.
 
-> [!listen] Чому Денис весь у болоті?
+> [!listen] Чому Денис весь у багнюці?
 > level: B1 · type: answer · id: en-b1-perfect-continuous-l05
 > audio: A: Denys! Why are you covered in mud?
 > audio: B: I've been helping my dad in the garden. We've been planting trees all afternoon.
@@ -292,20 +292,20 @@ estimatedMinutes: 40
 > text: You look tired. What have you been doing?
 > ipa: /juː lʊk ˈtaɪəd wɒt əv juː bɪn ˈduː.ɪŋ/
 > tip: what have — [wɒt əv], зливаються; інтонація wh-питання — ↘ униз наприкінці.
-> uk: Ти виглядаєш утомленим. Що ти робив?
+> uk: У тебе втомлений вигляд. Що ти робив?
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-perfect-continuous-s04
 > text: It's been raining since this morning.
 > ipa: /ɪts bɪn ˈreɪ.nɪŋ sɪns ðɪs ˈmɔː.nɪŋ/
-> tip: it's been — [ɪts bɪn]; since — /s/ на початку й у кінці, не «з».
+> tip: it's been — [ɪts bɪn]; since — /s/ на початку й у кінці, не [z].
 > uk: Дощ іде з самого ранку.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-perfect-continuous-s05
 > text: I've known her since we were at school.
 > ipa: /aɪv nəʊn hə sɪns wiː wər ət skuːl/
-> tip: known — k німе: [nəʊn]; were at — звʼязуй через /r/: [wər‿ət].
+> tip: known — k не читається: [nəʊn]; were at — звʼязуй через /r/: [wər‿ət].
 > uk: Я знаю її зі школи.
 
 > [!speak] IELTS Speaking, Part 1 — «How long have you been studying English?»
@@ -321,7 +321,7 @@ estimatedMinutes: 40
 > Найчастіша помилка українців з цієї теми. «Живу тут пʼять років», «працюю з 2020-го» — українською теперішній час. Англійською, якщо є **for / since / how long** і дія триває досі, — **перфект**: *I've **lived** / I've **been living** here for five years*, *I've **been working** here since 2020.*
 
 > [!pitfall] «How long are you learning English?»
-> Калька з «Як довго ти вчиш англійську?». Правильно: *How long **have you been learning** English?* А *How long are you staying?* — «на скільки ти приїхав?» — питання про майбутнє, зовсім інше.
+> Калька з «Як довго ти вчиш англійську?». Правильно: *How long **have you been learning** English?* А *How long are you staying?* — «Надовго ти приїхав?» — питання про майбутнє, зовсім інше.
 
 > [!pitfall] «Since three years», «for 2020»
 > Українське «вже три роки» і «з 2020 року» → **for** three years (тривалість), **since** 2020 (точка старту). «Since» ніколи не стоїть перед тривалістю.
@@ -379,7 +379,7 @@ estimatedMinutes: 40
 > - [ ] How far have you been running?
 > - [ ] How long did you run?
 >
-> **Пояснення:** відповідь — **кількість** (кілометри), тож питання про результат: Present Perfect Simple *How far have you run?* «Як довго?» відповідали б тривалістю: *For forty minutes.*
+> **Пояснення:** відповідь — **кількість** (кілометри), тож питання про результат: Present Perfect Simple *How far have you run?* На «Як довго?» відповіли б тривалістю: *For forty minutes.*
 
 > [!quiz] Склади питання: «Скільки ти вже тут живеш?»
 > level: B1 · type: order · id: en-b1-perfect-continuous-q09
@@ -471,7 +471,7 @@ estimatedMinutes: 40
 > He [[has been training]] for an ultramarathon for six months.
 > ```
 >
-> **Пояснення:** *eight years* — тривалість → **for**; кількість марафонів — результат → *has completed*; тривала підготовка, що триває, → *has been training*. Зайві: *since* перед тривалістю не ставлять; *completed* (Past Simple) не поєднується з *so far*; *is training for six months* — калька з української, потрібен перфект.
+> **Пояснення:** *eight years* — тривалість → **for**; кількість марафонів — результат → *has completed*; підготовка, яка ще триває, → *has been training*. Зайві: *since* перед тривалістю не ставлять; *completed* (Past Simple) не поєднується з *so far*; *is training for six months* — калька з української, потрібен перфект.
 
 > [!tip] IELTS Writing — спробуй сам
 > **General Training, Task 1 (формальний лист, 150+ слів).** *Your neighbours have been making a lot of noise late at night for several weeks.* Write a letter to your building manager. In your letter: describe the problem; explain how long it has been happening and how it has affected you; say what you would like the manager to do.
@@ -486,7 +486,7 @@ estimatedMinutes: 40
 > «You've been travelling, I perceive» — Шерлок бачить засмагу й робить висновок про недавню діяльність. Видимі сліди + висновок = Present Perfect Continuous.
 
 > [!reel] 🇺🇦 «Вчу три роки» — наша головна пастка
-> В українській теперішній час покриває і «зараз», і «вже давно». В англійській «вже давно, і досі» — завжди перфект. Почув for чи since з тим, що триває, — став have been.
+> В українській теперішній час покриває і «зараз», і «вже давно». В англійській «вже давно, і досі» — завжди перфект. Є for чи since і дія ще триває — став have been.
 
 ## Джерела та що почитати
 

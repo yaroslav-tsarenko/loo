@@ -27,7 +27,7 @@ estimatedMinutes: 45
 > - [x] I've worked for this company for three years.
 > - [ ] I worked for this company three years ago.
 >
-> **Пояснення:** дія почалася в минулому й **триває досі** → Present Perfect + **for** (тривалість): *I've worked / I've been working here for three years.* Українське «працюю три роки» в Present Simple — найчастіша помилка на співбесіді. *For* — тривалість (*for three years*), *since* — точка старту (*since 2023*).
+> **Пояснення:** дія почалася в минулому й **триває досі** → Present Perfect + **for** (тривалість): *I've worked / I've been working here for three years.* Перекладати українське «працюю три роки» через Present Simple — найчастіша помилка на співбесіді. *For* — тривалість (*for three years*), *since* — точка старту (*since 2023*).
 
 ## Пояснення
 
@@ -58,7 +58,7 @@ estimatedMinutes: 45
 | **interviewer** — інтервʼюер | **candidate / applicant** — кандидат | **interview** — проводити співбесіду |
 | — | — | **fire** (розм.) — звільнити; **resign / quit** — звільнитися самому |
 
-Суфікс **-er** — той, хто робить дію (*employer*, *interviewer*), **-ee** — той, з ким її роблять (*employee*, *interviewee*, *trainee*). Наголос в *-ee* падає на нього: *employ**EE***.
+Суфікс **-er** — той, хто робить дію (*employer*, *interviewer*), **-ee** — той, з ким її роблять (*employee*, *interviewee*, *trainee*). Наголос часто падає саме на *-ee*: *employ**EE***.
 
 ### Співбесіда: топ-6 питань
 
@@ -96,7 +96,7 @@ estimatedMinutes: 45
 - **Закінчений період** — Past Simple: *I **worked** at Nova Poshta from 2019 to 2022.*
 - **Плани й бажання** — *I'd like to…, I'm hoping to…*: *I'd like to develop my leadership skills.*
 
-> [!example] Відповідь на «Tell me about yourself» (Band 6–7 IELTS Speaking рівень)
+> [!example] Відповідь на «Tell me about yourself» (рівень IELTS Speaking Band 6–7)
 > *I'm a marketing specialist from Lviv. I graduated in economics in 2020, and since then I've worked for two IT companies. In my current position, I'm in charge of our social media, and last year I helped to double our number of followers. I'm very organised and I enjoy working in a team. Now I'm looking for a new challenge, and I'd love to work for an international company like yours.*
 >
 > Структура: хто я → освіта → досвід (Present Perfect) → досягнення з цифрою (Past Simple) → якості → чому ця компанія.
@@ -108,7 +108,7 @@ estimatedMinutes: 45
 - *There are three **vacancies** in our team.* — У нашій команді три вакансії.
 - *She **got promoted** after only a year.* — Її підвищили лише через рік.
 - *I asked my boss for a **pay rise**.* — Я попросив у начальника підвищення зарплати.
-- *My biggest **strength** is that I'm very **organised**.* — Моя найбільша сильна сторона — я дуже організований.
+- *My biggest **strength** is that I'm very **organised**.* — Моя головна сильна сторона — я дуже організований.
 - *He **resigned** because he wanted a better **work-life balance**.* — Він звільнився, бо хотів кращого балансу між роботою й життям.
 - *We're looking for someone who can work to tight **deadlines**.* — Ми шукаємо людину, яка може працювати в стислі терміни.
 - *I did a three-month **internship** at a law firm.* — Я пройшов тримісячне стажування в юридичній фірмі.
@@ -121,8 +121,8 @@ estimatedMinutes: 45
 > [!word] career
 > ipa: /kəˈrɪə/ · ipa-us: /kəˈrɪr/ · pos: noun · level: B1 · id: en-b1-career-w01
 > uk: карʼєра; професійний шлях
-> example: She started her **career** as a teacher. — Вона почала карʼєру як учителька.
-> note: наголос на другому: [ке-РІЕ]. Не плутай з *carrier* /ˈkæriə/ — перевізник.
+> example: She started her **career** as a teacher. — Вона почала карʼєру вчителькою.
+> note: наголос на другому складі: [ке-РІЕ]. Не плутай з *carrier* /ˈkæriə/ — перевізник.
 
 > [!word] vacancy
 > ipa: /ˈveɪkənsi/ · pos: noun · level: B1 · id: en-b1-career-w02
@@ -145,7 +145,7 @@ estimatedMinutes: 45
 > ipa: /ˌæplɪˈkeɪʃən/ · pos: noun · level: B1 · id: en-b1-career-w05
 > uk: заява; заявка (на роботу)
 > example: Thank you for your **application**. — Дякуємо за вашу заявку.
-> note: *application form* — анкета; у техніці *application* — програма (app).
+> note: *application form* — анкета; в IT *application* — програма, застосунок (*app*).
 
 > [!word] CV
 > ipa: /ˌsiː ˈviː/ · pos: noun · level: B1 · id: en-b1-career-w06
@@ -246,19 +246,19 @@ estimatedMinutes: 45
 > [!word] benefits
 > ipa: /ˈbenɪfɪts/ · pos: noun · level: B1 · id: en-b1-career-w23
 > uk: пільги; соцпакет
-> example: The **benefits** include free lunch and a gym. — Соцпакет включає безкоштовний обід і спортзал.
+> example: The **benefits** include free lunch and a gym. — До соцпакета входять безкоштовні обіди й спортзал.
 > note: в однині *benefit* — ще й «користь, перевага».
 
 > [!word] pay rise
 > ipa: /ˈpeɪ ˌraɪz/ · pos: noun · level: B1 · id: en-b1-career-w24
 > uk: підвищення зарплати
-> example: I haven't had a **pay rise** for two years. — У мене два роки не було підвищення зарплати.
+> example: I haven't had a **pay rise** for two years. — Мені вже два роки не підвищували зарплату.
 > note: UK *pay rise*, US *raise*.
 
 > [!word] promotion
 > ipa: /prəˈməʊʃən/ · ipa-us: /prəˈmoʊʃən/ · pos: noun · level: B1 · id: en-b1-career-w25
 > uk: підвищення (на посаді)
-> example: She hopes to get a **promotion** this year. — Вона сподівається на підвищення цього року.
+> example: She hopes to get a **promotion** this year. — Вона сподівається цього року отримати підвищення.
 
 > [!word] get promoted
 > ipa: /ˌɡet prəˈməʊtɪd/ · ipa-us: /ˌɡet prəˈmoʊt̬ɪd/ · pos: phrase · level: B1 · id: en-b1-career-w26
@@ -268,7 +268,7 @@ estimatedMinutes: 45
 > [!word] commute
 > ipa: /kəˈmjuːt/ · pos: verb · level: B1 · id: en-b1-career-w27
 > uk: їздити на роботу (щодня, з дому)
-> example: I **commute** an hour each way. — Я їжджу на роботу годину в один бік.
+> example: I **commute** an hour each way. — Я добираюся на роботу годину в один бік.
 > note: іменник — *commute*: *a long commute*.
 
 > [!word] remote
@@ -285,7 +285,7 @@ estimatedMinutes: 45
 > [!word] work-life balance
 > ipa: /ˌwɜːk laɪf ˈbæləns/ · ipa-us: /ˌwɜːrk laɪf ˈbæləns/ · pos: noun · level: B1 · id: en-b1-career-w30
 > uk: баланс між роботою й особистим життям
-> example: Flexible hours help me keep a good **work-life balance**. — Гнучкий графік допомагає зберігати баланс роботи й життя.
+> example: Flexible hours help me keep a good **work-life balance**. — Гнучкий графік допомагає мені зберігати баланс між роботою й особистим життям.
 
 > [!word] deadline
 > ipa: /ˈdedlaɪn/ · pos: noun · level: B1 · id: en-b1-career-w31
@@ -296,13 +296,13 @@ estimatedMinutes: 45
 > [!word] negotiate
 > ipa: /nɪˈɡəʊʃieɪt/ · ipa-us: /nɪˈɡoʊʃieɪt/ · pos: verb · level: B1 · id: en-b1-career-w32
 > uk: домовлятися; вести переговори
-> example: Don't be afraid to **negotiate** your salary. — Не бійся торгуватися щодо зарплати.
+> example: Don't be afraid to **negotiate** your salary. — Не бійся торгуватися за зарплату.
 
 > [!word] resign
 > ipa: /rɪˈzaɪn/ · pos: verb · level: B1 · id: en-b1-career-w33
 > uk: звільнитися (за власним бажанням)
 > example: She **resigned** to start her own business. — Вона звільнилася, щоб почати власну справу.
-> note: *s* читається як /z/, *g* — німа: [рі-ЗАЙН].
+> note: *s* читається як /z/, а *g* не вимовляється: [рі-ЗАЙН].
 
 > [!word] quit
 > ipa: /kwɪt/ · pos: verb · level: B1 · id: en-b1-career-w34
@@ -320,13 +320,13 @@ estimatedMinutes: 45
 > [!word] strength
 > ipa: /streŋθ/ · pos: noun · level: B1 · id: en-b1-career-w36
 > uk: сильна сторона; сила
-> example: My main **strength** is problem-solving. — Моя головна сильна сторона — розвʼязання проблем.
+> example: My main **strength** is problem-solving. — Моя головна сильна сторона — вміння розвʼязувати проблеми.
 > note: у кінці /ŋθ/: носове «н» як у *sing*, одразу язик між зубами — без «г» і без «с».
 
 > [!word] weakness
 > ipa: /ˈwiːknəs/ · pos: noun · level: B1 · id: en-b1-career-w37
 > uk: слабка сторона; слабкість
-> example: My **weakness** is that I find it hard to say no. — Моя слабкість — мені важко відмовляти.
+> example: My **weakness** is that I find it hard to say no. — Моя слабкість у тому, що мені важко відмовляти.
 
 > [!word] motivated
 > ipa: /ˈməʊtɪveɪtɪd/ · ipa-us: /ˈmoʊt̬əveɪt̬ɪd/ · pos: adj · level: B1 · id: en-b1-career-w38
@@ -342,7 +342,7 @@ estimatedMinutes: 45
 > [!word] flexible
 > ipa: /ˈfleksəbəl/ · pos: adj · level: B1 · id: en-b1-career-w40
 > uk: гнучкий
-> example: The job has **flexible** hours. — Ця робота має гнучкий графік.
+> example: The job has **flexible** hours. — На цій роботі гнучкий графік.
 
 > [!word] team player
 > ipa: /ˌtiːm ˈpleɪə/ · ipa-us: /ˌtiːm ˈpleɪər/ · pos: noun · level: B1 · id: en-b1-career-w41
@@ -353,7 +353,7 @@ estimatedMinutes: 45
 > ipa: /rɪˌspɒnsəˈbɪləti/ · ipa-us: /rɪˌspɑːnsəˈbɪlət̬i/ · pos: noun · level: B1 · id: en-b1-career-w42
 > uk: відповідальність; обовʼязок
 > example: My main **responsibility** is customer service. — Мій головний обовʼязок — обслуговування клієнтів.
-> note: *take on more responsibility* — брати більше відповідальності.
+> note: *take on more responsibility* — брати на себе більше відповідальності.
 
 > [!word] in charge of
 > ipa: /ɪn ˈtʃɑːdʒ əv/ · ipa-us: /ɪn ˈtʃɑːrdʒ əv/ · pos: phrase · level: B1 · id: en-b1-career-w43
@@ -387,7 +387,7 @@ estimatedMinutes: 45
 > - [ ] I worked as a project manager four years ago.
 > - [ ] I'm working as a project manager since four years.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-career-l03
 > audio: Please send your CV and a cover letter.
 
@@ -408,7 +408,7 @@ estimatedMinutes: 45
 > - [ ] вона знайшла нового клієнта
 > - [ ] вона організувала конференцію
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-career-l06
 > audio: My biggest strength is that I'm very organised.
 
@@ -426,7 +426,7 @@ estimatedMinutes: 45
 > **Interviewer:** Great. Do you have any questions for us?
 > **Daria:** Yes — what does a typical day look like in this **position**?
 >
-> Дарʼя відповідає за схемою: факт → приклад. На «слабкість» вона показує, **що вже робить** з нею, — це найкраща стратегія. І завжди має питання наприкінці.
+> Дарʼя відповідає за схемою: факт → приклад. Говорячи про слабкість, вона показує, **що вже з нею робить**, — це найкраща стратегія. І наприкінці в неї обовʼязково є питання.
 
 ## Вимова
 
@@ -442,7 +442,7 @@ estimatedMinutes: 45
 > text: I've worked in sales for five years.
 > ipa: /aɪv ˈwɜːkt ɪn ˈseɪlz fə ˈfaɪv ˈjɪəz/
 > tip: I've — не ковтай /v/; worked — /t/ у кінці, один склад.
-> uk: Я працюю в продажах пʼять років.
+> uk: Я пʼять років працюю у сфері продажів.
 
 > [!speak] Сильна сторона
 > level: B1 · id: en-b1-career-s03
@@ -476,8 +476,8 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-career-s07
 > text: I resigned because I wanted a better work-life balance.
 > ipa: /aɪ rɪˈzaɪnd bɪˈkɒz aɪ ˈwɒntɪd ə ˈbetə ˌwɜːk laɪf ˈbæləns/
-> tip: resigned — [рі-ЗАЙНД], g німа; balance — [БЕ-ленс], /æ/.
-> uk: Я звільнився, бо хотів кращого балансу роботи й життя.
+> tip: resigned — [рі-ЗАЙНД], g не вимовляється; balance — [БЕ-ленс], /æ/.
+> uk: Я звільнився, бо хотів кращого балансу між роботою й особистим життям.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-career-s08
@@ -540,7 +540,7 @@ estimatedMinutes: 45
 > Please find my [[CV]] attached.
 > ```
 
-> [!quiz] Склади відповідь: «Я працюю в маркетингу чотири роки».
+> [!quiz] Склади відповідь: «Я чотири роки працюю в маркетингу».
 > level: B1 · type: order · id: en-b1-career-q06
 >
 > ```text order
@@ -569,7 +569,7 @@ estimatedMinutes: 45
 > - [x] I sometimes take on too much work, so I've started using a planner and saying no more often.
 > - [ ] My weak side is English.
 >
-> **Пояснення:** найкраща відповідь — **чесна слабкість + що ти вже з нею робиш**. «Немає слабкостей» звучить нещиро, а «часто запізнююся» — знищує шанси. *Weak side* — калька, правильно *weakness*.
+> **Пояснення:** найкраща відповідь — **чесна слабкість + що ти вже з нею робиш**. «Немає слабкостей» звучить нещиро, а «часто запізнююся» знищує всі шанси. *Weak side* — калька, правильно *weakness*.
 
 > [!quiz] «I got the sack.» Що сталося?
 > level: B1 · id: en-b1-career-q09
@@ -578,7 +578,7 @@ estimatedMinutes: 45
 > - [ ] Я отримав мішок подарунків.
 > - [ ] Я підписав контракт.
 >
-> **Пояснення:** *get the sack* (UK, розмовне) = *be fired* — бути звільненим. Само звільнитися — *resign* або *quit*.
+> **Пояснення:** *get the sack* (UK, розмовне) = *be fired* — бути звільненим. Звільнитися самому — *resign* або *quit*.
 
 > [!quiz] IELTS Reading (General Training): True, False чи Not Given?
 > level: B1 · id: en-b1-career-q10
@@ -604,7 +604,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** про курс сказано лише, що він **дводенний** і що його проходять усі. Чи платять за нього — у тексті немає → **Not Given**. Пастка: «зазвичай за навчання платять» — це твої знання про світ, а IELTS перевіряє лише текст.
 
-> [!quiz] IELTS Short answer: відповідь НЕ БІЛЬШЕ ДВОХ слів з оголошення
+> [!quiz] IELTS Short answer: відповідь — НЕ БІЛЬШЕ ДВОХ слів з оголошення
 > level: B1 · type: fill · id: en-b1-career-q12
 >
 > ```text fill
@@ -619,7 +619,7 @@ estimatedMinutes: 45
 > - [ ] She retired to start her own business.
 > - [ ] She hired to start her own business.
 >
-> **Пояснення:** *resign* — піти **самому**. *Be fired* — тебе звільнили. *Retire* — вийти на пенсію. *Hire* — наймати.
+> **Пояснення:** *resign* — піти з роботи **самому**. *Be fired* — тебе звільнили. *Retire* — вийти на пенсію. *Hire* — наймати.
 
 ## Фішки
 
@@ -627,7 +627,7 @@ estimatedMinutes: 45
 > *Salary* походить від латинського *salarium*, повʼязаного з *sal* — сіль. Найпопулярніша версія: римські солдати отримували гроші «на сіль» (історики досі сперечаються, чи це правда). Звідси й вираз *worth your salt* — «вартий своєї платні», тобто добрий працівник.
 
 > [!reel] 📄 CV — це латина
-> *CV* — *curriculum vitae*, «хід життя». В Америці кажуть *résumé* — французьке «підсумок». Британське CV часто довше, а американське résumé — 1 сторінка. А фото в англомовному CV зазвичай не додають, щоб уникнути дискримінації.
+> *CV* — *curriculum vitae*, «хід життя». В Америці кажуть *résumé* — французьке «підсумок». Британське CV часто довше, а американське résumé зазвичай займає одну сторінку. А фото в англомовному CV зазвичай не додають, щоб уникнути дискримінації.
 
 > [!reel] 🕘 Nine-to-five
 > *A nine-to-five job* — звичайна офісна робота з 9:00 до 17:00, з понеділка по пʼятницю. Вираз став ще популярнішим після хіта Доллі Партон «9 to 5» (1980). Сьогодні часто кажуть: *I quit my nine-to-five to work remotely.*

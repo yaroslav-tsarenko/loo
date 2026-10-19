@@ -143,7 +143,7 @@ estimatedMinutes: 45
 |---|---|---|
 | я сам | I **cut** my hair. | Я сам підстриг собі волосся. |
 | перукар | I **had** my hair **cut**. | Я підстригся (у перукаря). |
-| механік | We**'re having** the car **serviced** tomorrow. | Завтра нам обслуговуватимуть машину. |
+| механік | We**'re having** the car **serviced** tomorrow. | Завтра ми віддаємо машину на техобслуговування. |
 | фотограф | You need to **have** your photo **taken** for the visa. | Тобі треба сфотографуватися на візу. |
 
 **get + предмет + V3** — те саме, але розмовніше: *I need to **get** my phone **fixed**.*
@@ -233,21 +233,21 @@ estimatedMinutes: 45
 
 ### IELTS: пасив у Writing і Reading
 
-- **Writing Task 1, процес** — Present Simple Passive + звʼязки *First, Next, After that, Once…, Finally*: *First, the raw materials **are extracted** from the ground. They **are then transported** to the factory, where they **are crushed**.* Пам'ятай: процес — не історія, тому не *were extracted*.
+- **Writing Task 1, процес** — Present Simple Passive + звʼязки *First, Next, After that, Once…, Finally*: *First, the raw materials **are extracted** from the ground. They **are then transported** to the factory, where they **are crushed**.* Памʼятай: процес — не історія, тому не *were extracted*.
 - **Writing Task 2** — безособовий пасив робить думку обережною й академічною (hedging): ***It is widely believed that** remote work improves productivity; however…* · *Social media **is often thought to** harm teenagers' self-esteem.*
 - **Reading** — у статтях пасив ховає виконавця. Спитай себе: *хто* це зробив і чи текст про це взагалі каже? Від цього часто залежить відповідь *Not Given*.
 
 ## Приклади
 
 - The museum **is being renovated**, so it's closed until spring. — Музей реставрують, тому він зачинений до весни.
-- All the tickets **had been sold** by the time we got to the box office. — Поки ми дійшли до каси, усі квитки вже розпродали.
+- All the tickets **had been sold** by the time we got to the box office. — Коли ми дійшли до каси, усі квитки вже розпродали.
 - The new terminal **will have been completed** by 2028. — Новий термінал добудують до 2028 року.
 - I was **told** to wait outside. — Мені сказали почекати надворі.
 - I **hate being told** what to do. — Ненавиджу, коли мені вказують, що робити.
 - She **got promoted** after only a year. — Її підвищили лише через рік.
-- We**'re having** solar panels **installed** on the roof. — Нам встановлюють сонячні панелі на даху.
+- We**'re having** solar panels **installed** on the roof. — Нам ставлять сонячні панелі на дах.
 - Where do you **get** your nails **done**? — Де ти робиш манікюр?
-- He **had** his car **broken into** last night. — Учора вночі йому розбили машину й залізли всередину.
+- He **had** his car **broken into** last night. — Минулої ночі хтось заліз у його машину.
 - **It is estimated that** 40 % of food is wasted. — За оцінками, 40 % їжі викидають.
 - The company **is reported to have lost** millions. — Повідомляють, що компанія втратила мільйони.
 - There **are thought to be** fewer than 500 of these tigers left in the wild. — Вважають, що в дикій природі залишилося менше 500 таких тигрів.
@@ -310,7 +310,7 @@ estimatedMinutes: 45
 > [!word] extract
 > ipa: /ɪkˈstrækt/ · pos: verb · level: B2 · id: en-b2-passive-w10
 > uk: видобувати; витягати, видаляти
-> example: The oil **is extracted** from the seeds. — Олію видобувають із насіння.
+> example: The oil **is extracted** from the seeds. — Олію отримують із насіння.
 > note: іменник — an extract /ˈek.strækt/ (уривок; екстракт), наголос на першому складі.
 
 > [!word] raw materials
@@ -363,11 +363,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *I'm having my car serviced* — каузатив у Present Continuous (домовленість на завтра): машину обслуговуватиме механік, а не я.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-passive-l03
 > audio: The suspect is believed to have left the country.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-passive-l04
 > audio: We had our flat renovated last year.
 
@@ -443,7 +443,7 @@ estimatedMinutes: 45
 > [!quiz] Перепиши новину в пасиві
 > level: B2 · type: fill · id: en-b2-passive-q08
 >
-> *Короткі новини з різних тем.*
+> *Короткі новини на різні теми.*
 >
 > ```text fill
 > Police are questioning two men. → Two men [[are being questioned]] by police.

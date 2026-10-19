@@ -33,7 +33,7 @@ estimatedMinutes: 55
 
 На B2 ти вчив частки як «напрямок»: *up* — більше, *out* — назовні, *off* — відʼєднати. На C1 ці самі частки працюють **метафорично**: дієслово описує вже не рух тіла, а рух думки, причини чи проблеми. *Iron out* — не прасувати сорочку, а «розпрасувати» складки в домовленості; *come up against* — не врізатися в стіну, а зіткнутися з опором; *sink in* — не потонути, а «просочитися» у свідомість.
 
-Чому це важливо для C1 і IELTS: такі дієслова — основа аналітичної мови. У есе Task 2 ти пояснюєш **причини** (*stem from*), **наслідки** (*bring about*), **умови** (*hinge on*), **рішення** (*call for, phase in*). Багато з них — **формальні фразові**: їх спокійно вживають у The Economist і наукових статтях. А частина — розмовна (*pan out, buy into*), і в есе їх краще замінити латинізмом.
+Чому це важливо для C1 і IELTS: такі дієслова — основа аналітичної мови. В есе Task 2 ти пояснюєш **причини** (*stem from*), **наслідки** (*bring about*), **умови** (*hinge on*), **рішення** (*call for, phase in*). Багато з них — **формальні фразові**: їх спокійно вживають у The Economist і наукових статтях. А частина — розмовна (*pan out, buy into*), і в есе їх краще замінити латинізмом.
 
 > [!diagram] Частка як образ: від фізичного до абстрактного
 > ```yaml
@@ -167,7 +167,7 @@ estimatedMinutes: 55
 > columns: { ok: "Доречні в IELTS Writing", sw: "Краще замінити в есе" }
 > nodes:
 >   - { id: o1, col: ok, label: "причини й наслідки", text: "bring about · stem from · account for", note: "академічні", tone: green }
->   - { id: s1, col: sw, label: "розмовні", text: "pan out → turn out / develop", note: "Speaking — ок", tone: orange }
+>   - { id: s1, col: sw, label: "розмовні", text: "pan out → turn out / develop", note: "у Speaking — доречно", tone: orange }
 >   - { id: o2, col: ok, label: "аргументація", text: "set out · bear out · draw on · call for", note: "у наукових статтях", tone: green }
 >   - { id: s2, col: sw, label: "розмовні", text: "buy into → accept · boil down to → be essentially", note: "фамільярно", tone: orange }
 >   - { id: o3, col: ok, label: "політика й економіка", text: "phase in · step down · a downturn · a backlash", note: "мова новин", tone: green }
@@ -184,16 +184,16 @@ estimatedMinutes: 55
 ## Приклади
 
 - *The new law **brought about** a sharp fall in road deaths.* — Новий закон спричинив різке зменшення смертності на дорогах.
-- *Most of their problems **stem from** a lack of communication.* — Більшість їхніх проблем походить від браку спілкування.
+- *Most of their problems **stem from** a lack of communication.* — Більшість їхніх проблем виникає через брак спілкування.
 - *In the end, it all **boils down to** trust.* — Зрештою все зводиться до довіри.
 - *The future of the project **hinges on** funding.* — Майбутнє проєкту цілком залежить від фінансування.
-- *Reformers often **come up against** fierce resistance.* — Реформатори часто стикаються з запеклим опором.
+- *Reformers often **come up against** fierce resistance.* — Реформатори часто стикаються із запеклим опором.
 - *We still need to **iron out** a few details of the contract.* — Нам ще треба залагодити кілька деталей договору.
 - *The central bank cut interest rates to **stave off** a recession.* — Центробанк знизив ставки, щоб відвернути рецесію.
 - *The deal **fell through** at the last minute.* — Угода зірвалася в останню хвилину.
 - *The results **bear out** our original hypothesis.* — Результати підтверджують нашу початкову гіпотезу.
 - *The essay **draws on** data from twenty countries.* — Есе спирається на дані з двадцяти країн.
-- *It took a while for the news to **sink in**.* — Минув час, поки новина дійшла до свідомості.
+- *It took a while for the news to **sink in**.* — Минув якийсь час, поки цю новину вдалося усвідомити.
 - *The decision caused a public **backlash**.* — Рішення викликало різку негативну реакцію суспільства.
 
 ## Слова
@@ -210,8 +210,8 @@ estimatedMinutes: 55
 > [!word] stem from
 > ipa: /ˈstem frɒm/ · ipa-us: /ˈstem frʌm/ · pos: verb · level: C1 · id: en-c1-phrasal-abstract-w02
 > uk: походити від, бути наслідком
-> example: His anxiety **stems from** a difficult childhood. — Його тривожність походить від важкого дитинства.
-> note: нейтрально-формальне; не вживається в Continuous і пасиві. Ідеально для есе-причин у Task 2.
+> example: His anxiety **stems from** a difficult childhood. — Його тривожність — наслідок важкого дитинства.
+> note: нейтрально-формальне; не вживається в Continuous і пасиві. Ідеально для есе про причини в Task 2.
 
 > [!word] boil down to
 > ipa: /ˌbɔɪl ˈdaʊn tuː/ · pos: verb · level: C1 · id: en-c1-phrasal-abstract-w03
@@ -267,7 +267,7 @@ estimatedMinutes: 55
 > [!word] fend off
 > ipa: /ˌfend ˈɒf/ · ipa-us: /ˌfend ˈɔːf/ · pos: verb · level: C1 · id: en-c1-phrasal-abstract-w11
 > uk: відбиватися від (критики, питань, атак)
-> example: The minister spent the interview **fending off** awkward questions. — Міністр усе інтервʼю відбивався від незручних питань.
+> example: The minister spent the interview **fending off** awkward questions. — Міністр усе інтервʼю відбивався від незручних запитань.
 > note: нейтральне; *fend off criticism / competitors / attackers*.
 
 > [!word] fall through
@@ -306,7 +306,7 @@ estimatedMinutes: 55
 > ipa: /ˌstep ˈdaʊn/ · pos: verb · level: C1 · id: en-c1-phrasal-abstract-w17
 > uk: піти з посади, у відставку
 > example: The CEO **stepped down** after the scandal. — Генеральний директор пішов у відставку після скандалу.
-> note: нейтральне, м'якше за *resign*; *step down as chairman / from the board*.
+> note: нейтральне, мʼякше за *resign*; *step down as chairman / from the board*.
 
 ### Думка, рішення, аргумент
 
@@ -351,7 +351,7 @@ estimatedMinutes: 55
 > [!word] draw on
 > ipa: /ˈdrɔː ɒn/ · ipa-us: /ˈdrɔː ɑːn/ · pos: verb · level: C1 · id: en-c1-phrasal-abstract-w24
 > uk: спиратися на, використовувати (досвід, джерела)
-> example: The novel **draws on** the author's childhood in Lviv. — Роман спирається на дитинство автора у Львові.
+> example: The novel **draws on** the author's childhood in Lviv. — В основі роману — дитячі роки автора у Львові.
 > forms: draw on → drew on → drawn on
 > note: нейтрально-формальне; також *draw upon*. Нерозділюване.
 
@@ -455,7 +455,7 @@ estimatedMinutes: 55
 > [!word] backlash
 > ipa: /ˈbæklæʃ/ · pos: noun · level: C1 · id: en-c1-phrasal-abstract-w40
 > uk: різка негативна реакція, хвиля протесту
-> example: The tax rise provoked a **backlash** from voters. — Підвищення податку викликало різку реакцію виборців.
+> example: The tax rise provoked a **backlash** from voters. — Підвищення податку викликало хвилю невдоволення серед виборців.
 > note: нейтральне; *a backlash against sth / from sb*; дієслова — *provoke, spark, face*.
 
 > [!word] outcry
@@ -491,7 +491,7 @@ estimatedMinutes: 55
 > [!word] onset
 > ipa: /ˈɒnset/ · ipa-us: /ˈɑːnset/ · pos: noun · level: C1 · id: en-c1-phrasal-abstract-w46
 > uk: початок (чогось неприємного)
-> example: Exercise can delay the **onset** of heart disease. — Фізичні вправи можуть відтермінувати початок серцевих хвороб.
+> example: Exercise can delay the **onset** of heart disease. — Фізичні вправи можуть відстрочити появу серцевих хвороб.
 > note: формальне, медицина й наука: *the onset of winter / symptoms / a crisis*.
 
 > [!word] cutback
@@ -509,13 +509,13 @@ estimatedMinutes: 55
 > [!word] spin-off
 > ipa: /ˈspɪn ɒf/ · ipa-us: /ˈspɪn ɔːf/ · pos: noun · level: C1 · id: en-c1-phrasal-abstract-w49
 > uk: побічний результат; дочірня компанія; спін-оф (серіал)
-> example: The university's research has produced several commercial **spin-offs**. — Дослідження університету дали кілька комерційних побічних продуктів.
+> example: The university's research has produced several commercial **spin-offs**. — Завдяки дослідженням університету зʼявилося кілька комерційних проєктів.
 > note: нейтральне; *a spin-off from sth*. Про серіали: *a spin-off of / from a hit show* — спін-оф популярного шоу.
 
 > [!word] shortfall
 > ipa: /ˈʃɔːtfɔːl/ · ipa-us: /ˈʃɔːrtfɔːl/ · pos: noun · level: C1 · id: en-c1-phrasal-abstract-w50
 > uk: дефіцит, нестача
-> example: The council faces a £5 million **shortfall** in its budget. — Міська рада має дефіцит бюджету в 5 мільйонів фунтів.
+> example: The council faces a £5 million **shortfall** in its budget. — Міській раді бракує в бюджеті 5 мільйонів фунтів.
 > note: нейтральне, академічне; *a shortfall in funding / supply*. Від *fall short (of)*.
 
 ## Слухаємо
@@ -527,7 +527,7 @@ estimatedMinutes: 55
 > - [ ] We still need to iron a few problems out before the lunch.
 > - [ ] We still needed to iron out a few problems before the launch.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-phrasal-abstract-l02
 > audio: The results bear out our original hypothesis.
 
@@ -552,7 +552,7 @@ estimatedMinutes: 55
 > - [ ] Дані про борги споживачів недостовірні.
 > - [ ] Економіка в той період зростала.
 >
-> **Пояснення:** *Many people assume… However* — сигнал, що лектор заперечуватиме поширену думку. *The data bear out a rather different picture* — дані підтверджують іншу картину; *merely brought about what was already inevitable* — криза лише спричинила те, що й так мало статися. У IELTS Part 4 такі сигнальні слова (*however, merely*) — ключ до відповіді.
+> **Пояснення:** *Many people assume… However* — сигнал, що лектор заперечуватиме поширену думку. *The data bear out a rather different picture* — дані підтверджують іншу картину; *merely brought about what was already inevitable* — криза лише спричинила те, що й так мало статися. В IELTS Part 4 такі сигнальні слова (*however, merely*) — ключ до відповіді.
 
 > [!listen] Новини: що сталося після оголошення?
 > level: C1 · type: answer · id: en-c1-phrasal-abstract-l05
@@ -562,9 +562,9 @@ estimatedMinutes: 55
 > - [ ] Міністр транспорту пішов у відставку.
 > - [ ] Журналісти підтримали план уряду.
 >
-> **Пояснення:** *phase in* — поступово запроваджувати; *backlash* — різка негативна реакція; *calling for* — вимагають; *fending off questions* — відбивався від питань; *refused to step down* — відмовився піти у відставку.
+> **Пояснення:** *phase in* — поступово запроваджувати; *backlash* — різка негативна реакція; *calling for* — вимагають; *fending off questions* — відбивався від запитань; *refused to step down* — відмовився піти у відставку.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-phrasal-abstract-l06
 > audio: It took a while for the news to sink in.
 
@@ -594,8 +594,8 @@ estimatedMinutes: 55
 > level: C1 · id: en-c1-phrasal-abstract-s02
 > text: Most of these problems stem from poverty.
 > ipa: /ˈməʊst əv ðiːz ˈprɒbləmz ˈstem frəm ˈpɒvəti/
-> tip: from — слабке [фрем]; poverty — наголос на перший склад [ПО-ве-ті].
-> uk: Більшість цих проблем походять від бідності.
+> tip: from — слабке [фрем]; poverty — наголос на першому складі [ПО-ве-ті].
+> uk: Більшість цих проблем спричинена бідністю.
 
 > [!speak] Фразовий іменник
 > level: C1 · id: en-c1-phrasal-abstract-s03

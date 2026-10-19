@@ -31,7 +31,7 @@ estimatedMinutes: 40
 
 ## Помічник do / does
 
-У Present Simple звичайні дієслова не вміють самі робити питання й заперечення. На допомогу приходить «службове» дієслово **do** (для he / she / it — **does**). Воно нічого не перекладається, а лише «тримає» граматику.
+У Present Simple звичайні дієслова не вміють самі утворювати питання й заперечення. На допомогу приходить «службове» дієслово **do** (для he / she / it — **does**). Воно ніяк не перекладається, а лише «тримає» граматику.
 
 | | I / you / we / they | he / she / it |
 |---|---|---|
@@ -119,7 +119,7 @@ estimatedMinutes: 40
 
 ## Be чи do?
 
-Не кожне питання потребує *do*! Якщо в реченні є **be** (*am / is / are*), він сам робить питання й заперечення.
+Не кожне питання потребує *do*! Якщо в реченні є **be** (*am / is / are*), воно саме утворює питання й заперечення.
 
 | З be | З іншим дієсловом |
 |---|---|
@@ -196,7 +196,7 @@ estimatedMinutes: 40
 > ipa: /ˈdɪfrənt/ · pos: adj · level: A1 · id: en-a1-present-questions-w10
 > uk: різний; інший
 > example: My brother and I are very **different**. — Ми з братом дуже різні.
-> note: different from — відмінний від.
+> note: different from — не такий, як; інший, ніж.
 
 > [!word] the same
 > ipa: /ðə ˈseɪm/ · pos: phrase · level: A1 · id: en-a1-present-questions-w11
@@ -225,11 +225,11 @@ estimatedMinutes: 40
 > - [ ] Where do you work?
 > - [ ] Where is he working?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-questions-l03
 > audio: Do you speak English?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-present-questions-l04
 > audio: I don't remember.
 
@@ -284,10 +284,10 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] «Where you live?», «You like coffee?»
-> Українське питання будується інтонацією, тож рука «забуває» помічника. Англійська вимагає: ***Where do you live? Do you like coffee?*** (У розмові *You like coffee?* з інтонацією буває, але це неформальне перепитування, а не норма.)
+> Українське питання часто будується лише інтонацією, тож помічника легко забути. Англійська вимагає: ***Where do you live? Do you like coffee?*** (У розмові *You like coffee?* з інтонацією буває, але це неформальне перепитування, а не норма.)
 
 > [!pitfall] «Does she works?», «He doesn't likes»
-> Після *does / doesn't* — **початкова форма**: *Does she work? He doesn't like.* -s з'являється в реченні лише один раз.
+> Після *does / doesn't* — **початкова форма**: *Does she work? He doesn't like tea.* -s зʼявляється в реченні лише один раз.
 
 > [!pitfall] «I don't know nothing» — подвійне заперечення
 > Українською «я нічого не знаю» — два заперечення, і це норма. В англійській одне заперечення: ***I don't know anything*** або *I know nothing*. «I don't know nothing» — помилка (або дуже розмовне просторіччя).
@@ -362,7 +362,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *Taras* = *he* → *does* + *live* без -s.
 
-> [!quiz] Яке питання — до «I go to the gym three times a week»?
+> [!quiz] На яке питання відповідає «I go to the gym three times a week»?
 > level: A1 · id: en-a1-present-questions-q07
 > - [ ] Where do you go?
 > - [x] How often do you go to the gym?
@@ -429,7 +429,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** QUASI: *Where* → *does* → *your mum* → *work* (без -s).
 
-> [!quiz] Склади речення: «Ми не працюємо в неділю»
+> [!quiz] Склади речення: «Ми не працюємо по неділях»
 > level: A1 · type: order · id: en-a1-present-questions-q13
 >
 > ```text order
@@ -459,12 +459,12 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🧩 Do — найпрацьовитіше слово англійської
-> *Do* буває і помічником (*Do you know?*), і звичайним дієсловом «робити». Тому *What do you do?* — нормальне питання: «Що ти робиш (за фахом)?», тобто «Ким ти працюєш?»
+> *Do* буває і помічником (*Do you know?*), і звичайним дієсловом «робити». Тому *What do you do?* — нормальне питання: дослівно «Що ти робиш?», а по суті — «Ким ти працюєш?»
 
 > [!reel] 🎸 I can't get no satisfaction
 > Rolling Stones співають подвійне заперечення — і в пісні це звучить круто. Але це розмовний стиль. На співбесіді чи в листі — *I can't get any satisfaction*.
 
-> [!reel] 🗣️ Do you…? звучить як «дʼю»
+> [!reel] 🗣️ Do you…? звучить як «дже»
 > У швидкій розмові *Do you* зливається в /dʒə/ — «дже»: *D'you like it?* Почуєш «Джелайкіт?» — це воно.
 
 ## Джерела та що почитати

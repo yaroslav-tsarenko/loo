@@ -31,7 +31,7 @@ estimatedMinutes: 40
 
 ## Простими словами
 
-Українська виділяє головне порядком слів і частками: «**Саме Олена** знайшла баг», «Баг знайшла **Олена**», «**Ось що** мені треба — відпочинок». Англійський порядок слів жорсткий, тому англійці **розщеплюють** речення на дві частини і ставлять головне в окреме «світле місце». Звідси назва: *cleft* — «розколотий».
+Українська виділяє головне порядком слів і частками: «**Саме Олена** знайшла баг», «Баг знайшла **Олена**», «**Ось що** мені треба — відпочинок». Англійський порядок слів жорсткий, тому в англійській речення **розщеплюють** на дві частини, а головне виносять на окреме, помітне місце. Звідси назва: *cleft* — «розколотий».
 
 Дві головні моделі:
 
@@ -93,7 +93,7 @@ estimatedMinutes: 40
 **Дії** — через *do*: *What + підмет + did / does + **was / is** + (to) V1*:
 
 - *She resigned.* → ***What she did was** (to) **resign**.* — Вона просто взяла й звільнилася.
-- ***What you should do is** call the bank.* — Що тобі треба зробити — то це подзвонити в банк.
+- ***What you should do is** call the bank.* — Що тобі варто зробити, так це подзвонити в банк.
 
 **Ціла подія** — *What happened was (that)…*: ***What happened was that** the server crashed.*
 
@@ -157,7 +157,7 @@ estimatedMinutes: 40
 
 - **It-cleft** — головний наголос на фокусі: *It was **O**lena who found it.*
 - **Wh-cleft** — дві інтонаційні хвилі: перша частина з легким підйомом, пауза, падіння на фокусі: *What I **need** ↗ | is a **hol**iday ↘.*
-- У розмові «рамки» *The thing is…*, *What I mean is…*, *What happened was…* ще й **дають секунду подумати** — це підтримує плавність (Fluency).
+- У розмові «рамки» *The thing is…*, *What I mean is…*, *What happened was…* ще й **дають секунду подумати** — це допомагає говорити плавно (Fluency).
 
 ### Регістр
 
@@ -193,7 +193,7 @@ estimatedMinutes: 40
 - **It was** my grandmother **who** taught me to cook. — Саме бабуся навчила мене готувати.
 - **It wasn't until** I moved abroad **that** I started missing borshch. — Лише переїхавши за кордон, я почав сумувати за борщем.
 - **It's not** the noise **that** bothers me — **it's** the smell. — Мені заважає не шум, а запах.
-- **What** I love about Lviv **is** its coffee culture. — Що я люблю у Львові — то це культуру кави.
+- **What** I love about Lviv **is** its coffee culture. — Що я люблю у Львові, так це його кавову культуру.
 - **What** we did **was** (to) call a locksmith. — Ми просто викликали слюсаря.
 - **What happened was that** the train broke down near Poltava. — Сталося так, що потяг зламався біля Полтави.
 - **All** you need **is** a passport and a ticket. — Тобі потрібні лише паспорт і квиток.
@@ -219,7 +219,7 @@ estimatedMinutes: 40
 > ipa: /ˈpɪn.pɔɪnt/ · pos: verb · level: C1 · id: en-c1-cleft-w03
 > uk: точно визначити, встановити
 > example: It was a junior engineer who **pinpointed** the cause of the crash. — Саме молодший інженер точно встановив причину збою.
-> note: pinpoint a problem / the cause / the location. Буквально pin point — «вістря шпильки»: така точність.
+> note: pinpoint a problem / the cause / the location. Дослівно pin point — «вістря шпильки», тобто влучити дуже точно.
 
 > [!word] at stake
 > ipa: /ət ˈsteɪk/ · pos: phrase · level: C1 · id: en-c1-cleft-w04
@@ -272,11 +272,11 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *All I need* = «мені потрібен лише…». *What I need* — «мені потрібен саме…». Різниця — в першому слові.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-cleft-l03
 > audio: It wasn't until midnight that we finally got home.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-cleft-l04
 > audio: What surprised me most was how friendly everyone was.
 
@@ -320,19 +320,19 @@ estimatedMinutes: 40
 > level: C1 · id: en-c1-cleft-s03
 > text: All you have to do is sign here.
 > ipa: /ɔːl ju ˈhæf tə duː ɪz saɪn hɪə/
-> tip: have to у швидкому мовленні — /ˈhæf tə/; sign — g німа: /saɪn/.
+> tip: have to у швидкому мовленні — /ˈhæf tə/; у sign літера g не читається: /saɪn/.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-cleft-s04
 > text: The thing is, I've already booked the tickets.
 > ipa: /ðə ˈθɪŋ ɪz aɪv ɔːlˈred.i bʊkt ðə ˈtɪk.ɪts/
-> tip: thing — /θ/ язиком між зубами, не «сінг»; booked — закінчення /t/.
+> tip: thing — звук /θ/: кінчик язика між зубами, а не «сінг»; booked — закінчення /t/.
 
 > [!speak] Скажи вголос
 > level: C1 · id: en-c1-cleft-s05
 > text: It wasn't until I moved to London that I understood British humour.
 > ipa: /ɪt ˈwɒz.ənt ənˈtɪl aɪ muːvd tə ˈlʌn.dən ðət aɪ ˌʌn.dəˈstʊd ˈbrɪt.ɪʃ ˈhjuː.mə/
-> tip: humour — /ˈhjuː.mə/, з /j/ на початку: «х'юмə».
+> tip: humour — /ˈhjuː.mə/: після /h/ звучить /j/, як у слові huge.
 
 > [!speak] IELTS Speaking, Part 3 — соцмережі й думки людей
 > level: C1 · id: en-c1-cleft-s06
@@ -352,7 +352,7 @@ estimatedMinutes: 40
 > Українське «саме» не перекладається словом *exactly* перед підметом. Природно: ***It was my brother who** broke it.* А «саме це» в реакції — *That's **exactly what** I mean.*
 
 > [!pitfall] «The reason is because…» в есе
-> У розмові носії так кажуть, але в академічному письмі це вважають надлишковим. Пиши: *The reason (why) … **is that**…* І пам'ятай про *that*, не *when*, після обставини часу в it-cleft: *It was in 2019 **that** we met.*
+> У розмові носії так кажуть, але в академічному письмі це вважають надлишковим. Пиши: *The reason (why) … **is that**…* І памʼятай про *that*, не *when*, після обставини часу в it-cleft: *It was in 2019 **that** we met.*
 
 ## Практика
 
@@ -392,7 +392,7 @@ estimatedMinutes: 40
 > that is // ✗
 > ```
 >
-> **Пояснення:** *The last thing (that) I want* — підмет, далі *is* і фокус. Буквально: «Остання річ, якої я хочу, — ще одна сварка».
+> **Пояснення:** *The last thing (that) I want* — підмет, далі *is* і фокус. Дослівно: «Остання річ, якої я хочу, — ще одна сварка».
 
 > [!quiz] Яке речення пасує до академічного есе?
 > level: C1 · id: en-c1-cleft-q09
@@ -460,7 +460,7 @@ estimatedMinutes: 40
 > - [ ] False
 > - [x] Not Given
 >
-> **Пояснення:** текст говорить про конспектування й запамʼятовування, а про підсумкові оцінки — нічого → **Not Given**. Не додавай власних висновків.
+> **Пояснення:** у тексті йдеться про конспектування й запамʼятовування, а про підсумкові оцінки — ані слова → **Not Given**. Не додавай власних висновків.
 
 > [!quiz] IELTS Reading · Sentence endings: «According to the passage, students remember more when they…»
 > level: C1 · tags: ielts · id: en-c1-cleft-q16
@@ -481,7 +481,7 @@ estimatedMinutes: 40
 > Overall, the habit of putting ideas into their own [[words]] matters more than the tool.
 > ```
 >
-> **Пояснення:** *record lectures almost word for word*, *forced to summarise*, *how much they process*, *in their own words*. *Faster* — пастка: у тексті це слово про друк, але в жоден пропуск граматично не пасує.
+> **Пояснення:** *record lectures almost word for word*, *forced to summarise*, *how much they process*, *in their own words*. *Faster* — пастка: у тексті це слово стосується друку, але в жоден пропуск граматично не пасує.
 
 > [!quiz] IELTS Writing Task 2 · Перепиши речення Band 6 на рівень Band 7–8
 > level: C1 · tags: ielts · id: en-c1-cleft-q18
@@ -517,7 +517,7 @@ estimatedMinutes: 40
 > Послухай носіїв уважно: часто чути The thing is, is that… або What I mean is, is that… — з двома is. Лінгвісти називають це double is. У живому мовленні це трапляється постійно, але в письмі — помилка.
 
 > [!reel] 💔 It's not you, it's me
-> Мабуть, найвідоміше it-cleft у поп-культурі: фраза розставань з фільмів і серіалів. Уся сила — у контрасті: не ти, а я.
+> Мабуть, найвідоміше it-cleft у поп-культурі: класична фраза для розставання у фільмах і серіалах. Уся сила — у контрасті: не ти, а я.
 
 ## Джерела та що почитати
 

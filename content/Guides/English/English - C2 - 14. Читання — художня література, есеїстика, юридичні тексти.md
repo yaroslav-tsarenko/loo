@@ -35,7 +35,7 @@ estimatedMinutes: 95
 
 | Тип тексту | Що несе зміст | Як читати | Головна пастка |
 |---|---|---|---|
-| **художня проза** | форма: голос оповідача, ритм, образ, недомовлене | повільно, «слухаючи» текст; питати: *хто це каже і чи можна йому вірити?* | прийняти слова оповідача за правду автора |
+| **художня проза** | форма: голос оповідача, ритм, образ, недомовлене | повільно, «слухаючи» текст; питай себе: *хто це каже і чи можна йому вірити?* | прийняти слова оповідача за правду автора |
 | **есеїстика** | голос автора, що думає вголос: відступи, сумніви, повороти | стежити за **рухом думки**, а не лише за тезою | прийняти поступку чи чужу думку за позицію автора |
 | **юридичний текст** | **кожне слово** — модальне дієслово, сполучник, посилання на пункт | повільно, по частинах: хто → що робить → за яких умов → з якими винятками | читати «за смислом», як газету |
 
@@ -44,8 +44,8 @@ estimatedMinutes: 95
 | Що | Як |
 |---|---|
 | Бал | орієнтовно **Band 8.5 ≈ 37–38**, **Band 9 ≈ 39–40** правильних з 40 (таблиці відповідності, які публікує IELTS) |
-| Що це означає | **0–1 помилка** на весь тест — тобто ти не можеш «пожертвувати» жодним тонким питанням |
-| Де губиться 9 | YNNG із прихованою поступкою, питання про **ставлення автора** (*attitude*), summary completion з точною формою слова |
+| Що це означає | **0–1 помилка** на весь тест — тобто ти не можеш «пожертвувати» жодним підступним завданням |
+| Де губиться 9 | YNNG із прихованою поступкою, завдання на **ставлення автора** (*attitude*), summary completion з точною формою слова |
 | General Training | у Section 2–3 трапляються **робочі документи й правила** (договори, умови, політики) — юридичні формули з цієї теми там дуже допомагають |
 
 > [!diagram] Три тексти — три способи читання
@@ -53,11 +53,11 @@ estimatedMinutes: 95
 > layout: compare
 > columns: { fic: "художня проза", ess: "есей", law: "юридичний текст" }
 > nodes:
->   - { id: f1, col: fic, label: "питання читача", text: "Хто говорить? Чи можна йому вірити?", tone: violet, icon: "px:mirror" }
+>   - { id: f1, col: fic, label: "запитання читача", text: "Хто говорить? Чи можна йому вірити?", tone: violet, icon: "px:mirror" }
 >   - { id: f2, col: fic, label: "сигнали", text: "деталі, що суперечать словам; ритм; повтори", note: "I say it more firmly each time", tone: violet }
->   - { id: e1, col: ess, label: "питання читача", text: "Куди рухається думка автора?", tone: blue, icon: "px:compass" }
+>   - { id: e1, col: ess, label: "запитання читача", text: "Куди рухається думка автора?", tone: blue, icon: "px:compass" }
 >   - { id: e2, col: ess, label: "сигнали", text: "It is customary to… · Still… · Perhaps…", note: "поступка → поворот → обережний висновок", tone: blue }
->   - { id: l1, col: law, label: "питання читача", text: "Хто, що, за яких умов, з якими винятками?", tone: orange, icon: "px:scales" }
+>   - { id: l1, col: law, label: "запитання читача", text: "Хто, що, за яких умов, з якими винятками?", tone: orange, icon: "px:scales" }
 >   - { id: l2, col: law, label: "сигнали", text: "shall · may · subject to · notwithstanding", note: "кожне слово змінює обовʼязок", tone: orange }
 > steps:
 >   - { show: [f1, f2], note: "Проза: зміст часто в тому, чого оповідач НЕ каже. Деталі, які він сам наводить, можуть свідчити проти нього." }
@@ -89,7 +89,7 @@ estimatedMinutes: 95
 - самовиправдання й **дивна точність** у дрібницях (*I believe I was the only one who did not raise his voice*).
 
 > [!tip] Невласне пряма мова: як знайти «чужий голос»
-> Шукай у тексті від третьої особи **ознаки усного мовлення**: вигуки (*Well. Really!*), риторичні питання, оцінні слова (*badly, absurdly*), обірвані речення, *So that was that.* Оповідач «говорить» словами персонажа — і часто з легкою іронією. Українська проза теж широко користується цим прийомом, тож він не новий — нове лише впізнавати його англійською.
+> Шукай у тексті від третьої особи **ознаки усного мовлення**: вигуки (*Well. Really!*), риторичні запитання, оцінні слова (*badly, absurdly*), обірвані речення, *So that was that.* Оповідач «говорить» словами персонажа — і часто з легкою іронією. Українська проза теж широко користується цим прийомом, тож він не новий — нове лише впізнавати його англійською.
 
 #### Архаїзми в класиці
 
@@ -153,7 +153,7 @@ estimatedMinutes: 95
 >   - { show: [t1, s1], note: "not so much X as Y — не заперечення X повністю, а зміщення акценту: справа не стільки в X, скільки в Y. Твердження, що головне — X, суперечить тексту." }
 >   - { show: [t2, s2], note: "It is customary to… — автор описує загальноприйнятий жанр і одразу відходить від нього. Позиція автора — в наступному реченні, не в цьому." }
 >   - { show: [t3, s3], note: "Поступка всередині заперечення: not primarily… real as that is. Автор каже, що це не головне, але реальне. «Незначне» — суперечить." }
->   - { show: [t4, s4], note: "Знайома тема, але питання про те, чого текст не каже. Not Given на Band 9 часто звучить дуже правдоподібно." }
+>   - { show: [t4, s4], note: "Знайома тема, але твердження про те, чого текст не каже. Not Given на Band 9 часто звучить дуже правдоподібно." }
 > ```
 
 | Конструкція | Що означає | Типова хибна відповідь |
@@ -178,7 +178,7 @@ estimatedMinutes: 95
 >
 > **F.** Perhaps that is asking too much of a lamp. Yet I find myself returning to the drawer. Every object in it is a small, unresolved decision — a choice we have postponed because making it would oblige us to admit what we value. To mend something is to say that it was worth the trouble. To throw it away is to say that it was not. To leave it in the drawer is to say nothing at all, which may be the most modern position of the three.
 
-*Есей вигаданий для навчання; «бабуся й дідусь», чайник і ящик — умовні.*
+*Есей вигаданий для навчання; дідусь, чайник і ящик — умовні.*
 
 > [!diagram] Рух думки в есеї «On Mending»
 > ```yaml
@@ -211,7 +211,7 @@ estimatedMinutes: 95
 | *may not* | заборона | «не має права» | «можливо, ні» |
 | *must* | обовʼязок (у сучасних **plain-language** текстах замість *shall*) | «повинен» | — |
 | *is entitled to* | право | «має право на» | — |
-| *is not obliged to / need not* | **немає** обовʼязку | «не зобовʼязаний» | плутати з забороною |
+| *is not obliged to / need not* | **немає** обовʼязку | «не зобовʼязаний» | плутати із забороною |
 
 > [!warning] «May» — це не «можливо»
 > *The Landlord may inspect the Property* — не «орендодавець, можливо, огляне», а «орендодавець **має право** оглянути». А *The Landlord may not enter without notice* — **заборона**. У договорі немає «можливо»: кожне *may* дає право, кожне *shall* — накладає обовʼязок.
@@ -264,7 +264,7 @@ estimatedMinutes: 95
 >
 > **7. Indemnity.** Without prejudice to clause 6, the Licensee shall indemnify the Licensor against any losses arising from the Licensee's breach of this Agreement.
 
-**Як розібрати будь-яке юридичне речення** — п'ять питань по черзі:
+**Як розібрати будь-яке юридичне речення** — пʼять запитань по черзі:
 
 1. **Хто?** (*the Licensee, either party, neither party*)
 2. **Яка модальність?** (*shall* — обовʼязок, *may* — право, *shall not* — заборона)
@@ -346,7 +346,7 @@ estimatedMinutes: 95
 > [!word] terse
 > ipa: /tɜːs/ · ipa-us: /tɝːs/ · pos: adj · level: C2 · id: en-c2-reading-w10
 > uk: стислий, уривчастий (аж до різкості)
-> example: Her replies grew more **terse** as the interview went on. — Її відповіді ставали дедалі уривчастішими в міру того, як тривало інтерв'ю.
+> example: Her replies grew more **terse** as the interview went on. — Що довше тривало інтервʼю, то уривчастішими ставали її відповіді.
 > note: про стиль — схвально або нейтрально; про людину — часто «різко, неприязно».
 
 > [!word] ornate
@@ -400,7 +400,7 @@ estimatedMinutes: 95
 > [!word] bathos
 > ipa: /ˈbeɪθɒs/ · ipa-us: /ˈbeɪθɑːs/ · pos: noun · level: C2 · id: en-c2-reading-w19
 > uk: різкий (часто комічний) спад від високого до банального
-> example: The speech ends in **bathos**: after quoting Churchill, he thanks the caterers. — Промова закінчується комічним спадом: після цитати з Черчилля він дякує кейтерингу.
+> example: The speech ends in **bathos**: after quoting Churchill, he thanks the caterers. — Промова закінчується комічним спадом: після цитати з Черчилля він дякує кейтеринговій компанії.
 > note: може бути помилкою автора або свідомим прийомом гумору.
 
 ### Есеїстика
@@ -518,7 +518,7 @@ estimatedMinutes: 95
 > [!word] in lieu of
 > ipa: /ɪn ˈljuː əv/ · ipa-us: /ɪn ˈluː əv/ · pos: prep · level: C2 · id: en-c2-reading-w38
 > uk: замість
-> example: She received a payment **in lieu of** notice. — Вона отримала компенсацію замість періоду попередження про звільнення.
+> example: She received a payment **in lieu of** notice. — Вона отримала компенсацію замість відпрацювання строку попередження про звільнення.
 > note: *lieu* — франц. «місце». *Time off in lieu* — відгул замість оплати понаднормових.
 
 > [!word] jointly and severally
@@ -542,7 +542,7 @@ estimatedMinutes: 95
 > - [ ] Notwithstanding the following, the Licensor may terminate this Agreement forthwith in the event of a material breach.
 > - [ ] Notwithstanding the foregoing, the Licensor shall terminate this Agreement forthwith in the event of a material breach.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-reading-l02
 > audio: The Licensee shall not copy, modify or distribute the Software, save as expressly permitted by this Agreement.
 
@@ -588,14 +588,14 @@ estimatedMinutes: 95
 > Калька *subject to clause 5* → «підлягає пункту 5» звучить як «пункт 5 вимагає цього». Насправді — «**з урахуванням** пункту 5», тобто пункт 5 сильніший і може обмежити цей. А *notwithstanding* — навпаки: цей пункт сильніший. Переплутати їх — перевернути ієрархію договору.
 
 > [!pitfall] Ототожнювати оповідача з автором
-> Шкільний аналіз часто питає «що хотів сказати автор» і приймає слова оповідача за позицію письменника. В англомовній прозі XX–XXI століття оповідач першої особи **часто ненадійний**: *I bore my brother no ill will* — і весь абзац доводить протилежне. Питання IELTS чи C2 Proficiency про такий текст перевіряють, чи ти бачиш **розрив між словами й деталями**.
+> Шкільний аналіз часто питає «що хотів сказати автор» і приймає слова оповідача за позицію письменника. В англомовній прозі XX–XXI століття оповідач першої особи **часто ненадійний**: *I bore my brother no ill will* — і весь абзац доводить протилежне. Завдання IELTS чи C2 Proficiency до такого тексту перевіряють, чи ти бачиш **розрив між словами й деталями**.
 
 > [!pitfall] Приписувати автору чужу думку без лапок
 > В есеї автор може переказати загальноприйняту думку (*It is customary to lament…, Many would argue…*) — без лапок і без «вони кажуть». Українською ми зазвичай чіткіше маркуємо чужу думку («кажуть, що…»), тож англійський «тихий» переказ легко прийняти за позицію автора. Шукай поворот у наступному реченні: *I am not sure…, Yet…, Still…*
 
 ## Практика
 
-Питання 2–4 — до Passages 1–2, 5–14 — до есею **«On Mending»**, 15–20 — до договору (Passage 4).
+Завдання 2–4 — до Passages 1–2, 5–14 — до есею **«On Mending»**, 15–20 — до договору (Passage 4).
 
 > [!quiz] Passage 1. Що насправді відчуває оповідач щодо рішення про будинок?
 > level: C2 · id: en-c2-reading-q02
@@ -806,14 +806,14 @@ estimatedMinutes: 95
 > 1580 року Мішель де Монтень видав книжку «Essais» — «спроби». Він не доводив тез, а пробував думати на папері: про дружбу, страх, канібалів і власні камені в нирках. Звідти — англійське *essay* і досі живий дух жанру: думка в русі.
 
 > [!reel] 🎭 Хто придумав «ненадійного оповідача»
-> Термін *unreliable narrator* ввів американський літературознавець Вейн Бут у книжці «The Rhetoric of Fiction» (1961). Відтоді питання «чи можна вірити оповідачеві?» — одне з перших, яке ставлять до прози першої особи.
+> Термін *unreliable narrator* ввів американський літературознавець Вейн Бут у книжці «The Rhetoric of Fiction» (1961). Відтоді запитання «чи можна вірити оповідачеві?» — одне з перших, які ставлять до прози від першої особи.
 
 > [!reel] ⚖️ Чому юристи кажуть двічі
 > *Null and void*, *terms and conditions*, *cease and desist* — юридичні «дублети». Історики права (зокрема Девід Меллінкофф) повʼязують звичку частково з тим, що англійське право століттями жило трьома мовами — англійською, латиною і «юридичною французькою».
 
 ## Джерела та що почитати
 
-- 🟢 [IELTS — офіційний сайт](https://ielts.org) — формат Academic і General Training Reading, типи питань, орієнтовна відповідність raw score → band.
+- 🟢 [IELTS — офіційний сайт](https://ielts.org) — формат Academic і General Training Reading, типи завдань, орієнтовна відповідність raw score → band.
 - 🟢 [Cambridge English — C2 Proficiency](https://www.cambridgeenglish.org/exams-and-tests/proficiency/) — формат Reading and Use of English на рівні C2.
 - 🟢 [Digital.gov — Plain language guide (колишній plainlanguage.gov)](https://digital.gov/guides/plain-language) — настанови зрозумілої мови для документів уряду США; ще у Federal Plain Language Guidelines (2011) радили писати *must* замість *shall* для обовʼязків.
 - 🟡 W. C. Booth — *The Rhetoric of Fiction* (University of Chicago Press, 1961) — звідки термін «ненадійний оповідач».
@@ -824,7 +824,7 @@ estimatedMinutes: 95
 - 🟢 [Aeon](https://aeon.co/) і [London Review of Books](https://www.lrb.co.uk/) — сучасна есеїстика для щоденного читання на C2.
 
 > [!important] Підсумок
-> - **Проза:** питай «хто говорить і чи можна йому вірити?»; ненадійного оповідача видають деталі, що суперечать його словам; невласне пряму мову — вигуки, оцінки й риторичні питання в оповіді від третьої особи.
+> - **Проза:** питай «хто говорить і чи можна йому вірити?»; ненадійного оповідача видають деталі, що суперечать його словам; невласне пряму мову — вигуки, оцінки й риторичні запитання в оповіді від третьої особи.
 > - **Есей:** позиція — в русі думки: чужа думка (*It is customary to…*) → поворот (*Still…*) → обережний висновок (*Perhaps…*); ставлення — *wistful, rueful, elegiac, trenchant, contrarian*.
 > - **Band 9 YNNG:** *not so much X as Y*, поступка *real as that is*, *It would be pleasant to report…* = ні, *one suspects* — теж позиція автора.
 > - **Юридичні тексти:** *shall* — обовʼязок, *may* — право, *shall not* — заборона; *notwithstanding* — цей пункт сильніший, *subject to* — слабший, *without prejudice to* — обидва діють; *inter alia* — перелік не вичерпний.

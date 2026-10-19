@@ -32,7 +32,7 @@ estimatedMinutes: 55
 
 ### Три швидкості читання
 
-Носії майже ніколи не читають статтю від першого до останнього слова з однаковою увагою. Вони перемикають **швидкості**, і саме цього вчить IELTS, де на 40 питань і 3 тексти — лише 60 хвилин.
+Носії майже ніколи не читають статтю від першого до останнього слова з однаковою увагою. Вони перемикають **швидкості**, і саме цього вимагає IELTS, де на 40 питань і 3 тексти дають лише 60 хвилин.
 
 | Швидкість | Мета | Як | Час на статтю |
 |---|---|---|---|
@@ -91,8 +91,8 @@ estimatedMinutes: 55
 
 | Тип завдання | Що робити |
 |---|---|
-| **True / False / Not Given** | чи погоджується твердження з **фактами** тексту |
-| **Yes / No / Not Given** | чи погоджується твердження з **думкою автора** |
+| **True / False / Not Given** | чи відповідає твердження **фактам** тексту |
+| **Yes / No / Not Given** | чи відповідає твердження **думці автора** |
 | **Matching headings** | обрати заголовок до кожного абзацу (заголовків більше, ніж абзаців) |
 | **Sentence / summary completion** | вписати слова з тексту; ліміт: *NO MORE THAN TWO WORDS* |
 | **Short answers** | коротка відповідь словами з тексту |
@@ -175,12 +175,12 @@ estimatedMinutes: 55
 - *Scan the text for numbers and names.* — Пробіжи текст очима в пошуках чисел та імен.
 - *According to the survey, 41% of visitors came for the Wi-Fi.* — Згідно з опитуванням, 41 % відвідувачів приходили заради Wi-Fi.
 - *The writer's attitude to the plan is negative.* — Ставлення автора до плану — негативне.
-- *The text doesn't mention the price.* — Текст не згадує ціни.
+- *The text doesn't mention the price.* — У тексті не згадано ціну.
 - *This statement contradicts the second paragraph.* — Це твердження суперечить другому абзацу.
 - *Try to guess the meaning from the context.* — Спробуй вгадати значення з контексту.
 - *The majority of students tend to read too slowly.* — Більшість студентів зазвичай читають надто повільно.
 - *Despite the cuts, the library is still open.* — Попри скорочення, бібліотека досі працює.
-- *Many people think libraries are dying. In fact, they're busier than ever.* — Багато хто думає, що бібліотеки вмирають. Насправді вони завантаженіші, ніж будь-коли.
+- *Many people think libraries are dying. In fact, they're busier than ever.* — Багато хто думає, що бібліотеки вмирають. Насправді в них людніше, ніж будь-коли.
 
 ## Слова
 
@@ -190,12 +190,12 @@ estimatedMinutes: 55
 > ipa: /skɪm/ · pos: verb · level: B1 · id: en-b1-reading-w01
 > uk: проглядати (текст); читати побіжно
 > example: **Skim** the text to find out what it's about. — Проглянь текст, щоб зрозуміти, про що він.
-> note: буквально — знімати вершки з молока; *skimmed milk* — знежирене молоко.
+> note: дослівно: знімати вершки з молока; *skimmed milk* — знежирене молоко.
 
 > [!word] scan
 > ipa: /skæn/ · pos: verb · level: B1 · id: en-b1-reading-w02
 > uk: швидко шукати очима; сканувати
-> example: **Scan** the timetable for the next train to Lviv. — Пробіжи очима розклад, шукаючи наступний потяг до Львова.
+> example: **Scan** the timetable for the next train to Lviv. — Пробіжи очима розклад і знайди наступний потяг до Львова.
 
 > [!word] topic sentence
 > ipa: /ˈtɒpɪk ˌsentəns/ · ipa-us: /ˈtɑːpɪk ˌsentəns/ · pos: noun · level: B1 · id: en-b1-reading-w03
@@ -324,14 +324,14 @@ estimatedMinutes: 55
 > [!word] despite
 > ipa: /dɪˈspaɪt/ · pos: prep · level: B1 · id: en-b1-reading-w24
 > uk: попри; незважаючи на
-> example: **Despite** the rain, the library was full. — Попри дощ, бібліотека була повна.
+> example: **Despite** the rain, the library was full. — Попри дощ, у бібліотеці було повно людей.
 > note: без *of*: *despite the rain*, не «despite of». Після нього — іменник або -ing.
 
 > [!word] in fact
 > ipa: /ɪn ˈfækt/ · pos: phrase · level: B1 · id: en-b1-reading-w25
 > uk: насправді; фактично
-> example: People think libraries are empty. **In fact**, they're full. — Люди думають, що бібліотеки порожні. Насправді вони повні.
-> note: часто сигналізує **протилежне** до попереднього — корисно для False / No.
+> example: People think libraries are empty. **In fact**, they're full. — Люди думають, що бібліотеки порожні. Насправді там повно людей.
+> note: часто вводить **протилежне** до попереднього — корисно для False / No.
 
 ## Слухаємо
 
@@ -339,11 +339,11 @@ estimatedMinutes: 55
 > level: B1 · type: answer · id: en-b1-reading-l01
 > audio: When the central library in Kharkiv reopened last spring, nobody expected so many visitors. Now the reading room is full every afternoon, mostly with students and people who work from home. The library is planning to open on Sundays from next month.
 > - [ ] бібліотеку закривають через брак відвідувачів
-> - [x] бібліотека після відкриття дуже популярна й працюватиме ще й у неділю
+> - [x] після повторного відкриття бібліотека дуже популярна, а скоро працюватиме й у неділю
 > - [ ] у бібліотеці заборонили працювати з ноутбуками
 > - [ ] бібліотека продає старі книжки
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-reading-l02
 > audio: Skim the text first, then scan for the answer.
 
@@ -362,7 +362,7 @@ estimatedMinutes: 55
 > text: The main idea of the text is that libraries are busy again.
 > ipa: /ðə ˌmeɪn aɪˈdɪər əv ðə ˈtekst ɪz ðət ˈlaɪbrəriz ə ˈbɪzi əˈɡen/
 > tip: idea‿of — з легким /r/ між голосними (UK): [ай-ДІ-ер-ов]; busy — [БІ-зі].
-> uk: Головна думка тексту в тому, що бібліотеки знову завантажені.
+> uk: Головна думка тексту в тому, що в бібліотеках знову людно.
 
 > [!speak] Посилайся на текст
 > level: B1 · id: en-b1-reading-s02
@@ -381,7 +381,7 @@ estimatedMinutes: 55
 ## Типові помилки українців
 
 > [!pitfall] Читати слово за словом зі словником
-> Звичка зі школи — перекласти кожне слово — на IELTS коштує часу: 60 хвилин на 40 питань. Спершу **skim**, потім **scan** до потрібного місця, уважно читай лише його. Незнайоме слово, від якого не залежить відповідь, — просто пропускай.
+> Звичка зі школи — перекласти кожне слово — на IELTS забирає забагато часу: 60 хвилин на 40 питань. Спершу **skim**, потім **scan** до потрібного місця, уважно читай лише його. Незнайоме слово, від якого не залежить відповідь, — просто пропускай.
 
 > [!pitfall] False замість Not Given
 > «Анна переїхала в Лондон» → «Анні подобається Лондон» — не **False**, а **Not Given**: текст про це **мовчить**. False — лише коли текст **прямо** каже протилежне. І ніколи не додавай власних знань: навіть якщо «всі знають», що Лондон дорогий, а в тексті цього немає — Not Given.
@@ -515,10 +515,10 @@ estimatedMinutes: 55
 > *Skim* спочатку означало знімати вершки з поверхні молока. Звідси «читати поверхнево» — брати тільки верхній шар змісту. Тому знежирене молоко англійською — *skimmed milk* (US *skim milk*).
 
 > [!reel] 📚 Library — не «лібрарія»
-> *Library* походить від латинського *liber* — «книга» (а спершу — внутрішня кора дерева, на якій писали). А от магазин книжок — *bookshop* (US *bookstore*). Хибний друг: в іспанській *librería* — якраз книгарня!
+> *Library* походить від латинського *liber* — «книга» (а спершу — внутрішня кора дерева, на якій писали). А от книгарня — *bookshop* (US *bookstore*). Хибний друг: в іспанській *librería* — якраз книгарня!
 
 > [!reel] ⏱️ 60 хвилин без бонусу
-> На IELTS Listening дають 2 додаткові хвилини (на компʼютері) або 10 (на папері), щоб перенести відповіді. На Reading — **нуль**: бланк заповнюєш у межах тих самих 60 хвилин. Тому відповідай одразу в бланк, а не на аркуші з текстом.
+> На IELTS Listening дають 2 додаткові хвилини (на компʼютері) або 10 (на папері), щоб перенести відповіді. На Reading — **нуль**: бланк заповнюєш у межах тих самих 60 хвилин. Тому записуй відповіді одразу в бланк, а не на аркуші з текстом.
 
 ## Джерела та що почитати
 

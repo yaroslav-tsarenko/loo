@@ -45,9 +45,9 @@ estimatedMinutes: 50
 >   - { id: place, parent: root, label: "де й коли", text: "there is / are · in / on / at", note: "There's a bank on Green Street.", tone: yellow }
 > steps:
 >   - { focus: root, note: "Англійське речення A1 майже завжди: підмет + дієслово + решта. Дієслово обовʼязкове — навіть там, де українська його пропускає." }
->   - { focus: verbs, note: "Три дієслова-основи: be (я є — I'm a student), have got (у мене є), can (я вмію / можна)." }
+>   - { focus: verbs, note: "Три дієслова-основи: be (бути: I'm a student — я студент), have got (у мене є), can (я вмію, я можу)." }
 >   - { focus: tenses, note: "Два теперішні часи: Present Simple — звички й факти (+ -s для he / she / it), Present Continuous — те, що відбувається зараз." }
->   - { focus: nouns, note: "Іменник: a / an за звуком, множина -s / -es і неправильні (children, feet), лічильні й нелічильні — some / any, much / many." }
+>   - { focus: nouns, note: "Іменник: a чи an — залежно від першого звуку, множина -s / -es і неправильні (children, feet), лічильні й нелічильні — some / any, much / many." }
 >   - { focus: pron, note: "Займенники: I → me → my → mine, присвійний 's (Anna's), вказівні this / that / these / those." }
 >   - { focus: place, note: "Де й коли: there is / there are для опису місця, прийменники at 5 o'clock, on Monday, in May." }
 > ```
@@ -176,7 +176,7 @@ estimatedMinutes: 50
 > - [x] 7:15
 > - [ ] 7:45
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-review-l05
 > audio: She has got two brothers and a sister.
 > accept: She's got two brothers and a sister.
@@ -208,7 +208,7 @@ estimatedMinutes: 50
 > - [x] готує вечерю
 > - [ ] вечеряє в кафе
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · id: en-a1-review-l09
 > audio: I usually get up at seven o'clock.
 > accept: I usually get up at 7 o'clock.
@@ -218,8 +218,8 @@ estimatedMinutes: 50
 > audio: A: What's the weather like in London today?
 > audio: B: It's cold and it's raining, but I love it here.
 > - [ ] тепло й сонячно
-> - [x] холодно й дощ
-> - [ ] холодно й сніг
+> - [x] холодно, іде дощ
+> - [ ] холодно, іде сніг
 
 ## Вимова
 
@@ -234,7 +234,7 @@ estimatedMinutes: 50
 | /θ ð/ | *think, three, this, mother* — язик між зубами | 17 |
 | /w/ — /v/ | *wine — vine*, *west — vest* | 17 |
 | /h/ | *hello, house* — видих, не «г» | 17 |
-| дзвінкі в кінці | *bag ≠ back*, *eyes ≠ ice* | 23 |
+| дзвінкі приголосні в кінці | *bag ≠ back*, *eyes ≠ ice* | 23 |
 | -s: /s z ɪz/ | *cats* /s/, *dogs* /z/, *buses* /ɪz/ | 23 |
 | наголос у числах | thir**TEEN** — **THIR**ty | 04 |
 
@@ -248,7 +248,7 @@ estimatedMinutes: 50
 > [!pair] bed /bed/ — bad /bæd/
 > level: A1 · id: en-a1-review-p02
 > say: bad
-> tip: /æ/ — рот широко, щелепа вниз, між «е» і «а». /e/ — як українське «е».
+> tip: /æ/ — рот широко відкритий, щелепа опущена, звук між «е» і «а». /e/ — як українське «е».
 
 > [!pair] sink /sɪŋk/ — think /θɪŋk/
 > level: A1 · id: en-a1-review-p03
@@ -268,7 +268,7 @@ estimatedMinutes: 50
 > [!pair] bag /bæɡ/ — back /bæk/
 > level: A1 · id: en-a1-review-p06
 > say: back
-> tip: у *bag* голосний довший, а /ɡ/ дзвінкий до кінця; у *back* — коротко й глухо /k/.
+> tip: у *bag* голосний довший, а /ɡ/ дзвінкий до кінця; у *back* голосний коротший, а /k/ глухий.
 
 ### Скажи вголос
 
@@ -288,13 +288,13 @@ estimatedMinutes: 50
 > level: A1 · id: en-a1-review-s03
 > text: Can I have a cup of tea, please?
 > ipa: /kən aɪ hæv ə ˈkʌp əv ˈtiː pliːz/
-> tip: can і of — слабкі /kən/, /əv/; have — /h/ видихом, не «г».
+> tip: can і of — слабкі /kən/, /əv/; have — /h/ як легкий видих, не «г».
 
 > [!speak] Спитай, де вокзал.
 > level: A1 · id: en-a1-review-s04
 > text: Excuse me, where is the station?
 > ipa: /ɪkˈskjuːz miː weər ɪz ðə ˈsteɪʃən/
-> tip: excuse — /z/ у кінці (дієслово); where — /w/ губами; the — /ð/.
+> tip: excuse — /z/ у кінці (дієслово); where — /w/ губи трубочкою; the — /ð/.
 
 > [!speak] Розкажи, коли ти зазвичай встаєш.
 > level: A1 · id: en-a1-review-s05
@@ -311,13 +311,13 @@ estimatedMinutes: 50
 ## Типові помилки українців
 
 > [!pitfall] Пропущене дієслово
-> «Я студент», «Він вдома», «Де ти живеш?» — в українській дієслова може не бути, в англійській воно потрібне завжди: *I **am** a student. He **is** at home. Where **do** you live?* Перевіряй кожне речення: де дієслово?
+> «Я студент», «Він удома» — в українській дієслова може не бути, а в англійській воно потрібне завжди: *I **am** a student. He **is** at home.* У питанні «Де ти живеш?» потрібне ще й допоміжне *do*: *Where **do** you live?* Перевіряй кожне речення: де дієслово?
 
 > [!pitfall] Забуте -s у he / she / it
-> *She work in a bank* — найчастіша помилка A1. У Present Simple третя особа однини отримує **-s**: *she works, he goes, it has*. А в питанні й запереченні -s переходить у *does*: *Does she work? She doesn't work.*
+> *She work in a bank* — найчастіша помилка A1. У Present Simple дієслово в третій особі однини отримує **-s**: *she works, he goes, it has*. А в питанні й запереченні -s переходить у *does*: *Does she work? She doesn't work.*
 
 > [!pitfall] Без артикля
-> «Це книжка» → *This is **a** book.* Злічуваний іменник в однині не стоїть сам: потрібен *a / an*, *the*, *my*, *this*… Без артикля — лише множина й нелічильні: *I like books. I drink water.*
+> «Це книжка» → *This is **a** book.* Лічильний іменник в однині не вживається сам: перед ним потрібне *a / an*, *the*, *my*, *this*… Без артикля можна лише з множиною й нелічильними іменниками: *I like books. I drink water.*
 
 ## Практика
 
@@ -352,7 +352,7 @@ estimatedMinutes: 50
 > - [x] a university, an hour
 > - [ ] an university, an hour
 >
-> **Пояснення:** вибір *a / an* — за **звуком**: *university* починається з /j/ (приголосний) → *a*; *hour* — з /aʊ/ (h німа) → *an*. (тема 06)
+> **Пояснення:** вибір *a / an* — за **звуком**: *university* починається з /j/ (приголосний) → *a*; *hour* — з /aʊ/ (h не читається) → *an*. (тема 06)
 
 > [!quiz] Яка множина правильна? Обери всі.
 > level: A1 · type: multi · id: en-a1-review-q05
@@ -379,7 +379,7 @@ estimatedMinutes: 50
 > - [ ] nephew
 > - [ ] grandfather
 >
-> **Пояснення:** брат батька чи матері — *uncle* (дядько), сестра — *aunt*. Їхні діти — *cousins*. (тема 08)
+> **Пояснення:** брат батька чи матері — *uncle* (дядько), сестра — *aunt* (тітка). Їхні діти — *cousins* (двоюрідні брати й сестри). (тема 08)
 
 > [!quiz] Is this your bag? — Yes, it's ___.
 > level: A1 · id: en-a1-review-q08
@@ -388,7 +388,7 @@ estimatedMinutes: 50
 > - [x] mine
 > - [ ] I
 >
-> **Пояснення:** без іменника після — *mine* (мій): *It's mine.* З іменником — *my*: *It's my bag.* (тема 09)
+> **Пояснення:** якщо після слова немає іменника — *mine* (мій): *It's mine.* З іменником — *my*: *It's my bag.* (тема 09)
 
 > [!quiz] The cat is eating ___ food.
 > level: A1 · id: en-a1-review-q09
@@ -437,7 +437,7 @@ estimatedMinutes: 50
 > - [ ] isn't
 > - [ ] not
 >
-> **Пояснення:** he / she / it → *doesn't* + базова форма: *He doesn't like.* (тема 15)
+> **Пояснення:** he / she / it → *doesn't* + базова форма дієслова: *He doesn't like coffee.* (тема 15)
 
 > [!quiz] Які речення правильні? Обери всі.
 > level: A1 · type: multi · id: en-a1-review-q14
@@ -511,7 +511,7 @@ estimatedMinutes: 50
 > - [ ] be
 > - [ ] have
 >
-> **Пояснення:** множина після — *there are*. «В кімнаті є» — не *have*, а *there is / are*. (тема 20)
+> **Пояснення:** далі йде множина (*two beds*) → *there are*. «У кімнаті є» — це не *have*, а *there is / are*. (тема 20)
 
 > [!quiz] Банк стоїть посередині — між кафе й магазином. The bank is ___ the café and the shop.
 > level: A1 · id: en-a1-review-q22
@@ -549,7 +549,7 @@ estimatedMinutes: 50
 > - [x] Polish
 > - [ ] polish
 >
-> **Пояснення:** національність — *Polish*, і з великої літери, як і *Ukrainian*, *Spanish*. (теми 02, 29)
+> **Пояснення:** національність — *Polish*, і пишемо її з великої літери, як і *Ukrainian*, *Spanish*. (теми 02, 29)
 
 > [!quiz] Як продиктувати номер 077?
 > level: A1 · id: en-a1-review-q26
@@ -567,7 +567,7 @@ estimatedMinutes: 50
 > - [x] quarter to eight
 > - [ ] quarter to seven
 >
-> **Пояснення:** після половини рахуємо, скільки лишилося **до** наступної години: 15 хвилин до восьмої — *quarter to eight*. (тема 12)
+> **Пояснення:** коли минуло більше пів години, рахуємо, скільки лишилося **до** наступної години: 15 хвилин до восьмої — *quarter to eight*. (тема 12)
 
 > [!quiz] Як прочитати дату 3 May?
 > level: A1 · id: en-a1-review-q28
@@ -587,14 +587,14 @@ estimatedMinutes: 50
 >
 > **Пояснення:** *How often?* — як часто: *once a week, twice a week, every day*. (тема 16)
 
-> [!quiz] Як ввічливо замовити каву?
+> [!quiz] Як увічливо замовити каву?
 > level: A1 · id: en-a1-review-q30
 > - [ ] I want coffee.
 > - [ ] Give me a coffee.
 > - [x] I'd like a coffee, please.
 > - [ ] Coffee for me now.
 >
-> **Пояснення:** *I'd like…* або *Can I have…?* + *please* — так звучить ввічливо. *I want* і *Give me* — різко. (тема 18)
+> **Пояснення:** *I'd like…* або *Can I have…?* + *please* — так звучить увічливо. *I want* і *Give me* звучать різко. (тема 18)
 
 > [!quiz] Ти хочеш приміряти джинси. Can I ___ them on?
 > level: A1 · id: en-a1-review-q31

@@ -130,7 +130,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 
 - **питай відкрито:** *What brings you here? · How did you get into…? · What's keeping you busy these days?*
 - **«ехо» + питання:** *A: I've just moved from Lisbon. — B: Lisbon! What made you move?*
-- **діли маленькі деталі** — вони дають співрозмовнику гачок;
+- **ділися дрібними деталями** — вони дають співрозмовнику гачок;
 - **підтримуй:** *Oh, really? · That sounds amazing. · No way!* (сигнали слухача — [[English - C1 - 11. Аудіювання — швидка розмова й акценти UK, US]]);
 - **вихід без незручності:** *Anyway, I won't keep you. · It's been great chatting — I should probably go and say hello to a few people. · Let me grab another coffee — good to meet you!*
 
@@ -266,15 +266,15 @@ Small talk — не «пусті балачки», а спосіб встано�
 
 ## Приклади
 
-- *I'm going to talk you through the main findings.* — Я проведу вас через основні висновки.
+- *I'm going to talk you through the main findings.* — Я коротко розповім вам про основні висновки.
 - *That brings me neatly to my second point.* — Це плавно підводить мене до другого пункту.
-- *I don't have the exact figures to hand, but I'll get back to you.* — Точних цифр у мене під рукою немає, але я вам повідомлю.
+- *I don't have the exact figures to hand, but I'll get back to you.* — Точних цифр у мене під рукою немає, але я уточню й повідомлю вам.
 - *I'll grant you that, but it doesn't follow that we should ban it.* — Тут я з вами згоден, але з цього не випливає, що це треба забороняти.
 - *That's a false dichotomy — we can invest in both.* — Це хибна дилема: можна інвестувати в обидва напрями.
 - *So, how do you know the hosts?* — А звідки ви знаєте господарів?
 - *It's been great chatting — I should go and say hello to a few people.* — Було приємно поговорити — піду привітаюся ще з кількома людьми.
 - *What I think Anna is saying is that the deadline is unrealistic.* — Наскільки я розумію, Анна каже, що дедлайн нереальний.
-- *I completely went blank in the middle of my talk.* — Посеред виступу в мене повністю вилетіло все з голови.
+- *I completely went blank in the middle of my talk.* — Посеред виступу в мене все вилетіло з голови.
 - *She's very articulate — she can explain anything in two sentences.* — Вона дуже чітко висловлюється: може пояснити будь-що двома реченнями.
 
 ## Слова
@@ -290,7 +290,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > ipa: /ˈseɡweɪ/ · pos: noun · level: C1 · id: en-c1-speaking-w02
 > uk: плавний перехід (до іншої теми)
 > example: That's a perfect **segue** into our next topic. — Це ідеальний перехід до нашої наступної теми.
-> note: також дієслово: to segue into something. Вимова — «СЕҐ-вей», не «сеґʼю».
+> note: також дієслово: to segue into something. Вимова: /ˈseɡweɪ/ — наголос на першому складі, у кінці /weɪ/, а не «-ю».
 
 > [!word] roadmap
 > ipa: /ˈrəʊdmæp/ · ipa-us: /ˈroʊdmæp/ · pos: noun · level: C1 · id: en-c1-speaking-w03
@@ -306,12 +306,12 @@ Small talk — не «пусті балачки», а спосіб встано�
 > [!word] get back to someone
 > ipa: /ˌɡet ˈbæk tə ˌsʌmwʌn/ · pos: verb · level: C1 · id: en-c1-speaking-w05
 > uk: повернутися до когось із відповіддю; передзвонити, написати пізніше
-> example: Let me check and **get back to you** tomorrow. — Дозвольте мені перевірити, і я відповім вам завтра.
+> example: Let me check and **get back to you** tomorrow. — Я перевірю й відповім вам завтра.
 > forms: get back → got back → got back (US gotten back)
 
 > [!word] field questions
 > ipa: /ˌfiːld ˈkwestʃənz/ · pos: phrase · level: C1 · id: en-c1-speaking-w06
-> uk: відповідати на питання (аудиторії, журналістів), «тримати» питання
+> uk: відповідати на питання (аудиторії, журналістів)
 > example: After the talk, she **fielded questions** for half an hour. — Після виступу вона пів години відповідала на питання.
 > note: з крикету й бейсболу: field — ловити й повертати мʼяч.
 
@@ -323,7 +323,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > [!word] stage fright
 > ipa: /ˈsteɪdʒ fraɪt/ · pos: noun · level: C1 · id: en-c1-speaking-w08
 > uk: страх сцени, страх публічного виступу
-> example: Even experienced actors suffer from **stage fright**. — Навіть досвідчені актори мають страх сцени.
+> example: Even experienced actors suffer from **stage fright**. — Навіть досвідчені актори бояться сцени.
 
 > [!word] go blank
 > ipa: /ˌɡəʊ ˈblæŋk/ · ipa-us: /ˌɡoʊ ˈblæŋk/ · pos: verb · level: C1 · id: en-c1-speaking-w09
@@ -355,12 +355,12 @@ Small talk — не «пусті балачки», а спосіб встано�
 > ipa: /səkˈsɪŋkt/ · pos: adj · level: C1 · id: en-c1-speaking-w13
 > uk: стислий і чіткий, лаконічний
 > example: Keep your answer **succinct** — two or three sentences. — Відповідай стисло — два-три речення.
-> note: вимова: «сек-СІНКТ», cc = /ks/.
+> note: вимова: /səkˈsɪŋkt/, cc читається як /ks/.
 
 > [!word] articulate
 > ipa: /ɑːˈtɪkjələt/ · ipa-us: /ɑːrˈtɪkjələt/ · pos: adj · level: C1 · id: en-c1-speaking-w14
 > uk: який чітко й переконливо висловлюється
-> example: She's one of the most **articulate** speakers I've heard. — Вона одна з тих, хто найчіткіше висловлюється з усіх, кого я чув.
+> example: She's one of the most **articulate** speakers I've heard. — Я рідко чув, щоб хтось висловлювався так чітко й переконливо, як вона.
 > note: дієслово — articulate /ɑːˈtɪkjəleɪt/: чітко сформулювати (думку).
 
 > [!word] think on your feet
@@ -420,7 +420,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 
 > [!word] strike up a conversation
 > ipa: /ˌstraɪk ˌʌp ə ˌkɒnvəˈseɪʃən/ · ipa-us: /ˌstraɪk ˌʌp ə ˌkɑːnvɚˈseɪʃən/ · pos: phrase · level: C1 · id: en-c1-speaking-w25
-> uk: зав'язати розмову
+> uk: завʼязати розмову
 > example: I **struck up a conversation** with the man next to me on the train. — Я заговорив із чоловіком поруч у потязі.
 > forms: strike → struck → struck
 
@@ -524,13 +524,13 @@ Small talk — не «пусті балачки», а спосіб встано�
 >
 > **Пояснення:** *I'd say so, though not necessarily…* — нюансована позиція; *What tends to hold people back isn't… so much as…* — cleft + контраст; *the only real cure for that is practice* — висновок. За 15 секунд — ознаки band 8.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · lang: en-GB · id: en-c1-speaking-l08
 > audio: If there are no more questions, I'll hand you back to the chair.
 
 ## Вимова
 
-У `tip` великими літерами — головні удари. На презентації говори трохи повільніше, ніж у розмові, і роби паузи на межах груп (`|`).
+У `tip` великими літерами — головні наголоси. На презентації говори трохи повільніше, ніж у розмові, і роби паузи на межах груп (`|`).
 
 ### Презентація й Q&A
 
@@ -539,22 +539,22 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: I'd like to talk you through our results for the first quarter.
 > ipa: /aɪd ˈlaɪk tə ˌtɔːk ju ˈθruː ɑː rɪˈzʌlts | fə ðə ˌfɜːst ˈkwɔːtə/
 > ipa-us: /aɪd ˈlaɪk tə ˌtɑːk ju ˈθruː ɑːr rɪˈzʌlts | fɚ ðə ˌfɝːst ˈkwɔːrt̬ɚ/
-> tip: talk — l не вимовляється: /tɔːk/. Удари: THROUGH, reSULTS, QUARter. for the — слабко: «фе-зе».
-> uk: Я хотів би провести вас через наші результати за перший квартал.
+> tip: у talk літера l не читається: /tɔːk/. Наголоси: THROUGH, reSULTS, QUARter. for the — слабкі форми: /fə ðə/.
+> uk: Я хотів би коротко розповісти про наші результати за перший квартал.
 
 > [!speak] План
 > level: C1 · id: en-c1-speaking-s02
 > text: I've divided my talk into three main parts.
 > ipa: /aɪv dɪˈvaɪdɪd maɪ ˈtɔːk ˌɪntə ˈθriː ˌmeɪn ˈpɑːts/
 > ipa-us: /aɪv dɪˈvaɪdɪd maɪ ˈtɑːk ˌɪntə ˈθriː ˌmeɪn ˈpɑːrts/
-> tip: diVIDed — удар на другому складі. THREE — виділи: це число слухачі запамʼятають.
+> tip: diVIDed — наголос на другому складі. THREE — виділи: це число слухачі запамʼятають.
 > uk: Я поділив свій виступ на три основні частини.
 
 > [!speak] Перехід
 > level: C1 · id: en-c1-speaking-s03
 > text: That brings me to my second point.
 > ipa: /ðæt ˈbrɪŋz mi tə maɪ ˌsekənd ↘pɔɪnt/
-> tip: удари: BRINGS, POINT. me to my — швидко й тихо. Після фрази — пауза: дай слухачам «перегорнути сторінку».
+> tip: наголоси: BRINGS, POINT. me to my — швидко й тихо. Після фрази — пауза: дай слухачам «перегорнути сторінку».
 > uk: Це підводить мене до другого пункту.
 
 > [!speak] Акцент
@@ -562,7 +562,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: What really matters here is the long-term trend.
 > ipa: /wɒt ˈrɪəli ˈmætəz hɪər‿ɪz | ðə ˌlɒŋ tɜːm ↘trend/
 > ipa-us: /wʌt ˈriːəli ˈmæt̬ɚz hɪr‿ɪz | ðə ˌlɔːŋ tɝːm ↘trend/
-> tip: cleft-речення: пауза перед головним — «what really MATters here is | the long-term TREND». Удар — на останньому.
+> tip: cleft-речення: пауза перед головним — «what really MATters here is | the long-term TREND». Головний наголос — на останньому слові.
 > uk: Що справді важливо — це довгостроковий тренд.
 
 > [!speak] Слайд
@@ -570,7 +570,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: As you can see from this chart, sales peaked in March.
 > ipa: /əz ju kən ˈsiː frəm ðɪs ˈtʃɑːt | ˈseɪlz ˈpiːkt‿ɪn ˈmɑːtʃ/
 > ipa-us: /əz ju kən ˈsiː frəm ðɪs ˈtʃɑːrt | ˈseɪlz ˈpiːkt‿ɪn ˈmɑːrtʃ/
-> tip: can — слабке /kən/; peaked — /piːkt/, -ed = /t/, звʼяжи з in: «ПІК-тін».
+> tip: can — слабке /kən/; peaked — /piːkt/, -ed = /t/, звʼяжи з in: /ˈpiːkt‿ɪn/.
 > uk: Як бачите з цієї діаграми, продажі досягли піку в березні.
 
 > [!speak] Підсумок
@@ -578,14 +578,14 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: So, to recap, we've looked at three key challenges.
 > ipa: /səʊ | tə ˈriːkæp | wiv ˈlʊkt‿ət ˈθriː ˌkiː ˈtʃælɪndʒɪz/
 > ipa-us: /soʊ | tə ˈriːkæp | wiv ˈlʊkt‿ət ˈθriː ˌkiː ˈtʃælɪndʒɪz/
-> tip: recap — «РІ-кеп», удар на першому складі (як іменник). challenges — «ЧЕ-лін-джіз».
+> tip: recap — наголос на першому складі (як в іменнику): /ˈriːkæp/; challenges — /ˈtʃælɪndʒɪz/.
 > uk: Отже, підсумовуючи: ми розглянули три ключові виклики.
 
 > [!speak] Запроси питання
 > level: C1 · id: en-c1-speaking-s07
 > text: Thank you. I'd be happy to take any questions.
 > ipa: /ˈθæŋk ju | aɪd bi ˈhæpi tə ˌteɪk‿eni ↘kwestʃənz/
-> tip: th у thank — язик між зубами. take‿any — звʼязуй: «ТЕЙ-ке-ні».
+> tip: th у thank — язик між зубами. take‿any — звʼязуй: /ˈteɪk‿eni/.
 > uk: Дякую. Із задоволенням відповім на питання.
 
 > [!speak] Не знаєш відповіді
@@ -593,15 +593,15 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: I don't have the figures to hand, but I'll get back to you.
 > ipa: /aɪ ˈdəʊnt hæv ðə ˈfɪɡəz tə ˈhænd | bət‿aɪl ˌɡet ˈbæk tə ju/
 > ipa-us: /aɪ ˈdoʊnt hæv ðə ˈfɪɡjɚz tə ˈhænd | bət‿aɪl ˌɡet̬ ˈbæk tə ju/
-> tip: figures — UK «ФІ-ґез», US «ФІ-ґʼєрз». Спокійне падіння в кінці — впевненість, не вибачення.
-> uk: Цифр у мене під рукою немає, але я вам повідомлю.
+> tip: figures — UK /ˈfɪɡəz/, US /ˈfɪɡjɚz/. Спокійне падіння в кінці — впевненість, не вибачення.
+> uk: Цифр у мене під рукою немає, але я уточню й повідомлю вам.
 
 > [!speak] Уточни питання
 > level: C1 · id: en-c1-speaking-s09
 > text: If I've understood you correctly, you're asking about the cost.
 > ipa: /ɪf aɪv ˌʌndəˈstʊd ju kəˈrektli | jʊər‿ˈɑːskɪŋ əˌbaʊt ðə ↗kɒst/
 > ipa-us: /ɪf aɪv ˌʌndɚˈstʊd ju kəˈrektli | jʊr‿ˈæskɪŋ əˌbaʊt ðə ↗kɑːst/
-> tip: підйом на COST — ти перевіряєш, чи правильно зрозумів. correctly — «ке-РЕКТ-лі», t майже не чути.
+> tip: підйом на COST — ти перевіряєш, чи правильно зрозумів. correctly — /kəˈrektli/, t майже не чути.
 > uk: Якщо я правильно вас зрозумів, ви питаєте про вартість.
 
 ### Дебати, small talk, медіація
@@ -619,7 +619,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: That's a false dichotomy. We can do both.
 > ipa: /ðæts‿ə ˌfɔːls daɪˈkɒtəmi | wi kən ˈduː ↘bəʊθ/
 > ipa-us: /ðæts‿ə ˌfɑːls daɪˈkɑːt̬əmi | wi kən ˈduː ↘boʊθ/
-> tip: diCHOtomy — «дай-КО-те-мі», ch = /k/. BOTH — сильний удар, th — язик між зубами.
+> tip: diCHOtomy — /daɪˈkɒtəmi/, ch читається як /k/. BOTH — сильний наголос, th — язик між зубами.
 > uk: Це хибна дилема. Можна зробити і те, і те.
 
 > [!speak] Почни small talk
@@ -627,7 +627,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: So, how do you know the hosts?
 > ipa: /səʊ | ˈhaʊ dʒə ˈnəʊ ðə ↘həʊsts/
 > ipa-us: /soʊ | ˈhaʊ dʒə ˈnoʊ ðə ↘hoʊsts/
-> tip: do you → «джє» у швидкому мовленні. hosts — три приголосні в кінці: /-sts/, не ковтай.
+> tip: do you у швидкому мовленні зливається в /dʒə/. hosts — три приголосні в кінці: /-sts/, не ковтай.
 > uk: А звідки ви знаєте господарів?
 
 > [!speak] Ввічливо вийди з розмови
@@ -635,7 +635,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: It's been great chatting. I should probably go and say hello to a few people.
 > ipa: /ɪts bɪn ˈɡreɪt ˈtʃætɪŋ | aɪ ʃʊd ˈprɒbli ˌɡəʊ ən ˌseɪ həˈləʊ tʊ‿ə ˈfjuː ˈpiːpəl/
 > ipa-us: /ɪts bɪn ˈɡreɪt ˈtʃæt̬ɪŋ | aɪ ʃʊd ˈprɑːbli ˌɡoʊ ən ˌseɪ həˈloʊ tʊ‿ə ˈfjuː ˈpiːpəl/
-> tip: probably у швидкому мовленні — «ПРОБ-лі». Тон теплий, з усмішкою: вихід має звучати як комплімент, а не як утеча.
+> tip: probably у швидкому мовленні — /ˈprɒbli/. Тон теплий, з усмішкою: вихід має звучати як комплімент, а не як утеча.
 > uk: Було дуже приємно поговорити. Мабуть, піду привітаюся ще з кількома людьми.
 
 > [!speak] Медіація
@@ -643,7 +643,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: What I think Anna is saying is that the deadline is unrealistic.
 > ipa: /wɒt aɪ ˈθɪŋk ˈænə z ˈseɪɪŋ ɪz | ðət ðə ˈdedlaɪn‿ɪz ˌʌnrɪəˈlɪstɪk/
 > ipa-us: /wʌt aɪ ˈθɪŋk ˈænə z ˈseɪɪŋ ɪz | ðət ðə ˈdedlaɪn‿ɪz ˌʌnriːəˈlɪstɪk/
-> tip: пауза перед головним (як у cleft). unreaLIStic — удар на -LIS-.
+> tip: пауза перед головним (як у cleft). unreaLIStic — наголос на -LIS-.
 > uk: Наскільки я розумію, Анна каже, що дедлайн нереальний.
 
 ### IELTS
@@ -653,7 +653,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: I'd like to talk about a talk I went to last spring at our local library.
 > ipa: /aɪd ˈlaɪk tə ˈtɔːk‿əˌbaʊt‿ə ˈtɔːk aɪ ˈwent tə ˌlɑːs ˈsprɪŋ ət‿ɑː ˌləʊkəl ↘laɪbrəri/
 > ipa-us: /aɪd ˈlaɪk tə ˈtɑːk‿əˌbaʊt‿ə ˈtɑːk aɪ ˈwent tə ˌlæs ˈsprɪŋ ət‿ɑːr ˌloʊkəl ↘laɪbreri/
-> tip: las(t) SPRING — /t/ випадає. library — «ЛАЙ-бре-рі», не «лайбері».
+> tip: las(t) SPRING — /t/ випадає. library — /ˈlaɪbrəri/, не «лайбері».
 > uk: Я хочу розповісти про виступ, на який я ходив минулої весни в нашій місцевій бібліотеці.
 
 > [!speak] Part 3: нюансована позиція
@@ -661,7 +661,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > text: It's not so much that public speaking matters more, it's that a different kind does.
 > ipa: /ɪts ˈnɒt ˌsəʊ ˈmʌtʃ ðət ˌpʌblɪk ˈspiːkɪŋ ˈmætəz ↘↗mɔː | ɪts ðət‿ə ˈdɪfrənt ↘kaɪnd dʌz/
 > ipa-us: /ɪts ˈnɑːt ˌsoʊ ˈmʌtʃ ðət ˌpʌblɪk ˈspiːkɪŋ ˈmæt̬ɚz ↘↗mɔːr | ɪts ðət‿ə ˈdɪfrənt ↘kaɪnd dʌz/
-> tip: контраст: MORE (fall-rise) ↔ KIND (падіння). different — два склади: «ДІФ-рент».
+> tip: контраст: MORE (fall-rise) ↔ KIND (падіння). different — два склади: /ˈdɪfrənt/.
 > uk: Справа не в тому, що публічні виступи важать більше, а в тому, що важать виступи іншого типу.
 
 ## Типові помилки українців
@@ -788,7 +788,7 @@ Small talk — не «пусті балачки», а спосіб встано�
 > - [ ] Let me tell you my opinion first.
 > - [ ] That's not my problem.
 >
-> **Пояснення:** медіатор не нав'язує своєї думки, а показує спільне (*you both agree*) і розбіжність (*where you differ*).
+> **Пояснення:** медіатор не навʼязує своєї думки, а показує спільне (*you both agree*) і розбіжність (*where you differ*).
 
 > [!quiz] Що характерно для IELTS Speaking band 8? Обери всі.
 > level: C1 · type: multi · id: en-c1-speaking-q13
@@ -847,14 +847,14 @@ Small talk — не «пусті балачки», а спосіб встано�
 
 ## Фішки
 
-> [!reel] 🏛️ Оксфордський дебатний клуб — школа прем'єрів
-> Oxford Union заснували 1823 року як дебатне товариство студентів. Через нього пройшли кілька майбутніх прем'єр-міністрів Британії. Формула *This house believes that…* — звідти: «палата» — це зала дебатів, як у парламенті.
+> [!reel] 🏛️ Оксфордський дебатний клуб — школа премʼєрів
+> Oxford Union заснували 1823 року як дебатне товариство студентів. Через нього пройшли кілька майбутніх премʼєр-міністрів Британії. Формула *This house believes that…* — звідти: «палата» — це зала дебатів, як у парламенті.
 
 > [!reel] ☁️ Чому британці говорять про погоду
 > Антропологиня Кейт Фокс у книжці *Watching the English* пояснює: розмова про погоду — не про погоду, а ритуал привітання. *Lovely day, isn't it?* означає «я хочу з тобою поговорити». Правильна відповідь — погодитися: *Gorgeous, isn't it?*
 
 > [!reel] 🎙️ Toastmasters — клуб тих, хто боїться виступати
-> 1924 року в Каліфорнії Ральф Смедлі заснував клуб, де люди вчилися промовляти перед групою. Сьогодні Toastmasters International — це тисячі клубів у світі, зокрема англомовні в Україні: щотижня короткий виступ і зворотний звʼязок.
+> 1924 року в Каліфорнії Ральф Смедлі заснував клуб, де люди вчилися виступати перед групою. Сьогодні Toastmasters International — це тисячі клубів у світі, зокрема англомовні в Україні: щотижня короткий виступ і зворотний звʼязок.
 
 ## Джерела та що почитати
 

@@ -26,7 +26,7 @@ estimatedMinutes: 35
 > - [ ] a hour
 > - [ ] a umbrella
 >
-> **Пояснення:** вибір *a / an* залежить від **першого звуку**, а не літери. *Hour* /aʊə/ починається з голосного звуку (h німе) → *an hour*. *University* /juː-/ починається зі звуку [й] → *a university*. *Umbrella* /ʌ-/ → *an umbrella*.
+> **Пояснення:** вибір *a / an* залежить від **першого звуку**, а не літери. *Hour* /aʊə/ починається з голосного звуку (h не читається) → *an hour*. *University* /juː-/ починається зі звуку [й] → *a university*. *Umbrella* /ʌ-/ → *an umbrella*.
 
 ## Навіщо артикль, якщо в українській його немає
 
@@ -53,7 +53,7 @@ estimatedMinutes: 35
 | a **u**niversity /ˌjuːnɪ-/ — звук [й] | an **u**mbrella /ʌmˈbrelə/ — звук [а] |
 | a **E**uropean /ˌjʊərə-/ — звук [й] | an **e**gg /eɡ/ |
 | a **o**ne-way ticket /wʌn/ — звук [w] | an **o**range /ˈɒrɪndʒ/ |
-| a **h**ouse /haʊs/ — h звучить | an **h**our /aʊə/ — h німе |
+| a **h**ouse /haʊs/ — h читається | an **h**our /aʊə/ — h не читається |
 
 > [!diagram] Як вибрати a чи an
 > ```yaml
@@ -65,10 +65,10 @@ estimatedMinutes: 35
 >   - { id: art, label: "артикль", text: "?", tone: green }
 > steps:
 >   - { focus: word, note: "Беремо слово hour. Перша літера — h, приголосна. Але літера нам не важлива!" }
->   - { set: { sound: "/aʊ/" }, focus: sound, note: "Слухаємо: h у hour не вимовляється, слово звучить «ауə». Перший звук — /aʊ/." }
+>   - { set: { sound: "/aʊ/" }, focus: sound, note: "Слухаємо: h у hour не вимовляється, слово звучить «ауе». Перший звук — /aʊ/." }
 >   - { set: { rule: "так" }, focus: rule, note: "/aʊ/ — голосний звук." }
 >   - { set: { art: "an hour" }, focus: art, note: "Голосний звук → an. Звідси an hour, хоча пишеться через h." }
->   - { set: { word: "university", sound: "/j/", rule: "ні", art: "a university" }, note: "А university починається зі звуку /j/ («ю»), а він приголосний → a university, хоча на початку літера u." }
+>   - { set: { word: "university", sound: "/j/", rule: "ні", art: "a university" }, note: "А university починається зі звуку /j/ — це [й], а він приголосний → a university, хоча на початку літера u." }
 > ```
 
 ## Перше знайомство з the
@@ -109,7 +109,7 @@ estimatedMinutes: 35
 | часто -f / -fe: **→ ves** | wife → wives, knife → knives, life → lives | дружини, ножі, життя |
 
 > [!tip] Навіщо -es
-> Спробуй вимовити «boxs» чи «watchs» — язик спотикається. Тому між шиплячим звуком і s вставляють голосний: *boxes* /ˈbɒksɪz/, *watches* /ˈwɒtʃɪz/. Детально про звуки закінчення -s — у [[English - A1 - 23. Кінцеві приголосні й закінчення -s]].
+> Спробуй вимовити «boxs» чи «watchs» — язик спотикається. Тому між свистячим чи шиплячим звуком і s вставляють голосний: *boxes* /ˈbɒksɪz/, *watches* /ˈwɒtʃɪz/. Детально про звуки закінчення -s — у [[English - A1 - 23. Кінцеві приголосні й закінчення -s]].
 
 ## Множина: неправильні слова
 
@@ -147,7 +147,7 @@ estimatedMinutes: 35
 > ipa: /ˈaʊə/ · ipa-us: /ˈaʊər/ · pos: noun · level: A1 · id: en-a1-articles-w01
 > uk: година
 > example: The film is two **hours** long. — Фільм триває дві години.
-> note: h німе → an hour.
+> note: h не читається → an hour.
 
 > [!word] university
 > ipa: /ˌjuːnɪˈvɜːsəti/ · ipa-us: /ˌjuːnɪˈvɝːsət̬i/ · pos: noun · level: A1 · id: en-a1-articles-w02
@@ -165,7 +165,7 @@ estimatedMinutes: 35
 > ipa: /aɪˈdɪə/ · ipa-us: /aɪˈdiːə/ · pos: noun · level: A1 · id: en-a1-articles-w04
 > uk: ідея
 > example: That's a great **idea**! — Чудова ідея!
-> note: наголос на другий склад: ai-DEA. Перед ним an: an idea.
+> note: наголос на другому складі: ai-DEA. Перед ним an: an idea.
 
 > [!word] animal
 > ipa: /ˈænɪml/ · pos: noun · level: A1 · id: en-a1-articles-w05
@@ -199,7 +199,7 @@ estimatedMinutes: 35
 
 > [!word] foot
 > ipa: /fʊt/ · pos: noun · level: A1 · id: en-a1-articles-w10
-> uk: стопа; нога (від щиколотки)
+> uk: стопа; нога (нижче щиколотки)
 > forms: foot → feet
 > example: My **feet** are cold. — У мене мерзнуть ноги.
 
@@ -238,13 +238,13 @@ estimatedMinutes: 35
 > ipa: /ˈpɑːti/ · ipa-us: /ˈpɑːrt̬i/ · pos: noun · level: A1 · id: en-a1-articles-w16
 > uk: вечірка; свято
 > forms: party → parties
-> example: It's a birthday **party**. — Це вечірка з нагоди дня народження.
+> example: It's a birthday **party**. — Це святкування дня народження.
 
 > [!word] toy
 > ipa: /tɔɪ/ · pos: noun · level: A1 · id: en-a1-articles-w17
 > uk: іграшка
 > forms: toy → toys
-> example: The children's **toys** are everywhere. — Дитячі іграшки всюди.
+> example: The children's **toys** are everywhere. — Дитячі іграшки розкидані всюди.
 
 > [!word] photo
 > ipa: /ˈfəʊtəʊ/ · ipa-us: /ˈfoʊt̬oʊ/ · pos: noun · level: A1 · id: en-a1-articles-w18
@@ -256,7 +256,7 @@ estimatedMinutes: 35
 > ipa: /klɑːs/ · ipa-us: /klæs/ · pos: noun · level: A1 · id: en-a1-articles-w19
 > uk: клас; заняття; урок
 > forms: class → classes
-> example: My English **class** is on Monday. — Моє заняття з англійської — у понеділок.
+> example: My English **class** is on Monday. — Заняття з англійської в мене в понеділок.
 
 ## Слухаємо
 
@@ -274,7 +274,7 @@ estimatedMinutes: 35
 > - [x] The children are with two women.
 > - [ ] The children are with a woman.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-articles-l03
 > audio: I need an umbrella.
 
@@ -292,7 +292,7 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-articles-s01
 > text: an hour, a house, an umbrella, a university
 > ipa: /ən ˈaʊə ə ˈhaʊs ən ʌmˈbrelə ə ˌjuːnɪˈvɜːsəti/
-> tip: a і an — слабкі /ə/, /ən/. Не «ей» і не «ен» з наголосом. An + голосний зливаються: «е-нау-е».
+> tip: a і an — слабкі /ə/, /ən/. Не «ей» і не «ен» з наголосом. An зливається з наступним голосним: «е-нау-е».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-articles-s02
@@ -310,7 +310,7 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-articles-s04
 > text: The children are at a party.
 > ipa: /ðə ˈtʃɪldrən ər ət ə ˈpɑːti/
-> tip: the перед приголосним — /ðə/, язик між зубами й голос. Are, at, a — усі слабкі.
+> tip: the перед приголосним — /ðə/: язик між зубами, звук дзвінкий. Are, at, a — усі слабкі.
 
 ## Типові помилки українців
 
@@ -318,7 +318,7 @@ estimatedMinutes: 35
 > Найчастіша помилка всіх, у кого в мові немає артиклів. Професія, роль, «хто ти» в однині — **з a / an**: *She's **a** doctor. I'm **a** student. He's **an** engineer.* У множині — без артикля: *They're doctors.*
 
 > [!pitfall] «an university», «a hour» — дивимося на літеру
-> Літера оманлива. *University, Europe, one* починаються з приголосного звуку → **a**. *Hour, honest* — h німе, починаються з голосного → **an**. Скажи слово вголос — і почуєш правильний артикль.
+> Літера оманлива. *University, Europe, one* починаються з приголосного звуку → **a**. *Hour, honest* — h не читається, тож перший звук голосний → **an**. Скажи слово вголос — і почуєш правильний артикль.
 
 > [!pitfall] «a books», «childrens», «peoples»
 > *A / an* — лише з одниною: **a book, books**. *Children, people, men* — вже множина, ще одне -s не додаємо. (*Peoples* існує, але означає «народи».)
@@ -443,14 +443,14 @@ estimatedMinutes: 35
 
 ## Фішки
 
-> [!reel] 🍎 Як «a norange» став «an orange»
-> Колись казали *a norange* (від арабського *nāranj*). Але на слух *a norange* і *an orange* звучать однаково — і n «перестрибнула» до артикля. Так само *a napron* перетворився на *an apron*.
+> [!reel] 🍎 Як «a napron» став «an apron»
+> Колись англійці казали *a napron* (фартух). Але на слух *a napron* і *an apron* звучать однаково — і n «перестрибнула» до артикля. Так само *a nadder* став *an adder* (гадюка). А в *orange* (від арабського *nāranj*) n загубилася ще у французькій та італійській — до англійської слово прийшло вже без неї.
 
 > [!reel] 🐭 Чому mice, а не mouses
 > *Mouse — mice, foot — feet, tooth — teeth, man — men* — залишки давньої англійської, де множину робили зміною голосного всередині слова (як у німецькій *Maus — Mäuse*). Вижили лише найчастіші слова.
 
 > [!reel] 🖱️ Комп’ютерні mice чи mouses?
-> Про комп’ютерну мишку обидві форми вживають: і *mice*, і *mouses*. Словники приймають обидві, але *mice* все одно частіше. Тож якщо в тебе дві мишки на столі — не помилишся ні так, ні так.
+> Про компʼютерних мишок кажуть і *mice*, і *mouses*. Словники визнають обидві форми, але *mice* все одно вживають частіше. Тож якщо в тебе дві мишки на столі — не помилишся ні так, ні так.
 
 ## Джерела та що почитати
 

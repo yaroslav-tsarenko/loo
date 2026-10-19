@@ -52,7 +52,7 @@ estimatedMinutes: 40
 | does | /dʌz/ | /dəz/ | *Where does he live?* /ˈweə dəz‿i ˈlɪv/ |
 
 > [!tip] could have, should have, must have
-> Сполучення «модальне + have + V3» — одне з найчастіших місць, де ламається слух: /ˈkʊd‿əv/, /ˈʃʊd‿əv/, /ˈmʌst‿əv/. У дуже швидкому мовленні лишається навіть /ə/: *shoulda*, *coulda* — так часто пишуть у піснях і чатах. Вимовляй /əv/, а пиши завжди **have**.
+> Сполучення «модальне + have + V3» — одне з найчастіших місць, де підводить слух: /ˈkʊd‿əv/, /ˈʃʊd‿əv/, /ˈmʌst‿əv/. У дуже швидкому мовленні від have лишається тільки /ə/: *shoulda*, *coulda* — так часто пишуть у піснях і чатах. Вимовляй /əv/, а пиши завжди **have**.
 
 ### Займенники, що «гублять» перший звук
 
@@ -73,7 +73,7 @@ estimatedMinutes: 40
 
 | Слово | Сильна — коли це «головне» слово | Слабка — коли це «клей» |
 |---|---|---|
-| that | вказівне: *Look at **that**!* /ðæt/ | сполучник, «який»: *I think **that** he's right.* /ðət/ |
+| that | вказівне: *Look at **that**!* /ðæt/ | сполучник «що» або «який»: *I think **that** he's right.* /ðət/ |
 | some | «деякі», «одні»: ***Some** people love it.* /sʌm/ | «трохи»: *some milk* /səm ˈmɪlk/ |
 | there | місце: *over **there*** /ðeə/ | *there is / are*: ***There's** a problem.* /ðəz‿ə/ |
 
@@ -109,7 +109,7 @@ estimatedMinutes: 40
 > [!tip] Backchaining — збирай речення з кінця
 > Довге речення легше вимовити ритмічно, якщо будувати його **з останнього удару назад**:
 > *PHOtos* → *at the PHOtos* → *LOOK at the PHOtos* → *have a LOOK at the PHOtos* → *I'd LIKE to have a LOOK at the PHOtos*.
-> Кожен раз плескай на удари. Слабкі склади «підлаштуються» самі.
+> Щоразу плескай на удари. Слабкі склади «підлаштуються» самі.
 
 ### Наголос у фразових дієсловах
 
@@ -135,7 +135,7 @@ estimatedMinutes: 40
 ### Навіщо це для IELTS
 
 - **Listening:** відповіді часто ховаються в слабких складах: *for a couple of days*, *she's been there twice*, *it should have been sent*. Хто чекає повних форм — пропускає.
-- **Speaking:** критерій Pronunciation оцінює ритм, наголос і звʼязне мовлення. Однаково сильні склади звучать «роботизовано» і знижують зрозумілість.
+- **Speaking:** критерій Pronunciation оцінює ритм, наголос і звʼязне мовлення. Коли всі склади однаково сильні, мовлення звучить «роботизовано» і його важче зрозуміти.
 
 ## Приклади
 
@@ -156,7 +156,7 @@ estimatedMinutes: 40
 > ipa: /ʃwɑː/ · pos: noun · level: B1 · id: en-b1-weak-forms-w01
 > uk: шва — нейтральний звук /ə/
 > example: The **schwa** is the most common sound in English. — Шва — найчастіший звук в англійській.
-> note: звучить у ненаголошених складах: a**bout**, sof**a**, doct**or**.
+> note: звучить у ненаголошених складах: **a**bout, sof**a**, doct**or**.
 
 > [!word] function word
 > ipa: /ˈfʌŋkʃən wɜːd/ · ipa-us: /ˈfʌŋkʃən wɝːd/ · pos: noun · level: B1 · id: en-b1-weak-forms-w02
@@ -166,7 +166,7 @@ estimatedMinutes: 40
 > [!word] content word
 > ipa: /ˈkɒntent wɜːd/ · ipa-us: /ˈkɑːntent wɝːd/ · pos: noun · level: B1 · id: en-b1-weak-forms-w03
 > uk: змістове (повнозначне) слово
-> example: **Content words** carry the message. — Змістові слова несуть повідомлення.
+> example: **Content words** carry the message. — Змістові слова передають основний зміст.
 
 > [!word] stress-timed
 > ipa: /ˈstres taɪmd/ · pos: adj · level: B1 · id: en-b1-weak-forms-w04
@@ -200,12 +200,12 @@ estimatedMinutes: 40
 > ipa: /ˈkaɪnd‿əv/ · pos: phrase · level: B1 · id: en-b1-weak-forms-w09
 > uk: якийсь; трохи; ніби (розмовне)
 > example: It's **kind of** difficult to explain. — Це якось важко пояснити.
-> note: розмовно звучить «КАЙН-де», у чатах пишуть kinda. What kind of music? — який вид музики.
+> note: розмовно звучить «КАЙН-де», у чатах пишуть kinda. What kind of music? — «Яку музику?» (тут kind — «вид, тип»).
 
 > [!word] as well as
 > ipa: /əz ˈwel‿əz/ · pos: phrase · level: B1 · id: en-b1-weak-forms-w10
 > uk: а також; так само як і
-> example: She speaks Polish **as well as** English. — Вона говорить польською, а також англійською.
+> example: She speaks Polish **as well as** English. — Крім англійської, вона говорить ще й польською.
 > note: обидва as — слабкі /əz/; удар лише на WELL.
 
 > [!word] at least
@@ -262,15 +262,15 @@ estimatedMinutes: 40
 > - [x] She's been waiting for an hour.
 > - [ ] She's waiting for an hour.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-weak-forms-l04
 > audio: What are you looking at?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-weak-forms-l05
 > audio: There are a couple of things I want to ask you.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-weak-forms-l06
 > audio: Some of them were from Kyiv, and some were from Lviv.
 
@@ -309,7 +309,7 @@ estimatedMinutes: 40
 > audio: I'd like to have a look at the photos.
 > - [x] три: LIKE, LOOK, PHOtos
 > - [ ] пʼять
-> - [ ] девʼять — скільки слів
+> - [ ] девʼять — за кількістю слів
 >
 > **Пояснення:** десять складів, але лише три удари. Решта — слабкі: /tə həv‿ə/, /ət ðə/.
 
@@ -449,7 +449,7 @@ estimatedMinutes: 40
 > *Tell HIM* з повним /h/ звучить як протиставлення: «скажи саме йому, а не їй». У звичайному реченні — *tell‿im*, *ask‿er*. /h/ лишається лише на початку речення і під наголосом.
 
 > [!pitfall] Наголос не там у фразових дієсловах
-> «LOOK it up» чи «TURN it off» — для англійця неприродно: частка фразового дієслова сильна — *look it UP*, *turn it OFF*. А от прийменник — слабкий: *LOOK at it*, а не «look AT it».
+> «LOOK it up» чи «TURN it off» — для носія англійської неприродно: частка фразового дієслова сильна — *look it UP*, *turn it OFF*. А от прийменник — слабкий: *LOOK at it*, а не «look AT it».
 
 > [!pitfall] Кулеметний ритм
 > Українська звичка давати кожному складу однакову вагу перетворює англійське речення на «та-та-та-та-та». Тренуй удари: плескай, збирай речення з кінця, стискай слабкі склади — і тебе стане легше зрозуміти.

@@ -108,7 +108,7 @@ estimatedMinutes: 60
 | Вислів | Значення | Джерело |
 |---|---|---|
 | **the writing on the wall** | зловісний знак неминучого кінця | Книга Даниїла 5 |
-| **a good Samaritan** | безкорисливий помічник незнайомцю | Лука 10 |
+| **a good Samaritan** | той, хто безкорисливо допомагає незнайомим | Лука 10 |
 | **the prodigal son** | блудний син, що повертається | Лука 15 |
 | **go the extra mile** | зробити більше, ніж вимагають | Матвій 5:41 |
 | **a doubting Thomas** | скептик, Хома невіруючий | Іван 20 |
@@ -166,7 +166,7 @@ estimatedMinutes: 60
 >   - { id: lit, label: "2. буквально не пасує", text: "Pyrrhic? Хто такий Пірр?", note: "сигнал алюзії", tone: orange }
 >   - { id: src, label: "3. впізнай джерело", text: "цар Пірр: перемога ціною армії", note: "міф · Біблія · Шекспір · книжка · новини", tone: violet, icon: "px:books" }
 >   - { id: mean, label: "4. значення в контексті", text: "виграли, але втратили забагато", tone: blue }
->   - { id: tone, label: "5. тон і регістр", text: "книжне, іронічне — ок і в есе", tone: green, icon: "px:check" }
+>   - { id: tone, label: "5. тон і регістр", text: "книжне, іронічне — годиться і для есе", tone: green, icon: "px:check" }
 > steps:
 >   - { focus: hear, note: "Ти чуєш вислів, який не розкладається на прості слова. Не панікуй — це, найпевніше, алюзія." }
 >   - { focus: lit, note: "Буквальне значення не підходить до ситуації: про царя ніхто не говорив. Значить, вислів — посилання." }
@@ -233,8 +233,8 @@ estimatedMinutes: 60
 > [!word] a bird in the hand
 > ipa: /ə ˌbɜːd ɪn ðə ˈhænd/ · ipa-us: /ə ˌbɜːrd ɪn ðə ˈhænd/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w07
 > uk: краще синиця в жмені, ніж журавель у небі
-> example: The salary isn't amazing, but it's a firm offer. **A bird in the hand**… — Зарплата не надзвичайна, але пропозиція тверда. Краще синиця в жмені…
-> note: повністю *A bird in the hand is worth two in the bush*. Нейтрально-розмовне. Без синиць і журавлів — просто «птах у руці вартий двох у кущах».
+> example: The salary isn't amazing, but it's a firm offer. **A bird in the hand**… — Зарплата не надзвичайна, зате пропозиція реальна. Краще синиця в жмені…
+> note: повністю *A bird in the hand is worth two in the bush*. Нейтрально-розмовне. Дослівно: «птах у руці вартий двох у кущах».
 
 > [!word] people who live in glass houses
 > ipa: /ˌpiːpəl huː ˌlɪv ɪn ˈɡlɑːs ˌhaʊzɪz/ · ipa-us: /ˌpiːpəl huː ˌlɪv ɪn ˈɡlæs ˌhaʊzɪz/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w08
@@ -295,13 +295,13 @@ estimatedMinutes: 60
 > [!word] the world is your oyster
 > ipa: /ðə ˈwɜːld ɪz jər ˈɔɪstə/ · ipa-us: /ðə ˈwɜːrld ɪz jər ˈɔɪstər/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w17
 > uk: увесь світ біля твоїх ніг; перед тобою всі дороги
-> example: You're 22 and you speak three languages — **the world is your oyster**. — Тобі 22 і ти знаєш три мови — перед тобою всі дороги.
+> example: You're 22 and you speak three languages — **the world is your oyster**. — Тобі 22, і ти знаєш три мови — перед тобою всі дороги.
 > note: розмовне, підбадьорливе. З «Віндзорських насмішниць»: світ — устриця, яку треба розкрити, щоб дістати перлину.
 
 > [!word] hoist with your own petard
 > ipa: /ˌhɔɪst wɪð jər ˌəʊn pɪˈtɑːd/ · ipa-us: /ˌhɔɪst wɪð jər ˌoʊn pəˈtɑːrd/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w18
 > uk: потрапити у власну пастку; хто копає яму іншому, сам у неї впаде
-> example: The senator who attacked others' expenses was **hoist with his own petard** when his own receipts leaked. — Сенатор, який критикував чужі витрати, сам потрапив у пастку, коли витекли його власні чеки.
+> example: The senator who attacked others' expenses was **hoist with his own petard** when his own receipts leaked. — Сенатор, який критикував чужі витрати, сам потрапив у пастку, коли злили його власні чеки.
 > note: книжне, публіцистика; також *hoist by one's own petard*. *Petard* — давня міна; *hoist* — «підкинутий» її вибухом. З «Гамлета».
 
 > [!word] the lady doth protest too much
@@ -327,13 +327,13 @@ estimatedMinutes: 60
 > [!word] the writing on the wall
 > ipa: /ðə ˌraɪtɪŋ ɒn ðə ˈwɔːl/ · ipa-us: /ðə ˌraɪtɪŋ ɑːn ðə ˈwɔːl/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w22
 > uk: зловісний знак неминучого кінця
-> example: When sales fell for the fifth year running, **the writing was on the wall** for the old shop. — Коли продажі впали вп'ятий рік поспіль, кінець старої крамниці став очевидним.
+> example: When sales fell for the fifth year running, **the writing was on the wall** for the old shop. — Коли продажі впали впʼятий рік поспіль, кінець старої крамниці став очевидним.
 > note: нейтральне — можна в есе; *the writing is on the wall for sb/sth*, *see the writing on the wall*. Книга Даниїла 5: рука пише пророцтво на стіні під час бенкету Валтасара.
 
 > [!word] a good Samaritan
 > ipa: /ə ˌɡʊd səˈmærɪtən/ · pos: noun · level: C2 · id: en-c2-idiomatic-w23
 > uk: добрий самарянин; той, хто безкорисливо допомагає незнайомцю
-> example: **A good Samaritan** found my wallet and posted it back to me. — Якийсь добрий самарянин знайшов мій гаманець і надіслав поштою.
+> example: **A good Samaritan** found my wallet and posted it back to me. — Якийсь добрий самарянин знайшов мій гаманець і надіслав його мені поштою.
 > note: нейтральне, схвальне. Притча з Євангелія від Луки. У США — *Good Samaritan laws*: закони, що захищають тих, хто надає першу допомогу.
 
 > [!word] the prodigal son
@@ -402,7 +402,7 @@ estimatedMinutes: 60
 > ipa: /ən əˌkɪliːz ˈhiːl/ · pos: noun · level: C2 · id: en-c2-idiomatic-w34
 > uk: ахіллесова пʼята
 > example: Public speaking has always been my **Achilles heel**. — Публічні виступи завжди були моєю ахіллесовою пʼятою.
-> note: нейтральне — доречне в есе: *the Achilles heel of the system*. Пишуть і *Achilles' heel*. Вимова — [е-КІ-ліз], наголос на другий склад.
+> note: нейтральне — доречне в есе: *the Achilles heel of the system*. Пишуть і *Achilles' heel*. Вимова — [е-КІ-ліз], наголос на другому складі.
 
 > [!word] open Pandora's box
 > ipa: /ˌəʊpən pænˌdɔːrəz ˈbɒks/ · ipa-us: /ˌoʊpən pænˌdɔːrəz ˈbɑːks/ · pos: phrase · level: C2 · id: en-c2-idiomatic-w35
@@ -529,7 +529,7 @@ estimatedMinutes: 60
 > - [ ] For years the writings have been on the walls for high-street banks.
 > - [ ] For years the writing has been on a wall for high-street banks.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-idiomatic-l02
 > audio: Exam results are not the be-all and end-all of education.
 
@@ -554,7 +554,7 @@ estimatedMinutes: 60
 > - [ ] Безкоштовні застосунки — це вірус, який треба заборонити.
 > - [ ] Мовець не має думки й уникає відповіді.
 >
-> **Пояснення:** зважена позиція (*On balance, yes, but…*) плюс три вислови, кожен на своєму місці: прислівʼя (*no such thing as a free lunch*), алюзія, яку мовець сам **пом'якшує** (*I wouldn't call it a Trojan horse exactly*), і Шекспір у запереченні (*isn't the be-all and end-all*). Так звучить Band 9: ідіоматика працює на думку.
+> **Пояснення:** зважена позиція (*On balance, yes, but…*) плюс три вислови, кожен на своєму місці: прислівʼя (*no such thing as a free lunch*), алюзія, яку мовець сам **помʼякшує** (*I wouldn't call it a Trojan horse exactly*), і Шекспір у запереченні (*isn't the be-all and end-all*). Так звучить Band 9: ідіоматика працює на думку.
 
 > [!listen] IELTS Listening · Part 4: заповни нотатки лекції. Write ONE WORD AND/OR A NUMBER.
 > level: C2 · type: fill · lang: en-GB · id: en-c2-idiomatic-l05
@@ -568,7 +568,7 @@ estimatedMinutes: 60
 > "Hobson's choice" — Hobson hired out [[horses]] in [[Cambridge]]
 > ```
 >
-> **Пояснення:** типовий формат Part 4: лекція, нотатки, обмеження на кількість слів. *Sixteen eleven* — рік 1611 (роки англійці читають парами цифр). Назви з великої літери пишуть так, як диктують.
+> **Пояснення:** типовий формат Part 4: лекція, нотатки, обмеження на кількість слів. *Sixteen eleven* — рік 1611 (роки англійці читають парами цифр). Власні назви пиши з великої літери.
 
 > [!listen] Що Бен думає про свою «перемогу»?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-idiomatic-l06
@@ -583,7 +583,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** ніхто не каже «я шкодую». Бен лише називає ціну (*two years and fifteen thousand pounds*) — і підкреслено дрібний результат (*my fence*). Друг підсумовує алюзією *a Pyrrhic victory*, а *You could say that* — британське стримане «так, саме так».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · lang: en-GB · id: en-c2-idiomatic-l07
 > audio: The only fly in the ointment was the weather.
 
@@ -626,7 +626,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-idiomatic-s04
 > text: In the end it was a Pyrrhic victory.
 > ipa: /ɪn ði ˈend ɪt wəz ə ˌpɪrɪk ˈvɪktəri/
-> tip: Pyrrhic — [ПІ-рік]: y читається як [ɪ], h німе. victory — три склади, середній майже зникає: [ВІК-тр'і].
+> tip: Pyrrhic — [ПІ-рік]: y читається як [ɪ], h не читається. victory — три склади, середній майже зникає: [ВІК-трʼі].
 > uk: Зрештою це була пірова перемога.
 
 > [!speak] Ахіллесова пʼята
@@ -640,7 +640,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-idiomatic-s06
 > text: It was a noble but quixotic idea.
 > ipa: /ɪt wəz ə ˈnəʊbəl bət kwɪkˈsɒtɪk aɪˈdɪə/
-> tip: quixotic — [квік-СО-тік]: x = [ks], наголос на другий склад. Не «кіхотик»!
+> tip: quixotic — [квік-СО-тік]: x = [ks], наголос на другому складі. Не «кіхотик»!
 > uk: Це була шляхетна, але донкіхотська ідея.
 
 > [!speak] Обрізане прислівʼя
@@ -654,7 +654,7 @@ estimatedMinutes: 60
 > level: C2 · id: en-c2-idiomatic-s08
 > text: Social media isn't the root of all evil, but it has certainly opened Pandora's box.
 > ipa: /ˌsəʊʃəl ˈmiːdiə ˈɪznt ðə ˌruːt əv ɔːl ˈiːvəl bət ɪt həz ˈsɜːtənli ˈəʊpənd pænˌdɔːrəz ˈbɒks/
-> tip: Пауза після evil (кома). Pandora's — наголос на другий склад [пен-ДО-рез]; certainly — t часто «ковтається»: [СЕ-ʔн-лі].
+> tip: Пауза після evil (кома). Pandora's — наголос на другому складі [пен-ДО-рез]; certainly — t часто «ковтається»: [СЕ-ʔн-лі].
 > uk: Соцмережі — не корінь усього зла, але скриньку Пандори вони точно відкрили.
 
 ## Типові помилки українців
@@ -666,7 +666,7 @@ estimatedMinutes: 60
 > ~~Every cloud has a silver lining, but too many cooks spoil the broth, so the writing is on the wall and we shouldn't count our chickens.~~ Чотири прислівʼя — нуль змісту. Екзаменатор IELTS оцінює *natural and accurate* вживання: один-два вислови на відповідь, і лише там, де вони точніші за звичайні слова. У **Writing Task 2** розмовні прислівʼя (*birds of a feather, too many cooks, speak of the devil*) і жартівливі фрази (*Houston, we have a problem*) — помилка регістру; безпечні лише нейтральні книжні алюзії (*a sea change, a Pyrrhic victory, a Catch-22 situation*), і то одна-дві на есе.
 
 > [!pitfall] Схожий образ — інше значення
-> *Feet of clay* — прихована вада **шанованої людини** (*the hero had feet of clay*), а «колос на глиняних ногах» — велика, але неміцна **структура** (держава, компанія): тут англійською краще *a giant with feet of clay* або просто *fragile*. *The prodigal son* — блудний син, але слово *prodigal* означає «марнотратний». ~~Money is the root of all evil~~ — у Біблії *the love of money is the root of all evil* (1 Тимофію 6:10); носії теж часто плутають, тож у есе краще не цитувати. *Frankenstein* — учений, а не чудовисько.
+> *Feet of clay* — прихована вада **шанованої людини** (*the hero had feet of clay*), а «колос на глиняних ногах» — велика, але неміцна **структура** (держава, компанія): тут англійською краще *a giant with feet of clay* або просто *fragile*. *The prodigal son* — блудний син, але слово *prodigal* означає «марнотратний». ~~Money is the root of all evil~~ — у Біблії *the love of money is the root of all evil* (1 Тимофію 6:10); носії теж часто плутають, тож в есе краще не цитувати. *Frankenstein* — учений, а не чудовисько.
 
 > [!pitfall] Алюзію читають буквально або «розширюють»
 > *The lady doth protest too much* — не про жінок і не про протести, а про будь-кого, хто **надто палко заперечує**. *Kafkaesque* — не «дивний», а абсурдно-бюрократичний і гнітючий. *Orwellian* — не будь-яке «погане майбутнє», а стеження й маніпуляція словами. *A Pyrrhic victory* — не «блискуча перемога» (як може підказати вогняне *pyr-*), а перемога надто дорогою ціною. Неточна алюзія шкодить балу більше, ніж її відсутність.
@@ -745,7 +745,7 @@ estimatedMinutes: 60
 > - [ ] Governments that ban protests are basically Big Brother, so the writing is on the wall and the proof is in the pudding.
 > - [ ] Banning protests is bad. People will not trust the government. This is a problem.
 >
-> **Пояснення:** варіант 2 зберігає думку, але міняє регістр: одна нейтральна книжна алюзія (*Orwellian*) замість розмовного *basically Big Brother*, а жартівливе *Houston, we have a problem* — на точне формулювання наслідку. Варіанти 1 і 3 — розмовні ідіоми «в купі»; 4 — без лексичного діапазону (Band 5).
+> **Пояснення:** варіант 2 зберігає думку, але міняє регістр: одна нейтральна книжна алюзія (*Orwellian*) замість розмовного *basically Big Brother*, а жартівливе *Houston, we have a problem* — на точне формулювання наслідку. Варіанти 1 і 3 — розмовні ідіоми, звалені докупи; 4 — без лексичного діапазону (Band 5).
 
 > [!quiz] Встав біблійний вислів
 > level: C2 · type: fill · id: en-c2-idiomatic-q09 · bank: spoon, sheep
@@ -814,7 +814,7 @@ estimatedMinutes: 60
 
 > [!quiz] «He keeps telling everyone he doesn't care that she left. The lady doth protest too much.» Що має на увазі мовець?
 > level: C2 · id: en-c2-idiomatic-q15
-> - [ ] Чоловік поводиться, як жінка.
+> - [ ] Чоловік поводиться як жінка.
 > - [x] Надто палкі запевнення видають, що насправді йому не байдуже.
 > - [ ] Чоловік бере участь у протестах.
 > - [ ] Йому справді байдуже, і він має рацію.
@@ -853,7 +853,7 @@ estimatedMinutes: 60
 > *The powers that be*, *a law unto themselves*, *scapegoat* — ці вислови вперше зʼявилися в перекладі Вільяма Тиндейла (1520–30-ті). Біблія короля Якова (1611) успадкувала значну частину його тексту — і понесла ці фрази в мову.
 
 > [!reel] 📕 Catch-18, що став Catch-22
-> Роман Джозефа Геллера мав називатися «Catch-18». Перед виходом 1961 року видавці змінили число, щоб назва не перетиналася з іншим тодішнім бестселером. Тепер «Catch-22» — звичайне слово в словниках.
+> Роман Джозефа Геллера мав називатися «Catch-18». Перед виходом 1961 року видавці змінили число, щоб назва не перегукувалася з іншим тодішнім бестселером. Тепер «Catch-22» — звичайне слово в словниках.
 
 ## Джерела та що почитати
 

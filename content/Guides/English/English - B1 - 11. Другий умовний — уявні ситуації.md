@@ -67,7 +67,7 @@ estimatedMinutes: 45
 | **be** | If I **were** taller, | I**'d play** basketball. |
 
 - **'d** = **would**: *I'd, you'd, she'd, we'd, they'd*. Заперечення — **wouldn't** /ˈwʊd.ənt/.
-- У результаті замість *would* можна **could** (міг би) або **might** (можливо, б): *If I had a car, I **could** drive you home. If you asked him, he **might** agree.*
+- У результаті замість *would* можна **could** (міг би) або **might** (можливо, …б): *If I had a car, I **could** drive you home. If you asked him, he **might** agree.*
 - Як і в першому умовному, половинки можна поміняти місцями: *I'd buy a boat if I were rich.* (без коми).
 
 > [!quiz] Перевір себе: обери форму
@@ -88,7 +88,7 @@ estimatedMinutes: 45
 
 - **If I were you, I'd** talk to your boss. — На твоєму місці я б поговорив з начальником.
 - **If I were you, I wouldn't** buy that car. — На твоєму місці я б не купував цю машину.
-- I**'d** take the job **if I were you**. — Я б погодився на цю роботу на твоєму місці.
+- I**'d** take the job **if I were you**. — На твоєму місці я б погодився на цю роботу.
 
 Часто першу половину пропускають: *I'd take an umbrella.* — Я б узяв парасольку (тобто «раджу»).
 
@@ -102,11 +102,11 @@ estimatedMinutes: 45
 > - [x] If I were you, I'd stop drinking coffee in the evening.
 > - [ ] If I would be you, I'd stop drinking coffee in the evening.
 >
-> **Пояснення:** сталий вираз поради — **If I were you, I'd + V1**. Ти ніколи не станеш другом — тому другий, уявний умовний.
+> **Пояснення:** сталий вираз поради — **If I were you, I'd + V1**. Опинитися на місці друга ти не можеш — тому другий, уявний умовний.
 
 ### Перший чи другий? Реальне чи уявне
 
-Обидва можуть говорити про майбутнє. Різниця — у тому, **наскільки реальним** ти вважаєш умову.
+Обидва можуть стосуватися майбутнього. Різниця — у тому, **наскільки реальним** ти вважаєш умову.
 
 > [!diagram] First vs second conditional
 > ```yaml
@@ -122,7 +122,7 @@ estimatedMinutes: 45
 > steps:
 >   - { show: [f1, s1], note: "Та сама подія — дві оцінки. Перший: «реально, планую». Другий: «малоймовірно, просто міркую»." }
 >   - { show: [f2, s2], note: "Другий умовний — і для того, що суперечить реальності зараз: я не живу біля моря." }
->   - { show: [ff, sf], note: "Тест: це може статися насправді й ти так вважаєш? → will. Це фантазія чи малий шанс? → would." }
+>   - { show: [ff, sf], note: "Тест: ти вважаєш, що це справді може статися? → will. Це фантазія чи малий шанс? → would." }
 > ```
 
 Порівняй ще: *If you **help** me, I**'ll buy** you dinner* (прошу реальної допомоги) — *If you **helped** me, I**'d buy** you dinner* (звучить мʼякше, ніби «а раптом…»). Носії іноді вибирають другий умовний просто з ввічливості.
@@ -137,7 +137,7 @@ estimatedMinutes: 45
 > We're meeting at six. If you [[are]] late, we'll start without you.
 > ```
 >
-> **Пояснення:** співбесіда й зустріч — реальні події → Present (*offer, are*). Повернутися у 18 і тварини, що розмовляють, — уява → Past (*were, could*).
+> **Пояснення:** співбесіда й зустріч — реальні події → Present (*offer, are*). Знову стати вісімнадцятирічним і тварини, що розмовляють, — уява → Past (*were, could*).
 
 ## Приклади
 
@@ -187,7 +187,7 @@ estimatedMinutes: 45
 > [!word] invisible
 > ipa: /ɪnˈvɪz.ə.bəl/ · pos: adj · level: B1 · id: en-b1-conditionals-2-w06
 > uk: невидимий
-> example: If I were **invisible**, I'd listen to my boss's meetings. — Якби я був невидимим, я б підслуховував наради свого шефа.
+> example: If I were **invisible**, I'd listen in on my boss's meetings. — Якби я був невидимим, я б підслуховував наради свого шефа.
 > note: протилежне — visible; наголос in-VIS-i-ble.
 
 > [!word] fluent
@@ -200,7 +200,7 @@ estimatedMinutes: 45
 > ipa: /ˌdez.ət ˈaɪ.lənd/ · ipa-us: /ˌdez.ɚt ˈaɪ.lənd/ · pos: noun · level: B1 · id: en-b1-conditionals-2-w08
 > uk: безлюдний острів
 > example: If you were on a **desert island**, what three things would you take? — Якби ти опинився на безлюдному острові, які три речі взяв би?
-> note: s у island німа; desert /ˈdez.ət/ — пустеля, dessert /dɪˈzɜːt/ — десерт.
+> note: в island літера s не читається; desert /ˈdez.ət/ — пустеля, dessert /dɪˈzɜːt/ — десерт.
 
 > [!word] ideal
 > ipa: /aɪˈdɪəl/ · ipa-us: /aɪˈdiː.əl/ · pos: adj · level: B1 · id: en-b1-conditionals-2-w09
@@ -230,11 +230,11 @@ estimatedMinutes: 45
 > - [ ] I won't do that if I were you.
 > - [ ] I would do that if I were you.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-conditionals-2-l03
 > audio: What would you do if you won the lottery?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-conditionals-2-l04
 > audio: If it weren't so expensive, I'd buy it.
 > accept: If it wasn't so expensive, I'd buy it.
@@ -250,7 +250,7 @@ estimatedMinutes: 45
 > - [ ] Відкрила б власну благодійну організацію.
 > - [ ] Перестала б працювати й переїхала б до Південної Америки.
 >
-> **Пояснення:** *I wouldn't buy a big house* — будинок відпадає; *Would you quit your job? — No way!* — роботу не кидає, лише працюватиме чотири дні на тиждень.
+> **Пояснення:** *I wouldn't buy a big house* — будинок відпадає; *Would you quit your job? — No way!* — роботу не кинула б, лише працювала б чотири дні на тиждень.
 
 > [!listen] IELTS Listening, Part 3. Choose the correct answer. What does the tutor suggest?
 > level: B1 · type: answer · id: en-b1-conditionals-2-l06
@@ -282,7 +282,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-conditionals-2-s02
 > text: If I were you, I'd talk to her.
 > ipa: /ɪf aɪ wɜː juː aɪd tɔːk tə hɜː/
-> tip: were — /wɜː/, губи не округлюй; talk — l німе: [то-ок].
+> tip: were — /wɜː/, губи не округлюй; у talk літера l не читається: [то:к].
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-conditionals-2-s03
@@ -338,7 +338,7 @@ estimatedMinutes: 45
 > - [ ] I'd buy it if it would be cheaper.
 > - [x] If I didn't have to work tomorrow, I'd stay longer.
 >
-> **Пояснення:** *would* лише в результаті: *if it **were / was** cheaper*. Після *had* (уява) — *would fly*, а не *will*.
+> **Пояснення:** *would* лише в результаті: *if it **were / was** cheaper*. Якщо в умові *had* (уява), то в результаті — *would fly*, а не *will*.
 
 > [!quiz] Постав дієслова в правильну форму
 > level: B1 · type: fill · id: en-b1-conditionals-2-q07
@@ -408,7 +408,7 @@ estimatedMinutes: 45
 > - [ ] Я ходив з тобою, коли не працював.
 > - [ ] Я піду з тобою, якщо не доведеться працювати.
 >
-> **Пояснення:** другий умовний описує протилежне до реальності: *if I didn't have to work* → насправді працювати треба, тож не піду.
+> **Пояснення:** другий умовний описує протилежне реальності: *if I didn't have to work* → насправді працювати треба, тож не піду.
 
 ### У форматі IELTS
 
@@ -443,7 +443,7 @@ estimatedMinutes: 45
 > Пісня з мюзиклу «Скрипаль на даху» (1964) — підручник другого умовного: were, would. Тевʼє — молочар з вигаданого українського містечка Анатівка, а сюжет — за оповіданнями Шолом-Алейхема, уродженця Переяслава.
 
 > [!reel] 🗳️ Were — останній свідок
-> If I were you — залишок англійського умовного способу (subjunctive). Колись він мав окремі форми для багатьох дієслів, а дожив переважно лише were. Тому носії дедалі частіше кажуть If I was…
+> If I were you — залишок англійського умовного способу (subjunctive). Колись він мав окремі форми для багатьох дієслів, а до наших днів дожило переважно лише were. Тому носії дедалі частіше кажуть If I was…
 
 > [!reel] 🍰 Would ввічливіше за will
 > Would you like some cake? Would you mind…? I'd like… — would робить прохання мʼякшим, бо додає відтінок «якби тобі було зручно». Will you…? звучить прямолінійніше.

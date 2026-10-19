@@ -63,8 +63,8 @@ estimatedMinutes: 50
 | rain, snow, traffic, smoker, losses | **heavy** | ~~strong / big~~ |
 | coffee, tea, wind, accent, argument | **strong** | ~~heavy / hard~~ |
 | meal, breakfast, rain, traffic (мало) | **light** | ~~small / weak~~ |
-| chance, majority (з *slim*: шанс) | **a slim** chance · **the vast** majority | ~~a small chance~~ (можливо, але слабше) · ~~a big majority~~ |
-| competition, debate, criticism | **fierce** | ~~strong / hard~~ competition |
+| chance, majority | **a slim** chance · **the vast** majority | ~~a big majority~~ (*a small chance* можливе, але звучить слабше) |
+| competition, debate, criticism | **fierce** | ~~hard / big~~ competition |
 | idea, estimate (приблизна) | **a rough** idea | ~~an approximate idea~~ |
 | escape (ледве врятувалися) | **a narrow** escape | ~~a small escape~~ |
 
@@ -165,26 +165,26 @@ estimatedMinutes: 50
 | **raise** awareness | підвищувати обізнаність | ~~rise awareness~~ |
 | **pose** a threat | становити загрозу | ~~make a threat~~ (= погрожувати!) |
 | **meet** a deadline | вкластися в термін | ~~keep a deadline~~ |
-| **reach** an agreement | дійти згоди | ~~come to an agreement~~ — теж можна; ~~make an agreement~~ — ні |
+| **reach** an agreement | дійти згоди | ~~find an agreement~~ (*come to an agreement* — теж можна) |
 | **draw** a conclusion | зробити висновок | ~~make a conclusion~~ |
 | **play** a role | відігравати роль | ~~make / have a role~~ |
-| **address** an issue | розвʼязувати проблему | ~~decide an issue~~ |
+| **address** an issue | розвʼязувати проблему | ~~decide a problem~~ |
 | **conduct** a survey | проводити опитування | ~~make a survey~~ |
 | **take** steps | вживати заходів | ~~make steps~~ |
-| **have** an impact **on** | впливати на | ~~make an impact to~~ |
+| **have** an impact **on** | впливати на | ~~have an impact to~~ |
 
 > [!tip] Як вивчати колокації
 > Не вчи слово окремо — вчи **з його «друзями»**. Знайшов *concern* — одразу запиши *a major concern, deeply concerned, raise concerns about*. У Cambridge Dictionary під кожним словом є блок «collocations», а Oxford Collocations Dictionary — ціла книжка таких пар.
 
 ## Приклади
 
-- *Heavy traffic made us an hour late.* — Через щільний рух ми запізнилися на годину.
+- *Heavy traffic made us an hour late.* — Через затори ми запізнилися на годину.
 - *She speaks English with a **strong** Scottish **accent**.* — Вона говорить англійською з сильним шотландським акцентом.
-- *Let's just have **a light meal** — we're going out tonight.* — Давай просто легко перекусимо — увечері ми йдемо в ресторан.
+- *Let's just have **a light meal** — we're going out tonight.* — Давай просто легко перекусимо — увечері ж ми кудись ідемо.
 - *I have **a rough idea** of the cost, but not the exact figure.* — Я приблизно уявляю вартість, але точної суми не знаю.
 - *There's only **a slim chance** that the flight will leave on time.* — Шанс, що рейс вилетить вчасно, мізерний.
 - *It's **highly unlikely** that prices will fall this year.* — Дуже малоймовірно, що ціни цього року впадуть.
-- *Residents are **deeply concerned** about the new airport.* — Мешканці глибоко занепокоєні новим аеропортом.
+- *Residents are **deeply concerned** about the new airport.* — Мешканців глибоко непокоїть новий аеропорт.
 - *We were **bitterly disappointed** with the result.* — Ми були гірко розчаровані результатом.
 - *The economy is **heavily dependent on** tourism.* — Економіка сильно залежить від туризму.
 - *Unemployment **rose sharply** in 2009 and then **levelled off**.* — Безробіття різко зросло у 2009 році, а потім стабілізувалося.
@@ -204,7 +204,7 @@ estimatedMinutes: 50
 > [!word] heavy traffic
 > ipa: /ˌhevi ˈtræfɪk/ · pos: phrase · level: B2 · id: en-b2-collocations-w02
 > uk: щільний рух, затори
-> example: There was **heavy traffic** on the way to the airport. — Дорогою в аеропорт був щільний рух.
+> example: There was **heavy traffic** on the way to the airport. — Дорогою до аеропорту були великі затори.
 > note: *traffic* — незлічуване: без *a*. Не ~~big traffic~~.
 
 > [!word] heavy smoker
@@ -228,13 +228,13 @@ estimatedMinutes: 50
 > [!word] a light meal
 > ipa: /ə ˌlaɪt ˈmiːl/ · pos: phrase · level: B2 · id: en-b2-collocations-w06
 > uk: легка їжа, легкий перекус
-> example: We had **a light meal** before the theatre. — Перед театром ми легко поїли.
+> example: We had **a light meal** before the theatre. — Перед театром ми трохи перекусили.
 > note: протилежне — *a heavy meal* (важка, ситна їжа).
 
 > [!word] a rough idea
 > ipa: /ə ˌrʌf aɪˈdɪə/ · ipa-us: /ə ˌrʌf aɪˈdiːə/ · pos: phrase · level: B2 · id: en-b2-collocations-w07
 > uk: приблизне уявлення
-> example: Can you give me **a rough idea** of the price? — Можете дати приблизне уявлення про ціну?
+> example: Can you give me **a rough idea** of the price? — Можете хоча б приблизно сказати, скільки це коштуватиме?
 > note: *rough* /rʌf/ = «приблизний, грубий»: *a rough estimate*, *roughly* = приблизно.
 
 > [!word] a slim chance
@@ -253,7 +253,7 @@ estimatedMinutes: 50
 > ipa: /ˌfɪəs ˌkɒmpəˈtɪʃən/ · ipa-us: /ˌfɪrs ˌkɑːmpəˈtɪʃən/ · pos: phrase · level: B2 · id: en-b2-collocations-w10
 > uk: жорстка конкуренція
 > example: There is **fierce competition** for jobs in IT. — В ІТ жорстка конкуренція за робочі місця.
-> note: також *stiff / intense competition*; *fierce criticism, fierce debate*. Не ~~strong competition~~ (рідко).
+> note: також *stiff / intense competition*; *fierce criticism, fierce debate*. *Strong competition* теж трапляється, але *fierce* — найтиповіше.
 
 > [!word] the vast majority
 > ipa: /ðə ˌvɑːst məˈdʒɒrəti/ · ipa-us: /ðə ˌvæst məˈdʒɔːrəti/ · pos: phrase · level: B2 · id: en-b2-collocations-w11
@@ -275,7 +275,7 @@ estimatedMinutes: 50
 
 > [!word] a growing number of
 > ipa: /ə ˌɡrəʊɪŋ ˈnʌmbər əv/ · ipa-us: /ə ˌɡroʊɪŋ ˈnʌmbər əv/ · pos: phrase · level: B2 · id: en-b2-collocations-w14
-> uk: дедалі більше, зростаюча кількість
+> uk: дедалі більше; дедалі більша кількість
 > example: **A growing number of** people are choosing to rent rather than buy. — Дедалі більше людей обирають оренду замість купівлі.
 > note: після нього — множина й дієслово в множині: *A growing number of people **are**…*
 
@@ -301,7 +301,7 @@ estimatedMinutes: 50
 
 > [!word] highly recommended
 > ipa: /ˌhaɪli ˌrekəˈmendɪd/ · pos: phrase · level: B2 · id: en-b2-collocations-w18
-> uk: щиро рекомендований, дуже рекомендую
+> uk: настійно рекомендований; усі радять
 > example: This restaurant comes **highly recommended**. — Цей ресторан дуже рекомендують.
 > note: *come highly recommended* — мати чудові відгуки. Типово для відгуку (review).
 
@@ -408,7 +408,7 @@ estimatedMinutes: 50
 > [!word] drop dramatically
 > ipa: /ˌdrɒp drəˈmætɪkli/ · ipa-us: /ˌdrɑːp drəˈmætɪkli/ · pos: phrase · level: B2 · id: en-b2-collocations-w35
 > uk: різко (драматично) впасти
-> example: Tourist numbers **dropped dramatically** in 2020. — Кількість туристів драматично впала у 2020 році.
+> example: Tourist numbers **dropped dramatically** in 2020. — Кількість туристів різко впала у 2020 році.
 > note: *dramatically* в Task 1 = «дуже сильно», без емоційного відтінку.
 
 > [!word] fluctuate considerably
@@ -514,7 +514,7 @@ estimatedMinutes: 50
 > - [ ] Heavy traffic is expected on all major routes this weekend.
 > - [ ] Heavy rain is expected on all major roads this weekend.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-collocations-l02
 > audio: It is highly unlikely that prices will fall this year.
 
@@ -574,7 +574,7 @@ estimatedMinutes: 50
 > Українські «сильний дощ», «великий рух» не перекладаються прикметник у прикметник. Дощ, сніг, рух — ***heavy***; вітер, кава, акцент — ***strong***; конкуренція — ***fierce***; шанс — ***slim***. Коли сумніваєшся, перевір у Cambridge Dictionary блок «collocations» або в корпусі: *heavy rain* трапляється в десятки разів частіше за *strong rain*.
 
 > [!pitfall] «Make a conclusion», «make a role», «make steps»
-> Дієслово «робити» — найчастіше джерело кальок. Висновок **малюють** — *draw a conclusion*; роль **грають** — *play a role*; заходів **беруть** — *take steps*; опитування **проводять** — *conduct a survey*. А *make a threat* — це «погрожувати», а не «становити загрозу» (*pose a threat*).
+> Дієслово «робити» — найчастіше джерело кальок. Висновок **малюють** — *draw a conclusion*; роль **грають** — *play a role*; кроки **беруть** — *take steps*; опитування **проводять** — *conduct a survey*. А *make a threat* — це «погрожувати», а не «становити загрозу» (*pose a threat*).
 
 > [!pitfall] «Very unacceptable», «highly disappointed»
 > З абсолютними прикметниками (*unacceptable, ridiculous, exhausted, perfect*) — ***totally, utterly, absolutely***, а не *very*. А підсилювач підбирають під слово: *bitterly / deeply disappointed* (не ~~highly~~), *highly unlikely* (не ~~deeply~~), *fully aware* (не ~~strongly~~).
@@ -724,7 +724,7 @@ estimatedMinutes: 50
 > level: B2 · id: en-b2-collocations-q16
 > - [x] Дуже низько — перемога малоймовірна.
 > - [ ] Дуже високо — перемога майже гарантована.
-> - [ ] Середньо — п'ятдесят на п'ятдесят.
+> - [ ] Середньо — пʼятдесят на пʼятдесят.
 > - [ ] Мовець не впевнений, що гра відбудеться.
 >
 > **Пояснення:** *slim* (стрункий, тонкий) → «мізерний». Синоніми — *a remote chance*, *highly unlikely*. Протилежне — *a good chance*, *highly likely*.

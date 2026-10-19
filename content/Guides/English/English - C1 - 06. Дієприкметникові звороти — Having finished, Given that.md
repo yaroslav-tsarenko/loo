@@ -64,7 +64,7 @@ estimatedMinutes: 50
 | **-ing** | активна дія одночасно з головною або одразу перед нею | ***Walking** home, I met an old friend.* | Ідучи додому, я зустрів старого друга. |
 | **having + V3** | активна дія **раніше**, наголос на завершенні | ***Having lived** in Kyiv for years, he knows every street.* | Проживши в Києві багато років, він знає кожну вулицю. |
 | **V3** | **пасив**: підмет зазнає дії | ***Written** in 1949, the novel still feels modern.* | Написаний 1949 року, роман досі здається сучасним. |
-| **having been + V3** | пасив, що стався **раніше** | ***Having been warned** twice, he was finally dismissed.* | Отримавши два попередження, він зрештою був звільнений. |
+| **having been + V3** | пасив, що стався **раніше** | ***Having been warned** twice, he was finally dismissed.* | Після двох попереджень його зрештою звільнили. |
 
 Заперечення — **not перед зворотом**: ***Not having received** a reply, she wrote again.* — Не отримавши відповіді, вона написала знову. (Форма *having not received* трапляється, але *not having* — стандартна.)
 
@@ -114,18 +114,18 @@ estimatedMinutes: 50
 | Сполучник | Форма | Приклад | Переклад |
 |---|---|---|---|
 | **after / before / since** | -ing | ***After graduating**, she moved to London.* | Після закінчення університету вона переїхала до Лондона. |
-| **while / when** | -ing | ***While waiting** for the bus, I read the news.* | Поки чекав автобус, я читав новини. |
+| **while / when** | -ing | ***While waiting** for the bus, I read the news.* | Чекаючи на автобус, я читав новини. |
 | **when / if / unless / once / until** | V3 | ***When asked** about the delay, the spokesperson declined to comment.* | Коли речника спитали про затримку, він відмовився коментувати. |
 | | | ***If left untreated**, the infection can spread.* | Якщо інфекцію не лікувати, вона може поширитися. |
 | | | ***Once opened**, keep refrigerated.* | Після відкриття зберігати в холодильнику. |
-| **on / upon** | -ing | ***On arriving** at the hotel, we were given a welcome drink.* | Щойно ми приїхали в готель, нам дали вітальний напій. |
-| **although / though** | -ing / V3 | ***Although living** nearby, he rarely visits.* | Хоча він живе поруч, він рідко заходить. |
+| **on / upon** | -ing | ***On arriving** at the hotel, we were given a welcome drink.* | Щойно ми приїхали до готелю, нам дали вітальний напій. |
+| **although / though** | -ing / V3 | ***Although living** nearby, he rarely visits.* | Хоч він і живе поруч, заходить рідко. |
 
 *After **having** finished* — не помилка, але *after* уже показує послідовність, тож *After finishing* коротше й природніше.
 
 ### With + іменник + -ing / V3
 
-Коли підмети **різні**, але зворот хочеться зберегти, допомагає *with*: ***With** prices **rising**, many people are saving less.* — Оскільки ціни ростуть, багато людей заощаджують менше. ***With** the work **finished**, we went home.* — Коли робота була закінчена, ми пішли додому. Тут підмет звороту (*prices*, *the work*) названо явно, тому «висячого» звороту немає.
+Коли підмети **різні**, але зворот хочеться зберегти, допомагає *with*: ***With** prices **rising**, many people are saving less.* — Оскільки ціни зростають, багато людей заощаджують менше. ***With** the work **finished**, we went home.* — Коли роботу закінчили, ми пішли додому. Тут підмет звороту (*prices*, *the work*) названо явно, тому «висячого» звороту немає.
 
 ### Висячий зворот (dangling participle)
 
@@ -175,15 +175,15 @@ estimatedMinutes: 50
 
 ## Приклади
 
-- **Having spent** ten years abroad, she found it hard to settle back home. — Проживши десять років за кордоном, вона ледве звикла знову до дому.
+- **Having spent** ten years abroad, she found it hard to settle back home. — Проживши десять років за кордоном, вона ніяк не могла знову призвичаїтися до життя вдома.
 - **Not wanting** to wake the baby, we spoke in whispers. — Не бажаючи будити малюка, ми говорили пошепки.
 - **Asked** about his plans, the minister refused to comment. — Коли міністра спитали про плани, він відмовився коментувати.
-- **Located** in the heart of the old town, the hotel is ideal for sightseeing. — Розташований у серці старого міста, готель ідеальний для екскурсій.
+- **Located** in the heart of the old town, the hotel is ideal for sightseeing. — Розташований у самому серці старого міста, готель чудово підходить для екскурсій.
 - The storm hit the coast overnight, **leaving** thousands without power. — Уночі шторм ударив по узбережжю, і тисячі людей залишилися без світла.
-- **Having been rejected** by three publishers, the novel went on to sell millions. — Отримавши відмову від трьох видавців, роман згодом розійшовся мільйонними накладами.
+- **Having been rejected** by three publishers, the novel went on to sell millions. — Роман, який відхилили три видавництва, згодом розійшовся мільйонними накладами.
 - **While travelling** in Japan, I learned a few words of Japanese. — Подорожуючи Японією, я вивчив кілька японських слів.
-- **If stored** properly, the vaccine remains effective for two years. — Якщо правильно зберігати, вакцина залишається ефективною два роки.
-- **Considering** how little she practised, she played remarkably well. — Як на те, що вона так мало практикувалася, вона зіграла напрочуд добре.
+- **If stored** properly, the vaccine remains effective for two years. — За правильного зберігання вакцина залишається ефективною два роки.
+- **Considering** how little she practised, she played remarkably well. — Зважаючи на те, як мало вона займалася, зіграла вона напрочуд добре.
 - **Having said that**, the plan still has a few weaknesses. — Утім, у плану все ж є кілька слабких місць.
 
 ## Слова
@@ -221,7 +221,7 @@ estimatedMinutes: 50
 > [!word] considering
 > ipa: /kənˈsɪd.ər.ɪŋ/ · ipa-us: /kənˈsɪd.ɚ.ɪŋ/ · pos: prep · level: C1 · id: en-c1-participles-w06
 > uk: зважаючи на; як на
-> example: She did well, **considering** she had only two days to prepare. — Вона впоралася добре, як на те, що мала лише два дні на підготовку.
+> example: She did well, **considering** she had only two days to prepare. — Вона впоралася добре, враховуючи, що на підготовку мала лише два дні.
 > note: нейтральний; + іменник, + (that) + речення, а в розмові й у кінці речення: He did well, considering.
 
 > [!word] assuming
@@ -244,8 +244,8 @@ estimatedMinutes: 50
 
 > [!word] all things considered
 > ipa: /ˈɔːl θɪŋz kənˈsɪd.əd/ · ipa-us: /ˈɑːl θɪŋz kənˈsɪd.ɚd/ · pos: phrase · level: C1 · id: en-c1-participles-w10
-> uk: зрештою, з огляду на все
-> example: **All things considered**, it was a successful year. — З огляду на все, рік був успішний.
+> uk: зваживши все; загалом
+> example: **All things considered**, it was a successful year. — Загалом рік видався вдалим.
 > note: нейтральний; підсумок після зважування плюсів і мінусів. У висновку есе — taking everything into account (формальніше).
 
 > [!word] upon
@@ -271,7 +271,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** кінцеве [t] у *missed* майже зникає перед *the*, тож орієнтуйся на *having* на початку: саме воно показує, що дія сталася раніше. *Missing* звучало б як [ˈmɪsɪŋ] — без *having*.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-participles-l02
 > audio: Built in the twelfth century, the castle attracts thousands of visitors every year.
 
@@ -499,7 +499,7 @@ estimatedMinutes: 50
 ## Фішки
 
 > [!reel] 🎩 Капелюх, що злетів сам
-> Найвідоміший висячий зворот — у Чехова, «Жалобная книга» (1884): пасажир записує, що, підʼїжджаючи до станції, у нього злетів капелюх. Відтоді фраза — шкільний приклад того, як не можна будувати зворот. В англійській правило таке саме.
+> Найвідоміший висячий зворот — у Чехова, «Скаргова книга» (1884): пасажир записує, що, підʼїжджаючи до станції, у нього злетів капелюх. Відтоді фраза — шкільний приклад того, як не можна будувати зворот. В англійській правило таке саме.
 
 > [!reel] 📜 Participle — «учасник» двох світів
 > Латинське participium — від particeps, «той, хто бере участь». Граматисти назвали так форму, що «бере участь» і в дієслові (має час і стан), і в прикметнику (описує іменник). Це калька з грецького терміна metochē.

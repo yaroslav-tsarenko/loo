@@ -62,7 +62,7 @@ estimatedMinutes: 65
 
 ### Три правила роботи з коренями
 
-1. **Корінь — гіпотеза, а не переклад.** Значення слів дрейфують століттями: *nice* походить від латинського *nescius* «невігласний», а *egregious* колись означало «видатний». Корінь підказує напрямок, остаточне значення — контекст і словник.
+1. **Корінь — гіпотеза, а не переклад.** Значення слів століттями змінюються: *nice* походить від латинського *nescius* «невігласний», а *egregious* колись означало «видатний». Корінь підказує напрямок, остаточне значення — контекст і словник.
 2. **Корінь змінює форму.** Латинське дієслово має кілька основ: *trahere / tractum* → *traction, extract, protracted*; *mittere / missum* → *intermittent, mission*; *scribere / scriptum* → *prescribe, manuscript*. Шукай спільне ядро, а не точний збіг літер.
 3. **Префікс підлаштовується під корінь.** *in- + mobile → immobile*, *con- + loqui → colloquial*, *sub- + ferre → suffer*, *ad- + tract → attract*. Це та сама асиміляція, що й у *il-, im-, ir-* з теми B2.
 
@@ -125,7 +125,7 @@ estimatedMinutes: 65
 >   - { id: root, label: "лат. specere — дивитися", text: "SPEC / SPIC", tone: violet, icon: "px:magnifier" }
 >   - { id: around, parent: root, label: "circum- навколо", text: "circumspect", note: "обачний: «дивиться навкруги»", tone: blue }
 >   - { id: inside, parent: root, label: "intro- всередину", text: "introspection", note: "самоаналіз", tone: blue }
->   - { id: back, parent: root, label: "retro- назад", text: "retrospect", note: "in retrospect — заднім числом", tone: blue }
+>   - { id: back, parent: root, label: "retro- назад", text: "retrospect", note: "in retrospect — оглядаючись назад", tone: blue }
 >   - { id: con, parent: root, label: "con- + -uous", text: "conspicuous", note: "помітний, що впадає в око", tone: green }
 >   - { id: per, parent: root, label: "per- крізь", text: "perspective", note: "погляд «крізь» простір", tone: green }
 >   - { id: tor, parent: root, label: "-ator — хто робить", text: "spectator", note: "глядач", tone: orange }
@@ -133,7 +133,7 @@ estimatedMinutes: 65
 >   - { focus: root, note: "Латинське specere — «дивитися». У словах корінь буває spec або spic (conspicuous)." }
 >   - { focus: around, note: "Circum- «навколо»: circumspect — той, хто дивиться навколо, перш ніж діяти, тобто обачний." }
 >   - { focus: inside, note: "Intro- «всередину»: introspection — погляд у себе, самоаналіз." }
->   - { focus: back, note: "Retro- «назад»: in retrospect — оглядаючись назад, заднім числом." }
+>   - { focus: back, note: "Retro- «назад»: in retrospect — оглядаючись назад, тепер, коли все вже відомо." }
 >   - { focus: con, note: "Conspicuous — «те, що добре видно»: помітний. Протилежне — inconspicuous." }
 >   - { focus: tor, note: "Spectator — той, хто дивиться: глядач. Шість слів — один корінь, і всі тепер прозорі." }
 > ```
@@ -224,11 +224,11 @@ estimatedMinutes: 65
 
 ## Приклади
 
-- *In **retrospect**, we should have been more **circumspect**.* — Заднім числом, нам варто було бути обачнішими.
+- *In **retrospect**, we should have been more **circumspect**.* — Тепер, оглядаючись назад, я бачу: нам варто було бути обачнішими.
 - *She gave an **incredulous** laugh when she heard the price.* — Вона недовірливо засміялася, почувши ціну.
 - *The negotiations proved **protracted** and the conflict **intractable**.* — Переговори виявилися затяжними, а конфлікт — нерозвʼязним.
 - *Open-plan offices are not always **conducive** to concentration.* — Офіси відкритого типу не завжди сприяють зосередженості.
-- *Many high streets are **moribund**, killed by online shopping.* — Багато торгових вулиць занепадають — їх убив онлайн-шопінг.
+- *Many high streets are **moribund**, killed by online shopping.* — Багато торгових вулиць ледь животіють — їх добиває онлайн-шопінг.
 - *Smartphones have become **omnipresent** in modern life.* — Смартфони стали всюдисущими в сучасному житті.
 - *The claim that one diet suits everyone is pure **hyperbole**.* — Твердження, що одна дієта підходить усім, — чисте перебільшення.
 - *There is no **panacea** for unemployment.* — Немає універсальних ліків від безробіття.
@@ -257,7 +257,7 @@ estimatedMinutes: 65
 > ipa: /bɪˈnaɪn/ · pos: adj · level: C2 · id: en-c2-roots-w03
 > uk: доброзичливий, лагідний; доброякісний (мед.); нешкідливий
 > example: Fortunately, the tumour was **benign**. — На щастя, пухлина була доброякісною.
-> note: лат. *benignus* (*bene* + корінь *gen-* «народжуватися»). *g* німе: [бі-НАЙН]. Протилежне в медицині — *malignant*.
+> note: лат. *benignus* (*bene* + корінь *gen-* «народжуватися»). *g* не читається: [бі-НАЙН]. Протилежне в медицині — *malignant*.
 
 > [!word] incredulous
 > ipa: /ɪnˈkredjələs/ · ipa-us: /ɪnˈkredʒələs/ · pos: adj · level: C2 · id: en-c2-roots-w04
@@ -293,8 +293,8 @@ estimatedMinutes: 65
 
 > [!word] retrospect
 > ipa: /ˈretrəspekt/ · pos: noun · level: C2 · id: en-c2-roots-w09
-> uk: погляд у минуле; *in retrospect* — оглядаючись назад, заднім числом
-> example: **In retrospect**, leaving the job was the right decision. — Оглядаючись назад, звільнитися було правильним рішенням.
+> uk: погляд у минуле; *in retrospect* — оглядаючись назад, у ретроспективі
+> example: **In retrospect**, leaving the job was the right decision. — Тепер я бачу, що звільнитися було правильним рішенням.
 > note: лат. *retro* «назад» + *specere*. Також *retrospective* (ретроспектива), *retroactive* (зі зворотною силою).
 
 > [!word] proscribe
@@ -313,7 +313,7 @@ estimatedMinutes: 65
 > ipa: /ɪnˈtræktəbəl/ · pos: adj · level: C2 · id: en-c2-roots-w12
 > uk: нерозвʼязний, важкий для вирішення; неслухняний
 > example: Housing has become an **intractable** problem in big cities. — Житло стало нерозвʼязною проблемою у великих містах.
-> note: лат. *tractare* «оброблювати, керувати» ← *trahere* «тягнути». Також *tractor, extract, traction*.
+> note: лат. *tractare* «обробляти, керувати» ← *trahere* «тягнути». Також *tractor, extract, traction*.
 
 > [!word] protracted
 > ipa: /prəˈtræktɪd/ · ipa-us: /proʊˈtræktɪd/ · pos: adj · level: C2 · id: en-c2-roots-w13
@@ -324,7 +324,7 @@ estimatedMinutes: 65
 > [!word] untenable
 > ipa: /ʌnˈtenəbəl/ · pos: adj · level: C2 · id: en-c2-roots-w14
 > uk: неспроможний, якого не можна відстояти
-> example: After the leak, the minister's position became **untenable**. — Після витоку становище міністра стало безнадійним.
+> example: After the leak, the minister's position became **untenable**. — Після витоку інформації міністрові вже було не втриматися на посаді.
 > note: лат. *tenere* «тримати» — «те, що не втримати». Також *tenant, retain, tenacious*.
 
 > [!word] conducive
@@ -344,7 +344,7 @@ estimatedMinutes: 65
 > [!word] moribund
 > ipa: /ˈmɒrɪbʌnd/ · ipa-us: /ˈmɔːrɪbʌnd/ · pos: adj · level: C2 · id: en-c2-roots-w17
 > uk: що вмирає, занепадає
-> example: The town's **moribund** textile industry finally collapsed. — Занепала текстильна промисловість міста остаточно впала.
+> example: The town's **moribund** textile industry finally collapsed. — Текстильна промисловість міста, що давно занепадала, остаточно зникла.
 > note: лат. *mori* «помирати». Також *mortal, immortal, mortgage*. Споріднене з укр. «мерти, смерть».
 
 > [!word] vivacious
@@ -393,7 +393,7 @@ estimatedMinutes: 65
 
 > [!word] egregious
 > ipa: /ɪˈɡriːdʒəs/ · pos: adj · level: C2 · id: en-c2-roots-w25
-> uk: кричущий, вопіющий (про помилку, порушення)
+> uk: кричущий, разючий, обурливий (про помилку, порушення)
 > example: It was an **egregious** violation of human rights. — Це було кричуще порушення прав людини.
 > note: лат. *egregius* «видатний», буквально «що вийшов зі стада» (*e-* + *grex*). Колись — похвала; негативне значення закріпилося з XVI ст., імовірно, через іронію.
 
@@ -431,7 +431,7 @@ estimatedMinutes: 65
 
 > [!word] circumlocution
 > ipa: /ˌsɜːkəmləˈkjuːʃən/ · ipa-us: /ˌsɜːrkəmloʊˈkjuːʃən/ · pos: noun · level: C2 · id: en-c2-roots-w31
-> uk: багатослівність, ходіння навколо, перифраз
+> uk: багатослівність, мова околясом, перифраз
 > example: The report is full of bureaucratic **circumlocution**. — Звіт рясніє бюрократичною багатослівністю.
 > note: лат. *circum* «навколо» + *loqui* «говорити» — переклад грецького *periphrasis*. Ворог Band 9: пиши прямо.
 
@@ -457,7 +457,7 @@ estimatedMinutes: 65
 > ipa: /ˌɒmnɪˈprezənt/ · ipa-us: /ˌɑːmnɪˈprezənt/ · pos: adj · level: C2 · id: en-c2-roots-w35
 > uk: всюдисущий
 > example: Advertising is **omnipresent** in big cities. — Реклама в мегаполісах усюдисуща.
-> note: лат. *omnis* «усе, кожен». Також *omnivore, omniscient* (всезнаючий), *omnibus* → *bus*.
+> note: лат. *omnis* «усе, кожен». Також *omnivore, omniscient* (всевідний), *omnibus* → *bus*.
 
 ### Грецькі корені: людина, форма, час, влада
 
@@ -590,7 +590,7 @@ estimatedMinutes: 65
 > [!word] intermittent
 > ipa: /ˌɪntəˈmɪtənt/ · ipa-us: /ˌɪntərˈmɪtənt/ · pos: adj · level: C2 · id: en-c2-roots-w56
 > uk: переривчастий, періодичний
-> example: There will be **intermittent** showers throughout the day. — Протягом дня — періодичні зливи.
+> example: There will be **intermittent** showers throughout the day. — Протягом дня часом пройдуть короткочасні дощі.
 > note: лат. *inter* «між» + *mittere* «пускати»: «з перервами». Також *transmit, mission, emit*.
 
 > [!word] transient
@@ -602,7 +602,7 @@ estimatedMinutes: 65
 > [!word] supersede
 > ipa: /ˌsuːpəˈsiːd/ · ipa-us: /ˌsuːpərˈsiːd/ · pos: verb · level: C2 · id: en-c2-roots-w58
 > uk: замінювати, витісняти (новим)
-> example: DVDs were **superseded** by streaming services. — DVD витіснили стрімінгові сервіси.
+> example: DVDs were **superseded** by streaming services. — Стрімінгові сервіси витіснили DVD.
 > note: лат. *super* «над» + *sedere* «сидіти». Пишеться через **s**: ~~supercede~~ — поширена помилка (під впливом *precede*). Також *sediment, preside, session*.
 
 > [!word] contravene
@@ -656,7 +656,7 @@ estimatedMinutes: 65
 > - [ ] She was credulous when she heard the verdict.
 > - [ ] She was incredible when she heard the verdict.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-roots-l02
 > audio: The new regulations supersede all previous guidance.
 
@@ -668,7 +668,7 @@ estimatedMinutes: 65
 > - [ ] Походження слова невідоме.
 > - [ ] Скульптори справді ховали тріщини воском, тому зʼявилося слово.
 >
-> **Пояснення:** *It's a charming story, but there's no evidence for it* — лекторка спростовує поширену легенду. *Folk etymology* — пояснення, вигадане заднім числом. В IELTS Part 4 дистрактори часто повторюють слова з тексту (*wax, sculptors*), але перекручують думку мовця.
+> **Пояснення:** *It's a charming story, but there's no evidence for it* — лекторка спростовує поширену легенду. *Folk etymology* — пояснення, вигадане вже згодом. В IELTS Part 4 дистрактори часто повторюють слова з тексту (*wax, sculptors*), але перекручують думку мовця.
 
 ## Ситуація: читацький клуб перед IELTS
 
@@ -712,7 +712,7 @@ estimatedMinutes: 65
 > [!pitfall] Народна етимологія: красива історія ≠ факт
 > Інтернет повний «етимологій», які ніколи не були правдою: *sincere* нібито від *sine cera* «без воску» (насправді від *sincerus* «чистий»); *news* нібито North-East-West-South (насправді множина від *new* — «нові речі»); *posthumous* нібито *post + humus* «після землі» (насправді *postumus* «останній», а *h* — пізня вставка). Довіряй лише фаховим словникам: **Etymonline**, **OED**, **Merriam-Webster**. В есе й на співбесіді «факт», який виявився міфом, підриває довіру до всього тексту.
 
-> [!pitfall] Корінь — не переклад: значення дрейфують
+> [!pitfall] Корінь — не переклад: значення змінюються
 > *Egregious* колись означало «видатний», тепер — «кричуще поганий». *Nice* походить від латинського *nescius* «невігласний». *Decimate* у Римі — «стратити кожного десятого», тепер — «знищити значну частину». Не перекладай слово «за коренем» без контексту: корінь дає **напрямок**, а не готове значення. Перевіряй гіпотезу реченням.
 
 > [!pitfall] Схожі корені, різне значення
@@ -886,7 +886,7 @@ estimatedMinutes: 65
 > У Франції 1820-х пустили «voiture omnibus» — екіпаж «для всіх» (лат. omnibus — давальний відмінок множини від omnis). Англійці скоротили до bus. Тож щоразу, коли ти сідаєш в автобус, ти вживаєш латинське закінчення.
 
 > [!reel] 🏠 Mortgage — «мертва застава»
-> Mortgage — зі старофранцузького mort gage, «мертва застава». Звідси й німе t. За поясненням давніх правників, угода «вмирає» або коли борг сплачено, або коли боржник не платить і втрачає заставу.
+> Mortgage — зі старофранцузького mort gage, «мертва застава». Звідси й t, яке не читається. За поясненням давніх правників, угода «вмирає» або коли борг сплачено, або коли боржник не платить і втрачає заставу.
 
 > [!reel] 🌍 Мати, брат, ніч — родичі латини
 > Латинське mater, frater, nox, novus і українське мати, брат, ніч, новий — далекі родичі через спільну індоєвропейську прамову. Англійські mother, brother, night, new — теж з цієї родини. Вивчаючи корені, ти зустрічаєш «своїх».
@@ -905,5 +905,5 @@ estimatedMinutes: 65
 > - Латинські корені: *spec* (дивитися), *cred* (вірити), *tract* (тягнути), *ten* (тримати), *duc* (вести), *viv* (жити), *mort* (смерть), *anim* (душа), *loqu* (говорити), *voc* (голос).
 > - Грецькі корені: *anthrop, morph, chron, crat, arch, dem, log, onym, gen, phon, path*; префікси *a-, anti-, dys-, eu-, hyper-, syn-, pan-*.
 > - Двійники: *multi / poly*, *omni / pan*, *super / hyper*, *sub / hypo*.
-> - Пастки: народна етимологія (*sincere, news, posthumous*), дрейф значень (*egregious, nice*), схожі корені (*pedal* vs *paediatrician*, *poly* vs *monopoly*).
+> - Пастки: народна етимологія (*sincere, news, posthumous*), зміна значень (*egregious, nice*), схожі корені (*pedal* vs *paediatrician*, *poly* vs *monopoly*).
 > - IELTS: корінь допомагає в Reading; у Writing Band 9 — точне слово, а не найдовше.

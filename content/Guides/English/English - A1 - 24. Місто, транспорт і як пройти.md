@@ -70,13 +70,13 @@ estimatedMinutes: 40
 
 ## Як пояснити дорогу — наказовий спосіб
 
-Інструкції англійською — це **наказовий спосіб**: просто дієслово, без *you*. Звучить коротко, але це нормально і ввічливо для маршруту.
+Інструкції англійською — це **наказовий спосіб**: просто дієслово, без *you*. Звучить коротко, але для пояснення дороги це нормально і ввічливо.
 
 | Дія | Українською |
 |---|---|
 | ***Go straight on.*** (US *Go straight ahead.*) | Ідіть прямо. |
 | ***Turn left / Turn right.*** | Поверніть ліворуч / праворуч. |
-| ***Take the second left.*** | Друга вулиця ліворуч. |
+| ***Take the second left.*** | Поверніть на другу вулицю ліворуч. |
 | ***Go past** the bank.* | Пройдіть повз банк. |
 | ***Cross** the road / the bridge.* | Перейдіть дорогу / міст. |
 | ***Go along** this street.* | Ідіть цією вулицею. |
@@ -96,7 +96,7 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: start, note: "Питаєш: Excuse me, how do I get to the museum?" }
 >   - { move: { from: start, to: straight, value: "you" }, note: "Go straight on — ідеш прямо, нікуди не звертаєш." }
->   - { move: { from: straight, to: left, value: "you" }, note: "Turn left at the traffic lights — на світлофорі ліворуч. At — бо світлофор — точка на маршруті." }
+>   - { move: { from: straight, to: left, value: "you" }, note: "Turn left at the traffic lights — на світлофорі ліворуч. At, бо світлофор — це точка на маршруті." }
 >   - { move: { from: left, to: past, value: "you" }, note: "Go past the bank — проходиш повз банк, не заходячи." }
 >   - { move: { from: past, to: museum, value: "you" }, note: "It's on the right — музей праворуч. Thank you! — You're welcome!" }
 > ```
@@ -117,9 +117,9 @@ estimatedMinutes: 40
 - Take the number 12 bus and get off at the museum. — Сідайте на дванадцятий автобус і виходьте біля музею.
 - Go straight on and turn right at the corner. — Ідіть прямо й на розі поверніть праворуч.
 - The library is opposite the hospital. — Бібліотека навпроти лікарні.
-- I usually go to work by tram, but today I'm going by taxi. — Я зазвичай їжджу на роботу трамваєм, але сьогодні — таксі.
+- I usually go to work by tram, but today I'm going by taxi. — Я зазвичай їжджу на роботу трамваєм, але сьогодні їду на таксі.
 - It's not far — about ten minutes on foot. — Це недалеко, хвилин десять пішки.
-- Don't cross here. Use the traffic lights. — Не переходьте тут. Ідіть до світлофора.
+- Don't cross here. Use the traffic lights. — Не переходьте тут. Переходьте на світлофорі.
 - Sorry, I'm not from here. — Вибачте, я не місцевий.
 - Can you show me on the map? — Можете показати мені на мапі?
 
@@ -151,7 +151,7 @@ estimatedMinutes: 40
 > ipa: /ˈkæfeɪ/ · ipa-us: /kæˈfeɪ/ · pos: noun · level: A1 · id: en-a1-city-w05
 > uk: кафе
 > example: Let's meet at the **café** on the corner. — Зустріньмося в кафе на розі.
-> note: часто пишуть без наголосу: *cafe*.
+> note: часто пишуть без значка над e: *cafe*.
 
 > [!word] hotel
 > ipa: /həʊˈtel/ · ipa-us: /hoʊˈtel/ · pos: noun · level: A1 · id: en-a1-city-w06
@@ -214,7 +214,7 @@ estimatedMinutes: 40
 > [!word] road
 > ipa: /rəʊd/ · ipa-us: /roʊd/ · pos: noun · level: A1 · id: en-a1-city-w16
 > uk: дорога; вулиця
-> example: Be careful when you cross the **road**. — Обережно, коли переходиш дорогу.
+> example: Be careful when you cross the **road**. — Переходь дорогу обережно.
 
 > [!word] petrol station
 > ipa: /ˈpetrəl steɪʃn/ · pos: noun · level: A1 · id: en-a1-city-w17
@@ -266,7 +266,7 @@ estimatedMinutes: 40
 > [!word] underground
 > ipa: /ˈʌndəɡraʊnd/ · ipa-us: /ˈʌndərɡraʊnd/ · pos: noun · level: A1 · id: en-a1-city-w25
 > uk: метро
-> example: It's quicker by **underground**. — Метро швидше.
+> example: It's quicker by **underground**. — На метро швидше.
 > note: у Лондоні — *the Tube*, у США — *the subway*, у багатьох містах — *the metro*.
 
 > [!word] taxi
@@ -311,7 +311,7 @@ estimatedMinutes: 40
 > [!word] go past
 > ipa: /ɡəʊ ˈpɑːst/ · ipa-us: /ɡoʊ ˈpæst/ · pos: phrase · level: A1 · id: en-a1-city-w33
 > uk: пройти (проїхати) повз
-> example: **Go past** the church and it's on the left. — Пройдіть повз церкву, і це ліворуч.
+> example: **Go past** the church and it's on the left. — Пройдіть повз церкву — це буде ліворуч.
 
 > [!word] cross
 > ipa: /krɒs/ · ipa-us: /krɔːs/ · pos: verb · level: A1 · id: en-a1-city-w34
@@ -370,11 +370,11 @@ estimatedMinutes: 40
 > - [ ] Get off at the next stop.
 > - [x] Get off at the second stop.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-city-l04
 > audio: Go straight on and turn right.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-city-l05
 > audio: The museum is on the left.
 
@@ -410,7 +410,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-city-s03
 > text: Go straight on and turn left at the corner.
 > ipa: /ɡəʊ ˌstreɪt ˈɒn ən tɜːn ˈleft ət ðə ˈkɔːnə/
-> tip: *turn* — довгий /ɜː/, а *r* у британській не вимовляється. *Straight on* злито: «стрей-ТОН».
+> tip: *turn* — довгий /ɜː/, а *r* у британській вимові не читається. *Straight on* злито: «стрей-ТОН».
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-city-s04
@@ -459,7 +459,7 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-city-s06
 > text: How do I get there? Is it far?
 > ipa: /haʊ də aɪ ˈɡet ðeə ɪz ɪt ˈfɑː/
-> tip: *there* — /ð/, язик між зубами. *Is it far?* — питання «так / ні», голос угору.
+> tip: *there* — /ð/, язик між зубами. *Is it far?* — питання «так / ні», голос іде вгору.
 
 ## Практика
 
@@ -473,7 +473,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *go straight on* — прямо, *turn left* — ліворуч, *go past* — повз, *on the right* — праворуч.
 
-> [!quiz] «Я йду в магазин по хліб». Яке слово потрібне?
+> [!quiz] «Я йду в магазин по хліб». Яке речення правильне?
 > level: A1 · id: en-a1-city-q04
 > - [x] I'm going to the shop to buy some bread.
 > - [ ] I'm going to the magazine to buy some bread.
@@ -551,7 +551,7 @@ estimatedMinutes: 40
 > [!reel] 🚇 The Tube — найстаріше метро у світі
 > Лондонське метро відкрили 1863 року — тоді потяги тягнули паротяги прямо під землею. Лондонці кажуть *the Tube* — «труба» — через круглі тунелі.
 
-> [!reel] 🛍️ Magazine і магазин — брати-склади
+> [!reel] 🛍️ Magazine і магазин — далекі родичі
 > Обидва слова походять від арабського *makhāzin* — «склади». Українське «магазин» прийшло через французьку, де *magasin* — крамниця. А англійське *magazine* стало «складом статей» — журналом.
 
 > [!reel] 🦓 Zebra crossing

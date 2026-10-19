@@ -79,7 +79,7 @@ estimatedMinutes: 55
 
 | Ідіома | Значення | Регістр |
 |---|---|---|
-| **see red** | розлютитися, «побачити червону ганчірку» | розмовне |
+| **see red** | розлютитися, скипіти (як бик на червону ганчірку) | розмовне |
 | **a red herring** | хибний слід, відволікання уваги | нейтральне |
 | **red tape** | бюрократія, тяганина | нейтральне, осудливе |
 | **catch someone red-handed** | спіймати на гарячому | нейтральне |
@@ -107,7 +107,7 @@ estimatedMinutes: 55
 | **crocodile tears** | крокодилячі сльози | дослівно так само |
 | **a bull in a china shop** | слон у посудній крамниці | слон → бик |
 | **a guinea pig** | піддослідний кролик | кролик → морська свинка |
-| **open a can of worms** | розворушити осине гніздо | оси → черви |
+| **open a can of worms** | розворушити осине гніздо | оси → червʼяки |
 | **a scapegoat** | цап-відбувайло | дослівно так само |
 
 > [!diagram] Ті самі образи — інші тварини
@@ -154,7 +154,7 @@ estimatedMinutes: 55
 >   - { id: q, label: "питання", text: "Why do some young people get into debt?", tone: gray, icon: "px:question" }
 >   - { id: a, label: "1. пряма відповідь", text: "Mostly because they live beyond their means.", note: "нейтральна ідіома", tone: blue }
 >   - { id: r, label: "2. причина", text: "Social media makes everyone green with envy…", note: "конкретика", tone: violet }
->   - { id: e, label: "3. приклад", text: "A friend of mine was strapped for cash for a year.", note: "розмовна — у Speaking ок", tone: orange }
+>   - { id: e, label: "3. приклад", text: "A friend of mine was strapped for cash for a year.", note: "розмовна — у Speaking доречна", tone: orange }
 >   - { id: c, label: "4. висновок", text: "So it's wise to save for a rainy day.", note: "3 ідіоми — досить", tone: green, icon: "px:check" }
 > steps:
 >   - { focus: q, note: "Part 3 — абстрактне питання. Екзаменатор чекає думку, причину й приклад, а не набір ідіом." }
@@ -174,10 +174,10 @@ estimatedMinutes: 55
 - *The richest 10% receive **the lion's share** of the tax cuts.* — Найбагатші 10 % отримують левову частку податкових пільг.
 - *Questioning the budget would **open a can of worms**.* — Ставити під сумнів бюджет — означало б розворушити осине гніздо.
 - *Taxpayers will have to **foot the bill** for the failed project.* — Платникам податків доведеться оплатити провалений проєкт.
-- *We started the company **on a shoestring** in my parents' garage.* — Ми почали компанію з мізерним бюджетом у гаражі моїх батьків.
+- *We started the company **on a shoestring** in my parents' garage.* — Ми заснували компанію майже без грошей, у гаражі моїх батьків.
 - *She passed her driving test **with flying colours**.* — Вона блискуче склала іспит з водіння.
-- *I **put my foot in it** by asking about her ex.* — Я бовкнув недоречне, спитавши про її колишнього.
-- *My brother took to coding **like a duck to water**.* — Мій брат освоїв програмування, як риба у воді.
+- *I **put my foot in it** by asking about her ex.* — Я ляпнув дурницю — спитав про її колишнього.
+- *My brother took to coding **like a duck to water**.* — У програмуванні мій брат одразу почувався, як риба у воді.
 
 ## Слова
 
@@ -218,7 +218,7 @@ estimatedMinutes: 55
 > ipa: /ˌɡɪv ˌsʌmwʌn ðə ˌkəʊld ˈʃəʊldə/ · ipa-us: /ˌɡɪv ˌsʌmwʌn ðə ˌkoʊld ˈʃoʊldər/ · pos: phrase · level: C1 · id: en-c1-idioms-w06
 > uk: демонстративно ігнорувати, холодно поводитися
 > example: After the argument, my colleagues **gave me the cold shoulder** for a week. — Після сварки колеги тиждень мене демонстративно ігнорували.
-> note: розмовне. Не плутай з *a cold* (застуда) — до здоровʼя відношення не має.
+> note: розмовне. Не плутай з *a cold* (застуда) — до здоровʼя стосунку не має.
 
 > [!word] pay lip service to
 > ipa: /ˌpeɪ ˈlɪp ˌsɜːvɪs tə/ · ipa-us: /ˌpeɪ ˈlɪp ˌsɜːrvɪs tə/ · pos: phrase · level: C1 · id: en-c1-idioms-w07
@@ -241,7 +241,7 @@ estimatedMinutes: 55
 > [!word] by the skin of your teeth
 > ipa: /baɪ ðə ˌskɪn əv jə ˈtiːθ/ · ipa-us: /baɪ ðə ˌskɪn əv jər ˈtiːθ/ · pos: phrase · level: C1 · id: en-c1-idioms-w10
 > uk: ледь-ледь, на волосинку
-> example: We caught the flight **by the skin of our teeth**. — Ми встигли на рейс буквально на волосинку.
+> example: We caught the flight **by the skin of our teeth**. — Ми ледь-ледь устигли на рейс.
 > note: розмовне; з біблійної Книги Йова. Синонім — *narrowly*.
 
 > [!word] have itchy feet
@@ -260,7 +260,7 @@ estimatedMinutes: 55
 > ipa: /ˌruːl əv ˈθʌm/ · pos: phrase · level: C1 · id: en-c1-idioms-w13
 > uk: емпіричне правило, практичний орієнтир
 > example: As **a rule of thumb**, save at least 10% of your income. — Практичне правило: відкладай щонайменше 10 % доходу.
-> note: нейтральне, доречне і в есе. *thumb* — *b* німе: [θʌm].
+> note: нейтральне, доречне і в есе. У *thumb* літера *b* не читається: [θʌm].
 
 ### Кольори
 
@@ -280,7 +280,7 @@ estimatedMinutes: 55
 > [!word] red tape
 > ipa: /ˌred ˈteɪp/ · pos: noun · level: C1 · id: en-c1-idioms-w16
 > uk: бюрократія, тяганина
-> example: Getting a work permit involves a lot of **red tape**. — Отримання дозволу на роботу — суцільна бюрократія.
+> example: Getting a work permit involves a lot of **red tape**. — Отримати дозвіл на роботу — це суцільна паперова тяганина.
 > note: нейтральне, осудливе, незлічуване; доречне в есе (*cut red tape* — зменшити бюрократію).
 
 > [!word] catch someone red-handed
@@ -299,13 +299,13 @@ estimatedMinutes: 55
 > [!word] give the green light
 > ipa: /ˌɡɪv ðə ˌɡriːn ˈlaɪt/ · pos: phrase · level: C1 · id: en-c1-idioms-w19
 > uk: дати зелене світло, дозволити
-> example: The council has **given the green light to** the new bridge. — Міська рада дала зелене світло новому мосту.
+> example: The council has **given the green light to** the new bridge. — Міська рада дала зелене світло будівництву нового мосту.
 > note: нейтральне, мова новин; *give sth the green light / give the green light to sth*.
 
 > [!word] a white lie
 > ipa: /ə ˌwaɪt ˈlaɪ/ · pos: phrase · level: C1 · id: en-c1-idioms-w20
 > uk: безневинна брехня (з ввічливості)
-> example: I told **a white lie** and said I loved the present. — Я трохи збрехав з ввічливості й сказав, що подарунок мені дуже сподобався.
+> example: I told **a white lie** and said I loved the present. — Я збрехав із ввічливості й сказав, що подарунок мені дуже сподобався.
 > note: нейтральне; *tell a white lie*. Добре для Speaking Part 3 про чесність.
 
 > [!word] a white elephant
@@ -317,7 +317,7 @@ estimatedMinutes: 55
 > [!word] the black sheep
 > ipa: /ðə ˌblæk ˈʃiːp/ · pos: phrase · level: C1 · id: en-c1-idioms-w22
 > uk: паршива вівця, «не такий», як уся родина
-> example: I was **the black sheep of the family** — the only one who didn't become a doctor. — Я був «не таким» у родині — єдиний не став лікарем.
+> example: I was **the black sheep of the family** — the only one who didn't become a doctor. — У родині я був паршивою вівцею — єдиний, хто не став лікарем.
 > note: нейтральне, часто самоіронічне; зазвичай *of the family*. Не плутай з «білою вороною» — див. «Типові помилки».
 
 > [!word] feel blue
@@ -386,7 +386,7 @@ estimatedMinutes: 55
 > [!word] like a duck to water
 > ipa: /ˌlaɪk ə ˈdʌk tə ˈwɔːtə/ · ipa-us: /ˌlaɪk ə ˈdʌk tə ˈwɑːtər/ · pos: phrase · level: C1 · id: en-c1-idioms-w33
 > uk: легко й природно, як риба у воді
-> example: She **took to** teaching **like a duck to water**. — Вона освоїлася у викладанні, як риба у воді.
+> example: She **took to** teaching **like a duck to water**. — У викладанні вона одразу почувалася, як риба у воді.
 > note: розмовне; майже завжди з *take to sth*.
 
 > [!word] crocodile tears
@@ -424,7 +424,7 @@ estimatedMinutes: 55
 > [!word] a cash cow
 > ipa: /ə ˈkæʃ kaʊ/ · pos: phrase · level: C1 · id: en-c1-idioms-w39
 > uk: «дійна корова», джерело стабільного прибутку
-> example: The old printer business is still the company's **cash cow**. — Старий бізнес з принтерами досі — дійна корова компанії.
+> example: The old printer business is still the company's **cash cow**. — Виробництво принтерів досі залишається дійною коровою компанії.
 > note: нейтральне, бізнес-термін (матриця BCG).
 
 > [!word] a fat cat
@@ -436,7 +436,7 @@ estimatedMinutes: 55
 > [!word] money for old rope
 > ipa: /ˌmʌni fər ˌəʊld ˈrəʊp/ · pos: phrase · level: C1 · id: en-c1-idioms-w41
 > uk: легкі гроші
-> example: Getting paid to test video games sounds like **money for old rope**. — Отримувати гроші за тестування відеоігор — звучить як легкий заробіток.
+> example: Getting paid to test video games sounds like **money for old rope**. — Отримувати гроші за тестування відеоігор — це ж легкі гроші.
 > note: розмовне, UK. Американці скажуть *easy money*.
 
 > [!word] foot the bill
@@ -503,7 +503,7 @@ estimatedMinutes: 55
 > - [ ] The authorities turned a blind eye on the problem for years.
 > - [ ] The authorities turned their blind eyes to the problem for years.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-idioms-l02
 > audio: Taxpayers will have to foot the bill for the new stadium.
 
@@ -540,7 +540,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *give the green light* — дозволити; *white elephant* — дорогий непотрібний обʼєкт; *foot the bill* — оплатити рахунок. Типова лексика новин — і всі три ідіоми нейтральні.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-idioms-l06
 > audio: She took to the new job like a duck to water.
 
@@ -585,7 +585,7 @@ estimatedMinutes: 55
 > text: I passed the exam by the skin of my teeth.
 > ipa: /aɪ ˈpɑːst ði ɪɡˈzæm baɪ ðə ˌskɪn əv maɪ ˈtiːθ/
 > tip: teeth — довге [iː] і глухе [θ] у кінці, кінчик язика між зубами. passed — [пааст], один склад.
-> uk: Я склав іспит буквально на волосинку.
+> uk: Я ледь-ледь склав іспит.
 
 > [!speak] Слон у посудній крамниці
 > level: C1 · id: en-c1-idioms-s05
@@ -605,7 +605,7 @@ estimatedMinutes: 55
 > level: C1 · id: en-c1-idioms-s07
 > text: I think many young people live beyond their means because of social media.
 > ipa: /aɪ ˈθɪŋk ˈmeni ˌjʌŋ ˈpiːpəl ˌlɪv bɪˈjɒnd ðeə ˈmiːnz bɪˈkɒz əv ˌsəʊʃəl ˈmiːdiə/
-> tip: beyond — наголос на другий склад [бі-ЙОНД]; means — дзвінке [z]. Не поспішай: пауза після means.
+> tip: beyond — наголос на другому складі [бі-ЙОНД]; means — дзвінке [z]. Не поспішай: пауза після means.
 > uk: Думаю, багато молодих людей живуть не за статками через соцмережі.
 
 > [!speak] Секрет розкрито
@@ -624,7 +624,7 @@ estimatedMinutes: 55
 > «Відкладати на **чорний** день» — *save for a **rainy** day* (~~a black day~~ — день трагедії). «Почервоніти» від сорому — *go red / blush*, а *see red* — розлютитися. «Біла ворона» — не *the black sheep* (паршива вівця, ганьба родини), а *the odd one out* чи *a misfit*. Збігаються лише *green with envy*, *crocodile tears*, *the lion's share*, *take the bull by the horns*.
 
 > [!pitfall] «Sympathetic» — не «симпатичний»
-> *She was very sympathetic when my dog died* — вона **співчувала**, а не «була симпатична». «Симпатичний» — *nice, likeable, attractive, good-looking*. Пара *sympathetic* / *symp…* — один з найчастіших хибних друзів на C1; детально — у темі «Синоніми, конотації й нюанси значень».
+> *She was very sympathetic when my dog died* — вона **співчувала**, а не «була симпатична». «Симпатичний» — *nice, likeable, attractive, good-looking*. Пара *sympathetic* / «симпатичний» — один із найчастіших «хибних друзів перекладача» на C1; детально — у темі «Синоніми, конотації й нюанси значень».
 
 > [!pitfall] Розмовна ідіома в есе IELTS
 > ~~Fat cats should foot the bill because ordinary people are strapped for cash.~~ — у Writing Task 2 це звучить як колонка таблоїда. Краще: *Highly paid executives should bear a greater share of the cost, as many households are struggling financially.* Нейтральні ідіоми (*red tape, the lion's share, live beyond their means*) — можна, але одну-дві на есе й тільки там, де вони точніші за звичайне слово.

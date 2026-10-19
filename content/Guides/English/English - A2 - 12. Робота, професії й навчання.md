@@ -123,14 +123,14 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *My mum is a nurse and she works shifts.* — Мама медсестра й працює позмінно.
+- *My mum is a nurse and she works shifts.* — Моя мама — медсестра, вона працює позмінно.
 - *I work as a receptionist in a hotel.* — Я працюю адміністратором у готелі.
-- *He's in IT — he works for a bank in Kyiv.* — Він в айті: працює на банк у Києві.
-- *I work from home on Mondays and Fridays.* — По понеділках і пʼятницях я працюю з дому.
+- *He's in IT — he works for a bank in Kyiv.* — Він працює в айті — у банку в Києві.
+- *I work from home on Mondays and Fridays.* — По понеділках і пʼятницях я працюю вдома.
 - *She's responsible for training new staff.* — Вона відповідає за навчання нових працівників.
 - *How much does a plumber earn in the UK?* — Скільки заробляє сантехнік у Британії?
-- *My favourite subject at school was chemistry.* — Мій улюблений предмет у школі — хімія.
-- *I've got a degree in journalism.* — У мене ступінь з журналістики.
+- *My favourite subject at school was chemistry.* — У школі моїм улюбленим предметом була хімія.
+- *I've got a degree in journalism.* — У мене диплом журналіста.
 - *I failed my driving test, but I passed my English exam!* — Іспит з водіння я провалив, зате англійську склав!
 - *We had a lecture at nine, so I didn't have breakfast.* — У нас була лекція о девʼятій, тож я не снідав.
 
@@ -193,8 +193,8 @@ estimatedMinutes: 40
 > [!word] plumber
 > ipa: /ˈplʌm.ə/ · ipa-us: /ˈplʌm.ɚ/ · pos: noun · level: A2 · id: en-a2-work-w11
 > uk: сантехнік
-> example: We need a **plumber** — the bathroom is flooded! — Потрібен сантехнік — ванну затопило!
-> note: b мовчить: «ПЛА-ме».
+> example: We need a **plumber** — the bathroom is flooded! — Потрібен сантехнік — у ванній потоп!
+> note: b не читається: «ПЛА-ме».
 
 > [!word] electrician
 > ipa: /ˌel.ɪkˈtrɪʃ.ən/ · pos: noun · level: A2 · id: en-a2-work-w12
@@ -205,7 +205,7 @@ estimatedMinutes: 40
 > ipa: /ˈmæn.ɪ.dʒə/ · ipa-us: /ˈmæn.ɪ.dʒɚ/ · pos: noun · level: A2 · id: en-a2-work-w13
 > uk: менеджер, керівник
 > example: I'd like to speak to the **manager**, please. — Я хотів би поговорити з керівником.
-> note: наголос на перший склад: МЕ-ні-джер.
+> note: наголос на першому складі: МЕ-ні-джер.
 
 > [!word] software developer
 > ipa: /ˈsɒft.weə dɪˌvel.ə.pə/ · ipa-us: /ˈsɑːft.wer dɪˌvel.ə.pɚ/ · pos: noun · level: A2 · id: en-a2-work-w14
@@ -252,9 +252,9 @@ estimatedMinutes: 40
 
 > [!word] work from home
 > ipa: /ˌwɜːk frəm ˈhəʊm/ · ipa-us: /ˌwɝːk frəm ˈhoʊm/ · pos: phrase · level: A2 · id: en-a2-work-w22
-> uk: працювати з дому, віддалено
-> example: I **work from home** twice a week. — Двічі на тиждень я працюю з дому.
-> note: з from, не «at home» (at home — просто вдома).
+> uk: працювати вдома, віддалено
+> example: I **work from home** twice a week. — Двічі на тиждень я працюю вдома.
+> note: з from, не «at home»: at home — просто «вдома», не про роботу.
 
 > [!word] be responsible for
 > ipa: /biː rɪˈspɒn.sə.bəl fɔː/ · ipa-us: /biː rɪˈspɑːn.sə.bəl fɔːr/ · pos: phrase · level: A2 · id: en-a2-work-w23
@@ -326,7 +326,7 @@ estimatedMinutes: 40
 > [!word] secondary school
 > ipa: /ˈsek.ən.dri ˌskuːl/ · ipa-us: /ˈsek.ən.der.i ˌskuːl/ · pos: noun · level: A2 · id: en-a2-work-w35
 > uk: середня школа (з 11 років)
-> example: I went to a big **secondary school** in Dnipro. — Я ходив у велику середню школу в Дніпрі.
+> example: I went to a big **secondary school** in Dnipro. — Я навчався у великій середній школі в Дніпрі.
 > note: US — middle school, high school.
 
 > [!word] degree
@@ -339,7 +339,7 @@ estimatedMinutes: 40
 > ipa: /ˌteɪk ən ɪɡˈzæm/ · pos: phrase · level: A2 · id: en-a2-work-w37
 > uk: складати, здавати іспит
 > example: I'm **taking** my final **exam** on Monday. — У понеділок я складаю випускний іспит.
-> note: UK також sit an exam. Результат не важливий — лише процес.
+> note: UK також sit an exam. Ідеться про сам процес — результат ще невідомий.
 
 > [!word] pass an exam
 > ipa: /ˌpɑːs ən ɪɡˈzæm/ · ipa-us: /ˌpæs ən ɪɡˈzæm/ · pos: phrase · level: A2 · id: en-a2-work-w38
@@ -368,7 +368,7 @@ estimatedMinutes: 40
 > ipa: /ˈlek.tʃə/ · ipa-us: /ˈlek.tʃɚ/ · pos: noun · level: A2 · id: en-a2-work-w42
 > uk: лекція
 > example: The **lecture** was really interesting. — Лекція була дуже цікава.
-> note: хибний друг: «лектура» (читання) — це reading.
+> note: lecturer — викладач університету. А «читання» — reading.
 
 > [!word] uniform
 > ipa: /ˈjuː.nɪ.fɔːm/ · ipa-us: /ˈjuː.nə.fɔːrm/ · pos: noun · level: A2 · id: en-a2-work-w43
@@ -394,10 +394,10 @@ estimatedMinutes: 40
 | **A:** So what do you do, Dmytro? | То чим ти займаєшся, Дмитре? |
 | **B:** I'm a software developer. I work for a small company in Kyiv. | Я розробник. Працюю в невеликій компанії в Києві. |
 | **A:** Do you go to the office every day? | Ти щодня ходиш в офіс? |
-| **B:** No, I usually work from home. What about you? | Ні, зазвичай працюю з дому. А ти? |
+| **B:** No, I usually work from home. What about you? | Ні, зазвичай працюю вдома. А ти? |
 | **A:** I'm a nurse, so I work shifts — sometimes at night. | Я медсестра, тож працюю позмінно — іноді вночі. |
-| **B:** That sounds hard! Do you like it? | Звучить важко! Тобі подобається? |
-| **A:** I love it. The salary isn't great, but the job is really interesting. | Дуже. Зарплата не надто, але робота дуже цікава. |
+| **B:** That sounds hard! Do you like it? | Мабуть, важко! Тобі подобається? |
+| **A:** I love it. The salary isn't great, but the job is really interesting. | Дуже! Зарплата так собі, але робота дуже цікава. |
 
 ## Слухаємо
 
@@ -415,11 +415,11 @@ estimatedMinutes: 40
 > - [x] I failed my exam.
 > - [ ] I took my exam.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-work-l03
 > audio: My brother works for a big IT company.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-work-l04
 > audio: I'm revising for my chemistry exam.
 
@@ -458,7 +458,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-work-s02
 > text: I'm in IT.
 > ipa: /aɪm ɪn ˌaɪˈtiː/
-> tip: IT читається як дві літери: «ай-ТІ», наголос на другу. Не «іт».
+> tip: IT читається як дві літери: «ай-ТІ», наголос на другій. Не «іт».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-work-s03
@@ -470,7 +470,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-work-s04
 > text: I'm responsible for the website.
 > ipa: /aɪm rɪˈspɒn.sə.bəl fə ðə ˈweb.saɪt/
-> tip: responsible — рі-СПОН-се-бл, наголос на другий склад. for — слабке /fə/.
+> tip: responsible — рі-СПОН-се-бл, наголос на другому складі. for — слабке /fə/.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-work-s05
@@ -493,7 +493,7 @@ estimatedMinutes: 40
 > *Work* — незлічуване: ***I'm looking for a job*** або *I'm looking for work*. І «Ким ти працюєш?» — ***What do you do?***, а не «What is your work?».
 
 > [!pitfall] «I passed the exam, but I failed» і «make an exam»
-> ***Pass*** — це вже успіх, «скласти». «Здавати / складати» — ***take*** (UK також *sit*) *an exam*. *Make an exam* означає «скласти (створити) завдання іспиту» — так каже викладач.
+> ***Pass*** — це вже успіх, «скласти». «Здавати / складати» — ***take*** (UK також *sit*) *an exam*. *Make an exam* у значенні «складати іспит» не вживається. Викладач, який готує завдання, скаже *set an exam* (UK) або *write an exam*.
 
 ## Практика
 
@@ -568,13 +568,13 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🔧 Plumber — майстер зі свинцю
-> Латинське plumbum — «свинець». Колись труби робили саме з нього, тож сантехнік — «той, хто працює зі свинцем». Звідси й німа b, і хімічний символ Pb.
+> Латинське plumbum — «свинець». Колись труби робили саме з нього, тож сантехнік — «той, хто працює зі свинцем». Звідси й b, яку не читають, і хімічний символ Pb.
 
 > [!reel] 🧂 Salary і сіль
-> Salary — від латинського salarium, повʼязаного з sal — «сіль». Популярна легенда каже, що римським воякам платили сіллю, але історики в цьому сумніваються. Слово ж — точно «сольове».
+> Salary — від латинського salarium, повʼязаного з sal — «сіль». За популярною легендою, римським воякам платили сіллю, але історики в цьому сумніваються. А от слово справді «сольове».
 
 > [!reel] 📝 Pass ≠ «здати»
-> Найчастіша «пастка» студентів: «Завтра я пасую екзамен». Pass — це вже результат: склав! Завтрашній процес — I'm taking an exam tomorrow.
+> Найчастіша пастка студентів — сказати «Tomorrow I pass the exam» у значенні «Завтра я здаю іспит». Pass — це вже результат: склав! Про завтрашній іспит кажуть: I'm taking an exam tomorrow.
 
 ## Джерела та що почитати
 

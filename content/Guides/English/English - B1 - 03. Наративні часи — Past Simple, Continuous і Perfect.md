@@ -37,7 +37,7 @@ estimatedMinutes: 45
 - **Past Simple — сюжет.** Події одна за одною, як кадри фільму: *I **got** home, **opened** the door and **switched on** the light.*
 - **Past Perfect — флешбек.** Що сталося **ще раніше**, до моменту історії: *Someone **had broken** into the flat.*
 
-В українській усе це — один минулий час: «йшов дощ», «я відчинив», «хтось уже вліз». Різницю передають слова «уже», «до того», «перед тим». В англійській її показує сам час дієслова.
+В українській усе це — один минулий час: «йшов дощ», «я відчинив», «хтось уже заліз». Різницю передають слова «уже», «до того», «перед тим». В англійській її показує сам час дієслова.
 
 > [!diagram] Три шари однієї історії
 > ```yaml
@@ -78,7 +78,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 | Ситуація | Приклад |
 |---|---|
 | **Подія раніше за інший момент у минулому** | When I got to the office, the meeting **had** already **started**. — Коли я прийшов, нарада вже почалася. |
-| **by the time** — «до того часу, як» | By the time the police arrived, the thief **had escaped**. — Поки приїхала поліція, злодій уже втік. |
+| **by the time** — «до того часу, як» | By the time the police arrived, the thief **had escaped**. — Коли приїхала поліція, злодій уже втік. |
 | **Досвід до певного моменту** (never / ever … before) | I **had never seen** the sea before that trip. — До тієї поїздки я ніколи не бачив моря. |
 | **Причина** (because, as) | She was upset because she **had failed** her exam. — Вона засмутилася, бо провалила іспит. |
 | **Думки, усвідомлення** (realise, remember, find out, discover) | I realised I **had left** my wallet at home. — Я зрозумів, що залишив гаманець удома. |
@@ -139,12 +139,12 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 
 ## Приклади
 
-- By the time I **woke up**, everyone **had** already **left**. — Поки я прокинувся, усі вже пішли.
+- By the time I **woke up**, everyone **had** already **left**. — Коли я прокинувся, усі вже пішли.
 - I **didn't recognise** him because he **had grown** a beard. — Я його не впізнав, бо він відпустив бороду.
 - We **were having** dinner when we **heard** a loud noise outside. — Ми вечеряли, коли почули гучний шум надворі.
 - She **had never flown** before, so she **was** a bit nervous. — Вона ніколи раніше не літала, тож трохи нервувала.
 - When I **checked** my bag, I **realised** that I **had left** my passport at the hotel. — Коли я перевірив сумку, то зрозумів, що залишив паспорт у готелі.
-- **Had** you **met** her before the wedding? — No, I **hadn't**. — Ти бачив її до весілля? — Ні.
+- **Had** you **met** her before the wedding? — No, I **hadn't**. — Ти був знайомий з нею до весілля? — Ні.
 - It **turned out** that the shop **had closed** an hour earlier. — Виявилося, що магазин зачинився на годину раніше.
 - **Fortunately**, someone **had found** my phone and **handed** it in. — На щастя, хтось знайшов мій телефон і здав його.
 - The roads **were** wet because it **had rained** all night. — Дороги були мокрі, бо всю ніч ішов дощ.
@@ -155,7 +155,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > [!word] by the time
 > ipa: /baɪ ðə taɪm/ · pos: conj · level: B1 · id: en-b1-narrative-tenses-w01
 > uk: до того часу, як; поки
-> example: **By the time** we got to the beach, it had started to rain. — Поки ми дісталися пляжу, почався дощ.
+> example: **By the time** we got to the beach, it had started to rain. — Коли ми дісталися пляжу, уже почався дощ.
 > note: після by the time про минуле — Past Simple, у головній частині — часто Past Perfect.
 
 > [!word] realise
@@ -240,12 +240,12 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > - [ ] By the time we got there, the shop was closing.
 > - [x] By the time we got there, the shop had closed.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-narrative-tenses-l03
 > audio: She realised she had left her phone at home.
 > accept: She realised she'd left her phone at home. | She realized she had left her phone at home.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-narrative-tenses-l04
 > audio: I had never seen snow before.
 > accept: I'd never seen snow before.
@@ -288,7 +288,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > text: By the time we arrived, the film had started.
 > ipa: /baɪ ðə taɪm wiː əˈraɪvd ðə fɪlm əd ˈstɑː.tɪd/
 > tip: had посеред речення слабке — [həd] або навіть [əd]; started — закінчення [ɪd].
-> uk: Поки ми прийшли, фільм уже почався.
+> uk: Коли ми прийшли, фільм уже почався.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-narrative-tenses-s03
@@ -302,7 +302,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > text: Had you met him before?
 > ipa: /həd juː ˈmet ɪm bɪˈfɔː/
 > tip: had на початку питання часто слабке [həd]; him після приголосного — [ɪm], h випадає.
-> uk: Ти бачив його раніше?
+> uk: Ти був з ним знайомий раніше?
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-narrative-tenses-s05
@@ -315,7 +315,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > level: B1 · id: en-b1-narrative-tenses-s06
 > text: When we got to the station, we found out that our train had already left.
 > ipa: /wen wiː ɡɒt tə ðə ˈsteɪ.ʃən wiː faʊnd ˈaʊt ðət ˈaʊə treɪn həd ɔːlˈred.i left/
-> tip: у Part 2 оцінюють і граматичний діапазон: Past Perfect у розповіді — плюс до балу. found out — звʼязуй [faʊnd‿aʊt].
+> tip: у Part 2 оцінюють і граматичний діапазон: Past Perfect у розповіді — плюс до оцінки. found out — звʼязуй [faʊnd‿aʊt].
 > uk: Коли ми приїхали на вокзал, зʼясувалося, що наш потяг уже пішов.
 
 ## Типові помилки українців
@@ -326,11 +326,11 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 > [!pitfall] Past Perfect «для солідності»
 > Деякі учні вирішують, що Past Perfect — «більш минулий» або «більш граматичний», і ставлять його в кожне речення: ~~*Yesterday I had gone to the cinema*~~. Past Perfect потрібен **лише відносно іншого моменту в минулому**. Немає точки відліку — бери Past Simple: *Yesterday I **went** to the cinema*.
 
-> [!pitfall] «I had been in London last year» замість досвіду
+> [!pitfall] «I had been to London last year» — без точки відліку
 > Калька з «я був у Лондоні» → ~~*I had been to London last year*~~. З *last year* — Past Simple: *I **went** to London last year*. Past Perfect — тільки коли є пізніший момент: *Before I moved there, I **had been** to London twice.*
 
 > [!pitfall] «I didn't know that he has left»
-> Українська після «знав, що» лишає теперішній або простий минулий («не знав, що він пішов»). В англійській розповідь у минулому «тягне» час назад: *I didn't know that he **had left**.*
+> Українська після «не знав, що» вживає звичайний минулий час («не знав, що він пішов») або навіть теперішній («не знав, що він тут»). В англійській розповідь у минулому «тягне» час назад: *I didn't know that he **had left**.*
 
 ## Практика
 
@@ -398,7 +398,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 >
 > **Пояснення:** усвідомлення — Past Simple (*realised*), забула ще раніше — Past Perfect (*had forgotten*). *Has forgotten* у розповіді про минуле не узгоджується.
 
-> [!quiz] Склади речення: «Поки приїхала поліція, злодій уже втік»
+> [!quiz] Склади речення: «Коли приїхала поліція, злодій уже втік»
 > level: B1 · type: order · id: en-b1-narrative-tenses-q10
 >
 > ```text order
@@ -479,7 +479,7 @@ Past Perfect потрібен **лише тоді, коли ми «відмот�
 ## Фішки
 
 > [!reel] 🎞️ Past Perfect — кнопка «флешбек»
-> Режисери показують минуле чорно-білим кадром. Англійці — словом had. Почув had + V3 — значить, оповідач «відмотав плівку» назад.
+> Режисери показують минуле чорно-білим кадром, а англійська — словом had. Почув had + V3 — значить, оповідач «відмотав плівку» назад.
 
 > [!reel] 📚 Казка — це три часи
 > «It was a dark night. The wind was howling. Suddenly someone knocked at the door. Cinderella had lost her mother years before…» Фон — Continuous, події — Simple, передісторія — Perfect. Так написана майже кожна історія.

@@ -111,7 +111,7 @@ estimatedMinutes: 50
 | іменник + іменник | **workload** | *work + load* | навантаження |
 | іменник + іменник | **bottleneck** | *bottle + neck* | вузьке місце |
 
-Зверни увагу: частка може стояти **попереду** (*outcome, upbringing*) або **позаду** (*breakthrough, setback*) — і значення пов'язане з фразовим дієсловом: *break out* → *outbreak*, *set back* → *setback*.
+Зверни увагу: частка може стояти **попереду** (*outcome, upbringing*) або **позаду** (*breakthrough, setback*) — і значення повʼязане з фразовим дієсловом: *break out* → *outbreak*, *set back* → *setback*.
 
 > [!diagram] Наголос: складне слово чи два слова?
 > ```yaml
@@ -251,7 +251,7 @@ estimatedMinutes: 50
 > [!word] inadequate
 > ipa: /ɪnˈædɪkwət/ · pos: adj · level: B2 · id: en-b2-word-formation-w10
 > uk: недостатній, неналежний
-> example: The hospital's equipment is **inadequate**. — Обладнання лікарні неналежне.
+> example: The hospital's equipment is **inadequate**. — У лікарні неналежне обладнання.
 > note: хибний друг: не «неадекватний» у розмовному сенсі (той — *unreasonable, crazy*), а «недостатній, неякісний».
 
 > [!word] insufficient
@@ -276,7 +276,7 @@ estimatedMinutes: 50
 > ipa: /ˌdɪsəˈpruːv/ · pos: verb · level: B2 · id: en-b2-word-formation-w14
 > uk: не схвалювати
 > example: My parents **disapprove of** my tattoo. — Мої батьки не схвалюють мого татуювання.
-> note: *disapprove **of** sth* (з *of*!), хоча *approve* теж буває з *of*: *approve of sth*.
+> note: *disapprove **of** sth* (з *of*!) — так само, як *approve of sth*.
 
 > [!word] disobey
 > ipa: /ˌdɪsəˈbeɪ/ · pos: verb · level: B2 · id: en-b2-word-formation-w15
@@ -405,7 +405,7 @@ estimatedMinutes: 50
 > [!word] long-term
 > ipa: /ˌlɒŋ ˈtɜːm/ · ipa-us: /ˌlɔːŋ ˈtɜːrm/ · pos: adj · level: B2 · id: en-b2-word-formation-w35
 > uk: довгостроковий
-> example: We need a **long-term** solution, not a quick fix. — Нам потрібне довгострокове рішення, а не швидка латка.
+> example: We need a **long-term** solution, not a quick fix. — Нам потрібне довгострокове рішення, а не латання дірок.
 > note: прислівник — *in the long term*.
 
 > [!word] short-term
@@ -417,7 +417,7 @@ estimatedMinutes: 50
 > [!word] time-consuming
 > ipa: /ˈtaɪm kənˌsjuːmɪŋ/ · ipa-us: /ˈtaɪm kənˌsuːmɪŋ/ · pos: adj · level: B2 · id: en-b2-word-formation-w37
 > uk: що забирає багато часу, трудомісткий
-> example: Learning a language is rewarding but **time-consuming**. — Вивчати мову — корисно, але забирає багато часу.
+> example: Learning a language is rewarding but **time-consuming**. — Вивчати мову корисно, але це забирає багато часу.
 > note: *consume* = споживати. Модель «іменник + -ing»: *money-saving, energy-saving*.
 
 > [!word] self-employed
@@ -435,7 +435,7 @@ estimatedMinutes: 50
 > [!word] record-breaking
 > ipa: /ˈrekɔːd ˌbreɪkɪŋ/ · ipa-us: /ˈrekərd ˌbreɪkɪŋ/ · pos: adj · level: B2 · id: en-b2-word-formation-w40
 > uk: рекордний
-> example: Last summer saw **record-breaking** temperatures. — Минулого літа були рекордні температури.
+> example: Last summer saw **record-breaking** temperatures. — Минулого літа температура била рекорди.
 > note: іменник *record* — наголос на перший склад: RE-cord.
 
 > [!word] eye-catching
@@ -464,7 +464,7 @@ estimatedMinutes: 50
 > [!word] state-of-the-art
 > ipa: /ˌsteɪt əv ði ˈɑːt/ · ipa-us: /ˌsteɪt əv ði ˈɑːrt/ · pos: adj · level: B2 · id: en-b2-word-formation-w45
 > uk: найсучасніший, за останнім словом техніки
-> example: The hospital has **state-of-the-art** equipment. — Лікарня має найсучасніше обладнання.
+> example: The hospital has **state-of-the-art** equipment. — У лікарні найсучасніше обладнання.
 > note: з дефісами перед іменником; після дієслова — без: *The equipment is the state of the art.*
 
 ### Конверсія
@@ -478,7 +478,7 @@ estimatedMinutes: 50
 > [!word] a must
 > ipa: /ə ˈmʌst/ · pos: noun · level: B2 · id: en-b2-word-formation-w47
 > uk: обовʼязкова річ, «мастхев»
-> example: If you visit Kyiv, the Lavra is **a must**. — Якщо ти в Києві, Лавра — обовʼязкова до відвідування.
+> example: If you visit Kyiv, the Lavra is **a must**. — Якщо будеш у Києві, обовʼязково відвідай Лавру.
 > note: модальне *must* стало іменником. Розмовне; також *a must-see, a must-have*.
 
 > [!word] chair
@@ -514,7 +514,7 @@ estimatedMinutes: 50
 > - [ ] The information on the website was completely accurate.
 > - [ ] The information on the website was completely inadequate.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-word-formation-l02
 > audio: It was irresponsible of them to ignore the warnings.
 
@@ -561,14 +561,14 @@ estimatedMinutes: 50
 > level: B2 · id: en-b2-word-formation-s03
 > text: It's a ten-minute walk from the station.
 > ipa: /ɪts ə ˌten ˈmɪnɪt ˈwɔːk frəm ðə ˈsteɪʃən/
-> tip: minute — без s! [МІ-ніт]. walk — l німе: [воок].
+> tip: minute — без s! [МІ-ніт]. у walk літера l не читається: [воок].
 > uk: Від станції — десять хвилин пішки.
 
 > [!speak] IELTS Speaking · Part 3
 > level: B2 · id: en-b2-word-formation-s04
 > text: Banning phones in schools could be counterproductive in the long term.
 > ipa: /ˈbænɪŋ ˈfəʊnz ɪn ˈskuːlz kəd bi ˌkaʊntəprəˈdʌktɪv ɪn ðə ˌlɒŋ ˈtɜːm/
-> tip: counterproductive — головний наголос на -DUC-: [кавн-те-про-ДАК-тив]. could — l німе.
+> tip: counterproductive — головний наголос на -DUC-: [кавн-те-про-ДАК-тив]. у could літера l не читається.
 > uk: Заборона телефонів у школах у довгостроковій перспективі може дати зворотний ефект.
 
 ## Типові помилки українців

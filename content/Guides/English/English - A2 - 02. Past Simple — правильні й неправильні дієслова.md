@@ -26,7 +26,7 @@ estimatedMinutes: 45
 > - [x] I went to the cinema yesterday.
 > - [ ] I gone to the cinema yesterday.
 >
-> **Пояснення:** *go* — неправильне дієслово, його минула форма — **went**. *Goed* не існує (так кажуть хіба що маленькі діти-носії), а *gone* — третя форма, вона окремо не вживається.
+> **Пояснення:** *go* — неправильне дієслово, його минула форма — **went**. *Goed* не існує (так кажуть хіба що маленькі діти-носії), а *gone* — третя форма, без *have* вона не вживається.
 
 ## Простими словами
 
@@ -70,7 +70,7 @@ estimatedMinutes: 45
 > [!note] Британська й американська норма
 > Британці подвоюють кінцеве **-l** навіть у ненаголошеному складі: *travel → travelled, cancel → cancelled*. Американці — ні: *traveled, canceled*. Наголос не на останньому складі — і в UK без подвоєння: *visit → visited, open → opened*.
 
-Як вимовляти *-ed* — /t/, /d/ чи /ɪd/ — окрема тема: [[English - A2 - 03. Вимова закінчення -ed]]. Головне вже зараз: **worked** — один склад [воркт], а не «вор-кед».
+Як вимовляти *-ed* — /t/, /d/ чи /ɪd/ — окрема тема: [[English - A2 - 03. Вимова закінчення -ed]]. Головне вже зараз: **worked** — один склад /wɜːkt/, а не «вор-кед».
 
 > [!quiz] Перевір себе: яке слово написане правильно?
 > level: A2 · id: en-a2-past-simple-q02
@@ -93,7 +93,7 @@ estimatedMinutes: 45
 | **A–B–C** | усі три різні | go → went → gone, see → saw → seen, write → wrote → written, eat → ate → eaten, take → took → taken… |
 
 > [!tip] Пʼятірка на «-ought / -aught»
-> *buy → **bought**, bring → **brought**, think → **thought**, catch → **caught**, teach → **taught*** — усі пʼять римуються: /ɔːt/. Літери *gh* мовчать.
+> *buy → **bought**, bring → **brought**, think → **thought**, catch → **caught**, teach → **taught*** — усі пʼять римуються: /ɔːt/. Літери *gh* не читаються.
 
 > [!diagram] Правильні проти неправильних
 > ```yaml
@@ -158,7 +158,7 @@ estimatedMinutes: 45
 
 ## Слова
 
-Картки — 60 найчастіших неправильних дієслів у тому самому порядку, що й таблиця: A–A–A → A–B–A → A–B–B → A–B–C. У полі `forms` — V1 → V2 → V3.
+Картки — 60 найчастіших неправильних дієслів у тому самому порядку, що й у таблиці: A–A–A → A–B–A → A–B–B → A–B–C. У полі `forms` — V1 → V2 → V3.
 
 > [!word] cut
 > ipa: /kʌt/ · pos: verb · level: A2 · id: en-a2-past-simple-w01
@@ -201,7 +201,7 @@ estimatedMinutes: 45
 > ipa: /kʌm/ · pos: verb · level: A2 · id: en-a2-past-simple-w07
 > forms: come → came → come
 > uk: приходити, приїжджати
-> example: My cousin **came** to visit us last week. — Мій двоюрідний брат приїхав до нас минулого тижня.
+> example: My cousin **came** to visit us last week. — Минулого тижня до нас у гості приїхав двоюрідний брат.
 
 > [!word] become
 > ipa: /bɪˈkʌm/ · pos: verb · level: A2 · id: en-a2-past-simple-w08
@@ -240,7 +240,7 @@ estimatedMinutes: 45
 > forms: get → got → got
 > uk: отримувати; діставатися; ставати
 > example: I **got** your email yesterday. — Я вчора отримав твій лист.
-> note: в американській англійській V3 — gotten.
+> note: в американській англійській V3 часто gotten.
 
 > [!word] find
 > ipa: /faɪnd/ · pos: verb · level: A2 · id: en-a2-past-simple-w14
@@ -259,7 +259,7 @@ estimatedMinutes: 45
 > ipa: /liːv/ · pos: verb · level: A2 · id: en-a2-past-simple-w16
 > forms: leave → left → left
 > uk: іти, їхати (з місця); залишати
-> example: The bus **left** at six. — Автобус поїхав о шостій.
+> example: The bus **left** at six. — Автобус відʼїхав о шостій.
 
 > [!word] feel
 > ipa: /fiːl/ · pos: verb · level: A2 · id: en-a2-past-simple-w17
@@ -386,7 +386,7 @@ estimatedMinutes: 45
 > ipa: /θɪŋk/ · pos: verb · level: A2 · id: en-a2-past-simple-w36
 > forms: think → thought → thought
 > uk: думати
-> example: I **thought** the film was boring. — Я думав, що фільм нудний.
+> example: I **thought** the film was boring. — Мені здалося, що фільм нудний.
 
 > [!word] learn
 > ipa: /lɜːn/ · ipa-us: /lɝːn/ · pos: verb · level: A2 · id: en-a2-past-simple-w37
@@ -413,13 +413,13 @@ estimatedMinutes: 45
 > forms: know → knew → known
 > uk: знати
 > example: I **knew** the answer! — Я знав відповідь!
-> note: k мовчить; knew звучить /njuː/ — як new.
+> note: k не читається; knew звучить /njuː/ — як new.
 
 > [!word] take
 > ipa: /teɪk/ · pos: verb · level: A2 · id: en-a2-past-simple-w41
 > forms: take → took → taken
 > uk: брати; їхати (транспортом); займати (час)
-> example: We **took** a taxi to the airport. — Ми взяли таксі до аеропорту.
+> example: We **took** a taxi to the airport. — Ми поїхали в аеропорт на таксі.
 
 > [!word] see
 > ipa: /siː/ · pos: verb · level: A2 · id: en-a2-past-simple-w42
@@ -444,7 +444,7 @@ estimatedMinutes: 45
 > forms: write → wrote → written
 > uk: писати
 > example: She **wrote** a long post about her trip. — Вона написала довгий пост про подорож.
-> note: w мовчить: /raɪt/, /rəʊt/.
+> note: w не читається: /raɪt/, /rəʊt/.
 
 > [!word] speak
 > ipa: /spiːk/ · pos: verb · level: A2 · id: en-a2-past-simple-w46
@@ -463,7 +463,7 @@ estimatedMinutes: 45
 > ipa: /iːt/ · pos: verb · level: A2 · id: en-a2-past-simple-w48
 > forms: eat → ate → eaten
 > uk: їсти
-> example: We **ate** pizza in a little Italian place. — Ми їли піцу в маленькому італійському закладі.
+> example: We **ate** pizza in a little Italian place. — Ми їли піцу в маленькому італійському ресторанчику.
 > note: ate у Британії часто /et/, в Америці — /eɪt/.
 
 > [!word] drink
@@ -556,11 +556,11 @@ estimatedMinutes: 45
 > - [x] We walked to the station.
 > - [ ] We worked at the station.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-simple-l03
 > audio: She wrote a letter to her grandmother.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-past-simple-l04
 > audio: They moved to Canada three years ago.
 
@@ -587,7 +587,7 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-past-simple-s01
 > text: I bought a new phone last week.
 > ipa: /aɪ ˈbɔːt ə ˌnjuː ˈfəʊn lɑːst ˈwiːk/
-> tip: bought — /bɔːt/, довге «о-о», а gh мовчить. Не «боугт».
+> tip: bought — /bɔːt/, довге «о-о», а gh не читається. Не «боугт».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-past-simple-s02
@@ -599,7 +599,7 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-past-simple-s03
 > text: We travelled to Italy two years ago.
 > ipa: /wi ˈtræv.əld tʊ ˈɪt.əl.i tuː ˈjɪəz əˈɡəʊ/
-> tip: travelled — два склади, TRAV-ld, кінцеве -ed тут /d/. Наголос ago — на другий склад: а-ГОУ.
+> tip: travelled — два склади, TRAV-ld, кінцеве -ed тут /d/. У ago наголос на другому складі: а-ГОУ.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-past-simple-s04
@@ -617,12 +617,12 @@ estimatedMinutes: 45
 > level: A2 · id: en-a2-past-simple-s06
 > text: I thought you knew.
 > ipa: /aɪ ˈθɔːt ju ˈnjuː/
-> tip: th — кінчик язика між зубами, не «с» і не «ф». knew — k мовчить, звучить як new.
+> tip: th — кінчик язика між зубами, не «с» і не «ф». knew — k не читається, звучить як new.
 
 ## Типові помилки українців
 
 > [!pitfall] «I goed», «I buyed», «she taked»
-> Мозок любить правила й ліпить *-ed* до всього. Неправильні дієслова треба просто знати: ***went, bought, took***. Вчи їх групами з таблиці й промовляй уголос трійками: *buy — bought — bought*.
+> Мозок любить правила й ліпить *-ed* до всього. Неправильні дієслова треба просто знати: ***went, bought, took***. Учи їх групами з таблиці й промовляй уголос трійками: *buy — bought — bought*.
 
 > [!pitfall] «She worked**s**» і «He went**s**»
 > *-s* для *he / she / it* — тільки в Present Simple. У минулому форма одна для всіх: *she **worked**, he **went***.

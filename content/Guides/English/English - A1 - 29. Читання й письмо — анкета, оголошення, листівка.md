@@ -15,7 +15,7 @@ estimatedMinutes: 40
 > - прочитати вивіску, оголошення чи меню й знайти потрібне: ціну, час, телефон;
 > - заповнити просту анкету: **first name**, **surname**, **date of birth**, **address**;
 > - написати коротке повідомлення про себе й листівку другові (*Dear Anna, … Love, Olena*);
-> - ставити великі літери там, де їх ставлять англійці (**I**, дні, місяці, мови, країни);
+> - писати з великої літери там, де цього вимагає англійська (**I**, дні, місяці, мови, країни);
 > - зʼєднувати думки словами **and**, **but**, **because** і правильно ставити крапку й кому.
 
 ## Передбач
@@ -55,11 +55,11 @@ estimatedMinutes: 40
 >
 > **LOST:** a black cat, Tiger. Please call Anna: 07700 900456.
 
-Що робимо: спершу дивимося на **великі слова** (*FOR SALE*, *ENGLISH CLUB*, *LOST*) — це тема оголошення. Потім шукаємо деталь: скільки коштує велосипед? (£40) Коли клуб? (у середу о 7–8 вечора)
+Що робимо: спершу дивимося на **великі слова** (*FOR SALE*, *ENGLISH CLUB*, *LOST*) — це тема оголошення. Потім шукаємо деталь: скільки коштує велосипед? (£40) Коли клуб? (щосереди з 7 до 8 вечора)
 
 ### Анкета
 
-Анкета (*form*) — це рядки з короткими відповідями. Пиши без речень: лише слово чи дату.
+Анкета (*form*) — це рядки з короткими відповідями. Пиши не реченнями, а одним словом чи датою.
 
 | Поле анкети | Що писати | Приклад |
 |---|---|---|
@@ -75,7 +75,7 @@ estimatedMinutes: 40
 | Signature | підпис | *O. Shevchuk* |
 
 > [!tip] Дата — спершу день чи місяць?
-> У Британії й Україні **05/06/2001** — це 5 червня. У США — 6 травня: там спершу місяць. Щоб не плутатися, пиши місяць словом: *5 June 2001*. А **BLOCK CAPITALS** або *in capital letters* в анкеті — пиши друкованими великими літерами.
+> У Британії й Україні **05/06/2001** — це 5 червня. У США — 6 травня: там спершу місяць. Щоб не плутатися, пиши місяць словом: *5 June 2001*. А якщо в анкеті написано **BLOCK CAPITALS** або *in capital letters*, пиши друкованими великими літерами.
 
 ### Повідомлення про себе
 
@@ -93,7 +93,7 @@ estimatedMinutes: 40
 > layout: flow
 > nodes:
 >   - { id: hi, label: "звертання", text: "Dear Anna,", note: "або Hi Anna,", tone: blue, icon: "px:envelope" }
->   - { id: where, label: "де ти", text: "We're in Odesa.", note: "where + with whom", tone: violet, icon: "px:map" }
+>   - { id: where, label: "де ти", text: "We're in Odesa.", note: "де і з ким", tone: violet, icon: "px:map" }
 >   - { id: what, label: "що робите", text: "We swim every day.", note: "Present Simple / Continuous", tone: orange }
 >   - { id: feel, label: "погода й враження", text: "It's sunny. I love it!", tone: yellow, icon: "px:sun" }
 >   - { id: bye, label: "прощання", text: "Love, Olena", note: "або Best wishes,", tone: green, icon: "px:heart" }
@@ -141,14 +141,14 @@ estimatedMinutes: 40
 ## Приклади
 
 - *Please write in capital letters.* — Будь ласка, пишіть друкованими великими літерами.
-- *What's your date of birth? — The fifth of June, two thousand and one.* — Яка ваша дата народження? — Пʼяте червня 2001 року.
+- *What's your date of birth? — The fifth of June, two thousand and one.* — Коли ви народилися? — Пʼятого червня 2001 року.
 - *Sign here, please.* — Підпишіть тут, будь ласка.
 - *The museum is closed on Mondays.* — Музей зачинений по понеділках.
 - *Bike for sale — only £40!* — Продається велосипед — лише £40!
 - *Entry is free for children.* — Для дітей вхід безкоштовний.
 - *Thanks for your message!* — Дякую за повідомлення!
 - *Dear Tom, greetings from London!* — Дорогий Томе, вітання з Лондона!
-- *I'm tired because I work a lot.* — Я втомлений, бо багато працюю.
+- *I'm tired because I work a lot.* — Я втомився, бо багато працюю.
 - *The weather is cold, but the people are friendly.* — Погода холодна, але люди привітні.
 
 ## Слова
@@ -161,7 +161,7 @@ estimatedMinutes: 40
 > [!word] first name
 > ipa: /ˈfɜːst neɪm/ · ipa-us: /ˈfɜːrst neɪm/ · pos: noun · level: A1 · id: en-a1-read-write-w02
 > uk: імʼя
-> example: My **first name** is Olena. — Моє імʼя — Олена.
+> example: My **first name** is Olena. — Мене звати Олена.
 > note: в анкеті поруч — *surname* або *last name* (прізвище).
 
 > [!word] date of birth
@@ -174,7 +174,7 @@ estimatedMinutes: 40
 > ipa: /əˈdres/ · ipa-us: /ˈædres/ · pos: noun · level: A1 · id: en-a1-read-write-w04
 > uk: адреса
 > example: What's your **address**? — 12 Green Street. — Яка ваша адреса? — Грін-стріт, 12.
-> note: пишеться з двома *d* і двома *s*. Email — теж *email address*.
+> note: пишеться з двома *d* і двома *s*. Адреса електронної пошти — *email address*.
 
 > [!word] signature
 > ipa: /ˈsɪɡnətʃə/ · ipa-us: /ˈsɪɡnətʃər/ · pos: noun · level: A1 · id: en-a1-read-write-w05
@@ -242,7 +242,7 @@ estimatedMinutes: 40
 > [!word] price
 > ipa: /praɪs/ · pos: noun · level: A1 · id: en-a1-read-write-w16
 > uk: ціна
-> example: What's the **price** of this bike? — Яка ціна цього велосипеда?
+> example: What's the **price** of this bike? — Скільки коштує цей велосипед?
 
 > [!word] free
 > ipa: /friː/ · pos: adj · level: A1 · id: en-a1-read-write-w17
@@ -252,9 +252,9 @@ estimatedMinutes: 40
 
 > [!word] full stop
 > ipa: /ˌfʊl ˈstɒp/ · pos: noun · level: A1 · id: en-a1-read-write-w18
-> uk: крапка (в кінці речення)
+> uk: крапка (у кінці речення)
 > example: Put a **full stop** at the end of the sentence. — Постав крапку в кінці речення.
-> note: US — *period* /ˈpɪriəd/. Крапка в email чи сайті — *dot*.
+> note: US — *period* /ˈpɪriəd/. Крапка в адресі пошти чи сайту — *dot*.
 
 > [!word] comma
 > ipa: /ˈkɒmə/ · ipa-us: /ˈkɑːmə/ · pos: noun · level: A1 · id: en-a1-read-write-w19
@@ -302,7 +302,7 @@ estimatedMinutes: 40
 > ipa: /maɪ ˌdeɪt əv ˈbɜːθ ɪz ðə ˈfɪfθ əv ˈdʒuːn ˈtuː ˈθaʊzənd ənd ˈwʌn/
 > tip: fifth — /fθ/ у кінці: язик між зубами після f. Birth — /θ/, не «ф».
 
-> [!speak] Попроси анкету в рецепції.
+> [!speak] Попроси анкету на рецепції.
 > level: A1 · id: en-a1-read-write-s02
 > text: Can I have a form, please?
 > ipa: /kən aɪ hæv ə ˈfɔːm pliːz/
@@ -316,14 +316,14 @@ estimatedMinutes: 40
 
 ## Типові помилки українців
 
-> [!pitfall] Мала літера в i, днях і мовах
+> [!pitfall] Мала літера в i, назвах днів і мов
 > Українською «я», «понеділок», «англійська» — з малої. Англійською — **I**, **Monday**, **English** завжди з великої. Але пори року — з малої: *in summer*.
 
 > [!pitfall] Імʼя й прізвище плутають місцями
 > В анкеті *first name* — це **імʼя** (Olena), *surname* / *last name* — **прізвище** (Shevchuk). Не пиши спершу прізвище «як у списку класу». А *name* у питанні *What's your name?* — зазвичай імʼя або повне імʼя.
 
 > [!pitfall] Одне довге речення через коми
-> Українською можна «Я живу в Києві, я працюю, мені подобається». Англійською краще розбити: *I live in Kyiv. I work in IT. I like it.* Або зʼєднати: *I live in Kyiv **and** I work in IT.* Ланцюжок речень через кому — помилка.
+> Українською можна «Я живу в Києві, працюю в ІТ, мені подобається». Англійською краще розбити: *I live in Kyiv. I work in IT. I like it.* Або зʼєднати: *I live in Kyiv **and** I work in IT.* Ланцюжок речень через кому — помилка.
 
 ## Практика
 
@@ -381,7 +381,7 @@ estimatedMinutes: 40
 > - [ ] Dear, Olena
 > - [ ] Signature: Olena
 >
-> **Пояснення:** другові чи родині — *Love,* і імʼя з нового рядка. Нейтрально — *Best wishes,*. *Dear* — це початок листа, а не кінець.
+> **Пояснення:** другові чи родині — *Love,* а потім імʼя. Нейтрально — *Best wishes,*. *Dear* — це початок листа, а не кінець.
 
 > [!quiz] Обери звʼязку: «I like tea, ___ I don't like coffee.»
 > level: A1 · id: en-a1-read-write-q08
@@ -456,13 +456,13 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🔠 Чому «I» завжди велике?
-> У середньовічних рукописах самотня маленька «i» губилася поміж інших літер і зливалася з сусідніми словами. Писарі почали робити її високою — і звичка закріпилася. Тому *I* велике навіть посеред речення.
+> У середньовічних рукописах самотня маленька «i» губилася серед інших літер і зливалася з сусідніми словами. Писарі почали робити її високою — і звичка закріпилася. Тому *I* велике навіть посеред речення.
 
 > [!reel] 🏖️ Wish you were here!
 > Найвідоміша фраза з британських листівок — *Wish you were here!* («Шкода, що тебе тут немає!»). Її пишуть так часто, що вона стала кліше. Так називається й відома пісня Pink Floyd (1975).
 
 > [!reel] 📅 Одна дата — два дні народження
-> 05/06 для британця — 5 червня, для американця — 6 травня. Через це в міжнародних анкетах часто просять формат DD/MM/YYYY або місяць словами. Сумніваєшся — пиши *5 June*.
+> 05/06 для британця — 5 червня, для американця — 6 травня. Через це в міжнародних анкетах часто вказують формат DD/MM/YYYY або просять писати місяць словом. Сумніваєшся — пиши *5 June*.
 
 ## Джерела та що почитати
 

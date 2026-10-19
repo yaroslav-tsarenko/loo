@@ -12,7 +12,7 @@ estimatedMinutes: 55
 # Точність — understatement, евфемізми, ввічливе заперечення
 
 > [!success] Після цієї теми ти зможеш
-> - чути, що стоїть за **британською недомовленістю**: *not bad* = добре, *a bit of a problem* = велика проблема, *I'll bear it in mind* = навряд;
+> - чути, що стоїть за **британською недомовленістю**: *not bad* = добре, *a bit of a problem* = велика проблема, *I'll bear it in mind* = навряд чи;
 > - уживати **літоту** — заперечення протилежного (*not uncommon, no mean feat, not without its problems*) — для точного й стриманого тону, зокрема в есе;
 > - відрізняти **ввічливий евфемізм** (*between jobs, let someone go*) від **даблспіку** (*negative growth, collateral damage*) і бачити, коли ним маніпулюють;
 > - **ввічливо заперечувати й відмовляти** — *I wouldn't say that, I'm not sure that's quite right, I'll pass*;
@@ -35,11 +35,11 @@ estimatedMinutes: 55
 
 Три інструменти точності:
 
-1. **Understatement (недомовленість)** — применшення: *a bit of a mess* про катастрофу, *not ideal* про провал, *slightly annoyed* про лють. Окремий випадок — **литота** (*litotes*): заперечення протилежного: *not bad* (= good), *not uncommon* (= fairly common), *no mean feat* (= a big achievement).
+1. **Understatement (недомовленість)** — применшення: *a bit of a mess* про катастрофу, *not ideal* про провал, *slightly annoyed* про лють. Окремий випадок — **літота** (*litotes*): заперечення протилежного: *not bad* (= good), *not uncommon* (= fairly common), *no mean feat* (= a big achievement).
 2. **Евфемізми** — мʼякі слова для неприємного: смерть (*pass away*), звільнення (*let someone go*), вік (*senior citizens*), туалет (*spend a penny*). Евфемізм буває ввічливим — а буває **даблспіком** (*doublespeak*), коли ним ховають правду: *negative growth* замість «спад», *collateral damage* замість «загибель цивільних».
 3. **Ввічливе заперечення** — незгода й відмова без різкості: *I wouldn't say that*, *I'm not sure that's quite right*, *I'm not the biggest fan of…*, *I'll pass*.
 
-Для **IELTS** це прямо про Lexical Resource. Дескриптори для Band 8–9 говорять про **точне значення** (*precise meaning*) і гнучкість, а не про «гучні» слова. Литоти й обережні оцінки — природні в **Writing** (*It is not uncommon for…*, *This is no mean feat*, *leaves a lot to be desired*). У **Speaking Part 3** ввічлива незгода (*I wouldn't go that far*) звучить зріло, а пряме *You are wrong* — грубо. У **Reading** авторову іронію часто видає саме недомовленість або цитований даблспік.
+Для **IELTS** це прямо про Lexical Resource. Дескриптори для Band 8–9 говорять про **точне значення** (*precise meaning*) і гнучкість, а не про «гучні» слова. Літоти й обережні оцінки — природні в **Writing** (*It is not uncommon for…*, *This is no mean feat*, *leaves a lot to be desired*). У **Speaking Part 3** ввічлива незгода (*I wouldn't go that far*) звучить зріло, а пряме *You are wrong* — грубо. У **Reading** авторову іронію часто видає саме недомовленість або цитований даблспік.
 
 > [!warning] Що безпечно в есе, а що — ні
 > **Можна в Writing:** *not uncommon, no mean feat, not without its drawbacks, leave a lot to be desired, older people / senior citizens, lose their jobs*. **Лише в Speaking:** *not half!, a tad, a bit of a…, spend a penny, tired and emotional*. **Ніде не підміняй факт даблспіком**: в есе *job losses*, а не *rightsizing*; *a recession*, а не *negative growth* — хіба що ти цитуєш і критикуєш такий вираз.
@@ -60,7 +60,7 @@ estimatedMinutes: 55
 >   - { id: s5, col: say, label: "порада начальника", text: "You might want to check the figures.", tone: gray }
 >   - { id: m5, col: mean, label: "насправді", text: "Перевір цифри.", tone: orange }
 > steps:
->   - { show: [s1, m1], note: "Литота: заперечуємо погане, щоб сказати «добре». Для британця not bad — справжня похвала." }
+>   - { show: [s1, m1], note: "Літота: заперечуємо погане, щоб сказати «добре». Для британця not bad — справжня похвала." }
 >   - { show: [s2, m2], note: "A bit of a применшує. Що спокійніше звучить фраза, то серйозніша ситуація." }
 >   - { show: [s3, m3], note: "Що більше «поваги» перед незгодою, то сильніша незгода. With the greatest respect — майже сигнал тривоги." }
 >   - { show: [s4, m4], note: "Ввічлива відмова без слова «ні». Ідею вислухали — і, найпевніше, відклали назавжди." }
@@ -69,7 +69,7 @@ estimatedMinutes: 55
 
 ## Пояснення
 
-### Недомовленість і литота
+### Недомовленість і літота
 
 | Кажуть | Буквально | Насправді |
 |---|---|---|
@@ -166,7 +166,7 @@ estimatedMinutes: 55
 - *— Did you enjoy the concert? — **Not half!*** — Тобі сподобався концерт? — Ще б пак!
 - *We've got **a bit of a problem** with the server.* — У нас серйозна проблема із сервером.
 - *Running a business while studying is **no mean feat**.* — Вести бізнес під час навчання — неабияке досягнення.
-- *It is **not uncommon** for graduates to change careers within five years.* — Випускники доволі часто змінюють сферу протягом пʼяти років.
+- *It is **not uncommon** for graduates to change careers within five years.* — Випускники доволі часто змінюють професію протягом перших пʼяти років.
 - *The plan is **not without its risks**.* — План має чимало ризиків.
 - *Customer service **left a lot to be desired**.* — Обслуговування було кепським.
 - *He's **not exactly** a morning person.* — Ранковою людиною його точно не назвеш.
@@ -177,7 +177,7 @@ estimatedMinutes: 55
 
 ## Слова
 
-### Недомовленість і литота
+### Недомовленість і літота
 
 > [!word] understatement
 > ipa: /ˌʌndəˈsteɪtmənt/ · ipa-us: /ˌʌndərˈsteɪtmənt/ · pos: noun · level: C2 · id: en-c2-precision-w01
@@ -187,8 +187,8 @@ estimatedMinutes: 55
 
 > [!word] litotes
 > ipa: /laɪˈtəʊtiːz/ · ipa-us: /ˈlaɪtətiːz/ · pos: noun · level: C2 · id: en-c2-precision-w02
-> uk: литота (ствердження через заперечення протилежного)
-> example: "Not bad" and "no mean feat" are examples of **litotes**. — «Not bad» і «no mean feat» — приклади литоти.
+> uk: літота (ствердження через заперечення протилежного)
+> example: "Not bad" and "no mean feat" are examples of **litotes**. — «Not bad» і «no mean feat» — приклади літоти.
 > note: термін стилістики; потрібен для аналізу тексту, а не для розмови. Однина й множина однакові.
 
 > [!word] not bad
@@ -213,7 +213,7 @@ estimatedMinutes: 55
 > ipa: /ə ˈtæd/ · pos: adv · level: C2 · id: en-c2-precision-w06
 > uk: крихту, трохи
 > example: The soup is **a tad** salty, perhaps. — Суп, мабуть, крихту пересолений.
-> note: розмовне; ввічливе пом'якшення критики (*a tad expensive, a tad too long*). Часто означає, що проблема помітна.
+> note: розмовне; ввічливе помʼякшення критики (*a tad expensive, a tad too long*). Часто означає, що проблема помітна.
 
 > [!word] quite
 > ipa: /kwaɪt/ · pos: adv · level: C2 · id: en-c2-precision-w07
@@ -232,7 +232,7 @@ estimatedMinutes: 55
 > ipa: /ˌnɒt wɪˈðaʊt/ · ipa-us: /ˌnɑːt wɪˈðaʊt/ · pos: phrase · level: C2 · id: en-c2-precision-w09
 > uk: не без (= має чимало)
 > example: The new policy is **not without its critics**. — У нової політики чимало критиків.
-> note: нейтральне, книжне — чудово для есе: *not without its drawbacks / risks / merits*. Литота: стриманіше, ніж *has many critics*.
+> note: нейтральне, книжне — чудово для есе: *not without its drawbacks / risks / merits*. Літота: стриманіше, ніж *has many critics*.
 
 > [!word] not uncommon
 > ipa: /ˌnɒt ʌnˈkɒmən/ · ipa-us: /ˌnɑːt ʌnˈkɑːmən/ · pos: phrase · level: C2 · id: en-c2-precision-w10
@@ -269,7 +269,7 @@ estimatedMinutes: 55
 > [!word] I hear what you say
 > ipa: /aɪ ˌhɪə ˌwɒt ju ˈseɪ/ · ipa-us: /aɪ ˌhɪr ˌwʌt ju ˈseɪ/ · pos: phrase · level: C2 · id: en-c2-precision-w15
 > uk: я вас почув (але не згоден і обговорювати не хочу)
-> example: **I hear what you say**, but we're going ahead with the plan. — Я вас почув, але ми втілюємо план.
+> example: **I hear what you say**, but we're going ahead with the plan. — Я вас почув, але ми все одно реалізуємо план.
 > note: нейтрально-офіційне, UK; часто сигнал закриття теми. Пор. *I hear you* (C1) — більш розмовне й співчутливе.
 
 > [!word] that's very brave
@@ -288,7 +288,7 @@ estimatedMinutes: 55
 > ipa: /kəˌrekt mi ɪf aɪm ˈrɒŋ/ · ipa-us: /kəˌrekt mi ɪf aɪm ˈrɔːŋ/ · pos: phrase · level: C2 · id: en-c2-precision-w18
 > uk: виправте мене, якщо я помиляюся (часто = я впевнений, що правий)
 > example: **Correct me if I'm wrong**, but didn't we agree on this last week? — Виправте, якщо помиляюся, але хіба ми не домовилися про це минулого тижня?
-> note: нейтральне; ввічлива рамка для заперечення чи нагадування. Часто з запереченим питанням (*didn't we…?*).
+> note: нейтральне; ввічлива рамка для заперечення чи нагадування. Часто із заперечним запитанням (*didn't we…?*).
 
 > [!word] not quite what I had in mind
 > ipa: /ˌnɒt ˌkwaɪt wɒt aɪ ˌhæd ɪn ˈmaɪnd/ · ipa-us: /ˌnɑːt ˌkwaɪt wʌt aɪ ˌhæd ɪn ˈmaɪnd/ · pos: phrase · level: C2 · id: en-c2-precision-w19
@@ -299,7 +299,7 @@ estimatedMinutes: 55
 > [!word] you might want to
 > ipa: /ju ˌmaɪt ˈwɒnt tə/ · ipa-us: /ju ˌmaɪt ˈwɑːnt tə/ · pos: phrase · level: C2 · id: en-c2-precision-w20
 > uk: варто б (= зроби це)
-> example: **You might want to** double-check the date before you send it. — Варто б перевірити дату перед відправкою.
+> example: **You might want to** double-check the date before you send it. — Варто б перевірити дату, перш ніж надсилати.
 > note: нейтральне, UK і US; від керівника чи викладача — фактично інструкція. Також *You may want to…*, *It might be worth…*.
 
 ### Ввічливе заперечення й відмова
@@ -314,7 +314,7 @@ estimatedMinutes: 55
 > ipa: /ˌnɒt pəˈtɪkjələli/ · ipa-us: /ˌnɑːt pərˈtɪkjələrli/ · pos: phrase · level: C2 · id: en-c2-precision-w22
 > uk: не надто, не особливо
 > example: — Are you into football? — **Not particularly.** — Ти фанат футболу? — Не особливо.
-> note: нейтральне; ввічливе «ні» на питання про вподобання. Ідеально для IELTS Speaking Part 1 — з поясненням далі.
+> note: нейтральне; ввічливе «ні» на запитання про вподобання. Ідеально для IELTS Speaking Part 1 — з поясненням далі.
 
 > [!word] I wouldn't say that
 > ipa: /aɪ ˌwʊdnt ˈseɪ ðæt/ · pos: phrase · level: C2 · id: en-c2-precision-w23
@@ -395,7 +395,7 @@ estimatedMinutes: 55
 > ipa: /ˌpʊt tə ˈsliːp/ · pos: phrase · level: C2 · id: en-c2-precision-w35
 > uk: приспати (тварину), евтаназія
 > example: Our old dog had to be **put to sleep** last year. — Торік нашого старого пса довелося приспати.
-> note: евфемізм; також *put down* (UK, нейтральніше). У медичному контексті людини — *anaesthetise* (наркоз): контекст вирішує.
+> note: евфемізм; також *put down* (UK, нейтральніше). Коли йдеться про людину, *put to sleep* може означати наркоз (*anaesthetise*): вирішує контекст.
 
 > [!word] expecting
 > ipa: /ɪkˈspektɪŋ/ · pos: adj · level: C2 · id: en-c2-precision-w36
@@ -459,7 +459,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** три сигнали британського «коду» поспіль: *With the greatest respect* (ви помиляєтеся), *I hear what you say* (не згоден), *a very brave timetable* (нерозважливий). Плюс мʼяке заперечення *I'm not sure that's quite realistic*. Що ввічливіша форма, то сильніша незгода.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-precision-l03
 > audio: Running a marathon at seventy is no mean feat.
 
@@ -486,7 +486,7 @@ estimatedMinutes: 55
 > Phrase: "economical with the [[truth]]"
 > ```
 >
-> **Пояснення:** роки читають парами: *nineteen eighty-six* = 1986. Ім'я пишемо так, як почули; у справжньому IELTS складні імена зазвичай продиктують по літерах.
+> **Пояснення:** роки читають парами: *nineteen eighty-six* = 1986. Імʼя пишемо так, як почули; у справжньому IELTS складні імена зазвичай продиктують по літерах.
 
 > [!listen] Що думає Олівер про суп?
 > level: C2 · type: answer · lang: en-GB · id: en-c2-precision-l06
@@ -497,7 +497,7 @@ estimatedMinutes: 55
 > - [ ] Він вважає рецепт оригінальним і хоче його собі.
 > - [ ] Він не куштував суп.
 >
-> **Пояснення:** пауза + *quite interesting* — британське «так собі»; *a tad salty* — ввічливо про явну проблему; *I'm not the biggest fan of* — не любить; *that's just me* — ще одне пом'якшення. Жодного «погано», але оцінка негативна.
+> **Пояснення:** пауза + *quite interesting* — британське «так собі»; *a tad salty* — ввічливо про явну проблему; *I'm not the biggest fan of* — не любить; *that's just me* — ще одне помʼякшення. Жодного «погано», але оцінка негативна.
 
 > [!listen] Обери почуте
 > level: C2 · type: choice · lang: en-GB · id: en-c2-precision-l07
@@ -525,7 +525,7 @@ estimatedMinutes: 55
 > level: C2 · id: en-c2-precision-s01
 > text: Honestly, it's not bad at all.
 > ipa: /ˈɒnɪstli ɪts ˌnɒt ˈbæd ət ˈɔːl/
-> tip: Падіння на all — щира похвала. not‿bad — t перед b майже не вибухає: [нот-БЕД]. at‿all — [е-ТОЛ].
+> tip: Падіння на all — щира похвала. not‿bad — t перед b майже не чути: [нот-БЕД]. at‿all — [е-ТОЛ].
 > uk: Чесно, дуже навіть непогано.
 
 > [!speak] Неабияке досягнення
@@ -553,7 +553,7 @@ estimatedMinutes: 55
 > level: C2 · id: en-c2-precision-s05
 > text: The service left a lot to be desired.
 > ipa: /ðə ˈsɜːvɪs ˌleft ə ˈlɒt tə bi dɪˈzaɪəd/
-> tip: left‿a — [леф-те]. desired — [ді-ЗАЙ-ед], наголос на другий склад, s = [z].
+> tip: left‿a — [леф-те]. desired — [ді-ЗАЙ-ед], наголос на другому складі, s = [z].
 > uk: Обслуговування було далеким від ідеалу.
 
 > [!speak] IELTS Speaking · Part 3: ввічлива незгода
@@ -561,7 +561,7 @@ estimatedMinutes: 55
 > text: I wouldn't say that, exactly. Social media isn't all bad, but it's certainly not without its risks.
 > ipa: /aɪ ˌwʊdnt ˈseɪ ðæt ɪɡˈzæktli ˌsəʊʃəl ˈmiːdiə ˌɪznt ˈɔːl ˈbæd bət ɪts ˈsɜːtənli ˌnɒt wɪˈðaʊt ɪts ˈrɪsks/
 > tip: Пауза після exactly. wouldn't — [ВУД-нт], d і n злиті. risks — три приголосні в кінці [-скс], не ковтай.
-> uk: Я б так не сказав. Соцмережі не цілком погані, але й без ризиків не обходяться.
+> uk: Я б так не сказав. Не все в соцмережах погано, але й без ризиків тут не обходиться.
 
 ## Типові помилки українців
 
@@ -571,8 +571,8 @@ estimatedMinutes: 55
 > [!pitfall] Надто пряме «ні»
 > Українська пряма норма в англійській звучить різко: ~~You are wrong.~~ ~~No, this is bad.~~ ~~I don't like it.~~ Краще: *I'm not sure that's quite right*, *I wouldn't say that*, *It's not ideal*, *I'm not the biggest fan of…*. Це не нещирість — це очікуваний тон. У IELTS Speaking Part 3 мʼяка незгода (*I'd see it slightly differently*) — ознака високого рівня, а не слабкості.
 
-> [!pitfall] Литота ≠ подвійне заперечення
-> Українське «я нічого не знаю» перекладається з **одним** запереченням: *I don't know anything* (не ~~I don't know nothing~~). А литота — інше: заперечення **протилежного** слова для стриманої оцінки: *not unhappy* (цілком задоволений), *not uncommon* (доволі поширений), *not without merit* (має переваги). Литоту вживай свідомо й рідко: в есе одна-дві — тонко, пʼять — манірно.
+> [!pitfall] Літота ≠ подвійне заперечення
+> Українське «я нічого не знаю» перекладається з **одним** запереченням: *I don't know anything* (не ~~I don't know nothing~~). А літота — інше: заперечення **протилежного** слова для стриманої оцінки: *not unhappy* (цілком задоволений), *not uncommon* (доволі поширений), *not without merit* (має переваги). Літоту вживай свідомо й рідко: в есе одна-дві — тонко, пʼять — манірно.
 
 > [!pitfall] Евфемізми в есе: занадто мʼяко або застаріло
 > Даблспік у Writing робить текст розмитим: ~~Many workers were rightsized~~ → *Many workers lost their jobs*. ~~The economy experienced negative growth~~ → *The economy contracted*. А грубі чи застарілі слова — помилка іншого боку: ~~old people~~ → *older people*; ~~handicapped~~ → *disabled people / people with disabilities*. Мета Band 9 — **точність і доречність**: прямо про факти, делікатно про людей.
@@ -586,7 +586,7 @@ estimatedMinutes: 55
 > - [x] Ще й як! Дуже сподобався.
 > - [ ] Він пішов на половині.
 >
-> **Пояснення:** *Not half!* (UK, розмовне) — емфатичне «так»: «ще б пак!». Як і в литоті, заперечення тут посилює, а не послаблює.
+> **Пояснення:** *Not half!* (UK, розмовне) — емфатичне «так»: «ще б пак!». Як і в літоті, заперечення тут посилює, а не послаблює.
 
 > [!quiz] Які фрази британця найчастіше сигналізують про незгоду чи критику? Обери всі.
 > level: C2 · type: multi · id: en-c2-precision-q03
@@ -630,7 +630,7 @@ estimatedMinutes: 55
 > - [ ] With the greatest respect, I hear what you say, but that's very brave, not half.
 > - [ ] Yes, maybe, I don't know, it depends, perhaps.
 >
-> **Пояснення:** варіант 2 — мʼяка, але чітка незгода (*I wouldn't go that far*), литота (*not uncommon*), доречна ідіома (*no mean feat*) і аргумент. Варіант 1 — різко й без розвитку; 3 — набір «кодових» фраз без змісту (і *not half* не на місці); 4 — ухиляння без позиції.
+> **Пояснення:** варіант 2 — мʼяка, але чітка незгода (*I wouldn't go that far*), літота (*not uncommon*), доречна ідіома (*no mean feat*) і аргумент. Варіант 1 — різко й без розвитку; 3 — набір «кодових» фраз без змісту (і *not half* не на місці); 4 — ухиляння без позиції.
 
 > [!quiz] IELTS Academic Reading: тон автора
 > level: C2 · id: en-c2-precision-q07
@@ -662,7 +662,7 @@ estimatedMinutes: 55
 > - [ ] Old people are a bit of a problem, and companies firing people is not ideal.
 > - [ ] The elderly are a burden, and when firms let people go, the economy experiences negative growth.
 >
-> **Пояснення:** варіант 2 — делікатно про людей (*an ageing population* замість образливого *old people are a burden*) і прямо про факти (*job losses, recession* замість даблспіку *rightsize, negative growth*). Варіант 1 — іронічна литота про людей і той самий даблспік; 3 — розмовна недомовленість (*a bit of a problem, not ideal*) у есе; 4 — ярлик *the elderly* і евфемізми.
+> **Пояснення:** варіант 2 — делікатно про людей (*an ageing population* замість образливого *old people are a burden*) і прямо про факти (*job losses, recession* замість даблспіку *rightsize, negative growth*). Варіант 1 — іронічна літота про людей і той самий даблспік; 3 — розмовна недомовленість (*a bit of a problem, not ideal*) у есе; 4 — ярлик *the elderly* і евфемізми.
 
 > [!quiz] Склади речення
 > level: C2 · type: order · id: en-c2-precision-q10
@@ -675,7 +675,7 @@ estimatedMinutes: 55
 > not common // ✗
 > ```
 >
-> **Пояснення:** *It is not uncommon for sb to do sth* — академічна литота: «доволі часто». *Not common* означає протилежне — «рідко».
+> **Пояснення:** *It is not uncommon for sb to do sth* — академічна літота: «доволі часто». *Not common* означає протилежне — «рідко».
 
 > [!quiz] «The minister was economical with the truth.» Що сталося?
 > level: C2 · id: en-c2-precision-q11
@@ -704,7 +704,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** *You might want to…* від керівника — ввічлива форма вказівки. Ігнорувати її — ризик. Пряма версія: *Please check this with Legal before you send it.*
 
-> [!quiz] Які речення містять литоту? Обери всі.
+> [!quiz] Які речення містять літоту? Обери всі.
 > level: C2 · type: multi · id: en-c2-precision-q14
 > - [x] The results were not insignificant.
 > - [x] She's no stranger to controversy.
@@ -712,7 +712,7 @@ estimatedMinutes: 55
 > - [x] It's not the worst idea I've heard.
 > - [ ] I don't know anything about it.
 >
-> **Пояснення:** литота — заперечення протилежного: *not insignificant* (= досить значні), *no stranger to controversy* (= часто опиняється в центрі скандалів), *not the worst idea* (= непогана ідея). *Very significant* — пряма оцінка; *I don't know anything* — просто заперечення.
+> **Пояснення:** літота — заперечення протилежного: *not insignificant* (= досить значні), *no stranger to controversy* (= часто опиняється в центрі скандалів), *not the worst idea* (= непогана ідея). *Very significant* — пряма оцінка; *I don't know anything* — просто заперечення.
 
 > [!quiz] Друг кличе тебе на караоке, а ти не хочеш. Яка відповідь найприродніша й ввічлива?
 > level: C2 · id: en-c2-precision-q15
@@ -757,7 +757,7 @@ estimatedMinutes: 55
 
 ## Джерела та що почитати
 
-- 🟢 M. Swan — *Practical English Usage* (Oxford): *quite*, *rather*, *fairly*; ввічливість і пом'якшення.
+- 🟢 M. Swan — *Practical English Usage* (Oxford): *quite*, *rather*, *fairly*; ввічливість і помʼякшення.
 - 🟢 [Cambridge Dictionary](https://dictionary.cambridge.org/) і [Oxford Learner's Dictionaries](https://www.oxfordlearnersdictionaries.com/) — позначки *euphemism, humorous, formal, UK*.
 - 🟢 Kate Fox — *Watching the English* (2004): антропологія британської недомовленості й гумору.
 - 🟡 R. W. Holder — *Oxford Dictionary of Euphemisms*: походження *spend a penny*, *tired and emotional* та інших.
@@ -766,7 +766,7 @@ estimatedMinutes: 55
 
 > [!important] Підсумок
 > - Британці **кажуть менше, ніж думають**: *not bad* = добре, *a bit of a problem* = серйозна проблема, *quite good* (UK) = «так собі», *You might want to…* = зроби.
-> - **Литота** — заперечення протилежного (*not uncommon, no mean feat, not without its critics*) — точний стриманий тон, доречний і в есе.
+> - **Літота** — заперечення протилежного (*not uncommon, no mean feat, not without its critics*) — точний стриманий тон, доречний і в есе.
 > - **Ввічлива незгода й відмова**: *I'm not sure that's quite right, I wouldn't say that, I'm not the biggest fan of, I'll pass*.
 > - **Евфемізм** береже почуття (*pass away, between jobs, expecting*); **даблспік** ховає факти (*negative growth, rightsizing, collateral damage*).
 > - IELTS: у Writing — прямо про факти, делікатно про людей; у Speaking Part 3 — мʼяка, але чітка незгода з аргументом.

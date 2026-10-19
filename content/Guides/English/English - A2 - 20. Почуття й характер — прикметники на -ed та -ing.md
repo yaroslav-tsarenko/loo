@@ -115,7 +115,7 @@ estimatedMinutes: 40
 | generous — щедрий | selfish — егоїстичний |
 | honest — чесний | rude — грубий |
 | hard-working — працьовитий | lazy — лінивий |
-| confident — упевнений | shy — сором'язливий |
+| confident — упевнений | shy — соромʼязливий |
 | calm — спокійний | jealous — ревнивий, заздрісний |
 | cheerful — життєрадісний | |
 | reliable — надійний | |
@@ -137,11 +137,11 @@ estimatedMinutes: 40
 - I'm a bit **nervous** about my driving test. — Я трохи хвилююся через іспит з водіння.
 - She was **upset** because nobody remembered her birthday. — Вона засмутилася, бо ніхто не згадав про її день народження.
 - I'm so **proud** of my little brother. — Я так пишаюся своїм молодшим братом.
-- Don't be **scared** — the dog is friendly. — Не бійся, пес дружній.
+- Don't be **scared** — the dog is friendly. — Не бійся, пес лагідний.
 - The ending of the film was really **surprising**. — Фінал фільму був справді несподіваним.
 - I felt **lonely** when I first moved to London. — Коли я тільки переїхав до Лондона, мені було самотньо.
 - My grandma is very **generous** — she always gives us presents. — Моя бабуся дуже щедра — завжди дарує нам подарунки.
-- He's **confident** at work, but **shy** at parties. — На роботі він упевнений, а на вечірках сором'язливий.
+- He's **confident** at work, but **shy** at parties. — На роботі він упевнений, а на вечірках соромʼязливий.
 - It's **annoying** when people talk in the cinema. — Дратує, коли люди розмовляють у кіно.
 - Stay **calm** and read the question again. — Не хвилюйся й прочитай питання ще раз.
 
@@ -262,7 +262,7 @@ estimatedMinutes: 40
 > [!word] embarrassed
 > ipa: /ɪmˈbær.əst/ · pos: adj · level: A2 · id: en-a2-feelings-w22
 > uk: збентежений; (I'm embarrassed) мені ніяково
-> example: I was so **embarrassed** when I forgot her name. — Мені було так ніяково, коли я забув її ім'я.
+> example: I was so **embarrassed** when I forgot her name. — Мені було так ніяково, коли я забув її імʼя.
 > note: дві r і дві s: e-m-b-a-rr-a-ss-e-d.
 
 > [!word] embarrassing
@@ -283,7 +283,7 @@ estimatedMinutes: 40
 > [!word] relaxed
 > ipa: /rɪˈlækst/ · pos: adj · level: A2 · id: en-a2-feelings-w26
 > uk: розслаблений, спокійний
-> example: You look very **relaxed** after your holiday. — Ти виглядаєш дуже відпочилим після відпустки.
+> example: You look very **relaxed** after your holiday. — Після відпустки ти такий відпочилий!
 
 > [!word] relaxing
 > ipa: /rɪˈlæk.sɪŋ/ · pos: adj · level: A2 · id: en-a2-feelings-w27
@@ -304,7 +304,7 @@ estimatedMinutes: 40
 
 > [!word] shy
 > ipa: /ʃaɪ/ · pos: adj · level: A2 · id: en-a2-feelings-w30
-> uk: сором'язливий
+> uk: соромʼязливий
 > example: Don't be **shy** — come and join us! — Не соромся, приєднуйся!
 
 > [!word] generous
@@ -316,7 +316,7 @@ estimatedMinutes: 40
 > ipa: /ˈɒn.ɪst/ · ipa-us: /ˈɑː.nɪst/ · pos: adj · level: A2 · id: en-a2-feelings-w32
 > uk: чесний
 > example: To be **honest**, I didn't like the film. — Чесно кажучи, фільм мені не сподобався.
-> note: h німе, тому an honest man.
+> note: h не читається, тому an honest man.
 
 > [!word] brave
 > ipa: /breɪv/ · pos: adj · level: A2 · id: en-a2-feelings-w33
@@ -348,7 +348,7 @@ estimatedMinutes: 40
 > ipa: /kɑːm/ · pos: adj · level: A2 · id: en-a2-feelings-w38
 > uk: спокійний
 > example: My dad always stays **calm** in difficult situations. — Тато завжди зберігає спокій у складних ситуаціях.
-> note: l німе: [кaам].
+> note: l не читається: [ка-ам].
 
 > [!word] cheerful
 > ipa: /ˈtʃɪə.fəl/ · ipa-us: /ˈtʃɪr.fəl/ · pos: adj · level: A2 · id: en-a2-feelings-w39
@@ -376,11 +376,11 @@ estimatedMinutes: 40
 > - [x] She's interested in music.
 > - [ ] She was interested in music.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-feelings-l03
 > audio: I'm a bit nervous about tomorrow.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-feelings-l04
 > audio: What's your sister like?
 
@@ -399,7 +399,7 @@ estimatedMinutes: 40
 > audio: A: What's your new flatmate like?
 > audio: B: He's a bit shy, but he's really nice. He's very generous — he always shares his food. The only annoying thing is that he sings in the shower at six in the morning!
 > - [ ] Упевнений, але егоїстичний
-> - [x] Сором'язливий, щедрий, але співає в душі о шостій ранку
+> - [x] Соромʼязливий, щедрий, але співає в душі о шостій ранку
 > - [ ] Лінивий і грубий
 > - [ ] Веселий і завжди тихий
 
@@ -421,19 +421,19 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-feelings-s01
 > text: I'm really excited about the trip.
 > ipa: /aɪm ˈrɪə.li ɪkˈsaɪ.tɪd əˈbaʊt ðə trɪp/
-> tip: excited — наголос на «SAI»: ік-САЙ-тід. Закінчення -ted після t звучить [ɪd].
+> tip: excited — наголос на «SAI»: ік-САЙ-тід. Закінчення -ed після t звучить [ɪd].
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-feelings-s02
 > text: The film was boring, so I was bored.
 > ipa: /ðə fɪlm wəz ˈbɔː.rɪŋ səʊ aɪ wəz bɔːd/
-> tip: bored — один склад [бооːд] з дзвінким d; boring — два: БОО-рінг.
+> tip: bored — один склад [боод] з дзвінким d; boring — два: БОО-рінг.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-feelings-s03
 > text: I'm worried about my exam.
 > ipa: /aɪm ˈwʌr.id əˈbaʊt maɪ ɪɡˈzæm/
-> tip: worried — [WA-рід], не «ворід»; exam — [іг-ЗЕМ], дзвінке gz.
+> tip: worried — [ВА-рід], не «ворід»; exam — [іг-ЗЕМ], дзвінке gz.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-feelings-s04
@@ -544,13 +544,13 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 😳 Embarrassed ≠ «вагітна»
-> Іспанське embarazada означає «вагітна», і туристи часто плутають. Англійське embarrassed — лише «мені ніяково». Іронічно, але помилка теж embarrassing!
+> Іспанське embarazada означає «вагітна», і туристи часто плутають ці слова. Англійське embarrassed — лише «мені ніяково». Іронічно, але помилка теж embarrassing!
 
 > [!reel] 🥱 Хто тут нудний?
 > «I'm boring» — класична помилка учнів по всьому світу. Носій усміхнеться: «You're not boring, you're bored!» Правило: -ed — що відчуваю, -ing — що викликаю.
 
 > [!reel] 🤝 What's she like? — і «like» тут не «подобатися»
-> Like тут — прийменник «схожий на»: What's she like? ≈ «На що вона схожа (як людина)?» Тому не кажи «What does she like?», якщо питаєш про характер.
+> Like тут — прийменник «схожий на»: What's she like? — дослівно «На кого вона схожа?», а по суті «Яка вона?». Тому не кажи «What does she like?», якщо питаєш про характер.
 
 ## Джерела та що почитати
 

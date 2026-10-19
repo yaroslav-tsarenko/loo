@@ -97,7 +97,7 @@ estimatedMinutes: 40
 
 ### Дати
 
-*the fifth of May* · *May the fifth* (UK) · *May fifth* (US). На письмі UK 05/06 — це **5 червня**, а US 05/06 — **6 травня**. Коли важливо, перепитуй місяць словом.
+*the fifth of May* · *May the fifth* (UK) · *May fifth* (US). На письмі UK 05/06 — це **5 червня**, а US 05/06 — **6 травня**. Якщо дата важлива, уточни місяць словом.
 
 ### Email і вебадреси
 
@@ -105,14 +105,14 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *My number is oh seven nine double three, five eight one, four six two.* — Мій номер 07933 581462.
+- *My number is oh seven nine double three, five eight one, four six two.* — Мій номер — 07933 581462.
 - *That's four pounds ninety-nine, please.* — З вас 4,99 фунта, будь ласка.
 - *The total is twelve thirty.* — Разом 12,30.
 - *The film starts at a quarter past eight.* — Фільм починається о 8:15.
 - *The shop closes at half past six.* — Крамниця зачиняється о 18:30.
-- *My birthday is on the third of March.* — Мій день народження третього березня.
+- *My birthday is on the third of March.* — У мене день народження третього березня.
 - *Is that fifteen or fifty?* — Це пʼятнадцять чи пʼятдесят?
-- *It's olga underscore k at gmail dot com, all lower case.* — Це olga_k@gmail.com, усе малими.
+- *It's olga underscore k at gmail dot com, all lower case.* — Це olga_k@gmail.com, усе малими літерами.
 - *What's your postcode?* — Який у вас поштовий індекс?
 - *Sorry, can you repeat the number?* — Перепрошую, можете повторити номер?
 
@@ -120,7 +120,7 @@ estimatedMinutes: 40
 
 > [!word] pound
 > ipa: /paʊnd/ · pos: noun · level: A1 · id: en-a1-listen-numbers-w01
-> uk: фунт (стерлінгів); фунт (вага)
+> uk: фунт (стерлінгів); фунт (одиниця ваги)
 > example: It costs five **pounds**. — Це коштує пʼять фунтів.
 > note: знак £ пишемо перед числом (£5), а читаємо після: five pounds.
 
@@ -141,7 +141,7 @@ estimatedMinutes: 40
 > ipa: /dɒt/ · ipa-us: /dɑːt/ · pos: noun · level: A1 · id: en-a1-listen-numbers-w04
 > uk: крапка (в адресі, email)
 > example: My email ends in **dot** com. — Мій email закінчується на «.com».
-> note: у реченнях і числах крапка інакша: full stop (UK) / period (US), point (3.5 — three point five).
+> note: крапка в кінці речення — full stop (UK) / period (US), а в числах — point (3.5 — three point five).
 
 > [!word] underscore
 > ipa: /ˌʌndəˈskɔː/ · ipa-us: /ˈʌndərskɔːr/ · pos: noun · level: A1 · id: en-a1-listen-numbers-w05
@@ -291,7 +291,7 @@ estimatedMinutes: 40
 > - [ ] maria-lopez@yahoo.com
 > - [ ] marialopez@yahoo.com
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-listen-numbers-l16
 > audio: Can you repeat the number, please?
 
@@ -353,7 +353,7 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] «Half seven» — це не «пів сьомої»
-> Британське *half seven* = *half past seven* = **7:30**. А українське «пів сьомої» — це 6:30. Українці часто приходять на годину раніше (або думають, що спізнились). Запамʼятай: *half* + година = **пів години ПІСЛЯ** названої години.
+> Британське *half seven* = *half past seven* = **7:30**. А українське «пів сьомої» — це 6:30. Українці часто приходять на годину раніше (або думають, що запізнилися). Запамʼятай: *half* + година = **30 хвилин ПІСЛЯ** названої години.
 
 > [!pitfall] Слухати кожне слово
 > Якщо намагатися перекласти все підряд, число «пролетить», поки ти думаєш над *Can I help you*. Перед прослуховуванням прочитай питання, передбач, яке слово стане сигналом (*pounds*, *past*, *spell*), і слухай саме його.
@@ -370,7 +370,7 @@ estimatedMinutes: 40
 > - [ ] nil
 > - [ ] zero — завжди
 >
-> **Пояснення:** у телефонах — *oh*, як літера O. *Zero* теж зрозуміють, а в США воно звичніше. *Nil* — рахунок у футболі, *nought* — у математиці.
+> **Пояснення:** у телефонах — *oh*, як літера O. *Zero* теж зрозуміють, а в США воно звичніше. *Nil* — нуль у футбольному рахунку, *nought* — у математиці.
 
 > [!quiz] Тобі кажуть: «double seven». Що записати?
 > level: A1 · id: en-a1-listen-numbers-q03
@@ -424,7 +424,7 @@ estimatedMinutes: 40
 > - [ ] 10:09
 > - [ ] 9:50
 >
-> **Пояснення:** *to* — «до»: десять хвилин до девʼятої = 8:50. *Ten past nine* — 9:10.
+> **Пояснення:** *to* — «до»: дослівно «десять до девʼятої», тобто за десять девʼята = 8:50. *Ten past nine* — 9:10.
 
 > [!quiz] Заповни, як кажуть час
 > level: A1 · type: fill · id: en-a1-listen-numbers-q09 · bank: o'clock
@@ -469,15 +469,15 @@ estimatedMinutes: 40
 > oh
 > ```
 >
-> **Пояснення:** 0 — *oh*, дві однакові цифри — *double*. Пауза між групами допомагає слухачу.
+> **Пояснення:** 0 — *oh*, дві однакові цифри — *double*. Пауза між групами допомагає слухачеві.
 
 ## Фішки
 
 > [!reel] 💷 Чому £ — це L?
-> Знак £ походить від латинського *libra* — «фунт ваги». Звідти ж скорочення *lb* для фунтів у вазі. Тому символ — стилізована L, хоча слово — *pound*.
+> Знак £ походить від латинського *libra* — «фунт ваги». Звідти ж скорочення *lb* — фунт як одиниця ваги. Тому символ — стилізована L, хоча слово — *pound*.
 
 > [!reel] 📞 999 і 911
-> Екстрена служба у Британії — *nine nine nine*, у США — *nine one one* (не «nine eleven»!). А єдиний європейський номер 112 працює в обох Європах, зокрема у Британії.
+> Номер екстреної служби у Британії — *nine nine nine*, у США — *nine one one* (не «nine eleven»!). А єдиний європейський номер 112 працює по всій Європі, зокрема й у Британії.
 
 > [!reel] 🕢 Британці люблять «half»
 > У Британії *half seven* — 7:30. А німецьке *halb sieben* — 6:30, як українське «пів сьомої». Англійська тут рахує від минулої години, німецька й українська — до наступної.

@@ -51,9 +51,9 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: home, note: "Спершу pack — пакуєш валізу (suitcase). Hand luggage — ручна поклажа." }
 >   - { move: { from: home, to: checkin, value: "passport" }, note: "Check in: показуєш паспорт, здаєш багаж і отримуєш boarding pass — посадковий талон." }
->   - { move: { from: checkin, to: security, value: "boarding pass" }, note: "Security — перевірка безпеки: рідини окремо, ноутбук із сумки." }
+>   - { move: { from: checkin, to: security, value: "boarding pass" }, note: "Security — перевірка безпеки: рідини окремо, ноутбук дістаєш із сумки." }
 >   - { move: { from: security, to: gate, value: "boarding pass" }, note: "Дивишся табло departures (виліт) і йдеш до gate — виходу на посадку. Board — сідати на борт." }
->   - { move: { from: gate, to: plane, value: "passengers" }, note: "Літак take off — злітає, а потім land — приземляється. Якщо проблеми — delayed (затримано) або cancelled (скасовано)." }
+>   - { move: { from: gate, to: plane, value: "passengers" }, note: "Літак take off — злітає, а потім land — приземляється. Якщо щось пішло не так — delayed (затримано) або cancelled (скасовано)." }
 >   - { move: { from: plane, to: arr, value: "suitcase" }, note: "Baggage reclaim — видача багажу, customs — митниця, arrivals — зала прильоту. Ти на місці!" }
 > ```
 
@@ -134,12 +134,12 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *We travelled around Italy by train.* — Ми поїздили Італією поїздом.
+- *We travelled around Italy by train.* — Ми подорожували Італією поїздом.
 - *It was a long journey, but the views were amazing.* — Дорога була довга, але краєвиди неймовірні.
 - *I booked a cheap hostel in the city centre.* — Я забронював дешевий хостел у центрі міста.
 - *Our flight was delayed for three hours.* — Наш рейс затримали на три години.
 - *Please have your boarding pass ready.* — Будь ласка, приготуйте посадковий талон.
-- *We went sightseeing and bought some souvenirs.* — Ми гуляли містом і купили сувеніри.
+- *We went sightseeing and bought some souvenirs.* — Ми оглядали визначні місця й купили кілька сувенірів.
 - *She got out of the taxi and ran into the station.* — Вона вийшла з таксі й забігла на вокзал.
 - *I always get jet lag after long flights.* — Після довгих перельотів у мене завжди джетлаг.
 - *We spent two weeks at the seaside.* — Ми провели два тижні на морі.
@@ -189,7 +189,7 @@ estimatedMinutes: 40
 > [!word] booking
 > ipa: /ˈbʊk.ɪŋ/ · pos: noun · level: A2 · id: en-a2-travel-w08
 > uk: бронювання
-> example: I have a **booking** for two nights. — У мене бронювання на дві ночі.
+> example: I have a **booking** for two nights. — У мене заброньовано номер на дві ночі.
 > note: синонім — reservation (частіше в US і в ресторанах).
 
 > [!word] passport
@@ -243,7 +243,7 @@ estimatedMinutes: 40
 > [!word] gate
 > ipa: /ɡeɪt/ · pos: noun · level: A2 · id: en-a2-travel-w18
 > uk: вихід на посадку; ворота
-> example: Flight BA 882 is boarding at **gate** 14. — Посадка на рейс BA 882 — вихід 14.
+> example: Flight BA 882 is boarding at **gate** 14. — Посадка на рейс BA 882 — через вихід 14.
 
 > [!word] flight
 > ipa: /flaɪt/ · pos: noun · level: A2 · id: en-a2-travel-w19
@@ -281,13 +281,13 @@ estimatedMinutes: 40
 > [!word] board
 > ipa: /bɔːd/ · ipa-us: /bɔːrd/ · pos: verb · level: A2 · id: en-a2-travel-w25
 > uk: сідати (на літак, поїзд, корабель)
-> example: Passengers can now **board** the plane. — Пасажири можуть сідати в літак.
+> example: Passengers can now **board** the plane. — Пасажири вже можуть сідати в літак.
 
 > [!word] aisle seat
 > ipa: /ˈaɪl ˌsiːt/ · pos: noun · level: A2 · id: en-a2-travel-w26
 > uk: місце біля проходу
 > example: Could I have an **aisle seat**, please? — Можна місце біля проходу?
-> note: aisle — s мовчить, звучить як I'll.
+> note: aisle — s не читається, звучить як I'll.
 
 > [!word] window seat
 > ipa: /ˈwɪn.dəʊ ˌsiːt/ · ipa-us: /ˈwɪn.doʊ ˌsiːt/ · pos: noun · level: A2 · id: en-a2-travel-w27
@@ -303,7 +303,7 @@ estimatedMinutes: 40
 > [!word] guided tour
 > ipa: /ˌɡaɪ.dɪd ˈtʊə/ · ipa-us: /ˌɡaɪ.dɪd ˈtʊr/ · pos: noun · level: A2 · id: en-a2-travel-w29
 > uk: екскурсія з гідом
-> example: We took a **guided tour** of the castle. — Ми пішли на екскурсію замком з гідом.
+> example: We took a **guided tour** of the castle. — Ми оглянули замок з екскурсоводом.
 
 > [!word] hostel
 > ipa: /ˈhɒs.təl/ · ipa-us: /ˈhɑː.stəl/ · pos: noun · level: A2 · id: en-a2-travel-w30
@@ -319,7 +319,7 @@ estimatedMinutes: 40
 > [!word] souvenir
 > ipa: /ˌsuː.vəˈnɪə/ · ipa-us: /ˌsuː.vəˈnɪr/ · pos: noun · level: A2 · id: en-a2-travel-w32
 > uk: сувенір
-> example: I bought a fridge magnet as a **souvenir**. — Я купив магніт на холодильник як сувенір.
+> example: I bought a fridge magnet as a **souvenir**. — На памʼять я купив магніт на холодильник.
 
 > [!word] pack
 > ipa: /pæk/ · pos: verb · level: A2 · id: en-a2-travel-w33
@@ -329,7 +329,7 @@ estimatedMinutes: 40
 > [!word] unpack
 > ipa: /ʌnˈpæk/ · pos: verb · level: A2 · id: en-a2-travel-w34
 > uk: розпаковувати
-> example: I was too tired to **unpack**. — Я був занадто втомлений, щоб розпаковуватися.
+> example: I was too tired to **unpack**. — Я так утомився, що не мав сил розпаковувати речі.
 
 > [!word] jet lag
 > ipa: /ˈdʒet ˌlæɡ/ · pos: noun · level: A2 · id: en-a2-travel-w35
@@ -366,7 +366,7 @@ estimatedMinutes: 40
 > [!word] through
 > ipa: /θruː/ · pos: prep · level: A2 · id: en-a2-travel-w41
 > uk: крізь, через (усередині чогось)
-> example: The road goes **through** the mountains. — Дорога йде крізь гори.
+> example: The road goes **through** the mountains. — Дорога пролягає через гори.
 > note: ough тут звучить /uː/; не плутай з though /ðəʊ/ і thought /θɔːt/.
 
 > [!word] along
@@ -400,8 +400,8 @@ estimatedMinutes: 40
 | **B:** Just this suitcase. | Лише цю валізу. |
 | **A:** Window or aisle? | Біля вікна чи біля проходу? |
 | **B:** Window, please. | Біля вікна, будь ласка. |
-| **A:** Here's your boarding pass. Boarding starts at 10:40 from gate 12. | Ось ваш посадковий. Посадка о 10:40, вихід 12. |
-| **B:** Thank you. Is the flight on time? | Дякую. Рейс за розкладом? |
+| **A:** Here's your boarding pass. Boarding starts at 10:40 from gate 12. | Ось ваш посадковий талон. Посадка о 10:40, вихід 12. |
+| **B:** Thank you. Is the flight on time? | Дякую. Рейс вилітає за розкладом? |
 | **A:** Yes, it is. Have a good flight! | Так. Приємного польоту! |
 
 ## Слухаємо
@@ -420,11 +420,11 @@ estimatedMinutes: 40
 > - [x] I'd like an aisle seat, please.
 > - [ ] I'd like a seat, please.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-travel-l03
 > audio: We went on a trip to the mountains.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-travel-l04
 > audio: Don't forget your passport and boarding pass.
 
@@ -463,7 +463,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-travel-s02
 > text: I'd like an aisle seat, please.
 > ipa: /aɪd ˌlaɪk ən ˈaɪl ˌsiːt pliːz/
-> tip: aisle — /aɪl/, рівно як I'll. Літера s мовчить. an aisle зливається: «е-нАйл».
+> tip: aisle — /aɪl/, рівно як I'll. Літера s не читається. an aisle зливається: «е-нАйл».
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-travel-s03
@@ -481,7 +481,7 @@ estimatedMinutes: 40
 > level: A2 · id: en-a2-travel-s05
 > text: We went abroad for two weeks.
 > ipa: /wi ˌwent əˈbrɔːd fə tuː ˈwiːks/
-> tip: abroad — наголос на другий склад: е-БРОД, з довгим /ɔː/. Без to перед abroad.
+> tip: abroad — наголос на другому складі: е-БРОД, з довгим /ɔː/. Без to перед abroad.
 
 > [!speak] Скажи вголос
 > level: A2 · id: en-a2-travel-s06
@@ -588,7 +588,7 @@ estimatedMinutes: 40
 > У старофранцузькій було ele — «крило» (будівлі). Англійці додали s, сплутавши з isle — «острів». Вимова лишилась /aɪl/, як I'll.
 
 > [!reel] 🌅 Journey — це «день дороги»
-> Journey прийшло з французького journée — «день». Спершу так називали відстань, яку можна пройти за один день. Звідси й journal — щоденник.
+> Слово journey прийшло з французького journée — «день». Спершу так називали відстань, яку можна пройти за один день. Звідси й journal — щоденник.
 
 > [!reel] 🧳 Luggage — те, що тягнеш
 > Luggage — від дієслова lug, «тягти щось важке». Тому багаж і незлічуваний: це не речі поштучно, а вся ноша, яку ти тягнеш за собою.

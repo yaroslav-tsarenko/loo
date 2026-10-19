@@ -189,7 +189,7 @@ estimatedMinutes: 75
 **Розбір за критеріями:**
 
 - **Task Achievement — 5–6.** Головна картина є, але **лише в кінці** й надто загально (*car decreased and bicycle increased*). Учень переказує **кожну** точку для авто (2000, 2005, 2010, 2020) замість ключових. Речення *I think this happened because…* — домисел: у Task 1 причин немає на графіку, тож це **нерелевантна** інформація.
-- **Coherence & Cohesion — 6.** Абзаци логічні, але *it* повторюється 9 разів, і не завжди ясно, до чого він відноситься. Немає overview як окремого абзацу.
+- **Coherence & Cohesion — 6.** Абзаци логічні, але *it* повторюється 9 разів, і не завжди ясно, на що він указує. Немає overview як окремого абзацу.
 - **Lexical Resource — 5–6.** Повтори *increased / decreased*; *increased very much* (краще *rose sharply*); *the same like* (треба *the same as*); *bicycle roads* (треба *cycle lanes*); *the number of people* для відсотків (треба *the proportion / percentage*).
 - **Grammar — 5–6.** Пропущені артиклі (*~~car was~~ → the car was*); кома замість крапки між двома реченнями (*…transport, 62% of commuters used it* — comma splice).
 
@@ -425,7 +425,7 @@ estimatedMinutes: 75
 - *Proponents of the scheme argue that it will reduce pollution.* — Прихильники плану стверджують, що він зменшить забруднення.
 - *It could be argued that such a ban would harm local shops.* — Можна стверджувати, що така заборона зашкодить місцевим крамницям.
 - *On balance, I believe the benefits outweigh the drawbacks.* — Зваживши все, я вважаю, що переваги переважують недоліки.
-- *It is recommended that the college extend the library's opening hours.* — Рекомендується, щоб коледж подовжив години роботи бібліотеки.
+- *It is recommended that the college extend the library's opening hours.* — Коледжу рекомендовано подовжити години роботи бібліотеки.
 - *The plot is gripping, and the ending is genuinely surprising.* — Сюжет захопливий, а фінал — справді несподіваний.
 
 ## Слова
@@ -478,7 +478,7 @@ estimatedMinutes: 75
 > ipa: /dɪp/ · pos: verb · level: B2 · id: en-b2-writing-w08
 > uk: ненадовго знизитися, трохи впасти; (noun) невелике падіння
 > example: Walking peaked at 14% in 2010, before **dipping** to 12%. — Частка пішоходів досягла піку 14 % у 2010 році, а потім трохи знизилася до 12 %.
-> note: у Task 1 — для невеликого, тимчасового падіння: *a slight dip in sales*. Велике падіння — *drop sharply, plunge*. *The former / the latter* — у темі 09.
+> note: у Task 1 — для невеликого, тимчасового падіння: *a slight dip in sales*. Велике падіння — *drop sharply, plunge*.
 
 > [!word] a fraction of
 > ipa: /ə ˈfrækʃən əv/ · pos: phrase · level: B2 · id: en-b2-writing-w09
@@ -508,7 +508,7 @@ estimatedMinutes: 75
 > ipa: /hɑːv/ · ipa-us: /hæv/ · pos: verb · level: B2 · id: en-b2-writing-w13
 > uk: скоротити(ся) вдвічі
 > example: Unemployment has almost **halved** since 2015. — Безробіття майже вдвічі скоротилося з 2015 року.
-> note: *l* німе: [гаав]. Іменник — *half*; *by half* — удвічі.
+> note: літера *l* не читається: [хаав]. Іменник — *half*; *by half* — удвічі.
 
 > [!word] plateau
 > ipa: /ˈplætəʊ/ · ipa-us: /plæˈtoʊ/ · pos: noun · level: B2 · id: en-b2-writing-w14
@@ -551,7 +551,7 @@ estimatedMinutes: 75
 > [!word] detractor
 > ipa: /dɪˈtræktə/ · ipa-us: /dɪˈtræktər/ · pos: noun · level: B2 · id: en-b2-writing-w20
 > uk: критик, недоброзичливець (ідеї, плану)
-> example: Even the scheme's **detractors** admit that it has reduced traffic. — Навіть критики плану визнають, що він зменшив трафік.
+> example: Even the scheme's **detractors** admit that it has reduced traffic. — Навіть критики цього плану визнають, що він зменшив інтенсивність руху.
 > note: пара до *proponent*: *proponents argue…, whereas detractors claim…*; синонім — *opponent*.
 
 > [!word] it could be argued that
@@ -587,7 +587,7 @@ estimatedMinutes: 75
 > [!word] viable
 > ipa: /ˈvaɪəbəl/ · pos: adj · level: B2 · id: en-b2-writing-w26
 > uk: життєздатний, реальний, здійсненний
-> example: Car-sharing could be a **viable** alternative to owning a car. — Спільне користування авто може бути реальною альтернативою власному.
+> example: Car-sharing could be a **viable** alternative to owning a car. — Каршеринг може стати реальною альтернативою власному автомобілю.
 > note: для есе problem–solution: *a viable solution / option / alternative*.
 
 ### Звіт і відгук
@@ -625,7 +625,7 @@ estimatedMinutes: 75
 > - [ ] The proportion of commuters who cycled doubled between 2005 and 2015.
 > - [ ] The number of commuters who cycled tripled between 2005 and 2050.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-writing-l02
 > audio: Overall, car use roughly halved, whereas cycling rose sharply.
 
@@ -646,7 +646,7 @@ estimatedMinutes: 75
 > text: Overall, the car became far less popular, whereas cycling rose sharply.
 > ipa: /ˌəʊvərˈɔːl ðə ˈkɑː bɪˈkeɪm ˈfɑː les ˈpɒpjələ weərˈæz ˈsaɪklɪŋ ˈrəʊz ˈʃɑːpli/
 > tip: whereas — наголос на другий склад: [веа-РЕЗ]. rose — дзвінке z: [роуз].
-> uk: Загалом авто стало набагато менш популярним, тоді як їзда на велосипеді різко зросла.
+> uk: Загалом авто стало набагато менш популярним, тоді як популярність велосипеда різко зросла.
 
 > [!speak] Позиція в есе
 > level: B2 · id: en-b2-writing-s02
@@ -659,8 +659,8 @@ estimatedMinutes: 75
 > level: B2 · id: en-b2-writing-s03
 > text: It is recommended that the college extend the library's opening hours.
 > ipa: /ɪt ɪz ˌrekəˈmendɪd ðət ðə ˈkɒlɪdʒ ɪkˈstend ðə ˈlaɪbrəriz ˈəʊpənɪŋ ˈaʊəz/
-> tip: library — [ЛАЙ-бре-рі], без «ліб». hours — h німе: [АУ-ез].
-> uk: Рекомендується, щоб коледж подовжив години роботи бібліотеки.
+> tip: library — [ЛАЙ-бре-рі], без «ліб». у hours літера h не читається: [АУ-ез].
+> uk: Коледжу рекомендовано подовжити години роботи бібліотеки.
 
 ## Типові помилки українців
 

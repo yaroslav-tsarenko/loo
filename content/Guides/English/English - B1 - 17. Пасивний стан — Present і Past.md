@@ -13,7 +13,7 @@ estimatedMinutes: 45
 
 > [!success] Після цієї теми ти зможеш
 > - будувати пасив у Present і Past Simple: **is made**, **are grown**, **was built**, **were arrested**;
-> - вирішувати, коли пасив природніший за активний стан, і коли додавати **by…**;
+> - вирішувати, коли пасив природніший за активний стан і коли додавати **by…**;
 > - питати й відповідати в пасиві: *When **was** it **built**? Where **were** you **born**?*;
 > - читати новини й описи процесів, де пасив на кожному кроці;
 > - описати процес у IELTS Writing Task 1 (*First, the beans **are picked**…*).
@@ -31,7 +31,7 @@ estimatedMinutes: 45
 
 ## Простими словами
 
-Українською ми часто кажемо «міст **збудували**», «тут **розмовляють** англійською», «його **заарештовано**» — і не називаємо, хто це зробив. Англійська для цього має **пасивний стан** (passive voice): **be + V3**.
+Українською ми часто кажемо «міст **збудували**», «тут **розмовляють** англійською», «його **заарештовано**» — і не називаємо, хто це зробив. В англійській для цього є **пасивний стан** (passive voice): **be + V3**.
 
 - **Active** (активний): хто робить → що робить → з чим. *Picasso **painted** Guernica.*
 - **Passive** (пасивний): з чим щось роблять → що з ним роблять → (ким). *Guernica **was painted** by Picasso.*
@@ -67,7 +67,7 @@ estimatedMinutes: 45
 | **wh-** | **Where are** these phones **produced**? | **Who was** the telephone **invented by**? |
 
 > [!tip] Where were you born?
-> «Народитися» англійською — завжди пасив: ***I was born*** in Lviv. Не ~~*I born*~~ і не ~~*I am born*~~ про себе дорослого.
+> «Народитися» англійською — завжди пасив: ***I was born*** in Lviv. Не ~~*I born*~~ і не ~~*I am born*~~.
 
 > [!quiz] Перевір себе: обери форму
 > level: B1 · id: en-b1-passive-q02
@@ -79,7 +79,7 @@ estimatedMinutes: 45
 > - [ ] is drunk
 > - [ ] are drink
 >
-> **Пояснення:** чашки чаю не п'ють самі — їх п'ють люди → пасив. *Cups* — множина → **are** + V3 **drunk** (drink → drank → drunk).
+> **Пояснення:** чашки чаю не пʼють самі — їх пʼють люди → пасив. *Cups* — множина → **are** + V3 **drunk** (drink → drank → drunk).
 
 ### Коли пасив природніший
 
@@ -134,7 +134,7 @@ estimatedMinutes: 45
 >   - { show: s2, note: "They = the beans. Present Simple Passive — бо процес повторюється завжди." }
 >   - { show: s3, note: "Transport — перевозити; are transported." }
 >   - { show: s4, note: "Два дієслова з одним be: are roasted and ground (grind → ground)." }
->   - { show: s5, note: "Так само пишуть IELTS Writing Task 1 — «процес»: First…, then…, after that…, finally… + пасив." }
+>   - { show: s5, note: "Так само пишуть опис процесу в IELTS Writing Task 1: First…, then…, after that…, finally… + пасив." }
 > ```
 
 ## Приклади
@@ -147,7 +147,7 @@ estimatedMinutes: 45
 - Two men **were arrested** after the robbery. — Після пограбування затримали двох чоловіків.
 - **Is** breakfast **included** in the price? — Сніданок входить у вартість?
 - The letters **are sorted** and then **delivered** the next morning. — Листи сортують, а наступного ранку доставляють.
-- The old town **was** badly **damaged** in the war. — Старе місто сильно пошкодили під час війни.
+- The old town **was** badly **damaged** in the war. — Старе місто сильно постраждало під час війни.
 - This book **was translated** into forty languages. — Цю книжку переклали сорока мовами.
 
 ## Слова
@@ -167,14 +167,14 @@ estimatedMinutes: 45
 > [!word] produce
 > ipa: /prəˈdʒuːs/ · ipa-us: /prəˈduːs/ · pos: verb · level: B1 · id: en-b1-passive-w03
 > uk: виробляти, виготовляти
-> example: Most of the world's coffee **is produced** in Brazil. — Більшість кави у світі виробляють у Бразилії.
-> note: (noun) produce /ˈprɒdʒ.uːs/ — фермерські продукти; наголос зсувається.
+> example: About a third of the world's coffee **is produced** in Brazil. — Близько третини світової кави виробляють у Бразилії.
+> note: (noun) produce /ˈprɒdʒ.uːs/ — фермерські продукти; наголос переходить на перший склад.
 
 > [!word] design
 > ipa: /dɪˈzaɪn/ · pos: verb · level: B1 · id: en-b1-passive-w04
 > uk: проєктувати, розробляти; (noun) дизайн, проєкт
 > example: The tower **was designed** by Gustave Eiffel's company. — Вежу спроєктувала компанія Ґюстава Ейфеля.
-> note: g німе, s читається як /z/: [ді-ЗАЙН].
+> note: g не вимовляється, s читається як /z/: [ді-ЗАЙН].
 
 > [!word] translate
 > ipa: /trænzˈleɪt/ · pos: verb · level: B1 · id: en-b1-passive-w05
@@ -201,7 +201,7 @@ estimatedMinutes: 45
 > [!word] damage
 > ipa: /ˈdæm.ɪdʒ/ · pos: verb · level: B1 · id: en-b1-passive-w09
 > uk: пошкоджувати; (noun) шкода, пошкодження
-> example: Several cars **were damaged** in the storm. — Під час бурі пошкодило кілька автівок.
+> example: Several cars **were damaged** in the storm. — Під час бурі було пошкоджено кілька автівок.
 > note: damage — частково зіпсувати; destroy — знищити повністю. Іменник незлічуваний: a lot of damage.
 
 > [!word] be made of
@@ -219,7 +219,7 @@ estimatedMinutes: 45
 > [!word] process
 > ipa: /ˈprəʊ.ses/ · ipa-us: /ˈprɑː.ses/ · pos: noun · level: B1 · id: en-b1-passive-w12
 > uk: процес
-> example: The diagram shows the **process** of making paper. — Схема показує процес виготовлення паперу.
+> example: The diagram shows the **process** of making paper. — На схемі показано процес виготовлення паперу.
 > note: стандартний початок IELTS Task 1: The diagram shows / illustrates the process of…
 
 > [!word] sort
@@ -238,7 +238,7 @@ estimatedMinutes: 45
 > ipa: /əˈwɔːd/ · ipa-us: /əˈwɔːrd/ · pos: noun · level: B1 · id: en-b1-passive-w15
 > uk: нагорода, премія; (verb) нагороджувати
 > example: She **was awarded** the Nobel Prize in 1911. — Їй присудили Нобелівську премію у 1911 році.
-> note: win an award — отримати нагороду; be awarded sth — пасив дуже частий.
+> note: win an award — отримати нагороду; be awarded sth — пасив тут дуже поширений.
 
 ## Слухаємо
 
@@ -249,11 +249,11 @@ estimatedMinutes: 45
 > - [x] The house was built in 1920.
 > - [ ] The house was bought in 1920.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-passive-l02
 > audio: English is spoken all over the world.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-passive-l03
 > audio: Two men were arrested last night.
 
@@ -265,7 +265,7 @@ estimatedMinutes: 45
 > - [ ] Бібліотеку закрили через проблеми з електрикою, але пожежі не було.
 > - [ ] Бібліотеку пограбували вночі.
 >
-> **Пояснення:** *was badly damaged* — сильно пошкоджена (не знищена); *nobody was hurt* — ніхто не постраждав; *books were destroyed* — книжки знищені. Новини люблять пасив: важливо, що сталося, а не хто.
+> **Пояснення:** *was badly damaged* — сильно пошкоджена (не знищена); *nobody was hurt* — ніхто не постраждав; *books were destroyed* — книжки знищені. Новини люблять пасив: важливо, що сталося, а не хто це зробив.
 
 > [!listen] IELTS Listening, Part 2. Choose the correct answer. What happens to the chocolate after it is tested?
 > level: B1 · type: answer · id: en-b1-passive-l05
@@ -296,7 +296,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-passive-s03
 > text: The bridge was designed by a famous engineer.
 > ipa: /ðə brɪdʒ wəz dɪˈzaɪnd baɪ ə ˈfeɪ.məs ˌen.dʒɪˈnɪə/
-> tip: designed — g німе, кінцеве /d/: [ді-ЗАЙНД]; engineer — наголос у кінці: en-gi-NEER.
+> tip: designed — g не вимовляється, кінцеве /d/: [ді-ЗАЙНД]; engineer — наголос у кінці: en-gi-NEER.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-passive-s04
@@ -319,7 +319,7 @@ estimatedMinutes: 45
 > **happen, die, arrive, come, go** не мають обʼєкта, а отже, і пасиву: *What **happened**? He **died** in 1990.* Але «народитися» — навпаки, лише пасив: *I **was born**…*
 
 > [!pitfall] V2 замість V3
-> *The window was broke*, *The letter was wrote* — помилка. Після *be* — **третя форма**: *was **broken***, *was **written***, *were **chosen***. Неправильні дієслова доведеться знати всі три форми.
+> *The window was broke*, *The letter was wrote* — помилка. Після *be* — **третя форма**: *was **broken***, *was **written***, *were **chosen***. Для неправильних дієслів доведеться знати всі три форми.
 
 > [!pitfall] «It was made by people», «by someone»
 > **By** + очевидний або невідомий виконавець нічого не додає. Пиши *by…* лише тоді, коли це нова й важлива інформація: *It was painted **by Van Gogh***.
@@ -414,7 +414,7 @@ estimatedMinutes: 45
 > - [ ] A famous painting stole from the museum last night.
 > - [ ] The museum was stolen a famous painting last night.
 >
-> **Пояснення:** у новині головне — картина, а злодій невідомий → пасив. Третій варіант без *was* означає «картина вкрала», а четвертий плутає обʼєкт.
+> **Пояснення:** у новині головне — картина, а злодій невідомий → пасив. Третій варіант без *was* означає «картина вкрала», а в четвертому підметом помилково став музей.
 
 > [!quiz] made of чи made from?
 > level: B1 · type: fill · bank · id: en-b1-passive-q12
@@ -442,7 +442,7 @@ estimatedMinutes: 45
 > Finally, new bottles [[are made]] and sent to shops.
 > ```
 >
-> **Пояснення:** у Task 1 «процес» майже кожне речення — Present Simple Passive (*are collected, are taken, is crushed, are made*) плюс звʼязки **First → Then → After that → Finally**. Активні форми (*recycle, collecting*) тут не підходять.
+> **Пояснення:** в описі процесу (Task 1) майже кожне речення — у Present Simple Passive (*are collected, are taken, is crushed, are made*) плюс звʼязки **First → Then → After that → Finally**. Активні форми (*recycle, collecting*) тут не підходять.
 
 > [!quiz] IELTS Reading — True, False or Not Given?
 > level: B1 · tags: ielts · id: en-b1-passive-q14
@@ -466,7 +466,7 @@ estimatedMinutes: 45
 > «The solution was heated to 80 °C» — у наукових статтях традиційно писали в пасиві: важливий експеримент, а не дослідник. Сьогодні журнали дедалі частіше дозволяють «We heated…».
 
 > [!reel] 👶 I was born — бо нас народжують
-> Born — стара V3 від bear («виносити, народити»). Тому «я народився» буквально «я був народжений» — і лише пасив: I was born.
+> Born — стара V3 від bear («виносити, народити»). Тому «я народився» — це буквально «я був народжений», звідси й пасив: I was born.
 
 ## Джерела та що почитати
 

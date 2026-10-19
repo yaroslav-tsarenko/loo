@@ -37,7 +37,7 @@ estimatedMinutes: 50
 2. **Вкладення** — речення всередині речення (підмет, додаток, означення). Головне правило — не нагромаджувати їх **в середині** речення, а виносити в кінець (end-weight з теми C2-01).
 3. **Паралелізм** — однакова граматична форма для рівноправних ідей: *to inform, to persuade and to entertain*, а не *to inform, persuading and entertainment*.
 
-Над усім цим — **ритм**: довге речення, а за ним коротке. Як це.
+Над усім цим — **ритм**: довге речення, а за ним коротке. Ось так.
 
 ## Пояснення
 
@@ -50,7 +50,7 @@ estimatedMinutes: 50
 | + V3 | ***The work done**, they went home.* | Коли роботу було зроблено… |
 | + -ing | ***Her voice trembling**, she began to speak.* | Тремтячим голосом… (обставина способу) |
 | + *being / having been* | ***This being the case**, we must act now.* | Оскільки це так… |
-| *There being* + іменник | ***There being no further questions**, the meeting closed.* | Оскільки питань більше не було… |
+| *There being* + іменник | ***There being no further questions**, the meeting closed.* | Оскільки запитань більше не було… |
 | + прикметник / прислівник | ***The speeches over**, we danced.* | Коли промови скінчилися… |
 | + прийменникова група | *He walked off, **hands in his pockets**.* | …засунувши руки в кишені |
 
@@ -111,7 +111,7 @@ estimatedMinutes: 50
 >   - { id: rel1, parent: main, label: "вкладене 1", text: "(that) the committee … wrote", tone: orange }
 >   - { id: rel2, parent: rel1, label: "вкладене 2", text: "(that) the minister appointed", tone: red }
 > steps:
->   - { show: main, note: "Головна думка: звіт проігнорували. Але між підметом і was ignored читач мусить утримати все решту." }
+>   - { show: main, note: "Головна думка: звіт проігнорували. Але між підметом і was ignored читач мусить утримати все інше." }
 >   - { show: rel1, note: "Перше вкладення: звіт, який написав комітет. Ще читається: The report the committee wrote was ignored." }
 >   - { show: rel2, note: "Друге вкладення всередині першого: The report the committee the minister appointed wrote was ignored. Граматично — так; читабельно — ні." }
 >   - { set: { main: "The minister appointed a committee, but its report was ignored." }, focus: main, note: "Рішення: розгорнути події в порядку часу або перенести важкі частини в кінець. Одне вкладення в середині — максимум." }
@@ -154,7 +154,7 @@ estimatedMinutes: 50
 
 ### Ритм: тріада, антитеза, довге й коротке
 
-- **Тріада** (tricolon) — три паралельні частини: *It was **cheap, quick and wrong**.* В промовах — найсильніший прийом запамʼятовування.
+- **Тріада** (tricolon) — три паралельні частини: *It was **cheap, quick and wrong**.* У промовах це найсильніший засіб, щоб думку запамʼятали.
 - **Антитеза** — протиставлення в однаковій формі: *People don't fail **because they lack talent** but **because they lack support**.*
 - **Періодичне речення** тримає головне до кінця: *Having lost his job, his home and his savings, **he finally asked for help**.* **Кумулятивне** — головне спершу, деталі потім: ***He finally asked for help**, having lost his job, his home and his savings.*
 - **Довге + коротке.** Кілька довгих речень, а потім коротке — і воно звучить як удар. Саме так.
@@ -196,13 +196,13 @@ Band 9 за Grammatical Range and Accuracy — повний діапазон с�
 ## Приклади
 
 - **The meeting over**, we headed for the nearest café. — Коли нарада скінчилася, ми рушили до найближчої кавʼярні.
-- **Her hands shaking**, she opened the envelope. — Тремтячими руками вона розкрила конверт.
+- **Her hands shaking**, she opened the envelope. — Тремтячими руками вона відкрила конверт.
 - **This being his first offence**, he was let off with a warning. — Оскільки це було його перше порушення, його відпустили з попередженням.
 - **Weather permitting**, the concert will be held in the park. — Якщо дозволить погода, концерт відбудеться в парку.
 - **It remains to be seen whether** the new rules will make any difference. — Ще невідомо, чи змінять щось нові правила.
 - The extent **to which** we rely on our phones is rarely discussed. — Те, наскільки ми залежимо від телефонів, обговорюють рідко.
 - I emailed three colleagues, **none of whom** replied. — Я написав трьом колегам, і жоден не відповів.
-- We may run out of time, **in which case** we'll finish tomorrow. — Можливо, нам забракне часу, — у такому разі закінчимо завтра.
+- We may run out of time, **in which case** we'll finish tomorrow. — Можливо, нам забракне часу — тоді закінчимо завтра.
 - She was praised **not for her talent but for her persistence**. — Її хвалили не за талант, а за наполегливість.
 - The plan is **simple, cheap and fair**. — План простий, дешевий і справедливий.
 - He apologised, **not least because** he knew he'd need their help again. — Він вибачився, не в останню чергу тому, що знав: їхня допомога ще знадобиться.
@@ -278,9 +278,9 @@ Band 9 за Grammatical Range and Accuracy — повний діапазон с�
 > - [x] The speeches over, the guests drifted out into the garden.
 > - [ ] The speeches were over, and the guests drifted out into the garden.
 >
-> **Пояснення:** почуто абсолютний зворот без дієслова: *The speeches over*. Перший і третій варіанти мають той самий зміст, але розгорнуті.
+> **Пояснення:** звучить абсолютний зворот без дієслова: *The speeches over*. Перший і третій варіанти мають той самий зміст, але розгорнуті.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-complex-sentences-l02
 > audio: It remains to be seen whether the new rules will make any difference.
 
@@ -332,12 +332,12 @@ Band 9 за Grammatical Range and Accuracy — повний діапазон с�
 > level: C2 · id: en-c2-complex-sentences-s04
 > text: People don't avoid recycling because they're lazy, but because the system is confusing, inconvenient and poorly explained.
 > ipa: /ˈpiː.pəl dəʊnt əˈvɔɪd riːˈsaɪ.klɪŋ bɪˈkɒz ðeə ˈleɪ.zi bət bɪˈkɒz ðə ˈsɪs.təm ɪz kənˈfjuː.zɪŋ ˌɪn.kənˈviː.ni.ənt ən ˈpʊə.li ɪkˈspleɪnd/
-> tip: питання екзаменатора — «Why do some people not recycle?». Антитеза (not because … but because) + тріада. Контрастний наголос — на LAZY і SYSTEM.
+> tip: запитання екзаменатора — «Why do some people not recycle?». Антитеза (not because … but because) + тріада. Контрастний наголос — на LAZY і SYSTEM.
 
 ## Типові помилки українців
 
 > [!pitfall] «Being a rainy day, we stayed at home» — висячий зворот замість абсолютного
-> Дієприслівниковий зворот «Оскільки був дощовий день…» не має підмета, тож англійською він «чіпляється» до *we*: виходить, що ми — дощовий день. Варіанти: *It being a rainy day, we…* (абсолютний, книжно), *As it was a rainy day, we…* (нейтрально), *With it being a rainy day…* (розмовно).
+> Українське «Оскільки був дощовий день…» — повноцінне підрядне речення. А англійський зворот *Being a rainy day* власного підмета не має, тож «чіпляється» до *we*: виходить, що ми — дощовий день. Варіанти: *It being a rainy day, we…* (абсолютний, книжно), *As it was a rainy day, we…* (нейтрально), *With it being a rainy day…* (розмовно).
 
 > [!pitfall] «I like reading, to travel and cooking» — паралелізм з української
 > Українське «люблю читати, подорожувати й готувати» — три інфінітиви, паралелізм автоматичний. Англійською після *like* можливі і *-ing*, і *to*, тож легко змішати. Вибери одну форму: *I like **reading, travelling and cooking***.
@@ -414,7 +414,7 @@ Band 9 за Grammatical Range and Accuracy — повний діапазон с�
 > - [ ] Rejected was the proposal the committee drafted the council set up.
 > - [ ] The council set up, the committee drafted, the proposal rejected.
 >
-> **Пояснення:** розгортаємо події в порядку часу — кожна дія в своєму реченні або частині. Перший варіант граматичний, але так само заплутаний (вкладення в середині); третій — невдала інверсія; четвертий — набір фрагментів.
+> **Пояснення:** розгортаємо події в порядку часу — кожна дія у своєму реченні або частині. Перший варіант граматичний, але так само заплутаний (вкладення в середині); третій — невдала інверсія; четвертий — набір фрагментів.
 
 > [!quiz] Де абсолютний зворот *His heart pounding* доречний?
 > level: C2 · id: en-c2-complex-sentences-q12

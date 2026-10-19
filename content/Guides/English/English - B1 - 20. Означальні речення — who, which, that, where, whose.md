@@ -31,7 +31,7 @@ estimatedMinutes: 40
 
 ## Простими словами
 
-Означальне підрядне речення — це «уточнення» до іменника. Українською ми кажемо «**який / яка / яке**» і «**де**», «**чий**». Англійська має кілька слів, і вибір залежить від того, **про що** іменник: людина, річ, місце, час чи належність.
+Означальне підрядне речення — це «уточнення» до іменника. Українською ми кажемо «**який / яка / яке**» і «**де**», «**чий**». В англійській таких слів кілька, і вибір залежить від того, **що означає** іменник: людину, річ, місце, час чи належність.
 
 Два важливі правила, яких немає в українській:
 
@@ -49,7 +49,7 @@ estimatedMinutes: 40
 >   - { id: time, parent: root, label: "час", text: "when", note: "the day when I left", tone: orange }
 >   - { id: owner, parent: root, label: "чий? належність", text: "whose", note: "the man whose car was stolen", tone: violet }
 > steps:
->   - { focus: root, note: "Спершу подивись на іменник перед пропуском: хто це чи що це?" }
+>   - { focus: root, note: "Спершу подивись на іменник, який уточнюємо: хто це чи що це?" }
 >   - { focus: person, note: "Людина — who. That теж можна, особливо в розмові: the girl that sings." }
 >   - { focus: thing, note: "Річ, тварина, ідея — which або that. У визначальних реченнях that навіть частіше: the bike that I bought." }
 >   - { focus: [place, time], note: "Місце — where (= in which), час — when: the café where we met, the day when I left." }
@@ -103,7 +103,7 @@ estimatedMinutes: 40
 
 ### Визначальні та невизначальні (перший погляд)
 
-Усе вище — **визначальні** речення (defining): без них не зрозуміло, про кого мова. Є ще **невизначальні** (non-defining) — додаткова інформація в комах. Детально — на B2, а поки запам'ятай три відмінності:
+Усе вище — **визначальні** речення (defining): без них не зрозуміло, про кого мова. Є ще **невизначальні** (non-defining) — додаткова інформація в комах. Детально — на B2, а поки запамʼятай три відмінності:
 
 > [!diagram] Defining vs non-defining
 > ```yaml
@@ -117,7 +117,7 @@ estimatedMinutes: 40
 >   - { id: d3, col: def, label: "пропуск — можна", text: "the film we saw", tone: blue }
 >   - { id: n3, col: nondef, label: "пропуск — не можна", text: "Dune, which we saw last week", tone: orange }
 > steps:
->   - { show: [d1, n1], note: "Без ком речення відповідає «яка саме сестра?» — значить, сестер кілька. З комами — сестра одна, а Львів — просто додатковий факт." }
+>   - { show: [d1, n1], note: "Речення без ком відповідає на питання «яка саме сестра?», отже, сестер кілька. З комами — сестра одна, а Львів — просто додатковий факт." }
 >   - { show: [d2, n2], note: "Після коми that не вживають: тільки who або which." }
 >   - { show: [d3, n3], note: "У визначальних обʼєктний займенник можна пропустити, у невизначальних — ніколи." }
 > ```
@@ -138,12 +138,12 @@ estimatedMinutes: 40
 
 - The man **who** fixed my bike didn't take any money. — Чоловік, який полагодив мій велосипед, не взяв ні копійки.
 - Is this the bus **that** goes to the airport? — Це автобус, що їде в аеропорт?
-- The film (**that**) we saw last night was boring. — Фільм, який ми бачили вчора, був нудний.
+- The film (**that**) we saw last night was boring. — Фільм, який ми дивилися вчора ввечері, був нудний.
 - I'd like to live in a city **where** there are lots of parks. — Я хотів би жити в місті, де багато парків.
 - She's the author **whose** book won the prize. — Це авторка, чия книжка отримала премію.
 - That's the guy I was telling you **about**. — Це той хлопець, про якого я тобі розповідав.
 - The flat **we live in** is too small for three people. — Квартира, в якій ми живемо, замала для трьох.
-- I'll never forget the moment **when** I heard the news. — Ніколи не забуду мить, коли почув новину.
+- I'll never forget the moment **when** I heard the news. — Ніколи не забуду тієї миті, коли почув цю новину.
 - A hammer is a tool **which** you use for hitting nails. — Молоток — це інструмент, яким забивають цвяхи.
 - My grandmother, **who** is 90, still goes swimming. — Моя бабуся, якій 90, досі ходить плавати.
 
@@ -164,7 +164,7 @@ estimatedMinutes: 40
 > [!word] owner
 > ipa: /ˈəʊ.nə/ · ipa-us: /ˈoʊ.nɚ/ · pos: noun · level: B1 · id: en-b1-relative-clauses-w03
 > uk: власник, власниця
-> example: The **owner** of the café is the woman who served us. — Власниця кав'ярні — жінка, яка нас обслуговувала.
+> example: The **owner** of the café is the woman who served us. — Власниця кавʼярні — жінка, яка нас обслуговувала.
 > note: own — мати, володіти.
 
 > [!word] author
@@ -189,7 +189,7 @@ estimatedMinutes: 40
 > ipa: /ˈneɪ.bə.hʊd/ · ipa-us: /ˈneɪ.bɚ.hʊd/ · pos: noun · level: B1 · id: en-b1-relative-clauses-w07
 > uk: район, околиця
 > example: This is the **neighbourhood** where I grew up. — Це район, де я виріс.
-> note: US — neighborhood. gh німе.
+> note: US — neighborhood. gh не вимовляється.
 
 > [!word] tool
 > ipa: /tuːl/ · pos: noun · level: B1 · id: en-b1-relative-clauses-w08
@@ -216,7 +216,7 @@ estimatedMinutes: 40
 > - [x] That's the girl whose brother is a pilot.
 > - [ ] That's the girl who's brother is a pilot.
 >
-> **Пояснення:** *whose* і *who's* звучать однаково — /huːz/. Але *who's* = *who is*: «яка є пілотом». Тут після /huːz/ іде іменник *brother* — значить, це **whose**.
+> **Пояснення:** *whose* і *who's* звучать однаково — /huːz/. Але *who's* = *who is*, як у *the girl who's a pilot* — «дівчина, яка працює пілотом». Тут після /huːz/ іде іменник *brother* — значить, це **whose**.
 
 > [!listen] Що ти почув?
 > level: B1 · type: choice · id: en-b1-relative-clauses-l02
@@ -225,11 +225,11 @@ estimatedMinutes: 40
 > - [ ] The flat where we live is quite small.
 > - [ ] The flat we lived in was quite small.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-relative-clauses-l03
 > audio: This is the café where we first met.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-relative-clauses-l04
 > audio: The man who called you didn't leave his name.
 
@@ -267,13 +267,13 @@ estimatedMinutes: 40
 > text: She's the author whose book I loved.
 > ipa: /ʃiːz ði ˈɔː.θə huːz bʊk aɪ lʌvd/
 > tip: the перед голосним — [ði]; author — /θ/; whose — довге [хуːз] з дзвінким z.
-> uk: Це авторка, чию книжку я обожнюю.
+> uk: Це авторка, чия книжка мені дуже сподобалася.
 
 > [!speak] Скажи вголос
 > level: B1 · id: en-b1-relative-clauses-s04
 > text: This is the town where I grew up.
 > ipa: /ðɪs ɪz ðə taʊn weər aɪ ɡruː ˈʌp/
-> tip: where‿I — у британській з'являється звʼязувальне r: [веə-рай]; наголос на up.
+> tip: where‿I — у британській зʼявляється звʼязувальне r: [веə-рай]; наголос на up.
 > uk: Це місто, де я виріс.
 
 > [!speak] Скажи вголос
@@ -292,7 +292,7 @@ estimatedMinutes: 40
 > **What** не вживають після іменника. *What* = «те, що»: *What I need is a holiday.* Після іменника — **that / which**: *The thing **that** I need is a holiday.* Українське «що» в ролі «який» («книжка, що лежить») — це **that**, не *what*.
 
 > [!pitfall] which про людей, who про речі
-> «Який» українською — для всіх, а англійською рід має значення: людина — **who**, річ — **which**. ~~*The teacher which helped me*~~ → *the teacher **who** helped me*. Якщо сумніваєшся — у визначальних реченнях **that** підходить до обох.
+> Українське «який» підходить для всіх, а в англійській важливо, людина це чи річ: людина — **who**, річ — **which**. ~~*The teacher which helped me*~~ → *the teacher **who** helped me*. Якщо сумніваєшся — у визначальних реченнях **that** підходить до обох.
 
 > [!pitfall] «, that» і «in that»
 > Після коми (невизначальне речення) і після прийменника *that* не вживають: *My car, **which** is ten years old, …*; *the house **in which** I was born* — або просто *the house I was born in*.
@@ -381,7 +381,7 @@ estimatedMinutes: 40
 > - [ ] Kyiv which is the capital of Ukraine is on the Dnipro.
 > - [ ] Kyiv, where is the capital of Ukraine, is on the Dnipro.
 >
-> **Пояснення:** Київ один — це додаткова інформація, тому коми й **which** (не *that*). *Where* означає «де», а тут потрібен підмет «яке є».
+> **Пояснення:** Київ один — це додаткова інформація, тому коми й **which** (не *that*). *Where* означає «де», а тут потрібен займенник-підмет («яке є столицею»).
 
 > [!quiz] IELTS Reading · True / False / Not Given
 > level: B1 · id: en-b1-relative-clauses-q12
@@ -406,7 +406,7 @@ estimatedMinutes: 40
 > The person who bakes most of the cakes is the woman's [[mother]].
 > ```
 >
-> **Пояснення:** відповідь — точне слово з тексту, і вона має граматично вписатися в речення. *Engineer* і *grandmother* — дистрактори: перше — колишня робота жінки, друге в тексті взагалі немає.
+> **Пояснення:** відповідь — точне слово з тексту, і вона має граматично вписатися в речення. *Engineer* і *grandmother* — дистрактори: перше — колишня робота жінки, другого в тексті взагалі немає.
 
 > [!quiz] Яке речення означає, що в мене кілька братів?
 > level: B1 · id: en-b1-relative-clauses-q14

@@ -64,7 +64,7 @@ estimatedMinutes: 50
 
 - **рамка в минулому** (*was, stopped*) — задає, коли це було;
 - **кульмінація в теперішньому** (*'m standing, comes, look*) — слухач «там»;
-- ***I'm standing*** — тло (тривалий), ***comes / look*** — події (простий), як Past Continuous і Past Simple в звичайній розповіді;
+- ***I'm standing*** — тло (тривалий), ***comes / look*** — події (простий), як Past Continuous і Past Simple у звичайній розповіді;
 - розмовне ***goes*** = *says*; ***this guy*** = «якийсь чоловік» (неозначений *this* — див. тему C2-03);
 - **вихід** знову в минулому (*got away*) — підсумок.
 
@@ -105,7 +105,7 @@ estimatedMinutes: 50
 > - [x] So she looks at me and says, "You're joking, right?"
 > - [ ] Water boils at 100 degrees Celsius.
 >
-> **Пояснення:** заголовок, *I hear* (дізнався раніше) і історичний теперішній — про минуле. Розклад (*leaves tomorrow*) — про майбутнє, *boils* — загальна істина.
+> **Пояснення:** заголовок, *I hear* (дізнався раніше) й історичний теперішній — про минуле. Розклад (*leaves tomorrow*) — про майбутнє, *boils* — загальна істина.
 
 ### Майбутнє в минулому: плани, долі, нездійснене
 
@@ -199,7 +199,7 @@ estimatedMinutes: 50
 
 Band 9 за Grammatical Range and Accuracy — це не «екзотичні часи», а **повний контроль**: кожна зміна часу вмотивована, а помилки — лише рідкісні slips.
 
-**Speaking Part 2 (cue card «Describe a memorable event…»)**: перемикання на історичний теперішній у кульмінації звучить природно й підвищує враження від Fluency — **якщо** рамка й розвʼязка в минулому, а всередині фрагмента час не «стрибає» хаотично. ~~*So I'm walking along and suddenly I saw…*~~ — тут перемикання випадкове, і екзаменатор почує не прийом, а помилку.
+**Speaking Part 2 (cue card «Describe a memorable event…»)**: перемикання на історичний теперішній у кульмінації звучить природно й працює на Fluency — **якщо** рамка й розвʼязка в минулому, а всередині фрагмента час не «стрибає» хаотично. ~~*So I'm walking along and suddenly I saw…*~~ — тут перемикання випадкове, і екзаменатор почує не прийом, а помилку.
 
 **Writing Task 2**: історичний теперішній — ні; зате працюють:
 
@@ -217,7 +217,7 @@ Band 9 за Grammatical Range and Accuracy — це не «екзотичні ч
 - The summit **was to have taken** place in March, but it was postponed. — Саміт мав відбутися в березні, але його перенесли.
 - She **would later** admit that she had never read the contract. — Згодом вона визнала, що так і не прочитала контракт.
 - After the defeat, the team **went on to** win the league. — Після тієї поразки команда згодом виграла чемпіонат.
-- On summer evenings, my grandfather **would** sit on the porch and tell stories. — Літніми вечорами дідусь сідав на ґанку й розповідав історії.
+- On summer evenings, my grandfather **would** sit on the porch and tell stories. — Літніми вечорами дідусь сидів на ґанку й розповідав історії.
 - He'**s forever** borrowing my charger and never giving it back. — Він вічно позичає мою зарядку й ніколи не повертає.
 - I'**d hoped** to be home by six, but the trains were cancelled. — Я сподівався бути вдома до шостої, але потяги скасували.
 - **Was** it just the one bag you were checking in? — Ви здаєте лише одну сумку, так?
@@ -239,7 +239,7 @@ Band 9 за Grammatical Range and Accuracy — це не «екзотичні ч
 
 > [!word] punchline
 > ipa: /ˈpʌntʃ.laɪn/ · pos: noun · level: C2 · id: en-c2-tense-nuance-w03
-> uk: кульмінаційна фраза жарту, «соль»
+> uk: кульмінаційна фраза жарту, «сіль»
 > example: He always laughs before he gets to the **punchline**. — Він завжди сміється ще до того, як доходить до найсмішнішого.
 > note: deliver a punchline; переносно — несподіваний фінал історії.
 
@@ -265,7 +265,7 @@ Band 9 за Grammatical Range and Accuracy — це не «екзотичні ч
 > [!word] as is his wont
 > ipa: /əz ɪz hɪz ˈwəʊnt/ · ipa-us: /əz ɪz hɪz ˈwoʊnt/ · pos: phrase · level: C2 · id: en-c2-tense-nuance-w07
 > uk: як це йому властиво; за своїм звичаєм
-> example: He arrived twenty minutes late, **as is his wont**. — Він прийшов на двадцять хвилин пізніше — як завжди.
+> example: He arrived twenty minutes late, **as is his wont**. — Він запізнився на двадцять хвилин — як завжди.
 > note: книжно й трохи іронічно; також as is her / their wont. Розмовно: as usual, typical!
 
 > [!word] go on to do something
@@ -294,7 +294,7 @@ Band 9 за Grammatical Range and Accuracy — це не «екзотичні ч
 >
 > **Пояснення:** *I'd hoped* = *I had hoped* — нездійснена надія; ключ — ледь чутне /t/ у *hoped to*. *I'd hope* (= I would hope) — інше значення: «я б сподівався».
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C2 · type: dictation · id: en-c2-tense-nuance-l03
 > audio: I hear you're thinking of moving to Lviv.
 
@@ -506,7 +506,7 @@ Band 9 за Grammatical Range and Accuracy — це не «екзотичні ч
 > - [ ] False
 > - [ ] Not Given
 >
-> **Пояснення:** *she had been meaning to replace the staircases long before the war* = давно збиралася → **True**. *Had been meaning to* — намір, а не здійснена дія; саме його авторка протиставляє версії «born of necessity».
+> **Пояснення:** *she had been meaning to replace the staircases long before the war* = давно збиралася → **True**. *Had been meaning to* — намір, а не здійснена дія; саме його автор тексту протиставляє версії «born of necessity».
 
 > [!quiz] IELTS Writing Task 2 · Перепиши фрагмент Band 7 на рівень Band 9
 > level: C2 · tags: ielts · id: en-c2-tense-nuance-q17

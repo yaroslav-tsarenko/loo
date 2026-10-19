@@ -117,7 +117,7 @@ estimatedMinutes: 40
 >   - { show: r1, note: "У піснях і субтитрах скорочення передають живе звучання. Тут вони на своєму місці." }
 >   - { show: r2, note: "З друзями в месенджері — нормально: Wanna grab lunch? Gotta run!" }
 >   - { show: r3, note: "З колегами — обережно: залежить від культури команди. Безпечніше писати повністю." }
->   - { show: r4, note: "Офіційний лист: I am going to, I would like to, I do not know. Навіть I'm там іноді задовге «розмовне»." }
+>   - { show: r4, note: "Офіційний лист: I am going to, I would like to, I do not know. Навіть I'm там іноді звучить надто розмовно." }
 >   - { show: r5, note: "В IELTS Writing gonna чи wanna — пряма втрата балів за Lexical Resource: неправильний регістр." }
 > ```
 
@@ -144,11 +144,11 @@ estimatedMinutes: 40
 - *Sorry, I've gotta go — my bus is here.* — Вибач, мушу бігти — мій автобус приїхав. (*have got to*)
 - *She hasta be at work by eight.* — Вона мусить бути на роботі до восьмої. (*has to*)
 - *Where's Max? — Dunno. Ask Oksana.* — Де Макс? — Не знаю. Спитай Оксану. (*don't know*)
-- *Lemme check my calendar.* — Дай перевірю свій календар. (*let me*)
+- *Lemme check my calendar.* — Дай гляну в календар. (*let me*)
 - *Gimme five minutes and I'll be ready.* — Дай мені пʼять хвилин — і я буду готовий. (*give me*)
-- *The film was kinda boring, to be honest.* — Фільм був якийсь нудний, чесно кажучи. (*kind of*)
+- *The film was kinda boring, to be honest.* — Чесно кажучи, фільм був нуднуватий. (*kind of*)
 - *Didja see the match last night?* — Ти бачив учорашній матч? (*did you*)
-- *You shoulda seen his face!* — Ти б бачив його обличчя! (*should have*)
+- *You shoulda seen his face!* — Бачив би ти його обличчя! (*should have*)
 
 ## Слова
 
@@ -184,7 +184,7 @@ estimatedMinutes: 40
 > [!word] outta
 > ipa: /ˈaʊtə/ · ipa-us: /ˈaʊt̬ə/ · pos: phrase · level: B2 · id: en-b2-reductions-w06
 > uk: з; геть з (розмовне out of)
-> example: I'm **outta** here! — Я пішов звідси!
+> example: I'm **outta** here! — Усе, я пішов!
 > note: Get outta here! — «Та ну, не може бути!» (здивування) або «Геть звідси!».
 
 > [!word] hafta
@@ -305,25 +305,25 @@ estimatedMinutes: 40
 >
 > **Пояснення:** /ˈdɪdʒə/ — *did you*: /d/ + /j/ → /dʒ/. *Would you* звучало б /ˈwʊdʒə/ — з /w/ на початку.
 
-> [!listen] Надрукуй почуте повними словами
+> [!listen] Напиши або скажи повними словами, що почув
 > level: B2 · type: dictation · id: en-b2-reductions-l07
 > audio: I'm gonna be a bit late.
 > accept: I'm going to be a bit late | I am going to be a bit late
 > explain: *gonna* у диктанті пиши як *going to*. Перевірка приймає обидва варіанти, але в IELTS — лише повна форма.
 
-> [!listen] Надрукуй почуте повними словами
+> [!listen] Напиши або скажи повними словами, що почув
 > level: B2 · type: dictation · id: en-b2-reductions-l08
 > audio: I dunno where she is.
 > accept: I don't know where she is | I do not know where she is
 > explain: *dunno* = *don't know*: «ай-де-НОУ».
 
-> [!listen] Надрукуй почуте повними словами
+> [!listen] Напиши або скажи повними словами, що почув
 > level: B2 · type: dictation · id: en-b2-reductions-l09
 > audio: You gotta see this.
 > accept: You've got to see this | You have got to see this | You have to see this
 > explain: американське *You gotta see this* — «ти мусиш це побачити». Повна форма — *You've got to*.
 
-> [!listen] Надрукуй почуте повними словами
+> [!listen] Напиши або скажи повними словами, що почув
 > level: B2 · type: dictation · id: en-b2-reductions-l10
 > audio: Gimme a second.
 > accept: Give me a second
@@ -631,10 +631,10 @@ estimatedMinutes: 40
 > Американський жарт про злиття: *Did you eat yet?* у швидкому мовленні — /ˈdʒiːt ˈjet/, «Джіт єт?». Відповідь: «No, jew?» — тобто *No, did you?* Повне питання з пʼяти слів стиснулося до двох складів.
 
 > [!reel] 🧠 Коли wanna «заблоковано»
-> *Who do you wanna see?* — нормально. А *Who do you want to see Mary?* (кого ти хочеш, щоб побачив Марію) скоротити до wanna не можна: між *want* і *to* «невидимо» стоїть *who*. Лінгвісти десятиліттями сперечаються, чому мозок це відчуває.
+> *Who do you wanna see?* — нормально. А *Who do you want to see Mary?* («Хто, на твою думку, має зустрітися з Марією?») скоротити до wanna не можна: між *want* і *to* «невидимо» стоїть *who*. Лінгвісти десятиліттями сперечаються, чому мозок це відчуває.
 
 > [!reel] 😩 Coulda, woulda, shoulda
-> *Coulda, woulda, shoulda* — сталий вираз про марні жалі: «міг би, зробив би, треба було». *Stop the coulda-woulda-shoulda!* — «Годі шкодувати про те, чого не зробив». Три редукції *could have, would have, should have* — в одному вигуку.
+> *Coulda, woulda, shoulda* — сталий вираз про марний жаль: «міг би, зробив би, треба було». *Stop the coulda-woulda-shoulda!* — «Годі шкодувати про те, чого не зробив». Три редукції *could have, would have, should have* — в одному вигуку.
 
 ## Джерела та що почитати
 

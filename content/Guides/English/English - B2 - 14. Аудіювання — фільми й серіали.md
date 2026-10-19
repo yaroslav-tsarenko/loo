@@ -140,7 +140,7 @@ estimatedMinutes: 45
 
 ## Приклади
 
-- *You okay? You look exhausted.* — Ти в порядку? Виглядаєш виснаженим. (*Are you okay?*)
+- *You okay? You look exhausted.* — У тебе все гаразд? Виглядаєш виснаженим. (*Are you okay?*)
 - *Want some? — I'm good, thanks.* — Будеш? — Ні, дякую. (*I'm good* = «мені не треба»)
 - *Oh, great. The printer's broken again.* — О, чудово. Принтер знову зламався. (сарказм)
 - *Sorry, can I just jump in here?* — Перепрошую, можна я вклинюся?
@@ -187,7 +187,7 @@ estimatedMinutes: 45
 > ipa: /ˈɔːkwəd/ · ipa-us: /ˈɑːkwɚd/ · pos: adj · level: B2 · id: en-b2-listen-films-w06
 > uk: незручний, ніяковий; незграбний
 > example: There was an **awkward** silence after his joke. — Після його жарту запала ніякова тиша.
-> note: улюблене слово ситкомів: Well, this is awkward. — Ну, це незручно вийшло.
+> note: улюблене слово ситкомів: Well, this is awkward. — Ну, якось незручно вийшло.
 
 > [!word] cheesy
 > ipa: /ˈtʃiːzi/ · pos: adj · level: B2 · id: en-b2-listen-films-w07
@@ -450,15 +450,15 @@ estimatedMinutes: 45
 
 ### Репліки на слух
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-listen-films-l16
 > audio: You're kidding, right?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-listen-films-l17
 > audio: My bad, I totally forgot.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-listen-films-l18
 > audio: Hang on, let me finish.
 
@@ -556,7 +556,7 @@ Shadowing: повторюй разом з аудіо, копіюючи **інт�
 > - [ ] Is good.
 > - [ ] Me want go.
 >
-> **Пояснення:** еліпсис прибирає **початок** речення, коли він очевидний: *(Do you want) coffee?*, *(I've) been there*. *Is good* — калька з української («є добре»), *Me want go* — просто помилка.
+> **Пояснення:** еліпсис прибирає **початок** речення, коли він очевидний: *(Do you want) coffee?*, *(I've) been there*. *Is good* — так не кажуть: *It's good* скорочують до простого *Good*; а *Me want go* — граматично зламана фраза.
 
 > [!quiz] Надворі хуртовина, а британець каже: «It's a bit nippy today». Що це?
 > level: B2 · id: en-b2-listen-films-q04

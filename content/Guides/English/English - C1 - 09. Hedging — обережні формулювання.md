@@ -31,11 +31,11 @@ estimatedMinutes: 55
 
 ## Простими словами
 
-*Hedge* — це живопліт. **Hedging** — «обгородити» твердження застереженнями, щоб воно точно відповідало доказам. В академічній англійській категоричне *Social media causes depression* — червоний прапорець: досить одного дослідження з іншим результатом, і твердження хибне. Обережне *Heavy social media use **appears to be associated with** higher rates of depression **among some** teenagers* — точне й захищене.
+*Hedge* — це живопліт. **Hedging** — «обгородити» твердження застереженнями, щоб воно точно відповідало доказам. В академічній англійській категоричне *Social media causes depression* — тривожний сигнал: досить одного дослідження з іншим результатом, і твердження хибне. Обережне *Heavy social media use **appears to be associated with** higher rates of depression **among some** teenagers* — точне й захищене.
 
 Українською ми теж так пишемо: «імовірно», «певною мірою», «як видається», «здебільшого», «дані свідчать про…». Але в англійській hedging — не лише стиль, а **ознака академічної грамотності**: ним показують, що розрізняють факт, імовірність і припущення.
 
-Hedging працює в обидва боки: де доказів мало — помʼякшуй, де багато — можна підсилити (**boosters**: *clearly, undoubtedly, conclusively*). Помилка — і категоричність без доказів, і «вата» з застережень там, де все очевидно.
+Hedging працює в обидва боки: де доказів мало — помʼякшуй, де багато — можна підсилити (**boosters**: *clearly, undoubtedly, conclusively*). Помилка — і категоричність без доказів, і «вода» із застережень там, де все очевидно.
 
 > [!diagram] Шкала впевненості
 > ```yaml
@@ -136,10 +136,10 @@ Hedging працює в обидва боки: де доказів мало — 
 ## Приклади
 
 - The results **appear to** confirm the original hypothesis. — Результати, схоже, підтверджують початкову гіпотезу.
-- Young people **tend to** change jobs more often than their parents did. — Молодь, як правило, змінює роботу частіше, ніж їхні батьки.
+- Young people **tend to** change jobs more often than their parents did. — Молоді люди, як правило, змінюють роботу частіше, ніж колись їхні батьки.
 - The decline in sales is **partly** due to the weather. — Падіння продажів частково зумовлене погодою.
 - **In most cases**, the infection clears up without treatment. — Здебільшого інфекція минає без лікування.
-- Only **a minority of** respondents said they would pay more. — Лише меншість респондентів сказали, що заплатили б більше.
+- Only **a minority of** respondents said they would pay more. — Лише меншість респондентів сказала, що заплатила б більше.
 - There is a strong **likelihood** that the meeting will be postponed. — Дуже ймовірно, що зустріч перенесуть.
 - The new drug is **relatively** safe but **somewhat** expensive. — Новий препарат відносно безпечний, але дещо дорогий.
 - **It remains unclear whether** the policy will reduce unemployment. — Поки незрозуміло, чи зменшить ця політика безробіття.
@@ -213,7 +213,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > [!word] partly
 > ipa: /ˈpɑːt.li/ · ipa-us: /ˈpɑːrt.li/ · pos: adv · level: C1 · id: en-c1-hedging-w11
 > uk: частково
-> example: The delay was **partly** due to bad weather. — Затримка частково була через погану погоду.
+> example: The delay was **partly** due to bad weather. — Затримка частково сталася через негоду.
 > note: нейтральний; визнає, що причин кілька. partly … and partly … — частково через одне, частково через інше.
 
 > [!word] supposedly
@@ -251,7 +251,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > [!word] be inclined to
 > ipa: /bi ɪnˈklaɪnd tə/ · pos: phrase · level: C1 · id: en-c1-hedging-w17
 > uk: схилятися до; мати схильність
-> example: I'**m inclined to** agree with the second view. — Я схиляюся до того, щоб погодитися з другою думкою.
+> example: I'**m inclined to** agree with the second view. — Я схильний погодитися з другою думкою.
 > note: нейтральний; мʼяко висловлює власну думку. Також people are inclined to — люди схильні.
 
 > [!word] as a rule
@@ -281,7 +281,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > [!word] overgeneralise
 > ipa: /ˌəʊ.vəˈdʒen.ər.əl.aɪz/ · ipa-us: /ˌoʊ.vɚˈdʒen.ɚ.əl.aɪz/ · pos: verb · level: C1 · id: en-c1-hedging-w22
 > uk: надмірно узагальнювати
-> example: It's easy to **overgeneralise** from a single study. — Легко надмірно узагальнити на основі одного дослідження.
+> example: It's easy to **overgeneralise** from a single study. — Легко зробити надто широкі висновки з одного дослідження.
 > note: нейтрально-формальний; американське написання — overgeneralize. overgeneralisation — надмірне узагальнення.
 
 ### Іменники й прикметники
@@ -307,7 +307,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > [!word] tendency
 > ipa: /ˈten.dən.si/ · pos: noun · level: C1 · id: en-c1-hedging-w26
 > uk: тенденція, схильність
-> example: There is a **tendency** for young people to rent rather than buy. — Молодь має тенденцію винаймати житло, а не купувати.
+> example: There is a **tendency** for young people to rent rather than buy. — Молодь схильна винаймати житло, а не купувати.
 > note: нейтральний; a tendency to do sth / for sb to do sth. Іменник від tend.
 
 > [!word] preliminary
@@ -327,7 +327,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > [!word] undoubtedly
 > ipa: /ʌnˈdaʊ.tɪd.li/ · ipa-us: /ʌnˈdaʊ.t̬ɪd.li/ · pos: adv · level: C1 · id: en-c1-hedging-w29
 > uk: безсумнівно
-> example: She is **undoubtedly** one of the best players of her generation. — Вона безсумнівно одна з найкращих гравчинь свого покоління.
+> example: She is **undoubtedly** one of the best players of her generation. — Вона, безсумнівно, одна з найкращих гравчинь свого покоління.
 > note: нейтрально-формальний booster; не вживай для спірних думок — звучатиме самовпевнено. b не вимовляється.
 
 > [!word] conclusively
@@ -347,7 +347,7 @@ Hedging працює в обидва боки: де доказів мало — 
 >
 > **Пояснення:** два hedge поспіль — *appear to suggest*: звʼязок імовірний, але не доведений. *Clearly show* — booster, протилежна сила.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-hedging-l02
 > audio: To some extent, the rise in prices may be explained by higher energy costs.
 
@@ -387,7 +387,7 @@ Hedging працює в обидва боки: де доказів мало — 
 > text: It could be argued that the benefits outweigh the risks.
 > ipa: /ɪt kəd bi ˈɑːɡ.juːd ðət ðə ˈben.ɪ.fɪts aʊtˈweɪ ðə ˈrɪsks/
 > tip: argued — [ˈɑːɡjuːd], з [j]; outweigh — наголос на -WEIGH, gh не вимовляється.
-> uk: Можна стверджувати, що переваги переважують ризики.
+> uk: Можна стверджувати, що користь переважує ризики.
 
 > [!speak] IELTS Speaking · Part 3 — зважена відповідь
 > level: C1 · id: en-c1-hedging-s03

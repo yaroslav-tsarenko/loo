@@ -65,7 +65,7 @@ estimatedMinutes: 35
 >   - { show: often, note: "often — багато разів, але не постійно: We often have pizza on Fridays." }
 >   - { show: sometimes, note: "sometimes — то так, то ні: I sometimes walk to work." }
 >   - { show: rarely, note: "rarely і hardly ever — дуже рідко: He hardly ever cooks." }
->   - { show: never, note: "never — жодного разу. Це вже заперечення, друге «не» йому не потрібне: I never smoke." }
+>   - { show: never, note: "never — жодного разу. Це вже заперечення, тож don't з ним не потрібен: I never smoke." }
 > ```
 > Відсотки приблизні — це відчуття, а не математика.
 
@@ -73,7 +73,7 @@ estimatedMinutes: 35
 |---|---|---|
 | *always* | завжди | *She **always** has tea with milk.* — Вона завжди пʼє чай з молоком. |
 | *usually* | зазвичай | *I **usually** finish work at five.* — Я зазвичай закінчую роботу о пʼятій. |
-| *often* | часто | *We **often** eat out.* — Ми часто їмо поза домом. |
+| *often* | часто | *We **often** eat out.* — Ми часто ходимо в кафе. |
 | *sometimes* | іноді | *They **sometimes** walk the dog together.* — Вони іноді разом вигулюють собаку. |
 | *rarely / hardly ever* | рідко / майже ніколи | *He **hardly ever** checks his email.* — Він майже ніколи не перевіряє пошту. |
 | *never* | ніколи | *I **never** have breakfast.* — Я ніколи не снідаю. |
@@ -88,13 +88,13 @@ estimatedMinutes: 35
 > columns: { verb: "Звичайне дієслово", be: "Дієслово to be" }
 > nodes:
 >   - { id: v1, col: verb, label: "схема", text: "хто + often + дієслово" }
->   - { id: v2, col: verb, label: "стверджування", text: "She often reads at night." }
+>   - { id: v2, col: verb, label: "ствердження", text: "She often reads at night." }
 >   - { id: v3, col: verb, label: "заперечення", text: "She doesn't often read at night." }
 >   - { id: b1, col: be, label: "схема", text: "хто + am / is / are + often" }
->   - { id: b2, col: be, label: "стверджування", text: "She is often tired." }
+>   - { id: b2, col: be, label: "ствердження", text: "She is often tired." }
 >   - { id: b3, col: be, label: "заперечення", text: "She isn't often tired." }
 > steps:
->   - { show: [v1, v2], note: "Зі звичайним дієсловом прислівник стає ПЕРЕД ним: often reads. Закінчення -s лишається на дієслові." }
+>   - { show: [v1, v2], note: "Зі звичайним дієсловом прислівник стоїть ПЕРЕД ним: often reads. Закінчення -s лишається на дієслові." }
 >   - { show: v3, note: "У запереченні — між doesn't і дієсловом: doesn't often read." }
 >   - { show: [b1, b2], note: "З am / is / are навпаки — ПІСЛЯ: is often tired." }
 >   - { show: b3, note: "І в запереченні теж після: isn't often tired." }
@@ -103,7 +103,7 @@ estimatedMinutes: 35
 Ще три деталі:
 
 - **Питання:** прислівник іде після підмета: *Do you **often** cook? Is he **always** so busy?*
-- ***Sometimes* і *usually*** можна поставити й на початок: ***Sometimes** I work from home.* А от *always* і *never* на початок не стають.
+- ***Sometimes* і *usually*** можна поставити й на початок: ***Sometimes** I work from home.* А от *always* і *never* на початок не ставимо.
 - ***Never* — уже заперечення.** *I **never** eat meat*, а не ~~I don't never eat meat~~.
 
 ## How often…? — скільки разів
@@ -137,7 +137,7 @@ estimatedMinutes: 35
 - My brother is often late for work. — Мій брат часто запізнюється на роботу.
 - Do you usually walk the dog in the evening? — Ти зазвичай вигулюєш собаку ввечері?
 - He hardly ever checks his phone at dinner. — Він майже ніколи не перевіряє телефон за вечерею.
-- I don't usually have breakfast. Just coffee. — Я зазвичай не снідаю. Лише кава.
+- I don't usually have breakfast. Just coffee. — Я зазвичай не снідаю. Лише пʼю каву.
 - How often do you go to the gym? — Three times a week. — Як часто ти ходиш у спортзал? — Тричі на тиждень.
 - My grandparents go to bed early and get up early. — Мої бабуся й дідусь рано лягають і рано встають.
 - I check my email twice a day. — Я перевіряю пошту двічі на день.
@@ -229,7 +229,7 @@ estimatedMinutes: 35
 > ipa: /wɔːk ðə ˈdɒɡ/ · ipa-us: /wɑːk ðə ˈdɑːɡ/ · pos: phrase · level: A1 · id: en-a1-routine-w15
 > uk: вигулювати собаку
 > example: My son **walks the dog** after school. — Мій син вигулює собаку після школи.
-> note: *l* у *walk* німа: «вок».
+> note: у *walk* літера *l* не читається: «вок».
 
 > [!word] check
 > ipa: /tʃek/ · pos: verb · level: A1 · id: en-a1-routine-w16
@@ -256,7 +256,7 @@ estimatedMinutes: 35
 > ipa: /ruːˈtiːn/ · pos: noun · level: A1 · id: en-a1-routine-w20
 > uk: розпорядок; звичний режим
 > example: My morning **routine** is very simple. — Мій ранковий розпорядок дуже простий.
-> note: наголос на другий склад: «ру-ТІН».
+> note: наголос на другому складі: «ру-ТІН».
 
 > [!word] early
 > ipa: /ˈɜːli/ · ipa-us: /ˈɝːli/ · pos: adv · level: A1 · id: en-a1-routine-w21
@@ -277,7 +277,7 @@ estimatedMinutes: 35
 > [!word] often
 > ipa: /ˈɒfn/ · ipa-us: /ˈɔːfn/ · pos: adv · level: A1 · id: en-a1-routine-w24
 > uk: часто
-> example: Do you **often** eat out? — Ти часто їси поза домом?
+> example: Do you **often** eat out? — Ти часто ходиш у кафе?
 > note: найчастіше *t* не вимовляють: «офн». Вимова з /t/ (/ˈɒftən/) теж правильна.
 
 > [!word] sometimes
@@ -310,7 +310,7 @@ estimatedMinutes: 35
 > [!word] once
 > ipa: /wʌns/ · pos: adv · level: A1 · id: en-a1-routine-w30
 > uk: один раз
-> example: I go swimming **once** a week. — Я плаваю раз на тиждень.
+> example: I go swimming **once** a week. — Я ходжу плавати раз на тиждень.
 > note: читається «ванс», хоча пишеться через *o*.
 
 > [!word] twice
@@ -323,7 +323,7 @@ estimatedMinutes: 35
 > ipa: /ˌevri ˈdeɪ/ · pos: phrase · level: A1 · id: en-a1-routine-w32
 > uk: щодня; кожного дня
 > example: I walk the dog **every day**. — Я щодня вигулюю собаку.
-> note: два слова. *Everyday* разом — прикметник «буденний»: *everyday clothes*.
+> note: два слова. *Everyday* одним словом — прикметник «буденний»: *everyday clothes*.
 
 ## Слухаємо
 
@@ -341,11 +341,11 @@ estimatedMinutes: 35
 > - [x] I go to the gym twice a week.
 > - [ ] I go to the gym three times a week.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-routine-l03
 > audio: I never have breakfast on Mondays.
 
-> [!listen] Надрукуй, що почуєш
+> [!listen] Напиши або скажи, що почуєш
 > level: A1 · type: dictation · speed: slow · id: en-a1-routine-l04
 > audio: How often do you walk the dog?
 
@@ -380,29 +380,29 @@ estimatedMinutes: 35
 > level: A1 · id: en-a1-routine-s04
 > text: I never go to bed before midnight.
 > ipa: /aɪ ˈnevə ɡəʊ tə ˈbed bɪˈfɔː ˈmɪdnaɪt/
-> tip: never — /v/ між зубами й губою, не «невер» з розкотистим «р»: у британській кінцеве *r* не вимовляють.
+> tip: never — для /v/ верхні зуби торкаються нижньої губи. І не «невер» з розкотистим «р»: у британській кінцеве *r* не вимовляють.
 
 > [!speak] Скажи вголос
 > level: A1 · id: en-a1-routine-s05
 > text: We sometimes walk the dog in the evening.
 > ipa: /wi ˈsʌmtaɪmz wɔːk ðə ˈdɒɡ ɪn ði ˈiːvnɪŋ/
-> tip: walk — «вок», *l* німа. Перед голосним *the* звучить як «ðі»: *the evening*.
+> tip: walk — «вок», літера *l* не читається. Перед голосним звуком *the* вимовляємо /ði/: *the evening*.
 
 ## Типові помилки українців
 
 > [!pitfall] Прислівник після дієслова: «I drink always coffee»
-> Українська дозволяє «я пʼю завжди каву», англійська — ні. Прислівник частоти — **перед** основним дієсловом: *I **always drink** coffee.* Виняток — *am / is / are*: *I'm **always** tired on Mondays.*
+> Українська дозволяє «я пʼю каву завжди», англійська — ні. Прислівник частоти — **перед** основним дієсловом: *I **always drink** coffee.* Виняток — *am / is / are*: *I'm **always** tired on Mondays.*
 
 > [!pitfall] Подвійне заперечення: «I don't never eat meat»
 > Українською «я **ні**коли **не** їм мʼяса» — два заперечення, і це правильно. В англійській одне заперечення: *I **never** eat meat.* Слово *never* вже означає «не + ніколи».
 
 > [!pitfall] Прислівник «зʼїдає» -s: «She always get up early»
-> Між підметом і дієсловом зʼявилося слово — і закінчення губиться. Але правило Present Simple не змінюється: *She always **gets** up early. He often **goes** to the gym.*
+> Між підметом і дієсловом зʼявилося слово — і закінчення легко загубити. Але правило Present Simple не змінюється: *She always **gets** up early. He often **goes** to the gym.*
 
 > [!pitfall] «У вихідні», «вранці», «вночі» — різні прийменники
 > *at the weekend* (US *on the weekend*), *in the morning, in the evening*, але *at night*. Не перекладай «у» щоразу як *in* — детально в темі [[English - A1 - 25. Прийменники in, on, at — час і місце]].
 
-## Ситуація: нова сусідка по квартирі
+## Ситуація: нова сусідка в квартирі
 
 > [!listen] Послухай розмову й дай відповідь: що B зазвичай робить уранці?
 > level: A1 · type: answer · speed: slow · id: en-a1-routine-l06

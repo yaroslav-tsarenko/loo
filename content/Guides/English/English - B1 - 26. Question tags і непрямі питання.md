@@ -106,7 +106,7 @@ estimatedMinutes: 40
 
 ### Як відповідати на tag
 
-Англійці відповідають **за фактом**, а не «погоджуюся / не погоджуюся з тобою»:
+Носії англійської відповідають **за фактом**, а не «погоджуюся / не погоджуюся з тобою»:
 
 - *You **aren't** coming, are you?* — **No, I'm not.** (= не йду) / **Yes, I am.** (= йду!)
 - *You **didn't** forget the tickets, did you?* — **No, I didn't.** They're in my bag. (= не забув)
@@ -146,7 +146,7 @@ estimatedMinutes: 40
 > [!warning] Знак питання — лише якщо обгортка питальна
 > *Could you tell me where he is**?*** — обгортка — питання, ставимо «?». *I wonder where he is**.*** і *I'd like to know if it's free**.*** — обгортка — твердження, ставимо крапку.
 
-**if чи whether?** У розмові обидва: *I don't know **if / whether** he's coming.* **Whether** формальніше і обовʼязкове перед *or not* одразу після нього та після прийменника: *It depends on **whether** we have time.*
+**if чи whether?** У розмові обидва: *I don't know **if / whether** he's coming.* **Whether** формальніше. Воно обовʼязкове, коли одразу після нього йде *or not*, а також після прийменника: *It depends on **whether** we have time.*
 
 > [!quiz] Перевір себе: обери непряме питання
 > level: B1 · id: en-b1-questions-q04
@@ -178,7 +178,7 @@ estimatedMinutes: 40
 
 > [!word] wonder
 > ipa: /ˈwʌn.də/ · ipa-us: /ˈwʌn.dɚ/ · pos: verb · level: B1 · id: en-b1-questions-w01
-> uk: цікавитися, міркувати; хотіти знати
+> uk: запитувати себе, хотіти знати; I wonder… — цікаво…
 > forms: wonder → wondered → wondered
 > example: I **wonder** what she's doing now. — Цікаво, що вона зараз робить.
 > note: не плутай з wander /ˈwɒn.də/ — блукати.
@@ -222,7 +222,7 @@ estimatedMinutes: 40
 > ipa: /də ju ˈmaɪnd ɪf aɪ ˈɑːsk/ · ipa-us: /də ju ˈmaɪnd ɪf aɪ ˈæsk/ · pos: phrase · level: B1 · id: en-b1-questions-w08
 > uk: Можна поцікавитися…? (дуже чемно)
 > example: **Do you mind if I ask** how old you are? — Можна поцікавитися, скільки вам років?
-> note: відповідь «можна» — No, not at all / Go ahead (буквально «Ні, не заперечую»).
+> note: щоб дозволити, кажуть No, not at all / Go ahead (No тут означає «не заперечую»).
 
 ## Слухаємо
 
@@ -240,12 +240,12 @@ estimatedMinutes: 40
 > - [x] Could you tell me where the toilets are?
 > - [ ] Can you tell me where the toilet is?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-questions-l03
 > audio: You haven't seen my keys, have you?
 > accept: You have not seen my keys, have you?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-questions-l04
 > audio: Do you know what time the bank opens?
 
@@ -334,7 +334,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-questions-s05
 > text: Could you tell me where the station is?
 > ipa: /kʊd ju ˈtel mi weə ðə ˈsteɪ.ʃən ɪz/
-> tip: could — l німе: [kʊd]; is у кінці — дзвінке /z/, інтонація чемна, з легким підйомом.
+> tip: у could літера l не читається: [kʊd]; is у кінці — дзвінке /z/, інтонація чемна, з легким підйомом.
 > uk: Не підкажете, де вокзал?
 
 > [!speak] Скажи вголос
@@ -355,7 +355,7 @@ estimatedMinutes: 40
 > level: B1 · id: en-b1-questions-s08
 > text: Sorry, could you tell me what you mean by public spaces?
 > ipa: /ˈsɒr.i kʊd ju ˈtel mi wɒt ju ˈmiːn baɪ ˈpʌb.lɪk ˈspeɪ.sɪz/
-> tip: у Part 3 екзаменатор може перефразувати питання — попросити про це не штраф. Непряме питання (what you mean, не what do you mean) звучить упевнено й граматично точно.
+> tip: у Part 3 можна попросити екзаменатора пояснити або перефразувати питання — бали за це не знімають. Непряме питання (what you mean, а не what do you mean) звучить упевнено й граматично правильно.
 > uk: Вибачте, а що ви маєте на увазі під громадськими просторами?
 
 ## Типові помилки українців
@@ -367,7 +367,7 @@ estimatedMinutes: 40
 > «Ти ж не йдеш?» — «Так, не йду». В англійській *yes* не поєднується з запереченням: *You aren't going, are you?* — ***No**, I'm not.* Якщо все ж ідеш — ***Yes**, I am!*
 
 > [!pitfall] «Could you tell me where is the station?»
-> Калька з прямого питання: порядок «де є вокзал» переноситься в обгортку. У непрямому питанні — **як у твердженні**: *Could you tell me where **the station is**?*
+> Порядок слів прямого питання (*where is…*) переносять в обгортку. У непрямому питанні порядок слів — **як у твердженні**: *Could you tell me where **the station is**?*
 
 > [!pitfall] «Do you know what time does it start?»
 > Подвійне питання: обгортка вже питальна, тож усередині **do / does / did зникають**: *Do you know what time **it starts**?*
@@ -515,7 +515,7 @@ estimatedMinutes: 40
 > «Amn't I» досі можна почути в Ірландії й Шотландії. У стандартній англійській прижилося «aren't I» — колись це була розмовна вимова «an't I», яку записали як aren't.
 
 > [!reel] 🎩 Непряме питання = піджак для питання
-> «Where's the toilet?» — у джинсах. «Could you tell me where the toilet is?» — у піджаку. Зміст той самий, але з незнайомими й в офіційних листах краще в піджаку.
+> «Where's the toilet?» — у джинсах. «Could you tell me where the toilet is?» — у піджаку. Зміст той самий, але з незнайомими людьми й в офіційних листах краще бути «в піджаку».
 
 ## Джерела та що почитати
 

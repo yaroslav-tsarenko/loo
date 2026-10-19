@@ -15,7 +15,7 @@ estimatedMinutes: 60
 > - знати, що таке **Academic Word List** (AWL) і чому саме ці 570 родин слів відкривають академічні тексти та IELTS Reading;
 > - уживати **60 слів із підсписків 1–3** — найчастотніших в академічних текстах: *approach, assess, derive, establish, constitute, perceive, constraint, ensure…*;
 > - будувати **родину слова**: *vary → variation → variable → invariably*, *assess → assessment*;
-> - піднімати есе Task 2 з Band 6 до 7+: *get → obtain*, *show → demonstrate*, *need → require*, *enough → sufficient* — без зайвої «канцелярщини»;
+> - піднімати есе Task 2 з Band 6 до 7+: *get → obtain*, *show → demonstrate*, *need → require*, *enough → sufficient* — без зайвого канцеляриту;
 > - не потрапляти в пастки хибних друзів: *specific* ≠ «специфічний», *scheme* ≠ «схема», *issue* ≠ лише «випуск».
 
 ## Передбач
@@ -225,7 +225,7 @@ estimatedMinutes: 60
 > uk: визначати, давати визначення
 > example: Poverty is hard to **define** precisely. — Бідність важко точно визначити.
 > forms: define (v) → definition (n) → redefine (v)
-> note: AWL 1; у есе — *For the purposes of this essay, success is defined as…*
+> note: AWL 1; в есе — *For the purposes of this essay, success is defined as…*
 
 > [!word] derive
 > ipa: /dɪˈraɪv/ · pos: verb · level: C1 · id: en-c1-academic-w07
@@ -280,7 +280,7 @@ estimatedMinutes: 60
 > ipa: /ˈɪʃuː/ · pos: noun · level: C1 · id: en-c1-academic-w14
 > uk: питання, проблема (для обговорення); випуск (журналу)
 > example: Climate change is the most urgent **issue** of our time. — Зміна клімату — найнагальніша проблема нашого часу.
-> note: AWL 1; UK також /ˈɪsjuː/. Колокації — *raise / tackle / an issue*, *a key issue*. Розмовне *I have issues with…* — у мене є претензії до…
+> note: AWL 1; UK також /ˈɪsjuː/. Колокації — *raise / tackle an issue*, *a key issue*. Розмовне *I have issues with…* — у мене є претензії до…
 
 > [!word] method
 > ipa: /ˈmeθəd/ · pos: noun · level: C1 · id: en-c1-academic-w15
@@ -486,7 +486,7 @@ estimatedMinutes: 60
 > [!word] circumstance
 > ipa: /ˈsɜːkəmstəns/ · ipa-us: /ˈsɜːrkəmstæns/ · pos: noun · level: C1 · id: en-c1-academic-w44
 > uk: обставина
-> example: Under no **circumstances** should you share your password. — За жодних обставин не повідомляй свій пароль.
+> example: Under no **circumstances** should you share your password. — За жодних обставин нікому не кажи свого пароля.
 > note: AWL 3, переважно в множині; *in / under the circumstances* — за таких обставин.
 
 > [!word] component
@@ -553,7 +553,7 @@ estimatedMinutes: 60
 > [!word] exclude
 > ipa: /ɪkˈskluːd/ · pos: verb · level: C1 · id: en-c1-academic-w54
 > uk: виключати, не допускати
-> example: Children under 12 are **excluded** from the competition. — Діти до 12 років не допускаються до конкурсу.
+> example: Children under 12 are **excluded** from the competition. — Дітей до 12 років до конкурсу не допускають.
 > forms: exclude (v) → exclusion (n) → exclusive (adj)
 > note: AWL 3; *excluding* — за винятком; *social exclusion* — соціальне виключення.
 
@@ -605,7 +605,7 @@ estimatedMinutes: 60
 > - [ ] The data was attained from over two thousand participants.
 > - [ ] The data were obtained from over two thousand partisans.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-academic-l02
 > audio: Prices vary considerably from region to region.
 
@@ -651,8 +651,8 @@ estimatedMinutes: 60
 > level: C1 · id: en-c1-academic-s01
 > text: The study demonstrates a significant shift in public attitudes.
 > ipa: /ðə ˈstʌdi ˈdemənstreɪts ə sɪɡˈnɪfɪkənt ˈʃɪft ɪn ˌpʌblɪk ˈætɪtjuːdz/
-> tip: DEM-on-strates — наголос на перший склад; sig-NIF-i-cant — на другий. attitudes — [Е-ті-тʼюдз].
-> uk: Дослідження показує значну зміну в ставленні суспільства.
+> tip: DEM-on-strates — наголос на першому складі; sig-NIF-i-cant — на другий. attitudes — [Е-ті-тʼюдз].
+> uk: Дослідження свідчить, що ставлення суспільства суттєво змінилося.
 
 > [!speak] Родина з рухомим наголосом
 > level: C1 · id: en-c1-academic-s02
@@ -665,14 +665,14 @@ estimatedMinutes: 60
 > level: C1 · id: en-c1-academic-s03
 > text: The chart illustrates how energy consumption varied across five regions.
 > ipa: /ðə ˈtʃɑːt ˈɪləstreɪts ˌhaʊ ˈenədʒi kənˈsʌmpʃən ˈveərid əˌkrɒs ˌfaɪv ˈriːdʒənz/
-> tip: IL-lus-trates — наголос на перший склад; regions — [РІІ-дженз], g як «дж».
+> tip: IL-lus-trates — наголос на першому складі; regions — [РІІ-дженз], g як «дж».
 > uk: Діаграма ілюструє, як змінювалося споживання енергії в пʼяти регіонах.
 
 > [!speak] Формально, але природно
 > level: C1 · id: en-c1-academic-s04
 > text: Under no circumstances should personal data be shared without consent.
 > ipa: /ˌʌndə ˈnəʊ ˈsɜːkəmstənsɪz ʃəd ˌpɜːsənəl ˈdeɪtə bi ˈʃeəd wɪˌðaʊt kənˈsent/
-> tip: CIR-cum-stan-ces — наголос на перший склад; data у британській — [ДЕЙ-те]. Інверсія should personal data — як у темі про інверсію.
+> tip: CIR-cum-stan-ces — наголос на першому складі; data у британській — [ДЕЙ-те]. Інверсія should personal data — як у темі про інверсію.
 > uk: За жодних обставин не можна передавати персональні дані без згоди.
 
 ## Типові помилки українців

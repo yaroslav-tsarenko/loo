@@ -54,7 +54,7 @@ estimatedMinutes: 55
 >   - { focus: l, note: "Повернися до тези іншими словами: So, on balance, a later start makes sense. Це той самий OREO, тільки з другою стороною." }
 > ```
 
-Цілком (близько 40 секунд мовлення):
+Повністю (близько 40 секунд мовлення):
 
 > *I'd argue that secondary schools should start later in the morning. The main reason is that teenagers' body clocks shift later, so they genuinely can't fall asleep early — forcing them up at seven means they're half asleep in the first lesson. A friend of mine teaches at a school that moved its start to nine, and she says attendance went up noticeably. Admittedly, it would make life harder for parents who start work early, but breakfast clubs could easily solve that. So, on balance, I think a later start makes a lot of sense.*
 
@@ -277,7 +277,7 @@ Part 3 любить питання *How might… change in the future?* Тут �
 - *Sorry to interrupt, but can I just come in here?* — Перепрошую, що перебиваю, але можна я додам?
 - *Bear with me — I'm getting to the point.* — Потерпіть хвилинку, я вже переходжу до суті.
 - *Surely nobody wants to sit in traffic for two hours a day?* — Хіба хтось хоче простояти в заторі дві години на день?
-- *Why don't we meet halfway and try it for a month?* — А давай зійдемося посередині й спробуємо місяць?
+- *Why don't we meet halfway and try it for a month?* — Може, знайдемо компроміс і спробуємо протягом місяця?
 - *I'd imagine most people will work from home at least part of the time.* — Гадаю, більшість людей працюватиме з дому принаймні частину часу.
 - *Off the top of my head, I'd say about half.* — Навскидку — десь половина.
 
@@ -360,7 +360,7 @@ Part 3 любить питання *How might… change in the future?* Тут �
 > [!word] compelling
 > ipa: /kəmˈpelɪŋ/ · pos: adj · level: B2 · id: en-b2-speaking-w14
 > uk: переконливий; захопливий
-> example: She made a **compelling** case for a shorter working week. — Вона переконливо обґрунтувала скорочений робочий тиждень.
+> example: She made a **compelling** case for a shorter working week. — Вона навела переконливі аргументи на користь скороченого робочого тижня.
 > note: a compelling argument / reason / case. Про книжку чи серіал — «захопливий».
 
 > [!word] talk someone into
@@ -530,7 +530,7 @@ Part 3 любить питання *How might… change in the future?* Тут �
 >
 > **Пояснення:** *most people, at least in big cities, tend to* — обережне узагальнення (hedging), не «усі». *Arguably* помʼякшує другу думку.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-speaking-l08
 > audio: Admittedly, it's expensive, but it would pay for itself in the long run.
 
@@ -607,8 +607,8 @@ Part 3 любить питання *How might… change in the future?* Тут �
 > text: Why don't we meet halfway and try it for a month?
 > ipa: /ˌwaɪ dəʊnt wi ˌmiːt hɑːfˈweɪ ən ˈtraɪ‿(j)ɪt fər‿ə ˈmʌnθ/
 > ipa-us: /ˌwaɪ doʊnt wi ˌmiːt hæfˈweɪ ən ˈtraɪ‿(j)ɪt fɚr‿ə ˈmʌnθ/
-> tip: half — без /l/: «гааф»; month — /nθ/ у кінці, язик між зубами.
-> uk: А давай зійдемося посередині й спробуємо місяць?
+> tip: half — без /l/: «хааф»; month — /nθ/ у кінці, язик між зубами.
+> uk: Може, знайдемо компроміс і спробуємо протягом місяця?
 
 ### IELTS Part 2 і Part 3
 

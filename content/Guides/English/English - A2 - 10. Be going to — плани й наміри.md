@@ -47,7 +47,7 @@ estimatedMinutes: 35
 >   - { id: clouds, at: "now", text: "Look at those clouds!", note: "доказ бачу зараз", tone: blue }
 >   - { id: rain, at: "in 10 minutes", text: "It's going to rain.", note: "прогноз за доказом", tone: blue }
 > steps:
->   - { show: decide, note: "Минулого тижня ти вже вирішив — вчитимеш іспанську." }
+>   - { show: decide, note: "Минулого тижня ти вже вирішив — учитимеш іспанську." }
 >   - { show: now, note: "Зараз розповідаєш другові: I'm going to learn Spanish. Going to = рішення вже є." }
 >   - { show: course, note: "Сама дія — попереду. Going to — місток між рішенням і дією." }
 >   - { show: clouds, note: "Друга роль: бачиш темні хмари просто зараз." }
@@ -83,8 +83,8 @@ estimatedMinutes: 35
 
 Коли ти **бачиш** або **чуєш** причину просто зараз — *going to*:
 
-- *Look at that man! He's **going to fall** over!* — Подивись! Він зараз упаде!
-- *I feel terrible. I think I'm **going to be** sick.* — Мені погано, здається, мене знудить.
+- *Look at that man! He's **going to fall** over!* — Подивись на того чоловіка! Він зараз упаде!
+- *I feel terrible. I think I'm **going to be** sick.* — Мені зле. Здається, мене зараз знудить.
 - *Hurry up! We're **going to miss** the train!* — Швидше! Ми не встигнемо на поїзд!
 
 > [!quiz] Перевір себе: прогноз
@@ -150,7 +150,7 @@ estimatedMinutes: 35
 > [!word] arrangement
 > ipa: /əˈreɪndʒ.mənt/ · pos: noun · level: A2 · id: en-a2-going-to-w01
 > uk: домовленість; приготування
-> example: I have an **arrangement** with my boss — I work from home on Fridays. — У мене домовленість з керівником: по пʼятницях працюю з дому.
+> example: I have an **arrangement** with my boss — I work from home on Fridays. — У мене домовленість з керівником: по пʼятницях я працюю вдома.
 > note: make arrangements — домовлятися, готуватися.
 
 > [!word] resolution
@@ -222,7 +222,7 @@ estimatedMinutes: 35
 
 > [!word] diary
 > ipa: /ˈdaɪə.ri/ · pos: noun · level: A2 · id: en-a2-going-to-w14
-> uk: щоденник; планувальник, ежедневник
+> uk: щоденник; записник-планувальник
 > example: Let me check my **diary** — I think I'm free on Tuesday. — Дай гляну в планувальник — здається, у вівторок я вільний.
 > note: в американській для зустрічей кажуть calendar або planner; diary — особистий щоденник.
 
@@ -248,11 +248,11 @@ estimatedMinutes: 35
 > - [ ] It's raining.
 > - [x] It isn't going to rain.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-going-to-l03
 > audio: I'm going to learn Spanish next year.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · id: en-a2-going-to-l04
 > audio: We're meeting them at the station.
 
@@ -324,7 +324,7 @@ estimatedMinutes: 35
 
 ## Практика
 
-> [!quiz] Яке речення найприродніше для домовленості з лікарем на завтра?
+> [!quiz] Яке речення найприродніше для домовленості зі стоматологом на завтра?
 > level: A2 · id: en-a2-going-to-q04
 > - [ ] I see the dentist at four tomorrow.
 > - [x] I'm seeing the dentist at four tomorrow.

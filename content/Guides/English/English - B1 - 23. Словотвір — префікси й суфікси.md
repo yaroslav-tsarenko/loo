@@ -12,8 +12,8 @@ estimatedMinutes: 45
 # Словотвір — префікси й суфікси
 
 > [!success] Після цієї теми ти зможеш
-> - робити протилежні слова префіксами **un- / dis- / im- / in- / il- / ir-**: *unfair, dishonest, impossible, illegal*;
-> - змінювати значення префіксами **re- / over- / mis-**: *rewrite, oversleep, misunderstand*;
+> - утворювати слова з протилежним значенням за допомогою префіксів **un- / dis- / im- / in- / il- / ir-**: *unfair, dishonest, impossible, illegal*;
+> - змінювати значення слова за допомогою префіксів **re- / over- / mis-**: *rewrite, oversleep, misunderstand*;
 > - утворювати іменники (**-ness, -ment, -tion, -er / -ee**) і прикметники (**-ful, -less, -able**);
 > - з одного кореня отримувати цілу родину слів: *care → careful → carefully → careless*;
 > - виконувати завдання «утвори слово» (word formation), яке є в Cambridge B1 Preliminary і корисне для IELTS.
@@ -31,7 +31,7 @@ estimatedMinutes: 45
 
 ## Простими словами
 
-Англійські слова складаються як конструктор, так само як українські: *щастя → щасливий → нещасний → нещастя*. Є **корінь** (*happy*), **префікс** спереду (*un-happy*) і **суфікс** ззаду (*happi-ness*).
+Англійські слова, як і українські, складаються, наче конструктор: *щастя → щасливий → нещасний → нещастя*. Є **корінь** (*happy*), **префікс** спереду (*un-happy*) і **суфікс** ззаду (*happi-ness*).
 
 Головна різниця між ними:
 
@@ -104,7 +104,7 @@ estimatedMinutes: 45
 | **-ment** | дієслово → іменник (дія, результат) | improve → improvement, pay → payment, agree → agreement, develop → development, entertain → entertainment |
 | **-tion / -sion / -ation** | дієслово → іменник | educate → education, explain → explanation, compete → competition, decide → decision |
 | **-er / -or** | хто робить | employ → employer, begin → beginner, train → trainer, invent → inventor |
-| **-ee** | з ким це роблять | employ → employee, train → trainee |
+| **-ee** | той, з ким це роблять | employ → employee, train → trainee |
 | **-ist / -ian** | професія, заняття | science → scientist, music → musician |
 
 ### Суфікси прикметників
@@ -158,7 +158,7 @@ estimatedMinutes: 45
 
 - EXplain — explaNAtion
 - EDucate — eduCAtion
-- comPETE — competiTItion
+- comPETE — compeTItion
 
 А **-ness, -ment, -ful, -less, -able** наголос не чіпають: *HAPpy — HAPpiness*, *imPROVE — imPROVEment*.
 
@@ -166,7 +166,7 @@ estimatedMinutes: 45
 
 - It's **unfair** that he gets paid more for the same job. — Несправедливо, що йому платять більше за ту саму роботу.
 - My keys have **disappeared** again! — Мої ключі знову зникли!
-- It's **impossible** to find an **affordable** flat in the centre. — У центрі неможливо знайти доступну за ціною квартиру.
+- It's **impossible** to find an **affordable** flat in the centre. — У центрі неможливо знайти недорогу квартиру.
 - I **overslept** and missed the train. — Я проспав і спізнився на поїзд.
 - Thank you for your **kindness**. — Дякую за вашу доброту.
 - There's been a big **improvement** in your writing. — Твоє письмо помітно покращилося.
@@ -206,7 +206,7 @@ estimatedMinutes: 45
 > ipa: /ʌnˈnəʊn/ · ipa-us: /ʌnˈnoʊn/ · pos: adj · level: B1 · id: en-b1-word-formation-w05
 > uk: невідомий
 > example: The cause of the fire is still **unknown**. — Причина пожежі досі невідома.
-> note: k німе; обидва n вимовляються як одне подовжене.
+> note: k не читається; обидва n вимовляються як одне подовжене.
 
 > [!word] unlock
 > ipa: /ʌnˈlɒk/ · ipa-us: /ʌnˈlɑːk/ · pos: verb · level: B1 · id: en-b1-word-formation-w06
@@ -230,7 +230,7 @@ estimatedMinutes: 45
 > ipa: /dɪˈsɒn.ɪst/ · ipa-us: /dɪˈsɑː.nɪst/ · pos: adj · level: B1 · id: en-b1-word-formation-w09
 > uk: нечесний
 > example: It's **dishonest** to copy someone's work. — Списувати чужу роботу — нечесно.
-> note: h німе, як в honest.
+> note: h не читається, як і в honest.
 
 > [!word] disadvantage
 > ipa: /ˌdɪs.ədˈvɑːn.tɪdʒ/ · ipa-us: /ˌdɪs.ədˈvæn.tɪdʒ/ · pos: noun · level: B1 · id: en-b1-word-formation-w10
@@ -250,7 +250,7 @@ estimatedMinutes: 45
 
 > [!word] incorrect
 > ipa: /ˌɪn.kərˈekt/ · pos: adj · level: B1 · id: en-b1-word-formation-w13
-> uk: неправильний, невірний
+> uk: неправильний, хибний
 > example: Some of the information on the website is **incorrect**. — Частина інформації на сайті неправильна.
 > note: формальніше, ніж wrong.
 
@@ -293,7 +293,7 @@ estimatedMinutes: 45
 
 > [!word] overpriced
 > ipa: /ˌəʊ.vəˈpraɪst/ · ipa-us: /ˌoʊ.vɚˈpraɪst/ · pos: adj · level: B1 · id: en-b1-word-formation-w20
-> uk: завищений у ціні, задорогий
+> uk: задорогий, із завищеною ціною
 > example: The food was nice, but **overpriced**. — Їжа смачна, але задорога.
 
 > [!word] misunderstand
@@ -434,7 +434,7 @@ estimatedMinutes: 45
 
 > [!word] useless
 > ipa: /ˈjuːs.ləs/ · pos: adj · level: B1 · id: en-b1-word-formation-w44
-> uk: марний, некорисний
+> uk: марний, непотрібний
 > example: This old charger is **useless** — throw it away. — Ця стара зарядка нікуди не годиться, викинь її.
 > note: розмовно про людину: I'm useless at maths — я нічого не тямлю в математиці.
 
@@ -479,7 +479,7 @@ estimatedMinutes: 45
 > - [x] The dog is harmless.
 > - [ ] The dog is hopeless.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B1 · type: dictation · id: en-b1-word-formation-l02
 > audio: I'm sorry, I misunderstood the question.
 
@@ -498,7 +498,7 @@ estimatedMinutes: 45
 > level: B1 · type: dictation · id: en-b1-word-formation-l04
 > audio: The course is called Entertainment Management.
 >
-> **Пояснення:** IELTS Listening часто перевіряє правопис. *Entertainment* = *entertain* + *-ment*: double t немає, -ain- зберігається.
+> **Пояснення:** IELTS Listening часто перевіряє правопис. *Entertainment* = *entertain* + *-ment*: подвоєного t немає, -ain- зберігається.
 
 ## Вимова
 
@@ -513,7 +513,7 @@ estimatedMinutes: 45
 > level: B1 · id: en-b1-word-formation-s02
 > text: Thanks for the explanation.
 > ipa: /θæŋks fə ði ˌek.spləˈneɪ.ʃən/
-> tip: наголос на «NEI»: ек-сплə-НЕЙ-шн; explain і explanation наголошені по-різному.
+> tip: наголос на «NEI»: ек-сплə-НЕЙ-шн; у explain і explanation наголос падає на різні склади.
 > uk: Дякую за пояснення.
 
 > [!speak] Скажи вголос
@@ -533,7 +533,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] «Unpossible», «inlegal», «unregular»
-> Префікс не можна обрати за українським «не-». Запамʼятай пари: *impossible, impatient, illegal, irregular, dishonest, incorrect*. А *in-* перед **p / m / b** стає **im-**, перед **l** — **il-**, перед **r** — **ir-**. Якщо сумніваєшся — перевір у словнику.
+> Префікс не можна обрати за українським «не-». Запамʼятай правильні форми: *impossible, impatient, illegal, irregular, dishonest, incorrect*. А *in-* перед **p / m / b** стає **im-**, перед **l** — **il-**, перед **r** — **ir-**. Якщо сумніваєшся — перевір у словнику.
 
 > [!pitfall] Правопис: «carefull», «hapiness», «explaination»
 > Суфікс **-ful** — з одним **l**: *careful, successful*; два **l** — лише в прислівнику: *carefully*. Кінцеве **y** після приголосного стає **i**: *happy → happiness*. Іменник від *explain* — **explanation** (без *i*), від *argue* — **argument** (без *e*).
@@ -542,7 +542,7 @@ estimatedMinutes: 45
 > **-er** — той, хто дає роботу (**employer** — роботодавець), **-ee** — той, хто її отримує (**employee** — працівник). Те саме: *trainer* (тренер) — *trainee* (стажер), *interviewer* — *interviewee*.
 
 > [!pitfall] «I'm disagree»
-> **Disagree** — дієслово, тож без *am*: *I **disagree*** (не ~~*I am disagree*~~). Те саме з *agree*: *I agree* — не «I am agree». Українське «я згоден» тягне за собою *am*, але англійською це дія, а не стан.
+> **Disagree** — дієслово, тож без *am*: *I **disagree*** (не ~~*I am disagree*~~). Те саме з *agree*: *I agree* — не «I am agree». Українське «я згоден» тягне за собою *am*, але *agree* — дієслово, а не прикметник, тож *am* тут зайве.
 
 ## Практика
 
@@ -567,7 +567,7 @@ estimatedMinutes: 45
 > - [x] unusual
 > - [x] irregular
 >
-> **Пояснення:** правильно — *dishonest, impatient, unusual, irregular*. Треба *impossible* (перед *p* — *im-*) та *illegal* (перед *l* — *il-*).
+> **Пояснення:** правильно — *dishonest, impatient, unusual, irregular*. А замість *unpossible* і *inlegal* треба *impossible* (перед *p* — *im-*) та *illegal* (перед *l* — *il-*).
 
 > [!quiz] Компанія наймає нових людей. Хто підписує контракт як «роботодавець»?
 > level: B1 · id: en-b1-word-formation-q06
@@ -603,7 +603,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** **misunderstand** → Past Simple **misunderstood** (як *understand → understood*).
 
-> [!quiz] Склади речення: «Знайти доступну квартиру неможливо»
+> [!quiz] Склади речення: «Знайти недорогу квартиру неможливо»
 > level: B1 · type: order · id: en-b1-word-formation-q09
 >
 > ```text order

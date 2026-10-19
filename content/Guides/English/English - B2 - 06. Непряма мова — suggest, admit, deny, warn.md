@@ -37,7 +37,7 @@ estimatedMinutes: 45
 - *"Don't swim there."* → She **warned** us not to swim there. — Вона **застерегла** нас не плавати там.
 - *"Let's get a pizza."* → He **suggested** getting a pizza. — Він **запропонував** замовити піцу.
 
-Головна складність — **кожне дієслово має свою модель**, і вона часто не збігається з українською. Ми кажемо «звинуватив **у** брехні», «привітав **з** перемогою», «запропонував **нам** піти» — а англійською це *accused him **of** lying*, *congratulated her **on** winning*, *suggested **going***. Тож дієслово-репортер учимо одразу разом із його «хвостом».
+Головна складність — **кожне дієслово має свою модель**, і вона часто не збігається з українською. Ми кажемо «звинуватив **у** брехні», «привітав **з** перемогою», «запропонував **нам** піти» — а англійською це *accused him **of** lying*, *congratulated her **on** winning*, *suggested **going***. Тож дієслово переказу вчимо одразу разом із його «хвостом».
 
 > [!diagram] Шість моделей дієслів переказу
 > ```yaml
@@ -97,7 +97,7 @@ estimatedMinutes: 45
 
 ### Модель 5: + that…
 
-Майже всі дієслова-репортери можуть мати *that*-речення: *admit that, deny that, explain that, insist that, reveal that, acknowledge that, concede that, maintain that*. У розмові *that* часто пропускають: *He admitted (that) he was wrong.*
+Майже всі дієслова переказу можуть мати *that*-речення: *admit that, deny that, explain that, insist that, reveal that, acknowledge that, concede that, maintain that*. У розмові *that* часто пропускають: *He admitted (that) he was wrong.*
 
 Три особливості:
 
@@ -155,7 +155,7 @@ estimatedMinutes: 45
 - The company **refused to comment** on the rumours. — Компанія відмовилася коментувати чутки.
 - My parents **encouraged** me **to study** abroad. — Батьки заохочували мене навчатися за кордоном.
 - He **insisted on driving** me home. — Він наполіг, що відвезе мене додому.
-- The report **revealed that** most employees felt overworked. — Звіт показав, що більшість працівників перевантажені.
+- The report **revealed that** most employees felt overworked. — Звіт показав, що більшість працівників почуваються перевантаженими.
 - Critics **argue that** the new law goes too far. — Критики стверджують, що новий закон заходить надто далеко.
 
 ## Слова
@@ -240,7 +240,7 @@ estimatedMinutes: 45
 > ipa: /əkˈnɒl.ɪdʒ/ · ipa-us: /əkˈnɑː.lɪdʒ/ · pos: verb · level: B2 · id: en-b2-reporting-verbs-w13
 > uk: визнавати; підтверджувати (отримання)
 > example: The author **acknowledges** that the study has limitations. — Автор визнає, що дослідження має обмеження.
-> note: k німе: [ək-НО-лідж]. Улюблене дієслово академічного письма.
+> note: літера k у -know- не читається: [ək-НО-лідж]. Улюблене дієслово академічного письма.
 
 > [!word] maintain
 > ipa: /meɪnˈteɪn/ · pos: verb · level: B2 · id: en-b2-reporting-verbs-w14
@@ -282,7 +282,7 @@ estimatedMinutes: 45
 > [!word] object to
 > ipa: /əbˈdʒekt tə/ · pos: phrase · level: B2 · id: en-b2-reporting-verbs-w20
 > uk: заперечувати проти, бути проти
-> example: Local residents **object to** building a car park here. — Місцеві мешканці проти будівництва тут парковки.
+> example: Local residents **object to** building a car park here. — Місцеві мешканці проти будівництва тут автостоянки.
 > note: дієслово — наголос на 2-му складі (ob-JECT); to — прийменник, тож далі -ing.
 
 > [!word] boast
@@ -294,7 +294,7 @@ estimatedMinutes: 45
 > [!word] concede
 > ipa: /kənˈsiːd/ · pos: verb · level: B2 · id: en-b2-reporting-verbs-w22
 > uk: (неохоче) визнавати; поступатися
-> example: She **conceded** that the plan had some weaknesses. — Вона визнала, що план мав певні слабкі місця.
+> example: She **conceded** that the plan had some weaknesses. — Вона визнала, що в плані є певні слабкі місця.
 > note: concede defeat — визнати поразку. Корисне в есе для контраргументу.
 
 > [!word] dismiss
@@ -337,11 +337,11 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *warned* /wɔːnd/ — один склад із довгим /ɔː/; *wanted* /ˈwɒn.tɪd/ — два склади. І не пропусти *not*: від нього залежить увесь зміст.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-reporting-verbs-l03
 > audio: They suggested meeting after lunch.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-reporting-verbs-l04
 > audio: She insisted on paying for everyone.
 
@@ -616,7 +616,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 😠 Blame і blaspheme — родичі
-> Blame прийшло зі старофранцузького blasmer, а воно — з латинського blasphemare, «богохульствувати». Тобто «звинуватити» і «богохульство» — одне слово, що розійшлося у два.
+> Blame прийшло зі старофранцузького blasmer, а воно — з латинського blasphemare, «богохульствувати». Тобто blame і blaspheme — одне слово, яке з часом розділилося на два.
 
 > [!reel] ⚠️ Warn і aware — з одного кореня
 > Обидва слова походять від давнього германського кореня зі значенням «бути насторожі». Warn — зробити так, щоб інший став aware.

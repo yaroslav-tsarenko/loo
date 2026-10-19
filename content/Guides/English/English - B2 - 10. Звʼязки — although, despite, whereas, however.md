@@ -64,7 +64,7 @@ estimatedMinutes: 50
 | **though** | сполучник; у кінці — розмовне «втім» | It was cold. We enjoyed it, **though**. | Було холодно. Утім, нам сподобалося. |
 | **despite / in spite of** | прийменник | **Despite** the cold / **In spite of** feeling ill, she came. | Попри холод / Попри те, що їй було зле, вона прийшла. |
 | **despite the fact that** | прийменник + речення | **Despite the fact that** it was cold, … | Попри те, що було холодно, … |
-| **however** | нове речення | It was expensive. **However**, it was worth it. | Це було дорого. Однак воно того варте. |
+| **however** | нове речення | It was expensive. **However**, it was worth it. | Це було дорого. Однак воно було того варте. |
 | **nevertheless / nonetheless** | нове речення, формально | The plan is risky. **Nevertheless**, we will try. | План ризикований. Попри це, ми спробуємо. |
 
 **Even though** — сильніше за *although*: «хоча **й**». А **even if** — це інше: «**навіть якщо**» (умова, а не факт): *I'll go **even if** it rains* — піду, навіть якщо піде дощ (невідомо, чи піде). *I went **even though** it was raining* — пішов, хоча дощ ішов (факт).
@@ -117,7 +117,7 @@ estimatedMinutes: 50
 
 - ***Owing to** the strike, all flights were cancelled.* — Через страйк усі рейси скасували. (формально)
 - *The delay was **due to** bad weather.* — Затримка була через погану погоду. (*due to* часто після *be*)
-- ***Given that** he has no experience, his salary is quite high.* — Зважаючи на те, що в нього немає досвіду, зарплата досить висока.
+- ***Given that** he has no experience, his salary is quite high.* — Зважаючи на те, що досвіду в нього немає, зарплата в нього досить висока.
 - *Fewer people use cash. **Consequently**, many banks are closing branches.* — Дедалі менше людей користуються готівкою. Як наслідок, багато банків закривають відділення.
 - *The site is very old; **hence** the strict rules.* — Памʼятка дуже стара — звідси й суворі правила. (*hence* + іменник, книжно)
 
@@ -161,7 +161,7 @@ estimatedMinutes: 50
 
 ## Приклади
 
-- **Even though** I'd set two alarms, I overslept. — Хоча я поставив два будильники, я проспав.
+- **Even though** I'd set two alarms, I overslept. — Хоча я поставив два будильники, я все одно проспав.
 - **In spite of** the bad reviews, the film was a huge success. — Попри погані відгуки, фільм мав величезний успіх.
 - My sister is an early bird, **whereas** I'm a night owl. — Моя сестра — жайворонок, а я — сова.
 - The company lost its biggest client. **Consequently**, twenty people lost their jobs. — Компанія втратила найбільшого клієнта. Як наслідок, двадцять людей утратили роботу.
@@ -215,7 +215,7 @@ estimatedMinutes: 50
 
 > [!word] nevertheless
 > ipa: /ˌnev.ə.ðəˈles/ · ipa-us: /ˌnev.ɚ.ðəˈles/ · pos: adv · level: B2 · id: en-b2-linkers-w07
-> uk: проте, тим не менш
+> uk: проте, однак, все ж
 > example: The risks are high. **Nevertheless**, we have decided to go ahead. — Ризики високі. Проте ми вирішили продовжувати.
 > note: формальніше й сильніше за however; одне слово.
 
@@ -260,7 +260,7 @@ estimatedMinutes: 50
 > [!word] for this reason
 > ipa: /fə ðɪs ˈriː.zən/ · ipa-us: /fɚ ðɪs ˈriː.zən/ · pos: phrase · level: B2 · id: en-b2-linkers-w14
 > uk: з цієї причини, тому
-> example: Many students work part-time. **For this reason**, lectures are recorded. — Багато студентів працюють. Тому лекції записують.
+> example: Many students work part-time. **For this reason**, lectures are recorded. — Багато студентів підробляють. Тому лекції записують.
 > note: звʼязує з попереднім реченням; корисне в есе замість чергового therefore.
 
 > [!word] consequently
@@ -354,7 +354,7 @@ estimatedMinutes: 50
 > [!word] to sum up
 > ipa: /tə sʌm ˈʌp/ · pos: phrase · level: B2 · id: en-b2-linkers-w29
 > uk: підсумовуючи, отже
-> example: **To sum up**, the benefits of the scheme clearly outweigh the costs. — Підсумовуючи, переваги програми явно переважають витрати.
+> example: **To sum up**, the benefits of the scheme clearly outweigh the costs. — Отже, переваги програми явно переважають витрати.
 > note: синонім in conclusion; у висновку есе нових аргументів не додають.
 
 > [!word] cohesion
@@ -374,7 +374,7 @@ estimatedMinutes: 50
 >
 > **Пояснення:** *despite* — «попри»: матч **відбувся** (*went ahead*). *Called off* — «скасували», протилежний зміст.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-linkers-l02
 > audio: Although she was exhausted, she kept working until midnight.
 
@@ -414,7 +414,7 @@ estimatedMinutes: 50
 > text: Although it was expensive, it was worth it.
 > ipa: /ɔːlˈðəʊ ɪt wəz ɪkˈspen.sɪv ɪt wəz ˈwɜːθ ɪt/
 > tip: although — /ð/ дзвінке, наголос на другому складі [ол-ДЗОУ]; worth — /ɜː/ і глухе /θ/ в кінці.
-> uk: Хоча це було дорого, воно того варте.
+> uk: Хоча це було дорого, воно було того варте.
 
 > [!speak] Скажи вголос
 > level: B2 · id: en-b2-linkers-s03
@@ -598,7 +598,7 @@ estimatedMinutes: 50
 > - [x] No
 > - [ ] Not Given
 >
-> **Пояснення:** Yes / No / Not Given перевіряє **думку автора**. Автор пише *the evidence is far from clear* — доказів **немає** чітких. Твердження протилежне → **No**. Зверни увагу на *however*: після нього — власна позиція автора, а до нього — чужа (*Supporters claim*).
+> **Пояснення:** Yes / No / Not Given перевіряє **думку автора**. Автор пише *the evidence is far from clear* — чітких доказів **немає**. Твердження протилежне → **No**. Зверни увагу на *however*: після нього — власна позиція автора, а до нього — чужа (*Supporters claim*).
 
 > [!quiz] IELTS Reading · Yes / No / Not Given: «Remote teams should meet face to face regularly.»
 > level: B2 · tags: ielts · id: en-b2-linkers-q17

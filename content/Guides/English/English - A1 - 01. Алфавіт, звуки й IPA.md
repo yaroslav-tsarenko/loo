@@ -37,7 +37,7 @@ estimatedMinutes: 40
 
 - **одна літера — кілька звуків:** *a* звучить як /æ/ у *cat*, /eɪ/ у *name*, /ɑː/ у *car*, /ə/ в *about*;
 - **один звук — кілька написань:** /iː/ у *see*, *sea*, *key*, *piece*;
-- **є німі літери:** *k* у *know*, *w* у *write*, *gh* у *night*.
+- **є літери, які не читаються:** *k* у *know*, *w* у *write*, *gh* у *night*.
 
 Висновок простий і дуже практичний: **кожне нове слово вчи разом із вимовою.** У картках цього курсу поруч зі словом завжди стоїть транскрипція — запис звуків міжнародним фонетичним алфавітом **IPA** (International Phonetic Alphabet).
 
@@ -95,15 +95,15 @@ estimatedMinutes: 40
 
 Приклад розмови:
 
-> *A: What's your surname?* — Яке ваше прізвище?
+> *A: What's your surname?* — Як ваше прізвище?
 > *B: Shevchuk.* — Шевчук.
-> *A: Sorry, can you spell that, please?* — Перепрошую, продиктуйте, будь ласка.
+> *A: Sorry, can you spell that, please?* — Перепрошую, можете продиктувати по літерах?
 > *B: S-H-E-V-C-H-U-K.* — ес, ейч, і, ві, сі, ейч, ю, кей.
 > *A: Thank you.* — Дякую.
 
 ### Як читати транскрипцію
 
-Транскрипцію пишуть між косими рисками: *cat* /kæt/. Кожен символ — **один звук**, тому /kæt/ — це три звуки, хоча й «к» пишеться тут як *c*.
+Транскрипцію пишуть між косими рисками: *cat* /kæt/. Кожен символ — **один звук**, тому /kæt/ — це три звуки, хоча «к» тут пишеться літерою *c*.
 
 | Знак | Що означає | Приклад |
 |---|---|---|
@@ -128,9 +128,9 @@ estimatedMinutes: 40
 >   - { from: stress, to: long }
 >   - { from: long, to: schwa }
 > steps:
->   - { focus: word, note: "Бачимо слово water. За літерами хочеться сказати «ватер» — але літери тут поганий порадник." }
+>   - { focus: word, note: "Бачимо слово water. За літерами хочеться сказати «ватер» — але літери тут — поганий порадник." }
 >   - { move: { from: word, to: ipa, value: "/ˈwɔːtə/" }, note: "Дивимося на транскрипцію: тут записано звуки, а не літери." }
->   - { focus: stress, note: "Риска ˈ стоїть перед першим складом — отже наголос на WA. Він гучніший і довший." }
+>   - { focus: stress, note: "Риска ˈ стоїть перед першим складом — отже, наголос на WA. Він гучніший і довший." }
 >   - { focus: long, note: "Двокрапка ː після ɔ — звук довгий: «во-о». Літера a тут читається як довге «о»!" }
 >   - { focus: schwa, note: "Кінець -ter — це /tə/: коротко, ненапружено. Британці r у кінці не вимовляють." }
 >   - { set: { ipa: "US: /ˈwɑːtər/" }, focus: ipa, note: "Американці кажуть інакше: /ˈwɑːtər/ — з «а» і з r у кінці. У картках це поле ipa-us." }
@@ -156,9 +156,9 @@ estimatedMinutes: 40
 | /ʊ/ | *book* /bʊk/ | коротке розслаблене «у» |
 | /uː/ | *food* /fuːd/ | «у», довге |
 | /ɜː/ | *bird* /bɜːd/ · US /bɝːd/ | **немає** — середина рота, губи не округлюються |
-| /ə/ | *about* /əˈbaʊt/ | **немає** як окремого звука — слабкий «ненаголошений» звук |
+| /ə/ | *about* /əˈbaʊt/ | **немає** як окремого звуку — слабкий «ненаголошений» звук |
 
-**Дифтонги** (ковзання з одного звука в інший, один склад): /eɪ/ *day*, /aɪ/ *my*, /ɔɪ/ *boy*, /aʊ/ *now*, /əʊ/ *go* (US /oʊ/), /ɪə/ *near* (US /ɪr/), /eə/ *hair* (US /er/), /ʊə/ *tour* (US /ʊr/).
+**Дифтонги** (ковзання з одного звуку в інший, один склад): /eɪ/ *day*, /aɪ/ *my*, /ɔɪ/ *boy*, /aʊ/ *now*, /əʊ/ *go* (US /oʊ/), /ɪə/ *near* (US /ɪr/), /eə/ *hair* (US /er/), /ʊə/ *tour* (US /ʊr/).
 
 **Приголосні:**
 
@@ -187,15 +187,15 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *Can you spell your name, please?* — Можете продиктувати своє імʼя?
+- *Can you spell your name, please?* — Можете, будь ласка, продиктувати своє імʼя по літерах?
 - *My name is Oksana. O-K-S-A-N-A.* — Мене звати Оксана. О-К-С-А-Н-А.
 - *Is that with one S or double S?* — Це з однією S чи з двома?
 - *My email is oksana dot m at gmail dot com.* — Мій email — oksana.m@gmail.com.
 - *How do you pronounce this word?* — Як вимовляється це слово?
 - *What does "spell" mean?* — Що означає «spell»?
-- *The word "know" has a silent K.* — У слові «know» німа K.
+- *The word "know" has a silent K.* — У слові know літера K не читається.
 - *English has 26 letters but about 44 sounds.* — В англійській 26 літер, але близько 44 звуків.
-- *Can you say that more slowly, please?* — Можете сказати це повільніше?
+- *Can you say that more slowly, please?* — Можете сказати це повільніше, будь ласка?
 - *Write it with a capital letter.* — Напиши це з великої літери.
 
 ## Слова
@@ -214,7 +214,7 @@ estimatedMinutes: 40
 > [!word] sound
 > ipa: /saʊnd/ · pos: noun · level: A1 · id: en-a1-alphabet-w03
 > uk: звук
-> example: This **sound** is not in Ukrainian. — Цього звука немає в українській.
+> example: This **sound** is not in Ukrainian. — Цього звуку немає в українській.
 
 > [!word] word
 > ipa: /wɜːd/ · ipa-us: /wɝːd/ · pos: noun · level: A1 · id: en-a1-alphabet-w04
@@ -312,11 +312,11 @@ estimatedMinutes: 40
 > - [x] olena.k@gmail.com
 > - [ ] olenak@gmail.co
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-alphabet-l07
 > audio: Can you spell that, please?
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: en-a1-alphabet-l08
 > audio: How do you pronounce this word?
 
@@ -334,7 +334,7 @@ estimatedMinutes: 40
 > [!pair] E /iː/ — I /aɪ/
 > level: A1 · id: en-a1-alphabet-p02
 > say: I
-> tip: E — це «і-і», I — «ай». Саме навпаки до того, що підказує українське читання.
+> tip: E — це «і-і», I — «ай». Саме навпаки, ніж підказує українське читання.
 
 > [!pair] A /eɪ/ — R /ɑː/
 > level: A1 · id: en-a1-alphabet-p03
@@ -370,19 +370,19 @@ estimatedMinutes: 40
 > level: A1 · id: en-a1-alphabet-s04
 > text: The English alphabet has twenty-six letters.
 > ipa: /ði ˈɪŋɡlɪʃ ˈælfəbet hæz ˌtwenti ˈsɪks ˈletəz/
-> tip: alphabet — наголос на перший склад: AL-pha-bet. Перед голосним the звучить /ði/.
+> tip: alphabet — наголос на першому складі: AL-pha-bet. Перед голосним the звучить /ði/.
 
 > [!speak] Продиктуй email
 > level: A1 · id: en-a1-alphabet-s05
 > text: My email is anna at gmail dot com.
 > ipa: /maɪ ˈiːmeɪl ɪz ˈænə ət ˈdʒiːmeɪl dɒt kɒm/
-> tip: email — «І-мейл», наголос на перший склад. Gmail починається з літери G — /dʒiː/.
+> tip: email — «І-мейл», наголос на першому складі. Gmail починається з літери G — /dʒiː/.
 
-> [!speak] Скажи, що слово пишеться з великої
+> [!speak] Скажи, що слово пишеться з великої літери
 > level: A1 · id: en-a1-alphabet-s06
 > text: Write it with a capital letter.
 > ipa: /raɪt ɪt wɪð ə ˌkæpɪtəl ˈletə/
-> tip: у write літера w німа — просто «райт». /æ/ у capital: рот широко відкритий.
+> tip: у write літера w не читається — просто «райт». /æ/ у capital: рот широко відкритий.
 
 ## Типові помилки українців
 
@@ -393,7 +393,7 @@ estimatedMinutes: 40
 > Символи IPA схожі на латиницю, але це **звуки**, не літери. /e/ — це «е», а не «є»; /ɪ/ — це «и», а не «і»; /j/ — це «й», а не «дж». І не пропускай знак **ː**: /ʃɪp/ і /ʃiːp/ — це різні слова (*ship* «корабель» і *sheep* «вівця»).
 
 > [!pitfall] Вимовляти /h/ як «г», а /ɡ/ — як «г»
-> Українське «г» дзвінке й «гортанне», англійського такого звука немає. /h/ — це **лише видих**, як коли грієш руки: *hello*, *house*. А літера *g* звучить як **«ґ»** (як у «ґанок»): *go* /ɡəʊ/, *get* /ɡet/. «Галоу» замість *hello* і «гоу» замість *go* — дві протилежні помилки, обидві дуже помітні.
+> Українське «г» дзвінке й «гортанне», а в англійській такого звуку немає. /h/ — це **лише видих**, як коли грієш руки: *hello*, *house*. А літера *g* звучить як **«ґ»** (як у «ґанок»): *go* /ɡəʊ/, *get* /ɡet/. «Галоу» замість *hello* і «гоу» замість *go* — дві протилежні помилки, обидві дуже помітні.
 
 ## Практика
 
@@ -518,7 +518,7 @@ estimatedMinutes: 40
 
 - [Cambridge Dictionary](https://dictionary.cambridge.org/) — транскрипція UK і US та аудіо для кожного слова.
 - [Oxford Learner's Dictionaries](https://www.oxfordlearnersdictionaries.com/) — вимова UK / US, рівні слів за CEFR.
-- [BBC Learning English — The sounds of English](https://www.bbc.co.uk/learningenglish/english/features/pronunciation) — відео до кожного звука таблиці IPA.
+- [BBC Learning English — The sounds of English](https://www.bbc.co.uk/learningenglish/english/features/pronunciation) — відео до кожного звуку таблиці IPA.
 - [British Council — Phonemic chart](https://www.teachingenglish.org.uk/phonemic-chart) — інтерактивна таблиця звуків, натискаєш символ — чуєш звук.
 - A. Underhill — *Sound Foundations*: як «відчути» кожен звук ротом.
 - J. C. Wells — *Longman Pronunciation Dictionary*: британська й американська вимова, варіанти.

@@ -148,6 +148,13 @@
 /* ── Dictation ────────────────────────────────────────────────────────────────── */
 .lang-dictation { display: grid; gap: var(--lu-s-2); inline-size: 100%; }
 .lang-dictation-input { inline-size: 100%; resize: vertical; min-block-size: 3.2em; font-size: var(--lu-fs-lg); }
+/* type it or say it: the mic sits beside the field (kids at A1 answer by voice) */
+.lang-dictation-row { display: flex; align-items: center; gap: var(--lu-s-3); }
+.lang-dictation-row .lang-dictation-input { flex: 1; min-inline-size: 0; }
+.lang-mic.lang-mic-sm { flex: none; inline-size: 56px; block-size: 56px; font-size: 26px; box-shadow: 0 4px 0 var(--lu-mint-lip), 0 0 0 0 transparent; }
+.lang-mic.lang-mic-sm[data-on] { box-shadow: 0 4px 0 var(--lu-red-lip); animation: lang-mic-pulse 1.1s ease-in-out infinite; }
+.lang-dictation-status { margin: 0; color: var(--lu-text-2); font-size: var(--lu-fs-sm); }
+@keyframes lang-mic-pulse { 50% { transform: scale(1.06); } }
 .lang-diff { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; font-size: var(--lu-fs-lg); }
 .lang-diff-word { padding: 0 4px; border-radius: var(--lu-r-xs); background: var(--lu-red-soft); color: var(--lu-red-ink); text-decoration: underline wavy; text-underline-offset: 4px; }
 .lang-diff-word[data-ok] { background: var(--lu-green-soft); color: var(--lu-green-ink); text-decoration: none; }
@@ -216,6 +223,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lang-audio[data-phase='playing'] .lang-audio-play { animation: none; }
   .lang-mic { transition: none; }
+  .lang-mic.lang-mic-sm[data-on] { animation: none; }
 }
 
 /* placement: manual level choice of language courses */

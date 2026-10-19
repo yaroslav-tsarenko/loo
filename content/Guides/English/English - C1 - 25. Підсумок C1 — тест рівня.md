@@ -139,7 +139,7 @@ estimatedMinutes: 100
 | дистанціювання | минулий / тривалий час, would, could | *I **was wondering if** you **could**…* | 08 |
 | безособова обережність | It would appear / seem that… | ***It would appear that** the order was lost.* | 08 |
 | hedging | tend to · arguably · to some extent · suggest < indicate < show < prove | *The data **suggest** a link.* | 09 |
-| контрастивний наголос | удар на протиставлене слово | *I didn't say **HE** stole it.* | 10 |
+| контрастивний наголос | наголос на протиставленому слові | *I didn't say **HE** stole it.* | 10 |
 | fall-rise | ↘↗ — «так, але…», застереження | *The food was **good**… (але сервіс — ні)* | 10 |
 | регістр | фразове ↔ латинізм | *find out ↔ ascertain · put up with ↔ tolerate* | 19 |
 
@@ -210,14 +210,14 @@ estimatedMinutes: 100
 >
 > **Пояснення:** *Not until… did…* і *Only then did…* — інверсія в головному реченні: «лише тоді, не раніше». Новини й офіційні заяви люблять цю конструкцію. (тема 01)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-review-l03
 > audio: Had I known about the delay, I'd have taken the train.
 > accept: Had I known about the delay, I would have taken the train.
 >
 > **Пояснення:** *Had I known* — умова без *if*; *I'd have* звучить як /aɪdəv/, тому на слух легко сплутати з *I'd*. Після *would have* — завжди V3: *taken*. (тема 04)
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · id: en-c1-review-l04
 > audio: What we need is a far more realistic timeline.
 >
@@ -240,7 +240,7 @@ estimatedMinutes: 100
 > - [x] ввічливо, але чітко сумнівається — фактично відхиляє зараз
 > - [ ] не зрозуміла пропозиції
 >
-> **Пояснення:** дипломатична модель: визнання зусиль → *interesting* (у робочому контексті часто «не переконало») → помʼякшене заперечення *I'm just not sure… quite*. М'яка рамка, чітке ядро. (теми 08, 16)
+> **Пояснення:** дипломатична модель: визнання зусиль → *interesting* (у робочому контексті часто «не переконало») → помʼякшене заперечення *I'm just not sure… quite*. Мʼяка рамка, чітке ядро. (теми 08, 16)
 
 > [!listen] Що мовець каже про слайди?
 > level: C1 · type: answer · lang: en-GB · id: en-c1-review-l07
@@ -257,13 +257,13 @@ estimatedMinutes: 100
 
 | Що | Перевір себе | Тема |
 |---|---|---|
-| тонічний склад — на новому | *Where did you **LOSE** them?* — *them* відоме, без удару | 10 |
+| тонічний склад — на новому | *Where did you **LOSE** them?* — *them* відоме, без наголосу | 10 |
 | контрастивний наголос | *I didn't say **HE** stole it* ≠ *I didn't say he **STOLE** it* | 10 |
 | fall-rise ↘↗ | застереження, «так, але…»: *It's **possible**…* | 10 |
 | rise-fall ↗↘ | сильна емоція або сарказм: *Oh, **wonderful**.* | 10 |
 | tag-питання | ↘ «погодься» · ↗ справжнє питання: *It's late, **isn't it**?* | 10 |
-| UK ↔ US | r після голосного, flap (*water* — «вотер» / «ва-дер»), /ɑː/ ↔ /æ/ у *can't, half* | 11 |
-| фразові іменники | удар на першій частині: ***DOWN**turn, **BACK**lash, **TRADE**-off* | 14 |
+| UK ↔ US | r після голосного, flap (*water*: UK /ˈwɔːtə/, US /ˈwɑːt̬ɚ/), /ɑː/ ↔ /æ/ у *can't, half* | 11 |
+| фразові іменники | наголос на першій частині: ***DOWN**turn, **BACK**lash, **TRADE**-off* | 14 |
 | родини слів AWL | наголос зсувається: *ANalyse → aNALysis → anaLYTical* | 15 |
 | слабкі форми в інверсії | *Had I known* — /hæd aɪ ˈnəʊn/, *have* у *I'd have* — /əv/ | 04 |
 
@@ -272,17 +272,17 @@ estimatedMinutes: 100
 > [!pair] a downturn /ə ˈdaʊntɜːn/ — turn down /ˌtɜːn ˈdaʊn/
 > level: C1 · id: en-c1-review-p01
 > say: a downturn
-> tip: фразовий іменник — удар на першій частині: DOWNturn (спад). Фразове дієслово — на частці: turn DOWN (відхилити). (тема 14)
+> tip: у фразовому іменнику наголос на першій частині: DOWNturn (спад). Фразове дієслово — на частці: turn DOWN (відхилити). (тема 14)
 
 > [!pair] a setback /ə ˈsetbæk/ — set back /ˌset ˈbæk/
 > level: C1 · id: en-c1-review-p02
 > say: set back
-> tip: *a SETback* — невдача, затримка; *set BACK* — відкинути назад, затримати. Те саме правило: іменник — удар на початку. (тема 14)
+> tip: *a SETback* — невдача, затримка; *set BACK* — відкинути назад, затримати. Те саме правило: в іменнику наголос на початку. (тема 14)
 
 > [!pair] thirteen /ˌθɜːˈtiːn/ — thirty /ˈθɜːti/
 > level: C1 · id: en-c1-review-p03
 > say: thirty
-> tip: -teen довге й наголошене /tiːn/, -ty коротке /ti/. В американській вимові *thirty* часто з flap: «ТЕР-ді». Коли виправляєш співрозмовника — *thirTEEN, not THIRty*. (теми 10, 11)
+> tip: -teen довге й наголошене /tiːn/, -ty коротке /ti/. В американській вимові *thirty* часто з flap: /ˈθɝːt̬i/. Коли виправляєш співрозмовника — *thirTEEN, not THIRty*. (теми 10, 11)
 
 > [!pair] Had I known /ˌhæd aɪ ˈnəʊn/ — I'd known /aɪd ˈnəʊn/
 > level: C1 · id: en-c1-review-p04
@@ -300,15 +300,15 @@ estimatedMinutes: 100
 > level: C1 · id: en-c1-review-s01
 > text: Not only did the plan fail, but it also cost us a fortune.
 > ipa: /nɒt ˈəʊnli dɪd ðə ˈplæn ˈfeɪl | bət ɪt ˈɔːlsəʊ ˈkɒst əs ə ˈfɔːtʃuːn/
-> tip: удари на *NOT ONly* і *FAIL*; пауза перед *but*. *Did* тут слабке, головне — дієслово *fail*.
+> tip: наголоси на *NOT ONly* і *FAIL*; пауза перед *but*. *Did* тут слабке, головне — дієслово *fail*.
 > uk: План не лише провалився, а й коштував нам цілого статку.
 
 > [!speak] Cleft-речення: головне — в кінці
 > level: C1 · id: en-c1-review-s02
 > text: What really matters is not the cost but the timing.
 > ipa: /wɒt ˈrɪəli ˈmætəz ɪz ˈnɒt ðə ˈkɒst | bət ðə ˈtaɪmɪŋ/
-> tip: контраст *COST* ↔ *TIMing* — обидва з ударом, на *timing* — падіння тону. *Is* — слабке /ɪz/.
-> uk: Насправді важить не вартість, а час.
+> tip: контраст *COST* ↔ *TIMing* — обидва наголошені, на *timing* — падіння тону. *Is* — слабке /ɪz/.
+> uk: Насправді важлива не вартість, а вибір моменту.
 
 > [!speak] Обережний висновок
 > level: C1 · id: en-c1-review-s03
@@ -336,7 +336,7 @@ estimatedMinutes: 100
 > level: C1 · id: en-c1-review-s06
 > text: That brings me to my final point.
 > ipa: /ðæt ˈbrɪŋz mi tə maɪ ˈfaɪnl ˈpɔɪnt/
-> tip: сигнальна фраза — повільніше й чіткіше за решту; удари *BRINGS*, *FInal*, *POINT*, пауза перед наступним реченням.
+> tip: сигнальна фраза — повільніше й чіткіше за решту; наголоси на *BRINGS*, *FInal*, *POINT*, пауза перед наступним реченням.
 > uk: І це підводить мене до останнього пункту.
 
 ## Типові помилки українців
@@ -733,7 +733,7 @@ estimatedMinutes: 100
 > - [ ] однаково на обох
 > - [ ] залежить від регіону
 >
-> **Пояснення:** фразові іменники й складні слова мають удар на першій частині: *BACKlash, DOWNturn, SETback, TURNout*. (тема 14)
+> **Пояснення:** у фразових іменниках і складних словах наголос падає на першу частину: *BACKlash, DOWNturn, SETback, TURNout*. (тема 14)
 
 > [!quiz] The new rules will ___ thousands of drivers.
 > level: C1 · id: en-c1-review-q41
@@ -780,7 +780,7 @@ estimatedMinutes: 100
 > New evidence has cast [[doubt]] on the official version.
 > ```
 >
-> **Пояснення:** *bear the brunt of* — зазнати найбільшого удару; *strike a balance between* — знайти баланс; *cast doubt on* — поставити під сумнів (але *shed **light** on* — пролити світло). (тема 18)
+> **Пояснення:** *bear the brunt of* — прийняти на себе основний удар; *strike a balance between* — знайти баланс; *cast doubt on* — поставити під сумнів (але *shed **light** on* — пролити світло). (тема 18)
 
 > [!quiz] I'm ___ aware of the risks, but I still want to try.
 > level: C1 · id: en-c1-review-q46
@@ -864,7 +864,7 @@ estimatedMinutes: 100
 > - [ ] Cheers,
 > - [ ] Best wishes from,
 >
-> **Пояснення:** ім'я адресата невідоме → *Yours faithfully*; відоме (*Dear Ms Smith*) → *Yours sincerely*. В американському листуванні частіше просто *Sincerely*. (тема 21)
+> **Пояснення:** імʼя адресата невідоме → *Yours faithfully*; відоме (*Dear Ms Smith*) → *Yours sincerely*. В американському листуванні частіше просто *Sincerely*. (тема 21)
 
 > [!quiz] Який пункт CV найсильніший?
 > level: C1 · id: en-c1-review-q55
@@ -982,7 +982,7 @@ estimatedMinutes: 100
 > - [x] з конкретного прикладу — пекарні, що скоротила години
 > - [ ] з історії робочого тижня
 >
-> **Пояснення:** *I'd rather not, actually* — м'яка незгода; *What grabs people is…* — cleft виносить аргумент. Перша пропозиція (*survey results*) — дистрактор: опитування буде, але пізніше. (теми 02, 12)
+> **Пояснення:** *I'd rather not, actually* — мʼяка незгода; *What grabs people is…* — cleft виносить аргумент. Перша пропозиція (*survey results*) — дистрактор: опитування буде, але пізніше. (теми 02, 12)
 
 > [!listen] Що Josh думає про опитування?
 > level: C1 · type: answer · lang: en-GB · id: en-c1-review-l09
@@ -1122,7 +1122,7 @@ estimatedMinutes: 100
 > - [ ] щоб закликати висаджувати дерева в бідних районах
 > - [ ] щоб показати, що дослідження були нечесними
 >
-> **Пояснення:** доход — прихована третя змінна: кращий добробут може бути наслідком грошей, а не дерев. Питання про мету автора: не «що сказано», а «навіщо». Заклик про бідні райони — у E, не в C. (теми 12, 22)
+> **Пояснення:** дохід — прихована третя змінна: кращий добробут може бути наслідком грошей, а не дерев. Питання про мету автора: не «що сказано», а «навіщо». Заклик про бідні райони — у E, не в C. (теми 12, 22)
 
 > [!quiz] IELTS Summary completion: NO MORE THAN TWO WORDS з тексту
 > level: C1 · type: fill · id: en-c1-review-q71 · bank: income, guesswork, canopy
@@ -1229,7 +1229,7 @@ estimatedMinutes: 100
 > level: C1 · id: en-c1-review-s07
 > text: I'd like to talk about a decision I was initially reluctant to make, but which turned out to be one of the best I've ever made.
 > ipa: /aɪd ˈlaɪk tə ˈtɔːk əˈbaʊt ə dɪˈsɪʒn aɪ wəz ɪˈnɪʃəli rɪˈlʌktənt tə ˈmeɪk | bət wɪtʃ ˌtɜːnd ˈaʊt tə bi ˈwʌn əv ðə ˈbest aɪv ˈevə ˈmeɪd/
-> tip: *initially* — наголос на другому складі: /ɪˈnɪʃəli/; *turned out to be* — звʼязуй: «тьорнд-аут-те-бі». Пауза перед *but which*.
+> tip: *initially* — наголос на другому складі: /ɪˈnɪʃəli/; *turned out to be* — вимовляй злито: /ˌtɜːnd ˈaʊt tə bi/. Пауза перед *but which*.
 > uk: Я хотів би розповісти про рішення, яке спершу не хотів ухвалювати, але яке виявилося одним із найкращих у моєму житті.
 
 **Part 3 — дискусія** (відповідай 4–6 реченнями: пряма відповідь → причина → приклад → інший бік або умова):
@@ -1242,7 +1242,7 @@ estimatedMinutes: 100
 > level: C1 · id: en-c1-review-s08
 > text: It's hard to generalise, but I'd say people tend to overestimate the risks of change and underestimate the cost of standing still.
 > ipa: /ɪts ˈhɑːd tə ˈdʒenrəlaɪz | bət aɪd ˈseɪ ˈpiːpl tend tu ˌəʊvərˈestɪmeɪt ðə ˈrɪsks əv ˈtʃeɪndʒ | ənd ˌʌndərˈestɪmeɪt ðə ˈkɒst əv ˈstændɪŋ ˈstɪl/
-> tip: контраст *OVERestimate* ↔ *UNDERestimate* — удари на префіксах саме тому, що їх протиставлено. *Tend to* — /tend tu/ перед голосним.
+> tip: контраст *OVERestimate* ↔ *UNDERestimate* — наголоси на префіксах саме тому, що їх протиставлено. *Tend to* — /tend tu/ перед голосним.
 > uk: Важко узагальнювати, але я б сказав, що люди схильні переоцінювати ризики змін і недооцінювати ціну бездіяльності.
 
 > [!tip] Твоя черга — і критерії Speaking на 7–8

@@ -253,7 +253,7 @@ estimatedMinutes: 45
 > ipa: /ɪnˈtjuːɪtɪv/ · ipa-us: /ɪnˈtuːət̬ɪv/ · pos: adj · level: B2 · id: en-b2-science-w22
 > uk: інтуїтивно зрозумілий; інтуїтивний
 > example: The app is so **intuitive** that my grandmother uses it without help. — Застосунок такий зрозумілий, що бабуся користується ним без допомоги.
-> note: нейтральне. Про інтерфейс — *intuitive / user-friendly*; про людину — *an intuitive person* (той, хто відчуває інтуїтивно).
+> note: нейтральне. Про інтерфейс — *intuitive / user-friendly*; про людину — *an intuitive person* (людина з розвиненою інтуїцією).
 
 > [!word] cybersecurity
 > ipa: /ˌsaɪbəsɪˈkjʊərəti/ · ipa-us: /ˌsaɪbərsɪˈkjʊrət̬i/ · pos: noun · level: B2 · id: en-b2-science-w23
@@ -271,7 +271,7 @@ estimatedMinutes: 45
 > ipa: /drəʊn/ · ipa-us: /droʊn/ · pos: noun · level: B2 · id: en-b2-science-w25
 > uk: дрон; безпілотник
 > example: Farmers use **drones** to check their fields. — Фермери використовують дрони, щоб оглядати поля.
-> note: нейтральне. Дієслово-фраза *fly a drone* — керувати дроном.
+> note: нейтральне. Колокація *fly a drone* — керувати дроном.
 
 > [!word] wearable
 > ipa: /ˈweərəbəl/ · ipa-us: /ˈwerəbəl/ · pos: adj · level: B2 · id: en-b2-science-w26
@@ -302,7 +302,7 @@ estimatedMinutes: 45
 > [!word] space exploration
 > ipa: /ˈspeɪs ˌekspləˈreɪʃən/ · pos: noun · level: B2 · id: en-b2-science-w30
 > uk: дослідження космосу
-> example: **Space exploration** is extremely expensive. — Дослідження космосу надзвичайно дороге.
+> example: **Space exploration** is extremely expensive. — Дослідження космосу коштує надзвичайно дорого.
 > note: нейтральне. Космос — *space* без артикля: *go into space*, а не «to the cosmos».
 
 > [!word] spacecraft
@@ -327,7 +327,7 @@ estimatedMinutes: 45
 > [!word] astronaut
 > ipa: /ˈæstrənɔːt/ · ipa-us: /ˈæstrənɑːt/ · pos: noun · level: B2 · id: en-b2-science-w34
 > uk: астронавт; космонавт
-> example: Leonid Kadeniuk was the first **astronaut** of independent Ukraine. — Леонід Каденюк був першим астронавтом незалежної України.
+> example: Leonid Kadeniuk was the first **astronaut** of independent Ukraine. — Леонід Каденюк був першим космонавтом незалежної України.
 > note: нейтральне. Англійською будь-який космонавт — *astronaut*; *cosmonaut* — лише про радянських і російських.
 
 > [!word] colonise
@@ -347,7 +347,7 @@ estimatedMinutes: 45
 > [!word] genetic engineering
 > ipa: /dʒəˌnetɪk ˌendʒɪˈnɪərɪŋ/ · ipa-us: /dʒəˌnet̬ɪk ˌendʒɪˈnɪrɪŋ/ · pos: noun · level: B2 · id: en-b2-science-w37
 > uk: генна інженерія
-> example: **Genetic engineering** could help us grow crops that survive drought. — Генна інженерія може допомогти вирощувати культури, які переживають посуху.
+> example: **Genetic engineering** could help us grow crops that survive drought. — Генна інженерія може допомогти вирощувати посухостійкі культури.
 > note: нейтральне. *genetically modified (GM) food* — ГМ-продукти.
 
 > [!word] vaccine
@@ -433,7 +433,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *not yet* — «ще не». У природному мовленні *have not* часто звучить як *haven't* — слухай заперечення уважно, воно змінює весь зміст.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-science-l03
 > audio: Artificial intelligence could make some jobs obsolete.
 
@@ -458,7 +458,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *repeat the experiment with a much bigger group* — повторити на більшій групі. Пропозицію змінити гіпотезу вона відкидає: *Not yet*.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: B2 · type: dictation · id: en-b2-science-l06
 > audio: In the foreseeable future, robots will not replace doctors.
 
@@ -482,14 +482,14 @@ estimatedMinutes: 45
 > level: B2 · id: en-b2-science-s01
 > text: The findings suggest that the hypothesis was wrong.
 > ipa: /ðə ˈfaɪndɪŋz səˈdʒest ðət ðə haɪˈpɒθəsɪs wəz ˈrɒŋ/
-> tip: hypothesis — [хай-ПО-те-сіс] з /θ/; suggest — UK [се-ДЖЕСТ]; wrong — *w* німа.
+> tip: hypothesis — [хай-ПО-те-сіс] з /θ/; suggest — UK [се-ДЖЕСТ]; wrong — літера *w* не читається.
 > uk: Результати свідчать, що гіпотеза була хибною.
 
 > [!speak] Скажи вголос (UK)
 > level: B2 · id: en-b2-science-s02
 > text: I spent the whole summer working in a laboratory.
 > ipa: /aɪ ˈspent ðə ˈhəʊl ˈsʌmə ˈwɜːkɪŋ ɪn ə ləˈbɒrətri/
-> tip: laboratory — UK [ле-БО-ре-трі] (4 склади), US [ЛЕ-бре-то-рі]; whole — *w* німа: [хоул].
+> tip: laboratory — UK [ле-БО-ре-трі] (4 склади), US [ЛЕ-бре-то-рі]; whole — літера *w* не читається: [хоул].
 > uk: Я все літо пропрацював у лабораторії.
 
 > [!speak] IELTS Speaking, Part 3 — «Will AI create more jobs than it destroys?»
@@ -497,7 +497,7 @@ estimatedMinutes: 45
 > text: Automation will replace some routine jobs, but it will also create new roles we can't imagine yet.
 > ipa: /ˌɔːtəˈmeɪʃən wɪl rɪˈpleɪs səm ruːˈtiːn ˈdʒɒbz bət ɪt wɪl ˈɔːlsəʊ kriˈeɪt ˈnjuː ˈrəʊlz wi ˈkɑːnt ɪˈmædʒɪn ˈjet/
 > tip: Баланс «мінус + плюс» через *but… also* — сильна відповідь. routine — наголос на другому: [ру-ТІН]; roles — [роулз].
-> uk: Автоматизація замінить деякі рутинні професії, але й створить нові ролі, яких ми ще не можемо уявити.
+> uk: Автоматизація замінить деякі рутинні професії, але водночас створить нові, яких ми ще й уявити не можемо.
 
 > [!speak] IELTS Speaking, Part 3 — «Should governments spend money on space exploration?»
 > level: B2 · id: en-b2-science-s04

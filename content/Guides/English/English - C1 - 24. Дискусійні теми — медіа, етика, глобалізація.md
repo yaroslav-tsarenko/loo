@@ -82,7 +82,7 @@ estimatedMinutes: 65
 
 ### Глобалізація: виграші, втрати й компроміси
 
-- **Економіка.** *Free trade* і *protectionism* (*tariffs*), *offshoring* виробництва, *supply chains*, що розтягнулися на пів світу (і рвуться в кризи), *emerging economies*.
+- **Економіка.** *Free trade* і *protectionism* (*tariffs*), *offshoring* виробництва, *supply chains*, що розтягнулися на пів світу (і рвуться під час криз), *emerging economies*.
 - **Праця.** *Sweatshops*, *living wage*, *race to the bottom* (країни конкурують дешевою працею й слабким регулюванням), *fair trade*, *brain drain*.
 - **Культура.** *Cultural homogenisation* (усюди ті самі бренди й серіали) vs нова видимість локальних культур; *soft power*; *global village*.
 - **Політика.** *Interdependence* — і стабільність, і вразливість; *a level playing field* для малих і великих гравців.
@@ -261,7 +261,7 @@ estimatedMinutes: 65
 > ipa: /ˈwɪsəlˌbləʊə/ · ipa-us: /ˈwɪsəlˌbloʊɚ/ · pos: noun · level: C1 · id: en-c1-issues-w14
 > uk: викривач (людина, що повідомляє про порушення в організації)
 > example: The scandal came to light thanks to a **whistleblower**. — Скандал викрили завдяки інформаторові зсередини компанії.
-> note: blow the whistle on something — викрити, «засвистіти».
+> note: blow the whistle on something — викрити щось (дослівно — «засвистіти», як арбітр).
 
 > [!word] invasion of privacy
 > ipa: /ɪnˌveɪʒən əv ˈprɪvəsi/ · ipa-us: /ɪnˌveɪʒən əv ˈpraɪvəsi/ · pos: noun · level: C1 · id: en-c1-issues-w15
@@ -343,7 +343,7 @@ estimatedMinutes: 65
 
 > [!word] play God
 > ipa: /ˌpleɪ ˈɡɒd/ · ipa-us: /ˌpleɪ ˈɡɑːd/ · pos: phrase · level: C1 · id: en-c1-issues-w29
-> uk: «гратися в Бога», брати на себе вирішувати те, що не належить людині
+> uk: «гратися в Бога» — брати на себе право вирішувати те, що людині не належить
 > example: Some people feel that cloning animals is **playing God**. — Дехто вважає, що клонувати тварин — це гратися в Бога.
 
 > [!word] the end justifies the means
@@ -439,7 +439,7 @@ estimatedMinutes: 65
 > [!word] fair trade
 > ipa: /ˌfeə ˈtreɪd/ · ipa-us: /ˌfer ˈtreɪd/ · pos: noun · level: C1 · id: en-c1-issues-w46
 > uk: справедлива торгівля (чесна ціна виробникам)
-> example: We only buy **fair trade** coffee. — Ми купуємо лише каву справедливої торгівлі.
+> example: We only buy **fair trade** coffee. — Ми купуємо лише каву з маркуванням fair trade.
 > note: Fairtrade (одним словом) — назва конкретної сертифікації.
 
 > [!word] soft power
@@ -519,7 +519,7 @@ estimatedMinutes: 65
 >
 > **Пояснення:** *That's a bit sweeping* — критика категоричності; *Fair enough* — визнання. Нова теза Mia вужча й захищеніша — саме так формулюють позицію в есе C1.
 
-> [!listen] Надрукуй почуте
+> [!listen] Напиши або скажи, що почув
 > level: C1 · type: dictation · lang: en-GB · id: en-c1-issues-l06
 > audio: Press freedom matters most precisely when the news is unwelcome.
 
@@ -532,7 +532,7 @@ estimatedMinutes: 65
 > text: Social media can easily turn into an echo chamber.
 > ipa: /ˌsəʊʃəl ˈmiːdiə kən ˈiːzəli ˌtɜːn ˌɪntʊ‿ən ˈekəʊ ˌtʃeɪmbə/
 > ipa-us: /ˌsoʊʃəl ˈmiːdiə kən ˈiːzəli ˌtɝːn ˌɪntʊ‿ən ˈekoʊ ˌtʃeɪmbɚ/
-> tip: ECHO chamber — удар на першому слові (складний іменник). media — «МІ-діе», не «медіа».
+> tip: ECHO chamber — наголос на першому слові (складний іменник). media — /ˈmiːdiə/, а не «медіа».
 > uk: Соцмережі легко перетворюються на ехо-камеру.
 
 > [!speak] Mis- і dis-
@@ -540,7 +540,7 @@ estimatedMinutes: 65
 > text: The difference between misinformation and disinformation is intent.
 > ipa: /ðə ˈdɪfrəns bɪˌtwiːn ˌmɪsɪnfəˈmeɪʃən ən ˌdɪsɪnfəˈmeɪʃən ɪz ɪnˈtent/
 > ipa-us: /ðə ˈdɪfrəns bɪˌtwiːn ˌmɪsɪnfɚˈmeɪʃən ən ˌdɪsɪnfɚˈmeɪʃən ɪz ɪnˈtent/
-> tip: контрастивний наголос на префіксах: MIS-information vs DIS-information. Головний удар у слові — -MA-.
+> tip: контрастивний наголос на префіксах: MIS-information vs DIS-information. Головний наголос у слові — на -MA-.
 > uk: Різниця між хибною інформацією й дезінформацією — у намірі.
 
 > [!speak] Де провести межу
@@ -548,7 +548,7 @@ estimatedMinutes: 65
 > text: Where exactly do we draw the line between privacy and security?
 > ipa: /weər‿ɪɡˈzæktli də wi ˌdrɔː ðə ˈlaɪn bɪˌtwiːn ˈprɪvəsi ən sɪˈkjʊərəti/
 > ipa-us: /wer‿ɪɡˈzæktli də wi ˌdrɑː ðə ˈlaɪn bɪˌtwiːn ˈpraɪvəsi ən sɪˈkjʊrət̬i/
-> tip: privacy: UK «ПРИ-ве-сі», US «ПРАЙ-ве-сі» — обидва правильні. seCUrity — удар на другому складі.
+> tip: privacy: UK /ˈprɪvəsi/, US /ˈpraɪvəsi/ — обидва варіанти правильні. seCUrity — наголос на другому складі.
 > uk: Де саме провести межу між приватністю й безпекою?
 
 > [!speak] Слизький схил
@@ -556,7 +556,7 @@ estimatedMinutes: 65
 > text: Critics warn that it could be the start of a slippery slope.
 > ipa: /ˈkrɪtɪks ˈwɔːn ðət‿ɪt kəd bi ðə ˈstɑːt‿əv‿ə ˌslɪpəri ˈsləʊp/
 > ipa-us: /ˈkrɪt̬ɪks ˈwɔːrn ðət‿ɪt kəd bi ðə ˈstɑːrt̬‿əv‿ə ˌslɪpəri ˈsloʊp/
-> tip: warn /wɔːn/ = як worn, не «варн». slippery — три склади, швидко: «СЛІ-пе-рі».
+> tip: warn /wɔːn/ = як worn, не «варн». slippery — три склади, швидко: /ˈslɪpəri/.
 > uk: Критики попереджають, що це може стати початком слизького схилу.
 
 > [!speak] Підзвітність
@@ -564,7 +564,7 @@ estimatedMinutes: 65
 > text: Who should be held accountable when an algorithm gets it wrong?
 > ipa: /ˈhuː ʃəd bi ˌheld əˈkaʊntəbəl wen‿ən ˈælɡərɪðəm ˌɡets‿ɪt ↘rɒŋ/
 > ipa-us: /ˈhuː ʃəd bi ˌheld əˈkaʊnt̬əbəl wen‿ən ˈælɡərɪðəm ˌɡets‿ɪt ↘rɔːŋ/
-> tip: acCOUNTable — удар на другому складі. ALgorithm — на першому, th = /ð/. wrong — w не вимовляй.
+> tip: acCOUNTable — наголос на другому складі. ALgorithm — на першому, th = /ð/. У wrong літера w не читається.
 > uk: Хто має відповідати, коли алгоритм помиляється?
 
 > [!speak] Баланс в одному реченні
@@ -572,7 +572,7 @@ estimatedMinutes: 65
 > text: Globalisation has lifted millions out of poverty, but the benefits haven't been shared equally.
 > ipa: /ˌɡləʊbəlaɪˈzeɪʃən həz ˌlɪftɪd ˈmɪljənz ˌaʊt‿əv ↘↗pɒvəti | bət ðə ˈbenɪfɪts ˌhævənt bɪn ˈʃeəd ↘iːkwəli/
 > ipa-us: /ˌɡloʊbələˈzeɪʃən həz ˌlɪftɪd ˈmɪljənz ˌaʊt‿əv ↘↗pɑːvɚt̬i | bət ðə ˈbenɪfɪts ˌhævənt bɪn ˈʃerd ↘iːkwəli/
-> tip: POVerty — fall-rise («так, але…»), EQUally — падіння. globaliSAtion — удар на -SA-.
+> tip: POVerty — fall-rise («так, але…»), EQUally — падіння. globaliSAtion — наголос на -SA-.
 > uk: Глобалізація вивела мільйони людей зі злиднів, але вигоди розподілено нерівно.
 
 > [!speak] Протекціонізм
@@ -580,7 +580,7 @@ estimatedMinutes: 65
 > text: Protectionism may save jobs in the short term, but at what cost?
 > ipa: /prəˈtekʃənɪzəm meɪ ˌseɪv ˈdʒɒbz ɪn ðə ˌʃɔːt ˈtɜːm | bət‿ət ˈwɒt ↘kɒst/
 > ipa-us: /prəˈtekʃənɪzəm meɪ ˌseɪv ˈdʒɑːbz ɪn ðə ˌʃɔːrt ˈtɝːm | bət‿ət ˈwʌt ↘kɑːst/
-> tip: proTECtionism — удар на другому складі. Риторичне питання at what COST — з падінням, не з підйомом.
+> tip: proTECtionism — наголос на другому складі. Риторичне питання at what COST — з падінням, не з підйомом.
 > uk: Протекціонізм може зберегти робочі місця в короткій перспективі, але якою ціною?
 
 > [!speak] Висновок Part 3
@@ -588,8 +588,8 @@ estimatedMinutes: 65
 > text: On balance, I'd argue that the advantages outweigh the drawbacks.
 > ipa: /ɒn ˈbæləns | aɪd ˈɑːɡjuː ðət ði ədˈvɑːntɪdʒɪz ˌaʊtˈweɪ ðə ↘drɔːbæks/
 > ipa-us: /ɑːn ˈbæləns | aɪd ˈɑːrɡjuː ðət ði ədˈvæntɪdʒɪz ˌaʊtˈweɪ ðə ↘drɑːbæks/
-> tip: outWEIGH — дієслово, удар на другому складі; adVANtages — на другому. that — слабке /ðət/.
-> uk: Загалом я б сказав, що переваги переважують недоліки.
+> tip: outWEIGH — дієслово, наголос на другому складі; adVANtages — на другому. that — слабке /ðət/.
+> uk: Загалом я б сказав, що переваги важать більше за недоліки.
 
 ## Типові помилки українців
 
