@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { PiArrowRightBold, PiBookOpenTextFill, PiPlusBold } from 'react-icons/pi'
@@ -38,6 +39,11 @@ const TILES: Array<{ href: string; icon: string; tone: Tone; title: string; sub:
 ]
 
 // `/` is the landing for signed-out visitors and the app home ("Сьогодні") for signed-in users.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: { url: '/' },
+}
+
 export default async function HomePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   if (!(await getUser())) return <Landing notice={(await searchParams).deleted === '1' ? 'deleted' : undefined} />
   const profile = await getProfile()

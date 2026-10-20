@@ -66,12 +66,22 @@ Google і GitHub. Дані застосунку йдуть напряму в Pos
 ## 6. Google
 
 1. https://console.cloud.google.com → створи/вибери проєкт.
-2. **APIs & Services → OAuth consent screen:** External, назва «Levelup», support email, scopes `openid`, `email`, `profile`. Опублікуй
+2. **APIs & Services → OAuth consent screen:** External, назва «Loo», support email, scopes `openid`, `email`, `profile`. Опублікуй
    (Publishing status → In production), інакше вхід доступний лише тестовим користувачам.
 3. **APIs & Services → Credentials → Create credentials → OAuth client ID → Web application:**
    - Authorized JavaScript origins: `https://<APP>`, `http://localhost:3000`
-   - Authorized redirect URIs: `https://acowzhsfvcdlswjuptxu.supabase.co/auth/v1/callback`
+   - Authorized redirect URIs: `https://acowzhsfvcdlswjuptxu.supabase.co/auth/v1/callback`,
+     `https://playloo.app/auth/google/callback`, `http://localhost:3000/auth/google/callback`
 4. Supabase → **Authentication → Sign In / Providers → Google:** Enable, встав **Client ID** і **Client Secret**, Save.
+5. Vercel (Production): `GOOGLE_CLIENT_ID` і `GOOGLE_CLIENT_SECRET` — той самий клієнт.
+
+**Вхід на нашому домені.** З `GOOGLE_CLIENT_SECRET` вхід іде повз хост Supabase (`src/server/auth/google.ts`):
+`/auth/oauth?provider=google` → Google з `redirect_uri=https://playloo.app/auth/google/callback` (тож екран вибору
+акаунта пише «continue to playloo.app», а не `acowzhsfvcdlswjuptxu.supabase.co`) → ми міняємо code на ID token
+(PKCE + client secret, state і nonce у httpOnly-cookie на 10 хв) → `supabase.auth.signInWithIdToken`, який перевіряє
+токен тим самим Client ID і так само створює або прив'язує акаунт. Без секрету працює класичний редирект через
+Supabase. Щоб замість домену Google показував назву «Loo», потрібна верифікація бренду (Branding → логотип +
+підтвердження домену в Search Console).
 
 ## 7. GitHub
 

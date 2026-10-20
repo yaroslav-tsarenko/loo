@@ -70,10 +70,11 @@ async function preview(to: string): Promise<void> {
   const oneClickUrl = `${SITE}/api/email/unsubscribe?t=preview`
   const samples: Reminder[] = [
     { kind: 'streak', ref: 'preview', streak: 7, daysAway: 0 },
+    { kind: 'streak_lost', ref: 'preview', streak: 5, daysAway: 1, best: 12 },
     { kind: 'mission', ref: 'preview', streak: 0, daysAway: 1 },
-    { kind: 'comeback', ref: 'preview', streak: 0, daysAway: 2 },
-    { kind: 'comeback', ref: 'preview', streak: 0, daysAway: 6 },
-    { kind: 'comeback', ref: 'preview', streak: 0, daysAway: 29 },
+    { kind: 'welcome', ref: 'preview', streak: 0, daysAway: 1 },
+    { kind: 'comeback', ref: 'preview', streak: 0, daysAway: 5 },
+    { kind: 'comeback', ref: 'preview', streak: 0, daysAway: 45 },
   ]
   const items = samples.map((reminder) => ({ userId: 'preview', email: to, reminder, unsubscribeUrl, oneClickUrl, ...reminderEmail(reminder, { name: 'Ярослав', siteUrl: SITE, unsubscribeUrl }) }))
   const results = await resendBatch(items)
@@ -91,9 +92,9 @@ async function run(): Promise<void> {
   try {
     // Everyone with a confirmed email who has not had a reminder today. Facts are aggregated per learner.
     const rows = await sql<
-      Array<{ id: string; email: string; name: string | null; goal_days: string[] | null; frozen_days: string[] | null; last_day: string | null; pref: unknown }>
+      Array<{ id: string; email: string; name: string | null; goal_days: string[] | null; frozen_days: string[] | null; last_day: string | null; signup_at: Date; pref: unknown }>
     >`
-      select u.id, u.email, p.display_name as name,
+      select u.id, u.email, p.display_name as name, coalesce(u.email_confirmed_at, u.created_at) as signup_at,
         (select array_agg(d.day) from daily_activity d where d.user_id = u.id and d.goal_met) as goal_days,
         (select array_agg(f.day) from frozen_days f where f.user_id = u.id) as frozen_days,
         (select max(d.day) from daily_activity d where d.user_id = u.id and (d.xp > 0 or d.total > 0 or d.cards > 0 or d.tasks > 0)) as last_day,
@@ -104,7 +105,7 @@ async function run(): Promise<void> {
         and (u.banned_until is null or u.banned_until < now())
         and not exists (select 1 from email_log l where l.user_id = u.id and l.day = ${today} and l.status <> 'failed')`
     const due = rows.flatMap((r) => {
-      const reminder = pickReminder({ goalDays: r.goal_days ?? [], frozenDays: r.frozen_days ?? [], lastActiveDay: r.last_day, remindersOn: r.pref !== false }, today, hour)
+      const reminder = pickReminder({ goalDays: r.goal_days ?? [], frozenDays: r.frozen_days ?? [], lastActiveDay: r.last_day, signupDay: dayKey(new Date(r.signup_at).getTime()), remindersOn: r.pref !== false }, today, hour)
       return reminder ? [{ row: r, reminder }] : []
     })
     const counts = due.reduce<Record<string, number>>((acc, d) => ({ ...acc, [d.reminder.kind]: (acc[d.reminder.kind] ?? 0) + 1 }), {})
@@ -116,10 +117,12 @@ async function run(): Promise<void> {
     await sql`insert into email_tokens ${sql(due.map((d) => ({ user_id: d.row.id, token: randomBytes(18).toString('base64url'), created_at: now })))} on conflict (user_id) do nothing`
     const tokens = new Map((await sql<Array<{ user_id: string; token: string }>>`select user_id, token from email_tokens where user_id in ${sql(ids)}`).map((t) => [t.user_id, t.token]))
 
-    // Claim: only the rows this run inserts get sent (overlapping runs can't double-send).
+    // Claim: only the rows this run inserts (or a failed earlier attempt it re-claims) get sent — overlapping runs can't double-send.
     const claimed = await sql<Array<{ user_id: string; kind: ReminderKind }>>`
       insert into email_log ${sql(due.map((d) => ({ user_id: d.row.id, kind: d.reminder.kind, ref: d.reminder.ref, day: today, status: 'pending', created_at: now })))}
-      on conflict do nothing returning user_id, kind`
+      on conflict (user_id, kind, ref) do update set status = 'pending', error = null, created_at = excluded.created_at
+        where email_log.status = 'failed'
+      returning user_id, kind`
     const mine = new Set(claimed.map((c) => `${c.user_id}:${c.kind}`))
     const outgoing: Outgoing[] = due
       .filter((d) => mine.has(`${d.row.id}:${d.reminder.kind}`))

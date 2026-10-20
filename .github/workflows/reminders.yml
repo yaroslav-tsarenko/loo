@@ -4,8 +4,10 @@ name: reminders
 
 on:
   schedule:
-    # every hour at :05 UTC; the worker decides by Kyiv time which reminder slot (12/18/19) is due
+    # twice an hour: GitHub may delay or drop a scheduled run; each reminder slot stays open for 3 hours and the
+    # email_log claim makes repeated runs idempotent, so a missed run is caught up by the next one
     - cron: '5 * * * *'
+    - cron: '35 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:

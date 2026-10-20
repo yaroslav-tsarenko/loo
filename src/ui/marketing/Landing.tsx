@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site'
+import { JsonLd } from '@/ui/seo/JsonLd'
 import type { CSSProperties, ReactNode } from 'react'
 import { levelLabel } from '@/game/evolution'
 import { messages, t } from '@/i18n'
@@ -149,6 +151,20 @@ export function Landing({ notice }: { notice?: 'deleted' }) {
   }))
   return (
     <div className="landing">
+      <JsonLd
+        data={[
+          { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, url: SITE_URL, inLanguage: 'uk', description: SITE_TAGLINE },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'EducationalOrganization',
+            name: SITE_NAME,
+            url: SITE_URL,
+            logo: `${SITE_URL}/icon`,
+            email: 'support@playloo.app',
+            description: SITE_TAGLINE,
+          },
+        ]}
+      />
       <header className="landing-nav">
         <Link href="/" aria-label="Loo">
           <Logo size={36} />
@@ -268,7 +284,7 @@ export function Landing({ notice }: { notice?: 'deleted' }) {
       <footer className="landing-footer">
         {t('landing.footer')} <PixelIcon name="flagUa" size={16} className="landing-footer-flag" />
         <br />
-        <Link href="/privacy">Конфіденційність</Link> · <Link href="/terms">Умови</Link> · <a href="mailto:support@playloo.app">support@playloo.app</a>
+        <Link href="/blog">Блог</Link> · <Link href="/privacy">Конфіденційність</Link> · <Link href="/terms">Умови</Link> · <a href="mailto:support@playloo.app">support@playloo.app</a>
       </footer>
     </div>
   )

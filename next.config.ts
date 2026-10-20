@@ -23,7 +23,7 @@ const config: NextConfig = {
   // Guides synced from the Obsidian vault (pnpm content:sync) ship with every server function, with the parsed
   // snapshot vercel-build writes (pnpm content:snapshot; a dot directory, so it is named explicitly).
   outputFileTracingIncludes: {
-    '/**': ['./content/**/*', './content/.snapshot/*'],
+    '/**': ['./content/**/*', './content/.snapshot/*', './blog/**/*.md'],
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],

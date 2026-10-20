@@ -213,7 +213,7 @@ Status: **Fixed** means fixed in this change. **Planned** is deferred to the aut
 
 ### Verified OK (no change needed)
 
-- **Rendering and output encoding:** no `dangerouslySetInnerHTML` apart from the static sidebar boot script. Markdown → hast runs with `allowDangerousHtml: false`, and `toJsxRuntime` never renders raw nodes. Search results and news text are rendered as React text.
+- **Rendering and output encoding:** no `dangerouslySetInnerHTML` apart from the static sidebar boot script and JSON-LD data blocks (`src/ui/seo/JsonLd.tsx`, `<` escaped). Markdown → hast runs with `allowDangerousHtml: false`, and `toJsxRuntime` never renders raw nodes. Search results and news text are rendered as React text.
 - **News ingest:** `canonicalUrl` already dropped non-http(s) items.
 - **AI reels:** `refUrl` is limited to an HTTPS allow-list. `sourceUrl` comes from our own data, never from the model.
 - **SQL injection:** none. Drizzle builders and `sql` templates are parameterized. The only `unsafe()` is `scripts/copy-db.ts` with a hard-coded table list.

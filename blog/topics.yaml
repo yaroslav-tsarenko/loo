@@ -1,0 +1,354 @@
+# Blog backlog (docs/BLOG.md). `pnpm blog:write` takes the first pending topics (optionally of one category), writes
+# the article to blog/uk/<slug>.md with images in public/blog/<slug>/, and marks the topic done here.
+# Fields: topic, category (src/blog/categories.ts), keywords (what people google), notes (for the writer).
+# Added by the script: status: done, slug.
+
+- topic: Present Perfect простими словами — коли вживати і чим відрізняється від Past Simple
+  category: english
+  keywords:
+    - present perfect
+    - present perfect коли вживати
+    - present perfect vs past simple
+    - презент перфект
+  status: done
+  slug: present-perfect-prostymy-slovamy
+- topic: JavaScript з нуля — з чого почати у 2026 році і як вчити, щоб не кинути
+  category: javascript
+  keywords:
+    - javascript з нуля
+    - як вивчити javascript
+    - javascript для початківців
+    - з чого почати вчити javascript
+  status: done
+  slug: javascript-z-nulya
+- topic: SQL JOIN простими словами — INNER, LEFT, RIGHT і FULL JOIN з прикладами
+  category: sql
+  keywords:
+    - sql join
+    - left join
+    - inner join приклади
+    - види join sql
+  status: done
+  slug: sql-join-prostymy-slovamy-inner-left-right-full-join
+- topic: Артиклі в німецькій мові — der, die, das і як не плутатися
+  category: german
+  keywords:
+    - артиклі в німецькій
+    - der die das
+    - рід іменників німецька
+    - як запам'ятати артиклі
+  status: done
+  slug: artikli-v-nimetskii-der-die-das
+- topic: Що таке System Design і як підготуватися до співбесіди з проєктування систем
+  category: system-design
+  keywords:
+    - system design
+    - system design інтерв'ю
+    - проєктування систем
+    - як підготуватися до system design
+  status: done
+  slug: system-design-interview-yak-pidhotuvatysia
+- topic: Інтервальні повторення — як запам'ятовувати слова й теорію назавжди
+  category: learning
+  keywords:
+    - інтервальні повторення
+    - як запам'ятовувати слова
+    - spaced repetition
+    - крива забування
+- topic: Усі часи англійської мови в одній таблиці — пояснення і приклади
+  category: english
+  keywords:
+    - часи англійської мови
+    - таблиця часів англійська
+    - tenses англійська
+- topic: Артиклі a, an, the в англійській — правила і винятки
+  category: english
+  keywords:
+    - артиклі в англійській
+    - a an the
+    - коли вживати the
+- topic: Умовні речення в англійській (Conditionals 0–3) з прикладами
+  category: english
+  keywords:
+    - conditionals
+    - умовні речення англійська
+    - first conditional
+    - second conditional
+- topic: Phrasal verbs — 50 найпотрібніших фразових дієслів з прикладами
+  category: english
+  keywords:
+    - фразові дієслова
+    - phrasal verbs
+    - найпоширеніші phrasal verbs
+- topic: Пасивний стан (Passive Voice) в англійській — усі часи й випадки
+  category: english
+  keywords:
+    - passive voice
+    - пасивний стан англійська
+    - пасив англійська
+- topic: Як самостійно вивчити англійську з нуля — реалістичний план на рік
+  category: english
+  keywords:
+    - як вивчити англійську самостійно
+    - англійська з нуля
+    - план вивчення англійської
+- topic: Рівні англійської A1–C2 — що вміє людина на кожному рівні і як визначити свій
+  category: english
+  keywords:
+    - рівні англійської
+    - рівень b2 англійська
+    - як визначити рівень англійської
+- topic: IELTS — формат іспиту, бали і як підготуватися самостійно
+  category: english
+  keywords:
+    - ielts
+    - підготовка до ielts
+    - ielts бали
+    - ielts самостійно
+- topic: Модальні дієслова в англійській — can, could, must, have to, should
+  category: english
+  keywords:
+    - модальні дієслова англійська
+    - must have to різниця
+    - can could
+- topic: Прийменники часу і місця in, on, at — повний гайд
+  category: english
+  keywords:
+    - in on at
+    - прийменники англійська
+    - прийменники часу
+- topic: Непряма мова (Reported Speech) в англійській
+  category: english
+  keywords:
+    - reported speech
+    - непряма мова англійська
+    - узгодження часів
+- topic: Gerund чи infinitive — коли -ing, а коли to
+  category: english
+  keywords:
+    - gerund infinitive
+    - герундій англійська
+    - дієслова з ing
+- topic: let, const і var у JavaScript — у чому різниця і що використовувати
+  category: javascript
+  keywords:
+    - let const var
+    - різниця let і const
+    - var javascript
+- topic: Замикання (closures) у JavaScript простими словами
+  category: javascript
+  keywords:
+    - замикання javascript
+    - closure javascript
+    - що таке замикання
+- topic: Promise, async/await у JavaScript — асинхронність без болю
+  category: javascript
+  keywords:
+    - async await javascript
+    - promise javascript
+    - асинхронність javascript
+- topic: Event Loop у JavaScript — як працюють стек викликів, мікро- і макрозадачі
+  category: javascript
+  keywords:
+    - event loop
+    - event loop javascript
+    - мікрозадачі макрозадачі
+- topic: Методи масивів map, filter, reduce — шпаргалка з прикладами
+  category: javascript
+  keywords:
+    - map filter reduce
+    - методи масивів javascript
+    - reduce javascript
+- topic: this у JavaScript — чому він «губиться» і як це виправити
+  category: javascript
+  keywords:
+    - this javascript
+    - bind call apply
+    - контекст this
+- topic: Деструктуризація, spread і rest у JavaScript
+  category: javascript
+  keywords:
+    - деструктуризація javascript
+    - spread оператор
+    - rest параметри
+- topic: Прототипи і класи в JavaScript — як працює наслідування
+  category: javascript
+  keywords:
+    - прототипи javascript
+    - класи javascript
+    - наслідування javascript
+- topic: Робота з DOM — як змінювати сторінку за допомогою JavaScript
+  category: javascript
+  keywords:
+    - dom javascript
+    - querySelector
+    - події javascript
+- topic: Питання на співбесіді з JavaScript для Junior — 30 питань з відповідями
+  category: javascript
+  keywords:
+    - співбесіда javascript
+    - питання javascript junior
+    - javascript interview
+- topic: fetch і робота з API в JavaScript — GET, POST, обробка помилок
+  category: javascript
+  keywords:
+    - fetch javascript
+    - запит до api javascript
+    - fetch post
+- topic: SELECT у SQL — вибірка, фільтрація WHERE, сортування і ліміти
+  category: sql
+  keywords:
+    - select sql
+    - where sql
+    - order by
+    - sql для початківців
+- topic: GROUP BY і агрегатні функції в SQL — COUNT, SUM, AVG, HAVING
+  category: sql
+  keywords:
+    - group by sql
+    - having sql
+    - агрегатні функції
+- topic: Індекси в базах даних — як вони прискорюють запити і коли шкодять
+  category: sql
+  keywords:
+    - індекси sql
+    - індекс postgresql
+    - b-tree індекс
+- topic: Транзакції і ACID простими словами
+  category: sql
+  keywords:
+    - транзакції sql
+    - acid
+    - рівні ізоляції
+- topic: Віконні функції SQL — ROW_NUMBER, RANK, LAG з прикладами
+  category: sql
+  keywords:
+    - віконні функції sql
+    - row_number
+    - window functions
+- topic: Нормалізація баз даних — 1NF, 2NF, 3NF на прикладах
+  category: sql
+  keywords:
+    - нормалізація бд
+    - третя нормальна форма
+    - нормальні форми
+- topic: SQL чи NoSQL — що обрати для проєкту
+  category: sql
+  keywords:
+    - sql vs nosql
+    - nosql бази даних
+    - mongodb чи postgresql
+- topic: Підзапити і CTE (WITH) у SQL
+  category: sql
+  keywords:
+    - підзапити sql
+    - cte sql
+    - with sql
+- topic: Масштабування систем — вертикальне і горизонтальне, балансування навантаження
+  category: system-design
+  keywords:
+    - масштабування
+    - load balancer
+    - горизонтальне масштабування
+- topic: Кешування в System Design — Redis, CDN, стратегії інвалідації
+  category: system-design
+  keywords:
+    - кешування
+    - redis кеш
+    - cache invalidation
+- topic: Черги повідомлень — Kafka, RabbitMQ і коли вони потрібні
+  category: system-design
+  keywords:
+    - черги повідомлень
+    - kafka
+    - rabbitmq
+    - message queue
+- topic: Теорема CAP і консистентність у розподілених системах
+  category: system-design
+  keywords:
+    - cap теорема
+    - консистентність
+    - розподілені системи
+- topic: Як спроєктувати сервіс скорочення посилань (URL shortener)
+  category: system-design
+  keywords:
+    - url shortener system design
+    - system design задача
+    - скорочувач посилань
+- topic: Шардинг і реплікація баз даних
+  category: system-design
+  keywords:
+    - шардинг
+    - реплікація бд
+    - partitioning
+- topic: REST, GraphQL чи gRPC — як обрати API
+  category: system-design
+  keywords:
+    - rest vs graphql
+    - grpc
+    - типи api
+- topic: Відмінки в німецькій мові — Nominativ, Akkusativ, Dativ, Genitiv
+  category: german
+  keywords:
+    - відмінки німецька
+    - akkusativ dativ
+    - німецькі відмінки таблиця
+- topic: Порядок слів у німецькому реченні — дієслово на другому місці і в кінці
+  category: german
+  keywords:
+    - порядок слів німецька
+    - рамкова конструкція
+    - підрядні речення німецька
+- topic: Perfekt у німецькій — haben чи sein і Partizip II
+  category: german
+  keywords:
+    - perfekt німецька
+    - haben sein perfekt
+    - partizip 2
+- topic: Як вивчити німецьку з нуля самостійно — план і ресурси
+  category: german
+  keywords:
+    - німецька з нуля
+    - як вивчити німецьку
+    - німецька самостійно
+- topic: Модальні дієслова в німецькій — können, müssen, dürfen, sollen, wollen, mögen
+  category: german
+  keywords:
+    - модальні дієслова німецька
+    - können müssen
+    - möchten
+- topic: 100 найпотрібніших німецьких фраз для подорожей і життя
+  category: german
+  keywords:
+    - німецькі фрази
+    - розмовна німецька
+    - фрази для подорожі німецька
+- topic: Як вчитися по 15 хвилин на день і досягати результату
+  category: learning
+  keywords:
+    - як вчитися щодня
+    - мікронавчання
+    - навчання по 15 хвилин
+- topic: Як не кинути навчання — звички, серії і мотивація
+  category: learning
+  keywords:
+    - як не кинути навчання
+    - мотивація вчитися
+    - звичка вчитися
+- topic: Активне пригадування (active recall) — найефективніший спосіб вчитися
+  category: learning
+  keywords:
+    - active recall
+    - активне пригадування
+    - ефективне навчання
+- topic: Як вивчити дві мови одночасно і не заплутатися
+  category: learning
+  keywords:
+    - вивчати дві мови одночасно
+    - англійська і німецька одночасно
+- topic: Як перейти в IT з нуля — реалістичний план на 12 місяців
+  category: learning
+  keywords:
+    - як перейти в it
+    - it з нуля
+    - вайті в айті план

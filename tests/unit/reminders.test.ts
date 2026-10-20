@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { kyivHour, pickReminder, reminderEmail, REMINDER_HOURS, type LearnerFacts } from '@/email/reminders'
+import { kyivHour, pickReminder, reminderEmail, REMINDER_HOURS, WINDOW_HOURS, type LearnerFacts } from '@/email/reminders'
 
 const today = '2026-10-21'
 const days = (...d: string[]) => d
@@ -16,6 +16,28 @@ describe('pickReminder', () => {
     expect(pickReminder(done, today, REMINDER_HOURS.streak)).toBeNull()
     const f = { ...base, goalDays: days('2026-10-20'), lastActiveDay: '2026-10-20' }
     expect(pickReminder(f, today, 15)).toBeNull()
+    expect(pickReminder(f, today, 22)).toBeNull()
+  })
+
+  it('a late run still delivers inside the slot window', () => {
+    const f = { ...base, goalDays: days('2026-10-20'), lastActiveDay: '2026-10-20' }
+    expect(pickReminder(f, today, REMINDER_HOURS.streak + WINDOW_HOURS - 1)).toMatchObject({ kind: 'streak' })
+  })
+
+  it('streak lost at 10:00 when a streak of ≥ 2 broke yesterday', () => {
+    const f = { ...base, goalDays: days('2026-10-10', '2026-10-17', '2026-10-18', '2026-10-19'), lastActiveDay: '2026-10-19' }
+    expect(pickReminder(f, today, REMINDER_HOURS.streak_lost)).toMatchObject({ kind: 'streak_lost', ref: '2026-10-19', streak: 3, best: 3 })
+    // one-day streaks are not worth mourning; a freeze yesterday keeps it alive; activity today cancels it
+    expect(pickReminder({ ...f, goalDays: days('2026-10-19') }, today, REMINDER_HOURS.streak_lost)).toBeNull()
+    expect(pickReminder({ ...f, frozenDays: days('2026-10-20') }, today, REMINDER_HOURS.streak_lost)).toBeNull()
+    expect(pickReminder({ ...f, lastActiveDay: today }, today, REMINDER_HOURS.streak_lost)).toBeNull()
+  })
+
+  it('welcome nudge 1 and 3 days after signing up without starting', () => {
+    expect(pickReminder({ ...base, signupDay: '2026-10-20' }, today, REMINDER_HOURS.welcome)).toMatchObject({ kind: 'welcome', daysAway: 1 })
+    expect(pickReminder({ ...base, signupDay: '2026-10-18' }, today, REMINDER_HOURS.welcome)).toMatchObject({ kind: 'welcome', daysAway: 3 })
+    expect(pickReminder({ ...base, signupDay: '2026-10-19' }, today, REMINDER_HOURS.welcome)).toBeNull()
+    expect(pickReminder({ ...base, signupDay: '2026-10-20', lastActiveDay: '2026-10-20' }, today, REMINDER_HOURS.welcome)).toBeNull()
   })
 
   it('a streak bridged by a freeze still counts as at risk', () => {
@@ -30,8 +52,8 @@ describe('pickReminder', () => {
     expect(pickReminder({ ...f, lastActiveDay: '2026-10-19' }, today, REMINDER_HOURS.mission)).toBeNull()
   })
 
-  it('comeback at 18:00 after exactly 2, 6 or 29 days away', () => {
-    for (const [last, gap] of [['2026-10-19', 2], ['2026-10-15', 6], ['2026-09-22', 29]] as const) {
+  it('comeback at 18:00 after exactly 2, 5, 10, 21 or 45 days away', () => {
+    for (const [last, gap] of [['2026-10-19', 2], ['2026-10-16', 5], ['2026-10-11', 10], ['2026-09-30', 21], ['2026-09-06', 45]] as const) {
       expect(pickReminder({ ...base, lastActiveDay: last }, today, REMINDER_HOURS.comeback)).toMatchObject({ kind: 'comeback', daysAway: gap, ref: `${last}+${gap}` })
     }
     expect(pickReminder({ ...base, lastActiveDay: '2026-10-18' }, today, REMINDER_HOURS.comeback)).toBeNull()
@@ -58,6 +80,7 @@ describe('reminderEmail', () => {
     expect(reminderEmail({ kind: 'streak', ref: today, streak: 1, daysAway: 0 }, opts).subject).toBe('Серія 1 день під загрозою!')
     expect(reminderEmail({ kind: 'streak', ref: today, streak: 3, daysAway: 0 }, opts).subject).toBe('Серія 3 дні під загрозою!')
     expect(reminderEmail({ kind: 'streak', ref: today, streak: 12, daysAway: 0 }, opts).subject).toBe('Серія 12 днів під загрозою!')
+    expect(reminderEmail({ kind: 'streak_lost', ref: today, streak: 5, daysAway: 1, best: 9 }, opts).subject).toBe('Серія 5 днів згасла — запали нову')
   })
 
   it('greets by first name, escapes it, and always carries the unsubscribe link', () => {

@@ -1,0 +1,71 @@
+# Blog writer (docs/BLOG.md): generates articles from blog/topics.yaml and commits them to main → Vercel deploys.
+# Secret: OPENAI_API_KEY (text on gpt-5.5 + illustrations). Optional: AI_GATEWAY_API_KEY with the BLOG_MODEL variable.
+# Runs on its own every day (BLOG_DAILY_COUNT articles, default 1; set the repo variable BLOG_PAUSED to 'true' to
+# pause), plus manual runs (Actions → blog → Run workflow). A failed run (e.g. no API credits) commits nothing and
+# GitHub emails the owner; the topic stays in the queue for the next run.
+name: blog
+
+on:
+  schedule:
+    # every day, 06:20 UTC (≈ 8–9 am in Kyiv)
+    - cron: '20 6 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'How many articles (1–5)'
+        default: '1'
+      category:
+        description: 'Only this category (english, javascript, sql, system-design, german, learning) — empty = next in queue'
+        required: false
+      topic:
+        description: 'Ad-hoc topic instead of the queue (needs category)'
+        required: false
+
+concurrency:
+  group: blog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  write:
+    if: github.event_name == 'workflow_dispatch' || vars.BLOG_PAUSED != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+      BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Write articles
+        env:
+          COUNT: ${{ inputs.count || vars.BLOG_DAILY_COUNT || '1' }}
+          CATEGORY: ${{ inputs.category }}
+          TOPIC: ${{ inputs.topic }}
+        run: |
+          set -- --count "$COUNT"
+          [ -n "$CATEGORY" ] && set -- "$@" --category "$CATEGORY"
+          [ -n "$TOPIC" ] && set -- "$@" --topic "$TOPIC"
+          pnpm blog:write "$@"
+      - name: Check the blog still loads
+        run: pnpm vitest run tests/unit/blog.test.ts
+      - name: Commit and push
+        run: |
+          git add blog public/blog
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          # Vercel (Hobby) deploys only commits by the project owner's git identity
+          git config user.name "${{ vars.BLOG_GIT_NAME || 'yaroslav' }}"
+          git config user.email "${{ vars.BLOG_GIT_EMAIL || 'yaroslav7v@gmail.com' }}"
+          git commit -m "Blog: $(git diff --cached --name-only -- blog/uk | sed 's|blog/uk/||; s|\.md$||' | paste -sd ', ' -)"
+          git pull --rebase origin main
+          git push origin HEAD:main

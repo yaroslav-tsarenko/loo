@@ -18,6 +18,7 @@ import { PUBLIC_THEME_BOOT, SIDEBAR_BOOT } from '@/ui/shell/constants'
 import { FALLBACK_PRACTICE } from '@/ui/shell/course-nav'
 import { BottomNav, CountsProvider, PracticeProvider } from '@/ui/shell/NavLinks'
 import { Sidebar } from '@/ui/shell/Sidebar'
+import { SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
 
 // docs/DESIGN.md: Onest for all text, JetBrains Mono for code, Pixelify Sans only for the wordmark.
@@ -30,9 +31,13 @@ const emoji = Noto_Color_Emoji({ weight: '400', subsets: ['emoji'], variable: '-
 const fonts = `${onest.variable} ${pixel.variable} ${mono.variable} ${emoji.variable}`
 
 export const metadata: Metadata = {
-  title: { default: 'Loo', template: '%s · Loo' },
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'Loo — навчання як гра: англійська, JavaScript і не тільки', template: '%s · Loo' },
   description: 'Loo — навчання як гра: короткі уроки, тести, задачі, серії й ліги — шлях воїна від Новобранця до Легенди',
   applicationName: 'Loo',
+  keywords: ['вивчення англійської', 'англійська онлайн', 'JavaScript з нуля', 'курси програмування', 'навчання як гра', 'Loo'],
+  openGraph: { type: 'website', siteName: SITE_NAME, locale: 'uk_UA' },
+  twitter: { card: 'summary_large_image' },
   appleWebApp: { capable: true, title: 'Loo', statusBarStyle: 'black-translucent' },
   formatDetection: { telephone: false },
 }
