@@ -33,7 +33,7 @@ function greeting(now: Date): { title: string; mood: LooMood; icon: PixelIconNam
 const TILES: Array<{ href: string; icon: string; tone: Tone; title: string; sub: string }> = [
   { href: '/feed', icon: 'pi:PiLightningFill', tone: 'yellow', title: 'Стрічка', sub: 'гортай і вчись' },
   { href: '/path', icon: 'pi:PiMapTrifoldFill', tone: 'green', title: 'Карта', sub: 'де ти зараз' },
-  { href: '/news', icon: 'pi:PiNewspaperFill', tone: 'blue', title: 'Новини', sub: 'що нового на Levelup' },
+  { href: '/news', icon: 'pi:PiNewspaperFill', tone: 'blue', title: 'Новини', sub: 'що нового в Loo' },
   { href: '/profile', icon: 'pi:PiChartBarFill', tone: 'purple', title: 'Прогрес', sub: 'статистика' },
 ]
 

@@ -11,17 +11,13 @@ export function LogoMark({ size = 32, className }: { size?: number; className?: 
   )
 }
 
-/** Wordmark: pixel display face, "level" in Loo violet, "up" lifted in mint. */
+/** Wordmark: «loo» in the pixel display face, Loo violet. */
 export function Wordmark({ height = 26, className }: { height?: number; className?: string }) {
   return (
-    <svg className={cx('lu-wordmark', className)} height={height} width={(height * 107) / 30} viewBox="0 0 107 30" role="img" aria-label="Levelup" focusable="false">
-      <text x={0} y={23} className="lu-wordmark-level" textLength={62} lengthAdjust="spacingAndGlyphs">
-        level
+    <svg className={cx('lu-wordmark', className)} height={height} width={(height * 40) / 30} viewBox="0 0 40 30" role="img" aria-label="Loo" focusable="false">
+      <text x={0} y={23} className="lu-wordmark-level" textLength={38} lengthAdjust="spacingAndGlyphs">
+        loo
       </text>
-      <text x={62.5} y={21} className="lu-wordmark-up" textLength={31} lengthAdjust="spacingAndGlyphs">
-        up
-      </text>
-      <path d="M96.5 9.5 101 4.5l4.5 5M101 5v12" className="lu-wordmark-arrow" />
     </svg>
   )
 }
@@ -30,7 +26,7 @@ export function Logo({ size = 32, wordmark = true, className }: { size?: number;
   return (
     <span className={cx('lu-logo', className)}>
       <LogoMark size={size} />
-      {wordmark ? <Wordmark height={Math.round(size * 0.78)} /> : <span className="sr-only">Levelup</span>}
+      {wordmark ? <Wordmark height={Math.round(size * 0.78)} /> : <span className="sr-only">Loo</span>}
     </span>
   )
 }

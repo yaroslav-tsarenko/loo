@@ -570,3 +570,34 @@ export const leagueMembers = pgTable(
   },
   (t) => [primaryKey({ columns: [t.userId, t.week] }), index('league_members_cohort_idx').on(t.cohortId)],
 )
+
+// ─── Email (docs/EMAIL.md) ──────────────────────────────────────────────────────────────────────────────────────
+// Server-only: RLS on, no grants (the reminder worker and the unsubscribe route use the owner connection).
+
+// Opaque per-learner token for one-click unsubscribe links (no shared secret between Vercel and the Render worker).
+export const emailTokens = pgTable(
+  'email_tokens',
+  {
+    userId: userId().primaryKey(),
+    token: text('token').notNull(),
+    createdAt: ms('created_at').notNull(),
+  },
+  (t) => [uniqueIndex('email_tokens_token_idx').on(t.token)],
+)
+
+// Every reminder sent (or claimed for sending): one row per (user, kind, ref) makes each email go out once even if
+// two worker runs overlap; `day` enforces «at most one reminder a day».
+export const emailLog = pgTable(
+  'email_log',
+  {
+    userId: userId(),
+    kind: text('kind').notNull(),
+    ref: text('ref').notNull(),
+    day: text('day').notNull(),
+    status: text('status', { enum: ['pending', 'sent', 'failed'] }).notNull(),
+    providerId: text('provider_id'),
+    error: text('error'),
+    createdAt: ms('created_at').notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.kind, t.ref] }), index('email_log_user_day_idx').on(t.userId, t.day)],
+)

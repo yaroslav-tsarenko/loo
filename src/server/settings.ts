@@ -22,6 +22,8 @@ export interface AppSettings {
   dailyMinutes: number
   haptics: boolean
   accent: AccentSetting
+  /** Reminder emails (streak at risk, daily mission, comeback) — docs/EMAIL.md. */
+  emailReminders: boolean
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -35,6 +37,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   dailyMinutes: 20,
   haptics: true,
   accent: 'en-GB',
+  emailReminders: true,
 }
 
 export type UserSettingKey = Exclude<keyof AppSettings, 'vaultPath'>
@@ -50,6 +53,7 @@ function coerce<K extends keyof AppSettings>(key: K, value: unknown): AppSetting
       return (value === 'light' || value === 'dark' || value === 'system' ? value : fallback) as AppSettings[K]
     case 'sound':
     case 'haptics':
+    case 'emailReminders':
       return (typeof value === 'boolean' ? value : fallback) as AppSettings[K]
     case 'volume':
       return (typeof value === 'number' && value >= 0 && value <= 1 ? value : fallback) as AppSettings[K]

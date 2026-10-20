@@ -10,6 +10,9 @@ export const PUBLIC_GET: ReadonlySet<string> = new Set([
   '/auth/callback',
   '/auth/confirm',
   '/auth/oauth',
+  '/unsubscribe',
+  '/privacy',
+  '/terms',
   '/manifest.webmanifest',
   '/icon',
   '/apple-icon',
@@ -17,7 +20,8 @@ export const PUBLIC_GET: ReadonlySet<string> = new Set([
 ])
 
 // Exact paths, POST (plain form posts to route handlers; each checks the Origin itself).
-export const PUBLIC_POST: ReadonlySet<string> = new Set(['/auth/sign-in', '/auth/sign-up', '/auth/forgot-password', '/auth/sign-out'])
+// /api/email/unsubscribe is token-authenticated and must accept cross-origin one-click POSTs from mail clients (RFC 8058).
+export const PUBLIC_POST: ReadonlySet<string> = new Set(['/auth/sign-in', '/auth/sign-up', '/auth/forgot-password', '/auth/sign-out', '/api/email/unsubscribe'])
 
 export function isPublicRequest(method: string, pathname: string, isServerAction: boolean, dev = false): boolean {
   // A server action call is never public, whatever path it is posted to.
@@ -29,7 +33,7 @@ export function isPublicRequest(method: string, pathname: string, isServerAction
 }
 
 // Pages that render full-screen, without sidebar / bottom nav, even for a signed-in user.
-const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth']
+const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth', '/unsubscribe', '/privacy', '/terms']
 
 export function isBarePath(pathname: string): boolean {
   return BARE.some((p) => pathname === p || pathname.startsWith(`${p}/`))

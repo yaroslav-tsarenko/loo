@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Levelup — навчання як гра',
-    short_name: 'Levelup',
+    name: 'Loo — навчання як гра',
+    short_name: 'Loo',
     description: 'Курси як гра: уроки, серії, стрічка фішок і повторення FSRS. З піксельним Loo.',
     start_url: '/',
     display: 'standalone',

@@ -29,6 +29,9 @@ export const CLAIM_TABLES: ReadonlyArray<{ table: string; keys: readonly string[
   { table: 'inventory', keys: ['item_id'] },
   { table: 'frozen_days', keys: ['day'] },
   { table: 'league_members', keys: ['week'] },
+  // Email (docs/EMAIL.md)
+  { table: 'email_tokens', keys: [] },
+  { table: 'email_log', keys: ['kind', 'ref'] },
 ]
 
 export function claimStatements(userId: string): SQL[] {
@@ -40,7 +43,7 @@ export function claimStatements(userId: string): SQL[] {
       out.push(sql`update ${t} set active = false where user_id = ${LEGACY_USER_ID} and exists (select 1 from ${t} where user_id = ${userId} and active)`)
     }
     // One row per user: the user's own game state wins over the legacy one.
-    if (table === 'user_state') {
+    if (table === 'user_state' || table === 'email_tokens') {
       out.push(sql`delete from ${t} where user_id = ${LEGACY_USER_ID} and exists (select 1 from ${t} where user_id = ${userId})`)
     }
     if (keys.length > 0) {

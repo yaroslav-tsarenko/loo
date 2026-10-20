@@ -213,7 +213,7 @@ export function Sidebar({
       <div className="sb-scrim" onClick={() => setMobileSidebar(false)} aria-hidden="true" />
       <aside className="sidebar" aria-label="Навігація">
         <div className="sb-head">
-          <Link href="/" className="sb-brand" aria-label="Levelup — на головну" onClick={() => setMobileSidebar(false)}>
+          <Link href="/" className="sb-brand" aria-label="Loo — на головну" onClick={() => setMobileSidebar(false)}>
             <Logo size={34} />
           </Link>
           <button type="button" className="sb-icon-button sb-collapse" aria-label="Сховати бічну панель" title="Сховати бічну панель (⌘\)" onClick={() => setSidebarOpen(false)}>

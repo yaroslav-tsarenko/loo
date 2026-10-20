@@ -11,7 +11,7 @@ export function AuthShell({ mood = 'wave', loo, title, icon, lead, children, foo
   return (
     <main className="auth-page">
       <header className="auth-top">
-        <Link href="/" aria-label="Levelup — на головну">
+        <Link href="/" aria-label="Loo — на головну">
           <Logo size={34} />
         </Link>
         <ThemeSwitch />

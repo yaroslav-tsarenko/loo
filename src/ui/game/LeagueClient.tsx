@@ -35,9 +35,9 @@ export function InviteButton() {
   const [copied, setCopied] = useState(false)
   const invite = async () => {
     const url = `${window.location.origin}/`
-    const text = 'Вчимося разом у Levelup — змагаймось у тижневій лізі!'
+    const text = 'Вчимося разом у Loo — змагаймось у тижневій лізі!'
     try {
-      if (navigator.share) await navigator.share({ title: 'Levelup', text, url })
+      if (navigator.share) await navigator.share({ title: 'Loo', text, url })
       else {
         await navigator.clipboard.writeText(`${text} ${url}`)
         setCopied(true)

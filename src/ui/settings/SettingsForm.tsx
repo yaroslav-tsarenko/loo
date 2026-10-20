@@ -107,6 +107,12 @@ export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { i
             <span>{values.haptics ? 'Увімкнено' : 'Вимкнено'}</span>
           </label>
         </Row>
+        <Row label="Нагадування на пошту" hint="Лист, коли серія під загрозою, чекає місія дня або тебе давно не було — не частіше одного разу на день">
+          <label className="check">
+            <input type="checkbox" checked={values.emailReminders} onChange={(e) => save('emailReminders', e.target.checked)} />
+            <span>{values.emailReminders ? 'Увімкнено' : 'Вимкнено'}</span>
+          </label>
+        </Row>
         <Row label="Акцент англійської" hint="Голос озвучки й транскрипція в мовних курсах (голоси — системні, безкоштовні)">
           <div className="segmented" role="radiogroup" aria-label="Акцент">
             {(

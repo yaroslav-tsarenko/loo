@@ -1,0 +1,22 @@
+{
+  "Confirm sign up": {
+    "subject": "Підтверди пошту — і рушаймо! · Loo",
+    "file": "confirm-signup.html"
+  },
+  "Reset password": {
+    "subject": "Новий пароль для Loo",
+    "file": "reset-password.html"
+  },
+  "Change email address": {
+    "subject": "Підтверди нову пошту · Loo",
+    "file": "change-email.html"
+  },
+  "Magic link or OTP": {
+    "subject": "Твоє посилання для входу · Loo",
+    "file": "magic-link.html"
+  },
+  "Invite user": {
+    "subject": "Тебе запрошують у Loo",
+    "file": "invite.html"
+  }
+}

@@ -48,7 +48,9 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
             <Button type="submit" block size="lg">
               {t('auth.signup.submit')}
             </Button>
-            <p className="auth-hint">{t('auth.signup.terms')}</p>
+            <p className="auth-hint">
+              {t('auth.signup.terms')} <Link href="/terms">Умови</Link> · <Link href="/privacy">Конфіденційність</Link>
+            </p>
           </form>
         </>
       ) : (

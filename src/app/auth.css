@@ -791,3 +791,46 @@
   }
 
 }
+
+@layer components {
+  /* ── Legal pages (/privacy, /terms) ── */
+  .legal-body {
+    width: min(760px, calc(100% - 2 * var(--lu-s-4)));
+    margin: var(--lu-s-6) auto var(--lu-s-10);
+    line-height: 1.65;
+    font-size: var(--lu-fs-md, 16px);
+  }
+  .legal-title {
+    margin: 0;
+    font-size: var(--lu-fs-2xl);
+    font-weight: var(--lu-fw-black);
+    line-height: 1.15;
+  }
+  .legal-updated {
+    margin: var(--lu-s-2) 0 var(--lu-s-5);
+    color: var(--lu-text-3);
+    font-size: var(--lu-fs-sm);
+  }
+  .legal-body h2 {
+    margin: var(--lu-s-6) 0 var(--lu-s-2);
+    font-size: var(--lu-fs-lg);
+    font-weight: var(--lu-fw-black);
+  }
+  .legal-body ul {
+    padding-left: 1.2em;
+    list-style: disc;
+  }
+  .legal-body li + li {
+    margin-top: var(--lu-s-2);
+  }
+  .legal-body a {
+    color: var(--lu-violet-ink, var(--lu-violet));
+  }
+  .legal-nav {
+    margin-top: var(--lu-s-8);
+    padding-top: var(--lu-s-4);
+    border-top: 2px solid var(--lu-border);
+    color: var(--lu-text-3);
+    font-size: var(--lu-fs-sm);
+  }
+}

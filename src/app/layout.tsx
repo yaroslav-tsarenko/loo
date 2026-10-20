@@ -30,10 +30,10 @@ const emoji = Noto_Color_Emoji({ weight: '400', subsets: ['emoji'], variable: '-
 const fonts = `${onest.variable} ${pixel.variable} ${mono.variable} ${emoji.variable}`
 
 export const metadata: Metadata = {
-  title: { default: 'Levelup', template: '%s · Levelup' },
-  description: 'Levelup — навчання як гра: короткі уроки, тести, задачі, серії й ліги — шлях воїна від Новобранця до Легенди',
-  applicationName: 'Levelup',
-  appleWebApp: { capable: true, title: 'Levelup', statusBarStyle: 'black-translucent' },
+  title: { default: 'Loo', template: '%s · Loo' },
+  description: 'Loo — навчання як гра: короткі уроки, тести, задачі, серії й ліги — шлях воїна від Новобранця до Легенди',
+  applicationName: 'Loo',
+  appleWebApp: { capable: true, title: 'Loo', statusBarStyle: 'black-translucent' },
   formatDetection: { telephone: false },
 }
 

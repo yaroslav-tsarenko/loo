@@ -1,0 +1,27 @@
+# Render Blueprint (docs/EMAIL.md): the hourly reminder worker. Render → New → Blueprint → this repo.
+# Secrets are marked `sync: false`: Render asks for them once in the dashboard; they never live in git.
+services:
+  - type: cron
+    name: loo-reminders
+    runtime: node
+    region: frankfurt
+    plan: starter
+    # every hour at :05 UTC; the worker decides by Kyiv time which reminder slot (12/18/19) is due
+    schedule: "5 * * * *"
+    # pnpm pinned to the version the lockfile was written with
+    buildCommand: npx -y pnpm@10.33.2 install --frozen-lockfile --prod=false
+    startCommand: npx -y pnpm@10.33.2 reminders
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      # same day boundaries as the app on Vercel (UTC process time, src/progress/day.ts)
+      - key: TZ
+        value: UTC
+      - key: SITE_URL
+        value: https://playloo.app
+      - key: REMINDERS_FROM
+        value: Loo <hello@playloo.app>
+      - key: DATABASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false

@@ -4,6 +4,8 @@ import { getContent } from '@/server/content'
 export const dynamic = 'force-dynamic'
 
 export async function GET(request: Request): Promise<Response> {
+  // Dev-only content hot reload (see ClientEnhancer); production content is static between deploys.
+  if (process.env.NODE_ENV !== 'development') return new Response(null, { status: 204 })
   await getContent()
   const store = getContentStore()
   const encoder = new TextEncoder()

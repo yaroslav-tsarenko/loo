@@ -28,7 +28,10 @@ export function ClientEnhancer() {
     return () => document.removeEventListener('click', onClick)
   }, [])
 
+  // Live content reload is for editing the vault locally; in production content only changes with a deploy, and a
+  // stream per open tab would keep a function busy until its 300 s timeout.
   useEffect(() => {
+    if (process.env.NODE_ENV !== 'development') return
     let timer: number | null = null
     const source = new EventSource('/api/events')
     source.addEventListener('content', () => {

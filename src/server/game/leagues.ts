@@ -236,7 +236,7 @@ export async function leagueView(userId: string, now: number): Promise<LeagueVie
     tierOf(mine.tier),
   ).map((s) => ({
     rank: s.rank,
-    name: byId.get(s.userId)?.name?.trim() || 'Учень Levelup',
+    name: byId.get(s.userId)?.name?.trim() || 'Учень Loo',
     avatarUrl: byId.get(s.userId)?.avatarUrl ?? null,
     xp: s.xp,
     zone: s.zone,

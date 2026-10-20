@@ -150,7 +150,7 @@ export function Landing({ notice }: { notice?: 'deleted' }) {
   return (
     <div className="landing">
       <header className="landing-nav">
-        <Link href="/" aria-label="Levelup">
+        <Link href="/" aria-label="Loo">
           <Logo size={36} />
         </Link>
         <nav className="landing-nav-links" aria-label="Акаунт">
@@ -267,6 +267,8 @@ export function Landing({ notice }: { notice?: 'deleted' }) {
 
       <footer className="landing-footer">
         {t('landing.footer')} <PixelIcon name="flagUa" size={16} className="landing-footer-flag" />
+        <br />
+        <Link href="/privacy">Конфіденційність</Link> · <Link href="/terms">Умови</Link> · <a href="mailto:support@playloo.app">support@playloo.app</a>
       </footer>
     </div>
   )
