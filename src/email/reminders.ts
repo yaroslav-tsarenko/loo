@@ -1,4 +1,4 @@
-// Reminder emails that bring learners back to the game (scripts/reminders.ts runs this hourly on Render).
+// Reminder emails that bring learners back to the game (scripts/reminders.ts runs this hourly from GitHub Actions, .github/workflows/reminders.yml).
 // Pure: who gets what and when, plus the email content. No I/O, so it is unit-tested (tests/unit/reminders.test.ts).
 //
 // Rules (docs/EMAIL.md):

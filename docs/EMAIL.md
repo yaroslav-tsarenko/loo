@@ -8,7 +8,7 @@
 | Вхідна пошта | Cloudflare Email Routing | `hello@`, `support@`, `news@` → Gmail власника; `noreply@` → drop; catch-all вимкнено |
 | Відправка | Resend, домен `playloo.app`, регіон eu-west-1 | DKIM `resend._domainkey`, SPF `send`/`rsend` (CNAME), DMARC `p=none`; трекінг кліків/відкриттів вимкнено |
 | Листи акаунта | Supabase Auth → SMTP Resend | шаблони `docs/emails/*.html` (`pnpm emails:build`), теми — `docs/emails/subjects.json` |
-| Нагадування | Render cron `loo-reminders` (`render.yaml`) | `scripts/reminders.ts` щогодини, логіка — `src/email/reminders.ts` |
+| Нагадування | GitHub Actions (`.github/workflows/reminders.yml`) | `scripts/reminders.ts` щогодини, логіка — `src/email/reminders.ts` |
 
 Верстка всіх листів одна — `src/email/layout.ts`: лише таблиці й inline-стилі (Gmail вирізає SVG і веб-шрифти), тож
 піксельний Loo і напис «LOO» складені з клітинок таблиці.
@@ -37,7 +37,7 @@ Sender `hello@playloo.app`, name `Loo`, host `smtp.resend.com`, port `465`, user
 
 **Відписка.** У кожному листі — посилання на сторінку `/unsubscribe?t=<token>` і заголовки `List-Unsubscribe` (→ `/api/email/unsubscribe?t=<token>`) +
 `List-Unsubscribe-Post` (вимога Gmail/Yahoo до масових відправників). Токен — випадковий рядок у `email_tokens`
-(серверна таблиця, без грантів для клієнтських ролей), тож Vercel і Render не ділять жодного секрету. GET лише
+(серверна таблиця, без грантів для клієнтських ролей), тож Vercel і воркер не ділять жодного секрету. GET лише
 показує сторінку `/unsubscribe` з кнопкою (сканери посилань не відпишуть людину), POST вимикає `emailReminders`.
 
 ### Запуск і перевірка
@@ -48,12 +48,16 @@ pnpm reminders --preview you@mail.com  # зразки всіх нагадува�
 pnpm reminders                         # справжній запуск (DATABASE_URL, RESEND_API_KEY)
 ```
 
-### Render
+### GitHub Actions
 
-Render → New → Blueprint → репозиторій → `render.yaml` створює cron `loo-reminders` (Frankfurt, starter, ≈ $1/міс).
-Render попросить два секрети: `DATABASE_URL` (Supabase pooler, як у Vercel) і `RESEND_API_KEY`. `TZ=UTC` — щоб межі
-днів збігалися з застосунком на Vercel (`src/progress/day.ts`). Чому Render, а не Vercel Cron: на безкоштовному
-тарифі Vercel крон — лише раз на добу, а нагадуванням потрібен щогодинний.
+Воркер — `.github/workflows/reminders.yml`, щогодини о :05 UTC. Секрети репозиторію (Settings → Secrets and
+variables → Actions): `DATABASE_URL` (Supabase pooler, як у Vercel) і `RESEND_API_KEY`. `TZ=UTC` — щоб межі днів
+збігалися з застосунком на Vercel (`src/progress/day.ts`). Ручний запуск (Actions → reminders → Run workflow) за
+замовчуванням — dry run, можна вказати київську годину.
+
+Чому не Vercel Cron: на Hobby крон лише раз на добу. Чому не Render: cron-задачі там лише платні (потрібна картка).
+GitHub іноді запускає розклад із запізненням на 5–15 хв — для нагадувань це не страшно; якщо запізнення сягне
+наступної години, слот пропускається (краще мовчати, ніж запізнитись). Приватний репо: ~720 хв/міс із 2 000 безкоштовних.
 
 ## Ліміти й надалі
 

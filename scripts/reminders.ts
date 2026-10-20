@@ -1,4 +1,4 @@
-// Reminder worker (docs/EMAIL.md). Runs hourly as a Render cron job (render.yaml): picks the learners whose reminder
+// Reminder worker (docs/EMAIL.md). Runs hourly from GitHub Actions (.github/workflows/reminders.yml): picks the learners whose reminder
 // slot is now (Kyiv time), claims each email in email_log (exactly once, at most one a day) and sends via Resend.
 //
 //   pnpm reminders                         — the hourly run (needs DATABASE_URL, RESEND_API_KEY)

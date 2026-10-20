@@ -1,0 +1,52 @@
+# Hourly reminder worker (docs/EMAIL.md): streak at risk, mission of the day, comeback.
+# Secrets (repo → Settings → Secrets and variables → Actions): DATABASE_URL (Supabase pooler, as on Vercel), RESEND_API_KEY.
+name: reminders
+
+on:
+  schedule:
+    # every hour at :05 UTC; the worker decides by Kyiv time which reminder slot (12/18/19) is due
+    - cron: '5 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: log who would get what, send nothing'
+        type: boolean
+        default: true
+      hour:
+        description: 'Kyiv hour to simulate (dry run only, e.g. 19)'
+        required: false
+
+concurrency:
+  group: reminders
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # same day boundaries as the app on Vercel (UTC process time, src/progress/day.ts)
+      TZ: UTC
+      SITE_URL: https://playloo.app
+      REMINDERS_FROM: Loo <hello@playloo.app>
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Send reminders
+        if: github.event_name == 'schedule' || !inputs.dry_run
+        run: pnpm reminders
+      - name: Dry run
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: pnpm reminders --dry-run ${{ inputs.hour && format('--hour {0}', inputs.hour) || '' }}

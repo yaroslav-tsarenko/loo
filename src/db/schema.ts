@@ -574,7 +574,7 @@ export const leagueMembers = pgTable(
 // ─── Email (docs/EMAIL.md) ──────────────────────────────────────────────────────────────────────────────────────
 // Server-only: RLS on, no grants (the reminder worker and the unsubscribe route use the owner connection).
 
-// Opaque per-learner token for one-click unsubscribe links (no shared secret between Vercel and the Render worker).
+// Opaque per-learner token for one-click unsubscribe links (no shared secret between Vercel and the reminder worker).
 export const emailTokens = pgTable(
   'email_tokens',
   {
