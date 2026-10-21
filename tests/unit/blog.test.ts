@@ -3,7 +3,7 @@ import path from 'node:path'
 import { parse as parseYaml } from 'yaml'
 import { describe, expect, it } from 'vitest'
 import { BLOG_CATEGORIES, blogCategory } from '@/blog/categories'
-import { articleFile, placeImages } from '@/blog/generate'
+import { articleFile, placeImages, qualityProblems, titleOverlap } from '@/blog/generate'
 import { parsePost } from '@/blog/parse'
 
 const dir = path.join(process.cwd(), 'blog', 'uk')
@@ -59,5 +59,16 @@ describe('blog generator helpers', () => {
     expect(post.faq).toHaveLength(1)
     expect(post.body).toContain('## Розділ')
     expect(md).not.toContain('draft:')
+  })
+
+  it('quality gate: substance, required sections, no duplicates', () => {
+    const para = 'Слово '.repeat(260)
+    const good = ['## Що це', para, '## Як утворюється', para, '## Коли вживати', para, '## Типові помилки', para, '## Перевір себе', para, '## Коротко', '- підсумок'].join('\n\n')
+    const faq = [1, 2, 3].map((i) => ({ q: `Питання номер ${i}?`, a: 'Відповідь достатньої довжини для перевірки.' }))
+    expect(qualityProblems({ title: 'Present Perfect простими словами', body: good, faq }, [])).toEqual([])
+    expect(qualityProblems({ title: 'X', body: '## Один\n\nкоротко', faq: [] }, []).length).toBeGreaterThan(3)
+    const dup = qualityProblems({ title: 'Present Perfect простими словами з прикладами', body: good, faq }, [{ slug: 'pp', title: 'Present Perfect простими словами', category: 'english' }])
+    expect(dup).toEqual(['near-duplicate of /blog/pp'])
+    expect(titleOverlap('SQL JOIN з прикладами', 'Німецькі артиклі der die das')).toBe(0)
   })
 })

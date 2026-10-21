@@ -17,6 +17,7 @@
     "e2e": "playwright test",
     "db:generate": "drizzle-kit generate",
     "reminders": "tsx scripts/reminders.ts",
+    "indexnow": "tsx scripts/indexnow.ts",
     "blog:write": "tsx --env-file-if-exists=.env.local scripts/blog-write.ts",
     "emails:build": "tsx docs/emails/build.ts",
     "ids:suggest": "tsx scripts/ids-suggest.ts",

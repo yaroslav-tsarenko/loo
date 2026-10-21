@@ -24,9 +24,10 @@ export const PUBLIC_GET: ReadonlySet<string> = new Set([
   '/twitter-image',
 ])
 
-// The public blog: /blog, /blog/<category>, /blog/<slug>, its OG cards and images (public/blog/<slug>/<file>.webp).
+// The public blog: /blog, /blog/<category>, /blog/<slug>, its OG cards and images (public/blog/<slug>/<file>.webp),
+// /blog/rss.xml and the IndexNow key file (/blog/indexnow.txt).
 // Lowercase slug segments only, at most three deep — nothing else under /blog is reachable without a session.
-const PUBLIC_BLOG = /^\/blog(?:\/[a-z0-9][a-z0-9-]{0,99}(?:\.(?:webp|png|jpg))?){0,3}$/
+const PUBLIC_BLOG = /^\/blog(?:\/[a-z0-9][a-z0-9-]{0,99}(?:\.(?:webp|png|jpg|xml|txt))?){0,3}$/
 
 // Exact paths, POST (plain form posts to route handlers; each checks the Origin itself).
 // /api/email/unsubscribe is token-authenticated and must accept cross-origin one-click POSTs from mail clients (RFC 8058).

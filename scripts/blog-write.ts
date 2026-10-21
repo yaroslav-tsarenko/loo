@@ -17,7 +17,7 @@ import sharp from 'sharp'
 import { parse as parseYaml, stringify } from 'yaml'
 import { gatewayAuth } from '@/ai/reels/generate'
 import { blogCategory } from '@/blog/categories'
-import { articleFile, DEFAULT_BLOG_MODEL, IMAGE_STYLE, placeImages, writeArticle, type BlogTopic, type ExistingPost } from '@/blog/generate'
+import { articleFile, DEFAULT_BLOG_MODEL, IMAGE_STYLE, placeImages, qualityProblems, writeArticle, type BlogTopic, type ExistingPost } from '@/blog/generate'
 import { parsePost, SLUG } from '@/blog/parse'
 
 const args = process.argv.slice(2)
@@ -47,8 +47,10 @@ const POSTS_DIR = path.join(ROOT, 'blog', 'uk')
 const TOPICS = path.join(ROOT, 'blog', 'topics.yaml')
 
 interface TopicEntry extends BlogTopic {
-  status?: 'done'
+  status?: 'done' | 'skipped'
   slug?: string
+  /** Why the quality gate skipped it (fix the topic and remove `status` to retry). */
+  reason?: string
 }
 
 async function existingPosts(): Promise<ExistingPost[]> {
@@ -92,7 +94,7 @@ async function main(): Promise<void> {
   const topics = (parseYaml(await readFile(TOPICS, 'utf8')) ?? []) as TopicEntry[]
   const queue: TopicEntry[] = TOPIC
     ? [{ topic: TOPIC, category: CATEGORY ?? 'learning' }]
-    : topics.filter((t) => t.status !== 'done' && (!CATEGORY || t.category === CATEGORY)).slice(0, COUNT)
+    : topics.filter((t) => !t.status && (!CATEGORY || t.category === CATEGORY)).slice(0, COUNT)
   if (queue.length === 0) return console.log('Немає тем у черзі.')
   await mkdir(POSTS_DIR, { recursive: true })
   const existing = await existingPosts()
@@ -111,12 +113,31 @@ async function main(): Promise<void> {
   }
   if (failed > 0) process.exitCode = 1
 
+  async function saveTopics(): Promise<void> {
+    const header = (await readFile(TOPICS, 'utf8')).split('\n').filter((l) => l.startsWith('#')).join('\n')
+    await writeFile(TOPICS, `${header}\n\n${stringify(topics, { lineWidth: 0 })}`)
+  }
+
   async function writeOne(topic: TopicEntry): Promise<void> {
     if (!blogCategory(topic.category)) throw new Error(`Unknown category «${topic.category}» for «${topic.topic}»`)
     console.log(`\n✍️  ${topic.topic}  [${topic.category}]  (${MODEL})`)
     const started = Date.now()
-    const { draft, issues } = await writeArticle(model, topic, existing)
-    const slug = uniqueSlug(SLUG.test(draft.slug) && !blogCategory(draft.slug) ? draft.slug : `post-${Date.now()}`, taken)
+    // Two attempts to pass the quality gate; a topic that fails both is skipped so the queue keeps moving.
+    let written = await writeArticle(model, topic, existing)
+    let problems = qualityProblems(written.draft, existing)
+    if (problems.length > 0) {
+      console.log(`  ↻ не пройшла перевірку якості (${problems.join('; ')}), ще одна спроба`)
+      written = await writeArticle(model, topic, existing)
+      problems = qualityProblems(written.draft, existing)
+    }
+    if (problems.length > 0) {
+      const entry = topics.find((t) => t.topic === topic.topic)
+      if (entry) Object.assign(entry, { status: 'skipped', reason: problems.join('; ') })
+      await saveTopics()
+      throw new Error(`skipped by the quality gate: ${problems.join('; ')}`)
+    }
+    const { draft, issues } = written
+    const slug = uniqueSlug(SLUG.test(draft.slug) && !blogCategory(draft.slug) && !['about', 'rss'].includes(draft.slug) ? draft.slug : `post-${Date.now()}`, taken)
     console.log(`  текст готовий за ${Math.round((Date.now() - started) / 1000)} с, редактор: ${issues.length} правок → ${slug}`)
 
     const files: Record<string, string> = {}
@@ -152,7 +173,7 @@ async function main(): Promise<void> {
     existing.unshift({ slug, title: draft.title, category: topic.category })
     const entry = topics.find((t) => t.topic === topic.topic)
     if (entry) Object.assign(entry, { status: 'done', slug })
-    await writeFile(TOPICS, `${(await readFile(TOPICS, 'utf8')).split('\n').filter((l) => l.startsWith('#')).join('\n')}\n\n${stringify(topics, { lineWidth: 0 })}`)
+    await saveTopics()
     console.log(`  ✅ blog/uk/${slug}.md`)
   }
 }

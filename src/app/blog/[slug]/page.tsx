@@ -20,8 +20,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const category = blogCategory(slug)
   if (category) {
     const title = `${category.title}: статті й пояснення українською`
+    const empty = !(await allPosts('uk')).some((p) => p.category === category.id)
     return {
       title,
+      // an empty category page is thin content: keep it out of the index until the first post lands
+      ...(empty ? { robots: { index: false, follow: true } } : {}),
       description: category.description,
       alternates: { canonical: `/blog/${category.id}` },
       openGraph: { type: 'website', url: `/blog/${category.id}`, title, description: category.description },
@@ -106,7 +109,7 @@ async function PostPage({ post }: { post: BlogPost }) {
             image: [post.cover ? `${SITE_URL}${post.cover}` : `${url}/opengraph-image`],
             keywords: post.keywords.join(', '),
             articleSection: category?.title,
-            author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+            author: { '@type': 'Organization', name: `Редакція ${SITE_NAME}`, url: `${SITE_URL}/blog/about` },
             publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon` } },
           },
           breadcrumbs([
@@ -142,7 +145,15 @@ async function PostPage({ post }: { post: BlogPost }) {
             <CategoryChip id={post.category} />
             <time dateTime={post.date}>{blogDate(post.date)}</time>
             <span>{readingTime(post.readingMinutes)}</span>
+            <Link href="/blog/about" className="blog-byline">
+              Редакція Loo
+            </Link>
           </div>
+          {post.updated && post.updated !== post.date ? (
+            <p className="blog-updated">
+              Оновлено <time dateTime={post.updated}>{blogDate(post.updated)}</time>
+            </p>
+          ) : null}
         </header>
         <BlogCover post={post} eager />
         <div className="blog-article-grid">

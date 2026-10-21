@@ -150,3 +150,42 @@ export function articleFile(fm: BlogFrontmatter, body: string): string {
   const data = Object.fromEntries(Object.entries(checked).filter(([k, v]) => v !== undefined && !(k === 'draft' && v === false) && !(Array.isArray(v) && v.length === 0)))
   return `---\n${stringify(data, { lineWidth: 0 }).trim()}\n---\n\n${body.trim()}\n`
 }
+
+const words = (s: string) => s.toLowerCase().match(/[\p{L}\p{N}]{4,}/gu) ?? []
+
+/** Word-set overlap of two titles (0–1): guards against two articles competing for the same query. */
+export function titleOverlap(a: string, b: string): number {
+  const x = new Set(words(a))
+  const y = new Set(words(b))
+  if (x.size === 0 || y.size === 0) return 0
+  const common = [...x].filter((w) => y.has(w)).length
+  return common / Math.min(x.size, y.size)
+}
+
+/**
+ * Publishing gate (docs/BLOG.md → «Якість»): what keeps the blog from looking like a content mill — enough substance,
+ * the required teaching sections, no assistant boilerplate, no near-duplicate of an article we already have.
+ * Empty list = publish.
+ */
+export function qualityProblems(draft: Pick<Draft, 'title' | 'body' | 'faq'>, existing: readonly ExistingPost[]): string[] {
+  const problems: string[] = []
+  const body = draft.body
+  const prose = body.replace(/```[\s\S]*?```/g, ' ')
+  const count = prose.split(/\s+/).filter(Boolean).length
+  if (count < 1200) problems.push(`too short: ${count} words`)
+  const h2 = body.match(/^## .+$/gm) ?? []
+  if (h2.length < 5) problems.push(`only ${h2.length} sections`)
+  if (/^# /m.test(body)) problems.push('has an H1 in the body')
+  for (const [name, re] of [
+    ['«Типові помилки»', /^##+ .*помилк/im],
+    ['«Перевір себе»', /^##+ .*перевір себе/im],
+    ['«Коротко»', /^##+ .*коротко/im],
+  ] as const) {
+    if (!re.test(body)) problems.push(`missing section ${name}`)
+  }
+  if (/як (мовна модель|штучний інтелект|ші-асистент)|as an ai\b|i cannot browse/i.test(body)) problems.push('assistant boilerplate')
+  if (draft.faq.length < 3) problems.push('fewer than 3 FAQ items')
+  const twin = existing.find((p) => titleOverlap(p.title, draft.title) >= 0.75)
+  if (twin) problems.push(`near-duplicate of /blog/${twin.slug}`)
+  return problems
+}

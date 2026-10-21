@@ -10,6 +10,9 @@ import { parsePost, SLUG, type BlogLocale, type BlogPost } from './parse'
 
 export { BLOG_LOCALES, frontmatterSchema, parsePost, SLUG, type BlogFrontmatter, type BlogLocale, type BlogPost } from './parse'
 
+/** Static pages under /blog that a post slug must not shadow. */
+export const RESERVED = new Set(['about', 'rss'])
+
 const dir = (locale: BlogLocale) => path.join(process.cwd(), 'blog', locale)
 
 async function load(locale: BlogLocale): Promise<BlogPost[]> {
@@ -23,7 +26,7 @@ async function load(locale: BlogLocale): Promise<BlogPost[]> {
     files.map(async (file) => {
       const slug = file.slice(0, -3)
       if (!SLUG.test(slug)) throw new Error(`blog/${locale}/${file}: slug must be lowercase latin, digits and dashes`)
-      if (BLOG_CATEGORIES.some((c) => c.id === slug)) throw new Error(`blog/${locale}/${file}: slug collides with a category`)
+      if (BLOG_CATEGORIES.some((c) => c.id === slug) || RESERVED.has(slug)) throw new Error(`blog/${locale}/${file}: slug collides with a category or a blog page`)
       return parsePost(await readFile(path.join(dir(locale), file), 'utf8'), slug, locale)
     }),
   )

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { BLOG_CATEGORIES } from '@/blog/categories'
 import { allPosts } from '@/blog/posts'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
@@ -12,7 +13,7 @@ const DESCRIPTION = 'Статті українською: граматика а�
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: '/blog' },
+  alternates: { canonical: '/blog', types: { 'application/rss+xml': [{ url: '/blog/rss.xml', title: 'Блог Loo' }] } },
   openGraph: { type: 'website', url: '/blog', title: TITLE, description: DESCRIPTION },
 }
 
@@ -45,6 +46,9 @@ export default async function BlogIndex() {
       ) : (
         <p className="blog-empty">Перші статті вже пишуться — заглядай незабаром.</p>
       )}
+      <p className="blog-about-note">
+        <Link href="/blog/about">Як ми пишемо статті</Link> · <a href="/blog/rss.xml">RSS</a>
+      </p>
       <BlogCta category={null} />
     </main>
   )
