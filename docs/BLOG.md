@@ -79,7 +79,7 @@ abuse»), незалежно від того, писала людина чи Ш�
   BreadcrumbList + FAQPage у статтях.
 - Canonical на кожній публічній сторінці; порожні категорії — `noindex` до першої статті.
 - RSS `/blog/rss.xml` (посилання в `<head>` блогу).
-- IndexNow (`scripts/indexnow.ts`, ключ `public/blog/indexnow.txt`): Bing, Yandex та ін. дізнаються про нову статтю
+- IndexNow (`scripts/indexnow.ts`, ключ `public/indexnow.txt`): Bing, Yandex та ін. дізнаються про нову статтю
   за хвилини. Google IndexNow не приймає — йому sitemap у Search Console і посилання.
 
 Після першого деплою: додати сайт у [Google Search Console](https://search.google.com/search-console) (DNS-запис

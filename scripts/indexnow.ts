@@ -13,7 +13,7 @@ if (paths.length === 0) {
   console.log('indexnow: nothing to submit')
   process.exit(0)
 }
-const key = (await readFile('public/blog/indexnow.txt', 'utf8')).trim()
+const key = (await readFile('public/indexnow.txt', 'utf8')).trim()
 const urls = [...new Set([...paths, '/blog', '/sitemap.xml'])].map((p) => `${SITE}${p}`)
 
 if (wait) {
@@ -33,6 +33,6 @@ if (wait) {
 const res = await fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  body: JSON.stringify({ host: new URL(SITE).host, key, keyLocation: `${SITE}/blog/indexnow.txt`, urlList: urls }),
+  body: JSON.stringify({ host: new URL(SITE).host, key, keyLocation: `${SITE}/indexnow.txt`, urlList: urls }),
 })
 console.log(`indexnow: ${res.status} for ${urls.length} URLs`)

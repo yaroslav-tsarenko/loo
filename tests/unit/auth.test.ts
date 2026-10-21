@@ -50,7 +50,7 @@ describe('supabase config', () => {
 describe('public paths (proxy.ts)', () => {
   it('lets only the landing, auth pages and auth endpoints through without a session', () => {
     for (const p of ['/', '/login', '/signup', '/forgot-password', '/auth/callback', '/auth/confirm', '/auth/oauth', '/manifest.webmanifest']) expect(isPublicRequest('GET', p, false), p).toBe(true)
-    for (const p of ['/sitemap.xml', '/robots.txt', '/opengraph-image', '/blog', '/blog/javascript', '/blog/present-perfect', '/blog/present-perfect/opengraph-image', '/blog/present-perfect/cover.webp', '/blog/rss.xml', '/blog/indexnow.txt', '/blog/about', '/auth/google/callback']) expect(isPublicRequest('GET', p, false), p).toBe(true)
+    for (const p of ['/sitemap.xml', '/robots.txt', '/opengraph-image', '/blog', '/blog/javascript', '/blog/present-perfect', '/blog/present-perfect/opengraph-image', '/blog/present-perfect/cover.webp', '/blog/rss.xml', '/indexnow.txt', '/blog/about', '/auth/google/callback']) expect(isPublicRequest('GET', p, false), p).toBe(true)
     for (const p of ['/blog/', '/blog/a/b/c/d', '/blog/Upper', '/blog/x.svg', '/blog/../feed', '/blogs', '/api/blog']) expect(isPublicRequest('GET', p, false), p).toBe(false)
     for (const p of ['/auth/sign-in', '/auth/sign-up', '/auth/forgot-password', '/auth/sign-out']) expect(isPublicRequest('POST', p, false), p).toBe(true)
     for (const p of ['/feed', '/account', '/onboarding', '/reset-password', '/api/export', '/api/counts', '/g/js/x.png', '/login/', '/LOGIN']) expect(isPublicRequest('GET', p, false), p).toBe(false)
