@@ -16,7 +16,23 @@
 до БД), картинки віддає CDN Vercel. Тіло рендериться тим самим конвеєром, що й гайди: callout-и `> [!tip]`, підсвітка
 коду, таблиці; h2/h3 отримують id для змісту.
 
-## Генерація
+## Як ми публікуємо
+
+Основний процес — сесія з Claude Code щопонеділка, щосереди й щоп'ятниці:
+
+1. Тему обираємо за попитом (пошукові запити, новини, дослідження ринку) з `blog/topics.yaml` або нову.
+2. Claude пише статтю за стайлгайдом (`STYLE_GUIDE` у `src/blog/generate.ts`), перевіряє факти за першоджерелами й
+   дає посилання на них.
+3. Ілюстрації — піксельні сцени в стилі Loo, без OpenAI: набір `scripts/blog-art/kit.ts` (полотно, Loo, блоки,
+   підписи, іскри) і файл сцен на статтю `scripts/blog-art/<slug>.ts` →
+   `pnpm tsx scripts/blog-art/<slug>.ts` пише `public/blog/<slug>/cover.webp`, `img-1.webp`…
+4. Перевірки: `qualityProblems`, `pnpm vitest run tests/unit/blog.test.ts`, перегляд сторінки.
+5. Коміт у `main` → Vercel деплоїть → `pnpm indexnow /blog/<slug>` → Search Console → «Перевірка URL» → «Надіслати
+   запит на індексування».
+
+Тема в `blog/topics.yaml` позначається `status: done` + `slug`.
+
+## Генерація через OpenAI (резервний варіант)
 
 ```bash
 pnpm blog:write                                    # наступна тема з черги

@@ -373,4 +373,23 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
+  /* Print (checklists): just the article, black on white. */
+  @media print {
+    .blog .landing-nav,
+    .blog .landing-footer,
+    .blog-cta,
+    .blog-related,
+    .blog-toc,
+    .blog .code-copy {
+      display: none !important;
+    }
+    .blog {
+      background: #fff !important;
+      color: #000;
+    }
+    .blog-main {
+      padding: 0;
+    }
+  }
 }
