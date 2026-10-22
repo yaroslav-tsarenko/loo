@@ -26,7 +26,8 @@
 3. Ілюстрації — піксельні сцени в стилі Loo, без OpenAI: набір `scripts/blog-art/kit.ts` (полотно, Loo, блоки,
    підписи, іскри) і файл сцен на статтю `scripts/blog-art/<slug>.ts` →
    `pnpm tsx scripts/blog-art/<slug>.ts` пише `public/blog/<slug>/cover.webp`, `img-1.webp`…
-4. Перевірки: `qualityProblems`, `pnpm vitest run tests/unit/blog.test.ts`, перегляд сторінки.
+4. `pnpm blog:manifest` (список slug-ів для proxy: невідомі `/blog/<slug>` → справжній 404), перевірки:
+   `qualityProblems`, `pnpm vitest run tests/unit/blog.test.ts`, перегляд сторінки.
 5. Коміт у `main` → Vercel деплоїть → `pnpm indexnow /blog/<slug>` → Search Console → «Перевірка URL» → «Надіслати
    запит на індексування».
 

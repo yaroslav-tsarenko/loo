@@ -2,6 +2,7 @@ import 'server-only'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { BLOG_CATEGORIES } from './categories'
+import { RESERVED } from './paths'
 import { parsePost, SLUG, type BlogLocale, type BlogPost } from './parse'
 
 // Blog posts are markdown files in git: blog/<locale>/<slug>.md, images in public/blog/<slug>/ (docs/BLOG.md).
@@ -9,9 +10,6 @@ import { parsePost, SLUG, type BlogLocale, type BlogPost } from './parse'
 // (next.config.ts → outputFileTracingIncludes).
 
 export { BLOG_LOCALES, frontmatterSchema, parsePost, SLUG, type BlogFrontmatter, type BlogLocale, type BlogPost } from './parse'
-
-/** Static pages under /blog that a post slug must not shadow. */
-export const RESERVED = new Set(['about', 'rss'])
 
 const dir = (locale: BlogLocale) => path.join(process.cwd(), 'blog', locale)
 

@@ -1,5 +1,6 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { blogPageExists } from '@/blog/paths'
 import { isPublicRequest } from '@/lib/auth-paths'
 import { cronAuthorized } from '@/lib/auth'
 import { buildCsp, createNonce } from '@/lib/csp'
@@ -81,8 +82,17 @@ export async function proxy(request: NextRequest) {
   return response
 }
 
+const NOT_FOUND_HTML = `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Сторінку не знайдено · Loo</title></head><body style="font-family:system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#17161d"><h1>Такої статті немає</h1><p>Можливо, адреса змінилася. Усі статті — у <a href="/blog" style="color:#7c4dff">блозі Loo</a>.</p></body></html>`
+
+function blogNotFound(): NextResponse {
+  return new NextResponse(NOT_FOUND_HTML, { status: 404, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=300' } })
+}
+
 async function handle(request: NextRequest): Promise<NextResponse> {
   const { pathname } = request.nextUrl
+
+  // Unknown blog posts: a real 404 before any rendering (src/blog/paths.ts explains why the page itself can't).
+  if (blogPageExists(pathname) === false) return blogNotFound()
 
   // Vercel Cron authenticates with a bearer secret instead of a user session.
   if (pathname.startsWith('/api/cron/')) {

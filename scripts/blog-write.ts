@@ -19,6 +19,8 @@ import { gatewayAuth } from '@/ai/reels/generate'
 import { blogCategory } from '@/blog/categories'
 import { articleFile, DEFAULT_BLOG_MODEL, IMAGE_STYLE, placeImages, qualityProblems, writeArticle, type BlogTopic, type ExistingPost } from '@/blog/generate'
 import { parsePost, SLUG } from '@/blog/parse'
+import { RESERVED } from '@/blog/paths'
+import { blogSlugs, manifestSource } from './blog-manifest'
 
 const args = process.argv.slice(2)
 const opt = (name: string) => {
@@ -137,7 +139,7 @@ async function main(): Promise<void> {
       throw new Error(`skipped by the quality gate: ${problems.join('; ')}`)
     }
     const { draft, issues } = written
-    const slug = uniqueSlug(SLUG.test(draft.slug) && !blogCategory(draft.slug) && !['about', 'rss'].includes(draft.slug) ? draft.slug : `post-${Date.now()}`, taken)
+    const slug = uniqueSlug(SLUG.test(draft.slug) && !blogCategory(draft.slug) && !RESERVED.has(draft.slug) ? draft.slug : `post-${Date.now()}`, taken)
     console.log(`  текст готовий за ${Math.round((Date.now() - started) / 1000)} с, редактор: ${issues.length} правок → ${slug}`)
 
     const files: Record<string, string> = {}
@@ -174,6 +176,7 @@ async function main(): Promise<void> {
     const entry = topics.find((t) => t.topic === topic.topic)
     if (entry) Object.assign(entry, { status: 'done', slug })
     await saveTopics()
+    await writeFile(path.join(ROOT, 'src', 'blog', 'manifest.generated.ts'), manifestSource(await blogSlugs()))
     console.log(`  ✅ blog/uk/${slug}.md`)
   }
 }
