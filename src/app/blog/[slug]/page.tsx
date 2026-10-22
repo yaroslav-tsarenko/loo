@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { blogCategory, type BlogCategory } from '@/blog/categories'
+import { blogCategory, BLOG_CATEGORIES, type BlogCategory } from '@/blog/categories'
 import { allPosts, getPost, relatedPosts, type BlogPost } from '@/blog/posts'
 import { renderPostBody } from '@/blog/render'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
@@ -14,6 +14,14 @@ import { JsonLd } from '@/ui/seo/JsonLd'
 // categories: src/blog/posts.ts).
 
 type Params = { params: Promise<{ slug: string }> }
+
+// Only known categories and posts exist: anything else is a real 404 before rendering (the root loading.tsx would
+// otherwise start streaming with 200 and turn notFound() into a soft 404).
+export const dynamicParams = false
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return [...BLOG_CATEGORIES.map((c) => ({ slug: c.id })), ...(await allPosts('uk')).map((p) => ({ slug: p.slug }))]
+}
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
