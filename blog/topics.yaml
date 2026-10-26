@@ -143,6 +143,11 @@
     - замикання javascript
     - closure javascript
     - що таке замикання
+    - замикання javascript простими словами
+    - var let у циклі settimeout
+  notes: Обов'язкове питання співбесід Junior/Middle (Lemon.School, dev.ua, Hillel); задача з var у циклі й setTimeout, практичні шаблони, MDN як джерело.
+  status: done
+  slug: zamykannia-v-javascript-prostymy-slovamy
 - topic: Promise, async/await у JavaScript — асинхронність без болю
   category: javascript
   keywords:

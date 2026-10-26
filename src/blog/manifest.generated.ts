@@ -5,5 +5,6 @@ export const BLOG_SLUGS: readonly string[] = [
   "present-perfect-prostymy-slovamy",
   "sql-join-prostymy-slovamy-inner-left-right-full-join",
   "system-design-interview-yak-pidhotuvatysia",
-  "yak-vyvchyty-anhliisku-samostiino-z-nulia"
+  "yak-vyvchyty-anhliisku-samostiino-z-nulia",
+  "zamykannia-v-javascript-prostymy-slovamy"
 ]
