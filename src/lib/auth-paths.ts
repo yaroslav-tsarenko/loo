@@ -46,7 +46,7 @@ export function isPublicRequest(method: string, pathname: string, isServerAction
 }
 
 // Pages that render full-screen, without sidebar / bottom nav, even for a signed-in user.
-const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth', '/unsubscribe', '/privacy', '/terms', '/blog', '/admin']
+const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth', '/unsubscribe', '/privacy', '/terms', '/blog', '/admin', '/banned']
 
 export function isBarePath(pathname: string): boolean {
   return BARE.some((p) => pathname === p || pathname.startsWith(`${p}/`))

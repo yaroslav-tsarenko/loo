@@ -1,4 +1,13 @@
-/* Loo admin MVP (/admin): site statistics. Plain, dense, readable; the same tokens as the app. */
+.banned-page {
+  min-height: 70vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  padding: 24px;
+  font-family: var(--lu-font);
+}
+/* Loo admin (/admin, docs/ADMIN.md): plain, dense, readable; the same tokens as the app. */
 .adm {
   max-width: 1240px;
   margin: 0 auto;
@@ -183,4 +192,269 @@
   color: var(--lu-red-ink);
   font-weight: 700;
   font-size: 14px;
+}
+
+/* Shell: sidebar + content (src/app/admin/layout.tsx) */
+.adm-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 100vh;
+  font-family: var(--lu-font);
+  color: var(--lu-text);
+  background: var(--lu-bg);
+}
+.adm-side {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px 14px;
+  border-right: 2px solid var(--lu-border);
+  background: var(--lu-surface);
+}
+.adm-brand {
+  margin: 0 8px;
+  font-size: 22px;
+  font-weight: var(--lu-fw-black);
+}
+.adm-brand span {
+  padding: 2px 6px;
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-violet);
+  color: #fff;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.adm-nav {
+  display: grid;
+  gap: 4px;
+}
+.adm-nav-link {
+  padding: 9px 12px;
+  border-radius: var(--lu-r-sm);
+  color: var(--lu-text-2);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.adm-nav-link:hover {
+  background: var(--lu-surface-2);
+  color: var(--lu-text);
+}
+.adm-nav-link[aria-current='page'] {
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+}
+.adm-side-foot {
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+  padding: 0 8px;
+  color: var(--lu-text-3);
+}
+.adm-main {
+  min-width: 0;
+}
+@media (max-width: 760px) {
+  .adm-shell {
+    grid-template-columns: 1fr;
+  }
+  .adm-side {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 2px solid var(--lu-border);
+  }
+  .adm-nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .adm-side-foot {
+    margin: 0;
+    grid-auto-flow: column;
+    align-items: center;
+  }
+}
+
+/* Forms and tools (users, settings) */
+.adm-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+.adm-search {
+  display: flex;
+  gap: 8px;
+}
+.adm-input {
+  min-width: 0;
+  padding: 8px 10px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-bg);
+  color: var(--lu-text);
+  font: inherit;
+  font-size: 14px;
+}
+.adm-input:focus-visible {
+  outline: none;
+  border-color: var(--lu-violet);
+}
+.adm-search .adm-input {
+  width: min(320px, 60vw);
+}
+.adm-wide {
+  flex: 1 1 200px;
+}
+.adm-narrow {
+  width: 90px;
+}
+.adm-label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lu-text-2);
+}
+.adm-btn {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--lu-r-sm);
+  box-shadow: 0 3px 0 var(--lu-violet-lip);
+  background: var(--lu-violet);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.adm-btn:hover {
+  background: var(--lu-violet-hover);
+}
+.adm-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--lu-violet-lip);
+}
+.adm-btn-bad {
+  background: var(--lu-red);
+  box-shadow: 0 3px 0 var(--lu-red-lip);
+}
+.adm-btn-bad:hover {
+  background: var(--lu-red-hover);
+}
+.adm-link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--lu-red-ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.adm-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.adm-hint {
+  margin: 0 0 10px;
+  color: var(--lu-text-3);
+  font-size: 12px;
+}
+.adm-h3 {
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: var(--lu-fw-black);
+}
+.adm-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+.adm-items li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--lu-border);
+}
+.adm-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+  font-size: 11px;
+  font-weight: 800;
+  vertical-align: middle;
+}
+.adm-tag-bad {
+  background: var(--lu-red-soft);
+  color: var(--lu-red-ink);
+}
+.adm-block {
+  display: block;
+}
+.adm-user-link {
+  color: var(--lu-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+.adm-user-link:hover {
+  color: var(--lu-violet-ink);
+  text-decoration: underline;
+}
+.adm-crumbs {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+.adm-crumbs a {
+  color: var(--lu-text-2);
+  text-decoration: none;
+}
+.adm-ok {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--lu-r);
+  background: var(--lu-green-soft);
+  color: var(--lu-green-ink);
+  font-weight: 700;
+  font-size: 14px;
+}
+.adm-pos {
+  color: var(--lu-green-ink);
+}
+.adm-neg {
+  color: var(--lu-red-ink);
+}
+.adm-code {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-bg-sunk);
+  font-family: var(--lu-font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  overflow-x: auto;
+}
+.adm-users td {
+  white-space: nowrap;
+}
+.adm-amount {
+  width: 140px;
 }

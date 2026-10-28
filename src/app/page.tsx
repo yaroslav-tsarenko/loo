@@ -47,6 +47,7 @@ export const metadata: Metadata = {
 export default async function HomePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   if (!(await getUser())) return <Landing notice={(await searchParams).deleted === '1' ? 'deleted' : undefined} />
   const profile = await getProfile()
+  if (profile?.bannedAt) redirect('/banned')
   if (profile && !profile.onboarding.completedAt) redirect('/onboarding')
   return <LibraryPage />
 }

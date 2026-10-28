@@ -41,6 +41,9 @@ export const profiles = pgTable('profiles', {
   preferences: jsonb('preferences').$type<ProfilePreferences>().notNull().default({}),
   createdAt: ms('created_at').notNull(),
   updatedAt: ms('updated_at').notNull(),
+  // Ban (admin area, docs/ADMIN.md): set → signed-in pages and actions are refused. Not in the learner's column grants.
+  bannedAt: ms('banned_at'),
+  banReason: text('ban_reason'),
 })
 
 const userId = () =>
@@ -646,4 +649,21 @@ export const analyticsEvents = pgTable(
     durationMs: integer('duration_ms'),
   },
   (t) => [index('analytics_at_idx').on(t.at), index('analytics_day_type_idx').on(t.day, t.type), index('analytics_path_idx').on(t.path), index('analytics_visitor_idx').on(t.visitorId)],
+)
+
+// ─── Admin audit (docs/ADMIN.md) ──────────────────────────────────────────────
+// Every change the admin area makes to a learner (balances, boosts, items, bans). Server-only (RLS on, no grants);
+// no FK, so the record outlives a deleted account.
+export const adminAudit = pgTable(
+  'admin_audit',
+  {
+    id: bigint('id', { mode: 'number' }).primaryKey().generatedByDefaultAsIdentity(),
+    at: ms('at').notNull(),
+    // 'login' (the owner's admin login) or 'role:<user id>' (an account with the admin role)
+    actor: text('actor').notNull(),
+    action: text('action').notNull(),
+    targetUserId: uuid('target_user_id'),
+    payload: jsonb('payload').$type<Record<string, unknown>>().notNull().default({}),
+  },
+  (t) => [index('admin_audit_at_idx').on(t.at), index('admin_audit_target_idx').on(t.targetUserId)],
 )
