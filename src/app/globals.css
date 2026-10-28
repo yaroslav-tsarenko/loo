@@ -18,6 +18,7 @@
 @import './news.css';
 @import './auth.css'; /* sign-in, onboarding, account */
 @import './landing.css'; /* signed-out home */
+@import './admin.css'; /* /admin: site statistics */
 @import './blog.css'; /* public blog */
 @import './diagram.css'; /* [!diagram] figures */
 @import './game.css'; /* hearts, gems, shop, leagues, ranks */

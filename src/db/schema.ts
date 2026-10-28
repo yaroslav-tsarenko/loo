@@ -601,3 +601,49 @@ export const emailLog = pgTable(
   },
   (t) => [primaryKey({ columns: [t.userId, t.kind, t.ref] }), index('email_log_user_day_idx').on(t.userId, t.day)],
 )
+
+// ─── Analytics (docs/ANALYTICS.md) ───────────────────────────────────────────
+// First-party site analytics: page views, clicks and time on page of every visitor (signed in or not), enriched on
+// the server with IP, Vercel geo headers and the user agent. Server-only table: RLS on, no grants (the admin area
+// reads it as the system). A learner's rows go with their account (ON DELETE CASCADE).
+export interface AnalyticsTarget {
+  // clicked element: visible label (≤ 80 chars), link, tag, data-track, position in the viewport (%) and on the page (px)
+  label?: string
+  href?: string
+  tag?: string
+  track?: string
+  x?: number
+  y?: number
+  pageY?: number
+}
+
+export const analyticsEvents = pgTable(
+  'analytics_events',
+  {
+    id: bigint('id', { mode: 'number' }).primaryKey().generatedByDefaultAsIdentity(),
+    at: ms('at').notNull(),
+    // Kyiv calendar day, YYYY-MM-DD (daily charts without timezone math)
+    day: text('day').notNull(),
+    // pageview | click | leave (time on page)
+    type: text('type').notNull(),
+    path: text('path').notNull(),
+    title: text('title'),
+    referrer: text('referrer'),
+    utm: jsonb('utm').$type<Record<string, string>>(),
+    visitorId: text('visitor_id').notNull(),
+    sessionId: text('session_id').notNull(),
+    userId: uuid('user_id').references(() => profiles.id, { onDelete: 'cascade' }),
+    ip: text('ip'),
+    country: text('country'),
+    region: text('region'),
+    city: text('city'),
+    device: text('device'),
+    browser: text('browser'),
+    os: text('os'),
+    screen: text('screen'),
+    lang: text('lang'),
+    target: jsonb('target').$type<AnalyticsTarget>(),
+    durationMs: integer('duration_ms'),
+  },
+  (t) => [index('analytics_at_idx').on(t.at), index('analytics_day_type_idx').on(t.day, t.type), index('analytics_path_idx').on(t.path), index('analytics_visitor_idx').on(t.visitorId)],
+)

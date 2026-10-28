@@ -19,6 +19,7 @@
     "reminders": "tsx scripts/reminders.ts",
     "indexnow": "tsx scripts/indexnow.ts",
     "blog:manifest": "tsx scripts/blog-manifest.ts",
+    "admin:credentials": "tsx scripts/admin-credentials.ts",
     "blog:write": "tsx --env-file-if-exists=.env.local scripts/blog-write.ts",
     "emails:build": "tsx docs/emails/build.ts",
     "ids:suggest": "tsx scripts/ids-suggest.ts",

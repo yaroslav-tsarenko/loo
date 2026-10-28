@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { blogPageExists } from '@/blog/paths'
 import { isPublicRequest } from '@/lib/auth-paths'
 import { cronAuthorized } from '@/lib/auth'
+import { ADMIN_COOKIE, adminSecret, verifyAdminToken } from '@/lib/admin-token'
 import { buildCsp, createNonce } from '@/lib/csp'
 import { isHttps } from '@/lib/same-origin'
 import { devAuthBypass, supabaseConfig } from '@/lib/supabase/config'
@@ -97,6 +98,11 @@ async function handle(request: NextRequest): Promise<NextResponse> {
   // Vercel Cron authenticates with a bearer secret instead of a user session.
   if (pathname.startsWith('/api/cron/')) {
     return (await cronAuthorized(request.headers.get('authorization'))) ? NextResponse.next() : new NextResponse('Unauthorized', { status: 401 })
+  }
+
+  // The admin area opens with the owner's signed admin cookie, no learner session needed (docs/ANALYTICS.md).
+  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+    if (await verifyAdminToken(adminSecret(), request.cookies.get(ADMIN_COOKIE)?.value, Date.now())) return withCsp(request)
   }
 
   const session = await refreshSession(request)

@@ -32,6 +32,8 @@ export const CLAIM_TABLES: ReadonlyArray<{ table: string; keys: readonly string[
   // Email (docs/EMAIL.md)
   { table: 'email_tokens', keys: [] },
   { table: 'email_log', keys: ['kind', 'ref'] },
+  // site analytics (surrogate key): the legacy owner's events become the claiming admin's
+  { table: 'analytics_events', keys: [] },
 ]
 
 export function claimStatements(userId: string): SQL[] {

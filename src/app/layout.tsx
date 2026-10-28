@@ -11,6 +11,7 @@ import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
 import { EvolutionMoment } from '@/ui/game/EvolutionMoment'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
 import { SpeechSettingsProvider } from '@/ui/lang/SpeechSettings'
+import { Tracker } from '@/ui/analytics/Tracker'
 import { CommandPalette } from '@/ui/search/CommandPalette'
 import { AppFrame } from '@/ui/shell/AppFrame'
 import { ClientEnhancer } from '@/ui/shell/ClientEnhancer'
@@ -61,7 +62,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           {/* Static string (no user input); allowed by the per-request CSP nonce from proxy.ts. */}
           <script nonce={nonce} dangerouslySetInnerHTML={{ __html: PUBLIC_THEME_BOOT }} />
         </head>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Tracker />
+        </body>
       </html>
     )
   }
@@ -119,6 +123,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </SpeechSettingsProvider>
         </FeedbackProvider>
         <ClientEnhancer />
+        <Tracker />
       </body>
     </html>
   )

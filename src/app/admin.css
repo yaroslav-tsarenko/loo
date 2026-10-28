@@ -1,0 +1,176 @@
+/* Loo admin MVP (/admin): site statistics. Plain, dense, readable; the same tokens as the app. */
+.adm {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+  font-family: var(--lu-font);
+  color: var(--lu-text);
+  display: grid;
+  gap: 16px;
+}
+.adm-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.adm-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: var(--lu-fw-black);
+}
+.adm-lead {
+  margin: 4px 0 0;
+  color: var(--lu-text-2);
+  font-size: 14px;
+}
+.adm-ranges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.adm-ranges form {
+  display: contents;
+}
+.adm-chip {
+  padding: 6px 12px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface);
+  color: var(--lu-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.adm-chip[aria-current='page'] {
+  border-color: var(--lu-violet);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+}
+.adm-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.adm-kpi {
+  display: grid;
+  gap: 2px;
+  padding: 14px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
+  background: var(--lu-surface);
+}
+.adm-kpi-value {
+  font-size: 26px;
+  font-weight: var(--lu-fw-black);
+}
+.adm-kpi-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lu-text-2);
+}
+.adm-card {
+  min-width: 0;
+  padding: 16px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r);
+  background: var(--lu-surface);
+}
+.adm-h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: var(--lu-fw-black);
+}
+.adm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 16px;
+}
+.adm-empty,
+.adm-muted {
+  color: var(--lu-text-3);
+  font-size: 13px;
+}
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.adm-table th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--lu-text-2);
+  padding: 4px 6px;
+  border-bottom: 2px solid var(--lu-border);
+  white-space: nowrap;
+}
+.adm-table td {
+  position: relative;
+  padding: 5px 6px;
+  border-bottom: 1px solid var(--lu-border);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.adm-table .num {
+  text-align: right;
+  width: 1%;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.adm-table small {
+  color: var(--lu-text-2);
+}
+.adm-bar {
+  position: absolute;
+  inset: 3px auto 3px 0;
+  border-radius: 3px;
+  background: var(--lu-violet-soft);
+}
+.adm-key {
+  position: relative;
+}
+.adm-mono {
+  font-family: var(--lu-font-mono, ui-monospace, monospace);
+  font-size: 12px;
+}
+.adm-scroll {
+  overflow-x: auto;
+}
+.adm-recent td {
+  white-space: nowrap;
+}
+.adm-recent td.adm-mono {
+  white-space: normal;
+  min-width: 220px;
+}
+.adm-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 180px;
+  padding-top: 8px;
+}
+.adm-col {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+.adm-col-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  background: var(--lu-violet);
+}
+.adm-col-label {
+  font-size: 10px;
+  color: var(--lu-text-3);
+  white-space: nowrap;
+}
