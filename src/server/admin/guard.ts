@@ -13,7 +13,9 @@ export async function adminVia(): Promise<'login' | 'role' | null> {
 }
 
 export async function requireAdminArea(): Promise<'login' | 'role'> {
+  const started = Date.now()
   const via = await adminVia()
+  console.log(`[admin] access ${via ?? 'denied'} ${Date.now() - started}ms`)
   if (!via) notFound()
   return via
 }

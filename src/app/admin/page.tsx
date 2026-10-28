@@ -75,7 +75,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
       <header className="adm-top">
         <div>
           <h1 className="adm-title">Loo · адмінка</h1>
-          <p className="adm-lead">Статистика сайту за {days === 1 ? 'добу' : `${days} днів`} · вхід: {via === 'login' ? 'адмін-логін' : 'акаунт з роллю admin'}</p>
+          <p className="adm-lead">
+            Статистика сайту за {days === 1 ? 'добу' : `${days} днів`} · вхід: {via === 'login' ? 'адмін-логін' : 'акаунт з роллю admin'} · {s.ms} мс
+          </p>
         </div>
         <nav className="adm-ranges" aria-label="Період">
           {RANGES.map((d) => (
@@ -92,6 +94,12 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           ) : null}
         </nav>
       </header>
+
+      {s.issues.length > 0 ? (
+        <p className="adm-issues" role="alert">
+          Не завантажилось: {s.issues.join(', ')} — спробуй оновити сторінку.
+        </p>
+      ) : null}
 
       <section className="adm-kpis">
         {kpis.map(([label, value]) => (

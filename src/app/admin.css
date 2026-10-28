@@ -174,3 +174,13 @@
   color: var(--lu-text-3);
   white-space: nowrap;
 }
+
+.adm-issues {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--lu-r);
+  background: var(--lu-red-soft);
+  color: var(--lu-red-ink);
+  font-weight: 700;
+  font-size: 14px;
+}
