@@ -86,7 +86,14 @@ export async function adminStats(days: number, now = Date.now()): Promise<AdminS
   const started = Date.now()
   const log: string[] = []
   const issues: string[] = []
-  const q = <T extends Row>(name: string, query: SQL) => rows<T>(query, name, log, issues)
+  // One query at a time: Supabase's transaction pooler (Supavisor, port 6543) drops replies of queries pipelined on one
+  // connection (docs/PERFORMANCE.md §DB) — 14 parallel queries on a pool of 3 left one or two hanging forever.
+  let chain: Promise<unknown> = Promise.resolve()
+  const q = <T extends Row>(name: string, query: SQL): Promise<T[]> => {
+    const run = chain.then(() => rows<T>(query, name, log, issues))
+    chain = run.catch(() => undefined)
+    return run
+  }
   const page = sql`split_part(path, '?', 1)`
   const viewsIn = sql`type = 'pageview' and at >= ${since}`
   const top = (name: string, key: SQL, where: SQL, limit = 15) =>

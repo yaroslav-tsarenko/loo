@@ -35,7 +35,12 @@ export function openDb(url: string): { db: Db; sql: postgres.Sql } {
   // PGlite (pnpm db:local) multiplexes one connection, so it needs DATABASE_POOL_MAX=1.
   // a few connections per instance so concurrent requests on one Fluid instance don't queue behind each other
   const max = Number(process.env.DATABASE_POOL_MAX) || (process.env.VERCEL ? 3 : 5)
-  const sql = postgres(url, { prepare: false, max, idle_timeout: 20, onnotice: () => {} })
+  // max_pipeline 0: never send a statement on a connection that is still busy. postgres-js pipelines up to 100
+  // parameterless statements per connection by default, and Supabase's transaction pooler (Supavisor, 6543) drops
+  // the replies of pipelined statements — the query hangs forever and its connection is out of step (seen on /admin).
+  // (a runtime option of postgres-js — src/index.js «max_pipeline» — missing from its type definitions)
+  const options: postgres.Options<Record<string, never>> & { max_pipeline: number } = { prepare: false, max, max_pipeline: 0, idle_timeout: 20, onnotice: () => {} }
+  const sql = postgres(url, options)
   // pipelined(): one round trip per statement instead of two on Vercel (./pipeline.ts)
   return { db: drizzle(pipelined(sql), { schema, ...(process.env.PERF_TRACE === '1' ? { logger: tracingLogger } : {}) }), sql }
 }
