@@ -132,15 +132,6 @@
 .adm-table small {
   color: var(--lu-text-2);
 }
-.adm-bar {
-  position: absolute;
-  inset: 3px auto 3px 0;
-  border-radius: 3px;
-  background: var(--lu-violet-soft);
-}
-.adm-key {
-  position: relative;
-}
 .adm-mono {
   font-family: var(--lu-font-mono, ui-monospace, monospace);
   font-size: 12px;
@@ -154,34 +145,6 @@
 .adm-recent td.adm-mono {
   white-space: normal;
   min-width: 220px;
-}
-.adm-chart {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 180px;
-  padding-top: 8px;
-}
-.adm-col {
-  flex: 1;
-  min-width: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 4px;
-}
-.adm-col-bar {
-  width: 100%;
-  min-height: 2px;
-  border-radius: 4px 4px 0 0;
-  background: var(--lu-violet);
-}
-.adm-col-label {
-  font-size: 10px;
-  color: var(--lu-text-3);
-  white-space: nowrap;
 }
 
 .adm-issues {
