@@ -5,13 +5,13 @@ import { getDb } from '@/db/client'
 // Site statistics for /admin (docs/ANALYTICS.md). Read as the system (analytics_events has no grants), aggregated in
 // Postgres; only the admin area calls this.
 
-type Row = Record<string, unknown>
+export type Row = Record<string, unknown>
 
 // Every query is timed and capped: a slow or stuck one leaves its block empty (named in `issues`) instead of hanging
 // the whole page; the timings go to the function log (`[admin] stats …`).
 const QUERY_TIMEOUT_MS = 8_000
 
-async function rows<T extends Row>(q: SQL, name = 'query', log?: string[], issues?: string[]): Promise<T[]> {
+export async function rows<T extends Row>(q: SQL, name = 'query', log?: string[], issues?: string[]): Promise<T[]> {
   const started = Date.now()
   let timer: ReturnType<typeof setTimeout> | undefined
   try {
@@ -29,6 +29,18 @@ async function rows<T extends Row>(q: SQL, name = 'query', log?: string[], issue
     return []
   } finally {
     clearTimeout(timer)
+  }
+}
+
+// One query at a time: Supabase's transaction pooler (Supavisor, port 6543) drops replies of queries pipelined on one
+// connection (docs/PERFORMANCE.md §DB) — 14 parallel queries on a pool of 3 left one or two hanging forever. The returned
+// `q` queues each statement behind the previous one, so callers may still start them all with Promise.all.
+export function sequential(log: string[], issues: string[]): <T extends Row>(name: string, query: SQL) => Promise<T[]> {
+  let chain: Promise<unknown> = Promise.resolve()
+  return <T extends Row>(name: string, query: SQL): Promise<T[]> => {
+    const run = chain.then(() => rows<T>(query, name, log, issues))
+    chain = run.catch(() => undefined)
+    return run
   }
 }
 
@@ -86,14 +98,7 @@ export async function adminStats(days: number, now = Date.now()): Promise<AdminS
   const started = Date.now()
   const log: string[] = []
   const issues: string[] = []
-  // One query at a time: Supabase's transaction pooler (Supavisor, port 6543) drops replies of queries pipelined on one
-  // connection (docs/PERFORMANCE.md §DB) — 14 parallel queries on a pool of 3 left one or two hanging forever.
-  let chain: Promise<unknown> = Promise.resolve()
-  const q = <T extends Row>(name: string, query: SQL): Promise<T[]> => {
-    const run = chain.then(() => rows<T>(query, name, log, issues))
-    chain = run.catch(() => undefined)
-    return run
-  }
+  const q = sequential(log, issues)
   const page = sql`split_part(path, '?', 1)`
   const viewsIn = sql`type = 'pageview' and at >= ${since}`
   const top = (name: string, key: SQL, where: SQL, limit = 15) =>

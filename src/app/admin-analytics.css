@@ -1,0 +1,816 @@
+/* Admin site analytics (/admin, /admin/analytics): KPI tabs, area chart, breakdown lists, filters, event log.
+   Tokens only (tokens.css) — light/dark follow them. Responsive down to 375px: the page never scrolls sideways,
+   wide tables scroll inside their card. */
+
+/* ── page frame ─────────────────────────────────────────────────────────────────────────────────────────────── */
+.ana > * {
+  min-width: 0;
+  transition: opacity var(--lu-dur-2) var(--lu-ease);
+}
+#ana-root[data-pending] > :not(.ana-head) {
+  opacity: 0.55;
+}
+.ana-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+.ana-head-text {
+  min-width: 0;
+}
+.ana-title {
+  margin: 0;
+  font-size: var(--lu-fs-2xl);
+  font-weight: var(--lu-fw-black);
+  line-height: 1.15;
+}
+.ana-lead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 6px 0 0;
+  color: var(--lu-text-2);
+  font-size: 14px;
+}
+.ana-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px;
+  border-radius: var(--lu-r-pill);
+  background: var(--lu-green-soft);
+  color: var(--lu-green-ink);
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+.ana-live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--lu-green);
+  animation: ana-pulse 1.6s var(--lu-ease) infinite;
+}
+@keyframes ana-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* ── period picker ──────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-picker {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  max-width: 100%;
+}
+.ana-picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 14px;
+}
+.ana-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  max-width: 100%;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface-2);
+}
+.ana-seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--lu-text-2);
+  font: inherit;
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ana-seg-btn:hover:not(:disabled) {
+  background: var(--lu-hover);
+  color: var(--lu-text);
+}
+.ana-seg-btn[aria-pressed='true'],
+.ana-seg-btn[aria-selected='true'],
+.ana-seg-btn[data-on='true'] {
+  background: var(--lu-surface);
+  color: var(--lu-violet-ink);
+  box-shadow: 0 0 0 1px var(--lu-border-strong);
+}
+.ana-seg-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ana-seg-btn:focus-visible,
+.ana-tab:focus-visible,
+.ana-row-in:focus-visible,
+.ana-kpi:focus-visible,
+.ana-chip-x:focus-visible,
+.ana-pager-link:focus-visible,
+.ana-link:focus-visible {
+  outline: none;
+  box-shadow: var(--lu-focus);
+}
+.ana-custom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.ana-custom label {
+  display: grid;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.ana-custom input {
+  min-height: 34px;
+  padding: 4px 8px;
+  border: 2px solid var(--lu-border-strong);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface);
+  color: var(--lu-text);
+  font: inherit;
+  font-size: 14px;
+  color-scheme: inherit;
+}
+.ana-custom input:focus-visible {
+  outline: none;
+  border-color: var(--lu-violet);
+}
+.ana-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+  cursor: pointer;
+}
+.ana-toggle input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--lu-violet);
+}
+.ana-pending {
+  font-size: 12px;
+  color: var(--lu-text-3);
+}
+
+/* ── filter chips ───────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ana-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 3px 4px 3px 10px;
+  border: 2px solid var(--lu-violet);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+  font-size: 13px;
+}
+.ana-chip-key {
+  font-weight: var(--lu-fw-bold);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+.ana-chip-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--lu-fw-black);
+}
+.ana-chip-x {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--lu-r-xs);
+  color: inherit;
+}
+.ana-chip-x:hover {
+  background: var(--lu-press);
+}
+.ana-chip-clear {
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+
+/* ── cards ──────────────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-card {
+  min-width: 0;
+  padding: 16px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
+  box-shadow: 0 3px 0 var(--lu-border);
+}
+.ana-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+.ana-card-head .ana-h2 {
+  margin: 0;
+}
+.ana-h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: var(--lu-fw-black);
+}
+.ana-card-head .ana-seg-btn {
+  min-height: 26px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+.ana-empty {
+  margin: 8px 0;
+  color: var(--lu-text-3);
+  font-size: 13px;
+}
+.ana-muted {
+  color: var(--lu-text-3);
+  font-size: 13px;
+}
+.ana-mono {
+  font-family: var(--lu-font-mono);
+  font-size: 12px;
+}
+.ana-link {
+  border-radius: var(--lu-r-xs);
+  color: var(--lu-violet-ink);
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  text-decoration: none;
+}
+.ana-link:hover {
+  text-decoration: underline;
+}
+.ana-cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+/* ── KPI cards (overview) ───────────────────────────────────────────────────────────────────────────────────── */
+.ana-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+}
+.ana-kpi {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px 14px 12px;
+  border: 2px solid var(--lu-border);
+  border-radius: var(--lu-r-lg);
+  background: var(--lu-surface);
+  box-shadow: 0 3px 0 var(--lu-border);
+  color: var(--lu-text);
+  text-decoration: none;
+}
+a.ana-kpi:hover {
+  border-color: var(--lu-border-strong);
+  box-shadow: 0 3px 0 var(--lu-border-strong);
+}
+.ana-kpi-label {
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.ana-kpi-value {
+  font-size: 26px;
+  font-weight: var(--lu-fw-black);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.ana-kpi-note {
+  font-size: 12px;
+  color: var(--lu-text-3);
+}
+.ana-kpi .ana-delta {
+  justify-self: start;
+}
+.ana-spark {
+  display: block;
+  width: 100%;
+  height: 32px;
+  margin-top: 4px;
+  overflow: visible;
+}
+.ana-spark-area {
+  fill: var(--lu-violet-soft);
+}
+.ana-spark-line {
+  fill: none;
+  stroke: var(--lu-violet);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* ── delta ──────────────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  border-radius: var(--lu-r-xs);
+  background: var(--lu-surface-3);
+  color: var(--lu-text-2);
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ana-delta svg {
+  width: 12px;
+  height: 12px;
+}
+.ana-delta[data-good='true'] {
+  background: var(--lu-green-soft);
+  color: var(--lu-green-ink);
+}
+.ana-delta[data-good='false'] {
+  background: var(--lu-red-soft);
+  color: var(--lu-red-ink);
+}
+.ana-delta[data-trend='new'] {
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+}
+
+/* ── main chart with KPI tabs ───────────────────────────────────────────────────────────────────────────────── */
+.ana-main {
+  padding: 0;
+  overflow: hidden;
+}
+.ana-main > .ana-card-head {
+  padding: 16px 16px 0;
+}
+.ana-main > .ana-chart {
+  padding: 4px 8px 8px;
+}
+.ana-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  border-bottom: 2px solid var(--lu-border);
+}
+.ana-tab {
+  position: relative;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px 16px 16px;
+  border: 0;
+  border-right: 1px solid var(--lu-border);
+  border-bottom: 1px solid var(--lu-border);
+  margin-bottom: -1px;
+  background: transparent;
+  color: var(--lu-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ana-tab:hover {
+  background: var(--lu-hover);
+}
+.ana-tab[aria-selected='true'] {
+  background: var(--lu-surface-2);
+}
+.ana-tab[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 3px;
+  background: var(--lu-violet);
+}
+.ana-tab-label {
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  color: var(--lu-text-2);
+}
+.ana-tab[aria-selected='true'] .ana-tab-label {
+  color: var(--lu-violet-ink);
+}
+.ana-tab-value {
+  font-size: 24px;
+  font-weight: var(--lu-fw-black);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ana-main-plot {
+  padding: 8px 8px 8px 4px;
+}
+
+/* ── area chart ─────────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-chart {
+  position: relative;
+  min-width: 0;
+}
+.ana-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 14px;
+  padding: 4px 8px 0;
+  font-size: 12px;
+  color: var(--lu-text-2);
+}
+.ana-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ana-key {
+  display: inline-block;
+  flex: none;
+  width: 14px;
+  height: 0;
+  border-top: 2px solid var(--lu-violet);
+}
+.ana-key-prev {
+  border-top: 2px dashed var(--lu-text-3);
+}
+.ana-chart-plot {
+  position: relative;
+}
+.ana-chart-svg {
+  display: block;
+  overflow: visible;
+  touch-action: pan-y;
+  user-select: none;
+}
+.ana-chart-svg:focus {
+  outline: none;
+}
+.ana-grid line {
+  stroke: var(--lu-border);
+  stroke-width: 1;
+}
+.ana-grid text {
+  fill: var(--lu-text-3);
+  font-family: var(--lu-font);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.ana-fill-top {
+  stop-color: var(--lu-violet);
+  stop-opacity: 0.26;
+}
+.ana-fill-bottom {
+  stop-color: var(--lu-violet);
+  stop-opacity: 0.02;
+}
+.ana-line {
+  fill: none;
+  stroke: var(--lu-violet);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ana-line-prev {
+  fill: none;
+  stroke: var(--lu-text-3);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+  stroke-linejoin: round;
+}
+.ana-cross {
+  stroke: var(--lu-border-strong);
+  stroke-width: 1;
+}
+.ana-dot-prev {
+  fill: var(--lu-surface);
+  stroke: var(--lu-text-3);
+  stroke-width: 2;
+}
+.ana-point {
+  fill: var(--lu-surface);
+  stroke: var(--lu-violet);
+  stroke-width: 2;
+  opacity: 0;
+}
+.ana-point[data-active='true'] {
+  opacity: 1;
+}
+.ana-point:focus-visible {
+  opacity: 1;
+  outline: none;
+  stroke: var(--lu-violet-ink);
+  stroke-width: 3;
+}
+.ana-tip {
+  position: absolute;
+  top: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+  min-width: 150px;
+  max-width: min(260px, 70vw);
+  padding: 8px 10px;
+  border: 2px solid var(--lu-border-strong);
+  border-radius: var(--lu-r-sm);
+  background: var(--lu-surface);
+  box-shadow: var(--lu-shadow-pop);
+  font-size: 12px;
+  pointer-events: none;
+  transform: translateX(12px);
+}
+.ana-tip[data-flip='true'] {
+  transform: translateX(calc(-100% - 12px));
+}
+.ana-tip-title {
+  color: var(--lu-text-2);
+  font-weight: var(--lu-fw-bold);
+}
+.ana-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lu-text-2);
+  white-space: nowrap;
+}
+.ana-tip-row strong {
+  color: var(--lu-text);
+  font-size: 14px;
+  font-weight: var(--lu-fw-black);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── breakdown lists ────────────────────────────────────────────────────────────────────────────────────────── */
+.ana-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+  gap: 16px;
+}
+.ana-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+.ana-list {
+  display: grid;
+  gap: 2px;
+}
+.ana-list-head,
+.ana-row-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 3.4em 14px;
+  align-items: center;
+  gap: 10px;
+}
+.ana-list-head {
+  padding: 0 8px 4px;
+  color: var(--lu-text-3);
+  font-size: 11px;
+  font-weight: var(--lu-fw-bold);
+  text-align: right;
+}
+.ana-rows {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ana-row-in {
+  position: relative;
+  min-height: 32px;
+  padding: 5px 8px;
+  border-radius: var(--lu-r-sm);
+  color: var(--lu-text);
+  font-size: 13px;
+  text-decoration: none;
+}
+a.ana-row-in:hover {
+  background: var(--lu-hover);
+}
+.ana-row-bar {
+  position: absolute;
+  inset: 2px auto 2px 0;
+  border-radius: var(--lu-r-xs);
+  background: var(--lu-violet-soft);
+}
+.ana-row-label,
+.ana-row-value,
+.ana-row-pct,
+.ana-row-filter {
+  position: relative;
+}
+.ana-row-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.ana-row-label[data-mono='true'] {
+  font-family: var(--lu-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+.ana-row-label small {
+  margin-left: 6px;
+  color: var(--lu-text-3);
+  font-family: var(--lu-font);
+  font-size: 11px;
+  font-weight: var(--lu-fw-bold);
+}
+.ana-row-value {
+  font-weight: var(--lu-fw-black);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.ana-row-pct {
+  color: var(--lu-text-2);
+  font-size: 12px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.ana-row-filter {
+  width: 14px;
+  height: 14px;
+  color: var(--lu-violet-ink);
+  opacity: 0;
+}
+a.ana-row-in:hover .ana-row-filter,
+a.ana-row-in:focus-visible .ana-row-filter {
+  opacity: 1;
+}
+.ana-more summary {
+  width: max-content;
+  margin: 6px 0 2px 8px;
+  border-radius: var(--lu-r-xs);
+  color: var(--lu-violet-ink);
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  cursor: pointer;
+}
+.ana-more[open] summary {
+  margin-bottom: 4px;
+}
+
+/* ── tables (clicks, events) ────────────────────────────────────────────────────────────────────────────────── */
+.ana-scroll {
+  overflow-x: auto;
+  margin: 0 -16px;
+  padding: 0 16px;
+  overscroll-behavior-x: contain;
+}
+.ana-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.ana-table th {
+  padding: 6px 8px;
+  border-bottom: 2px solid var(--lu-border);
+  color: var(--lu-text-2);
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+  text-align: left;
+  white-space: nowrap;
+}
+.ana-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--lu-border);
+  vertical-align: top;
+}
+.ana-table tbody tr:hover {
+  background: var(--lu-hover);
+}
+.ana-table .num {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ana-table small {
+  color: var(--lu-text-2);
+}
+.ana-table .ana-mono {
+  overflow-wrap: anywhere;
+}
+.ana-events td {
+  white-space: nowrap;
+}
+.ana-events td.ana-wrap {
+  min-width: 220px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.ana-type {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: var(--lu-r-xs);
+  background: var(--lu-surface-3);
+  color: var(--lu-text-2);
+  font-size: 12px;
+  font-weight: var(--lu-fw-bold);
+}
+.ana-type[data-type='pageview'] {
+  background: var(--lu-violet-soft);
+  color: var(--lu-violet-ink);
+}
+.ana-type[data-type='click'] {
+  background: var(--lu-blue-soft);
+  color: var(--lu-blue-ink);
+}
+.ana-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+}
+.ana-pager-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 2px solid var(--lu-border-strong);
+  border-radius: var(--lu-r-sm);
+  color: var(--lu-text);
+  font-size: 13px;
+  font-weight: var(--lu-fw-bold);
+  text-decoration: none;
+}
+.ana-pager-link:hover {
+  background: var(--lu-hover);
+}
+
+/* ── small screens ──────────────────────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .ana-picker,
+  .ana-picker-row,
+  .ana-custom {
+    justify-items: start;
+    justify-content: flex-start;
+  }
+  .ana-head {
+    flex-direction: column;
+  }
+  .ana-tab {
+    padding: 10px 12px 12px;
+  }
+  .ana-tab-value {
+    font-size: 20px;
+  }
+  .ana-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ana-kpi-value {
+    font-size: 22px;
+  }
+  .ana-card:not(.ana-main) {
+    padding: 14px 12px;
+  }
+  .ana-scroll {
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ana-live i {
+    animation: none;
+  }
+  .ana > * {
+    transition: none;
+  }
+}
