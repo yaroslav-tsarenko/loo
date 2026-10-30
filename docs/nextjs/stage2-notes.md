@@ -106,7 +106,7 @@
   nested boundary ready first swaps inside parent's hidden segment (fallback never shown); notFound() after
   request-time await → 200+noindex, real 404 needs check before any request-time await; redirect() in boundary → 200 +
   meta refresh; mid-stream error → $RX + digest + `<!--$!-->`; htmlLimitedBots regex in
-  next/dist/shared/lib/router/utils/html-bots.js; next start sends X-Accel-Buffering: no.
+  next/dist/shared/lib/router/utils/html-bots.js; ~~next start sends X-Accel-Buffering: no~~ WRONG — not sent by default (only via headers() config).
 - BRIEF: playwright-core lives at node_modules/.pnpm/playwright-core@1.56.0/node_modules/playwright-core; tsx scripts
   with top-level await need .mts.
 - FIX at integration: core-05 icon `px:layers` doesn't exist → pick an existing px icon.
@@ -125,3 +125,10 @@
   `export const instant = false`.
 - core-08: `next build` renders a static page twice in the same instance (counters 2) — don't claim «рендериться один раз».
 - core-09: click on a Link to a prefetched page sends no request; prefetch = segment requests (`/_tree`, `/<route>/__PAGE__` from `.segments/`); byte-identical `.rsc` only for plain `RSC: 1` curl. `.rsc` starts with `#` (complete) / `~` (partial) marker byte. Bundled migrating-to-cache-components.md:103 suggests moving Math.random() into a Client Component — on 16.3.8 that fails the prerender.
+- MEASURED (review 10–11): no observable prefetch difference between `connection()` and `io()` on 16.3.8 (default
+  Link, prefetch={true}, prefetch='partial', runtime prefetch). Docs claim "connection() blocks prefetch" doesn't
+  reproduce; with prefetch={true} (no Partial Prefetching) code after connection() runs during prefetch.
+- CANONICAL wording for blocking routes (`instant = false`): build table `ƒ`; headers (200, `x-nextjs-postponed: 1`,
+  `private, no-cache, no-store`) go immediately, the HTML only after the full render. Same headers as ◐ — tell them
+  apart by the build table or body timing; only an ƒ Route Handler has no cache headers.
+- HTML-limited bots skip the prerendered shell: even a ○ page gets `private, no-store` for Twitterbot.

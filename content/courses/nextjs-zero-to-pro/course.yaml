@@ -42,7 +42,7 @@ sections:
       description: 'Перший застосунок на App Router: сторінки, навігація, стилі, дані, форма, деплой.' }
   - { id: routing, skill: routing, title: Маршрутизація, icon: px:map, from: Next.js, chapters: 1-6,
       description: 'Сегменти, layouts, dynamic, parallel та intercepting routes, навігація, proxy.ts.' }
-  - { id: rendering, skill: rendering, title: Рендеринг і RSC, icon: px:microscope, from: Next.js, chapters: 7,
+  - { id: rendering, skill: rendering, title: Рендеринг і RSC, icon: px:microscope, from: Next.js, chapters: 7-13,
       description: 'Server і Client Components, RSC payload, static і dynamic, streaming, PPR, помилки.' }
   - { id: data, skill: data, title: Дані й кеш, icon: px:database, from: Next.js, chapters: 14-20, status: planned,
       description: 'Дані на сервері, водоспади, Cache Components, ревалідація, ISR, Route Handlers, БД.' }

@@ -35,6 +35,78 @@ keepLatin:
   - Turbopack
   - React Compiler
   - Core Web Vitals
+  - utility-first
+  - mobile-first
+  - CSS Modules
+  - error boundary
+  - skeleton
+  - fallback
+  - DOM
+  - CSSOM
+  - render tree
+  - ETag
+  - origin
+  - FormData
+  - progressive enhancement
+  - preview deployment
+  - build logs
+  - runtime logs
+  - Instant Rollback
+  - Strict Mode
+  - batching
+  - reducer
+  - generic
+  - satisfies
+  - as const
+  - route group
+  - catch-all
+  - optional catch-all
+  - colocation
+  - root layout
+  - leaf segment
+  - slug
+  - query string
+  - soft 404
+  - App Shell
+  - parallel routes
+  - intercepting routes
+  - soft navigation
+  - hard navigation
+  - deep link
+  - Partial Prefetching
+  - Client Cache
+  - Activity
+  - Navigation Inspector
+  - bfcacheId
+  - Fast Refresh
+  - HMR
+  - import alias
+  - CSR
+  - SSR
+  - SSG
+  - bundler
+  - code splitting
+  - static export
+  - matcher
+  - rewrite
+  - redirect
+  - negative lookahead
+  - open redirect
+  - client reference
+  - export condition
+  - barrel
+  - render prop
+  - Flight
+  - selective hydration
+  - prerendering
+  - request-time
+  - Draft Mode
+  - digest
+  - backoff
+  - throttle
+  - out-of-order streaming
+  - postponedState
+  - dev overlay
 terms:
   маршрут: route
   сегмент маршруту: route segment
@@ -76,7 +148,6 @@ terms:
   еталонне рішення: reference solution
   підказка: hint
   пояснення: explanation
-  # заголовки анатомії теми (LEARNING_PLAYBOOK §2)
   Передбач: Predict
   Простими словами: In plain words
   Як це працює насправді: How it really works
@@ -88,3 +159,15 @@ terms:
   Практика: Practice
   Джерела та що почитати: Sources and further reading
   Підсумок: Summary
+  стан: state
+  хук: hook
+  ефект: Effect
+  підняття стану: lifting state up
+  похідний стан: derived state
+  функція-оновлювач: updater function
+  звуження типу: narrowing
+  розрізнюваний union: discriminated union
+  перевірка повноти: exhaustive check
+  слот: slot
+  перехоплювальний маршрут: intercepting route
+  дірка: hole
