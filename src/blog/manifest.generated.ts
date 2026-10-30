@@ -7,6 +7,7 @@ export const BLOG_SLUGS: readonly string[] = [
   "promise-async-await-javascript",
   "sql-join-prostymy-slovamy-inner-left-right-full-join",
   "system-design-interview-yak-pidhotuvatysia",
+  "umovni-rechennia-v-anhliiskii-conditionals",
   "yak-vyvchyty-anhliisku-samostiino-z-nulia",
   "zamykannia-v-javascript-prostymy-slovamy"
 ]
