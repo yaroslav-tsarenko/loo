@@ -516,7 +516,10 @@ Done: stage 0 (syllabus, research), stage 1 (skills as data, per-skill placement
 contract docs), **stage 2**: Start S01–S12, routing 01–06, rendering 07–13 — reviewed and active; placement bank 104
 questions for foundations / routing / rendering.
 
-Next: **stage 3 in two waves** — wave A: `data` 14–20; wave B: `mutations` 21–25 + `auth-security` 26–30. Each wave:
+Stage 3 wave A (`data` 14–20) is done, reviewed, active and pushed (2026-10-31): 7 topics, ≈ 1,250 exercises incl.
+25 tasks, +35 placement questions for `data`. Findings in `docs/nextjs/stage3-notes.md`.
+
+Next: **stage 3 wave B** — wave A: `data` 14–20; wave B: `mutations` 21–25 + `auth-security` 26–30. Each wave:
 pipeline from §8 → section exam + placement questions for the wave's skills → checks → browser pass → local commit →
 **STOP** and report.
 
