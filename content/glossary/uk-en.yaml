@@ -26,6 +26,11 @@ keepLatin:
   - DTO
   - interleaving
   - environment poisoning
+  - import trace
+  - hydration mismatch
+  - prefetch cache
+  - Data Access Layer
+  - Taint API
   - Fluid Compute
   - Turbopack
   - React Compiler
@@ -56,3 +61,30 @@ terms:
   екзамен розділу: section exam
   вступний тест: placement test
   навичка: skill
+  граф модулів: module graph
+  серіалізований: serializable
+  обгортка: wrapper
+  вшивати (env): inline
+  білий список: allowlist
+  чорний список: denylist
+  вихідний код сторінки: page source
+  перший захід: initial load
+  навігація на клієнті: client-side navigation
+  обробник подій: event handler
+  провайдер: provider
+  шар даних: data layer
+  еталонне рішення: reference solution
+  підказка: hint
+  пояснення: explanation
+  # заголовки анатомії теми (LEARNING_PLAYBOOK §2)
+  Передбач: Predict
+  Простими словами: In plain words
+  Як це працює насправді: How it really works
+  Пастки: Pitfalls
+  На співбесіді: In the interview
+  Зв'язки: Connections
+  Фішки: Quick facts
+  Закріплення: Review
+  Практика: Practice
+  Джерела та що почитати: Sources and further reading
+  Підсумок: Summary
