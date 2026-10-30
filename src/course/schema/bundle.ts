@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { LevelSchema } from './level'
+import { CourseI18nSchema } from './i18n'
 import { AuthorSchema, SectionKindSchema } from './manifest'
 import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
 import { SkillDefSchema } from './skills'
@@ -212,6 +213,10 @@ export const CourseMetaSchema = z.object({
   language: z.string(),
   // language courses: the language being learned (BCP 47), for speech; absent → `language`
   target: z.string().optional(),
+  // content translations (course.yaml `sourceLanguage` / `languages`): present only when they differ from the
+  // defaults (`language`, `[language]`) — see courseLanguages() in src/course/i18n.ts
+  sourceLanguage: z.string().optional(),
+  languages: z.array(z.string()).optional(),
   icon: z.string().nullable(),
   color: z.string().nullable(),
   cover: z.string().nullable(),
@@ -240,5 +245,7 @@ export const CourseBundleSchema = z.object({
   placement: PlacementPoolSchema,
   icons: z.array(z.string()),
   stats: CourseStatsSchema,
+  // texts in the other languages (title, sections, skills…): absent for a course without translations
+  i18n: CourseI18nSchema.optional(),
 })
 export type CourseBundle = z.infer<typeof CourseBundleSchema>

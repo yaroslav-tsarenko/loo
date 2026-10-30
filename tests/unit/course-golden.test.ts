@@ -95,6 +95,18 @@ describe.skipIf(!hasVault)('golden bundles (English, JavaScript)', () => {
     expect(en.placement.skills).toBeUndefined()
     expect(skillModelOf(en)).toEqual({ skills: [...LANGUAGE_SKILL_MODEL.skills], overall: [...LANGUAGE_SKILL_MODEL.overall] })
   })
+
+  // content i18n (docs/NEXTJS_SYLLABUS.md §8): courses without translations gain no field at all — the sha above is
+  // over the whole bundle (stripAdded only removes the skills fields), so it is byte-identical except those
+  it('i18n adds nothing to courses without translations', { timeout: 120_000 }, async () => {
+    process.env.VAULT_PATH ??= vault
+    for (const id of COURSES) {
+      const b = compiled.get(id) ?? (await golden(id), compiled.get(id)!)
+      expect('i18n' in b, id).toBe(false)
+      expect('languages' in b.course, id).toBe(false)
+      expect('sourceLanguage' in b.course, id).toBe(false)
+    }
+  })
 })
 
 // The path of both real bundles (committed JSON, no vault needed) under a few progress states, with skills null:

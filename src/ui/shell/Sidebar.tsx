@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronsLeft } from 'lucide-react'
 import { PiBooksFill, PiCheckBold, PiGearSixFill, PiMagnifyingGlassBold, PiPlusBold } from 'react-icons/pi'
-import { t } from '@/i18n'
+import { useT } from '@/i18n/react'
 import { switchCourse } from '@/server/actions/courses'
 import { Icon } from '@/ui/icons/Icon'
 import type { CSSProperties } from 'react'
@@ -19,6 +19,8 @@ import { RANKS } from '@/game/ranks'
 import { LooCharacter } from '@/ui/game/LooCharacter'
 import { OPEN_PALETTE, RANK_KEY } from './constants'
 import { NAV } from './nav'
+import { useLocale } from '@/i18n/react'
+import { badgeLabel, navLabel } from './nav-i18n'
 import { FALLBACK_ICON, NAV_ICONS } from './nav-icons'
 import { IslandScroll } from './IslandScroll'
 import { useCounts, usePractice } from './NavLinks'
@@ -53,13 +55,14 @@ export interface SidebarRank {
 
 // Level (from XP) + the warrior rank (src/game/ranks.ts; live through /api/counts) → «Мій Loo».
 function LevelRow({ rank }: { rank?: SidebarRank }) {
+  const t = useT()
   const { xp } = useFeedback()
   const counts = useCounts()
   const info = levelInfo(xp)
   const pct = Math.round(info.progress * 100)
   const live = RANKS[counts[RANK_KEY] ?? rank?.index ?? 0] ?? RANKS[0]!
   return (
-    <Link href="/loo" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={`Мій Loo: ранг ${live.title}, рівень ${info.level}, ${pct}% до наступного рівня`}>
+    <Link href="/loo" className="sb-level" onClick={() => setMobileSidebar(false)} aria-label={t('shell.levelAria', { rank: live.title, level: info.level, pct })}>
       <span className="sb-level-badge sb-level-loo" aria-hidden="true">
         <LooCharacter step={live.index} size={34} animated={false} />
         <span className="tabular">{info.level}</span>
@@ -69,7 +72,7 @@ function LevelRow({ rank }: { rank?: SidebarRank }) {
           <span>{live.title}</span>
           <span className="tabular">{pct}%</span>
         </span>
-        <ProgressBar value={info.progress} tone="yellow" size="sm" label="Прогрес рівня" />
+        <ProgressBar value={info.progress} tone="yellow" size="sm" label={t('shell.levelProgress')} />
       </span>
     </Link>
   )
@@ -82,6 +85,7 @@ export interface SidebarAccount {
 
 // «Курси»: the learner's library with the active-course switcher (any number of courses).
 function CourseRows({ courses }: { courses: SidebarCourse[] }) {
+  const t = useT()
   return (
     <ul className="sb-courses">
       {courses.map((c) => (
@@ -158,6 +162,8 @@ function NavItemLink({ href, label, icon: Glyph, color, active, count, tone = 'r
 // «Практика» of the active course: its own sections from course.yaml (src/ui/shell/course-nav.ts), with badges
 // counted in that course only.
 function PracticeBlock({ course, path }: { course: SidebarActiveCourse | null; path: string }) {
+  const t = useT()
+  const locale = useLocale()
   const practice = usePractice()
   const counts = useCounts()
   return (
@@ -177,13 +183,13 @@ function PracticeBlock({ course, path }: { course: SidebarActiveCourse | null; p
           <NavItemLink
             key={item.id}
             href={item.href}
-            label={item.label}
+            label={navLabel(item, locale)}
             icon={item.icon}
             color={item.color}
             active={item.match(path)}
             count={item.badge ? counts[item.badge.key] : undefined}
             tone={item.badge?.tone}
-            countLabel={item.badge?.label}
+            countLabel={item.badge ? badgeLabel(item.badge, locale) : undefined}
           />
         ))}
       </div>
@@ -206,32 +212,34 @@ export function Sidebar({
   account?: SidebarAccount
   rank?: SidebarRank
 }) {
+  const t = useT()
+  const locale = useLocale()
   const path = decode(usePathname())
 
   return (
     <>
       <div className="sb-scrim" onClick={() => setMobileSidebar(false)} aria-hidden="true" />
-      <aside className="sidebar" aria-label="Навігація">
+      <aside className="sidebar" aria-label={t('shell.nav')}>
         <div className="sb-head">
-          <Link href="/" className="sb-brand" aria-label="Loo — на головну" onClick={() => setMobileSidebar(false)}>
+          <Link href="/" className="sb-brand" aria-label={t('shell.home')} onClick={() => setMobileSidebar(false)}>
             <Logo size={34} />
           </Link>
-          <button type="button" className="sb-icon-button sb-collapse" aria-label="Сховати бічну панель" title="Сховати бічну панель (⌘\)" onClick={() => setSidebarOpen(false)}>
+          <button type="button" className="sb-icon-button sb-collapse" aria-label={t('shell.collapse')} title={t('shell.collapseTitle')} onClick={() => setSidebarOpen(false)}>
             <ChevronsLeft size={18} strokeWidth={2} />
           </button>
         </div>
         <IslandScroll className="sb-scroll">
-          <nav className="sb-nav" aria-label="Розділи">
+          <nav className="sb-nav" aria-label={t('shell.sections')}>
             <button type="button" className="sb-item sb-search" onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE))}>
               <span className="sb-item-icon">
                 <PiMagnifyingGlassBold size={22} aria-hidden="true" />
               </span>
-              <span className="sb-item-label">Пошук</span>
+              <span className="sb-item-label">{t('shell.search')}</span>
               <kbd className="sb-kbd">⌘K</kbd>
             </button>
             {NAV.map((item) => {
               const { icon, color } = NAV_ICONS[item.href] ?? FALLBACK_ICON
-              return <NavItemLink key={item.href} href={item.href} label={item.label} icon={icon} color={color} active={item.match(path)} />
+              return <NavItemLink key={item.href} href={item.href} label={navLabel(item, locale)} icon={icon} color={color} active={item.match(path)} />
             })}
           </nav>
           <PracticeBlock course={course} path={path} />
@@ -262,11 +270,11 @@ export function Sidebar({
           <div className="sb-foot-tools">
             <SoundToggle />
             <ThemeToggle initial={theme} />
-            <Link href="/settings" className="sb-icon-button" aria-label="Налаштування" title="Налаштування" onClick={() => setMobileSidebar(false)}>
+            <Link href="/settings" className="sb-icon-button" aria-label={t('shell.settings')} title={t('shell.settings')} onClick={() => setMobileSidebar(false)}>
               <PiGearSixFill size={20} />
             </Link>
             {account ? (
-              <Link href="/account" className="sb-icon-button sb-account" aria-label="Профіль і акаунт" title={account.name} onClick={() => setMobileSidebar(false)}>
+              <Link href="/account" className="sb-icon-button sb-account" aria-label={t('shell.account')} title={account.name} onClick={() => setMobileSidebar(false)}>
                 <Avatar name={account.name} src={account.avatarUrl ?? undefined} size={26} />
               </Link>
             ) : null}

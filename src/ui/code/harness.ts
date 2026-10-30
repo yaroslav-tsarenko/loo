@@ -1,5 +1,8 @@
+import { HARNESS_UK, type HarnessText } from './harness-text'
+
 // Test harness for learner code. `runSuite` is serialized with Function#toString into a Blob worker,
 // so it must stay fully self-contained: no imports, no module-level values, no references outside its body.
+// (The one exception is the default of `text`: the worker always passes the texts — src/ui/code/harness-text.ts.)
 
 export type LogLevel = 'log' | 'info' | 'warn' | 'error'
 
@@ -35,7 +38,7 @@ export interface HarnessHost {
   now: () => number
 }
 
-export async function runSuite(code: string, tests: string, emit: (event: RunEvent) => void, host: HarnessHost, testTimeoutMs = 1500): Promise<RunReport> {
+export async function runSuite(code: string, tests: string, emit: (event: RunEvent) => void, host: HarnessHost, testTimeoutMs = 1500, text: HarnessText = HARNESS_UK): Promise<RunReport> {
   type Fn = (...args: unknown[]) => unknown
   type Mock = Fn & { mock: { calls: unknown[][]; results: unknown[] }; __mock: true }
   interface Timer {
@@ -57,6 +60,11 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   }
   type Failure = Error & { expected?: string; received?: string }
 
+  // user-visible texts in the learner's UI locale: `say('calls', { n: 2 })`
+  const say = (key: keyof HarnessText, vars?: Record<string, unknown>): string => {
+    const raw = text[key] ?? String(key)
+    return vars ? raw.replace(/\{(\w+)\}/g, (m, name: string) => (name in vars ? String(vars[name]) : m)) : raw
+  }
   const started = host.now()
   const logs: LogEntry[] = []
   const results: TestResult[] = []
@@ -80,7 +88,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
     if (depth > 3) return Array.isArray(value) ? '[Array]' : '[Object]'
     if (Array.isArray(value)) {
       const items = value.slice(0, 50).map(inner)
-      if (value.length > 50) items.push(`…ще ${value.length - 50}`)
+      if (value.length > 50) items.push(say('more', { n: value.length - 50 }))
       return `[${items.join(', ')}]`
     }
     if (value instanceof Map) return `Map(${value.size}) {${[...value].slice(0, 30).map(([k, v]) => ` ${inner(k)} => ${inner(v)}`).join(',')} }`
@@ -95,7 +103,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
 
   const errorText = (e: unknown): string => {
     if (e instanceof Error) return e.name === 'AssertionError' || e.name === 'Error' ? e.message : `${e.name}: ${e.message}`
-    return `Кинуто не Error: ${fmt(e)}`
+    return say('thrownNotError', { value: fmt(e) })
   }
 
   // ---------- console
@@ -103,7 +111,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
     (level: LogLevel) =>
     (...args: unknown[]) => {
       if (logs.length > MAX_LOGS) return
-      const entry: LogEntry = logs.length === MAX_LOGS ? { level: 'warn', text: '… вивід обрізано' } : { level, text: args.map((a) => fmt(a, false)).join(' ').slice(0, 2000) }
+      const entry: LogEntry = logs.length === MAX_LOGS ? { level: 'warn', text: say('outputCut') } : { level, text: args.map((a) => fmt(a, false)).join(' ').slice(0, 2000) }
       logs.push(entry)
       emit({ type: 'log', entry })
     }
@@ -113,12 +121,12 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   let uncaught: unknown = null
   const report = (e: unknown) => {
     if (uncaught === null) uncaught = e
-    sandboxConsole.error(`Помилка в таймері: ${errorText(e)}`)
+    sandboxConsole.error(say('timerError', { error: errorText(e) }))
   }
   const realHandles = new Set<unknown>()
   const clock = { fake: false, now: 0, base: 0, seq: 0, nextId: 1_000_000_000, timers: new Map<number, Timer>() }
   const addTimer = (fn: unknown, ms: unknown, args: unknown[], repeat: boolean): number => {
-    if (typeof fn !== 'function') throw new TypeError('Колбек таймера має бути функцією')
+    if (typeof fn !== 'function') throw new TypeError(say('timerCallback'))
     const delay = Math.max(0, Number(ms) || 0)
     const id = clock.nextId++
     clock.timers.set(id, { id, at: clock.now + delay, seq: clock.seq++, every: repeat ? Math.max(1, delay) : null, fn: fn as Fn, args })
@@ -139,7 +147,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   }
   const sandboxSetTimeout = (fn: unknown, ms?: unknown, ...args: unknown[]) => {
     if (clock.fake) return addTimer(fn, ms, args, false)
-    if (typeof fn !== 'function') throw new TypeError('Колбек таймера має бути функцією')
+    if (typeof fn !== 'function') throw new TypeError(say('timerCallback'))
     const handle = host.setTimeout(() => {
       realHandles.delete(handle)
       try {
@@ -153,7 +161,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   }
   const sandboxSetInterval = (fn: unknown, ms?: unknown, ...args: unknown[]) => {
     if (clock.fake) return addTimer(fn, ms, args, true)
-    if (typeof fn !== 'function') throw new TypeError('Колбек таймера має бути функцією')
+    if (typeof fn !== 'function') throw new TypeError(say('timerCallback'))
     const handle = host.setInterval(() => {
       try {
         ;(fn as Fn)(...args)
@@ -202,28 +210,28 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
       return vi
     },
     advanceTimersByTime: (ms: number) => {
-      if (!clock.fake) throw new Error('Спершу виклич vi.useFakeTimers()')
+      if (!clock.fake) throw new Error(say('fakeTimersFirst'))
       const target = clock.now + Math.max(0, Number(ms) || 0)
       let guard = 0
       for (let t = earliest(target); t; t = earliest(target)) {
-        if (++guard > 100_000) throw new Error('Забагато спрацювань таймерів — нескінченний setInterval?')
+        if (++guard > 100_000) throw new Error(say('tooManyTimers'))
         fire(t)
       }
       clock.now = target
       return vi
     },
     runAllTimers: () => {
-      if (!clock.fake) throw new Error('Спершу виклич vi.useFakeTimers()')
+      if (!clock.fake) throw new Error(say('fakeTimersFirst'))
       let guard = 0
       for (let t = earliest(Infinity); t; t = earliest(Infinity)) {
-        if (++guard > 10_000) throw new Error('runAllTimers: понад 10 000 спрацювань — нескінченний setInterval?')
+        if (++guard > 10_000) throw new Error(say('runAllTimers'))
         fire(t)
       }
       return vi
     },
     getTimerCount: () => clock.timers.size,
     setSystemTime: (time: number | Date) => {
-      if (!clock.fake) throw new Error('Спершу виклич vi.useFakeTimers()')
+      if (!clock.fake) throw new Error(say('fakeTimersFirst'))
       clock.now = typeof time === 'number' ? time : time.getTime()
       return vi
     },
@@ -284,32 +292,32 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
 
   const isMock = (v: unknown): v is Mock => typeof v === 'function' && (v as Partial<Mock>).__mock === true
   const needMock = (v: unknown): Mock => {
-    if (!isMock(v)) throw new TypeError('Очікували функцію з vi.fn()')
+    if (!isMock(v)) throw new TypeError(say('needMock'))
     return v
   }
   const needNumber = (v: unknown, what: string): number => {
-    if (typeof v !== 'number' && typeof v !== 'bigint') throw new TypeError(`${what}: очікували число, отримали ${fmt(v)}`)
+    if (typeof v !== 'number' && typeof v !== 'bigint') throw new TypeError(say('needNumber', { what, value: fmt(v) }))
     return Number(v)
   }
   const throwMatches = (err: unknown, expected: unknown): Check => {
     if (expected === undefined) return { pass: true, received: err }
     const message = err instanceof Error ? err.message : String(err)
-    if (typeof expected === 'string') return { pass: message.includes(expected), expectedText: `помилка з текстом ${fmt(expected)}`, received: err }
-    if (expected instanceof RegExp) return { pass: expected.test(message), expectedText: `помилка, що відповідає ${String(expected)}`, received: err }
-    if (typeof expected === 'function') return { pass: err instanceof (expected as new () => unknown), expectedText: `помилка типу ${(expected as Fn).name}`, received: err }
+    if (typeof expected === 'string') return { pass: message.includes(expected), expectedText: say('throwText', { value: fmt(expected) }), received: err }
+    if (expected instanceof RegExp) return { pass: expected.test(message), expectedText: say('throwPattern', { value: String(expected) }), received: err }
+    if (typeof expected === 'function') return { pass: err instanceof (expected as new () => unknown), expectedText: say('throwType', { value: (expected as Fn).name }), received: err }
     if (expected instanceof Error) return { pass: message === expected.message, expected, received: err }
-    return { pass: false, hint: 'toThrow приймає рядок, RegExp, клас помилки або Error' }
+    return { pass: false, hint: say('throwArg') }
   }
 
   const matchers: Record<string, (received: unknown, args: unknown[], rejected: boolean) => Check> = {
-    toBe: (r, [e]) => ({ pass: Object.is(r, e), expected: e, received: r, hint: !Object.is(r, e) && equals(r, e) ? 'Значення рівні за вмістом, але це різні об’єкти — порівнюй через toEqual' : undefined }),
+    toBe: (r, [e]) => ({ pass: Object.is(r, e), expected: e, received: r, hint: !Object.is(r, e) && equals(r, e) ? say('toBeHint') : undefined }),
     toEqual: (r, [e]) => ({ pass: equals(r, e), expected: e, received: r }),
     toStrictEqual: (r, [e]) => ({ pass: equals(r, e) && fmt(r) === fmt(e), expected: e, received: r }),
-    toBeTruthy: (r) => ({ pass: Boolean(r), expectedText: 'truthy-значення', received: r }),
-    toBeFalsy: (r) => ({ pass: !r, expectedText: 'falsy-значення', received: r }),
+    toBeTruthy: (r) => ({ pass: Boolean(r), expectedText: say('truthy'), received: r }),
+    toBeFalsy: (r) => ({ pass: !r, expectedText: say('falsy'), received: r }),
     toBeNull: (r) => ({ pass: r === null, expected: null, received: r }),
     toBeUndefined: (r) => ({ pass: r === undefined, expected: undefined, received: r }),
-    toBeDefined: (r) => ({ pass: r !== undefined, expectedText: 'будь-що, крім undefined', received: r }),
+    toBeDefined: (r) => ({ pass: r !== undefined, expectedText: say('defined'), received: r }),
     toBeNaN: (r) => ({ pass: Number.isNaN(r), expected: NaN, received: r }),
     toBeGreaterThan: (r, [e]) => ({ pass: needNumber(r, 'toBeGreaterThan') > needNumber(e, 'toBeGreaterThan'), expectedText: `> ${fmt(e)}`, received: r }),
     toBeGreaterThanOrEqual: (r, [e]) => ({ pass: needNumber(r, 'toBeGreaterThanOrEqual') >= needNumber(e, 'toBeGreaterThanOrEqual'), expectedText: `>= ${fmt(e)}`, received: r }),
@@ -317,34 +325,34 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
     toBeLessThanOrEqual: (r, [e]) => ({ pass: needNumber(r, 'toBeLessThanOrEqual') <= needNumber(e, 'toBeLessThanOrEqual'), expectedText: `<= ${fmt(e)}`, received: r }),
     toBeCloseTo: (r, [e, digits]) => {
       const precision = typeof digits === 'number' ? digits : 2
-      return { pass: Math.abs(needNumber(r, 'toBeCloseTo') - needNumber(e, 'toBeCloseTo')) < 10 ** -precision / 2, expectedText: `≈ ${fmt(e)} (точність ${precision})`, received: r }
+      return { pass: Math.abs(needNumber(r, 'toBeCloseTo') - needNumber(e, 'toBeCloseTo')) < 10 ** -precision / 2, expectedText: say('precision', { value: fmt(e), precision }), received: r }
     },
     toContain: (r, [e]) => {
-      if (typeof r === 'string') return { pass: r.includes(String(e)), expectedText: `рядок, що містить ${fmt(e)}`, received: r }
-      if (r && typeof (r as Iterable<unknown>)[Symbol.iterator] === 'function') return { pass: [...(r as Iterable<unknown>)].some((v) => Object.is(v, e)), expectedText: `колекція з ${fmt(e)}`, received: r }
-      throw new TypeError(`toContain: очікували рядок або масив, отримали ${fmt(r)}`)
+      if (typeof r === 'string') return { pass: r.includes(String(e)), expectedText: say('containsString', { value: fmt(e) }), received: r }
+      if (r && typeof (r as Iterable<unknown>)[Symbol.iterator] === 'function') return { pass: [...(r as Iterable<unknown>)].some((v) => Object.is(v, e)), expectedText: say('containsItem', { value: fmt(e) }), received: r }
+      throw new TypeError(say('toContainArg', { value: fmt(r) }))
     },
     toHaveLength: (r, [n]) => {
       const length = r !== null && r !== undefined ? (r as { length?: unknown }).length : undefined
       return { pass: length === n, expectedText: `length ${fmt(n)}`, receivedText: typeof length === 'number' ? `length ${length}: ${fmt(r)}` : fmt(r) }
     },
     toMatch: (r, [e]) => {
-      if (typeof r !== 'string') throw new TypeError(`toMatch: очікували рядок, отримали ${fmt(r)}`)
+      if (typeof r !== 'string') throw new TypeError(say('toMatchArg', { value: fmt(r) }))
       return { pass: e instanceof RegExp ? e.test(r) : r.includes(String(e)), expected: e, received: r }
     },
-    toBeInstanceOf: (r, [C]) => ({ pass: typeof C === 'function' && r instanceof (C as new () => unknown), expectedText: `екземпляр ${(C as Fn | undefined)?.name ?? '?'}`, received: r }),
+    toBeInstanceOf: (r, [C]) => ({ pass: typeof C === 'function' && r instanceof (C as new () => unknown), expectedText: say('instance', { value: (C as Fn | undefined)?.name ?? '?' }), received: r }),
     toThrow: (r, [e], rejected) => {
       if (rejected) return throwMatches(r, e)
-      if (typeof r !== 'function') throw new TypeError('toThrow: передай функцію — expect(() => f()).toThrow()')
+      if (typeof r !== 'function') throw new TypeError(say('toThrowArg'))
       try {
         ;(r as Fn)()
       } catch (err) {
         return throwMatches(err, e)
       }
-      return { pass: false, expectedText: e === undefined ? 'кинуту помилку' : fmt(e), receivedText: 'функція нічого не кинула' }
+      return { pass: false, expectedText: e === undefined ? say('thrown') : fmt(e), receivedText: say('notThrown') }
     },
-    toHaveBeenCalled: (r) => ({ pass: needMock(r).mock.calls.length > 0, expectedText: 'хоча б один виклик', receivedText: `викликів: ${needMock(r).mock.calls.length}` }),
-    toHaveBeenCalledTimes: (r, [n]) => ({ pass: needMock(r).mock.calls.length === n, expectedText: `викликів: ${fmt(n)}`, receivedText: `викликів: ${needMock(r).mock.calls.length}` }),
+    toHaveBeenCalled: (r) => ({ pass: needMock(r).mock.calls.length > 0, expectedText: say('calledOnce'), receivedText: say('calls', { n: needMock(r).mock.calls.length }) }),
+    toHaveBeenCalledTimes: (r, [n]) => ({ pass: needMock(r).mock.calls.length === n, expectedText: say('calls', { n: fmt(n) }), receivedText: say('calls', { n: needMock(r).mock.calls.length }) }),
     toHaveBeenCalledWith: (r, args) => ({ pass: needMock(r).mock.calls.some((c) => equals(c, args)), expected: args, received: needMock(r).mock.calls }),
   }
   matchers.toThrowError = matchers.toThrow!
@@ -354,11 +362,11 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   const verdict = (name: string, check: Check, negate: boolean, args: unknown[]) => {
     if (check.pass !== negate) return
     const shown = args.map((a) => fmt(a)).join(', ')
-    const err = new Error(`expect(отримане).${negate ? 'not.' : ''}${name}(${shown.length > 60 ? '…' : shown})${check.hint && !negate ? ` — ${check.hint}` : ''}`) as Failure
+    const err = new Error(`expect(${say('received')}).${negate ? 'not.' : ''}${name}(${shown.length > 60 ? '…' : shown})${check.hint && !negate ? ` — ${check.hint}` : ''}`) as Failure
     err.name = 'AssertionError'
     const expected = check.expectedText ?? ('expected' in check ? fmt(check.expected) : undefined)
     const received = check.receivedText ?? ('received' in check ? fmt(check.received) : undefined)
-    if (expected !== undefined) err.expected = `${negate ? 'не ' : ''}${expected}`
+    if (expected !== undefined) err.expected = `${negate ? say('not') : ''}${expected}`
     if (received !== undefined) err.received = received
     throw err
   }
@@ -374,11 +382,11 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
     const settle = (mode: 'resolves' | 'rejects') => (name: string, args: unknown[], negate: boolean) =>
       Promise.resolve(received).then(
         (value) => {
-          if (mode === 'rejects') verdict(name, { pass: false, expectedText: 'відхилений проміс', receivedText: `resolve(${fmt(value)})` }, false, args)
+          if (mode === 'rejects') verdict(name, { pass: false, expectedText: say('rejected'), receivedText: `resolve(${fmt(value)})` }, false, args)
           else verdict(name, matchers[name]!(value, args, false), negate, args)
         },
         (reason) => {
-          if (mode === 'resolves') verdict(name, { pass: false, expectedText: 'виконаний проміс', receivedText: `reject(${errorText(reason)})` }, false, args)
+          if (mode === 'resolves') verdict(name, { pass: false, expectedText: say('resolved'), receivedText: `reject(${errorText(reason)})` }, false, args)
           else verdict(name, matchers[name]!(reason, args, true), negate, args)
         },
       )
@@ -393,7 +401,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   const registered: { name: string; fn: Fn }[] = []
   const prefix: string[] = []
   const test = (name: unknown, fn: unknown) => {
-    if (typeof fn !== 'function') throw new TypeError(`test(${fmt(name)}): другий аргумент має бути функцією`)
+    if (typeof fn !== 'function') throw new TypeError(say('testArg', { name: fmt(name) }))
     registered.push({ name: [...prefix, String(name)].join(' › '), fn: fn as Fn })
   }
   const describe = (name: unknown, fn: unknown) => {
@@ -422,17 +430,17 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
   const braceHint = (src: string) => {
     const open = (src.match(/[{([]/g) ?? []).length
     const close = (src.match(/[})\]]/g) ?? []).length
-    return open > close ? ' — схоже, не закрита дужка' : open < close ? ' — схоже, зайва закривна дужка' : ''
+    return open > close ? say('braceOpen') : open < close ? say('braceClose') : ''
   }
   try {
     new AsyncFunction(...SANDBOX, `"use strict";\n${code}`)
   } catch (e) {
-    return finish('error', `Синтаксична помилка у твоєму коді: ${errorText(e)}${braceHint(code)}`)
+    return finish('error', `${say('syntaxCode', { error: errorText(e) })}${braceHint(code)}`)
   }
   try {
     new AsyncFunction(...API, `"use strict";\n${tests}`)
   } catch (e) {
-    return finish('error', `Синтаксична помилка в тестах: ${errorText(e)}${braceHint(tests)}`)
+    return finish('error', `${say('syntaxTests', { error: errorText(e) })}${braceHint(tests)}`)
   }
   // Learner code runs first; tests live in an inner function so they see its declarations
   // but their own names (and the test API) shadow instead of clashing.
@@ -441,14 +449,14 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
     const outer = new AsyncFunction(...SANDBOX, `"use strict";\n${code}\n;return async function (${API.join(', ')}) {\n${tests}\n}`)
     register = (await outer(sandboxConsole, sandboxSetTimeout, sandboxClear, sandboxSetInterval, sandboxClear, SandboxDate, sandboxPerformance)) as Fn
   } catch (e) {
-    return finish('error', `Твій код впав під час запуску: ${errorText(e)}`)
+    return finish('error', say('codeCrashed', { error: errorText(e) }))
   }
   try {
     await register(test, test, describe, expect, vi, sleep)
   } catch (e) {
-    return finish('error', `Тести впали до запуску: ${errorText(e)}`)
+    return finish('error', say('testsCrashed', { error: errorText(e) }))
   }
-  if (registered.length === 0) return finish('error', 'У тестах немає жодного test(…)')
+  if (registered.length === 0) return finish('error', say('noTests'))
 
   for (const t of registered) {
     emit({ type: 'start', name: t.name })
@@ -463,7 +471,7 @@ export async function runSuite(code: string, tests: string, emit: (event: RunEve
           await Promise.race([
             value,
             new Promise((_, reject) => {
-              timer = host.setTimeout(() => reject(new Error(`Тест не завершився за ${testTimeoutMs} мс — забутий await, resolve чи vi.advanceTimersByTime?`)), testTimeoutMs)
+              timer = host.setTimeout(() => reject(new Error(say('testTimeout', { ms: testTimeoutMs }))), testTimeoutMs)
             }),
           ])
         } finally {

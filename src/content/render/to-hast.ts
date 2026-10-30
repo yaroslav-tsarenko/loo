@@ -3,7 +3,7 @@ import type { Code, Paragraph, PhrasingContent, Root } from 'mdast'
 import { toHast, type Handlers, type State } from 'mdast-util-to-hast'
 import { slug } from 'github-slugger'
 import { calloutStyleFor, renderBlockFor } from '../blocks/registry'
-import type { Callout, DiagramRef, FigureRef, Mark, Tag, UnitRef, VizRef, WikiLink } from '../parse/nodes'
+import type { Callout, DiagramRef, I18nFallback, FigureRef, Mark, Tag, UnitRef, VizRef, WikiLink } from '../parse/nodes'
 import { canonicalLang, highlightCode, parseCodeMeta, type CodeInput } from './highlight'
 
 export interface LinkTarget {
@@ -90,6 +90,9 @@ export function mdastToHast(root: Root, env: HastEnv): HastResult {
     },
     idMarker() {
       return undefined
+    },
+    i18nFallback(state, node: I18nFallback) {
+      return el('div', { className: ['i18n-fallback'], lang: node.lang }, [el('p', { className: ['i18n-fallback-note'], lang: node.labelLang, dataI18nNote: '' }, [{ type: 'text', value: node.label }]), ...state.all(node)])
     },
     tag(_state, node: Tag) {
       return el('span', { className: ['tag'] }, [{ type: 'text', value: `#${node.value}` }])

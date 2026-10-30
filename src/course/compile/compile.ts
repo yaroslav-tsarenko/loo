@@ -367,6 +367,9 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       practice: resolvePractice(kind, manifest.practice),
       language: manifest.language,
       ...(manifest.target ? { target: manifest.target } : kind === 'language' ? { target: manifest.language } : {}),
+      // translations: only when not the defaults, so courses without them compile byte-identically
+      ...(manifest.sourceLanguage !== manifest.language ? { sourceLanguage: manifest.sourceLanguage } : {}),
+      ...(manifest.languages.length !== 1 || manifest.languages[0] !== manifest.sourceLanguage ? { languages: manifest.languages } : {}),
       icon: iconRef(manifest.icon),
       color: manifest.color ?? null,
       cover: manifest.cover ?? null,
@@ -385,6 +388,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
     placement,
     icons,
     stats,
+    ...(manifest.i18n ? { i18n: manifest.i18n } : {}),
   }
   return { bundle, issues, chapterIds }
 }

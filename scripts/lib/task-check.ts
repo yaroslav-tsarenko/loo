@@ -2,6 +2,7 @@ import { Worker } from 'node:worker_threads'
 import { isRunnable, isTypeScript, solutionCode } from '../../src/content/blocks/task/code'
 import type { LearningUnit } from '../../src/content/model'
 import { runSuite, type RunReport } from '../../src/ui/code/harness'
+import { HARNESS_UK } from '../../src/ui/code/harness-text'
 import { prepareTypeScript } from '../../src/ui/code/ts-strip'
 
 // Shared by content:check and course:check: runs a task's reference solution (must pass) and starter (should fail)
@@ -20,9 +21,9 @@ export function selfTest(code: string, tests: string, typescript = false): Promi
 const { parentPort, workerData } = require('node:worker_threads')
 const run = ${runSuite.toString()}
 const host = { setTimeout, clearTimeout, setInterval, clearInterval, now: Date.now }
-run(workerData.code, workerData.tests, () => {}, host).then((r) => parentPort.postMessage(r), (e) => parentPort.postMessage({ status: 'error', tests: [], logs: [], error: String(e), ms: 0 }))`
+run(workerData.code, workerData.tests, () => {}, host, 1500, workerData.text).then((r) => parentPort.postMessage(r), (e) => parentPort.postMessage({ status: 'error', tests: [], logs: [], error: String(e), ms: 0 }))`
   return new Promise((resolve) => {
-    const worker = new Worker(source, { eval: true, workerData: { code, tests } })
+    const worker = new Worker(source, { eval: true, workerData: { code, tests, text: HARNESS_UK } })
     const done = (report: RunReport) => {
       clearTimeout(timer)
       void worker.terminate()

@@ -1,5 +1,6 @@
 import { EXAM_ICON, TEST_ICON } from '@/content/icons'
 import type { Metadata } from 'next'
+import { uiLocale } from '@/server/locale'
 import { notFound, redirect } from 'next/navigation'
 import { requireUser, userScope } from '@/server/auth'
 import { learnerLevel, nextStepAfter, stepHref } from '@/server/courses/lessons'
@@ -62,7 +63,7 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
       chapterHref="/path"
       items={items}
       nextHref={next ? stepHref(next) : null}
-      nextLabel={nextLabel(next)}
+      nextLabel={nextLabel(next, await uiLocale())}
       test={{
         id: test.id,
         kind: test.kind,

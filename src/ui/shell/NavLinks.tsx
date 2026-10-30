@@ -7,6 +7,8 @@ import type { IconType } from 'react-icons'
 import type { PracticeSectionId } from '@/course/practice'
 import { FALLBACK_PRACTICE, practiceNav, type PracticeNavItem } from './course-nav'
 import { NAV, type NavItem } from './nav'
+import { useLocale, useT } from '@/i18n/react'
+import { navShort } from './nav-i18n'
 import { NAV_ICONS } from './nav-icons'
 
 export const PROGRESS_EVENT = 'progress:changed'
@@ -95,8 +97,10 @@ export function BottomNav() {
   const path = usePathname()
   const counts = use(CountsContext)
   const tabs = mobileTabs(usePractice())
+  const t = useT()
+  const locale = useLocale()
   return (
-    <nav className="bottomnav" aria-label="Розділи" style={{ '--tabs': tabs.length } as CSSProperties}>
+    <nav className="bottomnav" aria-label={t('shell.sections')} style={{ '--tabs': tabs.length } as CSSProperties}>
       {tabs.map(({ item, icon: Icon, color, badge }) => {
         const active = item.match(path)
         const count = badge ? counts[badge] : 0
@@ -110,7 +114,7 @@ export function BottomNav() {
                 </span>
               ) : null}
             </span>
-            <span className="bottomnav-label">{item.short}</span>
+            <span className="bottomnav-label">{navShort(item, locale)}</span>
           </Link>
         )
       })}

@@ -29,6 +29,8 @@
     "course:check": "tsx --env-file-if-exists=.env.local scripts/course-check.ts",
     "course:build": "tsx --env-file-if-exists=.env.local scripts/course-build.ts",
     "content:snapshot": "tsx scripts/content-snapshot.ts",
+    "i18n:check": "tsx --env-file-if-exists=.env.local scripts/i18n-check.ts",
+    "i18n:stamp": "tsx --env-file-if-exists=.env.local scripts/i18n-stamp.ts",
     "runner:build": "tsx scripts/build-ts-strip.ts",
     "db:migrate": "tsx --env-file-if-exists=.env.local scripts/migrate.ts",
     "db:import-sqlite": "tsx --env-file-if-exists=.env.local scripts/import-sqlite.ts",

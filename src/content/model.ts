@@ -46,6 +46,9 @@ export interface ChapterMeta {
   placement?: boolean
   // courses with skills (course.yaml `skills`): the topic's main skill id
   skill?: string
+  // a translation (`<Guide>/_i18n/<lang>/…`, docs/COURSE_FORMAT.md «Переклад»): its language and the source topic id
+  lang?: string
+  source?: string
 }
 
 export type ChapterKind = 'chapter' | 'index' | 'overview'
@@ -270,7 +273,7 @@ export type LearningUnit = FlashcardUnit | QuizUnit | TaskUnit
 
 export interface ContentIssue {
   severity: 'warning' | 'error'
-  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block'
+  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block' | 'i18n'
   path: string
   message: string
 }

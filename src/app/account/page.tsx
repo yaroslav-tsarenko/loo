@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PiCheckBold } from 'react-icons/pi'
-import { messages, t } from '@/i18n'
+import { LOCALE_NAMES, LOCALES, messages as dictFor, resolveLocale, translator } from '@/i18n'
+import { uiLocale } from '@/server/locale'
 import { updateProfile } from '@/server/actions/account'
 import { setCourseLevel } from '@/server/actions/courses'
 import { shellData } from '@/server/shell'
@@ -19,9 +20,10 @@ export const metadata: Metadata = { title: 'Профіль і акаунт' }
 
 export default async function AccountPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const user = await requireUser()
-  const [params, profile, settings, admin, shell] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin(), shellData()])
+  const [params, profile, settings, admin, shell, locale] = await Promise.all([searchParams, getProfile(), readSettings(), isAdmin(), shellData(), uiLocale()])
   const library = shell?.library ?? []
-  const m = messages()
+  const t = translator(locale)
+  const m = dictFor(locale)
   const name = profile?.displayName || user.name || user.email || 'Я'
   const chosen = new Set(profile?.preferences.interests ?? [])
   const level = profile?.preferences.level ?? 'noob'
@@ -58,9 +60,14 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           </ChoiceGroup>
           <label className="auth-field">
             <span className="auth-label">{t('account.locale')}</span>
-            <select className="auth-input" name="locale" defaultValue={profile?.locale ?? 'uk'}>
-              <option value="uk">{t('account.localeUk')}</option>
+            <select className="auth-input" name="locale" defaultValue={resolveLocale(profile?.locale)}>
+              {LOCALES.map((l) => (
+                <option key={l} value={l} lang={l}>
+                  {LOCALE_NAMES[l]}
+                </option>
+              ))}
             </select>
+            <span className="choice-hint">{t('account.localeHint')}</span>
           </label>
         </section>
 

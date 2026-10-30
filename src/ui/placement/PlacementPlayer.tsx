@@ -3,7 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { PiArrowRightBold, PiCheckBold, PiFlaskFill, PiQuestionBold, PiSlidersHorizontalFill, PiTargetBold, PiXBold } from 'react-icons/pi'
-import { t } from '@/i18n'
+import type { Translate } from '@/i18n'
+import { useT } from '@/i18n/react'
 import { applyPlacement, placementStep, type PlacementReviewItem, type PlacementStepResult } from '@/server/actions/courses'
 import type { PlayerItem } from '@/server/services/lessons'
 import { Pill } from '@/ui/design/Badge'
@@ -84,6 +85,7 @@ const afterMount = (notify: () => void) => {
 // Adaptive placement in the lesson shell: one question at a time. The learner picks an answer (can change it) and
 // «Далі» sends it; the server grades it and picks the next question, which opens right away — no per-question verdict.
 export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions, items, sections, levels, next, zero, zeroHint, bank }: Props) {
+  const t = useT()
   const router = useRouter()
   const key = saveKey(course.id)
   // the saved run as of the first render (null on the server)
@@ -178,7 +180,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
         setBusy(false)
       }
     },
-    [stepFor, nonce, followUp, goTo, byId],
+    [stepFor, nonce, followUp, goTo, byId, t],
   )
 
   const record = useCallback(
@@ -259,7 +261,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
         setBusy(false)
       }
     },
-    [answers, course.id, followUp, nonce, next, router, forget],
+    [answers, course.id, followUp, nonce, next, router, forget, t],
   )
 
   // an interrupted run (remount, reload a moment ago) continues by itself
@@ -369,8 +371,8 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
   return (
     <div className="lesson placement" data-bank={bank ? '' : undefined}>
       <header className="lesson-top">
-        <IconButton label="Вийти з тесту" icon={<PiXBold size={24} />} className="lesson-close" onClick={() => router.push(`/courses/${course.id}`)} />
-        <ProgressBar value={Math.min(1, progress)} label="Прогрес тесту" size="lg" className="lesson-progress" />
+        <IconButton label={t('placement.exit')} icon={<PiXBold size={24} />} className="lesson-close" onClick={() => router.push(`/courses/${course.id}`)} />
+        <ProgressBar value={Math.min(1, progress)} label={t('placement.progress')} size="lg" className="lesson-progress" />
       </header>
       <main className="lesson-stage">
         <p className="lesson-crumb">
@@ -458,15 +460,16 @@ interface BankResultProps {
 }
 
 // «Почни з: …» — the weakest skills of a course with declared skills (the path recommends their topics first)
-function weakTitles(weak: readonly string[], skills: ReadonlyArray<{ id: string; title: string }>): string | null {
+function weakTitles(weak: readonly string[], skills: ReadonlyArray<{ id: string; title: string }>, t: Translate): string | null {
   const titles = weak.slice(0, 3).map((id) => skills.find((s) => s.id === id)?.title ?? id)
-  return titles.length > 0 ? `Підтягнути спершу: ${titles.join(', ')}` : null
+  return titles.length > 0 ? t('placement.weakFirst', { list: titles.join(', ') }) : null
 }
 
-const listOf = (skills: readonly Skill[]) => skills.map((s) => t(`placement.skill.${s}`).toLowerCase()).join(', ')
+const listOf = (skills: readonly Skill[], t: Translate) => skills.map((s) => t(`placement.skill.${s}`).toLowerCase()).join(', ')
 
 // Result of the calibrated test: level + IELTS (approximate), confidence (+ follow-up), skills, where to start, mistakes.
 function BankResult({ result, review, items, sections, levels, ladder, skills: courseSkills, course, busy, error, followUpCount, onApply, onFollowUp }: BankResultProps) {
+  const t = useT()
   const level = levels[result.level] ?? result.level
   const confidence = result.confidence ?? 'low'
   const [primary, secondary] = result.starts
@@ -515,8 +518,8 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
           })}
           overall={level}
           ielts={null}
-          next={weakTitles(result.weak, courseSkills)}
-          note={result.perSkill ? 'Кожну навичку перевірено окремо: 2–3 питання на рівні загального результату, вище чи нижче за відповідями.' : null}
+          next={weakTitles(result.weak, courseSkills, t)}
+          note={result.perSkill ? t('placement.perSkillNote') : null}
         />
       ) : result.skills ? (
         <section className="placement-skills" aria-label={t('placement.skillsTitle')}>
@@ -540,7 +543,7 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
               )
             })}
           </ul>
-          <p className="choice-hint">{strong.length + weak.length === 0 ? t('placement.even') : [strong.length > 0 ? t('placement.strong', { list: listOf(strong) }) : null, weak.length > 0 ? t('placement.weak', { list: listOf(weak) }) : null].filter(Boolean).join(' · ')}</p>
+          <p className="choice-hint">{strong.length + weak.length === 0 ? t('placement.even') : [strong.length > 0 ? t('placement.strong', { list: listOf(strong, t) }) : null, weak.length > 0 ? t('placement.weak', { list: listOf(weak, t) }) : null].filter(Boolean).join(' · ')}</p>
         </section>
       ) : null}
 
@@ -579,6 +582,7 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
 
 // The finished test's mistakes with the right answer and the explanation (the server reveals them only now).
 function Review({ review, items }: { review: PlacementReviewItem[]; items: Map<string, PlayerItem> }) {
+  const t = useT()
   return (
     <details className="summary-section review placement-review">
       <summary className="summary-section-title">{t('placement.reviewTitle', { n: review.length })}</summary>
@@ -590,7 +594,7 @@ function Review({ review, items }: { review: PlacementReviewItem[]; items: Map<s
             <li key={r.id}>
               <div className="review-item">
                 <div className="review-q">
-                  <span className="review-mark" role="img" aria-label="помилка">
+                  <span className="review-mark" role="img" aria-label={t('placement.mistake')}>
                     <PiXBold />
                   </span>
                   <span className="review-q-text">{item.prompt}</span>

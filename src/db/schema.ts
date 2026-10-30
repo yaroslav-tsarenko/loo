@@ -34,7 +34,8 @@ export const profiles = pgTable('profiles', {
   id: uuid('id').primaryKey(),
   displayName: text('display_name'),
   avatarUrl: text('avatar_url'),
-  locale: text('locale').notNull().default('uk'),
+  // UI locale (src/i18n): null = not chosen → uk (src/server/locale.ts)
+  locale: text('locale'),
   // Set only by server code (column grants keep it read-only for the `authenticated` role).
   role: text('role', { enum: ['user', 'admin'] }).notNull().default('user'),
   onboarding: jsonb('onboarding').$type<OnboardingState>().notNull().default({}),

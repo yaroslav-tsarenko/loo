@@ -1,5 +1,6 @@
 import type { BlockContent, DefinitionContent, Parent, PhrasingContent } from 'mdast'
 import type {} from 'mdast-util-to-hast'
+import type { Node } from 'unist'
 
 export type CalloutFold = 'open' | 'closed' | null
 
@@ -11,7 +12,7 @@ export interface Callout extends Parent {
   children: Array<BlockContent | DefinitionContent>
 }
 
-export interface WikiLink {
+export interface WikiLink extends Node {
   type: 'wikiLink'
   target: string
   heading: string | null
@@ -20,7 +21,7 @@ export interface WikiLink {
   width: number | null
 }
 
-export interface Tag {
+export interface Tag extends Node {
   type: 'tag'
   value: string
 }
@@ -30,7 +31,7 @@ export interface Mark extends Parent {
   children: PhrasingContent[]
 }
 
-export interface UnitRef {
+export interface UnitRef extends Node {
   type: 'unitRef'
   unitId: string
 }
@@ -60,7 +61,18 @@ export interface DiagramRef extends Parent {
   children: Array<BlockContent | DefinitionContent>
 }
 
-export interface IdMarker {
+// A block shown in the source language inside a translated page (src/content/i18n/localize.ts): the translation has
+// no such segment yet. `label` is the «not translated yet» note in the reader's UI locale.
+export interface I18nFallback extends Parent {
+  type: 'i18nFallback'
+  lang: string
+  label: string
+  // the UI locale of `label`
+  labelLang: string
+  children: Array<BlockContent | DefinitionContent>
+}
+
+export interface IdMarker extends Node {
   type: 'idMarker'
   value: string
 }
@@ -73,6 +85,7 @@ declare module 'mdast' {
     figureRef: FigureRef
     diagramRef: DiagramRef
     idMarker: IdMarker
+    i18nFallback: I18nFallback
     wikiLink: WikiLink
     tag: Tag
     mark: Mark
@@ -84,6 +97,7 @@ declare module 'mdast' {
     figureRef: FigureRef
     diagramRef: DiagramRef
     idMarker: IdMarker
+    i18nFallback: I18nFallback
   }
   interface PhrasingContentMap {
     wikiLink: WikiLink

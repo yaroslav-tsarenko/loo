@@ -128,7 +128,8 @@ export function extractFile(input: ExtractInput): ExtractResult {
         if (block) {
           const { node: rendered, warnings } = block.transform(node as Callout)
           for (const message of warnings) issues.push({ severity: 'warning', code: 'unknown-block', path, message })
-          children[i] = rendered
+          // keep the source position: translation segments hash the source text of each block (src/content/i18n)
+          children[i] = node.position ? { ...rendered, position: node.position } : rendered
           continue
         }
         const definition = unitDefinitionFor(node.calloutType)
@@ -137,7 +138,7 @@ export function extractFile(input: ExtractInput): ExtractResult {
           const unit = definition.extract(node as Callout, ctx)
           if (unit) {
             units.push(unit)
-            children[i] = { type: 'unitRef', unitId: unit.id }
+            children[i] = node.position ? { type: 'unitRef', unitId: unit.id, position: node.position } : { type: 'unitRef', unitId: unit.id }
             continue
           }
         }

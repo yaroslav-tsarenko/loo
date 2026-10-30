@@ -73,6 +73,10 @@ export function normalizeMeta(data: Record<string, unknown>): ChapterMeta {
   if (data.placement === true || data.placement === 'true') meta.placement = true
   const skill = toText(data.skill)
   if (skill) meta.skill = skill.toLowerCase()
+  const lang = toText(data.lang)
+  if (lang && /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(lang)) meta.lang = lang
+  const source = toText(data.source)
+  if (source) meta.source = source
   return meta
 }
 
