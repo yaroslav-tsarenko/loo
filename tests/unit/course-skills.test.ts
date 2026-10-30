@@ -448,11 +448,8 @@ describe('manual start and schema guards', () => {
     expect(parseCourseYaml(`${base}skills: [{ id: r, title: R }]\nplacement: { skills: [constructor] }\n`).errors.join()).toMatch(/зарезервоване/)
   })
 
-  it("accepts the lead's Next.js manifest: sections[].skill and placement perSkill 40", () => {
+  it("accepts the Next.js manifest: sections[].skill and placement perSkill 40", () => {
     const yaml = readFileSync(path.resolve(__dirname, '../../content/courses/nextjs-zero-to-pro/course.yaml'), 'utf8')
-      .replace(/(\{ id: basics,[^\n]*?level: noob,)/, '$1 skill: foundations,')
-      .replace(/(\{ id: routing, title: Маршрутизація, icon: px:map,)/, '$1 skill: routing,')
-      .replace(/placement: \{[^}]*\}/, 'placement: { enabled: true, maxQuestions: 40, perLevel: 3, perSkill: true }')
     const { manifest, errors } = parseCourseYaml(yaml)
     expect(errors).toEqual([])
     expect(manifest!.sections.find((s) => s.id === 'basics')!.skill).toBe('foundations')
