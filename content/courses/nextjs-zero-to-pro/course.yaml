@@ -12,6 +12,8 @@ kind: programming
 practice: [path, cards, tests, tasks, mistakes, roadmap]
 theory: [Next.js]
 language: uk
+sourceLanguage: uk
+languages: [uk, en]
 icon: si:SiNextdotjs
 color: '#000000'
 levels: [noob, junior, middle, senior, god]
