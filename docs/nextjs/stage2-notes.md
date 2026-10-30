@@ -30,7 +30,7 @@
   URL 500s at runtime (side-by-side → "Ambiguous app routes"); `src/app` silently ignored when root `app/` exists;
   helper named `template.tsx` replaces page content; build error texts (page/route, duplicate group — truncated in
   16.3.8, optional catch-all, error.tsx client); `notFound()` under loading → 200 + noindex.
-- Start 07 warning: with no layout file neither dev nor build complains — reword.
+- ~~Start 07 warning reword~~ WRONG: with no layout file `next dev` shows the browser overlay «Missing <html> and <body> tags…» (status 200, terminal silent); dev does NOT create app/layout.tsx (bundled installation.md:216 says it does). Start 07 warning stays.
 - SYLLABUS §13 row 01: slug-name conflicts are a CI check, not caught by build.
 - Glossary keepLatin: route group, catch-all, colocation, root layout, leaf segment.
 - research/routing.md + SYLLABUS §13 row 03: params NOT decoded on 16.3.8 (Cyrillic slug → silent 404; searchParams
@@ -66,3 +66,60 @@
 - Glossary keepLatin: Fast Refresh, HMR, import alias, CSR, SSR, SSG, bundler, code splitting, static export.
 - Decision: Start 06 is the place for the course baseline (cacheComponents: true) — keep.
 - Word count: prose excludes exercises? Writers differ — reviewer judges by STYLE ranges incl. exercises.
+- research/rendering.md §09: inline `self.__next_f.push` confirmed; row types I/H/E/X/C, prefixes $L/$@/$D/$n/$Q/$W/$h/$$,
+  "b" = BUILD_ID; `RSC: 1` → 307 to `?_rsc`; payload is TEXT rows (bundled glossary says "binary" — wrong on 16.3.8);
+  Cache Components: `Math.random()`/`new Date()` in a Client Component outside Suspense fails prerender ("unstable
+  value … in a Client Component"); Suspense fixes the build but not the hydration mismatch.
+- Glossary keepLatin: Flight, selective hydration, inline script.
+- APPLIED: unstable_doesProxyMatch → unstable_doesMiddlewareMatch in SYLLABUS + research (routing, testing).
+- research/routing.md (06): matcher from a variable = build error (not "ignored"); `/about` matches only `/about`
+  (docs say also /about/team); `(?!api)` also skips /apiary; config headers not applied to 308 redirects; redirect()
+  under Suspense after shell → 200 + meta refresh; edge not supported in proxy (stay on middleware.ts); CVE-2025-29927
+  facts from GHSA-f82v-jwr5-mffw (< 15.2.3; patched 12.3.5/13.5.9/14.2.25/15.2.3; Vercel unaffected).
+- Glossary keepLatin: matcher, rewrite, redirect, negative lookahead, open redirect, Bloom filter.
+- research/rendering.md §08: server-side exports of 'use client' files are client references (typeof function,
+  arithmetic NaN); separate server/SSR module instances; `react-server` export condition undocumented in Next docs
+  (verified); side-effect barrels pull code into client chunks, side-effect-free barrels tree-shake; Import trace hides
+  re-exporting barrels; taint bypassed by `{...rest}` copy (leaks other fields), taintUniqueValue catches token in a
+  new object; `next experimental-analyze --output` → `.next/diagnostics/analyze`.
+- Glossary keepLatin: client reference, export condition, barrel, render prop, Import trace.
+- research/rendering.md (13): error.tsx gets both `retry` (new server render via router.refresh + reset) and `reset`
+  (same payload); prod SC error → #441 + numeric digest (stable, matches server log/onRequestError); client render
+  error in prod keeps message, digest undefined; digests `NEXT_REDIRECT;push;/path;307;`, `NEXT_HTTP_ERROR_FALLBACK;404|403`;
+  forbidden/unauthorized static 403/401, under Suspense 200+noindex; `catchError` ErrorInfo.error is `unknown` (docs
+  say Error; docs example fails TS18046); static page that throws fails `next build` (error.tsx doesn't save it).
+- research/routing.md: notFound() in a layout skips its own segment's not-found; not-found renders in the deepest
+  surviving layout.
+- core-13 prose without exercises ≈3.9k (< 4k main-guide minimum) — reviewer to judge.
+- Glossary keepLatin: digest, backoff.
+- research/rendering.md §10: docs disagree io() vs connection() (error hints, Caching, Migrating pages still say
+  connection()); prefetch-blocking claim NOT measured — reviewer to measure with headless browser; build vs dev error
+  texts differ (build: "uncached or runtime data", blocking-prerender-dynamic; dev: "runtime data", exact line,
+  blocking-prerender-runtime, page still 200); sync new Date() inside Suspense still fails build; Client Component
+  Date.now() inside Suspense builds ○; draftMode() outside Suspense → ○; instant=false makes cookies-at-top route ƒ
+  but doesn't clear sync errors; removed segment configs fail with "not compatible with nextConfig.cacheComponents";
+  ◐ responses: `private, no-store` + `x-nextjs-postponed: 1`.
+- BRIEF: symlinking node_modules into -cases app breaks Turbopack — use `cp -cR` (APFS clone, ~4s).
+- Glossary keepLatin: static shell, prerendering, request-time, Request-time APIs, Draft Mode; дірка → hole.
+- research/rendering.md §11: bots with Cache Components wait only for generateMetadata, boundaries still stream
+  (docs say one burst); Googlebot = DOM bot (normal stream); React 19.2 reveal throttle ~300ms between boundaries;
+  nested boundary ready first swaps inside parent's hidden segment (fallback never shown); notFound() after
+  request-time await → 200+noindex, real 404 needs check before any request-time await; redirect() in boundary → 200 +
+  meta refresh; mid-stream error → $RX + digest + `<!--$!-->`; htmlLimitedBots regex in
+  next/dist/shared/lib/router/utils/html-bots.js; next start sends X-Accel-Buffering: no.
+- BRIEF: playwright-core lives at node_modules/.pnpm/playwright-core@1.56.0/node_modules/playwright-core; tsx scripts
+  with top-level await need .mts.
+- FIX at integration: core-05 icon `px:layers` doesn't exist → pick an existing px icon.
+- research/rendering.md + SYLLABUS §13 (03/12/30): ANY `runtime` export fails the build under Cache Components (also
+  'nodejs'); CSP nonce: build passes, route ◐, shell `<script src>` get no nonce → browser blocks, page never hydrates
+  (silent) — workaround `instant = false` + `await connection()` in a layout (route ƒ); App Shell upgrade for unknown
+  slugs after first visit needs `partialPrefetching: true`; instant=false turns non-prerenderable route into ƒ.
+- research/testing.md (41): `@next/playwright@16.3.8` `instant()` works in dev and prod
+  (`exposeTestingApiInProductionBuild`); filter by visibility (Activity keeps hidden copies); keep layout vs loading
+  fallback texts distinct.
+- STYLE §4 data-note: in Suspense topics use «Звідки в прикладах «повільна база»» (setTimeout counts as uncached I/O).
+- Glossary keepLatin: postponedState, resume, dev overlay.
+- PROCESS: an agent killed another's server by PID — BRIEF must say: before killing a PID check its cwd is yours.
+- CORRECTION (routing note b): a dynamic route without generateStaticParams fails the build on `params` alone under
+  Cache Components; the root-layout usePathname menu only adds a second error. Third fix offered by the error output:
+  `export const instant = false`.

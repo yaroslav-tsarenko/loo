@@ -33,6 +33,8 @@ nextVersion: 16.3.8
 > // lib/posts.ts
 > export type Post = { slug: string; title: string }
 >
+> const posts: Post[] = [{ slug: 'hello', title: 'Привіт, Next.js' }]
+>
 > export async function getPost(slug: string): Promise<Post | undefined> {
 >   return posts.find((p) => p.slug === slug)
 > }
@@ -72,7 +74,7 @@ function add(a: number, b: number): number {
 
 Але більшість типів TS **виводить сам** (inference): `let title = 'Привіт'` уже `string`, а результат `add` — `number`. Анотації потрібні там, де вивести нема з чого: параметри функцій, props компонентів, початкове `null` у state. Решту не пиши — менше шуму.
 
-Де ти побачиш помилки? У редакторі — одразу, червоною хвилькою. І в `next build`: Next.js запускає перевірку типів і зупиняє збірку при помилці. А от `next dev` перевірки не робить: ми зробили сторінку з `const count: number = 'пʼять'`, і dev-сервер спокійно показав «пʼять». Тому довіряй редактору і `next build`, а не тому, що сторінка відкрилась.
+Де ти побачиш помилки? У редакторі — одразу, червоною хвилькою. І в `next build`: Next.js запускає перевірку типів і зупиняє збірку при помилці. А от `next dev` перевірки не робить: сторінка з `const count: number = 'пʼять'` відкриється в `next dev` і покаже «пʼять». Тому довіряй редактору і `next build`, а не тому, що сторінка відкрилась.
 
 ### 🧱 Типи обʼєктів: type чи interface
 
@@ -144,7 +146,7 @@ export function Card({ title, size = 'md', children }: CardProps) {
 - **Необовʼязковий prop зі значенням за замовчуванням**: `size?:` у типі і `size = 'md'` у деструктуризації. Усередині `size` вже не `undefined`.
 - **Union з літералів** замість `string`: TS не дасть передати `size="xl"`.
 
-Помилки, які ти побачиш (вивід `tsc` на нашому прикладі):
+Помилки, які ти побачиш (вивід `tsc` для `<Card size="xl">` і `<Card>` без `title`):
 
 ```text
 error TS2322: Type '"xl"' is not assignable to type '"sm" | "md" | "lg" | undefined'.
@@ -244,7 +246,7 @@ error TS2339: Property 'data' does not exist on type 'LoadState'.
 
 Гілка `default` з `never` — **перевірка повноти** (exhaustive check). `never` — тип, у якого немає значень. Якщо всі варіанти оброблено, у `default` нічого не лишається, і присвоєння проходить. Додав `{ status: 'empty' }` і забув `case` — TS зупинить: `Type '{ status: "empty"; }' is not assignable to type 'never'.`
 
-Ще один тип звідси — **`unknown`**: «щось, про що ми нічого не знаємо». У `catch (e)` помилка має тип `unknown` (з `strict`), і `e.message` дає `'e' is of type 'unknown'.` Спершу звузь: `if (e instanceof Error) return e.message`. Протилежність — `any`: він вимикає перевірку зовсім, і ним краще не користуватися.
+Ще один тип звідси — **`unknown`**: «щось, про що нічого не відомо». У `catch (e)` помилка має тип `unknown` (з `strict`), і `e.message` дає `'e' is of type 'unknown'.` Спершу звузь: `if (e instanceof Error) return e.message`. Протилежність — `any`: він вимикає перевірку зовсім, і ним краще не користуватися.
 
 > [!diagram] Як switch звужує LoadState
 > ```yaml
@@ -493,7 +495,7 @@ Failed to type check.
 
 ### 🔮 Попередній огляд: params сторінки
 
-Детально маршрути — у темах [[Next.js Start - 07. Сторінки й layouts]] і [[Next.js - 03. Динамічні маршрути]]. Тут лише типи, бо це перше місце, де TS у Next.js тебе здивує.
+Детально динамічні маршрути — у темах [[Next.js Start - 08. Навігація]] і [[Next.js - 03. Динамічні маршрути]]. Тут лише типи, бо це перше місце, де TS у Next.js тебе здивує.
 
 Сторінка `app/blog/[slug]/page.tsx` обслуговує `/blog/hello`, `/blog/news` тощо, а значення `[slug]` приходить у prop `params`. У Next.js 16 `params` — це **Promise**, тож його треба `await`. Next.js генерує глобальний помічник **`PageProps`** (під час `next dev`, `next build` або `next typegen`), який знає параметри кожного маршруту:
 
@@ -517,7 +519,7 @@ export default async function Page(props: PageProps<'/blog/[slug]'>) {
 `PageProps` не треба імпортувати. Рядок `'/blog/[slug]'` — шлях маршруту, і з нього TS знає, що в `params` є `slug: string`. Забудеш `await` — отримаєш помилку з попереднього розділу: `Property 'slug' does not exist on type 'Promise<{ slug: string; }>'`. `generateStaticParams` тут каже, які сторінки зібрати наперед, — про це в темі 03 основного курсу.
 
 > [!warning] Стара типізація params не дає помилки
-> У старих туторіалах (Next.js 14 і раніше) пишуть `{ params }: { params: { slug: string } }` і читають `params.slug` без `await`. На 16.3.8 ми перевірили: `next build` проходить **без помилок типів** (згенерована перевірка сторінок у `.next/types/validator.ts` приймає props як `any`), а сторінка рендерить порожній `<h1></h1>`, бо `params.slug` у Promise — `undefined`. Документація описує `params` як Promise, але не попереджає, що неправильний тип пройде. Користуйся `PageProps<'…'>`: з ним TS ловить помилку. Див. [Next.js: page.js — params](https://nextjs.org/docs/app/api-reference/file-conventions/page#params-optional).
+> У старих туторіалах (Next.js 14 і раніше) пишуть `{ params }: { params: { slug: string } }` і читають `params.slug` без `await`. На 16.3.8 `next build` проходить **без помилок типів** (згенерована перевірка сторінок у `.next/types/validator.ts` приймає props як `any`), а сторінка рендерить порожній `<h1></h1>`, бо `params.slug` у Promise — `undefined`. Документація описує `params` як Promise, але не попереджає, що неправильний тип пройде. Користуйся `PageProps<'…'>`: з ним TS ловить помилку. Див. [Next.js: page.js — params](https://nextjs.org/docs/app/api-reference/file-conventions/page#params-optional).
 
 > [!quiz] Що покаже стара сторінка?
 > level: junior · type: output · id: nextjs-start-04-quiz-08
@@ -586,6 +588,7 @@ export default async function Page(props: PageProps<'/blog/[slug]'>) {
 
 - [[Next.js Start - 03. React-мінімум, state, події й ефекти]] — state, обробники й reducer, які тут типізуємо.
 - [[Next.js Start - 07. Сторінки й layouts]] — `page.tsx`, `layout.tsx` і їхні props.
+- [[Next.js Start - 08. Навігація]] — динамічні сторінки `/blog/[slug]` і `params`.
 - [[Next.js - 03. Динамічні маршрути]] — `params`, `generateStaticParams`, `PageProps` детально.
 - [[Next.js - 07. Server і Client Components]] — що можна передати з Server Component у Client Component (не лише типи, а й серіалізація).
 - [[JavaScript - 09. Promise]] і [[JavaScript - 10. async і await]] — що таке Promise і як працює `await`.

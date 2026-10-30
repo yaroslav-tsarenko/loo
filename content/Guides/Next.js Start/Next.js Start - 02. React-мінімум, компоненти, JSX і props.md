@@ -25,7 +25,7 @@ nextVersion: 16.3.8
 ## 🤔 Передбач
 
 > [!quiz] Що зʼявиться на сторінці?
-> level: noob · type: output · id: nextjs-start-02-quiz-01
+> level: junior · type: output · id: nextjs-start-02-quiz-01
 >
 > ```tsx
 > export default function Inbox() {
@@ -39,7 +39,7 @@ nextVersion: 16.3.8
 > - [ ] `<main><p>Нових повідомлень: 0</p></main>`
 > - [ ] Помилка: у JSX не можна писати `&&`
 >
-> **Пояснення:** не переймайся, якщо помилився — розберемо нижче. `0 && …` у JavaScript дає `0`, а не `false`. React не малює `false`, `null` і `undefined`, але число `0` — малює. Перевірено в Next.js 16.3.8: сервер віддав саме `<main>0</main>`.
+> **Пояснення:** не переймайся, якщо помилився — розберемо нижче. `0 && …` у JavaScript дає `0`, а не `false`. React не малює `false`, `null` і `undefined`, але число `0` — малює. На Next.js 16.3.8 сервер віддає саме `<main>0</main>`.
 
 ## 🧒 Простими словами
 
@@ -140,7 +140,7 @@ export function Profile() {
 Подвійні дужки в `style={{ width: 48 }}` — не окремий синтаксис: зовнішні `{}` — вікно в JavaScript, внутрішні — обʼєкт зі стилями. Ключі стилів — теж camelCase: `borderRadius`, а не `border-radius`.
 
 > [!quiz] Перевір себе: заповни пропуски в картці користувача
-> level: noob · type: fill · bank: class, for, font-size · id: nextjs-start-02-quiz-02
+> level: junior · type: fill · bank: class, for, font-size · id: nextjs-start-02-quiz-02
 >
 > ```tsx fill
 > export function UserCard() {
@@ -158,7 +158,7 @@ export function Profile() {
 > **Пояснення:** `class` і `for` — зарезервовані слова JavaScript, тому в JSX `className` і `htmlFor`. Змінна потрапляє в текст через `{name}`, а стилі — обʼєкт усередині `{}` з ключами в camelCase: `fontSize`, не `font-size`.
 
 > [!quiz] Перевір себе: обери правдиві твердження про JSX
-> level: noob · type: multi · id: nextjs-start-02-quiz-03
+> level: junior · type: multi · id: nextjs-start-02-quiz-03
 > - [x] JSX компілюється у виклики функцій, що створюють звичайні обʼєкти-описи
 > - [x] Компонент має повертати один кореневий елемент; фрагмент `<>…</>` не додає тегу в HTML
 > - [ ] Усередині `{}` можна написати `if (isAdmin) { … }`
@@ -193,12 +193,12 @@ export function Avatar({ name, imageUrl, size = 48 }: AvatarProps) {
 - **Значення за замовчуванням** задають у деструктуризації: `size = 48` спрацює, коли prop не передали (`undefined`), але не для `null` чи `0`.
 - Тип `AvatarProps` описує, які props компонент приймає; TypeScript підкаже, якщо ти забув `name` (детально — тема 04).
 
-Головне правило: **props лише для читання.** Компонент не змінює те, що отримав, — він лише будує з цього розмітку. У dev-режимі React заморожує обʼєкт props, і спроба змінити його падає: `TypeError: Cannot assign to read only property 'label' of object '#<Object>'` (перевірено на 16.3.8). Потрібне інше значення — обчисли нову змінну: `const label = props.label.toUpperCase()`.
+Головне правило: **props лише для читання.** Компонент не змінює те, що отримав, — він лише будує з цього розмітку. У dev-режимі React заморожує обʼєкт props, і спроба змінити його падає: `TypeError: Cannot assign to read only property 'label' of object '#<Object>'`. Потрібне інше значення — обчисли нову змінну: `const label = props.label.toUpperCase()`.
 
-Це частина ширшого правила: **компонент має бути чистим** — для тих самих props повертати ту саму розмітку і нічого не змінювати поза собою під час рендеру. Для Next.js це критично: той самий компонент може рендеритися на сервері, під час збірки і ще раз у браузері, і всі результати мусять збігатися.
+Це частина ширшого правила: **компонент має бути чистим** — для тих самих props повертати ту саму розмітку і нічого не змінювати поза собою під час рендеру. Для Next.js це критично: той самий компонент може рендеритися на сервері й під час збірки, а Client Component — ще й у браузері, і всі результати мусять збігатися.
 
 > [!quiz] Перевір себе: що буде, якщо змінити prop?
-> level: noob · id: nextjs-start-02-quiz-04
+> level: junior · id: nextjs-start-02-quiz-04
 >
 > ```tsx
 > function Badge(props: { label: string }) {
@@ -301,7 +301,7 @@ export function TodoList() {
 - **Не індекс масиву**, якщо список може змінювати порядок чи довжину: після видалення першого елемента всі індекси зсунуться, і React приписуватиме стан (введений текст, відкрите меню) не тим рядкам. Індекс годиться лише для статичного списку, що ніколи не змінюється.
 - **Не `Math.random()`** чи `crypto.randomUUID()` під час рендеру: новий ключ щоразу змусить React перестворювати кожен елемент.
 
-Ще дві деталі. `key` — не prop: компонент `Item` не отримає його в `props` (перевірено на 16.3.8: `props.key` — `undefined`). Якщо id потрібен усередині, передай його окремо: `<Item key={p.id} id={p.id} />`. А коли на кожен елемент треба кілька тегів без обгортки, коротке `<>` ключа не приймає — пиши `<Fragment key={…}>` з імпортом з `react`:
+Ще дві деталі. `key` — не prop: компонент `Item` не отримає його в `props`: `props.key` — `undefined`. Якщо id потрібен усередині, передай його окремо: `<Item key={p.id} id={p.id} />`. А коли на кожен елемент треба кілька тегів без обгортки, коротке `<>` ключа не приймає — пиши `<Fragment key={…}>` з імпортом з `react`:
 
 ```tsx
 // app/ui/glossary.tsx
@@ -327,7 +327,7 @@ export function Glossary() {
 ```
 
 > [!quiz] Перевір себе: який key найкращий?
-> level: noob · id: nextjs-start-02-quiz-05
+> level: junior · id: nextjs-start-02-quiz-05
 >
 > Список товарів з бази можна сортувати за ціною і видаляти з нього позиції. Що передати в `key`?
 >
@@ -339,11 +339,11 @@ export function Glossary() {
 > **Пояснення:** id стабільний і унікальний. Індекс зсувається після сортування й видалення, тож React плутатиме елементи. Випадкове число змінюється на кожному рендері — React щоразу перестворюватиме весь список. Назви можуть повторитися (два «Чайники» від різних виробників).
 
 > [!quiz] Що покаже data-key?
-> level: noob · type: output · id: nextjs-start-02-quiz-06
+> level: junior · type: output · id: nextjs-start-02-quiz-06
 >
 > ```tsx
-> function Item({ title, ...rest }: { title: string; key?: string }) {
->   return <li data-key={String((rest as { key?: string }).key)}>{title}</li>
+> function Item(props: any) {
+>   return <li data-key={String(props.key)}>{props.title}</li>
 > }
 >
 > export default function Page() {
@@ -355,10 +355,10 @@ export function Glossary() {
 >
 > **Відповідь:** `undefined`
 >
-> **Пояснення:** `key` React забирає собі й не передає компоненту. Перевірено в Next.js 16.3.8: сервер віддав `<li data-key="undefined">a</li>`. Потрібен id у компоненті — передай його ще одним prop.
+> **Пояснення:** `key` React забирає собі й не передає компоненту: на Next.js 16.3.8 сервер віддає `<li data-key="undefined">a</li>`. Потрібен id у компоненті — передай його ще одним prop.
 
 > [!quiz] Перевір себе: склади компонент списку
-> level: noob · type: order · id: nextjs-start-02-quiz-07
+> level: junior · type: order · id: nextjs-start-02-quiz-07
 >
 > Компонент показує лише невиконані задачі.
 >
@@ -406,7 +406,7 @@ export function Status({ unread, isAdmin, error }: StatusProps) {
 Пастка з 🤔 Передбач: ліворуч від `&&` має стояти **булеве значення**. `count && …` при `count = 0` повертає `0`, а число React малює. Виправлення: `count > 0 && …` або тернарний оператор `count > 0 ? … : null`.
 
 > [!quiz] Що відрендерить сервер?
-> level: noob · type: output · id: nextjs-start-02-quiz-08
+> level: junior · type: output · id: nextjs-start-02-quiz-08
 >
 > Сторінка рендерить `<Status unread={5} isAdmin />` з компонента вище. Який HTML прийде в браузер?
 >
@@ -415,7 +415,7 @@ export function Status({ unread, isAdmin, error }: StatusProps) {
 > - [ ] `<div><p>Усе прочитано</p><a href="/admin">Адмінка</a></div>`
 > - [ ] `<p role="alert">Помилка: undefined</p>`
 >
-> **Пояснення:** `isAdmin` без значення — це `true`, тож `&&` повертає посилання. `5 > 0` — перша гілка тернарного оператора. `error` не передали, він `undefined`, і ранній `return` не спрацював. Перевірено в Next.js 16.3.8.
+> **Пояснення:** `isAdmin` без значення — це `true`, тож `&&` повертає посилання. `5 > 0` — перша гілка тернарного оператора. `error` не передали, він `undefined`, і ранній `return` не спрацював. Саме цей HTML віддає сервер Next.js 16.3.8.
 
 ### 🏭 Як це роблять у продакшні
 
@@ -563,14 +563,14 @@ export function Status({ unread, isAdmin, error }: StatusProps) {
 > [!question]- Що означає «компонент має бути чистим» і чому це важливо для Next.js?
 > *часто · теорія* · `nextjs-start-02-card-09`
 >
-> Для тих самих props він повертає ту саму розмітку і під час рендеру нічого не змінює поза собою (props, глобальні змінні). Next.js рендерить компонент на сервері, під час збірки і в браузері — результати мусять збігатися.
+> Для тих самих props він повертає ту саму розмітку і під час рендеру нічого не змінює поза собою (props, глобальні змінні). Next.js рендерить компонент на сервері й під час збірки, а Client Component — ще й у браузері; результати мусять збігатися.
 >
 > 📚 [[Next.js Start - 02. React-мінімум, компоненти, JSX і props#📦 Props: дані ззовні|Розділ: чисті компоненти]] · [React: Keeping Components Pure](https://react.dev/learn/keeping-components-pure)
 
 ## 🛠️ Практика
 
 > [!task] Збери className кнопки з props
-> level: noob · difficulty: easy · id: nextjs-start-02-task-01 · tags: props, classname
+> level: junior · difficulty: easy · id: nextjs-start-02-task-01 · tags: props, classname
 >
 > Кнопка дизайн-системи приймає props і має перетворити їх на рядок для `className`. Напиши `buttonClassName(props)`:
 >
@@ -656,7 +656,7 @@ export function Status({ unread, isAdmin, error }: StatusProps) {
 > > Масив плюс `join` не дає подвійних пробілів і випадкових `"false"`. Бібліотеки `clsx` і `classnames` роблять те саме для будь-яких умов — з ними й працюють у продакшні.
 
 > [!task] Підготуй товари до рендеру списку
-> level: noob · difficulty: medium · id: nextjs-start-02-task-02 · tags: lists, key, filter
+> level: junior · difficulty: medium · id: nextjs-start-02-task-02 · tags: lists, key, filter
 >
 > Компонент каталогу рендерить `items.map((item) => <li key={item.key}>{item.label}</li>)`. Напиши чисту функцію `toListItems(products, filters)`, яка готує для нього дані:
 >

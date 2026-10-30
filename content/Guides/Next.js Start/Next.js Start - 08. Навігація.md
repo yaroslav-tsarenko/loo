@@ -75,7 +75,7 @@ export default function DemoPage() {
 2. Спільні layouts лишаються на місці разом зі своїм станом. Замінюється тільки та частина, що відрізняється, — зазвичай сторінка.
 3. Адреса в рядку браузера змінюється, і кнопка «Назад» працює як завжди.
 
-Перевірено на 16.3.8 (`next start`, браузер): після кліку по `<Link>` змінна, яку ми записали у `window` перед кліком, лишилася на місці — це той самий документ. Після кліку по `<a>` вона зникла: браузер завантажив сторінку заново. А лічильник у layout блогу після `<a>` скинувся з `❤️ 2` на `❤️ 0`.
+На 16.3.8 (`next start`, браузер) після кліку по `<Link>` змінна, яку ми записали у `window` перед кліком, лишилася на місці — це той самий документ. Після кліку по `<a>` вона зникла: браузер завантажив сторінку заново. А лічильник у layout блогу після `<a>` скинувся з `❤️ 2` на `❤️ 0`.
 
 Що ще варто знати про `<Link>`:
 
@@ -301,7 +301,7 @@ export default function ThanksPage() {
 }
 ```
 
-`router.push` робить ту саму клієнтську навігацію, що й `<Link>` (перевірено: після кліку `/order/thanks`, документ той самий). Основні методи:
+`router.push` робить ту саму клієнтську навігацію, що й `<Link>` (на 16.3.8 — після кліку адреса `/order/thanks`, а документ той самий). Основні методи:
 
 | Метод | Що робить |
 |---|---|
@@ -340,7 +340,7 @@ export default function OldMenuPage() {
 }
 ```
 
-Перевірено на 16.3.8 (`curl -I http://localhost:3000/old-menu`): відповідь `HTTP/1.1 307 Temporary Redirect` із заголовком `location: /menu`. Браузер побачив код 307 (тимчасове перенаправлення, коди статусів — у [[Next.js Start - 01. Як працює веб|темі 01]]) і сам пішов на `/menu`.
+На 16.3.8 `curl -I http://localhost:3000/old-menu` показує `HTTP/1.1 307 Temporary Redirect` із заголовком `location: /menu`. Браузер побачив код 307 (тимчасове перенаправлення, коди статусів — у [[Next.js Start - 01. Як працює веб|темі 01]]) і сам пішов на `/menu`.
 
 Що важливо про `redirect()`:
 
@@ -362,7 +362,7 @@ export default function OldMenuPage() {
 
 ### 🧩 Динамічні посилання на статті
 
-У темі 07 кожна стаття мала свою папку. Для двох статей це нормально, а для двохсот — ні. Тут допомагає **динамічний сегмент**: папка з назвою в квадратних дужках `[slug]` збігається з будь-яким значенням у цьому місці адреси. Одна сторінка `app/blog/[slug]/page.tsx` обслуговує і `/blog/latte-art`, і `/blog/first-coffee`, і будь-яку іншу.
+У темі 07 кожна стаття мала свою папку. Для двох статей це нормально, а для двохсот — ні. Якщо ти продовжуєш той самий проєкт, **видали папки `app/blog/latte-art/` і `app/blog/first-coffee/`**: статичні папки важать більше за динамічну, тож поки вони є, `/blog/latte-art` відкриватиме стару сторінку, а не `[slug]`. Тут допомагає **динамічний сегмент**: папка з назвою в квадратних дужках `[slug]` збігається з будь-яким значенням у цьому місці адреси. Одна сторінка `app/blog/[slug]/page.tsx` обслуговує і `/blog/latte-art`, і `/blog/first-coffee`, і будь-яку іншу.
 
 Спершу дані. Поки бази немає, тримаємо статті в памʼяті:
 
@@ -436,7 +436,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
 - **`params`** — проп сторінки зі значеннями динамічних сегментів: для `/blog/latte-art` це `{ slug: 'latte-art' }`. Ключ `slug` береться з назви папки `[slug]`.
 - **`params` — це Promise.** У Next.js 16 значення приходить «пізніше», тож компонент стає `async` і робить `await params`. Без `await` TypeScript зупинить збірку: ``Property 'slug' does not exist on type 'Promise<{ slug: string; }>'``. У старих туторіалах ти побачиш `params.slug` без `await` — це код Next.js 14 і раніше.
-- **`notFound()`** — зупиняє рендер і показує `not-found.tsx` (з теми 07). Перевірено: `/blog/unknown` дає статус 404 і нашу сторінку «Такої сторінки немає».
+- **`notFound()`** — зупиняє рендер і показує `not-found.tsx` (з теми 07). На 16.3.8 `/blog/unknown` дає статус 404 і нашу сторінку «Такої сторінки немає».
 - **`generateStaticParams`** — список відомих `slug`. Next.js збирає ці сторінки заздалегідь, під час `next build`.
 
 Після `next build` таблиця маршрутів показує, що вийшло:
@@ -451,7 +451,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 Дві статті зібрані як статичні (`○`), а `◐ /blog/[slug]` — заготовка для `slug`, яких не було в списку: їх Next.js відрендерить, коли хтось їх відкриє.
 
 > [!warning] Без generateStaticParams збірка падає
-> З `cacheComponents: true` прибери `generateStaticParams` — і `next build` на 16.3.8 зупиниться з двома помилками. Перша — про наше меню: ``Route "/blog/[slug]": Next.js encountered URL data `usePathname()` in a Client Component outside of `<Suspense>`.`` Друга — про сторінку: ``Next.js encountered uncached or runtime data during prerendering.`` і `params` у списку причин. Значення невідомі до запиту, а Next.js хоче зібрати якомога більше заздалегідь. Для початківця найпростіші ліки — `generateStaticParams`; інші (`<Suspense>`) — у темах 03 і 11 основного посібника.
+> З `cacheComponents: true` прибери `generateStaticParams` — і `next build` на 16.3.8 зупиниться. Сама сторінка падає через `params`: ``Next.js encountered uncached or runtime data during prerendering.`` (у списку причин — `params`). Наше меню в root layout додає другу помилку: ``Route "/blog/[slug]": Next.js encountered URL data `usePathname()` in a Client Component outside of `<Suspense>`.`` Значення невідомі до запиту, а Next.js хоче зібрати якомога більше заздалегідь. Для початківця найпростіші ліки — `generateStaticParams`. Повідомлення пропонує ще два: обгорнути читання в `<Suspense>` (теми 03 і 11 основного посібника) або `export const instant = false` — дозволити сторінці чекати на запит без заготовки (тема 12 основного посібника).
 
 > [!quiz] Перевір себе: склади сторінку статті
 > level: junior · type: order · id: nextjs-start-08-quiz-07

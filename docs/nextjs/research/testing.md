@@ -18,7 +18,7 @@
 6. Testing Library: запити за роллю (`getByRole`), `user-event`, «тестувати поведінку, не реалізацію» `(не звірено з docs 16.3.8)`.
 7. Тестування Server Actions: це async-функції — викликати напряму з `FormData`, мокати `next/headers` (`cookies`), `next/cache` (`updateTag`, `revalidatePath`), `next/navigation` (`redirect` кидає) і DAL; перевіряти authz/валідацію/повернення DTO `(патерн — не з docs 16.3.8)`.
 8. Тестування Route Handlers: експортовані `GET/POST(request: Request)` — створювати `new Request(...)` / `NextRequest`, перевіряти `Response` (статус, заголовки, JSON).
-9. **Офіційні утиліти** `next/experimental/testing/server` (15.1+): `unstable_doesProxyMatch({ config, nextConfig, url })`, `isRewrite`, `getRewrittenUrl`, `getRedirectUrl`, `unstable_getResponseFromNextConfig({ url, nextConfig })` (лише `headers/redirects/rewrites`, без proxy і файлових маршрутів) — `03-file-conventions/proxy.md#unit-testing-experimental`, `05-config/01-next-config-js/index.md#unit-testing-experimental`.
+9. **Офіційні утиліти** `next/experimental/testing/server` (15.1+): `unstable_doesMiddlewareMatch({ config, nextConfig, url })`, `isRewrite`, `getRewrittenUrl`, `getRedirectUrl`, `unstable_getResponseFromNextConfig({ url, nextConfig })` (лише `headers/redirects/rewrites`, без proxy і файлових маршрутів) — `03-file-conventions/proxy.md#unit-testing-experimental`, `05-config/01-next-config-js/index.md#unit-testing-experimental`.
 10. MSW: перехоплення мережі в Node (`setupServer`) і браузері; handlers для REST/GraphQL; корисно для тестів DAL/fetch-обгорток і e2e-стабільності `(не звірено з docs 16.3.8)`.
 11. Env у тестах: `.env.test` — `.env.local` **не** завантажується в `test` (`02-guides/environment-variables.md#test-environment-variables`); `@next/env` `loadEnvConfig` для ручного завантаження.
 
@@ -60,7 +60,7 @@ e2e — перевіряти і UI-результат, і стан сервер�
 | `next/jest` + пакети Jest | `testing/jest.md` |
 | Playwright: 3 браузери, сервер має бути запущений, рекомендовано проти production build, `webServer`, `baseURL` | `testing/playwright.md` |
 | `@next/playwright` `instant()` | `02-guides/instant-navigation.md`, `02-route-segment-config/instant.md` |
-| `next/experimental/testing/server`: `unstable_doesProxyMatch`, `isRewrite`, `getRewrittenUrl`, `getRedirectUrl` | `03-file-conventions/proxy.md` |
+| `next/experimental/testing/server`: `unstable_doesMiddlewareMatch` (на 16.3.8 саме так; у чистому Node потребує `globalThis.AsyncLocalStorage`), `isRewrite`, `getRewrittenUrl`, `getRedirectUrl` | `03-file-conventions/proxy.md` |
 | `unstable_getResponseFromNextConfig` (лише config-маршрутизація) | `05-config/01-next-config-js/index.md` |
 | Тестові env: `.env.test`, `.env.local` ігнорується | `02-guides/environment-variables.md#test-environment-variables` |
 | Navigation Inspector (DevTools, Pause on navigations) | `02-route-segment-config/instant.md#inspecting-loading-states` |
@@ -71,7 +71,7 @@ e2e — перевіряти і UI-результат, і стан сервер�
 | До | Зараз |
 |---|---|
 | Jest + `next/jest` як основний | Vitest — перший у списку гайдів, Jest лишається |
-| Тест `middleware` вручну | `next/experimental/testing/server` (15.1+), функції перейменовані під `proxy` (`unstable_doesProxyMatch`) |
+| Тест `middleware` вручну | `next/experimental/testing/server` (15.1+), функції перейменовані під `proxy` (`unstable_doesMiddlewareMatch` (на 16.3.8 саме так; у чистому Node потребує `globalThis.AsyncLocalStorage`)) |
 | Тест `getServerSideProps` як функції | тест DAL/Server Actions як функцій; async Server Components — e2e |
 | E2E «сторінка завантажилась» | `instant()` перевіряє shell/prefetched UI (16.x) |
 | `next lint` у `next build` | видалено (16): ESLint/Biome окремим кроком CI |

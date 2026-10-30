@@ -47,7 +47,7 @@ your report).
   navigate your tab). For runtime/network checks use an **isolated headless browser**: a script with the repo's
   `playwright-core` (`chromium.launch({ channel: 'chrome' })`) kept in your scratchpad, recording requests/console.
   If you use the pane at all, open your own tab (`tabs_create`), pass its `tabId`, and re-check its URL before acting. **Servers:** pick a free port (`next start -p 34NN`, NN = your topic number
-  + an offset), stop only the processes you started (by PID or your port), never `pkill` broadly.
+  + an offset), stop only the processes you started — before killing a PID, confirm its cwd is your own scratch dir (`lsof -p PID | grep cwd`); never `pkill` broadly.
 - **Scratchpad** is shared: prefix every file name with your topic id.
 - A dev-server compile error in one route breaks every route of that app — reproduce intentional errors in a
   separate `-cases` copy of your scratch app.

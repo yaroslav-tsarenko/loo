@@ -66,7 +66,7 @@ nextVersion: 16.3.8
 
 ### 🎨 Три способи стилізації
 
-У Next.js CSS підключають **імпортом з JavaScript-файлу**: `import './globals.css'`. Звичайний браузер так не вміє — це робить збирач (у Next.js 16 за замовчуванням Turbopack). Під час `next build` він збирає всі імпортовані CSS-файли, мінімізує їх і кладе в окремі `.css`-файли, які сторінка підключає тегом `<link>`. CSS працює навіть із вимкненим JavaScript у браузері.
+У Next.js CSS підключають **імпортом з JavaScript-файлу**: `import './globals.css'`. Звичайний браузер так не вміє — це робить збирач (у Next.js 16 за замовчуванням Turbopack). Під час `next build` він збирає всі імпортовані CSS-файли, мінімізує їх і кладе в окремі `.css`-файли, які сторінка підключає тегом `<link>`. У продакшн-збірці CSS працює навіть із вимкненим JavaScript у браузері (у `next dev` JavaScript потрібен для Fast Refresh).
 
 Основних способів три:
 
@@ -255,7 +255,7 @@ export default config
 @import 'tailwindcss';
 ```
 
-Третій крок — імпорт `globals.css` у root layout, який у тебе вже є. **PostCSS** — інструмент, що перетворює CSS під час збірки; Next.js підхоплює `postcss.config.mjs` сам, а плагін `@tailwindcss/postcss` замінює рядок `@import 'tailwindcss'` на справжній CSS: базові стилі, змінні теми й усі утиліти, знайдені в коді. Ці кроки ми перевірили на Next.js 16.3.8 з Tailwind 4.3.3: `npm run build` проходить, а в `.next/static/chunks/*.css` зʼявляються саме ті класи, що є в `className`.
+Третій крок — імпорт `globals.css` у root layout, який у тебе вже є. **PostCSS** — інструмент, що перетворює CSS під час збірки; Next.js підхоплює `postcss.config.mjs` сам, а плагін `@tailwindcss/postcss` замінює рядок `@import 'tailwindcss'` на справжній CSS: базові стилі, змінні теми й усі утиліти, знайдені в коді. На Next.js 16.3.8 з Tailwind 4.3.3 з цими кроками `npm run build` проходить, а в `.next/static/chunks/*.css` зʼявляються саме ті класи, що є в `className`.
 
 > [!quiz] Заповни пропуски: Tailwind v4 у Next.js
 > level: junior · type: fill · id: nextjs-start-09-quiz-04
@@ -299,7 +299,7 @@ export default config
 >   - { id: tsx, label: "app/page.tsx", code: "className=\"p-4 text-2xl\"", tone: blue, icon: "px:file" }
 >   - { id: scan, label: "Tailwind", text: "сканує файли проєкту", note: "шукає слова, схожі на класи", tone: violet, icon: "px:magnifier" }
 >   - { id: css, label: "app/globals.css", code: "@import 'tailwindcss'", note: "сюди підставляються утиліти", tone: mint }
->   - { id: out, label: ".next/static/chunks/*.css", code: ".p-4{padding:calc(var(--spacing)*4)}", tone: green }
+>   - { id: out, label: ".next/static/chunks/*.css", code: ".p-4{padding:calc(var(--spacing) * 4)}", tone: green }
 >   - { id: page, label: "браузер", text: "<link rel=stylesheet>", note: "лише використані класи", tone: gray, icon: "px:monitor" }
 > edges:
 >   - { from: tsx, to: scan, label: "текст файлу" }
@@ -366,7 +366,7 @@ export default config
 
 Числа у відступах — кроки шкали: у v4 `p-4` компілюється в `padding: calc(var(--spacing) * 4)`, а `--spacing` дорівнює `0.25rem`, тобто 4 × 4px = 16px. Коли потрібне точне значення поза шкалою, є **довільні значення** у квадратних дужках: `w-[100px]`, `text-[0.9em]`, `bg-[#1e293b]`. Користуйся ними зрідка: якщо `[...]` повторюється, це кандидат у `@theme`.
 
-**Варіант** — префікс перед двокрапкою, який каже, *коли* діє утиліта: `hover:` — під курсором, `focus:` — у фокусі, `md:` — від певної ширини екрана, `dark:` — у темній темі. Варіанти можна поєднувати: `md:hover:underline`. На 16.3.8 з Tailwind 4.3.3 ми бачили, що `hover:bg-…` компілюється всередині `@media (hover: hover)`: на телефоні, де курсора немає, «залиплий» hover після дотику не зʼявляється.
+**Варіант** — префікс перед двокрапкою, який каже, *коли* діє утиліта: `hover:` — під курсором, `focus:` — у фокусі, `md:` — від певної ширини екрана, `dark:` — у темній темі. Варіанти можна поєднувати: `md:hover:underline`. На 16.3.8 з Tailwind 4.3.3 `hover:bg-…` компілюється всередині `@media (hover: hover)`: на телефоні, де курсора немає, «залиплий» hover після дотику не зʼявляється.
 
 ### 📱 Адаптивність: спершу мобільна
 
@@ -446,7 +446,7 @@ export function BadBadge({ color }: { color: string }) {
 }
 ```
 
-У HTML буде `class="bg-purple-300"`, але в зібраному CSS такого правила немає — ми перевірили `.next/static/chunks/*.css` на 16.3.8: слово `purple` там не зустрічається жодного разу. Помилки теж немає, просто фону немає.
+У HTML буде `class="bg-purple-300"`, але в зібраному CSS такого правила немає: на 16.3.8 з Tailwind 4.3.3 слово `purple` у `.next/static/chunks/*.css` не зустрічається жодного разу. Помилки теж немає, просто фону немає.
 
 Правильно — тримати **повні** назви класів у коді й вибирати між ними:
 

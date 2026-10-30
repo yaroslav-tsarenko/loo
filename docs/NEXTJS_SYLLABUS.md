@@ -570,7 +570,7 @@ senior» на банку Next.js (точність ± 1 рівень, серед
 | 18 | Два ключі: `cacheHandler` (ISR, route handlers, зображення) і `cacheHandlers` (`use cache`). `use cache: private` нічого не зберігає на сервері — лише дедуплікація в запиті й кеш у браузері |
 | 21 | Дії одного клієнта виконуються **послідовно** (`Promise.all` не паралелить); одна відповідь = результат + новий UI; id дій живуть ≤ 14 днів; кілька інстансів — `NEXT_SERVER_ACTIONS_ENCRYPTION_KEY` |
 | 32 | `priority` deprecated → `preload` / `loading="eager"` / `fetchPriority="high"`; у 16: `qualities` = `[75]`, `minimumCacheTTL` 4 год, без 16 в `imageSizes`, локальні IP заблоковано, ≤ 3 редиректи |
-| 40 | Async Server Components не тестуються у Vitest/Jest (так у документації) — e2e; є `next/experimental/testing/server` (`unstable_doesProxyMatch`, `unstable_getResponseFromNextConfig`) — добре для задач. `next lint` прибрано в 16 |
+| 40 | Async Server Components не тестуються у Vitest/Jest (так у документації) — e2e; є `next/experimental/testing/server` (`unstable_doesMiddlewareMatch` (на 16.3.8 саме так; у чистому Node потребує `globalThis.AsyncLocalStorage`), `unstable_getResponseFromNextConfig`) — добре для задач. `next lint` прибрано в 16 |
 | 43 | `adapterPath` стабільний з 16.2 (перевірені адаптери Vercel, Bun); `deploymentId`, `supportsImmutableAssets` (16.3) |
 | 48 | codemod `upgrade` не запускає `next-async-request-api` — окремий крок; `unstable_cache` документація досі радить для кешу між деплоями — подаємо чесно, не лише як «старе» |
 | 49 | Приклад AI в документації застарів (`StreamingTextResponse`) — беремо ai-sdk.dev; + підтема «AI-агенти для розробки»: `AGENTS.md`, `next-devtools-mcp` |

@@ -44,7 +44,7 @@ nextVersion: 16.3.8
 > - [ ] Повну сторінку `global-error` без root layout
 > - [ ] Білий екран: помилки в layout межі не ловлять
 >
-> **Пояснення:** не переймайся, якщо помилився, — це найчастіша пастка App Router. `crash/error.tsx` обгортає все, що **всередині** `crash/layout.tsx`, але не сам layout. Помилку layout ловить межа на рівень вище — `app/error.tsx`, і вона рендериться всередині root layout. Перевірено в `next dev` 16.3.8.
+> **Пояснення:** не переймайся, якщо помилився, — це найчастіша пастка App Router. `crash/error.tsx` обгортає все, що **всередині** `crash/layout.tsx`, але не сам layout. Помилку layout ловить межа на рівень вище — `app/error.tsx`, і вона рендериться всередині root layout.
 
 ## 🧒 Простими словами
 
@@ -131,7 +131,7 @@ app/
 > - [ ] `app/@modal/`
 > - [x] `app/%5Fdrafts/` — як `/_drafts`
 >
-> **Пояснення:** звичайні й динамічні папки дають сегменти URL. Route group `(shop)` і слот `@modal` лише організовують файли, а `_components` вимикає папку з маршрутизації. `%5F` — закодоване підкреслення: так роблять сегмент URL, що справді починається з `_` (перевірено: `app/%5Fdrafts/page.tsx` відкривається за `/_drafts`).
+> **Пояснення:** звичайні й динамічні папки дають сегменти URL. Route group `(shop)` і слот `@modal` лише організовують файли, а `_components` вимикає папку з маршрутизації. `%5F` — закодоване підкреслення: так роблять сегмент URL, що справді починається з `_` (`app/%5Fdrafts/page.tsx` відкривається за `/_drafts`).
 
 ### 📄 Спеціальні файли: повний каталог
 
@@ -148,7 +148,7 @@ app/
 | `not-found` | UI для `notFound()`; кореневий — ще й для URL без збігу | свій сегмент і глибше | ні | Server за замовчуванням |
 | `global-not-found` | 404 для URL без збігу в обхід усього рендеру | лише корінь `app/` | ні, **experimental** | свої `<html>` і `<body>` |
 | `forbidden` / `unauthorized` | UI для `forbidden()` (403) і `unauthorized()` (401) | свій сегмент і глибше | ні, **experimental** | Server за замовчуванням |
-| `default` | fallback слота parallel route після повного перезавантаження | слот `@name` | для кожного слота — так | Server за замовчуванням |
+| `default` | fallback слота parallel route після повного перезавантаження | слот `@name` | за документацією — для кожного слота | Server за замовчуванням |
 | `route` | Route Handler: `GET`, `POST`… без UI | лише свій сегмент | для API-адреси (або `page`) | лише сервер |
 
 Ще є **metadata-файли** (`favicon.ico`, `icon`, `opengraph-image`, `sitemap`, `robots`) — вони теж спеціальні за назвою, і про них тема 33. Не називай так компоненти: `app/icon.tsx` Next.js сприйме як генератор іконки сайту.
@@ -175,7 +175,7 @@ export default function RootError({ error, retry }: { error: Error; retry: () =>
 }
 ```
 
-Усі інші UI-файли — звичайні Server Components, можуть бути `async` і читати дані (`not-found.tsx` теж). А `default` потрібен лише parallel routes: з Next.js 16 збірка падає, якщо слот `@name` не має `default.js`. Що таке слоти й навіщо їм fallback — тема 05; тут досить знати, що файл існує і чому він у списку.
+Усі інші UI-файли — звичайні Server Components, можуть бути `async` і читати дані (`not-found.tsx` теж). А `default` потрібен лише parallel routes. Документація вимагає `default.js` для кожного слота `@name`, але на 16.3.8 збірка без нього не попереджає: працює вбудований fallback з `notFound()`, і після оновлення сторінки слот дає 404. Що таке слоти й навіщо їм fallback — [[Next.js - 05. Parallel і intercepting routes|тема 05]]; тут досить знати, що файл існує і чому він у списку.
 
 > [!quiz] Перевір себе: обери правдиві твердження про спеціальні файли
 > level: junior · type: multi · id: nextjs-core-01-quiz-03
@@ -320,13 +320,13 @@ export default async function TeamPage({ params }: PageProps<'/dashboard/[team]'
 > [!note] Чому в прикладах дані в памʼяті
 > Приклади курсу зібрані з `cacheComponents: true`. Справжній запит до БД у сторінці зупинив би `next build` з `Next.js encountered uncached or runtime data during prerendering`: такі дані кешують (`'use cache'`) або обгортають у `<Suspense>` — про це в темах 11–12, 14–16. Тут список команд — масив у памʼяті.
 
-Що показує `next build && next start` (перевірено `curl`):
+Що віддає `next build && next start` на 16.3.8:
 
 - `/dashboard/design` — `200`, меню дашборду і «Команда design»: сторінку пререндерено за `generateStaticParams`.
 - `/dashboard/ghost` — **`200`**, а не `404`. Команди немає в списку, тож сторінка рендериться під час запиту. Відповідь стрімиться: спершу оболонка з меню й «Завантаження…» з `loading.tsx`, потім у тому самому потоці — «Такої команди немає». Заголовки вже пішли зі статусом 200, тож Next.js додає `<meta name="robots" content="noindex">`, щоб пошуковик не індексував сторінку.
 - Меню дашборду лишається на екрані: `dashboard/not-found.tsx` рендериться **всередині** `dashboard/layout.tsx`.
 
-Документація так і пише: `not-found` повертає `404` для звичайних відповідей і `200` для стрімінгових. Сторінка без `loading.tsx` над нею, що викликає `notFound()`, дасть справжній `404` — ми перевіримо це нижче.
+Документація так і пише: `not-found` повертає `404` для звичайних відповідей і `200` для стрімінгових. Сторінка без `loading.tsx` над нею, що викликає `notFound()`, дасть справжній `404`.
 
 > [!quiz] Що поверне сервер?
 > level: middle · type: output · id: nextjs-core-01-quiz-05
@@ -373,13 +373,13 @@ export default async function TeamPage({ params }: PageProps<'/dashboard/[team]'
 3. catch-all (`[...slug]`);
 4. optional catch-all (`[[...slug]]`).
 
-Для `/dashboard/design` статичного `design/` немає, тож збігається `[team]` з `params = { team: 'design' }`. А `/dashboard/settings` збігається і з `settings/`, і з `[team]/` — виграє статичний. Пріоритет не «жадібний»: якщо статичний сегмент збігся, але далі шлях обірвався, Next.js пробує динамічний. Перевірено на 16.3.8: з `blog/new/page.tsx` і `blog/[slug]/edit/page.tsx` адреса `/blog/new` відкриває статичну сторінку, а `/blog/new/edit` — `[slug]/edit` зі `slug: 'new'`.
+Для `/dashboard/design` статичного `design/` немає, тож збігається `[team]` з `params = { team: 'design' }`. А `/dashboard/settings` збігається і з `settings/`, і з `[team]/` — виграє статичний. Пріоритет не «жадібний»: якщо статичний сегмент збігся, але далі шлях обірвався, Next.js пробує динамічний. На 16.3.8 з `blog/new/page.tsx` і `blog/[slug]/edit/page.tsx` адреса `/blog/new` відкриває статичну сторінку, а `/blog/new/edit` — `[slug]/edit` зі `slug: 'new'`.
 
 **3. Зібрати файли на шляху від кореня до листа.** На кожному рівні, **включно з route groups**, Next.js бере `layout`, `template`, `error`, `loading` і `not-found` (і експериментальні `forbidden` / `unauthorized`), а з листа — `page`. Route group не додає сегмент URL, але її `layout.tsx` у ланцюжок потрапляє — для цього групи й існують.
 
 **4. Скласти дерево за ієрархією** з попереднього розділу, рекурсивно від root layout до `page`.
 
-**5. Якщо листа не знайдено**, рендериться кореневий `app/not-found.tsx` у root layout зі статусом `404` — або `global-not-found.tsx`, якщо його ввімкнено. Вкладені layouts і `not-found.tsx` у цьому випадку не беруть участі. Перевірено: `/dashboard/settings/x` показує шапку root layout і «404 · root not-found» **без** меню дашборду, хоча дві третини шляху збіглися. Глибші `not-found.tsx` спрацьовують лише на явний `notFound()`.
+**5. Якщо листа не знайдено**, рендериться кореневий `app/not-found.tsx` у root layout зі статусом `404` — або `global-not-found.tsx`, якщо його ввімкнено. Вкладені layouts і `not-found.tsx` у цьому випадку не беруть участі: `/dashboard/settings/x` показує шапку root layout і «404 · root not-found» **без** меню дашборду, хоча дві третини шляху збіглися. Глибші `not-found.tsx` спрацьовують лише на явний `notFound()`.
 
 > [!diagram] Як Next.js розвʼязує /dashboard/design
 > ```yaml
@@ -422,7 +422,7 @@ export default async function TeamPage({ params }: PageProps<'/dashboard/[team]'
 > - [ ] Кореневий 404: статичний `new` збігся, а `new/edit` не існує
 > - [ ] `blog/_drafts/edit/page.tsx` — він теж закінчується на `edit`
 >
-> **Пояснення:** статичний сегмент має пріоритет, але лише якщо з ним збігається весь шлях. `blog/new/` не має `edit/`, тож Next.js пробує динамічний `[slug]` і знаходить `[slug]/edit`. Приватна папка `_drafts` у маршрутизації не бере участі взагалі. Перевірено на 16.3.8.
+> **Пояснення:** статичний сегмент має пріоритет, але лише якщо з ним збігається весь шлях. `blog/new/` не має `edit/`, тож Next.js пробує динамічний `[slug]` і знаходить `[slug]/edit`. Приватна папка `_drafts` у маршрутизації не бере участі взагалі.
 
 ### 🏠 Root layout і що відбувається в корені
 
@@ -450,7 +450,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 - Помилку root layout ловить лише `global-error.tsx` — свого `error.tsx` над ним бути не може.
 
 > [!warning] Розбіжність з документацією: збірка не перевіряє root layout
-> [layout.js → Root Layout](https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout) каже, що `app` **must** мати root layout, а той **must** містити `<html>` і `<body>`. На Next.js 16.3.8 `next build` проходить і з root layout без цих тегів, і зовсім без `app/layout.tsx`. Помилку видно лише в `next dev`, у вікні помилки в браузері: `Missing <html> and <body> tags in the root layout.` А без файлу layout мовчить і `next dev`: HTML приходить без `<html>` і `<body>`, браузер добудовує їх сам. Не покладайся на збірку — тримай root layout з обома тегами завжди.
+> [layout.js → Root Layout](https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout) каже, що `app` **must** мати root layout, а той **must** містити `<html>` і `<body>`. На Next.js 16.3.8 `next build` проходить і з root layout без цих тегів, і зовсім без `app/layout.tsx`. Помилку видно лише в `next dev`, у вікні помилки в браузері: `Missing <html> and <body> tags in the root layout.` Не покладайся на збірку — тримай root layout з обома тегами завжди.
 
 > [!quiz] Перевір себе: заповни пропуски в межі помилок дашборду
 > level: junior · type: fill · bank: 'use server', reset, loading · id: nextjs-core-01-quiz-08
@@ -475,7 +475,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 Документація свідомо **не нав'язує** структуру проєкту. Але дає три інструменти, і їх варто розуміти точно.
 
-**Colocation безпечна за замовчуванням.** Адресу дає лише `page` або `route`, і клієнту йде лише те, що повертають ці файли. Тож компонент, тест, стилі чи дані можна покласти поруч зі сторінкою — за URL їх не відкрити. Перевірено: `/dashboard/_components/stat-card` і будь-який інший шлях до звичайного модуля дає `404`.
+**Colocation безпечна за замовчуванням.** Адресу дає лише `page` або `route`, і клієнту йде лише те, що повертають ці файли. Тож компонент, тест, стилі чи дані можна покласти поруч зі сторінкою — за URL їх не відкрити: `/dashboard/_components/stat-card` і будь-який інший шлях до звичайного модуля дає `404`.
 
 ```tsx
 // app/dashboard/_components/stat-card.tsx — приватна папка: не маршрут
@@ -511,13 +511,13 @@ export default function OrderEmailTemplate() {
 }
 ```
 
-Next.js бачить `template.tsx` у сегменті `shop` і ставить компонент **над** сторінкою. Компонент не рендерить `children`, тож на `/shop` замість каталогу — «Дякуємо за замовлення!». Збірка мовчить: перевірено на 16.3.8, у HTML сторінки `/shop` тексту каталогу немає. Так само небезпечні `loading.tsx`, `error.tsx`, `default.tsx`, `route.ts` (з експортом `GET` стане публічним ендпоінтом), `icon.tsx`, `sitemap.ts`.
+Next.js бачить `template.tsx` у сегменті `shop` і ставить компонент **над** сторінкою. Компонент не рендерить `children`, тож на `/shop` замість каталогу — «Дякуємо за замовлення!». Збірка 16.3.8 мовчить, а в HTML сторінки `/shop` тексту каталогу немає. Так само небезпечні `loading.tsx`, `error.tsx`, `default.tsx`, `route.ts` (з експортом `GET` стане публічним ендпоінтом), `icon.tsx`, `sitemap.ts`.
 
-**Приватні папки `_folder` вимикають маршрутизацію** для папки й усіх вкладених. Навіть `app/_lib/secret/page.tsx` не стане адресою (перевірено: `/_lib/secret` — `404`). Для colocation вони не обовʼязкові, але корисні: видно, що «тут не маршрути», спеціальні назви всередині нічого не ламають, а майбутні конвенції Next.js не перетнуться з твоїми папками. Потрібен сегмент URL, що справді починається з підкреслення, — назви папку `%5Fdrafts`.
+**Приватні папки `_folder` вимикають маршрутизацію** для папки й усіх вкладених. Навіть `app/_lib/secret/page.tsx` не стане адресою (`/_lib/secret` — `404`). Для colocation вони не обовʼязкові, але корисні: видно, що «тут не маршрути», спеціальні назви всередині нічого не ламають, а майбутні конвенції Next.js не перетнуться з твоїми папками. Потрібен сегмент URL, що справді починається з підкреслення, — назви папку `%5Fdrafts`.
 
 **Папка `src/`** відокремлює код застосунку від конфігів. `app` переїжджає в `src/app`, разом з ним зазвичай `components` і `lib`. У корені лишаються `public/`, `package.json`, `next.config.ts`, `tsconfig.json` і `.env*`, а `proxy.ts` переїжджає в `src/`. Аліас `@/*` у `tsconfig.json` має вказувати на `./src/*`.
 
-Одна пастка: **якщо в корені є `app/`, то `src/app/` ігнорується**. Мовчки. Перевірено на 16.3.8: з `app/page.tsx` у корені й `src/app/srconly/page.tsx` таблиця маршрутів після `next build` містить лише `/`, без жодного попередження. Буває після злиття гілок чи «тимчасової» папки `app` для експерименту.
+Одна пастка: **якщо в корені є `app/`, то `src/app/` ігнорується**. Мовчки. На 16.3.8 з `app/page.tsx` у корені й `src/app/srconly/page.tsx` таблиця маршрутів після `next build` містить лише `/`, без жодного попередження. Буває після злиття гілок чи «тимчасової» папки `app` для експерименту.
 
 > [!quiz] Перевір себе: що відкриється?
 > level: junior · id: nextjs-core-01-quiz-09
@@ -569,7 +569,7 @@ You cannot define a route with the same specificity as an optional catch-all rou
 > [!warning] Розбіжність: збірка проходить, а застосунок падає весь
 > Документація не описує цей випадок окремо. На Next.js 16.3.8 дерево з `app/p/[id]/page.tsx` і `app/p/[slug]/edit/page.tsx` **проходить `next build`** (обидва маршрути в таблиці). Але `next start` відповідає `500` на **кожен** URL — навіть `/` і невідомі адреси, — а в лозі: `Error: You cannot use different slug names for the same dynamic path ('id' !== 'slug').` `next dev` падає на першому ж запиті з тим самим текстом. Тому однакові імена динамічних сегментів на одному рівні — правило, яке варто перевіряти в CI, а не сподіватися на збірку. Виправлення: `app/p/[id]/edit/page.tsx`.
 
-`[id]` і `[...slug]` поруч — не конфлікт: це різні види сегментів з різним пріоритетом. Перевірено: `/shop/7` відкриває `[id]`, `/shop/7/8` — `[...slug]`, а `/shop/sale` — статичний `sale/`.
+`[id]` і `[...slug]` поруч — не конфлікт: це різні види сегментів з різним пріоритетом: `/shop/7` відкриває `[id]`, `/shop/7/8` — `[...slug]`, а `/shop/sale` — статичний `sale/`.
 
 > [!quiz] Перевір себе: яке дерево не збереться або впаде?
 > level: middle · type: multi · id: nextjs-core-01-quiz-10
@@ -620,7 +620,7 @@ export default function GlobalNotFound() {
 }
 ```
 
-Перевірено на 16.3.8: `/nope` — `404`, «404 · global-not-found» з `<title>404 — Акме</title>` і **без** шапки root layout. А явний `notFound()` у сторінці так само рендерить `app/not-found.tsx` у root layout: `global-not-found` відповідає лише за URL без збігу.
+На 16.3.8 `/nope` — `404`, «404 · global-not-found» з `<title>404 — Акме</title>` і **без** шапки root layout. А явний `notFound()` у сторінці так само рендерить `app/not-found.tsx` у root layout: `global-not-found` відповідає лише за URL без збігу.
 
 **`forbidden.tsx` і `unauthorized.tsx`** (`experimental.authInterrupts`) — UI для функцій `forbidden()` (статус `403`) і `unauthorized()` (статус `401`) з `next/navigation`. Працюють як `not-found.tsx`: найближчий файл вгору по дереву, усередині layout свого сегмента.
 
@@ -642,7 +642,7 @@ export default function AdminPage() {
 }
 ```
 
-Перевірено: `/admin` — `403` з меню `admin/layout.tsx` і «Немає доступу». Цікава деталь, яку видно в RSC payload: для кожного сегмента Next.js передає роутеру поля `error`, `template`, `notFound`, `forbidden` і `unauthorized` — тобто ці три файли справді живуть на одному рівні ієрархії. Де робити перевірку доступу, щоб її не обійти, — розділ «Auth і безпека» курсу.
+`/admin` віддає `403` з меню `admin/layout.tsx` і «Немає доступу». Цікава деталь, яку видно в RSC payload: для кожного сегмента Next.js передає роутеру поля `error`, `template`, `notFound`, `forbidden` і `unauthorized` — тобто ці три файли справді живуть на одному рівні ієрархії. Де робити перевірку доступу, щоб її не обійти, — розділ «Auth і безпека» курсу.
 
 > [!quiz] Перевір себе: що побачить користувач?
 > level: middle · id: nextjs-core-01-quiz-11
@@ -864,7 +864,7 @@ export default function AdminPage() {
 > 📚 [[Next.js - 01. App Router, сегменти і спеціальні файли#⚔️ Конфлікти маршрутів|Розділ: конфлікти]] · [Next.js: Route Resolution](https://nextjs.org/docs/app/getting-started/route-handlers#route-resolution)
 
 > [!question]- Чим небезпечні різні імена динамічних сегментів на одному рівні?
-> *рідко · безпека* · `nextjs-core-01-card-12`
+> *рідко · практика* · `nextjs-core-01-card-12`
 >
 > Поруч — `Ambiguous app routes detected` на збірці. На різній глибині (`[id]/page`, `[slug]/edit/page`) на 16.3.8 збірка проходить, а сервер віддає 500 на всі URL. Ловити лінтером або тестом дерева в CI.
 >

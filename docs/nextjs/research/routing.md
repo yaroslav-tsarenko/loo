@@ -48,7 +48,7 @@
 
 ### 05 — Parallel і intercepting routes
 1. Слоти `@name` — передаються в layout як props; не впливають на URL.
-2. `default.js` — фолбек слота при hard navigation (reload). **З 16 обов'язковий для всіх слотів — інакше build падає.**
+2. `default.js` — фолбек слота при hard navigation (reload). **Документація 16 каже «обов'язковий, інакше build падає», але на 16.3.8 `next build` проходить:** вбудований default викликає `notFound()`, тож після F5 — 404. Перевіряти в CI/рев’ю (див. тему 05).
 3. Soft navigation зберігає активний стан слота; hard navigation → `default.js`.
 4. Intercepting: `(.)`, `(..)`, `(..)(..)`, `(...)` — відносно **сегментів маршруту**, не файлової системи (route groups і слоти не рахуються).
 5. Патерн «модалка з URL»: `@modal/(.)photo/[id]/page.tsx` + повна сторінка `photo/[id]/page.tsx`; закриття — `router.back()`; `default.js` слота повертає `null`.
@@ -72,7 +72,7 @@
 | `skipMiddlewareUrlNormalize` → `skipProxyUrlNormalize` (16.0) | `05-config/01-next-config-js/skipProxyUrlNormalize.md` |
 | `experimental.proxyClientMaxBodySize`, default 10MB (буферизація тіла для повторного читання) | `05-config/01-next-config-js/proxyClientMaxBodySize.md` |
 | Proxy викликається й для `_next/data` навіть якщо виключено в negative matcher (захисна поведінка) | `proxy.md#negative-matching` |
-| Тестування: `unstable_doesProxyMatch`, `isRewrite`, `getRewrittenUrl`, `getRedirectUrl` з `next/experimental/testing/server` (з 15.1) | `proxy.md#unit-testing-experimental` |
+| Тестування: `unstable_doesMiddlewareMatch` (на 16.3.8 саме так; у чистому Node потребує `globalThis.AsyncLocalStorage`), `isRewrite`, `getRewrittenUrl`, `getRedirectUrl` з `next/experimental/testing/server` (з 15.1) | `proxy.md#unit-testing-experimental` |
 | `unstable_getResponseFromNextConfig` — юніт-тест `redirects/rewrites/headers` конфігу | `05-config/01-next-config-js/index.md#unit-testing-experimental` |
 | `Link` props: `href`, `replace`, `scroll`, `prefetch` (`"auto"`/`null`/`true`/`false`), `onNavigate` (15.3), `transitionTypes` (16.2) | `03-api-reference/02-components/link.md` |
 | `partialPrefetching: boolean` (default `false`), **потребує** `cacheComponents`, інакше помилка валідації конфігу; з'явився в 16.3.0; top-level (не experimental) | `05-config/01-next-config-js/partialPrefetching.md` |
