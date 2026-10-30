@@ -6,7 +6,7 @@ Repo: `/Users/yaroslav/Projects/loo-german` (worktree). Always run scripts with 
 `content:sync`. Never commit.
 
 **Standard.** `docs/GERMAN_SYLLABUS.md`:
-- §1–§2, including §2.6;
+- §1–§2, including §2.6 and §2.7 (§2.7 wins on conflict);
 - for Deutschland, §9 and §9.0;
 - the table rows of the topics you review.
 

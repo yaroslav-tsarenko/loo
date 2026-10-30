@@ -19,17 +19,17 @@ estimatedMinutes: 35
 ## Передбач
 
 > [!quiz] Як перекласти «Я студент»?
-> level: A1 · id: de-a1-sein-q01
+> level: A1 · type: single · id: de-a1-sein-q01
 > - [ ] Ich Student.
 > - [ ] Ich bin ein Student.
 > - [x] Ich bin Student.
 > - [ ] Ich ist Student.
 >
-> **Пояснення:** українське «є» в теперішньому часі ми пропускаємо, а в німецькому реченні **завжди є дієслово** — тут *bin*. Артикля перед професією німці не ставлять: *Ich bin Student*. *Ich bin ein Student* — калька з англійського *I am a student*; *ein* зʼявляється, лише коли є прикметник: *Ich bin ein fleißiger Student.*
+> **Пояснення:** українське «є» в теперішньому часі ми пропускаємо, а в повному німецькому реченні **є дієслово** — тут *bin*. Артикля перед професією німці не ставлять: *Ich bin Student*. *Ich bin ein Student* — калька з англійського *I am a student*; *ein* зазвичай зʼявляється, коли є прикметник: *Ich bin ein fleißiger Student.*
 
 ## Навіщо німцям «є»
 
-Українською ми кажемо «Я студент», «Вона вдома», «Кава гаряча» — і нічого не бракує. Німецьке речення без дієслова не існує. Якщо дії немає (ніхто не йде, не читає, не працює), місце дієслова займає *sein* — «бути, є, перебувати».
+Українською ми кажемо «Я студент», «Вона вдома», «Кава гаряча» — і нічого не бракує. Повне розповідне речення без дієслова в німецькій не існує. Якщо дії немає (ніхто не йде, не читає, не працює), місце дієслова займає *sein* — «бути, є, перебувати».
 
 | Українською | Німецькою | Що повідомляє sein |
 |---|---|---|
@@ -44,17 +44,19 @@ estimatedMinutes: 35
 > ```yaml
 > layout: flow
 > nodes:
->   - { id: subj, label: "1-ше місце", text: "Ich", tone: mint }
->   - { id: verb, label: "2-ге · sein", text: "?", tone: orange }
+>   - { id: adv, label: "1-ше місце · коли?", text: "Heute", tone: gray }
+>   - { id: subj, label: "1-ше місце · хто?", text: "Ich", tone: mint }
+>   - { id: verb, label: "2-ге місце · sein", text: "?", tone: orange }
+>   - { id: subj2, label: "хто?", text: "ich", tone: mint }
 >   - { id: rest, label: "хто / який / де", text: "Student", tone: gray }
 > steps:
 >   - { focus: [subj, rest], note: "Українською вистачає двох слів: «Я студент». Німецькою так не можна — бракує дієслова." }
 >   - { set: { verb: "bin" }, focus: verb, note: "На порожнє місце стає sein. Для ich — завжди bin." }
 >   - { focus: [subj, verb, rest], note: "Готово: Ich bin Student. Артикля перед професією немає." }
 >   - { set: { subj: "Sie", verb: "ist", rest: "zu Hause" }, note: "«Вона вдома» — Sie ist zu Hause. Для er / sie / es — ist." }
->   - { set: { subj: "Heute", verb: "bin", rest: "ich zu Hause" }, focus: verb, note: "Що б не стояло першим, sein тримає 2-ге місце: Heute bin ich zu Hause. Це правило V2 — детально в темі 09." }
+>   - { show: [adv, subj2], hide: subj, set: { verb: "bin", rest: "zu Hause" }, focus: [adv, verb, subj2], note: "Що б не стояло першим, sein тримає 2-ге місце: Heute bin ich zu Hause. Це правило V2 — детально в темі 09." }
 > ```
-> Перше місце → sein → решта. Дієслово в німецькому розповідному реченні — **завжди друге**.
+> Перше місце → sein → решта. Дієслово в німецькому розповідному реченні стоїть **на другому місці**.
 
 ## Особові займенники
 
@@ -86,7 +88,7 @@ estimatedMinutes: 35
 | 2 мн. | ihr | **seid** | Ihr seid zu Hause. |
 | 3 мн. / ввічл. | sie / Sie | **sind** | Sie sind Studenten. / Sind Sie Herr Weber? |
 
-Зверни увагу: **wir, sie і Sie** мають ту саму форму *sind*. Скорочень на зразок англійського *I'm* у німецькому письмі немає.
+Зверни увагу: **wir, sie і Sie** мають ту саму форму *sind*. У формах sein стягнень, як англійське *I'm*, немає: пишемо *ich bin*, *du bist*. Стягнення в німецькій бувають в інших словах — *Wie geht's?*, а розмовне *isses* (= ist es) — тема рівня B1.
 
 > [!warning] seid ≠ seit
 > *ihr **seid*** (ви є) і *seit* (від, з — *seit Montag*) звучать однаково — [zaɪ̯t], але пишуться по-різному. Форма дієслова sein — лише **seid** з *d*: *Seid ihr fertig?*
@@ -162,7 +164,7 @@ estimatedMinutes: 35
 | der Arzt | die Ärztin | Sie ist Ärztin. |
 | der Ukrainer | die Ukrainerin | Wir sind Ukrainer. |
 
-Артикль *ein* зʼявляється лише з прикметником: *Er ist **ein** guter Arzt.*
+Артикль *ein* зазвичай зʼявляється, коли є прикметник: *Er ist **ein** guter Arzt.*
 
 > [!tip] Das bin ich. Das sind meine Eltern.
 > Після *das* («це») дієслово узгоджується не з *das*, а з тим, **хто** це: *Das **bin** ich* (це я), *Das **sind** Max und Lena* (це Макс і Лена). А не ~~Das ist ich~~ чи ~~Das ist Max und Lena~~.
@@ -188,7 +190,7 @@ estimatedMinutes: 35
 > uk: бути; є; перебувати
 > forms: ich bin · du bist · er ist · war · ist gewesen
 > example: Ich **bin** müde, aber glücklich. — Я втомлений, але щасливий.
-> note: s перед голосним — дзвінке [z]: «зайн», не «сайн».
+> note: s перед голосним — дзвінке [z]: «зайн», не «сайн». AT, CH і південь Німеччини: часто глухе [s].
 
 > [!word] der Student
 > ipa: /ʃtuˈdɛnt/ · pos: noun · level: A1 · id: de-a1-sein-w02
@@ -215,7 +217,7 @@ estimatedMinutes: 35
 > ipa: /ˈmyːdə/ · pos: adj · level: A1 · id: de-a1-sein-w05
 > uk: втомлений; сонний
 > example: Nach der Arbeit sind wir **müde**. — Після роботи ми втомлені.
-> note: ü — губи як для «у», язик як для «і»; не «мюде» з «ю».
+> note: ü — губи як для «у», язик як для «і»; це не українське «ю».
 
 > [!word] krank
 > ipa: /kʁaŋk/ · pos: adj · level: A1 · id: de-a1-sein-w06
@@ -233,7 +235,7 @@ estimatedMinutes: 35
 > ipa: /ˈʁɪçtɪç/ · pos: adj · level: A1 · id: de-a1-sein-w08
 > uk: правильний
 > example: Ist die Adresse **richtig**? — Адреса правильна?
-> note: «Ти маєш рацію» = Du hast recht (а не ~~Du bist richtig~~). «Bin ich hier richtig?» — чи я туди потрапив?
+> note: «Ти маєш рацію» = Du hast recht (а не ~~Du bist richtig~~). «Bin ich hier richtig?» — я правильно прийшов?
 
 > [!word] verheiratet
 > ipa: /fɛɐ̯ˈhaɪ̯ʁaːtət/ · pos: adj · level: A1 · id: de-a1-sein-w09
@@ -299,49 +301,49 @@ estimatedMinutes: 35
 > - [ ] вчительки з Києва
 > - [ ] студентки з Відня
 >
-> **Пояснення:** *Studentinnen* — множина від *die Studentin*; *aus Kyjiw* — з Києва: це офіційне німецьке написання, у медіа ще трапляється й *Kiew*.
+> **Пояснення:** *Studentinnen* — множина від *die Studentin*; *aus Kyjiw* — з Києва: так пише МЗС Німеччини й частина медіа; Duden і багато газет — *Kiew*.
 
 ## Вимова
 
-У формах *sein, sind, Sie* літера **s перед голосним — дзвінке [z]**, як українське «з»: «зайн», «зінт», «зі». А в кінці слова дзвінкі приголосні глушаться: *sind* звучить «зінт», *seid* — «зайт» (про це — тема 23).
+У формах *sein, sind, Sie* літера **s перед голосним — дзвінке [z]**, як українське «з»: «зайн», «зінт», «зі» (в AT, CH і на півдні Німеччини часто глухе [s]). А в кінці слова дзвінкі приголосні глушаться: *sind* звучить «зінт», *seid* — «зайт» (про це — тема 23).
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s01
+> level: A1 · speed: slow · id: de-a1-sein-s01
 > text: Ich bin Student.
 > ipa: /ɪç bɪn ʃtuˈdɛnt/
 > tip: ich — [ç]: кінчик язика за нижніми зубами, звук як «хь» у «хіба», не «іх» і не «ік». st- = «шт».
 > uk: Я студент.
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s02
+> level: A1 · speed: slow · id: de-a1-sein-s02
 > text: Sie ist nicht zu Hause.
 > ipa: /ziː ɪst nɪçt tsuː ˈhaʊ̯zə/
 > tip: Sie — дзвінке «зі». Hause — [h] як легкий видих (не українське «г»), s між голосними — дзвінке [z].
 > uk: Її немає вдома.
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s03
+> level: A1 · speed: slow · id: de-a1-sein-s03
 > text: Wir sind müde.
 > ipa: /viːɐ̯ zɪnt ˈmyːdə/
 > tip: w = «в». sind закінчується глухим [t]: «зінт». ü — губи трубочкою, язик як для «і».
 > uk: Ми втомлені.
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s04
+> level: A1 · speed: slow · id: de-a1-sein-s04
 > text: Seid ihr fertig?
 > ipa: /zaɪ̯t iːɐ̯ ˈfɛʁtɪç/
 > tip: питання «так / ні» — голос угору ↗ на fertig. -ig у кінці звучить як [ɪç].
 > uk: Ви готові?
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s05
+> level: A1 · speed: slow · id: de-a1-sein-s05
 > text: Woher sind Sie?
 > ipa: /voˈheːɐ̯ zɪnt ziː/
 > tip: наголос на -her. W-питання — голос униз ↘ у кінці.
 > uk: Звідки Ви?
 
 > [!speak] Скажи вголос
-> level: A1 · id: de-a1-sein-s06
+> level: A1 · speed: slow · id: de-a1-sein-s06
 > text: Das ist richtig.
 > ipa: /das ɪst ˈʁɪçtɪç/
 > tip: r — горлове [ʁ], без вібрації язика. Два звуки [ç]: «ріхьтіхь».
@@ -359,12 +361,12 @@ estimatedMinutes: 35
 > До незнайомих дорослих, у Behörde, у лікаря, у магазині — **Sie**: *Sind Sie Frau Müller?*, а не ~~Bist du Frau Müller?~~ Ввічливе «Ви» до **однієї** людини — теж *Sie sind*. А «ви» до кількох друзів — **ihr seid**. На письмі *Sie* — завжди з великої, бо *sie* з малої — це «вона» або «вони».
 
 > [!pitfall] «Ich bin ein Lehrer» і «Ich bin Lehrer» від жінки
-> Професія після sein — без артикля: *Ich bin Lehrer.* А жінка каже **Lehrerin**, **Ärztin**, **Studentin** — чоловіча форма про себе звучить як помилка. *ein* — лише з прикметником: *Sie ist eine gute Lehrerin.*
+> Професія після sein — без артикля: *Ich bin Lehrer.* А жінка каже **Lehrerin**, **Ärztin**, **Studentin** — чоловіча форма про себе звучить незвично. *ein* — зазвичай з прикметником: *Sie ist eine gute Lehrerin.*
 
 ## Ситуація: перший день на курсі у Volkshochschule
 
-> [!listen] Послухай діалог на рецепції мовної школи
-> level: A1 · type: choice · speed: slow · id: de-a1-sein-l07
+> [!listen] Послухай діалог на рецепції мовної школи. Що правда?
+> level: A1 · type: answer · speed: slow · id: de-a1-sein-l07
 > audio: A: Guten Morgen! Sind Sie Frau Bondar?
 > audio: B: Ja, das bin ich. Bin ich hier richtig? Ist das der Deutschkurs A1?
 > audio: A: Ja, Sie sind hier richtig. Der Kurs ist in Raum zwölf.
@@ -376,17 +378,17 @@ estimatedMinutes: 35
 
 Відповідай адміністраторці вголос.
 
-> [!speak] «Так, це я. Я туди потрапила?»
-> level: A1 · id: de-a1-sein-s07
+> [!speak] «Так, це я. Я правильно прийшла?»
+> level: A1 · speed: slow · id: de-a1-sein-s07
 > text: Ja, das bin ich. Bin ich hier richtig?
 > ipa: /jaː das bɪn ɪç bɪn ɪç hiːɐ̯ ˈʁɪçtɪç/
 > tip: Das bin ich — дієслово узгоджується з ich. У питанні Bin ich … голос угору ↗.
-> uk: Так, це я. Я туди потрапила?
+> uk: Так, це я. Я правильно прийшла?
 
 ## Практика
 
 > [!quiz] Обери правильну форму: «Meine Eltern ___ aus Lwiw.»
-> level: A1 · id: de-a1-sein-q02
+> level: A1 · type: single · id: de-a1-sein-q02
 > - [ ] ist
 > - [x] sind
 > - [ ] seid
@@ -395,7 +397,7 @@ estimatedMinutes: 35
 > **Пояснення:** *meine Eltern* = *sie* (вони) → **sind**. *seid* — лише для *ihr*.
 
 > [!quiz] Обери правильне слово: «___ ihr müde?»
-> level: A1 · id: de-a1-sein-q03
+> level: A1 · type: single · id: de-a1-sein-q03
 > - [x] Seid
 > - [ ] Seit
 > - [ ] Sind
@@ -404,7 +406,7 @@ estimatedMinutes: 35
 > **Пояснення:** *ihr* → **seid** з *d*. *Seit* звучить так само, але це прийменник «від, з». *Sind* — для *wir / sie / Sie*.
 
 > [!quiz] Як ввічливо спитати: «Ви з Відня, пане Шмідт?»
-> level: A1 · id: de-a1-sein-q04
+> level: A1 · type: single · id: de-a1-sein-q04
 > - [x] Sind Sie aus Wien, Herr Schmidt?
 > - [ ] Bist du aus Wien, Herr Schmidt?
 > - [ ] Seid ihr aus Wien, Herr Schmidt?
@@ -413,13 +415,13 @@ estimatedMinutes: 35
 > **Пояснення:** до однієї людини ввічливо — **Sie sind**, з великої літери. *du* до пана Шмідта — фамільярно, *ihr* — до кількох друзів, а *sie* з малої означало б «вони».
 
 > [!quiz] Як сказати німецькою «Мені 30 років»?
-> level: A1 · id: de-a1-sein-q05
+> level: A1 · type: single · id: de-a1-sein-q05
 > - [ ] Ich habe 30 Jahre.
 > - [x] Ich bin 30 Jahre alt.
 > - [ ] Mir ist 30 Jahre.
 > - [ ] Ich bin 30 Jahre.
 >
-> **Пояснення:** вік — через *sein*: *Ich bin 30* або повністю *Ich bin 30 Jahre alt*. Якщо кажеш *Jahre*, потрібне й *alt*.
+> **Пояснення:** вік — через *sein*: *Ich bin 30* або повністю *Ich bin 30 Jahre alt*. *Ich bin 30 Jahre* часто чути в розмові, але в нормі після *Jahre* — *alt*: *Ich bin 30 Jahre alt.*
 
 > [!quiz] Обери всі правильні речення
 > level: A1 · type: multi · id: de-a1-sein-q06
@@ -441,7 +443,7 @@ estimatedMinutes: 35
 > **Пояснення:** «вони» = *sie* + *sind*. У *Sie ist Ärztin* дієслово *ist* — це «вона». *Sind Sie Herr Weber?* — велика літера посеред речення й звертання до однієї людини: це ввічливе «Ви».
 
 > [!quiz] Заповни пропуски формами sein
-> level: A1 · type: fill · bank: seit, bist · id: de-a1-sein-q08
+> level: A1 · type: fill · bank: Seit, Sind · id: de-a1-sein-q08
 >
 > ```text fill
 > Hallo Max, wo [[bist]] du?
@@ -516,7 +518,7 @@ estimatedMinutes: 35
 > **Пояснення:** питальне слово → дієслово → підмет. Ввічливе *Sie* → *sind*; *seid* — для *ihr*.
 
 > [!quiz] Жінка каже про себе «Я вчителька». Як правильно?
-> level: A1 · id: de-a1-sein-q14
+> level: A1 · type: single · id: de-a1-sein-q14
 > - [ ] Ich bin Lehrer.
 > - [x] Ich bin Lehrerin.
 > - [ ] Ich bin eine Lehrer.
@@ -525,7 +527,7 @@ estimatedMinutes: 35
 > **Пояснення:** жіноча форма — **-in**: *Lehrerin*. Без артикля, але з дієсловом *bin*.
 
 > [!quiz] Як перекласти «Це мої друзі»?
-> level: A1 · id: de-a1-sein-q15
+> level: A1 · type: single · id: de-a1-sein-q15
 > - [ ] Das ist meine Freunde.
 > - [x] Das sind meine Freunde.
 > - [ ] Das seid meine Freunde.
@@ -546,8 +548,7 @@ estimatedMinutes: 35
 
 ## Джерела та що почитати
 
-- [DWDS — sein](https://www.dwds.de/wb/sein) — значення, приклади, вимова й етимологія (три корені дієслова).
-- [Duden — sein (Vollverb)](https://www.duden.de/rechtschreibung/sein_Verb_Vollverb) — відмінювання, вимова, приклади.
+- [DWDS — sein](https://www.dwds.de/wb/sein) — словникова стаття: відмінювання, значення, приклади, вимова й етимологія (три корені дієслова).
 - [Duden — seid](https://www.duden.de/rechtschreibung/seid) — правопис *seid* і відмінність від *seit*.
 - [Duden Sprachratgeber — Duzen oder Siezen?](https://www.duden.de/sprachwissen/sprachratgeber/Duzen-oder-Siezen) — коли *du*, коли *Sie*.
 - [DW Learn German — Nicos Weg (A1)](https://learngerman.dw.com/en/beginners/c-36519789) — безкоштовний відеокурс Deutsche Welle з граматикою до кожного уроку.
@@ -555,7 +556,7 @@ estimatedMinutes: 35
 - H. Dreyer, R. Schmitt — *Lehr- und Übungsbuch der deutschen Grammatik* (Hueber) — розділи про особові займенники й *sein*.
 
 > [!important] Підсумок
-> - У німецькому реченні завжди є дієслово; якщо дії немає — ставимо *sein*.
+> - У повному німецькому реченні є дієслово; якщо дії немає — ставимо *sein*.
 > - ich **bin**, du **bist**, er / sie / es **ist**, wir **sind**, ihr **seid**, sie / Sie **sind**.
 > - Три *sie*: *sie ist* — вона, *sie sind* — вони, *Sie sind* — ввічливе «Ви» (з великої).
 > - Заперечення — *nicht* після sein: *Ich bin nicht müde.* Питання — sein на початок: *Bist du fertig?*

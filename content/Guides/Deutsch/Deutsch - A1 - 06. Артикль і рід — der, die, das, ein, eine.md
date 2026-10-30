@@ -13,25 +13,25 @@ estimatedMinutes: 40
 > [!success] Після цієї теми ти зможеш
 > - назвати три роди німецьких іменників і їхні артиклі: **der** (чоловічий), **die** (жіночий), **das** (середній), а також **die** для множини;
 > - обирати між **ein / eine** (щось нове, «якийсь») і **der / die / das** (відоме, «цей»);
-> - вгадувати рід за надійними підказками: **-ung, -heit, -keit, -schaft, -ion → die**, **-chen, -lein → das**, дні, місяці й пори року → **der**, і знати винятки;
+> - вгадувати рід за надійними підказками (**-ung, -heit, -keit, -schaft → die**, зменшувальні **-chen, -lein → das**) і за тенденціями (**-ion → die**, дні й місяці → **der**), знаючи їхні винятки;
 > - визначати рід складного слова за його **останньою частиною**: das Haus + die Tür = **die** Haustür;
 > - не переносити український рід у німецьку: **das** Mädchen, **die** Sonne, **das** Kind.
 
 ## Передбач
 
 > [!quiz] «Дівчина» німецькою — Mädchen. Який у цього слова артикль?
-> level: A1 · id: de-a1-artikel-q01
+> level: A1 · type: single · id: de-a1-artikel-q01
 > - [ ] der Mädchen
 > - [ ] die Mädchen
 > - [x] das Mädchen
 >
-> **Пояснення:** ***das*** **Mädchen** — середній рід, хоч ідеться про дівчину. Слово закінчується на ***-chen***, а всі слова на -chen — середнього роду, без винятків. Граматика тут сильніша за біологію. Нижче розберемо, як працюють такі підказки і чому рід треба вчити разом зі словом.
+> **Пояснення:** ***das*** **Mädchen** — середній рід, хоч ідеться про дівчину. Слово закінчується на зменшувальний суфікс ***-chen***, а такі слова завжди середнього роду (у *der Kuchen* -chen — не суфікс, тому він не рахується). Граматика тут сильніша за біологію. Нижче розберемо, як працюють такі підказки і чому рід треба вчити разом зі словом.
 
 ## Пояснення
 
 ### Три роди й два артиклі
 
-В українській рід видно із закінчення (стіл, книжк**а**, вікн**о**). У німецькій закінчення про рід майже нічого не каже, тому рід показує **артикль** — коротке слово перед іменником. Родів, як і в нас, три. У множині артикль **один для всіх родів** — *die*.
+В українській рід видно із закінчення (стіл, книжк**а**, вікн**о**). У німецькій закінчення про рід майже нічого не каже, тому рід показує **артикль** — коротке слово перед іменником. Родів, як і в нас, три. У множині (у називному відмінку) артикль **один для всіх родів** — *die*.
 
 | Рід | Мітка | Означений артикль («цей», відомий) | Неозначений артикль («якийсь», новий) | Приклад |
 |---|---|---|---|---|
@@ -49,10 +49,10 @@ estimatedMinutes: 40
 
 В українській артиклів немає, тож це, мабуть, найновіша для тебе річ у німецькій. Правило на рівні A1 таке:
 
-- **ein / eine** — коли предмет **з'являється вперше** або це «якийсь, один із багатьох»: *Da ist **ein** Kind.* — Там (якась) дитина.
+- **ein / eine** — коли предмет **зʼявляється вперше** або це «якийсь, один із багатьох»: *Da ist **ein** Kind.* — Там (якась) дитина.
 - **der / die / das** — коли предмет **уже відомий** з контексту, він **єдиний** або про нього щойно говорили: ***Das** Kind heißt Mia.* — (Ця) дитина — Міа. ***Die** Sonne scheint.* — Світить сонце (воно одне).
 
-Іменник в однині **майже ніколи не стоїть сам**. Сказати ~~Das ist Tisch~~ не можна, тільки *Das ist **ein** Tisch*. Найважливіший виняток на A1 — професія та національність після *sein*: *Ich bin Lehrer.* (див. [[Deutsch - A1 - 03. Особові займенники й дієслово sein]]).
+Злічуваний іменник в однині **майже ніколи не стоїть сам**. Сказати ~~Das ist Tisch~~ не можна, тільки *Das ist **ein** Tisch*. Винятки на A1: професія та національність після *sein* (*Ich bin Lehrer.*) і незлічувані іменники: *Wasser, Kaffee, Zeit, Geld* (*Ich trinke Kaffee. Ich habe Zeit.*) — про них у темах A1-11 і A1-18. (див. [[Deutsch - A1 - 03. Особові займенники й дієслово sein]]).
 
 ### Рід — частина слова
 
@@ -60,7 +60,7 @@ estimatedMinutes: 40
 
 1. **Вчи слово тільки з артиклем.** Не «Tisch — стіл», а «**der Tisch** — стіл». Саме так виглядає кожна картка `[!word]` у цьому курсі: артикль стоїть у заголовку, а множина — у рядку «форми».
 2. **Вимовляй уголос разом:** *der-Tisch, die-Tür, das-Buch*, ніби це одне слово.
-3. **Множину вчи окремо.** У множині артикль завжди *die*, а от форма слова буває різною (*die Tische, die Türen, die Bücher*). Детально про це — у [[Deutsch - A1 - 15. Множина іменників]].
+3. **Множину вчи окремо.** У множині артикль *die* для всіх родів, а от форма слова буває різною (*die Tische, die Türen, die Bücher*). Детально про це — у [[Deutsch - A1 - 15. Множина іменників]].
 4. **Спирайся на правила нижче**, але памʼятай, що вони покривають лише частину слів. Решту доведеться просто запамʼятати.
 
 ### Займенник іде за граматичним родом
@@ -82,18 +82,18 @@ estimatedMinutes: 40
 > ```yaml
 > layout: flow
 > nodes:
->   - { id: comp, label: "1. Складне слово?", text: "рід — за останньою частиною", note: "das Haus + die Tür → die Haustür", tone: violet, icon: "px:blocks" }
->   - { id: suf, label: "2. Суфікс?", text: "-ung → die · -chen → das · -ling → der", note: "надійні закінчення", tone: blue }
->   - { id: mean, label: "3. Значення?", text: "дні, місяці, пори року → der", note: "групи слів, є винятки", tone: green }
+>   - { id: comp, label: "1. Складне слово?", text: "рід — за останньою частиною", note: "das Haus + die Tür → die Haustür", tone: yellow, icon: "px:blocks" }
+>   - { id: suf, label: "2. Суфікс?", text: "-ung → die · -chen → das · -ling → der", note: "суфікси: надійні й тенденції", tone: pink }
+>   - { id: mean, label: "3. Значення?", text: "дні, місяці, пори року → der", note: "групи слів, є винятки", tone: yellow }
 >   - { id: dict, label: "4. Нічого не підходить?", text: "словник + вчити з артиклем", note: "der Tisch, die Tür, das Buch", tone: gray, icon: "px:books" }
 > edges:
 >   - { from: comp, to: suf, label: "ні" }
 >   - { from: suf, to: mean, label: "ні" }
 >   - { from: mean, to: dict, label: "ні" }
 > steps:
->   - { focus: comp, note: "Спершу розбери слово на частини. Haustür = Haus + Tür. Рід завжди дає ОСТАННЯ частина: die Tür → die Haustür. Далі перевіряєш лише цю частину." }
->   - { focus: suf, note: "Глянь на закінчення. Деякі суфікси майже не мають винятків: -ung, -heit, -keit, -schaft, -ion → die; -chen, -lein → das; -ling, -ismus → der." }
->   - { focus: mean, note: "Немає суфікса? Подумай, що означає слово. Дні, місяці, пори року, сторони світу й погода — der; дитинчата — das. Тут винятків більше: die Nacht, das Bier." }
+>   - { focus: comp, note: "Спершу розбери слово на частини. Haustür = Haus + Tür. Рід дає ОСТАННЯ частина: die Tür → die Haustür. Далі перевіряєш лише цю частину." }
+>   - { focus: suf, note: "Глянь на закінчення. Без винятків: -ung, -heit, -keit, -schaft → die; зменшувальні -chen, -lein → das. Тенденції: -ion, -tät → die; -ling, -ismus → der." }
+>   - { focus: mean, note: "Немає суфікса? Подумай, що означає слово. Дні, місяці, пори року й частини доби — der (але die Nacht); алкогольні напої — der Wein (але das Bier); погода — der Regen (але das Gewitter)." }
 >   - { focus: dict, note: "Для слів типу Tisch, Tür, Buch правила немає. Подивись рід у словнику (Duden, DWDS) і вчи слово тільки разом з артиклем." }
 > ```
 > Правила працюють як підказка, а не як гарантія. Перевіряй рід у словнику, коли бачиш слово вперше.
@@ -105,40 +105,40 @@ estimatedMinutes: 40
 > layout: compare
 > columns: { m: "der · чоловічий", f: "die · жіночий", n: "das · середній", pl: "die · множина" }
 > nodes:
->   - { id: m1, col: m, label: "der · суфікси", text: "-ling, -ismus, -or, -ig", note: "der Schmetterling, der Tourismus, der Motor, der König", tone: blue }
->   - { id: m2, col: m, label: "der · значення", text: "дні, місяці, пори року", note: "der Montag, der Mai, der Sommer, але die Nacht", tone: blue }
->   - { id: m3, col: m, label: "der · значення", text: "сторони світу, погода, чоловіки", note: "der Norden, der Regen, der Mann", tone: blue }
->   - { id: f1, col: f, label: "die · суфікси", text: "-ung, -heit, -keit, -schaft", note: "die Zeitung, die Freiheit, die Möglichkeit, die Freundschaft", tone: red }
->   - { id: f2, col: f, label: "die · суфікси", text: "-ion, -tät, -ik, -ie, -ei, -in", note: "die Information, die Universität, die Grammatik, die Fahrerin", tone: red }
+>   - { id: m1, col: m, label: "der · тенденція", text: "-ling, -ismus, -or, -ig", note: "der Frühling, der Tourismus, der Motor, der König, але das Labor", tone: blue }
+>   - { id: m2, col: m, label: "der · тенденція", text: "дні, місяці, пори року, частини доби", note: "der Montag, der Mai, der Sommer, der Abend, але die Nacht", tone: blue }
+>   - { id: m3, col: m, label: "der · тенденція", text: "сторони світу, погода, чоловіки", note: "der Norden, der Regen, der Mann, але das Gewitter", tone: blue }
+>   - { id: f1, col: f, label: "die · без винятків", text: "-ung, -heit, -keit, -schaft", note: "die Zeitung, die Freiheit, die Möglichkeit, die Freundschaft", tone: red }
+>   - { id: f2, col: f, label: "die · тенденція", text: "-ion, -tät, -ik, -ei, -ur, -in", note: "die Information, die Universität, die Lehrerin, але das Stadion, das Ei", tone: red }
 >   - { id: f3, col: f, label: "die · тенденція", text: "більшість слів на -e", note: "die Blume, але der Name, das Auge", tone: red }
->   - { id: n1, col: n, label: "das · без винятків", text: "-chen, -lein", note: "das Mädchen, das Kätzchen, das Büchlein", tone: green }
->   - { id: n2, col: n, label: "das · суфікси", text: "-um, -ment, -ma", note: "das Museum, das Dokument, das Thema, але die Firma", tone: green }
->   - { id: n3, col: n, label: "das · значення", text: "дієслово як іменник, дитинчата", note: "das Lernen, das Essen, das Kind, das Baby", tone: green }
+>   - { id: n1, col: n, label: "das · без винятків", text: "зменшувальні -chen, -lein; дієслово як іменник", note: "das Mädchen, das Brötchen, das Lernen; der Kuchen — не суфікс", tone: green }
+>   - { id: n2, col: n, label: "das · тенденція", text: "-um, -ment, -ma", note: "das Museum, das Dokument, das Thema, але die Firma, der Moment", tone: green }
+>   - { id: n3, col: n, label: "das · тенденція", text: "дитинчата, назви готелів і кафе", note: "das Kind, das Baby, das Sacher, але die Pension", tone: green }
 >   - { id: p1, col: pl, label: "die · мн.", text: "усі роди у множині", note: "der Tisch → die Tische, das Buch → die Bücher", tone: violet }
 > steps:
->   - { focus: [n1], note: "Найнадійніше правило курсу: -chen і -lein — завжди das. Навіть die Katze → das Kätzchen, навіть Mädchen." }
->   - { focus: [f1, f2], note: "Жіночі суфікси: -ung, -heit, -keit, -schaft, -ion, -tät, -ik. Рідкісні винятки: das Stadion, der Spion (тут -ion не суфікс)." }
->   - { focus: [m1, m2, m3], note: "Чоловічі: -ling, -ismus, -or (але das Labor), а за значенням — дні, місяці, пори року, частини доби. Виняток: die Nacht." }
+>   - { focus: [n1], note: "Найнадійніше: зменшувальні -chen і -lein — завжди das (die Katze → das Kätzchen, навіть Mädchen), так само дієслово як іменник (das Lernen). Але der Kuchen: тут -chen не суфікс зменшення." }
+>   - { focus: [f1, f2], note: "Без винятків: -ung, -heit, -keit, -schaft. Тенденції: -ion, -tät, -ik, -ei, -ur, -in — тут винятки є: das Stadion, das Ei, das Abitur, der Termin." }
+>   - { focus: [m1, m2, m3], note: "Чоловічі — лише тенденції: -ling, -ismus, -or, -ig (але das Labor); дні, місяці, пори року, частини доби (але die Nacht); погода (але das Gewitter)." }
 >   - { focus: [f3], note: "Слова на -e — здебільшого die, але це тенденція. Винятки треба знати: der Name, der Junge, der Käse, das Auge, das Ende." }
->   - { focus: [n2, n3], note: "Середні: -um, -ment, -ma; дієслово, перетворене на іменник (das Lernen), дитинчата (das Kind). Виняток: die Firma." }
->   - { focus: [p1], note: "Множина: артикль die для всіх трьох родів. Тож die Kinder — це не жіночий рід, а множина від das Kind." }
+>   - { focus: [n2, n3], note: "Середні тенденції: -um, -ment, -ma (але die Firma, der Moment); дитинчата (das Kind); назви готелів і кафе (das Sacher, але загальне die Pension)." }
+>   - { focus: [p1], note: "Множина (називний відмінок): артикль die для всіх трьох родів. Тож die Kinder — це не жіночий рід, а множина від das Kind." }
 > ```
 > Сині блоки — der, червоні — die, зелені — das, фіолетовий — множина. Мітка роду є в кожному блоці.
 
 Ті самі правила таблицею:
 
-| Рід | Надійно (майже без винятків) | Тенденція | Винятки, які варто знати |
+| Рід | Без винятків | Тенденція | Винятки, які варто знати |
 |---|---|---|---|
-| **die** · ж. | **-ung** (die Zeitung), **-heit** (die Freiheit), **-keit** (die Möglichkeit), **-schaft** (die Freundschaft), **-ion** (die Information), **-tät** (die Universität), **-ik** (die Grammatik), **-ei** (die Bäckerei), **-ie** (die Familie), **-ur** (die Kultur); **-in** для жінок (die Fahrerin, die Lehrerin); числа (die Eins) | **-e**: die Blume, die Tasche, die Lampe; жінки (die Frau, die Mutter) | das Stadion, der Spion (-ion); der Name, der Junge, der Käse, das Auge, das Ende (-e); das Abitur (-ur); das Ei, der Papagei (-ei); **das Mädchen**; -in не суфікс: der Termin, das Benzin |
-| **das** · с. | **-chen** і **-lein** (das Mädchen, das Kätzchen, das Büchlein, das Fräulein); дієслово як іменник (das Lernen, das Essen) | **-um** (das Museum, das Zentrum, das Datum), **-ment** (das Dokument), **-ma** (das Thema, das Klima); дитинчата (das Kind, das Baby); готелі, кафе, кіно (das Hotel, das Café, das Kino); кольори як іменники (das Rot, das Blau) | die Firma (-ma); der Moment (-ment); der Irrtum, der Reichtum (-tum — інший суфікс) |
-| **der** · ч. | **-ling** (der Schmetterling), **-ismus** (der Tourismus) | **-or** (der Motor, der Autor), **-ig** (der König, der Honig); дні, місяці, пори року, частини доби (der Montag, der Mai, der Sommer, der Abend); сторони світу (der Norden); погода (der Regen, der Schnee, der Wind); чоловіки (der Mann, der Vater); **-er** для того, хто діє, або для приладу (der Fahrer, der Lehrer, der Computer); алкоголь (der Wein) | die Nacht; das Labor (-or); das Bier; на **-er** закінчується безліч слів інших родів: das Fenster, das Zimmer, die Mutter, die Butter |
+| **die** · ж. | **-ung** (die Zeitung), **-heit** (die Freiheit), **-keit** (die Möglichkeit), **-schaft** (die Freundschaft) | **-ion** (die Information), **-tät** (die Universität), **-ik** (die Grammatik), **-ei** (die Bäckerei), **-ur** (die Kultur), **-in** для жінок (die Lehrerin), **-e** (die Blume, die Tasche); жінки (die Frau, die Mutter) | das Stadion (-ion); das Ei (-ei); das Abitur (-ur); -in не суфікс: der Termin, das Benzin; der Name, der Junge, der Käse, das Auge, das Ende (-e); **das Mädchen** |
+| **das** · с. | зменшувальні **-chen** і **-lein** (das Mädchen, das Brötchen, das Kätzchen, das Büchlein); дієслово як іменник (das Lernen, das Essen) | **-um** (das Museum, das Zentrum, das Datum), **-ment** (das Dokument), **-ma** (das Thema, das Klima); дитинчата (das Kind, das Baby); назви готелів, кафе й кінотеатрів (das Adlon, das Sacher) | der Kuchen, der Knochen (-chen тут не суфікс зменшення); die Firma (-ma); der Moment (-ment); der Irrtum (-tum — інший суфікс); загальні назви: die Pension |
+| **der** · ч. | — | **-ling** (der Frühling), **-ismus** (der Tourismus), **-or** (der Motor, der Autor), **-ig** (der König, der Honig); дні, місяці, пори року, частини доби (der Montag, der Mai, der Sommer, der Abend); сторони світу (der Norden); погода (der Regen, der Schnee, der Wind); дні тижня — навіть der Mittwoch, хоч die Woche; чоловіки (der Mann, der Vater); **-er** для того, хто діє, або для приладу (der Fahrer, der Lehrer, der Computer); алкоголь (der Wein) | die Nacht; das Gewitter; das Labor (-or); das Bier; на **-er** закінчується безліч слів інших родів: das Fenster, das Zimmer, die Mutter, die Butter |
 
 > [!important] Що запамʼятати
-> Надійно працюють лише **суфікси**: -ung / -heit / -keit / -schaft / -ion / -tät → **die**, -chen / -lein → **das**, -ling / -ismus → **der**. Правила за значенням і за закінченнями -e, -er — це тенденції з винятками. Для більшості коротких слів (Tisch, Tür, Buch, Stuhl) правила немає, тож рід доведеться просто вивчити.
+> Без винятків працюють лише **-ung / -heit / -keit / -schaft → die**, зменшувальні **-chen / -lein → das** і дієслово як іменник (**das** Lernen). Усе інше — тенденції з винятками: -ion, -tät → die (*das Stadion*), -ling, -ismus, -or → der (*das Labor*), -um, -ment → das (*die Firma*), дні й місяці → der (*die Nacht*), слова на -e → die (*der Name*). Для більшості коротких слів (Tisch, Tür, Buch, Stuhl) правила немає, тож рід доведеться просто вивчити.
 
 ### Складні слова: рід дає остання частина
 
-У німецькій слова легко зліплюються в одне (Kompositum). Рід і множину такого слова визначає **остання частина**, тобто та, що стоїть праворуч:
+У німецькій слова легко зліплюються в одне (Kompositum). Рід і множину такого слова визначає **остання частина**, тобто та, що стоїть праворуч. Рідкісний виняток — дні тижня: *der Mittwoch*, хоч *die Woche*.
 
 > [!diagram] das Haus + die Tür = die Haustür
 > ```yaml
@@ -201,14 +201,14 @@ estimatedMinutes: 40
 > uk: дитина
 > forms: die Kinder
 > example: Das **Kind** ist fünf Jahre alt. — Дитині пʼять років.
-> note: укр. «дитина» — жіночого роду, нім. — середнього. d у кінці звучить як [t]: [кінт].
+> note: укр. «дитина» — жіночого роду, нім. — середнього. d у кінці звучить як [t]: «кінт».
 
 > [!word] die Sonne
 > ipa: /ˈzɔnə/ · pos: noun · level: A1 · id: de-a1-artikel-w03
 > uk: сонце
 > forms: die Sonnen
 > example: Die **Sonne** scheint. — Світить сонце.
-> note: укр. «сонце» — середнього роду, нім. — жіночого. S перед голосним дзвінке: [зоне].
+> note: укр. «сонце» — середнього роду, нім. — жіночого. S перед голосним дзвінке [z]: «зоне».
 
 > [!word] der Mond
 > ipa: /moːnt/ · pos: noun · level: A1 · id: de-a1-artikel-w04
@@ -259,7 +259,7 @@ estimatedMinutes: 40
 > uk: водій
 > forms: die Fahrer
 > example: Der **Fahrer** wartet. — Водій чекає.
-> note: від fahren («їхати»). Хто діє — -er, der: der Lehrer, der Spieler. Жінка — die Fahrerin.
+> note: від fahren («їхати»). Хто діє — -er, der: der Lehrer, der Spieler. Жінка — die Fahrerin (-in → die), множина die Fahrerinnen.
 
 > [!word] der Computer
 > ipa: /kɔmˈpjuːtɐ/ · pos: noun · level: A1 · id: de-a1-artikel-w11
@@ -280,79 +280,79 @@ estimatedMinutes: 40
 > uk: туризм
 > forms: — (без множини)
 > example: Der **Tourismus** ist wichtig für Österreich. — Туризм важливий для Австрії.
-> note: суфікс -ismus — завжди der: der Optimismus, der Journalismus. Наголос на -ris-.
+> note: суфікс -ismus — майже завжди der: der Optimismus, der Journalismus. Наголос на -ris-.
 
-> [!word] der Schmetterling
-> ipa: /ˈʃmɛtɐlɪŋ/ · pos: noun · level: A2 · id: de-a1-artikel-w14
-> uk: метелик
-> forms: die Schmetterlinge
-> example: Der **Schmetterling** ist bunt. — Метелик барвистий.
-> note: суфікс -ling — der: der Frühling (весна), der Liebling (улюбленець).
+> [!word] der Frühling
+> ipa: /ˈfʁyːlɪŋ/ · pos: noun · level: A1 · id: de-a1-artikel-w14
+> uk: весна
+> forms: die Frühlinge
+> example: Der **Frühling** ist schön. — Весна гарна.
+> note: двічі der: пора року і суфікс -ling (der Liebling, der Schmetterling). Укр. «весна» — жіночого роду. Синонім: das Frühjahr — рід від das Jahr.
+
+> [!word] der Kuchen
+> ipa: /ˈkuːxn̩/ · pos: noun · level: A1 · id: de-a1-artikel-w15
+> uk: пиріг; торт
+> forms: die Kuchen
+> example: Der **Kuchen** ist lecker. — Пиріг смачний.
+> note: пастка: -chen тут не зменшувальний суфікс, а частина слова, тому der. Так само der Knochen (кістка). ch після u — [x].
 
 ### die: за суфіксом
 
 > [!word] die Zeitung
-> ipa: /ˈtsaɪ̯tʊŋ/ · pos: noun · level: A1 · id: de-a1-artikel-w15
+> ipa: /ˈtsaɪ̯tʊŋ/ · pos: noun · level: A1 · id: de-a1-artikel-w16
 > uk: газета
 > forms: die Zeitungen
 > example: Die **Zeitung** liegt auf dem Tisch. — Газета лежить на столі.
-> note: -ung — завжди die. Множина: -ung → -ungen. Z = [ц]; -ung звучить [ʊŋ], без «г» у кінці.
+> note: -ung — завжди die. Множина: -ung → -ungen. z = [ts], «ц»; -ung звучить [ʊŋ], без «г» у кінці.
 
 > [!word] die Übung
-> ipa: /ˈyːbʊŋ/ · pos: noun · level: A1 · id: de-a1-artikel-w16
+> ipa: /ˈyːbʊŋ/ · pos: noun · level: A1 · id: de-a1-artikel-w17
 > uk: вправа
 > forms: die Übungen
 > example: Die **Übung** ist leicht. — Вправа легка.
-> note: від üben («вправлятися»). Ü — «і» губами, складеними для «у».
+> note: від üben («вправлятися»). ü [yː]: язик — як для [iː], губи округлені — як для [uː].
 
 > [!word] die Freiheit
-> ipa: /ˈfʁaɪ̯haɪ̯t/ · pos: noun · level: A2 · id: de-a1-artikel-w17
+> ipa: /ˈfʁaɪ̯haɪ̯t/ · pos: noun · level: A2 · id: de-a1-artikel-w18
 > uk: свобода
 > forms: die Freiheiten
 > example: Die **Freiheit** ist ein Menschenrecht. — Свобода — це право людини.
 > note: -heit — завжди die: frei → die Freiheit, gesund → die Gesundheit.
 
 > [!word] die Möglichkeit
-> ipa: /ˈmøːklɪçkaɪ̯t/ · pos: noun · level: A2 · id: de-a1-artikel-w18
+> ipa: /ˈmøːklɪçkaɪ̯t/ · pos: noun · level: A2 · id: de-a1-artikel-w19
 > uk: можливість
 > forms: die Möglichkeiten
 > example: Das ist eine gute **Möglichkeit**. — Це гарна можливість.
-> note: -keit — завжди die: möglich → die Möglichkeit. g у кінці складу Mög- оглушується до [k]: [МЕК-ліх'-кайт].
+> note: -keit — завжди die: möglich → die Möglichkeit. g у кінці складу Mög- оглушується до [k]: [ˈmøːk-].
 
 > [!word] die Freundschaft
-> ipa: /ˈfʁɔɪ̯ntʃaft/ · pos: noun · level: A2 · id: de-a1-artikel-w19
+> ipa: /ˈfʁɔɪ̯ntʃaft/ · pos: noun · level: A2 · id: de-a1-artikel-w20
 > uk: дружба
 > forms: die Freundschaften
 > example: Die **Freundschaft** ist wichtig für mich. — Дружба для мене важлива.
 > note: -schaft — завжди die, хоч der Freund — чоловічого роду. Те саме: die Mannschaft (команда).
 
 > [!word] die Information
-> ipa: /ɪnfɔʁmaˈtsi̯oːn/ · pos: noun · level: A1 · id: de-a1-artikel-w20
+> ipa: /ɪnfɔʁmaˈtsi̯oːn/ · pos: noun · level: A1 · id: de-a1-artikel-w21
 > uk: інформація; довідка (місце)
 > forms: die Informationen
 > example: Die **Information** ist im Erdgeschoss. — Довідкове бюро на першому поверсі.
-> note: -ion — die (винятки: das Stadion, der Spion). -tion звучить [цьйон], наголос на останньому складі.
+> note: -ion — die (винятки: das Stadion, der Spion). -tion звучить [tsi̯oːn], приблизно «цйон», наголос на останньому складі.
 
 > [!word] die Universität
-> ipa: /univɛʁziˈtɛːt/ · pos: noun · level: A1 · id: de-a1-artikel-w21
+> ipa: /univɛʁziˈtɛːt/ · pos: noun · level: A1 · id: de-a1-artikel-w22
 > uk: університет
 > forms: die Universitäten
 > example: Die **Universität** ist in Berlin. — Університет у Берліні.
-> note: -tät — завжди die. Укр. «університет» — чоловічого роду. Розмовне скорочення: die Uni.
+> note: -tät — майже завжди die. Укр. «університет» — чоловічого роду. Розмовне скорочення: die Uni.
 
 > [!word] die Grammatik
-> ipa: /ɡʁaˈmatɪk/ · pos: noun · level: A1 · id: de-a1-artikel-w22
+> ipa: /ɡʁaˈmatɪk/ · pos: noun · level: A1 · id: de-a1-artikel-w23
 > uk: граматика
 > forms: die Grammatiken
 > example: Die **Grammatik** ist nicht schwer. — Граматика не складна.
 > note: -ik — die: die Musik, die Politik. Наголос на -ma-.
-
-> [!word] die Fahrerin
-> ipa: /ˈfaːʁəʁɪn/ · pos: noun · level: A1 · id: de-a1-artikel-w23
-> uk: водійка
-> forms: die Fahrerinnen
-> example: Die **Fahrerin** heißt Lena. — Водійку звати Лена.
-> note: -in — жінка, завжди die: der Lehrer → die Lehrerin. Множина з подвоєним n: -innen.
 
 > [!word] die Blume
 > ipa: /ˈbluːmə/ · pos: noun · level: A1 · id: de-a1-artikel-w24
@@ -370,12 +370,12 @@ estimatedMinutes: 40
 > example: Das **Kätzchen** schläft. — Кошеня спить.
 > note: die Katze → das Kätzchen. Суфікс -chen змінює рід на das і часто додає умлаут (a → ä).
 
-> [!word] das Büchlein
-> ipa: /ˈbyːçlaɪ̯n/ · pos: noun · level: A2 · id: de-a1-artikel-w26
-> uk: книжечка
-> forms: die Büchlein
-> example: Das **Büchlein** ist klein. — Книжечка маленька.
-> note: -lein — завжди das, як і -chen, але звучить книжніше й старомодніше. Умлаут: Buch → Büchlein. ch після ü — [ç], як «хь».
+> [!word] das Brötchen
+> ipa: /ˈbʁøːtçən/ · pos: noun · level: A1 · id: de-a1-artikel-w26
+> uk: булочка
+> forms: die Brötchen
+> example: Das **Brötchen** ist frisch. — Булочка свіжа.
+> note: das Brot → das Brötchen: зменшувальне -chen + умлаут. Те саме робить -lein: das Buch → das Büchlein. AT, півд. Німеччина: die Semmel.
 
 > [!word] das Museum
 > ipa: /muˈzeːʊm/ · pos: noun · level: A1 · id: de-a1-artikel-w27
@@ -439,64 +439,35 @@ estimatedMinutes: 40
 > level: A1 · type: dictation · speed: slow · id: de-a1-artikel-l04
 > audio: Die Tür ist offen.
 
-> [!listen] Напиши або скажи, що почув
-> level: A1 · type: dictation · speed: slow · id: de-a1-artikel-l05
-> audio: Das Museum ist neu.
-
-> [!listen] Що це за предмет?
-> level: A1 · type: answer · speed: slow · id: de-a1-artikel-l06
-> audio: A: Ist das ein Stuhl?
-> audio: B: Nein, das ist kein Stuhl. Das ist ein Tisch.
-> - [ ] стілець
-> - [x] стіл
-> - [ ] двері
-> - [ ] компʼютер
->
-> **Пояснення:** *Nein, das ist kein Stuhl* — ні, це не стілець. Правильна відповідь: *ein Tisch* — стіл. *Kein* — заперечення для іменника, детально — у темі A1-11.
-
 ## Вимова
 
 > [!speak] Скажи вголос разом з артиклем
 > level: A1 · speed: slow · id: de-a1-artikel-s01
 > text: Der Tisch, die Tür, das Buch.
 > ipa: /deːɐ̯ tɪʃ diː tyːɐ̯ das buːx/
-> tip: der — [деа], r у кінці майже не чути; die — довге [ді:]; Tür — ü губами «у»; Buch — [x], як «х».
+> tip: der — приблизно «деа», r у кінці майже не чути; die — довге [iː]; Tür — [yː]: язик як для [iː], губи округлені; Buch — [x], як «х».
 > uk: Стіл, двері, книжка.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-artikel-s02
 > text: Das ist das Mädchen.
 > ipa: /das ɪst das ˈmɛːtçən/
-> tip: ä в Mädchen довге, як [е:]; ch після ä — мʼяке [ç], як «хь» у «хіба», а не «х».
+> tip: ä в Mädchen — довге відкрите [ɛː]; ch після ä — мʼяке [ç], як «хь» у «хіба», а не «х».
 > uk: Це (та) дівчинка.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-artikel-s03
 > text: Die Sonne und der Mond.
 > ipa: /diː ˈzɔnə ʊnt deːɐ̯ moːnt/
-> tip: Sonne — S дзвінке [з], o коротке; Mond — o довге, а d у кінці оглушується до [t]: [моонт].
+> tip: Sonne — s дзвінке [z], o коротке; Mond — o довге, а d у кінці оглушується до [t]: «моонт».
 > uk: Сонце й місяць.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-artikel-s04
 > text: Die Zeitung, die Übung, die Information.
 > ipa: /diː ˈtsaɪ̯tʊŋ diː ˈyːbʊŋ diː ɪnfɔʁmaˈtsi̯oːn/
-> tip: -ung — носове [ŋ], як у слові «банк», без «г» у кінці; -tion — [цйон], наголос на останньому складі.
+> tip: -ung — носове [ŋ], як у слові «банк», без «г» у кінці; -tion — [tsi̯oːn], приблизно «цйон», наголос на останньому складі.
 > uk: Газета, вправа, інформація.
-
-> [!speak] Скажи вголос
-> level: A1 · speed: slow · id: de-a1-artikel-s05
-> text: Das Kätzchen und das Büchlein.
-> ipa: /das ˈkɛtsçən ʊnt das ˈbyːçlaɪ̯n/
-> tip: tz — [ц], одразу за ним мʼяке ch [ç]: [КЕЦ-хьєн]; -lein звучить [лайн].
-> uk: Кошеня й книжечка.
-
-> [!speak] Ситуація: спитай про рід слова
-> level: A1 · speed: slow · id: de-a1-artikel-s06
-> text: Heißt es der, die oder das?
-> ipa: /haɪ̯st ɛs deːɐ̯ diː ˈoːdɐ das/
-> tip: Найкорисніше питання на курсі. ß = [с]; oder — [оода], наголос на першому складі.
-> uk: Як правильно: der, die чи das?
 
 ## Типові помилки українців
 
@@ -504,7 +475,7 @@ estimatedMinutes: 40
 > ~~der Mädchen~~ → **das** Mädchen; ~~die Kind~~ → **das** Kind; ~~das Sonne~~ → **die** Sonne; ~~die Buch~~ → **das** Buch; ~~der Universität~~ → **die** Universität. Український рід у німецькій нічого не гарантує. *Der Tisch* і *der Mond* збігаються зі «стіл» і «місяць» чоловічого роду, але це випадковість, а не правило. Перевіряй рід за суфіксом або в словнику.
 
 > [!pitfall] Іменник без артикля
-> ~~Das ist Tisch.~~ → Das ist **ein** Tisch. ~~Tür ist offen.~~ → **Die** Tür ist offen. В українській артиклів немає, тому їх легко пропустити. У німецькій іменник в однині майже завжди має артикль. Не ставлять його здебільшого при професії й національності: *Ich bin Lehrer.*
+> ~~Das ist Tisch.~~ → Das ist **ein** Tisch. ~~Tür ist offen.~~ → **Die** Tür ist offen. В українській артиклів немає, тому їх легко пропустити. У німецькій злічуваний іменник в однині майже завжди має артикль. Без артикля — професія й національність (*Ich bin Lehrer.*) і незлічувані: *Wasser, Kaffee, Zeit, Geld* (*Ich habe Zeit*) — тема A1-11 і A1-18.
 
 > [!pitfall] die — не завжди жіночий рід
 > ***Die*** *Kinder*, ***die*** *Tische*, ***die*** *Bücher* — це **множина**, а не жіночий рід. *Das Kind* лишається середнього роду. Тож вчи рід за одниною, а множину запамʼятовуй окремо. Поле `forms:` на кожній картці саме для цього.
@@ -514,24 +485,32 @@ estimatedMinutes: 40
 
 ## Ситуація: на мовних курсах
 
-> [!example] Оксана на першому уроці в Integrationskurs
-> **Oksana:** Entschuldigung, wie heißt das auf Deutsch?
-> **Frau Becker:** Das ist ein Kuli. **Der** Kuli.
-> **Oksana:** Der Kuli. Und das?
-> **Frau Becker:** Das ist ein Heft. **Das** Heft.
-> **Oksana:** Und das hier? Heißt es der, die oder das Tasche?
-> **Frau Becker:** **Die** Tasche. Wörter auf -e sind oft feminin.
-> **Oksana:** Und **das** Mädchen? Das ist komisch!
-> **Frau Becker:** Ja, aber -chen ist immer neutral. Lernen Sie jedes Wort mit Artikel!
+> [!listen] Оксана на першому уроці в Integrationskurs. Який артикль у слова Tasche і чому?
+> level: A1 · type: answer · speed: slow · id: de-a1-artikel-l05
+> audio: A: Entschuldigung, wie heißt das auf Deutsch?
+> audio: B: Das ist ein Kuli. Der Kuli.
+> audio: A: Und das hier? Der, die oder das Tasche?
+> audio: B: Die Tasche. Wörter auf -e sind oft feminin.
+> audio: A: Und warum das Mädchen?
+> audio: B: Das -chen macht das Wort neutral. Lernen Sie jedes Wort mit Artikel!
+> - [x] die — слова на -e часто жіночого роду
+> - [ ] der — як у слові der Kuli
+> - [ ] das — як у слові das Mädchen
+> - [ ] без артикля — це назва предмета
 >
-> Переклад: — Перепрошую, як це німецькою? — Це ручка. *Der Kuli*. — *Der Kuli*. А це? — Це зошит. *Das Heft*. — А оце? Як правильно: *der, die* чи *das Tasche*? — *Die Tasche*. Слова на -e часто жіночого роду. — А *das Mädchen*? Це дивно! — Так, але -chen завжди середнього роду. Вчіть кожне слово з артиклем!
->
-> Зверни увагу: вчителька відповідає **двічі**. Спершу *ein Kuli* (предмет новий), потім *der Kuli* (так слово треба записати). *Wie heißt das auf Deutsch?* і *Heißt es der, die oder das?* — дві фрази, які знадобляться тобі на кожному уроці.
+> **Пояснення:** *Die Tasche. Wörter auf -e sind oft feminin* — «Слова на -e часто жіночого роду». Переклад діалогу: — Перепрошую, як це німецькою? — Це ручка. *Der Kuli*. — А оце? *Der, die* чи *das Tasche*? — *Die Tasche*. Слова на -e часто жіночого роду. — А чому *das Mädchen*? — Зменшувальне -chen робить слово середнього роду. Вчіть кожне слово з артиклем! Зверни увагу: вчителька відповідає двічі — спершу *ein Kuli* (предмет новий), потім *der Kuli* (так слово треба записати).
+
+> [!speak] Ситуація: спитай про рід слова
+> level: A1 · speed: slow · id: de-a1-artikel-s05
+> text: Heißt es der, die oder das?
+> ipa: /haɪ̯st ɛs deːɐ̯ diː ˈoːdɐ das/
+> tip: Найкорисніше питання на курсі. ß = [s], «с»; oder — приблизно «оода», наголос на першому складі.
+> uk: Як правильно: der, die чи das?
 
 ## Практика
 
 > [!quiz] Обери артикль: ___ Zeitung
-> level: A1 · id: de-a1-artikel-q02
+> level: A1 · type: single · id: de-a1-artikel-q02
 > - [ ] der
 > - [x] die
 > - [ ] das
@@ -539,35 +518,35 @@ estimatedMinutes: 40
 > **Пояснення:** суфікс ***-ung*** — завжди *die*: *die Zeitung, die Übung, die Wohnung*.
 
 > [!quiz] Обери артикль: ___ Kätzchen
-> level: A1 · id: de-a1-artikel-q03
+> level: A1 · type: single · id: de-a1-artikel-q03
 > - [ ] der
 > - [ ] die
 > - [x] das
 >
-> **Пояснення:** ***-chen*** — завжди *das*, навіть якщо основне слово іншого роду: *die Katze → das Kätzchen*.
+> **Пояснення:** зменшувальний суфікс ***-chen*** — завжди *das*, навіть якщо основне слово іншого роду: *die Katze → das Kätzchen*. (А *der Kuchen* — не зменшувальне слово.)
 
 > [!quiz] Які слова мають артикль die? Обери всі.
-> level: A1 · id: de-a1-artikel-q04
+> level: A1 · type: multi · id: de-a1-artikel-q04
 > - [x] Freiheit
 > - [x] Information
 > - [ ] Name
 > - [x] Freundschaft
 > - [ ] Mädchen
 >
-> **Пояснення:** *-heit, -ion, -schaft* → **die**. ***Der*** *Name* — виняток серед слів на -e. ***Das*** *Mädchen* — бо -chen.
+> **Пояснення:** *-heit, -schaft* → **die** без винятків, *-ion* → **die** як тенденція (виняток — *das Stadion*). ***Der*** *Name* — виняток серед слів на -e. ***Das*** *Mädchen* — бо -chen.
 
 > [!quiz] Які слова мають артикль das? Обери всі.
-> level: A1 · id: de-a1-artikel-q05
+> level: A1 · type: multi · id: de-a1-artikel-q05
 > - [x] Museum
 > - [x] Büchlein
 > - [ ] Fahrer
 > - [x] Dokument
 > - [ ] Möglichkeit
 >
-> **Пояснення:** *-um, -lein, -ment* → **das**. ***Der*** *Fahrer* — той, хто їде (-er від дієслова). ***Die*** *Möglichkeit* — суфікс -keit.
+> **Пояснення:** *-lein* → **das** без винятків, *-um, -ment* → **das** як тенденція (винятки: *der Irrtum, der Moment*). ***Der*** *Fahrer* — той, хто їде (-er від дієслова). ***Die*** *Möglichkeit* — суфікс -keit.
 
 > [!quiz] der Tisch + die Lampe = ___ Tischlampe
-> level: A1 · id: de-a1-artikel-q06
+> level: A1 · type: single · id: de-a1-artikel-q06
 > - [ ] der Tischlampe
 > - [x] die Tischlampe
 > - [ ] das Tischlampe
@@ -575,7 +554,7 @@ estimatedMinutes: 40
 > **Пояснення:** рід складного слова дає **остання** частина: *die Lampe → die Tischlampe* (настільна лампа). *Der Tisch* лише уточнює, яка саме лампа.
 
 > [!quiz] Складні слова: впиши артикль
-> level: A1 · type: fill · id: de-a1-artikel-q07 · bank
+> level: A1 · type: fill · id: de-a1-artikel-q07 · bank: den
 >
 > ```text fill
 > das Haus + die Tür = [[die]] Haustür
@@ -587,7 +566,7 @@ estimatedMinutes: 40
 > **Пояснення:** щоразу дивись на **останню** частину: *Tür → die, Zimmer → das, Garten → der, Bahn → die*.
 
 > [!quiz] der, die чи das? Заповни пропуски
-> level: A1 · type: fill · id: de-a1-artikel-q08 · bank
+> level: A1 · type: fill · id: de-a1-artikel-q08 · bank: Den
 >
 > ```text fill
 > [[Der]] Tisch ist neu.
@@ -611,7 +590,7 @@ estimatedMinutes: 40
 > **Пояснення:** *ein* — для **der** і **das** (*ein Stuhl, ein Handy*), *eine* — для **die** (*eine Blume, eine Universität*). Після *Das ist…* предмет називаємо вперше, тому артикль неозначений.
 
 > [!quiz] er, sie чи es? Заповни пропуски
-> level: A1 · type: fill · id: de-a1-artikel-q10 · bank
+> level: A1 · type: fill · id: de-a1-artikel-q10 · bank: Ihr
 >
 > ```text fill
 > Wo ist der Computer? — [[Er]] ist hier.
@@ -634,7 +613,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** спершу предмет новий, тому *eine Blume*. Потім він уже відомий: ***die*** *Blume*. Рід — жіночий (*die*), тож *das Blume* — помилка.
 
-> [!quiz] Склади речення: «Комп'ютер новий, а мобільний старий.»
+> [!quiz] Склади речення: «Компʼютер новий, а мобільний старий.»
 > level: A1 · type: order · id: de-a1-artikel-q12
 >
 > ```text order
@@ -649,7 +628,7 @@ estimatedMinutes: 40
 > **Пояснення:** ***der*** *Computer* (ч.), ***das*** *Handy* (с.). *Aber* — «але, а» — стоїть між двома частинами речення.
 
 > [!quiz] «Там (якась) дівчинка. Дівчинку звати Анна.» Обери пару артиклів.
-> level: A1 · id: de-a1-artikel-q13
+> level: A1 · type: single · id: de-a1-artikel-q13
 > - [x] Da ist ein Mädchen. Das Mädchen heißt Anna.
 > - [ ] Da ist eine Mädchen. Die Mädchen heißt Anna.
 > - [ ] Da ist das Mädchen. Ein Mädchen heißt Anna.
@@ -658,16 +637,15 @@ estimatedMinutes: 40
 > **Пояснення:** уперше — неозначений артикль *ein* (для *das*-слів), далі вже відоме — *das Mädchen*. Без артикля (останній варіант) не можна.
 
 > [!quiz] «Die Kinder spielen.» Чому тут die?
-> level: A1 · id: de-a1-artikel-q14
-> - [ ] Kind — жіночого роду.
-> - [x] Kinder — множина, а у множині артикль завжди die.
-> - [ ] Перед дієсловом завжди стоїть die.
+> level: A1 · type: single · id: de-a1-artikel-q14
+> - [ ] Kinder — жіночого роду, бо die.
+> - [x] Kinder — множина, а у множині артикль die для всіх родів.
 > - [ ] Це помилка, треба das Kinder.
 >
 > **Пояснення:** *das Kind* → ***die*** *Kinder*. У множині всі три роди мають один артикль — *die*.
 
 > [!quiz] «Сонце світить». Як правильно?
-> level: A1 · id: de-a1-artikel-q15
+> level: A1 · type: single · id: de-a1-artikel-q15
 > - [ ] Das Sonne scheint.
 > - [x] Die Sonne scheint.
 > - [ ] Der Sonne scheint.
@@ -675,7 +653,7 @@ estimatedMinutes: 40
 > **Пояснення:** українське «сонце» — середнього роду, але ***die*** *Sonne* — жіночого. Рід не переноситься з української.
 
 > [!quiz] Яке слово НЕ жіночого роду, хоч і закінчується на -e?
-> level: A1 · id: de-a1-artikel-q16
+> level: A1 · type: single · id: de-a1-artikel-q16
 > - [ ] Blume
 > - [ ] Lampe
 > - [x] Name
@@ -684,7 +662,7 @@ estimatedMinutes: 40
 > **Пояснення:** ***der*** *Name* — чоловічого роду. Закінчення -e — лише тенденція до *die*. Інші винятки: *der Junge, der Käse, das Auge, das Ende*.
 
 > [!quiz] «Я з України». Як сказати правильно?
-> level: A1 · id: de-a1-artikel-q17
+> level: A1 · type: single · id: de-a1-artikel-q17
 > - [ ] Ich komme aus Ukraine.
 > - [x] Ich komme aus der Ukraine.
 > - [ ] Ich komme aus die Ukraine.
@@ -698,21 +676,21 @@ estimatedMinutes: 40
 > На одному столі лежать *der Löffel* (ложка), *die Gabel* (виделка) і *das Messer* (ніж). Логіки немає, тож і німецькі діти просто запамʼятовують артиклі. Марк Твен у есеї «The Awful German Language» (1880) жартував, що в німецькій дівчина роду не має, а ріпа (*die Rübe*) має.
 
 > [!reel] 👧 Чому Mädchen середнього роду
-> *Mädchen* походить від *Mägdchen*, тобто «маленька Magd» (дівчина, служниця). Суфікс зменшення *-chen* завжди дає рід *das*, і граматика тут перемагає значення. Так само *das Fräulein* (панночка) від *die Frau* з суфіксом -lein.
+> *Mädchen* походить від *Mägdchen*, тобто «маленька Magd» (дівчина, служниця). Зменшувальний суфікс *-chen* завжди дає рід *das*, і граматика тут перемагає значення. Так само *das Fräulein* (панночка) від *die Frau* з суфіксом -lein.
 
 > [!reel] 🔑 Haustürschlüssel: хто головний
-> *Das Haus + die Tür + der Schlüssel = der Haustürschlüssel*, ключ від вхідних дверей. Скільки б частин не мало складне слово, рід і множину дає остання. Тож щоб не помилитися з довгим словом, читай його з кінця.
+> *Das Haus + die Tür + der Schlüssel = der Haustürschlüssel*, ключ від вхідних дверей. Скільки б частин не мало складне слово, рід і множину зазвичай дає остання. Тож щоб не помилитися з довгим словом, читай його з кінця.
 
 ## Джерела та що почитати
 
-- 🟢 [DWDS — Digitales Wörterbuch der deutschen Sprache](https://www.dwds.de/): рід, множина, вимова й етимологія кожного слова (наприклад, [Mädchen](https://www.dwds.de/wb/M%C3%A4dchen) — Verkleinerungsform від Magd).
-- 🟢 [Duden online](https://www.duden.de/): правопис, рід і наголос ([Mädchen](https://www.duden.de/rechtschreibung/Maedchen)). Якщо сумніваєшся в артиклі, дивись сюди.
-- 🟢 [Goethe-Institut — Wortliste Start Deutsch 1 (PDF)](https://www.goethe.de/pro/relaunch/prf/de/A1_SD1_Wortliste_02.pdf): офіційний словник рівня A1; кожен іменник подано з артиклем і множиною.
-- 🟡 [DW — Nicos Weg (українською)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): безкоштовний відеокурс A1–B1, де артикль і рід розбирають на перших уроках.
+- [DWDS — «Mädchen»](https://www.dwds.de/wb/M%C3%A4dchen): рід, множина, вимова й етимологія (Verkleinerungsform від Magd); для інших слів — та сама стаття DWDS, напр. [«Kuchen»](https://www.dwds.de/wb/Kuchen) (der, -chen не суфікс).
+- [Duden online — «Mädchen»](https://www.duden.de/rechtschreibung/Maedchen): правопис, рід і наголос. Якщо сумніваєшся в артиклі, дивись сюди.
+- [Goethe-Institut — Wortliste Start Deutsch 1 (PDF)](https://www.goethe.de/pro/relaunch/prf/de/A1_SD1_Wortliste_02.pdf): офіційний словник рівня A1; кожен іменник подано з артиклем і множиною.
+- [DW — Nicos Weg (українською)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): безкоштовний відеокурс A1–B1, де артикль і рід розбирають на перших уроках.
 
 > [!important] Підсумок
-> - Три роди: **der** (ч.), **die** (ж.), **das** (с.); у множині для всіх — **die**. Неозначений артикль: **ein** (der, das), **eine** (die).
+> - Три роди: **der** (ч.), **die** (ж.), **das** (с.); у множині (називний відмінок) для всіх — **die**. Неозначений артикль: **ein** (der, das), **eine** (die).
 > - **ein / eine** — щось нове, «якийсь»; **der / die / das** — відоме або єдине (*die Sonne*).
-> - Надійні суфікси: **-ung, -heit, -keit, -schaft, -ion, -tät, -ik → die**; **-chen, -lein → das**; **-ling, -ismus → der**. Тенденції з винятками: -e → die (*der Name*), дні, місяці й пори року → der (*die Nacht*), -um / -ment → das.
+> - Без винятків: **-ung, -heit, -keit, -schaft → die**; зменшувальні **-chen, -lein** і дієслово як іменник **→ das** (*der Kuchen* — не зменшувальне). Тенденції з винятками: -ion, -tät, -ik, -ei, -ur, -e → die (*das Stadion, der Name*); -ling, -ismus, -or, -ig, дні, місяці й пори року → der (*das Labor, die Nacht*); -um, -ment, -ma → das (*die Firma*).
 > - Складне слово бере рід **останньої частини**: *die Haustür, das Klassenzimmer, der Kindergarten*.
 > - Український рід не переноситься: **das** Mädchen, **das** Kind, **die** Sonne, **das** Buch. Вчи слово **з артиклем і множиною**: *der Tisch, die Tische*.

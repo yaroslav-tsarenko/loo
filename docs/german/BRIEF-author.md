@@ -13,7 +13,7 @@ are in Ukrainian and examples are in German with a Ukrainian translation. Your p
 ## Read (only these)
 1. `docs/GERMAN_SYLLABUS.md`:
    - §1 (principles, mistakes of Ukrainians);
-   - §2 including **§2.6** (binding decisions);
+   - §2 including **§2.6 and §2.7** (binding decisions; §2.7 wins on conflict);
    - your level's table rows: title, id, kind, goals, W/L/S/P/Q;
    - for Deutschland chapters: §9 and **§9.0**.
 2. Your model lesson, end to end. Match its format, depth and block density:
