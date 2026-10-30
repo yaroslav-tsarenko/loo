@@ -9,9 +9,17 @@ import { courseLadder, type Level } from './level'
 // * programming / general courses without `skills:` — no skill model (the JavaScript course works as before).
 
 export const SKILL_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+// skill ids key plain objects (stored estimates, placement results): never an Object.prototype name
+export const RESERVED_SKILL_IDS: ReadonlySet<string> = new Set(['constructor', '__proto__', 'prototype', 'tostring', 'valueof', 'hasownproperty'])
+
+export const SkillIdSchema = z
+  .string()
+  .regex(SKILL_ID, 'id навички: [a-z0-9-]')
+  .max(40)
+  .refine((id) => !RESERVED_SKILL_IDS.has(id.toLowerCase()), { message: 'id навички: зарезервоване слово (constructor, prototype, toString…)' })
 
 export const SkillDefSchema = z.object({
-  id: z.string().regex(SKILL_ID, 'id навички: [a-z0-9-]').max(40),
+  id: SkillIdSchema,
   title: z.string().min(1).max(60),
   description: z.string().max(300).optional(),
   icon: z.string().min(1).optional(),

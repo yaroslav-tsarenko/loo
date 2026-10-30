@@ -123,7 +123,7 @@ export function checkCourse(input: unknown, source: CourseSource, opts: Validate
 export const PER_PAIR = 6
 
 // Bank mode (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): every level of the ladder needs enough questions for a
-// probe plus the follow-up, all four skills and enough diff ≥ 2 items (guessing protection).
+// probe plus the follow-up, every measured skill (language: the four) and enough diff ≥ 2 items (guessing protection).
 function bankIssues(bundle: CourseBundle): CourseIssue[] {
   const { bank = {}, perLevel, followUp = 0 } = bundle.placement
   const items = Object.values(bank)
@@ -158,6 +158,11 @@ function bankIssues(bundle: CourseBundle): CourseIssue[] {
   if (missing.length > 0) warn(`немає питань рівнів ${missing.join(', ')} — тест їх не перевіряє`)
   if (thin.length > 0) warn(`замало питань: ${thin.join(', ')} — потрібно ≥ ${want} (краще 40)`)
   if (skills.length > 0) warn(`без навичок — ${skills.join('; ')}`)
+  if (bundle.placement.perSkill) {
+    // phase 2 needs 2 per skill on top of a minimal main test (2 probes); otherwise skills silently get none
+    const need = 2 * perLevel + 2 * measured.length
+    if (bundle.placement.maxQuestions < need) warn(`maxQuestions ${bundle.placement.maxQuestions} < ${need} (2·perLevel + 2·навичок) — фазі «за навичками» не лишиться питань`)
+  }
   if (pairs && pairs.length > 0) warn(`замало питань на пару навичка × рівень (потрібно ≥ ${PER_PAIR}): ${pairs.slice(0, 8).join(', ')}${pairs.length > 8 ? ` … ще ${pairs.length - 8}` : ''}`)
   if (hard.length > 0) warn(`замало питань diff ≥ 2 на рівнях ${hard.join(', ')} — захист від вгадування слабший`)
   return out

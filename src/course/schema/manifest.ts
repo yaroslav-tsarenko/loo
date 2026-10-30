@@ -2,7 +2,7 @@ import { parse as parseYaml } from 'yaml'
 import { z } from 'zod'
 import { LADDERS, LevelSchema, courseLadder, ladderOf } from './level'
 import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
-import { DEFAULT_SKILLS, SKILL_ID, SkillDefSchema } from './skills'
+import { DEFAULT_SKILLS, SkillDefSchema, SkillIdSchema } from './skills'
 
 // course.yaml — see docs/COURSE_FORMAT.md §2
 
@@ -37,7 +37,7 @@ export const SectionManifestSchema = z.object({
   // planned: shown on the path as «скоро» (locked, no topics) — its guide / chapters may not exist yet
   status: z.enum(['active', 'planned']).default('active'),
   // courses with `skills`: the default skill of the section's topics (a topic's own frontmatter `skill:` wins)
-  skill: z.string().regex(SKILL_ID, 'skill: id навички [a-z0-9-]').optional(),
+  skill: SkillIdSchema.optional(),
 })
 export type SectionManifest = z.infer<typeof SectionManifestSchema>
 
@@ -65,7 +65,7 @@ export const PlacementSchema = z
     // courses with skills and a bank: after the overall level, 2–3 questions per skill (docs/COURSE_FORMAT.md §5); off by default
     perSkill: z.boolean().optional(),
     // the skills the bank measures (default: language — grammar, vocabulary, reading, listening; otherwise all)
-    skills: z.array(z.string().regex(SKILL_ID, 'id навички: [a-z0-9-]')).min(1).optional(),
+    skills: z.array(SkillIdSchema).min(1).optional(),
   })
   .prefault({})
 export type PlacementConfig = z.infer<typeof PlacementSchema>
@@ -120,12 +120,14 @@ export const CourseManifestSchema = z
       if (practice.has(id)) ctx.addIssue({ code: 'custom', path: ['practice', i], message: `Дублікат розділу практики «${id}»` })
       practice.add(id)
     })
+    const language = m.kind === 'language' || (!m.kind && m.subject === 'language')
+    if (language && m.skills) ctx.addIssue({ code: 'custom', path: ['skills'], message: 'Мовний курс не задає skills: у нього типові навички (граматика, лексика, читання, аудіювання, вимова)' })
     const skillIds = new Set<string>()
     m.skills?.forEach((s, i) => {
       if (skillIds.has(s.id)) ctx.addIssue({ code: 'custom', path: ['skills', i, 'id'], message: `Дублікат id навички «${s.id}»` })
       skillIds.add(s.id)
     })
-    const known = m.skills ? skillIds : new Set<string>(m.kind === 'language' || (!m.kind && m.subject === 'language') ? DEFAULT_SKILLS.language.learner.map((s) => s.id) : [])
+    const known = m.skills && !language ? skillIds : new Set<string>(language ? DEFAULT_SKILLS.language.learner.map((s) => s.id) : [])
     m.sections.forEach((s, i) => {
       if (s.skill && !known.has(s.skill)) ctx.addIssue({ code: 'custom', path: ['sections', i, 'skill'], message: `Невідома навичка «${s.skill}» (немає в skills)` })
     })

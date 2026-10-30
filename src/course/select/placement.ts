@@ -305,7 +305,8 @@ function bankCfg(bundle: CourseBundle): BankCfg {
     perLevel: p.perLevel,
     pass: p.pass ?? 0.75,
     max: p.maxQuestions,
-    mainMax: perSkill ? Math.max(p.perLevel * 2, p.maxQuestions - 2 * skills.length) : p.maxQuestions,
+    // never above the limit; with a small limit the main test may take it all (course:check warns: phase 2 may get nothing)
+    mainMax: perSkill ? Math.min(p.maxQuestions, Math.max(p.perLevel * 2, p.maxQuestions - 2 * skills.length)) : p.maxQuestions,
     perSkill,
     skills,
     bySkill,
@@ -592,6 +593,8 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
   const run = bankRun(bundle, answers, true)
   const { cfg, tallies } = run
   const lowestIsCourseLowest = cfg.ladder[0] === courseLevels(bundle.course)[0]
+  // With the per-skill phase the follow-up comes after it, so a followed-up result re-reads all tallies — the phase-2
+  // answers (mostly near the overall level) weigh in on the overall level too. Kept on purpose: more evidence there.
   const followed = run.follow !== null && run.asked.size > run.follow.start
   let outcome: Outcome
   let confidence: PlacementConfidence
@@ -711,6 +714,14 @@ export function startSection(bundle: CourseBundle, level: Level): { index: numbe
   const path = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
   const target = path.find((s) => levelRank(s.level) > levelRank(level)) ?? path.at(-1) ?? bundle.sections[0]
   return target ? { index: target.index, id: target.id } : { index: 0, id: null }
+}
+
+// A manual start without the test: any level of the course; a programming course with skills offers only «Я новачок»
+// (the lowest level) — a higher self-assessed level would skip topics the test never checked.
+export function manualStartAllowed(bundle: CourseBundle, level: Level): boolean {
+  const levels = courseLevels(bundle.course)
+  if (hasSkillModel(bundle) && courseLadder(bundle.course) !== 'cefr') return level === levels[0]
+  return levels.includes(level)
 }
 
 // The first active path section (courses with skills: known topics, not sections, decide what to skip).

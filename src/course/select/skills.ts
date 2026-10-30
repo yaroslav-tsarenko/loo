@@ -4,7 +4,8 @@ import { lookup } from './lookup'
 
 // Per-skill level estimate of a learner (docs/LANGUAGE_COURSE.md «Рівень за навичками»), updated after every topic
 // test and section exam — for every course with a skill model (course.skills; language courses — the five defaults).
-// The skill list comes from the bundle (schema/skills.ts → skillModelOf); without it the language model is assumed. The same model as the placement's skill estimate (placement.ts → estimateSkills):
+// The skill list comes from the bundle (schema/skills.ts → skillModelOf); without it the language model is assumed.
+// The same model as the placement's skill estimate (placement.ts → estimateSkills):
 //
 //   ability θ in level units (θ ∈ [i, i+1) ⇔ the i-th level of the ladder; A1 0…1, A2 1…2 …);
 //   an exercise of level i and diff d (easy 1 · medium 2 · hard 3) has difficulty b = i + 0.25 + 0.3·(d − 2);
@@ -74,7 +75,8 @@ export function pRight(theta: number, b: number, options: number): number {
 function placementLevel(basis: SkillBasis, skill: string, levels: readonly Level[]): Level | null {
   const p = basis.placement
   if (!p || p.skipped) return null
-  const s = p.skills?.[skill]
+  // own keys only: a stored row is user data (no `constructor` / `__proto__` lookups)
+  const s = p.skills && Object.hasOwn(p.skills, skill) ? p.skills[skill] : undefined
   if (!s?.measured) return null
   return (levels as readonly string[]).includes(s.level) ? (s.level as Level) : null
 }
@@ -101,7 +103,7 @@ export function currentSkills(stored: unknown, basis: SkillBasis, levels: readon
   const skills: SkillState['skills'] = { ...fresh.skills }
   const max = levels.length + 1
   for (const skill of model.skills) {
-    const s = stored.skills[skill]
+    const s = Object.hasOwn(stored.skills, skill) ? stored.skills[skill] : undefined
     if (s) skills[skill] = { mu: Math.max(-1, Math.min(max, s.mu)), sd: Math.max(SD_MIN, Math.min(2, s.sd)), n: Math.max(0, Math.floor(s.n)), right: Math.max(0, Math.floor(s.right)) }
   }
   return { v: 1, basis: b, skills, updatedAt: stored.updatedAt }

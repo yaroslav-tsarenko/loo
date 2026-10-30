@@ -16,6 +16,7 @@ import {
   LEARNER_SKILLS,
   levelRank,
   levelSuggestion,
+  manualStartAllowed,
   nextSkillStep,
   parseCourseYaml,
   placementResult,
@@ -363,4 +364,109 @@ describe('simulation: per-skill placement (11 skills × 5 levels × 6 questions,
       expect(s.questions).toBeLessThanOrEqual(36)
     })
   }
+})
+
+// ── Review fixes ──
+
+describe('path: «знаю» never takes back started work (θ drops)', () => {
+  // A = routing (noob…middle topics), B = data; the learner was senior in routing, so A was complete via «знаю»
+  const make = () => {
+    const b = programmingBundle({ skills: ['routing', 'data'] })
+    b.sections[0]!.topics = b.sections[0]!.topics.slice(0, 3)
+    return b
+  }
+  const high = { thetas: { routing: 3.5, data: 0.5 } }
+  const low = { thetas: { routing: 0.5, data: 0.5 } }
+  const worked = (): PathProgress => ({ ...emptyProgress(), lessons: new Set(['syn:data:t0:core-1']) })
+
+  it('before the drop: A known by skills, the learner works in B', () => {
+    const view = buildCoursePath(make(), 'noob', { ...worked(), skills: high })
+    expect(view.sections[0]).toMatchObject({ known: 'skills', state: 'done' })
+    expect(view.current?.sectionId).toBe('syn:data')
+  })
+
+  it("after a failed test lowers θ: B stays open, A stays credited, the cursor and totals don't move", () => {
+    const b = make()
+    const before = buildCoursePath(b, 'noob', { ...worked(), skills: high })
+    const after = buildCoursePath(b, 'noob', { ...worked(), skills: low })
+    expect(after.sections[1]!.state).not.toBe('locked')
+    expect(after.sections[0]).toMatchObject({ known: 'skills', state: 'done' })
+    expect(after.current).toEqual(before.current)
+    expect(after.total).toBe(before.total)
+    expect(after.done).toBe(before.done)
+  })
+
+  it('a section with own progress never relocks, even when the previous one is not complete', () => {
+    const b = make()
+    const progress: PathProgress = { ...emptyProgress(), tests: new Map([['syn:data:t1:test', { bestScore: 0.3, passed: false }]]), skills: low }
+    const view = buildCoursePath(b, 'noob', progress)
+    expect(view.sections[1]!.state).not.toBe('locked')
+    // without the skill model (JavaScript) nothing changes: B is locked until A is done
+    expect(buildCoursePath(b, 'noob', { ...progress, skills: null }).sections[1]!.state).toBe('locked')
+  })
+})
+
+describe('placement: a small limit', () => {
+  it('maxQuestions 8, perLevel 5: never above the limit (phase 2 only gets what the main test leaves)', () => {
+    const b = programmingBundle({ skills: ['routing', 'data', 'ui'], perPair: 6, perSkill: true, maxQuestions: 8, perLevel: 5 })
+    for (const seed of ['a', 'b', 'c', 'd']) {
+      const { answers, steps } = take(b, (item, r) => r() < (item.level === 'noob' ? 0.95 : 0.5), seed)
+      expect(answers.length).toBeLessThanOrEqual(8)
+      const first = steps.findIndex((s) => s.phase === 'skills')
+      if (first >= 0) expect(steps.slice(first).every((s) => s.phase === 'skills')).toBe(true)
+    }
+  })
+
+  it('course:check warns when maxQuestions < 2·perLevel + 2·skills', async () => {
+    const vaultPath = path.resolve(__dirname, '../fixtures/skills-vault')
+    const snap = await loadSnapshot({ vaultPath, guidesDir: 'Guides' }, new Map(), 1)
+    const source = readFileSync(path.join(vaultPath, 'Courses/web-skills/course.yaml'), 'utf8')
+    const small = source.replace('maxQuestions: 20, perLevel: 3', 'maxQuestions: 8, perLevel: 5')
+    const warn = checkCourse(small, snap).issues.filter((i) => i.code === 'thin-placement').map((i) => i.message).join('\n')
+    expect(warn).toMatch(/maxQuestions 8 < 14/)
+    expect(checkCourse(source, snap).issues.some((i) => i.message.includes('maxQuestions'))).toBe(false)
+  })
+})
+
+describe('manual start and schema guards', () => {
+  it('programming courses with skills accept only «Я новачок» (the lowest level); others any course level', () => {
+    const b = programmingBundle({ skills: ['routing'] })
+    expect(manualStartAllowed(b, 'noob')).toBe(true)
+    expect(manualStartAllowed(b, 'junior')).toBe(false)
+    expect(manualStartAllowed(b, 'god')).toBe(false)
+    const js = programmingBundle({ skills: ['routing'], declare: false })
+    expect(manualStartAllowed(js, 'senior')).toBe(true)
+    expect(manualStartAllowed(js, 'A1')).toBe(false)
+  })
+
+  it("language courses can't declare skills; reserved ids are rejected", () => {
+    const lang = `id: l\nversion: 1.0.0\ntitle: L\nkind: language\nskills: [{ id: grammar, title: G }]\nsections:\n  - { id: a1, title: A1, from: English }\n`
+    expect(parseCourseYaml(lang).errors.join()).toMatch(/Мовний курс не задає skills/)
+    for (const id of ['constructor', 'prototype', 'tostring', 'valueof', 'hasownproperty']) {
+      expect(parseCourseYaml(`${base}skills: [{ id: ${id}, title: X }]\n`).errors.join()).toMatch(/зарезервоване/)
+    }
+    expect(parseCourseYaml(`${base}skills: [{ id: r, title: R }]\nplacement: { skills: [constructor] }\n`).errors.join()).toMatch(/зарезервоване/)
+  })
+
+  it("accepts the lead's Next.js manifest: sections[].skill and placement perSkill 40", () => {
+    const yaml = readFileSync(path.resolve(__dirname, '../../content/courses/nextjs-zero-to-pro/course.yaml'), 'utf8')
+      .replace(/(\{ id: basics,[^\n]*?level: noob,)/, '$1 skill: foundations,')
+      .replace(/(\{ id: routing, title: Маршрутизація, icon: px:map,)/, '$1 skill: routing,')
+      .replace(/placement: \{[^}]*\}/, 'placement: { enabled: true, maxQuestions: 40, perLevel: 3, perSkill: true }')
+    const { manifest, errors } = parseCourseYaml(yaml)
+    expect(errors).toEqual([])
+    expect(manifest!.sections.find((s) => s.id === 'basics')!.skill).toBe('foundations')
+    expect(manifest!.sections.find((s) => s.id === 'routing')!.skill).toBe('routing')
+    expect(manifest!.placement).toMatchObject({ maxQuestions: 40, perSkill: true })
+  })
+
+  it('stored estimates: inherited keys are ignored (Object.hasOwn)', () => {
+    const b = programmingBundle({ skills: ['routing'] })
+    const model = skillModelOf(b)
+    const fresh = currentSkills(null, { level: 'junior' }, levels, model)
+    const polluted = { ...fresh, skills: Object.create({ routing: { mu: 4.5, sd: 0.3, n: 10, right: 10 } }) as typeof fresh.skills }
+    expect(currentSkills(polluted, { level: 'junior' }, levels, model).skills.routing).toEqual(fresh.skills.routing)
+    const placed = currentSkills(null, { level: 'junior', placement: { at: 1, skills: Object.create({ routing: { level: 'god', measured: true } }) } }, levels, model)
+    expect(placed.skills.routing).toEqual(fresh.skills.routing)
+  })
 })

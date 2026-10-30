@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import type { ReactNode } from 'react'
-import { courseLevels, LEVELS, levelRank, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
+import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
 import { quizKey } from '@/content/blocks/quiz/view'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
@@ -336,7 +336,8 @@ export async function startAtLevel(form: FormData): Promise<void> {
   await limitUser(user.id, 'placement')
   const bundle = await getCourse(input.course)
   if (!bundle) throw new Error('Unknown course')
-  if (!courseLevels(bundle.course).includes(input.level)) throw new Error('Unknown level')
+  // programming courses with skills: only «Я новачок» (the lowest level)
+  if (!manualStartAllowed(bundle, input.level)) throw new Error('Unknown level')
   const { index, id } = sectionForLevel(bundle, input.level)
   await savePlacement(input.course, { level: input.level, sectionIndex: index, sectionId: id, confident: false, asked: 0, at: Date.now(), skipped: true }, input.level)
   redirect(safeRedirectPath(input.next ?? '/path'))

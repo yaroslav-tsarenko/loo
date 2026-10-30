@@ -157,6 +157,13 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
   const passedSections = bundle.sections.filter((s) => s.exam && progress.exams.get(s.exam.id)?.passed).map((s) => s.id)
   const sections: PathSectionView[] = []
   let prevPathDone = true
+  // Courses with a skill model: skill levels move both ways, so «знаю» must never take back what the learner already
+  // started. A section with own progress stays unlocked; path sections before the last one with progress (a section
+  // completed via «знаю» before θ dropped, or opened ahead) stay credited — counted as known by skills.
+  const skillMode = Boolean(progress.skills)
+  const progressed = (s: Section): boolean =>
+    s.topics.some((t) => t.lessons.some((l) => l.kind !== 'theory' && progress.lessons.has(l.id)) || (t.test !== null && progress.tests.has(t.test.id))) || (s.exam !== null && progress.exams.has(s.exam.id))
+  const lastProgressed = skillMode ? Math.max(-1, ...bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned' && progressed(s)).map((s) => s.index)) : -1
 
   for (const section of bundle.sections) {
     if (section.status === 'planned') {
@@ -167,11 +174,12 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
     const path = section.kind === 'path'
     const examPassed = Boolean(section.exam && progress.exams.get(section.exam.id)?.passed)
     const known: PathSectionView['known'] = !path ? null : examPassed ? 'exam' : placement !== null && section.index < placement ? 'placement' : null
-    const unlocked = !path || known !== null || prevPathDone || (placement !== null && section.index <= placement)
+    const credited = skillMode && path && known === null && section.index < lastProgressed
+    const unlocked = !path || known !== null || prevPathDone || (placement !== null && section.index <= placement) || (skillMode && path && progressed(section)) || credited
     const topics: PathTopicView[] = []
 
     for (const topic of section.topics) {
-      const topicIsKnown = path && topicKnown(topic, progress.skills, ladder)
+      const topicIsKnown = path && (credited || topicKnown(topic, progress.skills, ladder))
       const practiceDone = topic.lessons.some((l) => l.kind !== 'theory' && progress.lessons.has(l.id))
       const nodes: Array<PathLessonNode | PathTestNode> = []
       for (const lesson of topic.lessons) {

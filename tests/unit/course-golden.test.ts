@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import type { ContentSnapshot } from '@/content/store'
-import { checkCourse, type CourseBundle } from '@/course'
+import { buildCoursePath, checkCourse, CourseBundleSchema, DEFAULT_SKILLS, LANGUAGE_SKILL_MODEL, skillModelOf, type CourseBundle, type Level, type PathProgress, type ResultRecord } from '@/course'
 import { loadCourseSource, loadIconCatalog, resolveCourse } from '../../scripts/lib/course-source'
 
 // Golden test (docs/NEXTJS_SYLLABUS.md §7): skills as course data must not change the compiled English and JavaScript
@@ -44,6 +44,8 @@ function stripAdded(bundle: CourseBundle): unknown {
 
 let snapshotOnce: Promise<ContentSnapshot> | undefined
 
+const compiled = new Map<string, CourseBundle>()
+
 async function golden(id: string): Promise<Golden> {
   const pkg = await resolveCourse(id)
   if (!pkg) throw new Error(`no course ${id}`)
@@ -52,6 +54,7 @@ async function golden(id: string): Promise<Golden> {
   const snapshot = await snapshotOnce
   const { bundle } = checkCourse(pkg.source, snapshot, { icons: await loadIconCatalog() })
   if (!bundle) throw new Error(`${id}: no bundle`)
+  compiled.set(id, bundle)
   const json = JSON.stringify(stripAdded(bundle))
   return {
     sha256: createHash('sha256').update(json).digest('hex'),
@@ -73,6 +76,68 @@ describe.skipIf(!hasVault)('golden bundles (English, JavaScript)', () => {
         writeFileSync(FIXTURE, `${JSON.stringify(fixture, null, 2)}\n`)
       }
       expect(now).toEqual(fixture[id])
+    })
+  }
+
+  // stripAdded must not hide a regression: the added fields are exactly what's expected
+  it('JavaScript gains no skills; English gets the five defaults and the language model', { timeout: 120_000 }, async () => {
+    process.env.VAULT_PATH ??= vault
+    const js = compiled.get('javascript-noob-to-god') ?? (await golden('javascript-noob-to-god'), compiled.get('javascript-noob-to-god')!)
+    const en = compiled.get('english-a1-c2') ?? (await golden('english-a1-c2'), compiled.get('english-a1-c2')!)
+    expect('skills' in js.course).toBe(false)
+    expect(js.sections.flatMap((s) => s.topics).some((t) => 'skill' in t)).toBe(false)
+    expect(Object.values(js.exercises).some((e) => 'skill' in e)).toBe(false)
+    expect(js.placement.perSkill).toBeUndefined()
+    expect(js.placement.skills).toBeUndefined()
+    expect(en.course.skills).toEqual(DEFAULT_SKILLS.language.learner)
+    expect(en.sections.flatMap((s) => s.topics).some((t) => 'skill' in t)).toBe(false)
+    expect(en.placement.perSkill).toBeUndefined()
+    expect(en.placement.skills).toBeUndefined()
+    expect(skillModelOf(en)).toEqual({ skills: [...LANGUAGE_SKILL_MODEL.skills], overall: [...LANGUAGE_SKILL_MODEL.overall] })
+  })
+})
+
+// The path of both real bundles (committed JSON, no vault needed) under a few progress states, with skills null:
+// the same view as the base commit's buildCoursePath (the fixture was written by running 76dcf19's path.ts), minus
+// the added fields
+// (`recommended`, topic `known`).
+const PATH_FIXTURE = path.join(__dirname, 'fixtures', 'path-golden.json')
+const LEVEL: Record<(typeof COURSES)[number], Level> = { 'english-a1-c2': 'A2', 'javascript-noob-to-god': 'middle' }
+
+function states(b: CourseBundle): Record<string, PathProgress> {
+  const first = b.sections.find((s) => s.kind === 'path' && s.status !== 'planned' && s.topics.length > 1)!
+  const [t1, t2] = first.topics
+  const empty = (): PathProgress => ({ lessons: new Set(), perfect: new Set(), studied: new Set(), tests: new Map(), exams: new Map() })
+  const passed: ResultRecord = { bestScore: 0.9, passed: true }
+  const mid = empty()
+  for (const l of t1!.lessons) (mid.lessons as Set<string>).add(l.id)
+  if (t1!.test) (mid.tests as Map<string, ResultRecord>).set(t1!.test.id, passed)
+  const second = t2!.lessons.find((l) => l.kind !== 'theory')
+  if (second) (mid.lessons as Set<string>).add(second.id)
+  ;(mid.studied as Set<string>).add(t2!.chapterId)
+  const exam = { ...mid, exams: new Map(first.exam ? [[first.exam.id, { ...passed, testOut: false }]] : []) }
+  return { empty: empty(), mid, exam, placed: { ...empty(), placementSection: 2 } }
+}
+
+function stripPath(view: unknown): unknown {
+  const v = structuredClone(view) as { recommended?: unknown; sections: Array<{ topics: Array<{ known?: unknown }> }> }
+  delete v.recommended
+  for (const s of v.sections) for (const t of s.topics) delete t.known
+  return v
+}
+
+describe('golden path view (skills null)', () => {
+  for (const id of COURSES) {
+    it(`${id}: buildCoursePath as before`, () => {
+      const b = CourseBundleSchema.parse(JSON.parse(readFileSync(path.resolve(__dirname, `../../content/courses/${id}.json`), 'utf8')))
+      const now: Record<string, string> = {}
+      for (const [name, progress] of Object.entries(states(b))) {
+        const view = buildCoursePath(b, LEVEL[id], { ...progress, skills: null })
+        now[`${id}:${name}`] = createHash('sha256').update(JSON.stringify(stripPath(view))).digest('hex')
+      }
+      const fixture: Record<string, string> = existsSync(PATH_FIXTURE) ? JSON.parse(readFileSync(PATH_FIXTURE, 'utf8')) : {}
+      if (process.env.GOLDEN_WRITE === '1') writeFileSync(PATH_FIXTURE, `${JSON.stringify({ ...fixture, ...now }, null, 2)}\n`)
+      for (const [k, v] of Object.entries(now)) expect(v, k).toBe(fixture[k])
     })
   }
 })
