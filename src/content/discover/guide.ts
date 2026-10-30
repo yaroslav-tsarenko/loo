@@ -163,7 +163,8 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
     const parsedName = parseName(p.file.name, dir)
     const title = p.meta.title ?? titleFrom(p.info.h1, p.file.name, dir)
     const numberLabel = parsedName.label ?? (parsedName.number !== null ? String(parsedName.number).padStart(2, '0') : null)
-    const segment = slugifySegment(numberLabel !== null ? `${numberLabel} ${parsedName.rest}` : parsedName.rest) || 'note'
+    // frontmatter `slug:` (Latin, stable across renames and translations) wins over the slug derived from the file name
+    const segment = slugifySegment(p.meta.slug ?? (numberLabel !== null ? `${numberLabel} ${parsedName.rest}` : parsedName.rest)) || 'note'
     const slug = kind === 'index' ? [] : exactSlug ? makeSlug(exactSlug) : makeSlug([...parentSlug, segment])
     const level: Level | null = p.meta.level ?? null
     const chapter: Chapter = {
