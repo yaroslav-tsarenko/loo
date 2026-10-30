@@ -40,7 +40,7 @@ sections:
       description: 'Веб, React і TypeScript рівно стільки, скільки треба для Next.js. Знаєш — склади екзамен і перескоч.' }
   - { id: start, title: Старт з нуля, icon: px:rocket, from: Next.js Start, chapters: 5-12, level: noob,
       description: 'Перший застосунок на App Router: сторінки, навігація, стилі, дані, форма, деплой.' }
-  - { id: routing, skill: routing, title: Маршрутизація, icon: px:map, from: Next.js, chapters: 1-6, status: planned,
+  - { id: routing, skill: routing, title: Маршрутизація, icon: px:map, from: Next.js, chapters: 1-6,
       description: 'Сегменти, layouts, dynamic, parallel та intercepting routes, навігація, proxy.ts.' }
   - { id: rendering, skill: rendering, title: Рендеринг і RSC, icon: px:microscope, from: Next.js, chapters: 7,
       description: 'Server і Client Components, RSC payload, static і dynamic, streaming, PPR, помилки.' }

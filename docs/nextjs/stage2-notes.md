@@ -69,7 +69,7 @@
 - research/rendering.md §09: inline `self.__next_f.push` confirmed; row types I/H/E/X/C, prefixes $L/$@/$D/$n/$Q/$W/$h/$$,
   "b" = BUILD_ID; `RSC: 1` → 307 to `?_rsc`; payload is TEXT rows (bundled glossary says "binary" — wrong on 16.3.8);
   Cache Components: `Math.random()`/`new Date()` in a Client Component outside Suspense fails prerender ("unstable
-  value … in a Client Component"); Suspense fixes the build but not the hydration mismatch.
+  value … in a Client Component"); Suspense fixes the build; mismatch then shows in `next dev` only — in prod the boundary isn't SSR'd (HTML has the fallback), no #418, content missing from HTML (reviewer, corrects core-09).
 - Glossary keepLatin: Flight, selective hydration, inline script.
 - APPLIED: unstable_doesProxyMatch → unstable_doesMiddlewareMatch in SYLLABUS + research (routing, testing).
 - research/routing.md (06): matcher from a variable = build error (not "ignored"); `/about` matches only `/about`
@@ -123,3 +123,5 @@
 - CORRECTION (routing note b): a dynamic route without generateStaticParams fails the build on `params` alone under
   Cache Components; the root-layout usePathname menu only adds a second error. Third fix offered by the error output:
   `export const instant = false`.
+- core-08: `next build` renders a static page twice in the same instance (counters 2) — don't claim «рендериться один раз».
+- core-09: click on a Link to a prefetched page sends no request; prefetch = segment requests (`/_tree`, `/<route>/__PAGE__` from `.segments/`); byte-identical `.rsc` only for plain `RSC: 1` curl. `.rsc` starts with `#` (complete) / `~` (partial) marker byte. Bundled migrating-to-cache-components.md:103 suggests moving Math.random() into a Client Component — on 16.3.8 that fails the prerender.

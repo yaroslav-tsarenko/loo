@@ -84,7 +84,7 @@
 | URL data = `params`, `searchParams`, `usePathname`, `useSearchParams` | `04-glossary.md#url-data` |
 | Activity: до 3 маршрутів; `useRouter().bfcacheId` як key для скидання на push/replace | `02-guides/preserving-ui-state.md`, `04-functions/use-router.md#bfcacheid` |
 | `experimental.staleTimes` `{ dynamic: 0, static: 300 }` за замовчуванням; клієнтський мінімум 30 с | `05-config/01-next-config-js/staleTimes.md`, `01-directives/use-cache.md` |
-| Parallel slots потребують `default.js` (16.0, build fails) | `02-guides/upgrading/version-16.md#parallel-routes-defaultjs-requirement` |
+| Parallel slots потребують `default.js` за документацією 16.0 («build fails»); на 16.3.8 build проходить, вбудований default → notFound() | `02-guides/upgrading/version-16.md#parallel-routes-defaultjs-requirement` |
 | `next/root-params` (16.3.0): лише Server Components; не Client, не Server Actions, не Route Handlers; kebab-case імена не підтримуються | `04-functions/next-root-params.md` |
 | `unstable_rootParams` видалено → `next/root-params` | `version-16.md` |
 | `typedRoutes` стабільний (top-level, не `experimental`) | `05-config/01-next-config-js/typedRoutes.md` |
@@ -101,7 +101,7 @@
 | `params` — об'єкт | 15: Promise із sync-сумісністю; 16: лише Promise (`next-async-request-api` codemod) |
 | `middleware.ts`, Edge за замовчуванням | 15.5: Node runtime стабільний; 16: `proxy.ts`, тільки Node |
 | prefetch повного маршруту на кожне посилання | 16.0: dedup layouts + incremental; 16.3: Partial Prefetching (App Shell на маршрут) |
-| Слот без `default.js` — тихий 404 | 16: помилка збірки |
+| Слот без `default.js` — тихий 404 | 16.3.8: build проходить, після F5 — 404 (документація каже «помилка збірки») |
 | Скидання стану — розмонтування сторінки | 16 + Cache Components: Activity зберігає стан; скидання явно |
 | `unstable_rootParams` | `next/root-params` (16.3) |
 | `scroll-behavior: smooth` перевизначалося автоматично | 16: не перевизначається без `data-scroll-behavior` |
@@ -112,7 +112,7 @@
 - **`NextResponse.next({ headers })`** — секретний заголовок іде клієнту замість upstream.
 - **Великі заголовки з Proxy** → 431.
 - **`revalidatePath` при rewrites** — передавати destination, не source.
-- **Відсутній `default.js`** — у 16 build fail; при reload модалка «зникає» або 404.
+- **Відсутній `default.js`** — на 16.3.8 build проходить (усупереч документації); при reload — 404.
 - **Intercepting `(..)`** рахується за сегментами маршруту — групи `(group)` не рахуються; часта плутанина.
 - **Activity зберігає стан**: відкриті дропдауни, старі повідомлення «успіх», дані попереднього користувача після logout через `router.push` (рекомендовано `window.location.href` для logout або key на `userId`).
 - **Глобальні стилі прихованої сторінки** продовжують діяти (Activity) — вимикати через `media`.
@@ -168,6 +168,6 @@
 2. **Тема 03:** додати `next/root-params` (16.3) — зараз згаданий лише в темі 34. І правило Cache Components: `dynamicParams` несумісний, `generateStaticParams` ≥ 1.
 3. **Тема 04:** `staleTimes` — **experimental**, рекомендована заміна — `cacheLife.stale`; додати `prefetchInlining`, segment config `prefetch`, `instant` (Instant navigation зараз у темі 12 — краще розділити: механіка prefetch тут, валідація `instant` у 12), `useLinkStatus`, `bfcacheId`, `transitionTypes`.
 4. **Тема 04:** «Activity і збереження стану» працює **лише з `cacheComponents: true`** — явно позначити залежність від теми 12/15.
-5. **Тема 05:** додати факт «з 16 `default.js` обов'язковий для кожного слота, інакше build fail».
+5. **Тема 05:** документація каже «`default.js` обов'язковий, інакше build fail», але на 16.3.8 build проходить — `[!warning]` у темі 05.
 6. **Тема 06:** явно — Proxy тільки Node.js runtime (edge не підтримується), `experimental.proxyClientMaxBodySize`, unit-тест утиліти `next/experimental/testing/server` (ідеальні для раннер-задач).
 7. **§1 `routing`:** додати `next/root-params`, `instant`, `useOffline` (experimental, можна як «огляд»).
