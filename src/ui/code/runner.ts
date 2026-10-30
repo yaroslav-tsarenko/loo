@@ -17,7 +17,8 @@ export interface RunHandle {
 }
 
 // Fresh worker per run: global state from the previous attempt can't leak, and terminate() kills infinite loops.
-export function runInWorker(code: string, tests: string, onEvent?: (event: RunEvent) => void, timeoutMs = RUN_TIMEOUT_MS): RunHandle {
+// `typescript`: the worker strips types (sucrase, bundled into the worker only) before running; types aren't checked.
+export function runInWorker(code: string, tests: string, onEvent?: (event: RunEvent) => void, timeoutMs = RUN_TIMEOUT_MS, typescript = false): RunHandle {
   const token = Math.random().toString(36).slice(2) + Date.now().toString(36)
   const tests_: TestResult[] = []
   const logs: LogEntry[] = []
@@ -52,6 +53,6 @@ export function runInWorker(code: string, tests: string, onEvent?: (event: RunEv
     stop(partial('error', e.message || 'Пісочниця впала'))
   }
   timer = window.setTimeout(() => stop(partial('timeout', TIMEOUT_MESSAGE)), timeoutMs)
-  worker.postMessage({ token, code, tests })
+  worker.postMessage(typescript ? { token, code, tests, typescript } : { token, code, tests })
   return { done, cancel: () => stop(partial('error', 'Скасовано')) }
 }
