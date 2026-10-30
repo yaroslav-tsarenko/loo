@@ -22,7 +22,8 @@ function Row({ label, hint, htmlFor, children }: { label: string; hint?: string;
 }
 
 // `admin`: shows the vault section (global, local-dev only). Optional for backwards compatibility.
-export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { initial: AppSettings; vaultPath: string; envVault: string; admin?: boolean }) {
+// `accent`: the English accent row (hidden for a learner whose language courses are all non-English).
+export function SettingsForm({ initial, vaultPath, envVault, admin = true, accent = true }: { initial: AppSettings; vaultPath: string; envVault: string; admin?: boolean; accent?: boolean }) {
   const router = useRouter()
   const feedback = useFeedback()
   const [values, setValues] = useState(initial)
@@ -113,6 +114,7 @@ export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { i
             <span>{values.emailReminders ? 'Увімкнено' : 'Вимкнено'}</span>
           </label>
         </Row>
+        {accent ? (
         <Row label="Акцент англійської" hint="Голос озвучки й транскрипція в мовних курсах (голоси — системні, безкоштовні)">
           <div className="segmented" role="radiogroup" aria-label="Акцент">
             {(
@@ -128,6 +130,7 @@ export function SettingsForm({ initial, vaultPath, envVault, admin = true }: { i
             ))}
           </div>
         </Row>
+        ) : null}
         <Row label="Гучність" htmlFor="volume">
           <div className="range-row">
             <input

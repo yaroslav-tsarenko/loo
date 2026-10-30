@@ -8,7 +8,7 @@ import {
   compileCourse,
   compileCourseDetailed,
   CourseBundleSchema,
-  ieltsBand,
+  examBand,
   parseCourseYaml,
   placementCandidates,
   placementResult,
@@ -132,7 +132,7 @@ describe('placement bank: algorithm', () => {
     expect(result.followUp).toBe(false)
     expect(answers.length).toBeLessThanOrEqual(20)
     for (const s of ['grammar', 'vocabulary', 'reading', 'listening'] as const) expect(result.skills![s]!.level).toBe('C2')
-    expect(result.ielts?.label).toBe('8.5–9.0')
+    expect(result.exam).toEqual({ exam: 'IELTS', label: '8.5–9.0' })
     // C2 lessons are planned: start with the highest level that has lessons
     expect(result).toMatchObject({ lessonsReady: false, startLevel: 'A1', sectionId: 'english-bank:a1' })
   })
@@ -213,7 +213,8 @@ describe('placement bank: algorithm', () => {
     expect(rank(s.grammar!.level)).toBe(Math.min(...Object.values(s).map((v) => rank(v!.level))))
     expect(result.strong).not.toContain('grammar')
     expect(result.strong!.some((k) => k === 'listening' || k === 'reading')).toBe(true)
-    expect(s.grammar!.ielts?.label).toBe(ieltsBand(s.grammar!.level)?.label)
+    expect(s.grammar!.exam).toEqual(examBand(bundle.course.exam, s.grammar!.level))
+    expect(s.grammar!.exam?.exam).toBe('IELTS')
     // an even learner has no strong or weak skills
     const even = take(b, knowsUpTo('B2')).result
     expect(even.strong).toEqual([])
@@ -284,14 +285,15 @@ describe('JavaScript course placement (no bank) is unchanged', () => {
   })
 })
 
-describe('IELTS band (approximate, CEFR → IELTS)', () => {
+describe('exam band of the fixture course (course.yaml `exam:` → IELTS)', () => {
   it('maps CEFR levels to the Cambridge / British Council ranges', () => {
-    expect(ieltsBand('A1')).toEqual({ min: null, max: null, label: 'нижче 4.0' })
-    expect(ieltsBand('A2')?.label).toBe('нижче 4.0')
-    expect(ieltsBand('B1')).toEqual({ min: 4, max: 5, label: '4.0–5.0' })
-    expect(ieltsBand('B2')).toEqual({ min: 5.5, max: 6.5, label: '5.5–6.5' })
-    expect(ieltsBand('C1')).toEqual({ min: 7, max: 8, label: '7.0–8.0' })
-    expect(ieltsBand('C2')).toEqual({ min: 8.5, max: 9, label: '8.5–9.0' })
-    expect(ieltsBand('middle')).toBeNull()
+    const exam = bundle.course.exam
+    expect(examBand(exam, 'A1')).toEqual({ exam: 'IELTS', label: 'нижче 4.0' })
+    expect(examBand(exam, 'A2')?.label).toBe('нижче 4.0')
+    expect(examBand(exam, 'B1')?.label).toBe('4.0–5.0')
+    expect(examBand(exam, 'B2')?.label).toBe('5.5–6.5')
+    expect(examBand(exam, 'C1')?.label).toBe('7.0–8.0')
+    expect(examBand(exam, 'C2')?.label).toBe('8.5–9.0')
+    expect(examBand(exam, 'middle')).toBeNull()
   })
 })

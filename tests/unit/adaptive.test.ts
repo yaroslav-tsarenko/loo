@@ -286,11 +286,13 @@ describe('skill update', () => {
   it('an A1 learner acing A1 tests ends up around A2', () => {
     let s = initialSkills({ level: 'A1' }, levels)
     for (let i = 0; i < 3; i++) s = updateSkills(s, obs(10, 10, 'A1'), levels, i)
-    const v = skillsView(s, levels)
+    const v = skillsView(s, levels, { id: 'ielts', name: 'IELTS', below: 'нижче 4.0', bands: { B1: '4.0–5.0' } })
     expect(v.skills.find((x) => x.skill === 'grammar')!.level).toBe('A2')
     // the overall level averages the four placement skills: one strong skill doesn't lift it alone
     expect(v.overall).toBe('A1')
-    expect(v.ielts?.label).toBe('нижче 4.0')
+    expect(v.exam).toEqual({ exam: 'IELTS', label: 'нижче 4.0' })
+    // a course without `exam:` shows no exam line
+    expect(skillsView(s, levels).exam).toBeNull()
   })
 
   it('a stored estimate is dropped when the level or the placement changes, tampered rows are ignored', () => {

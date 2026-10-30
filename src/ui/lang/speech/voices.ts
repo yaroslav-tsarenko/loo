@@ -1,19 +1,54 @@
 // Pure helpers of the speech layer (no DOM): which BCP 47 voice language to use and which system voice is best.
 // Unit-tested; the browser provider (./browser.ts) feeds them window.speechSynthesis.getVoices().
 
+// The accent setting is English-only (user settings `accent`); every other target has one voice language (de → de-DE).
 export type Accent = 'en-GB' | 'en-US'
+
+// Last resort when nothing names the spoken language (a block outside any language course): the course's `target`
+// (course.yaml) and a block's own `lang:` always win.
+export const DEFAULT_SPEECH_LANG = 'en'
 
 const REGION: Record<string, string> = { de: 'de-DE', fr: 'fr-FR', it: 'it-IT', es: 'es-ES', pl: 'pl-PL', pt: 'pt-PT', uk: 'uk-UA', ja: 'ja-JP', zh: 'zh-CN' }
 
-// target `en` + accent → en-GB / en-US; `de` → de-DE; a target with a region keeps it.
+// target `en` + accent → en-GB / en-US; `de` → de-DE (the accent is ignored); a target with a region keeps it.
 export function voiceLang(target: string | null | undefined, accent: Accent = 'en-GB'): string {
-  const lang = (target || 'en').trim()
+  const lang = (target || DEFAULT_SPEECH_LANG).trim()
   if (lang.includes('-')) return lang
   if (lang.toLowerCase() === 'en') return accent
   return REGION[lang.toLowerCase()] ?? lang
 }
 
 export const baseLang = (lang: string): string => lang.toLowerCase().replace('_', '-').split('-')[0]!
+
+// The UK / US switch and the accent setting only mean something for English.
+export const hasAccentChoice = (target: string | null | undefined): boolean => baseLang(target || DEFAULT_SPEECH_LANG) === 'en'
+
+// Settings «Акцент англійської»: hidden when the learner's language courses are all non-English (a German-only
+// learner); shown when one of them is English, or there are none (nothing to judge by — as before).
+export const showsAccentSetting = (targets: readonly string[]): boolean => targets.length === 0 || targets.some(hasAccentChoice)
+
+// «…говори англійською»: the target language in Ukrainian (instrumental case); null for a language not listed
+const NAME_UK: Record<string, string> = {
+  en: 'англійською',
+  de: 'німецькою',
+  fr: 'французькою',
+  es: 'іспанською',
+  it: 'італійською',
+  pl: 'польською',
+  pt: 'португальською',
+  uk: 'українською',
+  ja: 'японською',
+  zh: 'китайською',
+}
+export const languageNameUk = (target: string | null | undefined): string | null => NAME_UK[baseLang(target || DEFAULT_SPEECH_LANG)] ?? null
+
+// Which IPA an IpaChip shows: the US one only with the US accent (or when it's the only one); no US variant → no
+// region tag at all (German and other targets have one transcription).
+export function ipaShown(ipa: string | null, ipaUs: string | null | undefined, accent: Accent): { text: string | null; region: 'UK' | 'US' | null } {
+  const text = accent === 'en-US' && ipaUs ? ipaUs : ipa ?? ipaUs ?? null
+  const region = accent === 'en-US' && ipaUs ? 'US' : ipaUs ? 'UK' : null
+  return { text, region }
+}
 
 export interface VoiceLike {
   name: string

@@ -43,9 +43,10 @@ export interface SubmittedAnswer {
 
 // Server-side verdict for one answer. Quizzes are re-checked against the content (never the client's «correct»);
 // cards can only be self-rated, and only count when the compiler put them into the test's fallback pool.
-export function gradeAnswer(test: BuiltTest, unit: LearningUnit | null, answer: SubmittedAnswer | undefined, fallback: ReadonlySet<string>): boolean {
+// `lang` — the course's spoken language (bundle.course.target) for dictation items
+export function gradeAnswer(test: BuiltTest, unit: LearningUnit | null, answer: SubmittedAnswer | undefined, fallback: ReadonlySet<string>, lang?: string | null): boolean {
   if (!unit || !answer || answer.id !== unit.id || !test.questions.includes(unit.id)) return false
-  if (unit.kind === 'quiz') return gradeQuiz(unit, { chosen: answer.chosen, text: answer.text })
+  if (unit.kind === 'quiz') return gradeQuiz(unit, { chosen: answer.chosen, text: answer.text }, lang)
   if (unit.kind === 'flashcard') return fallback.has(unit.id) && answer.rating !== null && answer.rating !== 'again'
   return false
 }

@@ -6,12 +6,12 @@ import type { AudioLine } from '@/content/model'
 import { speechLines } from '@/server/actions/speech'
 import { PixelIcon } from '@/ui/design/PixelIcon'
 import { speechProvider } from './speech/browser'
-import { baseLang, voiceLang } from './speech/voices'
+import { hasAccentChoice, voiceLang } from './speech/voices'
 import { useSpeechSettings, useVoiceCount } from './SpeechSettings'
 
 // Play button for course audio (docs/SPEECH.md, v1 = the browser's own voices). Speaks `text` / `lines`, or — for
 // graded listening items — fetches the lines from the server only when pressed (`unitId`), so the transcript is never
-// part of the page. Normal and slow speed; an en-GB / en-US switch for English; a kind fallback when there's no voice.
+// part of the page. Normal and slow speed; an en-GB / en-US switch for English only (German → de-DE, no switch); a kind fallback when there's no voice.
 
 interface Props {
   // public text (a word, an example, a phrase to repeat)
@@ -115,7 +115,7 @@ export function AudioButton({ text, lines, unitId, lang, slow = false, size = 'm
           <PixelIcon name="tortoise" size={size === 'lg' ? 26 : 20} />
         </button>
       ) : null}
-      {accentSwitch && baseLang(lang) === 'en' ? (
+      {accentSwitch && hasAccentChoice(lang) ? (
         <span className="lang-accent" role="radiogroup" aria-label="Акцент">
           {(['en-GB', 'en-US'] as const).map((a) => (
             <button key={a} type="button" role="radio" aria-checked={accent === a} data-on={accent === a ? '' : undefined} onClick={(e) => {

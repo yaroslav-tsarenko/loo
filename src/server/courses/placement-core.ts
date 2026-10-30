@@ -26,7 +26,7 @@ export function replayPlacement(bundle: CourseBundle, answers: readonly RawPlace
     const unit = unitOf(answer.id)
     if (!unit || unit.kind !== 'quiz') return { ok: false, reason: 'not-a-quiz' }
     if (answer.dontKnow) graded.push({ exerciseId: answer.id, correct: false, dontKnow: true })
-    else graded.push({ exerciseId: answer.id, correct: gradeQuiz(unit, { chosen: answer.chosen, text: answer.text }) })
+    else graded.push({ exerciseId: answer.id, correct: gradeQuiz(unit, { chosen: answer.chosen, text: answer.text }, bundle.course.target) })
   }
   const step = placementTest(bundle, graded, seed, opts)
   return { ok: true, graded, step, result: step.done ? placementResult(bundle, graded) : null }

@@ -6,6 +6,12 @@
 // expanded (I'm → i am, don't → do not), numbers become words (2 → two, 21st → twenty first) and a few UK/US spellings
 // are unified (color → colour), so «I'm 2» and «I am two» are the same answer. Then the target and the answer are
 // aligned (word-level Levenshtein) into ok / sub / del / ins.
+//
+// The English rules (contractions, number words, UK/US spelling, homophones, sound hints) apply only when the spoken
+// language is English — `lang` absent counts as English, the default of every caller from before other languages.
+// German (`de`, `de-AT`…) is folded for recognition tolerance instead: case and punctuation ignored, ß = ss,
+// ä = ae, ö = oe, ü = ue (a recogniser or a keyboard without umlauts writes either). Other languages: case and
+// punctuation only.
 
 export type WordOp = 'ok' | 'sub' | 'del' | 'ins'
 
@@ -26,6 +32,19 @@ export interface WordComparison {
 }
 
 // ── Normalisation ─────────────────────────────────────────────────────────────────────────────────────────────
+
+// BCP 47 → its language: «de-DE» → «de»
+const langBase = (lang: string): string => lang.trim().toLowerCase().replace('_', '-').split('-')[0]!
+
+// the English-only rules apply: English, or no language given (the legacy default)
+export const isEnglishLang = (lang?: string | null): boolean => !lang || langBase(lang) === 'en'
+
+const GERMAN_FOLD: Record<string, string> = { ß: 'ss', ä: 'ae', ö: 'oe', ü: 'ue' }
+
+// «Straße» → «strasse», «Mädchen» → «maedchen» (after normalizeText: lower case already)
+export function foldGerman(token: string): string {
+  return token.replace(/[ßäöü]/g, (c) => GERMAN_FOLD[c]!)
+}
 
 export function normalizeText(s: string): string {
   return s
@@ -134,8 +153,19 @@ const SPELLING: Record<string, string> = {
 
 const NUMBER_WORDS = new Set([...ONES, ...TENS.filter(Boolean), 'hundred', 'thousand'])
 
-// «I'm 21!» → ['i', 'am', 'twenty', 'one']
-export function words(s: string): string[] {
+// Words of a language other than English: case, punctuation and apostrophes (geht's = gehts) ignored; German folded.
+function plainWords(s: string, lang: string): string[] {
+  const german = langBase(lang) === 'de'
+  return normalizeText(s)
+    .split(' ')
+    .map((t) => t.replace(/'/g, ''))
+    .filter(Boolean)
+    .map((t) => (german ? foldGerman(t) : t))
+}
+
+// «I'm 21!» → ['i', 'am', 'twenty', 'one']; `lang` — the spoken language (absent → English)
+export function words(s: string, lang?: string | null): string[] {
+  if (!isEnglishLang(lang)) return plainWords(s, lang!)
   const out: string[] = []
   for (const raw of normalizeText(s).split(' ')) {
     if (!raw) continue
@@ -233,8 +263,11 @@ export const sameSound = (a: string, b: string): boolean => a === b || (SOUND.ha
 export const typoTolerant = (a: string, b: string): boolean => a === b || (a.length >= 6 && b.length >= 6 && levenshtein(a, b) <= 1)
 
 export interface CompareOptions {
+  // English homophones (to / too / two); ignored for other languages
   homophones?: boolean
   typos?: boolean
+  // the spoken language (BCP 47); absent → English
+  lang?: string | null
 }
 
 export function compareWords(target: string, heard: string, opts: CompareOptions = {}): WordComparison {
@@ -242,13 +275,14 @@ export function compareWords(target: string, heard: string, opts: CompareOptions
   const owner: number[] = []
   const targetTokens: string[] = []
   display.forEach((w, i) => {
-    for (const t of words(w)) {
+    for (const t of words(w, opts.lang)) {
       targetTokens.push(t)
       owner.push(i)
     }
   })
-  const heardTokens = words(heard)
-  const same = (a: string, b: string) => a === b || (opts.homophones === true && sameSound(a, b)) || (opts.typos === true && typoTolerant(a, b))
+  const heardTokens = words(heard, opts.lang)
+  const english = isEnglishLang(opts.lang)
+  const same = (a: string, b: string) => a === b || (opts.homophones === true && english && sameSound(a, b)) || (opts.typos === true && typoTolerant(a, b))
   const ops = alignWords(targetTokens, heardTokens, same)
   const okToken = new Array<boolean>(targetTokens.length).fill(false)
   const heardFor = new Map<number, string>()
@@ -271,10 +305,10 @@ export function compareWords(target: string, heard: string, opts: CompareOptions
 
 // ── Dictation ([!listen] type: dictation) ───────────────────────────────────────────────────────────────────────
 
-export function dictationMatches(answer: string, expected: string, accept: readonly string[] = []): boolean {
-  if (words(answer).length === 0) return false
+export function dictationMatches(answer: string, expected: string, accept: readonly string[] = [], lang?: string | null): boolean {
+  if (words(answer, lang).length === 0) return false
   return [expected, ...accept].some((want) => {
-    const c = compareWords(want, answer, { typos: true })
+    const c = compareWords(want, answer, { typos: true, lang })
     return c.extra.length === 0 && c.words.every((w) => w.ok)
   })
 }
@@ -290,12 +324,12 @@ export interface SpeechVerdict extends WordComparison {
   transcript: string
 }
 
-export function judgeSpeech(target: string, transcripts: readonly string[]): SpeechVerdict {
+export function judgeSpeech(target: string, transcripts: readonly string[], lang?: string | null): SpeechVerdict {
   let best: SpeechVerdict | null = null
   for (const transcript of transcripts.length > 0 ? transcripts : ['']) {
-    const c = compareWords(target, transcript, { homophones: true })
-    const tokens = words(target).length
-    const passed = words(transcript).length > 0 && c.score >= SPEAK_PASS && c.extra.length <= Math.max(2, Math.ceil(tokens / 2))
+    const c = compareWords(target, transcript, { homophones: true, lang })
+    const tokens = words(target, lang).length
+    const passed = words(transcript, lang).length > 0 && c.score >= SPEAK_PASS && c.extra.length <= Math.max(2, Math.ceil(tokens / 2))
     const verdict: SpeechVerdict = { ...c, passed, transcript }
     if (!best || Number(verdict.passed) > Number(best.passed) || (verdict.passed === best.passed && (verdict.score > best.score || (verdict.score === best.score && verdict.extra.length < best.extra.length)))) best = verdict
   }
@@ -322,19 +356,21 @@ const SOUND_RULES: Array<{ test: RegExp; hint: string }> = [
 const ipaWords = (ipa: string | null): string[] => (ipa ? ipa.replace(/^\/|\/$/g, '').trim().split(/\s+/) : [])
 
 // Up to `max` hints for the words the recogniser missed: the word's IPA (from the phrase IPA, when it splits into the
-// same number of words), the author's tip and the sound rules.
-export function speechHints(verdict: WordComparison, source: HintSource, accent: 'uk' | 'us' = 'uk', max = 3): string[] {
+// same number of words), the author's tip and the sound rules (English only: they are about English sounds).
+// `accent` picks the US IPA (English only); `lang` — the spoken language, absent → English.
+export function speechHints(verdict: WordComparison, source: HintSource, accent: 'uk' | 'us' = 'uk', max = 3, lang?: string | null): string[] {
   const missed = verdict.words.map((w, i) => ({ w, i })).filter((x) => !x.w.ok)
   if (missed.length === 0) return []
   const out: string[] = []
   if (source.tip) out.push(source.tip)
-  const ipa = ipaWords(accent === 'us' ? source.ipaUs ?? source.ipa : source.ipa)
+  const english = isEnglishLang(lang)
+  const ipa = ipaWords(accent === 'us' && english ? source.ipaUs ?? source.ipa : source.ipa)
   const display = source.text.split(/\s+/).filter(Boolean)
   for (const { w, i } of missed) {
     const plain = normalizeText(w.text)
     if (ipa.length === display.length && ipa[i]) out.push(`«${plain}» — /${ipa[i]}/${w.heard ? ` (почуто «${w.heard}»)` : ''}`)
     else if (w.heard) out.push(`«${plain}»: почуто «${w.heard}»`)
-    const rule = SOUND_RULES.find((r) => r.test.test(plain))
+    const rule = english ? SOUND_RULES.find((r) => r.test.test(plain)) : undefined
     if (rule) out.push(rule.hint)
   }
   return [...new Set(out)].slice(0, max)

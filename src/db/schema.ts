@@ -345,7 +345,7 @@ export interface EnrollmentPlacement {
   // true when the learner chose «start from zero» instead of taking the test
   skipped?: boolean
   // bank mode (language courses): result confidence, the level per skill (grammar / vocabulary / reading /
-  // listening → CEFR) and the approximate IELTS band — kept for adaptive practice later (jsonb, no migration)
+  // listening → CEFR) and the approximate band of the course's exam (key `ielts` kept from the IELTS-only days; course.yaml `exam:`) — kept for adaptive practice later (jsonb, no migration)
   confidence?: 'high' | 'medium' | 'low'
   skills?: Partial<Record<'grammar' | 'vocabulary' | 'reading' | 'listening', { level: string; asked: number; correct: number; measured: boolean; ielts: string | null }>>
   ielts?: string | null

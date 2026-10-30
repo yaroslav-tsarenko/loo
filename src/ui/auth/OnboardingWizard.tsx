@@ -24,6 +24,8 @@ export interface WizardCourse {
   icon: string
   subject: string
   target: string | null
+  /** the course's exam (course.yaml `exam.name`: IELTS, Goethe-Zertifikat…), null without one */
+  exam: string | null
   /** «A1 → C2», «Noob → God» */
   range: string
 }
@@ -269,6 +271,10 @@ export function OnboardingWizard({ courses, next, defaultMinutes }: { courses: W
   const done = stepDone(s.step, s, ctx)
   const course = courseById(ctx, s.course)
   const purposes = purposesFor(course?.subject)
+  // «Іспит (IELTS)» names the course's own exam; a course without one says just «Іспит»
+  const exam = course?.exam ?? null
+  const purposeTitle = (p: Purpose): string => (p !== 'exam' ? m.purposes[p] : exam ? m.purposes.exam.replace('{exam}', exam) : m.examAny.purpose)
+  const purposeReact = (p: Purpose): string => (p !== 'exam' ? m.react.purposes[p] : exam ? m.react.purposes.exam.replace('{exam}', exam) : m.examAny.react)
 
   const save = (patch: Partial<WizardState>) => writeRaw(JSON.stringify({ ...restore(readRaw(), ctx), ...patch }))
   const react = (mood: LooMood, text: string) => setReaction({ mood, text })
@@ -423,10 +429,10 @@ export function OnboardingWizard({ courses, next, defaultMinutes }: { courses: W
               checked={s.purpose === p}
               onPick={() => {
                 save({ purpose: p })
-                react('happy', m.react.purposes[p])
+                react('happy', purposeReact(p))
               }}
               icon={<Icon name={PURPOSE_ICON[p]} size={30} />}
-              title={m.purposes[p]}
+              title={purposeTitle(p)}
             />
           ))}
         </div>
@@ -516,7 +522,7 @@ export function OnboardingWizard({ courses, next, defaultMinutes }: { courses: W
             </div>
           ) : null}
           <dl className="obw-plan-list">
-            {s.purpose ? <PlanRow icon={PURPOSE_ICON[s.purpose]} label={m.plan.goal} value={m.purposes[s.purpose]} step="purpose" onEdit={revisit} /> : null}
+            {s.purpose ? <PlanRow icon={PURPOSE_ICON[s.purpose]} label={m.plan.goal} value={purposeTitle(s.purpose)} step="purpose" onEdit={revisit} /> : null}
             <PlanRow icon="px:clock" label={m.plan.daily} value={`${t('onboarding.minutes.option', { n: s.minutes })} · ${m.minutes.labels[s.minutes as (typeof MINUTES)[number]]}`} step="minutes" onEdit={revisit} />
             {course ? <PlanRow icon={START_ICON[s.start]} label={m.plan.start} value={s.start === 'placement' ? m.start.placement : m.start.zero} step="start" onEdit={revisit} /> : null}
             {s.role ? <PlanRow icon={ROLE_ICON[s.role]} label={m.plan.role} value={m.roles[s.role]} step="role" onEdit={revisit} /> : null}

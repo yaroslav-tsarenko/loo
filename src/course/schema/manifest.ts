@@ -1,6 +1,7 @@
 import { parse as parseYaml } from 'yaml'
 import { z } from 'zod'
 import { LADDERS, LevelSchema, courseLadder, ladderOf } from './level'
+import { CourseExamSchema } from './exam'
 import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
 
 // course.yaml — see docs/COURSE_FORMAT.md §2
@@ -87,6 +88,8 @@ export const CourseManifestSchema = z
     language: z.string().regex(BCP47, 'language: BCP 47, напр. uk').default('uk'),
     // language courses: the language being learned (BCP 47) — speech synthesis / recognition use it (docs/SPEECH.md)
     target: z.string().regex(BCP47, 'target: BCP 47, напр. en').optional(),
+    // language courses: the external exam the CEFR levels map onto (IELTS, Goethe-Zertifikat…) — schema/exam.ts
+    exam: CourseExamSchema.optional(),
     icon: z.string().min(1).optional(),
     color: z.string().regex(HEX, "color: '#RRGGBB'").optional(),
     cover: z.string().optional(),
@@ -121,6 +124,7 @@ export const CourseManifestSchema = z
     m.sections.forEach((s, i) => {
       if (s.level && ladderOf(s.level) !== ladder) ctx.addIssue({ code: 'custom', path: ['sections', i, 'level'], message: `Рівень розділу «${s.level}» не з шкали курсу ${ladderName}` })
     })
+    if (m.exam && ladder !== 'cefr') ctx.addIssue({ code: 'custom', path: ['exam'], message: 'exam: лише для мовних курсів (шкала A1…C2)' })
   })
   .transform((m) => {
     const kind = m.kind ?? (m.subject === 'language' ? 'language' : null)

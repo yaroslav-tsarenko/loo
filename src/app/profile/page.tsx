@@ -30,7 +30,7 @@ import { PixelIcon, type PixelIconName } from '@/ui/design/PixelIcon'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { LooCharacter } from '@/ui/game/LooCharacter'
 import { Icon } from '@/ui/icons/Icon'
-import { SkillLevels } from '@/ui/courses/SkillLevels'
+import { SkillLevels, skillsNote } from '@/ui/courses/SkillLevels'
 import { Heatmap } from '@/ui/profile/Heatmap'
 import { topicAnchor } from '@/ui/routes'
 import { BarList, ChartCard, DayColumns, SpeedLine } from '@/ui/stats/Charts'
@@ -451,8 +451,8 @@ export default async function ProfilePage() {
           <SkillLevels
             rows={skills.view.skills.map((v) => ({ skill: v.skill, level: v.level }))}
             overall={skills.view.overall}
-            ielts={skills.view.ielts?.label ?? null}
-            note={skills.view.answers > 0 ? t('skills.note') : t('skills.start')}
+            exam={skills.view.exam}
+            note={skills.view.answers > 0 ? skillsNote(skills.view.exam) : t('skills.start')}
           />
         ) : null}
         <ul className="st-pref-courses">

@@ -12,6 +12,7 @@ import {
   updateSkills,
   type BuiltTest,
   type CourseBundle,
+  type ExamBand,
   type LearnerLevels,
   type LearnerSkill,
   type Level,
@@ -61,7 +62,7 @@ export function learnerSkillsFor(bundle: CourseBundle, enrollment: { level: Leve
   if (!isLanguageCourse(bundle)) return null
   const levels = courseLevels(bundle.course)
   const state = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels)
-  const view = skillsView(state, levels)
+  const view = skillsView(state, levels, bundle.course.exam)
   return { state, view, learner: { overall: view.overallTheta, skills: skillThetas(state) }, levels }
 }
 
@@ -111,7 +112,7 @@ export interface SkillChange {
 export interface TestSkills {
   changes: SkillChange[]
   overall: Level
-  ielts: string | null
+  exam: ExamBand | null
   suggestion: LevelSuggestion | null
 }
 
@@ -160,8 +161,8 @@ export async function recordTestSkills(
     .values({ userId, key: skillsKey(courseId), value: after })
     .onConflictDoUpdate({ target: [userSettings.userId, userSettings.key], set: { value: after } })
   if (test.kind === 'section-exam' && input.passed) passedExams.add(test.id)
-  const b = skillsView(before, levels)
-  const a = skillsView(after, levels)
+  const b = skillsView(before, levels, bundle.course.exam)
+  const a = skillsView(after, levels, bundle.course.exam)
   const tested = new Set(observations.map((o) => o.skill))
   const changes = a.skills
     .filter((s) => tested.has(s.skill))
@@ -171,5 +172,5 @@ export async function recordTestSkills(
       return { skill: s.skill, before: was.level, after: s.level, trend: delta > 0 ? 'up' : delta < 0 ? 'down' : null }
     })
   const suggestion = levelSuggestion({ bundle, sectionId: test.section.id, testKind: test.kind, score: input.score, passed: input.passed, observations, state: after, passedExams })
-  return { changes, overall: a.overall, ielts: a.ielts?.label ?? null, suggestion }
+  return { changes, overall: a.overall, exam: a.exam, suggestion }
 }

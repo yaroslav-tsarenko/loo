@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { CourseExamSchema } from './exam'
 import { LevelSchema } from './level'
 import { AuthorSchema, SectionKindSchema } from './manifest'
 import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
@@ -222,6 +223,8 @@ export const CourseMetaSchema = z.object({
   authors: z.array(AuthorSchema),
   license: z.string().nullable(),
   estimatedHours: z.number(),
+  // language courses: CEFR → external exam (course.yaml `exam:`); absent → no exam line
+  exam: CourseExamSchema.optional(),
 })
 export type CourseMeta = z.infer<typeof CourseMetaSchema>
 

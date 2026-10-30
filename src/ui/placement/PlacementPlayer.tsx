@@ -38,7 +38,7 @@ interface Props {
   next: string
   zero: ReactNode
   zeroHint?: string
-  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, IELTS (docs/LANGUAGE_COURSE.md)
+  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, exam band (docs/LANGUAGE_COURSE.md)
   bank?: { followUp: number; ladder: string[] }
 }
 
@@ -454,7 +454,7 @@ interface BankResultProps {
 
 const listOf = (skills: readonly Skill[]) => skills.map((s) => t(`placement.skill.${s}`).toLowerCase()).join(', ')
 
-// Result of the calibrated test: level + IELTS (approximate), confidence (+ follow-up), skills, where to start, mistakes.
+// Result of the calibrated test: level + the course's exam band (approximate; course.yaml `exam:`), confidence (+ follow-up), skills, where to start, mistakes.
 function BankResult({ result, review, items, sections, levels, course, busy, error, followUpCount, onApply, onFollowUp }: BankResultProps) {
   const level = levels[result.level] ?? result.level
   const confidence = result.confidence ?? 'low'
@@ -468,12 +468,12 @@ function BankResult({ result, review, items, sections, levels, course, busy, err
         <Confetti trigger={1} count={120} />
       </div>
       <h1 className="lesson-summary-title">{t('placement.resultTitle', { level })}</h1>
-      {result.ielts ? (
+      {result.exam ? (
         <div className="placement-ielts">
           <Pill tone="blue" icon={<PiTargetBold />}>
-            {t('placement.ielts', { band: result.ielts })}
+            {t('placement.exam', { exam: result.exam.exam, band: result.exam.label })}
           </Pill>
-          <p className="choice-hint">{t('placement.ieltsNote')}</p>
+          <p className="choice-hint">{result.examNote ?? t('placement.examNote', { exam: result.exam.exam })}</p>
         </div>
       ) : null}
 
@@ -508,7 +508,7 @@ function BankResult({ result, review, items, sections, levels, course, busy, err
                   </Pill>
                   <span className="placement-skill-meta">
                     {v.measured ? `${v.correct}/${v.asked}` : t('placement.skillFew')}
-                    {v.ielts ? ` · IELTS ~${v.ielts}` : ''}
+                    {v.exam ? ` · ${t('skills.exam', { exam: v.exam.exam, band: v.exam.label })}` : ''}
                   </span>
                 </li>
               )

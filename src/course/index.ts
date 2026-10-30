@@ -11,7 +11,7 @@ export { selectForLevel, selectLesson, type LessonView, type LevelView, type Sel
 export { buildTopicTest, buildSectionExam, scoreTest, testKindOf, testPassed, testOutEligible, type BuiltTest, type ScoredTest, type TestAnswerVerdict, type TestOutCheck, type TestOutProgress } from './select/tests'
 export { buildCoursePath, type CoursePathView, type PathCursor, type PathExamNode, type PathLessonNode, type PathNode, type PathProgress, type PathSectionView, type PathState, type PathTestNode, type PathTopicView, type ResultRecord } from './select/path'
 export { placementCandidates, placementQueue, placementTest, placementResult, sectionForLevel, startSection, type LevelTally, type PlacementAnswer, type PlacementConfidence, type PlacementOptions, type PlacementResult, type PlacementStep, type SkillEstimate } from './select/placement'
-export { ieltsBand, type IeltsBand } from './select/ielts'
+export { examBand, type ExamBand } from './select/exam'
 export { lookup, type CourseLookup } from './select/lookup'
 export { checkCourse, validateCourse, MINIMUMS, type CourseCheck, type ValidateOptions } from './validate/validate'
 export { deriveDifficulty, difficultyOf, difficultyScore, diffNumber, exerciseSkill, topicKindOf, FORMAT_EFFORT, type Difficulty, type DifficultyInput } from './compile/difficulty'

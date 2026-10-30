@@ -16,6 +16,7 @@ import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
 import { limitUser } from '../courses/limits'
+import { speechLangFor } from '../courses/target'
 import { resolveTestById, storeTestAnswer } from '../courses/tests'
 import { read, readAll } from '../db/batch'
 import { loadState, spendHeartFrom, touchLeague, type GameState } from '../game'
@@ -84,7 +85,8 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
     return speakOutcome(snapshot, unit, input.chosen, input.durationMs, input.sessionId)
   }
   const test = input.test ? await resolveTestById(input.test.testId) : null
-  const correct = gradeQuiz(unit, { chosen: input.chosen, text: input.text })
+  // dictation compares words of the course's spoken language (German: ß = ss, ä = ae …)
+  const correct = gradeQuiz(unit, { chosen: input.chosen, text: input.text }, unit.mode === 'listen' ? await speechLangFor(unit) : null)
   const now = Date.now()
 
   // One transaction, few round trips: the session / hearts checks and every read the recording needs go out together
@@ -159,7 +161,8 @@ async function speakOutcome(snapshot: ContentSnapshot, unit: QuizUnit, chosen: r
     .slice(0, MAX_ALTERNATIVES)
     .map((t) => t.slice(0, MAX_TRANSCRIPT).replace(/\s+/g, ' ').trim())
     .filter(Boolean)
-  const verdict = judgeSpeech(spec.text, transcripts)
+  const lang = await speechLangFor(unit)
+  const verdict = judgeSpeech(spec.text, transcripts, lang)
   const settings = await readSettings()
   const now = Date.now()
   const effects = verdict.passed ? await recordAttempt(snapshot, unit, { unitId: unit.id, outcome: 'correct', durationMs, sessionId }, now, settings) : []
@@ -169,7 +172,7 @@ async function speakOutcome(snapshot: ContentSnapshot, unit: QuizUnit, chosen: r
   }
   const chapter = snapshot.chapters.get(unit.chapterId)
   const explanation = unit.explanation && chapter && !verdict.passed ? await renderMdast(unit.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
-  const hints = verdict.passed ? [] : speechHints(verdict, { ...spec, tip: null }, settings.accent === 'en-US' ? 'us' : 'uk')
+  const hints = verdict.passed ? [] : speechHints(verdict, { ...spec, tip: null }, settings.accent === 'en-US' ? 'us' : 'uk', 3, lang)
   return {
     correct: verdict.passed,
     key: null,

@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { defaultVaultConfig } from '@/content/config'
+import { courseKind } from '@/course'
 import { isAdmin } from '@/server/auth'
 import { grantTestBucks } from '@/server/actions/admin'
 import { Button } from '@/ui/design/Button'
 import { getContent } from '@/server/content'
+import { myEnrollments } from '@/server/courses/enrollment'
+import { listCourses } from '@/server/courses/registry'
 import { readSettings } from '@/server/settings'
+import { showsAccentSetting } from '@/ui/lang/speech/voices'
 import { SettingsForm } from '@/ui/settings/SettingsForm'
 
 export const metadata: Metadata = { title: 'Налаштування' }
@@ -25,7 +29,10 @@ const CODE_LABEL: Record<string, string> = {
 
 export default async function SettingsPage() {
   const snapshot = await getContent()
-  const [settings, admin] = await Promise.all([readSettings(), isAdmin()])
+  const [settings, admin, enrolled, courses] = await Promise.all([readSettings(), isAdmin(), myEnrollments(), listCourses()])
+  // «Акцент англійської» only matters for English: hidden when every enrolled language course has another target
+  const mine = new Set(enrolled.map((e) => e.courseId))
+  const targets = courses.filter((c) => mine.has(c.id) && courseKind(c.meta) === 'language').map((c) => c.meta.target ?? c.meta.language)
   const groups = new Map<string, typeof snapshot.issues>()
   for (const issue of snapshot.issues) {
     const list = groups.get(issue.code) ?? []
@@ -40,7 +47,7 @@ export default async function SettingsPage() {
           Налаштування твого акаунта: тема, звук, щоденна ціль. Прогрес зберігається в хмарі й доступний на будь-якому пристрої.
         </p>
       </header>
-      <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} admin={admin} />
+      <SettingsForm initial={settings} vaultPath={snapshot.config.vaultPath} envVault={defaultVaultConfig().vaultPath} admin={admin} accent={showsAccentSetting(targets)} />
       {admin ? (
         <section aria-labelledby="s-admin-bucks">
           <h2 id="s-admin-bucks" className="section-title rule-title">

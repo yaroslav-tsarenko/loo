@@ -12,6 +12,7 @@ import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { DictationInput } from '@/ui/lang/DictationInput'
 import { SpeakExercise, type SpeakVerdict, type SpeakView } from '@/ui/lang/SpeakExercise'
+import { DEFAULT_SPEECH_LANG } from '@/ui/lang/speech/voices'
 import { ActionBar, submitLabel } from './ActionBar'
 import { LevelPill } from './LevelPill'
 import { FillBlanks } from './exercises/FillBlanks'
@@ -136,7 +137,7 @@ export function QuizInline(props: Props) {
     const answer: QuizAnswerInput = { unitId, chosen: picked, text, durationMs: Date.now() - started.current }
     if (answerKey) {
       // Practice: instant verdict from the shipped key; the server re-grades the same answer and grants XP.
-      finish({ correct: gradeWithKey({ mode, multi, free }, answerKey, { chosen: picked, text }), key: answerKey, explanation: props.explanation ?? null }, answer)
+      finish({ correct: gradeWithKey({ mode, multi, free }, answerKey, { chosen: picked, text }, props.lang), key: answerKey, explanation: props.explanation ?? null }, answer)
       void serverCheck(answer).catch(() => {})
       return
     }
@@ -226,7 +227,7 @@ export function QuizInline(props: Props) {
       </div>
       {body ? <div className="quiz-body prose-flow">{body}</div> : null}
       {mode === 'speak' && props.speak ? (
-        <SpeakExercise lang={props.lang ?? 'en'} spec={props.speak} check={speakCheck} onDone={speakDone} actionsSlot={actionsSlot} locked={phase === 'done'} />
+        <SpeakExercise lang={props.lang ?? DEFAULT_SPEECH_LANG} spec={props.speak} check={speakCheck} onDone={speakDone} actionsSlot={actionsSlot} locked={phase === 'done'} />
       ) : interactive ? (
         exercise?.kind === 'order' ? (
           <OrderPuzzle exercise={exercise} checked={checked} want={key?.order ?? null} variant={variant} onSubmit={(codes) => void submit(codes, null)} actionsSlot={actionsSlot} />
@@ -243,7 +244,7 @@ export function QuizInline(props: Props) {
             if (typed.trim()) void submit([], typed)
           }}
         >
-          <DictationInput id={`${headingId}-answer`} value={typed} onChange={setTyped} disabled={checked} state={phase === 'done' && correct !== null ? (correct ? 'right' : 'wrong') : undefined} expected={key?.free ?? null} onSubmit={() => void submit([], typed)} lang={props.lang ?? 'en'} />
+          <DictationInput id={`${headingId}-answer`} value={typed} onChange={setTyped} disabled={checked} state={phase === 'done' && correct !== null ? (correct ? 'right' : 'wrong') : undefined} expected={key?.free ?? null} onSubmit={() => void submit([], typed)} lang={props.lang ?? DEFAULT_SPEECH_LANG} />
           {phase !== 'done' ? (
             <ActionBar slot={actionsSlot}>
               <Button type={actionsSlot ? 'button' : 'submit'} block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'} onClick={actionsSlot ? () => void submit([], typed) : undefined}>
