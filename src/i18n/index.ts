@@ -19,7 +19,7 @@ export function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
 }
 
-// profiles.locale (nullable) → the UI locale; unknown or unset → uk.
+// profiles.locale (NOT NULL, default uk) → the UI locale; an unsupported or missing value → uk.
 export function resolveLocale(value: string | null | undefined): Locale {
   return isLocale(value) ? value : DEFAULT_LOCALE
 }
