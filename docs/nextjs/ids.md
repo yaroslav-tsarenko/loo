@@ -50,6 +50,18 @@
 
 Тема 07 отримала `slug: 07-server-and-client-components`.
 
+### Етап 3, хвиля A — `data` (видано; файл → id → slug)
+
+| id | Файл | slug |
+|---|---|---|
+| `nextjs-core-14` | `Next.js/Next.js - 14. Дані на сервері.md` | `14-server-data-fetching` |
+| `nextjs-core-15` | `Next.js/Next.js - 15. Cache Components і use cache.md` | `15-use-cache` |
+| `nextjs-core-16` | `Next.js/Next.js - 16. Ревалідація.md` | `16-revalidation` |
+| `nextjs-core-17` | `Next.js/Next.js - 17. ISR і CDN.md` | `17-isr-cdn` |
+| `nextjs-core-18` | `Next.js/Next.js - 18. Приватний і віддалений кеш, cacheHandlers.md` | `18-private-remote-cache` |
+| `nextjs-core-19` | `Next.js/Next.js - 19. Route Handlers і Backend-for-Frontend.md` | `19-route-handlers` |
+| `nextjs-core-20` | `Next.js/Next.js - 20. Бази даних і клієнтський fetching.md` | `20-databases-client-fetching` |
+
 
 ## Аліаси (старий → новий)
 

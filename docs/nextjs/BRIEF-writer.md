@@ -1,8 +1,21 @@
-# Brief: chapter writer + exercise author (stage 2+)
+# Brief: chapter writer (stage 2+, model `opus`)
 
 Shared brief for every writer agent of the course "Next.js Zero → Pro". Your own prompt names **the exact file(s) you
-own**; everything else here applies to all writers. Repo root: `/Users/mac/dev/projects/interviewer` (branch
-`feature/nextjs-course`). Never commit, never touch files you don't own, never edit shared docs (propose changes in
+own**; everything else here applies to all writers. Repo root: `/Users/yaroslav/Projects/loo-nextjs` (git worktree,
+branch `feature/nextjs-course`). Content source of truth is `content/` — always `VAULT_PATH=content`, never run
+`content:sync`.
+
+**Since stage 3 the writer owns the prose, an exercise author (`sonnet`, `BRIEF-exercises.md`) adds the exercises after
+you.** You write: frontmatter, 🎯, 🧒, 🔬 (all subsections incl. 🏭), every `[!diagram]`, ⚠️ pitfalls, 🎤 `[!interview]`
+(≥ 4, with ids), 🔗, 📚 Джерела, Підсумок. You do **not** write quizzes, cards, reels or tasks. Instead leave markers
+the exercise author will replace (one line each, exactly this syntax):
+- `<!-- EX:pretest — <what the learner should predict, the misconception to expose> -->` under `## 🤔 Передбач`;
+- `<!-- EX:quiz mode=<output|single|multi|fill|order> — <the exact point to check, the typical mistake> -->` inside 🔬,
+  after the subsection it checks (≥ 8 across the topic: ≥ 2 output, ≥ 1 order, ≥ 1 fill);
+- `<!-- EX:reels -->` under `## ⚡ Фішки`, `<!-- EX:cards -->` under `## 🧠 Закріплення`;
+- `<!-- EX:task lang=<ts|js> — <function to implement, behaviour to test> -->` under `## 🛠️ Практика` (≥ 3, at least
+  one `ts`; must be testable by the runner — pure logic, no network/import/JSX, see SYLLABUS §5.2).
+Your «🧪 перевірені факти» list in the report (below) is what the exercise author builds `output` quizzes on. Never commit, never touch files you don't own, never edit shared docs (propose changes in
 your report).
 
 ## Read first
@@ -21,9 +34,9 @@ your report).
    `content/Guides/React/`.
 
 ## Volume and mix
-- Main guide topic: 5–6.5k words of prose (code excluded); ≥ 9 quizzes (≥ 2 `output`, ≥ 1 `order`, ≥ 1 `fill`; the
-  first is the 🤔 pre-test), ≥ 12 cards (Junior/Middle/Senior headings), ≥ 4 `[!interview]`, ≥ 5 `[!reel]`,
-  ≥ 3 `[!task]` with tests (at least one in `ts`), ≥ 2 `[!diagram]`.
+- Main guide topic: 4.5–5.5k words of **your** prose (code excluded; exercises add ≈ 1–1.5k later), ≥ 4
+  `[!interview]`, ≥ 2 `[!diagram]`, the EX markers above. Final mix after the exercise author: ≥ 9 quizzes (≥ 2
+  `output`, ≥ 1 `order`, ≥ 1 `fill`; the first is the 🤔 pre-test), ≥ 12 cards, ≥ 5 reels, ≥ 3 tasks.
 - `Next.js Start` topic (beginners, level `noob`): 2.5–4k words; ≥ 8 quizzes (≥ 1 `output`, ≥ 1 `order` or `fill`),
   ≥ 8 cards, ≥ 3 reels, ≥ 2 tasks with tests, ≥ 1 diagram; `[!interview]` optional. Explain every term on first use;
   assume no prior React/Next knowledge except the earlier Start topics.
@@ -31,9 +44,8 @@ your report).
   id. Each card and interview ends with a `📚` line; topic ends with «📚 Джерела та що почитати» and «Підсумок».
 
 ## Verification (mandatory)
-- Every TS/TSX example is built in your own scratch app: `cp -R /tmp/nextjs-scratch-07 /tmp/nextjs-scratch-<your id>`
-  (Next.js 16.3.8, react 19.3.0, `cacheComponents: true` — already installed; if it's missing, create it per
-  STYLE §4), drop your examples in, `npm run build` (and `npm start` / `next dev` + the browser pane or `curl` when the
+- Every TS/TSX example is built in your own scratch app: `cp -cR /tmp/nextjs-scratch-base /tmp/nextjs-scratch-<your id>`
+  (Next.js 16.3.8, react 19.3.0, `cacheComponents: true`), drop your examples in, `npm run build` (and `npm start` / `next dev` + the browser pane or `curl` when the
   claim is about runtime behaviour). Examples that teach an error: confirm the real error text. If the behaviour
   differs from the docs, write what 16.3.8 does and add a `> [!warning]` with the doc link (STYLE §4).
 - `VAULT_PATH=content npx pnpm@10 content:check "<your guide>"` — no errors **in your file** (other writers are
@@ -57,6 +69,8 @@ your report).
   solution through `scripts/lib/task-check.ts` `selfTest` yourself.
 
 ## Report (short, structured; no pasted content)
-File(s); prose word count (excluding code); exercise counts by type and quiz mode; examples verified (how) and any not
+File(s); prose word count (excluding code); number of EX markers by kind; **🧪 verified facts** — 8–15 one-line
+observations from your scratch app that make good "predict the result" questions (route symbol in the build table,
+status code, headers, what re-renders, what is cached, error text); examples verified (how) and any not
 verified; behaviours that differ from the docs; check results for your file; open questions; proposed edits to
 STYLE / glossary / syllabus.

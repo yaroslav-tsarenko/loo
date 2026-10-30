@@ -1,7 +1,7 @@
-# Brief: reviewer / fact-checker (stage 2+)
+# Brief: reviewer / fact-checker (stage 2+, model `opus`)
 
 You review topics you did **not** write. You **do not edit** topic files — you return a list of issues; the author
-fixes them. Repo root `/Users/mac/dev/projects/interviewer` (branch `feature/nextjs-course`). Never commit. Keep scratch
+fixes them. Repo root `/Users/yaroslav/Projects/loo-nextjs` (worktree, branch `feature/nextjs-course`; `VAULT_PATH=content`). Never commit. Keep scratch
 files outside the repo; prefix scratchpad files with `review-<topic id>-`. Other agents run in parallel: use an
 isolated headless browser (repo `playwright-core`, `channel: 'chrome'`) or `curl` for runtime checks, your own ports,
 stop only your own processes.
@@ -16,7 +16,7 @@ model topic: `content/Guides/Next.js/Next.js - 07. Server і Client Components.m
 ## Check, per topic
 1. **Accuracy.** Every claim vs the bundled docs. Wrong / outdated / overstated / unverifiable statements with line
    numbers and the contradicting doc path. **Independently reproduce the topic's 2–3 most surprising claims** (anything
-   flagged as differing from the docs, any `[!warning]`) in your own scratch app (`cp -R /tmp/nextjs-scratch-07
+   flagged as differing from the docs, any `[!warning]`) in your own scratch app (`cp -cR /tmp/nextjs-scratch-base
    /tmp/nextjs-review-<topic id>`; Next 16.3.8, react 19.3.0, `cacheComponents: true`) and report what you observe.
 2. **Consistency across topics.** Contradictions with other written topics and with `stage2-notes.md`.
 3. **Exercises.** Right answers marked; distractors are real mistakes; explanations correct; `output` quizzes have
@@ -31,4 +31,5 @@ model topic: `content/Guides/Next.js/Next.js - 07. Server і Client Components.m
 
 ## Report (structured, short; at most one quoted line per issue)
 Per topic: verdict (ready / ready after fixes / not ready); reproduced claims with observations; issues as
-`[blocker|major|minor] line N — problem — fix`; what you verified vs. could not.
+`[blocker|major|minor] [prose|exercise] line N — problem — fix` (the tag routes the fix: prose → the writer, exercise →
+the exercise author); what you verified vs. could not.
