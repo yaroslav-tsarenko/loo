@@ -309,3 +309,125 @@ level: junior
 > - [ ] Жодна: `error.tsx` ловить лише помилки в браузері
 >
 > **Пояснення:** `error.tsx` обгортає `page` (і вкладені сегменти) свого рівня, тож помилку сторінки ловить найближчий. Він ловить і помилки рендеру Server Components — у продакшні з загальним текстом і `digest` замість справжнього повідомлення. `global-error.tsx` — для помилок самого root layout.
+
+## data
+
+> [!quiz] Два незалежні запити (300 мс і 500 мс) виконуються один за одним. Скільки приблизно чекатиме сторінка і що це за патерн?
+> skill: data · diff: 1 · id: nextjs-pl-data-junior-01
+>
+> ```tsx
+> const user = await getUser()     // 300 мс
+> const orders = await getOrders() // 500 мс
+> ```
+>
+> - [ ] ≈ 500 мс: Next.js запускає обидва паралельно
+> - [x] ≈ 800 мс: це водоспад, його лікує `Promise.all`
+> - [ ] ≈ 300 мс: другий запит береться з memoization
+> - [ ] ≈ 800 мс: це норма, паралелити можна лише у Client Component
+>
+> **Пояснення:** `await` призупиняє функцію, тож другий запит навіть не викликаний, доки не повернувся перший: час додається. Незалежні запити запускають разом через `Promise.all([getUser(), getOrders()])`, і чекання дорівнює найповільнішому (≈ 500 мс). Паралельність не залежить від того, Server це чи Client Component.
+
+> [!quiz] Блок «новини» необовʼязковий. Що станеться зі сторінкою, якщо `getNews()` кине помилку?
+> skill: data · diff: 2 · id: nextjs-pl-data-junior-02
+>
+> ```tsx
+> const [user, orders, news] = await Promise.all([
+>   getUser(),
+>   getOrders(),
+>   getNews(),
+> ])
+> ```
+>
+> - [ ] Сторінка покаже `user` і `orders`, а `news` буде `undefined`
+> - [ ] Нічого: `Promise.all` ігнорує помилки окремих запитів
+> - [x] `Promise.all` відхилиться, і вся сторінка піде в найближчий `error.tsx`
+> - [ ] Запит `getNews()` автоматично повториться
+>
+> **Пояснення:** `Promise.all` відхиляється на першій помилці, тож через необовʼязковий блок падає все. Для «приємних доповнень» беруть `Promise.allSettled` і перевіряють статус кожного результату, або виносять блок у власний `<Suspense>` з обробкою помилки.
+
+> [!quiz] Коли стартує запит у `Orders`?
+> skill: data · diff: 2 · id: nextjs-pl-data-junior-03
+>
+> ```tsx
+> async function Profile() {
+>   const user = await getUser()
+>   return (
+>     <>
+>       <h2>{user.name}</h2>
+>       <Orders userId={user.id} />
+>     </>
+>   )
+> }
+> ```
+>
+> - [ ] Одночасно з `getUser()`: React рендерить дерево паралельно
+> - [x] Лише після того, як `getUser()` повернув дані й `Profile` відрендерив дочірній компонент
+> - [ ] Ще до `getUser()`, бо `Orders` розташований нижче у дереві
+> - [ ] Тільки в браузері, після гідрації
+>
+> **Пояснення:** дочірній async-компонент починає свій запит лише тоді, коли батько дочекався даних і дійшов до його рендеру: це водоспад компонентів. Тут запит залежний (потрібен `user.id`), тож інакше й не вийде. Незалежні блоки розташовують сусідами або запускають запити у батька заздалегідь.
+
+> [!quiz] Що робить `'use cache'` на функції, якщо ввімкнено `cacheComponents: true`?
+> skill: data · diff: 2 · id: nextjs-pl-data-junior-04
+>
+> ```ts
+> export async function getProducts() {
+>   'use cache'
+>   cacheLife('hours')
+>   return db.products.findMany()
+> }
+> ```
+>
+> - [ ] Кешує результат у браузері користувача на годину
+> - [ ] Працює й без `cacheComponents`, просто з іншим іменем
+> - [x] Результат зберігається між запитами, тож повторні виклики з тими самими аргументами не звертаються до бази, доки запис живий
+> - [ ] Лише дедуплікує виклики в межах одного рендеру
+>
+> **Пояснення:** `'use cache'` — справжній кеш між запитами, що працює з `cacheComponents: true`, а `cacheLife` задає, скільки він живе. Дедуплікація в межах одного запиту — це про `React.cache` і memoization `fetch`. У браузері кешується лише `stale`-частина профілю (Client Cache роутера).
+
+> [!quiz] Функція кешується, але база викликається на кожен запит. У чому причина?
+> skill: data · diff: 3 · id: nextjs-pl-data-junior-05
+>
+> ```ts
+> async function getProducts(category: string, now: number) {
+>   'use cache'
+>   cacheLife('hours')
+>   return db.products.findMany({ where: { category } })
+> }
+>
+> await getProducts(category, Date.now())
+> ```
+>
+> - [ ] `cacheLife('hours')` занадто короткий для кешу
+> - [ ] Функція має бути у файлі з `'use client'`
+> - [x] Аргумент `Date.now()` робить ключ унікальним на кожен виклик, тож кеш не спрацьовує
+> - [ ] `findMany` ніколи не кешується
+>
+> **Пояснення:** ключ запису будується із серіалізованих аргументів. Значення, що щоразу інше, дає новий ключ: hit rate нуль, а памʼять росте. Аргументи мають бути з малою кількістю варіантів (категорія, slug), а час чи випадкові значення в них не передають.
+
+> [!quiz] Який файл створює публічний `GET /api/health`, що повертає JSON?
+> skill: data · diff: 1 · id: nextjs-pl-data-junior-06
+> - [ ] `app/api/health/page.tsx` з `export default function Page()`
+> - [ ] `app/api/health.tsx` з `export default`
+> - [x] `app/api/health/route.ts` з `export async function GET()`
+> - [ ] `app/health/layout.tsx` з `export async function GET()`
+>
+> **Пояснення:** Route Handler — це файл `route.ts` у сегменті маршруту, що експортує функції з назвами HTTP-методів (`GET`, `POST` тощо) і повертає `Response`. `page.tsx` рендерить UI, а не HTTP-відповідь; `layout.tsx` обгортає сторінки.
+
+> [!quiz] Server Component викликає власний API. Чому це поганий підхід?
+> skill: data · diff: 2 · id: nextjs-pl-data-junior-07
+>
+> ```tsx
+> export default async function Page() {
+>   const res = await fetch('http://localhost:3000/api/items')
+>   const items = await res.json()
+>   return <List items={items} />
+> }
+> ```
+>
+> - [ ] Server Component не може використовувати `fetch`
+> - [ ] Route Handler доступний лише з браузера
+> - [x] Під час збірки сервера ще немає (`fetch failed`), а в рантаймі це зайвий HTTP-круг: функцію даних краще викликати напряму
+> - [ ] Відповідь із `/api/` ніколи не можна читати як JSON
+>
+> **Пояснення:** Server Component і Route Handler живуть в одному застосунку, тож компоненту не потрібні ні абсолютні URL, ні мережевий стрибок. Логіку виносять у функцію шару даних (`listItems()`), яку викликають і сторінка, і обробник для зовнішніх клієнтів.

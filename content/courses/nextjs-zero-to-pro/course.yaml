@@ -44,19 +44,19 @@ sections:
       description: 'Сегменти, layouts, dynamic, parallel та intercepting routes, навігація, proxy.ts.' }
   - { id: rendering, skill: rendering, title: Рендеринг і RSC, icon: px:microscope, from: Next.js, chapters: 7-13,
       description: 'Server і Client Components, RSC payload, static і dynamic, streaming, PPR, помилки.' }
-  - { id: data, skill: data, title: Дані й кеш, icon: px:database, from: Next.js, chapters: 14-20, status: planned,
+  - { id: data, skill: data, title: Дані й кеш, icon: px:database, from: Next.js, chapters: 14-20,
       description: 'Дані на сервері, водоспади, Cache Components, ревалідація, ISR, Route Handlers, БД.' }
-  - { id: mutations, skill: mutations, title: Мутації й форми, icon: px:pencil, from: Next.js, chapters: 21-25, status: planned,
+  - { id: mutations, skill: mutations, title: Мутації й форми, icon: px:clipboard, from: Next.js, chapters: 21-25, status: planned,
       description: 'Server Actions, форми, валідація, optimistic UI, файли.' }
   - { id: auth-security, skill: auth-security, title: Auth і безпека, icon: px:lock, from: Next.js, chapters: 26-30, status: planned,
       description: 'Сесії, автентифікація, авторизація, безпека даних, CSP і OWASP.' }
-  - { id: ui, skill: ui, title: 'UI, SEO і доступність', icon: px:palette, from: Next.js, chapters: 31-35, status: planned,
+  - { id: ui, skill: ui, title: 'UI, SEO і доступність', icon: px:image, from: Next.js, chapters: 31-35, status: planned,
       description: 'Стилі, зображення, шрифти, metadata, SEO, i18n, a11y, View Transitions.' }
-  - { id: performance, skill: performance, title: Продуктивність, icon: px:lightning, from: Next.js, chapters: 36-39, status: planned,
+  - { id: performance, skill: performance, title: Продуктивність, icon: px:bolt, from: Next.js, chapters: 36-39, status: planned,
       description: 'Core Web Vitals, бандл, React Compiler, памʼять і білд.' }
   - { id: testing, skill: testing, title: Тестування, icon: px:check, from: Next.js, chapters: 40-41, status: planned,
       description: 'Unit, компонентні й e2e-тести, MSW, CI.' }
-  - { id: deploy-ops, skill: deploy-ops, title: Деплой і експлуатація, icon: px:cloud, from: Next.js, chapters: 42-44, status: planned,
+  - { id: deploy-ops, skill: deploy-ops, title: Деплой і експлуатація, icon: px:globe, from: Next.js, chapters: 42-44, status: planned,
       description: 'Vercel, self-hosting і Docker, observability.' }
   - { id: architecture, skill: architecture, title: Архітектура і масштаб, icon: px:bricks, from: Next.js, chapters: 45-49, status: planned,
       description: 'Структура великих застосунків, монорепо, feature flags, міграції, AI.' }
@@ -70,4 +70,4 @@ sections:
 exams:
   topic: { questions: 10, pass: 0.8 }
   section: { questions: 25, pass: 0.8, testOut: true }
-placement: { enabled: true, maxQuestions: 40, perLevel: 3, perSkill: true, skills: [foundations, routing, rendering] }
+placement: { enabled: true, maxQuestions: 40, perLevel: 3, perSkill: true, skills: [foundations, routing, rendering, data] }

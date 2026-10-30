@@ -259,3 +259,114 @@ level: senior
 > - [ ] Значення потрапляє в клієнтський JS-чанк відкритим текстом
 >
 > **Пояснення:** Client Component теж рендериться на сервері, а там `process.env.API_KEY` є, тож секрет потрапляє в HTML. У чанку лишається `process.env.API_KEY`, що в браузері дає `undefined` (і ще й hydration mismatch). Документація обіцяє заміну порожнім рядком, але на 16.3.8 її немає (тема 07 «Server і Client Components», врізка «Розбіжність»). Захист — `import 'server-only'` у модулях із секретами.
+
+## data
+
+> [!quiz] Після збереження форми автор не бачить свого нового поста у списку, хоч дані записані. Що змінити?
+> skill: data · diff: 2 · id: nextjs-pl-data-senior-01
+>
+> ```ts
+> 'use server'
+> export async function savePost(data: FormData) {
+>   await insertPost(data)
+>   revalidateTag('posts', 'max')
+> }
+> ```
+>
+> - [ ] Додати `redirect('/posts')` після `revalidateTag`: тоді список оновиться
+> - [x] Замінити на `updateTag('posts')`: запис протермінується одразу, автор отримає свіжі дані (read-your-own-writes)
+> - [ ] Додати `refresh()` після `revalidateTag`: він очистить кеш
+> - [ ] Прибрати другий аргумент `'max'`: однаргументна форма — рекомендована
+>
+> **Пояснення:** `'max'` дає stale-while-revalidate: ніхто не чекає, і навіть автор першим оновленням отримує старе, а новий пост зʼявляється з другого. `updateTag` протерміновує записи негайно, тож наступне читання чекає свіжого. `refresh()` кеш не чіпає, а однаргументний `revalidateTag` застарілий.
+
+> [!quiz] Вебхук у `app/api/revalidate/route.ts` викликає `updateTag(tag)`. Що відбудеться?
+> skill: data · diff: 2 · id: nextjs-pl-data-senior-02
+> - [ ] Тег протермінується, як у Server Action
+> - [ ] Тег стане stale і оновиться у фоні, як після `'max'`
+> - [x] Запит завершиться `500`: `updateTag` дозволений лише в Server Actions
+> - [ ] Збірка не пройде: `updateTag` не можна імпортувати у `route.ts`
+>
+> **Пояснення:** у Route Handler виклик `updateTag` дає `500` з повідомленням `updateTag can only be called from within a Server Action`. Для вебхуків використовують `revalidateTag(tag, 'max')` (stale-while-revalidate) або `revalidateTag(tag, { expire: 0 })`, якщо запис треба протермінувати негайно.
+
+> [!quiz] Скільки записів кешу створить цей код для двох викликів?
+> skill: data · diff: 3 · id: nextjs-pl-data-senior-03
+>
+> ```tsx
+> async function Price({ amount, currency }: { amount: number; currency: string }) {
+>   async function format() {
+>     'use cache'
+>     return new Intl.NumberFormat('uk', { style: 'currency', currency }).format(amount)
+>   }
+>   return <p>{await format()}</p>
+> }
+>
+> // <Price amount={900} currency="UAH" />
+> // <Price amount={900} currency="EUR" />
+> ```
+>
+> - [ ] Один: у `format` немає аргументів, тож ключ однаковий і EUR отримає гривні
+> - [x] Два: змінні із замикання потрапляють у ключ як приховані аргументи
+> - [ ] Жодного: `'use cache'` не можна ставити у вкладену функцію
+> - [ ] Один: у ключ входять лише параметри компонента, а не функції
+>
+> **Пояснення:** змінні з зовнішнього скоупу, які читає закешована функція, Next.js передає як приховані аргументи, тому вони входять у ключ. `UAH` і `EUR` — різні записи, а не мішанина. Але й ключ не безкоштовний: у замиканні не тримай значення з великою кардинальністю.
+
+> [!quiz] Після `revalidateTag` на origin сторінка вже свіжа (`x-nextjs-cache: HIT` з новою міткою), а користувачі за CDN ще хвилину бачать старе. Чому?
+> skill: data · diff: 2 · id: nextjs-pl-data-senior-04
+> - [ ] `revalidateTag` працює лише з `'max'`, тому оновлення затримується
+> - [ ] Браузер ігнорує `s-maxage` і кешує сторінку назавжди
+> - [ ] Next.js ще не перерахував сторінку, а `HIT` показує стару мітку
+> - [x] CDN не знає про теги Next.js і тримає свою копію до кінця `s-maxage`; потрібне окреме очищення через API CDN
+>
+> **Пояснення:** `revalidateTag` очищає кеш маршруту Next.js, а не копію в CloudFront чи Fastly. Платформа Vercel очищає свій CDN сама, а поза нею потрібен виклик purge у твоєму CDN. `s-maxage` — інструкція саме для спільних кешів, браузер його пропускає.
+
+> [!quiz] Закешована сторінка з явним `cacheLife('days')` вкладає закешований `Widget` з `cacheLife('hours')`. Що покаже `next build` у колонках `Revalidate` та `Expire` для маршруту?
+> skill: data · diff: 3 · id: nextjs-pl-data-senior-05
+>
+> ```tsx
+> async function Widget() {
+>   'use cache'
+>   cacheLife('hours')
+>   return <p>{await getRate()}</p>
+> }
+>
+> export default async function Page() {
+>   'use cache'
+>   cacheLife('days')
+>   return <Widget />
+> }
+> ```
+>
+> - [ ] `1h 1d`: перемагає найкоротший вкладений профіль
+> - [ ] `1h 1w`: `revalidate` бере внутрішній, `expire` бере зовнішній
+> - [ ] `1d 1d`: береться більший `revalidate` і менший `expire`
+> - [x] `1d 1w`: явний `cacheLife` зовнішнього кешу перемагає, і віджет «застигає» до його перерахунку
+>
+> **Пояснення:** якщо зовнішній кеш має явний `cacheLife`, він переважає вкладені. Лише без нього діє `default`, який вкладені можуть тільки скоротити. Тому в кожному кеш-скоупі пишуть явний `cacheLife` — і тому ж уважно оцінюють, чи не застигає внутрішній вміст довше, ніж потрібно.
+
+> [!quiz] Route Handler читає лічильник замовлень з локальної SQLite через ORM. Клієнт опитує його раз на 5 секунд, але число не змінюється. `next build` показав `○`. Що відбувається?
+> skill: data · diff: 3 · id: nextjs-pl-data-senior-06
+>
+> ```ts
+> // app/api/orders/count/route.ts (cacheComponents: true)
+> export async function GET() {
+>   return Response.json({ count: await countAllOrders() })
+> }
+> ```
+>
+> - [ ] Відповідь кешує браузер, бо `Response.json` додає `max-age`
+> - [ ] SQLite не підтримує більше одного читання за раз
+> - [ ] SWR вважає відповідь свіжою і не робить повторних запитів
+> - [x] Синхронний локальний драйвер не виглядає як I/O, тож `GET` пререндериться під час збірки, і віддається число зі збірки
+>
+> **Пояснення:** під `cacheComponents` локальна SQLite (libsql `file:`, better-sqlite3) без `Suspense`/`io()` мовчки дає `○` із даними моменту `next build`. Відповіді мають `x-nextjs-cache: HIT`. Лікування — `await io()` перед читанням: тоді маршрут стає `ƒ`. Мережевий драйвер (`pg`) тут просто впав би з помилкою збірки.
+
+> [!quiz] `cacheLife({ stale: 300, revalidate: 60, expire: 3600 })` на пререндереній сторінці. Що побачить CDN у відповіді?
+> skill: data · diff: 2 · id: nextjs-pl-data-senior-07
+> - [ ] `Cache-Control: s-maxage=300, stale-while-revalidate=3300`
+> - [ ] `Cache-Control: s-maxage=60, stale-while-revalidate=3600`
+> - [ ] `Cache-Control: max-age=60`: браузер і CDN кешують однаково
+> - [x] `Cache-Control: s-maxage=60, stale-while-revalidate=3540`, а `stale` окремо в `x-nextjs-stale-time: 300`
+>
+> **Пояснення:** `revalidate` стає `s-maxage`, а `expire − revalidate` (3600 − 60 = 3540 с) — вікном `stale-while-revalidate`. `stale` стосується лише Client Cache роутера в браузері й їде в `x-nextjs-stale-time`, а не в `Cache-Control`. `s-maxage` лише для спільних кешів.

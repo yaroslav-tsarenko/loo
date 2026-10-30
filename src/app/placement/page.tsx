@@ -60,7 +60,7 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
       sections={bundle.sections.map((s) => ({ id: s.id, index: s.index, title: s.title, icon: s.icon }))}
       levels={Object.fromEntries(bundle.course.levels.map((l) => [l, LEVEL_LABEL[l]]))}
       next={next}
-      bank={bundle.placement.bank ? { followUp: bundle.placement.followUp ?? 0, ladder: courseLevels(bundle.course), ...(bySkills ? { skills: courseSkills(bundle.course).map((sk) => ({ id: sk.id, title: sk.title })) } : {}) } : undefined}
+      bank={bundle.placement.bank ? { followUp: bundle.placement.followUp ?? 0, ladder: courseLevels(bundle.course), ...(bySkills ? { skills: courseSkills(bundle.course).map((sk) => ({ id: sk.id, title: sk.title })), measured: bundle.placement.skills } : {}) } : undefined}
       zeroHint={courseKind(bundle.course) === 'language' ? 'Без тесту: обери рівень сам — попередні розділи буде зараховано.' : bySkills ? 'Без тесту: з самого початку курсу. Тест можна пройти пізніше зі сторінки курсу.' : undefined}
       zero={
         courseKind(bundle.course) === 'language' ? (

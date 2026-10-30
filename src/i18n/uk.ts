@@ -459,6 +459,8 @@ export const uk = {
     restart: 'Почати заново',
     // bank mode (language courses, docs/LANGUAGE_COURSE.md «Вступний тест»)
     bankLead: 'До ~{max} питань, 10–15 хвилин: граматика, слова, читання й аудіювання від A1 до C2. Питання підлаштовуються під відповіді. Не знаєш — тисни «Не знаю»: так рівень буде точнішим, ніж навмання.',
+    // course with declared skills (programming courses): the skills are listed instead of «граматика, слова…»
+    bankLeadSkills: 'До ~{max} питань, 10–15 хвилин: {skills}. Питання підлаштовуються під відповіді. Не знаєш — тисни «Не знаю»: так рівень буде точнішим, ніж навмання.',
     questionOf: 'Питання {n} з ~{max}',
     followUpOf: 'Уточнення · питання {n} з {max}',
     dontKnow: 'Не знаю',

@@ -15,6 +15,7 @@ the exercise author will replace (one line each, exactly this syntax):
 - `<!-- EX:reels -->` under `## ⚡ Фішки`, `<!-- EX:cards -->` under `## 🧠 Закріплення`;
 - `<!-- EX:task lang=<ts|js> — <function to implement, behaviour to test> -->` under `## 🛠️ Практика` (≥ 3, at least
   one `ts`; must be testable by the runner — pure logic, no network/import/JSX, see SYLLABUS §5.2).
+Never put `[[…]]` inside a marker (the parser reads wiki-links in HTML comments) — use «» quotes.
 Your «🧪 перевірені факти» list in the report (below) is what the exercise author builds `output` quizzes on. Never commit, never touch files you don't own, never edit shared docs (propose changes in
 your report).
 

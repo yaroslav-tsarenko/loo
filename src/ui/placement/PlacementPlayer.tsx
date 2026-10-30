@@ -42,7 +42,7 @@ interface Props {
   zeroHint?: string
   // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, IELTS (docs/LANGUAGE_COURSE.md);
   // `skills` — a course with declared skills (course.skills): the result shows a level per skill as bars
-  bank?: { followUp: number; ladder: string[]; skills?: Array<{ id: string; title: string }> }
+  bank?: { followUp: number; ladder: string[]; skills?: Array<{ id: string; title: string }>; measured?: string[] }
 }
 
 // Placement answers are graded by placementStep on the server (all at once); a single answer gets no verdict here.
@@ -282,7 +282,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
           <Icon name={course.icon ?? 'px:book'} size={20} /> {course.title}
         </p>
         <h1 className="lesson-summary-title">{t('placement.title')}</h1>
-        <p className="lesson-summary-note">{saved ? t('placement.resumeLead', { n: saved.answers.length }) : bank ? t('placement.bankLead', { max: maxQuestions }) : t('placement.lead', { max: maxQuestions })}</p>
+        <p className="lesson-summary-note">{saved ? t('placement.resumeLead', { n: saved.answers.length }) : bank?.skills?.length ? t('placement.bankLeadSkills', { max: maxQuestions, skills: leadSkills(bank.skills, bank.measured) }) : bank ? t('placement.bankLead', { max: maxQuestions }) : t('placement.lead', { max: maxQuestions })}</p>
         <div className="lesson-summary-actions">
           {saved ? (
             <>
@@ -457,6 +457,12 @@ interface BankResultProps {
   followUpCount: number
   onApply: (start?: string) => Promise<void>
   onFollowUp: () => Promise<void>
+}
+
+// «фундамент, маршрутизація, рендеринг і RSC…» — the skills the bank measures, in sentence case for the intro line
+function leadSkills(skills: ReadonlyArray<{ id: string; title: string }>, measured?: readonly string[]): string {
+  const list = measured?.length ? skills.filter((s) => measured.includes(s.id)) : skills
+  return list.map((s) => (/^\p{Lu}\p{Ll}/u.test(s.title) ? s.title[0]!.toLowerCase() + s.title.slice(1) : s.title)).join(', ')
 }
 
 // «Почни з: …» — the weakest skills of a course with declared skills (the path recommends their topics first)

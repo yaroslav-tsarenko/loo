@@ -25,7 +25,7 @@ Replace every `<!-- EX:… -->` marker with real blocks; **no marker may remain*
 - `EX:task …` → `[!task]` with ` ```ts starter `/` ```ts tests ` (or `js`) and a `[!solution]`; 3–6 tests named in
   Ukrainian by behaviour. The runner has no network, `import`, `Request`, JSX — pure logic only.
 - Ids: `<topic id>-<quiz|card|task>-<nn>`, two digits, from 01, in file order, unique. Don't touch `-int-` ids.
-- Level fit: exercise meta `level` within the topic level ± 1 (`junior…god`); Ukrainian per the glossary
+- Level fit: exercise meta `level` within the topic level ± 1 (`junior · middle · senior · techlead` — god-level exercises are written `techlead`; `noob`/`god` are not parsed); Ukrainian per the glossary
   `content/glossary/uk-en.yaml`.
 
 ## Verify

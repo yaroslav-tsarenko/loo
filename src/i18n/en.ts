@@ -260,6 +260,7 @@ export const en: DeepPartial<Dict> = {
     resume: 'Continue from question {n}',
     restart: 'Start over',
     bankLead: 'Up to ~{max} questions, 10–15 minutes: grammar, vocabulary, reading and listening from A1 to C2. Questions adapt to your answers. Don’t know? Press «I don’t know» — the level will be more accurate than a guess.',
+    bankLeadSkills: 'Up to ~{max} questions, 10–15 minutes: {skills}. Questions adapt to your answers. Don’t know? Press «I don’t know» — the level will be more accurate than a guess.',
     questionOf: 'Question {n} of ~{max}',
     followUpOf: 'Refining · question {n} of {max}',
     dontKnow: 'I don’t know',
