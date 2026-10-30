@@ -1,6 +1,7 @@
 ---
 title: Server і Client Components
 id: nextjs-core-07
+slug: 07-server-and-client-components
 order: 7
 level: junior
 skill: rendering

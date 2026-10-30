@@ -27,7 +27,7 @@
 
 ## 3. Тема
 
-- Frontmatter: `title`, `id` (`nextjs-core-NN`), `order`, `level`, **`skill`** (id з NEXTJS_SYLLABUS §1), `icon`
+- Frontmatter: `title`, `id` (`nextjs-core-NN`), **`slug`** (латиницею, з реєстру [ids.md](./ids.md)), `order`, `level`, **`skill`** (id з NEXTJS_SYLLABUS §1), `icon`
   (`px:…`), `tags`, `prerequisites`, `estimatedMinutes`, `nextVersion: 16.3.8`.
 - Обсяг: основний посібник 4–8k слів (ціль 5,5k), Start 2,5–4,5k.
 - Мікс вправ на тему основного посібника: ≥ 9 тестів (з них ≥ 2 `output`, ≥ 1 `order`, ≥ 1 `fill`, решта single/multi),
