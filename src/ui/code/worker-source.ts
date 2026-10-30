@@ -1,10 +1,13 @@
 import { runSuite, type HarnessHost } from './harness'
+import { TS_STRIP_SOURCE } from './ts-strip.bundle.generated'
+import type { prepareTypeScript } from './ts-strip'
 
 // Runs inside the worker. Serialized with toString — keep it self-contained.
-export function bootstrap(run: typeof runSuite) {
+// `prepareTs` is the bundled sucrase stripper (ts-strip.ts), used only for messages with `typescript: true`.
+export function bootstrap(run: typeof runSuite, prepareTs: typeof prepareTypeScript) {
   const scope = globalThis as unknown as {
     postMessage: (message: unknown) => void
-    onmessage: ((e: { data: { token: string; code: string; tests: string } }) => void) | null
+    onmessage: ((e: { data: { token: string; code: string; tests: string; typescript?: boolean } }) => void) | null
     addEventListener: (type: string, fn: (e: { preventDefault: () => void; reason?: unknown }) => void) => void
   }
   const post = scope.postMessage.bind(scope)
@@ -38,13 +41,16 @@ export function bootstrap(run: typeof runSuite) {
   scope.onmessage = (e) => {
     if (token) return
     token = e.data.token
-    run(e.data.code, e.data.tests, (event) => post({ token, ...event }), host)
+    const { code, tests, typescript } = e.data
+    const prepared = typescript ? prepareTs(code, tests) : { ok: true as const, code, tests }
+    if (!prepared.ok) return post({ token, type: 'done', report: { status: 'error', tests: [], logs: [], error: prepared.error, ms: 0 } })
+    run(prepared.code, prepared.tests, (event) => post({ token, ...event }), host)
       .then((report) => post({ token, type: 'done', report }))
       .catch((err: unknown) => post({ token, type: 'done', report: { status: 'error', tests: [], logs: [], error: String(err), ms: 0 } }))
   }
 }
 
-// Full worker script: bootstrap + harness, both serialized from their source.
+// Full worker script: bootstrap + harness serialized from their source, plus the pre-bundled TS stripper.
 export function workerSource(): string {
-  return `"use strict";\n(${bootstrap.toString()})(${runSuite.toString()})`
+  return `"use strict";\n(${bootstrap.toString()})(${runSuite.toString()}, ${TS_STRIP_SOURCE})`
 }

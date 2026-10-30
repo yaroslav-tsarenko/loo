@@ -548,3 +548,31 @@ senior» на банку Next.js (точність ± 1 рівень, серед
   рішення до етапу 2.
 - **Модель навичок для programming-курсу** не відкалібрована на реальних учнях — пороги перевіримо синтетикою, потім
   на даних.
+
+---
+
+## 13. Виправлення за дослідженням (етап 1)
+
+Нотатки дослідження — `docs/nextjs/research/<skill>.md` (кожен факт з посиланням на файл документації 16.3.8). Вони
+**мають пріоритет** над таблицями §1–§2 там, де розходяться. Головне:
+
+| Тема | Виправлення |
+|---|---|
+| 13, 28 | `forbidden()` / `unauthorized()` і їхні файли — **experimental** (`experimental.authInterrupts`) |
+| 04, 29, 37 | `staleTimes`, `taint`, `optimizePackageImports` — experimental; також `globalNotFound`, `sri`, `useOffline`, `prefetchInlining` |
+| 04, 12, 41 | Activity зберігає стан лише з `cacheComponents: true` (до 3 маршрутів, скидання — `useRouter().bfcacheId`). Instant navigation: segment config `instant`, Navigation Inspector, `@next/playwright` `instant()` — пояснюємо в 12, тестуємо в 41 |
+| 16 | `updateTag()` і `refresh()` (з `next/cache`) — **лише в Server Actions**; вебхуки — `revalidateTag(tag, { expire: 0 })`; одноаргументний `revalidateTag` — deprecated |
+| 10 | `io()` (`next/cache`, 16.3) — документація радить його замість `connection()`: не блокує prefetch |
+| 03, 12, 30 | Несумісне з Cache Components: edge runtime (deprecated), `dynamicParams`, порожній `generateStaticParams` (помилка збірки); CSP з nonce вимикає PPR/ISR |
+| 18 | Два ключі: `cacheHandler` (ISR, route handlers, зображення) і `cacheHandlers` (`use cache`). `use cache: private` нічого не зберігає на сервері — лише дедуплікація в запиті й кеш у браузері |
+| 21 | Дії одного клієнта виконуються **послідовно** (`Promise.all` не паралелить); одна відповідь = результат + новий UI; id дій живуть ≤ 14 днів; кілька інстансів — `NEXT_SERVER_ACTIONS_ENCRYPTION_KEY` |
+| 32 | `priority` deprecated → `preload` / `loading="eager"` / `fetchPriority="high"`; у 16: `qualities` = `[75]`, `minimumCacheTTL` 4 год, без 16 в `imageSizes`, локальні IP заблоковано, ≤ 3 редиректи |
+| 40 | Async Server Components не тестуються у Vitest/Jest (так у документації) — e2e; є `next/experimental/testing/server` (`unstable_doesProxyMatch`, `unstable_getResponseFromNextConfig`) — добре для задач. `next lint` прибрано в 16 |
+| 43 | `adapterPath` стабільний з 16.2 (перевірені адаптери Vercel, Bun); `deploymentId`, `supportsImmutableAssets` (16.3) |
+| 48 | codemod `upgrade` не запускає `next-async-request-api` — окремий крок; `unstable_cache` документація досі радить для кешу між деплоями — подаємо чесно, не лише як «старе» |
+| 49 | Приклад AI в документації застарів (`StreamingTextResponse`) — беремо ai-sdk.dev; + підтема «AI-агенти для розробки»: `AGENTS.md`, `next-devtools-mcp` |
+| 07 | Спостереження автора на 16.3.8 (перевіряє рецензент): непублічна env-змінна, прочитана в Client Component, потрапляє в серверний HTML; повний обʼєкт з БД у props потрапляє в RSC payload з усіма полями |
+
+Не звірено з бандлом (звіряти з першоджерелами під час написання): деталі Vercel-платформи (Fluid, Rolling Releases,
+Firewall, BotID, Cron, Blob, ліміти), Tailwind v4, shadcn, Turborepo, Flags SDK, AI SDK, MSW, Sentry, Playwright,
+OWASP, пороги CWV (вчимо INP, не FID), типовий `display` у `next/font`.

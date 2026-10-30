@@ -9,7 +9,7 @@
 | Розділи курсу | `basics · start · routing · rendering · data · mutations · auth-security · ui · performance · testing · deploy-ops · architecture · livecoding · projects · interview` |
 | Тема | `nextjs-<гайд>-<NN>`; гайд: `start` (Next.js Start), `core` (Next.js), `kata`, `proj`, `int` |
 | Вправа | `nextjs-<гайд>-<NN>-<quiz\|card\|task\|int>-<nn>` |
-| Фішка | `nextjs-<гайд>-<NN>-reel-<nn>` |
+| Фішка | без явного id: парсер `[!reel]` бере хеш теми й заголовка, тож **заголовок фішки не змінюємо** після публікації |
 | Банк вступного тесту | `nextjs-pl-<skill>-<level>-<nn>` |
 
 ## Видані теми

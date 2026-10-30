@@ -1,14 +1,21 @@
 import { Worker } from 'node:worker_threads'
-import { isRunnable, solutionCode } from '../../src/content/blocks/task/code'
+import { isRunnable, isTypeScript, solutionCode } from '../../src/content/blocks/task/code'
 import type { LearningUnit } from '../../src/content/model'
 import { runSuite, type RunReport } from '../../src/ui/code/harness'
+import { prepareTypeScript } from '../../src/ui/code/ts-strip'
 
 // Shared by content:check and course:check: runs a task's reference solution (must pass) and starter (should fail)
-// against its ```js tests — the same harness as the browser worker, in a node worker thread with a hard timeout.
+// against its ```js / ```ts tests — the same harness as the browser worker, in a node worker thread with a hard timeout.
+// TS tasks go through the same prepareTypeScript the worker bundles (types stripped, not checked).
 
 const TIMEOUT_MS = 3000
 
-export function selfTest(code: string, tests: string): Promise<RunReport> {
+export function selfTest(code: string, tests: string, typescript = false): Promise<RunReport> {
+  if (typescript) {
+    const prepared = prepareTypeScript(code, tests)
+    if (!prepared.ok) return Promise.resolve({ status: 'error', tests: [], logs: [], error: prepared.error, ms: 0 })
+    ;({ code, tests } = prepared)
+  }
   const source = `var __name = (f) => f
 const { parentPort, workerData } = require('node:worker_threads')
 const run = ${runSuite.toString()}
@@ -64,16 +71,17 @@ export async function checkTasks(units: readonly LearningUnit[], opts: TaskCheck
   let tested = 0
   await pool(runnable, opts.concurrency ?? 6, async (unit) => {
     if (unit.kind !== 'task' || !unit.code?.tests) return
+    const typescript = isTypeScript(unit.code.lang)
     const reference = solutionCode(unit.solution)
     if (reference) {
       tested++
-      const report = await selfTest(reference, unit.code.tests)
+      const report = await selfTest(reference, unit.code.tests, typescript)
       if (report.status !== 'passed') {
         problems.push({ severity: 'error', code: 'task-self-test', unitId: unit.id, chapterId: unit.chapterId, message: `еталон не проходить власні тести: ${describeFailure(report)}` })
       }
     }
     if (opts.starters !== false && unit.code.starter.trim()) {
-      const report = await selfTest(unit.code.starter, unit.code.tests)
+      const report = await selfTest(unit.code.starter, unit.code.tests, typescript)
       if (report.status === 'passed') {
         problems.push({ severity: 'warning', code: 'task-starter-passes', unitId: unit.id, chapterId: unit.chapterId, message: 'заготовка вже проходить усі тести' })
       }

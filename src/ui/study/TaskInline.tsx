@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { PiArrowCounterClockwiseBold, PiCodeBlockFill, PiFlagBannerFill, PiLightbulbFilamentFill, PiPlayFill, PiTestTubeFill } from 'react-icons/pi'
-import { isRunnable } from '@/content/blocks/task/code'
+import { isRunnable, isTypeScript } from '@/content/blocks/task/code'
 import type { TaskCode } from '@/content/model'
 import { finishTask, saveTaskDraft } from '@/server/actions/study'
 import { CodeEditor } from '@/ui/code/CodeEditor'
@@ -46,6 +46,7 @@ interface Props {
 export function TaskInline(props: Props) {
   const { unitId, title, difficulty, difficultyKey, level, statement, hints, solution, variant, sessionId, onResult, code } = props
   const testable = Boolean(code?.tests) && isRunnable(code?.lang ?? '')
+  const typescript = isTypeScript(code?.lang ?? '')
   const starter = code?.starter ?? ''
   const initialDraft = props.initialDraft || starter
   const [revealed, setRevealed] = useState(props.initialHints ?? 0)
@@ -89,10 +90,16 @@ export function TaskInline(props: Props) {
     setReport(null)
     setStuckOn(null)
     let current: string | null = null
-    const run = runInWorker(draft, code.tests, (event) => {
-      if (event.type === 'start') current = event.name
-      else if (event.type === 'test') current = null
-    })
+    const run = runInWorker(
+      draft,
+      code.tests,
+      (event) => {
+        if (event.type === 'start') current = event.name
+        else if (event.type === 'test') current = null
+      },
+      undefined,
+      typescript,
+    )
     handle.current = run
     void run.done.then((result) => {
       if (handle.current !== run) return
@@ -174,18 +181,19 @@ export function TaskInline(props: Props) {
               </button>
             ) : null}
           </div>
-          <CodeEditor id={`${headingId}-draft`} value={draft} onChange={setDraft} onRun={runTests} label="Твій код" />
+          <CodeEditor id={`${headingId}-draft`} value={draft} onChange={setDraft} onRun={runTests} label="Твій код" lang={code.lang} />
           <details className="task-tests">
             <summary>
               <PiTestTubeFill aria-hidden="true" /> Тести, які має пройти код
             </summary>
-            <pre className="task-tests-code">{highlightCode(code.tests)}</pre>
+            <pre className="task-tests-code">{highlightCode(code.tests, 't', code.lang)}</pre>
           </details>
           <div className="task-actions">
             <Button variant="super" onClick={runTests} loading={running} icon={<PiPlayFill size={18} />} className="task-run" aria-keyshortcuts="Meta+Enter">
               Запустити тести
             </Button>
             <kbd className="task-run-kbd">⌘↵</kbd>
+            {typescript ? <span className="task-run-note">TypeScript: типи не перевіряються, лише виконується код</span> : null}
             {status === 'open' ? (
               <Button variant="ghost" size="sm" onClick={giveUp} disabled={!solution} icon={<PiFlagBannerFill size={16} />} className="task-giveup">
                 Здаюсь
