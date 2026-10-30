@@ -16,7 +16,7 @@
 
 | id | Файл | Етап |
 |---|---|---|
-| `nextjs-core-07` | `Next.js/Next.js - 07. Server і Client Components.md` | 1 (модельна) |
+| `nextjs-core-07` | `Next.js/Next.js - 07. Server і Client Components.md` | 1 (модельна; вправи quiz-01…09, card-01…13, int-01…05, task-01…03) |
 
 ## Аліаси (старий → новий)
 
