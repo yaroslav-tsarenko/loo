@@ -1,121 +1,234 @@
-# Levelup
+<div align="center">
 
-Навчання як гра (у стилі Duolingo): курси від Noob до God, уроки, стрічка-рілси, денні місії, візуалізації та автотести коду.
-Контент — посібники з Obsidian vault: читання, флешкартки з інтервальними повтореннями, тести, задачі, «Мої помилки», XP, ачівки, профіль і роадмапа.
+# Loo — навчання як гра
 
-Багатокористувацький: вхід через **Supabase Auth** (email + пароль, Google, GitHub), у кожного свій прогрес (Postgres, `user_id` +
-RLS). Застосунок **лише читає** vault. Архітектура — [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md), безпека — [docs/SECURITY.md](./docs/SECURITY.md),
-налаштування входу — [docs/AUTH.md](./docs/AUTH.md).
+**Прокачуй навички щодня — по 5 хвилин.** Англійська від A1 до C2, JavaScript від нуля до Pro, а поруч — піксельний
+Loo, який росте разом із тобою.
 
-## Що всередині
+[**playloo.app**](https://playloo.app) · [Блог](https://playloo.app/blog) · [Документація](#документація)
 
-| Розділ | Що робить |
-|---|---|
-| Бібліотека | посібники з прогресом, «продовжити читання», денна мета і серія |
-| Читалка | дерево розділів, зміст сторінки, прогрес читання, «вивчено», wiki-links, callouts, код з підсвіткою |
-| Картки | FSRS-повторення, фільтри за посібником/розділом/рівнем/частотою/типом |
-| Тести | один/кілька варіантів, «що виведе код», «склади код» (Parsons), «заповни пропуски», пояснення і розбір наприкінці |
-| Задачі | редактор коду з автотестами у Web Worker, поступові підказки, чернетка, порівняння з еталоном |
-| Мої помилки | окрема сесія; питання виходить після 2 правильних відповідей з перервою ≥ 20 год |
-| Профіль | рівень і ранг, серія, точність за посібниками і складністю, heatmap, слабкі теми, ачівки |
-| Роадмапа | карта посібників і розділів з урахуванням prerequisites і рекомендації «що далі» |
-| Налаштування | тема, звук і гучність, денна мета, скидання прогресу, проблеми контенту (шлях до vault — лише адмін, локально) |
-| Профіль і акаунт | ім'я, аватар, мова, інтереси, рівень, хвилини на день, вихід (з усіх пристроїв), експорт даних (JSON), видалення акаунта |
-| Лендінг і вхід | `/` для гостей — що таке Levelup і курси; `/login`, `/signup`, `/forgot-password`, онбординг після першого входу |
+![Next.js 16](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)
+![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ecf8e?logo=supabase&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-deploy-000?logo=vercel)
+![Tests](https://img.shields.io/badge/tests-1200%2B%20unit-8b5cf6)
 
-## Вимоги
+<img src="docs/readme/landing.jpg" alt="Лендінг playloo.app" width="900" />
 
-- Node.js 22.12 або новіший (`node -v`)
-- pnpm: `corepack enable` (одноразово)
+</div>
 
-## Запуск
+---
 
-```bash
-pnpm install
-cp .env.example .env.local
+## Що таке Loo
+
+Loo — це застосунок у стилі Duolingo для україномовних. Будь-який предмет перетворюється на шлях з коротких уроків,
+тестів і повторень; за навчання ти отримуєш XP, бакси й кристали, тримаєш серію днів, змагаєшся в лігах і вдягаєш
+свого персонажа. Пояснення — українською, перевірка відповідей — лише на сервері, прогрес кожного — у власному
+рядку Postgres під RLS.
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/readme/today.jpg" alt="Сьогодні: місія дня, денна мета, продовжити урок" /></td>
+    <td width="50%"><img src="docs/readme/path.jpg" alt="Карта курсу: розділи CEFR і вузли уроків" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Сьогодні</b> — місія дня, денна мета, «продовжити» з того ж місця</td>
+    <td align="center"><b>Карта</b> — шлях курсу: розділи, теми, уроки, тести й екзамени</td>
+  </tr>
+  <tr>
+    <td><img src="docs/readme/lesson.jpg" alt="Урок: питання з варіантами" /></td>
+    <td><img src="docs/readme/theory.jpg" alt="Теорія: стаття теми з вбудованими вправами" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Урок</b> — передбач, розбери, закріпи; сердечка за помилки, XP за відповіді</td>
+    <td align="center"><b>Теорія</b> — статті тем з таблицями, діаграмами й вправами просто в тексті</td>
+  </tr>
+  <tr>
+    <td><img src="docs/readme/loo.jpg" alt="Мій Loo: ранг, спорядження, характеристики" /></td>
+    <td><img src="docs/readme/shop.jpg" alt="Крамниця: гаманець, розхідники, спорядження" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Мій Loo</b> — шлях воїна з 56 кроків, спорядження й характеристики</td>
+    <td align="center"><b>Крамниця</b> — заморозка серії, сердечка, подвійний XP, скіни й броня</td>
+  </tr>
+</table>
+
+<div align="center">
+<img src="docs/readme/m-path.jpg" alt="Карта на телефоні" width="250" />&nbsp;&nbsp;
+<img src="docs/readme/m-lesson.jpg" alt="Урок на телефоні" width="250" />&nbsp;&nbsp;
+<img src="docs/readme/m-loo.jpg" alt="Мій Loo на телефоні" width="250" />
+
+<sub>На телефоні — нижня навігація, великі кнопки, PWA (можна встановити на головний екран).</sub>
+</div>
+
+## Курси
+
+| Курс | Розділи | Теми | Уроки | Вправи | Рілси |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **English A1 → C2** — граматика, 4 287 слів, аудіювання, вимова, читання, IELTS-орієнтир | 6 (A1…C2) | 166 | 2 361 | 9 375 | 499 |
+| **JavaScript Zero → Pro** — від змінних до event loop, патернів і співбесід | 9 | 73 | 779 | 1 759 | 271 |
+
+Курс — це Markdown-посібник у Obsidian + маніфест `course.yaml`; компілятор збирає з нього бандл (розділи, теми,
+уроки, тести тем, екзамени розділів, пули вправ). Новий курс = новий контент, без коду —
+[docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md).
+
+## Можливості
+
+### Навчання
+- **Уроки** з кроками «передбач → розбери → закріпи» (pretesting, interleaving, retrieval practice —
+  [docs/LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md)), сердечка за помилки, розбір наприкінці.
+- **Типи вправ:** один / кілька варіантів, «що виведе код», «склади код» (Parsons), «заповни пропуски», флешкартки,
+  задачі з автотестами у Web Worker, питання співбесіди.
+- **Інтервальні повторення FSRS** для карток і слів; **«Мої помилки»** — окрема сесія, питання виходить після двох
+  правильних відповідей з перервою.
+- **Тести тем і екзамени розділів** із можливістю «перескочити розділ»; **стрічка-рілси** з короткими фішками.
+
+### Мовний курс
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/readme/placement.jpg" alt="Вступний тест: питання на читання" /></td>
+    <td width="50%"><img src="docs/readme/words.jpg" alt="Слова: FSRS-черга, фільтр за рівнями" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Вступний тест</b> — адаптивний, ~30 питань, рівень за навичками й орієнтовний IELTS</td>
+    <td align="center"><b>Слова</b> — 4 287 карток з вимовою, приклади, форми, FSRS-розклад</td>
+  </tr>
+</table>
+
+- Адаптивний **вступний тест** по CEFR (бінарний пошук рівня, захист від вгадування, «Не знаю») —
+  [docs/LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md).
+- **Рівень за навичками** (граматика, лексика, читання, аудіювання, вимова) після кожного тесту й підбір вправ під
+  слабкі місця.
+- **Аудіювання й вимова** — браузерний синтез і розпізнавання мовлення, мінімальні пари, диктанти, IELTS-форми;
+  тексти для озвучки потрапляють у браузер лише після натискання «Слухати» ([docs/SPEECH.md](docs/SPEECH.md)).
+
+### Гра
+- **XP, бакси й кристали**, денна мета й серія з заморозками, ачівки, місія дня.
+- **Шлях воїна** з 56 кроків і ранг у кожному курсі (Trainee → Principal / A1 → C2) —
+  [docs/ECONOMY.md](docs/ECONOMY.md).
+- **Тижневі ліги** (до 30 учнів, 10 рівнів від бронзи), підвищення й пониження.
+- **Крамниця й спорядження** з характеристиками — фундамент для дуелей і босів ([docs/BATTLES.md](docs/BATTLES.md)).
+
+### Блог і SEO
+
+<img src="docs/readme/blog.jpg" alt="Блог Loo" width="100%" />
+
+Статті простими словами про англійську, JavaScript, SQL і System Design (`blog/uk/*.md`): SSG, OpenGraph-картки,
+sitemap, IndexNow. Нові статті пише запланована задача Claude тричі на тиждень — [docs/BLOG.md](docs/BLOG.md).
+
+### Аналітика й адмінка
+
+<img src="docs/readme/admin.jpg" alt="Адмінка: огляд аналітики (демо-дані)" width="100%" />
+
+<sub>Скриншот на локальних демо-даних.</sub>
+
+- **Власна аналітика без сторонніх сервісів:** перегляди, кліки, час на сторінці, джерела, UTM, країни й міста,
+  пристрої — з фільтрами, порівнянням періодів і графіками ([docs/ANALYTICS.md](docs/ANALYTICS.md)).
+- **Адмінка `/admin`:** огляд, детальна аналітика, користувачі (баланси, сердечка, бусти, предмети, бан), економіка
+  гри, журнал усіх дій і налаштування ([docs/ADMIN.md](docs/ADMIN.md)).
+
+## Як це влаштовано
+
+```mermaid
+flowchart LR
+  vault["Obsidian vault<br/>Guides/ · Courses/"] -->|pnpm content:sync| content["content/<br/>Markdown + course.yaml"]
+  content -->|pnpm course:build| bundle["content/courses/*.json<br/>бандл курсу"]
+  content -->|content-snapshot| snap["знімок вмісту<br/>(юніти, статті)"]
+  bundle --> app["Next.js 16 на Vercel<br/>RSC + server actions"]
+  snap --> app
+  app <-->|"withUser (RLS)"| db[("Supabase Postgres<br/>прогрес · гра · аналітика")]
+  app <--> auth["Supabase Auth<br/>email · Google · GitHub"]
+  browser["Браузер / PWA"] <--> app
 ```
 
-У `.env.local` вкажіть шлях до vault, базу і Supabase Auth:
-
-```bash
-VAULT_PATH="/Users/yaroslav/Documents/Obsidian Vault"
-DATABASE_URL=postgres://postgres@127.0.0.1:54329/postgres   # pnpm db:local (PGlite) або Supabase
-DATABASE_POOL_MAX=1
-NEXT_PUBLIC_SUPABASE_URL=https://<ref>.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_…
-ADMIN_EMAILS=you@example.com
-```
-
-```bash
-pnpm db:local     # офлайн Postgres (окремий термінал)
-pnpm db:migrate   # схема + RLS (на Supabase) — ідемпотентно
-```
-
-Без ключів Supabase сторінка входу показує інструкцію. Для роботи над UI без Supabase: `DEV_AUTH_BYPASS=1 pnpm dev`
-(лише `next dev`, лише без ключів — входить як «legacy»-власник). Що налаштувати в дашборді Supabase — [docs/AUTH.md](./docs/AUTH.md).
-
-Для щоденного користування — production-режим (швидкий старт сторінок):
-
-```bash
-pnpm build
-pnpm start
-```
-
-Відкрийте http://127.0.0.1:3000. Для розробки — `pnpm dev`.
-
-Шлях до vault також можна змінити в застосунку: **Налаштування → Vault**. Значення з налаштувань має пріоритет над `.env.local`.
-
-## Як додати посібник
-
-1. Створіть підпапку в `Guides/` (наприклад, `Guides/TypeScript`).
-2. Покладіть туди `.md`-файли. Порядок розділів береться з номера в імені (`TypeScript - 03. Generics.md` або `03 - Generics.md`), з `order` у frontmatter або з файлу «Зміст».
-3. Посібник з'явиться в бібліотеці одразу — перезапуск не потрібен.
-
-Повний опис формату (frontmatter, флешкартки, тести, задачі, callouts) — у [CONTENT_SPEC.md](./CONTENT_SPEC.md). Готовий приклад з усіма блоками — `templates/Новий посібник/`: скопіюйте папку в `Guides/` і перейменуйте.
-
-## Клавіатура
-
-| Де | Клавіші |
-|---|---|
-| Будь-де | `⌘K` / `Ctrl+K` або `/` — пошук і дії |
-| Будь-де | `⌘\` / `Ctrl+\` — сховати або показати бічну панель |
-| Читалка | `M` — вивчено, `[` / `]` — попередній / наступний розділ |
-| Картки | `Пробіл` — перевернути, `1` / `2` / `3` — не знав / важко / знав |
-| Тести | `1`–`4` — варіант, `Enter` — перевірити / далі |
-
-## Тести
-
-```bash
-pnpm test        # unit: парсер контенту, рушій прогресу
-pnpm e2e         # Playwright: читалка, 5 карток, помилка в тесті → «Мої помилки», пошук
-pnpm lint        # ESLint, включно з межами шарів
-pnpm typecheck
-```
-
-Для e2e один раз встановіть браузер: `pnpm exec playwright install chromium`.
-
-## Архітектура
+- **Сервер — джерело правди.** Ключі відповідей не йдуть у браузер у графуваних контекстах; XP, серця, ліги й
+  гроші рахує сервер в одній транзакції ([docs/SECURITY.md](docs/SECURITY.md)).
+- **Кожна таблиця прогресу** має `user_id` і RLS-політику `own_rows`; серверні таблиці (аналітика, журнал адмінки,
+  пошта) — без грантів для `anon` / `authenticated`.
+- **Швидкість:** читання сторінки — один statement через `readAll`, кеш контенту, мінімум round trip
+  ([docs/PERFORMANCE.md](docs/PERFORMANCE.md)).
 
 ```
 src/
-  content/    джерела (vault, questions.json) → доменна модель; реєстр типів блоків; парсер Obsidian-синтаксису
-  progress/   чиста логіка: XP, рівні, ранги, FSRS, помилки, streak, ачівки (без I/O)
-  db/         схема Postgres (Drizzle) і клієнт; кожна таблиця прогресу має user_id
-  server/     auth/ (Supabase SSR, requireUser, профіль, адмін), db/ (withUser: RLS-контекст), actions, сервіси
-  i18n/       тексти UI (uk) і t()
-  ui/         React-компоненти поверх доменної моделі
-  app/        маршрути Next.js
+  content/   vault → доменна модель; реєстр блоків (quiz, word, listen, speak, pair, task…); парсер Obsidian
+  course/    схема курсу, компілятор бандла, вступний тест, навички, адаптивний підбір (чиста логіка)
+  progress/  XP, рівні, FSRS, помилки, серії, ачівки (без I/O)
+  game/      ранги, валюти, крамниця, ліги, персонаж
+  db/        схема Drizzle і клієнт Postgres
+  server/    auth, actions, сервіси, адмінка, аналітика
+  ui/        React-компоненти
+  app/       маршрути Next.js (App Router)
 ```
 
-- Новий тип callout — нова папка в `src/content/blocks/` + один рядок у `registry.ts`.
-- Нова ачівка — один запис у `src/progress/achievements/catalog.ts`.
-- Зміни в `.md` підхоплює watcher; відкрита сторінка оновлюється сама.
-- `pnpm ids:suggest <guide>` друкує стабільні id для питань, у яких їх немає (апка сама у vault не пише).
+## Стек
 
-## Дані
+**Next.js 16** (App Router, React Compiler) · **React 19** · **TypeScript** strict · **Tailwind CSS 4** ·
+**Drizzle ORM** + **postgres-js** · **Supabase** (Postgres, Auth, RLS) · **ts-fsrs** · **Zod** · **Vitest** ·
+**Playwright** · **Vercel** (Fluid Compute) · **Resend** (листи) · Obsidian як CMS.
 
-- Прогрес кожного користувача — у Postgres (Supabase у продакшні, PGlite `.data/pglite` локально), рядки з `user_id`.
-- **Профіль і акаунт → Завантажити мої дані** — усе про тебе в JSON (до 3 разів на день).
-- **Профіль і акаунт → Видалити акаунт** — видаляє профіль і весь прогрес; сам логін видаляє адмін у Supabase (docs/AUTH.md).
-- **Налаштування → Скинути прогрес** — очистити свій прогрес (vault не змінюється).
-- Прогрес часів одного користувача (до акаунтів) переходить на акаунт адміністратора при його першому вході.
+## Швидкий старт
+
+Потрібні Node.js 22.12+ і pnpm (`corepack enable`).
+
+```bash
+pnpm install
+cp .env.example .env.local   # VAULT_PATH, DATABASE_URL, ключі Supabase, ADMIN_EMAILS
+```
+
+```bash
+pnpm db:local     # локальний Postgres (PGlite) на :54329 — в окремому терміналі
+pnpm db:migrate   # схема + RLS
+pnpm dev          # http://127.0.0.1:3000
+```
+
+Без ключів Supabase можна працювати над UI: `DEV_AUTH_BYPASS=1 pnpm dev` (лише `next dev` і лише без ключів — вхід
+як локальний власник). Налаштування входу — [docs/AUTH.md](docs/AUTH.md).
+
+### Команди
+
+| Команда | Що робить |
+| --- | --- |
+| `pnpm dev` / `pnpm build` / `pnpm start` | розробка / збірка / production-режим |
+| `pnpm content:sync` | копіює `Guides/` і `Courses/` з vault у `content/` |
+| `pnpm content:check [посібник]` | перевіряє статті: блоки, id, посилання |
+| `pnpm course:check <курс>` / `pnpm course:build` | перевіряє й компілює курси в бандли |
+| `pnpm db:generate` / `pnpm db:migrate` | міграції Drizzle (на прод — лише під час збірки на Vercel) |
+| `pnpm test` / `pnpm e2e` | unit-тести (Vitest) / e2e (Playwright) |
+| `pnpm lint` / `pnpm typecheck` | ESLint (з межами шарів) / TypeScript |
+| `pnpm admin:credentials [--vercel]` | новий пароль адмінки (хеш і секрет — у `.env.local` і Vercel) |
+
+### Клавіатура
+
+| Де | Клавіші |
+| --- | --- |
+| Будь-де | `⌘K` / `Ctrl+K` або `/` — пошук і дії · `⌘\` — бічна панель |
+| Читалка | `M` — вивчено · `[` / `]` — попередній / наступний розділ |
+| Картки | `Пробіл` — перевернути · `1` / `2` / `3` — не знав / важко / знав |
+| Тести | `1`–`4` — варіант · `Enter` — перевірити / далі |
+
+## Документація
+
+| Тема | Файл |
+| --- | --- |
+| Архітектура й шари | [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Формат контенту й курсів | [CONTENT_SPEC.md](CONTENT_SPEC.md) · [COURSE_FORMAT.md](docs/COURSE_FORMAT.md) |
+| Мовні курси, вступний тест, навички | [LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md) · [ENGLISH_SYLLABUS.md](docs/ENGLISH_SYLLABUS.md) · [SPEECH.md](docs/SPEECH.md) |
+| Як ми вчимо | [LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md) |
+| Гра й економіка | [ECONOMY.md](docs/ECONOMY.md) · [BATTLES.md](docs/BATTLES.md) |
+| Дизайн | [DESIGN.md](docs/DESIGN.md) |
+| Вхід і безпека | [AUTH.md](docs/AUTH.md) · [SECURITY.md](docs/SECURITY.md) |
+| Швидкодія | [PERFORMANCE.md](docs/PERFORMANCE.md) |
+| Блог, пошта, аналітика, адмінка | [BLOG.md](docs/BLOG.md) · [EMAIL.md](docs/EMAIL.md) · [ANALYTICS.md](docs/ANALYTICS.md) · [ADMIN.md](docs/ADMIN.md) |
+| Плани | [ROADMAP.md](docs/ROADMAP.md) |
+
+## Дані й приватність
+
+- Прогрес кожного — у Postgres з `user_id` під RLS; видалення акаунта видаляє весь прогрес (каскадом).
+- **Профіль і акаунт → Завантажити мої дані** — усе про тебе в JSON; **Видалити акаунт** — профіль і прогрес.
+- Аналітика збирає IP і місто для статистики сайту — опис і строк зберігання в [ANALYTICS.md](docs/ANALYTICS.md).
+
+---
+
+<div align="center"><sub>© Yaroslav Tsarenko · пропрієтарний код і контент · <a href="https://playloo.app">playloo.app</a></sub></div>
