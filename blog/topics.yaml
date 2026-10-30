@@ -165,6 +165,13 @@
     - async await javascript
     - promise javascript
     - асинхронність javascript
+    - що таке promise
+    - promise all
+    - async await простими словами
+    - promise співбесіда
+  notes: Обов'язкове питання співбесід Junior (DOU «300+ запитань», Lemon.School, Gen.tech — callbacks vs promises vs async/await, Promise.all vs allSettled, порядок then/setTimeout); в українській видачі майже лише російськомовні матеріали. Джерела — MDN (Promise, async function, forEach, Using Fetch, мікрозадачі).
+  status: done
+  slug: promise-async-await-javascript
 - topic: Event Loop у JavaScript — як працюють стек викликів, мікро- і макрозадачі
   category: javascript
   keywords:

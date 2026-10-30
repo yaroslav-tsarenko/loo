@@ -4,6 +4,7 @@ export const BLOG_SLUGS: readonly string[] = [
   "ielts-baly-yak-rakhuietsia-band-score",
   "javascript-z-nulya",
   "present-perfect-prostymy-slovamy",
+  "promise-async-await-javascript",
   "sql-join-prostymy-slovamy-inner-left-right-full-join",
   "system-design-interview-yak-pidhotuvatysia",
   "yak-vyvchyty-anhliisku-samostiino-z-nulia",
