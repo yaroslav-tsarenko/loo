@@ -71,6 +71,8 @@ export function normalizeMeta(data: Record<string, unknown>): ChapterMeta {
   const guide = toText(data.guide)
   if (guide) meta.guide = guide
   if (data.placement === true || data.placement === 'true') meta.placement = true
+  const skill = toText(data.skill)
+  if (skill) meta.skill = skill.toLowerCase()
   return meta
 }
 

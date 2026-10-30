@@ -1,7 +1,7 @@
 import { randomBytes } from 'node:crypto'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { courseKind, courseLevels, LEVEL_LABEL, levelRank, placementCandidates, placementTest, type Level } from '@/course'
+import { courseKind, courseLadder, courseLevels, courseSkills, hasSkillModel, LEVEL_LABEL, levelRank, placementCandidates, placementTest, type Level } from '@/course'
 import { t } from '@/i18n'
 import { safeRedirectPath } from '@/lib/redirect'
 import { requireUser } from '@/server/auth'
@@ -46,6 +46,8 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
   const next = safeRedirectPath(param(params, 'next'), '/path')
   // language courses: «з нуля» → A1, «трохи знаю» → A2… (levels some active section teaches)
   const active = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
+  // a programming course with skills: per-skill levels in the result, «Я новачок» without the test
+  const bySkills = hasSkillModel(bundle) && courseLadder(bundle.course) !== 'cefr'
   const manual = courseLevels(bundle.course).filter((l) => active.some((s) => levelRank(s.minLevel) <= levelRank(l) && levelRank(l) <= levelRank(s.level)))
   return (
     <PlacementPlayer
@@ -58,11 +60,13 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
       sections={bundle.sections.map((s) => ({ id: s.id, index: s.index, title: s.title, icon: s.icon }))}
       levels={Object.fromEntries(bundle.course.levels.map((l) => [l, LEVEL_LABEL[l]]))}
       next={next}
-      bank={bundle.placement.bank ? { followUp: bundle.placement.followUp ?? 0, ladder: courseLevels(bundle.course) } : undefined}
-      zeroHint={courseKind(bundle.course) === 'language' ? 'Без тесту: обери рівень сам — попередні розділи буде зараховано.' : undefined}
+      bank={bundle.placement.bank ? { followUp: bundle.placement.followUp ?? 0, ladder: courseLevels(bundle.course), ...(bySkills ? { skills: courseSkills(bundle.course).map((sk) => ({ id: sk.id, title: sk.title })) } : {}) } : undefined}
+      zeroHint={courseKind(bundle.course) === 'language' ? 'Без тесту: обери рівень сам — попередні розділи буде зараховано.' : bySkills ? 'Без тесту: з самого початку курсу. Тест можна пройти пізніше зі сторінки курсу.' : undefined}
       zero={
         courseKind(bundle.course) === 'language' ? (
           <ManualLevels courseId={id} levels={manual} />
+        ) : bySkills ? (
+          <Beginner courseId={id} level={courseLevels(bundle.course)[0]!} />
         ) : (
           <form action={startFromZero}>
             <input type="hidden" name="course" value={id} />
@@ -74,6 +78,19 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
         )
       }
     />
+  )
+}
+
+// «Я новачок» (courses with skills, docs/NEXTJS_SYLLABUS.md §4.1): the lowest level and the first section, no test.
+function Beginner({ courseId, level }: { courseId: string; level: Level }) {
+  return (
+    <form action={startAtLevel}>
+      <input type="hidden" name="course" value={courseId} />
+      <input type="hidden" name="next" value="/path" />
+      <Button type="submit" name="level" value={level} variant="ghost" size="lg" block>
+        Я новачок · {LEVEL_LABEL[level]}
+      </Button>
+    </form>
   )
 }
 

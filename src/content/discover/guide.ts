@@ -185,6 +185,7 @@ export function buildGuide(dir: string, parsed: readonly ParsedFile[], links: Li
       mtimeMs: p.file.mtimeMs,
       description: p.meta.description ?? (kind === 'chapter' ? null : p.info.lead),
       icon: iconRef(p.meta.icon),
+      ...(p.meta.skill ? { skill: p.meta.skill } : {}),
     }
     chapters.push(chapter)
     if (p.full) units.push(...p.full.units)

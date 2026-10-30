@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { LevelSchema } from './level'
 import { AuthorSchema, SectionKindSchema } from './manifest'
 import { CourseKindSchema, PracticeSectionIdSchema } from './practice'
+import { SkillDefSchema } from './skills'
 
 // CourseBundle — compiled, self-contained JSON of one course version (content/courses/<id>.json).
 // Exercise bodies stay in the content store; the bundle holds structure and references only.
@@ -21,12 +22,6 @@ export const TOPIC_KINDS = ['grammar', 'vocabulary', 'pronunciation', 'listening
 export const TopicKindSchema = z.enum(TOPIC_KINDS)
 export type TopicKind = z.infer<typeof TopicKindSchema>
 
-// Skills of a language learner: the four the placement bank measures plus pronunciation ([!speak] / [!pair]).
-// Every exercise of a language course trains one of them (src/course/compile/difficulty.ts → exerciseSkill).
-export const LEARNER_SKILLS = ['grammar', 'vocabulary', 'reading', 'listening', 'pronunciation'] as const
-export const LearnerSkillSchema = z.enum(LEARNER_SKILLS)
-export type LearnerSkill = z.infer<typeof LearnerSkillSchema>
-
 export const ExerciseRefSchema = z.object({
   id: z.string(),
   kind: ExerciseKindSchema,
@@ -42,8 +37,9 @@ export const ExerciseRefSchema = z.object({
   // easy | medium | hard inside the exercise's level: authored for tasks, derived at compile time for everything else
   // (src/course/compile/difficulty.ts); null only in bundles compiled before it existed
   difficulty: z.enum(['easy', 'medium', 'hard']).nullable(),
-  // language courses: the skill it trains (absent: programming courses, older bundles)
-  skill: LearnerSkillSchema.optional(),
+  // the course skill it trains (course.skills; language courses: grammar … pronunciation). Absent: a course without
+  // a skill model (the JavaScript course), an exercise of a topic without a skill, older bundles
+  skill: z.string().optional(),
   autoTested: z.boolean(),
   minutes: z.number(),
 })
@@ -117,6 +113,8 @@ export const TopicSchema = z.object({
   tags: z.array(z.string()),
   // language courses: grammar | vocabulary | pronunciation | listening | skills | review (absent: no kind tag)
   kind: TopicKindSchema.optional(),
+  // courses with declared skills: the topic's main skill (frontmatter `skill:`, else the section's)
+  skill: z.string().optional(),
   minutes: z.number(),
   // all exercises of the topic, document order
   exercises: z.array(z.string()),
@@ -148,16 +146,12 @@ export const SectionSchema = z.object({
 })
 export type Section = z.infer<typeof SectionSchema>
 
-// Skills a placement bank measures (docs/LANGUAGE_COURSE.md «Банк вступного тесту»).
-export const PLACEMENT_SKILLS = ['grammar', 'vocabulary', 'reading', 'listening'] as const
-export const PlacementSkillSchema = z.enum(PLACEMENT_SKILLS)
-export type PlacementSkill = z.infer<typeof PlacementSkillSchema>
-
 // One calibrated bank question: its level, the skill it measures, the difficulty inside the level (1 easy … 3 on the
 // edge of the next level) and the number of options (the chance of a blind guess is 1 / options).
 export const PlacementItemSchema = z.object({
   level: LevelSchema,
-  skill: PlacementSkillSchema,
+  // language banks: grammar | vocabulary | reading | listening; programming: a course skill id
+  skill: z.string(),
   diff: z.number().int().min(1).max(3),
   options: z.number().int().min(2),
 })
@@ -174,6 +168,10 @@ export const PlacementPoolSchema = z.object({
   bank: z.record(z.string(), PlacementItemSchema).optional(),
   pass: z.number().optional(),
   followUp: z.number().int().optional(),
+  // bank mode, courses with skills: phase 2 asks 2–3 questions per skill (course.yaml `placement.perSkill`)
+  perSkill: z.boolean().optional(),
+  // the skills the bank measures (course.yaml `placement.skills`; absent: language — the four, otherwise all)
+  skills: z.array(z.string()).optional(),
 })
 export type PlacementPool = z.infer<typeof PlacementPoolSchema>
 
@@ -222,6 +220,8 @@ export const CourseMetaSchema = z.object({
   authors: z.array(AuthorSchema),
   license: z.string().nullable(),
   estimatedHours: z.number(),
+  // the course's skills in order (course.yaml `skills`, language courses — the defaults); absent: no skill model
+  skills: z.array(SkillDefSchema).optional(),
 })
 export type CourseMeta = z.infer<typeof CourseMetaSchema>
 

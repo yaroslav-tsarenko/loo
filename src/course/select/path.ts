@@ -1,5 +1,6 @@
-import type { CourseBundle, Lesson, LessonKind, Level, Section, Topic } from '../schema'
+import { courseLevels, levelRank, type CourseBundle, type Lesson, type LessonKind, type Level, type Section, type Topic } from '../schema'
 import { selectForLevel, type LevelView } from './level'
+import { thetaLevel } from './skills'
 import { testOutEligible, type TestOutCheck } from './tests'
 
 // The learner's path through a compiled course (pure: progress comes in as sets/maps, no DB).
@@ -12,6 +13,10 @@ import { testOutEligible, type TestOutCheck } from './tests'
 //   finishing the current section or testing out.
 // * Below-level lessons (selectForLevel → optional) are shown but not required; the theory lesson counts as done
 //   once the chapter is marked studied or any practice lesson of the topic is done.
+// * Courses with a skill model (progress.skills): a topic whose level is below the learner's level in the topic's
+//   skill is «known» — shown, every node optional (its test can confirm it); a section whose topics are all known is
+//   complete (`known: 'skills'`). So the next step is the first topic not known, in course order. `recommended` —
+//   one unfinished, not known topic per skill, weakest skills first.
 
 export interface ResultRecord {
   bestScore: number
@@ -30,6 +35,29 @@ export interface PathProgress {
   exams: ReadonlyMap<string, ResultRecord>
   // placement: index of the first section to study; earlier path sections count as known
   placementSection?: number | null
+  // courses with a skill model: θ per skill (src/course/select/skills.ts → skillThetas); absent → no known topics
+  skills?: PathSkills | null
+}
+
+export interface PathSkills {
+  thetas: Partial<Record<string, number>>
+}
+
+// How many topics «recommended» offers.
+export const RECOMMENDED = 3
+
+// Known: the topic's skill level (θ on the course ladder) is above the topic's level.
+export function topicKnown(topic: Pick<Topic, 'level' | 'skill'>, skills: PathSkills | null | undefined, levels: readonly Level[]): boolean {
+  if (!skills || !topic.skill) return false
+  const theta = skills.thetas[topic.skill]
+  if (theta === undefined) return false
+  return levelRank(topic.level) < levelRank(thetaLevel(theta, levels))
+}
+
+// Topic ids the learner knows already (courses with a skill model), in course order.
+export function knownTopics(bundle: CourseBundle, skills: PathSkills | null | undefined): string[] {
+  const levels = courseLevels(bundle.course)
+  return bundle.sections.flatMap((s) => (s.kind === 'path' && s.status !== 'planned' ? s.topics.filter((t) => topicKnown(t, skills, levels)).map((t) => t.id) : []))
 }
 
 export type PathState = 'done' | 'current' | 'open' | 'locked'
@@ -75,6 +103,8 @@ export type PathNode = PathLessonNode | PathTestNode | PathExamNode
 export interface PathTopicView {
   topic: Topic
   nodes: Array<PathLessonNode | PathTestNode>
+  // below the learner's level in its skill: every node optional
+  known: boolean
   state: PathState
   done: number
   total: number
@@ -85,7 +115,8 @@ export interface PathSectionView {
   // course.yaml `status: planned`: shown as «скоро», nothing to study yet
   planned: boolean
   state: PathState
-  known: 'placement' | 'exam' | null
+  // skills: every topic of the section is known by the learner's skill levels
+  known: 'placement' | 'exam' | 'skills' | null
   topics: PathTopicView[]
   exam: PathExamNode | null
   done: number
@@ -115,10 +146,13 @@ export interface CoursePathView {
   lessonsLeft: number
   lessonsTotal: number
   ratio: number
+  // courses with a skill model: unfinished topics to do next, one per skill, weakest skills first
+  recommended: string[]
 }
 
 export function buildCoursePath(bundle: CourseBundle, level: Level, progress: PathProgress): CoursePathView {
   const levelView = selectForLevel(bundle, level)
+  const ladder = courseLevels(bundle.course)
   const placement = progress.placementSection ?? null
   const passedSections = bundle.sections.filter((s) => s.exam && progress.exams.get(s.exam.id)?.passed).map((s) => s.id)
   const sections: PathSectionView[] = []
@@ -137,6 +171,7 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
     const topics: PathTopicView[] = []
 
     for (const topic of section.topics) {
+      const topicIsKnown = path && topicKnown(topic, progress.skills, ladder)
       const practiceDone = topic.lessons.some((l) => l.kind !== 'theory' && progress.lessons.has(l.id))
       const nodes: Array<PathLessonNode | PathTestNode> = []
       for (const lesson of topic.lessons) {
@@ -154,9 +189,9 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
           done: real || known !== null,
           skipped: !real && known !== null,
           current: false,
-          required: !view.optional,
+          required: !view.optional && !topicIsKnown,
           perfect: progress.perfect?.has(lesson.id) ?? false,
-          optional: view.optional,
+          optional: view.optional || topicIsKnown,
           challenge: view.challenge,
           condensed: view.condensed,
         })
@@ -173,13 +208,15 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
           done: passed || known !== null,
           skipped: !passed && known !== null,
           current: false,
-          required: true,
+          required: !topicIsKnown,
         })
       }
       const required = nodes.filter((n) => n.required)
-      topics.push({ topic, nodes, state: 'open', done: required.filter((n) => n.done).length, total: required.length })
+      topics.push({ topic, nodes, known: topicIsKnown, state: 'open', done: required.filter((n) => n.done).length, total: required.length })
     }
 
+    // every topic known by skill level: the section counts as complete (its exam stays available, not required)
+    const allKnown = path && topics.length > 0 && topics.every((t) => t.known)
     let exam: PathExamNode | null = null
     if (section.exam) {
       const record = progress.exams.get(section.exam.id)
@@ -192,16 +229,18 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
         done: examPassed || known !== null,
         skipped: !examPassed && known !== null,
         current: false,
-        required: true,
+        required: !allKnown || known !== null,
         testOut: testOutEligible(bundle, section.id, { passedSections }),
       }
     }
 
-    const done = topics.reduce((s, t) => s + t.done, 0) + (exam?.done ? 1 : 0)
-    const total = topics.reduce((s, t) => s + t.total, 0) + (exam ? 1 : 0)
-    const complete = known !== null || (exam ? exam.done : done === total)
-    for (const t of topics) t.state = !unlocked ? 'locked' : t.done === t.total ? 'done' : 'open'
-    sections.push({ section, planned: false, state: !unlocked ? 'locked' : complete ? 'done' : 'open', known, topics, exam, done, total, ratio: total > 0 ? done / total : complete ? 1 : 0 })
+    const examCounts = exam !== null && exam.required
+    const done = topics.reduce((s, t) => s + t.done, 0) + (examCounts && exam?.done ? 1 : 0)
+    const total = topics.reduce((s, t) => s + t.total, 0) + (examCounts ? 1 : 0)
+    const complete = known !== null || allKnown || (exam ? exam.done : done === total)
+    // a known topic is «done» only when its nodes actually are; otherwise open (optional)
+    for (const t of topics) t.state = !unlocked ? 'locked' : t.known ? (t.nodes.every((n) => n.done) ? 'done' : 'open') : t.done === t.total ? 'done' : 'open'
+    sections.push({ section, planned: false, state: !unlocked ? 'locked' : complete ? 'done' : 'open', known: known ?? (allKnown ? 'skills' : null), topics, exam, done, total, ratio: total > 0 ? done / total : complete ? 1 : 0 })
     if (path) prevPathDone = complete
   }
 
@@ -227,7 +266,7 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
         if (!nextLesson && n.type === 'lesson' && n.kind !== 'theory') nextLesson = cursor
       }
     }
-    if (s.exam && !current && s.state !== 'locked' && !s.exam.done) {
+    if (s.exam && s.exam.required && !current && s.state !== 'locked' && !s.exam.done) {
       current = { type: 'exam', id: s.exam.id, sectionId: s.section.id, topicId: null, lesson: null }
       s.exam.current = true
       s.state = 'current'
@@ -239,5 +278,27 @@ export function buildCoursePath(bundle: CourseBundle, level: Level, progress: Pa
 
   const done = sections.reduce((sum, s) => sum + s.done, 0)
   const total = sections.reduce((sum, s) => sum + s.total, 0)
-  return { level, levelView, sections, current, nextLesson, done, total, lessonsLeft, lessonsTotal, ratio: total > 0 ? done / total : 0 }
+  return { level, levelView, sections, current, nextLesson, done, total, lessonsLeft, lessonsTotal, ratio: total > 0 ? done / total : 0, recommended: recommendedTopics(sections, progress.skills) }
+}
+
+// One unfinished, not known topic per skill (course order inside the skill), weakest skills first (lowest θ; ties —
+// the order the skills first appear on the path).
+export function recommendedTopics(sections: readonly PathSectionView[], skills: PathSkills | null | undefined, n = RECOMMENDED): string[] {
+  if (!skills) return []
+  const firstOf = new Map<string, { id: string; at: number }>()
+  let at = 0
+  for (const s of sections) {
+    if (s.planned || s.section.kind !== 'path') continue
+    for (const t of s.topics) {
+      at++
+      const skill = t.topic.skill
+      if (!skill || t.known || firstOf.has(skill) || skills.thetas[skill] === undefined) continue
+      if (t.total > 0 && t.done >= t.total) continue
+      firstOf.set(skill, { id: t.topic.id, at })
+    }
+  }
+  return [...firstOf.entries()]
+    .sort((a, b) => skills.thetas[a[0]]! - skills.thetas[b[0]]! || a[1].at - b[1].at)
+    .slice(0, n)
+    .map(([, v]) => v.id)
 }

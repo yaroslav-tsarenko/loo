@@ -11,6 +11,10 @@ export type CourseIssueCode =
   | 'thin-exam'
   | 'thin-placement'
   | 'placement-bank'
+  // course.yaml `skills`: a topic / exercise / bank item names a skill the course doesn't declare (error), a topic
+  // without a skill (warning)
+  | 'unknown-skill'
+  | 'topic-skill'
   | 'empty-practice'
   | 'content'
   | 'task'

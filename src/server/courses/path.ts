@@ -1,6 +1,6 @@
 import 'server-only'
 import { and, eq } from 'drizzle-orm'
-import { buildCoursePath, lookup, type CourseBundle, type CoursePathView, type PathCursor, type ResultRecord } from '@/course'
+import { buildCoursePath, lookup, type CourseBundle, type CoursePathView, type PathCursor, type PathSkills, type ResultRecord } from '@/course'
 import { chapterProgress, examResults, lessonProgress, srsCards, taskState, topicResults } from '@/db/schema'
 import type { Conn } from '@/db/client'
 import type { ContentSnapshot } from '@/content/store'
@@ -11,6 +11,7 @@ import { read, readAll, readBatch } from '../db/batch'
 import { lastOutcomesRead } from '../services/queue'
 import type { ActiveCourse } from './enrollment'
 import { legacyLessonsQuery, migrateLegacyLessons } from './legacy'
+import { pathSkills } from './skills'
 
 // ts-fsrs State.Review
 const REVIEW_STATE = 2
@@ -77,12 +78,13 @@ export async function courseProgressIn(db: Conn, userId: string, bundle: CourseB
 }
 
 export async function coursePathView(active: ActiveCourse): Promise<{ view: CoursePathView; progress: CourseProgressRows }> {
-  const progress = await courseProgress(active.bundle)
-  return { view: pathViewFrom(active, progress), progress }
+  const [progress, skills] = await Promise.all([courseProgress(active.bundle), pathSkills(active)])
+  return { view: pathViewFrom(active, progress, skills), progress }
 }
 
-export function pathViewFrom(active: ActiveCourse, progress: CourseProgressRows): CoursePathView {
-  return buildCoursePath(active.bundle, active.enrollment.level, { ...progress, placementSection: active.enrollment.placement?.sectionIndex ?? null })
+// `skills`: θ per skill of a course with declared skills (pathSkills) — known topics, recommendations
+export function pathViewFrom(active: ActiveCourse, progress: CourseProgressRows, skills: PathSkills | null = null): CoursePathView {
+  return buildCoursePath(active.bundle, active.enrollment.level, { ...progress, placementSection: active.enrollment.placement?.sectionIndex ?? null, skills })
 }
 
 interface MasterySignals {
@@ -164,7 +166,7 @@ export function masteryFromRows(
 export async function coursePath(snapshot: ContentSnapshot, active: ActiveCourse): Promise<CoursePath> {
   const [progress, signals] = await userScope((db, userId) => Promise.all([courseProgressIn(db, userId, active.bundle), masterySignalsIn(db, userId, active.bundle)]), { tx: true })
   const mastery = masteryFromRows(active.bundle, { studied: progress.studied, reading: progress.reading }, signals.outcomes, signals.srs, signals.solved)
-  const view = pathViewFrom(active, progress)
+  const view = pathViewFrom(active, progress, await pathSkills(active))
   const theoryHref = new Map<string, string>()
   for (const s of active.bundle.sections) {
     for (const t of s.topics) {

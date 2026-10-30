@@ -12,6 +12,7 @@ import { courseListing } from '@/server/courses/bundles'
 import { getCourseEntry } from '@/server/courses/registry'
 import { courseSkills } from '@/server/courses/skills'
 import { SkillLevels } from '@/ui/courses/SkillLevels'
+import { skillCard } from '@/ui/courses/skill-rows'
 import { param } from '@/ui/auth/AuthShell'
 import { Choice, ChoiceGroup } from '@/ui/auth/Choices'
 import { Pill } from '@/ui/design/Badge'
@@ -38,6 +39,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
   const enrollment = (await myEnrollments()).find((e) => e.courseId === id) ?? null
   // language courses: per-skill levels + IELTS (the stored estimate comes with the base rows, no extra query)
   const skills = await courseSkills(bundle, enrollment)
+  const card = skills ? skillCard(bundle, skills.view, skills.levels, { answers: true }) : null
   const m = messages()
   const placementSection = enrollment?.placement ? bundle.sections[enrollment.placement.sectionIndex] : undefined
   const style = { '--course-c': meta.color ?? 'var(--lu-violet)' } as CSSProperties
@@ -111,12 +113,13 @@ export default async function CoursePage({ params, searchParams }: { params: Par
         ))}
       </dl>
 
-      {skills ? (
+      {skills && card ? (
         <SkillLevels
-          rows={skills.view.skills.map((v) => ({ skill: v.skill, level: v.level }))}
-          overall={skills.view.overall}
+          rows={card.rows}
+          overall={card.overall}
           ielts={skills.view.ielts?.label ?? null}
-          note={skills.view.answers > 0 ? `${t('skills.note')} · ${t('skills.answers', { n: skills.view.answers })}` : t('skills.start')}
+          next={card.next}
+          note={card.note}
         />
       ) : null}
 

@@ -411,8 +411,8 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
       </ol>
       {outcome.skills ? (
         <SkillLevels
-          rows={outcome.skills.changes.map((c) => ({ skill: c.skill, level: c.after, before: c.before, trend: c.trend }))}
-          overall={outcome.skills.overall}
+          rows={outcome.skills.changes.map((c) => ({ skill: c.skill, label: c.label, level: c.afterLabel, before: c.beforeLabel, trend: c.trend }))}
+          overall={outcome.skills.overallLabel}
           ielts={outcome.skills.ielts}
           note={t('skills.updated')}
         />

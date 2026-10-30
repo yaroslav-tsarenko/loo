@@ -303,7 +303,12 @@ export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
             <SectionBanner section={section} number={number} />
             {section.known ? (
               <p className="cp-known">
-                <PiCheckBold aria-hidden="true" /> {section.known === 'exam' ? 'Розділ зараховано екзаменом — уроки лишаються для повторення.' : 'Зараховано за вступним тестом — повертайся сюди будь-коли.'}
+                <PiCheckBold aria-hidden="true" />{' '}
+                {section.known === 'exam'
+                  ? 'Розділ зараховано екзаменом — уроки лишаються для повторення.'
+                  : section.known === 'skills'
+                    ? 'Усі теми розділу нижче твого рівня навичок — уроки й тести лишаються, щоб підтвердити.'
+                    : 'Зараховано за вступним тестом — повертайся сюди будь-коли.'}
               </p>
             ) : null}
             {section.description && !section.known ? <p className="cp-section-lead">{section.description}</p> : null}
@@ -349,7 +354,7 @@ export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
                   </button>
                 ) : null}
                 {section.topics.map((topic) => (
-                  <div key={topic.id} id={topicAnchor(topic.id)} className="skill" data-state={topic.state === 'current' ? 'current' : topic.state === 'done' ? 'done' : 'upcoming'}>
+                  <div key={topic.id} id={topicAnchor(topic.id)} className="skill" data-state={topic.state === 'current' ? 'current' : topic.state === 'done' ? 'done' : 'upcoming'} data-known={topic.known ? '' : undefined}>
                     <button type="button" className="lu-card skill-head" data-variant="interactive" data-pad="sm" data-tone={topic.state === 'current' ? 'violet' : undefined} onClick={() => setSheet(topic)}>
                       <Ring value={topic.ratio} size={56} stroke={6} tone={topic.crowns >= 5 ? 'yellow' : 'violet'} label={`Опановано ${Math.round(topic.ratio * 100)}%`} className="skill-ring">
                         <span className="skill-icon" aria-hidden="true">
@@ -368,8 +373,22 @@ export function CoursePath({ sections: shipped }: { sections: CPSection[] }) {
                           ) : (
                             CROWN_LABEL[0]
                           )}{' '}
-                          · {topic.done}/{topic.total} кроків
+                          · {topic.known ? 'знаю — тест теми підтвердить' : `${topic.done}/${topic.total} кроків`}
                         </span>
+                        {topic.skill ? (
+                          <span className="skill-tags">
+                            <Pill size="sm">{topic.skill}</Pill>
+                            {topic.known ? (
+                              <Pill size="sm" tone="green" icon={<PiCheckBold />}>
+                                Знаю
+                              </Pill>
+                            ) : topic.recommended ? (
+                              <Pill size="sm" tone="orange" icon={<PiTargetFill />}>
+                                Рекомендовано
+                              </Pill>
+                            ) : null}
+                          </span>
+                        ) : null}
                       </span>
                       <PiCaretRightBold className="skill-chevron" aria-hidden="true" />
                     </button>

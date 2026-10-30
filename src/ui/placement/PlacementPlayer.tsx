@@ -12,6 +12,7 @@ import { Confetti } from '@/ui/design/Confetti'
 import { Loo } from '@/ui/design/mascot/Loo'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { ProgressBar } from '@/ui/design/ProgressBar'
+import { SkillLevels } from '@/ui/courses/SkillLevels'
 import { Icon } from '@/ui/icons/Icon'
 import { QuizInline, type QuizCheck, type QuizResult } from '@/ui/study/QuizInline'
 
@@ -38,8 +39,9 @@ interface Props {
   next: string
   zero: ReactNode
   zeroHint?: string
-  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, IELTS (docs/LANGUAGE_COURSE.md)
-  bank?: { followUp: number; ladder: string[] }
+  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, IELTS (docs/LANGUAGE_COURSE.md);
+  // `skills` — a course with declared skills (course.skills): the result shows a level per skill as bars
+  bank?: { followUp: number; ladder: string[]; skills?: Array<{ id: string; title: string }> }
 }
 
 // Placement answers are graded by placementStep on the server (all at once); a single answer gets no verdict here.
@@ -131,7 +133,8 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
       setReview(step.review)
       setCurrent(null)
     } else {
-      if (step.phase) setPhase(step.phase)
+      // the per-skill phase is part of the main test for the UI
+      if (step.phase) setPhase(step.phase === 'follow-up' ? 'follow-up' : 'main')
       setCurrent(step.next)
     }
   }, [])
@@ -324,7 +327,7 @@ export function PlacementPlayer({ course, nonce: pageNonce, first, maxQuestions,
         </div>
       )
     }
-    if (result && bank) return <BankResult result={result} review={review} items={byId} sections={sections} levels={levels} course={course} busy={busy} error={error} followUpCount={bank.followUp} onApply={apply} onFollowUp={startFollowUp} />
+    if (result && bank) return <BankResult result={result} review={review} items={byId} sections={sections} levels={levels} ladder={bank.ladder} skills={bank.skills} course={course} busy={busy} error={error} followUpCount={bank.followUp} onApply={apply} onFollowUp={startFollowUp} />
     const section = result ? sections[result.sectionIndex] : undefined
     const level = result ? levels[result.level] ?? result.level : '—'
     return (
@@ -444,6 +447,8 @@ interface BankResultProps {
   items: Map<string, PlayerItem>
   sections: Props['sections']
   levels: Record<string, string>
+  ladder: string[]
+  skills?: Array<{ id: string; title: string }>
   course: Props['course']
   busy: boolean
   error: string | null
@@ -452,10 +457,16 @@ interface BankResultProps {
   onFollowUp: () => Promise<void>
 }
 
+// «Почни з: …» — the weakest skills of a course with declared skills (the path recommends their topics first)
+function weakTitles(weak: readonly string[], skills: ReadonlyArray<{ id: string; title: string }>): string | null {
+  const titles = weak.slice(0, 3).map((id) => skills.find((s) => s.id === id)?.title ?? id)
+  return titles.length > 0 ? `Підтягнути спершу: ${titles.join(', ')}` : null
+}
+
 const listOf = (skills: readonly Skill[]) => skills.map((s) => t(`placement.skill.${s}`).toLowerCase()).join(', ')
 
 // Result of the calibrated test: level + IELTS (approximate), confidence (+ follow-up), skills, where to start, mistakes.
-function BankResult({ result, review, items, sections, levels, course, busy, error, followUpCount, onApply, onFollowUp }: BankResultProps) {
+function BankResult({ result, review, items, sections, levels, ladder, skills: courseSkills, course, busy, error, followUpCount, onApply, onFollowUp }: BankResultProps) {
   const level = levels[result.level] ?? result.level
   const confidence = result.confidence ?? 'low'
   const [primary, secondary] = result.starts
@@ -492,7 +503,22 @@ function BankResult({ result, review, items, sections, levels, course, busy, err
         </section>
       ) : null}
 
-      {result.skills ? (
+      {result.skills && courseSkills ? (
+        <SkillLevels
+          title={t('placement.skillsTitle')}
+          bare
+          rows={courseSkills.flatMap((s) => {
+            const v = result.skills?.[s.id]
+            if (!v) return []
+            const at = ladder.indexOf(v.level)
+            return [{ skill: s.id, label: s.title, level: levels[v.level] ?? v.level, ratio: at >= 0 ? (at + 0.5) / ladder.length : undefined, mark: result.strong.includes(s.id) ? ('strong' as const) : result.weak.includes(s.id) ? ('weak' as const) : null }]
+          })}
+          overall={level}
+          ielts={null}
+          next={weakTitles(result.weak, courseSkills)}
+          note={result.perSkill ? 'Кожну навичку перевірено окремо: 2–3 питання на рівні загального результату, вище чи нижче за відповідями.' : null}
+        />
+      ) : result.skills ? (
         <section className="placement-skills" aria-label={t('placement.skillsTitle')}>
           <h2 className="summary-section-title">{t('placement.skillsTitle')}</h2>
           <ul>

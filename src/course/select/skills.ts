@@ -1,9 +1,10 @@
-import { LEARNER_SKILLS, levelRank, PLACEMENT_SKILLS, type CourseBundle, type LearnerSkill, type Level, type Section } from '../schema'
+import { LANGUAGE_SKILL_MODEL, levelRank, type CourseBundle, type Level, type Section, type SkillModel } from '../schema'
 import { ieltsBand, type IeltsBand } from './ielts'
 import { lookup } from './lookup'
 
-// Per-skill level estimate of a language learner (docs/LANGUAGE_COURSE.md «Рівень за навичками»), updated after
-// every topic test and section exam. The same model as the placement's skill estimate (placement.ts → estimateSkills):
+// Per-skill level estimate of a learner (docs/LANGUAGE_COURSE.md «Рівень за навичками»), updated after every topic
+// test and section exam — for every course with a skill model (course.skills; language courses — the five defaults).
+// The skill list comes from the bundle (schema/skills.ts → skillModelOf); without it the language model is assumed. The same model as the placement's skill estimate (placement.ts → estimateSkills):
 //
 //   ability θ in level units (θ ∈ [i, i+1) ⇔ the i-th level of the ladder; A1 0…1, A2 1…2 …);
 //   an exercise of level i and diff d (easy 1 · medium 2 · hard 3) has difficulty b = i + 0.25 + 0.3·(d − 2);
@@ -35,7 +36,7 @@ export interface SkillState {
   v: 1
   // what the estimate started from: a manual level change or a new placement starts it over
   basis: { level: Level; placementAt: number | null }
-  skills: Partial<Record<LearnerSkill, SkillBelief>>
+  skills: Partial<Record<string, SkillBelief>>
   updatedAt: number
 }
 
@@ -46,7 +47,7 @@ export interface SkillBasis {
 }
 
 export interface SkillObservation {
-  skill: LearnerSkill
+  skill: string
   level: Level
   diff: 1 | 2 | 3
   // answer options of a choice (2 for a minimal pair); 0 — typed / ordered answers, no guessing
@@ -70,7 +71,7 @@ export function pRight(theta: number, b: number, options: number): number {
   return c + (1 - c) * sigmoid(SKILL_K * (theta - b))
 }
 
-function placementLevel(basis: SkillBasis, skill: LearnerSkill, levels: readonly Level[]): Level | null {
+function placementLevel(basis: SkillBasis, skill: string, levels: readonly Level[]): Level | null {
   const p = basis.placement
   if (!p || p.skipped) return null
   const s = p.skills?.[skill]
@@ -81,9 +82,9 @@ function placementLevel(basis: SkillBasis, skill: LearnerSkill, levels: readonly
 const basisOf = (basis: SkillBasis): SkillState['basis'] => ({ level: basis.level, placementAt: basis.placement && !basis.placement.skipped ? (basis.placement.at ?? null) : null })
 
 // Fresh estimate: per skill the placement's measured level (σ 0.5), otherwise the course level (σ 0.8).
-export function initialSkills(basis: SkillBasis, levels: readonly Level[], now = 0): SkillState {
+export function initialSkills(basis: SkillBasis, levels: readonly Level[], now = 0, model: SkillModel = LANGUAGE_SKILL_MODEL): SkillState {
   const skills: SkillState['skills'] = {}
-  for (const skill of LEARNER_SKILLS) {
+  for (const skill of model.skills) {
     const placed = placementLevel(basis, skill, levels)
     skills[skill] = { mu: levelTheta(placed ?? basis.level), sd: placed ? SD_PLACED : SD_DEFAULT, n: 0, right: 0 }
   }
@@ -92,14 +93,14 @@ export function initialSkills(basis: SkillBasis, levels: readonly Level[], now =
 
 // The stored estimate if it still belongs to this level / placement, otherwise a fresh one. Unknown shapes (tampered
 // or older rows) are ignored.
-export function currentSkills(stored: unknown, basis: SkillBasis, levels: readonly Level[]): SkillState {
-  const fresh = initialSkills(basis, levels)
+export function currentSkills(stored: unknown, basis: SkillBasis, levels: readonly Level[], model: SkillModel = LANGUAGE_SKILL_MODEL): SkillState {
+  const fresh = initialSkills(basis, levels, 0, model)
   if (!isSkillState(stored)) return fresh
   const b = basisOf(basis)
   if (stored.basis.level !== b.level || stored.basis.placementAt !== b.placementAt) return fresh
   const skills: SkillState['skills'] = { ...fresh.skills }
   const max = levels.length + 1
-  for (const skill of LEARNER_SKILLS) {
+  for (const skill of model.skills) {
     const s = stored.skills[skill]
     if (s) skills[skill] = { mu: Math.max(-1, Math.min(max, s.mu)), sd: Math.max(SD_MIN, Math.min(2, s.sd)), n: Math.max(0, Math.floor(s.n)), right: Math.max(0, Math.floor(s.right)) }
   }
@@ -142,9 +143,9 @@ export function updateBelief(belief: SkillBelief, answers: readonly Omit<SkillOb
   return { mu, sd: Math.max(SD_MIN, Math.sqrt(variance)), n: belief.n + answers.length, right: belief.right + answers.filter((a) => a.correct).length }
 }
 
-export function updateSkills(state: SkillState, observations: readonly SkillObservation[], levels: readonly Level[], now: number): SkillState {
+export function updateSkills(state: SkillState, observations: readonly SkillObservation[], levels: readonly Level[], now: number, model: SkillModel = LANGUAGE_SKILL_MODEL): SkillState {
   const skills: SkillState['skills'] = { ...state.skills }
-  for (const skill of LEARNER_SKILLS) {
+  for (const skill of model.skills) {
     const mine = observations.filter((o) => o.skill === skill)
     if (mine.length === 0) continue
     const before = skills[skill] ?? { mu: levelTheta(state.basis.level), sd: SD_DEFAULT, n: 0, right: 0 }
@@ -156,7 +157,7 @@ export function updateSkills(state: SkillState, observations: readonly SkillObse
 // ── What the learner sees ──
 
 export interface SkillView {
-  skill: LearnerSkill
+  skill: string
   level: Level
   theta: number
   sd: number
@@ -168,29 +169,30 @@ export interface SkillView {
 
 export interface SkillsView {
   skills: SkillView[]
-  // the four placement skills averaged (like the IELTS overall band = the mean of the four papers)
+  // the overall skills averaged (language: the four placement skills, like the IELTS overall band = the mean of the
+  // four papers; otherwise every course skill)
   overall: Level
   overallTheta: number
   ielts: IeltsBand | null
   answers: number
 }
 
-export function skillsView(state: SkillState, levels: readonly Level[]): SkillsView {
-  const skills = LEARNER_SKILLS.map((skill): SkillView => {
+export function skillsView(state: SkillState, levels: readonly Level[], model: SkillModel = LANGUAGE_SKILL_MODEL): SkillsView {
+  const skills = model.skills.map((skill): SkillView => {
     const b = state.skills[skill] ?? { mu: levelTheta(state.basis.level), sd: SD_DEFAULT, n: 0, right: 0 }
     const level = thetaLevel(b.mu, levels)
     return { skill, level, theta: b.mu, sd: b.sd, n: b.n, updated: b.n > 0, ielts: ieltsBand(level) }
   })
-  const four = skills.filter((s) => (PLACEMENT_SKILLS as readonly string[]).includes(s.skill))
-  const overallTheta = four.reduce((sum, s) => sum + s.theta, 0) / four.length
+  const four = skills.filter((s) => model.overall.includes(s.skill))
+  const overallTheta = four.length > 0 ? four.reduce((sum, s) => sum + s.theta, 0) / four.length : levelTheta(state.basis.level)
   const overall = thetaLevel(overallTheta, levels)
   return { skills, overall, overallTheta, ielts: ieltsBand(overall), answers: skills.reduce((sum, s) => sum + s.n, 0) }
 }
 
 // θ per skill for practice selection (adaptive.ts)
-export function skillThetas(state: SkillState): Partial<Record<LearnerSkill, number>> {
-  const out: Partial<Record<LearnerSkill, number>> = {}
-  for (const skill of LEARNER_SKILLS) {
+export function skillThetas(state: SkillState, model: SkillModel = LANGUAGE_SKILL_MODEL): Partial<Record<string, number>> {
+  const out: Partial<Record<string, number>> = {}
+  for (const skill of model.skills) {
     const b = state.skills[skill]
     if (b) out[skill] = b.mu
   }
@@ -267,6 +269,26 @@ export function levelSuggestion(input: SuggestionInput): LevelSuggestion | null 
     const review = previous.topics.find((t) => t.kind === 'review' && t.test)
     const testId = review?.test?.id ?? previous.exam?.id
     return testId ? { kind: 'review', testId, sectionId: previous.id, level: previous.level, theta } : null
+  }
+  return null
+}
+
+// ── Profile helpers (courses with skills) ──
+
+// Weakest skills first (lowest θ; ties — course order): the «next step» and the «recommended» topics start there.
+export function weakestSkills(view: SkillsView, n = view.skills.length): SkillView[] {
+  return view.skills
+    .map((s, i) => ({ s, i }))
+    .sort((a, b) => a.s.theta - b.s.theta || a.i - b.i)
+    .slice(0, n)
+    .map((x) => x.s)
+}
+
+// The next step of the skill profile: the weakest skill below the top level and the level it should reach next.
+export function nextSkillStep(view: SkillsView, levels: readonly Level[]): { skill: string; from: Level; to: Level } | null {
+  for (const s of weakestSkills(view)) {
+    const i = levels.indexOf(s.level)
+    if (i >= 0 && i < levels.length - 1) return { skill: s.skill, from: s.level, to: levels[i + 1]! }
   }
   return null
 }

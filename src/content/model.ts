@@ -44,6 +44,8 @@ export interface ChapterMeta {
   parts?: string[]
   // placement-test bank file (`<Guide>/_placement/B2.md`, docs/LANGUAGE_COURSE.md): not theory, never a chapter
   placement?: boolean
+  // courses with skills (course.yaml `skills`): the topic's main skill id
+  skill?: string
 }
 
 export type ChapterKind = 'chapter' | 'index' | 'overview'
@@ -67,6 +69,8 @@ export interface Chapter {
   mtimeMs: number
   description: string | null
   icon: string | null
+  // frontmatter `skill:` (courses with skills, docs/COURSE_FORMAT.md §3); absent when not set
+  skill?: string
 }
 
 export type TreeNode =
