@@ -1,5 +1,6 @@
 import 'server-only'
 import { cache } from 'react'
+import '@/i18n/register'
 import { resolveLocale, translator, type Locale, type Translate } from '@/i18n'
 import { getUser } from './auth/session'
 import { userBase } from './base'

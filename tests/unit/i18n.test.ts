@@ -13,6 +13,7 @@ import { mdastToHast } from '@/content/render/to-hast'
 import { ContentStore, loadSnapshot, type ContentSnapshot } from '@/content/store'
 import { compileCourse, parseCourseManifest, parseCourseYaml } from '@/course'
 import { contentLanguage, courseHreflangs, courseLanguages, localizedCourse } from '@/course/i18n'
+import '@/i18n/register'
 import { contentMeta, coverage, messages, resolveLocale, t } from '@/i18n'
 import { HARNESS_UK } from '@/ui/code/harness-text'
 import { runSuite, type HarnessHost } from '@/ui/code/harness'
@@ -159,7 +160,7 @@ function extracted(markdown: string) {
 
 describe('display: fallback rendering', () => {
   const source = extracted(SRC)
-  const doc = localizeDocument(source, extracted(TR), { sourceLang: 'uk', label: 'not translated yet', labelLang: 'en' })
+  const doc = localizeDocument(source, extracted(TR), { sourceLang: 'uk', label: 'not translated yet', labelLang: 'en' })!
 
   it('translated segments come from the translation; the missing one stays Ukrainian with a marker', () => {
     expect(doc.missing).toEqual(['друге#p3'])
@@ -195,11 +196,11 @@ describe('display: fallback rendering', () => {
     expect(task.hints).toHaveLength(1)
   })
 
-  it('a translated task whose tests differ keeps the source code', () => {
-    const changed = localizeDocument(source, extracted(TR.replace('toBe(1))', 'toBe(2))')), { sourceLang: 'uk', label: 'x', labelLang: 'en' })
+  it('a translated task whose tests differ is shown in the source language', () => {
+    const changed = localizeDocument(source, extracted(TR.replace('toBe(1))', 'toBe(2))')), { sourceLang: 'uk', label: 'x', labelLang: 'en' })!
     const task = changed.units.get('demo-01-task-01')!
     if (task.kind !== 'task') throw new Error('task')
-    expect(task.titleText).toBe('Return one')
+    expect(task.titleText).toBe('Поверни один')
     expect(task.code?.tests).toContain("test('повертає 1'")
   })
 })
@@ -223,6 +224,7 @@ describe('content store: _i18n is not a chapter', () => {
   it('the translation is known by source topic id, with its title and localized slug', () => {
     const info = snap.translations.get('demo-01')?.get('en')
     expect(info).toMatchObject({ lang: 'en', title: 'The boundary', slug: 'the-boundary', path: 'Guides/Demo/_i18n/en/Demo - 01. Межа.md' })
+    expect(Object.keys(info!.lock!)).toHaveLength(10)
   })
 
   it('ContentStore.localizedDocument merges the topic; reels keep their source ids', async () => {
@@ -319,5 +321,108 @@ describe('harness texts', () => {
     expect(report.error).toBe('The tests have no test(…)')
     const failed = await runSuite('', "test('t', () => expect(() => 1).toThrow())", () => {}, host, 300, messages('en').harness)
     expect(failed.tests[0]!.received).toBe('the function threw nothing')
+  })
+})
+
+// Review fixes: when in doubt, show the source — a translation never changes what is graded or where a heading points.
+describe('display: when in doubt, the source', () => {
+  const source = extracted(SRC)
+  const opts = { sourceLang: 'uk', label: 'x', labelLang: 'en' }
+  const quizOf = (md: string) => localizeDocument(source, extracted(md), opts)!.units.get('demo-01-quiz-01')!
+
+  it('a moved [x] or reordered options → the source quiz', () => {
+    const moved = quizOf(TR.replace('> - [ ] one\n> - [x] two', '> - [x] one\n> - [ ] two'))
+    const reordered = quizOf(TR.replace('> - [ ] one\n> - [x] two', '> - [x] two\n> - [ ] one'))
+    for (const q of [moved, reordered]) expect(q.kind === 'quiz' && q.promptText).toBe('Скільки буде 1 + 1?')
+    expect(quizOf(TR).kind === 'quiz' && (quizOf(TR) as { promptText: string }).promptText).toBe('What is 1 + 1?')
+  })
+
+  it('an output quiz whose code differs → the source quiz', () => {
+    const src = SRC.replace('> - [ ] один', '> ```js\n> console.log(1 + 1)\n> ```\n>\n> - [ ] один')
+    const tr = TR.replace('> - [ ] one', '> ```js\n> console.log(1 + 2)\n> ```\n>\n> - [ ] one')
+    const q = localizeDocument(extracted(src), extracted(tr), opts)!.units.get('demo-01-quiz-01')!
+    expect(q.kind === 'quiz' && q.promptText).toBe('Скільки буде 1 + 1?')
+  })
+
+  it('order: a changed code piece → the source exercise', () => {
+    const md = (q: string, pieces: string) => `---\nid: o\n---\n# T\n\n## A\n\n> [!quiz] ${q}\n> type: order · id: o-quiz-01\n>\n> \`\`\`js order\n${pieces}\n> \`\`\`\n`
+    const src = extracted(md('Склади', "> const a = 1\n> log(a) // ✗"))
+    const same = localizeDocument(src, extracted(md('Assemble', "> const a = 1 // first\n> log(a) // ✗")), opts)!.units.get('o-quiz-01')!
+    const other = localizeDocument(src, extracted(md('Assemble', "> const b = 1\n> log(a) // ✗")), opts)!.units.get('o-quiz-01')!
+    expect(same.kind === 'quiz' && same.promptText).toBe('Assemble')
+    expect(other.kind === 'quiz' && other.promptText).toBe('Склади')
+  })
+
+  it('a task whose reference solution or hint code differs → the source task', () => {
+    const solution = localizeDocument(source, extracted(TR.replace('function one() { return 1 }', 'function one() { return 2 }')), opts)!.units.get('demo-01-task-01')!
+    expect(solution.kind === 'task' && solution.titleText).toBe('Поверни один')
+  })
+
+  it('a missing ## heading → no translated page at all', () => {
+    expect(localizeDocument(source, extracted(TR.replace('## Second\n', '')), opts)).toBeNull()
+    expect(localizeDocument(source, extracted(TR.replace('## Second', '### Second')), opts)).toBeNull()
+  })
+
+  it('a section whose blocks do not line up falls back whole (its heading stays translated)', () => {
+    const shifted = TR.replace('The first paragraph about a Server Component.\n\n', '')
+    const doc = localizeDocument(source, extracted(shifted), opts)!
+    expect(doc.missing).toEqual(expect.arrayContaining(['перше#p1', 'перше#p2', 'demo-01-quiz-01', 'перше#p3']))
+    expect(doc.missing).not.toContain('перше')
+    // the quiz sits in a fallback block: its source texts
+    expect((doc.units.get('demo-01-quiz-01') as { promptText: string }).promptText).toBe('Скільки буде 1 + 1?')
+  })
+
+  it('the lock: unstamped or stale segments are shown in the source language', () => {
+    const src = segmentDocument(SRC)
+    const lock = stampLock(src, segmentDocument(TR, { headingSlugs: sourceSlugs(src) })).segments
+    const ok = localizeDocument(source, extracted(TR), { ...opts, lock, sourceText: SRC })!
+    expect(ok.missing).toEqual(['друге#p3'])
+    const edited = SRC.replace('Абзац другого розділу.', 'Абзац другого розділу (оновлено).')
+    const stale = localizeDocument(extracted(edited), extracted(TR), { ...opts, lock, sourceText: edited })!
+    expect(stale.missing).toEqual(['друге#p1', 'друге#p3'])
+    const { 'demo-01-quiz-01': _quiz, ...partial } = lock
+    const unstamped = localizeDocument(source, extracted(TR), { ...opts, lock: partial, sourceText: SRC })!
+    expect(unstamped.missing).toContain('demo-01-quiz-01')
+    expect((unstamped.units.get('demo-01-quiz-01') as { promptText: string }).promptText).toBe('Скільки буде 1 + 1?')
+  })
+
+  it('only links to this topic are retargeted', () => {
+    const other = TR.replace('see [[#Second]]', 'see [[Other topic#Second]]')
+    const doc = localizeDocument(source, extracted(other), opts)!
+    expect(JSON.stringify(doc.root)).toContain('"target":"Other topic","heading":"Second"')
+    const self = localizeDocument(source, extracted(TR.replace('see [[#Second]]', 'see [[Demo - 01. Межа#Second]]')), { ...opts, isSelf: (t: string) => t === 'Demo - 01. Межа' })!
+    expect(JSON.stringify(self.root)).toContain('"heading":"Друге"')
+  })
+
+  it('the store shows nothing without a lock', async () => {
+    const snap = await loadSnapshot({ vaultPath: vault, guidesDir: 'Guides' }, new Map(), 1)
+    const info = snap.translations.get('demo-01')!.get('en')!
+    expect(info.lock).not.toBeNull()
+    const store = new ContentStore({ vaultPath: vault, guidesDir: 'Guides' }, false)
+    const s = await store.get()
+    s.translations.get('demo-01')!.get('en')!.lock = null
+    expect(await store.localizedDocument('demo-01', 'en', opts)).toBeNull()
+  })
+})
+
+describe('code comparison: review pairs', () => {
+  const lenient = (value: string, lang = 'tsx') => codeSkeleton({ lang, value, role: 'lenient' })
+  it('directives and module specifiers are code; comparison operators are not JSX text', () => {
+    expect(lenient("'use client'\nexport const A = 1")).not.toBe(lenient("'use server'\nexport const A = 1"))
+    expect(lenient("'use cache'\nexport const A = 1")).not.toBe(lenient("'use cache: private'\nexport const A = 1"))
+    expect(lenient("import { useRouter } from 'next/navigation'")).not.toBe(lenient("import { useRouter } from 'next/router'"))
+    expect(lenient("const m = await import('./a')")).not.toBe(lenient("const m = await import('./b')"))
+    expect(lenient("const fs = require('node:fs')", 'js')).not.toBe(lenient("const fs = require('fs')", 'js'))
+    expect(lenient('if (a > b && c < d) go()')).not.toBe(lenient('if (a > z || y < d) go()'))
+    // genuine JSX text still translates
+    expect(lenient('return <p className="x">Привіт, {name}!</p>')).toBe(lenient('return <p className="x">Hello, {name}!</p>'))
+  })
+
+  it('strict: newlines count; a regex literal is not a comment', () => {
+    const strict = (value: string) => codeSkeleton({ lang: 'js', value, role: 'strict' })
+    expect(strict('const a = 1\nconst b = 2')).not.toBe(strict('const a = 1 const b = 2'))
+    expect(strict('const re = /\\/\\// // a comment\nre.test(x)')).toBe(strict('const re = /\\/\\// // коментар\nre.test(x)'))
+    expect(strict('const re = /\\/\\//g')).not.toBe(strict('const re = /\\/\\/x/g'))
+    expect(strict('const half = a / 2 // half\nconst q = b / 3')).toBe(strict('const half = a / 2 // половина\nconst q = b / 3'))
   })
 })

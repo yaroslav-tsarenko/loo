@@ -7,6 +7,9 @@ const LANG = /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/
 
 export interface TranslationInfo {
   lang: string
+  // `<file>.lock.json` segments (segment id → reviewed source hash); null = not stamped → the translation isn't shown
+  lock: Record<string, string> | null
+  lockMtimeMs: number
   // the source chapter
   chapterId: string
   // vault path of the translation

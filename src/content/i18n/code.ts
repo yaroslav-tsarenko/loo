@@ -30,7 +30,11 @@ const CSS = new Set(['css', 'scss', 'less'])
 
 // Fences of a markdown fragment with the role their enclosing blocks give them.
 export function fencesOf(markdown: string): Fence[] {
-  const { root } = parseMarkdown(markdown)
+  return fencesOfRoot(parseMarkdown(markdown).root as Root)
+}
+
+// The same for an mdast tree (a unit's body / solution / hint). `strict`: the tree is part of a task.
+export function fencesOfRoot(root: Root, strict = false): Fence[] {
   const out: Fence[] = []
   const walk = (nodes: readonly RootContent[], strict: boolean, diagram: boolean) => {
     for (const node of nodes) {
@@ -50,11 +54,23 @@ export function fencesOf(markdown: string): Fence[] {
       if ('children' in node) walk(node.children as RootContent[], strict, diagram)
     }
   }
-  walk((root as Root).children, false, false)
+  walk(root.children, strict, false)
   return out
 }
 
-type Token = { kind: 'code' | 'str' | 'comment'; text: string; quote?: string }
+type Token = { kind: 'code' | 'str' | 'comment' | 'regex'; text: string; quote?: string }
+
+const JS_LIKE = (lang: string) => !HASH_COMMENTS.has(lang) && !HTML_COMMENTS.has(lang) && !SQL.has(lang) && !CSS.has(lang)
+// a `/` starts a regex literal (not a division) after these, or at the start (not after < or >: JSX tags)
+const REGEX_BEFORE = /(?:^|[(,=:[!&|?{};+\-*%~^]|\b(?:return|typeof|case|do|else|in|of|new|delete|void|throw|yield|await))\s*$/
+
+// What precedes a `/`: the code buffer, else the last code token; after a string / regex it is a division.
+function regexContext(buf: string, tokens: readonly Token[]): string {
+  if (buf.trim()) return buf.slice(-40)
+  const last = [...tokens].reverse().find((t) => t.kind !== 'comment')
+  if (!last) return ''
+  return last.kind === 'code' ? `${last.text}${buf}`.slice(-40) : 'x'
+}
 
 function tokenize(code: string, lang: string): Token[] {
   const tokens: Token[] = []
@@ -96,6 +112,26 @@ function tokenize(code: string, lang: string): Token[] {
       i = stop
       continue
     }
+    // regex literal: kept verbatim as code, so `/\/\//` is not taken for a comment
+    // (not JSX: `/>` closes a tag, `</` opens a closing one)
+    if (c === '/' && next !== '/' && next !== '*' && next !== '>' && code[i - 1] !== '<' && JS_LIKE(lang) && REGEX_BEFORE.test(regexContext(buf, tokens))) {
+      let j = i + 1
+      let cls = false
+      while (j < code.length && code[j] !== '\n' && (cls || code[j] !== '/')) {
+        if (code[j] === '\\') j++
+        else if (code[j] === '[') cls = true
+        else if (code[j] === ']') cls = false
+        j++
+      }
+      if (code[j] === '/') {
+        j++
+        while (j < code.length && /[a-z]/i.test(code[j]!)) j++
+        flush()
+        tokens.push({ kind: 'regex', text: code.slice(i, j) })
+        i = j
+        continue
+      }
+    }
     if (c === '"' || c === "'" || (c === '`' && !hash)) {
       let j = i + 1
       while (j < code.length && code[j] !== c) {
@@ -116,6 +152,12 @@ function tokenize(code: string, lang: string): Token[] {
 }
 
 const TEST_FN = /\b(?:test|it|describe)(?:\.(?:only|skip|todo|concurrent))?\s*\(\s*$/
+// module specifiers: `from '…'`, `import '…'`, `import('…')`, `require('…')`, `export … from '…'`
+const SPECIFIER_BEFORE = /(?:\bfrom|\bimport|\bimport\s*\(|\brequire\s*\()\s*$/
+// directives: 'use client', 'use server', 'use cache', 'use cache: private'…
+const DIRECTIVE = /^use (?:client|server|strict|cache(?::\s*[\w-]+)?)$/
+// a JSX tag (attributes may hold one level of {…}); its text children run up to the next < or {
+const JSX_TEXT = /(<\/?[A-Za-z][\w.:-]*(?:\s(?:[^<>{}]|\{[^{}]*\})*?)?\/?>|<\/?>)([^<>{}]*?)(?=[<{])/g
 
 // The comparable form of a fence: what must be identical across languages.
 export function codeSkeleton(fence: Pick<Fence, 'lang' | 'value' | 'role'>): string {
@@ -125,16 +167,27 @@ export function codeSkeleton(fence: Pick<Fence, 'lang' | 'value' | 'role'>): str
   const tokens = tokenize(fence.value, fence.lang).filter((t) => t.kind !== 'comment')
   let out = ''
   for (const tok of tokens) {
-    if (tok.kind === 'code') {
+    if (tok.kind === 'code' || tok.kind === 'regex') {
       out += tok.text
       continue
     }
     const title = TEST_FN.test(out)
+    // directives and module specifiers are code in every mode
+    const code = DIRECTIVE.test(tok.text) || SPECIFIER_BEFORE.test(out)
     // strict: literals stay (tests assert on them), except test titles; lenient: only the quotes stay
-    out += fence.role === 'strict' && !title ? `${tok.quote}${tok.text}${tok.quote}` : `${tok.quote}${tok.quote}`
+    const keep = code || (fence.role === 'strict' && !title)
+    out += keep ? `${tok.quote}${tok.text}${tok.quote}` : `${tok.quote}${tok.quote}`
   }
-  // lenient: JSX text between tags is prose too
-  if (fence.role === 'lenient') out = out.replace(/>([^<>{}();=]*)</g, (_, inner: string) => (inner.trim() ? '><' : `>${inner}<`))
+  if (fence.role === 'strict') {
+    // newlines are structure: only trailing spaces and the blank lines a removed comment leaves go
+    return out
+      .split('\n')
+      .map((l) => l.trimEnd())
+      .filter((l) => l.trim() !== '')
+      .join('\n')
+  }
+  // lenient: JSX text between a tag and the next tag / expression is prose too (not `a > b && c < d`)
+  out = out.replace(JSX_TEXT, (m, tag: string, text: string) => (text.trim() ? tag : m))
   return out.replace(/\s+/g, ' ').trim()
 }
 

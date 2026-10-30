@@ -8,7 +8,7 @@ import { unitCalloutTypes } from './blocks/registry'
 import { defaultVaultConfig, type VaultConfig } from './config'
 import { buildGuide, chapterIdFor, guideIdFor, pickIndex, type ParsedFile } from './discover/guide'
 import { titleFrom } from './discover/names'
-import { isI18nFile, translationLang, type TranslationInfo } from './i18n/files'
+import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from './i18n/files'
 import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import { LinkIndex } from './links'
 import type { Chapter, ContentIssue, Guide, Heading, LearningUnit } from './model'
@@ -106,9 +106,11 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   const issues: ContentIssue[] = []
   const guideFiles = new Map<string, VaultFile[]>()
   const i18nFiles: VaultFile[] = []
+  const lockFiles = new Map<string, VaultFile>()
   for (const file of listing.files) {
     if (isI18nFile(file)) {
       if (file.ext === '.md') i18nFiles.push(file)
+      else if (file.path.endsWith('.lock.json')) lockFiles.set(file.path, file)
       continue
     }
     const list = guideFiles.get(file.guideDir)
@@ -197,7 +199,7 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   }
   guides.sort((a, b) => (a.order === b.order ? a.title.localeCompare(b.title, 'uk') : a.order - b.order))
   const chapterByPath = new Map([...chapters.values()].map((c) => [c.path, c]))
-  const translations = await loadTranslations(i18nFiles, chapters, chapterByPath, config.guidesDir, issues)
+  const translations = await loadTranslations(i18nFiles, lockFiles, chapters, chapterByPath, config.guidesDir, issues)
   const unitsByChapter = new Map<string, LearningUnit[]>()
   for (const unit of units.values()) {
     const list = unitsByChapter.get(unit.chapterId)
@@ -243,7 +245,19 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
 
 // A translation belongs to the source topic its frontmatter names (`source:`, else `id:`), or — without either — to
 // the topic with the same file name next to `_i18n/`.
-async function loadTranslations(files: readonly VaultFile[], chapters: Map<string, Chapter>, byPath: Map<string, Chapter>, guidesDir: string, issues: ContentIssue[]): Promise<Map<string, Map<string, TranslationInfo>>> {
+async function readLock(file: VaultFile | undefined, issues: ContentIssue[]): Promise<Record<string, string> | null> {
+  if (!file) return null
+  try {
+    const data = JSON.parse(await readText(file.absolute)) as { segments?: unknown }
+    if (!data.segments || typeof data.segments !== 'object' || Array.isArray(data.segments)) throw new Error('немає segments')
+    return Object.fromEntries(Object.entries(data.segments as Record<string, unknown>).filter((e): e is [string, string] => typeof e[1] === 'string'))
+  } catch (error) {
+    issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `Lock не прочитано: ${error instanceof Error ? error.message : String(error)}` })
+    return null
+  }
+}
+
+async function loadTranslations(files: readonly VaultFile[], locks: ReadonlyMap<string, VaultFile>, chapters: Map<string, Chapter>, byPath: Map<string, Chapter>, guidesDir: string, issues: ContentIssue[]): Promise<Map<string, Map<string, TranslationInfo>>> {
   const out = new Map<string, Map<string, TranslationInfo>>()
   for (const file of files) {
     const lang = translationLang(file)
@@ -265,8 +279,11 @@ async function loadTranslations(files: readonly VaultFile[], chapters: Map<strin
       issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `Другий переклад ${lang} теми ${chapter.id} (перший — ${perLang.get(lang)!.path})` })
       continue
     }
+    const lockFile = locks.get(lockPathFor(file.path))
     perLang.set(lang, {
       lang,
+      lock: await readLock(lockFile, issues),
+      lockMtimeMs: lockFile?.mtimeMs ?? 0,
       chapterId: chapter.id,
       path: file.path,
       file,
@@ -391,32 +408,42 @@ export class ContentStore {
     return { chapter, root: result.root, headings: result.headings }
   }
 
-  // The topic in `lang` (a translation exists — snapshot.translations): source structure, translated segments, the
-  // rest in the source language with `label` («not translated yet» in the reader's locale `labelLang`).
+  // The topic in `lang` (a REVIEWED translation exists — snapshot.translations with a lock): source structure,
+  // translated segments whose source still hashes to the lock, the rest in the source language with `label`
+  // («not translated yet» in the reader's locale `labelLang`). null — show the source page (no lock, headings that
+  // don't line up, unreadable files).
   async localizedDocument(chapterId: string, lang: string, opts: { sourceLang: string; label: string; labelLang: string }): Promise<LocalizedChapterDocument | null> {
     const snapshot = await this.get()
     const info = snapshot.translations.get(chapterId)?.get(lang)
-    const source = info ? await this.document(chapterId) : null
-    if (!info || !source) return null
-    const key = `${source.chapter.mtimeMs}|${info.mtimeMs}|${opts.sourceLang}|${opts.labelLang}|${opts.label}`
+    if (!info?.lock) return null
+    const source = await this.document(chapterId)
+    if (!source) return null
+    const key = `${source.chapter.mtimeMs}|${info.mtimeMs}|${info.lockMtimeMs}|${opts.sourceLang}|${opts.labelLang}|${opts.label}`
     const memo = `${chapterId}|${lang}`
     const hit = this.localized.get(memo)
     if (hit && hit.key === key) return hit.doc
     const file = this.prebuiltFiles?.get(info.path) ?? info.file
+    const sourceFile = this.cache.get(source.chapter.path)?.parsed.file ?? this.prebuiltFiles?.get(source.chapter.path)
     let translated: ExtractResult
+    let sourceText: string
     try {
-      translated = fullParse(await readText(file.absolute), file, source.chapter.guideId, chapterId)
+      if (!sourceFile) return null
+      ;[translated, sourceText] = await Promise.all([readText(file.absolute).then((text) => fullParse(text, file, source.chapter.guideId, chapterId)), readText(sourceFile.absolute)])
     } catch {
       return null
     }
     const units = new Map((snapshot.unitsByChapter.get(chapterId) ?? []).map((u) => [u.id, u]))
+    const selfName = path.basename(source.chapter.path, '.md').normalize('NFC')
     const merged = localizeDocument(
       { root: source.root, headings: source.headings, units },
       { root: translated.root, headings: translated.headings, units: new Map(translated.units.map((u) => [u.id, u])) },
-      opts,
+      { ...opts, lock: info.lock, sourceText, isSelf: (target) => (target.split('/').at(-1) ?? target).replace(/\.md$/i, '').normalize('NFC') === selfName },
     )
+    if (!merged) return null
+    // reels in page order (a fallback block holds the source's), matched to the source reels by position
     const srcReels = snapshot.reels.filter((r) => r.chapterId === chapterId)
-    const trReels = collectReels(translated.root, source.chapter.guideId, chapterId)
+    const unwrapped: Root = { type: 'root', children: merged.root.children.flatMap((n) => (n.type === 'i18nFallback' ? (n.children as Root['children']) : [n])) }
+    const trReels = collectReels(unwrapped, source.chapter.guideId, chapterId)
     const reels = new Map<string, Reel>(trReels.length === srcReels.length ? srcReels.map((r, i) => [r.id, { ...trReels[i]!, id: r.id, sectionSlug: r.sectionSlug }]) : [])
     const doc: LocalizedChapterDocument = { chapter: source.chapter, lang, title: info.title, ...merged, reels }
     this.localized.delete(memo)

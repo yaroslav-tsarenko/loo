@@ -3,20 +3,20 @@ import { courseLanguages, type CourseLanguages } from '@/course/i18n'
 import type { Chapter, LearningUnit } from '@/content/model'
 import { getContentStore, type ContentSnapshot, type LocalizedChapterDocument } from '@/content/store'
 import { t, type Locale } from '@/i18n'
-import { getCourse, listCourses } from './courses/registry'
+import { courseRegistry, type CourseEntry } from './courses/registry'
 import { uiLocale } from './locale'
 
 // Which language a topic is shown in (docs/COURSE_FORMAT.md «Переклад курсів (i18n)»): the learner's UI locale when
 // a course that teaches the guide lists it in `languages` and the topic has a translation; otherwise the source.
 // Progress, grading and SRS never depend on it — exercises keep their ids (src/content/i18n/localize.ts).
 
-let cache: Promise<Map<string, CourseLanguages>> | null = null
+// keyed on the registry's identity: a dev `course:build` reloads the registry (new Map) and so this map
+const cache = new WeakMap<Map<string, CourseEntry>, Map<string, CourseLanguages>>()
 
-async function load(): Promise<Map<string, CourseLanguages>> {
+function build(registry: Map<string, CourseEntry>): Map<string, CourseLanguages> {
   const out = new Map<string, CourseLanguages>()
-  for (const listing of await listCourses()) {
-    const bundle = await getCourse(listing.id)
-    if (!bundle) continue
+  for (const { bundle, listed } of registry.values()) {
+    if (!listed) continue
     const langs = courseLanguages(bundle.course)
     for (const id of [...bundle.sections.map((s) => s.guideId), ...(bundle.theory ?? [])]) {
       const known = out.get(id)
@@ -28,11 +28,13 @@ async function load(): Promise<Map<string, CourseLanguages>> {
 }
 
 export async function guideLanguages(): Promise<Map<string, CourseLanguages>> {
-  cache ??= load().catch((error: unknown) => {
-    cache = null
-    throw error
-  })
-  return cache
+  const registry = await courseRegistry()
+  let map = cache.get(registry)
+  if (!map) {
+    map = build(registry)
+    cache.set(registry, map)
+  }
+  return map
 }
 
 export interface ChapterLanguages {
@@ -48,7 +50,10 @@ export async function chapterLanguages(snapshot: ContentSnapshot, chapter: Pick<
   const course = (await guideLanguages()).get(chapter.guideId)
   const source = course?.source ?? 'uk'
   const translated = snapshot.translations.get(chapter.id)
-  const available = [source, ...(course?.languages ?? []).filter((l) => l !== source && translated?.has(l))]
+  // only reviewed translations (a .lock.json) exist as pages
+  const available = [source, ...(course?.languages ?? []).filter((l) => l !== source && translated?.get(l)?.lock)]
+  // the UI locale costs a read of the learner's base rows: only when there is something to choose
+  if (available.length < 2) return { lang: null, source, available }
   const wanted = requested ?? (await uiLocale())
   return { lang: wanted !== source && available.includes(wanted) ? wanted : null, source, available }
 }
@@ -83,7 +88,7 @@ export async function localizedUnits(snapshot: ContentSnapshot, units: readonly 
 export function langParam(params: Record<string, string | string[] | undefined>): string | null {
   const raw = params.lang
   const value = Array.isArray(raw) ? raw[0] : raw
-  return value && /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})?$/.test(value) ? value : null
+  return value && /^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(value) ? value : null
 }
 
 // <link rel="alternate" hreflang> data: only the languages the page exists in; nothing for a single-language page.

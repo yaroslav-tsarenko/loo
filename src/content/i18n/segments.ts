@@ -20,6 +20,8 @@ export type SegmentKind = 'heading' | 'prose' | 'unit'
 export interface Segment {
   id: string
   kind: SegmentKind
+  // the heading path the segment sits in (a heading: its own path)
+  section: string
   // indexes in root.children
   nodes: number[]
   // node types (+ callout type), to spot a translation whose blocks don't line up with the source
@@ -94,12 +96,12 @@ export function segmentRoot(root: Root, options: SegmentOptions = {}): Segment[]
       path.length = Math.max(0, node.depth - 1)
       path[node.depth - 1] = slug
       finish()
-      out.push({ id: sectionPath(), kind: 'heading', nodes: [index], signature: nodeSignature(node), hash: '', text: '' })
+      out.push({ id: sectionPath(), kind: 'heading', section: sectionPath(), nodes: [index], signature: nodeSignature(node), hash: '', text: '' })
       return
     }
     if (node.type === 'unitRef') {
       finish()
-      out.push({ id: node.unitId, kind: 'unit', nodes: [index], signature: 'unit', hash: '', text: '' })
+      out.push({ id: node.unitId, kind: 'unit', section: sectionPath(), nodes: [index], signature: 'unit', hash: '', text: '' })
       return
     }
     const current: Segment | null = open
@@ -111,7 +113,7 @@ export function segmentRoot(root: Root, options: SegmentOptions = {}): Segment[]
     const section = sectionPath()
     const n = (counters.get(section) ?? 0) + 1
     counters.set(section, n)
-    const segment: Segment = { id: `${section}#p${n}`, kind: 'prose', nodes: [index], signature: nodeSignature(node), hash: '', text: '' }
+    const segment: Segment = { id: `${section}#p${n}`, kind: 'prose', section, nodes: [index], signature: nodeSignature(node), hash: '', text: '' }
     out.push(segment)
     open = segment
   })

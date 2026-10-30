@@ -5,7 +5,7 @@ import { DIFFICULTY_LABEL, type LearningUnit, type QuizMode, type TaskCode } fro
 import type { ContentSnapshot } from '@/content/store'
 import { previewIntervals } from '@/progress/srs'
 import { speechLangFor } from '@/server/courses/target'
-import { contentMeta, t } from '@/i18n'
+import { contentMeta, DEFAULT_LOCALE, t } from '@/i18n'
 import { userScope } from '@/server/auth'
 import { localizedUnits } from '@/server/content-i18n'
 import { uiLocale } from '@/server/locale'
@@ -75,7 +75,9 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
       Promise.all([srsMapIn(db, userId, sourceUnits.filter((u) => u.kind === 'flashcard').map((u) => u.id)), taskStatesIn(db, userId, sourceUnits.filter((u) => u.kind === 'task').map((u) => u.id))]),
     ),
     localizedUnits(snapshot, sourceUnits),
-    uiLocale(),
+    // the UI locale only matters for translated topics and card meta labels: don't read the base rows otherwise
+    // (the placement test renders one quiz per step)
+    sourceUnits.some((u) => u.kind === 'flashcard' || snapshot.translations.has(u.chapterId)) ? uiLocale() : Promise.resolve(DEFAULT_LOCALE),
   ])
   const units = sourceUnits.map((u) => localized.get(u.id) ?? u)
   return Promise.all(

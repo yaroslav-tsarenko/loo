@@ -1,9 +1,11 @@
-import { en } from './en'
 import { uk } from './uk'
 
 // Tiny i18n: typed keys, `{name}` placeholders, one dictionary per UI locale. `uk` is complete; other locales are
 // partial (DeepPartial of uk) and fall back to `uk` key by key. The learner's locale is `profiles.locale`
 // (src/server/locale.ts → uiLocale), `uk` when unset; client components read it from <LocaleProvider> (./react.tsx).
+// Only `uk` is bundled here: other dictionaries are registered — on the server by ./register.ts (imported by
+// src/server/locale.ts), in the browser by <LocaleProvider dict> for the learners who use them — so the `en`
+// strings never ship to a Ukrainian learner's client.
 export type Locale = 'uk' | 'en'
 export const LOCALES: readonly Locale[] = ['uk', 'en']
 export const DEFAULT_LOCALE: Locale = 'uk'
@@ -13,7 +15,13 @@ export const LOCALE_NAMES: Record<Locale, string> = { uk: 'Українська'
 export type Dict = typeof uk
 export type DeepPartial<T> = T extends string ? string : T extends readonly unknown[] ? T : { [K in keyof T]?: DeepPartial<T[K]> }
 
-const DICTS: { uk: Dict; en: DeepPartial<Dict> } = { uk, en }
+const DICTS: { uk: Dict } & Partial<Record<Exclude<Locale, 'uk'>, DeepPartial<Dict>>> = { uk }
+
+export function registerDictionary(locale: Exclude<Locale, 'uk'>, dict: DeepPartial<Dict>): void {
+  if (DICTS[locale] === dict) return
+  DICTS[locale] = dict
+  merged.delete(locale)
+}
 
 export function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
@@ -41,7 +49,7 @@ export function format(text: string, vars?: Record<string, string | number>): st
 }
 
 export function t(key: MessageKey, vars?: Record<string, string | number>, locale: Locale = DEFAULT_LOCALE): string {
-  const own = locale === DEFAULT_LOCALE ? undefined : lookup(DICTS[locale], key)
+  const own = locale === DEFAULT_LOCALE ? undefined : lookup(DICTS[locale as Exclude<Locale, 'uk'>], key)
   const raw = typeof own === 'string' ? own : lookup(DICTS.uk, key)
   return format(typeof raw === 'string' ? raw : key, vars)
 }
@@ -67,7 +75,7 @@ export function messages(locale: Locale = DEFAULT_LOCALE): Dict {
   if (locale === DEFAULT_LOCALE) return uk
   let dict = merged.get(locale)
   if (!dict) {
-    dict = merge(uk, DICTS[locale]) as Dict
+    dict = merge(uk, DICTS[locale as Exclude<Locale, 'uk'>]) as Dict
     merged.set(locale, dict)
   }
   return dict
@@ -93,6 +101,6 @@ export function coverage(locale: Locale, prefix?: string): { total: number; tran
     if (!node || typeof node !== 'object' || Array.isArray(node)) return
     for (const [k, v] of Object.entries(node)) walk(v, own && typeof own === 'object' ? (own as Record<string, unknown>)[k] : undefined, path ? `${path}.${k}` : k)
   }
-  walk(uk, DICTS[locale], '')
+  walk(uk, locale === 'uk' ? uk : DICTS[locale], '')
   return { total, translated }
 }

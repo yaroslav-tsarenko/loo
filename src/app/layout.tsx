@@ -10,6 +10,7 @@ import { shellData } from '@/server/shell'
 import { uiLocale } from '@/server/locale'
 import { LocaleProvider } from '@/i18n/react'
 import { t } from '@/i18n'
+import { en } from '@/i18n/register'
 import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
 import { EvolutionMoment } from '@/ui/game/EvolutionMoment'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
@@ -93,7 +94,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <a href="#main" className="skip-link">
           {t('shell.skipToContent', undefined, locale)}
         </a>
-        <LocaleProvider locale={locale}>
+        <LocaleProvider locale={locale} dict={locale === 'en' ? en : undefined}>
         <FeedbackProvider initialXp={xp} sound={settings.sound} volume={settings.volume} haptics={settings.haptics}>
           <SpeechSettingsProvider accent={settings.accent}>
           <LooSkinProvider skin={game.look}>
