@@ -21,7 +21,11 @@ keepLatin:
   - Partial Prerendering
   - PPR
   - Cache Components
+  - RSC
   - RSC payload
+  - DTO
+  - interleaving
+  - environment poisoning
   - Fluid Compute
   - Turbopack
   - React Compiler
