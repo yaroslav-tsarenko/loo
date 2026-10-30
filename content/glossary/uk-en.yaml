@@ -1,0 +1,54 @@
+# Term glossary uk → en for course translation (docs/COURSE_FORMAT.md «i18n»).
+# keepLatin: terms that stay in Latin in every language; terms: Ukrainian term → the one English rendering to use.
+keepLatin:
+  - Next.js
+  - React
+  - App Router
+  - Pages Router
+  - Server Component
+  - Client Component
+  - Server Action
+  - Server Function
+  - Route Handler
+  - proxy
+  - layout
+  - template
+  - Suspense
+  - streaming
+  - hydration
+  - prefetching
+  - static shell
+  - Partial Prerendering
+  - PPR
+  - Cache Components
+  - RSC payload
+  - Fluid Compute
+  - Turbopack
+  - React Compiler
+  - Core Web Vitals
+terms:
+  маршрут: route
+  сегмент маршруту: route segment
+  маршрутизація: routing
+  рендеринг: rendering
+  статичний рендеринг: static rendering
+  динамічний рендеринг: dynamic rendering
+  клієнтський бандл: client bundle
+  межа: boundary
+  кеш: cache
+  ревалідація: revalidation
+  отримання даних: data fetching
+  водоспад запитів: request waterfall
+  мутація: mutation
+  змінна середовища: environment variable
+  сесія: session
+  автентифікація: authentication
+  авторизація: authorization
+  тема: topic
+  розділ: section
+  посібник: guide
+  картка: flashcard
+  тест теми: topic test
+  екзамен розділу: section exam
+  вступний тест: placement test
+  навичка: skill
