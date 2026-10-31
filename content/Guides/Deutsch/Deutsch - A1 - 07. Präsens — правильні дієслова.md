@@ -58,19 +58,19 @@ estimatedMinutes: 35
 > ```
 > Три речі треба тримати в голові: **-e** (ich), **-st** (du), **-t** (er / sie / es і ihr). Решта — інфінітив.
 
-Зверни увагу: **ihr** і **er / sie / es** мають однакову форму на *-t*, а **wir, sie і Sie** — на *-en*, як інфінітив. Як і з *sein*, три *sie* розрізняємо за дієсловом і великою літерою:
+Зверни увагу: **ihr** і **er / sie / es** мають однакову форму на *-t*, а **wir, sie і Sie** — на *-en*, як інфінітив. Як і з *sein*, три *sie* розрізняємо за дієсловом і великою літерою (на початку речення велика літера не допомагає, тому в таблиці *sie* стоїть після дієслова):
 
 | | Форма | Переклад |
 |---|---|---|
-| *Sie* **wohnt** in Wien. | -t | вона живе у Відні |
-| *Sie* **wohnen** in Wien. | -en | вони живуть у Відні |
-| *Sie* **wohnen** in Wien. (з великої) | -en | Ви живете у Відні |
+| In Wien **wohnt** sie. | -t | вона живе у Відні |
+| In Wien **wohnen** sie. | -en | вони живуть у Відні |
+| In Wien **wohnen** Sie. | -en | Ви живете у Відні |
 
 ## Дієслова, які змінюють закінчення
 
 ### Основа на -t, -d, -chn, -ffn, -gn
 
-Якщо основа закінчується на **-t** або **-d** (*arbeit-, wart-, antwort-, bad-*), а також на *-n* після приголосного (*öffn-, rechn-*), перед **-st** і **-t** додаємо **-e-**:
+Якщо основа закінчується на **-t** або **-d** (*arbeit-, wart-, antwort-, bad-*), а також на *-m / -n* після приголосного, крім *l, r, h* (*öffn-, rechn-*; але *lernst*, *wohnst*), перед **-st** і **-t** додаємо **-e-**:
 
 | | arbeiten | warten | antworten | öffnen |
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ estimatedMinutes: 35
 
 ### Основа на -s, -ß, -z, -x
 
-Якщо основа закінчується на шиплячий/свистячий звук (**-s, -ß, -z, -x**), у формі **du** закінчення — лише **-t** (не *-st*): воно зливається з основою.
+Якщо основа закінчується на свистячий звук (**-s, -ß, -z, -x**), у формі **du** закінчення — лише **-t** (не *-st*): воно зливається з основою. Після *-sch* закінчення звичайне: *du wäschst*.
 
 | | heißen | tanzen | reisen |
 |---|---|---|---|
@@ -121,10 +121,10 @@ estimatedMinutes: 35
 - **взагалі, звичка:** *Er arbeitet in Köln.* — Він працює в Кельні.
 - **найближче майбутнє** (разом зі словом часу): *Morgen komme ich um acht.* — Завтра я прийду о восьмій.
 
-Ніяких допоміжних слів: ~~Ich bin lernen~~ чи ~~Ich werde morgen kommen~~ для звичайної розмови не потрібні. Для майбутнього *Futur* (*werden* + інфінітив) існує, але на A1 достатньо Präsens.
+Ніяких допоміжних слів: ~~Ich bin lernen~~ — помилка. *Ich werde morgen kommen* (Futur I) граматично правильно, але в розмові не обовʼязково: на A1 достатньо Präsens зі словом часу.
 
 > [!note] Заперечення
-> Дієслово заперечуємо через *nicht*, яке стоїть після дієслова: *Ich arbeite **nicht**. Er wohnt **nicht** in Berlin.* З іменником без артикля — *kein* (тема [[Deutsch - A1 - 11. haben, знахідний відмінок і kein]]).
+> Дієслово заперечуємо через *nicht*, яке стоїть після дієслова: *Ich arbeite **nicht**. Er wohnt **nicht** in Berlin.* З іменником з *ein* чи без артикля — *kein* (тема [[Deutsch - A1 - 11. haben, знахідний відмінок і kein]]).
 
 ## Приклади
 
@@ -188,14 +188,14 @@ estimatedMinutes: 35
 > uk: шукати
 > forms: suchen → suchte → hat gesucht
 > example: Wir **suchen** eine Wohnung. — Ми шукаємо квартиру.
-> note: s перед голосним = дзвінке [z]; ch після u = [x]. Після suchen — Akkusativ без прийменника (не ~~suchen für~~).
+> note: s перед голосним = дзвінке [z]; ch після u = [x]. Зазвичай suchen + Akkusativ без прийменника (не ~~suchen für~~); suchen nach теж існує.
 
 > [!word] hören
 > ipa: /ˈhøːʁən/ · pos: verb · level: A1 · id: de-a1-praesens-w08
 > uk: чути; слухати
 > forms: hören → hörte → hat gehört
 > example: Ich **höre** gern Musik. — Я люблю слухати музику.
-> note: ö — губи «о», язик «е»: «хьорен». zuhören — слухати уважно (відокремлюване).
+> note: ö — губи «о», язик «е»; h на початку — легкий видих. zuhören — слухати уважно (відокремлюване).
 
 > [!word] fragen
 > ipa: /ˈfʁaːɡn̩/ · pos: verb · level: A1 · id: de-a1-praesens-w09
@@ -236,7 +236,7 @@ estimatedMinutes: 35
 > ipa: /ˈʁaɪ̯zn̩/ · pos: verb · level: A1 · id: de-a1-praesens-w14
 > uk: подорожувати
 > forms: reisen → reiste → ist gereist
-> example: Im Sommer **reisen** wir nach Italien. — Влітку ми подорожуємо Італією.
+> example: Im Sommer **reisen** wir nach Italien. — Влітку ми їдемо до Італії.
 > note: du reist = er reist. Perfekt з sein: ist gereist (рух). die Reise = подорож.
 
 > [!word] brauchen
@@ -251,7 +251,7 @@ estimatedMinutes: 35
 > uk: навчатися в університеті; вивчати (фах)
 > forms: studieren → studierte → hat studiert
 > example: Meine Schwester **studiert** Medizin in Wien. — Моя сестра вивчає медицину у Відні.
-> note: studieren = лише університет: Ich studiere Informatik. Школяр — lernen. st- на початку = «шт». Невідокремлюване -ieren: Partizip без ge-.
+> note: studieren = лише університет: Ich studiere Informatik. Школяр — lernen. st- на початку = «шт». Дієслова на -ieren: Partizip без ge-.
 
 > [!word] warten
 > ipa: /ˈvaʁtn̩/ · pos: verb · level: A1 · id: de-a1-praesens-w17
@@ -319,7 +319,7 @@ estimatedMinutes: 35
 
 ## Вимова
 
-Закінчення — слабкі склади: **-e** (*wohne*) читається як нечіткий [ə], а **-en** (*wohnen, lernen*) — майже як складове [n̩]: «воонен», «лернен» без виразного «е». Наголос завжди на основі: **WOH**nen, **ARB**eiten, **LER**nen.
+Закінчення — слабкі склади: **-e** (*wohne*) читається як нечіткий [ə], а **-en** (*wohnen, lernen*) — майже як складове [n̩]: «воонен», «лернен» без виразного «е». Наголос зазвичай на основі: **WOH**-nen, **LER**-nen, **AR**-bei-ten; у дієсловах на *-ieren* — на *-ie-*: stu-**DIE**-ren.
 
 - **-st** у формі *du*: *wohnst* [voːnst], *lernst* [lɛʁnst] — чотири приголосні поспіль, не вставляй голосний між ними.
 - **-t** у кінці: *wohnt* [voːnt] — чітке, без «ть».
@@ -376,8 +376,8 @@ estimatedMinutes: 35
 > [!pitfall] ~~du arbeitst~~, ~~er antwortt~~ — пропущене -e-
 > Основа на **-t / -d** потребує **-e-**: *du arbeit**e**st, er arbeit**e**t, ihr antwort**e**t*. Інакше слово неможливо вимовити. Те саме з *-gn, -chn, -ffn*: *du öffnest*. А ось у *heißen, tanzen, reisen* -e- немає, навпаки, випадає s: *du heißt* (не ~~du heißst~~).
 
-> [!pitfall] ~~Ich bin wohnen~~ і ~~Ich werde morgen kommen~~
-> Німецька не має окремого «тривалого» часу: *Ich lerne* означає і «вчу», і «зараз вчу». Тому ~~Ich bin lernen~~ — помилка. Для близького майбутнього теж не потрібен *werden*: *Morgen komme ich* (Futur I існує, але в розмові частіше Präsens зі словом часу).
+> [!pitfall] ~~Ich bin wohnen~~: «тривалого» часу немає
+> Німецька не має окремого «тривалого» часу: *Ich lerne* означає і «вчу», і «зараз вчу». Тому ~~Ich bin lernen~~ — помилка. Для близького майбутнього *werden* теж не обовʼязковий: *Morgen komme ich* (форма *Ich werde morgen kommen* правильна, але в розмові частіше Präsens зі словом часу).
 
 > [!pitfall] Жінка / вони / Ви: *sie wohnt* ≠ *sie wohnen*
 > *Sie* можна прочитати трьома способами. Орієнтир — **дієслово**: *wohnt* → «вона»; *wohnen* → «вони» (з малої) або «Ви» (з великої, навіть про одну людину). ~~Sie wohnt in Wien, Herr Weber?~~ → **Wohnen Sie** in Wien, Herr Weber?
@@ -394,6 +394,13 @@ estimatedMinutes: 35
 > - [ ] працює й живе в Лейпцигу
 >
 > **Пояснення:** *Ich arbeite in Leipzig, aber ich wohne hier* — працює в Лейпцигу, живе тут. *Ich bin neu hier* — я тут новенький.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-praesens-s07
+> text: Ich arbeite in Leipzig, aber ich wohne hier.
+> ipa: /ɪç ˈaʁbaɪ̯tə ɪn ˈlaɪ̯ptsɪç ˈaːbɐ ɪç ˈvoːnə hiːɐ̯/
+> tip: aber — довге [aː], кінцеве -er = [ɐ]. hier: h — легкий видих [h], ie — довге [iː].
+> uk: Я працюю в Лейпцигу, а живу тут.
 
 ## Практика
 
@@ -457,10 +464,10 @@ estimatedMinutes: 35
 > level: A1 · type: fill · bank: wohnst, wohne, spielt · id: de-a1-praesens-q08
 >
 > ```text fill
-> Ich [[lerne]] Deutsch.
-> Du [[arbeitest]] in Berlin.
-> Er [[kauft]] Brot.
-> Wir [[wohnen]] in Wien.
+> Ich [[lerne]] Deutsch. (lernen)
+> Du [[arbeitest]] in Berlin. (arbeiten)
+> Er [[kauft]] Brot. (kaufen)
+> Wir [[wohnen]] in Wien. (wohnen)
 > ```
 >
 > **Пояснення:** ich → *lerne*; du + основа на -t → *arbeitest*; er → *kauft*; wir → *wohnen* (інфінітив). *wohnst, wohne, spielt* тут зайві.
@@ -481,12 +488,12 @@ estimatedMinutes: 35
 > level: A1 · type: fill · bank: wohne, wohnst · id: de-a1-praesens-q10
 >
 > ```text fill
-> Frau Weber? [[Wohnen]] Sie in Berlin?
-> Nein, sie [[wohnen]] in Hamburg. (вони)
-> Nein, sie [[wohnt]] in Bonn. (вона)
+> Frau Weber, [[wohnen]] Sie in Berlin?
+> Herr und Frau Roth? Nein, sie [[wohnen]] in Hamburg.
+> Und Anna? Sie [[wohnt]] in Bonn.
 > ```
 >
-> **Пояснення:** *Sie* (Ви) і *sie* (вони) → *wohnen*; *sie* (вона) → *wohnt*.
+> **Пояснення:** *Sie* (Ви) → *wohnen*; *sie* (Herr und Frau Roth, вони) → *wohnen*; *sie* (Anna, вона) → *wohnt*.
 
 > [!quiz] Склади речення: «Ми вчимо німецьку»
 > level: A1 · type: order · id: de-a1-praesens-q11

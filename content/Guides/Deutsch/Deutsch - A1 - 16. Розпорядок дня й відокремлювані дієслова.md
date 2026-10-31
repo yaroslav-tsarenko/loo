@@ -63,7 +63,7 @@ estimatedMinutes: 40
 
 ## Як відрізнити відокремлюваний префікс
 
-Відокремлювані префікси — це самостійні слова: *auf, an, ein, aus, mit, ab, zu, fern, zurück* та ін. На них падає **наголос**: *AUFstehen, ANrufen, EINkaufen*. Невідокремлювані префікси ненаголошені: *be-, ver-, er-, ent-, ge-, zer-* — вони з основою ніколи не розходяться.
+Відокремлювані префікси — це самостійні слова: *auf, an, ein, aus, mit, ab, zu, fern, zurück* та ін. На них падає **наголос**: *AUFstehen, ANrufen, EINkaufen*. Невідокремлювані префікси ненаголошені: *be-, ver-, er-, ent-, ge-, zer-* — вони з основою не розходяться.
 
 > [!diagram] Відокремлюваний чи ні
 > ```yaml
@@ -81,7 +81,7 @@ estimatedMinutes: 40
 > Жовтий — відокремлюваний, рожевий — невідокремлюваний.
 
 > [!tip] Як перевірити
-> Прислухайся до наголосу. Якщо перший склад наголошений (*AUFstehen*) — префікс відокремлюється. Якщо наголос на основі (*verSTEhen, beSUchen*) — ні. Дієслова на *-ieren* (*telefonieren*) і з префіксами *be-, ver-, er-, ent-, ge-, zer-* ніколи не розходяться.
+> Прислухайся до наголосу. Якщо перший склад наголошений (*AUFstehen*) — префікс відокремлюється. Якщо наголос на основі (*verSTEhen, beSUchen*) — ні. Префікси *be-, ver-, er-, ent-, ge-, zer-* не відокремлюються. Саме закінчення *-ieren* ще не робить дієслово невідокремлюваним: *anprobieren — probiere … an*. Виняток із правила наголосу: *frühstücken* (наголос на першому складі, але дієслово не відокремлюється: *Ich frühstücke*).
 
 ## Розпорядок дня
 
@@ -97,7 +97,7 @@ estimatedMinutes: 40
 
 ## Як часто? immer, oft, manchmal, nie
 
-Слова частоти показують, як часто щось відбувається. Ставимо їх **після дієслова** (у дужці — всередині):
+Слова частоти показують, як часто щось відбувається. Зазвичай ставимо їх **після дієслова** (у дужці — всередині); для акценту слово може стояти й на першому місці: *Manchmal räume ich auf.*
 
 > [!diagram] Шкала частоти
 > ```yaml
@@ -129,7 +129,7 @@ estimatedMinutes: 40
 - Ich lade dich zum Geburtstag ein. — Запрошую тебе на день народження.
 - Hol mich bitte vom Bahnhof ab! — Забери мене, будь ласка, з вокзалу!
 - Manchmal räume ich am Wochenende die Wohnung auf. — Інколи на вихідних я прибираю квартиру.
-- Nach der Arbeit hat sie Feierabend. — Після роботи в неї кінець робочого дня.
+- Um fünf Uhr hat sie Feierabend. — О пʼятій у неї кінець робочого дня.
 - Die Pause fängt um zwölf Uhr an. — Перерва починається о дванадцятій.
 
 ## Слова
@@ -183,7 +183,7 @@ estimatedMinutes: 40
 > uk: прибирати (наводити лад)
 > forms: er räumt auf · räumte auf · hat aufgeräumt
 > example: Ich **räume** am Samstag die Wohnung **auf**. — У суботу я прибираю квартиру.
-> note: aufräumen = навести лад, прибрати речі на місця. Мити підлогу — putzen.
+> note: aufräumen = навести лад, прибрати речі на місця. Мити підлогу — den Boden wischen.
 
 > [!word] fernsehen
 > ipa: /ˈfɛʁnˌzeːən/ · pos: verb · level: A1 · id: de-a1-trennbar-w08
@@ -346,7 +346,7 @@ estimatedMinutes: 40
 > [!word] der Feierabend
 > ipa: /ˈfaɪ̯ɐˌʔaːbn̩t/ · pos: noun · level: A1 · id: de-a1-trennbar-w31
 > uk: кінець робочого дня; вільний вечір
-> forms: — (без множини)
+> forms: die Feierabende (рідко)
 > example: Um fünf Uhr habe ich **Feierabend**. — О пʼятій у мене кінець робочого дня.
 > note: Schönen Feierabend! — побажання колегам. Feierabend machen — закінчити роботу.
 
@@ -360,7 +360,7 @@ estimatedMinutes: 40
 > [!word] die Arbeit
 > ipa: /ˈaʁbaɪ̯t/ · pos: noun · level: A1 · id: de-a1-trennbar-w33
 > uk: робота; праця
-> forms: — (зазвичай без множини)
+> forms: die Arbeiten
 > example: Meine **Arbeit** beginnt um acht Uhr. — Моя робота починається о восьмій.
 > note: до роботи: zur Arbeit gehen, на роботі: bei der Arbeit / auf der Arbeit (розм.). Множина die Arbeiten — контрольні, роботи (письмові).
 
@@ -402,7 +402,7 @@ estimatedMinutes: 40
 > level: A1 · type: dictation · speed: slow · id: de-a1-trennbar-l04
 > audio: Ich sehe abends oft fern.
 
-> [!listen] Послухай. Що робить Анна після душу?
+> [!listen] Послухай. Що робить мовець після душу?
 > level: A1 · type: answer · speed: slow · id: de-a1-trennbar-l05
 > audio: Ich stehe um halb sieben auf. Zuerst dusche ich. Dann frühstücke ich. Danach gehe ich zur Arbeit.
 > - [ ] телефонує мамі
@@ -581,7 +581,7 @@ estimatedMinutes: 40
 >
 > ```text fill
 > 100 % — Ich stehe [[immer]] um 7 Uhr auf.
-> 80 % — Ich frühstücke [[meistens]] zu Hause.
+> 90 % — Ich frühstücke [[meistens]] zu Hause.
 > 50 % — Wir gehen [[manchmal]] ins Kino.
 > 0 % — Er sieht [[nie]] fern.
 > ```
@@ -589,7 +589,7 @@ estimatedMinutes: 40
 > **Пояснення:** *immer, meistens, manchmal, nie* — від 100 % до 0 %. Для «ніколи» не потрібні ані *nicht*, ані *kein*.
 
 > [!quiz] Заповни пропуски: послідовність
-> level: A1 · type: fill · bank: Später, Weil · id: de-a1-trennbar-q11
+> level: A1 · type: fill · bank: Weil, Dass · id: de-a1-trennbar-q11
 >
 > ```text fill
 > [[Zuerst]] stehe ich auf. [[Dann]] dusche ich.

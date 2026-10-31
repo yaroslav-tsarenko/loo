@@ -20,7 +20,8 @@ are in Ukrainian and examples are in German with a Ukrainian translation. Your p
    - grammar / pronunciation / listening / review: `content/Guides/Deutsch/Deutsch - A1 - 03. Особові займенники й дієслово sein.md`;
    - vocabulary / skills / topics heavy in word cards: `content/Guides/Deutsch/Deutsch - A1 - 06. Артикль і рід — der, die, das, ein, eine.md`;
    - Deutschland: `content/Guides/Deutschland/Deutschland - B1 - 13. 1989–1990 — мирна революція й обʼєднання.md`.
-3. Block syntax: `docs/LANGUAGE_COURSE.md` «Нові блоки» and `CONTENT_SPEC.md` (quiz single/multi/fill/order, reel, diagram).
+3. **`docs/german/LESSONS.md`** — recurring mistakes from earlier reviews; avoid every one of them.
+4. Block syntax: `docs/LANGUAGE_COURSE.md` «Нові блоки» and `CONTENT_SPEC.md` (quiz single/multi/fill/order, reel, diagram).
 
 Don't read anything else in the repo.
 

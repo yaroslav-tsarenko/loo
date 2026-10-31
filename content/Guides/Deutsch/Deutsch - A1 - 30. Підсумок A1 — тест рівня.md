@@ -77,7 +77,7 @@ estimatedMinutes: 60
 > - [ ] Ich habe 25 Jahre.
 > - [x] Ich bin 25 Jahre alt.
 > - [ ] Mir ist 25 Jahre.
-> - [ ] Ich bin 25 Jahre habe.
+> - [ ] Mir ist 25 Jahre.
 >
 > **Пояснення:** вік — через *sein*. Теми A1-04 та A1-11.
 
@@ -150,7 +150,7 @@ estimatedMinutes: 60
 > - [ ] müssen
 > - [ ] muß
 >
-> **Пояснення:** *ich muss* (модальне без закінчення), другий інфінітив *arbeiten* — у кінці. Тема A1-19.
+> **Пояснення:** *ich muss* (модальне без закінчення), інфінітив *arbeiten* — у кінці. Тема A1-19.
 
 > [!quiz] Що означає «Du musst nicht kommen»?
 > level: A1 · type: single · id: de-a1-review-q13
@@ -219,8 +219,29 @@ estimatedMinutes: 60
 >
 > **Пояснення:** на заперечне питання «так, навпаки» кажуть *doch*. Тема A1-09.
 
+> [!quiz] Склади питання «так / ні»: «Ти говориш німецькою?»
+> level: A1 · type: order · id: de-a1-review-q20
+>
+> ```text order
+> Sprichst
+> du
+> Deutsch?
+> Du ✗
+> ```
+>
+> **Пояснення:** у питанні «так / ні» змінюване дієслово стоїть на **першому** місці: *Sprichst du Deutsch?* Тема A1-09.
+
+> [!quiz] Що в квартирі є? «У вітальні є диван» — як сказати?
+> level: A1 · type: single · id: de-a1-review-q21
+> - [ ] Im Wohnzimmer gibt ein Sofa.
+> - [ ] Im Wohnzimmer hat ein Sofa.
+> - [x] Im Wohnzimmer gibt es ein Sofa.
+> - [ ] Im Wohnzimmer ist es ein Sofa.
+>
+> **Пояснення:** «є, існує» — конструкція **es gibt** + Akkusativ: *Es gibt ein Sofa* (середній рід — без змін), *Es gibt einen Balkon* (чоловічий — *einen*). Тема A1-20.
+
 > [!quiz] Яке речення правильне?
-> level: A1 · type: single · id: de-a1-review-q20
+> level: A1 · type: single · id: de-a1-review-q22
 > - [ ] Ich habe ein Bruder.
 > - [x] Ich habe einen Bruder.
 > - [ ] Ich habe eine Bruder.
@@ -229,7 +250,7 @@ estimatedMinutes: 60
 > **Пояснення:** *der Bruder* в Akkusativ → *einen*. Тема A1-11.
 
 > [!quiz] Які речення із запереченням правильні?
-> level: A1 · type: multi · id: de-a1-review-q21
+> level: A1 · type: multi · id: de-a1-review-q23
 > - [x] Ich arbeite nicht.
 > - [x] Ich habe keinen Hund.
 > - [ ] Ich habe nicht Hund.
@@ -239,7 +260,7 @@ estimatedMinutes: 60
 > **Пояснення:** *nicht* — для дієслова й прикметника, *kein-* — для іменника (*keinen Hund*, *keine Zeit*). Тема A1-11.
 
 > [!quiz] Заповни пропуски: den, einen, keine
-> level: A1 · type: fill · bank: ein, der, kein · id: de-a1-review-q22
+> level: A1 · type: fill · bank: ein, der, kein · id: de-a1-review-q24
 >
 > ```text fill
 > Ich brauche [[einen]] Stift.
@@ -250,18 +271,18 @@ estimatedMinutes: 60
 > **Пояснення:** *der Stift* → *einen*; *der Mann* → *den*; *die Zeit* → *keine*. Теми A1-11 та A1-14.
 
 > [!quiz] Заповни пропуски прийменниками
-> level: A1 · type: fill · bank: in, an, auf · id: de-a1-review-q23
+> level: A1 · type: fill · bank: in, an, auf · id: de-a1-review-q25
 >
 > ```text fill
 > Ich stehe [[um]] sieben Uhr auf.
-> [[Am]] Montag arbeite ich.
-> [[Im]] Mai fahre ich nach Wien.
+> Ich arbeite [[am]] Montag.
+> Ich fahre [[im]] Mai nach Wien.
 > ```
 >
 > **Пояснення:** година → *um*, день → *am*, місяць → *im*. Тема A1-25.
 
 > [!quiz] Що правильно: «Я пʼю чай радше, ніж каву»?
-> level: A1 · type: single · id: de-a1-review-q24
+> level: A1 · type: single · id: de-a1-review-q26
 > - [ ] Ich trinke gern Tee als Kaffee.
 > - [x] Ich trinke lieber Tee als Kaffee.
 > - [ ] Ich trinke am liebsten Tee als Kaffee.
@@ -271,8 +292,8 @@ estimatedMinutes: 60
 
 ## Блок 5. Вимова
 
-> [!quiz] Як читається кінцева буква в слові «Hund»?
-> level: A1 · type: single · id: de-a1-review-q25
+> [!quiz] Як читається кінцева літера в слові «Hund»?
+> level: A1 · type: single · id: de-a1-review-q27
 > - [ ] [d]
 > - [x] [t]
 > - [ ] [g]
@@ -281,19 +302,19 @@ estimatedMinutes: 60
 > **Пояснення:** дзвінкий приголосний у кінці слова оглушується: *Hund* [hʊnt], а множина *Hunde* — знову [d]. Тема A1-23.
 
 > [!quiz] Які пари слів розрізняються довжиною голосного?
-> level: A1 · type: multi · id: de-a1-review-q26
+> level: A1 · type: multi · id: de-a1-review-q28
 > - [x] Staat / Stadt
 > - [x] Miete / Mitte
 > - [ ] Wein / Wien
 > - [x] Ofen / offen
 > - [ ] schon / schön
 >
-> **Пояснення:** *Staat* [ʃtaːt] — *Stadt* [ʃtat], *Miete* [iː] — *Mitte* [ɪ], *Ofen* [oː] — *offen* [ɔ]. *Wein / Wien* — різні дифтонги, *schon / schön* — різні голосні (o / ö). Теми A1-05 і A1-10.
+> **Пояснення:** *Staat* [ʃtaːt] — *Stadt* [ʃtat], *Miete* [iː] — *Mitte* [ɪ], *Ofen* [oː] — *offen* [ɔ]. *Wein / Wien* — дифтонг [aɪ̯] проти довгого [iː], *schon / schön* — різні голосні (o / ö). Теми A1-05 і A1-10.
 
 ## Блок 6. Складіть речення
 
 > [!quiz] Склади речення: «Вчора я їв піцу»
-> level: A1 · type: order · id: de-a1-review-q27
+> level: A1 · type: order · id: de-a1-review-q29
 >
 > ```text order
 > Gestern
@@ -307,7 +328,7 @@ estimatedMinutes: 60
 > **Пояснення:** Perfekt: *Gestern* (1-ше) + *habe* (2-ге) + підмет + додаток + Partizip у кінці. *bin* — для руху. Тема A1-26.
 
 > [!quiz] Склади речення: «Я сьогодні мушу працювати»
-> level: A1 · type: order · id: de-a1-review-q28
+> level: A1 · type: order · id: de-a1-review-q30
 >
 > ```text order
 > Ich
@@ -320,7 +341,7 @@ estimatedMinutes: 60
 > **Пояснення:** модальне дієслово — 2-ге, інфінітив — у кінці. Тема A1-19.
 
 > [!quiz] Склади речення: «Я встаю о сьомій»
-> level: A1 · type: order · id: de-a1-review-q29
+> level: A1 · type: order · id: de-a1-review-q31
 >
 > ```text order
 > Ich
@@ -335,7 +356,7 @@ estimatedMinutes: 60
 > **Пояснення:** відокремлюване дієслово: *stehe … auf*, префікс — у кінці. Тема A1-16.
 
 > [!quiz] Склади вказівку: «Йдіть прямо!»
-> level: A1 · type: order · id: de-a1-review-q30
+> level: A1 · type: order · id: de-a1-review-q32
 >
 > ```text order
 > Gehen
@@ -412,7 +433,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** *halb zehn* = 9:30; *Dienstag* — вівторок.
 
-> [!listen] Послухай діалог. Що робить Макс сьогодні?
+> [!listen] Послухай діалог. Що робить співрозмовник сьогодні?
 > level: A1 · type: answer · speed: slow · id: de-a1-review-l10
 > audio: A: Was machst du gern am Wochenende?
 > audio: B: Ich spiele gern Fußball. Aber heute regnet es. Ich bleibe zu Hause.

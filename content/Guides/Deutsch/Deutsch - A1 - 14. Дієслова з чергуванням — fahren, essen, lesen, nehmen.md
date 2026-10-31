@@ -85,7 +85,7 @@ estimatedMinutes: 35
 
 ## Два «особливих» дієслова: wissen і mögen
 
-Ці два дієслова змінюють корінь **в усьому однині** (ich, du, er), а не лише в du й er:
+Ці два дієслова змінюють корінь **в усій однині** (ich, du, er), а не лише в du й er:
 
 | Особа | wissen (знати) | mögen (любити, подобатися) |
 |---|---|---|
@@ -111,7 +111,7 @@ estimatedMinutes: 35
 | Sie liest ein Buch. | Liest sie ein Buch? | Вона читає книжку? |
 | Ich nehme den Bus. | Welchen Bus nimmst du? | Яким автобусом ти їдеш? |
 
-Майже всі такі дієслова вживають обʼєкт у знахідному (*Akkusativ*): *Er liest **einen** Brief. Sie nimmt **den** Bus.* Виняток — *helfen*: після нього стоїть давальний (*Ich helfe dir*, тема A2).
+Багато таких дієслів беруть обʼєкт у знахідному (*Akkusativ*): *Er liest **einen** Brief. Sie nimmt **den** Bus.* Виняток — *helfen*: після нього стоїть давальний (*Ich helfe dir*, тема A2).
 
 ## Приклади
 
@@ -166,7 +166,7 @@ estimatedMinutes: 35
 > uk: їсти
 > forms: er isst · aß · hat gegessen
 > example: Was **isst** du zum Frühstück? — Що ти їси на сніданок?
-> note: du isst, er isst — одна s: форма склалася з es + st. Imperativ: Iss! (A1-24). Mahlzeit! — привітання в обід.
+> note: du isst, er isst — iss + t, без потрійного s (не ~~essst~~). Imperativ: Iss! (A1-24). Mahlzeit! — привітання в обід.
 
 > [!word] nehmen
 > ipa: /ˈneːmən/ · pos: verb · level: A1 · id: de-a1-vokalwechsel-w06
@@ -240,7 +240,7 @@ estimatedMinutes: 35
 > uk: лист (паперовий)
 > forms: die Briefe
 > example: Er liest einen **Brief** von seiner Mutter. — Він читає лист від своєї мами.
-> note: ie = довге [iː]. Ел. лист = die E-Mail, мотив. лист = die Nachricht. Briefkasten — поштова скринька.
+> note: ie = довге [iː]. Ел. лист = die E-Mail, повідомлення в телефоні — die Nachricht. Briefkasten — поштова скринька.
 
 > [!word] schnell
 > ipa: /ʃnɛl/ · pos: adj · level: A1 · id: de-a1-vokalwechsel-w16
@@ -353,7 +353,7 @@ estimatedMinutes: 35
 > Українською голосний кореня не міняється: «він читає, ти їдеш». Німецькою у **du** й **er / sie / es** міняється: *er **liest**, du **fährst**, er **isst***. Зворотна помилка — зайве чергування в інших формах: ~~wir fähren~~, ~~ich fähre~~. Для *ich, wir, ihr, sie / Sie* корінь не змінюється.
 
 > [!pitfall] «du nehmst», «du esst», «er weißt»
-> Три правописні пастки: у *nehmen* змінюється й приголосний — *du **nimmst***, а не ~~nehmst~~; *du **isst*** (одне s), а не ~~esst~~; у *wissen* і *mögen* форма *er* — **без -t**: *er **weiß***, *er **mag***, а не ~~er weißt~~, ~~er mögt~~.
+> Три правописні пастки: у *nehmen* змінюється й приголосний — *du **nimmst***, а не ~~nehmst~~; *du **isst*** (iss + t, не ~~esst~~); у *wissen* і *mögen* форма *er* — **без -t**: *er **weiß***, *er **mag***, а не ~~er weißt~~, ~~er mögt~~.
 
 > [!pitfall] «Ich helfe dich» — знахідний замість давального
 > Після *sehen* і *treffen* стоїть знахідний (*Ich sehe **dich**. Ich treffe **dich**.*), і через це його переносять на *helfen*. Але *helfen* вимагає давального: *Ich helfe **dir*** (не ~~dich~~), *Er hilft **mir***. Керування дієслів — детально в темі A2.
@@ -361,9 +361,9 @@ estimatedMinutes: 35
 > [!pitfall] «Ich möchte Kaffee» ≠ «Ich mag Kaffee»
 > *Ich **mag** Kaffee* — «я люблю каву» (смак, уподобання). *Ich **möchte** Kaffee* — «я хотів би каву» (бажання зараз, у кафе). Форму *möge* вживати не треба — вона з іншого способу, а не Präsens. Про людей: *Ich mag dich* — «ти мені подобаєшся», а «кохаю» — *Ich liebe dich*.
 
-## Ситуація: в кантині
+## Ситуація: у їдальні
 
-> [!listen] Послухай діалог у кантині. Що бере Лена?
+> [!listen] Послухай діалог у їдальні. Що бере Лена?
 > level: A1 · type: answer · speed: slow · id: de-a1-vokalwechsel-l06
 > audio: A: Hallo, Lena! Was nimmst du heute?
 > audio: B: Ich nehme die Nudeln. Sie sind sehr gut hier.
@@ -401,7 +401,7 @@ estimatedMinutes: 35
 > - [x] isst
 > - [ ] essest
 >
-> **Пояснення:** *essen* має чергування e → i: *du **isst*** (одне s). *Esst* — це форма для *ihr*.
+> **Пояснення:** *essen* має чергування e → i: *du **isst*** (iss + t). *Esst* — це форма для *ihr*.
 
 > [!quiz] Яка форма правильна: «Ich ___ das nicht»? (wissen)
 > level: A1 · type: single · id: de-a1-vokalwechsel-q04
@@ -461,7 +461,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** fahren → *fährst, fährt* (a → ä); lesen → *liest, liest* (e → ie); nehmen → *nimmst, nimmt* (e → i + подвоєне m).
 
-> [!quiz] Заповни пропуски: у кантині
+> [!quiz] Заповни пропуски: у їдальні
 > level: A1 · type: fill · bank: esst, nehmst · id: de-a1-vokalwechsel-q10
 >
 > ```text fill
@@ -471,7 +471,7 @@ estimatedMinutes: 35
 > B: Mein Bruder [[isst]] auch Salat.
 > ```
 >
-> **Пояснення:** *du isst*, *ich nehme* і *ich esse* — без чергування, *er isst* — з чергуванням. *Esst* — форма для *ihr*, *nehmst* — неіснуюча форма.
+> **Пояснення:** *du isst* і *er isst* — з чергуванням e → i; *ich nehme* і *ich esse* — без чергування. *Esst* — форма для *ihr*, *nehmst* — неіснуюча форма.
 
 > [!quiz] Заповни пропуски: sehen, wissen, mögen
 > level: A1 · type: fill · bank: sieht, magt · id: de-a1-vokalwechsel-q11
@@ -528,7 +528,7 @@ estimatedMinutes: 35
 ## Фішки
 
 > [!reel] 🔤 Чому голосний змінюється
-> Мовознавці пояснюють: у давньогерманській закінчення в *du* й *er* містило звук *i*, який «підтягував» голосний кореня до себе. Закінчення згодом стерлися, а різниця в корені лишилась. Тому чергування — не примха, а слід старої системи.
+> Мовознавці пояснюють: у прагерманській закінчення в *du* й *er* містило звук *i*, який «підтягував» голосний кореня до себе. Закінчення згодом стерлися, а різниця в корені лишилась. Тому чергування — не примха, а слід старої системи.
 
 > [!reel] 🧠 «Wissen» і наше «відати»
 > Німецьке *wissen* — далекий родич українського «відати» й «відомо». Усі вони виводяться від спільного індоєвропейського кореня «бачити, знати» — того самого, що й латинське *videre* («бачити»). Форма *ich weiß* колись означала «я побачив» і лише згодом стала «я знаю».
@@ -547,6 +547,6 @@ estimatedMinutes: 35
 > [!important] Підсумок
 > - Частина часто вживаних дієслів змінює голосний кореня **лише в du й er / sie / es**: *fahren → fährst, fährt*; *essen → isst, isst*; *lesen → liest, liest*.
 > - Три типи: a → ä (*fahren, schlafen, tragen, laufen → läufst*), e → i (*essen, nehmen, sprechen, geben, helfen*), e → ie (*lesen, sehen*).
-> - Дрібниці: *du nimmst* (подвоєне m), *du isst* (одне s), *du liest = er liest*.
+> - Дрібниці: *du nimmst* (подвоєне m), *du isst* (iss + t), *du liest = er liest*.
 > - *Wissen* і *mögen* мають особливу однину без закінчення -t: *ich weiß, er weiß; ich mag, er mag*.
 > - Вчи дієслово разом з формою для *er / sie / es*: *er fährt, er isst, er liest*.

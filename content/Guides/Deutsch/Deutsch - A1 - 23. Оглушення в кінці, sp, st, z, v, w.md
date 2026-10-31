@@ -59,18 +59,18 @@ estimatedMinutes: 35
 > steps:
 >   - { focus: sing, note: "У кінці слова чуємо глухе [t]. Але яку літеру писати — d чи t? На слух не зрозуміло." }
 >   - { focus: plur, note: "Утвори множину або іншу форму з голосним після приголосного: Hunde. Тепер чути [d]." }
->   - { focus: spell, note: "Пишемо d: Hund. Так само Land (Länder), Wald (Wälder), Korb (Körbe). Rad і Rat звучать однаково, але Räder (d) і Räte (t)." }
+>   - { focus: spell, note: "Пишемо d: Hund. Так само Land (Länder), Wald (Wälder), Korb (Körbe). Rad і Rat звучать однаково, але Rad пишемо з d (Räder), а Rat — з t." }
 > ```
 > Не певен — тримай у голові множину: Hunde → *d*, Tage → *g*, Körbe → *b*.
 
 > [!note] Це правило не про всі слова
-> Оглушення працює в кінці слова чи складу, але не в середині складу перед голосним: *Ta-ge*, *Hun-de*. Складне слово має кілька «кінців»: *Handtuch* /ˈhanttuːx/, *Abfahrt* /ˈapfaːɐ̯t/ — b і d тут стоять у кінці складу. А в слові *Abend* /ˈaːbn̩t/ b стоїть на початку складу, тому лишається дзвінким. Загальна підказка: дивись на форму зі словом-голосним після приголосного.
+> Оглушення працює в кінці слова чи складу, але не в середині складу перед голосним: *Ta-ge*, *Hun-de*. Складне слово має кілька «кінців»: *Handtuch* /ˈhanttuːx/, *Abfahrt* /ˈapfaːɐ̯t/ — b і d тут стоять у кінці складу. А в слові *Abend* /ˈaːbn̩t/ b стоїть на початку складу, тому лишається дзвінким. Загальна підказка: дивись на форму, де після приголосного стоїть голосний.
 
 ## sp- і st- на початку слова
 
 На початку слова й після префіксів **sp-** і **st-** читаємо як **«шп»** і **«шт»**: *Sport* /ʃpɔʁt/, *Stadt* /ʃtat/, *Student* /ʃtuˈdɛnt/, *sprechen* /ˈʃpʁɛçn̩/, *stehen* /ˈʃteːən/.
 
-Всередині та наприкінці слова — звичайні [sp] і [st]: *Fenster* /ˈfɛnstɐ/, *Wurst* /vʊʁst/, *Hexe*, *Obst* /oːpst/. Після префікса *be-, ver-, ge-* знову «шт»: *verstehen* /fɛɐ̯ˈʃteːən/, *bestellen* /bəˈʃtɛlən/.
+Всередині та наприкінці слова — звичайні [sp] і [st]: *Fenster* /ˈfɛnstɐ/, *Wurst* /vʊʁst/, *Wespe* /ˈvɛspə/, *Obst* /oːpst/. Після префікса *be-, ver-, ge-* знову «шт»: *verstehen* /fɛɐ̯ˈʃteːən/, *bestellen* /bəˈʃtɛlən/.
 
 Написання *sp, st* **не змінюється**: німці не пишуть *Schport*. Читаємо за правилом.
 
@@ -101,7 +101,7 @@ estimatedMinutes: 35
 >   - { id: c1, col: c, label: "читаємо", text: "[v] «в»", tone: yellow }
 >   - { id: c2, col: c, label: "приклад", text: "Wasser · Welt", tone: gray }
 > steps:
->   - { focus: [a1, a2], note: "z — завжди «ц»: Zeit — «цайт». Дзвінке «з» дає лише s перед голосним (Sonne)." }
+>   - { focus: [a1, a2], note: "z — майже завжди «ц»: Zeit — «цайт». Дзвінке «з» дає лише s перед голосним (Sonne)." }
 >   - { focus: [b1, b2], note: "v у німецьких словах — «ф»: Vater — «фатер», viel — «філь». У запозиченнях v = «в»: Vase, Klavier." }
 >   - { focus: [c1, c2], note: "w — «в»: Wasser, Welt. Запамʼятай VW: Volkswagen — «фау-ве» [faʊ̯ veː], а вимовляється /ˈfɔlksvaːɡn̩/." }
 > ```
@@ -144,21 +144,21 @@ estimatedMinutes: 35
 > note: w = «в» [v]; d наприкінці = [t]: «вальт». Wälder /ˈvɛldɐ/ — d дзвінке.
 
 > [!word] der Korb
-> ipa: /kɔʁp/ · pos: noun · level: A1 · id: de-a1-auslaut-w04
+> ipa: /kɔʁp/ · pos: noun · level: A2 · id: de-a1-auslaut-w04
 > uk: кошик
 > forms: die Körbe
 > example: Der **Korb** ist voll Obst. — Кошик повний фруктів.
 > note: b наприкінці = [p]. Körbe /ˈkœʁbə/ — b знову дзвінке. Einen Korb geben (розм.) — відмовити.
 
 > [!word] der Sand
-> ipa: /zant/ · pos: noun · level: A1 · id: de-a1-auslaut-w05
+> ipa: /zant/ · pos: noun · level: A2 · id: de-a1-auslaut-w05
 > uk: пісок
 > forms: — (без множини)
 > example: Die Kinder spielen im **Sand**. — Діти граються в піску.
 > note: s перед голосним = [z]; d наприкінці = [t]. На півдні й в AT: [sant].
 
 > [!word] der Dieb
-> ipa: /diːp/ · pos: noun · level: A1 · id: de-a1-auslaut-w06
+> ipa: /diːp/ · pos: noun · level: A2 · id: de-a1-auslaut-w06
 > uk: злодій
 > forms: die Diebe
 > example: Die Polizei sucht den **Dieb**. — Поліція шукає злодія.
@@ -190,7 +190,7 @@ estimatedMinutes: 35
 > uk: втіха; жарт; задоволення
 > forms: die Späße (рідко)
 > example: Deutschlernen macht **Spaß**! — Вивчати німецьку — це задоволення!
-> note: sp = «шп»; ß = [s]. CH: Spass. Viel Spaß! — Бажаю гарно провести час!
+> note: sp = «шп»; ß = [s]. CH: Spass; AT, CH: короткий [ʃpas]. Viel Spaß! — Бажаю гарно провести час!
 
 > [!word] die Stimme
 > ipa: /ˈʃtɪmə/ · pos: noun · level: A1 · id: de-a1-auslaut-w11
@@ -223,7 +223,7 @@ estimatedMinutes: 35
 > [!word] zeigen
 > ipa: /ˈtsaɪ̯ɡn̩/ · pos: verb · level: A1 · id: de-a1-auslaut-w15
 > uk: показувати
-> forms: er zeigt · zeigte · hat gezeigt
+> forms: zeigen → zeigte → hat gezeigt
 > example: Können Sie mir den Weg **zeigen**? — Чи можете Ви показати мені дорогу?
 > note: zeigen + Dat (кому) + Akk (що). g всередині = «ґ». Er zeigt /tsaɪ̯kt/ — g перед t глушиться до [k].
 
@@ -432,14 +432,14 @@ estimatedMinutes: 35
 > level: A1 · speed: slow · id: de-a1-auslaut-s09
 > text: Die Vase steht auf dem Tisch.
 > ipa: /diː ˈvaːzə ʃteːt aʊ̯f deːm tɪʃ/
-> tip: Vase — запозичення, v = [v], s між голосними = [z]. steht — «штеt». Tisch — sch = «ш».
+> tip: Vase — запозичення, v = [v], s між голосними = [z]. steht — «штет». Tisch — sch = «ш».
 > uk: Ваза стоїть на столі.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-auslaut-s10
 > text: Die Information steht in der Lektion.
 > ipa: /diː ɪnfɔʁmaˈtsi̯oːn ʃteːt ɪn deːɐ̯ lɛkˈtsi̯oːn/
-> tip: -tion = [tsi̯oːn], наголос на -on. Information: наголос на -ma- і -tsion: «інформаціон».
+> tip: -tion = [tsi̯oːn], наголос на -on. Information: наголос лише на -on («інформацйон»).
 > uk: Інформація є в уроці.
 
 ## Типові помилки українців
@@ -453,8 +453,8 @@ estimatedMinutes: 35
 > [!pitfall] sp і st читаємо «сп», «ст»
 > На початку слова *Sport* — це «шпорт», *Student* — «штудент», *Stadt* — «штат», *sprechen* — «шпрехен». Кажемо «ш» перед p і t, а пишемо s: німці не пишуть *Schport*. Після префікса теж: *verstehen* — «фер-**шт**еен».
 
-> [!pitfall] z = «з», v = «в», w = «дабл-ю»
-> *Zeit* — «цайт», не «зейт»; *Vater* — «фатер», не «ватер»; *Wasser* — «вассер» (w = «в»). Дзвінке «з» у німецькій дає **s** перед голосним: *Sonne*, *Rose*. Для запозичень (*Vase, Klavier, November*) v читається «в».
+> [!pitfall] z = «з», v = «в», w = «у»
+> *Zeit* — «цайт», не «зейт»; *Vater* — «фатер», не «ватер»; *Wasser* — «вассер», а не «уассер» (w = «в», не англійське [w]). Дзвінке «з» у німецькій дає **s** перед голосним: *Sonne*, *Rose*. Для запозичень (*Vase, Klavier, November*) v читається «в».
 
 ## Практика
 
@@ -475,7 +475,7 @@ estimatedMinutes: 35
 > - [ ] Tage — [ˈtaːɡə]
 > - [ ] Hunde — [ˈhʊndə]
 >
-> **Пояснення:** оглушення — лише в кінці слова: *Bad* [t], *Land* [t], *Korb* [p]. У *Tage* і *Hunde* g й d стоять перед голосним, тому лишаються дзвінкими.
+> **Пояснення:** оглушення — в кінці слова чи складу: *Bad* [t], *Land* [t], *Korb* [p]. У *Tage* і *Hunde* g й d стоять перед голосним, тому лишаються дзвінкими.
 
 > [!quiz] Як вимовляється sp у слові Sport?
 > level: A1 · type: single · id: de-a1-auslaut-q04
@@ -541,7 +541,7 @@ estimatedMinutes: 35
 > Ich möchte Tee mit [[Zitrone]].
 > ```
 >
-> **Пояснення:** [ts] на початку слова пишемо **z**: *Zitrone*. Не *Sitrone* (s дало б [z]). Також ohne h: *Zitrone*, не *Zitrohne*.
+> **Пояснення:** [ts] на початку слова пишемо **z**: *Zitrone*. Не *Sitrone* (s дало б [z]). Також без h: *Zitrone*, не *Zitrohne*.
 
 > [!quiz] Склади речення: «Пес у лісі»
 > level: A1 · type: order · id: de-a1-auslaut-q11
@@ -573,7 +573,7 @@ estimatedMinutes: 35
 ## Фішки
 
 > [!reel] 🛞 Rad чи Rat? Не питай на слух
-> Слова *das Rad* (колесо) і *der Rat* (порада) звучать однаково: /ʁaːt/. У школі німців теж вчать перевіряти написання через множину: *Räder* — d, *Räte* — t. Тому для слів на кшталт *Hund, Land, Weg* завжди корисно знати форму множини.
+> Слова *das Rad* (колесо) і *der Rat* (порада) звучать однаково: /ʁaːt/. У школі німців теж вчать перевіряти написання через множину: *Räder* — d, а для Rat (порада) такої форми немає — слово просто пишеться з t. Тому для слів на кшталт *Hund, Land, Weg* завжди корисно знати форму множини.
 
 > [!reel] 🚗 VW: фау-ве, але «фольксваген»
 > Назва **Volkswagen** містить обидві складні літери теми: *V* читається [f], а *W* — [v]: /ˈfɔlksvaːɡn̩/. Назви літер це теж «чують»: V — «фау» (починається на [f]), W — «ве» (на [v]), тож VW — «фау-ве» [faʊ̯ veː].
@@ -586,7 +586,7 @@ estimatedMinutes: 35
 - [Wikipedia — Auslautverhärtung](https://de.wikipedia.org/wiki/Auslautverh%C3%A4rtung) — правило оглушення: коли і чому.
 - [Wikipedia — Aussprache des Deutschen](https://de.wikipedia.org/wiki/Aussprache_des_Deutschen) — огляд приголосних стандартної вимови, регіональні варіанти.
 - [DWDS — Rad](https://www.dwds.de/wb/Rad) — вимова й множина слова *Rad*.
-- [DWDS — Rat](https://www.dwds.de/wb/Rat) — слово *Rat* (порада) і його множина *Räte*.
+- [DWDS — Rat](https://www.dwds.de/wb/Rat) — слово *Rat* (порада), яке звучить як *Rad*.
 - [DWDS — Volkswagen](https://www.dwds.de/wb/Volkswagen) — слово з [f] і [v] в одному.
 - [DWDS — Zitrone](https://www.dwds.de/wb/Zitrone) — слово з літерою z.
 - [DW Learn German — Nicos Weg (A1)](https://learngerman.dw.com/en/beginners/c-36519789) — безкоштовний відеокурс із вимовою.
@@ -595,4 +595,4 @@ estimatedMinutes: 35
 > - Кінцеві **b, d, g** вимовляємо як **p, t, k** (*ab, Hund, Tag*); у множині, перед голосним, звук знову дзвінкий (*Hunde, Tage*).
 > - **sp-** і **st-** на початку слова = «шп», «шт» (*Sport, Stadt, Student*).
 > - **z** = «ц», **v** у німецьких словах = «ф», **w** = «в»; **sch** = «ш», **-tion** = [tsi̯oːn].
-> - Не певен, чи писати *d* або *t* у кінці слова — утвори множину: *Hunde → d*, *Räte → t*.
+> - Не певен, чи писати *d* або *t* у кінці слова — утвори множину: *Hunde → d*, *Tage → g*.

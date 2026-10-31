@@ -100,7 +100,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 |---|---|
 | **Усі іменники** — з великої | *Ich habe einen Bruder und eine Schwester.* |
 | Ввічливе **Sie, Ihnen, Ihr** — з великої | *Wie geht es **Ihnen**?* |
-| **Дні й місяці** — з великої | *am Montag, im Mai* |
+| **Дні й місяці** — з великої | *am Montag, im Mai* (але прислівник *montags* — з малої) |
 | Прикметники національності — з малої | *ein ukrainisches Buch*, але *Ich lerne Deutsch* (мова = іменник) |
 | Початок речення — з великої, після коми в листі — з малої | *Liebe Anna, ich komme …* |
 
@@ -108,7 +108,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 
 - Eingang Hof, Ausgang Straße. — Вхід з двору, вихід на вулицю.
 - Bitte Tür schließen! — Будь ласка, зачиняйте двері!
-- Ich wohne in der Lindenstraße 14, 50667 Köln. — Я живу на Ліндєнштрасе, 14, 50667 Кельн.
+- Ich wohne in der Lindenstraße 14, 50667 Köln. — Я живу на Лінденштрасе, 14, 50667 Кельн.
 - Mein Geburtsdatum ist der 15. März 1995. — Моя дата народження — 15 березня 1995.
 - Liebe Anna, ich komme heute später. Viele Grüße, Olena — Люба Анно, я сьогодні прийду пізніше. З привітом, Олена.
 - Sehr geehrte Frau Weber, ich möchte einen Termin. Mit freundlichen Grüßen — Шановна пані Вебер, я хотів би записатися. З повагою.
@@ -121,12 +121,12 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > uk: формуляр; анкета; бланк
 > forms: die Formulare
 > example: Bitte füllen Sie das **Formular** aus. — Будь ласка, заповніть формуляр.
-> note: наголос на останньому складі. Скорочено розм. das Formblatt. AT: також das Formblatt, das Antragsformular.
+> note: наголос на останньому складі. Синонім: das Formblatt. AT: також das Formblatt, das Antragsformular.
 
 > [!word] ausfüllen
 > ipa: /ˈaʊ̯sˌfʏlən/ · pos: verb · level: A1 · id: de-a1-lesen-schreiben-w02
 > uk: заповнювати (анкету)
-> forms: füllt aus → füllte aus → hat ausgefüllt
+> forms: ausfüllen → füllte aus → hat ausgefüllt
 > example: Ich **fülle** das Formular **aus**. — Я заповнюю формуляр.
 > note: відокремлюване дієслово: Ich fülle das Formular aus (як aufstehen, тема A1-16). ü — губи «у», язик «і».
 
@@ -135,7 +135,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > uk: дата народження
 > forms: die Geburtsdaten
 > example: Mein **Geburtsdatum** ist der 15. März 1995. — Моя дата народження — 15 березня 1995.
-> note: у формулярі часто скорочено: geb. am; поруч — der Geburtsort (місце народження). Рід нейтральний, бо das Datum.
+> note: у формулярі часто скорочено: geb. am; поруч — der Geburtsort (місце народження). Рід середній, бо das Datum.
 
 > [!word] der Wohnort
 > ipa: /ˈvoːnɔʁt/ · pos: noun · level: A1 · id: de-a1-lesen-schreiben-w04
@@ -166,7 +166,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > note: unterschreiben — підписувати. Unter + Schrift. Не плутати з die Überschrift («заголовок»).
 
 > [!word] die Staatsangehörigkeit
-> ipa: /ˈʃtaːtsanɡəˌhøːʁɪçkaɪ̯t/ · pos: noun · level: A1 · id: de-a1-lesen-schreiben-w08
+> ipa: /ˈʃtaːtsʔanɡəˌhøːʁɪçkaɪ̯t/ · pos: noun · level: A2 · id: de-a1-lesen-schreiben-w08
 > uk: громадянство
 > forms: die Staatsangehörigkeiten
 > example: **Staatsangehörigkeit**: ukrainisch. — Громадянство: українське.
@@ -214,7 +214,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > [!word] der Eintritt
 > ipa: /ˈaɪ̯ntʁɪt/ · pos: noun · level: A1 · id: de-a1-lesen-schreiben-w15
 > uk: вхід (плата); вхідний квиток
-> forms: — (без множини)
+> forms: die Eintritte
 > example: **Eintritt** frei! — Вхід вільний!
 > note: der Eintritt = вхід як подія і плата за нього; der Eingang — місце входу. Eintritt kostet 5 Euro. Вхідний квиток — die Eintrittskarte.
 
@@ -239,18 +239,18 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > note: нейтральне закінчення. Друзям — Liebe Grüße, офіційно — Mit freundlichen Grüßen. CH: Freundliche Grüsse (без ß).
 
 > [!word] die Hausordnung
-> ipa: /ˈhaʊ̯sɔʁdnʊŋ/ · pos: noun · level: A1 · id: de-a1-lesen-schreiben-w19
+> ipa: /ˈhaʊ̯sʔɔʁdnʊŋ/ · pos: noun · level: B1 · id: de-a1-lesen-schreiben-w19
 > uk: правила проживання в будинку
 > forms: die Hausordnungen
 > example: Die **Hausordnung** hängt im Treppenhaus. — Правила будинку висять на сходах.
 > note: -ung → die (тема A1-06). Типово містить Ruhezeiten, правила прибирання та сміття.
 
 > [!word] die Ruhezeit
-> ipa: /ˈʁuːətsaɪ̯t/ · pos: noun · level: A1 · id: de-a1-lesen-schreiben-w20
+> ipa: /ˈʁuːətsaɪ̯t/ · pos: noun · level: B1 · id: de-a1-lesen-schreiben-w20
 > uk: час тиші
 > forms: die Ruhezeiten
 > example: In der **Ruhezeit** ist Lärm verboten. — У час тиші шуміти заборонено.
-> note: у багатьох будинках — Nachtruhe з ≈ 22 до 6 годин та вихідні. Точні години вказані в Hausordnung. Ruhe [ˈʁuːə] — довге u.
+> note: у багатьох будинках — Nachtruhe з ≈ 22 до 6 годин та вихідні. Точні години різняться за будинком і громадою — їх вказано в Hausordnung; 22–6 годин — поширений, але не єдиний варіант. Ruhe [ˈʁuːə] — довге u.
 
 ## Слухаємо
 
@@ -299,7 +299,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > text: Ich wohne in der Lindenstraße vierzehn.
 > ipa: /ɪç ˈvoːnə ɪn deːɐ̯ ˈlɪndn̩ʃtʁaːsə ˈfɪʁtseːn/
 > tip: Straße: str- = «штр» (st- на початку = «шт»), довге [aː], ß = [s]. vierzehn: коротке [ɪ].
-> uk: Я живу на Ліндєнштрасе, чотирнадцять.
+> uk: Я живу на Лінденштрасе, чотирнадцять.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-lesen-schreiben-s03
@@ -324,15 +324,15 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 
 ## Landeskunde: оголошення на дверях будинку
 
-> [!example] Hausordnung
+> [!example] Hausordnung (приклад: у кожному будинку правила свої)
 > **Hausordnung · Lindenstraße 14**
 > 1. Ruhezeiten: täglich von 13 bis 15 Uhr und von 22 bis 6 Uhr. Bitte leise sein!
-> 2. Der Eingang muss immer geschlossen sein. Bitte die Tür nicht offen lassen.
+> 2. Die Haustür muss immer geschlossen sein. Bitte die Tür nicht offen lassen.
 > 3. Im Treppenhaus dürfen keine Fahrräder stehen.
 > 4. Rauchen ist im Haus verboten.
 > 5. Bei Fragen: Hausverwaltung, Montag bis Freitag, 9 bis 12 Uhr, Telefon 0221 123 45.
 
-> [!quiz] Wann gelten die Ruhezeiten?
+> [!quiz] Wann gelten die Ruhezeiten in dieser Hausordnung?
 > level: A1 · type: single · id: de-a1-lesen-schreiben-q02
 > - [ ] nur nachts
 > - [x] von 13 bis 15 Uhr und von 22 bis 6 Uhr
@@ -341,14 +341,14 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 >
 > **Пояснення:** у тексті: «täglich von 13 bis 15 Uhr und von 22 bis 6 Uhr» — щодня вдень і вночі. 9–12 — години Hausverwaltung.
 
-> [!quiz] Was ist im Treppenhaus verboten?
+> [!quiz] Was darf nicht im Treppenhaus stehen?
 > level: A1 · type: single · id: de-a1-lesen-schreiben-q03
-> - [ ] Rauchen
-> - [x] Fahrräder stehen lassen
+> - [ ] Besuch bekommen
+> - [x] Fahrräder
 > - [ ] Telefonieren
-> - [ ] Besuch
+> - [ ] Schuhe
 >
-> **Пояснення:** «Im Treppenhaus dürfen keine Fahrräder stehen» — на сходах не можна залишати велосипеди. Палити заборонено *в усьому домі*, але це окремий пункт.
+> **Пояснення:** «Im Treppenhaus dürfen keine Fahrräder stehen» — на сходах не можна залишати велосипеди. Про гостей, розмови чи взуття в тексті нічого немає.
 
 ## Практика
 
@@ -370,7 +370,7 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 >
 > **Пояснення:** *Eintritt* — вхід (і плата за нього), *frei* тут «вільний, безкоштовний». Не плутати з *Eingang* («вхід» як місце).
 
-> [!quiz] Яке привітання підходить для листа до пані Вебер?
+> [!quiz] Офіційний лист до пані Вебер у Behörde. Яке звертання підходить?
 > level: A1 · type: single · id: de-a1-lesen-schreiben-q06
 > - [ ] Hallo Weber,
 > - [ ] Liebe Frau Weber,
@@ -421,14 +421,14 @@ Datum, Unterschrift: 03.11.2026, O. Bondar
 > **Пояснення:** до жінки — *Liebe Anna* (*Lieber* — до чоловіка); прощання — *Viele Grüße*. *Grüßen* було б у формулі *Mit freundlichen Grüßen*.
 
 > [!quiz] Заповни пропуски в оголошенні
-> level: A1 · type: fill · bank: von, offen · id: de-a1-lesen-schreiben-q11
+> level: A1 · type: fill · bank: von, auf · id: de-a1-lesen-schreiben-q11
 >
 > ```text fill
 > Montag [[bis]] Freitag [[geöffnet]].
 > Sonntag [[geschlossen]].
 > ```
 >
-> **Пояснення:** *Montag bis Freitag* — з понеділка до пʼятниці; *geöffnet / geschlossen* — відчинено / зачинено. *von* і *offen* тут не підходять.
+> **Пояснення:** *Montag bis Freitag* — з понеділка до пʼятниці; *geöffnet / geschlossen* — відчинено / зачинено. *von* і *auf* тут не підходять.
 
 > [!quiz] Склади речення: «Я сьогодні прийду пізніше»
 > level: A1 · type: order · id: de-a1-lesen-schreiben-q12

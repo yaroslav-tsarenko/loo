@@ -101,7 +101,7 @@ estimatedMinutes: 35
 - **Wohin** fährt er? — Nach Wien. — Куди він їде? — До Відня.
 - **Wann** beginnt der Kurs? — Um neun. — Коли починається курс? — О девʼятій.
 
-**wo / woher / wohin** — три питання про місце. **Wo** — де хтось знаходиться; **woher** — звідки; **wohin** — куди. Українське «де ти йдеш?» німецькою — *Wohin gehst du?*, а не ~~Wo gehst du?~~.
+**wo / woher / wohin** — три питання про місце. **Wo** — де хтось знаходиться; **woher** — звідки; **wohin** — куди. Українське «куди ти йдеш?» німецькою — *Wohin gehst du?*; помилка — ~~Wo gehst du?~~ (калька з «де»).
 
 ## Питання «так / ні»
 
@@ -183,7 +183,7 @@ estimatedMinutes: 35
 > ipa: /vaˈʁʊm/ · pos: adv · level: A1 · id: de-a1-fragen-w07
 > uk: чому; чого заради
 > example: **Warum** lernst du Deutsch? — Чому ти вчиш німецьку?
-> note: наголос на другому складі. Синоніми: wieso, weshalb (AT, CH частіше weshalb). Відповідь — часто з weil (тема A2-11).
+> note: наголос на другому складі. Синоніми: wieso, weshalb. Відповідь — часто з weil (тема A2-11).
 
 > [!word] ja
 > ipa: /jaː/ · pos: adv · level: A1 · id: de-a1-fragen-w08
@@ -322,15 +322,15 @@ estimatedMinutes: 35
 > [!pitfall] W-питання без інверсії: ~~Warum du lernst Deutsch?~~
 > Українське «Чому ти вчиш німецьку?» легко скопіювати слово в слово. У німецькій: **питальне слово → дієслово → підмет**: ***Warum lernst du Deutsch?*** Дієслово стоїть одразу після питального слова, а не в кінці. Так само ~~Wo du wohnst?~~ → *Wo wohnst du?*
 
-> [!pitfall] «Так» на заперечне питання: ~~Ja, ich komme~~
+> [!pitfall] «Так» на заперечне питання: ~~Ja~~ замість doch
 > *Kommst du nicht?* — «Ти не прийдеш?». Українською «Прийду» — це «так», але *Ja, ich komme nicht* спантеличить співрозмовника. Німецька використовує **doch**: *Doch, ich komme!* Якщо не прийдеш — *Nein, ich komme nicht.*
 
 > [!pitfall] wo ≠ wohin ≠ woher
-> Українське «де ти йдеш?» — це про напрям: ~~Wo gehst du?~~ → **Wohin gehst du?** *Wo* — місце без руху (*Wo bist du?*), *wohin* — рух туди (*Wohin gehst du?*), *woher* — звідки (*Woher kommst du?*). У розмові чути й *Wo gehst du hin?*, але стандарт — *wohin*.
+> Питання про напрям («куди ти йдеш?») німецькою — **Wohin gehst du?**, а не ~~Wo gehst du?~~ (так кажуть, калькуючи «де»). *Wo* — місце без руху (*Wo bist du?*), *wohin* — рух туди (*Wohin gehst du?*), *woher* — звідки (*Woher kommst du?*). У розмові чути й *Wo gehst du hin?*, але стандарт — *wohin*.
 
 ## Ситуація: на курсі німецької
 
-> [!listen] Послухай діалог. Чому Ольга вчить німецьку?
+> [!listen] Послухай діалог. Що ми дізнаємося про Ольгу?
 > level: A1 · type: answer · speed: slow · id: de-a1-fragen-l07
 > audio: A: Hallo, ich bin Tim. Wie heißt du?
 > audio: B: Ich heiße Olga. Ich komme aus der Ukraine.
@@ -344,7 +344,14 @@ estimatedMinutes: 35
 >
 > **Пояснення:** *Ich wohne in Köln, ich arbeite hier und lerne Deutsch* — живе й працює в Кельні. *Am Montag und am Mittwoch* — понеділок і середа.
 
-Постав ці питання вголос до себе: *Wo wohnst du? Woher kommst du? Wann hast du Unterricht?*
+Тепер спитай Тіма про курс.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-fragen-s07
+> text: Wann hast du Unterricht?
+> ipa: /van hast duː ˈʊntɐʁɪçt/
+> tip: W-питання — голос падає ↘. Unterricht: наголос на першому складі, ch після i = [ç].
+> uk: Коли в тебе заняття?
 
 ## Практика
 
@@ -384,14 +391,14 @@ estimatedMinutes: 35
 >
 > **Пояснення:** на заперечне питання «Ти не прийдеш?» відповідь «прийду» — *Doch*. *Nein, ich komme nicht* означало б «не прийду».
 
-> [!quiz] Як спитати німецькою «Ви живете у Відні?»
+> [!quiz] Як за стандартним порядком слів спитати німецькою «Ви живете у Відні?»
 > level: A1 · type: single · id: de-a1-fragen-q06
 > - [ ] Sie wohnen in Wien?
 > - [ ] Wo Sie wohnen in Wien?
 > - [x] Wohnen Sie in Wien?
 > - [ ] Wohnt ihr Wien?
 >
-> **Пояснення:** питання «так / ні» — дієслово на першому місці. *Sie wohnen in Wien?* можливо лише з питальною інтонацією у розмові.
+> **Пояснення:** питання «так / ні» — дієслово на першому місці. Варіант *Sie wohnen in Wien?* трапляється в розмові лише з питальною інтонацією, а стандарт — дієслово першим.
 
 > [!quiz] Які речення побудовано правильно?
 > level: A1 · type: multi · id: de-a1-fragen-q07

@@ -53,7 +53,7 @@ estimatedMinutes: 40
 
 ## Nominativ і Akkusativ
 
-**Nominativ** — відмінок підмета: відповідає на питання **Wer? Was?** («хто? що?»): *Der Mann kommt.* **Akkusativ** — відмінок прямого додатка: **Wen? Was?** («кого? що?»): *Ich habe **den Mann** nicht.* Українське «знахідний» на питання «кого? що?» — це те саме.
+**Nominativ** — відмінок підмета: відповідає на питання **Wer? Was?** («хто? що?»): *Der Mann kommt.* **Akkusativ** — відмінок прямого додатка: **Wen? Was?** («кого? що?»): *Ich sehe **den Mann**.* Українське «знахідний» на питання «кого? що?» — це те саме.
 
 Тема дуже проста: **змінюється лише чоловічий рід.**
 
@@ -101,7 +101,7 @@ Akkusativ ставимо після дієслів, що мають прямий
 > 3. Спитай «кого? що?» — це додаток (Akkusativ): *einen Bruder* (кого маю?).
 > 4. Якщо слово чоловічого роду — *der → den, ein → einen*. Решта не змінюється.
 >
-> Після *sein* (*Das ist ein Hund. Er ist ein Lehrer.*) додатка немає, тож лишається Nominativ.
+> Після *sein* (*Das ist ein Hund. Er ist Lehrer.*) додатка немає, тож лишається Nominativ.
 
 ## Іменники без артикля
 
@@ -124,10 +124,10 @@ Akkusativ ставимо після дієслів, що мають прямий
 > nodes:
 >   - { id: a1, col: a, label: "заперечує", text: "іменник з ein- або без артикля", tone: gray }
 >   - { id: a2, col: a, label: "було", text: "Ich habe ein Auto. / Ich habe Zeit.", tone: gray }
->   - { id: a3, col: a, label: "стало", text: "Ich habe kein Auto. / Ich habe keine Zeit.", tone: orange }
+>   - { id: a3, col: a, label: "стало", text: "Ich habe kein Auto. / Ich habe keine Zeit.", tone: yellow }
 >   - { id: b1, col: b, label: "заперечує", text: "дієслово, прикметник, означений артикль, особу", tone: gray }
 >   - { id: b2, col: b, label: "було", text: "Ich arbeite. / Das Auto ist neu. / Ich kenne den Mann.", tone: gray }
->   - { id: b3, col: b, label: "стало", text: "Ich arbeite nicht. / Das Auto ist nicht neu. / Ich kenne den Mann nicht.", tone: orange }
+>   - { id: b3, col: b, label: "стало", text: "Ich arbeite nicht. / Das Auto ist nicht neu. / Ich kenne den Mann nicht.", tone: yellow }
 > steps:
 >   - { focus: [a1, a2, a3], note: "ein Auto → kein Auto; Zeit → keine Zeit. kein = nicht + ein: заперечуємо саме іменник." }
 >   - { focus: [b1, b2, b3], note: "nicht стоїть після дієслова (або перед прикметником чи словом, яке заперечується): Ich arbeite nicht." }
@@ -158,7 +158,7 @@ Akkusativ ставимо після дієслів, що мають прямий
 
 ### Подвійне заперечення
 
-В українській «Я нікого не знаю» має два заперечення, і це норма. У німецькій **одне заперечення на речення**: *Ich kenne **niemanden**.* (а не ~~Ich kenne niemanden nicht~~). Так само: *Ich habe **nichts**.* (я нічого не маю), *Ich habe **nie** Zeit.* («ніколи не маю часу»), *Ich sehe **nirgends** Platz.*
+В українській «Я нікого не знаю» має два заперечення, і це норма. У німецькій **одне заперечення на речення**: *Ich kenne **niemanden**.* (а не ~~Ich kenne niemanden nicht~~). Так само: *Ich habe **nichts**.* (я нічого не маю), *Ich habe **nie** Zeit.* («ніколи не маю часу»), *Ich sehe **nirgends** einen Parkplatz.*
 
 ## Приклади
 
@@ -321,7 +321,7 @@ Akkusativ ставимо після дієслів, що мають прямий
 > level: A1 · speed: slow · id: de-a1-akkusativ-s02
 > text: Hast du Zeit?
 > ipa: /hast duː tsaɪ̯t/
-> tip: hast — коротке [a], st в кінці: «хаст». Zeit: z = «ц», ei = «ай». Питання «так / ні» — голос угору ↗.
+> tip: hast — коротке [a], st в кінці. Zeit: z = «ц», ei = «ай». Питання «так / ні» — голос угору ↗.
 > uk: Ти маєш час?
 
 > [!speak] Скажи вголос
@@ -335,7 +335,7 @@ Akkusativ ставимо після дієслів, що мають прямий
 > level: A1 · speed: slow · id: de-a1-akkusativ-s04
 > text: Er hat keinen Hund.
 > ipa: /eːɐ̯ hat ˈkaɪ̯nən hʊnt/
-> tip: Hund закінчується на [t]: «хунт». hat — коротке [a], не «хаат». keinen — два склади.
+> tip: Hund закінчується на [t] (оглушення), h — легкий видих. hat — коротке [a], не «хаат». keinen — два склади.
 > uk: У нього немає собаки.
 
 > [!speak] Скажи вголос
@@ -361,10 +361,10 @@ Akkusativ ставимо після дієслів, що мають прямий
 > Для чоловічого роду в додатку: **den / einen / keinen**. ~~Ich habe ein Bruder~~ → Ich habe **einen** Bruder. ~~Ich kenne der Mann~~ → Ich kenne **den** Mann. Жіночий і середній рід не змінюються: *Ich habe **eine** Schwester. Ich habe **ein** Kind.* Тому запамʼятай питання: «Рід чоловічий? Це додаток? → -n».
 
 > [!pitfall] ~~Ich habe nicht Zeit~~ → Ich habe keine Zeit
-> Заперечувати іменник з неозначеним артиклем або без артикля треба через **kein**: ***Ich habe keine Zeit.***, ***Er hat keinen Hund.***, ***Wir haben kein Geld.*** *Nicht* — для дієслова й прикметника: *Ich arbeite nicht.* ~~Ich habe nicht einen Hund~~ — також помилка (нормальне — *keinen Hund*).
+> Заперечувати іменник з неозначеним артиклем або без артикля треба через **kein**: ***Ich habe keine Zeit.***, ***Er hat keinen Hund.***, ***Wir haben kein Geld.*** *Nicht* — для дієслова й прикметника: *Ich arbeite nicht.* ~~Ich habe nicht einen Hund~~ звучить неприродно (нормально — *keinen Hund*).
 
 > [!pitfall] Подвійне заперечення: ~~Ich habe nichts nicht~~
-> В українській «Я нічого не маю» — два «не». У німецькій зазвичай **одне** заперечення на речення: ***Ich habe nichts.***, ***Ich kenne niemanden.***, ***Ich habe nie Zeit.*** ~~Ich habe nicht nichts~~ — помилка, яку німці зрозуміють, але вона звучить «по-українськи». Ще одна пастка: *keine* — це «жодна», не «жоден»: *keine Zeit*, *keinen Hund*.
+> В українській «Я нічого не маю» — два «не». У німецькій зазвичай **одне** заперечення на речення: ***Ich habe nichts.***, ***Ich kenne niemanden.***, ***Ich habe nie Zeit.*** ~~Ich habe nicht nichts~~ — помилка, яку німці зрозуміють, але вона звучить «по-українськи».
 
 ## Ситуація: на ресепшені
 
@@ -379,6 +379,13 @@ Akkusativ ставимо після дієслів, що мають прямий
 > - [ ] Нема ні запису, ні листа.
 >
 > **Пояснення:** *einen Termin* — є запис. *den Brief nicht* — листа нема (означений артикль → *nicht*, не *kein*). *Tasche und einen Stift* — сумка й ручка.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-akkusativ-s07
+> text: Ich habe einen Termin um zehn Uhr.
+> ipa: /ɪç ˈhaːbə ˈaɪ̯nən tɛʁˈmiːn ʊm tseːn uːɐ̯/
+> tip: Termin — наголос на -min. zehn: довге [eː]. Uhr: довге [uː] + приглушене [ɐ̯].
+> uk: У мене запис на десяту годину.
 
 ## Практика
 

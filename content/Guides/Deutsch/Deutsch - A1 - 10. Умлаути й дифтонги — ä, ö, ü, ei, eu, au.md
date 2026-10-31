@@ -35,7 +35,7 @@ estimatedMinutes: 35
 |---|---|---|---|---|
 | **ü** | [yː] | [ʏ] | губи як для «у», язик як для «і» | *Tür* /tyːɐ̯/, *Hütte* /ˈhʏtə/ |
 | **ö** | [øː] | [œ] | губи як для «о», язик як для «е» | *schön* /ʃøːn/, *können* /ˈkœnən/ |
-| **ä** | [ɛː] | [ɛ] | відкрите «е», як у «лес» | *Bär* /bɛːɐ̯/, *Männer* /ˈmɛnɐ/ |
+| **ä** | [ɛː] | [ɛ] | відкрите «е», як у «день» | *Bär* /bɛːɐ̯/, *Männer* /ˈmɛnɐ/ |
 
 > [!tip] ü і ö — це «і» й «е» з округленими губами
 > **ü**: скажи довге «і» й, не змінюючи положення язика, витягни губи вперед трубочкою, як для «у». **ö**: скажи «е» й округли губи, як для «о». Саме тому *ü ≠ «ю»* і *ö ≠ «йо»*: в «ю» та «йо» є додатковий звук «й» і язик рухається, а в німецьких голосних язик нерухомий.
@@ -140,24 +140,24 @@ estimatedMinutes: 35
 > note: fühlen + sich: Wie fühlst du dich? ü — довге [yː], губи трубочкою.
 
 > [!word] die Tüte
-> ipa: /ˈtyːtə/ · pos: noun · level: A1 · id: de-a1-umlaute-w02
+> ipa: /ˈtyːtə/ · pos: noun · level: B1 · id: de-a1-umlaute-w02
 > uk: пакет; торба (паперовий або пластиковий)
 > forms: die Tüten
 > example: Brauchen Sie eine **Tüte**? — Вам потрібен пакет?
 > note: у супермаркеті часто запитують саме так. AT, CH: часто das Sackerl (AT), das Säckli (CH).
 
 > [!word] die Mütze
-> ipa: /ˈmʏtsə/ · pos: noun · level: A1 · id: de-a1-umlaute-w03
+> ipa: /ˈmʏtsə/ · pos: noun · level: A2 · id: de-a1-umlaute-w03
 > uk: шапка; кашкет
 > forms: die Mützen
 > example: Im Winter trage ich eine **Mütze**. — Узимку я ношу шапку.
 > note: короткий [ʏ]: tz дає короткий голосний + [ts]. AT: часто die Haube/Kappe.
 
 > [!word] kühl
-> ipa: /kyːl/ · pos: adj · level: A1 · id: de-a1-umlaute-w04
+> ipa: /kyːl/ · pos: adj · level: A2 · id: de-a1-umlaute-w04
 > uk: прохолодний
 > example: Heute ist es ein bisschen **kühl**. — Сьогодні трохи прохолодно.
-> note: ü — довге [yː]. Kuh /kuː/ — корова: різниця лише в губах і язику.
+> note: ü — довге [yː]. Kuh /kuː/ — корова: u і ü обидва з округленими губами, різниця лише в положенні язика.
 
 > [!word] schön
 > ipa: /ʃøːn/ · pos: adj · level: A1 · id: de-a1-umlaute-w05
@@ -172,21 +172,21 @@ estimatedMinutes: 35
 > note: ö довге [øː]; s між голосними — дзвінке [z]. Böse sein auf + Akk — сердитися на когось.
 
 > [!word] der Löffel
-> ipa: /ˈlœfl̩/ · pos: noun · level: A1 · id: de-a1-umlaute-w07
+> ipa: /ˈlœfl̩/ · pos: noun · level: A2 · id: de-a1-umlaute-w07
 > uk: ложка
 > forms: die Löffel
 > example: Die Suppe isst man mit dem **Löffel**. — Суп їдять ложкою.
 > note: короткий [œ] (ff). Множина без закінчення: die Löffel. Комплект: Messer, Gabel, Löffel.
 
 > [!word] der Löwe
-> ipa: /ˈløːvə/ · pos: noun · level: A1 · id: de-a1-umlaute-w08
+> ipa: /ˈløːvə/ · pos: noun · level: A2 · id: de-a1-umlaute-w08
 > uk: лев
 > forms: die Löwen
 > example: Der **Löwe** schläft in der Sonne. — Лев спить на сонці.
-> note: слабка відміна: den Löwen. w = [v]: «льо-ве», губи округлі.
+> note: слабка відміна: den Löwen. w = [v]. Перша частина — довге [øː]: губи «о», язик «е».
 
 > [!word] der Bär
-> ipa: /bɛːɐ̯/ · pos: noun · level: A1 · id: de-a1-umlaute-w09
+> ipa: /bɛːɐ̯/ · pos: noun · level: A2 · id: de-a1-umlaute-w09
 > uk: ведмідь
 > forms: die Bären
 > example: Der **Bär** schläft im Winter in der Höhle. — Ведмідь взимку спить у барлозі.
@@ -202,11 +202,11 @@ estimatedMinutes: 35
 > [!word] ähnlich
 > ipa: /ˈɛːnlɪç/ · pos: adj · level: A1 · id: de-a1-umlaute-w11
 > uk: схожий; подібний
-> example: Die Schwestern sehen **ähnlich** aus. — Сестри схожі.
+> example: Die Schwestern sehen sich **ähnlich**. — Сестри схожі одна на одну.
 > note: ä — довге [ɛː]; -lich = [lɪç]. «Схожий на» — ähnlich + Dat: Er ist seinem Vater ähnlich.
 
 > [!word] der Käfer
-> ipa: /ˈkɛːfɐ/ · pos: noun · level: A1 · id: de-a1-umlaute-w12
+> ipa: /ˈkɛːfɐ/ · pos: noun · level: B1 · id: de-a1-umlaute-w12
 > uk: жук
 > forms: die Käfer
 > example: Auf dem Blatt sitzt ein **Käfer**. — На листку сидить жук.
@@ -248,7 +248,7 @@ estimatedMinutes: 35
 > note: ie = [iː]; d наприкінці слова = [t]: «літ». Множина: die Lieder /ˈliːdɐ/ — d знову дзвінке.
 
 > [!word] die Wiese
-> ipa: /ˈviːzə/ · pos: noun · level: A1 · id: de-a1-umlaute-w18
+> ipa: /ˈviːzə/ · pos: noun · level: A2 · id: de-a1-umlaute-w18
 > uk: луг; галявина
 > forms: die Wiesen
 > example: Die Kinder spielen auf der **Wiese**. — Діти граються на галявині.
@@ -269,7 +269,7 @@ estimatedMinutes: 35
 > note: лише множина: die Leute sind… ; одна людина — der Mensch, die Person. eu = [ɔʏ̯].
 
 > [!word] der Traum
-> ipa: /tʁaʊ̯m/ · pos: noun · level: A1 · id: de-a1-umlaute-w21
+> ipa: /tʁaʊ̯m/ · pos: noun · level: A2 · id: de-a1-umlaute-w21
 > uk: сон; мрія
 > forms: die Träume
 > example: Das war ein schöner **Traum**! — Це був гарний сон!
@@ -333,7 +333,7 @@ estimatedMinutes: 35
 > - [x] кішка й дві миші
 > - [ ] кішка й два ведмеді
 >
-> **Пояснення:** *Mäuse* /ˈmɔʏ̯zə/ — множина від *die Maus*; äu = [ɔʏ̯]. *Käfer* (жуки) і *Bären* (ведмеді) мають інші голосні.
+> **Пояснення:** *Mäuse* /ˈmɔʏ̯zə/ — множина від *die Maus*; äu = [ɔʏ̯]. *Käfer* (жуки) і *Bären* (ведмеді) — це інші слова.
 
 > [!listen] Заповни пропуски за діалогом
 > level: A1 · type: fill · speed: slow · id: de-a1-umlaute-l06
@@ -396,15 +396,15 @@ estimatedMinutes: 35
 > say: können
 > tip: [œ] — губи «о», [ɛ] — губи розслаблені. Обидва голосні короткі.
 
-> [!pair] Bär /bɛːɐ̯/ — Beere /ˈbeːʁə/
+> [!pair] Ähre /ˈɛːʁə/ — Ehre /ˈeːʁə/
 > level: A1 · id: de-a1-umlaute-p11
-> say: Bär
-> tip: ä — довге відкрите [ɛː], ee — закрите [eː]. У розмові ці звуки нерідко збігаються, але в нормі вони різні.
+> say: Ähre
+> tip: ä — довге відкрите [ɛː], e — закрите [eː]. У розмові ці звуки нерідко збігаються, але в нормі вони різні.
 
 > [!pair] Kuchen /ˈkuːxn̩/ — Küchen /ˈkʏçn̩/
 > level: A1 · id: de-a1-umlaute-p12
 > say: Küchen
-> tip: тут змінюється не лише голосний, а й приголосний: після u — [x], після ü — [ç]. Закінчення -en майже без голосного.
+> tip: тут змінюється не лише голосний, а й приголосний: після u — [x], після ü — [ç]. Голосні різняться і довготою: [uː] проти короткого [ʏ]. Закінчення -en майже без голосного.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-umlaute-s01
@@ -534,7 +534,7 @@ estimatedMinutes: 35
 > level: A1 · type: single · id: de-a1-umlaute-q06
 > - [ ] додається -s: Mutters
 > - [x] u стає ü: die Mütter
-> - [ ] u стає au: die Mauter
+> - [ ] u стає au: die Motter
 > - [ ] нічого: die Mutter
 >
 > **Пояснення:** множина від *die Mutter* — *die Mütter*, з умлаутом. У вимові короткий [ʊ] змінюється на короткий [ʏ].
@@ -592,7 +592,7 @@ estimatedMinutes: 35
 > - [ ] Muller
 > - [x] Mueller
 > - [ ] Moeller
-> - [ ] Mioller
+> - [ ] Moller
 >
 > **Пояснення:** ü замінюють на **ue**, ö — на **oe**, ä — на **ae**: *Müller → Mueller*, *schön → schoen*, *Bär → Baer*. *Muller* — це вже інше прізвище; *Moeller* — з ö.
 
@@ -608,7 +608,7 @@ estimatedMinutes: 35
 ## Фішки
 
 > [!reel] ✍️ Крапки — це маленьке e
-> Умлаути зʼявилися в середньовічному письмі. Щоб показати, що після *a, o, u* стоїть звук *e* (*mus → müs*), над літерою писали маленьке **e**. З часом воно спростилося до двох рисок, а потім крапок. Тому *ä, ö, ü* походять від *ae, oe, ue*, і ця заміна лишилася на клавіатурах та в email.
+> Умлаути зʼявилися в середньовічному письмі. Щоб показати, що після *a, o, u* стоїть звук *e* (наприклад, *Maus → Mäuse*), над літерою писали маленьке **e**. З часом воно спростилося до двох рисок, а потім крапок. Тому *ä, ö, ü* походять від *ae, oe, ue*, і ця заміна лишилася на клавіатурах та в email.
 
 > [!reel] 🛂 Müller у паспорті — MUELLER
 > У машиночитній зоні німецького паспорта (два рядки внизу) немає умлаутів: *Müller* записують як **MUELLER**, а *Groß* — як **GROSS**. Якщо в іншій країні бронюєш квиток, імʼя краще писати так, як у цьому рядку.

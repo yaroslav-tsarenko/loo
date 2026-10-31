@@ -25,7 +25,7 @@ estimatedMinutes: 40
 > - [ ] 33
 > - [ ] 3
 >
-> **Пояснення:** *dreißig* = 30. Тринадцять — *dreizehn*. Різниця на слух: у *-zehn* [tseːn] голосний довгий і наголошений, а в *-ßig* [sɪç] — короткий і слабкий. Тридцять три — *dreiunddreißig*.
+> **Пояснення:** *dreißig* = 30. Тринадцять — *dreizehn*. Різниця на слух: у *-zehn* [tseːn] голосний довгий (хоч слово й наголошене на першому складі: ˈdʁaɪ̯tseːn), а в *-ßig* [sɪç] — короткий і слабкий. Тридцять три — *dreiunddreißig*.
 
 ## Як слухати на A1
 
@@ -133,9 +133,9 @@ estimatedMinutes: 40
 > [!word] wiederholen
 > ipa: /viːdɐˈhoːlən/ · pos: verb · level: A1 · id: de-a1-hoeren-zahlen-w05
 > uk: повторювати
-> forms: er wiederholt · wiederholte · hat wiederholt
+> forms: wiederholen → wiederholte → hat wiederholt
 > example: Können Sie das bitte **wiederholen**? — Чи не могли б Ви це повторити?
-> note: наголос на -hol-, префікс wieder- ненаголошений. Є ще відокремлюване wiederholen (hol wieder) — «забрати назад», але на A1 це слово не потрібне.
+> note: наголос на -hol-, префікс wieder- ненаголошений. Є ще відокремлюване wiederholen (holt wieder) — «забрати назад», але на A1 це слово не потрібне.
 
 > [!word] Wie bitte?
 > ipa: /viː ˈbɪtə/ · pos: phrase · level: A1 · id: de-a1-hoeren-zahlen-w06
@@ -189,7 +189,7 @@ estimatedMinutes: 40
 > [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: de-a1-hoeren-zahlen-l05
 > audio: Das macht drei Euro fünfzig.
-> explain: 3,50 € — слово «und» не вимовляємо: drei Euro fünfzig. Після числа Euro не отримує -s.
+> explain: 3,50 € — слово «und» зазвичай не вимовляємо: drei Euro fünfzig. Після числа Euro не отримує -s.
 
 > [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: de-a1-hoeren-zahlen-l06
@@ -312,7 +312,7 @@ estimatedMinutes: 40
 > [!pair] dreizehn /ˈdʁaɪ̯tseːn/ — dreißig /ˈdʁaɪ̯sɪç/
 > level: A1 · id: de-a1-hoeren-zahlen-p01
 > say: dreißig
-> tip: -zehn закінчується довгим наголошеним [eː], -ßig — коротким [ɪç]. Слухай кінець слова.
+> tip: -zehn закінчується довгим [eː] (наголос у слові на dreі-), -ßig — коротким [ɪç]. Слухай кінець слова.
 
 > [!pair] sechzehn /ˈzɛçtseːn/ — sechzig /ˈzɛçtsɪç/
 > level: A1 · id: de-a1-hoeren-zahlen-p02
@@ -343,13 +343,13 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] dreizehn і dreißig: кінець слова вирішує
-> Українці слухають початок слова й не ловлять кінця. А саме він відрізняє 13 від 30, 16 від 60, 17 від 70: **-zehn** [tseːn] довге й наголошене, **-zig** / **-ßig** [tsɪç] коротке. Тренуй пари: *dreizehn / dreißig*, *sechzehn / sechzig*, *siebzehn / siebzig*.
+> Українці слухають початок слова й не ловлять кінця. А саме він відрізняє 13 від 30, 16 від 60, 17 від 70: **-zehn** [tseːn] — довге [eː] (наголос у слові на першому складі), **-zig** / **-ßig** [tsɪç] коротке. Тренуй пари: *dreizehn / dreißig*, *sechzehn / sechzig*, *siebzehn / siebzig*.
 
 > [!pitfall] Одиниці йдуть першими: einundzwanzig = 21
 > Німецьке 21 — *ein-und-zwanzig*, «один і двадцять». Українською ми кажемо «двадцять один» і записуємо 2, потім 1. Тому на слух цифру *ein-* часто записують першою: **12** замість 21. Спочатку слухай до кінця слова, тоді записуй: перша цифра — десятки (*-zwanzig*), друга — одиниці (*ein-*).
 
 > [!pitfall] halb drei — це 2:30, не 3:30
-> Німці називають половину **до** наступної години: *halb drei* = «половина на шляху до трьох» = **2:30**. Не перекладай *halb* як «половина третьої»: ближчий зворот — «пів на третю». Правило: *halb* + N = пів години **до** N. Офіційний запис (*vierzehn Uhr dreißig*) безпечніший: там нічого рахувати не треба.
+> Німці називають половину **до** наступної години: *halb drei* = «половина на шляху до трьох» = **2:30**. Українське «пів на третю» (2:30) працює так само. Помилка — читати *halb drei* як 3:30. Правило: *halb* + N = пів години **до** N. Офіційний запис (*vierzehn Uhr dreißig*) безпечніший: там нічого рахувати не треба.
 
 > [!pitfall] Хочеш зрозуміти кожне слово
 > Якщо намагатись розуміти все, мозок перевантажується і ти втрачаєш цифру. Заздалегідь визнач, що слухаєш (імʼя? ціну? час?), і ігноруй решту. Незнайомих слів у діалозі буде багато, і це нормально. А коли не розчув — просто спитай: *Wie bitte?*
@@ -420,7 +420,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *zwo* — розмовна форма числа *zwei* (2). Її використовують по телефону, щоб не сплутати з *drei* (3).
 
-> [!quiz] Заповни пропуски
+> [!quiz] Заповни пропуски: «Хліб коштує 2,40 €»
 > level: A1 · type: fill · bank: vierzehn, zweiundzwanzig · id: de-a1-hoeren-zahlen-q09
 >
 > ```text fill
@@ -471,7 +471,7 @@ estimatedMinutes: 40
 > Після числа слово *Euro* у розмові зазвичай не змінюється: *zehn Euro*, *zwei Euro fünfzig*. Форма *Euros* трапляється рідше — у мові про самі гроші без числа. Для слуху це корисно: ти чуєш число, а не закінчення.
 
 > [!reel] 📞 Телефон — парами
-> Номери телефону німці часто диктують по одній цифрі (*null eins fünf eins*), а інколи парами: *dreiundzwanzig, vierundfünfzig*. Якщо чуєш довге слово на кшталт *dreiundzwanzig*, не лякайся: це дві цифри, 2 і 3, у порядку «одиниця — десяток».
+> Номери телефону німці часто диктують по одній цифрі (*null eins fünf eins*), а інколи парами: *dreiundzwanzig, vierundfünfzig*. Якщо чуєш довге слово на кшталт *dreiundzwanzig*, не лякайся: це число 23: спочатку називають одиницю (*drei*), потім десяток (*zwanzig*).
 
 > [!reel] 🔄 Nein, sondern…
 > У живій розмові люди часто виправляються: *Nicht um acht, sondern um neun!* На екзамені це улюблений прийом, бо відповіддю стає саме те, що після *sondern*. Слухай ці сигнали: *nein, sondern, doch, aber, also*.

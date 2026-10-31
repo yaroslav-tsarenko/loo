@@ -31,7 +31,7 @@ estimatedMinutes: 35
 
 В українській мові довготу голосних слухач майже не помічає: «мат» і «ма-а-ат» — те саме слово. У німецькій довгота **розрізняє слова**: *Staat* (держава) і *Stadt* (місто), *Miete* (оренда) і *Mitte* (середина), *Ofen* (піч) і *offen* (відчинений). Якщо вимовити всі голосні однаково, тебе можуть зрозуміти неправильно.
 
-Для кожної з семи пар голосних довгий і короткий звуки відрізняються не лише тривалістю, а й якістю: довгий — **закритий** і напружений, короткий — **відкритіший** і розслаблений.
+Для кожної з семи пар голосних довгий і короткий звуки відрізняються тривалістю, а в шести з них (крім a) — ще й якістю: довгий — **закритий** і напружений, короткий — **відкритіший** і розслаблений. Пара [aː] / [a] різниться лише довготою.
 
 | Довгий | Короткий | Довгий приклад | Короткий приклад |
 |---|---|---|---|
@@ -83,7 +83,7 @@ estimatedMinutes: 35
 > steps:
 >   - { focus: [a1, a2, a3, a4], note: "Довгий звук: один приголосний, подвоєна голосна, ie або німий h. Голосний тягнемо удвічі довше." }
 >   - { focus: [b1, b2, b3, b4], note: "Короткий звук: подвоєний приголосний, ck/tz, кілька приголосних поспіль або службове слово. Голосний швидкий і відкритий." }
->   - { set: { a2: "Staat", b3: "Stadt" }, focus: [a2, b3], note: "Мінімальна пара: Staat /ʃtaːt/ — Stadt /ʃtat/. Лише довгота голосного відрізняє «держава» від «міста»." }
+>   - { set: { a2: "Staat", b3: "Stadt" }, focus: [a2, b3], note: "Мінімальна пара: Staat /ʃtaːt/ — Stadt /ʃtat/. Лише довгота голосного відрізняє «державу» від «міста»." }
 > ```
 > Спочатку дивись, що стоїть **після** голосної: це найнадійніша підказка.
 
@@ -100,13 +100,13 @@ estimatedMinutes: 35
 
 | Слово | IPA | Підказка |
 |---|---|---|
-| *Miete* | /ˈmiːtə/ | довге «і», в кінці — слабке «ә» |
+| *Miete* | /ˈmiːtə/ | довге «і», в кінці — слабке [ə] |
 | *bitte* | /ˈbɪtə/ | короткий [ɪ], потім слабкий [ə] |
 | *Name* | /ˈnaːmə/ | наголос на першому складі |
 | *Gebäude* | /ɡəˈbɔʏ̯də/ | ge- — ненаголошене [ə] |
 | *bieten* | /ˈbiːtn̩/ | -en часто майже без голосної: [tn̩] |
 
-Закінчення **-en** розмовно звучить як [ən] або з «склоподібним» [n̩] (*bieten* — «бі-тн»). На рівні A1 достатньо вимовляти його коротко й не робити «е» наголошеним.
+Закінчення **-en** розмовно звучить як [ən] або зі складотворчим [n̩] (*bieten* — «бі-тн»). На рівні A1 достатньо вимовляти його коротко й не робити «е» наголошеним.
 
 ## Приклади
 
@@ -124,35 +124,35 @@ estimatedMinutes: 35
 ## Слова
 
 > [!word] der Vokal
-> ipa: /voˈkaːl/ · pos: noun · level: A1 · id: de-a1-vokale-w01
+> ipa: /voˈkaːl/ · pos: noun · level: B1 · id: de-a1-vokale-w01
 > uk: голосний (звук)
 > forms: die Vokale
 > example: Die Wörter *Staat* und *Stadt* haben denselben **Vokal**, aber eine andere Länge. — У словах *Staat* і *Stadt* однакова голосна, але різна довгота.
-> note: наголос на другому складі: «воКАЛь». Протилежність — der Konsonant.
+> note: наголос на другому складі: «воКАЛ». Протилежність — der Konsonant.
 
 > [!word] der Konsonant
-> ipa: /kɔnzoˈnant/ · pos: noun · level: A1 · id: de-a1-vokale-w02
+> ipa: /kɔnzoˈnant/ · pos: noun · level: B1 · id: de-a1-vokale-w02
 > uk: приголосний (звук)
 > forms: die Konsonanten
 > example: Nach einem kurzen Vokal steht oft ein doppelter **Konsonant**. — Після короткого голосного часто стоїть подвоєний приголосний.
 > note: наголос на -nant. Слабка іменникова відміна: den Konsonanten (Akk).
 
 > [!word] die Silbe
-> ipa: /ˈzɪlbə/ · pos: noun · level: A1 · id: de-a1-vokale-w03
+> ipa: /ˈzɪlbə/ · pos: noun · level: A2 · id: de-a1-vokale-w03
 > uk: склад
 > forms: die Silben
 > example: Das Wort „Miete“ hat zwei **Silben**. — У слові «Miete» два склади.
 > note: s перед голосним — дзвінке [z]: «зільбе». Склад ділять за голосними: Mie-te, Mit-te.
 
 > [!word] die Aussprache
-> ipa: /ˈaʊ̯sˌʃpʁaːxə/ · pos: noun · level: A1 · id: de-a1-vokale-w04
+> ipa: /ˈaʊ̯sˌʃpʁaːxə/ · pos: noun · level: A2 · id: de-a1-vokale-w04
 > uk: вимова
 > forms: die Aussprachen
 > example: Deine **Aussprache** ist schon sehr gut! — Твоя вимова вже дуже гарна!
 > note: наголос на Aus-. Дієслово: aussprechen — Wie spricht man das aus? — Як це вимовляється?
 
 > [!word] der Staat
-> ipa: /ʃtaːt/ · pos: noun · level: A1 · id: de-a1-vokale-w05
+> ipa: /ʃtaːt/ · pos: noun · level: A2 · id: de-a1-vokale-w05
 > uk: держава
 > forms: die Staaten
 > example: Deutschland ist ein demokratischer **Staat**. — Німеччина — демократична держава.
@@ -163,10 +163,10 @@ estimatedMinutes: 35
 > uk: оренда; орендна плата
 > forms: die Mieten
 > example: Die **Miete** für die Wohnung ist 650 Euro. — Орендна плата за квартиру — 650 євро.
-> note: ie — довге [iː]; е в кінці — слабке [ə]. Оренда жилля: mieten; той, хто орендує — der Mieter.
+> note: ie — довге [iː]; е в кінці — слабке [ə]. Орендувати житло — mieten; той, хто орендує — der Mieter.
 
 > [!word] der Mieter
-> ipa: /ˈmiːtɐ/ · pos: noun · level: A1 · id: de-a1-vokale-w07
+> ipa: /ˈmiːtɐ/ · pos: noun · level: A2 · id: de-a1-vokale-w07
 > uk: орендар; наймач
 > forms: die Mieter
 > example: Die **Mieter** zahlen die Miete am Monatsanfang. — Орендарі платять оренду на початку місяця.
@@ -180,7 +180,7 @@ estimatedMinutes: 35
 > note: короткий [ɪ]: «мі-те», не «міт-те». Mitte також назва центрального району Берліна.
 
 > [!word] der Ofen
-> ipa: /ˈoːfn̩/ · pos: noun · level: A1 · id: de-a1-vokale-w09
+> ipa: /ˈoːfn̩/ · pos: noun · level: A2 · id: de-a1-vokale-w09
 > uk: піч; духовка
 > forms: die Öfen
 > example: Der **Ofen** ist noch heiß. — Піч ще гаряча.
@@ -207,7 +207,7 @@ estimatedMinutes: 35
 > note: короткий [ɪ]. Окремо: Bitte! — «будь ласка» (і прохання, і відповідь на Danke!).
 
 > [!word] das Beet
-> ipa: /beːt/ · pos: noun · level: A1 · id: de-a1-vokale-w13
+> ipa: /beːt/ · pos: noun · level: B1 · id: de-a1-vokale-w13
 > uk: клумба; грядка
 > forms: die Beete
 > example: Im **Beet** wachsen Tomaten. — На грядці ростуть помідори.
@@ -228,35 +228,35 @@ estimatedMinutes: 35
 > note: довге [uː]. h на початку — легкий видих, не «г».
 
 > [!word] die Hütte
-> ipa: /ˈhʏtə/ · pos: noun · level: A1 · id: de-a1-vokale-w16
+> ipa: /ˈhʏtə/ · pos: noun · level: B1 · id: de-a1-vokale-w16
 > uk: хатина; хижа; (гірська) хатка
 > forms: die Hütten
 > example: Wir übernachten in einer **Hütte** in den Bergen. — Ми ночуємо в хатині в горах.
 > note: короткий [ʏ] (як у Tür, але коротко) + [tə]. AT, CH: Hütte — гірський притулок (Berghütte, Alphütte).
 
 > [!word] die Höhle
-> ipa: /ˈhøːlə/ · pos: noun · level: A1 · id: de-a1-vokale-w17
+> ipa: /ˈhøːlə/ · pos: noun · level: B1 · id: de-a1-vokale-w17
 > uk: печера
 > forms: die Höhlen
 > example: In der **Höhle** ist es kalt. — У печері холодно.
 > note: ö + Dehnungs-h = довге [øː]; h тут не вимовляємо. Hölle (пекло) — з коротким [œ].
 
 > [!word] die Wahl
-> ipa: /vaːl/ · pos: noun · level: A1 · id: de-a1-vokale-w18
+> ipa: /vaːl/ · pos: noun · level: A2 · id: de-a1-vokale-w18
 > uk: вибір; вибори
 > forms: die Wahlen
 > example: Du hast die **Wahl**: Tee oder Kaffee? — Ти маєш вибір: чай чи кава?
 > note: w = «в»; h не вимовляється (Dehnungs-h). Wall (вал) — з коротким [a]. У значенні «вибори» множина — Wahlen.
 
 > [!word] der Hase
-> ipa: /ˈhaːzə/ · pos: noun · level: A1 · id: de-a1-vokale-w19
+> ipa: /ˈhaːzə/ · pos: noun · level: A2 · id: de-a1-vokale-w19
 > uk: заєць
 > forms: die Hasen
 > example: Der **Hase** läuft über das Feld. — Заєць біжить полем.
 > note: s між голосними — дзвінке [z]; довге [aː]. Слабка відміна: den Hasen. Das Kaninchen — кролик.
 
 > [!word] die Ratte
-> ipa: /ˈʁatə/ · pos: noun · level: A1 · id: de-a1-vokale-w20
+> ipa: /ˈʁatə/ · pos: noun · level: B1 · id: de-a1-vokale-w20
 > uk: щур
 > forms: die Ratten
 > example: Die **Ratte** versteckt sich im Keller. — Щур ховається в підвалі.
@@ -270,21 +270,21 @@ estimatedMinutes: 35
 > note: tz — короткий голосний і звук [ts] «ц». Кіт — der Kater.
 
 > [!word] das Meer
-> ipa: /meːɐ̯/ · pos: noun · level: A1 · id: de-a1-vokale-w22
+> ipa: /meːɐ̯/ · pos: noun · level: A2 · id: de-a1-vokale-w22
 > uk: море
 > forms: die Meere
 > example: Im Sommer fahren wir ans **Meer**. — Влітку ми їдемо на море.
 > note: ee — довге [eː]; r після голосного — [ɐ̯]. Північне море — die Nordsee; die See — море, der See — озеро.
 
 > [!word] das Boot
-> ipa: /boːt/ · pos: noun · level: A1 · id: de-a1-vokale-w23
+> ipa: /boːt/ · pos: noun · level: A2 · id: de-a1-vokale-w23
 > uk: човен
 > forms: die Boote
 > example: Das **Boot** liegt am Ufer. — Човен лежить на березі.
 > note: oo — довге [oː]. Не читай «боут». Корабель — das Schiff.
 
 > [!word] das Paar
-> ipa: /paːɐ̯/ · pos: noun · level: A1 · id: de-a1-vokale-w24
+> ipa: /paːɐ̯/ · pos: noun · level: A2 · id: de-a1-vokale-w24
 > uk: пара
 > forms: die Paare
 > example: Das **Paar** wohnt in Hamburg. — Пара живе в Гамбурзі.
@@ -363,7 +363,7 @@ estimatedMinutes: 35
 > [!pair] Beet /beːt/ — Bett /bɛt/
 > level: A1 · id: de-a1-vokale-p05
 > say: Beet
-> tip: [eː] — закрите «е» (як у «ле»); [ɛ] — відкрите й коротке, ближче до «е» в «лес».
+> tip: [eː] — довге напружене «е», ближче до «і»; [ɛ] — відкрите й коротке, як «е» в «день».
 
 > [!pair] Kahn /kaːn/ — kann /kan/
 > level: A1 · id: de-a1-vokale-p06
@@ -405,10 +405,10 @@ estimatedMinutes: 35
 > say: hasse
 > tip: s між голосними [z] у *Hase* дзвінке, *ss* у *hasse* — глухе [s]. Довге [aː] проти короткого [a].
 
-> [!pair] Stuhl /ʃtuːl/ — still /ʃtɪl/
+> [!pair] Stiel /ʃtiːl/ — still /ʃtɪl/
 > level: A1 · id: de-a1-vokale-p14
 > say: still
-> tip: *Stuhl* — довге [uː]; *still* — коротке [ɪ]. Обидва слова починаються з «шт».
+> tip: *Stiel* («держак») — довге [iː]; *still* — коротке [ɪ]. Обидва слова починаються з «шт».
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-vokale-s01
@@ -532,7 +532,7 @@ estimatedMinutes: 35
 > - [ ] h робить голосний коротким
 > - [ ] h вимовляється як українське «г»
 >
-> **Пояснення:** це **Dehnungs-h**: воно німе й лише позначає довготу. *Zahl* /tsaːl/. Видих [h] чути тільки на початку слова чи складу: *Haus, ge-hen* (де h німе між голосними, тому *gehen* /ˈɡeːən/).
+> **Пояснення:** це **Dehnungs-h**: воно німе й лише позначає довготу. *Zahl* /tsaːl/. Видих [h] чути на початку слова чи кореня (*Haus, wohin*); між голосними (*gehen* /ˈɡeːən/) і після голосної h німе.
 
 > [!quiz] Як звучить ненаголошене -e в кінці слова Miete?
 > level: A1 · type: single · id: de-a1-vokale-q06
@@ -551,7 +551,7 @@ estimatedMinutes: 35
 > Das Café ist in der [[Mitte]] von Berlin.
 > ```
 >
-> **Пояснення:** оренда — *die Miete* (довге [iː]), а центр — *die Mitte* (коротке [ɪ]). *Der Mieter* — це людина, а *Mitten* — форма від *mitten* («посеред») і не підходить.
+> **Пояснення:** оренда — *die Miete* (довге [iː]), а центр — *die Mitte* (коротке [ɪ]). *Der Mieter* — це людина, а *Mitten* — рідкісна множина від *Mitte*, у цьому реченні не підходить.
 
 > [!quiz] Заповни пропуски
 > level: A1 · type: fill · bank: Öfen, offene · id: de-a1-vokale-q08
@@ -611,10 +611,10 @@ estimatedMinutes: 35
 ## Фішки
 
 > [!reel] 🏙️ Берлін — одночасно Stadt і Staat
-> У Німеччині є три **Stadtstaaten** — «міста-держави»: Берлін, Гамбург і Бремен. Це федеральні землі, які водночас є містами. У слові *Stadtstaat* зустрілись обидві слова з нашої теми: *Stadt* (коротке [a]) і *Staat* (довге [aː]).
+> У Німеччині є три **Stadtstaaten** — «міста-держави»: Берлін, Гамбург і Бремен. Це федеральні землі, які водночас є містами. У слові *Stadtstaat* зустрілись обидва слова з нашої теми: *Stadt* (коротке [a]) і *Staat* (довге [aː]).
 
 > [!reel] 👻 Німе h колись не було німим
-> У давніх формах слів на кшталт *sehen* літера *h* між голосними ще звучала. З часом цей звук зник, а літера лишилась і почала виконувати іншу роботу: вона позначає довготу голосного. Тому *Zahl* чи *wohnen* пишуться з «зайвим» h, яке лише підказує вимову.
+> У давніх формах слова *sehen* літера *h* між голосними справді звучала. Згодом звук зник, а літеру стали вживати як знак довготи, іноді й у словах, де вона ніколи не звучала (*Zahl*). Тому «зайве» h лише підказує вимову.
 
 > [!reel] 🦶 Fuß, але Fluss
 > Літера **ß** стоїть після довгого голосного або дифтонга (*Fuß, Straße, heißen*), а **ss** — після короткого (*Fluss, Kuss, muss*). Тож довгота голосного видна навіть у написанні ß/ss. У Швейцарії ß не вживають, тому пишуть *Fuss, Strasse*, а довготу знаєш лише з памʼяті.

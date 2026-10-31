@@ -68,9 +68,9 @@ estimatedMinutes: 40
 |---|---|---|
 | **spielen** | ігри, інструменти | Fußball spielen, Tennis spielen, Gitarre spielen, Klavier spielen |
 | **machen** | загальне «робити» | Sport machen, Yoga machen, Fotos machen, einen Ausflug machen |
-| **gehen** + інфінітив | рух ногами, активності | schwimmen gehen, tanzen gehen, wandern gehen, ins Kino gehen |
+| **gehen** | рух ногами, активності | schwimmen gehen, tanzen gehen, wandern gehen (+ інфінітив); ins Kino gehen, ins Konzert gehen |
 | **fahren** | є транспорт | Rad fahren, Ski fahren, Auto fahren |
-| **hören** | слухати | Musik hören, ein Konzert hören |
+| **hören** | слухати | Musik hören, Radio hören |
 | **lesen** | читати | Bücher lesen, Zeitung lesen |
 
 > [!diagram] Яке дієслово до якого заняття
@@ -85,7 +85,7 @@ estimatedMinutes: 40
 >   - { id: c1, col: c, label: "місце", text: "ins Kino gehen", tone: gray }
 >   - { id: c2, col: c, label: "рух", text: "schwimmen gehen", tone: gray }
 > steps:
->   - { focus: [a1, a2], note: "spielen — для ігор і музичних інструментів. Не ~~machen Fußball~~." }
+>   - { focus: [a1, a2], note: "spielen — для ігор і музичних інструментів. Не «machen Fußball»." }
 >   - { focus: [b1, b2], note: "machen — загальне «робити»: Sport machen, Fotos machen, Yoga machen." }
 >   - { focus: [c1, c2], note: "gehen — «піти» кудись: ins Kino gehen, або піти займатися чимось: schwimmen gehen (gehen + інфінітив у кінці)." }
 > ```
@@ -130,7 +130,7 @@ estimatedMinutes: 40
 
 ## Пори року
 
-*Der Frühling, der Sommer, der Herbst, der Winter* — всі чоловічого роду. Пора року — **im**: *im Sommer, im Winter* (тема [[Deutsch - A1 - 25. Прийменники часу — am, um, im, von … bis, vor, nach]]). Окремо *die Jahreszeit* — «пора року» (дослівно «година року»).
+*Der Frühling, der Sommer, der Herbst, der Winter* — всі чоловічого роду. Пора року — **im**: *im Sommer, im Winter* (тема [[Deutsch - A1 - 25. Прийменники часу — am, um, im, von … bis, vor, nach]]). Окремо *die Jahreszeit* — «пора року» (дослівно «час року»).
 
 > [!warning] Mir ist kalt ≠ Es ist kalt
 > *Es ist kalt* — на вулиці холодно. *Mir ist kalt* — мені (особисто) холодно. А ~~Ich bin kalt~~ означає «я холодна, неемоційна людина». Докладніше про *Mir ist kalt* — у темі [[Deutsch - A1 - 11. haben, знахідний відмінок і kein]].
@@ -200,13 +200,13 @@ estimatedMinutes: 40
 > note: wandern — довгі піші прогулянки за містом; ходити по місту — spazieren gehen.
 
 > [!word] Rad fahren
-> ipa: /ˈʁaːt ˌfaːʁən/ · pos: phrase · level: A1 · id: de-a1-freizeit-w08
+> ipa: /ˈʁaːt faːʁən/ · pos: phrase · level: A1 · id: de-a1-freizeit-w08
 > uk: їздити на велосипеді
 > example: Am Wochenende **fahre** ich gern **Rad**. — На вихідних я люблю їздити на велосипеді.
 > note: Rad fahren — інфінітив пишуть окремо; Radfahrer = велосипедист. Тут ми їдемо: fahren, не gehen.
 
 > [!word] Ski fahren
-> ipa: /ˈʃiː ˌfaːʁən/ · pos: phrase · level: A1 · id: de-a1-freizeit-w09
+> ipa: /ˈʃiː faːʁən/ · pos: phrase · level: A1 · id: de-a1-freizeit-w09
 > uk: кататися на лижах
 > example: Im Winter **fahren** wir **Ski** in den Alpen. — Взимку ми катаємося на лижах в Альпах.
 > note: Ski — [ʃiː], як «ші» (запозичення з норвезької). Іменник: das Skifahren.
@@ -276,7 +276,7 @@ estimatedMinutes: 40
 > [!word] joggen
 > ipa: /ˈdʒɔɡn̩/ · pos: verb · level: A1 · id: de-a1-freizeit-w19
 > uk: бігати підтюпцем
-> forms: joggen → joggte → ist gejoggt
+> forms: joggen → joggte → hat gejoggt
 > example: Ich **jogge** jeden Morgen im Park. — Щоранку я бігаю в парку.
 > note: запозичення з англ.: j = [dʒ]. Також: joggen gehen.
 
@@ -376,7 +376,7 @@ estimatedMinutes: 40
 > ipa: /ˈʁeːɡn̩/ · pos: noun · level: A1 · id: de-a1-freizeit-w34
 > uk: дощ
 > forms: — (без множини)
-> example: Wir bleiben wegen des **Regens** zu Hause. — Через дощ ми залишаємося вдома.
+> example: Der **Regen** ist stark, wir bleiben zu Hause. — Дощ сильний, ми лишаємося вдома.
 > note: розм. Der Regen hört auf. Der Regenschirm = парасолька.
 
 > [!word] der Schnee
@@ -459,7 +459,7 @@ estimatedMinutes: 40
 > level: A1 · type: dictation · speed: slow · id: de-a1-freizeit-l04
 > audio: Am liebsten tanze ich im Sommer.
 
-> [!listen] Послухай діалог. Що вона любить більше?
+> [!listen] Послухай діалог. Що вона любить найбільше?
 > level: A1 · type: answer · speed: slow · id: de-a1-freizeit-l05
 > audio: A: Was machst du gern in deiner Freizeit, Anna?
 > audio: B: Ich lese gern und ich gehe oft schwimmen. Aber am liebsten tanze ich.
@@ -558,7 +558,7 @@ estimatedMinutes: 40
 > [!example] Hobbys und Wetter
 > Viele Deutsche sind in einem Verein: im Sportverein, im Chor oder im Wanderverein. Fußball ist sehr beliebt, aber auch Radfahren, Schwimmen und Wandern. Am Wochenende machen viele Familien einen Ausflug oder gehen im Wald spazieren.
 >
-> Das Wetter in Deutschland ist oft wechselhaft. Im Sommer ist es meistens warm, manchmal auch heiß. Im Herbst regnet es viel, und im Winter ist es kalt. In den Bergen schneit es oft. Die Temperatur gibt man in Grad Celsius an. Wenn es zwanzig Grad hat, ist es angenehm.
+> Das Wetter in Deutschland ist oft wechselhaft. Im Sommer ist es meistens warm, manchmal auch heiß. Im Herbst ist es oft grau und kühl, und im Winter ist es kalt. In den Bergen schneit es oft. Die Temperatur gibt man in Grad Celsius an. Bei zwanzig Grad ist es angenehm.
 
 > [!quiz] Was machen viele Deutsche am Wochenende?
 > level: A1 · type: single · id: de-a1-freizeit-q02
@@ -573,10 +573,10 @@ estimatedMinutes: 40
 > level: A1 · type: single · id: de-a1-freizeit-q03
 > - [ ] Es ist heiß und sonnig.
 > - [ ] Es schneit sehr viel.
-> - [x] Es regnet viel.
+> - [x] Es ist oft grau und kühl.
 > - [ ] Es ist immer windig.
 >
-> **Пояснення:** у тексті: «Im Herbst regnet es viel». Сніг у горах — взимку, а спека — влітку.
+> **Пояснення:** у тексті: «Im Herbst ist es oft grau und kühl». Сніг у горах — взимку, а спека — влітку.
 
 ## Практика
 
@@ -617,7 +617,7 @@ estimatedMinutes: 40
 > **Пояснення:** *Fußball spielen*, *schwimmen gehen*, *Rad fahren*. Виразів ~~Fußball machen~~ і ~~Rad gehen~~ не існує: потрібне дієслово залежить від заняття.
 
 > [!quiz] Заповни пропуски: gern, lieber, am liebsten
-> level: A1 · type: fill · bank: am liebste, gerner · id: de-a1-freizeit-q08
+> level: A1 · type: fill · bank: Am liebste, gerner · id: de-a1-freizeit-q08
 >
 > ```text fill
 > Ich trinke [[gern]] Tee.
@@ -685,13 +685,14 @@ estimatedMinutes: 40
 > Німці кажуть про сильний дощ *Es regnet Bindfäden* («дощ мотузками»), *Es regnet in Strömen* («потоками») або *Es schüttet* («ллє»). А про дрібний — *Es nieselt*. Існує й «Schmuddelwetter» — сире, сіре, непривітне.
 
 > [!reel] 🧤 «Schietwetter» і «Kaiserwetter»
-> На півночі кажуть *Schietwetter* — «паскудна погода» (нижньонім. *schiet*). Протилежність — *Kaiserwetter*: ясне сонячне небо, «імператорська погода». Походження цього слова остаточно не зʼясоване.
+> На півночі кажуть *Schietwetter* — «паскудна погода» (нижньонім. *schiet*). Протилежність — *Kaiserwetter*: ясне сонячне небо, «імператорська погода». За Duden, слово походить від зазвичай сонячної погоди 18 серпня — у день народження імператора Франца Йосифа I; є й версія про кайзера Вільгельма II.
 
 > [!reel] ❤️ Verein — «клуб за інтересами»
 > У Німеччині майже на кожне хобі існує *Verein* — зареєстроване товариство: *Sportverein, Gesangverein, Schützenverein, Kleingartenverein*. Членство зазвичай платне, але недороге. Для новачка це найпростіший спосіб швидко знайти друзів і потренувати німецьку.
 
 ## Джерела та що почитати
 
+- [Duden — Kaiserwetter](https://www.duden.de/rechtschreibung/Kaiserwetter) — значення й походження слова.
 - [DWDS — Hobby](https://www.dwds.de/wb/Hobby) — значення, походження слова, приклади.
 - [DWDS — gern](https://www.dwds.de/wb/gern) — вживання *gern / gerne*, ступені порівняння.
 - [DWDS — Wetter](https://www.dwds.de/wb/Wetter) — слово та його похідні.

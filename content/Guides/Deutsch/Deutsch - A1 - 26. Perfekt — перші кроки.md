@@ -585,6 +585,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 - [DWDS — Perfekt](https://www.dwds.de/wb/Perfekt) — термін, значення, приклади.
 - [Duden — Perfekt](https://www.duden.de/rechtschreibung/Perfekt) — граматичний термін і вживання.
 - [FC Bayern — «Ich habe fertig!»: річниця легендарної прес-конференції Трапаттоні](https://fcbayern.com/de/news/2023/03/ich-habe-fertig-jahrestag-von-trapattonis-legendaerer-pressekonferenz) — дата (10.03.1998) і контекст.
+- [watson.ch — «Trap hat fertig»](https://www.watson.ch/sport/unvergessen/442019313-giovanni-trapattoni-wettert-ueber-die-spieler-von-bayern-muenchen) — розповідь про промову Трапаттоні.
 - [DWDS — fertig](https://www.dwds.de/wb/fertig) — значення слова *fertig*.
 - [DW Learn German — Nicos Weg (A1)](https://learngerman.dw.com/en/beginners/c-36519789) — безкоштовний відеокурс; Perfekt у розмовних ситуаціях.
 - Goethe-Institut — сторінка іспиту *Goethe-Zertifikat A1: Start Deutsch 1* на goethe.de: Perfekt лишається на рівні A1 у вигляді шматків.

@@ -12,7 +12,7 @@ estimatedMinutes: 35
 
 > [!success] Після цієї теми ти зможеш
 > - назвати пʼять способів утворити множину: *-e, -er, -(e)n, -s* і без закінчення, з умлаутом або без;
-> - пояснити, чому в множині завжди **die**, і користуватися формою *die Hunde, die Kinder*;
+> - пояснити, чому в множині (Nominativ і Akkusativ) стоїть **die**, і користуватися формою *die Hunde, die Kinder*;
 > - використати «підказки» за родом і закінченням слова, щоб вгадувати множину;
 > - уживати кількість без помилок: *zwei Hunde, fünf Euro, drei Kinder*.
 
@@ -29,7 +29,7 @@ estimatedMinutes: 35
 
 ## Одне правило і пʼять типів
 
-**Артикль у множині завжди *die*** — для *der Tisch, die Tür, das Kind*: *die Tische, die Türen, die Kinder*. Окремий неозначений артикль у множині не потрібен: «У мене є діти» — *Ich habe Kinder.*
+**Артикль у множині (Nominativ і Akkusativ) — завжди *die*** — для *der Tisch, die Tür, das Kind*: *die Tische, die Türen, die Kinder*. Окремий неозначений артикль у множині не потрібен: «У мене є діти» — *Ich habe Kinder.*
 
 Множина утворюється **пʼятьма способами**. Закінчення (і чи зʼявиться умлаут) вчимо разом зі словом — тому в кожній картці є поле *forms:* (*der Hund → die Hunde*). Але є надійні підказки.
 
@@ -52,8 +52,8 @@ estimatedMinutes: 35
 >   - { focus: [a1, a2], note: "-e: der Hund → die Hunde. Найчастіше для чоловічого роду. Іноді ще й умлаут: der Gast → die Gäste." }
 >   - { focus: [b1, b2], note: "-er: das Kind → die Kinder. Найчастіше для середнього роду; якщо можна — з умлаутом: das Buch → die Bücher." }
 >   - { focus: [c1, c2], note: "-(e)n: die Frau → die Frauen. Дуже поширений тип для жіночого роду: die Katze → die Katzen, die Lösung → die Lösungen." }
->   - { focus: [d1, d2], note: "-s: das Foto → die Fotos. Для іншомовних слів, що закінчуються на голосний: das Auto, das Hotel, das Baby." }
->   - { focus: [e1, e2], note: "Без закінчення: der Lehrer → die Lehrer, der Schlüssel → die Schlüssel. Для слів на -er, -el, -en і для зменшувальних -chen / -lein." }
+>   - { focus: [d1, d2], note: "-s: das Foto → die Fotos. Для багатьох іншомовних слів (особливо на голосний) і скорочень: das Foto, das Hotel, das Baby, der Chef." }
+>   - { focus: [e1, e2], note: "Без закінчення: der Lehrer → die Lehrer, der Schlüssel → die Schlüssel. Для чоловічих і середніх слів на -er, -el, -en та для зменшувальних -chen / -lein." }
 > ```
 > Синій — der, червоний — die, зелений — das; фіолетовий — множина.
 
@@ -87,13 +87,13 @@ estimatedMinutes: 35
 | -in (жінка) | -innen | die Ärztin → Ärztinnen | — |
 | -er, -el, -en (чоловічий, середній) | без закінчення | der Lehrer → Lehrer | der Bruder → Brüder, der Vogel → Vögel |
 | -chen, -lein | без закінчення | das Mädchen → Mädchen | — |
-| середній рід (односкладові) | -er | das Kind → Kinder | das Jahr → Jahre, das Heft → Hefte |
-| іншомовні на голосний (-o, -a, -y) | -s | das Foto → Fotos | die Firma → Firmen |
-| слова на -um | -en | das Museum → Museen | das Datum → Daten |
+| середній рід (односкладові) | -e або -er (часто з умлаутом) | das Kind → Kinder, das Bild → Bilder | das Jahr → Jahre, das Heft → Hefte |
+| багато іншомовних (особливо на голосний) і скорочень | -s | das Foto → Fotos, das Hotel → Hotels | die Firma → Firmen |
+| слова на -um | -en | das Museum → Museen | das Visum → Visa |
 
 ## Слова без множини або тільки з множиною
 
-Деякі слова вживаються тільки в множині: *die Eltern, die Geschwister, die Leute* («люди»). Інші зазвичай без множини (неохопні поняття): *das Wasser, die Milch, das Geld*. Якщо потрібно сказати «дві води», кажуть «дві склянки води»: *zwei Gläser Wasser*.
+Деякі слова вживаються тільки в множині: *die Eltern, die Geschwister, die Leute* («люди»). Інші зазвичай без множини (незлічувані поняття): *das Wasser, die Milch, das Geld*. Якщо потрібно сказати «дві води», кажуть «дві склянки води»: *zwei Gläser Wasser* або *zwei Glas Wasser*.
 
 > [!note] Кількість і міра: *fünf Euro*, *zwei Kilo*
 > Після числа назви грошей і мір зазвичай стоять в **однині**: *fünf Euro, zwanzig Cent, zwei Kilo, drei Glas Wasser*. Так само *Stück*: *zwei Stück*. Форма *Euros* існує, але в повсякденній мові після числа вживають *Euro*.
@@ -152,14 +152,14 @@ estimatedMinutes: 35
 > note: після короткого голосного пишемо ss. CH: Fluss так само. Rhein, Donau — der Rhein, die Donau.
 
 > [!word] die Kuh
-> ipa: /kuː/ · pos: noun · level: A1 · id: de-a1-plural-w06
+> ipa: /kuː/ · pos: noun · level: A2 · id: de-a1-plural-w06
 > uk: корова
 > forms: die Kühe
 > example: Auf der Wiese stehen drei **Kühe**. — На лузі стоять три корови.
 > note: жіночий рід, але множина -e + умлаут — виняток із підказки «жіночий → -(e)n». h не вимовляється.
 
 > [!word] die Nuss
-> ipa: /nʊs/ · pos: noun · level: A1 · id: de-a1-plural-w07
+> ipa: /nʊs/ · pos: noun · level: A2 · id: de-a1-plural-w07
 > uk: горіх
 > forms: die Nüsse
 > example: Ich mag **Nüsse** im Müsli. — Я люблю горіхи в мюслі.
@@ -175,7 +175,7 @@ estimatedMinutes: 35
 > note: d у кінці = [t]: Bild [bɪlt]. Множина без умлаута, бо в слові немає a / o / u.
 
 > [!word] das Dorf
-> ipa: /dɔʁf/ · pos: noun · level: A1 · id: de-a1-plural-w09
+> ipa: /dɔʁf/ · pos: noun · level: A2 · id: de-a1-plural-w09
 > uk: село
 > forms: die Dörfer
 > example: Meine Oma wohnt in einem kleinen **Dorf**. — Моя бабуся живе в маленькому селі.
@@ -239,14 +239,14 @@ estimatedMinutes: 35
 > uk: керівник; начальник; шеф
 > forms: die Chefs
 > example: Mein **Chef** ist sehr nett. — Мій начальник дуже приємний.
-> note: жінка — die Chefin, die Chefinnen. ch перед e = [ʃ] (французьке слово): «шеф».
+> note: жінка — die Chefin, die Chefinnen. ch = [ʃ] у французьких запозиченнях: «шеф».
 
 > [!word] das Baby
 > ipa: /ˈbeːbi/ · pos: noun · level: A1 · id: de-a1-plural-w18
 > uk: немовля; малюк
 > forms: die Babys
 > example: Das **Baby** schläft schon. — Малюк уже спить.
-> note: Duden: Babys (рідше Babies). Вимова німецька, не англійська: [ˈbeːbi].
+> note: Duden: die Babys. Вимова [ˈbeːbi] (також [ˈbɛɪ̯bi]).
 
 > [!word] das Foto
 > ipa: /ˈfoːto/ · pos: noun · level: A1 · id: de-a1-plural-w19
@@ -298,7 +298,7 @@ estimatedMinutes: 35
 > level: A1 · type: dictation · speed: slow · id: de-a1-plural-l03
 > audio: Die Schüler haben viele Hefte.
 
-> [!listen] Послухай діалог. Скільки в Анни дітей?
+> [!listen] Послухай діалог. Скільки дітей у пані Бондар?
 > level: A1 · type: answer · speed: slow · id: de-a1-plural-l04
 > audio: A: Haben Sie Kinder, Frau Bondar?
 > audio: B: Ja, ich habe zwei Söhne und eine Tochter.
@@ -386,11 +386,11 @@ estimatedMinutes: 35
 > [!quiz] Яка множина слова «das Foto»?
 > level: A1 · type: single · id: de-a1-plural-q05
 > - [ ] die Foten
-> - [ ] die Fotoe
+> - [ ] die Fotoen
 > - [x] die Fotos
-> - [ ] die Föter
+> - [ ] die Foto
 >
-> **Пояснення:** іншомовні слова на голосний мають множину **-s**: *die Fotos*, *die Hotels*, *die Babys*.
+> **Пояснення:** багато іншомовних слів, особливо на голосний, мають множину **-s**: *die Fotos*, *die Hotels*, *die Babys*.
 
 > [!quiz] Обери всі правильні пари «однина — множина»
 > level: A1 · type: multi · id: de-a1-plural-q06
@@ -398,9 +398,9 @@ estimatedMinutes: 35
 > - [ ] der Vogel — die Vogel
 > - [x] das Bild — die Bilder
 > - [x] die Lösung — die Lösungen
-> - [ ] das Hotel — die Hoteler
+> - [ ] das Hotel — die Hotelen
 >
-> **Пояснення:** *der Vogel* потребує умлаута (*Vögel*), а *das Hotel* — множини **-s** (*Hotels*).
+> **Пояснення:** *der Vogel* потребує умлаута (*Vögel*), а *das Hotel* — множина **-s** (*Hotels*).
 
 > [!quiz] Який артикль у множині: «___ Katzen sind süß»?
 > level: A1 · type: single · id: de-a1-plural-q07
@@ -409,14 +409,13 @@ estimatedMinutes: 35
 > - [ ] Das
 > - [ ] Eine
 >
-> **Пояснення:** множина для всіх родів — **die**. *Eine* — неозначений артикль, у множині його немає.
+> **Пояснення:** у називному відмінку множина для всіх родів — **die**. *Eine* — неозначений артикль, у множині його немає.
 
 > [!quiz] Як сказати «Це коштує пʼять євро»?
 > level: A1 · type: single · id: de-a1-plural-q08
 > - [ ] Das kostet fünf Euros.
 > - [x] Das kostet fünf Euro.
-> - [ ] Das kostet fünf Euren.
-> - [ ] Das kostet fünf Euroen.
+> - [ ] Das kostet fünf Euro's.
 >
 > **Пояснення:** після числа назву грошей зазвичай ставимо в однині: *fünf Euro*, *zwanzig Cent*.
 

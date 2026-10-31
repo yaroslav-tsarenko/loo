@@ -43,7 +43,7 @@ estimatedMinutes: 40
 | 7 | **sieben** | наголос на першому складі, дзвінке [z] |
 | 8 | **acht** | ch після a = [x]: «ахт» |
 | 9 | **neun** | eu = «ой»: «нойн» |
-| 10 | **zehn** | довге [eː], «цейн» |
+| 10 | **zehn** | довге [eː]: «цеен» |
 | 11 | **elf** | |
 | 12 | **zwölf** | ö — губи «о», язик «е» |
 
@@ -112,7 +112,7 @@ estimatedMinutes: 40
 | 0151 234 5678 | null eins fünf eins · zwei drei vier · fünf sechs sieben acht |
 | +49 30 123456 | plus neunundvierzig · dreißig · eins zwei drei vier fünf sechs |
 
-Країновий код Німеччини — **+49**, Австрії — **+43**, Швейцарії — **+41**, України — **+380**. З мобільних Німеччини номери починаються на *015…, 016…, 017…*; перший нуль називають: *null eins fünf…* Номер, який починається з коду міста, — це **die Vorwahl** (*030* — Берлін). **Zwei** по телефону часто замінюють на **zwo**, щоб не сплутати з *drei*.
+Країновий код Німеччини — **+49**, Австрії — **+43**, Швейцарії — **+41**, України — **+380**. З мобільних Німеччини номери починаються на *015…, 016…, 017…*; перший нуль називають: *null eins fünf…* Код міста — це **die Vorwahl** (*030* — Берлін). **Zwei** по телефону часто замінюють на **zwo**, щоб не сплутати з *drei*.
 
 > [!tip] Екстрені номери
 > Єдиний європейський номер екстрених служб — **112** (*eins eins zwei*), у Німеччині він також викликає пожежників і швидку допомогу. Поліція — **110** (*eins eins null*). Їх варто знати напамʼять.
@@ -135,7 +135,7 @@ estimatedMinutes: 40
 - Wie alt ist deine Tochter? — Sie ist sieben. — Скільки років твоїй доньці? — Сім.
 - Meine Telefonnummer ist null eins fünf eins, zwei drei vier, fünf sechs sieben acht. — Мій номер телефону 0151 234 5678.
 - Wie ist Ihre Handynummer? — Null eins sieben sechs … — Який Ваш номер мобільного? — 0176 …
-- Wir wohnen in der Lindenstraße vierzehn, nicht vierzig! — Ми живемо на Ліндєнштрасе, 14, а не 40!
+- Wir wohnen in der Lindenstraße vierzehn, nicht vierzig! — Ми живемо на Лінденштрасе, 14, а не 40!
 - Drei plus vier ist sieben. — Три плюс чотири — сім.
 - Ungefähr zweihundert Personen kommen. — Приблизно двісті людей прийдуть.
 - Mein Opa ist achtzig Jahre alt. — Моєму дідові вісімдесят років.
@@ -184,7 +184,7 @@ estimatedMinutes: 40
 > ipa: /zɛks/ · pos: num · level: A1 · id: de-a1-zahlen-w07
 > uk: шість
 > example: Um **sechs** Uhr stehe ich auf. — О шостій я встаю.
-> note: ch тут читається [k], не [x] і не [ç]: «зекс». У sechzehn, sechzig — [ç].
+> note: ch тут читається [k], не [x] і не [ç]: «зекс». У sechzehn, sechzig — [ç] (ch після e).
 
 > [!word] sieben
 > ipa: /ˈziːbn̩/ · pos: num · level: A1 · id: de-a1-zahlen-w08
@@ -208,7 +208,7 @@ estimatedMinutes: 40
 > ipa: /tseːn/ · pos: num · level: A1 · id: de-a1-zahlen-w11
 > uk: десять
 > example: **Zehn** Euro, bitte. — Десять євро, будь ласка.
-> note: z = «ц»; eh = довге [eː]: «цейн». У 13–19: -zehn (dreizehn), у десятках: -zig.
+> note: z = «ц»; eh = довге [eː]: «цеен». У 13–19: -zehn (dreizehn), у десятках: -zig.
 
 > [!word] elf
 > ipa: /ɛlf/ · pos: num · level: A1 · id: de-a1-zahlen-w12
@@ -232,7 +232,7 @@ estimatedMinutes: 40
 > ipa: /ˈdʁaɪ̯sɪç/ · pos: num · level: A1 · id: de-a1-zahlen-w15
 > uk: тридцять
 > example: Der Kurs dauert **dreißig** Minuten. — Курс триває тридцять хвилин.
-> note: єдине десяток на -ßig (не *dreizig*). CH пише dreissig (без ß).
+> note: єдиний десяток на -ßig (не *dreizig*). CH пише dreissig (без ß).
 
 > [!word] hundert
 > ipa: /ˈhʊndɐt/ · pos: num · level: A1 · id: de-a1-zahlen-w16
@@ -314,7 +314,7 @@ estimatedMinutes: 40
 > uk: рахувати; лічити
 > forms: ich zähle · du zählst · er zählt · zählte · hat gezählt
 > example: Das Kind **zählt** bis zehn. — Дитина рахує до десяти.
-> note: ä довге = [ɛː]: «цéлен». Не плутай з erzählen («розповідати») і bezahlen («платити»).
+> note: ä довге = [ɛː]: [ˈtsɛːlən]. Не плутай з erzählen («розповідати») і bezahlen («платити»).
 
 > [!word] plus
 > ipa: /plʊs/ · pos: conj · level: A1 · id: de-a1-zahlen-w28
@@ -351,7 +351,7 @@ estimatedMinutes: 40
 > ipa: /ˈʊnɡəfɛːɐ̯/ · pos: adv · level: A1 · id: de-a1-zahlen-w33
 > uk: приблизно
 > example: Es sind **ungefähr** zwanzig Personen. — Там приблизно двадцять людей.
-> note: ä довге: «унгефéр». Синонім: circa (ca.), etwa.
+> note: ä довге [ɛː]. Синонім: circa (ca.), etwa.
 
 > [!word] wie viele
 > ipa: /viː ˈfiːlə/ · pos: phrase · level: A1 · id: de-a1-zahlen-w34
@@ -414,7 +414,7 @@ estimatedMinutes: 40
 > - [x] 16
 > - [ ] 60
 >
-> **Пояснення:** *sechzehn* = 16; Лена — доньці Анни; *sechs* = 6 — це Тім.
+> **Пояснення:** *sechzehn* = 16; Лена — донька Анни; *sechs* = 6 — це Тім.
 
 > [!listen] Послухай діалог. Яка Handynummer у Анни?
 > level: A1 · type: answer · speed: slow · id: de-a1-zahlen-l08
@@ -444,17 +444,17 @@ estimatedMinutes: 40
 > audio: A: Wie viele Personen kommen zur Party?
 > audio: B: Ungefähr zwölf. Und du?
 > audio: A: Ich komme mit zwei Freunden.
-> - [ ] 2
+> - [ ] приблизно 2
 > - [x] приблизно 12
-> - [ ] 20
+> - [ ] приблизно 20
 >
 > **Пояснення:** *ungefähr zwölf* = приблизно 12 людей; *zwei Freunde* — це двоє друзів, з якими прийде співрозмовник.
 
 ## Вимова
 
-Найтяжчі пари — **-zehn / -zig**: *dreizehn* [ˈdʁaɪ̯tseːn] і *dreißig* [ˈdʁaɪ̯sɪç], *sechzehn* і *sechzig*. У «-zehn» **наголос і довгий голосний** (tseːn) на кінці, у «-zig» — наголос на корені, а кінець короткий [tsɪç]. Окремі звуки:
+Найтяжчі пари — **-zehn / -zig**: *dreizehn* [ˈdʁaɪ̯tseːn] і *dreißig* [ˈdʁaɪ̯sɪç], *sechzehn* і *sechzig*. Наголос в обох словах стоїть на першому складі (*DREI-zehn*, *DREI-ßig*); різниця — в кінці: у «-zehn» **довгий голосний** [tseːn], у «-zig» — **короткий** [tsɪç]. Окремі звуки:
 
-- **ch** у *sechs* = [k], *acht* = [x], *-zig / -zehn* = [ç]: *sechs* — «зекс», *sechzig* — «зехьціхь»;
+- **ch** у *sechs* = [k], *acht* = [x], а в *sech-zehn / sech-zig* — [ç] (ch після e); кінець *-zig* = [tsɪç]: *sechs* — «зекс»;
 - **ei** = «ай» (*zwei, drei*), **eu** = «ой» (*neun*), **ie** = довге «і» (*vier, sieben*);
 - **z** = «ц», **w** = «в», **v** = [f] (*vier*);
 - закінчення -ig = [ɪç].
@@ -462,7 +462,7 @@ estimatedMinutes: 40
 > [!pair] dreizehn /ˈdʁaɪ̯tseːn/ — dreißig /ˈdʁaɪ̯sɪç/
 > level: A1 · id: de-a1-zahlen-p01
 > say: dreißig
-> tip: dreiZEHN — наголос і довгий [eː] у кінці; DREIßig — кінець короткий [sɪç].
+> tip: DREI-zehn і DREI-ßig — наголос однаковий (на першому складі); різниця в кінці: довге [eː] проти короткого [ɪç].
 
 > [!pair] sechzehn /ˈzɛçtseːn/ — sechzig /ˈzɛçtsɪç/
 > level: A1 · id: de-a1-zahlen-p02
@@ -472,7 +472,7 @@ estimatedMinutes: 40
 > [!pair] siebzehn /ˈziːptseːn/ — siebzig /ˈziːptsɪç/
 > level: A1 · id: de-a1-zahlen-p03
 > say: siebzig
-> tip: b перед t глушиться до [p]: «зіптцейн», «зіптціхь». Кінець розрізняє слова.
+> tip: b перед t глушиться до [p]: «зіптцеен», «зіптціхь». Кінець розрізняє слова.
 
 > [!pair] vierzehn /ˈfɪʁtseːn/ — vierzig /ˈfɪʁtsɪç/
 > level: A1 · id: de-a1-zahlen-p04
@@ -518,7 +518,7 @@ estimatedMinutes: 40
 > level: A1 · speed: slow · id: de-a1-zahlen-s06
 > text: Meine Hausnummer ist siebenunddreißig.
 > ipa: /ˈmaɪ̯nə ˈhaʊ̯sˌnʊmɐ ɪst ˈziːbn̩ʊntˌdʁaɪ̯sɪç/
-> tip: siebenunddreißig — 37, одним словом: «зібен-унт-драйсіхь». Haus: au = «ау», s дзвінке.
+> tip: siebenunddreißig — 37, одним словом: «зібен-унт-драйсіхь». Haus: au = «ау», s в кінці слова глухе [s].
 > uk: Мій номер будинку — тридцять сім.
 
 ## Типові помилки українців
@@ -530,7 +530,7 @@ estimatedMinutes: 40
 > В українській десятки йдуть перед одиницями («двадцять один»), у німецькій — навпаки: **одиниці → und → десятки**, одним словом: *einundzwanzig*, *dreiundvierzig*, *sechsundfünfzig*. Проговорюй число з кінця в голові: «21 → одиниця-і-двадцять». Тільки *eins* перед *und* стає **ein-**.
 
 > [!pitfall] 13 ≠ 30, 16 ≠ 60: -zehn чи -zig?
-> *Dreizehn* (13) — **-zehn** з наголошеним довгим [eː]; *dreißig* (30) — **-ßig/-zig**, кінець короткий. Так само *vierzehn / vierzig*, *sechzehn / sechzig*, *siebzehn / siebzig*. На слух це найчастіша плутанина. Ще орфографічні пастки: ~~sechszehn~~ → sechzehn, ~~siebenzehn~~ → siebzehn, ~~dreizig~~ → dreißig.
+> *Dreizehn* (13) — **-zehn** з довгим [eː]; *dreißig* (30) — **-ßig/-zig**, кінець короткий. Так само *vierzehn / vierzig*, *sechzehn / sechzig*, *siebzehn / siebzig*. На слух це найчастіша плутанина. Ще орфографічні пастки: ~~sechszehn~~ → sechzehn, ~~siebenzehn~~ → siebzehn, ~~dreizig~~ → dreißig.
 
 > [!pitfall] ~~eins Jahr~~, ~~drei Jahren~~ і ~~Zwei~~ в номері
 > Перед іменником — **ein**: *ein Jahr, ein Euro*, а не ~~eins Jahr~~. Після числа ≥ 2 слово *Jahr* стоїть у множині **Jahre** (не *Jahren*): *drei Jahre*. По телефону *zwei* легко сплутати з *drei*, тому кажуть **zwo** або перепитують: *Zwei oder drei?* Нуль — **null**, не ~~nul~~.
@@ -550,6 +550,22 @@ estimatedMinutes: 40
 > - [ ] 0176 218 53
 >
 > **Пояснення:** *zwei acht eins* = 281; *fünf drei* = 53.
+
+Тепер називай свої дані вголос.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-zahlen-s07
+> text: Ich bin vierunddreißig Jahre alt.
+> ipa: /ɪç bɪn ˈfiːɐ̯ʊntˌdʁaɪ̯sɪç ˈjaːʁə alt/
+> tip: vierunddreißig — одне слово: «фіа-унт-драйсіхь». Jahre: j = «й».
+> uk: Мені тридцять чотири роки.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-zahlen-s08
+> text: Meine Nummer ist null eins sieben sechs, zwei acht eins.
+> ipa: /ˈmaɪ̯nə ˈnʊmɐ ɪst nʊl aɪ̯ns ˈziːbn̩ zɛks tsvaɪ̯ axt aɪ̯ns/
+> tip: цифри — чітко, по одній: acht = [axt] («ахт»), eins — «айнс».
+> uk: Мій номер: нуль один сім шість, два вісім один.
 
 ## Практика
 
@@ -670,7 +686,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** питальне слово *Wie alt* + *ist* + підмет. Рід у *Bruder* — *der*, тож *dein*.
 
-> [!quiz] Склади речення: «Номер телефону — нуль один пʼять одиниця»
+> [!quiz] Склади речення: «Номер телефону — нуль, один, пʼять, один»
 > level: A1 · type: order · id: de-a1-zahlen-q13
 >
 > ```text order

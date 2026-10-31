@@ -138,7 +138,7 @@ estimatedMinutes: 35
 > example: Wo ist **deine** Tasche? — Де твоя сумка?
 > note: тільки до друга, родича, дитини (du). До незнайомої людини — Ihr.
 
-> [!word] sein (його)
+> [!word] sein
 > ipa: /zaɪ̯n/ · pos: det · level: A1 · id: de-a1-possessiv-w03
 > uk: його (присвійне); також для es
 > forms: sein · seine · seinen
@@ -166,7 +166,7 @@ estimatedMinutes: 35
 > example: Kinder, wo ist **euer** Lehrer? — Діти, де ваш учитель?
 > note: з закінченням випадає e: euer + e = eure (не euere). eu = [ɔʏ̯]. До кількох друзів, дітей; ввічливо — Ihr.
 
-> [!word] Ihr (Ваш)
+> [!word] Ihr
 > ipa: /iːɐ̯/ · pos: det · level: A1 · id: de-a1-possessiv-w07
 > uk: Ваш; Ваша; Ваше; Ваші (ввічливо)
 > forms: Ihr · Ihre · Ihren

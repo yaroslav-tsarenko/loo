@@ -52,7 +52,7 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: [a1, a2, a3], note: "Офіційно: година + Uhr + хвилини. Так говорять на вокзалі й у Behörde. 0 хвилин — просто vierzehn Uhr." }
 >   - { focus: [b1], note: "Розмовно 14:30 — halb drei: половина шляху ДО трьох, тобто 2:30. Запамʼятай: halb дивиться вперед, на наступну годину." }
->   - { focus: [b2, b3], note: "Чверть: Viertel nach zwei (на 15 хвилин після двох) і Viertel vor drei (за чверть до трьох). У Баварії й Австрії часто чуєш Viertel drei = 2:15 і dreiviertel drei = 2:45." }
+>   - { focus: [b2, b3], note: "Чверть: Viertel nach zwei (на 15 хвилин після двох) і Viertel vor drei (за чверть до трьох). У південній і східній Німеччині та в Австрії часто чуєш Viertel drei = 2:15 і dreiviertel drei = 2:45." }
 > ```
 > Жовтий — офіційний запис, рожевий — розмовний. Слово *halb* завжди називає наступну годину.
 
@@ -76,7 +76,7 @@ estimatedMinutes: 40
 
 ## Дні тижня й частини дня
 
-Усі дні тижня — **чоловічого роду** (*der Montag*). Тиждень (*die Woche*) починається з понеділка. Суботу в Північній і Східній Німеччині називають також *Sonnabend*; у розмові та в розкладах скрізь — *Samstag*.
+Усі дні тижня — **чоловічого роду** (*der Montag*). Тиждень (*die Woche*) починається з понеділка. Суботу в Північній і Східній Німеччині називають також *Sonnabend*; у південній і західній частині та в розкладах — *Samstag*.
 
 Перед днем тижня ставимо **am**: *am Montag*. Про час доби: *am Morgen, am Vormittag, am Mittag, am Nachmittag, am Abend*, але *in der Nacht*. Детально прийменники — у темі [[Deutsch - A1 - 25. Прийменники часу — am, um, im, von … bis, vor, nach]].
 
@@ -97,7 +97,7 @@ estimatedMinutes: 40
 
 | № | Місяць | Примітка |
 |---|---|---|
-| 1 | Januar | AT: Jänner (також часто на півдні Німеччини) |
+| 1 | Januar | AT: Jänner (рідше на півдні Німеччини) |
 | 2 | Februar | AT: Feber |
 | 3 | März | |
 | 4 | April | |
@@ -193,7 +193,7 @@ estimatedMinutes: 40
 > uk: чверть
 > forms: die Viertel
 > example: Es ist **Viertel** nach drei. — Зараз чверть на четверту (3:15).
-> note: Viertel nach / Viertel vor. У Баварії й Австрії: Viertel drei = 2:15, dreiviertel drei = 2:45. v = [f]: «фірте́ль».
+> note: Viertel nach / Viertel vor. Півд. і сх. Німеччина, AT: Viertel drei = 2:15, dreiviertel drei = 2:45. v = [f]: «фі́ртель».
 
 > [!word] halb
 > ipa: /halp/ · pos: adj · level: A1 · id: de-a1-zeit-w05
@@ -215,7 +215,7 @@ estimatedMinutes: 40
 > uk: вівторок
 > forms: die Dienstage
 > example: Am **Dienstag** gehe ich zum Arzt. — У вівторок я йду до лікаря.
-> note: ie = довге [iː]: «дінстаґ».
+> note: ie = довге [iː]: «дінстак».
 
 > [!word] der Mittwoch
 > ipa: /ˈmɪtvɔx/ · pos: noun · level: A1 · id: de-a1-zeit-w08
@@ -229,14 +229,14 @@ estimatedMinutes: 40
 > uk: четвер
 > forms: die Donnerstage
 > example: Am **Donnerstag** bin ich im Büro. — У четвер я в офісі.
-> note: -er- = [ɐ]: «доннерштаґ» — без звуку [r]. Назва від бога грому Донара.
+> note: -er- = [ɐ]: «доннерстак» — без звуку [r]. Назва від бога грому Донара.
 
 > [!word] der Freitag
 > ipa: /ˈfʁaɪ̯taːk/ · pos: noun · level: A1 · id: de-a1-zeit-w10
 > uk: пʼятниця
 > forms: die Freitage
-> example: Am **Freitag** ist Feierabend früh. — У пʼятницю кінець робочого дня раніше.
-> note: ei = [aɪ̯]: «фрайтаґ».
+> example: Am **Freitag** ist früh Feierabend. — У пʼятницю робочий день закінчується раніше.
+> note: ei = [aɪ̯]: «фрайтак».
 
 > [!word] der Samstag
 > ipa: /ˈzamstaːk/ · pos: noun · level: A1 · id: de-a1-zeit-w11
@@ -259,7 +259,7 @@ estimatedMinutes: 40
 > uk: січень
 > forms: — (зазвичай без множини)
 > example: Im **Januar** schneit es oft. — У січні часто йде сніг.
-> note: AT (і часто південь Німеччини): der Jänner /ˈjɛnɐ/. CH: Januar. j = [j], як українське «й».
+> note: AT (рідше південь Німеччини): der Jänner /ˈjɛnɐ/. CH: Januar. j = [j], як українське «й».
 
 > [!word] der Februar
 > ipa: /ˈfeːbʁuaːɐ̯/ · pos: noun · level: A1 · id: de-a1-zeit-w14
@@ -366,7 +366,7 @@ estimatedMinutes: 40
 > uk: час після обіду
 > forms: die Nachmittage
 > example: Am **Nachmittag** gehe ich spazieren. — Після обіду я йду гуляти.
-> note: ch після a = [x]: «на:хмітаґ».
+> note: ch після a = [x]: «на:хмітак».
 
 > [!word] der Abend
 > ipa: /ˈaːbn̩t/ · pos: noun · level: A1 · id: de-a1-zeit-w29
@@ -508,7 +508,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** на вокзалі звучить офіційний час: *vierzehn Uhr dreißig* = 14:30, а не *halb drei* (це розмовна форма того самого часу).
 
-> [!listen] Послухай. Коли у Нади день народження?
+> [!listen] Послухай. Коли у Наді день народження?
 > level: A1 · type: answer · speed: slow · id: de-a1-zeit-l06
 > audio: A: Wann hast du Geburtstag, Nadia?
 > audio: B: Am dritten Juni. Und du?
@@ -536,7 +536,7 @@ estimatedMinutes: 40
 > - [ ] вівторок, 15-го, о 10:30
 > - [ ] середа, 15-го, о 9:30
 >
-> **Пояснення:** *halb zehn* = 9:30. Адміністратор перепитує офіційно: *neun Uhr dreißig*.
+> **Пояснення:** *halb zehn* = 9:30. Відвідувач перепитує офіційно: *neun Uhr dreißig*.
 
 ## Вимова
 
@@ -584,7 +584,7 @@ estimatedMinutes: 40
 > level: A1 · speed: slow · id: de-a1-zeit-s05
 > text: Der Kurs beginnt um Viertel nach neun.
 > ipa: /deːɐ̯ kʊʁs bəˈɡɪnt ʊm ˈfɪʁtl̩ naːx nɔʏ̯n/
-> tip: Viertel — v = [f]: «фіртель». neun — [nɔʏ̯n]: «нойн». beginnt — be- ненаголошене.
+> tip: Viertel — v = [f]: «фі́ртель». neun — [nɔʏ̯n]: «нойн». beginnt — be- ненаголошене.
 > uk: Курс починається о чверть на десяту (9:15).
 
 > [!speak] Скажи вголос
@@ -606,7 +606,7 @@ estimatedMinutes: 40
 > З днем тижня — **am**: *am Montag*. З місяцем і порою року — **im**: *im Mai, im Sommer*. З годиною — **um**: *um 8 Uhr*. Помилки ~~in Montag~~, ~~am Mai~~ українці роблять, бо в українській «у понеділок, у травні» — один прийменник. Детально — тема 25.
 
 > [!pitfall] Termin — це не «термін»
-> *Der Termin* = запис до лікаря чи в Behörde, зустріч з конкретним часом: *Ich habe einen Termin beim Arzt.* Строк (наприклад, «до терміну сплати») — *die Frist*. Помилка ~~Meine Frist beim Arzt~~ збиває співрозмовника.
+> *Der Termin* = запис до лікаря чи в Behörde, зустріч з конкретним часом: *Ich habe einen Termin beim Arzt.* Строк (наприклад, «до терміну сплати») — *die Frist*. Помилка — вживати *Termin* як строк: ~~Der Termin für die Zahlung~~ → *die Frist für die Zahlung*.
 
 ## Ситуація: запис до лікаря
 
@@ -633,7 +633,7 @@ estimatedMinutes: 40
 ## Landeskunde: Geschäfte am Sonntag
 
 > [!example] Öffnungszeiten in Deutschland
-> In Deutschland sind die meisten Geschäfte am Sonntag geschlossen. Das ist der Ruhetag. Supermärkte öffnen oft von Montag bis Samstag, von 8 bis 20 Uhr. Auch Bäckereien haben am Sonntag nur kurz auf, meist von 7 bis 11 Uhr. Am Samstag ist es voll, denn viele kaufen für das Wochenende ein.
+> In Deutschland sind die meisten Geschäfte am Sonntag geschlossen. Der Sonntag ist Ruhetag. Supermärkte öffnen oft von Montag bis Samstag, von 8 bis 20 Uhr. Auch Bäckereien haben am Sonntag oft nur ein paar Stunden am Vormittag auf. Am Samstag ist es voll, denn viele kaufen für das Wochenende ein.
 
 > [!quiz] Wann sind die meisten Geschäfte in Deutschland geschlossen?
 > level: A1 · type: single · id: de-a1-zeit-q02
@@ -651,18 +651,18 @@ estimatedMinutes: 40
 > - [x] У суботу в магазинах багато людей.
 > - [ ] Супермаркети відчинені лише у вівторок і середу.
 >
-> **Пояснення:** *von 8 bis 20 Uhr* — час роботи супермаркетів. Пекарні відчинені в неділю лише *kurz* (7–11 год), а не закриті цілий день.
+> **Пояснення:** *von 8 bis 20 Uhr* — час роботи супермаркетів. Пекарні в неділю зазвичай відчинені лише кілька годин уранці, а не закриті цілий день.
 
 > [!quiz] Що кажуть про пекарні в тексті?
 > level: A1 · type: single · id: de-a1-zeit-q04
 > - [ ] Вони працюють цілодобово.
 > - [ ] У неділю вони зачинені.
-> - [x] У неділю вони відчинені короткий час, приблизно 7–11.
+> - [x] У неділю вони зазвичай відчинені лише кілька годин уранці.
 > - [ ] Вони відчинені лише у вихідні.
 >
-> **Пояснення:** *Bäckereien haben am Sonntag nur kurz auf, meist von 7 bis 11 Uhr.* Слово *auf* тут означає «відчинено».
+> **Пояснення:** *Bäckereien haben am Sonntag oft nur ein paar Stunden am Vormittag auf.* Слово *auf* тут означає «відчинено».
 
-В Австрії неділя теж зазвичай вихідна для магазинів; у Швейцарії так само, але в крупних залізничних вокзалах і аеропортах крамниці працюють. Німецькою «відчинено» — *geöffnet* або *auf*, «зачинено» — *geschlossen* або *zu*: *Der Laden ist zu.*
+В Австрії неділя теж зазвичай вихідна для магазинів; у Швейцарії так само, але на великих вокзалах і в аеропортах крамниці працюють. Німецькою «відчинено» — *geöffnet* або *auf*, «зачинено» — *geschlossen* або *zu*: *Der Laden ist zu.*
 
 ## Практика
 
@@ -691,7 +691,7 @@ estimatedMinutes: 40
 > - [ ] der Jünner
 > - [ ] der Janner
 >
-> **Пояснення:** в Австрії (і часто на півдні Німеччини) січень — *Jänner*. *Feber* — австрійський варіант *Februar* (лютий). Решта форм — правописні помилки.
+> **Пояснення:** в Австрії (рідше на півдні Німеччини) січень — *Jänner*. *Feber* — австрійський варіант *Februar* (лютий). Решта форм — правописні помилки.
 
 > [!quiz] Які пари «місяць — переклад» правильні?
 > level: A1 · type: multi · id: de-a1-zeit-q08
@@ -781,7 +781,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🗓️ Звідки назви днів
-> Німецькі назви днів — з германських богів: *Donnerstag* — день Донара (бога грому), *Freitag* — день богині Фрії (Фрейї). *Sonntag* і *Montag* — дні Сонця й Місяця. *Mittwoch* («середина тижня») — нова назва, а *Samstag* веде до грецького *sabbaton* (шабат), тому на півночі кажуть ще *Sonnabend* — «переддень неділі».
+> Німецькі назви днів — з германських богів: *Donnerstag* — день Донара (бога грому), *Freitag* — день богині Фрії (Фрейї). *Sonntag* і *Montag* — дні Сонця й Місяця. *Mittwoch* («середина тижня») — нова назва, а *Samstag* веде до грецького *sabbaton* (шабат). На півночі й сході кажуть також *Sonnabend* — «переддень неділі».
 
 > [!reel] 🃏 Aprilscherz
 > 1 квітня в Німеччині теж день жартів — *Aprilscherz*. Вираз *jemanden in den April schicken* означає «розіграти когось першого квітня». А саму назву місяця *April* німецька взяла з латинського *aprilis*.
@@ -792,6 +792,7 @@ estimatedMinutes: 40
 ## Джерела та що почитати
 
 - [DWDS — Uhrzeit](https://www.dwds.de/wb/Uhrzeit) — слово й вимова; про офіційний і розмовний час.
+- [handwerk magazin — Öffnungszeiten im Handwerk](https://www.handwerk-magazin.de/oeffnungszeiten-im-handwerk-183204/) — правила роботи пекарень у неділю: залежать від федеральної землі.
 - [DWDS — Termin](https://www.dwds.de/wb/Termin) — значення й вживання слова.
 - [Duden — Datum](https://www.duden.de/rechtschreibung/Datum) — правопис і множина.
 - [DW Learn German — Nicos Weg (A1)](https://learngerman.dw.com/en/beginners/c-36519789) — безкоштовний відеокурс з темами про час і дату.

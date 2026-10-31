@@ -334,7 +334,7 @@ estimatedMinutes: 30
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-alphabet-s03
 > text: Ich heiße Olena Kowalenko.
-> ipa: /ɪç ˈhaɪ̯sə ˈoːlena kovaˈlɛŋko/
+> ipa: /ɪç ˈhaɪ̯sə oˈleːna kovaˈlɛŋko/
 > tip: ich — [ç], не «ік». heiße — ß = глухе «с». w = «в».
 > uk: Мене звати Олена Коваленко.
 
@@ -348,7 +348,7 @@ estimatedMinutes: 30
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-alphabet-s05
 > text: Meine E-Mail ist olena Punkt k at web Punkt de.
-> ipa: /ˈmaɪ̯nə ˈiːmeɪ̯l ɪst ˈoːlena pʊŋkt kaː ɛt vɛp pʊŋkt deː/
+> ipa: /ˈmaɪ̯nə ˈiːmeɪ̯l ɪst oˈleːna pʊŋkt kaː ɛt vɛp pʊŋkt deː/
 > tip: web — b в кінці слова глушиться: [vɛp]. Назви літер: k — «ка», d — «де», e — «е».
 > uk: Моя електронна адреса: olena.k@web.de.
 
