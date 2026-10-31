@@ -3,7 +3,8 @@ import type { Root } from 'mdast'
 import type { ReactNode } from 'react'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import { toJsxRuntime, type Components } from 'hast-util-to-jsx-runtime'
-import type { Chapter } from '@/content/model'
+import type { Chapter, LearningUnit } from '@/content/model'
+import type { Locale } from '@/i18n'
 import type { WikiLink } from '@/content/parse/nodes'
 import { headingSlug, highlightTree, mdastToHast, type LinkTarget } from '@/content/render/to-hast'
 import type { ContentSnapshot } from '@/content/store'
@@ -22,6 +23,10 @@ export interface RenderEnv {
   chapter: Chapter
   depth: number
   variant: 'reader' | 'card'
+  // a translated page (src/server/content-i18n.ts): its units — translated texts, source ids
+  units?: ReadonlyMap<string, LearningUnit>
+  // the reader's UI locale (enum-like content meta, «not translated yet»)
+  locale?: Locale
 }
 
 function obsidianHref(snapshot: ContentSnapshot, vaultPath: string): string {

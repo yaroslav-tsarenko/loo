@@ -1,0 +1,173 @@
+# Term glossary uk → en for course translation (docs/COURSE_FORMAT.md «i18n»).
+# keepLatin: terms that stay in Latin in every language; terms: Ukrainian term → the one English rendering to use.
+keepLatin:
+  - Next.js
+  - React
+  - App Router
+  - Pages Router
+  - Server Component
+  - Client Component
+  - Server Action
+  - Server Function
+  - Route Handler
+  - proxy
+  - layout
+  - template
+  - Suspense
+  - streaming
+  - hydration
+  - prefetching
+  - static shell
+  - Partial Prerendering
+  - PPR
+  - Cache Components
+  - RSC
+  - RSC payload
+  - DTO
+  - interleaving
+  - environment poisoning
+  - import trace
+  - hydration mismatch
+  - prefetch cache
+  - Data Access Layer
+  - Taint API
+  - Fluid Compute
+  - Turbopack
+  - React Compiler
+  - Core Web Vitals
+  - utility-first
+  - mobile-first
+  - CSS Modules
+  - error boundary
+  - skeleton
+  - fallback
+  - DOM
+  - CSSOM
+  - render tree
+  - ETag
+  - origin
+  - FormData
+  - progressive enhancement
+  - preview deployment
+  - build logs
+  - runtime logs
+  - Instant Rollback
+  - Strict Mode
+  - batching
+  - reducer
+  - generic
+  - satisfies
+  - as const
+  - route group
+  - catch-all
+  - optional catch-all
+  - colocation
+  - root layout
+  - leaf segment
+  - slug
+  - query string
+  - soft 404
+  - App Shell
+  - parallel routes
+  - intercepting routes
+  - soft navigation
+  - hard navigation
+  - deep link
+  - Partial Prefetching
+  - Client Cache
+  - Activity
+  - Navigation Inspector
+  - bfcacheId
+  - Fast Refresh
+  - HMR
+  - import alias
+  - CSR
+  - SSR
+  - SSG
+  - bundler
+  - code splitting
+  - static export
+  - matcher
+  - rewrite
+  - redirect
+  - negative lookahead
+  - open redirect
+  - client reference
+  - export condition
+  - barrel
+  - render prop
+  - Flight
+  - selective hydration
+  - prerendering
+  - request-time
+  - Draft Mode
+  - digest
+  - backoff
+  - throttle
+  - out-of-order streaming
+  - postponedState
+  - dev overlay
+terms:
+  маршрут: route
+  сегмент маршруту: route segment
+  маршрутизація: routing
+  рендеринг: rendering
+  статичний рендеринг: static rendering
+  динамічний рендеринг: dynamic rendering
+  клієнтський бандл: client bundle
+  межа: boundary
+  кеш: cache
+  ревалідація: revalidation
+  отримання даних: data fetching
+  водоспад запитів: request waterfall
+  мутація: mutation
+  змінна середовища: environment variable
+  сесія: session
+  автентифікація: authentication
+  авторизація: authorization
+  тема: topic
+  розділ: section
+  посібник: guide
+  картка: flashcard
+  тест теми: topic test
+  екзамен розділу: section exam
+  вступний тест: placement test
+  навичка: skill
+  граф модулів: module graph
+  серіалізований: serializable
+  обгортка: wrapper
+  вшивати (env): inline
+  білий список: allowlist
+  чорний список: denylist
+  вихідний код сторінки: page source
+  перший захід: initial load
+  навігація на клієнті: client-side navigation
+  обробник подій: event handler
+  провайдер: provider
+  шар даних: data layer
+  еталонне рішення: reference solution
+  підказка: hint
+  пояснення: explanation
+  Передбач: Predict
+  Простими словами: In plain words
+  Як це працює насправді: How it really works
+  Пастки: Pitfalls
+  На співбесіді: In the interview
+  Зв'язки: Connections
+  Фішки: Quick facts
+  Закріплення: Review
+  Практика: Practice
+  Джерела та що почитати: Sources and further reading
+  Підсумок: Summary
+  стан: state
+  хук: hook
+  ефект: Effect
+  підняття стану: lifting state up
+  похідний стан: derived state
+  функція-оновлювач: updater function
+  звуження типу: narrowing
+  розрізнюваний union: discriminated union
+  перевірка повноти: exhaustive check
+  слот: slot
+  перехоплювальний маршрут: intercepting route
+  дірка: hole

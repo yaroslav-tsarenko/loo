@@ -1500,3 +1500,25 @@
   }
 }
 
+
+/* A block shown in the source language inside a translated page (src/content/i18n/localize.ts): a quiet dashed
+   frame and a small «not translated yet» tag — information, not an error (docs/DESIGN.md: gray/quiet tone). */
+.i18n-fallback {
+  position: relative;
+  margin-block: 1.25rem;
+  padding: 0.75rem 0.9rem 0.25rem;
+  border: 2px dashed var(--lu-border-strong, var(--lu-border));
+  border-radius: var(--lu-r-lg);
+}
+.i18n-fallback > .i18n-fallback-note {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: var(--lu-r-xs);
+  background: var(--lu-surface-3);
+  color: var(--lu-text-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}

@@ -1,5 +1,5 @@
 import { rng, type Seed } from '../rng'
-import { levelRank, type ExerciseRef, type LearnerSkill, type Level } from '../schema'
+import { levelRank, type ExerciseRef, type Level } from '../schema'
 import { diffNumber } from '../compile/difficulty'
 import { itemDifficulty } from './skills'
 
@@ -33,7 +33,8 @@ export const ITEM_FACTOR = { mistake: 3, wrong: 2, unseen: 1.5, right: 0.6 } as 
 export interface LearnerLevels {
   // θ of the overall level (levelTheta(enrollment level) when nothing better is known)
   overall: number
-  skills: Partial<Record<LearnerSkill, number>>
+  // θ per course skill (course.skills)
+  skills: Partial<Record<string, number>>
 }
 
 export interface PracticeSignals {
@@ -70,7 +71,7 @@ export interface PracticePick {
   stats: { mistakes: number; wrong: number; unseen: number; boostedTopics: number }
 }
 
-const thetaFor = (c: { skill?: LearnerSkill }, learner: LearnerLevels): number => (c.skill ? (learner.skills[c.skill] ?? learner.overall) : learner.overall)
+const thetaFor = (c: { skill?: string }, learner: LearnerLevels): number => (c.skill ? (learner.skills[c.skill] ?? learner.overall) : learner.overall)
 
 // |rank(exercise level) − rank(learner's level for its skill)|
 export function levelDistance(c: PracticeCandidate, learner: LearnerLevels): number {

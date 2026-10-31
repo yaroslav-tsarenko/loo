@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { PiArrowCounterClockwiseBold, PiCodeBlockFill, PiFlagBannerFill, PiLightbulbFilamentFill, PiPlayFill, PiTestTubeFill } from 'react-icons/pi'
-import { isRunnable } from '@/content/blocks/task/code'
+import { isRunnable, isTypeScript } from '@/content/blocks/task/code'
 import type { TaskCode } from '@/content/model'
 import { finishTask, saveTaskDraft } from '@/server/actions/study'
 import { CodeEditor } from '@/ui/code/CodeEditor'
@@ -15,6 +15,7 @@ import type { Tone } from '@/ui/design/cx'
 import { LooSays } from '@/ui/design/mascot/LooSays'
 import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { LevelPill } from '@/ui/study/LevelPill'
+import { useMessages, useT } from '@/i18n/react'
 
 const DIFF_TONE: Record<'easy' | 'medium' | 'hard', Tone> = { easy: 'green', medium: 'orange', hard: 'red' }
 
@@ -46,6 +47,7 @@ interface Props {
 export function TaskInline(props: Props) {
   const { unitId, title, difficulty, difficultyKey, level, statement, hints, solution, variant, sessionId, onResult, code } = props
   const testable = Boolean(code?.tests) && isRunnable(code?.lang ?? '')
+  const typescript = isTypeScript(code?.lang ?? '')
   const starter = code?.starter ?? ''
   const initialDraft = props.initialDraft || starter
   const [revealed, setRevealed] = useState(props.initialHints ?? 0)
@@ -61,6 +63,8 @@ export function TaskInline(props: Props) {
   }, [])
   const headingId = useId()
   const feedback = useFeedback()
+  const t = useT()
+  const harnessText = useMessages().harness
   const saveTimer = useRef<number | null>(null)
   const handle = useRef<RunHandle | null>(null)
   useEffect(() => () => handle.current?.cancel(), [])
@@ -89,10 +93,17 @@ export function TaskInline(props: Props) {
     setReport(null)
     setStuckOn(null)
     let current: string | null = null
-    const run = runInWorker(draft, code.tests, (event) => {
-      if (event.type === 'start') current = event.name
-      else if (event.type === 'test') current = null
-    })
+    const run = runInWorker(
+      draft,
+      code.tests,
+      (event) => {
+        if (event.type === 'start') current = event.name
+        else if (event.type === 'test') current = null
+      },
+      undefined,
+      typescript,
+      harnessText,
+    )
     handle.current = run
     void run.done.then((result) => {
       if (handle.current !== run) return
@@ -121,15 +132,15 @@ export function TaskInline(props: Props) {
   const verdict =
     status === 'solved'
       ? testable
-        ? `Усі тести зелені — зараховано${revealed > 0 ? ` · підказок: ${revealed}` : ' без підказок'}!`
-        : `Зараховано${revealed > 0 ? ` · підказок: ${revealed}` : ' без підказок'}.`
-      : 'Задачу додано в «Мої помилки».'
+        ? t(revealed > 0 ? 'task.solvedTestsHints' : 'task.solvedTests', { n: revealed })
+        : t(revealed > 0 ? 'task.solvedHints' : 'task.solved', { n: revealed })
+      : t('task.failed')
 
   return (
     <section className="task" id={variant === 'inline' ? `u-${unitId}` : undefined} data-variant={variant} data-status={status} aria-labelledby={headingId}>
       <header className="task-head">
         <Pill tone="violet" size="sm" icon={testable ? <PiTestTubeFill /> : <PiCodeBlockFill />} className="task-kind">
-          {testable ? 'Задача · автотести' : 'Задача'}
+          {testable ? t('task.kindTested') : t('task.kind')}
         </Pill>
         <Pill tone={DIFF_TONE[difficultyKey]} size="sm" solid>
           {difficulty}
@@ -146,14 +157,14 @@ export function TaskInline(props: Props) {
           {hints.slice(0, revealed).map((hint, i) => (
             <div className="task-hint" key={i}>
               <span className="task-hint-head">
-                <PiLightbulbFilamentFill aria-hidden="true" /> Підказка {i + 1}
+                <PiLightbulbFilamentFill aria-hidden="true" /> {t('task.hintN', { n: i + 1 })}
               </span>
               <div className="prose-flow">{hint}</div>
             </div>
           ))}
           {revealed < hints.length && !showSolution && status === 'open' ? (
             <Button variant="ghost" size="sm" icon={<PiLightbulbFilamentFill size={18} color="var(--lu-yellow)" />} onClick={() => setRevealed((n) => n + 1)}>
-              {revealed === 0 ? 'Підказка' : 'Ще підказка'}{' '}
+              {revealed === 0 ? t('task.hint') : t('task.moreHint')}{' '}
               <span className="task-hint-count tabular">
                 {revealed + 1}/{hints.length}
               </span>
@@ -166,34 +177,35 @@ export function TaskInline(props: Props) {
         <div className="task-work">
           <div className="task-code-head">
             <label className="task-label" htmlFor={`${headingId}-draft`}>
-              Твій код
+              {t('task.yourCode')}
             </label>
             {starter && draft !== starter && status === 'open' ? (
               <button type="button" className="task-reset" onClick={() => setDraft(starter)}>
-                <PiArrowCounterClockwiseBold aria-hidden="true" /> До заготовки
+                <PiArrowCounterClockwiseBold aria-hidden="true" /> {t('task.reset')}
               </button>
             ) : null}
           </div>
-          <CodeEditor id={`${headingId}-draft`} value={draft} onChange={setDraft} onRun={runTests} label="Твій код" />
+          <CodeEditor id={`${headingId}-draft`} value={draft} onChange={setDraft} onRun={runTests} label={t('task.yourCode')} lang={code.lang} />
           <details className="task-tests">
             <summary>
-              <PiTestTubeFill aria-hidden="true" /> Тести, які має пройти код
+              <PiTestTubeFill aria-hidden="true" /> {t('task.tests')}
             </summary>
-            <pre className="task-tests-code">{highlightCode(code.tests)}</pre>
+            <pre className="task-tests-code">{highlightCode(code.tests, 't', code.lang)}</pre>
           </details>
           <div className="task-actions">
             <Button variant="super" onClick={runTests} loading={running} icon={<PiPlayFill size={18} />} className="task-run" aria-keyshortcuts="Meta+Enter">
-              Запустити тести
+              {t('task.run')}
             </Button>
             <kbd className="task-run-kbd">⌘↵</kbd>
+            {typescript ? <span className="task-run-note">{t('task.typescriptNote')}</span> : null}
             {status === 'open' ? (
               <Button variant="ghost" size="sm" onClick={giveUp} disabled={!solution} icon={<PiFlagBannerFill size={16} />} className="task-giveup">
-                Здаюсь
+                {t('task.giveUp')}
               </Button>
             ) : null}
             {status === 'solved' && solution ? (
               <Button variant="ghost" size="sm" onClick={() => setShowSolution((v) => !v)}>
-                {showSolution ? 'Сховати еталон' : 'Порівняти з еталоном'}
+                {showSolution ? t('task.hideReference') : t('task.compareReference')}
               </Button>
             ) : null}
           </div>
@@ -202,7 +214,7 @@ export function TaskInline(props: Props) {
       ) : (
         <div className="task-work">
           <label className="task-label" htmlFor={`${headingId}-draft`}>
-            Ваше рішення
+            {t('task.yourSolution')}
           </label>
           <textarea
             id={`${headingId}-draft`}
@@ -213,7 +225,7 @@ export function TaskInline(props: Props) {
             autoCapitalize="off"
             autoCorrect="off"
             rows={Math.min(18, Math.max(6, draft.split('\n').length + 1))}
-            placeholder="Напишіть рішення тут, потім порівняйте з еталоном"
+            placeholder={t('task.placeholder')}
             onKeyDown={(e) => {
               if (e.key === 'Tab') {
                 e.preventDefault()
@@ -228,9 +240,9 @@ export function TaskInline(props: Props) {
           {!showSolution ? (
             <div className="task-actions">
               <Button size="sm" onClick={() => setShowSolution(true)} disabled={!solution}>
-                Порівняти з рішенням
+                {t('task.compareSolution')}
               </Button>
-              <span className="unit-meta">{draft.trim() && draft !== starter ? 'Чернетка зберігається автоматично' : 'Спершу спробуйте самі'}</span>
+              <span className="unit-meta">{draft.trim() && draft !== starter ? t('task.draftSaved') : t('task.tryFirst')}</span>
             </div>
           ) : null}
         </div>
@@ -239,23 +251,23 @@ export function TaskInline(props: Props) {
       {showSolution && solution ? (
         <div className="task-compare">
           <div className="task-compare-col" data-side="mine">
-            <span className="task-label">Ваше</span>
-            {draft.trim() ? <pre className="task-mine">{draft}</pre> : <p className="unit-meta">Без власної спроби</p>}
+            <span className="task-label">{t('task.mine')}</span>
+            {draft.trim() ? <pre className="task-mine">{draft}</pre> : <p className="unit-meta">{t('task.noAttempt')}</p>}
           </div>
           <div className="task-compare-col" data-side="ref">
-            <span className="task-label">Еталон</span>
+            <span className="task-label">{t('task.reference')}</span>
             <div className="prose-flow">{solution}</div>
           </div>
         </div>
       ) : null}
 
       {status === 'open' && showSolution && !testable ? (
-        <div className="task-assess" role="group" aria-label="Самооцінка">
-          <span>Вийшло?</span>
+        <div className="task-assess" role="group" aria-label={t('task.selfCheck')}>
+          <span>{t('task.didIt')}</span>
           <Button variant="danger" onClick={() => assess(false)}>
-            Ні, не вийшло
+            {t('task.no')}
           </Button>
-          <Button onClick={() => assess(true)}>Так, розв’язав</Button>
+          <Button onClick={() => assess(true)}>{t('task.yes')}</Button>
         </div>
       ) : null}
       {status !== 'open' && (showSolution || testable) ? (
@@ -267,7 +279,7 @@ export function TaskInline(props: Props) {
           </LooSays>
           {variant === 'inline' ? (
             <Button variant="ghost" size="sm" onClick={retry} icon={<PiArrowCounterClockwiseBold size={16} />}>
-              Ще раз
+              {t('task.again')}
             </Button>
           ) : null}
         </div>

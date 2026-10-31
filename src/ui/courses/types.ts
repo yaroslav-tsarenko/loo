@@ -37,6 +37,10 @@ export interface CPTopic {
   minutes: number
   counts: { quizzes: string; cards: string; tasks: string }
   nodes: CPNode[]
+  // courses with skills: the topic's skill title, «знаю» (below the learner's skill level), recommended next
+  skill?: string | null
+  known?: boolean
+  recommended?: boolean
 }
 
 export interface CPSection {
@@ -50,7 +54,8 @@ export interface CPSection {
   planned: boolean
   levelLabel: string
   state: CPState
-  known: 'placement' | 'exam' | null
+  // skills: every topic known by the learner's skill levels
+  known: 'placement' | 'exam' | 'skills' | null
   ratio: number
   done: number
   total: number

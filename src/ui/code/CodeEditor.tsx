@@ -11,6 +11,8 @@ interface Props {
   label: string
   minLines?: number
   readOnly?: boolean
+  // fence language of the task; `ts` adds TypeScript keywords to the highlight
+  lang?: string
 }
 
 const INDENT = '  '
@@ -30,7 +32,7 @@ function lineStart(value: string, pos: number): number {
 }
 
 // Textarea editor: 2-space tabs, auto-indent, line numbers, cheap highlight overlay. No dependencies.
-export function CodeEditor({ id, value, onChange, onRun, label, minLines = 6, readOnly = false }: Props) {
+export function CodeEditor({ id, value, onChange, onRun, label, minLines = 6, readOnly = false, lang }: Props) {
   const area = useRef<HTMLTextAreaElement>(null)
   const overlay = useRef<HTMLPreElement>(null)
   // Esc releases Tab so keyboard users can leave the editor
@@ -104,7 +106,7 @@ export function CodeEditor({ id, value, onChange, onRun, label, minLines = 6, re
       </div>
       <div className="code-editor-surface">
         <pre className="code-editor-overlay" ref={overlay} aria-hidden="true">
-          {highlightCode(value)}
+          {highlightCode(value, 't', lang)}
           {'\n'}
         </pre>
         <textarea

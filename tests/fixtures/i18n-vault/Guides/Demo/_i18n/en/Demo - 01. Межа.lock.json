@@ -1,0 +1,15 @@
+{
+  "sourceId": "demo-01",
+  "segments": {
+    "#p1": "e3781eb88a60e2e918fb95d6c7dfd77cbb9a7ce4",
+    "перше": "316ce72f4fbf2ff04de1fe71b15d23f7dd8d19a1",
+    "перше#p1": "0b4dc8ceaef3507af227867ee7f8e31bb7ddce45",
+    "перше#p2": "ba0bb71fa9fb1ed57aa58d8b625f657fff8cc3e9",
+    "demo-01-quiz-01": "e93f0789114e1c7e1b573b8258523f2339ac24a0",
+    "перше#p3": "979e4d7de7d2e9eb67509336bc597b9bd443118a",
+    "друге": "f13bcbbf7c626a6a7de6692c3f9ba46e83e62804",
+    "друге#p1": "06765efffa57016bcf2cf4b5399ad041c8ba51e3",
+    "demo-01-task-01": "8224d147608a0b2cf815857e31aaf4be053fc7fa",
+    "друге#p2": "db19c0d81c109a45db2a54fbe261e2b4cbfe6e8f"
+  }
+}

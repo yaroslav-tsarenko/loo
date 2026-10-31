@@ -1,5 +1,5 @@
 import { rng, shuffle, type Seed } from '../rng'
-import { byLevel, courseLadder, courseLevels, levelAt, levelRank, PLACEMENT_SKILLS, type CourseBundle, type Level, type PlacementItem, type PlacementSkill } from '../schema'
+import { byLevel, courseLadder, courseLevels, hasSkillModel, levelAt, levelRank, PLACEMENT_SKILLS, placementSkillIds, type CourseBundle, type Level, type PlacementItem } from '../schema'
 import { ieltsBand, type IeltsBand } from './ielts'
 
 // Adaptive placement test, over the course's own ladder (noob…god, or A1…C2 for language courses). Stateless: the
@@ -13,6 +13,10 @@ import { ieltsBand, type IeltsBand } from './ielts'
 //   guess (the guess-corrected score doesn't penalise it). Confidence high / medium / low from the boundary margins;
 //   below high a short follow-up (`followUp` questions around the boundary) can be taken. Per-skill levels come from
 //   a small Bayesian estimate (guessing-aware) shrunk towards the overall level.
+//   With `placement.perSkill` (a course with skills, e.g. Next.js) a phase 2 follows the main test: 2–3 questions per
+//   measured skill on a mini ladder — the first at the overall result, one level up after a right answer and one down
+//   after a wrong one (a third only when the first two disagree and the limit leaves room); per-skill θ from the same
+//   posterior (prior N(overall, 0.75)) over all answers of the skill. Off (English) → nothing changes.
 // * lessons (no bank — the JavaScript course): levels probed easier → harder: first the second-lowest level, then a
 //   binary search over the rest, 2–3 questions per level (2 right → pass, 2 wrong → fail, 1:1 → a third question).
 
@@ -35,8 +39,10 @@ export interface PlacementStep {
   probing: Level | null
   asked: number
   maxQuestions: number
-  // bank mode: the adaptive search or the follow-up around the boundary
-  phase?: 'main' | 'follow-up'
+  // bank mode: the adaptive search, the per-skill phase (`placement.perSkill`) or the follow-up around the boundary
+  phase?: 'main' | 'skills' | 'follow-up'
+  // the per-skill phase: the skill being measured
+  skill?: string
 }
 
 export interface LevelTally {
@@ -75,10 +81,13 @@ export interface PlacementResult {
   followUp?: boolean
   // the follow-up was taken
   followedUp?: boolean
-  skills?: Partial<Record<PlacementSkill, SkillEstimate>>
+  // per measured skill (language: grammar / vocabulary / reading / listening; otherwise the course's skill ids)
+  skills?: Partial<Record<string, SkillEstimate>>
   // measured skills clearly above / below the overall level, strongest / weakest first
-  strong?: PlacementSkill[]
-  weak?: PlacementSkill[]
+  strong?: string[]
+  weak?: string[]
+  // the per-skill phase ran (`placement.perSkill`): every skill's level was measured on its own mini ladder
+  perSkill?: boolean
   ielts?: IeltsBand | null
   // false: the level's lessons are still `planned` — the start section is the highest level that has lessons
   lessonsReady?: boolean
@@ -214,6 +223,13 @@ interface BankCfg {
   perLevel: number
   pass: number
   max: number
+  // the limit of the main test (search + confirmation): `max`, or with the per-skill phase what leaves it 2 per skill
+  mainMax: number
+  // the per-skill phase (`placement.perSkill`): the measured skills that have bank items, in course order
+  perSkill: boolean
+  skills: string[]
+  // bank ids of each measured skill (ladder levels only)
+  bySkill: Map<string, string[]>
   followUp: number
   avail: Record<Level, number>
   start: number
@@ -265,18 +281,35 @@ interface BankRun {
   main: Settled | null
   // the follow-up the learner asked for
   follow: Round | null
+  // the per-skill phase started after this many answers (null: not reached / off)
+  skillsFrom: number | null
   // what to ask now; null → done
-  next: { level: Level; phase: 'main' | 'follow-up' } | null
+  next: { level: Level; phase: 'main' | 'skills' | 'follow-up'; skill?: string } | null
 }
 
 function bankCfg(bundle: CourseBundle): BankCfg {
   const p = bundle.placement
   const ladder = courseLevels(bundle.course).filter((l) => (p.pool[l]?.length ?? 0) >= 2)
+  const perSkill = p.perSkill === true && hasSkillModel(bundle)
+  const bySkill = new Map<string, string[]>()
+  if (perSkill) {
+    const bank = p.bank ?? {}
+    for (const skill of placementSkillIds(bundle)) {
+      const ids = ladder.flatMap((l) => (p.pool[l] ?? []).filter((id) => bank[id]?.skill === skill))
+      if (ids.length > 0) bySkill.set(skill, ids)
+    }
+  }
+  const skills = [...bySkill.keys()]
   return {
     ladder,
     perLevel: p.perLevel,
     pass: p.pass ?? 0.75,
     max: p.maxQuestions,
+    // never above the limit; with a small limit the main test may take it all (course:check warns: phase 2 may get nothing)
+    mainMax: perSkill ? Math.min(p.maxQuestions, Math.max(p.perLevel * 2, p.maxQuestions - 2 * skills.length)) : p.maxQuestions,
+    perSkill,
+    skills,
+    bySkill,
     followUp: p.followUp ?? 0,
     avail: byLevel((l) => p.pool[l]?.length ?? 0),
     start: Math.floor((ladder.length - 1) / 2),
@@ -388,7 +421,7 @@ function bankRun(bundle: CourseBundle, answers: readonly PlacementAnswer[], allo
     )
   const final = () => finalOutcome(cfg, tallies, lowestIsCourseLowest)
   const has = (i: number) => tallies[at(i)].asked < cfg.avail[at(i)]
-  const st: Omit<BankRun, 'cfg' | 'tallies' | 'asked' | 'items'> = { search: null, confirm: null, main: null, follow: null, next: null }
+  const st: Omit<BankRun, 'cfg' | 'tallies' | 'asked' | 'items'> = { search: null, confirm: null, main: null, follow: null, skillsFrom: null, next: null }
 
   // the next question of a round (a ladder index), or null when the round is over
   const roundAsk = (round: Round, total: number): number | null => {
@@ -409,7 +442,7 @@ function bankRun(bundle: CourseBundle, answers: readonly PlacementAnswer[], allo
   const decide = (total: number): BankRun['next'] => {
     if (!st.search) {
       const o = searchNow()
-      if (o.probe !== null && total < cfg.max) return { level: at(o.probe), phase: 'main' }
+      if (o.probe !== null && total < cfg.mainMax) return { level: at(o.probe), phase: 'main' }
       const capped = o.probe !== null
       const out = capped ? final() : o
       st.search = { ...out, ...marginsOf(cfg, tallies, out, capped), count: total, capped }
@@ -417,7 +450,7 @@ function bankRun(bundle: CourseBundle, answers: readonly PlacementAnswer[], allo
     if (!st.main) {
       if (!st.confirm) {
         const s = st.search
-        if (s.confidence !== 'high' && !s.capped && cfg.followUp > 0 && s.unclear.length > 0 && total < cfg.max) st.confirm = { start: total, unclear: s.unclear, budget: cfg.followUp, cap: cfg.max }
+        if (s.confidence !== 'high' && !s.capped && cfg.followUp > 0 && s.unclear.length > 0 && total < cfg.mainMax) st.confirm = { start: total, unclear: s.unclear, budget: cfg.followUp, cap: cfg.mainMax }
         else st.main = { outcome: s, margins: s, count: total }
       }
       if (st.confirm && !st.main) {
@@ -428,6 +461,11 @@ function bankRun(bundle: CourseBundle, answers: readonly PlacementAnswer[], allo
       }
     }
     const main = st.main!
+    if (cfg.perSkill) {
+      st.skillsFrom ??= total
+      const ask = skillWalk(st.skillsFrom, total, Math.max(0, main.outcome.best))
+      if (ask) return { level: at(ask.level), phase: 'skills', skill: ask.skill }
+    }
     if (!allowFollowUp) return null
     if (!st.follow) {
       if (main.margins.confidence !== 'low' || cfg.followUp <= 0 || main.margins.unclear.length === 0) return null
@@ -435,6 +473,35 @@ function bankRun(bundle: CourseBundle, answers: readonly PlacementAnswer[], allo
     }
     const index = roundAsk(st.follow, total)
     return index === null ? null : { level: at(index), phase: 'follow-up' }
+  }
+
+  // Phase 2 (per skill), replayed from its answers: skill by skill in course order, 2 questions (a third when they
+  // disagree and the limit leaves 2 for each remaining skill); the target level starts at the overall result and moves
+  // one up after a right answer, one down after a wrong one. A skill without unasked items is skipped.
+  const skillWalk = (from: number, total: number, startLevel: number): { skill: string; level: number } | null => {
+    const seen = new Set(items.slice(0, from).map((x) => x.answer.exerciseId))
+    const top = cfg.ladder.length - 1
+    let pos = from
+    for (let k = 0; k < cfg.skills.length; k++) {
+      const skill = cfg.skills[k]!
+      const pool = cfg.bySkill.get(skill) ?? []
+      let level = startLevel
+      const results: boolean[] = []
+      for (;;) {
+        const room = cfg.max - pos
+        const left = cfg.skills.length - k - 1
+        const n = results.length
+        const want = n < 2 || (n === 2 && results[0] !== results[1] && room >= 2 * left + 1)
+        if (!want || room <= 0 || !pool.some((id) => !seen.has(id))) break
+        if (pos >= total) return { skill, level }
+        const x = items[pos++]!
+        seen.add(x.answer.exerciseId)
+        const right = x.answer.correct && !x.answer.dontKnow
+        results.push(right)
+        level = Math.max(0, Math.min(top, level + (right ? 1 : -1)))
+      }
+    }
+    return null
   }
 
   for (const answer of answers) {
@@ -472,9 +539,24 @@ function bankStep(bundle: CourseBundle, answers: readonly PlacementAnswer[], see
   const run = bankRun(bundle, answers, opts.followUp === true)
   const total = run.asked.size
   const maxQuestions = run.cfg.max + (opts.followUp ? run.cfg.followUp : 0)
-  const next = run.next ? (bankQueue(bundle, run.next.level, seed).find((id) => !run.asked.has(id)) ?? null) : null
+  const queue = run.next?.skill ? skillQueue(bundle, run.cfg, run.next.skill, run.next.level, seed) : run.next ? bankQueue(bundle, run.next.level, seed) : []
+  const next = run.next ? (queue.find((id) => !run.asked.has(id)) ?? null) : null
   if (!next || !run.next) return { done: true, next: null, probing: null, asked: total, maxQuestions }
-  return { done: false, next, probing: run.next.level, asked: total, maxQuestions, phase: run.next.phase }
+  return { done: false, next, probing: run.next.level, asked: total, maxQuestions, phase: run.next.phase, ...(run.next.skill ? { skill: run.next.skill } : {}) }
+}
+
+// Phase 2: the skill's questions for this seed — the target level first (typical diff 2, then hard, then easy), then
+// the nearest levels (below first on a tie).
+function skillQueue(bundle: CourseBundle, cfg: BankCfg, skill: string, level: Level, seed: Seed): string[] {
+  const bank = bundle.placement.bank ?? {}
+  const target = cfg.ladder.indexOf(level)
+  const order = shuffle(cfg.bySkill.get(skill) ?? [], rng(`placement-skill|${skill}|${seed}`))
+  const diffRank = (d: number) => (d === 2 ? 0 : d === 3 ? 1 : 2)
+  const key = (id: string) => {
+    const i = cfg.ladder.indexOf(bank[id]!.level)
+    return Math.abs(i - target) * 2 + (i > target ? 1 : 0)
+  }
+  return order.map((id, n) => ({ id, n })).sort((a, b) => key(a.id) - key(b.id) || diffRank(bank[a.id]!.diff) - diffRank(bank[b.id]!.diff) || a.n - b.n).map((x) => x.id)
 }
 
 // A level's questions for this seed, ordered so that every block of `perLevel` mixes the skills (shuffled order,
@@ -483,7 +565,7 @@ function bankQueue(bundle: CourseBundle, level: Level, seed: Seed): string[] {
   const bank = bundle.placement.bank ?? {}
   const rest = shuffle(bundle.placement.pool[level] ?? [], rng(`placement|${level}|${seed}`)).filter((id) => bank[id])
   const skills = shuffle(
-    PLACEMENT_SKILLS.filter((s) => rest.some((id) => bank[id]!.skill === s)),
+    measuredSkills(bundle).filter((s) => rest.some((id) => bank[id]!.skill === s)),
     rng(`placement-skills|${level}|${seed}`),
   )
   const out: string[] = []
@@ -511,6 +593,8 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
   const run = bankRun(bundle, answers, true)
   const { cfg, tallies } = run
   const lowestIsCourseLowest = cfg.ladder[0] === courseLevels(bundle.course)[0]
+  // With the per-skill phase the follow-up comes after it, so a followed-up result re-reads all tallies — the phase-2
+  // answers (mostly near the overall level) weigh in on the overall level too. Kept on purpose: more evidence there.
   const followed = run.follow !== null && run.asked.size > run.follow.start
   let outcome: Outcome
   let confidence: PlacementConfidence
@@ -534,11 +618,14 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
   else level = lowest
   // a language level is studied in its own section (like the manual «Впевнено говорю · B1»); planned → the highest
   // level that has lessons
-  const start = sectionForLevel(bundle, level)
+  // a programming course with skills isn't split by level: the path starts at the first topic the learner doesn't
+  // know yet (src/course/select/path.ts → known topics), so the start is the first active section
+  const bySkills = hasSkillModel(bundle) && courseLadder(bundle.course) !== 'cefr'
+  const start = bySkills ? firstPathSection(bundle) : sectionForLevel(bundle, level)
   const startSec = bundle.sections[start.index]
-  const lessonsReady = bundle.sections.some((s) => s.kind === 'path' && s.status !== 'planned' && levelRank(s.minLevel) <= levelRank(level) && levelRank(level) <= levelRank(s.level))
+  const lessonsReady = bySkills || bundle.sections.some((s) => s.kind === 'path' && s.status !== 'planned' && levelRank(s.minLevel) <= levelRank(level) && levelRank(level) <= levelRank(s.level))
   const levels = courseLevels(bundle.course)
-  const skills = estimateSkills(run.items, level, levels)
+  const skills = estimateSkills(run.items, level, levels, measuredSkills(bundle))
   const perLevel = byLevel((l): LevelTally => {
     const t = tallies[l]
     return { asked: t.asked, correct: t.correct, dontKnow: t.dontKnow, hardAsked: t.hardAsked, hardCorrect: t.hardCorrect }
@@ -556,7 +643,14 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
     ielts: ieltsBand(level),
     lessonsReady,
     startLevel: startSec?.level ?? level,
+    ...(cfg.perSkill ? { perSkill: true } : {}),
   }
+}
+
+// Skills the bank mixes and the result reports: the course's measured skills; a course without a skill model keeps
+// the language four (bank items default to grammar / listening).
+function measuredSkills(bundle: CourseBundle): string[] {
+  return hasSkillModel(bundle) ? placementSkillIds(bundle) : [...PLACEMENT_SKILLS]
 }
 
 // ── Skills ──
@@ -571,14 +665,14 @@ const SKILL_MARGIN = 0.35
 
 const sigmoid = (x: number): number => 1 / (1 + Math.exp(-x))
 
-function estimateSkills(items: BankRun['items'], overall: Level, levels: readonly Level[]): Pick<PlacementResult, 'skills' | 'strong' | 'weak'> {
+function estimateSkills(items: BankRun['items'], overall: Level, levels: readonly Level[], measured: readonly string[]): Pick<PlacementResult, 'skills' | 'strong' | 'weak'> {
   const n = levels.length
   const mid = levels.indexOf(overall) + 0.5
   const grid: number[] = []
   for (let x = -1; x <= n + 1e-9; x += 0.05) grid.push(x)
-  const skills: Partial<Record<PlacementSkill, SkillEstimate>> = {}
-  const shift: Array<{ skill: PlacementSkill; d: number }> = []
-  for (const skill of PLACEMENT_SKILLS) {
+  const skills: Partial<Record<string, SkillEstimate>> = {}
+  const shift: Array<{ skill: string; d: number }> = []
+  for (const skill of measured) {
     const mine = items.filter((x) => x.item.skill === skill)
     const asked = mine.length
     const correct = mine.filter((x) => x.answer.correct && !x.answer.dontKnow).length
@@ -619,6 +713,20 @@ function estimateSkills(items: BankRun['items'], overall: Level, levels: readonl
 export function startSection(bundle: CourseBundle, level: Level): { index: number; id: string | null } {
   const path = bundle.sections.filter((s) => s.kind === 'path' && s.status !== 'planned')
   const target = path.find((s) => levelRank(s.level) > levelRank(level)) ?? path.at(-1) ?? bundle.sections[0]
+  return target ? { index: target.index, id: target.id } : { index: 0, id: null }
+}
+
+// A manual start without the test: any level of the course; a programming course with skills offers only «Я новачок»
+// (the lowest level) — a higher self-assessed level would skip topics the test never checked.
+export function manualStartAllowed(bundle: CourseBundle, level: Level): boolean {
+  const levels = courseLevels(bundle.course)
+  if (hasSkillModel(bundle) && courseLadder(bundle.course) !== 'cefr') return level === levels[0]
+  return levels.includes(level)
+}
+
+// The first active path section (courses with skills: known topics, not sections, decide what to skip).
+export function firstPathSection(bundle: CourseBundle): { index: number; id: string | null } {
+  const target = bundle.sections.find((s) => s.kind === 'path' && s.status !== 'planned') ?? bundle.sections[0]
   return target ? { index: target.index, id: target.id } : { index: 0, id: null }
 }
 

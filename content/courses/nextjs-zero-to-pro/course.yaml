@@ -1,0 +1,73 @@
+# Levelup course manifest — docs/COURSE_FORMAT.md, plan — docs/NEXTJS_SYLLABUS.md
+# Official course: `from:` resolves against the shared Guides/ folder. Stage 1: only the model topic is active.
+id: nextjs-zero-to-pro
+version: 0.1.0
+title: Next.js Zero → Pro
+subtitle: Від першої сторінки до кешування, безпеки, продуктивності й архітектури на Next.js 16
+description: >-
+  Повний шлях у Next.js App Router: React-мінімум, маршрутизація, Server Components, дані й кеш, Server Actions,
+  безпека, SEO, продуктивність, тести, деплой і архітектура — з лайвкодингом, проєктами і банком питань зі співбесід.
+subject: programming
+kind: programming
+practice: [path, cards, tests, tasks, mistakes, roadmap]
+theory: [Next.js Start, Next.js]
+language: uk
+sourceLanguage: uk
+languages: [uk, en]
+icon: si:SiNextdotjs
+color: '#000000'
+levels: [noob, junior, middle, senior, god]
+tags: [nextjs, react, frontend, fullstack, interview, livecoding]
+authors: [{ name: Yaroslav Tsarenko }]
+license: proprietary
+
+# Skills — course data (NEXTJS_SYLLABUS §1, §7): topics carry `skill:`, exercises inherit it.
+skills:
+  - { id: foundations, title: Фундамент, description: 'HTTP і браузер, React-мінімум, TypeScript-мінімум' }
+  - { id: routing, title: Маршрутизація, description: 'Сегменти, layouts, dynamic, parallel та intercepting routes, навігація, proxy.ts' }
+  - { id: rendering, title: Рендеринг і RSC, description: 'Server і Client Components, RSC payload, static/dynamic, streaming, PPR, hydration' }
+  - { id: data, title: Дані й кеш, description: 'Отримання даних, водоспади, Cache Components, ревалідація, ISR, Route Handlers, БД' }
+  - { id: mutations, title: Мутації й форми, description: 'Server Actions, useActionState, useOptimistic, валідація, файли' }
+  - { id: auth-security, title: Auth і безпека, description: 'Сесії, автентифікація, авторизація, DAL, секрети, CSP, OWASP' }
+  - { id: ui, title: 'UI, SEO, a11y', description: 'Стилі, next/image, next/font, metadata, SEO, i18n, доступність' }
+  - { id: performance, title: Продуктивність, description: 'Core Web Vitals, бандл, lazy loading, React Compiler, памʼять' }
+  - { id: testing, title: Тестування, description: 'Vitest, Testing Library, MSW, Playwright, CI' }
+  - { id: deploy-ops, title: Деплой і експлуатація, description: 'Vercel, self-hosting, Docker, instrumentation, OpenTelemetry' }
+  - { id: architecture, title: Архітектура, description: 'Великі проєкти, монорепо, multi-zones, feature flags, міграції, AI' }
+
+sections:
+  - { id: basics, skill: foundations, title: Перед стартом, icon: px:sprout, from: Next.js Start, chapters: 1-4, level: noob,
+      description: 'Веб, React і TypeScript рівно стільки, скільки треба для Next.js. Знаєш — склади екзамен і перескоч.' }
+  - { id: start, title: Старт з нуля, icon: px:rocket, from: Next.js Start, chapters: 5-12, level: noob,
+      description: 'Перший застосунок на App Router: сторінки, навігація, стилі, дані, форма, деплой.' }
+  - { id: routing, skill: routing, title: Маршрутизація, icon: px:map, from: Next.js, chapters: 1-6,
+      description: 'Сегменти, layouts, dynamic, parallel та intercepting routes, навігація, proxy.ts.' }
+  - { id: rendering, skill: rendering, title: Рендеринг і RSC, icon: px:microscope, from: Next.js, chapters: 7-13,
+      description: 'Server і Client Components, RSC payload, static і dynamic, streaming, PPR, помилки.' }
+  - { id: data, skill: data, title: Дані й кеш, icon: px:database, from: Next.js, chapters: 14-20,
+      description: 'Дані на сервері, водоспади, Cache Components, ревалідація, ISR, Route Handlers, БД.' }
+  - { id: mutations, skill: mutations, title: Мутації й форми, icon: px:clipboard, from: Next.js, chapters: 21-25, status: planned,
+      description: 'Server Actions, форми, валідація, optimistic UI, файли.' }
+  - { id: auth-security, skill: auth-security, title: Auth і безпека, icon: px:lock, from: Next.js, chapters: 26-30, status: planned,
+      description: 'Сесії, автентифікація, авторизація, безпека даних, CSP і OWASP.' }
+  - { id: ui, skill: ui, title: 'UI, SEO і доступність', icon: px:image, from: Next.js, chapters: 31-35, status: planned,
+      description: 'Стилі, зображення, шрифти, metadata, SEO, i18n, a11y, View Transitions.' }
+  - { id: performance, skill: performance, title: Продуктивність, icon: px:bolt, from: Next.js, chapters: 36-39, status: planned,
+      description: 'Core Web Vitals, бандл, React Compiler, памʼять і білд.' }
+  - { id: testing, skill: testing, title: Тестування, icon: px:check, from: Next.js, chapters: 40-41, status: planned,
+      description: 'Unit, компонентні й e2e-тести, MSW, CI.' }
+  - { id: deploy-ops, skill: deploy-ops, title: Деплой і експлуатація, icon: px:globe, from: Next.js, chapters: 42-44, status: planned,
+      description: 'Vercel, self-hosting і Docker, observability.' }
+  - { id: architecture, skill: architecture, title: Архітектура і масштаб, icon: px:bricks, from: Next.js, chapters: 45-49, status: planned,
+      description: 'Структура великих застосунків, монорепо, feature flags, міграції, AI.' }
+  - { id: livecoding, title: Лайвкодинг, icon: px:belt, from: Next.js Katas, status: planned,
+      description: 'Задачі з автотестами, які дають на співбесідах.' }
+  - { id: projects, title: Проєкти, icon: px:hammer, from: Next.js Projects, status: planned,
+      description: 'Шість застосунків крок за кроком: блог, магазин, SaaS, чат, AI, документація.' }
+  - { id: interview, title: Співбесіда, icon: px:mic, from: Next.js Interview Q&A, kind: practice, status: planned,
+      description: 'Банк питань від Junior до Lead — практика без теорії.' }
+
+exams:
+  topic: { questions: 10, pass: 0.8 }
+  section: { questions: 25, pass: 0.8, testOut: true }
+placement: { enabled: true, maxQuestions: 40, perLevel: 3, perSkill: true, skills: [foundations, routing, rendering, data] }

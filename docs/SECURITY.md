@@ -173,6 +173,7 @@ Status: **Fixed** means fixed in this change. **Planned** is deferred to the aut
   - The worker is served from `GET /runner/worker.js` with its **own** CSP: `default-src 'none'; script-src 'unsafe-eval'`. Learner code can `eval`, but the browser blocks all fetches, imports, fonts and sockets.
   - The page CSP uses `worker-src 'self'` (no `blob:`).
   - The delete-list now also covers `fetchLater`, `FontFace`, `fonts` and `cookieStore`.
+  - TypeScript tasks: the type stripper (sucrase, pure JS, no WASM) is pre-bundled into the worker script itself (`src/ui/code/ts-strip.bundle.generated.ts`, built by `pnpm runner:build`), so the CSP is unchanged: no `importScripts`, no network. It is closure-scoped (not a global learner code can reach) and is never part of a page bundle.
 - **Verified in Chromium:** `import('/api/counts')` and `import('https://example.com/x.js')` were refused by the worker policy, and `fetch`, `XMLHttpRequest`, `indexedDB` and `importScripts` are `undefined`.
 - **Planned:** opaque-origin isolation for untrusted courses (Part 3 §4).
 

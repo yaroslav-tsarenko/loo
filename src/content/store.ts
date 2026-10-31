@@ -7,6 +7,9 @@ import type { Root } from 'mdast'
 import { unitCalloutTypes } from './blocks/registry'
 import { defaultVaultConfig, type VaultConfig } from './config'
 import { buildGuide, chapterIdFor, guideIdFor, pickIndex, type ParsedFile } from './discover/guide'
+import { titleFrom } from './discover/names'
+import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from './i18n/files'
+import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import { LinkIndex } from './links'
 import type { Chapter, ContentIssue, Guide, Heading, LearningUnit } from './model'
 import { extractFile, QA_FILE, type ExtractResult } from './parse/extract'
@@ -31,6 +34,10 @@ export interface ContentSnapshot {
   // guides, search, practice or article checks (docs/LANGUAGE_COURSE.md «Банк вступного тесту»)
   placementUnits: Map<string, LearningUnit>
   placementChapters: Map<string, Chapter>
+  // translations (`<Guide>/_i18n/<lang>/*.md`, docs/COURSE_FORMAT.md «Переклад курсів (i18n)»): source chapter id →
+  // language → the translation's metadata. Never chapters, units, search, feed or links — the bodies are parsed on
+  // demand (ContentStore.localizedDocument) and merged into the source structure.
+  translations: Map<string, Map<string, TranslationInfo>>
   backlinks: Map<string, string[]>
   links: LinkIndex
   issues: ContentIssue[]
@@ -81,6 +88,13 @@ export interface ChapterDocument {
   headings: Heading[]
 }
 
+export interface LocalizedChapterDocument extends ChapterDocument, Omit<LocalizedDocument, 'root' | 'headings'> {
+  lang: string
+  title: string
+  // the chapter's reels in `lang`, by SOURCE reel id (matched by position — reel ids hash their title)
+  reels: Map<string, Reel>
+}
+
 async function readIndexSlug(file: VaultFile | null): Promise<string | null> {
   if (!file) return null
   return scanFile(await readText(file.absolute), UNIT_TYPES).meta.slug ?? null
@@ -91,13 +105,22 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   const listing = listed ?? (await listVault(config.vaultPath, config.guidesDir))
   const issues: ContentIssue[] = []
   const guideFiles = new Map<string, VaultFile[]>()
+  const i18nFiles: VaultFile[] = []
+  const lockFiles = new Map<string, VaultFile>()
   for (const file of listing.files) {
+    if (isI18nFile(file)) {
+      if (file.ext === '.md') i18nFiles.push(file)
+      else if (file.path.endsWith('.lock.json')) lockFiles.set(file.path, file)
+      continue
+    }
     const list = guideFiles.get(file.guideDir)
     if (list) list.push(file)
     else guideFiles.set(file.guideDir, [file])
   }
-  const mdPaths = listing.files.filter((f) => f.ext === '.md').map((f) => f.path)
-  const links = new LinkIndex(listing.notes, mdPaths)
+  // translations are not notes: a wiki-link by file name must keep resolving to the source topic
+  const i18nPaths = new Set(listing.files.filter(isI18nFile).map((f) => f.path))
+  const mdPaths = listing.files.filter((f) => f.ext === '.md' && !i18nPaths.has(f.path)).map((f) => f.path)
+  const links = new LinkIndex(i18nPaths.size > 0 ? listing.notes.filter((n) => !i18nPaths.has(n)) : listing.notes, mdPaths)
   const seenPaths = new Set(listing.files.map((f) => f.path))
   for (const key of cache.keys()) if (!seenPaths.has(key)) cache.delete(key)
 
@@ -176,6 +199,7 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   }
   guides.sort((a, b) => (a.order === b.order ? a.title.localeCompare(b.title, 'uk') : a.order - b.order))
   const chapterByPath = new Map([...chapters.values()].map((c) => [c.path, c]))
+  const translations = await loadTranslations(i18nFiles, lockFiles, chapters, chapterByPath, config.guidesDir, issues)
   const unitsByChapter = new Map<string, LearningUnit[]>()
   for (const unit of units.values()) {
     const list = unitsByChapter.get(unit.chapterId)
@@ -210,6 +234,7 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
     reels,
     placementUnits,
     placementChapters,
+    translations,
     backlinks,
     links,
     issues,
@@ -218,12 +243,66 @@ export async function loadSnapshot(config: VaultConfig, cache: Map<string, Cache
   }
 }
 
+// A translation belongs to the source topic its frontmatter names (`source:`, else `id:`), or — without either — to
+// the topic with the same file name next to `_i18n/`.
+async function readLock(file: VaultFile | undefined, issues: ContentIssue[]): Promise<Record<string, string> | null> {
+  if (!file) return null
+  try {
+    const data = JSON.parse(await readText(file.absolute)) as { segments?: unknown }
+    if (!data.segments || typeof data.segments !== 'object' || Array.isArray(data.segments)) throw new Error('немає segments')
+    return Object.fromEntries(Object.entries(data.segments as Record<string, unknown>).filter((e): e is [string, string] => typeof e[1] === 'string'))
+  } catch (error) {
+    issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `Lock не прочитано: ${error instanceof Error ? error.message : String(error)}` })
+    return null
+  }
+}
+
+async function loadTranslations(files: readonly VaultFile[], locks: ReadonlyMap<string, VaultFile>, chapters: Map<string, Chapter>, byPath: Map<string, Chapter>, guidesDir: string, issues: ContentIssue[]): Promise<Map<string, Map<string, TranslationInfo>>> {
+  const out = new Map<string, Map<string, TranslationInfo>>()
+  for (const file of files) {
+    const lang = translationLang(file)
+    if (!lang) {
+      issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: 'Переклад має лежати в _i18n/<мова>/<файл>.md' })
+      continue
+    }
+    const info = scanFile(await readText(file.absolute), UNIT_TYPES)
+    const ref = info.meta.source ?? info.meta.id
+    const rest = file.relInGuide.split('/').slice(2).join('/')
+    const chapter = (ref ? chapters.get(ref) : undefined) ?? byPath.get(`${guidesDir}/${file.guideDir}/${rest}`)
+    if (!chapter) {
+      issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `Переклад без джерела: теми «${ref ?? rest}» немає в посібнику` })
+      continue
+    }
+    if (info.meta.lang && info.meta.lang !== lang) issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `lang: ${info.meta.lang}, а тека _i18n/${lang}/` })
+    const perLang = out.get(chapter.id) ?? new Map<string, TranslationInfo>()
+    if (perLang.has(lang)) {
+      issues.push({ severity: 'warning', code: 'i18n', path: file.path, message: `Другий переклад ${lang} теми ${chapter.id} (перший — ${perLang.get(lang)!.path})` })
+      continue
+    }
+    const lockFile = locks.get(lockPathFor(file.path))
+    perLang.set(lang, {
+      lang,
+      lock: await readLock(lockFile, issues),
+      lockMtimeMs: lockFile?.mtimeMs ?? 0,
+      chapterId: chapter.id,
+      path: file.path,
+      file,
+      title: info.meta.title ?? titleFrom(info.h1, file.name, file.guideDir),
+      slug: info.meta.slug ?? null,
+      description: info.meta.description ?? null,
+      mtimeMs: file.mtimeMs,
+    })
+    out.set(chapter.id, perLang)
+  }
+  return out
+}
+
 // ── Prebuilt snapshot (docs/PERFORMANCE.md) ───────────────────────────────────────────────────────────────────
 // Parsing the vault takes seconds; a deployment's content never changes after its build, so the build stores the
 // parsed snapshot (pnpm content:snapshot → <vault>/.snapshot/guides.v8.br, v8-serialized + brotli) and a cold server
 // loads it in a few hundred ms. It is only used when the listing (paths + sizes) and the Node/V8 version match.
 
-const PREBUILT_FORMAT = 2
+const PREBUILT_FORMAT = 3
 
 interface Prebuilt {
   format: number
@@ -281,6 +360,7 @@ export class ContentStore {
   private config: VaultConfig
   private readonly cache = new Map<string, CacheEntry>()
   private readonly documents = new Map<string, { mtimeMs: number; result: ExtractResult }>()
+  private readonly localized = new Map<string, { key: string; doc: LocalizedChapterDocument }>()
   private snapshot: ContentSnapshot | null = null
   private loading: Promise<ContentSnapshot> | null = null
   private version = 0
@@ -328,6 +408,54 @@ export class ContentStore {
     return { chapter, root: result.root, headings: result.headings }
   }
 
+  // The topic in `lang` (a REVIEWED translation exists — snapshot.translations with a lock): source structure,
+  // translated segments whose source still hashes to the lock, the rest in the source language with `label`
+  // («not translated yet» in the reader's locale `labelLang`). null — show the source page (no lock, headings that
+  // don't line up, unreadable files).
+  async localizedDocument(chapterId: string, lang: string, opts: { sourceLang: string; label: string; labelLang: string }): Promise<LocalizedChapterDocument | null> {
+    const snapshot = await this.get()
+    const info = snapshot.translations.get(chapterId)?.get(lang)
+    if (!info?.lock) return null
+    const source = await this.document(chapterId)
+    if (!source) return null
+    const key = `${source.chapter.mtimeMs}|${info.mtimeMs}|${info.lockMtimeMs}|${opts.sourceLang}|${opts.labelLang}|${opts.label}`
+    const memo = `${chapterId}|${lang}`
+    const hit = this.localized.get(memo)
+    if (hit && hit.key === key) return hit.doc
+    const file = this.prebuiltFiles?.get(info.path) ?? info.file
+    const sourceFile = this.cache.get(source.chapter.path)?.parsed.file ?? this.prebuiltFiles?.get(source.chapter.path)
+    let translated: ExtractResult
+    let sourceText: string
+    try {
+      if (!sourceFile) return null
+      ;[translated, sourceText] = await Promise.all([readText(file.absolute).then((text) => fullParse(text, file, source.chapter.guideId, chapterId)), readText(sourceFile.absolute)])
+    } catch {
+      return null
+    }
+    const units = new Map((snapshot.unitsByChapter.get(chapterId) ?? []).map((u) => [u.id, u]))
+    const selfName = path.basename(source.chapter.path, '.md').normalize('NFC')
+    const merged = localizeDocument(
+      { root: source.root, headings: source.headings, units },
+      { root: translated.root, headings: translated.headings, units: new Map(translated.units.map((u) => [u.id, u])) },
+      { ...opts, lock: info.lock, sourceText, isSelf: (target) => (target.split('/').at(-1) ?? target).replace(/\.md$/i, '').normalize('NFC') === selfName },
+    )
+    if (!merged) return null
+    // reels in page order (a fallback block holds the source's), matched to the source reels by position
+    const srcReels = snapshot.reels.filter((r) => r.chapterId === chapterId)
+    const unwrapped: Root = { type: 'root', children: merged.root.children.flatMap((n) => (n.type === 'i18nFallback' ? (n.children as Root['children']) : [n])) }
+    const trReels = collectReels(unwrapped, source.chapter.guideId, chapterId)
+    const reels = new Map<string, Reel>(trReels.length === srcReels.length ? srcReels.map((r, i) => [r.id, { ...trReels[i]!, id: r.id, sectionSlug: r.sectionSlug }]) : [])
+    const doc: LocalizedChapterDocument = { chapter: source.chapter, lang, title: info.title, ...merged, reels }
+    this.localized.delete(memo)
+    this.localized.set(memo, { key, doc })
+    while (this.localized.size > 40) {
+      const oldest = this.localized.keys().next().value
+      if (oldest === undefined) break
+      this.localized.delete(oldest)
+    }
+    return doc
+  }
+
   async get(): Promise<ContentSnapshot> {
     if (this.snapshot) return this.snapshot
     if (!this.loading) this.loading = this.reload([])
@@ -339,6 +467,7 @@ export class ContentStore {
     this.config = config
     this.cache.clear()
     this.documents.clear()
+    this.localized.clear()
     await this.stopWatch?.()
     this.stopWatch = null
     this.snapshot = null

@@ -31,6 +31,7 @@ import { ProgressBar } from '@/ui/design/ProgressBar'
 import { LooCharacter } from '@/ui/game/LooCharacter'
 import { Icon } from '@/ui/icons/Icon'
 import { SkillLevels } from '@/ui/courses/SkillLevels'
+import { skillCard } from '@/ui/courses/skill-rows'
 import { Heatmap } from '@/ui/profile/Heatmap'
 import { topicAnchor } from '@/ui/routes'
 import { BarList, ChartCard, DayColumns, SpeedLine } from '@/ui/stats/Charts'
@@ -449,10 +450,8 @@ export default async function ProfilePage() {
         <h3 className="st-h3">{t('stats.prefs.level')}</h3>
         {skills ? (
           <SkillLevels
-            rows={skills.view.skills.map((v) => ({ skill: v.skill, level: v.level }))}
-            overall={skills.view.overall}
+            {...skillCard(skills.bundle, skills.view, skills.levels)}
             ielts={skills.view.ielts?.label ?? null}
-            note={skills.view.answers > 0 ? t('skills.note') : t('skills.start')}
           />
         ) : null}
         <ul className="st-pref-courses">

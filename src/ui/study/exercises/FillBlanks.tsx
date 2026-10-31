@@ -1,5 +1,6 @@
 'use client'
 
+import { useT } from '@/i18n/react'
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { blankMatches } from '@/content/blocks/quiz/exercise'
 import type { FillView } from '@/content/blocks/quiz/view'
@@ -20,6 +21,7 @@ interface Props {
 
 // Blanks inside code: free inputs, or a word bank of chips when the quiz has the `bank` flag.
 export function FillBlanks({ exercise, checked, answers, variant, onSubmit, actionsSlot }: Props) {
+  const t = useT()
   const blanks = exercise.segments.flatMap((s) => (s.kind === 'blank' ? [s] : []))
   const [values, setValues] = useState<Record<string, string>>({})
   // bank mode: blank id → chip index
@@ -161,7 +163,7 @@ export function FillBlanks({ exercise, checked, answers, variant, onSubmit, acti
         <ActionBar slot={actionsSlot} className="exercise-actions">
           {!filled ? <span className="quiz-hint">Лишилось пропусків: {blanks.filter((b) => !valueOf(b.id).trim()).length}</span> : null}
           <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : 'sm'} disabled={!filled} onClick={submit}>
-            {submitLabel(variant)}
+            {submitLabel(variant, t)}
           </Button>
         </ActionBar>
       ) : null}

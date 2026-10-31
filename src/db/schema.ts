@@ -344,10 +344,10 @@ export interface EnrollmentPlacement {
   at: number
   // true when the learner chose «start from zero» instead of taking the test
   skipped?: boolean
-  // bank mode (language courses): result confidence, the level per skill (grammar / vocabulary / reading /
-  // listening → CEFR) and the approximate IELTS band — kept for adaptive practice later (jsonb, no migration)
+  // bank mode: result confidence, the level per measured skill (language: grammar / vocabulary / reading / listening →
+  // CEFR; courses with course.skills: their ids → noob…god) and the approximate IELTS band (jsonb, no migration)
   confidence?: 'high' | 'medium' | 'low'
-  skills?: Partial<Record<'grammar' | 'vocabulary' | 'reading' | 'listening', { level: string; asked: number; correct: number; measured: boolean; ielts: string | null }>>
+  skills?: Partial<Record<string, { level: string; asked: number; correct: number; measured: boolean; ielts: string | null }>>
   ielts?: string | null
   followUp?: boolean
   // rank credit for the verified level (src/game/placement-credit.ts): milestones counted by rankInput, XP in xp_ledger

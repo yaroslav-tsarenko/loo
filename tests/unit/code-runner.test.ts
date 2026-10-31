@@ -1,6 +1,7 @@
 import { loadBindings, minify } from 'next/dist/build/swc/index.js'
 import { describe, expect, it } from 'vitest'
 import { runSuite, type HarnessHost, type RunEvent, type RunReport } from '@/ui/code/harness'
+import { HARNESS_UK } from '@/ui/code/harness-text'
 
 const host: HarnessHost = {
   setTimeout: (fn, ms) => setTimeout(fn, ms),
@@ -149,7 +150,8 @@ describe('worker source', () => {
     await loadBindings()
     const { code } = await minify(`globalThis.run = ${runSuite.toString()}`, { compress: true, mangle: true })
     const factory = new Function(`${code.replace('globalThis.run=', 'const run=')}; return run`) as () => typeof runSuite
-    const report = await factory()('const sq = (x) => x * x', 'test("sq", () => expect(sq(3)).toBe(9))', () => {}, host)
+    // the worker always passes the texts (the default would reference a module binding)
+    const report = await factory()('const sq = (x) => x * x', 'test("sq", () => expect(sq(3)).toBe(9))', () => {}, host, 1500, HARNESS_UK)
     expect(report.status).toBe('passed')
   })
 })

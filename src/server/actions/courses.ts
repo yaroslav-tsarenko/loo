@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import type { ReactNode } from 'react'
-import { courseLevels, LEVELS, levelRank, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult, type PlacementSkill } from '@/course'
+import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
 import { quizKey } from '@/content/blocks/quiz/view'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
@@ -147,9 +147,12 @@ export interface PlacementResultView {
   // bank mode (language courses)
   confidence: PlacementConfidence | null
   followUp: boolean
-  skills: Partial<Record<PlacementSkill, PlacementSkillView>> | null
-  strong: PlacementSkill[]
-  weak: PlacementSkill[]
+  // per measured skill: language — grammar / vocabulary / reading / listening; courses with skills — their ids
+  skills: Partial<Record<string, PlacementSkillView>> | null
+  strong: string[]
+  weak: string[]
+  // the per-skill phase ran (course.yaml `placement.perSkill`)
+  perSkill: boolean
   ielts: string | null
   lessonsReady: boolean
   startLevel: Level | null
@@ -171,7 +174,7 @@ export interface PlacementStepResult {
   next: string | null
   asked: number
   maxQuestions: number
-  phase: 'main' | 'follow-up' | null
+  phase: 'main' | 'skills' | 'follow-up' | null
   // the verdict of the last answer, graded on the server
   lastCorrect: boolean | null
   result: PlacementResultView | null
@@ -210,7 +213,7 @@ function startChoices(bundle: CourseBundle, r: PlacementResult): PlacementResult
 
 function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultView {
   const skills: PlacementResultView['skills'] = r.skills ? {} : null
-  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k as PlacementSkill] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.ielts?.label ?? null }
+  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.ielts?.label ?? null }
   return {
     level: r.level,
     sectionIndex: r.sectionIndex,
@@ -224,6 +227,7 @@ function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultVi
     ielts: r.ielts?.label ?? null,
     lessonsReady: r.lessonsReady ?? true,
     startLevel: r.startLevel ?? null,
+    perSkill: r.perSkill ?? false,
     starts: startChoices(bundle, r),
   }
 }
@@ -332,7 +336,8 @@ export async function startAtLevel(form: FormData): Promise<void> {
   await limitUser(user.id, 'placement')
   const bundle = await getCourse(input.course)
   if (!bundle) throw new Error('Unknown course')
-  if (!courseLevels(bundle.course).includes(input.level)) throw new Error('Unknown level')
+  // programming courses with skills: only «Я новачок» (the lowest level)
+  if (!manualStartAllowed(bundle, input.level)) throw new Error('Unknown level')
   const { index, id } = sectionForLevel(bundle, input.level)
   await savePlacement(input.course, { level: input.level, sectionIndex: index, sectionId: id, confident: false, asked: 0, at: Date.now(), skipped: true }, input.level)
   redirect(safeRedirectPath(input.next ?? '/path'))

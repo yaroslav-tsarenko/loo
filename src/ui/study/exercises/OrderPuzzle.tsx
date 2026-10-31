@@ -1,5 +1,6 @@
 'use client'
 
+import { useT } from '@/i18n/react'
 import { useEffect, useState, type KeyboardEvent } from 'react'
 import { PiArrowCounterClockwiseBold, PiDotsSixVerticalBold } from 'react-icons/pi'
 import type { OrderView } from '@/content/blocks/quiz/view'
@@ -21,6 +22,7 @@ interface Props {
 
 // Parsons problem: tap a piece in the pool to append it, tap a placed piece to send it back.
 export function OrderPuzzle({ exercise, checked, want, variant, onSubmit, actionsSlot }: Props) {
+  const t = useT()
   const [answer, setAnswer] = useState<string[]>([])
   const byId = new Map(exercise.pieces.map((p) => [p.id, p]))
   const pool = exercise.pieces.filter((p) => !answer.includes(p.id))
@@ -102,7 +104,7 @@ export function OrderPuzzle({ exercise, checked, want, variant, onSubmit, action
           <ActionBar slot={actionsSlot} className="exercise-actions">
             {answer.length > 0 ? <Button variant="ghost" size={actionsSlot ? 'lg' : 'sm'} icon={<PiArrowCounterClockwiseBold size={18} />} onClick={() => setAnswer([])} aria-label="Очистити" className="exercise-clear" /> : null}
             <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : 'sm'} disabled={answer.length === 0} onClick={submit}>
-              {submitLabel(variant)}
+              {submitLabel(variant, t)}
             </Button>
           </ActionBar>
         </>

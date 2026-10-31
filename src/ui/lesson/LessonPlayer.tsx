@@ -9,7 +9,8 @@ import { answerQuiz } from '@/server/actions/answers'
 import { completeLesson, startLesson } from '@/server/actions/lessons'
 import { buyItem } from '@/server/actions/shop'
 import { finishTask, rateFlashcard } from '@/server/actions/study'
-import { t } from '@/i18n'
+import type { MessageKey } from '@/i18n'
+import { useT } from '@/i18n/react'
 import { startTest, submitTest, type TestOutcome } from '@/server/actions/tests'
 import type { Effect, FlashRating } from '@/progress/types'
 import type { PlayerItem } from '@/server/services/lessons'
@@ -92,12 +93,13 @@ type Verdict = { correct: boolean; xp: number; quiz?: QuizVerdict } | null
 
 const xpOf = (effects: readonly Effect[]) => effects.reduce((s, e) => s + (e.type === 'xp' ? e.amount : 0), 0)
 
-const PRAISE = ['Чудово!', 'Так тримати!', 'Мегамозок!', 'Точно в ціль!', 'Бездоганно!', 'Ти машина!']
-const COMFORT = ['Не зовсім — повторимо в кінці уроку', 'Майже! Це питання повернеться', 'Помилка — це теж навчання']
-const MINUTE_FORMAT = (n: number) => `${n} хв`
+// praise / comfort lines: lesson.praise.0…5, lesson.comfort.0…2 (src/i18n)
+const PRAISE = 6
+const COMFORT = 3
 const PERCENT_FORMAT = (n: number) => `${n}%`
 
 function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: FlashRating, ms: number) => void; dock: Element | null }) {
+  const t = useT()
   const [open, setOpen] = useState(false)
   const started = useRef(0)
   const feedback = useFeedback()
@@ -126,7 +128,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
   return (
     <div className="lesson-card lesson-flash" data-open={open ? '' : undefined}>
       <Pill tone="violet" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
-        Пригадай
+        {t('lesson.recall')}
       </Pill>
       <div className="lesson-question">{item.question}</div>
       {open ? <div className="lesson-answer prose-flow">{item.answer}</div> : null}
@@ -135,7 +137,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
           <RateButtons onRate={rate} className="lesson-rate" />
         ) : (
           <Button variant="secondary" size="lg" block icon={<PiEyeFill size={20} />} onClick={reveal}>
-            Показати відповідь
+            {t('lesson.showAnswer')}
           </Button>
         )}
       </ActionBar>
@@ -144,6 +146,7 @@ function CardStep({ item, onRate, dock }: { item: FlashItem; onRate: (rating: Fl
 }
 
 function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabel, chapterHref, bonus, bucks }: { xp: number; correct: number; total: number; ms: number; bestCombo: number; streak: number | null; nextHref: string | null; nextLabel: string | null; chapterHref: string; bonus: number; bucks: number }) {
+  const t = useT()
   const feedback = useFeedback()
   const [shown, setShown] = useState({ xp: 0, accuracy: 0, minutes: 0 })
   const accuracy = total ? Math.round((correct / total) * 100) : 100
@@ -173,27 +176,27 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
         <Confetti trigger={accuracy >= 50 ? 1 : 0} count={perfect ? 140 : 80} />
       </div>
       <h1 className="lesson-summary-title" data-perfect={perfect ? '' : undefined}>
-        {perfect ? 'Бездоганний урок!' : 'Урок пройдено!'}
+        {perfect ? t('lesson.perfect') : t('lesson.done')}
       </h1>
-      <p className="lesson-summary-note">{bonus > 0 ? `Бонус за урок: +${bonus} XP` : 'Повтор теж прокачує памʼять'}</p>
+      <p className="lesson-summary-note">{bonus > 0 ? t('lesson.bonus', { xp: bonus }) : t('lesson.repeatNote')}</p>
       <dl className="lesson-stats">
         <div className="gstat" data-tone="yellow">
-          <dt>Усього XP</dt>
+          <dt>{t('lesson.totalXp')}</dt>
           <dd className="tabular">
             <GameIcon name="bolt" size={22} />
             <CountUp value={shown.xp} duration={900} />
           </dd>
         </div>
         <div className="gstat" data-tone={accuracy >= 70 ? 'green' : 'orange'}>
-          <dt>{perfect ? 'Ідеально' : 'Точність'}</dt>
+          <dt>{perfect ? t('lesson.ideal') : t('lesson.accuracy')}</dt>
           <dd className="tabular">
             <CountUp value={shown.accuracy} duration={900} format={PERCENT_FORMAT} />
           </dd>
         </div>
         <div className="gstat" data-tone="blue">
-          <dt>Час</dt>
+          <dt>{t('lesson.time')}</dt>
           <dd className="tabular">
-            <CountUp value={shown.minutes} duration={600} format={MINUTE_FORMAT} />
+            <CountUp value={shown.minutes} duration={600} format={(n: number) => t('lesson.minutes', { n })} />
           </dd>
         </div>
       </dl>
@@ -206,12 +209,12 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
           ) : null}
           {streak ? (
             <span className="lesson-summary-chip" data-tone="orange">
-              <StatChip kind="streak" value={streak} size="sm" /> днів поспіль
+              <StatChip kind="streak" value={streak} size="sm" /> {t('lesson.streakDays')}
             </span>
           ) : null}
           {bestCombo >= 3 ? (
             <span className="lesson-summary-chip" data-tone="red">
-              <GameIcon name="fire" size={20} /> Комбо ×{bestCombo}
+              <GameIcon name="fire" size={20} /> {t('lesson.combo', { n: bestCombo })}
             </span>
           ) : null}
         </div>
@@ -219,14 +222,14 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
       <div className="lesson-summary-actions">
         {nextHref ? (
           <Button href={nextHref} size="lg" block iconEnd={<PiArrowRightBold size={20} />}>
-            {nextLabel ?? 'Наступний урок'}
+            {nextLabel ?? t('lesson.next')}
           </Button>
         ) : null}
         <Button href="/path" variant={nextHref ? 'ghost' : 'primary'} size="lg" block icon={<PiMapTrifoldFill size={20} />}>
-          До карти
+          {t('lesson.toPath')}
         </Button>
         <Link href={chapterHref} className="lesson-summary-link">
-          <PiBookOpenTextFill aria-hidden="true" /> Перечитати теорію
+          <PiBookOpenTextFill aria-hidden="true" /> {t('lesson.reread')}
         </Link>
       </div>
     </div>
@@ -235,6 +238,7 @@ function Summary({ xp, correct, total, ms, bestCombo, streak, nextHref, nextLabe
 
 // No hearts left: practice («Робота над помилками») refills one per session, the shop refills all at once.
 function OutOfHearts({ hearts, bucks, practiceHref, backHref, onRefilled }: { hearts: HeartsInfo; bucks: number; practiceHref: string; backHref: string; onRefilled: (bucks: number) => void }) {
+  const t = useT()
   const now = useClock(30_000)
   const feedback = useFeedback()
   const [busy, setBusy] = useState(false)
@@ -266,8 +270,8 @@ function OutOfHearts({ hearts, bucks, practiceHref, backHref, onRefilled }: { he
       <h1 className="lesson-summary-title" id="hearts-out-title">
         {t('game.hearts.outTitle')}
       </h1>
-      <p className="lesson-summary-note">{hearts.nextAt && now > 0 ? t('game.hearts.outLead', { when: `через ${formatLeft(hearts.nextAt - now)}` }) : t('game.hearts.outLeadFull')}</p>
-      <div className="hearts-row" aria-label={`${hearts.hearts} з ${MAX_HEARTS}`}>
+      <p className="lesson-summary-note">{hearts.nextAt && now > 0 ? t('game.hearts.outLead', { when: t('lesson.inTime', { time: formatLeft(hearts.nextAt - now) }) }) : t('game.hearts.outLeadFull')}</p>
+      <div className="hearts-row" aria-label={t('lesson.ofTotal', { n: hearts.hearts, total: MAX_HEARTS })}>
         {Array.from({ length: MAX_HEARTS }, (_, i) => (
           <GameIcon key={i} name="heart" size={34} muted={i >= hearts.hearts} />
         ))}
@@ -295,6 +299,7 @@ function OutOfHearts({ hearts, bucks, practiceHref, backHref, onRefilled }: { he
 }
 
 function TestIntro({ test, title, icon, chapterTitle, busy, error, onStart }: { test: TestSpec; title: string; icon: string; chapterTitle: string; busy: boolean; error: string | null; onStart: () => void }) {
+  const t = useT()
   const exam = test.kind === 'section-exam'
   return (
     <div className="lesson-summary test-intro">
@@ -347,6 +352,7 @@ function TestIntro({ test, title, icon, chapterTitle, busy, error, onStart }: { 
 // Skip ahead (test-out of a level the learner already outgrew) or review the previous level — after a test, when the
 // per-skill estimate says so (src/course/select/skills.ts → levelSuggestion).
 function LevelOffer({ offer }: { offer: NonNullable<NonNullable<TestOutcome['skills']>['suggestion']> }) {
+  const t = useT()
   const skip = offer.kind === 'skip-ahead'
   return (
     <section className="level-offer" data-kind={offer.kind}>
@@ -360,6 +366,7 @@ function LevelOffer({ offer }: { offer: NonNullable<NonNullable<TestOutcome['ski
 }
 
 function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: TestSpec; outcome: TestOutcome; nextHref: string | null; nextLabel: string | null; onRetry: () => void }) {
+  const t = useT()
   const feedback = useFeedback()
   const exam = test.kind === 'section-exam'
   const pct = Math.round(outcome.score * 100)
@@ -402,17 +409,17 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
           </dd>
         </div>
       </dl>
-      <ol className="test-dots" aria-label="Відповіді по питаннях">
+      <ol className="test-dots" aria-label={t('lesson.answersByQuestion')}>
         {outcome.results.map((ok, i) => (
-          <li key={i} data-ok={ok ? '' : undefined} aria-label={`Питання ${i + 1}: ${ok ? 'правильно' : 'помилка'}`}>
+          <li key={i} data-ok={ok ? '' : undefined} aria-label={t(ok ? 'lesson.questionRight' : 'lesson.questionWrong', { n: i + 1 })}>
             {ok ? <PiCheckBold aria-hidden="true" /> : <PiXBold aria-hidden="true" />}
           </li>
         ))}
       </ol>
       {outcome.skills ? (
         <SkillLevels
-          rows={outcome.skills.changes.map((c) => ({ skill: c.skill, level: c.after, before: c.before, trend: c.trend }))}
-          overall={outcome.skills.overall}
+          rows={outcome.skills.changes.map((c) => ({ skill: c.skill, label: c.label, level: c.afterLabel, before: c.beforeLabel, trend: c.trend }))}
+          overall={outcome.skills.overallLabel}
           ielts={outcome.skills.ielts}
           note={t('skills.updated')}
         />
@@ -438,6 +445,7 @@ function TestSummary({ test, outcome, nextHref, nextLabel, onRetry }: { test: Te
 }
 
 export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref, items, nextHref, nextLabel = null, challenges, test, hearts: initialHearts, bucks: initialBucks, practiceHref }: Props) {
+  const t = useT()
   const feedback = useFeedback()
   const [begun, setBegun] = useState(!test)
   const [beginning, setBeginning] = useState(false)
@@ -500,7 +508,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
     } finally {
       setBeginning(false)
     }
-  }, [test])
+  }, [test, t])
 
   const step = queue[pos]
   const total = queue.length
@@ -569,7 +577,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
     const outcome = await completeLesson({ lessonId, sessionId: id })
     absorb(outcome.effects)
     setDone({ bonus: outcome.bonusXp, ms: Date.now() - started.current, bucks: outcome.bucks })
-  }, [lessonId, absorb, test])
+  }, [lessonId, absorb, test, t])
 
   const advance = useCallback(() => {
     setVerdict(null)
@@ -685,16 +693,16 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
     <div className="lesson">
       <header className="lesson-top">
         <IconButton
-          label="Вийти з уроку"
+          label={t('lesson.exit')}
           icon={<PiXBold size={24} />}
           className="lesson-close"
           onClick={() => {
-            const message = test ? t('tests.leave') : 'Вийти? Прогрес уроку не збережеться, але відповіді вже зараховано.'
+            const message = test ? t('tests.leave') : t('lesson.leave')
             if ((pos === 0 && !answered) || window.confirm(message)) router.push(test?.backHref ?? '/path')
           }}
         />
-        <ProgressBar value={progress} label="Прогрес уроку" size="lg" striped={combo >= 3} className="lesson-progress" />
-        <span ref={comboRef} className="lesson-combo tabular" data-hot={combo >= 3 ? '' : undefined} role="img" aria-label={`Комбо ${combo}`} title={`Комбо: ${combo} поспіль`}>
+        <ProgressBar value={progress} label={t('lesson.progress')} size="lg" striped={combo >= 3} className="lesson-progress" />
+        <span ref={comboRef} className="lesson-combo tabular" data-hot={combo >= 3 ? '' : undefined} role="img" aria-label={t('lesson.comboAria', { n: combo })} title={t('lesson.comboTitle', { n: combo })}>
           <GameIcon name="fire" size={22} muted={combo === 0} />
           {combo}
         </span>
@@ -706,7 +714,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
           <Icon name={icon} size={18} /> {title} · {chapterTitle}
           {step.retry ? (
             <Pill tone="orange" size="sm" className="lesson-retry">
-              повтор помилки
+              {t('lesson.retryMistake')}
             </Pill>
           ) : null}
           {test ? (
@@ -716,7 +724,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
           ) : null}
           {challenges?.includes(item.unitId) ? (
             <Pill tone="red" size="sm" className="lesson-retry" icon={<GameIcon name="fire" size={14} />}>
-              челендж
+              {t('lesson.challenge')}
             </Pill>
           ) : null}
         </p>
@@ -724,7 +732,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
           {item.kind === 'reel' ? (
             <div className="lesson-card lesson-reel">
               <Pill tone="yellow" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
-                Новий факт
+                {t('lesson.newFact')}
               </Pill>
               <div className="lesson-reel-emoji" aria-hidden="true">
                 <Icon name={item.icon} size={72} />
@@ -736,7 +744,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
             answered ? (
               <div className="lesson-card lesson-flash" data-open="">
                 <Pill tone="violet" size="sm" className="lesson-kind" icon={<PiLightbulbFill />}>
-                  Пригадай
+                  {t('lesson.recall')}
                 </Pill>
                 <div className="lesson-question">{item.question}</div>
                 <div className="lesson-answer prose-flow">{item.answer}</div>
@@ -788,7 +796,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
           {verdict ? (
             <div className="lesson-verdict" role="status">
               <LooSays mood={mood} size={72} className="lesson-verdict-loo">
-                <strong className="lesson-verdict-title">{verdict.correct ? PRAISE[pos % PRAISE.length] : lowHearts && hearts.hearts > 0 ? t('game.hearts.lowLoo', { n: hearts.hearts }) : hearts.hearts <= 0 && !test ? t('game.hearts.outTitle') : COMFORT[pos % COMFORT.length]}</strong>
+                <strong className="lesson-verdict-title">{verdict.correct ? t(`lesson.praise.${pos % PRAISE}` as MessageKey) : lowHearts && hearts.hearts > 0 ? t('game.hearts.lowLoo', { n: hearts.hearts }) : hearts.hearts <= 0 && !test ? t('game.hearts.outTitle') : t(`lesson.comfort.${pos % COMFORT}` as MessageKey)}</strong>
                 {verdict.xp > 0 ? (
                   <span className="lesson-verdict-xp tabular">
                     <GameIcon name="bolt" size={18} />+{verdict.xp} XP
@@ -797,7 +805,7 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
               </LooSays>
               {freeReveal ? (
                 <p className="lesson-verdict-answer">
-                  Правильна відповідь: <code>{freeReveal}</code>
+                  {t('lesson.rightAnswer')} <code>{freeReveal}</code>
                 </p>
               ) : null}
               {explanation ? <div className="lesson-explain prose-flow">{explanation}</div> : null}
@@ -806,11 +814,11 @@ export function LessonPlayer({ lessonId, title, icon, chapterTitle, chapterHref,
           <div ref={setDock} className="lesson-dock" hidden={answered || item.kind === 'reel' || item.kind === 'task'} />
           {item.kind === 'reel' ? (
             <Button size="lg" block onClick={advance} className="lesson-cta" icon={<PiCheckBold size={20} />}>
-              Зрозуміло
+              {t('lesson.gotIt')}
             </Button>
           ) : answered ? (
             <Button size="lg" block variant={verdict && !verdict.correct ? 'danger' : 'primary'} onClick={advance} autoFocus className="lesson-cta">
-              Продовжити
+              {t('lesson.continue')}
             </Button>
           ) : null}
         </div>

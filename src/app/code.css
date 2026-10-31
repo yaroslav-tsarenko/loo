@@ -170,6 +170,10 @@
   .task-run-kbd {
     margin-left: -4px;
   }
+  .task-run-note {
+    color: var(--lu-text-2);
+    font-size: var(--lu-fs-xs);
+  }
 
   /* ---------- test report: a checklist with green/red chips */
   .test-report {

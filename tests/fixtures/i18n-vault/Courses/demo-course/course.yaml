@@ -1,0 +1,14 @@
+id: demo-course
+version: 0.1.0
+title: { uk: Демо-курс, en: Demo course }
+description: { uk: Опис, en: Description }
+subject: programming
+languages: [uk, en]
+slug: { en: demo-course-en }
+skills:
+  - { id: rendering, title: { uk: Рендеринг, en: Rendering } }
+sections:
+  - id: basics
+    title: { uk: Основи, en: Basics }
+    from: Demo
+    skill: rendering
