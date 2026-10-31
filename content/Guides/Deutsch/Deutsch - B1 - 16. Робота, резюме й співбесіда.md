@@ -102,7 +102,7 @@ estimatedMinutes: 60
 - **Kündigungsfrist** — термін повідомлення про звільнення. Загалом — **чотири тижні до 15-го або до кінця місяця** (*§ 622 Abs. 1 BGB*); для роботодавця він зростає зі стажем.
 - **Tarifvertrag** — колективна угода, у якій для галузі прописано оплату й робочий час. Захищає працівників також **Betriebsrat** — рада працівників на підприємстві.
 - **Gehaltsabrechnung** — розрахунковий листок. З *brutto* вираховують **Steuern** і **Sozialversicherung**; залишається *netto*.
-- **Arbeitszeugnis** — характеристика від роботодавця. За законом працівник має право на неї (*§ 109 GewO*); вона має бути доброзичливою, тому її мовою «між рядків» пишуть уважно (див. «Фішки»).
+- **Arbeitszeugnis** — характеристика від роботодавця. За законом працівник має право на неї (*§ 109 GewO*); вона має бути доброзичливою, тому її формулювання варто читати уважно (див. «Фішки»).
 
 > [!note] Kündigen — це і «звільнитися», і «звільнити»
 > *Ich habe gekündigt* — я сам звільнився. Коли звільняє роботодавець, кажуть *Mir wurde gekündigt* («мене звільнили») або *Die Firma hat mir gekündigt*. Дієслово одне, а напрям залежить від того, хто підмет.
@@ -151,7 +151,7 @@ estimatedMinutes: 60
 > note: синонім — das Bewerbungsschreiben, das Motivationsschreiben.
 
 > [!word] tabellarisch
-> ipa: /tabɛˈlaːʁɪʃ/ · pos: adj · level: B1 · id: de-b1-bewerbung-w05
+> ipa: /tabɛˈlaːʁɪʃ/ · pos: adj · level: B2 · id: de-b1-bewerbung-w05
 > uk: у вигляді таблиці; табличний
 > example: Mein Lebenslauf ist **tabellarisch** aufgebaut. — Моє резюме складене у вигляді таблиці.
 > note: der tabellarische Lebenslauf — стандартне німецьке резюме; die Tabelle — таблиця.
@@ -266,11 +266,11 @@ estimatedMinutes: 60
 > note: жінка — die Arbeitnehmerin. Der Arbeitnehmer «бере» роботу (nehmen). Не плутай: Arbeitnehmer ≠ роботодавець.
 
 > [!word] die Referenz
-> ipa: /ʁefeˈʁɛnts/ · pos: noun · level: B1 · id: de-b1-bewerbung-w22
+> ipa: /ʁefeˈʁɛnts/ · pos: noun · level: B2 · id: de-b1-bewerbung-w22
 > uk: рекомендація; відгук про роботу
 > forms: die Referenzen
 > example: Ich kann zwei **Referenzen** nennen. — Я можу назвати двох осіб, які дадуть рекомендацію.
-> note: «посилання» в науковому тексті — der Verweis. Не плутай з українським «референція».
+> note: «посилання» в науковому тексті — der Verweis. У резюме Referenzen — контакти людей, які дадуть відгук.
 
 > [!word] die Weiterbildung
 > ipa: /ˈvaɪ̯tɐˌbɪldʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w23
@@ -294,7 +294,7 @@ estimatedMinutes: 60
 > note: відокремлюване. Друге значення: den Betrieb einstellen — припинити роботу.
 
 > [!word] die Gehaltsvorstellung
-> ipa: /ɡəˈhaltsˌfoːɐ̯ʃtɛlʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w26
+> ipa: /ɡəˈhaltsˌfoːɐ̯ʃtɛlʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w26
 > uk: бажана зарплата
 > forms: die Gehaltsvorstellungen
 > example: Bitte nennen Sie Ihre **Gehaltsvorstellung**. — Будь ласка, назвіть бажану зарплату.
@@ -308,14 +308,14 @@ estimatedMinutes: 60
 > note: розм. — das Arbeitsamt (так називали до 2004 р.). Jobcenter — окрема установа: тема 26.
 
 > [!word] der Betriebsrat
-> ipa: /bəˈtʁiːpsˌʁaːt/ · pos: noun · level: B1 · id: de-b1-bewerbung-w28
+> ipa: /bəˈtʁiːpsˌʁaːt/ · pos: noun · level: B2 · id: de-b1-bewerbung-w28
 > uk: рада працівників підприємства
 > forms: die Betriebsräte
 > example: Der **Betriebsrat** vertritt die Mitarbeiter. — Рада працівників представляє співробітників.
 > note: ä у множині: Räte; в Австрії теж є Betriebsrat.
 
 > [!word] die Initiativbewerbung
-> ipa: /initsi̯aˈtiːfbəˌvɛʁbʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w29
+> ipa: /initsi̯aˈtiːfbəˌvɛʁbʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w29
 > uk: ініціативна заявка (без вакансії)
 > forms: die Initiativbewerbungen
 > example: Ich schicke eine **Initiativbewerbung** an die Firma. — Я надсилаю в компанію ініціативну заявку.
@@ -336,7 +336,7 @@ estimatedMinutes: 60
 > note: der Fachkräftemangel — нестача фахівців.
 
 > [!word] der Quereinsteiger
-> ipa: /ˈkveːɐ̯ʔaɪ̯nˌʃtaɪ̯ɡɐ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w32
+> ipa: /ˈkveːɐ̯ʔaɪ̯nˌʃtaɪ̯ɡɐ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w32
 > uk: той, хто прийшов у професію з іншої галузі
 > forms: die Quereinsteiger
 > example: Als **Quereinsteiger** arbeitet er jetzt in der IT. — Прийшовши з іншої галузі, він тепер працює в ІТ.
@@ -357,25 +357,25 @@ estimatedMinutes: 60
 > note: німецьке слово англійського походження; die Heimarbeit — старіше, інакше забарвлене слово.
 
 > [!word] der Tarifvertrag
-> ipa: /taˈʁiːfˌfɛɐ̯tʁaːk/ · pos: noun · level: B1 · id: de-b1-bewerbung-w35
+> ipa: /taˈʁiːfˌfɛɐ̯tʁaːk/ · pos: noun · level: B2 · id: de-b1-bewerbung-w35
 > uk: колективна (тарифна) угода
 > forms: die Tarifverträge
 > example: Im **Tarifvertrag** steht die Bezahlung für die ganze Branche. — У тарифній угоді прописана оплата для всієї галузі.
 > note: Tarif + Vertrag: [f] і [f] стоять поруч, вимовляй один довший [f]; v у Vertrag — теж [f].
 
 > [!word] die Beförderung
-> ipa: /bəˈfœʁdəʁʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w36
+> ipa: /bəˈfœʁdəʁʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w36
 > uk: підвищення на посаді; перевезення
 > forms: die Beförderungen
 > example: Nach drei Jahren bekam er eine **Beförderung**. — Через три роки він отримав підвищення.
 > note: у транспорті — die Beförderung von Personen: перевезення людей.
 
 > [!word] die Beglaubigung
-> ipa: /bəˈɡlaʊ̯bɪɡʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w37
+> ipa: /bəˈɡlaʊ̯bɪɡʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w37
 > uk: засвідчення (копії, документа)
 > forms: die Beglaubigungen
 > example: Für das Diplom brauche ich eine **Beglaubigung**. — Для диплома мені потрібне засвідчення.
-> note: beglaubigte Kopie — завірена копія. Ставлять печатку в Bürgeramt, нотаріус тощо.
+> note: beglaubigte Kopie — завірена копія. Печатку ставлять у Bürgeramt, у нотаріуса тощо.
 
 > [!word] die Übersetzung
 > ipa: /yːbɐˈzɛtsʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w38
@@ -392,17 +392,17 @@ estimatedMinutes: 60
 > note: у Німеччині Diplom — також старий ступінь (до Болонської реформи); сьогодні Bachelor / Master.
 
 > [!word] reglementiert
-> ipa: /ʁeɡlɛmɛnˈtiːɐ̯t/ · pos: adj · level: B1 · id: de-b1-bewerbung-w40
+> ipa: /ʁeɡlɛmɛnˈtiːɐ̯t/ · pos: adj · level: C1 · id: de-b1-bewerbung-w40
 > uk: регульований (про професію: потрібен дозвіл)
 > example: Arzt ist ein **reglementierter** Beruf. — Лікар — регульована професія.
 > note: der reglementierte Beruf — професія, для якої потрібне офіційне визнання; нерегульовану можна виконувати без нього.
 
 > [!word] die Sozialversicherung
-> ipa: /zoˈtsi̯aːlfɛɐ̯ˌzɪçəʁʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w41
+> ipa: /zoˈtsi̯aːlfɛɐ̯ˌzɪçəʁʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w41
 > uk: соціальне страхування
 > forms: die Sozialversicherungen
 > example: Von meinem Gehalt zahle ich auch Beiträge zur **Sozialversicherung**. — З моєї зарплати я сплачую також внески на соціальне страхування.
-> note: сюди входять пенсійне, медичне, безробітне, страхування по догляду й нещасних випадків.
+> note: сюди входять пенсійне, медичне, на випадок безробіття, з догляду й від нещасних випадків.
 
 > [!word] die Steuer
 > ipa: /ˈʃtɔʏ̯ɐ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w42
@@ -412,7 +412,7 @@ estimatedMinutes: 60
 > note: das Steuer (середній рід) — кермо; die Steuererklärung — податкова декларація.
 
 > [!word] die Gehaltsabrechnung
-> ipa: /ɡəˈhaltsʔapˌʁɛçnʊŋ/ · pos: noun · level: B1 · id: de-b1-bewerbung-w43
+> ipa: /ɡəˈhaltsʔapˌʁɛçnʊŋ/ · pos: noun · level: B2 · id: de-b1-bewerbung-w43
 > uk: розрахунковий листок
 > forms: die Gehaltsabrechnungen
 > example: Auf der **Gehaltsabrechnung** siehst du brutto und netto. — У розрахунковому листку бачиш brutto і netto.
@@ -433,7 +433,7 @@ estimatedMinutes: 60
 > note: Verantwortung übernehmen / tragen — брати / нести відповідальність.
 
 > [!word] teamfähig
-> ipa: /ˈtiːmˌfɛːɪç/ · pos: adj · level: B1 · id: de-b1-bewerbung-w46
+> ipa: /ˈtiːmˌfɛːɪç/ · pos: adj · level: B2 · id: de-b1-bewerbung-w46
 > uk: здатний працювати в команді
 > example: Wir suchen eine **teamfähige** Kollegin. — Ми шукаємо колегу, що вміє працювати в команді.
 > note: die Teamfähigkeit — командність; у резюме часто разом із «zuverlässig».
@@ -446,7 +446,7 @@ estimatedMinutes: 60
 > note: у резюме: Sprachkenntnisse (мови), EDV-Kenntnisse (компʼютер). Однина — зазвичай у виразі etwas zur Kenntnis nehmen.
 
 > [!word] die Lücke
-> ipa: /ˈlʏkə/ · pos: noun · level: B1 · id: de-b1-bewerbung-w48
+> ipa: /ˈlʏkə/ · pos: noun · level: B2 · id: de-b1-bewerbung-w48
 > uk: прогалина; пропуск
 > forms: die Lücken
 > example: Ich erkläre die **Lücke** in meinem Lebenslauf. — Я пояснюю прогалину в моєму резюме.
@@ -566,7 +566,7 @@ estimatedMinutes: 60
 > У Німеччині в оголошеннях вказують *brutto*: це зарплата до податків та соціальних внесків. Українське «на руки» — це **netto**. Різниця велика: податки й внески разом можуть забирати суттєву частину, тому не рахуй свій бюджет за *brutto*.
 
 > [!pitfall] Referenz, Zeugnis, Anschreiben — «хибні друзі»
-> *Referenz* — це **рекомендація** або людина, що дасть відгук, а не українська «референція» чи «довідка». *Zeugnis* — не лише шкільне «свідоцтво», а й **характеристика** з роботи (*Arbeitszeugnis*). *Anschreiben* — супровідний лист до заявки, а не «лист-підтвердження». Резюме — *Lebenslauf* (буквально «хід життя»), а не *Resümee* (так називають підсумок тексту).
+> *Referenz* — це **рекомендація** або людина, що дасть відгук, а не «довідка». У резюме *Referenzen* — це контакти людей, які можуть дати відгук. *Zeugnis* — не лише шкільне «свідоцтво», а й **характеристика** з роботи (*Arbeitszeugnis*). *Anschreiben* — супровідний лист до заявки, а не «лист-підтвердження». Резюме — *Lebenslauf* (буквально «хід життя»), а не *Resümee* (так називають підсумок тексту).
 
 > [!pitfall] Arbeitgeber ≠ Arbeitnehmer
 > *Geber* — «той, хто дає», *Nehmer* — «той, хто бере». **Arbeitgeber** — той, хто *дає* роботу (роботодавець), **Arbeitnehmer** — той, хто *бере* її (працівник). Українською «наймач» і «найманий» легко переплутати, тому запамʼятай пару *geben / nehmen*.
@@ -597,7 +597,7 @@ estimatedMinutes: 60
 > tip: international — наголос на -na-; ti = [tsi̯]. Würde — ü з округленими губами.
 > uk: Я б хотіла працювати в міжнародній команді.
 
-> [!speak] Скажи вголос: «Розкажіть про себе»
+> [!speak] Скажи вголос: «Я шість років працювала бухгалтеркою»
 > level: B1 · id: de-b1-bewerbung-s08
 > text: Ich habe sechs Jahre als Buchhalterin gearbeitet.
 > ipa: /ɪç ˈhaːbə zɛks ˈjaːʁə als ˈbuːxhaltəʁɪn ɡəˈʔaʁbaɪ̯tət/
@@ -686,7 +686,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** *der Arbeitnehmer* «бере» (*nehmen*) роботу — це працівник. Роботодавець — *der Arbeitgeber* («дає» роботу).
 
-> [!quiz] Яке з тверджень про документи на вакансію правильне?
+> [!quiz] Які твердження про документи на вакансію правильні?
 > level: B1 · type: multi · id: de-b1-bewerbung-q09
 > - [x] До пакета зазвичай входять Anschreiben, tabellarischer Lebenslauf і Zeugnisse.
 > - [x] Фото в резюме не є обовʼязковим.
@@ -712,7 +712,7 @@ estimatedMinutes: 60
 >
 > ```text order
 > Wie
-> lang
+> lange
 > ist
 > die
 > Kündigungsfrist?
@@ -732,8 +732,8 @@ estimatedMinutes: 60
 
 ## Фішки
 
-> [!reel] 🕵️ Мова Arbeitszeugnis: «між рядків»
-> Характеристика мусить бути доброзичливою, тому роботодавці пишуть кодом. За усталеною практикою «stets zu unserer vollsten Zufriedenheit» означає оцінку «дуже добре», «zu unserer vollen Zufriedenheit» — «добре», а «zu unserer Zufriedenheit» — лише «задовільно». Тому за дрібними словами в Zeugnis читають уважно.
+> [!reel] 🕵️ Шкала оцінок в Arbeitszeugnis
+> Характеристика мусить бути доброзичливою, а закон (§ 109 Abs. 2 GewO) забороняє приховані шифри. Тому поширилася відкрита шкала «задоволеності», яку суди розглядають як усталену конвенцію. За рішенням Федерального трудового суду (BAG, 18.11.2014, 9 AZR 584/13): «stets zu unserer vollsten Zufriedenheit» — дуже добре, «stets zu unserer vollen Zufriedenheit» — добре, «zu unserer vollen Zufriedenheit» — задовільно (befriedigend). Тому за дрібними словами в Zeugnis читають уважно.
 
 > [!reel] 📸 Фото в резюме — вже не правило
 > Колись у Німеччині резюме без фотографії здавалося незавершеним. Відтоді як діє закон про рівне ставлення (AGG), фото не вимагають, а дехто з роботодавців навіть просить його не додавати, щоб оцінювати лише кваліфікацію. Тож якщо не хочеш, фото на резюме не потрібне.
@@ -745,6 +745,7 @@ estimatedMinutes: 60
 
 - [DWDS — Bewerbung](https://www.dwds.de/wb/Bewerbung): значення слова, приклади, сполучуваність.
 - [DWDS — Arbeitszeugnis](https://www.dwds.de/wb/Arbeitszeugnis): значення й приклади слова.
+- [Bundesarbeitsgericht](https://www.bundesarbeitsgericht.de): рішення від 18.11.2014, 9 AZR 584/13, про шкалу оцінок у Arbeitszeugnis.
 - [§ 622 BGB — Kündigungsfristen bei Arbeitsverhältnissen](https://www.gesetze-im-internet.de/bgb/__622.html): Probezeit до шести місяців, два тижні, чотири тижні.
 - [§ 109 GewO — Zeugnis](https://www.gesetze-im-internet.de/gewo/__109.html): право працівника на характеристику.
 - [AGG — Allgemeines Gleichbehandlungsgesetz](https://www.gesetze-im-internet.de/agg/): закон про рівне ставлення, на який посилаються щодо фото й віку у резюме.

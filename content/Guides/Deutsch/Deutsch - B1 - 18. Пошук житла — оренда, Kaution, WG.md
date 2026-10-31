@@ -85,11 +85,11 @@ estimatedMinutes: 60
 
 1. **Selbstauskunft** — анкета про тебе: імʼя, робота, кількість мешканців, чи є борги.
 2. **Einkommensnachweis** — підтвердження доходу: останні *Gehaltsabrechnungen* (3 шт.), у студентів — підтвердження стипендії чи гарантія батьків (*Bürgschaft*).
-3. **Schufa-Auskunft** — довідка про кредитну історію (*Bonität*). Є й **Mietschuldenfreiheitsbescheinigung** від попереднього орендодавця: «боргів по оренді немає».
+3. **Schufa-Auskunft** — довідка про кредитну історію (*Bonität*). Є й **Mietschuldenfreiheitsbescheinigung** від попереднього орендодавця: «боргів з оренди немає».
 
 ## Договір і життя в будинку
 
-- **Kündigungsfrist** орендаря зазвичай **три місяці** (*§ 573c BGB*). Якщо шукаєш виїхати раніше, пропонуєш *Nachmieter* — людину, яка заселиться замість тебе.
+- **Kündigungsfrist** орендаря зазвичай **три місяці** (*§ 573c BGB*). Якщо хочеш виїхати раніше, пропонуєш *Nachmieter* — людину, яка заселиться замість тебе.
 - **Untermiete / Zwischenmiete** — здавати частину чи все житло на час іншому, лише **за згодою** орендодавця.
 - **Mieterhöhung** — підвищення оренди. Воно має бути обґрунтоване, зазвичай з орієнтиром на *Mietspiegel* міста.
 - **Schönheitsreparaturen** — косметичний ремонт (фарбування стін). Що саме має робити орендар — прописано в договорі, і суди нерідко визнають такі пункти недійсними; перед підписом краще уточнити.
@@ -100,7 +100,7 @@ estimatedMinutes: 60
 
 ## WG і особливості
 
-*WG* (*Wohngemeinschaft*) — квартира, де кілька людей мають окремі кімнати й спільні кухню та ванну. Вибір нового співмешканця — *WG-Casting*: знайомство з усіма мешканцями. Типові теми: прибирання, спільні витрати, гості. У *WG* платять один раз *Warmmiete* за кімнату, часто разом з інтернетом.
+*WG* (*Wohngemeinschaft*) — квартира, де кілька людей мають окремі кімнати й спільні кухню та ванну. Вибір нового співмешканця — *WG-Casting*: знайомство з усіма мешканцями. Типові теми: прибирання, спільні витрати, гості. У *WG* за кімнату платиш одну суму (*Warmmiete*), часто разом з інтернетом.
 
 > [!note] Makler і Provision
 > Агент з нерухомості — *Makler*, його послуга — *Provision*. Діє принцип *Bestellerprinzip*: комісію платить той, хто **замовив** послугу. Тобто якщо орендодавець наймає Makler, орендар Provision не сплачує.
@@ -112,7 +112,7 @@ estimatedMinutes: 60
 - Ich brauche eine Schufa-Auskunft und einen Einkommensnachweis. — Мені потрібні довідка зі Schufa та підтвердження доходу.
 - Die Kaution beträgt drei Monatsmieten. — Застава становить три місячні оплати.
 - Wir suchen einen Nachmieter für die Wohnung. — Ми шукаємо наступного орендаря для квартири.
-- Im Bad ist Schimmel. Das steht im Übergabeprotokoll. — У ванній пліснява. Це записано в акті прийому-передачі.
+- Im Bad ist Schimmel. Das schreiben wir ins Übergabeprotokoll. — У ванній пліснява. Це запишемо в акт прийому-передачі.
 - Wann ziehen Sie aus? — Ende des Monats. — Коли Ви виїжджаєте? — Наприкінці місяця.
 - In der Hausordnung steht, wann Mittagsruhe ist. — У правилах будинку написано, коли обідня тиша.
 - Ich wohne in einer WG mit zwei Studenten. — Я живу в WG з двома студентами.
@@ -121,7 +121,7 @@ estimatedMinutes: 60
 ## Слова
 
 > [!word] die Mietwohnung
-> ipa: /ˈmiːtˌvoːnʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w01
+> ipa: /ˈmiːtˌvoːnʊŋ/ · pos: noun · level: A2 · id: de-b1-wohnungssuche-w01
 > uk: орендована квартира
 > forms: die Mietwohnungen
 > example: Wir suchen eine **Mietwohnung** in der Nähe der Uni. — Ми шукаємо орендовану квартиру біля університету.
@@ -135,7 +135,7 @@ estimatedMinutes: 60
 > note: ch після u — [x], «х».
 
 > [!word] die Schufa
-> ipa: /ˈʃuːfa/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w03
+> ipa: /ˈʃuːfa/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w03
 > uk: Schufa (бюро кредитних історій)
 > forms: — (без множини)
 > example: Der Vermieter möchte eine **Schufa**-Auskunft sehen. — Орендодавець хоче побачити довідку зі Schufa.
@@ -149,42 +149,42 @@ estimatedMinutes: 60
 > note: дієслово — besichtigen. Також «екскурсія» (Stadtbesichtigung).
 
 > [!word] die Selbstauskunft
-> ipa: /ˈzɛlpstʔaʊ̯sˌkʊnft/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w05
+> ipa: /ˈzɛlpstʔaʊ̯sˌkʊnft/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w05
 > uk: анкета про себе (для орендодавця)
 > forms: die Selbstauskünfte
 > example: Bitte füllen Sie die **Selbstauskunft** aus. — Будь ласка, заповніть анкету про себе.
 > note: ü у множині: Selbstauskünfte.
 
 > [!word] der Einkommensnachweis
-> ipa: /ˈaɪ̯nkɔmənsˌnaːxvaɪ̯s/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w06
+> ipa: /ˈaɪ̯nkɔmənsˌnaːxvaɪ̯s/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w06
 > uk: підтвердження доходу
 > forms: die Einkommensnachweise
 > example: Als **Einkommensnachweis** reichen drei Gehaltsabrechnungen. — Як підтвердження доходу вистачить трьох розрахункових листків.
 > note: das Einkommen — дохід; der Nachweis — доказ.
 
 > [!word] die Bürgschaft
-> ipa: /ˈbʏʁkʃaft/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w07
+> ipa: /ˈbʏʁkʃaft/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w07
 > uk: порука; гарантія
 > forms: die Bürgschaften
 > example: Meine Eltern geben eine **Bürgschaft** für die Miete. — Мої батьки дають поруку за оплату оренди.
 > note: der Bürge — поручитель; ü — як у Küche.
 
 > [!word] der Nachmieter
-> ipa: /ˈnaːxˌmiːtɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w08
+> ipa: /ˈnaːxˌmiːtɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w08
 > uk: наступний орендар
 > forms: die Nachmieter
 > example: Wir suchen einen **Nachmieter** für unsere Wohnung. — Ми шукаємо наступного орендаря для нашої квартири.
 > note: жінка — die Nachmieterin. Протилежне — der Vormieter.
 
 > [!word] der Vormieter
-> ipa: /ˈfoːɐ̯ˌmiːtɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w09
+> ipa: /ˈfoːɐ̯ˌmiːtɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w09
 > uk: попередній орендар
 > forms: die Vormieter
 > example: Der **Vormieter** hat die Küche zurückgelassen. — Попередній орендар залишив кухню.
 > note: жінка — die Vormieterin.
 
 > [!word] der Untermieter
-> ipa: /ˈʊntɐˌmiːtɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w10
+> ipa: /ˈʊntɐˌmiːtɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w10
 > uk: піднаймач; той, хто винаймає частину житла в орендаря
 > forms: die Untermieter
 > example: Ein **Untermieter** braucht die Erlaubnis des Vermieters. — Піднаймачу потрібен дозвіл орендодавця.
@@ -195,7 +195,7 @@ estimatedMinutes: 60
 > uk: старий будинок (зазвичай довоєнний)
 > forms: die Altbauten
 > example: Ich mag **Altbau**-Wohnungen mit hohen Decken. — Мені подобаються квартири в старих будинках з високою стелею.
-> note: Altbauwohnung: стеля 3 м і більше, але часто холодніше взимку.
+> note: Altbauwohnung: стеля часто близько 3 м, але часто холодніше взимку.
 
 > [!word] der Neubau
 > ipa: /ˈnɔʏ̯baʊ̯/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w12
@@ -205,20 +205,20 @@ estimatedMinutes: 60
 > note: eu = [ɔʏ̯]: «ной-бау».
 
 > [!word] der Erstbezug
-> ipa: /ˈeːɐ̯stbəˌtsuːk/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w13
+> ipa: /ˈeːɐ̯stbəˌtsuːk/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w13
 > uk: перше заселення
 > forms: — (без множини)
 > example: Die Wohnung ist **Erstbezug** nach der Sanierung. — Квартира — перше заселення після ремонту.
 > note: кінцеве g у Bezug = [k].
 
 > [!word] unmöbliert
-> ipa: /ˈʊnmøbliːɐ̯t/ · pos: adj · level: B1 · id: de-b1-wohnungssuche-w14
+> ipa: /ˈʊnmøbliːɐ̯t/ · pos: adj · level: B2 · id: de-b1-wohnungssuche-w14
 > uk: без меблів
 > example: Die Wohnung wird **unmöbliert** vermietet. — Квартиру здають без меблів.
 > note: протилежне — möbliert (з меблями); teilmöbliert — частково.
 
 > [!word] der Stellplatz
-> ipa: /ˈʃtɛlplats/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w15
+> ipa: /ˈʃtɛlplats/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w15
 > uk: місце для паркування
 > forms: die Stellplätze
 > example: Zur Wohnung gehört ein **Stellplatz** im Hof. — До квартири входить місце для паркування у дворі.
@@ -232,17 +232,17 @@ estimatedMinutes: 60
 > note: наголос на -ra-; ss = [s].
 
 > [!word] der Abstellraum
-> ipa: /ˈapʃtɛlʁaʊ̯m/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w17
+> ipa: /ˈapʃtɛlʁaʊ̯m/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w17
 > uk: комора; кладова
 > forms: die Abstellräume
 > example: Im **Abstellraum** steht die Waschmaschine. — У коморі стоїть пральна машина.
 > note: також die Abstellkammer.
 
 > [!word] barrierefrei
-> ipa: /baˈri̯eːɐ̯ˌfʁaɪ̯/ · pos: adj · level: B1 · id: de-b1-wohnungssuche-w18
+> ipa: /baˈʁi̯eːʁəˌfʁaɪ̯/ · pos: adj · level: B2 · id: de-b1-wohnungssuche-w18
 > uk: безбарʼєрний; доступний для людей з обмеженою мобільністю
 > example: Die Wohnung ist **barrierefrei**, ohne Stufen. — Квартира безбарʼєрна, без сходинок.
-> note: die Barriere — [baˈri̯eːʁə].
+> note: die Barriere — [baˈʁi̯eːʁə].
 
 > [!word] die Heizung
 > ipa: /ˈhaɪ̯tsʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w19
@@ -252,84 +252,84 @@ estimatedMinutes: 60
 > note: heizen — опалювати; die Zentralheizung — центральне опалення.
 
 > [!word] die Betriebskosten
-> ipa: /bəˈtʁiːpsˌkɔstn̩/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w20
+> ipa: /bəˈtʁiːpsˌkɔstn̩/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w20
 > uk: експлуатаційні (комунальні) витрати
 > forms: — (лише множина)
 > example: Die **Betriebskosten** werden einmal im Jahr abgerechnet. — Експлуатаційні витрати розраховують раз на рік.
 > note: юридичний термін для Nebenkosten (у BetrKV). Нерідко вживають як синонім.
 
 > [!word] die Nebenkostenabrechnung
-> ipa: /ˈneːbn̩kɔstn̩ʔapˌʁɛçnʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w21
+> ipa: /ˈneːbn̩kɔstn̩ʔapˌʁɛçnʊŋ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w21
 > uk: щорічний розрахунок комунальних витрат
 > forms: die Nebenkostenabrechnungen
 > example: In der **Nebenkostenabrechnung** gibt es eine Nachzahlung. — У розрахунку комунальних є доплата.
 > note: die Nachzahlung — доплата, die Rückzahlung — повернення.
 
 > [!word] die Mieterhöhung
-> ipa: /ˈmiːtɐʔɛɐ̯ˌhøːʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w22
+> ipa: /ˈmiːtʔɛɐ̯ˌhøːʊŋ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w22
 > uk: підвищення оренди
 > forms: die Mieterhöhungen
 > example: Der Vermieter hat eine **Mieterhöhung** angekündigt. — Орендодавець оголосив про підвищення оренди.
 > note: erhöhen — підвищувати; hoch → höher («вищий»).
 
 > [!word] der Mietspiegel
-> ipa: /ˈmiːtˌʃpiːɡl̩/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w23
+> ipa: /ˈmiːtˌʃpiːɡl̩/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w23
 > uk: огляд місцевих цін на оренду
 > forms: die Mietspiegel
 > example: Der **Mietspiegel** zeigt die übliche Miete in der Stadt. — Mietspiegel показує звичайні ціни на оренду в місті.
 > note: sp на початку кореня Spiegel — [ʃp]: «шпігл».
 
 > [!word] der Makler
-> ipa: /ˈmaːklɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w24
+> ipa: /ˈmaːklɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w24
 > uk: агент з нерухомості; посередник
 > forms: die Makler
 > example: Wir haben die Wohnung ohne **Makler** gefunden. — Ми знайшли квартиру без агента.
 > note: жінка — die Maklerin.
 
 > [!word] die Provision
-> ipa: /pʁoviˈzi̯oːn/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w25
+> ipa: /pʁoviˈzi̯oːn/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w25
 > uk: комісія; винагорода посередника
 > forms: die Provisionen
 > example: Wer zahlt die **Provision** für den Makler? — Хто платить комісію агентові?
 > note: наголос на -on; v = [v].
 
 > [!word] der Wohnberechtigungsschein
-> ipa: /ˈvoːnbəˌʁɛçtɪɡʊŋsˌʃaɪ̯n/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w26
+> ipa: /ˈvoːnbəˌʁɛçtɪɡʊŋsˌʃaɪ̯n/ · pos: noun · level: C1 · id: de-b1-wohnungssuche-w26
 > uk: довідка на право отримати соціальне житло
 > forms: die Wohnberechtigungsscheine
 > example: Für die Sozialwohnung brauche ich einen **Wohnberechtigungsschein**. — Для соціального житла мені потрібна довідка WBS.
 > note: скорочено — WBS. Видає муніципальна служба житла.
 
 > [!word] das Wohngeld
-> ipa: /ˈvoːnˌɡɛlt/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w27
+> ipa: /ˈvoːnˌɡɛlt/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w27
 > uk: житлова допомога (субсидія на оренду)
 > forms: — (без множини)
 > example: Mit geringem Einkommen kann man **Wohngeld** beantragen. — За невеликого доходу можна подати заяву на житлову допомогу.
-> note: Wohngeld ≠ Bürgergeld: Wohngeld — це допомога саме на житло; умови змінюються, перевіряй на офіційному сайті.
+> note: Wohngeld — це допомога саме на житло; назви й умови соціальних виплат змінюються, перевіряй на офіційному сайті.
 
 > [!word] ausziehen
-> ipa: /ˈaʊ̯stsiːən/ · pos: verb · level: B1 · id: de-b1-wohnungssuche-w28
+> ipa: /ˈaʊ̯stsiːən/ · pos: verb · level: A2 · id: de-b1-wohnungssuche-w28
 > uk: виїжджати (з житла); знімати (одяг)
 > forms: zieht aus → zog aus → ist ausgezogen
 > example: Wir **ziehen** Ende des Monats **aus**. — Наприкінці місяця ми виїжджаємо.
 > note: відокремлюване; протилежне — einziehen. Одяг: sich ausziehen — роздягатися.
 
 > [!word] die Schönheitsreparatur
-> ipa: /ˈʃøːnhaɪ̯tsʁepaʁaˌtuːɐ̯/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w29
+> ipa: /ˈʃøːnhaɪ̯tsʁepaʁaˌtuːɐ̯/ · pos: noun · level: C1 · id: de-b1-wohnungssuche-w29
 > uk: косметичний ремонт
 > forms: die Schönheitsreparaturen
-> example: Der Mieter macht die **Schönheitsreparaturen**, steht im Vertrag. — Орендар робить косметичний ремонт, так написано в договорі.
+> example: Der Mieter macht die **Schönheitsreparaturen**, so steht es im Vertrag. — Орендар робить косметичний ремонт, так написано в договорі.
 > note: ö довге; Schönheit — краса, -heit завжди жіночого роду.
 
 > [!word] der Mangel
-> ipa: /ˈmaŋl̩/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w30
+> ipa: /ˈmaŋl̩/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w30
 > uk: недолік; дефект
 > forms: die Mängel
 > example: Bitte schreiben Sie alle **Mängel** ins Protokoll. — Будь ласка, запишіть усі дефекти до протоколу.
 > note: також «нестача»: ein Mangel an Zeit. Множина з умлаутом.
 
 > [!word] der Schimmel
-> ipa: /ˈʃɪml̩/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w31
+> ipa: /ˈʃɪml̩/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w31
 > uk: пліснява
 > forms: — (без множини)
 > example: In der Ecke ist **Schimmel**. — У кутку пліснява.
@@ -343,49 +343,49 @@ estimatedMinutes: 60
 > note: ä = [ɛ], ch після ä — [ç], «хь».
 
 > [!word] das Übergabeprotokoll
-> ipa: /ˈyːbɐɡaːbəpʁotoˌkɔl/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w33
+> ipa: /ˈyːbɐɡaːbəpʁotoˌkɔl/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w33
 > uk: акт прийому-передачі квартири
 > forms: die Übergabeprotokolle
 > example: Im **Übergabeprotokoll** stehen die Zählerstände. — В акті прийому-передачі записано покази лічильників.
 > note: der Zählerstand — показ лічильника; фотографуй стан квартири.
 
 > [!word] die Hausratversicherung
-> ipa: /ˈhaʊ̯sʁaːtfɛɐ̯ˌzɪçəʁʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w34
+> ipa: /ˈhaʊ̯sʁaːtfɛɐ̯ˌzɪçəʁʊŋ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w34
 > uk: страхування майна в квартирі
 > forms: die Hausratversicherungen
 > example: Die **Hausratversicherung** zahlt bei Einbruch oder Brand. — Страхування майна виплачує у випадку крадіжки чи пожежі.
 > note: der Hausrat — домашнє майно. Haftpflichtversicherung — інше страхування: тема 26.
 
 > [!word] die Mittagsruhe
-> ipa: /ˈmɪtaːksˌʁuːə/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w35
+> ipa: /ˈmɪtaːksˌʁuːə/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w35
 > uk: обідня тиша
 > forms: — (без множини)
 > example: Während der **Mittagsruhe** bohrt man nicht. — Під час обідньої тиші не свердлять.
 > note: час залежить від Hausordnung та місця; перевіряй свій будинок.
 
 > [!word] die Eigentumswohnung
-> ipa: /ˈaɪ̯ɡn̩tuːmsˌvoːnʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w36
+> ipa: /ˈaɪ̯ɡn̩tuːmsˌvoːnʊŋ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w36
 > uk: власна квартира (у власності)
 > forms: die Eigentumswohnungen
 > example: Sie haben eine **Eigentumswohnung** gekauft. — Вони купили квартиру у власність.
 > note: також скорочено — ETW у оголошеннях.
 
 > [!word] der Eigentümer
-> ipa: /ˈaɪ̯ɡn̩tyːmɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w37
+> ipa: /ˈaɪ̯ɡn̩tyːmɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w37
 > uk: власник
 > forms: die Eigentümer
 > example: Der **Eigentümer** wohnt im Erdgeschoss. — Власник живе на першому поверсі.
 > note: жінка — die Eigentümerin; Vermieter не завжди власник.
 
 > [!word] der Eigenbedarf
-> ipa: /ˈaɪ̯ɡn̩bəˌdaʁf/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w38
+> ipa: /ˈaɪ̯ɡn̩bəˌdaʁf/ · pos: noun · level: C1 · id: de-b1-wohnungssuche-w38
 > uk: власна потреба (власник сам хоче жити)
 > forms: — (без множини)
 > example: Wegen **Eigenbedarf** hat man ihnen gekündigt. — Через власну потребу власника їм розірвали договір.
 > note: Kündigung wegen Eigenbedarf — типова підстава.
 
 > [!word] die Zwischenmiete
-> ipa: /ˈtsvɪʃn̩ˌmiːtə/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w39
+> ipa: /ˈtsvɪʃn̩ˌmiːtə/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w39
 > uk: тимчасовий піднайм
 > forms: die Zwischenmieten
 > example: Ich suche eine **Zwischenmiete** für drei Monate. — Я шукаю тимчасовий піднайм на три місяці.
@@ -399,14 +399,14 @@ estimatedMinutes: 60
 > note: також «становище»: in einer schwierigen Lage sein.
 
 > [!word] die Verkehrsanbindung
-> ipa: /fɛɐ̯ˈkeːɐ̯sʔanˌbɪndʊŋ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w41
+> ipa: /fɛɐ̯ˈkeːɐ̯sʔanˌbɪndʊŋ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w41
 > uk: транспортне сполучення
 > forms: die Verkehrsanbindungen
 > example: Die **Verkehrsanbindung** ist sehr gut: U-Bahn und Bus. — Транспортне сполучення дуже добре: метро й автобус.
 > note: anbinden — привʼязувати, зʼєднувати.
 
 > [!word] der Rauchmelder
-> ipa: /ˈʁaʊ̯xˌmɛldɐ/ · pos: noun · level: B1 · id: de-b1-wohnungssuche-w42
+> ipa: /ˈʁaʊ̯xˌmɛldɐ/ · pos: noun · level: B2 · id: de-b1-wohnungssuche-w42
 > uk: датчик диму
 > forms: die Rauchmelder
 > example: In jeder Wohnung muss ein **Rauchmelder** hängen. — У кожній квартирі має бути датчик диму.
@@ -461,7 +461,7 @@ estimatedMinutes: 60
 > level: B1 · type: answer · id: de-b1-wohnungssuche-l06
 > audio: A: Das ist das Wohnzimmer. Der Balkon geht nach Süden.
 > audio: B: Schön! Aber im Bad ist Schimmel.
-> audio: A: Das steht im Übergabeprotokoll. Der Vermieter repariert es vor dem Einzug.
+> audio: A: Das schreiben wir ins Übergabeprotokoll. Der Vermieter repariert es vor dem Einzug.
 > audio: B: Gut. Wie hoch ist die Kaution?
 > audio: A: Drei Kaltmieten, also zweitausendsiebenhundert Euro. Sie dürfen sie in drei Raten zahlen.
 > - [ ] Плісняви немає, а застава становить 900 євро.
@@ -472,7 +472,7 @@ estimatedMinutes: 60
 
 ## Вимова
 
-У складних словах про житло важливий наголос на першому корені: **Kalt**miete, **Warm**miete, **Neben**kosten, **Haus**ordnung. Звернути увагу: *Wohnung* — довге [oː], без «в»: [ˈvoːnʊŋ]; *Miete* — довге [iː]: [ˈmiːtə]. А *Mängel* — ä = [ɛ]: [ˈmɛŋl̩].
+У складних словах про житло важливий наголос на першому корені: **Kalt**miete, **Warm**miete, **Neben**kosten, **Haus**ordnung. Звернути увагу: *Wohnung* — [v] на початку, довге [oː], h не вимовляється: [ˈvoːnʊŋ]; *Miete* — довге [iː]: [ˈmiːtə]. А *Mängel* — ä = [ɛ]: [ˈmɛŋl̩].
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-wohnungssuche-s01
@@ -667,10 +667,10 @@ estimatedMinutes: 60
 > level: B1 · type: single · id: de-b1-wohnungssuche-q11
 > - [x] Ich vermiete meine Wohnung.
 > - [ ] Ich miete meine Wohnung.
-> - [ ] Ich mietete meine Wohnung aus.
-> - [ ] Ich verkaufe meine Wohnung zum Mieten.
+> - [ ] Ich miete meine Wohnung aus.
+> - [ ] Ich verleihe meine Wohnung.
 >
-> **Пояснення:** здавати в оренду — *vermieten*. *mieten* — знімати у когось іншого. Інші варіанти — вигадані конструкції.
+> **Пояснення:** здавати в оренду — *vermieten*. *mieten* — знімати у когось іншого. *verleihen* означає «позичати / давати напрокат», а форми *mieten aus* не існує.
 
 > [!quiz] При огляді ти бачиш пліснявину у ванній. Що правильно зробити?
 > level: B1 · type: single · id: de-b1-wohnungssuche-q12

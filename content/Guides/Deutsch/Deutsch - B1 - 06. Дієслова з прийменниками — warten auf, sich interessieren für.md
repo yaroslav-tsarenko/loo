@@ -188,10 +188,10 @@ estimatedMinutes: 55
 
 > [!word] denken an (+ Akk)
 > ipa: /ˈdɛŋkn̩ an/ · pos: verb · level: A2 · id: de-b1-verben-praep-w02
-> uk: думати про; пам’ятати про
+> uk: думати про; памʼятати про
 > forms: denken → dachte → hat gedacht
 > example: Ich **denke** oft **an** meine Familie. — Я часто думаю про свою сімʼю.
-> note: denken an — «згадувати, пам’ятати». denken über + Akk — «мати думку про»; nachdenken über — «міркувати».
+> note: denken an — «згадувати, памʼятати». denken über + Akk — «мати думку про»; nachdenken über — «міркувати».
 
 > [!word] hoffen auf (+ Akk)
 > ipa: /ˈhɔfn̩ aʊ̯f/ · pos: verb · level: B1 · id: de-b1-verben-praep-w03
@@ -308,7 +308,7 @@ estimatedMinutes: 55
 > ipa: /bəˈʃteːən aʊ̯s/ · pos: verb · level: B1 · id: de-b1-verben-praep-w19
 > uk: складатися з
 > forms: bestehen → bestand → hat bestanden
-> example: Das Team **besteht aus** fünf Personen. — Команда складається з п’яти осіб.
+> example: Das Team **besteht aus** fünf Personen. — Команда складається з пʼяти осіб.
 > note: bestehen + Akk — «скласти (іспит)»: den Test bestehen.
 
 > [!word] sorgen für (+ Akk)
@@ -547,7 +547,7 @@ estimatedMinutes: 55
 > Українське «чекати» часто без прийменника («чекаю тебе») або з «на». Німецьке *warten* завжди тягне **auf + Akkusativ**: *Ich warte **auf** dich. Wir warten **auf** den Zug.* Те саме з *hoffen auf, achten auf, reagieren auf*. Прийменник — частина дієслова, пропускати його не можна.
 
 > [!pitfall] «Ich denke über dich» і «Ich denke von dir»
-> Українське «думати про» німецькою залежить від змісту. **denken an + Akk** — пам’ятати, згадувати: *Ich denke an dich.* **nachdenken über + Akk** — міркувати: *Ich denke über den Plan nach.* **denken über + Akk** — мати певну думку: *Was denkst du **über** ihn?* Для «я думаю про тебе» скажи *Ich denke an dich*.
+> Українське «думати про» німецькою залежить від змісту. **denken an + Akk** — памʼятати, згадувати: *Ich denke an dich.* **nachdenken über + Akk** — міркувати: *Ich denke über den Plan nach.* **denken über + Akk** — мати певну думку: *Was denkst du **über** ihn?* Для «я думаю про тебе» скажи *Ich denke an dich*.
 
 > [!pitfall] «Worauf wartest du?» і «Ich warte darauf» про людину
 > **Wo(r)-** і **da(r)-** належать лише до **речей і подій**. Про людину питаємо *прийменник + wen / wem*: *Auf wen wartest du? Mit wem sprichst du?* А відповідаємо *прийменник + займенник*: *Ich warte **auf sie**. Ich spreche **mit ihm**.* Форми *~~Ich warte darauf~~* про матір неправильні.
@@ -584,7 +584,7 @@ estimatedMinutes: 55
 > - [ ] von
 > - [ ] für
 >
-> **Пояснення:** «пам’ятати про» — **denken an + Akk**: *Denk an den Termin!* *Über* означало б «мати думку про», *von* — «розповісти про», *für* — «заради».
+> **Пояснення:** «памʼятати про» — **denken an + Akk**: *Denk an den Termin!* *Über* означало б «мати думку про», *von* — «розповісти про», *für* — «заради».
 
 > [!quiz] «Я радію майбутній відпустці.» Ich freue mich ___ den Urlaub.
 > level: B1 · type: single · id: de-b1-verben-praep-q03
@@ -762,7 +762,7 @@ estimatedMinutes: 55
 > У словах *darauf, daran, darüber, darum* є «зайве» -r-. Воно не випадкове: це залишок давнього прислівника *dar* («туди, там»), як пояснює DWDS (давньоверхньонімецьке *thara*). Перед приголосною лишилося коротке *da-*: *dafür, davon*. У розмові ці слова скорочують: *drauf, dran, drüber, drum*; DWDS позначає *drauf* як розмовне.
 
 > [!reel] ✨ Vorfreude — радість наперед
-> В українській такого слова немає, а німецьке *die Vorfreude* означає «радість від очікування». Воно утворене від *vor* («перед») і *Freude*. Слово тісно пов’язане з *sich freuen **auf***: прийменник *auf* якраз і вказує на майбутнє.
+> В українській такого слова немає, а німецьке *die Vorfreude* означає «радість від очікування». Воно утворене від *vor* («перед») і *Freude*. Слово тісно повʼязане з *sich freuen **auf***: прийменник *auf* якраз і вказує на майбутнє.
 
 > [!reel] 🗣️ Auf was чи worauf?
 > У живій мові часто чути *Auf was wartest du?* замість *Worauf wartest du?*. Це розмовний варіант, і носії його вживають, але в письмових текстах та на іспиті очікують *wo(r)-*. Те саме з *Mit was?* — стандартно *Womit?*.

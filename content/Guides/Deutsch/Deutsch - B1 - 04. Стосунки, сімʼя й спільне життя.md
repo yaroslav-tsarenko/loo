@@ -13,7 +13,7 @@ estimatedMinutes: 55
 > [!success] Після цієї теми ти зможеш
 > - розповісти про стосунки і форми спільного життя: *Partnerschaft, WG, Patchworkfamilie, alleinerziehend*;
 > - сказати про важливі події в житті пари: *sich verloben, zusammenziehen, sich scheiden lassen*;
-> - описати конфлікт і його розв’язання: *sich zerstreiten, einen Kompromiss finden, sich versöhnen*;
+> - описати конфлікт і його розвʼязання: *sich zerstreiten, einen Kompromiss finden, sich versöhnen*;
 > - прочитати й переказати короткий текст зі статистикою про те, як німці живуть разом.
 
 ## Передбач
@@ -29,7 +29,7 @@ estimatedMinutes: 55
 
 ## Як люди живуть разом
 
-В Україні «сімʼя» — це зазвичай батьки, діти й бабусі-дідусі. У Німеччині слово *Familie* теж головне, але форм спільного життя набагато більше. Дві дорослі людини можуть бути одружені (*verheiratet*), жити разом без шлюбу (*eine Partnerschaft ohne Trauschein*), жити окремо (*getrennt leben*), а студенти й молоді працівники часто винаймають квартиру удвох чи вчотирьох, у **WG** — *Wohngemeinschaft*. Діти ростуть у «класичній» сімʼї, в сімʼї з одним із батьків (*alleinerziehend*) або в **Patchworkfamilie**, де об’єдналися діти з різних шлюбів.
+В Україні «сімʼя» — це зазвичай батьки, діти й бабусі-дідусі. У Німеччині слово *Familie* теж головне, але форм спільного життя набагато більше. Дві дорослі людини можуть бути одружені (*verheiratet*), жити разом без шлюбу (*eine Partnerschaft ohne Trauschein*), жити окремо (*getrennt leben*), а студенти й молоді працівники часто винаймають квартиру удвох чи вчотирьох, у **WG** — *Wohngemeinschaft*. Діти ростуть у «класичній» сімʼї, в сімʼї з одним із батьків (*alleinerziehend*) або в **Patchworkfamilie**, де обʼєдналися діти з різних шлюбів.
 
 ### Партнерство: від знайомства до розлучення
 
@@ -59,7 +59,7 @@ estimatedMinutes: 55
 >   - { from: gespraech, to: kompromiss, label: "пошук рішення" }
 >   - { from: kompromiss, to: frieden, label: "відновлення" }
 > steps:
->   - { focus: konflikt, note: "Конфлікт починається з різниці думок: Meinungsverschiedenheit — не обов’язково сварка, просто «різні погляди»." }
+>   - { focus: konflikt, note: "Конфлікт починається з різниці думок: Meinungsverschiedenheit — не обовʼязково сварка, просто «різні погляди»." }
 >   - { focus: streit, note: "Якщо не домовились, виникає сварка: sich zerstreiten. Перфект: Sie haben sich zerstritten." }
 >   - { focus: gespraech, note: "Здоровий вихід — розмова: Wir müssen miteinander reden. Rücksicht nehmen auf + Akk — зважати на іншого." }
 >   - { focus: kompromiss, note: "Домовленість: Wir haben uns auf einen Kompromiss geeinigt — «ми дійшли компромісу»." }
@@ -112,7 +112,7 @@ estimatedMinutes: 55
 > ipa: /ˈleːbn̩sˌpaʁtnɐ/ · pos: noun · level: B1 · id: de-b1-beziehungen-w02
 > uk: партнер (у житті); співмешканець
 > forms: die Lebenspartner
-> example: Mein **Lebenspartner** und ich sind seit fünf Jahren zusammen. — Ми з партнером разом уже п’ять років.
+> example: Mein **Lebenspartner** und ich sind seit fünf Jahren zusammen. — Ми з партнером разом уже пʼять років.
 > note: жінка — die Lebenspartnerin. Нейтральне слово для пари, що не в шлюбі, і в офіційних анкетах; одружений — Ehemann, Ehefrau.
 
 > [!word] die WG
@@ -169,14 +169,14 @@ estimatedMinutes: 55
 > uk: конфлікт
 > forms: die Konflikte
 > example: Der **Konflikt** begann wegen des Haushalts. — Конфлікт почався через домашні справи.
-> note: Konflikte lösen — розв’язувати конфлікти. Наголос на другому складі: kon-FLIKT.
+> note: Konflikte lösen — розвʼязувати конфлікти. Наголос на другому складі: kon-FLIKT.
 
 > [!word] die Meinungsverschiedenheit
 > ipa: /ˈmaɪ̯nʊŋsfɛɐ̯ˌʃiːdn̩haɪ̯t/ · pos: noun · level: B1 · id: de-b1-beziehungen-w11
 > uk: розбіжність у поглядах
 > forms: die Meinungsverschiedenheiten
 > example: Wir hatten eine kleine **Meinungsverschiedenheit**. — У нас була невелика розбіжність у поглядах.
-> note: Meinung + Verschiedenheit. М’якше за Streit. Fugen-s між Meinung і Verschiedenheit.
+> note: Meinung + Verschiedenheit. Мʼякше за Streit. Fugen-s між Meinung і Verschiedenheit.
 
 > [!word] der Kompromiss
 > ipa: /kɔmpʁoˈmɪs/ · pos: noun · level: B1 · id: de-b1-beziehungen-w12
@@ -252,7 +252,7 @@ estimatedMinutes: 55
 > ipa: /ˈnɛfə/ · pos: noun · level: B1 · id: de-b1-beziehungen-w22
 > uk: племінник
 > forms: die Neffen
-> example: Mein **Neffe** ist fünf Jahre alt. — Моєму племіннику п’ять років.
+> example: Mein **Neffe** ist fünf Jahre alt. — Моєму племіннику пʼять років.
 > note: слабка відміна: den Neffen, dem Neffen. ff — коротке [ɛ].
 
 > [!word] die Nichte
@@ -570,7 +570,7 @@ estimatedMinutes: 55
 > - [x] 24 Prozent
 > - [ ] 66 Prozent
 >
-> **Пояснення:** *Sie machen 24 Prozent aller Familien aus (1996: 18 Prozent).* 10 % — сім’ї без шлюбу, 18 % — частка самотніх батьків у 1996 році, 66 % — подружні пари.
+> **Пояснення:** *Sie machen 24 Prozent aller Familien aus (1996: 18 Prozent).* 10 % — сімʼї без шлюбу, 18 % — частка самотніх батьків у 1996 році, 66 % — подружні пари.
 
 ## Практика
 
@@ -685,4 +685,4 @@ estimatedMinutes: 55
 > - Події: *sich verloben → zusammenziehen → heiraten → sich scheiden lassen*; *zusammenziehen* у Perfekt — з *sein*.
 > - Зворотні дієслова з прийменниками: *sich verstehen mit, sich einigen auf, sich versöhnen mit, sich zerstreiten mit*; *heiraten* — без прийменника.
 > - Родичі: *Schwiegereltern, Schwager, Neffe, Nichte, Enkel, Stiefvater*.
-> - 2025: 49 % населення жили в сім’ях; 24 % сімей — одинокі батьки (Destatis).
+> - 2025: 49 % населення жили в сімʼях; 24 % сімей — одинокі батьки (Destatis).

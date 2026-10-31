@@ -38,7 +38,6 @@ estimatedMinutes: 40
 | «а-мабенд» | am \|Abend |
 | «ін-орднунг» | in \|Ordnung |
 | «ер-ист-альт» | er \|ist \|alt |
-| «ді-ордер» | die \|Ordnung |
 
 Це не про гучність чи наголос: голос не стає голоснішим, голосний лише **починається чітко**, а не «виповзає» з попереднього звуку.
 
@@ -61,7 +60,7 @@ estimatedMinutes: 40
 
 ### Де Knacklaut є і де його немає
 
-- **Є:** початок слова з голосного (*Abend, Ordnung, Insel*); початок складової частини складного слова (*Spiegelei, Theater* — *The|ater*, *beobachten* — *be|obachten*); корінь після префікса (*beachten, verändern, erinnern, beenden*).
+- **Є:** початок слова з голосного (*Abend, Ordnung, Insel*); початок складової частини складного слова (*Spiegelei* — *Spiegel|ei*, *Kinoeingang* — *Kino|eingang*); між двома голосними всередині слова чіткий приступ ставлять не завжди (*Theater*: можна [teˈʔaːtɐ] і [teˈaːtɐ]); корінь після префікса (*beachten, verändern, erinnern, beenden*).
 - **Немає:** перед *h*. У слові *Haus* ніякого змикання, лише легкий видих [h]. Теж немає перед приголосними: *Brot, Tisch*. Не плутай: Knacklaut — це не «видих» і не «х».
 - **Слабші випадки:** у швидкому розмовному мовленні, особливо перед службовими словами (*und, in, ist, es*), приступ послаблюється й може зникати. Для тебе безпечніше **робити його завжди**: слухач зрозуміє краще.
 
@@ -76,7 +75,7 @@ estimatedMinutes: 40
 |---|---|---|
 | der Herbst | [hɛʁpst] | три приголосних наприкінці: [p]-[s]-[t], не «хербест» |
 | der Strumpf | [ʃtʁʊmpf] | на початку [ʃtʁ], наприкінці [mpf] |
-| du kämpfst | [kɛmpfst] | чотири приголосних поспіль: [m]-[pf]-[s]-[t] |
+| du kämpfst | [kɛmpfst] | чотири звуки поспіль: [m]-[pf]-[s]-[t] |
 | der Herbststurm | [ˈhɛʁpstʃtʊʁm] | на стику [pst] і [ʃt]: Herbst + Sturm |
 | die Landstraße | [ˈlantʃtʁaːsə] | Land + Straße: *d* оглушується в [t], далі [ʃtʁ] |
 | der Arzt | [aːɐ̯tst] | *tst* наприкінці |
@@ -90,7 +89,7 @@ estimatedMinutes: 40
 
 **pf** — це «зрослий» звук: губи змикаються як для [p], а вивільнення відбувається як [f], одним рухом. Не «п», не «ф» і не «пеф». Слова: *Pferd, Pfeffer, Pfund, Pflanze, Apfel, Kopf, Strumpf*.
 
-**ts** — це німецька буква **z** (і сполучення **tz**), а також **-ts** у кінці слів: *Zeit, Zahl, Katze, Platz, Salz, Arzt*. Звучить як українське «ц». Порівняй: *Zeit* [tsaɪ̯t] і *seid* [zaɪ̯t] — перша з «ц», друга з дзвінким «з».
+**ts** — це німецька буква **z** (і сполучення **tz**), а також **-ts** у кінці слів: *Zeit, Zahl, Katze, Platz, Salz, Arzt*; на самому кінці слова: *nachts, rechts, nichts*. Звучить як українське «ц». Порівняй: *Zeit* [tsaɪ̯t] і *seid* [zaɪ̯t] — перша з «ц», друга з дзвінким «з».
 
 | Буква | Звук | Приклад | Не так |
 |---|---|---|---|
@@ -142,7 +141,7 @@ estimatedMinutes: 40
 > [!word] aussprechen
 > ipa: /ˈaʊ̯sʃpʁɛçn̩/ · pos: verb · level: B1 · id: de-b1-knacklaut-w03
 > uk: вимовляти; висловлювати
-> forms: er spricht aus · sprach aus · hat ausgesprochen
+> forms: aussprechen → sprach aus → hat ausgesprochen
 > example: Wie **spricht** man dieses Wort **aus**? — Як вимовляється це слово?
 > note: відокремлюване дієслово: «Ich spreche das Wort falsch aus.» Іменник — die Aussprache.
 
@@ -287,7 +286,7 @@ estimatedMinutes: 40
 > [!pair] Zinn /tsɪn/ — Sinn /zɪn/
 > level: B1 · id: de-b1-knacklaut-p03
 > say: Zinn
-> tip: перше слово починається з «ц», друге — з дзвінкого «з».
+> tip: перше слово починається з «ц», друге — з дзвінкого «з». В AT, CH і на півдні Німеччини початкове *s* перед голосним глухе [s], тож пара різниться лише початковим [t].
 
 > [!pair] Zeit /tsaɪ̯t/ — seid /zaɪ̯t/
 > level: B1 · id: de-b1-knacklaut-p04
@@ -327,10 +326,10 @@ estimatedMinutes: 40
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-knacklaut-s04
-> text: Das Theater ist am Ende der Straße.
-> ipa: /das teˈʔaːtɐ ɪst am ˈɛndə deːɐ̯ ˈʃtʁaːsə/
-> tip: The|ater: між *e* і *a* — приступ, а не «й»: ніяких «театр» через [j]. *Straße* — [ʃtʁ].
-> uk: Театр наприкінці вулиці.
+> text: Wir wollen den Himmel beobachten.
+> ipa: /viːɐ̯ ˈvɔlən deːn ˈhɪml̩ bəˈʔoːbaxtn̩/
+> tip: be|obachten: після *be-* голосний *o* починається з приступу, без [j]. *h* у *Himmel* — легкий видих.
+> uk: Ми хочемо спостерігати за небом.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-knacklaut-s05
@@ -343,7 +342,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-knacklaut-s06
 > text: Du kämpfst jeden Tag.
 > ipa: /duː kɛmpfst ˈjeːdn̩ taːk/
-> tip: kämpfst: [mpfst] — пʼять приголосних поспіль без голосного. Кінцеве *g* у *Tag* = «к».
+> tip: kämpfst: [mpfst] — чотири звуки поспіль ([m], [pf], [s], [t]) без голосного. Кінцеве *g* у *Tag* = «к».
 > uk: Ти борешся щодня.
 
 > [!speak] Скажи вголос
@@ -423,14 +422,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** приступ стоїть перед голосним на початку слова: *|Abend, |Auto, |Ordnung*. У *Haus* на початку приголосний [h] (видих), у *Tisch* — [t].
 
-> [!quiz] Як правильно вимовляти *Theater* [teˈʔaːtɐ]?
+> [!quiz] Як у чіткій вимові звучить *beobachten* [bəˈʔoːbaxtn̩]?
 > level: B1 · type: single · id: de-b1-knacklaut-q04
-> - [ ] «те-й-атер» із [j] між *e* і *a*
-> - [ ] «театер» без паузи, одним зливанням
-> - [x] «те» + короткий приступ + «атер»
-> - [ ] «тіатер», з довгим [iː] на початку
+> - [ ] «бе-й-обахтен» із [j] між *e* і *o*
+> - [ ] «бобахтен»: *be-* і *o* зливаються в один звук
+> - [x] «бе» + короткий приступ + «обахтен»
+> - [ ] «беобахтен» з наголосом на *be-*
 >
-> **Пояснення:** між *e* і *a* два голосні розділяє Knacklaut. Українське «театр» часто вимовляють зі злиттям або з [j], у німецькій потрібна коротка перерва в голосних звʼязках.
+> **Пояснення:** після префікса *be-* голосний кореня починається з Knacklaut. Вставляти [j] або зливати голосні — помилка. У слові *Theater* приступ між голосними необовʼязковий: можна й [teˈʔaːtɐ], й [teˈaːtɐ].
 
 > [!quiz] Як вимовляється кінець слова *Zeitung*?
 > level: B1 · type: single · id: de-b1-knacklaut-q05
@@ -446,7 +445,7 @@ estimatedMinutes: 40
 > - [ ] [f], як у «ферд»
 > - [ ] [p], як у «перд»
 > - [x] [pf], зрослий звук: губи змикаються як для [p], а вивільнення — як [f]
-> - [ ] [pv], як «пвард»
+> - [ ] [p] + пауза + [f], два окремі звуки «п-ферд»
 >
 > **Пояснення:** *pf* — африката: один звук, а не два окремі. Пропустити *p* («ферд») чи *f* («перд») — помилка.
 
@@ -454,11 +453,11 @@ estimatedMinutes: 40
 > level: B1 · type: multi · id: de-b1-knacklaut-q07
 > - [x] Zeit
 > - [x] Katze
-> - [x] Salz
+> - [x] nachts
 > - [ ] Sand
 > - [ ] Schule
 >
-> **Пояснення:** [ts] дають буква *z*, сполучення *tz* і кінцеве *-ts* (*Salz*). *Sand* починається з дзвінкого [z], *Schule* — з [ʃ].
+> **Пояснення:** [ts] дають буква *z* (*Zeit*, *Salz*), сполучення *tz* і кінцеве *-ts* (*nachts*). *Sand* починається з дзвінкого [z], *Schule* — з [ʃ].
 
 > [!quiz] Заповни пропуски: *vereisen* чи *verreisen*?
 > level: B1 · type: fill · bank: vereisen, verreist · id: de-b1-knacklaut-q08
@@ -506,10 +505,10 @@ estimatedMinutes: 40
 > Abend
 > im
 > Theater.
-> ihm ✗
+> mich ✗
 > ```
 >
-> **Пояснення:** *sich treffen* — зворотне: *wir treffen uns*. *ihm* було б помилкою: це давальний займенник «йому». Ввечері — *am Abend*, у театрі — *im Theater*.
+> **Пояснення:** *sich treffen* — зворотне: *wir treffen uns*. *mich* було б помилкою: *wir treffen mich* не збігається за особою. Ввечері — *am Abend*, у театрі — *im Theater*.
 
 > [!quiz] Як вимовляється кінець слова *Herbst*?
 > level: B1 · type: single · id: de-b1-knacklaut-q12

@@ -79,7 +79,7 @@ estimatedMinutes: 40
 >   - { id: b2, col: b, label: "дієслово на 2-му місці", text: "verstehe", tone: orange }
 >   - { id: b3, col: b, label: "підмет", text: "ich.", tone: mint }
 > steps:
->   - { focus: [a1, a2, a3], note: "Je-речення — підрядне: Je mehr ich lerne, — дієслово lerne в кінці. Перед je/mehr займається вся частина." }
+>   - { focus: [a1, a2, a3], note: "Je-речення — підрядне: Je mehr ich lerne, — дієслово lerne в кінці. Уся je-частина займає перше місце речення." }
 >   - { focus: [b1, b2, b3], note: "Desto + Komparativ (besser) займають перше місце. Далі дієслово (verstehe) — друге, підмет (ich) — після нього." }
 >   - { focus: [a1, b1], note: "Обидві частини мають Komparativ: mehr і besser. Замість desto можна сказати umso: Je mehr ich lerne, umso besser verstehe ich." }
 > ```
@@ -109,7 +109,7 @@ estimatedMinutes: 40
 > ipa: /tsvaːɐ̯ ˈaːbɐ/ · pos: phrase · level: B1 · id: de-b1-zweiteilig-w01
 > uk: хоч … але; правда … але
 > example: Das Essen ist **zwar** teuer, **aber** sehr gut. — Їжа хоч і дорога, але дуже смачна.
-> note: від середньоверхньонім. ze wāre — «воістину». Кома перед aber обовʼязкова.
+> note: від давньоверхньонім. zi wāre, середньоверхньонім. ze wāre — «воістину». Кома перед aber обовʼязкова.
 
 > [!word] je … desto
 > ipa: /jeː ˈdɛsto/ · pos: phrase · level: B1 · id: de-b1-zweiteilig-w02
@@ -118,25 +118,25 @@ estimatedMinutes: 40
 > note: після je — підрядне речення (дієслово в кінці); обидві частини — Komparativ.
 
 > [!word] umso
-> ipa: /ˈʊmzo/ · pos: adv · level: B1 · id: de-b1-zweiteilig-w03
+> ipa: /ˈʊmzo/ · pos: adv · level: B2 · id: de-b1-zweiteilig-w03
 > uk: тим (більше, краще, …)
 > example: Je länger ich warte, **umso** ungeduldiger werde ich. — Чим довше я чекаю, тим нетерплячішим стаю.
 > note: синонім desto. Також окремо: Umso besser! — Тим краще!
 
 > [!word] sowie
-> ipa: /zoˈviː/ · pos: conj · level: B1 · id: de-b1-zweiteilig-w04
+> ipa: /zoˈviː/ · pos: conj · level: B2 · id: de-b1-zweiteilig-w04
 > uk: а також; і
 > example: Wir verkaufen Brot **sowie** Kuchen. — Ми продаємо хліб, а також пироги.
 > note: сполучник у переліках; не плутай із sowohl … als auch.
 
 > [!word] beziehungsweise
-> ipa: /bəˈtsiːʊŋsvaɪ̯zə/ · pos: conj · level: B1 · id: de-b1-zweiteilig-w05
+> ipa: /bəˈtsiːʊŋsvaɪ̯zə/ · pos: conj · level: B2 · id: de-b1-zweiteilig-w05
 > uk: або (точніше); відповідно
 > example: Sie kommen im Mai **beziehungsweise** im Juni. — Вони приїдуть у травні або (точніше) в червні.
 > note: скорочено bzw.; читається повністю. Вживають для уточнення.
 
 > [!word] teils … teils
-> ipa: /taɪ̯ls taɪ̯ls/ · pos: phrase · level: B1 · id: de-b1-zweiteilig-w06
+> ipa: /taɪ̯ls taɪ̯ls/ · pos: phrase · level: B2 · id: de-b1-zweiteilig-w06
 > uk: почасти … почасти
 > example: Das Wetter ist **teils** sonnig, **teils** regnerisch. — Погода почасти сонячна, почасти дощова.
 > note: у відповіді: «Wie war es? — Teils, teils.» = «По-різному».
@@ -148,11 +148,11 @@ estimatedMinutes: 40
 > note: beide — «обидва / обидві» про людей: Sie kommen beide. Beides — про речі й поняття.
 
 > [!word] beide
-> ipa: /ˈbaɪ̯də/ · pos: pron · level: B1 · id: de-b1-zweiteilig-w08
+> ipa: /ˈbaɪ̯də/ · pos: pron · level: A2 · id: de-b1-zweiteilig-w08
 > uk: обидва; обидві
 > forms: — (лише множина)
-> example: **Beide** Kinder gehen in die Schule. — Обидві дитини ходять до школи.
-> note: ei = [aɪ̯]; склоняється: beide, beiden, beider.
+> example: **Beide** Kinder gehen in die Schule. — Обоє дітей ходять до школи.
+> note: ei = [aɪ̯]; відмінюється: beide, beiden, beider.
 
 > [!word] sich lohnen
 > ipa: /ˈloːnən/ · pos: verb · level: B1 · id: de-b1-zweiteilig-w09
@@ -174,14 +174,14 @@ estimatedMinutes: 40
 > note: ü — губи для «у», язик для «і»; tz = [ts].
 
 > [!word] der Nutzen
-> ipa: /ˈnʊtsn̩/ · pos: noun · level: B1 · id: de-b1-zweiteilig-w12
+> ipa: /ˈnʊtsn̩/ · pos: noun · level: B2 · id: de-b1-zweiteilig-w12
 > uk: користь; вигода
 > forms: — (без множини)
 > example: Der **Nutzen** ist größer als der Aufwand. — Користь більша, ніж витрати.
-> note: nutzen — використовувати; nützen — бути корисним (різні дієслова, але схожі).
+> note: nutzen / nützen — переважно синоніми («використовувати; бути корисним»); на півдні частіше nützen.
 
 > [!word] hilfreich
-> ipa: /ˈhɪlfʁaɪ̯ç/ · pos: adj · level: B1 · id: de-b1-zweiteilig-w13
+> ipa: /ˈhɪlfʁaɪ̯ç/ · pos: adj · level: B2 · id: de-b1-zweiteilig-w13
 > uk: корисний; той, що допомагає
 > example: Der Tipp war sehr **hilfreich**. — Порада була дуже корисною.
 > note: hilf-reich: «багатий на допомогу»; ch в кінці = [ç].
@@ -194,7 +194,7 @@ estimatedMinutes: 40
 > note: наголос на -ti-; v = [v].
 
 > [!word] begabt
-> ipa: /bəˈɡaːpt/ · pos: adj · level: B1 · id: de-b1-zweiteilig-w15
+> ipa: /bəˈɡaːpt/ · pos: adj · level: B2 · id: de-b1-zweiteilig-w15
 > uk: обдарований; здібний
 > example: Sie ist nicht nur **begabt**, sondern auch fleißig. — Вона не лише здібна, а й працьовита.
 > note: кінцеве bt = [pt]; die Begabung — здібності.
@@ -254,7 +254,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-zweiteilig-s03
 > text: Je mehr ich übe, desto besser spreche ich.
 > ipa: /jeː meːɐ̯ ɪç ˈyːbə ˈdɛsto ˈbɛsɐ ˈʃpʁɛçə ɪç/
-> tip: je — довге [eː], j = «й». desto — наголос на de-, [s] мʼякий. spreche — sp = «шп».
+> tip: je — довге [eː], j = «й». desto — наголос на de-, [s] глухий. spreche — sp = «шп».
 > uk: Чим більше я вправляюся, тим краще говорю.
 
 > [!speak] Скажи вголос
@@ -266,7 +266,7 @@ estimatedMinutes: 40
 
 ## Типові помилки українців
 
-> [!pitfall] Подвійне заперечення: «weder keine Zeit noch nicht Lust»
+> [!pitfall] Подвійне заперечення: «weder keine Zeit noch keine Lust»
 > Українська мова любить кілька заперечень: «ні часу, ні бажання не маю». Німецька — ні: *weder … noch* — це вже повне заперечення. Правильно: *Ich habe **weder** Zeit **noch** Lust.* Жодних *nicht* чи *kein* поруч.
 
 > [!pitfall] Порядок слів після desto
@@ -322,7 +322,7 @@ estimatedMinutes: 40
 > ```text fill
 > Ich spreche [[sowohl]] Deutsch [[als]] auch Englisch.
 > Er hat [[weder]] Zeit [[noch]] Geld.
-> [[Entweder]] bleiben wir hier, oder wir gehen nach Hause.
+> Wir fahren [[entweder]] nach Wien oder nach Graz.
 > ```
 >
 > **Пояснення:** *sowohl … als auch* додає, *weder … noch* заперечує, *entweder … oder* вибирає. *sondern* і *aber* у цих парах не вживаються.
@@ -451,7 +451,7 @@ estimatedMinutes: 40
 > Вислів *Das ist weder Fisch noch Fleisch* означає «ні те ні се» — про щось невизначене. Це *weder … noch* у дії: ні риба, ні мʼясо.
 
 > [!reel] 🔍 Звідки «zwar»?
-> Слово *zwar* звучить незвично, але колись це були два слова: давньоверхньонімецьке *zi wāre* — «воістину, справді». Тобто *Er ist zwar jung* спершу означало «правда, він молодий (але …)». Ось чому *zwar* так природно чекає на *aber*.
+> Слово *zwar* звучить незвично, але колись це були два слова: давньоверхньонімецьке *zi wāre* (пізніше *ze wāre*) — «воістину, справді». Тобто *Er ist zwar jung* спершу означало «правда, він молодий (але …)». Ось чому *zwar* так природно чекає на *aber*.
 
 > [!reel] 📚 «Entweder – Oder»: назва знаменитої книги
 > Німецька назва *Entweder – Oder* відома завдяки книзі датського філософа Серена Кʼєркегора. Вона вийшла 1843 року під псевдонімом Victor Eremita, а данською називалася *Enten – Eller*. Тож пара *entweder … oder* — це ще й назва класики філософії.

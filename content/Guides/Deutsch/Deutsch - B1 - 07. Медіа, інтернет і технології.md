@@ -89,7 +89,7 @@ estimatedMinutes: 40
 
 - **die Nachricht** — повідомлення (SMS, чат) або окрема новина: *Ich habe eine Nachricht bekommen.* **die Nachrichten** (мн.) — «новини» як телепрограма чи розділ: *Ich sehe die Nachrichten.* Українською «новини» — теж множина.
 - **das Medium** → **die Medien**: «медіа». *Soziale Medien* (або *Social Media*) — соцмережі.
-- **die Fake News** — слово вживають у множині: *Fake News sind gefährlich.* Окремий випадок — *eine Falschmeldung*.
+- **die Fake News** — слово зазвичай вживають у множині: *Fake News sind gefährlich.* Для одного випадку кажуть *eine Falschmeldung*.
 - **die Meldung** — коротке повідомлення в новинах, **der Bericht** — розгорнутий репортаж.
 
 ## Datenschutz
@@ -156,7 +156,7 @@ estimatedMinutes: 40
 > [!word] die Fake News
 > ipa: /ˈfeɪ̯k ˈnjuːs/ · pos: noun · level: B1 · id: de-b1-medien-w07
 > uk: фейкові новини; фейки
-> forms: — (лише множина)
+> forms: — (зазвичай у множині)
 > example: Im Internet gibt es viele **Fake News**. — В інтернеті багато фейків.
 > note: слово використовують у множині: Fake News sind gefährlich. Німецький відповідник — Falschmeldungen.
 
@@ -226,7 +226,7 @@ estimatedMinutes: 40
 > [!word] die Werbung
 > ipa: /ˈvɛʁbʊŋ/ · pos: noun · level: A2 · id: de-b1-medien-w17
 > uk: реклама
-> forms: — (без множини)
+> forms: — (зазвичай без множини)
 > example: Im Fernsehen kommt zu viel **Werbung**. — По телевізору забагато реклами.
 > note: «Werbung» — реклама в медіа; «Anzeige» — оголошення в газеті. Бувають й Werbespots у множині.
 
@@ -300,11 +300,11 @@ estimatedMinutes: 40
 > note: «Schlagzeilen machen» — потрапити в новини. g наприкінці складу = [k].
 
 > [!word] der Algorithmus
-> ipa: /ˈalɡoʁɪtmʊs/ · pos: noun · level: B2 · id: de-b1-medien-w28
+> ipa: /alɡoˈʁɪtmʊs/ · pos: noun · level: B2 · id: de-b1-medien-w28
 > uk: алгоритм
 > forms: die Algorithmen
 > example: Der **Algorithmus** zeigt dir ähnliche Videos. — Алгоритм показує тобі схожі відео.
-> note: th тут = [t]: «алгорітмус».
+> note: наголос на -rith-: «алгорІтмус»; th тут = [t].
 
 > [!word] das WLAN
 > ipa: /ˈveːlaːn/ · pos: noun · level: A2 · id: de-b1-medien-w29
@@ -318,7 +318,7 @@ estimatedMinutes: 40
 > uk: екран
 > forms: die Bildschirme
 > example: Mein **Bildschirm** ist kaputt. — Мій екран зламаний.
-> note: Bild + Schirm; sch = «ш», d випадає в вимові: «більтшірм».
+> note: Bild + Schirm; sch = «ш», d звучить як [t]: «більтшірм».
 
 > [!word] die Datei
 > ipa: /daˈtaɪ̯/ · pos: noun · level: A2 · id: de-b1-medien-w31
@@ -483,7 +483,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-Англійські слова в німецькій читають **по-німецьки** з кількома винятками: *App* /ɛp/, *Chat* /tʃɛt/, *Link* /lɪŋk/. Літера **w** — завжди [v] (*Webseite, Passwort, WLAN*), **v** у *Video* — [v], а у власне німецьких словах (*Verlag, verbreiten*) — [f]. **sp-, st-** на початку складу: «шп», «шт» (*speichern, Streaming*).
+Англіцизми часто зберігають англійську вимову: *App* /ɛp/, *Chat* /tʃɛt/, *Streaming* /ˈstʁiːmɪŋ/, *posten*. Літера **w** — завжди [v] (*Webseite, Passwort, WLAN*), **v** у *Video* — [v], а у власне німецьких словах (*Verlag, verbreiten*) — [f]. **sp-, st-** у німецьких словах на початку кореня — «шп», «шт» (*speichern, Stern*); в англіцизмах — [sp], [st] (*Streaming*).
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-medien-s01
@@ -549,9 +549,11 @@ estimatedMinutes: 40
 > audio: B: Nein, noch nicht. Ich möchte zuerst alle fragen.
 > audio: A: Gute Idee. Ich lösche das Foto, auf dem man mich schlecht sieht.
 > audio: B: Und ich schicke den Link später in die Gruppe.
-> - [x] Спершу запитає всіх, лінк надішле пізніше в групу.
+> - [x] Спершу запитає всіх, посилання надішле пізніше в групу.
 > - [ ] Одразу опублікує всі фото.
 > - [ ] Видалить усі фото.
+>
+> **Пояснення:** B каже *Ich möchte zuerst alle fragen* і *Ich schicke den Link später in die Gruppe*.
 
 Скажи вголос свою відповідь.
 
@@ -674,7 +676,7 @@ Viele Sendungen kann man in der Mediathek ansehen, wann man will. Private Sender
 > hochgeladen ✗
 > ```
 >
-> **Пояснення:** обмеження початку: *Heute Abend* — на першому місці, дієслово — на другому (*lade*), підмет *ich* — після нього, префікс *hoch* — наприкінці. *hochgeladen* — це Partizip II.
+> **Пояснення:** речення починається з *Heute Abend*: — на першому місці, дієслово — на другому (*lade*), підмет *ich* — після нього, префікс *hoch* — наприкінці. *hochgeladen* — це Partizip II.
 
 > [!quiz] Склади речення: «Я знайшов його в інтернеті»
 > level: B1 · type: order · id: de-b1-medien-q12

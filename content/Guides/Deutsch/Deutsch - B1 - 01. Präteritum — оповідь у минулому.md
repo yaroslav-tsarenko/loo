@@ -81,10 +81,10 @@ estimatedMinutes: 60
 > steps:
 >   - { focus: inf, note: "Беремо інфінітив і прибираємо -en: mach-, arbeit-, öffn-." }
 >   - { focus: stem, note: "Корінь у слабких дієсловах не змінюється, умлаута чи нової голосної немає." }
->   - { focus: te, note: "Додаємо -te. Якщо корінь закінчується на -t, -d або на приголосну + -n / -m (arbeit-, bad-, öffn-, atm-, regn-), вставляємо -e-, щоб слово можна було вимовити: arbeitete, badete, öffnete, atmete, regnete." }
+>   - { focus: te, note: "Додаємо -te. Якщо корінь закінчується на -t, -d або на -n / -m після іншої приголосної, крім l і r (arbeit-, bad-, öffn-, atm-, regn-), вставляємо -e-, щоб слово можна було вимовити: arbeitete, badete, öffnete, atmete, regnete. Після l і r вставки немає: lernte, warnte." }
 >   - { focus: end, note: "Закінчення такі самі, як у hatte: ich / er — без закінчення, du -st, wir / sie -n, ihr -t." }
 > ```
-> Без вставного -e- обходяться корені на -l, -r, -n після голосної та інші: *lernte, wohnte, spielte, kaufte*. Вставка потрібна після -t, -d та після -m / -n, що стоять за іншою приголосною.
+> Вставне -e- потрібне після -t, -d і після -n / -m, що стоять за приголосною (крім l, r): *arbeitete, öffnete, atmete*. Без нього: *wohnte, spielte, kaufte* (голосна перед -n), а також *lernte, warnte, filmte* (l, r перед -n / -m).
 
 Слабкі дієслова вживаються так: *Sie **wohnte** damals in Hamburg. Wir **kauften** das Brot beim Bäcker. Der Wolf **klopfte** an die Tür.* Невідокремлювані префікси (*be-, ver-, er-, ent-, zer-*) на Präteritum не впливають: *besuchte, verzauberte, entdeckte.*
 
@@ -135,13 +135,13 @@ estimatedMinutes: 60
 
 ## Один текст — один час
 
-У одній оповіді стежимо за часом: якщо почав у Präteritum, то й продовжуй. Perfekt у такому тексті зазвичай з’являється в двох випадках: коли йдеться про подію **раніше** за основну лінію оповіді (для цього є Plusquamperfekt, тема B1-02) або коли оповідач звертається до читача (*Ich habe es selbst gesehen*). У прямій мові персонажів — свій час: *„Ich habe Hunger!", rief der Wolf.*
+У одній оповіді стежимо за часом: якщо почав у Präteritum, то й продовжуй. Perfekt у такому тексті зазвичай зʼявляється, коли оповідач звертається до читача (*Ich habe es selbst gesehen*). Подію **раніше** за основну лінію оповіді позначає Plusquamperfekt (тема B1-02). У прямій мові персонажів — свій час: *„Ich habe Hunger!", rief der Wolf.*
 
 ## Приклади
 
-- Es war einmal eine Prinzessin, die wohnte in einem großen Schloss. — Жила-була принцеса, яка мешкала у великому замку.
+- Es war einmal eine Prinzessin, die wohnte in einem großen Schloss. — Жила-була принцеса, яка мешкала у великому замку. (Порядок «die wohnte» — давній казковий; у підрядному реченні дієслово стоїть у кінці: *die in einem großen Schloss wohnte*, тема B1-08.)
 - Eines Tages ging sie in den Wald und verirrte sich. — Одного дня вона пішла в ліс і заблукала.
-- Plötzlich kam ein Wolf und fragte: „Wohin gehst du?" — Раптом з’явився вовк і спитав: «Куди ти йдеш?»
+- Plötzlich kam ein Wolf und fragte: „Wohin gehst du?" — Раптом зʼявився вовк і спитав: «Куди ти йдеш?»
 - Der Jäger hörte einen Schrei und rannte zum Haus. — Мисливець почув крик і побіг до хати.
 - Die Hexe verzauberte den Prinzen, aber das Mädchen rettete ihn. — Відьма зачарувала принца, але дівчина його врятувала.
 - Gestern las ich einen Artikel über die Brüder Grimm. — Вчора я прочитав статтю про братів Грімм.
@@ -176,7 +176,7 @@ estimatedMinutes: 60
 > [!word] die Vergangenheit
 > ipa: /fɛɐ̯ˈɡaŋənhaɪ̯t/ · pos: noun · level: B1 · id: de-b1-praeteritum-w04
 > uk: минуле; минулий час
-> forms: — (без множини)
+> forms: — (рідко у множині)
 > example: Das **Präteritum** ist eine Zeit der **Vergangenheit**. — Претерит — це час минулого.
 > note: -heit → die. У граматиці: die Vergangenheit = Perfekt, Präteritum, Plusquamperfekt.
 
@@ -296,7 +296,7 @@ estimatedMinutes: 60
 > uk: мисливець
 > forms: die Jäger
 > example: Der **Jäger** hörte das laute Schnarchen. — Мисливець почув гучне хропіння.
-> note: жінка — die Jägerin. j = [j] як українське «й»; ä довге: «є̄» як у «день», розтягнуто.
+> note: жінка — die Jägerin. j = [j] як українське «й»; ä довге: відкрите [ɛː], як «е» в «день», але протяжно.
 
 > [!word] die Großmutter
 > ipa: /ˈɡʁoːsˌmʊtɐ/ · pos: noun · level: A2 · id: de-b1-praeteritum-w23
@@ -322,7 +322,7 @@ estimatedMinutes: 60
 > [!word] der Zauber
 > ipa: /ˈtsaʊ̯bɐ/ · pos: noun · level: B2 · id: de-b1-praeteritum-w26
 > uk: чари; магія; чарівність
-> forms: — (без множини)
+> forms: — (рідко у множині)
 > example: Der **Zauber** wirkte nicht mehr. — Чари більше не діяли.
 > note: der Zauberer — «чарівник», die Zauberin. z = [ts].
 
@@ -330,7 +330,7 @@ estimatedMinutes: 60
 > ipa: /ˈbʁʊnən/ · pos: noun · level: B1 · id: de-b1-praeteritum-w27
 > uk: криниця; фонтан
 > forms: die Brunnen
-> example: Das Mädchen warf den goldenen Ball in den **Brunnen**. — Дівчинка кинула золотий м’яч у криницю.
+> example: Das Mädchen warf den goldenen Ball in den **Brunnen**. — Дівчинка кинула золотий мʼяч у криницю.
 > note: тут -nn- → коротке u. Фонтан у місті — також Brunnen.
 
 > [!word] die Stiefmutter
@@ -501,10 +501,10 @@ estimatedMinutes: 60
 > audio: A: Oh nein! Und dann?
 > audio: B: Dann schien endlich die Sonne, und wir machten eine Hafenrundfahrt.
 > - [ ] Вони залишилися вдома.
-> - [x] Вони поїхали до Гамбурга; перший день був дощовий, потім з’явилося сонце.
-> - [ ] Вони поїхали на гори й пережили сильний шторм.
+> - [x] Вони поїхали до Гамбурга; перший день був дощовий, потім зʼявилося сонце.
+> - [ ] Вони поїхали в гори й пережили сильний шторм.
 >
-> **Пояснення:** Лина говорить у розмові, тому спочатку Perfekt (*sind gefahren, haben gesehen*), але *regnete, schien, machten* вони чують у Präteritum, бо це розповідь про погоду й подію. У живій мові обидва часи змішуються.
+> **Пояснення:** Ліна говорить у розмові, тому про поїздку каже Perfekt (*sind gefahren, haben gesehen*), а про погоду й екскурсію — Präteritum (*regnete, schien, machten*). У живій мові обидва часи змішуються. У живій мові обидва часи змішуються.
 
 ## Вимова
 
@@ -558,7 +558,7 @@ estimatedMinutes: 60
 > Хочеться скрізь додати до кореня -te, як у слабких дієслів. Але більшість часто вживаних дієслів — сильні: *ging, kam, sah, aß, fand*. Правильно: *ich **ging**, er **kam**, sie **sah**.* Закінчення -te мають лише слабкі дієслова (*machte, wohnte*) і змішані (*dachte, brachte*). Три форми кожного дієслова вчи разом.
 
 > [!pitfall] Забуте вставне -e-: «er arbeitte», «es regnte» там, де потрібно «arbeitete», «regnete»
-> Корінь на -t, -d або на приголосну + -n / -m не зʼєднується з -te без голосного. Тому: *arbeiten → arbeitete, warten → wartete, baden → badete, öffnen → öffnete, atmen → atmete, regnen → regnete*. Коротку форму *regnte* вимовити важко, тож правило працює на користь вимови.
+> Корінь на -t, -d або на -n / -m після приголосної (крім l і r: *lernte, warnte*) не зʼєднується з -te без голосного. Тому: *arbeiten → arbeitete, warten → wartete, baden → badete, öffnen → öffnete, atmen → atmete, regnen → regnete*. Коротку форму *regnte* вимовити важко, тож правило працює на користь вимови.
 
 > [!pitfall] Префікс на неправильному місці: «Er aufstand früh»
 > У головному реченні Präteritum відокремлюваний префікс іде **в кінець**: *Er stand früh **auf**.* Ставимо префікс біля дієслова лише в підрядному реченні: *…, weil er früh **aufstand**.* Українською префікс завжди стоїть при дієслові (встав), тому звичка тягне до помилки.
@@ -584,7 +584,7 @@ estimatedMinutes: 60
 > level: B1 · id: de-b1-praeteritum-s07
 > text: Erzähl bitte noch einmal das Märchen von Rotkäppchen!
 > ipa: /ɛɐ̯ˈtsɛːl ˈbɪtə nɔx ˈaɪ̯nmaːl das ˈmɛːɐ̯çən fɔn ˈʁoːtˌkɛpçən/
-> tip: Märchen — ä довге, потім [ç] у -chen. Rotkäppchen — ä коротке (пп), потім [ç]. -chen завжди [çən], ніколи [xən].
+> tip: Märchen — ä довге, потім [ç] у -chen. Rotkäppchen — ä коротке (пп), потім [ç]. Суфікс -chen читаємо [çən], не [xən].
 > uk: Розкажи, будь ласка, ще раз казку про Червону Шапочку!
 
 ## Landeskunde: die Brüder Grimm und Rotkäppchen
@@ -634,7 +634,7 @@ estimatedMinutes: 60
 >
 > **Пояснення:** *gehen* — сильне дієслово: *ging*. *Gehte* — типова помилка (слабке закінчення), *gegangen* — Partizip II (для Perfekt), *gang* такої форми немає.
 
-> [!quiz] Du ___ gestern bis spät in die Nacht. (machen → Präteritum, du)
+> [!quiz] Du ___ gestern bis spät in die Nacht Hausaufgaben. (machen → Präteritum, du)
 > level: B1 · type: single · id: de-b1-praeteritum-q06
 > - [ ] machtst
 > - [x] machtest
@@ -693,8 +693,8 @@ estimatedMinutes: 60
 > level: B1 · type: fill · id: de-b1-praeteritum-q12
 >
 > ```text fill
-> Es [[war]] einmal ein König. Er [[hatte]] drei Töchter.
-> Eines Tages [[ging]] die jüngste in den Wald und [[fand]] einen Brunnen.
+> Es [[war]] einmal ein König. Er [[hatte]] drei Töchter. (sein, haben)
+> Eines Tages [[ging]] die jüngste in den Wald und [[fand]] einen Brunnen. (gehen, finden)
 > ```
 >
 > **Пояснення:** *sein → war*, *haben → hatte*, *gehen → ging*, *finden → fand*. Ці чотири дієслова найчастіше трапляються на початку казки.
@@ -703,8 +703,8 @@ estimatedMinutes: 60
 > level: B1 · type: fill · id: de-b1-praeteritum-q13
 >
 > ```text fill
-> Die Hexe [[verzauberte]] den Prinzen. Das Mädchen [[rettete]] ihn.
-> Der Wolf [[klopfte]] an die Tür, und die Großmutter [[öffnete]].
+> Die Hexe [[verzauberte]] den Prinzen. (verzaubern) Das Mädchen [[rettete]] ihn. (retten)
+> Der Wolf [[klopfte]] an die Tür, (klopfen) und die Großmutter [[öffnete]]. (öffnen)
 > ```
 >
 > **Пояснення:** слабкі дієслова: корінь + *-te*. Для *klopfen* і *verzaubern* — просто *-te*; для *retten* і *öffnen* (корінь на -t / приголосна + n) потрібне вставне -e-: *rettete, öffnete*.
@@ -713,8 +713,8 @@ estimatedMinutes: 60
 > level: B1 · type: fill · id: de-b1-praeteritum-q14
 >
 > ```text fill
-> Die Prinzessin [[stand]] früh [[auf]].
-> Sie blieb im Bett, weil sie nicht [[aufstand]].
+> Die Prinzessin [[stand]] früh [[auf]]. (aufstehen)
+> Sie blieb im Bett, weil sie nicht [[aufstand]]. (aufstehen)
 > ```
 >
 > **Пояснення:** у головному реченні дієслово на 2-му місці, префікс у кінці: *stand … auf*. У підрядному (*weil …*) вони зливаються: *aufstand*.

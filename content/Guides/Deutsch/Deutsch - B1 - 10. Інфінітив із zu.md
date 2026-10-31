@@ -77,7 +77,7 @@ estimatedMinutes: 40
 
 ## Кома
 
-Кома перед інфінітивною групою **обовʼязкова**, коли група залежить від іменника (*Lust, Zeit, Angst*) або від слова-вказівника *es, das, daran* (*Es ist wichtig, …*), а також з *um, ohne, statt* (тема 11). В інших випадках (*Ich versuche, dich zu verstehen* / *Ich versuche dich zu verstehen*) кому за правописом можна опустити, але ми ставимо її завжди — так речення зрозуміліше.
+Кома перед інфінітивною групою **обовʼязкова**, коли група залежить від іменника (*Lust, Zeit, Angst*) або від слова-вказівника *es, das, daran* (*Es ist wichtig, …*), а також з *um, ohne, statt, anstatt, außer, als* (тема 11). В інших випадках (*Ich versuche, dich zu verstehen* / *Ich versuche dich zu verstehen*) кому за правописом можна опустити, але ми ставимо її завжди — так речення зрозуміліше.
 
 ## Zu чи dass?
 
@@ -138,14 +138,14 @@ estimatedMinutes: 40
 > note: відокремлюване; іменник — das Angebot (вже в курсі).
 
 > [!word] sich bemühen (um + Akk)
-> ipa: /bəˈmyːən/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w04
+> ipa: /bəˈmyːən zɪç/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w04
 > uk: старатися; докладати зусиль
 > forms: er bemüht sich · bemühte sich · hat sich bemüht
 > example: Ich **bemühe** mich, pünktlich zu sein. — Я намагаюся бути пунктуальним.
 > note: з іменником — sich um eine Stelle bemühen; з інфінітивом — sich bemühen, … zu.
 
 > [!word] sich trauen
-> ipa: /ˈtʁaʊ̯ən/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w05
+> ipa: /ˈtʁaʊ̯ən zɪç/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w05
 > uk: наважуватися
 > forms: er traut sich · traute sich · hat sich getraut
 > example: Ich **traue** mich nicht, den Chef anzusprechen. — Я не наважуюсь звернутися до шефа.
@@ -159,7 +159,7 @@ estimatedMinutes: 40
 > note: людина — у Dativ: Es gelingt mir, … zu. Допоміжне дієслово — sein.
 
 > [!word] sich weigern
-> ipa: /ˈvaɪ̯ɡɐn/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w07
+> ipa: /ˈvaɪ̯ɡɐn zɪç/ · pos: verb · level: B2 · id: de-b1-infinitiv-zu-w07
 > uk: відмовлятися
 > forms: er weigert sich · weigerte sich · hat sich geweigert
 > example: Er **weigert** sich, die Rechnung zu bezahlen. — Він відмовляється платити рахунок.
@@ -188,7 +188,7 @@ estimatedMinutes: 40
 > ipa: /ˈmøːklɪç/ · pos: adj · level: A2 · id: de-b1-infinitiv-zu-w11
 > uk: можливий
 > example: Ist es **möglich**, den Termin zu verschieben? — Чи можна перенести запис?
-> note: ö довге; g перед l — [k]: «мьоклііхь».
+> note: ö довге; g перед l звучить як [k]: [ˈmøːklɪç].
 
 > [!word] es lohnt sich
 > ipa: /ɛs loːnt zɪç/ · pos: phrase · level: B1 · id: de-b1-infinitiv-zu-w12
@@ -214,7 +214,7 @@ estimatedMinutes: 40
 > uk: бути шкода
 > forms: es tut leid · tat leid · hat leidgetan
 > example: Es **tut** mir **leid**, dass ich zu spät bin. — Мені шкода, що я спізнююсь.
-> note: у розмові лише Es tut mir leid; з інфінітивом: Es tut mir leid, dich gestört zu haben.
+> note: найчастіше коротко: Es tut mir leid. З інфінітивом: Es tut mir leid, dich gestört zu haben.
 
 ## Слухаємо
 
@@ -246,7 +246,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-*Zu* перед інфінітивом вимовляємо слабко: [tsu] або майже [tsə], без наголосу. Наголос падає на **кореневий склад інфінітива**: *zu **ge**hen*, *zu ver**ste**hen*. У відокремлюваних дієсловах *zu* стоїть усередині слова, і наголос лишається на префіксі: *an-zu-**ru**-fen* — [ˈantsuʁuːfn̩].
+*Zu* перед інфінітивом вимовляємо слабко: [tsu] або майже [tsə], без наголосу. Наголос падає на **кореневий склад інфінітива**: *zu **ge**hen*, *zu ver**ste**hen*. У відокремлюваних дієсловах *zu* стоїть усередині слова, і наголос лишається на префіксі: ***an**-zu-ru-fen* — [ˈantsuʁuːfn̩].
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-infinitiv-zu-s01
@@ -308,7 +308,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-infinitiv-zu-s05
 > text: Es tut mir leid, ich habe vergessen, mein Handy mitzunehmen.
 > ipa: /ɛs tuːt miːɐ̯ laɪ̯t ɪç ˈhaːbə fɛɐ̯ˈɡɛsn̩ maɪ̯n ˈhɛndi ˈmɪtsuneːmən/
-> tip: Handy — [ˈhɛndi], вимова не англійська. Наголос у mitzunehmen на mit-.
+> tip: Handy — [ˈhɛndi], вимова наближена до англійської (саме слово в англійській так не вживається). Наголос у mitzunehmen на mit-.
 > uk: Мені шкода, я забув(ла) узяти телефон.
 
 ## Практика
@@ -408,8 +408,8 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Er scheint müde [[zu sein]].
-> Du brauchst nicht [[zu kommen]].
-> Ich habe keine Angst, allein [[zu reisen]].
+> Du brauchst nicht [[zu kommen]] (kommen).
+> Ich habe keine Angst, allein [[zu reisen]] (reisen).
 > ```
 >
 > **Пояснення:** *scheinen + zu sein*, *nicht brauchen + zu-Infinitiv*, *Angst haben, … zu reisen*.

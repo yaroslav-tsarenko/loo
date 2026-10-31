@@ -116,13 +116,13 @@ estimatedMinutes: 40
 
 ## Wo і was
 
-**Wo** замінює «in der / in dem / in die» для місця, особливо для назв міст, країн і слів *Ort, Stadt, Haus*: *Wien, **wo** ich studiert habe, …; der Ort, **wo** wir uns trafen, …*. З іншими іменниками й для руху — зазвичай прийменник + займенник: *die Stadt, **in der** ich wohne*; *die Stadt, **in die** wir ziehen*.
+**Wo** замінює «in der / in dem» для місця, особливо для назв міст, країн і слів *Ort, Stadt, Haus*: *Wien, **wo** ich studiert habe, …; der Ort, **wo** wir uns trafen, …*. З іншими іменниками й для руху — зазвичай прийменник + займенник: *die Stadt, **in der** ich wohne*; *die Stadt, **in die** wir ziehen*.
 
 **Was** — не рід, а «все, що». Зазвичай стоїть після:
 
 - *alles, nichts, etwas, vieles, einiges*: *Alles, **was** ich habe, …*
-- іменника в вищому ступені: *Das ist das Beste, **was** ich kenne.* (*das* теж трапляється, якщо мають на увазі конкретний предмет, але *was* — найнадійніший вибір)
-- *das* як «те (самe)»: *Das ist das, **was** ich meine.*
+- субстантивованого прикметника в найвищому ступені (*das Beste, das Schönste*): *Das ist das Beste, **was** ich kenne.* (*das* теж трапляється, якщо мають на увазі конкретний предмет, але *was* — найнадійніший вибір)
+- *das* як «те (саме)»: *Das ist das, **was** ich meine.*
 - усієї ситуації: *Er hat gelogen, **was** mich ärgert.*
 
 З прийменником після *was* використовують *wo(r)-*: *Das ist alles, **worüber** wir gesprochen haben. / Nichts, **worauf** ich warte.*
@@ -132,7 +132,7 @@ estimatedMinutes: 40
 - Das ist der Mann, der neben mir wohnt. — Це чоловік, що живе поруч зі мною.
 - Der Film, den wir gestern gesehen haben, war sehr lang. — Фільм, який ми вчора дивилися, був дуже довгий.
 - Die Frau, der ich geholfen habe, ist Ärztin. — Жінка, якій я допоміг(ла), — лікарка.
-- Das Kind, dessen Mutter hier arbeitet, heißt Jonas. — Дитина, мати якої тут працює, звати Йонас.
+- Das Kind, dessen Mutter hier arbeitet, heißt Jonas. — Дитину, мати якої тут працює, звуть Йонас.
 - Die Leute, denen wir helfen, kommen aus der Ukraine. — Люди, яким ми допомагаємо, приїхали з України.
 - Das ist die Kollegin, mit der ich oft zusammenarbeite. — Це колега, з якою я часто працюю разом.
 - Wien, wo ich studiert habe, ist wunderschön. — Відень, де я навчався, чудовий.
@@ -147,7 +147,7 @@ estimatedMinutes: 40
 > uk: місцевість, район
 > forms: die Gegenden
 > example: Die **Gegend**, in der wir wohnen, ist ruhig. — Місцевість, де ми живемо, тиха.
-> note: g у -gend — перше [ɡ], друге звучить як [t] на кінці.
+> note: g — [ɡ], кінцеве d звучить як [t].
 
 > [!word] der Eindruck
 > ipa: /ˈaɪ̯ndʁʊk/ · pos: noun · level: B1 · id: de-b1-relativsaetze-w02
@@ -161,7 +161,7 @@ estimatedMinutes: 40
 > uk: товариство, клуб (зареєстрований)
 > forms: die Vereine
 > example: Der **Verein**, in dem ich Fußball spiele, hat 200 Mitglieder. — У клубі, де я граю у футбол, 200 членів.
-> note: е.V. (eingetragener Verein) у назві — зареєстроване товариство. Німці охоче беруть участь у Vereinen.
+> note: e.V. (eingetragener Verein) у назві — зареєстроване товариство. Німці охоче беруть участь у Vereinen.
 
 > [!word] die Gelegenheit
 > ipa: /ɡəˈleːɡn̩haɪ̯t/ · pos: noun · level: B1 · id: de-b1-relativsaetze-w04
@@ -213,7 +213,7 @@ estimatedMinutes: 40
 > note: zufällig — випадково; Zufälle — з умлаутом у множині.
 
 > [!word] sich beschweren (über + Akk)
-> ipa: /bəˈʃveːʁən/ · pos: verb · level: B1 · id: de-b1-relativsaetze-w11
+> ipa: /bəˈʃveːʁən zɪç/ · pos: verb · level: B1 · id: de-b1-relativsaetze-w11
 > uk: скаржитися
 > forms: er beschwert sich · beschwerte sich · hat sich beschwert
 > example: Das ist der Nachbar, über den sich alle **beschweren**. — Це сусід, на якого всі скаржаться.
@@ -222,7 +222,7 @@ estimatedMinutes: 40
 > [!word] die Nachbarschaft
 > ipa: /ˈnaxbaːɐ̯ʃaft/ · pos: noun · level: B1 · id: de-b1-relativsaetze-w12
 > uk: сусідство; сусіди
-> forms: — (без множини)
+> forms: die Nachbarschaften (рідко)
 > example: Die **Nachbarschaft**, in der ich wohne, ist freundlich. — Околиця, де я живу, привітна.
 > note: ch після a = [x]: «нахбаршафт»; -schaft — завжди die.
 
@@ -255,7 +255,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-У відносних реченнях займенник **der, die, das** вимовляється **слабко**: /dɛɐ̯/, /diː/, /das/ — наголошені слова це найчастіше підмет чи дієслово, а не займенник. Перед відносним реченням робимо **коротку паузу** (на письмі — кома). Інтонація: голос трохи падає на останньому слові підрядного, а потім піднімається знову, якщо головне речення триває.
+У відносних реченнях займенник **der, die, das** вимовляється **без наголосу**: [deːɐ̯], [diː], [das] — наголошені слова це найчастіше підмет чи дієслово, а не займенник. Перед відносним реченням робимо **коротку паузу** (на письмі — кома). Інтонація: голос трохи падає на останньому слові підрядного, а потім піднімається знову, якщо головне речення триває.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-relativsaetze-s01
@@ -317,7 +317,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-relativsaetze-s05
 > text: Das ist der Mann, dessen Frau in der Schule arbeitet.
 > ipa: /das ɪst deːɐ̯ man ˈdɛsn̩ fʁaʊ̯ ɪn deːɐ̯ ˈʃuːlə ˈaʁbaɪ̯tət/
-> tip: dessen — «дезн». Наголос у arbeitet на першому складі.
+> tip: dessen — «дессн», s глуха. Наголос у arbeitet на першому складі.
 > uk: Це чоловік, чия дружина працює в школі.
 
 ## Практика
@@ -436,11 +436,11 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Alles, [[was]] du brauchst, ist hier.
-> Das ist das Beste, [[was]] ich kenne.
+> Das ist das Beste, [[was|das]] ich kenne.
 > Ich habe nichts, [[was]] ich dir geben kann.
 > ```
 >
-> **Пояснення:** після *alles, nichts* і вищого ступеня іменника (*das Beste*) стоїть **was**.
+> **Пояснення:** після *alles, nichts* і субстантивованого найвищого ступеня (*das Beste*) зазвичай стоїть **was**.
 
 > [!quiz] Заповни wo або wo(r)-сполуку
 > level: B1 · type: fill · id: de-b1-relativsaetze-q14
@@ -536,5 +536,5 @@ estimatedMinutes: 40
 > - Рід і число займенника — від іменника, відмінок — від ролі в підрядному реченні.
 > - Форми: der / den / dem / dessen · die / die / der / deren · das / das / dem / dessen · die / die / **denen** / deren.
 > - З прийменником: прийменник стоїть перед займенником: *mit dem, in der, mit denen*.
-> - *Dessen / deren* + іменник без артикля; *wo* — для місця; *was* — після alles, nichts, etwas і вищого ступеня.
+> - *Dessen / deren* + іменник без артикля; *wo* — для місця; *was* — після alles, nichts, etwas і найвищого ступеня (*das Beste*).
 > - Відносне речення відокремлюють комами, дієслово — в кінці.

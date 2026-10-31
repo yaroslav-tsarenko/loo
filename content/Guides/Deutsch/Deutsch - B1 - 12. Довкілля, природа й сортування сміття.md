@@ -74,7 +74,7 @@ estimatedMinutes: 45
 
 ## Pfand
 
-*Pfand* — застава за пляшку чи банку. На більшості пластикових пляшок і банок для напоїв є знак застави, і за *Einwegflaschen* та *Dosen* платять **25 Cent**. Повертають застави в магазині в *Pfandautomat*: отримуєш чек (*Pfandbon*) й обмінюєш на гроші або віднімаєш від покупки. *Mehrwegflaschen* (їх миють і наповнюють знову) мають свою заставу, зазвичай 8 або 15 Cent за пляшку, та часто їх купують ящиком (*Kasten*).
+*Pfand* — застава за пляшку чи банку. На всіх одноразових пластикових пляшках і банках для напоїв (з 2024 року й на молочних напоях) є знак застави, і за *Einwegflaschen* та *Dosen* платять **25 Cent**; їх приймає будь-який магазин, що продає такі упаковки. Повертають застави в магазині в *Pfandautomat*: отримуєш чек (*Pfandbon*) й обмінюєш на гроші або віднімаєш від покупки. *Mehrwegflaschen* (їх миють і наповнюють знову) мають свою заставу, зазвичай 15 Cent за пляшку (за пивну — 8 Cent), і єдиного закону про суму немає; їх часто їх купують ящиком (*Kasten*).
 
 Не всі пляшки мають заставу: наприклад, пляшки з-під вина чи скляні банки зазвичай ні. Шукай знак *Pfand* на етикетці.
 
@@ -136,266 +136,273 @@ estimatedMinutes: 45
 > uk: опалювати, топити
 > forms: er heizt · heizte · hat geheizt
 > example: Wir **heizen** mit Gas. — Ми опалюємо газом.
-> note: z = [ts]: «хайцн». Іменник — die Heizung (вже в курсі).
+> note: z = [ts]: «хайцн». Іменник — die Heizung.
+
+> [!word] die Heizung
+> ipa: /ˈhaɪ̯tsʊŋ/ · pos: noun · level: A2 · id: de-b1-umwelt-w07
+> uk: опалення
+> forms: die Heizungen
+> example: Dreh bitte die **Heizung** runter. — Зроби, будь ласка, опалення тихіше.
+> note: -ung — завжди die; heizen — опалювати. Zentralheizung — центральне опалення.
 
 > [!word] erneuerbar
-> ipa: /ɛɐ̯ˈnɔʏ̯ɐbaːɐ̯/ · pos: adj · level: B2 · id: de-b1-umwelt-w07
+> ipa: /ɛɐ̯ˈnɔʏ̯ɐbaːɐ̯/ · pos: adj · level: B2 · id: de-b1-umwelt-w08
 > uk: відновлюваний
 > example: Wind und Sonne sind **erneuerbare** Energien. — Вітер і сонце — відновлювані джерела енергії.
 > note: від neu («новий»): erneuern — оновлювати; -bar — «який можна …».
 
 > [!word] die Solaranlage
-> ipa: /zoˈlaːɐ̯ˌʔanlaːɡə/ · pos: noun · level: B2 · id: de-b1-umwelt-w08
+> ipa: /zoˈlaːɐ̯ˌʔanlaːɡə/ · pos: noun · level: B2 · id: de-b1-umwelt-w09
 > uk: сонячна установка
 > forms: die Solaranlagen
 > example: Auf dem Dach ist eine **Solaranlage**. — На даху є сонячна установка.
 > note: Solar + Anlage; -anlage — завжди die. AT, CH: так само.
 
 > [!word] die Windkraft
-> ipa: /ˈvɪntkʁaft/ · pos: noun · level: B2 · id: de-b1-umwelt-w09
+> ipa: /ˈvɪntkʁaft/ · pos: noun · level: B2 · id: de-b1-umwelt-w10
 > uk: вітрова енергія
 > forms: — (без множини)
 > example: Im Norden nutzt man viel **Windkraft**. — На півночі багато використовують вітрову енергію.
 > note: ще: Windenergie; das Windrad — вітряк-турбіна.
 
 > [!word] der Abfall
-> ipa: /ˈapfal/ · pos: noun · level: B1 · id: de-b1-umwelt-w10
+> ipa: /ˈapfal/ · pos: noun · level: B1 · id: de-b1-umwelt-w11
 > uk: відходи
 > forms: die Abfälle
 > example: Küchen**abfälle** gehören in die Biotonne. — Кухонні відходи належать у біоконтейнер.
-> note: Abfall — офіційне слово (Abfallkalender), Müll — розмовне; обидва = «сміття».
+> note: Abfall — офіційніше слово (Abfallkalender), Müll — звичайне; обидва = «сміття».
 
 > [!word] die Papiertonne
-> ipa: /paˈpiːɐ̯ˌtɔnə/ · pos: noun · level: B1 · id: de-b1-umwelt-w11
+> ipa: /paˈpiːɐ̯ˌtɔnə/ · pos: noun · level: B1 · id: de-b1-umwelt-w12
 > uk: контейнер для паперу
 > forms: die Papiertonnen
 > example: Alte Zeitungen kommen in die **Papiertonne**. — Старі газети йдуть у контейнер для паперу.
 > note: колір часто блакитний, але залежить від міста.
 
 > [!word] die Verpackung
-> ipa: /fɛɐ̯ˈpakʊŋ/ · pos: noun · level: B1 · id: de-b1-umwelt-w12
+> ipa: /fɛɐ̯ˈpakʊŋ/ · pos: noun · level: B1 · id: de-b1-umwelt-w13
 > uk: упаковка
 > forms: die Verpackungen
 > example: Diese **Verpackung** ist aus Plastik. — Ця упаковка з пластику.
 > note: -ung — завжди die; verpacken — пакувати.
 
 > [!word] das Plastik
-> ipa: /ˈplastɪk/ · pos: noun · level: B1 · id: de-b1-umwelt-w13
+> ipa: /ˈplastɪk/ · pos: noun · level: B1 · id: de-b1-umwelt-w14
 > uk: пластик
 > forms: — (без множини)
 > example: Wir wollen weniger **Plastik** benutzen. — Ми хочемо використовувати менше пластику.
 > note: офіційно — der Kunststoff; Plastik — розмовно й про сміття.
 
 > [!word] die Plastiktüte
-> ipa: /ˈplastɪkˌtyːtə/ · pos: noun · level: B1 · id: de-b1-umwelt-w14
+> ipa: /ˈplastɪkˌtyːtə/ · pos: noun · level: B1 · id: de-b1-umwelt-w15
 > uk: пластиковий пакет
 > forms: die Plastiktüten
-> example: Im Supermarkt kostet eine **Plastiktüte** Geld. — У супермаркеті пластиковий пакет коштує грошей.
+> example: Eine **Plastiktüte** nehme ich nicht mehr, ich habe eine Stofftasche. — Пластиковий пакет я вже не беру, у мене тканинна сумка.
 > note: ü — губи «у», язик «і»; Tüte в AT: Sackerl, CH: Sack.
 
 > [!word] die Pfandflasche
-> ipa: /ˈpfantˌflaʃə/ · pos: noun · level: B1 · id: de-b1-umwelt-w15
+> ipa: /ˈpfantˌflaʃə/ · pos: noun · level: B1 · id: de-b1-umwelt-w16
 > uk: пляшка із заставою
 > forms: die Pfandflaschen
 > example: Ich gebe die **Pfandflaschen** im Supermarkt ab. — Я здаю пляшки із заставою в супермаркеті.
 > note: pf на початку: губи вже готові до [f]: «пфант».
 
 > [!word] die Mehrwegflasche
-> ipa: /ˈmeːɐ̯veːkˌflaʃə/ · pos: noun · level: B2 · id: de-b1-umwelt-w16
+> ipa: /ˈmeːɐ̯veːkˌflaʃə/ · pos: noun · level: B2 · id: de-b1-umwelt-w17
 > uk: багаторазова пляшка
 > forms: die Mehrwegflaschen
 > example: Mineralwasser gibt es oft in **Mehrwegflaschen**. — Мінеральну воду часто продають у багаторазових пляшках.
 > note: Mehrweg — «багато шляхів», тобто пляшка повертається й наповнюється знову.
 
 > [!word] die Einwegflasche
-> ipa: /ˈaɪ̯nveːkˌflaʃə/ · pos: noun · level: B2 · id: de-b1-umwelt-w17
+> ipa: /ˈaɪ̯nveːkˌflaʃə/ · pos: noun · level: B2 · id: de-b1-umwelt-w18
 > uk: одноразова пляшка
 > forms: die Einwegflaschen
 > example: Für **Einwegflaschen** zahlt man 25 Cent Pfand. — За одноразові пляшки платять 25 центів застави.
 > note: Einweg = «один шлях»: після використання її переробляють. Суму застави див. у розділі «Pfand».
 
 > [!word] recyceln
-> ipa: /ʁiˈsaɪ̯kl̩n/ · pos: verb · level: B2 · id: de-b1-umwelt-w18
+> ipa: /ʁiˈsaɪ̯kl̩n/ · pos: verb · level: B2 · id: de-b1-umwelt-w19
 > uk: переробляти (вторинна сировина)
 > forms: er recycelt · recycelte · hat recycelt
 > example: Glas kann man gut **recyceln**. — Скло добре піддається переробці.
 > note: Partizip II — recycelt (без ge-, бо наголос не на першому складі).
 
 > [!word] wiederverwenden
-> ipa: /ˈviːdɐfɛɐ̯vɛndn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w19
+> ipa: /ˈviːdɐfɛɐ̯vɛndn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w20
 > uk: використовувати повторно
 > forms: er verwendet wieder · verwendete wieder · hat wiederverwendet
-> example: Man kann viele Gläser **wiederverwenden**. — Багато склянок можна використовувати повторно.
+> example: Man kann viele Gläser **wiederverwenden**. — Багато скляних банок можна використовувати повторно.
 > note: поряд: wiederverwerten — переробляти для повторного використання.
 
 > [!word] das Recycling
-> ipa: /ʁiˈsaɪ̯klɪŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w20
+> ipa: /ʁiˈsaɪ̯klɪŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w21
 > uk: переробка (відходів)
 > forms: — (без множини)
 > example: Das **Recycling** spart Rohstoffe. — Переробка економить сировину.
 > note: запозичення з англійської, наголос на другому складі.
 
 > [!word] der Naturschutz
-> ipa: /naˈtuːɐ̯ʃʊts/ · pos: noun · level: B2 · id: de-b1-umwelt-w21
+> ipa: /naˈtuːɐ̯ʃʊts/ · pos: noun · level: B2 · id: de-b1-umwelt-w22
 > uk: охорона природи
 > forms: — (без множини)
 > example: **Naturschutz** ist Aufgabe von uns allen. — Охорона природи — справа всіх нас.
 > note: поряд: Umweltschutz — охорона довкілля; Tierschutz — захист тварин.
 
 > [!word] das Naturschutzgebiet
-> ipa: /naˈtuːɐ̯ʃʊtsɡəˌbiːt/ · pos: noun · level: B2 · id: de-b1-umwelt-w22
+> ipa: /naˈtuːɐ̯ʃʊtsɡəˌbiːt/ · pos: noun · level: B2 · id: de-b1-umwelt-w23
 > uk: заказник, природоохоронна територія
 > forms: die Naturschutzgebiete
 > example: Im **Naturschutzgebiet** darf man nicht zelten. — У заказнику не можна ставити намет.
 > note: Naturpark і Nationalpark — окремі категорії.
 
 > [!word] die Umwelt
-> ipa: /ˈʊmvɛlt/ · pos: noun · level: B1 · id: de-b1-umwelt-w23
+> ipa: /ˈʊmvɛlt/ · pos: noun · level: B1 · id: de-b1-umwelt-w24
 > uk: довкілля
 > forms: — (без множини)
 > example: Wir müssen die **Umwelt** schützen. — Ми мусимо захищати довкілля.
 > note: «екологія» в побуті — die Umwelt; die Ökologie — наука.
 
 > [!word] umweltfreundlich
-> ipa: /ˈʊmvɛltfʁɔʏ̯ntlɪç/ · pos: adj · level: B1 · id: de-b1-umwelt-w24
+> ipa: /ˈʊmvɛltfʁɔʏ̯ntlɪç/ · pos: adj · level: B1 · id: de-b1-umwelt-w25
 > uk: екологічний, дружній до довкілля
 > example: Fahrräder sind **umweltfreundlich**. — Велосипеди екологічні.
 > note: протилежне — umweltschädlich; ökologisch — науково й у маркетингу.
 
 > [!word] die Umweltverschmutzung
-> ipa: /ˈʊmvɛltfɛɐ̯ʃmʊtsʊŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w25
+> ipa: /ˈʊmvɛltfɛɐ̯ʃmʊtsʊŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w26
 > uk: забруднення довкілля
 > forms: — (без множини)
 > example: Die **Umweltverschmutzung** nimmt in vielen Städten zu. — Забруднення довкілля у багатьох містах зростає.
 > note: verschmutzen — забруднювати; -ung — завжди die.
 
 > [!word] die Luft
-> ipa: /lʊft/ · pos: noun · level: A2 · id: de-b1-umwelt-w26
+> ipa: /lʊft/ · pos: noun · level: A2 · id: de-b1-umwelt-w27
 > uk: повітря
 > forms: — (без множини)
 > example: Die **Luft** ist hier sehr sauber. — Повітря тут дуже чисте.
 > note: поет. die Lüfte; Luftverschmutzung — забруднення повітря.
 
 > [!word] bedrohen
-> ipa: /bəˈdʁoːən/ · pos: verb · level: B2 · id: de-b1-umwelt-w27
+> ipa: /bəˈdʁoːən/ · pos: verb · level: B2 · id: de-b1-umwelt-w28
 > uk: загрожувати
 > forms: er bedroht · bedrohte · hat bedroht
 > example: Der Klimawandel **bedroht** viele Tierarten. — Зміна клімату загрожує багатьом видам тварин.
 > note: bedrohte Arten — види під загрозою; Partizip II без ge-.
 
 > [!word] aussterben
-> ipa: /ˈaʊ̯sʃtɛʁbn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w28
+> ipa: /ˈaʊ̯sʃtɛʁbn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w29
 > uk: вимирати
 > forms: er stirbt aus · starb aus · ist ausgestorben
 > example: Viele Arten sind schon **ausgestorben**. — Багато видів уже вимерли.
 > note: відокремлюване; допоміжне дієслово — sein. Прикметник: ausgestorben.
 
 > [!word] schützen
-> ipa: /ˈʃʏtsn̩/ · pos: verb · level: B1 · id: de-b1-umwelt-w29
+> ipa: /ˈʃʏtsn̩/ · pos: verb · level: B1 · id: de-b1-umwelt-w30
 > uk: захищати, оберігати
 > forms: er schützt · schützte · hat geschützt
 > example: Wir wollen den Wald **schützen**. — Ми хочемо захистити ліс.
 > note: schützen vor + Dat — від чого: Der Zaun schützt vor dem Wind. ü — губи «у», язик «і».
 
 > [!word] verschmutzen
-> ipa: /fɛɐ̯ˈʃmʊtsn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w30
+> ipa: /fɛɐ̯ˈʃmʊtsn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w31
 > uk: забруднювати
 > forms: er verschmutzt · verschmutzte · hat verschmutzt
 > example: Fabriken **verschmutzen** den Fluss. — Заводи забруднюють річку.
 > note: schmutzig — брудний; Partizip II без ge-.
 
 > [!word] das Kohlendioxid
-> ipa: /ˌkoːləndiʔɔkˈsiːt/ · pos: noun · level: B2 · id: de-b1-umwelt-w31
+> ipa: /ˌkoːləndiʔɔkˈsiːt/ · pos: noun · level: B2 · id: de-b1-umwelt-w32
 > uk: діоксид вуглецю, вуглекислий газ
 > forms: — (без множини)
 > example: Autos stoßen **Kohlendioxid** aus. — Автомобілі виділяють діоксид вуглецю.
 > note: коротко CO₂ — «це-о-цвай». Kohle — вугілля.
 
 > [!word] die Erderwärmung
-> ipa: /ˈeːɐ̯tʔɛɐ̯ˌvɛʁmʊŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w32
+> ipa: /ˈeːɐ̯tʔɛɐ̯ˌvɛʁmʊŋ/ · pos: noun · level: B2 · id: de-b1-umwelt-w33
 > uk: потепління Землі
 > forms: — (без множини)
 > example: Die **Erderwärmung** führt zu mehr Hitzewellen. — Потепління Землі веде до частіших хвиль спеки.
 > note: синонім — die globale Erwärmung; warm — тепло.
 
 > [!word] nachhaltig
-> ipa: /ˈnaːxhaltɪç/ · pos: adj · level: B2 · id: de-b1-umwelt-w33
+> ipa: /ˈnaːxhaltɪç/ · pos: adj · level: B2 · id: de-b1-umwelt-w34
 > uk: сталий; такий, що береже ресурси
 > example: Wir wollen **nachhaltig** leben. — Ми хочемо жити сталим способом.
 > note: Nachhaltigkeit — сталий розвиток. -ig = [ɪç].
 
 > [!word] der Sperrmüll
-> ipa: /ˈʃpɛʁmʏl/ · pos: noun · level: B2 · id: de-b1-umwelt-w34
+> ipa: /ˈʃpɛʁmʏl/ · pos: noun · level: B2 · id: de-b1-umwelt-w35
 > uk: габаритне сміття (меблі)
 > forms: — (без множини)
 > example: Das alte Sofa kommt zum **Sperrmüll**. — Старий диван іде в габаритне сміття.
 > note: Sperrmüll-Abholung зазвичай за заявкою. AT: Sperrmüll, CH: Sperrgut.
 
 > [!word] der Wertstoffhof
-> ipa: /ˈveːɐ̯tʃtɔfˌhoːf/ · pos: noun · level: B2 · id: de-b1-umwelt-w35
+> ipa: /ˈveːɐ̯tʃtɔfˌhoːf/ · pos: noun · level: B2 · id: de-b1-umwelt-w36
 > uk: пункт прийому вторсировини й відходів
 > forms: die Wertstoffhöfe
 > example: Alte Elektrogeräte bringt man zum **Wertstoffhof**. — Старі електроприлади відвозять на Wertstoffhof.
 > note: AT: Altstoffsammelzentrum (ASZ); CH: Recyclinghof.
 
 > [!word] wegwerfen
-> ipa: /ˈvɛkvɛʁfn̩/ · pos: verb · level: A2 · id: de-b1-umwelt-w36
+> ipa: /ˈvɛkvɛʁfn̩/ · pos: verb · level: A2 · id: de-b1-umwelt-w37
 > uk: викидати
 > forms: er wirft weg · warf weg · hat weggeworfen
 > example: Man darf Batterien nicht **wegwerfen**. — Батарейки не можна викидати.
 > note: відокремлюване; Wegwerf- — одноразовий (Wegwerfprodukte).
 
 > [!word] die Batterie
-> ipa: /batəˈʁiː/ · pos: noun · level: A2 · id: de-b1-umwelt-w37
+> ipa: /batəˈʁiː/ · pos: noun · level: A2 · id: de-b1-umwelt-w38
 > uk: батарейка
 > forms: die Batterien
 > example: Leere **Batterien** gibt man im Supermarkt ab. — Використані батарейки здають у супермаркеті.
 > note: наголос на останньому складі; множина — Batterien (три склади).
 
 > [!word] der Verbrauch
-> ipa: /fɛɐ̯ˈbʁaʊ̯x/ · pos: noun · level: B2 · id: de-b1-umwelt-w38
+> ipa: /fɛɐ̯ˈbʁaʊ̯x/ · pos: noun · level: B2 · id: de-b1-umwelt-w39
 > uk: споживання
 > forms: — (без множини)
 > example: Der **Verbrauch** von Strom steigt. — Споживання електрики зростає.
 > note: verbrauchen — витрачати; Wasserverbrauch, Stromverbrauch.
 
 > [!word] der Regenwald
-> ipa: /ˈʁeːɡn̩valt/ · pos: noun · level: B1 · id: de-b1-umwelt-w39
+> ipa: /ˈʁeːɡn̩valt/ · pos: noun · level: B1 · id: de-b1-umwelt-w40
 > uk: тропічний ліс
 > forms: die Regenwälder
 > example: Der **Regenwald** ist wichtig für das Klima. — Тропічний ліс важливий для клімату.
 > note: Regen + Wald; множина з умлаутом: Regenwälder.
 
 > [!word] die Dürre
-> ipa: /ˈdʏʁə/ · pos: noun · level: B2 · id: de-b1-umwelt-w40
+> ipa: /ˈdʏʁə/ · pos: noun · level: B2 · id: de-b1-umwelt-w41
 > uk: посуха
 > forms: die Dürren
 > example: Die **Dürre** zerstört die Ernte. — Посуха знищує врожай.
 > note: dürr — сухий, висхлий.
 
 > [!word] das Hochwasser
-> ipa: /ˈhoːxvasɐ/ · pos: noun · level: B1 · id: de-b1-umwelt-w41
+> ipa: /ˈhoːxvasɐ/ · pos: noun · level: B1 · id: de-b1-umwelt-w42
 > uk: повінь; високий рівень води
 > forms: die Hochwasser
 > example: Nach dem **Hochwasser** ist der Keller nass. — Після повені підвал мокрий.
 > note: множина збігається з однині. Також: die Überschwemmung.
 
 > [!word] der Kompost
-> ipa: /kɔmˈpɔst/ · pos: noun · level: B2 · id: de-b1-umwelt-w42
+> ipa: /kɔmˈpɔst/ · pos: noun · level: B2 · id: de-b1-umwelt-w43
 > uk: компост
 > forms: — (зазвичай без множини)
 > example: Im Garten haben wir einen **Kompost**. — У саду в нас компостна купа.
 > note: kompostieren — компостувати.
 
 > [!word] entsorgen
-> ipa: /ɛntˈzɔʁɡn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w43
+> ipa: /ɛntˈzɔʁɡn̩/ · pos: verb · level: B2 · id: de-b1-umwelt-w44
 > uk: утилізувати; позбуватися відходів
 > forms: er entsorgt · entsorgte · hat entsorgt
 > example: Alte Medikamente muss man richtig **entsorgen**. — Старі ліки треба правильно утилізувати.
 > note: Entsorgung; невідокремлюване ent-, Partizip II без ge-.
 
 > [!word] die Sammelstelle
-> ipa: /ˈzamlʃtɛlə/ · pos: noun · level: B2 · id: de-b1-umwelt-w44
+> ipa: /ˈzamlʃtɛlə/ · pos: noun · level: B2 · id: de-b1-umwelt-w45
 > uk: пункт збору
 > forms: die Sammelstellen
 > example: Die **Sammelstelle** nimmt Batterien an. — Пункт збору приймає батарейки.
@@ -445,7 +452,7 @@ estimatedMinutes: 45
 
 ## Вимова
 
-Складні слова мають наголос на **першому** складі: **Um**welt, **Pfand**flasche, **Müll**tonne. У словах-запозиченнях наголос на кінці: *Energie, Batterie, Recycling* (на *-cyc-*). Група **pf** на початку (*Pfand*) — губи ставимо як для [p] і одразу «відпускаємо» в [f]. Літера **v** у німецьких словах — [f] (*Verbrauch*), але в запозиченнях [v] (*Klima, Vase*).
+Складні слова мають наголос на **першому** складі: **Um**welt, **Pfand**flasche, **Müll**tonne. У словах-запозиченнях наголос часто на кінці: *Energie, Batterie*; у *Recycling* — на другому складі (*-cy-*). Група **pf** на початку (*Pfand*) — губи ставимо як для [p] і одразу «відпускаємо» в [f]. Літера **v** у німецьких словах — [f] (*Verbrauch*), але в запозиченнях [v] (*Vulkan, Video, Klavier*).
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-umwelt-s01
@@ -501,34 +508,35 @@ estimatedMinutes: 45
 > У жовтий мішок (*gelber Sack*) іде **упаковка** з пластику, металу й композитних матеріалів: *Joghurtbecher, Folie, Konservendose*. Пластикова іграшка чи відро — зазвичай у *Restmüll* (деякі міста дозволяють у Wertstofftonne). Правила залежать від місцевості — звірся з *Abfallkalender*.
 
 > [!pitfall] Pfand є не на кожній пляшці
-> Заставу мають не всі пляшки: на вино чи скляні банки з-під соусу вона зазвичай відсутня. Шукай на етикетці знак застави і суму застави — без нього супермаркет пляшку не прийме. Не ~~Ich bringe alle Flaschen zurück und bekomme Geld~~.
+> Заставу мають не всі пляшки: на вино чи скляні банки з-під соусу вона зазвичай відсутня. Одноразові пляшки й банки мають знак застави (наприклад, DPG) — застава завжди 25 Cent. У багаторазових пляшок єдиного знака немає, а магазин може не прийняти ті, яких сам не продає. Не ~~Ich bringe alle Flaschen zurück und bekomme Geld~~.
 
 ## Ситуація: куди викинути?
 
-> [!listen] Послухай діалог у підʼїзді. Що сказав сусід про йогурт?
+> [!listen] Послухай діалог у підʼїзді. Куди піде порожня пляшка від вина?
 > level: B1 · type: answer · id: de-b1-umwelt-l07
-> audio: A: Entschuldigung, ich bin neu hier. Wohin gehört der Joghurtbecher?
-> audio: B: In den gelben Sack. Er muss leer sein.
-> audio: A: Danke! Und die Zeitung?
-> audio: B: Die kommt in die Papiertonne. Die steht im Hof.
+> audio: A: Entschuldigung, ich bin neu hier. Wohin mit der leeren Weinflasche?
+> audio: B: Die kommt in den Glascontainer. Der steht an der Ecke.
+> audio: A: Und die alten Batterien?
+> audio: B: Die gibst du im Supermarkt ab.
 > - [ ] у біоконтейнер
-> - [x] у жовтий мішок, але порожній
-> - [ ] у контейнер для скла
+> - [x] у контейнер для скла
+> - [ ] у жовтий мішок
 >
-> **Пояснення:** *In den gelben Sack. Er muss leer sein.* — стаканчик має бути порожній.
+> **Пояснення:** *Die kommt in den Glascontainer* — пляшка від вина йде у контейнер для скла; батарейки — у супермаркет.
 
-> [!speak] «Куди належить ця газета?»
+> [!speak] «Куди з порожньою пляшкою?»
 > level: B1 · id: de-b1-umwelt-s07
-> text: Wohin gehört diese Zeitung?
-> ipa: /voˈhɪn ɡəˈhøːɐ̯t ˈdiːzə ˈtsaɪ̯tʊŋ/
-> tip: diese — дзвінке [z]; Zeitung — [ts]: «цайтунґ», кінцеве -ung — [ʊŋ].
-> uk: Куди належить ця газета?
+> text: Wohin mit der leeren Weinflasche?
+> ipa: /voˈhɪn mɪt deːɐ̯ ˈleːʁən ˈvaɪ̯nflaʃə/
+> tip: wohin — наголос на -hin; w = [v]; leeren — довге [eː].
+> uk: Куди з порожньою пляшкою від вина?
 
 ## Landeskunde: Mülltrennung in Deutschland
 
-In Deutschland trennt man den Müll, und das fast überall. Vor vielen Häusern stehen mehrere Tonnen. Altpapier kommt in die Papiertonne, Küchenabfälle kommen in die Biotonne. Verpackungen aus Plastik, Metall und Verbundstoffen gehören in den gelben Sack oder in die gelbe Tonne. Was sonst übrig bleibt, wirft man in den Restmüll. Altglas bringt man zum Container, getrennt nach Farben: Weißglas, Grünglas und Braunglas. Batterien dürfen nicht in den Hausmüll; man gibt sie im Supermarkt oder an einer Sammelstelle ab. Alte Möbel nennt man Sperrmüll. Sie bringt man zum Wertstoffhof oder lässt sie nach einer Anmeldung abholen.
-
-Für Einwegflaschen und Dosen zahlt man 25 Cent Pfand. Das Geld bekommt man zurück, wenn man die Flaschen im Supermarkt in den Pfandautomaten steckt. Wie die Tonnen aussehen und wann der Müll abgeholt wird, ist von Stadt zu Stadt verschieden. Die Termine stehen im Abfallkalender der Stadt. Wer falsch trennt, riskiert, dass die Tonne nicht geleert wird.
+> [!example] Mülltrennung in Deutschland
+> In Deutschland trennt man den Müll, und das fast überall. Vor vielen Häusern stehen mehrere Tonnen. Altpapier kommt in die Papiertonne, Küchenabfälle kommen in die Biotonne. Verpackungen aus Plastik, Metall und Verbundstoffen gehören in den gelben Sack oder in die gelbe Tonne. Was sonst übrig bleibt, wirft man in den Restmüll. Altglas bringt man zum Container, getrennt nach Farben: Weißglas, Grünglas und Braunglas. Batterien dürfen nicht in den Hausmüll; man gibt sie im Supermarkt oder an einer Sammelstelle ab. Alte Möbel nennt man Sperrmüll. Sie bringt man zum Wertstoffhof oder lässt sie nach einer Anmeldung abholen.
+>
+> Für Einwegflaschen und Dosen zahlt man 25 Cent Pfand. Das Geld bekommt man zurück, wenn man die Flaschen im Supermarkt in den Pfandautomaten steckt. Wie die Tonnen aussehen und wann der Müll abgeholt wird, ist von Stadt zu Stadt verschieden. Die Termine stehen im Abfallkalender der Stadt. Wer falsch trennt, riskiert, dass die Tonne nicht geleert wird.
 
 > [!quiz] Wohin kommt Altglas?
 > level: B1 · type: single · id: de-b1-umwelt-q02
@@ -604,11 +612,11 @@ Für Einwegflaschen und Dosen zahlt man 25 Cent Pfand. Das Geld bekommt man zur�
 >
 > ```text fill
 > Zeitungen kommen in die [[Papiertonne]].
-> Bananenschalen kommen (там, де є) in die [[Biotonne|Bio-Tonne]].
+> Bananenschalen kommen in die [[Biotonne|Bio-Tonne]].
 > Verpackungen aus Plastik kommen in den [[gelben Sack|Gelben Sack]].
 > ```
 >
-> **Пояснення:** газети — *Papiertonne*, органічні залишки — *Biotonne*, упаковка з пластику — *gelber Sack* (у *in den* — Akkusativ чоловічого роду: *gelben Sack*).
+> **Пояснення:** (там, де є Biotonne) газети — *Papiertonne*, органічні залишки — *Biotonne*, упаковка з пластику — *gelber Sack* (у *in den* — Akkusativ чоловічого роду: *gelben Sack*).
 
 > [!quiz] Заповни артиклі
 > level: B1 · type: fill · id: de-b1-umwelt-q10
@@ -673,6 +681,7 @@ Für Einwegflaschen und Dosen zahlt man 25 Cent Pfand. Das Geld bekommt man zur�
 - [DWDS — Pfand](https://www.dwds.de/wb/Pfand) — значення, приклади й словосполучення.
 - [DWDS — Mülltrennung](https://www.dwds.de/wb/Mülltrennung) — значення слова.
 - [Bundesregierung — Klimaschutz](https://www.bundesregierung.de/breg-de/themen/klimaschutz) — офіційна інформація уряду про захист клімату.
+- [Verbraucherzentrale — Mehrweg oder Einweg: Pfand](https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/abfall/mehrweg-oder-einweg-wichtige-unterschiede-beim-pfand-11504) — суми застави, правила повернення, знаки.
 - [bpb — Umwelt](https://www.bpb.de/themen/umwelt/) — матеріали Федерального центру політичної освіти.
 - Інформація про правила у твоєму місті — на сайті міського Abfallwirtschaftsbetrieb (Abfallkalender).
 

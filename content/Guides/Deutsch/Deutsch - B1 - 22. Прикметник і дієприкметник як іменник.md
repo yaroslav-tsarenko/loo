@@ -23,7 +23,7 @@ estimatedMinutes: 40
 > - [ ] Das ist mein Bekannte.
 > - [x] Das ist mein Bekannter.
 > - [ ] Das ist mein Bekanntes.
-> - [ ] Das ist meiner Bekannt.
+> - [ ] Das ist mein Bekannten.
 >
 > **Пояснення:** *bekannt* — прикметник («відомий»), а *der Bekannte* — людина, якої він стосується. Таке слово пишемо з великої літери й відмінюємо **як прикметник**: після *mein* (чол. р., називний) — закінчення **-er**, як у *mein alter Freund* → *mein Bekannter*.
 
@@ -45,7 +45,7 @@ estimatedMinutes: 40
 | | чол. р. | жін. р. | множина |
 |---|---|---|---|
 | Nom | der Deutsche · ein Deutscher | die Deutsche · eine Deutsche | die Deutschen · (keine) Deutschen · Deutsche |
-| Akk | den Deutschen · einen Deutschen | die Deutsche · eine Deutsche | die Deutschen |
+| Akk | den Deutschen · einen Deutschen | die Deutsche · eine Deutsche | die Deutschen · Deutsche |
 | Dat | dem Deutschen · einem Deutschen | der Deutschen · einer Deutschen | den Deutschen · Deutschen |
 | Gen | des Deutschen · eines Deutschen | der Deutschen · einer Deutschen | der Deutschen · Deutscher |
 
@@ -62,7 +62,7 @@ estimatedMinutes: 40
 >   - { id: b1, col: b, label: "Nom · чол. р.", text: "ein Bekannter", tone: blue }
 >   - { id: b2, col: b, label: "Dat · чол. р.", text: "einem Bekannten", tone: blue }
 >   - { id: b3, col: b, label: "Nom · множина", text: "meine Bekannten", tone: violet }
->   - { id: c1, col: c, label: "Nom · чол. р.", text: "— (зазвичай ein / der)", tone: gray }
+>   - { id: c1, col: c, label: "Nom · чол. р.", text: "Angestellter (Er ist Angestellter.)", tone: gray }
 >   - { id: c2, col: c, label: "Dat · мн.", text: "mit Bekannten", tone: violet }
 >   - { id: c3, col: c, label: "Nom · множина", text: "Bekannte", tone: violet }
 > steps:
@@ -92,7 +92,7 @@ estimatedMinutes: 40
 | der / die Angestellte | angestellt (Partizip II) | працівник за наймом |
 | der / die Vorgesetzte | vorgesetzt (Partizip II) | керівник, начальник, начальниця |
 | der / die Reisende | reisend (Partizip I) | мандрівник, пасажир |
-| der / die Auszubildende | auszubildend (Partizip I) | учень на професійному навчанні (Azubi) |
+| der / die Auszubildende | auszubildend (zu + Partizip I) | учень на професійному навчанні (Azubi) |
 
 Є й слова, які **схожі на такі, але не відмінюються як прикметник**: *der Kollege, der Junge, der Name, der Ukrainer, der Franzose*. Їх відмінюють як звичайні іменники (*ein Kollege, ein Ukrainer*) — див. пастку нижче. Тому нові слова вчимо в парі: *der Angestellte / ein Angestellter*.
 
@@ -103,10 +103,10 @@ estimatedMinutes: 40
 | Конструкція | Закінчення | Приклад |
 |---|---|---|
 | das + прикметник | -e | das Gute, das Beste (Superlativ!) |
-| etwas, nichts, viel, wenig + прикметник | -es | etwas Neues, nichts Besonderes, viel Interessantes |
+| etwas, nichts, viel, wenig + прикметник | -es (Nom, Akk); Dativ: *mit etwas Neuem* | etwas Neues, nichts Besonderes, viel Interessantes |
 | alles + прикметник | -e | alles Gute, alles Neue |
 
-Прикметник завжди з великої: *etwas Neues*, а не ~~etwas neues~~. Для побажань є готовий вираз: *Alles Gute zum Geburtstag!* — «Усього найкращого з днем народження!». Ступінь *das Beste* — «найкраще»: *Das Beste kommt noch.* — Найкраще ще попереду.
+Прикметник майже завжди з великої: *etwas Neues*, а не ~~etwas neues~~ (виняток — усталене *etwas anderes*; у Dativ закінчення інше: *mit etwas Neuem*). Для побажань є готовий вираз: *Alles Gute zum Geburtstag!* — «Усього найкращого з днем народження!». Ступінь *das Beste* — «найкраще»: *Das Beste kommt noch.* — Найкраще ще попереду.
 
 ### Дієприкметник як прикметник
 
@@ -118,7 +118,7 @@ estimatedMinutes: 40
 | Інфінітив | Partizip I (дія триває) | Partizip II (результат) |
 |---|---|---|
 | lachen — сміятися | das lachende Kind | — |
-| schließen — зачиняти | die schließende Tür (вона якраз зачиняється) | die geschlossene Tür (вже зачинена) |
+| schließen — зачиняти | die sich schließende Tür (вона якраз зачиняється) | die geschlossene Tür (вже зачинена) |
 | kochen — кипʼятити, варити | das kochende Wasser | das gekochte Ei |
 | schlafen — спати | das schlafende Baby | — |
 
@@ -132,7 +132,7 @@ estimatedMinutes: 40
 - Gibt es etwas Neues bei dir? — У тебе є щось нове?
 - Alles Gute zum Geburtstag, Anna! — Усього найкращого з днем народження, Анно!
 - Viele Jugendliche nutzen soziale Netzwerke. — Багато молоді користується соціальними мережами.
-- Die Angestellten haben morgen frei. — Працівники завтра вихідні.
+- Die Angestellten haben morgen frei. — У працівників завтра вихідний.
 - Alle Reisenden müssen am Gleis 3 warten. — Усі пасажири мають чекати на колії 3.
 - Die Verwandten kommen zum Essen. — Родичі приходять на обід.
 - Das lachende Kind winkt aus dem Fenster. — Дитина, що сміється, махає з вікна.
@@ -146,7 +146,7 @@ estimatedMinutes: 40
 > uk: німець
 > forms: die Deutschen
 > example: Ein **Deutscher** und eine **Deutsche** warten an der Kasse. — Німець і німкеня стоять у черзі до каси.
-> note: відмінюється як прикметник: der Deutsche — ein Deutscher. Жінка — die Deutsche. AT: der Österreicher, CH: der Schweizer — це звичайні іменники (-er).
+> note: відмінюється як прикметник: der Deutsche — ein Deutscher. Жінка — die Deutsche. Порівняй: der Österreicher, der Schweizer — звичайні іменники на -er.
 
 > [!word] der Bekannte
 > ipa: /bəˈkantə/ · pos: noun · level: B1 · id: de-b1-adj-nomen-w02
@@ -188,7 +188,7 @@ estimatedMinutes: 40
 > uk: безробітний
 > forms: die Arbeitslosen
 > example: Die **Arbeitslosen** melden sich bei der Agentur für Arbeit. — Безробітні реєструються в Agentur für Arbeit.
-> note: жінка — die Arbeitslose. Ввічливіше — Arbeitsuchende (той, хто шукає роботу).
+> note: жінка — die Arbeitslose. Не те саме: Arbeitsuchende — ті, хто шукає роботу (можуть і працювати).
 
 > [!word] der Fremde
 > ipa: /ˈfʁɛmdə/ · pos: noun · level: B1 · id: de-b1-adj-nomen-w08
@@ -208,7 +208,7 @@ estimatedMinutes: 40
 > ipa: /ˈkʁaŋkə/ · pos: noun · level: A2 · id: de-b1-adj-nomen-w10
 > uk: хворий
 > forms: die Kranken
-> example: Im Krankenhaus pflegen Ärzte die **Kranken**. — У лікарні лікарі доглядають хворих.
+> example: Im Krankenhaus behandeln Ärzte die **Kranken**. — У лікарні лікарі лікують хворих.
 > note: жінка — die Kranke. Для пацієнта — der Patient (як у лікаря).
 
 > [!word] der Vorgesetzte
@@ -219,7 +219,7 @@ estimatedMinutes: 40
 > note: жінка — die Vorgesetzte. Розм. der Chef, die Chefin.
 
 > [!word] der Auszubildende
-> ipa: /ˈaʊ̯tsʊbɪldn̩də/ · pos: noun · level: B1 · id: de-b1-adj-nomen-w12
+> ipa: /ˈaʊ̯stsuˌbɪldn̩də/ · pos: noun · level: B1 · id: de-b1-adj-nomen-w12
 > uk: учень на професійному навчанні
 > forms: die Auszubildenden
 > example: Die **Auszubildenden** lernen im Betrieb und in der Berufsschule. — Учні вчаться на підприємстві й у професійній школі.
@@ -266,7 +266,7 @@ estimatedMinutes: 40
 > note: побажання на свята, при прощанні й у кінці листа: Alles Gute!
 
 > [!word] das Beste
-> ipa: /das ˈbɛstə/ · pos: noun · level: A2 · id: de-b1-adj-nomen-w19
+> ipa: /ˈbɛstə/ · pos: noun · level: A2 · id: de-b1-adj-nomen-w19
 > uk: найкраще
 > forms: — (без множини)
 > example: Wir wünschen dir das **Beste**. — Ми бажаємо тобі найкращого.
@@ -328,8 +328,8 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-adj-nomen-s03
 > text: Die Reisenden warten am Gleis.
-> ipa: /diː ˈʁaɪ̯zn̩də ˈvaʁtn̩ am ɡlaɪ̯s/
-> tip: s у -reisen- дзвінке [z]. Закінчення -den майже зникає: «райзндн».
+> ipa: /diː ˈʁaɪ̯zn̩dn̩ ˈvaʁtn̩ am ɡlaɪ̯s/
+> tip: s у -reisen- дзвінке [z]. Закінчення -den звучить як [dn̩]: «райзндн».
 > uk: Пасажири чекають на колії.
 
 > [!speak] Скажи вголос
@@ -345,13 +345,13 @@ estimatedMinutes: 40
 > В українській «німець» завжди однаковий, а німецьке слово змінює закінчення разом з артиклем: ***der** Deutsche*, але ***ein** Deutscher*. Те саме: *der Bekannte — ein Bekannter*, *der Kranke — ein Kranker*. Запамʼятай схему «der → -e, ein → -er (чол. р.)».
 
 > [!pitfall] Мала літера: ~~etwas neues~~, ~~die kranken~~
-> Прикметник у ролі іменника — завжди **з великої**: *etwas Neues, das Gute, die Kranken, alles Gute*. Якщо слово означає людину чи поняття, а не описує іншу — велика літера.
+> Прикметник у ролі іменника — майже завжди **з великої**: *etwas Neues, das Gute, die Kranken, alles Gute*. Якщо слово означає людину чи поняття, а не описує іншу — велика літера.
 
 > [!pitfall] Ukrainer, Kollege, Junge — не прикметники
 > Здається, що *der Ukrainer* відмінюється як *der Deutsche*, але ні: це звичайний іменник чол. р. (*ein Ukrainer, die Ukrainer*, жін. — *die Ukrainerin*). Так само *der Kollege, der Junge, der Franzose* (слабкі іменники, -n в усіх відмінках, крім Nom) — не плутай із *der Bekannte*. Рід і відмінювання вчимо разом зі словом.
 
 > [!pitfall] Partizip I чи Partizip II?
-> *die schließende Tür* — двері, які **саме зачиняються**; *die geschlossene Tür* — двері вже **зачинені**. Українською можна сказати «зачиняються» і «зачинені», і німецька потребує вибору. Для результату — Partizip II (*geschlossen, repariert*), для дії зараз — Partizip I (*lachend, schlafend*).
+> *die sich schließende Tür* — двері, які **саме зачиняються**; *die geschlossene Tür* — двері вже **зачинені**. Українською можна сказати «зачиняються» і «зачинені», і німецька потребує вибору. Для результату — Partizip II (*geschlossen, repariert*), для дії зараз — Partizip I (*lachend, schlafend*).
 
 ## Практика
 
@@ -403,12 +403,12 @@ estimatedMinutes: 40
 
 > [!quiz] Двері вже зачинені. Яка фраза підходить?
 > level: B1 · type: single · id: de-b1-adj-nomen-q07
-> - [ ] Die schließende Tür ist kaputt.
+> - [ ] Die sich schließende Tür ist kaputt.
 > - [x] Die geschlossene Tür ist kaputt.
 > - [ ] Die geschließt Tür ist kaputt.
-> - [ ] Die schloss Tür ist kaputt.
+> - [ ] Die geschlossen Tür ist kaputt.
 >
-> **Пояснення:** результат — Partizip II (*geschlossen*), і закінчення **-e** після *die*. *schließende Tür* означає двері, що **саме зачиняються**.
+> **Пояснення:** результат — Partizip II (*geschlossen*), і закінчення **-e** після *die*. *sich schließende Tür* означає двері, що **саме зачиняються**.
 
 > [!quiz] Які з цих слів відмінюються як прикметники?
 > level: B1 · type: multi · id: de-b1-adj-nomen-q08
@@ -442,9 +442,9 @@ estimatedMinutes: 40
 > level: B1 · type: fill · bank: Angestellte, Jugendlicher, Neue · id: de-b1-adj-nomen-q11
 >
 > ```text fill
-> Mein Onkel ist [[Angestellter]] bei der Post.
-> Das ist meine [[Bekannte]] aus Köln.
-> Viele [[Jugendliche]] spielen am Handy.
+> Mein Onkel ist [[Angestellter]] bei der Post. (працівник за наймом)
+> Das ist meine [[Bekannte]] aus Köln. (знайома)
+> Viele [[Jugendliche]] spielen am Handy. (підлітки)
 > Gibt es etwas [[Neues]]?
 > ```
 >
@@ -454,14 +454,14 @@ estimatedMinutes: 40
 > level: B1 · type: fill · id: de-b1-adj-nomen-q12
 >
 > ```text fill
-> Ich spreche mit dem [[Fremden]].
-> Das ist das Auto meines [[Vorgesetzten]].
-> Er hilft den [[Kranken]] im Krankenhaus.
+> Ich spreche mit dem [[Fremden]]. (der Fremde)
+> Das ist das Auto meines [[Vorgesetzten]]. (der Vorgesetzte)
+> Er hilft den [[Kranken]] im Krankenhaus. (der Kranke)
 > ```
 >
 > **Пояснення:** *mit dem* — Dativ чол. р. → *-en*. *meines* — Genitiv чол. р. → *-en*. *den* — Dativ множини → *-en*.
 
-> [!quiz] Склади речення: «Сьогодні я не робив нічого особливого»
+> [!quiz] Склади речення: «Я не робив нічого особливого»
 > level: B1 · type: order · id: de-b1-adj-nomen-q13
 >
 > ```text order

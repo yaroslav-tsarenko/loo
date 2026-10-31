@@ -74,7 +74,7 @@ estimatedMinutes: 40
 Чіткого правила, коли який елемент, **немає** — це питання звички (DWDS прямо пише, що Fugen-s фіксують лише «досвідом»: *Schafstall*, але *Schafskleid*). Орієнтири, які працюють **зазвичай**:
 
 - після **-ung, -heit, -keit, -schaft, -tum** майже завжди буває **-s-**: *die Wohnungssuche, die Gesundheitskarte*;
-- після жіночих слів на **-e** з множиною **-n** часто **-n-**: *die Krankenversicherung*, *die Straßenbahn*;
+- після жіночих слів на **-e** з множиною **-n** часто **-n-**: *die Sonnenbrille*, *die Straßenbahn*; після деяких слабких іменників — теж: *die Krankenversicherung* (der Kranke);
 - після дуже коротких слів-кореневих (*Haus, Hand, Zahn*) — зазвичай **нічого**.
 
 Тому нове складне слово краще вчити цілим, а не вгадувати зʼєднання.
@@ -93,7 +93,7 @@ estimatedMinutes: 40
 
 Суфікс -heit чи -keit? Після основ на **-ig, -lich, -bar, -sam** ставимо **-keit**: *Schwierigkeit, Freundlichkeit, Möglichkeit*. Після більшості інших основ — **-heit**: *Gesundheit, Krankheit, Wahrheit*. Після **-er** і **-el** трапляються обидва: *Sauberkeit, Eitelkeit*, але *Sicherheit, Dunkelheit* — такі слова вчимо цілими.
 
-Суфікс **-er** зазвичай «чоловічий виконавець» (*der Besucher*), але не завжди: *die Mutter, das Fenster, der Lehrer* — слова на **-er** без цього значення. Тож тут — тенденція, а не закон.
+Суфікс **-er** зазвичай «чоловічий виконавець» (*der Besucher*), але не завжди: *die Mutter, das Fenster, der Computer, der Hammer* — слова на **-er** без цього значення. Тож тут — тенденція, а не закон.
 
 ### Суфікси: прикметники
 
@@ -153,7 +153,7 @@ estimatedMinutes: 40
 > ipa: /ˈkɪndɐbətʁɔʏ̯ʊŋ/ · pos: noun · level: B1 · id: de-b1-wortbildung-w02
 > uk: догляд за дітьми
 > forms: — (без множини)
-> example: Wir suchen eine **Kinderbetreuung** für den Nachmittag. — Ми шукаємо, хто доглядатиме дітей у другій половині дня.
+> example: Wir suchen **Kinderbetreuung** für den Nachmittag. — Ми шукаємо, хто доглядатиме дітей у другій половині дня.
 > note: Kind + er + Betreuung; -er- — сполучний елемент.
 
 > [!word] die Krankenversicherung
@@ -161,7 +161,7 @@ estimatedMinutes: 40
 > uk: медичне страхування
 > forms: die Krankenversicherungen
 > example: In Deutschland braucht jeder eine **Krankenversicherung**. — У Німеччині кожному потрібне медичне страхування.
-> note: Kranke + n + Versicherung. Скорочено: die Krankenkasse — установа для державного страхування.
+> note: Kranke + n + Versicherung. Установа, що страхує, — die Krankenkasse.
 
 > [!word] der Schlüsselbund
 > ipa: /ˈʃlʏsl̩bʊnt/ · pos: noun · level: A2 · id: de-b1-wortbildung-w04
@@ -195,8 +195,8 @@ estimatedMinutes: 40
 > ipa: /ˈʃtɪçvɔʁt/ · pos: noun · level: B2 · id: de-b1-wortbildung-w08
 > uk: ключове слово; заголовне слово (в словнику)
 > forms: die Stichwörter
-> example: Schreib dir ein paar **Stichwörter** auf. — Запиши собі кілька ключових слів.
-> note: пошукове слово в інтернеті — der Suchbegriff. Множина die Stichwörter (у словнику) або die Stichworte (нотатки).
+> example: Schreib dir ein paar **Stichworte** auf. — Запиши собі кілька ключових слів.
+> note: пошукове слово в інтернеті — der Suchbegriff. Множина die Stichwörter (заголовні слова словника) або die Stichworte (нотатки).
 
 > [!word] der Fußgänger
 > ipa: /ˈfuːsɡɛŋɐ/ · pos: noun · level: B1 · id: de-b1-wortbildung-w09
@@ -263,10 +263,10 @@ estimatedMinutes: 40
 
 > [!word] die Wirtschaft
 > ipa: /ˈvɪʁtʃaft/ · pos: noun · level: B1 · id: de-b1-wortbildung-w18
-> uk: економіка; (на півдні) трактир
+> uk: економіка; (на півдні) корчма
 > forms: — (без множини)
 > example: Die deutsche **Wirtschaft** ist stark vom Export abhängig. — Німецька економіка сильно залежить від експорту.
-> note: на півдні Німеччини й в Австрії die Wirtschaft — ще й традиційний трактир (мн. die Wirtschaften); der Wirt — господар закладу.
+> note: на півдні Німеччини й в Австрії die Wirtschaft — ще й традиційна корчма (мн. die Wirtschaften); der Wirt — господар закладу.
 
 > [!word] die Gesundheit
 > ipa: /ɡəˈzʊnthaɪ̯t/ · pos: noun · level: A2 · id: de-b1-wortbildung-w19
@@ -336,7 +336,7 @@ estimatedMinutes: 40
 > uk: пояснення; заява
 > forms: die Erklärungen
 > example: Danke für die **Erklärung**! — Дякую за пояснення!
-> note: erklären + ung. ä довге [ɛː] — як «е» в «ле».
+> note: erklären + ung. ä довге — довге відкрите «е».
 
 > [!word] die Bedeutung
 > ipa: /bəˈdɔʏ̯tʊŋ/ · pos: noun · level: B1 · id: de-b1-wortbildung-w29
@@ -401,7 +401,7 @@ estimatedMinutes: 40
 > ipa: /ˈtʁɪŋkbaːɐ̯/ · pos: adj · level: B2 · id: de-b1-wortbildung-w38
 > uk: придатний для пиття
 > example: Das Leitungswasser ist hier **trinkbar**. — Водопровідна вода тут придатна для пиття.
-> note: у знаках чуєш й Trinkwasser — питна вода.
+> note: на табличках бачиш і Trinkwasser — питна вода.
 
 > [!word] machbar
 > ipa: /ˈmaxbaːɐ̯/ · pos: adj · level: B2 · id: de-b1-wortbildung-w39
@@ -443,7 +443,7 @@ estimatedMinutes: 40
 > ipa: /ˈliːbəfɔl/ · pos: adj · level: B2 · id: de-b1-wortbildung-w45
 > uk: люблячий, дбайливий
 > example: Sie kümmert sich **liebevoll** um ihre Oma. — Вона дбайливо піклується про бабусю.
-> note: Liebe + voll; е в середині — сполучний елемент.
+> note: Liebe + voll, без сполучного елемента (-e належить слову Liebe).
 
 > [!word] wertvoll
 > ipa: /ˈveːɐ̯tfɔl/ · pos: adj · level: B1 · id: de-b1-wortbildung-w46
@@ -494,7 +494,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-wortbildung-s01
 > text: Die Fußgängerzone ist für Autos gesperrt.
 > ipa: /diː ˈfuːsɡɛŋɐˌtsoːnə ɪst fyːɐ̯ ˈaʊ̯tos ɡəˈʃpɛʁt/
-> tip: головний наголос на Fuß-. ß після довгого голосного — глухе [s]. У gesperrt st- = «шп»: «гешпарт» (без «н»).
+> tip: головний наголос на Fuß-. ß після довгого голосного — глухе [s]. У gesperrt sp = [ʃp]: «ґешперт».
 > uk: Пішохідна зона закрита для авто.
 
 > [!speak] Скажи вголос
@@ -509,7 +509,7 @@ estimatedMinutes: 40
 > text: Ich habe Schwierigkeiten mit der Entscheidung.
 > ipa: /ɪç ˈhaːbə ˈʃviːʁɪçkaɪ̯tn̩ mɪt deːɐ̯ ɛntˈʃaɪ̯dʊŋ/
 > tip: -ig- перед -keit звучить [ɪç]: «шві-рих-кайтн». -ung — коротке [ʊŋ], без «г» в кінці.
-> uk: Мені важко прийняти це рішення.
+> uk: Мені важко ухвалити це рішення.
 
 ## Типові помилки українців
 
@@ -523,7 +523,7 @@ estimatedMinutes: 40
 > В українській багато складних назв пишуть окремо («зубна щітка»), а в німецькій складне слово — **одне слово**. Дефіс ставимо лише в окремих випадках: *E-Mail-Adresse*, *Kosten-Nutzen-Analyse* або коли склеєні слова дуже довгі й неоднозначні.
 
 > [!pitfall] -heit чи -keit: ~~Schwierigheit~~, ~~Freundlichheit~~
-> Після **-ig** і **-lich** — завжди **-keit**: *Schwierigkeit, Freundlichkeit, Möglichkeit*. Після решти основ — **-heit**: *Gesundheit, Krankheit, Wahrheit*. Після **-er** і **-el** бувають обидва суфікси (*Sauberkeit*, але *Sicherheit*), тож слова на *-er* / *-el* вчи цілими.
+> Після **-ig** і **-lich** — завжди **-keit**: *Schwierigkeit, Freundlichkeit, Möglichkeit*. Після **-bar** і **-sam** — теж **-keit**. Після більшості інших основ — **-heit**: *Gesundheit, Krankheit, Wahrheit*. Після **-er** і **-el** бувають обидва суфікси (*Sauberkeit*, але *Sicherheit*), тож слова на *-er* / *-el* вчи цілими.
 
 ## Ситуація: інструкція до побутової техніки
 
@@ -547,7 +547,7 @@ estimatedMinutes: 40
 ## Landeskunde: Lange Wörter im Alltag
 
 > [!example] Lange Wörter in Deutschland
-> Wer in Deutschland lebt, trifft schon am ersten Tag auf lange Wörter. Beim Bürgeramt braucht man die Wohnungsgeberbestätigung. Im Supermarkt steht auf der Verpackung das Mindesthaltbarkeitsdatum. In der Stadt liest man Schilder wie Fußgängerzone oder Straßenbahnhaltestelle. Diese Wörter sehen schwierig aus, sind aber meistens logisch gebaut. Man liest sie am besten von hinten nach vorn: Die Straßenbahnhaltestelle ist eine Haltestelle für die Straßenbahn. Auch Behörden und Firmen lieben Komposita, weil sie kurz und genau sind. Statt „die Karte, mit der man bei der Krankenkasse versichert ist" sagt man einfach Krankenversicherungskarte. Wer die einzelnen Teile kennt, versteht viele neue Wörter ohne Wörterbuch. Im Deutschen schreibt man ein Kompositum normalerweise zusammen. Einen Bindestrich findet man nur manchmal, zum Beispiel bei Kosten-Nutzen-Analyse oder E-Mail-Adresse.
+> Wer in Deutschland lebt, trifft schon am ersten Tag auf lange Wörter. Beim Bürgeramt braucht man die Wohnungsgeberbestätigung. Im Supermarkt steht auf der Verpackung das Mindesthaltbarkeitsdatum. In der Stadt liest man Schilder wie Fußgängerzone oder Straßenbahnhaltestelle. Diese Wörter sehen schwierig aus, sind aber meistens logisch gebaut. Man liest sie am besten von hinten nach vorn: Die Straßenbahnhaltestelle ist eine Haltestelle für die Straßenbahn. Auch Behörden und Firmen lieben Komposita, weil sie kurz und genau sind. Statt „die Anweisung, wie man ein Gerät gebraucht“ sagt man einfach Gebrauchsanweisung. Wer die einzelnen Teile kennt, versteht viele neue Wörter ohne Wörterbuch. Bei sehr langen Wörtern trennt man sie in Gedanken: Wohnungs-geber-bestätigung. Das hilft auch beim Lesen von Verträgen und Formularen. Der Artikel kommt immer vom letzten Teil: die Haltestelle, die Bestätigung, der Schlüssel. Im Deutschen schreibt man ein Kompositum normalerweise zusammen. Einen Bindestrich findet man nur manchmal, zum Beispiel bei Kosten-Nutzen-Analyse oder E-Mail-Adresse.
 
 > [!quiz] Nach dem Text: Was braucht man beim Bürgeramt?
 > level: B1 · type: single · id: de-b1-wortbildung-q02
@@ -655,14 +655,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *-heit* (gesund), *-schaft* (Land), *-ung* (entscheiden), *-keit* після *-ig* (schwierig). У банку лише суфікси прикметників, які сюди не підходять.
 
-> [!quiz] Заповни пропуски складними словами
-> level: B1 · type: fill · id: de-b1-wortbildung-q13
+> [!quiz] Заповни пропуски (підказки в дужках)
+> level: B1 · type: fill · bank: trinklos, Fußgangzone, Zahnbürste · id: de-b1-wortbildung-q13
 >
 > ```text fill
-> Das Leitungswasser ist hier [[trinkbar]].
-> Diese Pilze sind giftig und nicht [[essbar]].
-> Lies bitte zuerst die [[Gebrauchsanweisung]].
-> Die [[Fußgängerzone]] ist für Autos gesperrt.
+> Das Leitungswasser ist hier [[trinkbar]]. (можна пити)
+> Diese Pilze sind giftig und nicht [[essbar]]. (можна їсти)
+> Lies bitte zuerst die [[Gebrauchsanweisung]]. (інструкція)
+> Die [[Fußgängerzone]] ist für Autos gesperrt. (пішохідна зона)
 > ```
 >
 > **Пояснення:** *trinkbar* (можна пити) і *essbar* (можна їсти) — із суфіксом *-bar*. *Gebrauchsanweisung* — інструкція, *Fußgängerzone* — пішохідна зона.
@@ -710,7 +710,7 @@ estimatedMinutes: 40
 > Суфікс *-schaft* колись був окремим словом. За DWDS, він походить від давньоверхньонімецького *scaf* («властивість, форма») і повʼязаний зі словом *schaffen*. Спочатку складні слова на кшталт *Freundschaft* означали щось на зразок «те, чим є друг»: стан, властивість. Тому й сьогодні *-schaft* означає і стан (*Freundschaft*), і групу (*Mannschaft*).
 
 > [!reel] 🐑 Schafstall, але Schafskleid
-> Сполучний елемент не підкоряється правилу. DWDS наводить пару: *Schaf-stall* без *-s-*, а *Schaf-s-kleid* («овеча шкура» у приказці) з ним. Так само *Werkzeug*, але *Handwerkszeug*. Тому складні слова вчимо цілими.
+> Сполучний елемент не підкоряється правилу. DWDS наводить пару: *Schaf-stall* без *-s-*, а *Schaf-s-kleid* («овеча шкура», з Біблії Лютера) з ним. Так само *Werkzeug*, але *Handwerkszeug*. Тому складні слова вчимо цілими.
 
 > [!reel] 📅 MHD — це не «термін придатності»
 > *Mindesthaltbarkeitsdatum* (MHD) — слово-ланцюжок: *mindest + haltbar + keit + s + datum*. Воно означає «щонайменше придатне до…»: після цієї дати продукт часто ще можна їсти, але спершу його варто перевірити. Для швидкопсувних продуктів (мʼясо, риба) існує інше позначення: *zu verbrauchen bis* (Verbrauchsdatum).

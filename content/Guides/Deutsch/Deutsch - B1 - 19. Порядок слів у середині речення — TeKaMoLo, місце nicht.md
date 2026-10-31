@@ -69,7 +69,7 @@ estimatedMinutes: 40
 - *Wir bleiben **heute** **wegen des Regens** **zu Hause**.*
 - *Ich fahre **morgen** **mit dem Zug** **nach Berlin**.* (Ka немає — пропускаємо.)
 
-Це **стандартний** порядок. Якщо хочеш підкреслити якусь обставину, її можна винести вперед: *Mit dem Zug fahre ich morgen nach Berlin* (а не літаком) або поставити на початок речення. Але в нейтральній мові тримайся TeKaMoLo. Українська дозволяє вільніший порядок, тож тут легко помилитися.
+Це **стандартний** порядок. Якщо хочеш підкреслити якусь обставину, її можна поставити на початок речення (*Mit dem Zug fahre ich morgen nach Berlin* — а не літаком) або ближче до кінця Mittelfeld. Але в нейтральній мові тримайся TeKaMoLo. Українська дозволяє вільніший порядок, тож тут легко помилитися.
 
 ## Обʼєкти: займенники вперед, Dativ перед Akkusativ
 
@@ -92,7 +92,7 @@ estimatedMinutes: 40
    - *Ich rufe ihn **nicht** an.*
    - *Er ist **nicht** müde.* / *Wir fahren **nicht** nach Berlin.*
 2. Якщо заперечуємо **лише один елемент**, *nicht* стоїть **перед ним**, а далі зазвичай іде *sondern*: *Ich fahre **nicht** heute, sondern morgen.* / *Ich habe **nicht** ihn gesehen, sondern sie.*
-3. Після обставин часу, причини й способу *nicht* зазвичай стоїть **після** них: *Ich fahre heute **nicht** nach Berlin.*
+3. Після обставин часу й причини *nicht* зазвичай стоїть **після** них: *Ich fahre heute **nicht** nach Berlin.* А **перед** обставинами способу *nicht* стоїть перед ними: *Er fährt **nicht** schnell. Ich schwimme **nicht** gern.*
 
 > [!note] nicht чи kein?
 > *nicht* заперечує дію, прикметник, обставину; *kein* заперечує іменник з неозначеним артиклем або без артикля (*Ich habe kein Auto. Ich habe keine Zeit.*). Про *kein* — тема [[Deutsch - A1 - 11. haben, знахідний відмінок і kein]].
@@ -113,35 +113,35 @@ estimatedMinutes: 40
 ## Слова
 
 > [!word] das Mittelfeld
-> ipa: /ˈmɪtl̩fɛlt/ · pos: noun · level: B1 · id: de-b1-wortstellung-w01
+> ipa: /ˈmɪtl̩fɛlt/ · pos: noun · level: B2 · id: de-b1-wortstellung-w01
 > uk: середнє поле (частина речення між частинами присудка)
 > forms: die Mittelfelder
 > example: Im **Mittelfeld** stehen Subjekt, Objekte und Angaben. — У середині речення стоять підмет, обʼєкти й обставини.
 > note: також футбольний термін: «півзахист».
 
 > [!word] das Satzglied
-> ipa: /ˈzatsˌɡliːt/ · pos: noun · level: B1 · id: de-b1-wortstellung-w02
+> ipa: /ˈzatsˌɡliːt/ · pos: noun · level: B2 · id: de-b1-wortstellung-w02
 > uk: член речення
 > forms: die Satzglieder
 > example: Subjekt und Objekt sind **Satzglieder**. — Підмет і додаток — члени речення.
 > note: das Glied — ланка, кінцівка; кінцеве d = [t].
 
 > [!word] die Satzklammer
-> ipa: /ˈzatsˌklamɐ/ · pos: noun · level: B1 · id: de-b1-wortstellung-w03
+> ipa: /ˈzatsˌklamɐ/ · pos: noun · level: B2 · id: de-b1-wortstellung-w03
 > uk: рамка речення; дужка (дві частини присудка)
 > forms: die Satzklammern
 > example: Die **Satzklammer** besteht aus Verb und Partizip. — Рамка речення складається з дієслова й дієприкметника.
 > note: die Klammer — дужка (і скріпка для паперу).
 
 > [!word] die Verneinung
-> ipa: /fɛɐ̯ˈnaɪ̯nʊŋ/ · pos: noun · level: B1 · id: de-b1-wortstellung-w04
+> ipa: /fɛɐ̯ˈnaɪ̯nʊŋ/ · pos: noun · level: B2 · id: de-b1-wortstellung-w04
 > uk: заперечення
 > forms: die Verneinungen
 > example: Die **Verneinung** mit „nicht“ steht oft vor dem Partizip. — Заперечення з «nicht» часто стоїть перед дієприкметником.
 > note: дієслово — verneinen; також die Negation.
 
 > [!word] der Gegensatz
-> ipa: /ˈɡeːɡn̩zats/ · pos: noun · level: B1 · id: de-b1-wortstellung-w05
+> ipa: /ˈɡeːɡn̩zats/ · pos: noun · level: B2 · id: de-b1-wortstellung-w05
 > uk: протилежність; контраст
 > forms: die Gegensätze
 > example: „Nicht heute, sondern morgen“ drückt einen **Gegensatz** aus. — «Не сьогодні, а завтра» виражає протиставлення.
@@ -155,14 +155,14 @@ estimatedMinutes: 40
 > note: також die Ortsangabe — вказівка на місце.
 
 > [!word] hervorheben
-> ipa: /hɛɐ̯ˈfoːɐ̯heːbn̩/ · pos: verb · level: B1 · id: de-b1-wortstellung-w07
+> ipa: /hɛɐ̯ˈfoːɐ̯heːbn̩/ · pos: verb · level: B2 · id: de-b1-wortstellung-w07
 > uk: підкреслювати; виділяти
 > forms: hebt hervor → hob hervor → hat hervorgehoben
 > example: Mit der Wortstellung kann man etwas **hervorheben**. — Порядком слів можна щось підкреслити.
 > note: відокремлюване: Er hebt es hervor. Сильне дієслово: heben, hob, gehoben.
 
 > [!word] vermutlich
-> ipa: /fɛɐ̯ˈmuːtlɪç/ · pos: adv · level: B1 · id: de-b1-wortstellung-w08
+> ipa: /fɛɐ̯ˈmuːtlɪç/ · pos: adv · level: B2 · id: de-b1-wortstellung-w08
 > uk: імовірно; припускаю
 > example: Er kommt **vermutlich** erst morgen. — Він, імовірно, прийде лише завтра.
 > note: прислівник-оцінка, як і wahrscheinlich; зазвичай стоїть після підмета.
@@ -174,7 +174,7 @@ estimatedMinutes: 40
 > note: суфікс -weise утворює прислівники: glücklicherweise, möglicherweise.
 
 > [!word] mittlerweile
-> ipa: /ˈmɪtlɐvaɪ̯lə/ · pos: adv · level: B1 · id: de-b1-wortstellung-w10
+> ipa: /ˈmɪtlɐvaɪ̯lə/ · pos: adv · level: B2 · id: de-b1-wortstellung-w10
 > uk: тим часом; вже; за цей час
 > example: Er wohnt **mittlerweile** seit fünf Jahren in Köln. — Він вже пʼять років живе в Кельні.
 > note: Temporal-обставина; синонім — inzwischen.
@@ -276,7 +276,7 @@ estimatedMinutes: 40
 > - [ ] Er es gibt ihr.
 > - [ ] Er gibt ihm es.
 >
-> **Пояснення:** якщо обидва обʼєкти — займенники, **спочатку Akkusativ** (*es*), потім Dativ (*ihr*): *es ihr*. Порядок *ihr es* невірний.
+> **Пояснення:** якщо обидва обʼєкти — займенники, **спочатку Akkusativ** (*es*), потім Dativ (*ihr*): *es ihr*. Порядок *ihr es* звучить неприродно; норма — *es ihr*.
 
 > [!quiz] У яких реченнях обставини стоять у стандартному порядку TeKaMoLo?
 > level: B1 · type: multi · id: de-b1-wortstellung-q04
@@ -325,22 +325,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *keine Zeit* — заперечення іменника (*die Zeit*), тому *keine*, а не *kein* (рід) і не *nichts*. Для прикметника *müde* і дії *gekauft* — *nicht*.
 
-> [!quiz] Склади речення: «Завтра я їду потягом до Берліна.»
-> level: B1 · type: order · id: de-b1-wortstellung-q09
+> [!quiz] Яке речення має нейтральний порядок обставин (TeKaMoLo)?
+> level: B1 · type: single · id: de-b1-wortstellung-q09
+> - [x] Ich fahre morgen mit dem Zug nach Berlin.
+> - [ ] Ich fahre nach Berlin mit dem Zug morgen.
+> - [ ] Ich fahre mit dem Zug nach Berlin morgen.
+> - [ ] Ich fahre nach Berlin morgen mit dem Zug.
 >
-> ```text order
-> Ich
-> fahre
-> morgen
-> mit
-> dem
-> Zug
-> nach
-> Berlin.
-> heute ✗
-> ```
->
-> **Пояснення:** підмет, дієслово, потім Te (*morgen*), Mo (*mit dem Zug*), Lo (*nach Berlin*). *heute* в завданні зайве.
+> **Пояснення:** нейтральний порядок — Te (*morgen*), Mo (*mit dem Zug*), Lo (*nach Berlin*). Інші порядки граматично можливі, але звучать лише з особливим наголосом; у нейтральній мові їх не вживають.
 
 > [!quiz] Склади речення: «Вчора я бачив його в парку.»
 > level: B1 · type: order · id: de-b1-wortstellung-q10
@@ -373,22 +365,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** два займенники: Akk *es* → Dat *ihr*; *nicht* — перед Partizip II *gegeben*. *kein* заперечує іменник, тут не потрібне.
 
-> [!quiz] Склади речення: «Сьогодні через дощ ми залишаємося вдома.»
-> level: B1 · type: order · id: de-b1-wortstellung-q12
+> [!quiz] Яке речення має нейтральний порядок обставин (Te – Ka – Lo)?
+> level: B1 · type: single · id: de-b1-wortstellung-q12
+> - [x] Wir bleiben heute wegen des Regens zu Hause.
+> - [ ] Wir bleiben zu Hause wegen des Regens heute.
+> - [ ] Wir bleiben zu Hause heute wegen des Regens.
+> - [ ] Wir bleiben wegen des Regens zu Hause heute.
 >
-> ```text order
-> Wir
-> bleiben
-> heute
-> wegen
-> des
-> Regens
-> zu
-> Hause.
-> mit ✗
-> ```
->
-> **Пояснення:** Te (*heute*), Ka (*wegen des Regens*), Lo (*zu Hause*). *wegen* вимагає Genitiv: *des Regens*.
+> **Пояснення:** за схемою — Te (*heute*), Ka (*wegen des Regens*), Lo (*zu Hause*). Порядок *wegen des Regens heute zu Hause* теж трапляється, бо TeKaMoLo — тенденція; але *zu Hause* наприкінці речення й після *heute* — безпечна нейтральна схема.
 
 > [!quiz] Де стоїть *nicht*, якщо заперечуємо лише один елемент?
 > level: B1 · type: single · id: de-b1-wortstellung-q13
@@ -448,7 +432,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🔤 Чому «Te-Ka-Mo-Lo»?
-> Скорочення вигадали вчителі, щоб запамʼятати порядок обставин: **Te**mporal — **Ka**usal — **Mo**dal — **Lo**kal. Звучить як імʼя з якоїсь мови, а насправді це перші склади чотирьох слів. Питання до них: *Wann? Warum? Wie? Wo?* — саме в цьому порядку їх і задають.
+> Скорочення — мнемоніка з підручників німецької як іноземної для порядку обставин: **Te**mporal — **Ka**usal — **Mo**dal — **Lo**kal. Звучить як імʼя з якоїсь мови, а насправді це перші склади чотирьох слів. Питання до них: *Wann? Warum? Wie? Wo?*
 
 > [!reel] ✍️ Марк Твен і німецьке дієслово
 > Американський письменник Марк Твен у жартівливому есе «The Awful German Language» (1880) жартував, що німецьке дієслово «ховається» в кінці довгого речення, і читач чекає на нього, як на кінець оповіді. Це якраз наслідок рамки (*Satzklammer*).

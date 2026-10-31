@@ -65,7 +65,7 @@ estimatedMinutes: 40
 
 ## damit: мета при різних підметах
 
-Якщо підмети **різні**, *um … zu* не можна, потрібне підрядне речення з *damit*: дієслово наприкінці.
+Якщо підмети **різні**, *um … zu* зазвичай не можна, потрібне підрядне речення з *damit*: дієслово наприкінці.
 
 *Ich erkläre es dir noch einmal, **damit** du es **verstehst**.* — «Пояснюю тобі ще раз, щоб ти зрозумів».
 
@@ -78,7 +78,7 @@ estimatedMinutes: 40
 > nodes:
 >   - { id: a1, col: a, label: "підмет", text: "той самий", note: "Ich lerne, um Arzt zu werden.", tone: yellow }
 >   - { id: a2, col: a, label: "форма", text: "um + група + zu + інфінітив", note: "Інфінітив без підмета.", tone: yellow }
->   - { id: a3, col: a, label: "дієслово", text: "в інфінітиві", note: "Verb не відмінюється.", tone: yellow }
+>   - { id: a3, col: a, label: "дієслово", text: "в інфінітиві", note: "Дієслово не змінюється.", tone: yellow }
 >   - { id: b1, col: b, label: "підмет", text: "різні (або той самий)", note: "Ich helfe dir, damit du Zeit hast.", tone: pink }
 >   - { id: b2, col: b, label: "форма", text: "damit + підмет + дієслово в кінці", note: "Окреме підрядне речення.", tone: pink }
 >   - { id: b3, col: b, label: "дієслово", text: "відмінюється, наприкінці", note: "damit du es verstehst.", tone: pink }
@@ -94,14 +94,14 @@ estimatedMinutes: 40
 - *Er ging, **ohne** ein Wort **zu** sagen.* — Він пішов, не сказавши ні слова.
 - *Sie ging, **ohne dass** er es bemerkte.* — Вона пішла так, що він не помітив.
 
-Після *ohne zu* — зворотне дієслово ставимо *перед* *zu*: *Er geht, **ohne sich zu** verabschieden.* А коли дія вже була в минулому: *ohne etwas gesagt **zu haben*** (Infinitiv Perfekt).
+Після *ohne zu* — зворотний займенник ставимо *перед* *zu*: *Er geht, **ohne sich zu** verabschieden.* А коли дія вже була в минулому: *ohne etwas gesagt **zu haben*** (Infinitiv Perfekt).
 
 ## statt … zu і statt dass
 
 *Statt* (також *anstatt*) — «замість того, щоб». При одному підметі — *statt … zu*; при різних — *statt dass*.
 
 - ***Statt** zu arbeiten, schläft er.* — Замість того щоб працювати, він спить.
-- ***Statt dass** er hilft, sitzt er auf dem Sofa.* — Замість допомагати, він сидить на дивані.
+- ***Statt dass** er hilft, muss ich alles allein machen.* — Замість того щоб він допоміг, я мушу все робити сам.
 
 Коли група *statt … zu* стоїть **першою**, після коми дієслово — на першому місці своєї частини: *Statt zu arbeiten, **schläft** er.*
 
@@ -149,7 +149,7 @@ estimatedMinutes: 40
 > ipa: /daˈmɪt/ · pos: conj · level: B1 · id: de-b1-um-zu-w04
 > uk: щоб (мета, різні підмети)
 > example: Ich rufe an, **damit** du nicht wartest. — Я телефоную, щоб ти не чекав.
-> note: сполучник — наголос на -mit: [daˈmɪt]; прислівник damit («з цим») — [ˈdaːmɪt]: Was machst du damit?
+> note: сполучник — наголос на -mit: [daˈmɪt]; прислівник damit («з цим») може мати наголос на da-: [ˈdaːmɪt] (Was machst du damit?)
 
 > [!word] ohne dass
 > ipa: /ˈoːnə das/ · pos: phrase · level: B1 · id: de-b1-um-zu-w05
@@ -165,7 +165,7 @@ estimatedMinutes: 40
 > note: інше дієслово: schaffen — створювати (schuf, hat geschaffen). Розм.: Ich bin geschafft = «я виснажений».
 
 > [!word] sich anstrengen
-> ipa: /ˈanʃtʁɛŋən/ · pos: verb · level: B1 · id: de-b1-um-zu-w07
+> ipa: /ˈanʃtʁɛŋən zɪç/ · pos: verb · level: B1 · id: de-b1-um-zu-w07
 > uk: докладати зусиль; напружуватися
 > forms: er strengt sich an · strengte sich an · hat sich angestrengt
 > example: Ich **strenge** mich an, um die Prüfung zu bestehen. — Я докладаю зусиль, щоб скласти іспит.
@@ -317,8 +317,8 @@ estimatedMinutes: 40
 
 > [!quiz] Яке речення правильне?
 > level: B1 · type: single · id: de-b1-um-zu-q05
-> - [x] Er geht, ohne dass jemand es merkt.
-> - [ ] Er geht, ohne jemand es zu merken.
+> - [x] Er geht, ohne dass es jemand merkt.
+> - [ ] Er geht, ohne es jemand zu merken.
 > - [ ] Er geht, ohne zu jemand merken.
 > - [ ] Er geht, ohne dass merkt jemand es.
 >
@@ -380,7 +380,7 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Er arbeitet den ganzen Tag, [[ohne]] eine Pause zu machen. (не роблячи)
-> [[Statt]] zu lernen, spielt er Computer. (замість того, щоб)
+> [[Statt|Anstatt]] zu lernen, spielt er Computer. (замість того, щоб)
 > Sie ging, [[ohne dass]] ich es merkte. (так, що я не помітив)
 > ```
 >
@@ -390,7 +390,7 @@ estimatedMinutes: 40
 > level: B1 · type: fill · id: de-b1-um-zu-q12
 >
 > ```text fill
-> Ich stehe früh auf, um den Zug [[zu erreichen]].
+> Ich stehe früh auf, um den Zug [[zu erreichen]] (erreichen).
 > Sie kommt, um uns [[abzuholen|zu holen]] (забрати).
 > Er ging, ohne [[anzurufen]] (не зателефонувавши).
 > ```
@@ -401,7 +401,7 @@ estimatedMinutes: 40
 > level: B1 · type: fill · id: de-b1-um-zu-q13
 >
 > ```text fill
-> Ich helfe dir, damit du früher fertig [[bist]].
+> Ich helfe dir, damit du früher fertig [[bist|wirst]].
 > Sie leiht ihm Geld, damit er das Auto kaufen [[kann]] (може).
 > ```
 >
@@ -471,7 +471,7 @@ estimatedMinutes: 40
 > У нідерландській є точно така ж конструкція: *om … te* («om Duits te leren» — щоб вивчати німецьку). Німецьке *um … zu* — родич голландського *om … te*, тож голландцям це правило знайоме.
 
 > [!reel] 🔁 Одне слово — два наголоси
-> *Damit* як прислівник («з цим») — [ˈdaːmɪt], як сполучник («щоб») — [daˈmɪt]. Різницю чути в реченнях: *Was machst du **da**mit?* і *Ich rufe an, da**mit** du nicht wartest.* Наголос допомагає швидше зрозуміти, про яке *damit* ідеться.
+> Сполучник *damit* («щоб») звучить [daˈmɪt]. Прислівник *damit* («з цим») теж часто [daˈmɪt], але з наголосом на початку — [ˈdaːmɪt] — його вимовляють, коли хочуть виділити слово: *Was machst du **da**mit?* Наголос допомагає швидше зрозуміти, про яке *damit* ідеться.
 
 > [!reel] 🏆 Ohne Fleiß kein Preis
 > Німецьке прислівʼя *Ohne Fleiß kein Preis* («Без старанності немає нагороди») — гарний приклад *ohne*. Той самий принцип в *ohne dass*: *Ohne dass man übt, wird man nicht besser.* — «Без практики кращим не станеш».

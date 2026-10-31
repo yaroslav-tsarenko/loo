@@ -199,7 +199,7 @@ estimatedMinutes: 40
 > ipa: /ˈʃaːdn̩/ · pos: verb · level: B1 · id: de-a2-pronomen-w09
 > uk: шкодити
 > forms: schaden → er schadet · schadete · hat geschadet
-> example: Rauchen **schadet** der Gesundheit. — Куріння шкодить здоров’ю.
+> example: Rauchen **schadet** der Gesundheit. — Куріння шкодить здоровʼю.
 > note: Dativ: Das schadet dir nicht. Іменник — der Schaden.
 
 ## Слухаємо

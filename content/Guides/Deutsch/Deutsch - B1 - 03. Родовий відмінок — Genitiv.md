@@ -91,13 +91,13 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 ### Імена і власники: Annas Buch
 
-Імена власні ставлять Genitiv **перед** іменником, без артикля, із закінченням **-s** (без апострофа!): *Annas Buch, Peters Auto, Berlins Straßen*. Якщо ім’я закінчується на -s, -ß, -x, -z, ставимо апостроф: *Max' Auto, Klaus' Idee*. У розмові частіше: *das Auto von Max*.
+Імена власні ставлять Genitiv **перед** іменником, без артикля, із закінченням **-s** (без апострофа!): *Annas Buch, Peters Auto, Berlins Straßen*. Якщо імʼя закінчується на -s, -ß, -x, -z, ставимо апостроф: *Max' Auto, Klaus' Idee*. У розмові частіше: *das Auto von Max*.
 
 Для звичайних іменників Genitiv стоїть **після** слова, до якого належить: *das Auto **meines Vaters***, а не *~~meines Vaters das Auto~~*.
 
 ### von + Dativ замість Genitiv
 
-У розмові (і в письмовій мові також) Genitiv часто замінюють на *von* + Dativ: *das Auto **von meinem Vater**, die Hauptstadt **von Deutschland**, ein Freund **von mir***. Це не помилка, а природна форма. Є випадки, коли *von* майже обов’язкове:
+У розмові (і в письмовій мові також) Genitiv часто замінюють на *von* + Dativ: *das Auto **von meinem Vater**, die Hauptstadt **von Deutschland**, ein Freund **von mir***. Це не помилка, а природна форма. Є випадки, коли *von* майже обовʼязкове:
 
 - коли нема артикля, що показав би Genitiv: *die Preise **von Gemüse**, ein Teil **von uns***;
 - з особовими займенниками Genitiv не вживають: *ein Freund **von mir**, ein Teil **von uns***.
@@ -130,7 +130,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 >   - { from: noun, to: adj, label: "якщо є" }
 > steps:
 >   - { focus: gender, note: "Genitiv залежить від роду: чоловічий (m), жіночий (f), середній (n) чи множина." }
->   - { focus: article, note: "m і n: des. f і множина: der. Це легко запам’ятати: der стоїть лише у жіночому та множині." }
+>   - { focus: article, note: "m і n: des. f і множина: der. Це легко запамʼятати: der стоїть лише у жіночому та множині." }
 >   - { focus: noun, note: "Закінчення -s або -es отримують іменники m і n: des Lehrers, des Kindes, des Hauses. У f і множини закінчення не додаємо." }
 >   - { focus: adj, note: "Прикметник після des / der / eines / einer має закінчення -en: des neuen Lehrers, der guten Freundin." }
 > ```
@@ -402,7 +402,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > - [ ] Das ist Annas's Buch.
 > - [ ] Das ist Anna Buch.
 >
-> **Пояснення:** Genitiv імені — закінчення **-s** без апострофа, ім’я перед іменником: *Annas Buch*. Форма *Anna's* — з англійської, а *Anna Buch* — це Nominativ без закінчення, як в українській «Анна книга».
+> **Пояснення:** Genitiv імені — закінчення **-s** без апострофа, імʼя перед іменником: *Annas Buch*. Форма *Anna's* — з англійської, а *Anna Buch* — це Nominativ без закінчення, як в українській «Анна книга».
 
 > [!quiz] «Через дощ ми залишилися вдома.» Яке слово пропущено? «___ des Regens blieben wir zu Hause.»
 > level: B1 · type: single · id: de-b1-genitiv-q06
@@ -431,7 +431,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 >
 > **Пояснення:** *der Urlaub* — чоловічий рід; Genitiv — **des Urlaubs**, іменник отримує **-s**. Форми *dem / den* — не для *während* в цьому значенні.
 
-> [!quiz] «Замість кави я п’ю чай.» Statt ___ Kaffees trinke ich Tee.
+> [!quiz] «Замість кави я пʼю чай.» Statt ___ Kaffees trinke ich Tee.
 > level: B1 · type: single · id: de-b1-genitiv-q09
 > - [ ] dem
 > - [ ] den
@@ -458,7 +458,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > - [x] Wegen des schlechten Wetters bleiben wir hier.
 > - [ ] Ich möchte eine Tasse von Kaffee.
 >
-> **Пояснення:** обидві форми — з Genitiv (*meines Vaters*) і з *von* + Dativ (*von meinem Vater*) — правильні. У третьому реченні *meiner* стоїть не в тій формі (чоловічому роду потрібне *meines*), а в п’ятому «чашка кави» німецькою — без відмінка: *eine Tasse Kaffee*, а не *von Kaffee*.
+> **Пояснення:** обидві форми — з Genitiv (*meines Vaters*) і з *von* + Dativ (*von meinem Vater*) — правильні. У третьому реченні *meiner* стоїть не в тій формі (чоловічому роду потрібне *meines*), а в пʼятому «чашка кави» німецькою — без відмінка: *eine Tasse Kaffee*, а не *von Kaffee*.
 
 > [!quiz] Заповни пропуски: присвійні займенники в Genitiv
 > level: B1 · type: fill · id: de-b1-genitiv-q12
@@ -490,7 +490,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > Das ist die Tasche [[meiner]] Mutter. (моя мама)
 > ```
 >
-> **Пояснення:** *Anna → Annas*; ім’я на -x → апостроф: *Max'*. Для звичайних слів Genitiv іде після іменника: *die Tasche meiner Mutter*.
+> **Пояснення:** *Anna → Annas*; імʼя на -x → апостроф: *Max'*. Для звичайних слів Genitiv іде після іменника: *die Tasche meiner Mutter*.
 
 > [!quiz] Склади речення: «Це машина мого батька»
 > level: B1 · type: order · id: de-b1-genitiv-q15

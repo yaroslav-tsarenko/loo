@@ -63,7 +63,7 @@ estimatedMinutes: 40
 | gehen, kommen, wissen | Wenn ich es **wüsste**, … | …, **käme** ich sofort. / **würde** ich kommen. |
 | більшість інших | Wenn ich in Berlin **wohnen würde**, … (розмовне) | …, **würde** ich **wohnen** … |
 
-У підрядному реченні з *wenn* зазвичай вибирають *hätte, wäre, könnte, müsste* та інші короткі форми. Конструкцію *wenn ich … würde + Infinitiv* вживають у розмові (*Wenn ich mehr verdienen würde, …*), проте педантичні тексти її уникають. Для слабких дієслів Konjunktiv II збігається з Präteritum (*wohnte, arbeitete*), тому часто чують *würde*, щоб не плутати форми.
+У підрядному реченні з *wenn* зазвичай вибирають *hätte, wäre, könnte, müsste* та інші короткі форми. Конструкцію *wenn ich … würde + Infinitiv* вживають у розмові (*Wenn ich mehr verdienen würde, …*), проте стилістично вивірені тексти її уникають. Для слабких дієслів Konjunktiv II збігається з Präteritum (*wohnte, arbeitete*), тому часто чують *würde*, щоб не плутати форми.
 
 ## Порядок слів: де «то»
 
@@ -108,7 +108,7 @@ estimatedMinutes: 40
 ## Слова
 
 > [!word] der Lottogewinn
-> ipa: /ˈlɔtoɡəˌvɪn/ · pos: noun · level: B1 · id: de-b1-irreal-w01
+> ipa: /ˈlɔtoɡəˌvɪn/ · pos: noun · level: B2 · id: de-b1-irreal-w01
 > uk: виграш у лото
 > forms: die Lottogewinne
 > example: Mit einem **Lottogewinn** würde ich ein Haus am See kaufen. — З виграшем у лото я купив би будинок біля озера.
@@ -120,48 +120,41 @@ estimatedMinutes: 40
 > forms: die Weltreisen
 > example: Wenn ich Zeit hätte, würde ich eine **Weltreise** machen. — Якби я мав час, я б вирушив у навколосвітню подорож.
 
-> [!word] träumen von (+ Dat)
-> ipa: /ˈtʁɔʏ̯mən/ · pos: verb · level: B1 · id: de-b1-irreal-w03
-> uk: мріяти про; бачити уві сні
-> forms: träumt → träumte → hat geträumt
-> example: Sie **träumt** von einem eigenen Café. — Вона мріє про власну кавʼярню.
-> note: äu читається як [ɔʏ̯]: «тройм-ен»; не плутай з ä [ɛ].
-
 > [!word] bedauern
-> ipa: /bəˈdaʊ̯ɐn/ · pos: verb · level: B1 · id: de-b1-irreal-w04
+> ipa: /bəˈdaʊ̯ɐn/ · pos: verb · level: B2 · id: de-b1-irreal-w03
 > uk: жалкувати; шкодувати
-> forms: bedauert → bedauerte → hat bedauert
+> forms: bedauern → bedauerte → hat bedauert
 > example: Ich **bedauere**, dass ich nicht kommen kann. — Шкодую, що не можу прийти.
 > note: ввічливе «на жаль»: Ich bedaure, … / Wir bedauern, … (формальні листи).
 
 > [!word] die Bedingung
-> ipa: /bəˈdɪŋʊŋ/ · pos: noun · level: B1 · id: de-b1-irreal-w05
+> ipa: /bəˈdɪŋʊŋ/ · pos: noun · level: B1 · id: de-b1-irreal-w04
 > uk: умова
 > forms: die Bedingungen
 > example: Eine **Bedingung** ist: Du kommst pünktlich. — Одна умова: ти приходиш вчасно.
 > note: «умови» у договорі — теж Bedingungen (die Geschäftsbedingungen, AGB).
 
 > [!word] die Wirklichkeit
-> ipa: /ˈvɪʁklɪçkaɪ̯t/ · pos: noun · level: B1 · id: de-b1-irreal-w06
+> ipa: /ˈvɪʁklɪçkaɪ̯t/ · pos: noun · level: B2 · id: de-b1-irreal-w05
 > uk: дійсність; реальність
 > forms: die Wirklichkeiten
-> example: In der **Wirklichkeit** ist es nicht so einfach. — У дійсності все не так просто.
+> example: In **Wirklichkeit** ist es nicht so einfach. — У дійсності все не так просто.
 > note: -keit: 100 % жіночого роду. Синонім — die Realität.
 
 > [!word] bloß
-> ipa: /bloːs/ · pos: adv · level: B1 · id: de-b1-irreal-w07
+> ipa: /bloːs/ · pos: adv · level: B2 · id: de-b1-irreal-w06
 > uk: лише; тільки; (у побажаннях) тільки б
 > example: Wenn ich **bloß** mehr Zeit hätte! — Якби ж лише в мене було більше часу!
 > note: ß після довгого голосного; [oː] — довге напружене «о». У побажаннях збігається з nur.
 
 > [!word] unrealistisch
-> ipa: /ˈʊnʁeaˌlɪstɪʃ/ · pos: adj · level: B1 · id: de-b1-irreal-w08
+> ipa: /ˈʊnʁealɪstɪʃ/ · pos: adj · level: B2 · id: de-b1-irreal-w07
 > uk: нереалістичний
 > example: Der Plan ist leider **unrealistisch**. — План, на жаль, нереалістичний.
 > note: протилежне — realistisch [ʁeaˈlɪstɪʃ].
 
 > [!word] die Zeitmaschine
-> ipa: /ˈtsaɪ̯tmaˌʃiːnə/ · pos: noun · level: B1 · id: de-b1-irreal-w09
+> ipa: /ˈtsaɪ̯tmaˌʃiːnə/ · pos: noun · level: B2 · id: de-b1-irreal-w08
 > uk: машина часу
 > forms: die Zeitmaschinen
 > example: Wenn es eine **Zeitmaschine** gäbe, würde ich ins Jahr 1900 reisen. — Якби існувала машина часу, я б подорожував у 1900 рік.
@@ -231,7 +224,7 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-irreal-s02
 > text: Ich wünschte, ich wäre reich.
 > ipa: /ɪç ˈvʏnʃtə ɪç ˈvɛːʁə ʁaɪ̯ç/
-> tip: wäre — довге напружене «е» з відкритим ротом: [ɛː]. reich — дифтонг [aɪ̯] і кінцевий [ç] («хь»).
+> tip: wäre — довге відкрите «е»: [ɛː]. reich — дифтонг [aɪ̯] і кінцевий [ç] («хь»).
 > uk: Хотів би я бути багатим.
 
 > [!speak] Скажи вголос
@@ -268,7 +261,7 @@ estimatedMinutes: 40
 > Українське «якщо» й «якби» легко змішати. Для мрії, якої немає, поставити **Präsens** — значить сказати, що це справді може статися: *Wenn ich reich bin, …* — «коли я розбагатію». Для мрії — *Wenn ich reich **wäre**, …*. Те саме з бажаннями: *Ich wünschte, ich **hätte** …*, а не ~~Ich wünschte, ich habe …~~.
 
 > [!pitfall] «Hatte» замість «hätte», «war» замість «wäre»
-> *hatte* і *war* — це Präteritum, минуле. Для нереальної умови теперішнього треба Konjunktiv II: *hätte, wäre*. У сильних дієслів різницю дає **умлаут**: *kam → käme, ging → ginge, wusste → wüsste*. А в слабких дієслів Konjunktiv II і Präteritum збігаються, тому ставимо *würde* + Infinitiv: *wohnen würde*.
+> *hatte* і *war* — це Präteritum, минуле. Для нереальної умови теперішнього треба Konjunktiv II: *hätte, wäre*. У сильних дієслів Konjunktiv II утворюється зміною кореня: **умлаут** (*kam → käme, wusste → wüsste*) або закінчення -e (*ging → ginge*). А в слабких дієслів Konjunktiv II і Präteritum збігаються, тому ставимо *würde* + Infinitiv: *wohnen würde*.
 
 > [!pitfall] Українське «то» після коми: ~~…, ich würde kommen~~
 > Українське «…, то я б прийшов» тягне за собою порядок «підмет + дієслово». У німецькому головне речення після підрядного починається з **дієслова**: *…, würde ich kommen.* Якщо хочеш «то», скажи *dann würde ich*.
@@ -325,7 +318,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *hätte / hätten / wäre / könnten* — Konjunktiv II у підрядному реченні й у головному; *würde* + Infinitiv (*machen*) — у головному. *hatte* — Präteritum, *wurde* — минуле від *werden*; обидві форми описують минуле, а не нереальне теперішнє.
 
-> [!quiz] «Якби я був на твоєму місці…» Яке початок правильний?
+> [!quiz] «Якби я був на твоєму місці…» Який початок правильний?
 > level: B1 · type: single · id: de-b1-irreal-q07
 > - [ ] Wenn ich du bin, …
 > - [x] Wenn ich du wäre, …
@@ -402,12 +395,12 @@ estimatedMinutes: 40
 > level: B1 · type: fill · id: de-b1-irreal-q13
 >
 > ```text fill
-> A: Was würdest du machen, wenn du Millionär [[wärst]]?
-> B: Wenn ich doch nur im Lotto gewinnen [[würde]]! Ich würde sofort kündigen.
+> A: Was würdest du machen, wenn du Millionär [[wärst|wärest]]?
+> B: Wenn ich doch nur im Lotto gewinnen [[würde|könnte]]! Ich würde sofort kündigen.
 > A: Und ich [[würde]] eine Weltreise machen.
 > ```
 >
-> **Пояснення:** *du wärst* — Konjunktiv II від *sein* для *du*. *gewinnen würde* — розмовна конструкція *würde* + Infinitiv у кінці підрядного речення. *Ich würde … machen* — головне речення.
+> **Пояснення:** *du wärst* — Konjunktiv II від *sein* для *du*. *gewinnen würde* або *gewinnen könnte* — обидва варіанти природні (розмовна конструкція *würde* + Infinitiv або модальне *könnte*). *Ich würde … machen* — головне речення.
 
 > [!quiz] Яка форма пропущена: «Wenn du Hunger ___, iss etwas.»
 > level: B1 · type: single · id: de-b1-irreal-q14

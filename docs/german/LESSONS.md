@@ -42,7 +42,7 @@ Every Landeskunde number needs a source. If you can't source it, say «зазв�
 
 **Level drift.**
 - Card `level:` is the word's real CEFR level. Vokal, Silbe, Schmetterling and Staatsangehörigkeit are not A1.
-- Landeskunde texts must stay within length: language topics A1 40–60, A2 80–120 words; Deutschland chapters A2 ≈ 100–140.
+- Landeskunde texts must stay within length: language topics A1 40–60, A2 80–120, B1 150–200 words; Deutschland chapters A2 ≈ 100–140, B1 ≈ 120–160.
 
 **Duplicate cards.** Before every `[!word]`, grep `content/Guides/Deutsch*`. The lower topic number keeps the card (§2.6 п. 10a).
 

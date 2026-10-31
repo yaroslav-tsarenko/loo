@@ -32,11 +32,11 @@ estimatedMinutes: 45
 В активному реченні важливо, **хто** діє: *Der Koch kocht die Suppe.* У пасивному акцент іде на **дію або результат**, а виконавець неважливий, невідомий чи очевидний: *Die Suppe wird gekocht.* Пасив природний у:
 
 - **процесах** і інструкціях: *Zuerst wird der Teig gemacht.*
-- **правилах** і оголошеннях: *Hier wird nicht geraucht. Das Fenster darf nicht geöffnet werden.*
+- **правилах** і оголошеннях: *Hier wird nicht geraucht. Das Fenster darf nicht geöffnet werden.* (модальне дієслово + Partizip II + *werden*; докладно — B2-02)
 - **новинах**: *Der Mann wurde gestern festgenommen.*
 - **описі подій минулого**: *Die Brücke wurde 1998 gebaut.*
 
-Українською ми маємо схожі форми («будинок будується», «двері зачиняються», «тут не палять»). Німецька утворює пасив одним способом — через **werden**.
+Українською ми маємо схожі форми («будинок будується», «двері зачиняються», «тут не палять»). Основний пасив німецька утворює через **werden**.
 
 ## Утворення: werden + Partizip II
 
@@ -62,7 +62,7 @@ Partizip II утворюється як у Perfekt (A2-01): *machen → gemacht,
 > nodes:
 >   - { id: subj, label: "підмет (хто робить)", text: "Der Koch", tone: mint }
 >   - { id: verb, label: "дієслово", text: "kocht", tone: orange }
->   - { id: obj, label: "Akkusativ (що)", text: "die Suppe", tone: gray }
+>   - { id: obj, label: "решта / Partizip", text: "die Suppe", tone: gray }
 > steps:
 >   - { focus: [subj, verb, obj], note: "Активне речення: Der Koch kocht die Suppe." }
 >   - { set: { subj: "Die Suppe", verb: "wird", obj: "gekocht" }, focus: [subj, verb, obj], note: "Додаток у Akkusativ (die Suppe) стає підметом у Nominativ. Дієслово розпадається: wird (друге місце) + Partizip II (gekocht, в кінці)." }
@@ -108,84 +108,84 @@ Partizip II утворюється як у Perfekt (A2-01): *machen → gemacht,
 ## Слова
 
 > [!word] der Vorgang
-> ipa: /ˈfoːɐ̯ɡaŋ/ · pos: noun · level: B1 · id: de-b1-passiv-w01
+> ipa: /ˈfoːɐ̯ɡaŋ/ · pos: noun · level: B2 · id: de-b1-passiv-w01
 > uk: процес; подія; (в установі) справа
 > forms: die Vorgänge
 > example: Der **Vorgang** dauert etwa zehn Minuten. — Процес триває приблизно десять хвилин.
 > note: das Vorgangspassiv — пасив-процес (wird gemacht), на відміну від Zustandspassiv (ist gemacht).
 
 > [!word] herstellen
-> ipa: /ˈheːɐ̯ʃtɛlən/ · pos: verb · level: B1 · id: de-b1-passiv-w02
+> ipa: /ˈheːɐ̯ʃtɛlən/ · pos: verb · level: B2 · id: de-b1-passiv-w02
 > uk: виробляти; виготовляти
 > forms: stellt her → stellte her → hat hergestellt
 > example: Das Gerät **wird** in Deutschland **hergestellt**. — Цей прилад виробляють у Німеччині.
 > note: відокремлюване; іменник — die Herstellung, der Hersteller.
 
 > [!word] das Verbot
-> ipa: /fɛɐ̯ˈboːt/ · pos: noun · level: B1 · id: de-b1-passiv-w03
+> ipa: /fɛɐ̯ˈboːt/ · pos: noun · level: B2 · id: de-b1-passiv-w03
 > uk: заборона
 > forms: die Verbote
 > example: Das **Verbot** gilt seit dem ersten Januar. — Заборона діє з першого січня.
 > note: verbieten — забороняти. Складені: das Rauchverbot, das Parkverbot.
 
 > [!word] die Vorschrift
-> ipa: /ˈfoːɐ̯ʃʁɪft/ · pos: noun · level: B1 · id: de-b1-passiv-w04
+> ipa: /ˈfoːɐ̯ʃʁɪft/ · pos: noun · level: B2 · id: de-b1-passiv-w04
 > uk: припис; правило; інструкція
 > forms: die Vorschriften
-> example: Diese **Vorschrift** muss man beachten. — Цей припис треба дотримуватися.
+> example: Diese **Vorschrift** muss man beachten. — Цього припису треба дотримуватися.
 > note: die Sicherheitsvorschrift, die Dienstvorschrift. Наголос на першому складі: «фор-шріфт».
 
 > [!word] genehmigen
-> ipa: /ɡəˈneːmɪɡn̩/ · pos: verb · level: B1 · id: de-b1-passiv-w05
+> ipa: /ɡəˈneːmɪɡn̩/ · pos: verb · level: B2 · id: de-b1-passiv-w05
 > uk: дозволяти; затверджувати (офіційно)
 > forms: genehmigt → genehmigte → hat genehmigt
 > example: Der Antrag **wurde** schnell **genehmigt**. — Заяву схвалили швидко.
 > note: іменник — die Genehmigung (офіційний дозвіл); див. також B1-26.
 
 > [!word] renovieren
-> ipa: /ʁenoˈviːʁən/ · pos: verb · level: B1 · id: de-b1-passiv-w06
+> ipa: /ʁenoˈviːʁən/ · pos: verb · level: B2 · id: de-b1-passiv-w06
 > uk: ремонтувати (оновлювати приміщення)
 > forms: renoviert → renovierte → hat renoviert
 > example: Die Wohnung **wird** gerade **renoviert**. — Квартиру зараз ремонтують.
 > note: -ieren: Partizip II без ge-; renoviert, не ~~gerenoviert~~. Іменник — die Renovierung.
 
 > [!word] die Maßnahme
-> ipa: /ˈmaːsnaːmə/ · pos: noun · level: B1 · id: de-b1-passiv-w07
+> ipa: /ˈmaːsnaːmə/ · pos: noun · level: B2 · id: de-b1-passiv-w07
 > uk: захід; заходи
 > forms: die Maßnahmen
 > example: Neue **Maßnahmen** wurden beschlossen. — Ухвалили нові заходи.
 > note: ß після довгого [aː] — звук [s]; Maßnahmen ergreifen — вживати заходів.
 
 > [!word] durchführen
-> ipa: /ˈdʊʁçfyːʁən/ · pos: verb · level: B1 · id: de-b1-passiv-w08
+> ipa: /ˈdʊʁçfyːʁən/ · pos: verb · level: B2 · id: de-b1-passiv-w08
 > uk: проводити; здійснювати
 > forms: führt durch → führte durch → hat durchgeführt
 > example: Die Prüfung **wird** im Mai **durchgeführt**. — Іспит проведуть у травні.
 > note: відокремлюване: Partizip II durchgeführt.
 
 > [!word] einführen
-> ipa: /ˈaɪ̯nfyːʁən/ · pos: verb · level: B1 · id: de-b1-passiv-w09
+> ipa: /ˈaɪ̯nfyːʁən/ · pos: verb · level: B2 · id: de-b1-passiv-w09
 > uk: запроваджувати; вводити
 > forms: führt ein → führte ein → hat eingeführt
 > example: Das neue System **wurde** letztes Jahr **eingeführt**. — Нову систему запровадили торік.
 > note: також «імпортувати» (товар) і «вводити когось у справу».
 
 > [!word] abschaffen
-> ipa: /ˈapʃafn̩/ · pos: verb · level: B1 · id: de-b1-passiv-w10
+> ipa: /ˈapʃafn̩/ · pos: verb · level: B2 · id: de-b1-passiv-w10
 > uk: скасовувати; ліквідовувати
 > forms: schafft ab → schaffte ab → hat abgeschafft
 > example: Die Gebühr **wurde** **abgeschafft**. — Збір скасували.
 > note: sch = «ш»; ab- — відокремлюваний префікс: schafft … ab.
 
 > [!word] beschädigen
-> ipa: /bəˈʃɛːdɪɡn̩/ · pos: verb · level: B1 · id: de-b1-passiv-w11
+> ipa: /bəˈʃɛːdɪɡn̩/ · pos: verb · level: B2 · id: de-b1-passiv-w11
 > uk: пошкоджувати
 > forms: beschädigt → beschädigte → hat beschädigt
 > example: Das Auto **wurde** beim Parken **beschädigt**. — Автомобіль пошкодили під час паркування.
 > note: ä довге [ɛː]; іменник — der Schaden, die Beschädigung.
 
 > [!word] zerstören
-> ipa: /tsɛɐ̯ˈʃtøːʁən/ · pos: verb · level: B1 · id: de-b1-passiv-w12
+> ipa: /tsɛɐ̯ˈʃtøːʁən/ · pos: verb · level: B2 · id: de-b1-passiv-w12
 > uk: руйнувати; знищувати
 > forms: zerstört → zerstörte → hat zerstört
 > example: Das Gebäude **wurde** im Krieg **zerstört**. — Будівлю зруйнували під час війни.
@@ -242,7 +242,7 @@ Partizip II утворюється як у Perfekt (A2-01): *machen → gemacht,
 
 ## Вимова
 
-У пасивних конструкціях наголос падає на Partizip II і на дієслово-основу: **ge**baut, ge**liefert**, re**no**viert (наголос на -no-), aber **ab**geholt (на префіксі). Форми *wird* [vɪʁt] і *wurde* [ˈvʊʁdə] різняться голосними: короткий [ɪ] і короткий [ʊ].
+У пасивних конструкціях наголос падає на Partizip II і на дієслово-основу: ge**baut**, ge**lie**fert, reno**viert** (наголос на -viert), але **ab**geholt (на префіксі). Форми *wird* [vɪʁt] і *wurde* [ˈvʊʁdə] різняться голосними: короткий [ɪ] і короткий [ʊ].
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-passiv-s01
@@ -276,19 +276,19 @@ Partizip II утворюється як у Perfekt (A2-01): *machen → gemacht,
 > level: B1 · id: de-b1-passiv-s05
 > text: Mir wurde gestern sehr geholfen.
 > ipa: /miːɐ̯ ˈvʊʁdə ˈɡɛstɐn zeːɐ̯ ɡəˈhɔlfn̩/
-> tip: mir — довге [iː]. geholfen — h на початку складу -hol- ледь чутне, кінцеве -en майже не звучить.
+> tip: mir — довге [iː]. geholfen — h у -hol- — легкий видих, кінцеве -en майже не звучить.
 > uk: Мені вчора дуже допомогли.
 
 ## Типові помилки українців
 
-> [!pitfall] Passiv ≠ Futur: «wird gemacht» — це не «буде зроблено»
-> *werden* вживається в двох різних конструкціях. З **Partizip II** це пасив: *Ich werde gefragt* — «мене питають». З **Infinitiv** це Futur I: *Ich werde fragen* — «я питатиму». Тож *Das Essen wird gekocht* — не «їжа буде варитися», а «їжу готують / вона готується». Українське «буде зроблено» зазвичай передають через Präsens із часовим словом: *Das wird morgen gemacht.*
+> [!pitfall] Passiv і Futur: *werden* + Partizip II ≠ *werden* + Infinitiv
+> *werden* вживається в двох різних конструкціях. З **Partizip II** це пасив: *Ich werde gefragt* — «мене питають». З **Infinitiv** це Futur I: *Ich werde fragen* — «я питатиму». Тож *Das Essen wird gekocht* — «їжу готують / вона готується» (з часовим словом пасив у Präsens часто має значення майбутнього: *Das wird morgen gemacht* — «це буде зроблено завтра»). Futur — лише з Infinitiv: *Ich werde kochen*.
 
 > [!pitfall] «Ich werde geholfen» і «Er wird geholfen»
 > Дієслова з **Dativ** (*helfen, danken, gratulieren, antworten*) не роблять Dativ-додаток підметом. Правильно: *Mir wird geholfen. Ihm wird gedankt.* Українське «мені допомагають» — теж у давальному, тож цього разу рідна мова підказує правильно.
 
 > [!pitfall] von + Akkusativ замість von + Dativ
-> Виконавця після *von* ставимо в Dativ: *von einem Architekten, von der Lehrerin, von den Kindern*. Помилка *~~von einen Architekten~~* виникає через українське «ким?» (орудний відмінок), який не збігається з німецьким Akkusativ. Для засобу чи причини — *durch* + Akkusativ: *durch einen Unfall*.
+> Виконавця після *von* ставимо в Dativ: *von einem Architekten, von der Lehrerin, von den Kindern*. Помилка *~~von einen Architekten~~* виникає за аналогією з прийменниками, що вимагають Akkusativ (*für einen, durch einen*). Для засобу чи причини — *durch* + Akkusativ: *durch einen Unfall*.
 
 > [!pitfall] wird gebaut ≠ ist gebaut
 > «Будинок збудований» (результат) і «будинок будується» (процес) — різні речення: *Das Haus **ist** gebaut* — він уже стоїть; *Das Haus **wird** gebaut* — його будують зараз. Не пиши *ist* там, де говориш про процес або правило: ~~Hier ist nicht geraucht~~ → *Hier wird nicht geraucht.*
@@ -473,8 +473,8 @@ Partizip II утворюється як у Perfekt (A2-01): *machen → gemacht,
 
 ## Фішки
 
-> [!reel] 🧩 Вигаданий підмет «es»
-> У німецькому реченні майже завжди є підмет, навіть коли його немає за змістом: *Es wird getanzt* — «танцюють». Це *es* — формальне місце на початку, воно зникає, коли вперед виходить інший елемент: *Heute wird getanzt.* Так у пасиві проявляється правило V2: дієслово завжди на другому місці.
+> [!reel] 🧩 «es» — заповнювач першого місця
+> Пасив без підмета часто починається з *es*: *Es wird getanzt* — «танцюють». Це *es* — не підмет, а заповнювач першого місця, воно зникає, коли вперед виходить інший елемент: *Heute wird getanzt.* Так у пасиві проявляється правило V2: у головному реченні дієслово стоїть на другому місці.
 
 > [!reel] 🚭 Німецька любов до правил
 > Написи на кшталт *Hier wird nicht geparkt* («Тут не паркуються») чи *Hier wird gearbeitet* («Тут ведуться роботи») ти побачиш скрізь. Пасив ідеально підходить: правило діє незалежно від людини, і не треба називати, хто саме забороняє. Тому оголошення у дворах, на вокзалах і будмайданчиках так часто його вживають.

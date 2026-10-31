@@ -96,7 +96,7 @@ estimatedMinutes: 55
 >   - { focus: [b1], note: "Wenn у минулому — коли йдеться про повторення: immer wenn, jedes Mal, wenn, jeden Tag, wenn …" }
 >   - { focus: [b2], note: "Про теперішнє й майбутнє — лише wenn, ніколи als: Wenn ich Zeit habe … / Wenn du morgen kommst …" }
 > ```
-> Також *wenn* означає «якщо» (умова): *Wenn es regnet, bleibe ich zu Hause.* Контекст підкаже, чи це «коли», чи «якщо». *Wann* — це питальне слово, не сполучник: *Wann kommst du?*
+> Також *wenn* означає «якщо» (умова): *Wenn es regnet, bleibe ich zu Hause.* Контекст підкаже, чи це «коли», чи «якщо». *Wann* — питальне слово («коли?»), а не часовий сполучник для минулого: *Wann kommst du?*
 
 ### nachdem: що було першим
 
@@ -108,16 +108,16 @@ estimatedMinutes: 55
 | Perfekt | Plusquamperfekt | Nachdem er gegessen **hatte**, **ist** er spazieren **gegangen**. |
 | Präsens | Perfekt | Nachdem er gegessen **hat**, **geht** er spazieren. |
 
-У живій розмові, особливо усній, часто чути й простішу форму: *Nachdem ich gegessen habe, bin ich spazieren gegangen* або *Nachdem ich aß, …*. У письмових текстах і на іспиті обирай схему з таблиці.
+У живій розмові, особливо усній, часто чути й простішу форму: *Nachdem ich gegessen habe, bin ich spazieren gegangen* або (нестандартно) *Nachdem ich aß, …*. У письмових текстах і на іспиті обирай схему з таблиці.
 
 > [!tip] Підрядне на першому місці
 > Після підрядного речення на початку ставимо **кому**, а далі в головному реченні дієслово йде одразу: *Nachdem wir gegessen hatten, **gingen** wir spazieren.* Підмет — після дієслова. Те саме з *als, wenn, bevor, während*.
 
-### bevor, während, bis: часи не змінюються
+### bevor і während: зазвичай один час; sobald і bis: часто Plusquamperfekt
 
-Для **bevor** (перш ніж) і **während** (у той час як) обидві частини речення стоять в одному часі: *Bevor er **ging**, **schloss** er die Tür.* *Während ich **kochte**, **rief** Anna **an**.* Plusquamperfekt тут зазвичай не потрібен, бо ми не зіставляємо «раніше / пізніше» через час дієслова, а вказуємо порядок самим сполучником. *Bevor* часто замінюється на *ehe*, особливо в письмовій мові: *Ehe er ging, …*
+Для **bevor** (перш ніж) і **während** (у той час як) обидві частини речення зазвичай стоять в одному часі: *Bevor er **ging**, **schloss** er die Tür.* *Während ich **kochte**, **rief** Anna **an**.* Plusquamperfekt тут зазвичай не потрібен, бо ми не зіставляємо «раніше / пізніше» через час дієслова, а вказуємо порядок самим сполучником. *Bevor* часто замінюється на *ehe*, особливо в письмовій мові: *Ehe er ging, …*
 
-Про **bis**: *Ich wartete, bis der Bus **kam**.* — Я чекав, доки не приїхав автобус. Українська «доки не» німецькою — просто *bis*, без заперечення. *Während* буває ще й прийменником із Genitiv — про це в темі B1-03.
+Про **bis**: *Ich wartete, bis der Bus **kam**.* — Я чекав, доки не приїхав автобус. Українська «доки не» німецькою — просто *bis*, без заперечення. Якщо дія в *bis*- або *sobald*-реченні завершилася раніше за головну, вживаємо Plusquamperfekt, як з *nachdem*: *Sie wartete, bis die Kinder eingeschlafen **waren**. Sobald ich eine Wohnung gefunden **hatte**, zog ich um.* *Während* буває ще й прийменником із Genitiv — про це в темі B1-03.
 
 ### seit / seitdem: Präsens для того, що триває
 
@@ -153,13 +153,13 @@ estimatedMinutes: 55
 > ipa: /naːxˈdeːm/ · pos: conj · level: B1 · id: de-b1-plusquamperfekt-w02
 > uk: після того як
 > example: **Nachdem** sie gegessen hatten, gingen sie spazieren. — Після того як вони поїли, вони пішли гуляти.
-> note: вимагає перед собою дію, що завершилась раніше. Не плутай з nach + dem (nach dem Essen — «після їжі»).
+> note: подія в nachdem-реченні відбулася раніше за подію в головному. Не плутай з nach + dem (nach dem Essen — «після їжі»).
 
 > [!word] bevor
 > ipa: /bəˈfoːɐ̯/ · pos: conj · level: B1 · id: de-b1-plusquamperfekt-w03
 > uk: перш ніж; до того як
 > example: **Bevor** er ging, schloss er die Tür. — Перш ніж піти, він зачинив двері.
-> note: синонім у письмовій мові: ehe. З однаковим підметом можна й Infinitiv: bevor + zu (див. B1-10).
+> note: синонім у письмовій мові: ehe. З однаковим підметом можна замінити іменником: vor dem Gehen — «перед відходом».
 
 > [!word] sobald
 > ipa: /zoˈbalt/ · pos: conj · level: B1 · id: de-b1-plusquamperfekt-w04
@@ -303,12 +303,12 @@ estimatedMinutes: 55
 > tip: zog — g у кінці = [k]. um — відокремлюваний префікс у кінці. Wohnung — довге [oː], потім ng = [ŋ].
 > uk: Щойно я знайшов квартиру, я переїхав.
 
-> [!speak] «Я чекав, доки приїхав автобус.»
+> [!speak] «Я чекав, доки не приїхав автобус.»
 > level: B1 · id: de-b1-plusquamperfekt-s06
 > text: Ich wartete, bis der Bus kam.
 > ipa: /ɪç ˈvaʁtətə bɪs deːɐ̯ bʊs kaːm/
 > tip: wartete — вставне -e-: [ˈvaʁtətə]. bis і Bus — коротке [ɪ] і [ʊ], s глуха на кінці.
-> uk: Я чекав, доки приїхав автобус.
+> uk: Я чекав, доки не приїхав автобус.
 
 ## Типові помилки українців
 
@@ -318,8 +318,8 @@ estimatedMinutes: 55
 > [!pitfall] Змішані часи: «Nachdem ich gegessen habe, ging ich spazieren»
 > Дві частини речення мають бути на відповідних щаблях: у Präteritum/Perfekt-розповіді після *nachdem* — Plusquamperfekt (*nachdem ich gegessen **hatte**, ging ich*), а коли головне в Präsens — Perfekt (*nachdem ich gegessen **habe**, gehe ich*). У письмовому тексті поєднання *habe* + *ging* вважають помилкою, хоча в розмові таке трапляється.
 
-> [!pitfall] Порядок слів після підрядного: «Nachdem er kam, er rief an»
-> Підрядне речення з *nachdem / als / wenn / bevor* на початку займає **перше місце** у всьому реченні, тому головне починається з дієслова: *Nachdem er kam, **rief** er an.* Українська ставить підмет перед присудком (*він зателефонував*) — німецька ні.
+> [!pitfall] Порядок слів після підрядного: «Nachdem er angekommen war, er rief an»
+> Підрядне речення з *nachdem / als / wenn / bevor* на початку займає **перше місце** у всьому реченні, тому головне починається з дієслова: *Nachdem er angekommen war, **rief** er an.* Українська ставить підмет перед присудком (*він зателефонував*) — німецька ні.
 
 > [!pitfall] «Seit ich in Berlin gewohnt habe» там, де потрібне Präsens
 > Якщо ти живеш у Берліні й досі, говори **Präsens**: *Seit(dem) ich in Berlin **wohne**, …* Українське «відтоді як я живу» теж у теперішньому, Perfekt (*gewohnt habe*) тут не потрібен і змінює зміст на «колись жив».
@@ -336,7 +336,7 @@ estimatedMinutes: 55
 > - [x] Вона не почула будильника, і автобус уже поїхав.
 > - [ ] Таксі їхало повільно.
 >
-> **Пояснення:** *war der Bus schon abgefahren* — автобус від’їхав **раніше**, ніж вона прийшла (Plusquamperfekt). *Ich hatte meinen Wecker nicht gehört* — причина, теж раніше.
+> **Пояснення:** *war der Bus schon abgefahren* — автобус відʼїхав **раніше**, ніж вона прийшла (Plusquamperfekt). *Ich hatte meinen Wecker nicht gehört* — причина, теж раніше.
 
 ## Практика
 
@@ -415,9 +415,9 @@ estimatedMinutes: 55
 > level: B1 · type: multi · id: de-b1-plusquamperfekt-q10
 > - [x] Nachdem sie gegessen hatten, gingen sie spazieren.
 > - [x] Während ich kochte, rief Anna an.
-> - [x] Sobald er ankam, rief er an.
+> - [x] Sobald er angekommen war, rief er an.
 > - [ ] Als ich ankam, ich rief an.
-> - [ ] Nachdem er kam, er rief an.
+> - [ ] Nachdem er angekommen war, er rief an.
 >
 > **Пояснення:** у двох останніх реченнях після підрядного речення порядок слів неправильний: головне починається з дієслова (*Als ich ankam, **rief** ich an*).
 
@@ -477,7 +477,7 @@ estimatedMinutes: 55
 >
 > **Пояснення:** у підрядному реченні дієслово *hatte* в кінці; в головному після коми — *ging* перед підметом. *Habe* — Perfekt, а не Plusquamperfekt.
 
-> [!quiz] Склади речення: «Я чекав, доки приїхав автобус»
+> [!quiz] Склади речення: «Я чекав, доки не приїхав автобус»
 > level: B1 · type: order · id: de-b1-plusquamperfekt-q16
 >
 > ```text order
@@ -514,7 +514,7 @@ estimatedMinutes: 55
 
 > [!important] Підсумок
 > - Plusquamperfekt = *hatte / war* + Partizip II: це «минуле в минулому», перша з двох подій.
-> - **als** — одна подія чи один період у минулому; **wenn** — повторення в минулому та теперішнє / майбутнє; **wann** — лише питання.
-> - **nachdem** + Plusquamperfekt (головне в Präteritum / Perfekt) або + Perfekt (головне в Präsens); **bevor, während, bis, sobald** — обидві частини в одному часі.
-> - У підрядному дієслово в кінці; якщо підрядне на початку, головне починається з дієслова: *Nachdem er kam, rief er an.*
+> - **als** — одна подія чи один період у минулому; **wenn** — повторення в минулому та теперішнє / майбутнє; **wann** — питальне слово.
+> - **nachdem** + Plusquamperfekt (головне в Präteritum / Perfekt) або + Perfekt (головне в Präsens); **bevor, während** — зазвичай один час; **bis, sobald** — один час або Plusquamperfekt, якщо дія завершилася раніше.
+> - У підрядному дієслово в кінці; якщо підрядне на початку, головне починається з дієслова: *Nachdem er angekommen war, rief er an.*
 > - Триваюче «відтоді як» — *seitdem* + Präsens.
