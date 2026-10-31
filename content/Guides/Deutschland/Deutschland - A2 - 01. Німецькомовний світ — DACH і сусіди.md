@@ -32,7 +32,7 @@ estimatedMinutes: 40
 
 ### DACH: три країни в одному слові
 
-Німецькою **D-A-CH** — це абревіатура з автомобільних кодів: **D** — *Deutschland*, **A** — *Österreich*, **CH** — *die Schweiz* (від латинської *Confoederatio Helvetica*). Коли викладач або видавець каже «DACH-Raum», він має на увазі саме ці три держави. Разом у них живе понад 100 мільйонів людей: у Німеччині 83,5 млн (на 31.12.2025, Destatis), в Австрії 9 215 956 (на 1.1.2026, Statistik Austria), у Швейцарії 9 127 100 (на 31.12.2025, BFS).
+**DACH** (D-A-CH) — абревіатура з автомобільних кодів: **D** — *Deutschland*, **A** — *Österreich*, **CH** — *die Schweiz* (від латинської *Confoederatio Helvetica*). Коли викладач або видавець каже «DACH-Raum», він має на увазі саме ці три держави. Разом у них живе понад 100 мільйонів людей: у Німеччині 83,5 млн (на 31.12.2025, Destatis), в Австрії 9 215 956 (на 1.1.2026, Statistik Austria), у Швейцарії 9 127 100 (на 31.12.2025, BFS).
 
 Три держави різні. Німеччина — федерація з 16 земель; Австрія — теж федерація, девʼять *Bundesländer*, і Відень (*Wien*) одночасно місто й земля; Швейцарія — конфедерація з кантонами, де німецька лише одна з чотирьох національних мов (*Landessprachen*): *Deutsch*, *Französisch*, *Italienisch* і *Rätoromanisch* (BFS). Про Австрію й Швейцарію окремо — у розділах 09 і 10, про землі Німеччини — у наступному.
 
@@ -126,7 +126,7 @@ estimatedMinutes: 40
 > uk: Південний Тіроль
 > forms: — (без множини)
 > example: In **Südtirol** sprechen die meisten Menschen Deutsch. — У Південному Тіролі більшість людей говорить німецькою.
-> note: італійською — Alto Adige. Без артикля. Наголос на останньому складі: Südtiról. AT: Tirol — ще одна земля Австрії.
+> note: італійською — Alto Adige. Без артикля. Наголос зазвичай на останньому складі (Südtiról), у Німеччині чутно й на першому. AT: Tirol — ще одна земля Австрії.
 
 > [!word] Ostbelgien
 > ipa: /ˈɔstˌbɛlɡi̯ən/ · pos: noun · level: A2 · id: dl-a2-01-w06
@@ -186,11 +186,11 @@ estimatedMinutes: 40
 > ipa: /ˈnaxbaːɐ̯/ · pos: noun · level: A2 · id: dl-a2-01-w14
 > uk: сусід
 > forms: die Nachbarn
-> example: Österreich ist ein **Nachbar** von Deutschland. — Австрія — сусід Німеччини.
-> note: жін. die Nachbarin (мн. die Nachbarinnen). Слабкий іменник: den Nachbarn, dem Nachbarn (в усіх відмінках, крім Nom. sg., -n). Нація-сусід: das Nachbarland.
+> example: Österreich ist ein **Nachbarland** von Deutschland. — Австрія — країна-сусідка Німеччини.
+> note: жін. die Nachbarin (мн. die Nachbarinnen). Слабкий іменник: den Nachbarn, dem Nachbarn (в усіх відмінках, крім Nom. sg., -n). Країна-сусідка: das Nachbarland.
 
 > [!word] die Hauptstadt
-> ipa: /ˈhaʊ̯ptˌʃtat/ · pos: noun · level: A2 · id: dl-a2-01-w15
+> ipa: /ˈhaʊ̯ptʃtat/ · pos: noun · level: A2 · id: dl-a2-01-w15
 > uk: столиця
 > forms: die Hauptstädte
 > example: Die **Hauptstadt** von Österreich ist Wien. — Столиця Австрії — Відень.
@@ -240,7 +240,7 @@ estimatedMinutes: 40
 > - [x] In Luxemburg spricht man drei Sprachen.
 > - [ ] In Luxemburg spricht man vier Sprachen.
 >
-> **Пояснення:** *drei* — «три» (довге [aɪ̯]), *vier* — «чотири» ([iː]). У Люксембурзі закон 1984 року називає три мови адміністрації: французьку, німецьку й люксембурзьку.
+> **Пояснення:** *drei* — «три» (дифтонг [aɪ̯]), *vier* — «чотири» ([iː]). У Люксембурзі закон 1984 року називає три мови адміністрації: французьку, німецьку й люксембурзьку.
 
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: dl-a2-01-l02
@@ -303,8 +303,8 @@ estimatedMinutes: 40
 
 ## Типові помилки й пастки
 
-> [!pitfall] «Німецька» — не те саме, що «Німеччина»
-> Українською «німецька» і «Німеччина» звучать споріднено, але німецькомовний світ більший за Німеччину: Австрія, Швейцарія, Ліхтенштейн і ще кілька регіонів. Тому питання *Wo spricht man Deutsch?* («Де говорять німецькою?») має відповідь не «у Німеччині», а *in Deutschland, Österreich, der Schweiz …* Країна називається *Deutschland*, мова — *Deutsch*, прикметник — *deutsch*; людина з Німеччини — *der Deutsche / die Deutsche*.
+> [!pitfall] «Німець» — der Deutsche, але der Österreicher
+> Назва людини з Німеччини відмінюється як прикметник: *der Deutsche* (чол.) і *die Deutsche* (жін.), *ein Deutscher*, *eine Deutsche*, *die Deutschen*, *den Deutschen* (Akkusativ). Австрієць і швейцарець — звичайні іменники без таких закінчень: *der Österreicher, ein Österreicher, die Österreicher*; *der Schweizer*. Після *sein* артикля немає: *Er ist Deutscher. Sie ist Österreicherin.* Не плутай три слова: *Deutschland* (країна), *Deutsch* (мова), *der Deutsche* (людина).
 
 > [!pitfall] DACH — це не «усі німецькомовні країни»
 > DACH — лише три держави: *Deutschland, Österreich, die Schweiz*. Ліхтенштейн, Люксембург, Ostbelgien й Südtirol у цю абревіатуру не входять. Тому *DACH* — це «три країни», а не «весь німецькомовний світ».
@@ -318,11 +318,11 @@ estimatedMinutes: 40
 ## Landeskunde-Text
 
 > [!example] Deutsch in Europa
-> Deutsch ist die Amtssprache in Deutschland, in Österreich und in Liechtenstein. In der Schweiz gibt es vier Landessprachen: Deutsch, Französisch, Italienisch und Rätoromanisch. In Luxemburg sprechen viele Menschen Luxemburgisch, Französisch und Deutsch.
+> Deutsch ist die Amtssprache in Deutschland, in Österreich und in Liechtenstein. In der Schweiz gibt es vier Landessprachen: Deutsch, Französisch, Italienisch und Rätoromanisch. In Luxemburg sprechen viele Menschen Luxemburgisch, Französisch und Deutsch. Das Land hat etwa 690.000 Einwohner.
 >
-> Auch in Belgien ist Deutsch eine Amtssprache, aber nur im Osten. Dort wohnen etwa 78.000 Menschen. Ihre Hauptstadt ist Eupen. In Südtirol in Italien sprechen mehr als zwei Drittel der Menschen Deutsch.
+> Auch in Belgien ist Deutsch eine Amtssprache, aber nur im Osten. Dort wohnen etwa 78.000 Menschen. Ihre Hauptstadt ist Eupen. Liechtenstein ist ein kleines Land mit etwa 40.000 Einwohnern. Die Hauptstadt heißt Vaduz. In Südtirol in Italien sprechen mehr als zwei Drittel der Menschen Deutsch.
 >
-> Das Deutsch ist nicht überall gleich. In Österreich sagt man „Jänner“ und „Paradeiser“, in der Schweiz „Velo“ und „Strasse“. Alle diese Formen sind richtiges Deutsch.
+> Deutsch ist nicht überall gleich. In Österreich sagt man „Jänner“ und „Paradeiser“, in der Schweiz „Velo“ und „Strasse“. Alle diese Formen sind richtiges Deutsch.
 >
 > *Слова:* *das Drittel* — третина; *überall* — скрізь; *gleich* — однаковий; *richtig* — правильний.
 
@@ -427,25 +427,52 @@ estimatedMinutes: 40
 >
 > **Пояснення:** у Швейцарії й Ліхтенштейні замість *ß* пишуть *ss*. *Januar* — німецький варіант, *Jänner* — австрійський; *vier* — число національних мов Швейцарії.
 
+> [!quiz] Склади речення: «У Швейцарії ми говоримо німецькою».
+> level: A2 · type: order · id: dl-a2-01-q12
+>
+> ```text order
+> In der Schweiz
+> sprechen
+> wir
+> Deutsch.
+> wir sprechen ✗
+> ```
+>
+> **Пояснення:** речення починається з обставини місця, тож дієслово стоїть на другому місці, а підмет *wir* — після нього. *die Schweiz* вживається з артиклем: *in der Schweiz* (Dativ).
+
+> [!quiz] Заповни пропуски: назви країн
+> level: A2 · type: fill · bank: im, die · id: dl-a2-01-q13
+>
+> ```text fill
+> Ich wohne [[in]] Österreich.
+> Meine Tante wohnt in [[der]] Schweiz.
+> Wir kommen [[aus]] Liechtenstein.
+> ```
+>
+> **Пояснення:** більшість назв країн — без артикля (*in Österreich*, *aus Liechtenstein*); *die Schweiz* має його й відмінюється: *in der Schweiz*. *im* (= in dem) і *die* тут зайві.
+
 ## Фішки
 
 > [!reel] 🇱🇺 Люксембурзька стала національною мовою лише 1984 року
 > До закону 1984 року про мовний режим офіційне вживання мов трималося на розпорядженнях 1830-х років, які гарантували вільний вибір між німецькою й французькою. Закон 1984 року визнав люксембурзьку національною мовою — і тепер громадянин може звернутися до адміністрації будь-якою з трьох мов: французькою, німецькою чи люксембурзькою (luxembourg.public.lu).
 
 > [!reel] 🔤 Країни без «ß»
-> У Швейцарії й Ліхтенштейні літеру ß не вживають: *Straße* пишуть *Strasse*, *Fußball* — *Fussball* (Duden). У Швейцарії це так вже з 1970-х (Bundeskanzlei). У Німеччині й Австрії ß лишається, тож той самий текст має різні орфографічні варіанти.
+> У Швейцарії й Ліхтенштейні літеру ß не вживають: *Straße* пишуть *Strasse*, *Fußball* — *Fussball* (Duden). У Швейцарії ß виходило з вжитку поступово: школи кантону Цюрих перестали його вчити з 1 січня 1938 року, а газета NZZ перейшла на ss останньою, у листопаді 1974-го (sok.ch); офіційно знак не скасовували. У Німеччині й Австрії ß лишається, тож той самий текст має різні орфографічні варіанти.
 
 > [!reel] 🏔 Парижська угода 1946 року й Південний Тіроль
 > Після Другої світової війни Південний Тіроль лишився в Італії, а Австрія й Італія 1946 року домовилися про захист німецькомовного населення. Угоду Gruber-De Gasperi називають одним із правових джерел автономії Південного Тіролю (поруч із італійською конституцією й Другим статутом автономії 1972 року).
 
 > [!reel] 🤏 Ліхтенштейн: 160 км² і 40 тисяч жителів
-> Княжество Liechtenstein займає 160 км² і має близько 40 тисяч жителів (bpb). Для порівняння: Берлін — 891 км² і 3,7 млн (Destatis). Тобто весь Ліхтенштейн менший за Берлін майже у пʼять з половиною разів за площею (891 : 160).
+> Князівство Liechtenstein займає 160 км² і має близько 40 тисяч жителів (bpb). Для порівняння: Берлін — 891 км² і 3,7 млн (Destatis). Тобто весь Ліхтенштейн менший за Берлін за площею більш ніж у пʼять з половиною разів (891 : 160).
+
+> [!reel] 👥 Люксембург: майже половина жителів — іноземці
+> На 1 січня 2026 року в Люксембурзі жили 690 959 людей, з них 322 050 — іноземці, тобто 46,6 % населення; нараховують близько 180 національностей (STATEC). Невелика країна з трьома офіційними мовами в побуті ще частіше чує англійську, португальську й інші.
 
 ## Джерела та що почитати
 
 - Населення: [Destatis — Bevölkerung Deutschlands 2025](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html); [Statistik Austria — Bevölkerung zu Jahres-/Quartalsanfang](https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bevoelkerung/bevoelkerungsstand/bevoelkerung-zu-jahres-/-quartalsanfang); [BFS — Stand und Entwicklung der Bevölkerung](https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/stand-entwicklung.html); [STATEC — Population 2026](https://statistiques.public.lu/en/actualites/2026/stn15-population-2026.html); [bpb — Liechtenstein (Kosmos Weltalmanach)](https://www.bpb.de/kurz-knapp/lexika/kosmos-weltalmanach/65727/liechtenstein/); [stol.it — Südtirol 542.134 Einwohner](https://www.stol.it/artikel/chronik/suedtirol-waechst-erstmals-mehr-als-542000-einwohner); [belgien.at — Deutschsprachige Gemeinschaft](https://belgien.at/deutschsprachige-gemeinschaft).
 - Мови: [BFS — Sprachen in der Schweiz](https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html); [luxembourg.public.lu — Welche Sprachen spricht man in Luxemburg?](https://luxembourg.public.lu/de/gesellschaft-und-kultur/sprachen/welche-sprachen-luxemburg.html); [Provinz Bozen — Sprachgruppenzählung 2024](https://tourismus.provinz.bz.it/de/news/sprachgruppenzahlung-ergebnisse-bleiben-stabil); [Provinz Bozen — Autonomie für drei Sprachgruppen](https://autonomie.provinz.bz.it/de/autonomie-fur-drei-sprachgruppen); [Statista — Anzahl deutschsprachiger Menschen weltweit](https://de.statista.com/statistik/daten/studie/1119851/umfrage/deutschsprachige-menschen-weltweit).
-- Варіанти німецької (Duden): [Jänner](https://www.duden.de/rechtschreibung/Jaenner), [Paradeiser](https://www.duden.de/rechtschreibung/Paradeiser), [Velo](https://www.duden.de/rechtschreibung/Velo), [Weggli](https://www.duden.de/rechtschreibung/Weggli); [Duden — Doppel-s und scharfes s](https://www.duden.de/sprachwissen/rechtschreibregeln/doppel-s-und-scharfes-s).
+- Варіанти німецької (Duden): [Jänner](https://www.duden.de/rechtschreibung/Jaenner), [Paradeiser](https://www.duden.de/rechtschreibung/Paradeiser), [Velo](https://www.duden.de/rechtschreibung/Velo), [Duden — Doppel-s und scharfes s](https://www.duden.de/sprachwissen/rechtschreibregeln/doppel-s-und-scharfes-s); [sok.ch — Eszett in der Schweiz](https://sok.ch/2007/11/eszett-in-der-schweiz/); [STATEC — Population 2026](https://statistiques.public.lu/en/actualites/2026/stn15-population-2026.html).
 
 > [!important] Підсумок
 > - **DACH** = *Deutschland, Österreich, die Schweiz*; поза DACH німецька офіційна ще в *Liechtenstein, Luxemburg*, у *Ostbelgien* (Бельгія) і в *Südtirol* (Італія).

@@ -3,7 +3,7 @@ title: Швейцарія — чотири мови й пряма демокра
 id: dl-a2-10
 level: A2
 icon: px:flag
-tags: [deutsch, landeskunde, a2, land, schweiz, schweizerdeutsch, volksabstimmung, kantone]
+tags: [deutsch, landeskunde, skills, a2, land, schweiz, schweizerdeutsch, volksabstimmung, kantone]
 prerequisites: ["[[Deutschland - A2 - 09. Австрія — Відень, Габсбурги, австрійська німецька]]"]
 estimatedMinutes: 40
 ---
@@ -26,21 +26,21 @@ estimatedMinutes: 40
 > - [x] 100 000 підписів за 18 місяців
 > - [ ] мільйон підписів без обмеження в часі
 >
-> **Пояснення:** згідно з ch.ch, ініціатива «відбувається», якщо 100 000 людей з правом голосу підпишуть її протягом 18 місяців. Для референдуму проти нового закону достатньо 50 000 підписів за 100 днів.
+> **Пояснення:** за даними Федеральної канцелярії, ініціатива вважається такою, що відбулася (*zustande gekommen*), якщо 100 000 людей з правом голосу підпишуть її протягом 18 місяців. Для референдуму проти нового закону достатньо 50 000 підписів за 100 днів.
 
 ## Оповідь
 
 ### Чотири мови в одній країні
 
-Швейцарія (**die Schweiz**) — країна з чотирма національними мовами (**Landessprachen**): **Deutsch, Französisch, Italienisch** і **Rätoromanisch**. За даними Федерального статистичного управління (BFS), у 2024 році як основну мову назвали: німецьку — 61 % мешканців, французьку — 23 %, італійську — 8 %, ретороманську — 0,4 %. Діалекти (швейцарсько-німецький, романські говірки) входять у відповідні мови. Для федерації офіційні мови — німецька, французька й італійська; ретороманська — офіційна лише в спілкуванні з носіями цієї мови.
+Швейцарія (**die Schweiz**) — країна з чотирма національними мовами (**Landessprachen**): **Deutsch, Französisch, Italienisch** і **Rätoromanisch**. За даними Федерального статистичного управління (BFS), у 2024 році серед мешканців від 15 років (можна назвати кілька мов) основною мовою назвали: німецьку — 61 % мешканців, французьку — 23 %, італійську — 8 %, ретороманську — 0,4 %. Діалекти (швейцарсько-німецький, романські говірки) входять у відповідні мови. Для федерації офіційні мови — німецька, французька й італійська; ретороманська — офіційна лише в спілкуванні з носіями цієї мови.
 
-Тому швейцарці часто бачать написи на двох-трьох мовах. Кордон між німецькомовною й франкомовною частинами жартома називають **Röstigraben** — «рьоштівий рів» (*Rösti* — смажена терта картопля). Duden позначає слово як швейцарське жартівливе.
+Тому швейцарці часто бачать написи на двох-трьох мовах. Кордон між німецькомовною й франкомовною частинами жартома називають **Röstigraben** — «картопляний рів» (*Rösti* — смажена терта картопля, *Graben* — рів). Duden позначає слово як швейцарське жартівливе.
 
 ### Schweizerdeutsch і Hochdeutsch
 
 У німецькомовній Швейцарії (**die Deutschschweiz**) у побуті розмовляють **Schweizerdeutsch** — це група діалектів (*Mundart*), які сильно відрізняються від літературної німецької. За даними BFS 2024 року, вдома швейцарською німецькою говорить 55 % населення, літературною німецькою — 12 %. А писемна мова, у школі й у медіа — **Hochdeutsch**, тобто та сама німецька, яку вчиш ти, лише з швейцарськими особливостями (**Schweizer Hochdeutsch**).
 
-Одна з відмінностей — правопис: у Швейцарії й Ліхтенштейні замість **ß** завжди пишуть **ss**: *Strasse*, *Fussball*, *gross*. Так записано в керівництві Федеральної канцелярії та в Duden (§ 25 E2). У Швейцарії цю літеру не пишуть з 1970-х років.
+Одна з відмінностей — правопис: у Швейцарії й Ліхтенштейні замість **ß** пишуть **ss** (правопис дозволяє це завжди, і так пише федеральна адміністрація): *Strasse*, *Fussball*, *gross*. Це описано в Duden (§ 25 E2) і в керівництві Федеральної канцелярії з правопису.
 
 ### Як працює пряма демократія
 
@@ -91,8 +91,8 @@ estimatedMinutes: 40
 | Німеччина (DE) | Швейцарія (CH) | Примітка |
 |---|---|---|
 | das Fahrrad | **das Velo** | CH |
-| das Krankenhaus | **das Spital** | CH, також AT |
-| der Gehweg | **das Trottoir** | CH, також AT |
+| das Krankenhaus | **das Spital** | CH (також AT) |
+| der Gehweg | **das Trottoir** | CH (в DE й AT — застаріле або регіональне) |
 | parken | **parkieren** | CH |
 | (привітання) Guten Tag | **Grüezi** | CH, формально-ввічливо |
 | die zweite Frühstückspause | **das Znüni** | CH, «девʼята година» |
@@ -104,12 +104,13 @@ estimatedMinutes: 40
 - *Die meisten Schweizer sprechen zu Hause Schweizerdeutsch.* — Більшість швейцарців удома говорять швейцарською німецькою.
 - *Grüezi! Ich suche das Spital.* — Добрий день! Я шукаю лікарню.
 - *Ich fahre jeden Tag mit dem Velo zur Arbeit.* — Я щодня їжджу на роботу на велосипеді.
+- *Schweizerdeutsch ist eine Mundart.* — Швейцарська німецька — це говірка.
 - *Hier darfst du nicht parkieren.* — Тут не можна паркуватися.
 - *Das kostet zwanzig Franken.* — Це коштує двадцять франків.
 - *Am Sonntag gibt es eine Volksabstimmung.* — У неділю буде голосування.
 - *Die Mehrheit hat Nein gesagt.* — Більшість сказала «ні».
 - *In der Schweiz schreibt man „Strasse“, nicht „Straße“.* — У Швейцарії пишуть «Strasse», а не «Straße».
-- *Der Röstigraben trennt die Deutschschweiz und die Romandie.* — Рьоштіграбен розділяє німецькомовну й франкомовну Швейцарію.
+- *Der Röstigraben trennt die Deutschschweiz und die Romandie.* — Röstigraben розділяє німецькомовну й франкомовну Швейцарію.
 
 ## Слова
 
@@ -136,7 +137,7 @@ estimatedMinutes: 40
 > note: назва мови пишеться з великої; прикметник — *rätoromanisch*. Літера ä тут читається як [ɛ].
 
 > [!word] die Deutschschweiz
-> ipa: /ˈdɔʏ̯tʃˌʃvaɪ̯ts/ · pos: noun · level: A2 · id: dl-a2-10-w04
+> ipa: /ˈdɔʏ̯tʃʃvaɪ̯ts/ · pos: noun · level: A2 · id: dl-a2-10-w04
 > uk: німецькомовна Швейцарія
 > forms: — (без множини)
 > example: In der **Deutschschweiz** spricht man Schweizerdeutsch. — У німецькомовній Швейцарії говорять швейцарською німецькою.
@@ -149,56 +150,49 @@ estimatedMinutes: 40
 > example: Im Alltag spricht man **Schweizerdeutsch**. — У побуті розмовляють швейцарською німецькою.
 > note: це не «акцент», а система діалектів; прикметник: *schweizerdeutsch*.
 
-> [!word] die Mundart
-> ipa: /ˈmʊntʔaːɐ̯t/ · pos: noun · level: A2 · id: dl-a2-10-w06
-> uk: говірка, діалект
-> forms: die Mundarten
-> example: Schweizerdeutsch ist eine **Mundart**. — Швейцарська німецька — це діалект.
-> note: у Швейцарії *Mundart* — звичне слово для діалектів.
-
 > [!word] der Röstigraben
-> ipa: /ˈʁøːstiˌɡʁaːbn̩/ · pos: noun · level: A2 · id: dl-a2-10-w07
-> uk: «рьоштівий рів» — жартівлива назва межі між німецько- й франкомовною Швейцарією
+> ipa: /ˈʁøːstiˌɡʁaːbn̩/ · pos: noun · level: A2 · id: dl-a2-10-w06
+> uk: «картопляний рів» — жартівлива назва межі між німецько- й франкомовною Швейцарією
 > forms: — (без множини)
-> example: Beim **Röstigraben** ändert sich die Sprache. — На «рьоштівому рові» змінюється мова.
-> note: CH, жартівливе (Duden: «schweizerisch scherzhaft»). *Rösti* — страва з тертої смаженої картоплі; *Graben* — рів.
+> example: Beim **Röstigraben** ändert sich die Sprache. — На «картопляному рові» змінюється мова.
+> note: CH, жартівливе (Duden: «schweizerisch scherzhaft»). *Rösti* — страва з тертої смаженої картоплі; *Graben* — рів. Вимова: ö — [øː], губи округлені, як для «о», а язик — як для «е».
 
 ### Пряма демократія
 
 > [!word] die Volksabstimmung
-> ipa: /ˈfɔlksʔapˌʃtɪmʊŋ/ · pos: noun · level: A2 · id: dl-a2-10-w08
+> ipa: /ˈfɔlksʔapˌʃtɪmʊŋ/ · pos: noun · level: A2 · id: dl-a2-10-w07
 > uk: всенародне голосування
 > forms: die Volksabstimmungen
 > example: Am Sonntag gibt es eine **Volksabstimmung**. — У неділю буде всенародне голосування.
 
 > [!word] die Volksinitiative
-> ipa: /ˈfɔlksʔinitsi̯aˌtiːvə/ · pos: noun · level: A2 · id: dl-a2-10-w09
+> ipa: /ˈfɔlksʔinitsi̯aˌtiːvə/ · pos: noun · level: A2 · id: dl-a2-10-w08
 > uk: народна ініціатива
 > forms: die Volksinitiativen
 > example: Für eine **Volksinitiative** braucht man 100.000 Unterschriften. — Для народної ініціативи потрібно 100 000 підписів.
 
 > [!word] das Referendum
-> ipa: /ʁefeˈʁɛndʊm/ · pos: noun · level: A2 · id: dl-a2-10-w10
+> ipa: /ʁefeˈʁɛndʊm/ · pos: noun · level: A2 · id: dl-a2-10-w09
 > uk: референдум
 > forms: die Referenden
 > example: Gegen das Gesetz gibt es ein **Referendum**. — Проти цього закону проводять референдум.
 > note: у Duden також множина *die Referenda*; частіше — *Referenden*.
 
 > [!word] die Gemeinde
-> ipa: /ɡəˈmaɪ̯ndə/ · pos: noun · level: A2 · id: dl-a2-10-w11
+> ipa: /ɡəˈmaɪ̯ndə/ · pos: noun · level: A2 · id: dl-a2-10-w10
 > uk: громада, муніципалітет
 > forms: die Gemeinden
 > example: Jeder Kanton besteht aus vielen **Gemeinden**. — Кожен кантон складається з багатьох громад.
 > note: у Швейцарії 26 кантонів поділено на понад 2000 громад (*Gemeinden*); у Німеччині слово теж означає місцеву одиницю. Не плутай з *die Gemeinschaft* («спільнота»).
 
 > [!word] die Mehrheit
-> ipa: /ˈmeːɐ̯haɪ̯t/ · pos: noun · level: A2 · id: dl-a2-10-w12
+> ipa: /ˈmeːɐ̯haɪ̯t/ · pos: noun · level: A2 · id: dl-a2-10-w11
 > uk: більшість
 > forms: die Mehrheiten
 > example: Die **Mehrheit** sagt Ja. — Більшість каже «так».
 
 > [!word] abstimmen
-> ipa: /ˈapˌʃtɪmən/ · pos: verb · level: A2 · id: dl-a2-10-w13
+> ipa: /ˈapˌʃtɪmən/ · pos: verb · level: A2 · id: dl-a2-10-w12
 > uk: голосувати
 > forms: er stimmt ab · stimmte ab · hat abgestimmt
 > example: Die Schweizer **stimmen** oft **ab**. — Швейцарці часто голосують.
@@ -207,52 +201,52 @@ estimatedMinutes: 40
 ### Швейцарські слова (CH)
 
 > [!word] Grüezi
-> ipa: /ˈɡʁyɐ̯tsi/ · pos: phrase · level: A2 · id: dl-a2-10-w14
+> ipa: /ˈɡʁyɐ̯tsi/ · pos: phrase · level: A2 · id: dl-a2-10-w13
 > uk: добрий день (CH)
 > example: **Grüezi**, Frau Meier! — Добрий день, пані Маєр!
-> note: CH; походить від «Gott grüss euch» (DWDS: «(Gott) grüß Euch!»). Вживають у будь-який час дня; ввічливо й нейтрально. Написання *Grüezi* — без -ß.
+> note: CH; походить від «Gott grüss euch» (DWDS: «(Gott) grüß Euch!»). Вживають у будь-який час дня; ввічливо й нейтрально.
 
 > [!word] das Velo
-> ipa: /ˈveːlo/ · pos: noun · level: A2 · id: dl-a2-10-w15
+> ipa: /ˈveːlo/ · pos: noun · level: B1 · id: dl-a2-10-w14
 > uk: велосипед (CH)
 > forms: die Velos
 > example: Ich fahre mit dem **Velo** zur Arbeit. — Я їжджу на роботу на велосипеді.
 > note: CH (Duden: «schweizerisch»); у Німеччині — *das Fahrrad*. Наголос на першому складі: [ˈveːlo].
 
 > [!word] das Spital
-> ipa: /ʃpiˈtaːl/ · pos: noun · level: A2 · id: dl-a2-10-w16
-> uk: лікарня (CH, AT)
+> ipa: /ʃpiˈtaːl/ · pos: noun · level: A2 · id: dl-a2-10-w15
+> uk: лікарня (CH, також AT)
 > forms: die Spitäler
 > example: Er liegt im **Spital**. — Він лежить у лікарні.
-> note: Duden: *der* або *das Spital*; у Швейцарії та Австрії кажуть *das Spital*, у Німеччині — *das Krankenhaus*.
+> note: Duden: *das Spital*, у Швейцарії також *der Spital*; позначка «österreichisch, schweizerisch, landschaftlich». У Німеччині — *das Krankenhaus*.
 
 > [!word] das Trottoir
-> ipa: /tʁɔˈtoaːɐ̯/ · pos: noun · level: A2 · id: dl-a2-10-w17
-> uk: тротуар (CH, AT)
-> forms: die Trottoirs
+> ipa: /tʁɔˈtoaːɐ̯/ · pos: noun · level: B1 · id: dl-a2-10-w16
+> uk: тротуар (CH)
+> forms: die Trottoire, die Trottoirs
 > example: Auf dem **Trottoir** darf man nicht parkieren. — На тротуарі не можна паркуватися.
-> note: у Німеччині — *der Gehweg* / *der Bürgersteig*.
+> note: Duden: «schweizerisch, sonst veraltend oder landschaftlich». У Німеччині — *der Gehweg* / *der Bürgersteig*, в Австрії — *der Gehsteig*.
 
 > [!word] parkieren
-> ipa: /paʁˈkiːʁən/ · pos: verb · level: A2 · id: dl-a2-10-w18
-> uk: паркуватися (CH, AT)
+> ipa: /paʁˈkiːʁən/ · pos: verb · level: B1 · id: dl-a2-10-w17
+> uk: паркуватися (CH)
 > forms: er parkiert · parkierte · hat parkiert
 > example: Hier darf man nicht **parkieren**. — Тут не можна паркуватися.
-> note: Duden: «schweizerisch, österreichisch»; у Німеччині — *parken*.
+> note: Duden: «schweizerisch»; у Німеччині й Австрії — *parken*.
 
 > [!word] der Franken
-> ipa: /ˈfʁaŋkn̩/ · pos: noun · level: A2 · id: dl-a2-10-w19
+> ipa: /ˈfʁaŋkn̩/ · pos: noun · level: A2 · id: dl-a2-10-w18
 > uk: швейцарський франк
 > forms: die Franken
 > example: Das kostet zwanzig **Franken**. — Це коштує двадцять франків.
 > note: у множині не змінюється: *zwanzig Franken*. Скорочення — *CHF*. Не плутай з *Franken* — Франконією, історичною областю в Німеччині.
 
 > [!word] das Znüni
-> ipa: /ˈtsnyːni/ · pos: noun · level: A2 · id: dl-a2-10-w20
+> ipa: /ˈtsnyːni/ · pos: noun · level: A2 · id: dl-a2-10-w19
 > uk: другий сніданок (CH, буквально «девʼята година»)
-> forms: — (без множини)
+> forms: die Znüni
 > example: Um halb zehn essen die Kinder ihr **Znüni**. — О пів на десяту діти їдять свій другий сніданок.
-> note: CH; від *zu neun (Uhr)*. Duden позначає слово як «schweizerisch».
+> note: CH; від *zu neun (Uhr)*. Duden позначає слово як «schweizerisch». Рід: також *der Znüni*.
 
 ## Слухаємо
 
@@ -335,7 +329,7 @@ estimatedMinutes: 40
 > У німецькомовній Швейцарії в побуті говорять **Schweizerdeutsch** — діалектами, які сильно відрізняються від **Hochdeutsch**. Писемна мова — Hochdeutsch, тож читати й писати ти зможеш так само, як у Німеччині. Вчи Hochdeutsch, а Schweizerdeutsch сприймай як місцеву говірку — на слух вона може бути складною навіть для тих, хто добре знає німецьку.
 
 > [!pitfall] У Швейцарії немає ß
-> Швейцарець пише **Strasse**, **Fussball**, **gross**, а в Німеччині — *Straße, Fußball, groß*. Це не помилка, а правило швейцарського правопису (Duden: § 25 E2; Федеральна канцелярія). Через це деякі слова пишуться однаково: *Busse* означає і «штраф» (*Busse*), і «покаяння» (*Buße*) — значення видно з контексту.
+> Швейцарець пише **Strasse**, **Fussball**, **gross**, а в Німеччині — *Straße, Fußball, groß*. Це не помилка: за правописом Duden (§ 25 E2) в Швейцарії й Ліхтенштейні ß можна завжди заміняти на ss, а федеральна адміністрація так і пише. Через це деякі слова пишуться однаково: *Masse* («маса») і *Maße* («міри») в Швейцарії виглядають як *Masse* — значення видно з контексту.
 
 > [!pitfall] Landessprache ≠ Amtssprache
 > Чотири **Landessprachen** — це національні мови. Але **Amtssprachen** федерації — лише три: німецька, французька, італійська. Ретороманська — офіційна тільки для спілкування з її носіями. Тому не кажи, що «в Швейцарії чотири офіційні мови» без застережень: правильно — «чотири національні мови, з яких три — повністю офіційні».
@@ -348,9 +342,9 @@ estimatedMinutes: 40
 > [!example] Die Schweiz — vier Sprachen, viele Abstimmungen
 > In der Schweiz gibt es vier Landessprachen: Deutsch, Französisch, Italienisch und Rätoromanisch. Die meisten Menschen sprechen Deutsch. Aber im Alltag sprechen sie meistens Schweizerdeutsch, einen Dialekt. Geschrieben wird meist Hochdeutsch. In der Schweiz schreibt man kein „ß“, sondern „ss“: Strasse, nicht Straße.
 >
-> Das Land hat 26 Kantone. Die Menschen in der Schweiz dürfen oft abstimmen. Wenn 100.000 Personen eine Idee unterschreiben, gibt es eine Volksabstimmung. Gegen ein neues Gesetz können 50.000 Personen ein Referendum verlangen. Der Nationalfeiertag ist am 1. August.
+> Das Land hat 26 Kantone. Die Menschen in der Schweiz dürfen oft abstimmen. Wenn 100.000 Personen eine Idee unterschreiben, gibt es eine Volksabstimmung. Gegen ein neues Gesetz können 50.000 Personen ein Referendum verlangen. Der Nationalfeiertag ist am 1. August. Der Bundesrat, die Regierung, und das Parlament arbeiten in Bern. Zwischen der Deutschschweiz und der Romandie, dem französischsprachigen Teil, verläuft der Röstigraben: Dort ändert sich die Sprache.
 >
-> *Слова:* *meistens* — здебільшого; *dürfen* — мати право; *unterschreiben* — підписати (unterschreibt · unterschrieb · hat unterschrieben); *verlangen* — вимагати; *der Alltag* — буденність.
+> *Слова:* *meistens* — здебільшого; *dürfen* — мати право; *unterschreiben* — підписати (unterschreibt · unterschrieb · hat unterschrieben); *verlangen* — вимагати; *der Alltag* — буденність; *die Romandie* — франкомовна Швейцарія.
 
 > [!quiz] Lies den Text. Was sprechen die meisten Menschen in der Schweiz im Alltag?
 > level: A2 · type: single · id: dl-a2-10-q02
@@ -375,7 +369,7 @@ estimatedMinutes: 40
 > - [ ] Straße
 > - [ ] Strase
 > - [x] Strasse
-> - [ ] Strasze
+> - [ ] Strasße
 >
 > **Пояснення:** *In der Schweiz schreibt man kein „ß“, sondern „ss“: Strasse.*
 
@@ -397,13 +391,13 @@ estimatedMinutes: 40
 > level: A2 · type: fill · id: dl-a2-10-q06 · bank: Fahrrad, Krankenhaus, Gehweg
 >
 > ```text fill
-> In der Schweiz fährt man mit dem [[Velo]] zur Arbeit.
-> Er liegt im [[Spital]].
-> Auf dem [[Trottoir]] darf man nicht parkieren.
+> Schweizerisch sagt man für Fahrrad: [[Velo]].
+> Schweizerisch sagt man für Krankenhaus: [[Spital]].
+> Schweizerisch sagt man für Gehweg: [[Trottoir]].
 > Das kostet zwanzig [[Franken]].
 > ```
 >
-> **Пояснення:** *Velo, Spital, Trottoir* — швейцарські слова. У Німеччині замість них *Fahrrad, Krankenhaus, Gehweg*, тож ці слова тут зайві. *Franken* — валюта; у множині не змінюється.
+> **Пояснення:** у кожному рядку названо німецьке слово, тож потрібен швейцарський відповідник: *Velo, Spital, Trottoir*. Слова *Fahrrad, Krankenhaus, Gehweg* — німецькі, тут зайві. *Franken* — валюта; у множині не змінюється.
 
 > [!quiz] Яку частку населення Швейцарії становлять люди, які назвали німецьку основною мовою (2024)?
 > level: A2 · type: single · id: dl-a2-10-q07
@@ -429,7 +423,7 @@ estimatedMinutes: 40
 > - [ ] справжній рів навколо міста
 > - [x] жартівлива назва межі між німецько- й франкомовною Швейцарією
 > - [ ] швейцарська страва з сиру
-> - [ ] назву кантону
+> - [ ] назва кантону
 >
 > **Пояснення:** *Rösti* — страва з картоплі, *Graben* — рів. Слово жартівливо описує культурну й мовну межу між частинами країни.
 
@@ -442,6 +436,37 @@ estimatedMinutes: 40
 >
 > **Пояснення:** це факультативний референдум. 100 000 підписів і 18 місяців — для Volksinitiative, а не для референдуму.
 
+> [!quiz] Заповни пропуски: Landessprache чи Amtssprache?
+> level: A2 · type: fill · id: dl-a2-10-q11 · bank: Mundart, Sprachen
+>
+> ```text fill
+> Deutsch, Französisch, Italienisch und Rätoromanisch sind [[Landessprachen]] der Schweiz.
+> Rätoromanisch ist nur im Kontakt mit Rätoromanen eine [[Amtssprache]] des Bundes.
+> ```
+>
+> **Пояснення:** *Landessprachen* — чотири національні мови (множина). *Amtssprache* — офіційна мова; для ретороманської — лише в спілкуванні з її носіями. Слова *Mundart* і *Sprachen* тут зайві.
+
+> [!quiz] Розстав кроки народної ініціативи в правильному порядку
+> level: A2 · type: order · id: dl-a2-10-q12
+>
+> ```text order
+> Ein Komitee hat eine Idee.
+> Das Komitee sammelt 100.000 Unterschriften.
+> Es gibt eine Volksabstimmung.
+> Volk und Kantone sagen Ja.
+> ```
+>
+> **Пояснення:** ідея → підписи (100 000 за 18 місяців) → голосування → потрібна більшість народу й кантонів, щоб змінити Конституцію.
+
+> [!quiz] Що в Швейцарії відзначають 1. August?
+> level: A2 · type: single · id: dl-a2-10-q13
+> - [ ] день ухвалення Конституції 1848 року
+> - [x] національне свято (*Bundesfeier*), повʼязане з Bundesbrief 1291 року
+> - [ ] день ретороманської мови
+> - [ ] початок навчального року
+>
+> **Пояснення:** Bundesbrief датовано початком серпня 1291 року. Перша Bundesfeier була 1891 року, щорічною стала з 1899-го. Конституцію ухвалили 12 вересня 1848 року.
+
 ## Фішки
 
 > [!reel] 🗣 Четверта мова
@@ -450,22 +475,22 @@ estimatedMinutes: 40
 > [!reel] 🎆 Свято, якого не було в 1291-му
 > Bundesbrief датовано початком серпня 1291 року, але перша Bundesfeier відбулася лише 1891 року — на 600-річчя. Щорічною стала з 1899-го. Історики сьогодні вважають грамоту 1291 року не «актом заснування», а регіональним мирним союзом.
 
-> [!reel] 🥔 Рьоштіграбен
-> *Röstigraben* — жартівливе слово для межі між німецько- й франкомовною Швейцарією. Duden позначає його як «schweizerisch scherzhaft». Рьошті — смажена картопля, яку люблять у німецькомовній частині.
+> [!reel] 🥔 Röstigraben
+> *Röstigraben* — жартівливе слово для межі між німецько- й франкомовною Швейцарією. Duden позначає його як «schweizerisch scherzhaft». *Rösti* — смажена картопля, яку люблять у німецькомовній частині. Літера ö читається як [øː].
 
-> [!reel] ✏ Busse чи Buße?
-> Оскільки в Швейцарії не пишуть ß, слова *Busse* («штраф») і *Buße* («покаяння») там пишуться однаково. Цей приклад наводить керівництво Федеральної канцелярії з правопису.
+> [!reel] ✏ Masse чи Maße?
+> Оскільки в Швейцарії не пишуть ß, слова *Masse* («маса») і *Maße* («міри») там пишуться однаково — *Masse*. Про такі випадки попереджає керівництво Федеральної канцелярії з правопису: значення визначає контекст.
 
 > [!reel] 📅 90 днів стало 100
 > Строк, за який можна зібрати підписи для референдуму, 1996 року збільшили з 90 до 100 днів. Відтоді діє правило «50 000 підписів за 100 днів».
 
 ## Джерела та що почитати
 
-- ch.ch — [Was ist eine Volksinitiative?](https://www.ch.ch/de/abstimmungen-und-wahlen/initiativen/was-ist-eine-eidgenossische-volksinitiative/) (100 000 підписів за 18 місяців) і [Das Referendum in der Schweiz](https://www.ch.ch/de/abstimmungen-und-wahlen/referendum/) (50 000 підписів за 100 днів); [Wie lanciert man eine Volksinitiative?](https://www.ch.ch/de/demokratie/politische-rechte/volksinitiative/timelinevolksinitiative); [Wie ergreift man das fakultative Referendum?](https://www.ch.ch/de/demokratie/politische-rechte/fakultatives-referendum/wie-ergreift-man-auf-bundesebene-das-fakultative-referendum/).
+- Bundeskanzlei — [Volksinitiativen](https://www.bk.admin.ch/bk/de/home/politische-rechte/volksinitiativen.html) (100 000 підписів за 18 місяців) і [Referenden](https://www.bk.admin.ch/bk/de/home/politische-rechte/referenden.html) (50 000 підписів за 100 днів); Fedlex — [Bundesverfassung](https://www.fedlex.admin.ch/eli/cc/1999/404/de) (ст. 70, 139, 141).
 - Bundesamt für Statistik (BFS) — [Sprachen](https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html) (дані за 2024 рік) і [Die 26 Kantone und Hauptorte der Schweiz](https://www.bfs.admin.ch/asset/de/1031487).
 - Historisches Lexikon der Schweiz — [Rätoromanisch](https://hls-dhs-dss.ch/de/articles/024594/2012-06-19/) (1938, 1996), [Bundesfeier](https://hls-dhs-dss.ch/articles/017438/2011-03-16/) (1891, 1899), [Befreiungstradition](https://hls-dhs-dss.ch/de/articles/017474/) і [Eidgenossenschaft](https://hls-dhs-dss.ch/de/articles/026413/).
 - Schweizerisches Bundesarchiv — [Die Eidgenossenschaft vor 1798](https://www.bar.admin.ch/de/die-eidgenossenschaft-vor-1798); Parlament — [Bundesverfassung 1848 im Bundesblatt 1849](https://www.parlament.ch/centers/documents/de/Bundesverfassung%20im%20ersten%20Bundesblatt%20von%201849_105x180_D_231128.pdf) (PDF).
-- Bundeskanzlei — [Rechtschreibleitfaden](https://www.bk.admin.ch/dam/bk/de/dokumente/sprachdienste/sprachdienst_de/rechtschreibleitfaden-2017.pdf.download.pdf/rechtschreibleitfaden-2017.pdf) (PDF) і [Der Bund kurz erklärt 2026](https://www.bk.admin.ch/dam/de/sd-web/B74oYqykWJXb/Der%20Bund%20kurz%20erkl%C3%A4rt%202026.pdf) (PDF).
+- Bundeskanzlei — [Leitfaden zur deutschen Rechtschreibung](https://www.bk.admin.ch/dam/de/sd-web/GApRW2tzdhqZ/rechtschreibleitfaden-2017.pdf) (PDF) і [Der Bund kurz erklärt 2026](https://www.bk.admin.ch/dam/de/sd-web/B74oYqykWJXb/Der%20Bund%20kurz%20erkl%C3%A4rt%202026.pdf) (PDF).
 - Duden — [Röstigraben](https://www.duden.de/rechtschreibung/Roestigraben), [Velo](https://www.duden.de/rechtschreibung/Velo), [Spital](https://www.duden.de/rechtschreibung/Spital), [Trottoir](https://www.duden.de/rechtschreibung/Trottoir), [parkieren](https://www.duden.de/rechtschreibung/parkieren), [Znüni](https://www.duden.de/rechtschreibung/Znueni), [Volksabstimmung](https://www.duden.de/rechtschreibung/Volksabstimmung), [Landessprache](https://www.duden.de/rechtschreibung/Landessprache); DWDS — [Grüezi](https://www.dwds.de/wb/Gr%C3%BCezi), [Kanton](https://www.dwds.de/wb/Kanton).
 
 > [!important] Підсумок

@@ -3,7 +3,7 @@ title: Свята I — Advent, Weihnachtsmarkt, Nikolaus, Silvester
 id: dl-a2-05
 level: A2
 icon: px:star
-tags: [deutsch, landeskunde, a2, feste, advent, weihnachten, silvester, brauchtum]
+tags: [deutsch, landeskunde, skills, a2, land, feste, advent, weihnachten, silvester, brauchtum]
 prerequisites: ["[[Deutschland - A2 - 04. Діалекти — Bairisch, Schwäbisch, Plattdeutsch, Sächsisch, Kölsch]]"]
 estimatedMinutes: 40
 ---
@@ -38,7 +38,7 @@ estimatedMinutes: 40
 
 ### Weihnachtsmarkt: Dresden і не лише
 
-**Der Weihnachtsmarkt** відкривають напередодні Різдва. Найстаріший привілей — у Дрездена: **19 жовтня 1434 року** курфюрст Фрідріх II (разом з герцогом Зігмундом) надав міській раді право на ринок перед Різдвом. Спочатку це був одноденний мʼясний ринок. Назву **Striezelmarkt** ринок отримав від *Striezel* — іншого слова для дрезденського Stollen; назва вживається приблизно з 1500 року.
+**Der Weihnachtsmarkt** відкривають з кінця листопада, до Різдва. Найстаріший привілей — у Дрездена: **19 жовтня 1434 року** курфюрст Фрідріх II (разом з герцогом Зігмундом) надав міській раді право на ринок перед Різдвом. Спочатку це був одноденний мʼясний ринок. Назву **Striezelmarkt** ринок отримав від *Striezel* — іншого слова для дрезденського Stollen; назва вживається приблизно з 1500 року.
 
 Чи це «найстаріший» різдвяний ринок Німеччини? Дискусія є. У грудні 2015 року Rekord-Institut Hamburg визнав, що найстаріший ринок, згаданий у **хроніці**, — це Wenzelsmarkt у Баутцені (1384). Дрезденський — найстаріший, підтверджений **грамотою** (Urkunde).
 
@@ -46,15 +46,15 @@ estimatedMinutes: 40
 
 ### Nikolaustag: 6 грудня
 
-**Der Nikolaustag** — 6 грудня, день єпископа **Nikolaus von Myra** (бл. 280 — бл. 350 н. е.; реліквії — в Барі). Він вважається покровителем дітей і моряків. За звичаєм, ввечері 5 грудня діти чистять **Stiefel** (чоботи) і ставлять їх перед дверима. Вранці в чоботах — солодощі, фрукти, горіхи й невеликі подарунки. Nikolaus іноді супроводжує **Knecht Ruprecht**: він питає про поведінку й картає за погане. В інших місцях цього персонажа звуть Zwarte Piet, Krampus або Bullerklas.
+**Der Nikolaustag** — 6 грудня, день єпископа **Nikolaus von Myra** (бл. 280 — бл. 350 н. е.; реліквії — в Барі). Він вважається покровителем дітей і моряків. За звичаєм, ввечері 5 грудня діти чистять **Stiefel** (чоботи) і ставлять їх перед дверима. Вранці в чоботах — солодощі, фрукти, горіхи й невеликі подарунки. Nikolaus іноді супроводжує **Knecht Ruprecht**: він питає про поведінку й картає за погане. В інших місцях подібних супутників звуть Zwarte Piet, Bullerklas чи Krampus (Krampus — окремий персонаж, переважно в Австрії й Баварії).
 
-Це не Різдво. **Heiligabend** — 24 грудня, вечір перед Різдвом; за DWDS, тоді ж відбувається і *Bescherung* (вручення подарунків). Тоді ж родина прикрашає **Weihnachtsbaum** (ялинку) — це слово тут лише для впізнавання.
+Це не Різдво. **Heiligabend** — 24 грудня, вечір перед Різдвом; за DWDS, тоді ж відбувається і *Bescherung* (вручення подарунків). Тоді ж родина прикрашає **Weihnachtsbaum** (ялинку).
 
 ### Silvester: від Папи до Bleigießen
 
 **Silvester** — 31 грудня. Назва — від Папи Silvester I, який помер 31 грудня 335 року: на Заході його памʼять відзначають саме цього дня. Німеччина зустрічає Новий рік такими звичаями.
 
-**Das Feuerwerk.** Феєрверки — це **Raketen** і **Böller** (DWDS: Böller — те, що кидають чи запалюють на землі, на відміну від ракети). Правила суворі (Baden-Württemberg): споживачі купують F2 лише 29–31 грудня; запускати можна лише 31 грудня й 1 січня; F2 — для осіб від 18 років, F1 — для старших за 12; запуск заборонено біля церков, лікарень, дитячих і літніх будинків; громади можуть заборонити запуск у частині міста. Ракети не запускають із балкона.
+**Das Feuerwerk.** Феєрверки — це **Raketen** і **Böller** (DWDS: Böller — те, що кидають чи запалюють на землі, на відміну від ракети). Правила суворі й федеральні (1. Sprengstoffverordnung; пояснення — Umweltministerium Baden-Württemberg): споживачі купують F2 лише 29–31 грудня; запускати можна лише 31 грудня й 1 січня; F2 — для осіб від 18 років, F1 — для старших за 12; запуск заборонено біля церков, лікарень, дитячих і літніх будинків; громади можуть заборонити запуск у частині міста. Ракети не запускають із балкона.
 
 **Das Bleigießen.** Давній ворожильний звичай: розтоплений свинець виливають у холодну воду й за формою фігурки «читають» майбутнє (DWDS). Із **2018 року** набори зі свинцем у ЄС більше не продають: ліміт свинцю в товарах — 0,3 %, а в тестованих Stiftung Warentest фігурках його було до 71 %. Забороняють продаж наборів, а не саму гру. Замінник — **das Wachsgießen**: залишки свічки розтоплюють у ложці й виливають у холодну воду — цей варіант радить і Umweltbundesamt (за Abendzeitung).
 
@@ -99,7 +99,7 @@ estimatedMinutes: 40
 ## Приклади
 
 - *Im Advent zündet man am Sonntag eine Kerze am Adventskranz an.* — В Advent щонеділі запалюють свічку на Adventskranz.
-- *Im Adventskalender gibt es 24 Türchen.* — В Adventskalender 24 дверцят.
+- *Im Adventskalender gibt es 24 Türchen.* — В Adventskalender 24 віконця (дверцята).
 - *Auf dem Weihnachtsmarkt trinke ich Glühwein.* — На різдвяному ринку я пʼю Glühwein.
 - *Ein Stück Stollen und ein Lebkuchen, bitte.* — Шматок Stollen і один Lebkuchen, будь ласка.
 - *Am Abend vor dem Nikolaustag putzen die Kinder ihre Stiefel.* — Ввечері перед Nikolaustag діти чистять чоботи.
@@ -114,17 +114,17 @@ estimatedMinutes: 40
 ### Advent і ринок
 
 > [!word] der Adventskranz
-> ipa: /ˈatvɛntsˌkʁants/ · pos: noun · level: A2 · id: dl-a2-05-w01
+> ipa: /atˈvɛntsˌkʁants/ · pos: noun · level: A2 · id: dl-a2-05-w01
 > uk: адвентський вінок
 > forms: die Adventskränze
 > example: Auf dem **Adventskranz** brennen vier Kerzen. — На адвентському вінку горять чотири свічки.
 > note: за Rauhes Haus — перший вінок Wichern 1839 року в Гамбурзі.
 
 > [!word] der Adventskalender
-> ipa: /ˈatvɛntsˌkalɛndɐ/ · pos: noun · level: A2 · id: dl-a2-05-w02
+> ipa: /atˈvɛntskaˌlɛndɐ/ · pos: noun · level: A2 · id: dl-a2-05-w02
 > uk: адвентський календар
 > forms: die Adventskalender
-> example: Im **Adventskalender** gibt es 24 Türchen. — В адвентському календарі 24 дверцят.
+> example: Im **Adventskalender** gibt es 24 Türchen. — В адвентському календарі 24 віконця (дверцята).
 
 > [!word] das Türchen
 > ipa: /ˈtyːɐ̯çən/ · pos: noun · level: B1 · id: dl-a2-05-w03
@@ -134,7 +134,7 @@ estimatedMinutes: 40
 > note: зменшувальне від *die Tür*; множина така сама.
 
 > [!word] der Stollen
-> ipa: /ˈʃtɔlən/ · pos: noun · level: B1 · id: dl-a2-05-w04
+> ipa: /ˈʃtɔlən/ · pos: noun · level: A2 · id: dl-a2-05-w04
 > uk: штолен (різдвяна випічка)
 > forms: die Stollen
 > example: Der Dresdner **Stollen** ist weltberühmt. — Дрезденський штолен відомий у всьому світі.
@@ -151,7 +151,7 @@ estimatedMinutes: 40
 > ipa: /ˈleːpkuːxn̩/ · pos: noun · level: A2 · id: dl-a2-05-w06
 > uk: пряник (з медом і спеціями)
 > forms: die Lebkuchen
-> example: Nürnberger **Lebkuchen** schmecken nach Zimt und Honig. — Нюрнберзькі пряники пахнуть корицею й медом.
+> example: Nürnberger **Lebkuchen** schmecken nach Zimt und Honig. — Нюрнберзькі пряники смакують корицею й медом.
 
 > [!word] das Plätzchen
 > ipa: /ˈplɛtsçən/ · pos: noun · level: A2 · id: dl-a2-05-w07
@@ -170,14 +170,14 @@ estimatedMinutes: 40
 > [!word] schmücken
 > ipa: /ˈʃmʏkn̩/ · pos: verb · level: A2 · id: dl-a2-05-w09
 > uk: прикрашати
-> forms: er schmückt · schmückte · hat geschmückt
+> forms: schmücken → schmückte → hat geschmückt
 > example: Wir **schmücken** den Baum. — Ми прикрашаємо ялинку.
 > note: *den Weihnachtsbaum schmücken* — прикрашати ялинку.
 
 > [!word] anzünden
 > ipa: /ˈantsʏndn̩/ · pos: verb · level: A2 · id: dl-a2-05-w10
 > uk: запалювати
-> forms: er zündet an · zündete an · hat angezündet
+> forms: anzünden → zündete an → hat angezündet
 > example: Ich **zünde** eine Kerze **an**. — Я запалюю свічку.
 > note: відокремлюваний префікс *an-*: *Ich zünde die Kerze an*, у підрядному — *… wenn ich die Kerze anzünde*.
 
@@ -240,7 +240,7 @@ estimatedMinutes: 40
 > note: *Wunder* + *Kerze*. Належить до класу F1: його продають увесь рік (ZDFheute).
 
 > [!word] das Bleigießen
-> ipa: /ˈblaɪ̯ɡiːsn̩/ · pos: noun · level: B1 · id: dl-a2-05-w19
+> ipa: /ˈblaɪ̯ɡiːsn̩/ · pos: noun · level: A2 · id: dl-a2-05-w19
 > uk: виливання свинцю (новорічне ворожіння)
 > forms: — (без множини)
 > example: Das **Bleigießen** ist ein alter Silvesterbrauch. — Bleigießen — давній новорічний звичай.
@@ -316,8 +316,8 @@ estimatedMinutes: 40
 > level: A2 · type: answer · speed: slow · id: dl-a2-05-l06
 > audio: A: Was ist ein Adventskalender?
 > audio: B: Er hat vierundzwanzig Türchen. Jeden Tag öffnet man ein Türchen.
-> - [ ] Календар із 12 дверцятами.
-> - [x] Календар із 24 дверцятами; щодня відчиняють одні.
+> - [ ] Календар із 12 віконцями.
+> - [x] Календар із 24 віконцями (Türchen); щодня відчиняють одне.
 > - [ ] Вінок із чотирма свічками.
 > - [ ] Календар, який відчиняють лише по неділях.
 >
@@ -328,15 +328,15 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-05-s01
 > text: Ich zünde eine Kerze am Adventskranz an.
-> ipa: /ɪç ˈtsʏndə ˈaɪ̯nə ˈkɛʁtsə am ˈatvɛntsˌkʁants an/
-> tip: zünde — [ʏ], як короткий «ю»; Kerze — [ɛ] й [ts]; Adventskranz — d перед v не вимовляється, [atv].
+> ipa: /ɪç ˈtsʏndə ˈaɪ̯nə ˈkɛʁtsə am atˈvɛntsˌkʁants an/
+> tip: zünde — коротке [ʏ]: губи округлені, як для «у», а язик — як для «і»; Kerze — [ɛ] й [ts]; Adventskranz — наголос на другому складі, d перед v звучить як [t].
 > uk: Я запалюю свічку на вінку.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-05-s02
 > text: Ein Glühwein und ein Stück Stollen, bitte.
 > ipa: /aɪ̯n ˈɡlyːvaɪ̯n ʊnt aɪ̯n ʃtʏk ˈʃtɔlən ˈbɪtə/
-> tip: Glühwein — довге [yː], w = [v], «ґлю-вайн»; Stück — [ʏ] й кінцеве [k]; st на початку слова — [ʃt].
+> tip: Glühwein — довге [yː]: губи округлені, як для «у», а язик — як для «і»; w = [v]; Stück — коротке [ʏ] й кінцеве [k]; st на початку слова — [ʃt].
 > uk: Один глінтвейн і шматок штолена, будь ласка.
 
 > [!speak] Скажи вголос
@@ -352,20 +352,20 @@ estimatedMinutes: 40
 > Українською обидва — «адвентський», тож їх легко сплутати. **Der Adventskranz** — вінок із чотирма свічками (їх запалюють по неділях), а **der Adventskalender** — календар із 24 дверцятами, які відкривають щодня. Вінок за Rauhes Haus вигадав Wichern 1839 року в Гамбурзі; перший друкований календар — Gerhard Lang, 1908 (але EKD згадує й ранішу спробу, тож роки — дискусійні).
 
 > [!pitfall] Nikolaus — не Різдво
-> **Nikolaustag** — 6 грудня (чоботи ставлять увечері 5 грудня), а **Heiligabend** — 24 грудня. Це різні свята з різними звичаями. Помічника Nikolaus звуть **Knecht Ruprecht**, а не *Weihnachtsmann*; в інших місцях — Krampus, Zwarte Piet чи Bullerklas (за Erzbistum Paderborn).
+> **Nikolaustag** — 6 грудня (чоботи ставлять увечері 5 грудня), а **Heiligabend** — 24 грудня. Це різні свята з різними звичаями. Помічника Nikolaus звуть **Knecht Ruprecht**, а не *Weihnachtsmann*; в інших місцях подібних супутників звуть Zwarte Piet чи Bullerklas (за Erzbistum Paderborn); Krampus — окремий персонаж (Австрія, Баварія).
 
 > [!pitfall] Феєрверк не можна «будь-коли»
-> Феєрверк для споживачів: купувати F2 — лише 29–31 грудня; запускати — 31 грудня й 1 січня; від 18 років; не біля церков, лікарень і будинків для літніх людей. Бенгальські вогні (*Wunderkerzen*, F1) продають увесь рік. Міська громада може заборонити запуск у частині міста. Ракети не запускають із балкона.
+> Федеральні правила (1. Sprengstoffverordnung) для споживачів: купувати F2 — лише 29–31 грудня; запускати — 31 грудня й 1 січня; від 18 років; не біля церков, лікарень і будинків для літніх людей. Бенгальські вогні (*Wunderkerzen*, F1) продають увесь рік. Міська громада може заборонити запуск у частині міста. Ракети не запускають із балкона.
 
 > [!pitfall] «На Новий рік», «на Різдво» — не *auf*
-> Українське «на» не дорівнює *auf*. Правильно: **zu Weihnachten** (на Різдво), **an Heiligabend**, **an Silvester**, **im Advent**, **am sechsten Dezember** (6 грудня). Неправильно: ~~auf Silvester~~, ~~in Weihnachten~~.
+> Українське «на» не дорівнює *auf*. Правильно: **zu Weihnachten** (на півдні й в Австрії також **an Weihnachten**), **an Heiligabend**, **an / zu Silvester**, **im Advent**, **am sechsten Dezember**. Неправильно: ~~auf Silvester~~, ~~in Weihnachten~~.
 
 ## Landeskunde-Text
 
 > [!example] Der Striezelmarkt in Dresden
-> Der Dresdner Striezelmarkt ist ein berühmter Weihnachtsmarkt. Man sagt oft: Er ist der älteste Weihnachtsmarkt Deutschlands. Schon im Jahr 1434 bekommt die Stadt Dresden vom Kurfürsten das Recht auf einen Markt vor Weihnachten. Der erste Markt dauert nur einen Tag, und man verkauft vor allem Fleisch.
+> Der Dresdner Striezelmarkt ist ein berühmter Weihnachtsmarkt. Man sagt oft: Er ist der älteste Weihnachtsmarkt Deutschlands. Schon im Jahr 1434 bekommt die Stadt Dresden vom Kurfürsten das Recht auf einen Markt vor Weihnachten.
 >
-> Der Name kommt von „Striezel“. So sagt man früher zum Dresdner Stollen. Der Stollen ist ein süßes Gebäck für Weihnachten. Am Samstag vor dem zweiten Advent gibt es in Dresden das Stollenfest. Dann fährt ein riesiger Stollen durch die Stadt. Man schneidet ihn an und verkauft die Stücke. Das Geld ist für einen guten Zweck.
+> Der Name kommt von „Striezel“. So hat man früher den Dresdner Stollen genannt. Der Stollen ist ein süßes Gebäck für Weihnachten. Am Samstag vor dem zweiten Advent gibt es in Dresden das Stollenfest. Dann fährt ein riesiger Stollen durch die Stadt. Das Geld ist für einen guten Zweck.
 >
 > Aber ist der Dresdner Markt wirklich der älteste? In Bautzen gibt es schon 1384 einen Wenzelsmarkt in einer Chronik. Der Markt in Dresden ist der älteste mit einer Urkunde.
 >
@@ -433,7 +433,7 @@ estimatedMinutes: 40
 > - [ ] F2 можна купувати з 16 років.
 > - [ ] Ракети безпечно запускати з балкона.
 >
-> **Пояснення:** F2 — від 18 років; ракети й батареї з балкона не запускають. Біля церков, лікарень та будинків для літніх людей запуск заборонено (Baden-Württemberg).
+> **Пояснення:** F2 — від 18 років; ракети й батареї з балкона не запускають. Біля церков, лікарень та будинків для літніх людей запуск заборонено (за поясненням Umweltministerium Baden-Württemberg; правила федеральні).
 
 > [!quiz] Що правда про Bleigießen?
 > level: A2 · type: single · id: dl-a2-05-q08
@@ -442,19 +442,18 @@ estimatedMinutes: 40
 > - [x] З 2018 року набори зі свинцем не продають, а замість них роблять Wachsgießen.
 > - [ ] Свинець безпечний, якщо працювати швидко.
 >
-> **Пояснення:** ліміт свинцю в товарах — 0,3 %, а в тестованих фігурках було до 71 % (Stiftung Warentest). Забороняють продаж наборів, не саму традицію; безпечніша заміна — віск.
+> **Пояснення:** ліміт свинцю в товарах — 0,3 %, а в тестованих фігурках було до 71 % (Stiftung Warentest, 2012). Забороняють продаж наборів, не саму традицію; безпечніша заміна — віск.
 
 > [!quiz] Заповни пропуски: прийменники
 > level: A2 · type: fill · bank: Auf, In · id: dl-a2-05-q09
 >
 > ```text fill
-> [[Zu]] Weihnachten backt man Plätzchen.
-> [[An]] Silvester gibt es Feuerwerk.
+> [[Am]] sechsten Dezember kommt der Nikolaus.
 > [[Im]] Advent zündet man Kerzen an.
-> Der Nikolaus kommt [[am]] sechsten Dezember.
+> [[An]] Heiligabend feiert man mit der Familie.
 > ```
 >
-> **Пояснення:** свята — *zu Weihnachten*, *an Silvester*; період — *im Advent*; дата — *am sechsten Dezember*. ~~Auf Silvester~~ й ~~In Weihnachten~~ — калькування з українського «на / в».
+> **Пояснення:** дата — *am sechsten Dezember*; період — *im Advent*; вечір свята — *an Heiligabend*. Для свят уживають *zu Weihnachten* (поширене по всій країні) й *an Weihnachten* (південь Німеччини, Австрія), *zu / an Silvester* — обидва правильні. ~~Auf Heiligabend~~ — калька з українського «на».
 
 > [!quiz] Розстав події в правильному порядку — від найранішої
 > level: A2 · type: order · id: dl-a2-05-q10
@@ -474,9 +473,29 @@ estimatedMinutes: 40
 > - [ ] Єпископ із Міри, на честь якого свято.
 > - [x] Помічник Nikolaus, який питає про поведінку дітей і картає за погане.
 > - [ ] Різдвяний персонаж, що приносить подарунки 24 грудня.
-> - [ ] Дрезденський пекар, який вигадав Stollen.
+> - [ ] Гамбурзький вихователь, який вигадав Adventskranz.
 >
 > **Пояснення:** за Erzbistum Paderborn, Knecht Ruprecht іноді супроводжує Nikolaus. Єпископ — це *Nikolaus von Myra*. В інших місцях цього персонажа звуть Zwarte Piet, Krampus або Bullerklas.
+
+> [!quiz] Хто 1839 року зробив перший Adventskranz і де?
+> level: A2 · type: single · id: dl-a2-05-q12
+> - [ ] Gerhard Lang у Мюнхені.
+> - [x] Johann Hinrich Wichern у гамбурзькому Rauhes Haus.
+> - [ ] Фрідріх II у Дрездені.
+> - [ ] Nikolaus von Myra у Барі.
+>
+> **Пояснення:** Wichern зробив вінок-колесо для дітей; Lang пізніше (1908) видав друкований Adventskalender. Фрідріх II дав Дрездену привілей на ринок (1434).
+
+> [!quiz] Заповни пропуски словами з банку
+> level: A2 · type: fill · bank: Rakete, Plätzchen · id: dl-a2-05-q13
+>
+> ```text fill
+> Am Abend vor dem Nikolaustag stellen die Kinder ihre [[Stiefel]] vor die Tür.
+> Auf dem Weihnachtsmarkt isst man ein Stück [[Stollen]].
+> Die Kinder halten [[Wunderkerzen]] in der Hand.
+> ```
+>
+> **Пояснення:** *Stiefel* — чоботи, *Stollen* — випічка, *Wunderkerzen* — бенгальські вогні, які тримають у руці. *Rakete* тримати в руці не можна, а *ein Stück Plätzchen* не кажуть: *Plätzchen* — окремі штучки.
 
 ## Фішки
 
@@ -493,12 +512,12 @@ estimatedMinutes: 40
 > Вислів *Guten Rutsch!* зʼявився близько 1900 року, а звідки він — точно невідомо. DWDS розглядає два варіанти: *Rutsch* — «коротка поїздка» або їдишське *rosch* — «голова, початок року».
 
 > [!reel] 🎤 Свинцю — 71 %
-> Stiftung Warentest знайшла у свинцевих фігурках для Bleigießen до 71 % свинцю, а ліміт ЄС для товарів — 0,3 %. Через це з 2018 року набори перестали продавати, а замість них зʼявилося безпечне Wachsgießen.
+> Stiftung Warentest (2012) знайшла у свинцевих фігурках для Bleigießen до 71 % свинцю, а ліміт ЄС для товарів — 0,3 %. Через це з 2018 року набори перестали продавати, а замість них зʼявилося безпечне Wachsgießen.
 
 ## Джерела та що почитати
 
 - [Adventskranz: Geschichte & Herkunft](https://www.rauhes.de/cms/jahreskreis/advent/adventskranz/) — Rauhes Haus, Hamburg; [Der Adventkranz — eine Erfindung der Diakonie](https://www.diakonie.at/ueber-uns/geschichte/adventkranz) — Diakonie Österreich.
-- [Adventskalender: Zauber der Erwartung](https://www.ekd.de/news_081128_adventskalender.htm) — EKD (2008) і [Gerhard Lang (Verleger)](https://de.wikipedia.org/wiki/Gerhard_Lang_(Verleger)) — Wikipedia.
+- [Adventskalender: Zauber der Erwartung](https://www.ekd.de/news_081128_adventskalender.htm) — EKD (2008) і [Gerhard Lang (Verleger)](https://de.wikipedia.org/wiki/Gerhard_Lang_%28Verleger%29) — Wikipedia.
 - [Dresdner Striezelmarkt — Wikipedia](https://de.wikipedia.org/wiki/Dresdner_Striezelmarkt) (1434, Rekord-Institut 2015, Stollenfest) і [Striezelmarkt Dresden](https://striezelmarkt.dresden.de/de/) — офіційна сторінка ринку.
 - DWDS — [Stollen](https://www.dwds.de/wb/Stollen), [Glühwein](https://www.dwds.de/wb/Glühwein), [Lebkuchen](https://www.dwds.de/wb/Lebkuchen), [Plätzchen](https://www.dwds.de/wb/Plätzchen), [Heiligabend](https://www.dwds.de/wb/Heiligabend), [Böller](https://www.dwds.de/wb/Böller), [Wunderkerze](https://www.dwds.de/wb/Wunderkerze), [Bleigießen](https://www.dwds.de/wb/Bleigie%C3%9Fen), [Jahreswechsel](https://www.dwds.de/wb/Jahreswechsel), [Rutsch](https://www.dwds.de/wb/Rutsch).
 - [Nikolaus](https://www.erzbistum-paderborn.de/glauben-und-leben/kirchenjahr/nikolaus/) — Erzbistum Paderborn.

@@ -3,7 +3,7 @@ title: Свята II — Karneval, Ostern, Oktoberfest, Sankt Martin, Maibaum
 id: dl-a2-06
 level: A2
 icon: px:balloon
-tags: [deutsch, landeskunde, a2, feste, karneval, ostern, oktoberfest, brauchtum]
+tags: [deutsch, landeskunde, skills, a2, land, feste, karneval, ostern, oktoberfest, brauchtum]
 prerequisites: ["[[Deutschland - A2 - 05. Свята I — Advent, Weihnachtsmarkt, Nikolaus, Silvester]]"]
 estimatedMinutes: 45
 ---
@@ -40,7 +40,7 @@ estimatedMinutes: 45
 
 **Rosenmontag** — понеділок перед Fastnacht. Його дата — 48 днів до Ostern. Походження слова *Rose* дослідники пояснюють не одностайно: це або від *rasen* («шалений понеділок»), або від Rosensonntag у церковному календарі (DWDS). **Der Rosenmontagszug** — головна кельнська хода: старт о 10:00, за даними koeln.de, у ній бере участь близько 12 000 людей, і з возів кидають приблизно 300 тонн солодощів. Глядачі кричать **Kamelle!** (цукерки) і **Strüßjer!** (букетики квітів; на 2026 рік — 300 000). **Aschermittwoch** — день, коли «все закінчується».
 
-Кельн вітається словом **Alaaf**, а сусідній Дюссельдорф — **Helau**. Це не просто жарт: за Köln-Lotse, кордон між ними проходить по Benrather Linie — тій самій лінії, що ділить говірки (*Daach* — *Daak*, див. розділ про діалекти). DWDS позначає *Alaaf* як вигук Нижнього й Середнього Рейну, а *Helau* — як карнавальний вигук, поширений переважно в центрально-західній Німеччині.
+Кельн вітається словом **Alaaf**, а сусідній Дюссельдорф — **Helau**. За місцевою традицією, це дві «сторони» Рейну: Кельн і Дюссельдорф лежать по різні боки Benrather Linie (лінії *maken — machen*, див. розділ про діалекти), але вигук *Helau* лунає й далі на південь, наприклад у Майнці. DWDS позначає *Alaaf* як вигук Нижнього й Середнього Рейну, а *Helau* — як карнавальний вигук, поширений переважно в центрально-західній Німеччині.
 
 ### Ostern: дата й символи
 
@@ -50,11 +50,11 @@ estimatedMinutes: 45
 
 Oktoberfest у Мюнхені почалося **12 жовтня 1810 року** з весілля баварського кронпринца Людвіга й принцеси Терези Саксен-Гільдбурггаузенської. Через пʼять днів, **17 жовтня**, на лузі, який ще під час свята назвали **Theresienwiese** («Терезин луг»), відбулися кінні перегони (тридцять вершників). Їх повторили наступного року, і так виникла щорічна традиція. Мюнхенці скорочено кажуть **die Wiesn** (DWDS: баварський варіант слова *Wiese* — Oktoberfest).
 
-Нині свято стартує у вересні, а закінчується на початку жовтня — 2027 року воно триває з **18 вересня до 3 жовтня** (muenchen.de). Відкриває його **Anstich**: з 1950 року мюнхенський Oberbürgermeister о 12:00 в наметі **Schottenhamel** відкриває першу бочку пива. Усього на Wiesn працюють 17 великих і 21 малий **Festzelt**. Пиво подають у **Maß** — літровому кухлі (DWDS: баварське слово). Багато гостей одягають **Tracht**: чоловіки — **Lederhose**, жінки — **Dirndl**. 2027 року Trachtenumzug заплановано на 19 вересня. Щороку на Wiesn приходить кілька мільйонів гостей: за Historisches Lexikon Bayerns, близько 6,5 млн від 1990-х і ≈ 6 млн у 2011 році. Ціна пива зросла з «3 Kreuzer 3 Pfennig» у 1810 році до 13,60–15,30 євро за **Maß** у 2024-му.
+Правило таке (muenchen.de): свято починається в суботу після 15 вересня й триває до першої неділі жовтня; якщо ця неділя — 1 або 2 жовтня, його подовжують до 3 жовтня. Тож 2026 року воно тривало з 19.9 до 4.10, а 2027-го — з **18 вересня до 3 жовтня**. Відкриває його **Anstich**: з 1950 року мюнхенський Oberbürgermeister о 12:00 в наметі **Schottenhamel** відкриває першу бочку пива. Усього на Wiesn працюють 17 великих і 21 малий **Festzelt**. Пиво подають у **Maß** — літровому кухлі (DWDS: баварське слово). Багато гостей одягають **Tracht**: чоловіки — **Lederhose**, жінки — **Dirndl**. 2027 року Trachtenumzug заплановано на 19 вересня. Щороку на Wiesn приходить кілька мільйонів гостей: за Historisches Lexikon Bayerns, близько 6,5 млн від 1990-х і ≈ 6 млн у 2011 році. Ціна пива зросла з «3 Kreuzer 3 Pfennig» у 1810 році до 13,60–15,30 євро за **Maß** у 2024-му.
 
 ### Sankt Martin: ліхтарі, гуска й пекарські чоловічки
 
-**Martinstag** — 11 листопада. За EKD, пізно ввечері родини ходять **Laternenumzug** — ходою зі світними ліхтарями (часто на чолі їде вершник у червоному плащі, який зображує солдата Martin). Згадують легенду, як Martin розділив плащ із жебраком. Ліхтарі — символ тепла, доброти й вміння ділитися. Зазвичай після ходи розпалюють вогнище (*Martinsfeuer*). Традиційна страва — **Martinsgans** (печена гуска з червоною капустою й кльоцками). Одна легенда каже, що Martin ховався в гусятнику, щоб не стати єпископом, але його видали гуси; історично цього дня селяни віддавали орендну плату, іноді гусьми. Випічка — **Weckmann** (його звуть ще *Stutenkerl* або *Dambedei*) — солодка булочка у вигляді чоловічка.
+**Martinstag** — 11 листопада. За EKD, пізно ввечері родини ходять **Laternenumzug** — ходою зі світними ліхтарями (часто на чолі їде вершник у червоному плащі, який зображує солдата Martin). Згадують легенду, як Martin розділив плащ із жебраком. Ліхтарі — символ тепла, доброти й вміння ділитися. Зазвичай після ходи розпалюють вогнище (*Martinsfeuer*). Традиційна страва — **Martinsgans** (печена гуска з червоною капустою й кнедлями (*Klöße*)). Одна легенда каже, що Martin ховався в гусятнику, щоб не стати єпископом, але його видали гуси; історично цього дня селяни віддавали орендну плату, іноді гусьми. Випічка — **Weckmann** (його звуть ще *Stutenkerl* або *Dambedei*) — солодка булочка у вигляді чоловічка.
 
 ### Maibaum і Tag der Deutschen Einheit
 
@@ -66,18 +66,18 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > ```yaml
 > layout: timeline
 > nodes:
->   - { id: weiber, at: "лютий–березень", text: "Weiberfastnacht → Rosenmontag", note: "четвер і понеділок перед Fastnacht; Rosenmontag = Ostern − 48 днів", tone: pink }
+>   - { id: weiber, at: "кінець січня – початок березня", text: "Weiberfastnacht → Rosenmontag", note: "четвер і понеділок перед Fastnacht; Rosenmontag = Ostern − 48 днів", tone: pink }
 >   - { id: ascher, at: "Ostern − 46 днів", text: "Aschermittwoch", note: "карнавал закінчується", tone: gray }
 >   - { id: ostern, at: "22.3.–25.4.", text: "Ostern", note: "неділя після першого повного місяця після весни", tone: yellow }
 >   - { id: mai, at: "1.5.", text: "Maibaum", note: "стовп на площі в Баварії", tone: gray }
->   - { id: wiesn, at: "вересень–початок жовтня", text: "Oktoberfest (Wiesn)", note: "2027: 18.9.–3.10.", tone: pink }
+>   - { id: wiesn, at: "вересень–початок жовтня", text: "Oktoberfest (Wiesn)", note: "2027: 18.9.–3.10. (3.10. — перша неділя жовтня)", tone: pink }
 >   - { id: einheit, at: "3.10.", text: "Tag der Deutschen Einheit", note: "державне свято, 1990", tone: yellow }
 >   - { id: martin, at: "11.11.", text: "Sankt Martin", note: "Laternenumzug, Martinsgans, Weckmann; у Кельні — старт Session", tone: gray }
 > steps:
 >   - { show: [weiber, ascher], note: "Перша частина року — карнавал: від Weiberfastnacht до Aschermittwoch." }
 >   - { show: ostern, note: "Ostern рухоме, тому й карнавальні дати щороку інші." }
 >   - { show: mai, note: "1 травня в Баварії ставлять Maibaum." }
->   - { show: [wiesn, einheit], note: "Oktoberfest стартує у вересні й закінчується на початку жовтня — разом із Tag der Deutschen Einheit." }
+>   - { show: [wiesn, einheit], note: "Oktoberfest стартує у вересні й закінчується в першу неділю жовтня (подовжується до 3.10, якщо та неділя — 1 або 2.10); 2027: 18.9.–3.10." }
 >   - { show: martin, note: "11 листопада — Sankt Martin з ліхтарями, і водночас відкриття кельнської Session." }
 > ```
 
@@ -90,7 +90,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 >   - { id: a2, col: a, label: "вигук", text: "Alaaf (Köln) · Helau (Düsseldorf)", tone: gray }
 >   - { id: a3, col: a, label: "приклад", text: "Kölner Karneval", tone: gray }
 >   - { id: b1, col: b, label: "де кажуть", text: "Баварія, Австрія, Південний Тіроль", tone: pink }
->   - { id: b2, col: b, label: "інші назви", text: "Fastnacht, Fasenacht, Fasnet · Швейцарія: Fasnacht", tone: gray }
+>   - { id: b2, col: b, label: "інші регіони (окрема зона за AdA)", text: "Fastnacht, Fasenacht, Fasnet · Швейцарія: Fasnacht", tone: gray }
 >   - { id: b3, col: b, label: "приклад", text: "Münchner Fasching", tone: gray }
 > steps:
 >   - { focus: [a1, b1], note: "Одне й те саме свято, але слово залежить від регіону." }
@@ -106,7 +106,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 - *Zu Ostern suchen die Kinder Ostereier.* — На Великдень діти шукають писанки.
 - *Das Osterfeuer brennt am Samstag.* — Вогнище Osterfeuer горить у суботу.
 - *Das Oktoberfest beginnt im September.* — Oktoberfest починається у вересні.
-- *Auf den Wiesn trinkt man Bier aus der Maß.* — На Wiesn пʼють пиво з маса-кухля.
+- *Auf der Wiesn trinkt man Bier aus der Maß.* — На Wiesn пʼють пиво з літрового кухля (Maß).
 - *Viele tragen ein Dirndl oder eine Lederhose.* — Багато хто вдягає Dirndl або Lederhose.
 - *Am Martinstag gehen die Kinder mit Laternen durch die Straßen.* — На Martinstag діти ходять вулицями з ліхтарями.
 - *Am ersten Mai stellt man in Bayern einen Maibaum auf.* — 1 травня в Баварії встановлюють Maibaum.
@@ -211,12 +211,12 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > [!word] die Wiesn
 > ipa: /ˈviːsn̩/ · pos: noun · level: B1 · id: dl-a2-06-w14
 > uk: Wiesn — Oktoberfest (баварська назва)
-> forms: — (зазвичай лише множина)
+> forms: die Wiesn (мн. рідко)
 > example: Wir gehen auf die **Wiesn**. — Ми йдемо на Wiesn.
-> note: скорочено від *Theresienwiese*; DWDS: баварський варіант слова *die Wiese* («луг»). Кажуть *auf der Wiesn* / *auf die Wiesn*.
+> note: скорочено від *Theresienwiese*; DWDS: баварський варіант слова *die Wiese* («луг»). Жіночий рід, однина: *auf der Wiesn* (де?), *auf die Wiesn* (куди?).
 
 > [!word] das Festzelt
-> ipa: /ˈfɛstˌtsɛlt/ · pos: noun · level: B1 · id: dl-a2-06-w15
+> ipa: /ˈfɛsttsɛlt/ · pos: noun · level: B1 · id: dl-a2-06-w15
 > uk: святковий намет
 > forms: die Festzelte
 > example: Im **Festzelt** spielt eine Kapelle. — У наметі грає капела.
@@ -298,7 +298,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > ipa: /taːk deːɐ̯ ˈdɔʏ̯tʃn̩ ˈaɪ̯nhaɪ̯t/ · pos: phrase · level: A2 · id: dl-a2-06-w27
 > uk: День німецької єдності (3 жовтня)
 > example: Am 3. Oktober ist der **Tag der Deutschen Einheit**. — 3 жовтня — День німецької єдності.
-> note: *Deutschen* — прикметник у давальному після *der* — слабка відміна; державне свято з 1990 року.
+> note: *der Deutschen Einheit* — Genitiv («день чого?»), прикметник у слабкій відміні; державне свято з 1990 року.
 
 ## Слухаємо
 
@@ -357,7 +357,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-06-s01
 > text: Am Rosenmontag gibt es einen großen Umzug.
-> ipa: /am ˈʁoːzn̩ˌmoːntaːk ɡiːpt ɛs ˈaɪ̯nən ˈɡʁoːsn̩ ˈʊmtsuːk/
+> ipa: /am ˌʁoːzn̩ˈmoːntaːk ɡiːpt ɛs ˈaɪ̯nən ˈɡʁoːsn̩ ˈʊmtsuːk/
 > tip: Rosen — дзвінке [z] і довге [oː]; Montag — довге [oː], кінцеве [k]; großen — [oː] й глухе [s] через ß.
 > uk: На Rosenmontag є велика хода.
 
@@ -381,7 +381,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > Це не три різні свята, а три регіональні назви: за AdA, на заході й північному заході — **Karneval**, у Баварії, Австрії й Південному Тіролі — **Fasching**, у Швейцарії — **Fasnacht**, на заході й півдні Німеччини — ще й форми **Fastnacht / Fasenacht / Fasnet**. Вигуки теж місцеві: **Alaaf** — Кельн, **Helau** — Дюссельдорф і не лише. Кричати «Helau» у Кельні — як сказати «Moin» у Мюнхені: зрозуміють, але чужинця видно.
 
 > [!pitfall] Oktoberfest починається у вересні
-> Назва мовить про жовтень, але з 1905 року головна неділя припала на останню неділю вересня, а сьогодні свято триває близько 16 днів і закінчується на початку жовтня (2027: 18.9.–3.10.). **Wiesn** — не «луг» у загальному значенні: це мюнхенська скорочена назва *Theresienwiese*, а заразом і всього свята.
+> Назва вказує на жовтень, але з 1905 року головну неділю свята перенесли на останню неділю вересня, а нині воно починається в суботу після 15 вересня, триває близько 16 днів і закінчується в першу неділю жовтня (до 3 жовтня, якщо та неділя — 1 чи 2 число). 2027 року — 18.9.–3.10. **Wiesn** — не «луг» у загальному значенні: це мюнхенська скорочена назва *Theresienwiese*, а заразом і всього свята.
 
 > [!pitfall] Sankt Martin — не Nikolaus
 > **Martinstag** — 11 листопада (ліхтарі, гуска, **Weckmann**), **Nikolaustag** — 6 грудня (чоботи; див. розділ «Свята I»). Weckmann, за EKD, спершу випікали на честь Martin, а згодом звичай частково перейшов до Nikolaus. Тому в різних регіонах чоловічка можуть звати по-різному.
@@ -392,9 +392,9 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 ## Landeskunde-Text
 
 > [!example] Der Karneval in Köln
-> Im Rheinland feiert man Karneval. In Köln beginnt die neue Session am 11. November. Der Höhepunkt ist im Februar oder im März. Am Donnerstag vor Rosenmontag ist Weiberfastnacht. Dann beginnt der Straßenkarneval auf dem Alter Markt.
+> Im Rheinland feiert man Karneval. In Köln beginnt die neue Session am 11. November. Der Höhepunkt ist zwischen Ende Januar und Anfang März, denn Rosenmontag ist 48 Tage vor Ostern. Am Donnerstag vor Rosenmontag ist Weiberfastnacht. Dann beginnt der Straßenkarneval auf dem Alter Markt.
 >
-> Am Rosenmontag gibt es den großen Umzug durch die Stadt. Etwa 12.000 Menschen gehen mit, und viele sind verkleidet. Von den Wagen wirft man Süßigkeiten, die „Kamelle“. Die Zuschauer rufen „Kamelle!“ und „Strüßjer!“. Das sind kleine Blumensträuße.
+> Am Rosenmontag gibt es den großen Umzug durch die Stadt. Er beginnt um 10 Uhr. Etwa 12.000 Menschen gehen mit, und viele sind verkleidet. Von den Wagen wirft man Süßigkeiten, die „Kamelle“. Die Zuschauer rufen „Kamelle!“ und „Strüßjer!“. Das sind kleine Blumensträuße.
 >
 > In Köln sagt man „Alaaf“, in Düsseldorf sagt man „Helau“. Am Aschermittwoch ist alles vorbei.
 >
@@ -407,7 +407,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > - [ ] Am Aschermittwoch.
 > - [ ] Am 1. Januar.
 >
-> **Пояснення:** *In Köln beginnt die neue Session am 11. November.* Rosenmontag — це високий пункт, а Aschermittwoch — кінець.
+> **Пояснення:** *In Köln beginnt die neue Session am 11. November.* Rosenmontag — це кульмінація, а Aschermittwoch — кінець.
 
 > [!quiz] Lies den Text. Was passiert am Rosenmontag?
 > level: A2 · type: single · id: dl-a2-06-q03
@@ -461,7 +461,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > - [ ] Неділя після 21 березня.
 > - [x] Неділя після першого повного місяця після весняного рівнодення — між 22 березня й 25 квітня.
 >
-> **Пояснення:** так вирішив Нікейський собор 325 року (EKD). 2026 року Ostern було 5 квітня, 2027-го — 28 березня.
+> **Пояснення:** так вирішив Нікейський собор 325 року (EKD). 2026 року Ostern припало на 5 квітня, 2027-го припаде на 28 березня.
 
 > [!quiz] Що належить до Martinstag? Обери всі.
 > level: A2 · type: multi · id: dl-a2-06-q08
@@ -480,10 +480,10 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > - [ ] Це свято врожаю для селян.
 > - [x] Воно виникло з весілля 1810 року й сьогодні починається у вересні.
 >
-> **Пояснення:** 12 жовтня 1810 року одружилися принц Людвіг і принцеса Тереза; 17 жовтня на Theresienwiese були перегони. Сьогодні свято стартує у вересні (2027: 18.9.) і закінчується на початку жовтня.
+> **Пояснення:** 12 жовтня 1810 року одружилися принц Людвіг і принцеса Тереза; 17 жовтня на Theresienwiese були перегони. Сьогодні свято стартує у вересні (2027: 18.9.) і закінчується в першу неділю жовтня (або 3.10.).
 
 > [!quiz] Заповни пропуски: Oktoberfest
-> level: A2 · type: fill · bank: Wiese, Festzelt · id: dl-a2-06-q10
+> level: A2 · type: fill · bank: Wiesen, Festzelt · id: dl-a2-06-q10
 >
 > ```text fill
 > Das Oktoberfest findet auf der [[Theresienwiese]] statt.
@@ -492,12 +492,12 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > Frauen tragen oft ein [[Dirndl]].
 > ```
 >
-> **Пояснення:** *Theresienwiese* → *Wiesn* (не *Wiese*). *Maß* — літровий кухоль; *Festzelt* — це намет, а не кухоль. *Dirndl* — середній рід.
+> **Пояснення:** *Theresienwiese* — повна назва луга, *Wiesn* — скорочена. *Wiesen* (множина від *Wiese*) не пасує до жодного пропуску. *Maß* — літровий кухоль; *Festzelt* — це намет, а не кухоль. *Dirndl* — середній рід.
 
 > [!quiz] Що таке Maibaumklau?
 > level: A2 · type: single · id: dl-a2-06-q11
 > - [ ] Конкурс, хто швидше піднімає стовп.
-> - [x] Звичай: сусіднє село крадуть Maibaum до встановлення; за повернення платять пивом і закускою.
+> - [x] Звичай: хлопці з сусіднього села крадуть Maibaum до встановлення; за повернення платять пивом і закускою.
 > - [ ] Фарбування стовпа у біло-блакитний колір.
 > - [ ] Танець навколо стовпа.
 >
@@ -532,7 +532,7 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > У 1810 році ціна пива на першому Oktoberfest становила «3 Kreuzer 3 Pfennig». У 2018 році Maß коштувала 10,70–11,50 євро, у 2024-му — 13,60–15,30 євро (Historisches Lexikon Bayerns).
 
 > [!reel] 📰 Maibaum не вище за дзвіницю
-> У католицькій Баварії Maibaum традиційно не має бути вищим за дзвіницю церкви. Типова висота — 20–30 метрів, але трапляються й до 50. Дерево біля Zugspitze — близько 18 метрів (Bayerische Staatszeitung).
+> У католицькій Баварії Maibaum традиційно не має бути вищим за дзвіницю церкви. Типова висота — 20–30 метрів, але трапляються й до 50. (Bayerische Staatszeitung).
 
 ## Джерела та що почитати
 

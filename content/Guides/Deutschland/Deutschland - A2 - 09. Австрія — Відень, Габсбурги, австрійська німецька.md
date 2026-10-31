@@ -3,7 +3,7 @@ title: Австрія — Відень, Габсбурги, австрійськ
 id: dl-a2-09
 level: A2
 icon: px:flag
-tags: [deutsch, landeskunde, a2, land, oesterreich, wien, habsburger, kaffeehaus]
+tags: [deutsch, landeskunde, skills, a2, land, oesterreich, wien, habsburger, kaffeehaus]
 prerequisites: ["[[Deutschland - A2 - 08. Побут і культурні коди — пунктуальність, сміття, тиша, неділя]]"]
 estimatedMinutes: 40
 ---
@@ -36,7 +36,7 @@ estimatedMinutes: 40
 
 ### Габсбурги: від 1282 до 1918
 
-**Die Habsburger** — династія, яка правила в Австрії понад шість століть. 1273 року Рудольф Габсбурзький став главою Священної Римської імперії, 1278 року переміг чеського короля Оттокара на Марфельді, а 1282 року віддав Австрію й сусідні землі у володіння своїм синам. Відтоді австрійські землі були «домашньою владою» (*Hausmacht*) Габсбургів. Згодом корона Священної Римської імперії майже без перерви лишалася в Габсбургів до кінця імперії 1806 року. У листопаді 1918 року габсбурзька монархія скінчилася: імператор **Karl** 11 листопада відмовився від участі в державних справах, а 12 листопада Тимчасові національні збори проголосили республіку. Закон про Габсбургів (*Habsburgergesetz*) і досі є частиною австрійського конституційного права.
+**Die Habsburger** — династія, яка правила в Австрії понад шість століть. 1273 року Рудольфа Габсбурзького обрали римсько-німецьким королем, 1278 року переміг чеського короля Оттокара на Марфельді, а 1282 року віддав Австрію й сусідні землі у володіння своїм синам. Відтоді австрійські землі були «домашньою владою» (*Hausmacht*) Габсбургів. З 1438 року (з короткою перервою 1742–1745) корона Священної Римської імперії лишалася в Габсбургів до кінця імперії 1806 року. У листопаді 1918 року габсбурзька монархія скінчилася: імператор **Karl** 11 листопада відмовився від участі в державних справах, а 12 листопада Тимчасові національні збори проголосили республіку. Закон про Габсбургів (*Habsburgergesetz*) і досі є частиною австрійського конституційного права.
 
 > [!diagram] Австрія: пʼять дат
 > ```yaml
@@ -51,7 +51,7 @@ estimatedMinutes: 40
 >   - { show: ostar, note: "996 рік: назва країни вперше на письмі — Ostarrichi." }
 >   - { show: hab, note: "1282: Габсбурги закріплюються в Австрії і правитимуть нею до 1918 року." }
 >   - { show: rep, note: "12 листопада 1918 року Австрія стає республікою." }
->   - { show: [sv, neu], note: "1955: Staatsvertrag про відновлення незалежної Австрії і наступного року — закон про нейтралітет." }
+>   - { show: [sv, neu], note: "1955: Staatsvertrag про відновлення незалежної Австрії (15 травня), а 26 жовтня того ж року — закон про нейтралітет." }
 > ```
 
 ### Республіка, Staatsvertrag і нейтралітет
@@ -60,18 +60,18 @@ estimatedMinutes: 40
 
 ### Відень, Kaffeehaus, музика
 
-Відень — місто **Opern**, **Schlösser** і **Walzer**. Але для мови найцікавіше — **Kaffeehaus**. У віденській кавʼярні традиційно лежать газети для гостей, і за столиком можна сидіти годинами. Австрійська комісія у справах ЮНЕСКО внесла «віденську культуру кавʼярень» (*Wiener Kaffeehauskultur*) до національного переліку нематеріальної культурної спадщини 2011 року (10 листопада) і описує кавʼярню як місце, «в якому споживають час і простір, а в рахунку стоїть лише кава». У меню — не лише *Kaffee*: **Melange** (кава з гарячим молоком і молочною пінкою) та **Sachertorte** — шоколадний торт.
+Відень — місто **Opern**, **Schlösser** і **Walzer**. Тут жив і помер **Wolfgang Amadé Mozart**: він народився 27 січня 1756 року в Зальцбурзі, а 5 грудня 1791 року помер у Відні. Його опера *Die Zauberflöte* («Чарівна флейта») мала прем’єру 30 вересня 1791 року — за кілька тижнів до смерті композитора. Але для мови найцікавіше — **Kaffeehaus**. У віденській кавʼярні традиційно лежать газети для гостей, і за столиком можна сидіти годинами. Австрійська комісія у справах ЮНЕСКО внесла «віденську культуру кавʼярень» (*Wiener Kaffeehauskultur*) до національного переліку нематеріальної культурної спадщини 2011 року і описує кавʼярню як місце, «в якому споживають час і простір, а в рахунку стоїть лише кава». У меню — не лише *Kaffee*: **Melange** (кава з гарячим молоком і молочною пінкою) та **Sachertorte** — шоколадний торт.
 
 ### Австрійська німецька (AT)
 
-Австрійці говорять літературною німецькою, але з власними словами. У словниках (Duden) вони мають позначку «österr.» — **Jänner** (січень), **Paradeiser** (помідор), **Erdapfel** (картопля), **Sackerl** (пакет), **Obers** (вершки), **Matura** (випускний іспит зі школи). Це не помилки і не діалект, а такі ж нормативні слова, як німецькі *Januar* чи *Tomate*.
+Австрійці говорять літературною німецькою, але з власними словами. У словниках (Duden) вони мають позначку «österreichisch» (деякі також «bayrisch» або «süd- і ostösterreichisch») — **Jänner** (січень), **Paradeiser** (помідор), **Erdapfel** (картопля), **Sackerl** (пакет), **Obers** (вершки), **Matura** (випускний іспит зі школи). Це не помилки і не діалект, а такі ж нормативні слова, як німецькі *Januar* чи *Tomate*.
 
 | Німеччина (DE) | Австрія (AT) | Примітка |
 |---|---|---|
 | der Januar | **der Jänner** | офіційно в Австрії |
 | die Tomate | **der Paradeiser** | Duden: «süd- und ostösterreichisch» |
 | die Kartoffel | **der Erdapfel** (pl. *Erdäpfel*) | Duden: «österreichisch, sonst landschaftlich» |
-| die Tüte | **das Sackerl** | розмовне |
+| die Tüte | **das Sackerl** | Duden: «bayrisch, österreichisch» |
 | die Sahne | **das Obers** | без множини |
 | das Abitur | **die Matura** | AT і CH |
 
@@ -151,7 +151,7 @@ estimatedMinutes: 40
 ### Відень і культура
 
 > [!word] das Kaffeehaus
-> ipa: /kaˈfeːˌhaʊ̯s/ · pos: noun · level: A2 · id: dl-a2-09-w09
+> ipa: /kaˈfeːˌhaʊ̯s/ · pos: noun · level: B1 · id: dl-a2-09-w09
 > uk: кавʼярня (віденського типу)
 > forms: die Kaffeehäuser
 > example: Im **Kaffeehaus** kann man stundenlang sitzen. — У кавʼярні можна годинами сидіти.
@@ -162,7 +162,7 @@ estimatedMinutes: 40
 > uk: мелянж (віденська кава з молоком і молочною пінкою)
 > forms: die Melangen
 > example: Ich trinke eine **Melange**. — Я пʼю мелянж.
-> note: у віденській кавʼярні це перш за все вид кави. Вимова з носовим [ɑ̃].
+> note: у віденській кавʼярні це перш за все вид кави. Вимова з носовим [ɑ̃]; в Австрії на кінці часто глухе [ʃ].
 
 > [!word] die Sachertorte
 > ipa: /ˈzaxɐˌtɔʁtə/ · pos: noun · level: A2 · id: dl-a2-09-w11
@@ -200,14 +200,14 @@ estimatedMinutes: 40
 > note: AT (Duden: «österreichisch, seltener süddeutsch»); німецькою з Німеччини — *der Januar*. Вимова з [j] на початку.
 
 > [!word] der Paradeiser
-> ipa: /paʁaˈdaɪ̯zɐ/ · pos: noun · level: A2 · id: dl-a2-09-w16
+> ipa: /paʁaˈdaɪ̯zɐ/ · pos: noun · level: B1 · id: dl-a2-09-w16
 > uk: помідор (AT)
 > forms: die Paradeiser
 > example: Der Salat hat **Paradeiser** und Gurken. — У салаті помідори й огірки.
 > note: AT (Duden: «süd- und ostösterreichisch»); у Німеччині — *die Tomate*. Рід інший: *der* Paradeiser, але *die* Tomate.
 
 > [!word] der Erdapfel
-> ipa: /ˈeːɐ̯tˌʔapfl̩/ · pos: noun · level: A2 · id: dl-a2-09-w17
+> ipa: /ˈeːɐ̯tˌʔapfl̩/ · pos: noun · level: B1 · id: dl-a2-09-w17
 > uk: картопля (AT)
 > forms: die Erdäpfel
 > example: Zum Fleisch gibt es **Erdäpfel**. — До мʼяса подають картоплю.
@@ -218,17 +218,17 @@ estimatedMinutes: 40
 > uk: пакет, торбинка (AT)
 > forms: die Sackerln
 > example: Brauchen Sie ein **Sackerl**? — Вам потрібен пакет?
-> note: AT, розмовне; у Німеччині — *die Tüte*. Зменшувальне від *der Sack*.
+> note: AT (Duden: «bayrisch, österreichisch»); у Німеччині — *die Tüte*. Зменшувальне від *der Sack*.
 
 > [!word] das Obers
 > ipa: /ˈoːbɐs/ · pos: noun · level: A2 · id: dl-a2-09-w19
 > uk: вершки (AT)
 > forms: — (без множини)
 > example: Der Kaffee kommt mit **Obers**. — Кава з вершками.
-> note: AT; у Німеччині — *die Sahne*. Рід інший: *das* Obers, *die* Sahne.
+> note: AT (Duden: «bayrisch, besonders ostösterreichisch»); у Німеччині — *die Sahne*. Рід інший: *das* Obers, *die* Sahne.
 
 > [!word] die Matura
-> ipa: /maˈtuːʁa/ · pos: noun · level: A2 · id: dl-a2-09-w20
+> ipa: /maˈtuːʁa/ · pos: noun · level: B1 · id: dl-a2-09-w20
 > uk: матура — випускний іспит зі школи (AT, CH)
 > forms: — (без множини)
 > example: Nach der **Matura** will sie studieren. — Після матури вона хоче вчитися далі.
@@ -315,7 +315,7 @@ estimatedMinutes: 40
 > Українською ці країни звучать схоже («Австрія» / «Австралія»), німецькою початок різний: *Ö-* і *Au-*. **Österreich** — у центрі Європи, столиця Wien. **Australien** — на іншому кінці світу, столиця Canberra. Звертай увагу на вимову: *Ö* [øː] проти *Au* [aʊ̯], і наголос: **Ös**-ter-reich, Aus-**tra**-li-en.
 
 > [!pitfall] Австрійські слова — не «неправильна» німецька
-> *Jänner*, *Paradeiser*, *Erdapfel*, *Sackerl*, *Obers*, *Matura* — нормативні слова, які словник Duden позначає як «österr.» (AT). У Німеччині їх можуть не зрозуміти або вважати регіональними: там кажуть *Januar, Tomate, Kartoffel, Tüte, Sahne, Abitur*. У Австрії теж зрозуміють *Januar* і *Tomate*, але *Paradeiser* там звучить природніше. Вивчай обидва варіанти і слідкуй за контекстом.
+> *Jänner*, *Paradeiser*, *Erdapfel*, *Sackerl*, *Obers*, *Matura* — нормативні слова, які словник Duden позначає як австрійські (для *Obers* і *Sackerl* ще й як баварські). У Німеччині їх можуть не зрозуміти або вважати регіональними: там кажуть *Januar, Tomate, Kartoffel, Tüte, Sahne, Abitur*. В Австрії теж зрозуміють *Januar* і *Tomate*, але *Paradeiser* там звучить природніше. Вивчай обидва варіанти і слідкуй за контекстом.
 
 > [!pitfall] Рід теж може відрізнятися
 > *die Tomate*, але **der** Paradeiser; *die Sahne*, але **das** Obers; *das Abitur*, але **die** Matura. Не вгадуй рід австрійського слова за німецьким відповідником — вчи його разом з артиклем (так і зроблено в картках).
@@ -326,13 +326,13 @@ estimatedMinutes: 40
 ## Landeskunde-Text
 
 > [!example] Österreich — ein kleines Land mit großer Geschichte
-> Österreich liegt in Mitteleuropa. Die Hauptstadt ist Wien. Viele Jahrhunderte lang haben die Habsburger über das Land regiert. 1918 war die Monarchie zu Ende, und Österreich wurde eine Republik. Heute ist der Bundespräsident das Staatsoberhaupt.
+> Österreich liegt in Mitteleuropa. Die Hauptstadt ist Wien. Viele Jahrhunderte lang haben die Habsburger über das Land regiert. 1918 war die Monarchie zu Ende, und Österreich wurde eine Republik. Heute ist der Bundespräsident das Staatsoberhaupt. Auch der Komponist Wolfgang Amadé Mozart gehört zu Österreich: Er wurde 1756 in Salzburg geboren und starb 1791 in Wien.
 >
 > In Österreich sagt man oft andere Wörter als in Deutschland: Jänner statt Januar, Paradeiser statt Tomaten, Erdäpfel statt Kartoffeln. Das ist kein Fehler, das ist österreichisches Deutsch.
 >
 > Berühmt sind die Wiener Kaffeehäuser. Dort liegen Zeitungen auf den Tischen, und man darf lange sitzen bleiben. Am 26. Oktober ist Nationalfeiertag. Seit 1955 ist Österreich neutral: Es tritt keinem Militärbündnis bei.
 >
-> *Слова:* *das Staatsoberhaupt* — глава держави; *berühmt* — відомий; *aufliegen* — лежати (для відвідувачів) (liegt auf · lag auf · hat aufgelegen); *beitreten + Dat* — вступати (tritt bei · trat bei · ist beigetreten); *das Militärbündnis* — військовий союз.
+> *Слова:* *das Staatsoberhaupt* — глава держави; *berühmt* — відомий; *der Komponist* — композитор; *beitreten + Dat* — вступати (tritt bei · trat bei · ist beigetreten); *das Militärbündnis* — військовий союз.
 
 > [!quiz] Lies den Text. Was passierte 1918?
 > level: A2 · type: single · id: dl-a2-09-q02
@@ -381,7 +381,7 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Im Kaffeehaus bestellt man eine [[Melange]].
-> Österreichisch sagt man [[Jänner]], nicht Januar.
+> In Österreich sagt man [[Jänner]], nicht Januar.
 > Ein Paradeiser ist eine [[Tomate]].
 > Die Matura ist das österreichische [[Abitur]].
 > ```
@@ -425,15 +425,47 @@ estimatedMinutes: 40
 >
 > **Пояснення:** Staatsvertrag про нейтралітет мовчить; закон ухвалили 26 жовтня 1955 року — звідси й *Nationalfeiertag*. «Два плюс чотири» — договір 1990 року про Німеччину.
 
+> [!quiz] Lies den Text. Wo wurde Mozart geboren, und wo starb er?
+> level: A2 · type: single · id: dl-a2-09-q11
+> - [ ] Er wurde in Wien geboren und starb in Salzburg.
+> - [x] Er wurde in Salzburg geboren und starb in Wien.
+> - [ ] Er wurde und starb in Salzburg.
+> - [ ] Er wurde in Wien geboren und starb in Berlin.
+>
+> **Пояснення:** *Er wurde 1756 in Salzburg geboren und starb 1791 in Wien.* Не плутай міста: народження — Salzburg, смерть — Wien.
+
+> [!quiz] Заповни пропуски: Staatsvertrag чи Neutralität?
+> level: A2 · type: fill · id: dl-a2-09-q12 · bank: Republik, Monarchie
+>
+> ```text fill
+> Am 15. Mai 1955 wurde der [[Staatsvertrag]] unterschrieben.
+> Am 26. Oktober 1955 beschloss das Parlament die [[Neutralität]].
+> ```
+>
+> **Пояснення:** обидва документи — 1955 року: Staatsvertrag (15 травня) і закон про Neutralität (26 жовтня). Слова *Republik* і *Monarchie* тут зайві.
+
+> [!quiz] Склади речення: «З 1955 року Австрія нейтральна»
+> level: A2 · type: order · id: dl-a2-09-q13
+>
+> ```text order
+> Seit 1955
+> ist
+> Österreich
+> neutral.
+> hat ✗
+> ```
+>
+> **Пояснення:** V2 — дієслово на другому місці, навіть коли речення починається з обставини часу: *Seit 1955 **ist** Österreich neutral.*
+
 ## Фішки
 
 > [!reel] 🗺 Назва з 996 року
-> «Ostarrichi» — так називали землі на сході в документі від 1 листопада 996 року, де імператор Отто III дарував землю Фрайзінгському єпископству. З цієї форми виросло сучасне «Österreich». У Відні навіть є парк Ostarrîchi-Park, названий за цією найдавнішою формою.
+> «Ostarrichi» — так називали землі на сході в документі від 1 листопада 996 року, де імператор Отто III дарував землю Фрайзінгському єпископству. З цієї форми виросло сучасне «Österreich». У Відні навіть є парк Ostarrichipark, названий за цією найдавнішою формою.
 
 > [!reel] ☕ Час у рахунку не стоїть
 > Австрійська комісія у справах ЮНЕСКО так описує віденську кавʼярню: це місце, де споживають час і простір, а в рахунку стоїть тільки кава. Від 2011 року «Wiener Kaffeehauskultur» — у національному переліку нематеріальної культурної спадщини.
 
-> [!reel] 📜 Нейтралітет через день
+> [!reel] 📜 Нейтралітет того ж року
 > Нейтралітет Австрії не записано в Staatsvertrag. Парламент ухвалив закон про нього 26 жовтня 1955 року — на наступний день після закінчення виводу військ. Цей день з 1965 року — національне свято.
 
 > [!reel] 👑 Габсбурги в конституції
@@ -446,6 +478,7 @@ estimatedMinutes: 40
 
 - Parlament Österreich — [1918: Das Werden der Republik](https://www.parlament.gv.at/PERK/HIS/J1918/index.shtml) і [Wie die Erste Republik Österreich entstanden ist](https://www.parlament.gv.at/aktuelles/news/in-einfacher-sprache/Wie-die-erste-Republik-Oesterreich-entstanden-ist) (12 листопада 1918, відмова Карла I).
 - Parlament Österreich — [Was ist der Staatsvertrag von Wien?](https://www.parlament.gv.at/fachinfos/rlw/Was-ist-der-Staatsvertrag-von-Wien), [Was macht die österreichische Neutralität aus?](https://www.parlament.gv.at/fachinfos/rlw/Was-macht-die-oesterreichische-Neutralitaet-aus) і [1955 — Staatsvertrag und Neutralität](https://www.parlament.gv.at/PERK/HIS/REP2/1955/index.shtml) (15 травня й 26 жовтня 1955, Habsburgergesetz, Nationalfeiertag 1965).
+- Stiftung Mozarteum Salzburg — [Wolfgang Amadé Mozart](https://mozarteum.at/en/wolfgang-amade-mozart) і Wien Geschichte Wiki — [Wolfgang Amadeus Mozart](https://www.geschichtewiki.wien.gv.at/Wolfgang_Amadeus_Mozart) (27.01.1756 Зальцбург, 05.12.1791 Відень, *Die Zauberflöte* 30.09.1791).
 - Wien Geschichte Wiki — [Österreich](https://www.geschichtewiki.wien.gv.at/%C3%96sterreich) (Ostarrichi, 996), [Habsburger (Dynastie)](https://www.geschichtewiki.wien.gv.at/Habsburger_(Dynastie)) і [Kaffeehaus](https://www.geschichtewiki.wien.gv.at/Kaffeehaus).
 - Habsburger.net — [Die Habsburger übernehmen die Herrschaft Österreich](https://www.habsburger.net/de/kapitel/die-habsburger-uebernehmen-die-herrschaft-oesterreich) (1273, 1278, 1282).
 - Österreichische UNESCO-Kommission — [Viennese coffee house culture](https://www.unesco.at/en/culture/intangible-cultural-heritage/inventory/element/viennese-coffee-house-culture); Stadt Wien — [Wiener Kaffeehauskultur ist immaterielles Kulturerbe der UNESCO](https://presse.wien.gv.at/2011/11/11/wiener-kaffeehauskultur-ist-immaterielles-kulturerbe-der-unesco).

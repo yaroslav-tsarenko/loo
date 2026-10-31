@@ -47,3 +47,5 @@ Every Landeskunde number needs a source. If you can't source it, say «зазв�
 **Duplicate cards.** Before every `[!word]`, grep `content/Guides/Deutsch*`. The lower topic number keeps the card (§2.6 п. 10a).
 
 **Joke distractors.** Don't use them: «Hallo Welt», «70 кімнат», «mit dem schwarzen Bus». Every distractor must be a real mistake a Ukrainian learner makes.
+
+**`[!pair]`:** `say:` must exactly match one of the two words in the header (an article in the header breaks it).

@@ -69,7 +69,7 @@ estimatedMinutes: 45
 
 Тиша в Німеччині — предмет правил на кількох рівнях. **Nachtruhe** («нічна тиша») у більшості земель припадає на 22:00–6:00. Наприклад, у Північному Рейні-Вестфалії § 9 Landes-Immissionsschutzgesetz забороняє дії, що можуть порушити нічну тишу; за порушення можливий штраф до 5000 євро. Технічна інструкція TA Lärm теж ділить добу на день (6:00–22:00) і ніч (22:00–6:00). Окремі землі й міста мають власні межі, тож загальної точної цифри «для всієї країни» не називай.
 
-Є ще федеральна постанова про шум приладів (*32. BImSchV*): у певних зонах (житлових, лікувальних) садова техніка з її додатку, наприклад газонокосарка, не повинна працювати **в неділю й свята весь день** і **в будні з 20:00 до 7:00**. Обідньої тиші (*Mittagsruhe*) за законом на всю країну немає, але вона може бути вписана в **Hausordnung** (правила будинку), договір оренди чи місцеві правила. Тож чому сусід стукає о 22:05? Бо музика, дриль чи гучна розмова після 22:00 для нього — порушення нічної тиші, яке можна записати в Hausordnung і навіть оштрафувати.
+Є ще федеральна постанова про шум приладів (*32. BImSchV*): у певних зонах (житлових, лікувальних) садова техніка з її додатку, наприклад газонокосарка, не повинна працювати **в неділю й свята весь день** і **в будні з 20:00 до 7:00**. Обідньої тиші (*Mittagsruhe*) за законом на всю країну немає, але вона може бути вписана в **Hausordnung** (правила будинку), договір оренди чи місцеві правила. Тож чому сусід стукає о 22:05? Бо музика, дриль чи гучна розмова після 22:00 для нього — порушення нічної тиші, яке забороняє Hausordnung, а за § 17 LImschG NRW можливий штраф.
 
 > [!diagram] Тиша на добу: приклад для багатоквартирного будинку
 > ```yaml
@@ -106,7 +106,7 @@ estimatedMinutes: 45
 - *Ab 22 Uhr ist Nachtruhe.* — З 22:00 нічна тиша.
 - *Entschuldigung, ich mache die Musik leise.* — Вибачте, я зроблю музику тихіше.
 - *Wohin gehört das Papier? — In die blaue Tonne.* — Куди йде папір? — У блакитний бак.
-- *Die Plastikflasche bringe ich zum Pfandautomat.* — Пластикову пляшку я віднесу до автомата.
+- *Die Plastikflasche bringe ich zum Pfandautomaten.* — Пластикову пляшку я віднесу до автомата.
 - *Wir trennen den Müll: Papier, Bio, Verpackungen und Restmüll.* — Ми розділяємо сміття: папір, біо, упаковка та залишкове.
 - *Am Sonntag sind die meisten Geschäfte geschlossen.* — У неділю більшість магазинів зачинені.
 - *Kann ich hier mit Karte bezahlen? — Nein, nur Bargeld.* — Тут можна картою? — Ні, лише готівкою.
@@ -145,7 +145,7 @@ estimatedMinutes: 45
 > example: Die **Mülltonne** steht vor dem Haus. — Бак стоїть перед будинком.
 
 > [!word] die Biotonne
-> ipa: /ˈbi̯oːˌtɔnə/ · pos: noun · level: A2 · id: dl-a2-08-w05
+> ipa: /ˈbiːoˌtɔnə/ · pos: noun · level: A2 · id: dl-a2-08-w05
 > uk: бак для біовідходів
 > forms: die Biotonnen
 > example: Obstreste kommen in die **Biotonne**. — Залишки фруктів кидають у біобак.
@@ -224,7 +224,7 @@ estimatedMinutes: 45
 
 > [!word] leise
 > ipa: /ˈlaɪ̯zə/ · pos: adj · level: A2 · id: dl-a2-08-w17
-> uk: тихо, негучно
+> uk: тихий, негучний; тихо
 > forms: leiser · am leisesten
 > example: Bitte sei **leise**! — Будь ласка, тихо!
 > note: leise — про силу звуку; ruhig — про спокійний стан чи місце.
@@ -360,7 +360,7 @@ estimatedMinutes: 45
 > [!example] Fünf nach zehn
 > Maria wohnt seit einem Monat in Köln. Am Abend um fünf nach zehn klopft ihr Nachbar an die Tür. „Entschuldigung, es ist schon nach zehn. Die Nachtruhe beginnt meistens um 22 Uhr.“ Maria hat laut Musik gehört. Sie sagt „Tut mir leid“ und macht die Musik leise.
 >
-> In Deutschland gibt es im Alltag viele Regeln. Man trennt den Müll: Papier, Bio, Verpackungen und Restmüll. Flaschen und Dosen bringt man zum Pfandautomat im Supermarkt und bekommt Geld zurück. Sonntags sind die meisten Geschäfte geschlossen, deshalb kauft man am Samstag ein. In der Wohnung zieht man oft die Schuhe aus und trägt Hausschuhe.
+> In Deutschland gibt es im Alltag viele Regeln. Man trennt den Müll: Papier, Bio, Verpackungen und Restmüll. Flaschen und Dosen bringt man zum Pfandautomaten im Supermarkt und bekommt Geld zurück. Sonntags sind die meisten Geschäfte geschlossen, deshalb kauft man am Samstag ein. In der Wohnung zieht man oft die Schuhe aus und trägt Hausschuhe.
 >
 > Die genauen Regeln stehen in der Hausordnung. Sie sind nicht überall gleich.
 >
@@ -379,10 +379,10 @@ estimatedMinutes: 45
 > level: A2 · type: single · id: dl-a2-08-q03
 > - [ ] Man wirft sie in den Restmüll.
 > - [ ] Man bringt sie am Sonntag zum Nachbarn.
-> - [x] Man bringt sie zum Pfandautomat und bekommt Geld zurück.
+> - [x] Man bringt sie zum Pfandautomaten und bekommt Geld zurück.
 > - [ ] Man trennt sie nach Farben im Treppenhaus.
 >
-> **Пояснення:** *Flaschen und Dosen bringt man zum Pfandautomat im Supermarkt und bekommt Geld zurück.* Це не Restmüll: за них є застава (*Pfand*).
+> **Пояснення:** *Flaschen und Dosen bringt man zum Pfandautomaten im Supermarkt und bekommt Geld zurück.* Це не Restmüll: за них є застава (*Pfand*).
 
 > [!quiz] Lies den Text. Was stimmt?
 > level: A2 · type: single · id: dl-a2-08-q04
@@ -430,7 +430,7 @@ estimatedMinutes: 45
 >
 > ```text order
 > Du bringst die Flaschen zum Supermarkt.
-> Du steckst die Flaschen in den Pfandautomat.
+> Du steckst die Flaschen in den Pfandautomaten.
 > Der Automat druckt den Pfandbon.
 > An der Kasse bekommst du dein Geld.
 > ```
@@ -441,12 +441,12 @@ estimatedMinutes: 45
 > level: A2 · type: single · id: dl-a2-08-q09
 > - [ ] Німці вже майже не платять готівкою.
 > - [x] Готівкою ще платили близько половини разів (51 %), але за сумою перевагу має картка.
-> - [ ] Готівкою платять рівно 100 % разів.
+> - [ ] Готівкою платять близько 80 % разів.
 > - [ ] Готівка перевищує картку і за кількістю, і за сумою.
 >
 > **Пояснення:** у 2023 році готівка складала 51 % платежів (у 2021 — 58 %). Але в сумі продажів картка (32 %) вперше випередила готівку (26 %).
 
-> [!quiz] Склади речення: «Після 22:00 ми маємо бути тихо».
+> [!quiz] Склади речення: «Після 22:00 ми маємо поводитися тихо».
 > level: A2 · type: order · id: dl-a2-08-q10
 >
 > ```text order
@@ -469,16 +469,16 @@ estimatedMinutes: 45
 > **Пояснення:** *leise* — про гучність, *Könnten Sie bitte …?* — ввічливе прохання. *Sei ruhig!* — грубе «Замовкни!»; *Du bist ruhig* означає «ти спокійний».
 
 > [!quiz] Заповни пропуски словами з банку
-> level: A2 · type: fill · id: dl-a2-08-q12 · bank: Ruhezeit, Mehrweg
+> level: A2 · type: fill · id: dl-a2-08-q12 · bank: Mittagsruhe, Mehrweg
 >
 > ```text fill
 > In der Wohnung trägt man oft [[Hausschuhe]].
 > Auf der Flasche ist [[Pfand]].
-> Um 22 Uhr beginnt die [[Nachtruhe]].
-> Die Wohnung ist leise, es gibt keinen [[Lärm]].
+> In der Nacht ab 22 Uhr gilt die [[Nachtruhe]].
+> Die Wohnung ist ruhig, es gibt keinen [[Lärm]].
 > ```
 >
-> **Пояснення:** *Hausschuhe* — капці; *Pfand* — застава; *Nachtruhe* — нічна тиша; *Lärm* — шум. *Ruhezeit* і *Mehrweg* — зайві слова: вони схожі за темою, але в реченнях не пасують.
+> **Пояснення:** *Hausschuhe* — капці; *Pfand* — застава; *Nachtruhe* — нічна тиша; *Lärm* — шум. *Mittagsruhe* і *Mehrweg* — зайві слова: нічна тиша в реченні — саме *Nachtruhe*, а *Mehrweg* — про пляшки.
 
 > [!quiz] Що з цього НЕ є правилом, а лише звичаєм?
 > level: A2 · type: single · id: dl-a2-08-q13

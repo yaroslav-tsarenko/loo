@@ -26,17 +26,17 @@ estimatedMinutes: 40
 > - [ ] Назва берлінського метро.
 > - [ ] Вокзал на сході Берліна.
 >
-> **Пояснення:** за словником DWDS, *Kiez* — особливо в Берліні — невеликий, «оглядний» район, з якого мешканці себе ідентифікують; це не адміністративна одиниця. У Гамбурзі *der Kiez* означає район St. Pauli навколо Reeperbahn.
+> **Пояснення:** за словником DWDS, *Kiez* — особливо в Берліні — невеликий, «оглядний» район, з якого мешканці себе ідентифікують; це не адміністративна одиниця. У Гамбурзі (і Ганновері) *der Kiez* — розважальний квартал («Rotlicht-, Amüsier-, Vergnügungsviertel»), у Гамбурзі насамперед St. Pauli навколо Reeperbahn.
 
 ## Оповідь
 
 ### Берлін: столиця, що складається з «кіців»
 
-Berlin — найбільше місто Німеччини: близько 3,7 мільйона жителів (Destatis, на основі Zensus 2022) на 891 км². Це одночасно столиця держави й місто-земля (*Stadtstaat*, див. попередній розділ). Берлінці люблять ділити своє місто на *Kieze*: кожен має власну вулицю з кафе й булочною, власну дитячу площадку й власних сусідів. Слово *Kiez* уперше засвідчене як назва поселення ще 1249 року; словʼянське походження вважають спірним (DWDS). Тож «Мій Kiez» — це не адреса, а відчуття дому.
+Berlin — найбільше місто Німеччини: близько 3,7 мільйона жителів (Destatis, на основі Zensus 2022) на 891 км². Це одночасно столиця держави й місто-земля (*Stadtstaat*, див. попередній розділ). Берлінці люблять ділити своє місто на *Kieze*: кожен має власну вулицю з кафе й булочною, власний дитячий майданчик й власних сусідів. Слово *Kiez* уперше засвідчене як назва поселення ще 1249 року; словʼянське походження вважають спірним (DWDS). Тож «Мій Kiez» — це не адреса, а відчуття дому. А орієнтир для всього міста — **Fernsehturm**, телевежа на Alexanderplatz.
 
 ### Гамбург: порт і купці
 
-Hamburg — друге за величиною місто (близько 1,87 мільйона жителів, Destatis) і теж місто-земля. Місто побудоване навколо річки Elbe і її **Hafen** — найбільшого морського порту Німеччини (hamburg-tourism.de). Гамбурзька **Speicherstadt** (досл. «місто складів») — комплекс червоноцегляних складів, який будували з 1883 року; у липні 2015-го разом із кварталом Kontorhausviertel і будинком Chilehaus його внесли до Списку світової спадщини ЮНЕСКО (hamburg.de). Слово *Kiez* у Гамбурзі має зовсім інше значення, ніж у Берліні: це район St. Pauli з Reeperbahn (DWDS).
+Hamburg — друге за величиною місто (близько 1,87 мільйона жителів, Destatis) і теж місто-земля. Місто побудоване навколо річки Elbe і її **Hafen** — найбільшого морського порту Німеччини (hamburg.de). Гамбурзька **Speicherstadt** (досл. «місто складів») — комплекс червоноцегляних складів, який будували з 1883 року; у липні 2015-го разом із кварталом Kontorhausviertel і будинком Chilehaus його внесли до Списку світової спадщини ЮНЕСКО (hamburg.de). Слово *Kiez* у Гамбурзі має інше значення, ніж у Берліні: це розважальний квартал, насамперед St. Pauli з Reeperbahn (DWDS).
 
 ### Мюнхен: баварська столиця
 
@@ -44,7 +44,7 @@ München — столиця землі Bayern (див. розділ про зе�
 
 ### Кельн: собор над Рейном
 
-Köln лежить на Рейні й теж має понад мільйон жителів. Його візитівка — **der Kölner Dom**. Закладання першого каменя відбулося 15 серпня 1248 року, а урочисте завершення будівництва — 15 жовтня 1880 року, тобто через 632 роки. Будівництво зупинилося близько 1560 року й було відновлено лише в XIX столітті. Висота веж — близько 157 метрів (koeln.de, koelner-dom.de). Від 1996 року Dom — обʼєкт світової спадщини ЮНЕСКО. Ще одна візитівка міста — пиво **Kölsch**: так називається і пиво, і місцевий діалект, про який — у наступному розділі.
+Köln лежить на Рейні й теж має понад мільйон жителів. Його візитівка — **der Kölner Dom**. Закладання першого каменя відбулося 15 серпня 1248 року, а урочисте завершення будівництва — 15 жовтня 1880 року, тобто через 632 роки. Після 1520 року будівництво було перервано на понад 300 років; 1842 року пруський король Фрідріх Вільгельм IV заклав камінь для його завершення. Висота веж — близько 157 метрів (koeln.de, koelner-dom.de). Від 1996 року Dom — обʼєкт світової спадщини ЮНЕСКО. Ще одна візитівка міста — пиво **Kölsch**: так називається і пиво, і місцевий діалект, про який — у наступному розділі.
 
 > [!diagram] Чотири міста — чотири «візитівки»
 > ```yaml
@@ -69,23 +69,23 @@ Köln лежить на Рейні й теж має понад мільйон ж
 
 ### Ruhrgebiet: від шахт до культури
 
-**Ruhrgebiet** — не місто й не земля, а найбільша в Німеччині міська агломерація в землі Nordrhein-Westfalen: 53 міста, понад 5,1 мільйона жителів на 4 439 км² (Regionalverband Ruhr, ruhrgebiet.de). Тут сусідять Dortmund, Essen, Duisburg, Bochum, Gelsenkirchen та інші міста, які за межами не відокремлюють поля — одне місто переходить в інше. Розмовна назва — **Ruhrpott** («Pott» тут — просто діалектне «горщик»).
+**Ruhrgebiet** — не місто й не земля, а найбільша в Німеччині міська агломерація в землі Nordrhein-Westfalen: 53 міста й громади, понад 5,1 мільйона жителів на 4 439 км² (Regionalverband Ruhr, ruhrgebiet.de). Тут сусідять Dortmund, Essen, Duisburg, Bochum, Gelsenkirchen та інші міста; між ними майже немає полів — одне місто переходить в інше. Розмовна назва — **Ruhrpott** («Pott» тут — просто діалектне «горщик»).
 
-Століттями регіон був центром вугілля й сталі. 1960 року в Ruhrgebiet під землею працювали близько 500 000 людей (ruhrgebiet.de). Шахту (*die Zeche*) бачили на кожному кроці. Потім видобуток вугілля поступово скорочувався, і 21 грудня 2018 року в місті Bottrop зачинилася шахта Prosper-Haniel — остання діюча камʼяновугільна шахта регіону (RVR).
+Століттями регіон був центром вугілля й сталі. На початку 1960-х у гірничій галузі Рура працювали сотні тисяч людей (ruhrgebiet.de називає близько 500 000). Шахту (*die Zeche*) бачили на кожному кроці. Потім видобуток вугілля поступово скорочувався, і 21 грудня 2018 року в місті Bottrop зачинилася шахта Prosper-Haniel — остання діюча камʼяновугільна шахта регіону (RVR).
 
-Але шахти не зникли безслідно. **Zeche Zollverein** в Essen, комплекс шахти й коксохімічного заводу, 14 грудня 2001 року внесли до Списку світової спадщини ЮНЕСКО; шахта Schacht XII працювала з 1932 року й ще за життя мала славу «найкрасивішої шахти світу» (zollverein.de). Відвали породи (*Halden*) перетворилися на парки й ліси. А 2010 року Essen від імені 53 міст Ruhrgebiet став **Європейською столицею культури** (*Kulturhauptstadt Europas*) під гаслом «Wandel durch Kultur – Kultur durch Wandel» («Зміна через культуру — культура через зміну»; kulturland.rlp.de). Це приклад **Strukturwandel** — структурної перебудови регіону.
+Але шахти не зникли безслідно. **Zeche Zollverein** в Essen, комплекс шахти й коксохімічного заводу, 14 грудня 2001 року внесли до Списку світової спадщини ЮНЕСКО; шахта Schacht XII працювала з 1932 року й ще за життя мала славу «найкрасивішої шахти світу» (zollverein.de). Відвали породи (*Halden*) перетворилися на парки й ліси. А 2010 року Essen від імені 53 міст Ruhrgebiet став **Європейською столицею культури** (*Kulturhauptstadt Europas*) під гаслом «Wandel durch Kultur – Kultur durch Wandel» («Зміна через культуру — культура через зміну»; bottrop.de, kulturland.rlp.de). Це приклад **Strukturwandel** — структурної перебудови регіону.
 
 > [!diagram] Ruhrgebiet: від шахт до культури
 > ```yaml
 > layout: timeline
 > nodes:
 >   - { id: z1932, at: "1932", text: "Schacht XII — Zollverein", note: "Essen; пізніше «найкрасивіша шахта світу»", tone: yellow }
->   - { id: z1960, at: "1960", text: "≈ 500 000 людей під землею", note: "пік вугільної епохи", tone: gray }
+>   - { id: z1960, at: "1960", text: "сотні тисяч у гірництві", note: "ruhrgebiet.de: ≈ 500 000; пік вугільної епохи", tone: gray }
 >   - { id: z2001, at: "14.12.2001", text: "Zollverein — Welterbe", note: "ЮНЕСКО", tone: pink }
 >   - { id: z2010, at: "2010", text: "Kulturhauptstadt Europas", note: "Essen для 53 міст Ruhr", tone: pink }
 >   - { id: z2018, at: "21.12.2018", text: "Prosper-Haniel зачиняється", note: "остання діюча шахта; Bottrop", tone: yellow }
 > steps:
->   - { show: [z1932, z1960], note: "Спочатку вугілля: у 1960 році близько 500 000 людей працювали під землею." }
+>   - { show: [z1932, z1960], note: "Спочатку вугілля: на початку 1960-х у гірництві працювали сотні тисяч людей." }
 >   - { show: [z2001, z2010], note: "Колишні промислові обʼєкти стають культурою: Welterbe (2001) і Kulturhauptstadt (2010)." }
 >   - { show: z2018, note: "21 грудня 2018 року регіон закрив останню діючу шахту." }
 > ```
@@ -109,20 +109,20 @@ Köln лежить на Рейні й теж має понад мільйон ж
 
 > [!word] der Kiez
 > ipa: /kiːts/ · pos: noun · level: A2 · id: dl-a2-03-w01
-> uk: Kiez — невеликий район міста зі своїм життям (Берлін); у Гамбурзі — район St. Pauli
+> uk: Kiez — невеликий район міста зі своїм життям (Берлін); у Гамбурзі — розважальний квартал (St. Pauli)
 > forms: die Kieze
 > example: In meinem **Kiez** kennt jeder jeden. — У моєму Kiez усі всіх знають.
-> note: слово — розмовне, тепле: ich bin im Kiez zu Hause. z = [ts], ie = довге [iː]. Історична форма — der Kietz (словʼянське службове поселення біля замка); у Гамбурзі der Kiez = St. Pauli.
+> note: слово — розмовне, тепле: ich bin im Kiez zu Hause. z = [ts], ie = довге [iː]. Історична форма — der Kietz (словʼянське службове поселення біля замка); у Гамбурзі der Kiez — розважальний квартал, насамперед St. Pauli.
 
 > [!word] der Stadtteil
-> ipa: /ˈʃtatˌtaɪ̯l/ · pos: noun · level: A2 · id: dl-a2-03-w02
+> ipa: /ˈʃtattaɪ̯l/ · pos: noun · level: A2 · id: dl-a2-03-w02
 > uk: район міста
 > forms: die Stadtteile
 > example: Kreuzberg ist ein **Stadtteil** von Berlin. — Кройцберг — район Берліна.
 > note: Stadt + Teil. Іноді Stadtbezirk (адміністративний округ) і Viertel («квартал») теж означають район.
 
 > [!word] die Großstadt
-> ipa: /ˈɡʁoːsˌʃtat/ · pos: noun · level: A2 · id: dl-a2-03-w03
+> ipa: /ˈɡʁoːsʃtat/ · pos: noun · level: A2 · id: dl-a2-03-w03
 > uk: велике місто
 > forms: die Großstädte
 > example: Köln ist eine **Großstadt** am Rhein. — Кельн — велике місто на Рейні.
@@ -140,7 +140,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > uk: символ міста, візитівка
 > forms: die Wahrzeichen
 > example: Der Dom ist das **Wahrzeichen** von Köln. — Собор — символ Кельна.
-> note: складне слово Wahr- + Zeichen («знак»). Множина збігається з однині: die Wahrzeichen.
+> note: складне слово Wahr- + Zeichen («знак»). Множина збігається з одниною: die Wahrzeichen.
 
 > [!word] die Sehenswürdigkeit
 > ipa: /ˈzeːənsˌvʏʁdɪçkaɪ̯t/ · pos: noun · level: A2 · id: dl-a2-03-w06
@@ -161,7 +161,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > uk: собор (велика церква)
 > forms: die Dome
 > example: Der **Dom** steht mitten in Köln. — Собор стоїть просто посеред Кельна.
-> note: «Dom» ≠ український «дім»: «дім» німецькою — das Haus, das Zuhause. Der Dom — це лише велика (катедральна) церква: der Kölner Dom, der Dom in Speyer.
+> note: «Dom» ≠ український «дім»: «дім» німецькою — das Haus, das Zuhause. Der Dom — зазвичай велика (катедральна) церква: der Kölner Dom, der Dom in Speyer.
 
 > [!word] der Fernsehturm
 > ipa: /ˈfɛʁnzeːˌtʊʁm/ · pos: noun · level: A2 · id: dl-a2-03-w09
@@ -192,7 +192,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > note: DWDS: ще й «рахунок у закладі»: die Zeche zahlen — оплатити рахунок. e = [ɛ], ch після e = [ç].
 
 > [!word] der Bergbau
-> ipa: /ˈbɛʁkˌbaʊ̯/ · pos: noun · level: B1 · id: dl-a2-03-w13
+> ipa: /ˈbɛʁkbaʊ̯/ · pos: noun · level: B1 · id: dl-a2-03-w13
 > uk: гірнича справа, видобуток корисних копалин
 > forms: — (без множини)
 > example: Der **Bergbau** hat das Ruhrgebiet geprägt. — Гірнича справа сформувала Рур.
@@ -217,10 +217,10 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > uk: Рур (розмовна назва)
 > forms: — (без множини)
 > example: Sie kommt aus dem **Ruhrpott**. — Вона родом із Рура.
-> note: розмовне: «der Pott» = горщик. Офіційно кажуть das Ruhrgebiet або die Metropole Ruhr. Часто про людей: die Pottler/Ruhrpottler.
+> note: розмовне: «der Pott» = горщик. Офіційно кажуть das Ruhrgebiet або die Metropole Ruhr. Про людей: die Ruhrpottler.
 
 > [!word] der Strukturwandel
-> ipa: /ˈʃtʁʊktuːɐ̯ˌvandl̩/ · pos: noun · level: B2 · id: dl-a2-03-w17
+> ipa: /ʃtʁʊkˈtuːɐ̯vandl̩/ · pos: noun · level: B2 · id: dl-a2-03-w17
 > uk: структурна перебудова (економіки)
 > forms: — (без множини)
 > example: Der **Strukturwandel** im Ruhrgebiet dauert lange. — Структурна перебудова в Рурі триває довго.
@@ -272,7 +272,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > - [ ] у Кельні
 > - [ ] у Рурі
 >
-> **Пояснення:** *Kreuzberg* — один із берлінських районів (*Stadtteile*); *Kiez* тут — «мій квартал». У Гамбурзі *Kiez* означало б St. Pauli.
+> **Пояснення:** *Kreuzberg* — один із берлінських районів (*Stadtteile*); *Kiez* тут — «мій квартал». У Гамбурзі *Kiez* означало б розважальний квартал St. Pauli.
 
 > [!listen] Що ти почув?
 > level: A2 · type: choice · speed: slow · id: dl-a2-03-l04
@@ -300,7 +300,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > level: A2 · speed: slow · id: dl-a2-03-s01
 > text: Der Kölner Dom ist ein Wahrzeichen.
 > ipa: /deːɐ̯ ˈkœlnɐ doːm ɪst aɪ̯n ˈvaːɐ̯ˌtsaɪ̯çn̩/
-> tip: Köln: ö — короткий [œ], «кьольн». Dom — довге [oː] і закінчення [m]. Wahrzeichen: w = [v], -ah- довге [aː], -ch- після ei = [ç].
+> tip: Köln: ö — короткий [œ]: губи округлені, як для «о», а язик стоїть, як для «е». Dom — довге [oː] і закінчення [m]. Wahrzeichen: w = [v], -ah- довге [aː], -ch- після ei = [ç].
 > uk: Кельнський собор — символ міста.
 
 > [!speak] Скажи вголос
@@ -320,13 +320,13 @@ Köln лежить на Рейні й теж має понад мільйон ж
 ## Типові помилки й пастки
 
 > [!pitfall] Kiez у Берліні й у Гамбурзі — не те саме
-> У Берліні *Kiez* — теплий, «домашній» район (*mein Kiez*). У Гамбурзі *der Kiez* — район St. Pauli з вулицею Reeperbahn, відомий нічним життям (DWDS). Якщо берлінець каже «Ich wohne im Kiez», це звучить мило; гамбуржець зрозуміє зовсім інше. Тому в Берліні краще уточнювати назву: *im Wrangelkiez*, *im Kiez in Kreuzberg*.
+> У Берліні *Kiez* — теплий, «домашній» район (*mein Kiez*). У Гамбурзі *der Kiez* — розважальний квартал, насамперед St. Pauli з вулицею Reeperbahn (DWDS: «Rotlicht-, Amüsier-, Vergnügungsviertel»). Якщо берлінець каже «Ich wohne im Kiez», це звучить мило; гамбуржець зрозуміє зовсім інше. Тому в Берліні краще уточнювати назву: *im Wrangelkiez*, *im Kiez in Kreuzberg*.
 
 > [!pitfall] Dom ≠ «дім»
-> Український «дім» — це німецьке *das Haus* або *das Zuhause*. *Der Dom* — велика собор­на церква: *der Kölner Dom*, *der Dom zu Speyer*. Тому «я йду додому» — *Ich gehe nach Hause*, а не «Ich gehe in den Dom». Слово *Zeche* теж пастка: це не «цех» (завод), а «шахта» (і «рахунок у закладі»).
+> Український «дім» — це німецьке *das Haus* або *das Zuhause*. *Der Dom* — велика соборна церква: *der Kölner Dom*, *der Dom zu Speyer*. Тому «я йду додому» — *Ich gehe nach Hause*, а не «Ich gehe in den Dom». Слово *Zeche* теж пастка: це не «цех» (завод), а «шахта» (і «рахунок у закладі»).
 
 > [!pitfall] Ruhrgebiet — не окрема земля
-> Ruhrgebiet — регіон, а не *Bundesland*. Він лежить у землі *Nordrhein-Westfalen*, столиця якої — Düsseldorf, а не Essen чи Dortmund. Питання «Hauptstadt des Ruhrgebiets?» не має відповіді: це 53 міста без спільної столиці.
+> Ruhrgebiet — регіон, а не *Bundesland*. Він лежить у землі *Nordrhein-Westfalen*, столиця якої — Düsseldorf, а не Essen чи Dortmund. Питання «Hauptstadt des Ruhrgebiets?» не має відповіді: це 53 міста й громади без спільної столиці.
 
 > [!pitfall] «nach Berlin», але «ins Ruhrgebiet»
 > Назви міст — без артикля: *in Köln, nach Hamburg, aus München*. А *das Ruhrgebiet* має артикль: *im Ruhrgebiet* (in dem), *ins Ruhrgebiet* (in das), *aus dem Ruhrgebiet*. Помилки «Ich fahre nach Ruhrgebiet» або «Ich wohne im Köln» — типові. Правило: місто — без артикля, регіон із *Gebiet* — з артиклем.
@@ -338,7 +338,7 @@ Köln лежить на Рейні й теж має понад мільйон ж
 >
 > Hamburg hat einen großen Hafen. Die Speicherstadt ist seit 2015 UNESCO-Welterbe. In Köln steht der Dom. Man hat 1248 mit dem Bau begonnen, und 1880 war er fertig. Seine Türme sind etwa 157 Meter hoch.
 >
-> Im Ruhrgebiet wohnen mehr als fünf Millionen Menschen in 53 Städten. Früher haben viele Menschen in einer Zeche gearbeitet. Im Dezember 2018 hat die letzte Zeche geschlossen. Heute ist die Zeche Zollverein in Essen ein Ort für Kultur.
+> Im Ruhrgebiet wohnen mehr als fünf Millionen Menschen in 53 Städten. Früher haben viele Menschen auf der Zeche gearbeitet. Im Dezember 2018 hat die letzte Zeche geschlossen. Heute ist die Zeche Zollverein in Essen ein Ort für Kultur.
 >
 > *Слова:* *der Laden* — крамниця; *begonnen* — Partizip II від *beginnen* (починати); *fertig* — готовий; *früher* — раніше.
 
@@ -377,8 +377,8 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > ```text order
 > Seit 2018
 > gibt es
-> keine Zeche mehr
-> im Ruhrgebiet.
+> im Ruhrgebiet
+> keine Zeche mehr.
 > es gibt ✗
 > ```
 >
@@ -398,12 +398,12 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > level: A2 · type: fill · bank: Rathaus, Bahnhof · id: dl-a2-03-q07
 >
 > ```text fill
-> Der [[Hafen]] ist in Hamburg.
-> Der [[Dom]] steht in Köln.
-> Die letzte [[Zeche]] hat 2018 geschlossen.
+> Im Hamburger [[Hafen]] liegen große Schiffe.
+> Der [[Dom]] in Köln ist eine Kirche.
+> Auf der [[Zeche]] hat man Steinkohle gefördert.
 > ```
 >
-> **Пояснення:** *Hafen* — порт, *Dom* — собор, *Zeche* — шахта. *Rathaus* і *Bahnhof* — інші будівлі (ратуша й вокзал), у цих реченнях вони не пасують.
+> **Пояснення:** *Hafen* — порт, *Dom* — собор, *Zeche* — шахта. *Rathaus* і *Bahnhof* — ратуша й вокзал: у цих реченнях (кораблі, церква, вугілля) вони не пасують, до того ж не мають жіночого роду для *auf der …*.
 
 > [!quiz] Яке місто в Німеччині найбільше?
 > level: A2 · type: single · id: dl-a2-03-q08
@@ -418,10 +418,10 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > level: A2 · type: single · id: dl-a2-03-q09
 > - [ ] будь-який район міста
 > - [ ] порт
-> - [x] район St. Pauli навколо Reeperbahn
+> - [x] розважальний квартал, насамперед St. Pauli навколо Reeperbahn
 > - [ ] залізничний вокзал
 >
-> **Пояснення:** DWDS: у Гамбурзі *Kiez* позначає район St. Pauli. У Берліні це «домашній» район (не обовʼязково нічного життя).
+> **Пояснення:** DWDS: у Гамбурзі *Kiez* — «Rotlicht-, Amüsier-, Vergnügungsviertel», насамперед St. Pauli. У Берліні це «домашній» район (не обовʼязково нічного життя).
 
 > [!quiz] Чим тривалий час відомий Рур?
 > level: A2 · type: single · id: dl-a2-03-q10
@@ -430,10 +430,10 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > - [x] вугіллям, сталлю й важкою промисловістю
 > - [ ] альпійськими схилами
 >
-> **Пояснення:** Ruhrgebiet — регіон вугілля й сталі: 1960 року близько 500 000 людей працювали там під землею (ruhrgebiet.de). Нині — Strukturwandel: парки на відвалах, культура, нові галузі.
+> **Пояснення:** Ruhrgebiet — регіон вугілля й сталі: на початку 1960-х там працювали сотні тисяч гірників (ruhrgebiet.de називає близько 500 000). Нині — Strukturwandel: парки на відвалах, культура, нові галузі.
 
 > [!quiz] Заповни пропуски числами
-> level: A2 · type: fill · bank: 2010, 135 · id: dl-a2-03-q11
+> level: A2 · type: fill · bank: 1880, 1248 · id: dl-a2-03-q11
 >
 > ```text fill
 > Die Türme vom Kölner Dom sind etwa [[157]] Meter hoch.
@@ -441,7 +441,30 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > Zum Ruhrgebiet gehören [[53]] Städte.
 > ```
 >
-> **Пояснення:** вежі Dom — близько 157 м, Prosper-Haniel зачинилася у 2018 році, у Ruhrgebiet — 53 міста. *2010* (Kulturhauptstadt) і *135* — зайві.
+> **Пояснення:** вежі Dom — близько 157 м, Prosper-Haniel зачинилася у 2018 році, у Ruhrgebiet — 53 міста. *1880* і *1248* — роки будівництва Dom, у цих реченнях вони зайві.
+
+> [!quiz] Склади речення: «У Кельні стоїть відомий собор».
+> level: A2 · type: order · id: dl-a2-03-q12
+>
+> ```text order
+> In Köln
+> steht
+> ein berühmter Dom.
+> ein berühmter Dom steht ✗
+> ```
+>
+> **Пояснення:** обставина місця на початку — і дієслово *steht* на другому місці. Для будівель, що стоять, вживають *stehen*, а не *sein*.
+
+> [!quiz] Заповни пропуски: артикль
+> level: A2 · type: fill · bank: in, nach · id: dl-a2-03-q13
+>
+> ```text fill
+> Wir wohnen [[im]] Ruhrgebiet.
+> Am Wochenende fahren wir [[ins]] Ruhrgebiet.
+> Meine Freunde kommen [[aus dem]] Ruhrgebiet.
+> ```
+>
+> **Пояснення:** *das Ruhrgebiet* має артикль: *im* (= in dem, де?), *ins* (= in das, куди?), *aus dem*. Назви міст — без артикля: *in Köln*. Варіанти *in* і *nach* без артикля тут не підходять.
 
 ## Фішки
 
@@ -449,10 +472,10 @@ Köln лежить на Рейні й теж має понад мільйон ж
 > Німецьке *die Zeche* означає і шахту, і рахунок у закладі: *die Zeche prellen* — піти, не заплативши. DWDS: давньоверхньонімецьке *zehha* означало «спільний внесок»; у Середньовіччі слово позначало цех, гірничу спільноту й її шахту, а також рахунок за спільне застілля. Обидва значення живуть у сучасній мові.
 
 > [!reel] ⛪ Dom, який будували 632 роки
-> Закладання першого каменя Кельнського собору — 15 серпня 1248 року, урочисте завершення — 15 жовтня 1880 року: 632 роки. Будівництво стояло понад два з половиною століття — від близько 1560 року до XIX століття (koeln.de).
+> Закладання першого каменя Кельнського собору — 15 серпня 1248 року, урочисте завершення — 15 жовтня 1880 року: 632 роки. Після 1520 року роботи стояли понад 300 років, а 1842 року пруський король заклав камінь для завершення. Після добудови вежі заввишки понад 157 м зробили Dom найвищою спорудою світу (koelner-dom.de).
 
-> [!reel] ⛏ 500 000 шахтарів — і жодного
-> 1960 року в Ruhrgebiet під землею працювало близько 500 000 людей. 21 грудня 2018 року в Bottrop закрили Prosper-Haniel — останню діючу камʼяновугільну шахту регіону (ruhrgebiet.de, RVR). На відвалах (*Halden*) сьогодні ростуть ліси й парки.
+> [!reel] ⛏ Сотні тисяч шахтарів — і жодної шахти
+> На початку 1960-х у гірничій галузі Рура працювали сотні тисяч людей (ruhrgebiet.de називає близько 500 000). 21 грудня 2018 року в Bottrop закрили Prosper-Haniel — останню діючу камʼяновугільну шахту регіону (ruhrgebiet.de, RVR). На відвалах (*Halden*) сьогодні ростуть ліси й парки.
 
 > [!reel] 🏘 Звідки слово Kiez
 > Слово засвідчене як назва поселення вже 1249 року (DWDS). У Середньовіччі *Kietz* — словʼянське службове поселення біля замка, часто рибальське, на переправі; походження слова DWDS називає спірним. Згодом «Kietz» стало зневажливим для віддалених поселень, а в Берліні «Kiez» набув теплого значення — «мій район».
@@ -464,14 +487,14 @@ Köln лежить на Рейні й теж має понад мільйон ж
 
 - Населення й міста-мільйонники: [Destatis — Zensus 2022, перші результати](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zensus2022-Pressemitteilungen/PM_zensus2022_44.html); [Destatis — Bundesländer mit Hauptstädten nach Fläche, Bevölkerung und Dichte](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/_tabellen-innen-bevoelkerung-flaeche-wahlen.html).
 - Kiez: [DWDS — Kiez](https://www.dwds.de/wb/Kiez); [berlin.de — Kiez: Small Island in the Big City](https://www.berlin.de/en/districts/4971205-6180114-kiez-small-islands-big-city.en.html).
-- Hamburg: [hamburg.de — Speicherstadt](https://www.hamburg.de/tourismus/sehenswuerdigkeiten/speicherstadt-301600); [Hamburg Tourismus — UNESCO Welterbe](https://www.hamburg-tourism.de/sehen-erleben/historisches-hamburg/unesco-weltkulturerbe/).
+- Hamburg: [hamburg.de — Speicherstadt](https://www.hamburg.de/tourismus/sehenswuerdigkeiten/speicherstadt-301600); [hamburg.de — Hafenpolitik und Hafenwirtschaft](https://www.hamburg.de/politik-und-verwaltung/behoerden/bwai/themen/hafenpolitik-hafenwirtschaft-199392).
 - Köln: [Kölner Dom — Geschichte](https://www.koelner-dom.de/erleben/geschichte); [koeln.de — Kölner Dom](https://www.koeln.de/tourismus/sehenswertes/koelner-dom/).
-- Ruhrgebiet: [ruhrgebiet.de — Wandel im Ruhrgebiet](https://ruhrgebiet.de/leben/wandel); [ruhrgebiet.de — Leben im Ruhrgebiet](https://ruhrgebiet.de/leben); [RVR — Metropole Ruhr in Zahlen (PDF)](https://www.rvr.ruhr/fileadmin/user_upload/01_RVR_Home/03_Daten_Digitales/Regionalstatistik/03_Publikationen/2021-08_Metropole_Ruhr_Die_Region_in_Zahlen.pdf); [RVR — Das Ruhrgebiet verabschiedet sich vom Bergbau](https://www.rvr.ruhr/news/startseite-news/news/blick-zurueck-nach-vorn-das-ruhrgebiet-verabschiedet-sich-vom-bergbau-zahlreiche-ausstellungen-und-aktionen/); [Zollverein — UNESCO-Welterbe](https://www.zollverein.de/ueber-zollverein/welterbe/); [Kulturland RLP — Essen wird Kulturhauptstadt 2010](https://kulturland.rlp.de/aktuelles/detail/essen-wird-europaeische-kulturhauptstadt-2010); [bpb — Strukturwandel durch Kulturwirtschaft](https://www.bpb.de/shop/zeitschriften/apuz/29590/strukturwandel-durch-kulturwirtschaft/).
+- Ruhrgebiet: [ruhrgebiet.de — Wandel im Ruhrgebiet](https://ruhrgebiet.de/leben/wandel); [ruhrgebiet.de — Leben im Ruhrgebiet](https://ruhrgebiet.de/leben); [RVR — Metropole Ruhr in Zahlen (PDF)](https://www.rvr.ruhr/fileadmin/user_upload/01_RVR_Home/03_Daten_Digitales/Regionalstatistik/03_Publikationen/2021-08_Metropole_Ruhr_Die_Region_in_Zahlen.pdf); [RVR — Das Ruhrgebiet verabschiedet sich vom Bergbau](https://www.rvr.ruhr/news/startseite-news/news/blick-zurueck-nach-vorn-das-ruhrgebiet-verabschiedet-sich-vom-bergbau-zahlreiche-ausstellungen-und-aktionen/); [Zollverein — UNESCO-Welterbe](https://www.zollverein.de/ueber-zollverein/welterbe/); [Bottrop — Ruhr.2010](https://www.bottrop.de/microsites/Kulturzentrum_August_Everding/kulturzentrum/stadt--und-zeitgeschichte/Ruhr_2010/__Verteilerseite_Ruhr.2010.php); [Kulturland RLP — Essen wird Kulturhauptstadt 2010](https://kulturland.rlp.de/aktuelles/detail/essen-wird-europaeische-kulturhauptstadt-2010); [bpb — Strukturwandel durch Kulturwirtschaft](https://www.bpb.de/shop/zeitschriften/apuz/29590/strukturwandel-durch-kulturwirtschaft/).
 - Слова: [DWDS — Zeche](https://www.dwds.de/wb/Zeche); [DWDS — Pott](https://www.dwds.de/wb/Pott).
 
 > [!important] Підсумок
 > - Чотири *Millionenstädte*: Berlin (≈ 3,7 млн), Hamburg (≈ 1,87 млн), München, Köln. Візитівки: *Kiez*, *Hafen* і *Speicherstadt*, *Marienplatz*, *Dom*.
-> - *Kiez*: у Берліні — «свій» район, у Гамбурзі — St. Pauli.
+> - *Kiez*: у Берліні — «свій» район, у Гамбурзі — розважальний квартал (St. Pauli).
 > - Kölner Dom: 1248–1880, ≈ 157 м, ЮНЕСКО 1996. Speicherstadt: ЮНЕСКО 2015. Zollverein: ЮНЕСКО 14.12.2001.
 > - Ruhrgebiet: 53 міста, понад 5,1 млн жителів, у землі Nordrhein-Westfalen; остання шахта (Prosper-Haniel) закрилася 21.12.2018; *Strukturwandel* — від шахт до культури (Kulturhauptstadt 2010).
 > - Артикль: *in Köln*, але *im Ruhrgebiet*; *Dom* ≠ «дім».

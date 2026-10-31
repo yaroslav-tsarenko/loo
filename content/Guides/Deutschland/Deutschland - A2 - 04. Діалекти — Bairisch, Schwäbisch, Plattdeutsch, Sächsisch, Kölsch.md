@@ -3,7 +3,7 @@ title: Діалекти — Bairisch, Schwäbisch, Plattdeutsch, Sächsisch, Kö
 id: dl-a2-04
 level: A2
 icon: px:bubbles
-tags: [deutsch, landeskunde, a2, dialekte, sprache, regionen]
+tags: [deutsch, landeskunde, skills, a2, land, dialekte, sprache, regionen]
 prerequisites: ["[[Deutschland - A2 - 03. Міста й регіони — Berlin, Hamburg, München, Köln, Ruhrgebiet]]"]
 estimatedMinutes: 40
 ---
@@ -18,7 +18,7 @@ estimatedMinutes: 40
 
 ## Передбач
 
-> [!quiz] Ти заходиш у магазин у Шлезвіг-Гольштайні о 15:00, і продавець каже: «Moin!» Що це означає?
+> [!quiz] Ти заходиш у магазин у Шлезвіг-Гольштейні о 15:00, і продавець каже: «Moin!» Що це означає?
 > level: A2 · type: single · id: dl-a2-04-q01
 > - [ ] «Доброго ранку» — він помилився з часом.
 > - [ ] «До побачення».
@@ -31,7 +31,7 @@ estimatedMinutes: 40
 
 ### Dialekt і Hochdeutsch: що є що
 
-**Der Dialekt** (синонім — **die Mundart**) — за словником DWDS це регіонально обмежена, нормально засвоєна в родині форма мови без жорсткої норми, яку вживають переважно усно. Протилежність — **das Hochdeutsch**, тобто стандартна німецька: ним пишуть, його чути в новинах, школі й офісі. Слово *hoch* тут не про «високий стиль». У мовознавстві *Hochdeutsch* — це діалекти, у яких відбулося **друге перемішення приголосних** (*zweite Lautverschiebung*, приблизно 500–800 років нашої ери, за DWDS): воно торкнулося Mitteldeutsch і Oberdeutsch, а Niederdeutsch лишилося за межами. Стандартна мова, за DWDS, сягає корінням у східно-середньонімецьку канцелярську мову міста Мейсен (Meißen).
+**Der Dialekt** (синонім — **die Mundart**) — за словником DWDS це регіонально обмежена, нормально засвоєна в родині форма мови без жорсткої норми, яку вживають переважно усно. Протилежність — **das Hochdeutsch**, тобто стандартна німецька: ним пишуть, його чути в новинах, школі й офісі. Слово *hoch* тут не про «високий стиль». У мовознавстві *Hochdeutsch* — це діалекти, у яких відбулося **друге пересування приголосних** (*zweite Lautverschiebung*, приблизно 500–800 років нашої ери, за DWDS): воно торкнулося Mitteldeutsch і Oberdeutsch, а Niederdeutsch лишилося за межами. Стандартна мова, за DWDS, сягає корінням у східно-середньонімецьку канцелярську мову міста Мейсен (Meißen).
 
 Тому те, що ти вчиш, — це **Hochdeutsch**. Діалекти вчити не потрібно, але в поїздках їх чутимеш: в кожної говірки свої звуки й слова.
 
@@ -41,9 +41,9 @@ estimatedMinutes: 40
 
 Найпростіше впізнати регіон за привітанням (дані AdA):
 
-- **Moin** — Шлезвіг-Гольштайн і північ Нижньої Саксонії; будь-яка пора доби. DWDS позначає слово як *norddeutsch, umgangssprachlich*.
+- **Moin** — Шлезвіг-Гольштейн і північ Нижньої Саксонії; будь-яка пора доби. DWDS позначає слово як *norddeutsch, umgangssprachlich*.
 - **Grüß Gott** — найчастіша форма на півдні Німеччини (на південь від Mittelgebirge й на схід від Рейнського грабену) й в Австрії.
-- **Servus** — на сході Баварії й подекуди в Австрії; і «привіт», і «бувай». Слово прийшло з латини (*servus* — «слуга»), у німецькій мові воно з XVII століття.
+- **Servus** — за AdA як звичайне денне привітання: схід Баварії й подекуди Австрія; неформально його чути по всій Баварії й Австрії; і «привіт», і «бувай». Слово прийшло з латини (*servus* — «слуга»), у німецькій мові воно з XVII століття.
 - **Grüezi** і **Grüeß Ech** — Швейцарія (докладніше — в розділі про Швейцарію).
 - **Hallo** — на півночі й заході (поза зоною Moin) нерідко разом із традиційним *Guten Tag*.
 
@@ -70,15 +70,15 @@ estimatedMinutes: 40
 
 **Bairisch** (баварська). За описом Bayerisches Staatsinstitut, у середньобаварській говірці (більшість Нижньої й Верхньої Баварії) головна прикмета — **вокалізація l**: *wollen → woin*, *viel → vui*. У південнобаварській (у Баварії — лише Верденфельзький край) чути *Kchua* замість *Kuh*, у північнобаварській — *Brejf* замість *Brief*.
 
-**Schwäbisch** (швабська). Це говірка Швабії — центральної й південно-східної частини Баден-Вюртемберга та баварської Швабії. За ISB, у баварській частині говорять *Ostschwäbisch*, а на північ від Аугсбурга мовною межею є річка Лех. Відома прикмета швабської — зменшувальний суфікс **-le** замість *-chen*: *Mädchen → Mädle*, *Häuschen → Häusle*. Типова фраза — *Schaffe, schaffe, Häusle baue* («працюй, працюй, дім будуй»). А з 1999 до 2021 року рекламна кампанія землі Баден-Вюртемберг мала слоган **«Wir können alles. Außer Hochdeutsch.»** — «Ми вміємо все. Крім Hochdeutsch».
+**Schwäbisch** (швабська). Це говірка Швабії — центральної й південно-східної частини Баден-Вюртемберга та баварської Швабії. За ISB, у баварській частині говорять *Ostschwäbisch*, а на північ від Аугсбурга мовною межею є річка Лех. Типова прикмета швабської — зменшувальний суфікс **-le** замість *-chen*: *Mädchen → Mädle*, *Häuschen → Häusle* (діалектологічні описи швабської говірки; енциклопедичний огляд — у джерелах). Відома фраза — *Schaffe, schaffe, Häusle baue* («працюй, працюй, дім будуй»). А з 1999 до 2021 року рекламна кампанія землі Баден-Вюртемберг мала слоган **«Wir können alles. Außer Hochdeutsch.»** — «Ми вміємо все. Крім Hochdeutsch».
 
-**Plattdeutsch** (нижньонімецька, **Niederdeutsch**). Єдина **Regionalsprache** Німеччини: за даними уряду Бранденбургу, це окрема германська мова, а не діалект hochdeutsch; з 1999 року вона під захистом Європейської хартії регіональних мов і мов меншин. Традиційно нею говорять у вісьмох землях: Бранденбург, Бремен, Гамбург, Мекленбург-Передня Померанія, Нижня Саксонія, Північний Рейн-Вестфалія, Саксонія-Ангальт і Шлезвіг-Гольштайн. Platt не належить до мов меншин: за поясненням уповноваженого уряду, його носії не становлять національної меншини. Приклади: *Goden Dag!* («добрий день»), *Goden Avend!*, *tschüüs* («до побачення»).
+**Plattdeutsch** (нижньонімецька, **Niederdeutsch**). Єдина **Regionalsprache** Німеччини: за даними уряду Бранденбургу, це окрема германська мова, а не діалект hochdeutsch; з 1999 року вона під захистом Європейської хартії регіональних мов і мов меншин. Традиційно нею говорять у восьми землях: Бранденбург, Бремен, Гамбург, Мекленбург-Передня Померанія, Нижня Саксонія, Північний Рейн-Вестфалія, Саксонія-Ангальт і Шлезвіг-Гольштейн. Platt не належить до мов меншин: за поясненням уповноваженого уряду, його носії не становлять національної меншини. Приклади: *Goden Dag!* («добрий день»), *Goden Avend!*, *tschüüs* («до побачення»).
 
 **Sächsisch** (саксонська). Тут найцікавіше: за порталом Freistaat Sachsen, у «трикутнику» Лейпциг — Дрезден — Хемніц справжній діалект давно не вживається; саксонці говорять **забарвленою регіоном стандартною німецькою** (Regiolekt). Прикмети (теж за порталом): **Entrundung** — *ö/ü* звучать як *e/i* (*schön → scheen*, *Glück → Glick*), приголосні мʼякнуть. Місцеві слова: **nu** («так, ага; тепер»), **die Bemme** («бутерброд», за DWDS — розмовне слово зі сходу Німеччини), *Bliemchengaffee* (рідка кава).
 
-**Kölsch** (кельнська). За DWDS — **ripuarischer, westmitteldeutscher Dialekt** Кельна й околиць (слово *das Kölsch* означає ще й місцеве пиво — не плутай!). Прикмета: **Daach** замість *Tag* (Кельн південніше від лінії Benrather Linie, де *ch* зберігається; на півночі кажуть *Daak*). Відомий жарт-присягання — **Kölsches Grundgesetz**: збірка приказок із 11 пунктами. Перший звучить **«Et es wie et es»** («так, як є, так і є»). Походження й точний текст різняться за джерелами.
+**Kölsch** (кельнська). За DWDS — **ripuarischer, westmitteldeutscher Dialekt** Кельна й околиць (слово *das Kölsch* означає ще й місцеве пиво — не плутай!). Прикмета: Кельн лежить на південь від **Benrather Linie** (лінії *maken — machen*) і має «південну» форму *machen*, тоді як Дюссельдорф на північ від лінії — *maken* (LVR Dialektportal). Відомий жартівливий «кодекс» — **Kölsches Grundgesetz**: збірка приказок із 11 пунктами. Перший звучить **«Et es wie et es»** («так, як є, так і є»). Походження й точний текст різняться за джерелами.
 
-> [!diagram] Platt і Hochdeutsch: що змінило друге перемішення
+> [!diagram] Platt і Hochdeutsch: що змінило друге пересування приголосних
 > ```yaml
 > layout: compare
 > columns: { a: "Niederdeutsch (Platt)", b: "Hochdeutsch" }
@@ -90,7 +90,7 @@ estimatedMinutes: 40
 >   - { id: b2, col: b, label: "«фунт»", text: "Pfund", tone: pink }
 >   - { id: b3, col: b, label: "«до побачення»", text: "tschüss", tone: gray }
 > steps:
->   - { focus: [a1, b1], note: "У Platt збереглося k: maken. Перемішення дало ch: machen. Лінію між ними називають maken-machen-Linie (Benrather Linie)." }
+>   - { focus: [a1, b1], note: "У Platt збереглося k: maken. Пересування дало ch: machen. Лінію між ними називають maken-machen-Linie (Benrather Linie)." }
 >   - { focus: [a2, b2], note: "Те саме з p: Pund, але Pfund. Слово Pund і досі чути там, де говірка не змінювала p." }
 >   - { focus: [a3, b3], note: "У Platt прощання пишуть tschüüs, у стандарті — tschüss: слово майже однакове, а ось maken і Pund змінилися." }
 > ```
@@ -101,11 +101,11 @@ estimatedMinutes: 40
 - *In Bayern und Österreich hört man oft „Grüß Gott“.* — У Баварії й Австрії часто чути «Grüß Gott».
 - *„Servus“ ist ein Gruß und ein Abschied.* — «Servus» — і привітання, і прощання.
 - *Im Südwesten sagen viele „Ade“ zum Abschied.* — На південному заході багато хто каже «Ade» на прощання.
-- *Auf Hochdeutsch heißt „Mädle“ „Mädchen“.* — Hochdeutsch слово «Mädle» звучить як «Mädchen».
+- *Auf Hochdeutsch heißt „Mädle“ „Mädchen“.* — Стандартною німецькою «Mädle» — це «Mädchen».
 - *Plattdeutsch ist eine eigene Sprache, kein Dialekt.* — Plattdeutsch — окрема мова, а не діалект.
 - *In Sachsen sagt man „Bemme“ für ein belegtes Brot.* — У Саксонії «Bemme» — це бутерброд.
 - *Sie spricht Hochdeutsch, aber mit sächsischem Akzent.* — Вона говорить Hochdeutsch, але з саксонським акцентом.
-- *Das Kölsch ist ein Dialekt, aber auch ein Bier.* — Kölsch — це діалект, а ще й пиво.
+- *Kölsch ist ein Dialekt, aber auch ein Bier.* — Kölsch — це діалект, а ще й пиво.
 - *Das ist typisch süddeutsch.* — Це типово південнонімецьке.
 
 ## Слова
@@ -189,7 +189,7 @@ estimatedMinutes: 40
 > [!word] sich verabschieden
 > ipa: /zɪç fɛɐ̯ˈapʃiːdn̩/ · pos: verb · level: A2 · id: dl-a2-04-w12
 > uk: прощатися
-> forms: er verabschiedet sich · verabschiedete sich · hat sich verabschiedet
+> forms: verabschieden → verabschiedete → hat verabschiedet
 > example: Ich **verabschiede** mich mit „Servus“. — Я прощаюся словом «Servus».
 > note: з *von*: *sich von jemandem verabschieden*. Іменник — *der Abschied*.
 
@@ -228,7 +228,7 @@ estimatedMinutes: 40
 > [!word] das Häusle
 > ipa: /ˈhɔʏ̯zlə/ · pos: noun · level: B1 · id: dl-a2-04-w18
 > uk: будиночок (швабською)
-> forms: — (діалектне слово; у стандартній — die Häuschen)
+> forms: — (діалектне слово)
 > example: „Schaffe, schaffe, **Häusle** baue.“ — «Працюй, працюй, дім будуй» (швабська приказка).
 > note: у стандартній — *das Häuschen*. Швабський суфікс *-le* = *-chen*.
 
@@ -259,7 +259,7 @@ estimatedMinutes: 40
 > - [x] Servus!
 > - [ ] Tschüss!
 >
-> **Пояснення:** *Servus* — [ˈzɛʁvʊs]: на початку дзвінке [z], не [s]. Це привітання й прощання в Баварії й Австрії.
+> **Пояснення:** *Servus* — [ˈzɛʁvʊs]: у стандартній вимові; у Баварії й Австрії на початку чути глухе [s]. Це привітання й прощання.
 
 > [!listen] Де говорять діалектом?
 > level: A2 · type: answer · speed: slow · id: dl-a2-04-l03
@@ -308,21 +308,21 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: dl-a2-04-s01
 > text: Moin! Wie geht's?
 > ipa: /mɔʏ̯n viː ɡeːts/
-> tip: Moin — [ɔʏ̯], «ой», а не «мойн»; Wie — довге [iː], w = [v].
+> tip: Moin — «мойн», один склад; oi = [ɔʏ̯]; Wie — довге [iː], w = [v].
 > uk: Привіт! Як ти?
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-04-s02
-> text: Grüß Gott! Ich hätte gern ein Brötchen.
-> ipa: /ɡʁyːs ˈɡɔt ɪç ˈhɛtə ɡɛʁn aɪ̯n ˈbʁøːtçən/
-> tip: Grüß — довге [yː] і глухе [s]; Gott — коротке [ɔ], g = «ґ»; ich — [ç], мʼяке «х».
-> uk: Добридень! Я б хотів булочку.
+> text: Grüß Gott! Ich hätte gern eine Semmel.
+> ipa: /ɡʁyːs ˈɡɔt ɪç ˈhɛtə ɡɛʁn ˈaɪ̯nə ˈzɛml̩/
+> tip: Grüß — довге [yː] і глухе [s]; Gott — коротке [ɔ], g = «ґ»; ich — [ç], мʼяке «х». Semmel — слово зони Grüß Gott для *Brötchen*.
+> uk: Добридень! Я б хотів булочку (Semmel).
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-04-s03
 > text: Servus, bis morgen!
 > ipa: /ˈzɛʁvʊs bɪs ˈmɔʁɡn̩/
-> tip: Servus — дзвінке [z] на початку, наголос на першому складі; bis — глухе [s]; morgen — у «-gen» ледь чутне [ə], майже [n̩].
+> tip: Servus — наголос на першому складі; на початку у стандарті [z], а в Баварії й Австрії часто [s]; bis — глухе [s]; morgen — у «-gen» ледь чутне [ə], майже [n̩].
 > uk: Бувай, до завтра!
 
 ## Типові помилки й пастки
@@ -366,7 +366,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *Servus … Das ist ein Gruß, aber man sagt es auch zum Abschied.* Швейцарське привітання в тексті — «Grüezi», а північне — «Moin».
 
-> [!quiz] Lies den Text. Was ist im Norden mit dem Platt?
+> [!quiz] Lies den Text. Wer spricht im Norden oft Platt?
 > level: A2 · type: single · id: dl-a2-04-q04
 > - [ ] Alle sprechen Platt in der Schule.
 > - [ ] Niemand versteht Platt.
@@ -413,7 +413,7 @@ estimatedMinutes: 40
 > **Пояснення:** *Servus*, *Ade* (південний захід) і *Tschö* (Рейнланд) — прощання. *Grüß Gott* і *Guten Morgen* — привітання.
 
 > [!quiz] Заповни пропуски: регіон і привітання
-> level: A2 · type: fill · bank: Österreich, Kuchen · id: dl-a2-04-q08
+> level: A2 · type: fill · bank: Hessen, Kuchen · id: dl-a2-04-q08
 >
 > ```text fill
 > „Servus“ sagt man im Osten von [[Bayern]].
@@ -422,7 +422,7 @@ estimatedMinutes: 40
 > Eine Bemme ist in Sachsen ein belegtes [[Brot]].
 > ```
 >
-> **Пояснення:** *Servus* — Східна Баварія; *Grüezi* — Швейцарія (дистрактор *Österreich* — там чути *Grüß Gott* і *Servus*); *Moin* — північ; *Bemme* — бутерброд, тож *Brot*, а не *Kuchen*.
+> **Пояснення:** *Servus* — Східна Баварія; *Grüezi* — Швейцарія (дистрактор *Hessen* — не зона *Servus*); *Moin* — північ; *Bemme* — бутерброд, тож *Brot*, а не *Kuchen*.
 
 > [!quiz] Що таке Plattdeutsch?
 > level: A2 · type: single · id: dl-a2-04-q09
@@ -454,6 +454,28 @@ estimatedMinutes: 40
 >
 > **Пояснення:** діалектні прикмети: *maken* (k замість ch), *scheen* (ö → e), *woin* (вокалізація l), *Häusle* (-le замість -chen). Дистрактори *wohnen* і *scheinen* схожі за звучанням, але мають інше значення.
 
+> [!quiz] Що розділяє лінія maken — machen (Benrather Linie)?
+> level: A2 · type: single · id: dl-a2-04-q12
+> - [ ] Баварську й швабську говірки.
+> - [x] Форми з k (*maken*, на північ) і з ch (*machen*, на південь): Дюссельдорф і Кельн.
+> - [ ] Hochdeutsch і Plattdeutsch в усій Німеччині.
+> - [ ] Німеччину й Австрію.
+>
+> **Пояснення:** лінія бере назву від Бенрата, де перетинає Рейн. На північ — недосунені форми (*maken*), на південь — «пересунені» (*machen*); це наслідок другого пересування приголосних (LVR). Привітання (*Moin*, *Servus*) тут ні до чого.
+
+> [!quiz] Склади речення: «На півдні при зустрічі кажуть «Grüß Gott».»
+> level: A2 · type: order · id: dl-a2-04-q13
+>
+> ```text order
+> Im Süden
+> sagt man
+> zur Begrüßung
+> „Grüß Gott“.
+> man sagt ✗
+> ```
+>
+> **Пояснення:** V2 — дієслово на другому місці після *Im Süden*: *sagt man*, а не ~~man sagt~~. *Die Begrüßung* — привітання.
+
 ## Фішки
 
 > [!reel] 🗺 «Ми вміємо все. Крім Hochdeutsch»
@@ -465,11 +487,11 @@ estimatedMinutes: 40
 > [!reel] 🔍 Одинадцять пунктів Кельна
 > «Kölsches Grundgesetz» — збірка кельнських приказок (11 пунктів). Походження й вік збірки невідомі, у різних джерелах формулювання відрізняються. Перший пункт: «Et es wie et es».
 
-> [!reel] 📰 Hochdeutsch родом з Мейсена
-> За DWDS, стандартна німецька сягає корінням у східно-середньонімецьку канцелярську мову міста Мейсен у Саксонії. А сучасну саксонську у «трикутнику» Лейпциг — Дрезден — Хемніц портал Freistaat Sachsen описує як стандартну мову з регіональним забарвленням, а не окремий діалект.
+> [!reel] 📰 Одне з коренів Hochdeutsch — Мейсен
+> За DWDS, стандартна німецька сягає корінням, зокрема, у східно-середньонімецьку канцелярську мову міста Мейсен у Саксонії. А сучасну саксонську у «трикутнику» Лейпциг — Дрезден — Хемніц портал Freistaat Sachsen описує як стандартну мову з регіональним забарвленням, а не окремий діалект.
 
 > [!reel] 🎤 Лінія maken-machen
-> Різниця між «maken» і «machen» проходить через Нижній Рейн — це Benrather Linie. Кельн на півдні лінії зберігає ch (*Daach* — «день»), а Дюссельдорф і далі на півночі — k (*Daak*).
+> Різниця між «maken» і «machen» проходить через Рейн біля Бенрата — це Benrather Linie, її назвав Георг Венкер (1877). На південь від неї (Кельн) кажуть *machen*, на північ (Дюссельдорф, Клеве) — *maken* (LVR Dialektportal).
 
 ## Джерела та що почитати
 
@@ -478,9 +500,9 @@ estimatedMinutes: 40
 - [Dialekte in Bayern](https://www.dialekte.schule.bayern.de/dialekte/) — Staatsinstitut für Schulqualität und Bildungsforschung (ISB), Bayern: Bairisch, Fränkisch, Schwäbisch-Alemannisch.
 - [Sprachen in Sachsen](https://www.freistaat.sachsen.de/sprachen-in-sachsen-5308.html) — Freistaat Sachsen, і [Sächsisch für alle](https://www.so-geht-saechsisch.de/dialekt) — Landesmarketing Sachsen.
 - [Niederdeutsch — Land Brandenburg](https://mwfk.brandenburg.de/mwfk/de/kultur/niederdeutsch-plattdueuetsch/) та [Niederdeutschsekretariat](https://www.niederdeutschsekretariat.de/); [Grüße auf Platt](https://plattmakers.de/de/weten/Gruesse).
-- [Die kölsche Sprache](https://www.koeln-lotse.de/2024/02/01/die-koelsche-sprache-mehr-als-nur-ein-dialekt-teil-i/) — Köln-Lotse; [Kölsches Grundgesetz](https://erlebnis-sprache.de/koelsches-grundgesetz/) та [Flimm's Kölsches Grundgesetz](https://www.kabaenes.de/koelsches-grundgesetz.html).
+- [Benrather Linie](https://dat-portal.lvr.de/orte/dialektkarten/einteilungskarten/benrather-linie) і [Rheinischer Fächer](https://dat-portal.lvr.de/orte/dialektkarten/einteilungskarten/rheinischer-faecher) — Landschaftsverband Rheinland (LVR), Dialektportal; [Die kölsche Sprache](https://www.koeln-lotse.de/2024/02/01/die-koelsche-sprache-mehr-als-nur-ein-dialekt-teil-i/) — Köln-Lotse; [Kölsches Grundgesetz](https://erlebnis-sprache.de/koelsches-grundgesetz/) та [Flimm's Kölsches Grundgesetz](https://www.kabaenes.de/koelsches-grundgesetz.html).
 - [Hallo und Tschüs](https://gfds.de/hallo-und-tschues/) — Gesellschaft für deutsche Sprache (tschüs, tschö).
-- [Swabian German — Wikipedia](https://en.wikipedia.org/wiki/Swabian_German) — суфікс *-le*; [Wir können alles. Außer Hochdeutsch.](https://de.wikipedia.org/wiki/Wir_k%C3%B6nnen_alles._Au%C3%9Fer_Hochdeutsch.) — Wikipedia.
+- [Swabian German — Wikipedia](https://en.wikipedia.org/wiki/Swabian_German) — суфікс *-le* (енциклопедичний огляд); [Wir können alles. Außer Hochdeutsch.](https://de.wikipedia.org/wiki/Wir_k%C3%B6nnen_alles._Au%C3%9Fer_Hochdeutsch.) — Wikipedia.
 - [Sprachreport 2/2011 — Dialektologie](https://pub.ids-mannheim.de/laufend/sprachreport/pdf/sr11-2a.pdf) — Institut für Deutsche Sprache, Mannheim; [Forschungszentrum Deutscher Sprachatlas](https://www.regionalsprache.de/atlanten-und-karten.aspx).
 - bpb — [Dialektentwicklung am Rande des Eisernen Vorhangs](https://www.bpb.de/shop/zeitschriften/apuz/32953/dialektentwicklung-am-rande-des-eisernen-vorhangs/).
 

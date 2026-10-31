@@ -38,7 +38,7 @@ estimatedMinutes: 40
 
 ### Wurst, Currywurst і Bratwurst
 
-**Die Wurst** — друга візитівка. Найвідоміша вуличка страва — **Currywurst**: порізана смажена ковбаска з томатним соусом і порошком каррі, а до неї *Pommes* або *Brötchen*. Історія каже, що її придумала Herta Heuwer 4 вересня 1949 року в Берліні-Шарлоттенбурзі; на це посилається і Патентне відомство (DPMA), і тут же додає: про першість сперечаються також Гамбург і Рур. Сама Heuwer зареєструвала не рецепт, а назву соусу — **Chillup** (товарний знак внесли до реєстру 21 січня 1959 року).
+**Die Wurst** — друга візитівка. Найвідоміша вулична страва — **Currywurst**: порізана смажена ковбаска з томатним соусом і порошком каррі, а до неї *Pommes* або *Brötchen*. Історія каже, що її придумала Herta Heuwer 4 вересня 1949 року в Берліні-Шарлоттенбурзі; на це посилається і Патентне відомство (DPMA), і тут же додає: про першість сперечаються також Гамбург і Рур. Сама Heuwer зареєструвала не рецепт, а назву соусу — **Chillup** (товарний знак внесли до реєстру 21 січня 1959 року).
 
 **Bratwurst** — смажена ковбаска, яку їдять у кожному регіоні по-своєму. А от слово для людини, що її робить, залежить від землі: на півдні й у Швейцарії кажуть **Metzger**, на півночі й сході частіше **Fleischer** чи **Schlachter** (в Австрії — *Fleischhauer*).
 
@@ -67,8 +67,8 @@ estimatedMinutes: 40
 
 Німеччина — країна регіонів, тому «німецька кухня» — це мозаїка.
 
-- **Spätzle** — яєчні «клецки» з борошна, яйця й води; їх зазвичай їдять у Швабії (Баден-Вюртемберг і баварська Швабія). Назва **Schwäbische Spätzle / Schwäbische Knöpfle** з березня 2012 року захищена в ЄС як g.g.A. (geschützte geografische Angabe): справжніми можуть називатися лише ті, що зроблені в Швабії.
-- **Labskaus** — страва північних портових міст, насамперед Гамбурга й Бремена: солонина, картопля, цибуля, буряк, до нього — яйце та оселедець. Це страва моряків, бо інші продукти на кораблях довго не зберігалися. Гамбурзький портал підкреслює, що вона не є «оригінально гамбурзькою». Походження слова точно невідоме; найчастіше його виводять від англійського *lobscouse*.
+- **Spätzle** — яєчні «галушки» з борошна, яйця й води; їх зазвичай їдять у Швабії (Баден-Вюртемберг і баварська Швабія). Назва **Schwäbische Spätzle / Schwäbische Knöpfle** з березня 2012 року захищена в ЄС як g.g.A. (geschützte geografische Angabe): справжніми можуть називатися лише ті, що зроблені в Швабії.
+- **Labskaus** — страва північних портових міст, насамперед Гамбурга й Бремена: солонина, картопля, цибуля, буряк, до нього — яйце та оселедець. Це страва моряків: солонина й картопля довго зберігалися на кораблях. Гамбурзький портал підкреслює, що вона не є «оригінально гамбурзькою». Походження слова точно невідоме; найчастіше його виводять від англійського *lobscouse*.
 - **Spargel** — біла спаржа: навесні в Німеччині є «сезон спаржі» (*Spargelzeit*), і її їдять із картоплею, шинкою та соусом.
 - **Wein** — вино роблять переважно у 13 німецьких виноробних регіонах (*Weinbaugebiete*); за площею лідирують Rheinhessen, Pfalz, Baden і Württemberg. Найважливіший сорт білого — Riesling. А **Schorle** — це вино чи сік, розбавлені газованою водою (*Weinschorle*, *Apfelschorle*).
 
@@ -80,17 +80,17 @@ estimatedMinutes: 40
 >   - { id: n1, col: n, label: "страва", text: "Labskaus", note: "моряцька страва: солонина, картопля, цибуля, буряк", tone: yellow }
 >   - { id: n2, col: n, label: "портове місто", text: "Hamburg, Bremen", note: "морські порти півночі", tone: gray }
 >   - { id: s1, col: s, label: "страва", text: "Spätzle", note: "g.g.A. «Schwäbische Spätzle» з 2012 року", tone: pink }
->   - { id: s2, col: s, label: "вечеря", text: "Brotzeit / Vesper", note: "хліб, Wurst, сир, Brezel", tone: gray }
+>   - { id: s2, col: s, label: "закуска", text: "Brotzeit / Vesper", note: "хліб, Wurst, сир, Brezel", tone: gray }
 >   - { id: s3, col: s, label: "пиво", text: "Reinheitsgebot 1516", note: "Ingolstadt, Баварія", tone: pink }
 > steps:
 >   - { show: [n1, s1], note: "На півночі — моряцька страва Labskaus, на півдні — Spätzle." }
->   - { show: [n2, s2], note: "Різниця є й у вечері: на півдні кажуть Brotzeit чи Vesper, на півночі й у центрі — Abendbrot." }
+>   - { show: [n2, s2], note: "Різниця є й у назвах холодної закуски: на півдні кажуть Brotzeit чи Vesper, на півночі й у центрі — Abendbrot." }
 >   - { show: s3, note: "Reinheitsgebot — баварський закон 1516 року, який згодом поширився на всю Німеччину." }
 > ```
 
 ### Bier і Reinheitsgebot
 
-**Reinheitsgebot** — «закон чистоти» для пива. Його видали 23 квітня 1516 року в Інгольштадті герцоги Вільгельм IV та Людвіг X (для герцогства Баварія). У тексті сказано, що пиво має варитися лише з ячменю (*Gerste*), хмелю (*Hopfen*) і води (*Wasser*). **Дріжджів у тексті немає** — тоді ще не знали, що саме вони бродять. Спершу закон діяв лише в Баварії; пізніше його поширили на весь Рейх. Сьогодні його положення — частина німецького пивоварного права (*Vorläufiges Biergesetz*, § 9). Для пива верхового бродіння дозволений ще й пшеничний солод (звідси *Weißbier*).
+**Reinheitsgebot** — «закон чистоти» для пива. Його видали 23 квітня 1516 року в Інгольштадті герцоги Вільгельм IV та Людвіг X (для герцогства Баварія). У тексті сказано, що пиво має варитися лише з ячменю (*Gerste*), хмелю (*Hopfen*) і води (*Wasser*). **Дріжджів у тексті немає** — тоді ще не знали, що саме вони бродять. Спершу закон діяв лише в Баварії; пізніше його поширили на весь Рейх. Сьогодні його положення — частина німецького пивоварного права: *Vorläufiges Biergesetz* формально скасовано 2005 року, але його § 9 і далі застосовується. Для пива верхового бродіння дозволений ще й пшеничний солод (звідси *Weißbier*).
 
 Ще одне непорозуміння: Reinheitsgebot — не гарантія смаку чи якості, він лише каже, з чого можна варити пиво за німецьким правом (є й винятки для «особливих» сортів). А місце, де влітку пʼють пиво просто неба, — **Biergarten**.
 
@@ -119,7 +119,7 @@ estimatedMinutes: 40
 > note: Abendessen (A1-18) — загальне слово; Abendbrot — саме холодна вечеря. AT/CH частіше «Nachtessen» (CH) та «Jause» (AT, між прийомами їжі).
 
 > [!word] die Brotzeit
-> ipa: /ˈbʁoːtˌtsaɪ̯t/ · pos: noun · level: A2 · id: dl-a2-07-w02
+> ipa: /ˈbʁoːttsaɪ̯t/ · pos: noun · level: A2 · id: dl-a2-07-w02
 > uk: Brotzeit (баварська холодна закуска з хліба, ковбаси, сиру)
 > forms: die Brotzeiten
 > example: Wir machen im Biergarten **Brotzeit**. — Ми їмо хліб із ковбасою в пивному саду.
@@ -189,15 +189,15 @@ estimatedMinutes: 40
 > uk: квашена капуста
 > forms: — (без множини)
 > example: Zur Bratwurst gibt es **Sauerkraut**. — До братвурст є квашена капуста.
-> 
+
 ### Регіональні страви
 
 > [!word] die Spätzle
 > ipa: /ˈʃpɛtslə/ · pos: noun · level: A2 · id: dl-a2-07-w13
-> uk: шпецле (яєчні «клецки» зі Швабії)
+> uk: шпецле (яєчні «галушки» зі Швабії)
 > forms: — (лише множина)
 > example: In Schwaben isst man gern **Spätzle**. — У Швабії охоче їдять шпецле.
-> note: Слово переважно у множині; однина *das Spätzle* — одна «клецка». Назва *Schwäbische Spätzle* — g.g.A. в ЄС з 2012 року.
+> note: Слово переважно у множині; однина *das Spätzle* — одна «галушка». Назва *Schwäbische Spätzle* — g.g.A. в ЄС з 2012 року.
 
 > [!word] das Labskaus
 > ipa: /ˈlapskaʊ̯s/ · pos: noun · level: A2 · id: dl-a2-07-w14
@@ -240,9 +240,8 @@ estimatedMinutes: 40
 > note: Часто *Imbissbude*, *Imbissstand*.
 
 > [!word] herzhaft
-> ipa: /ˈhɛʁtshaft/ · pos: adj · level: A2 · id: dl-a2-07-w20
+> ipa: /ˈhɛʁtshaft/ · pos: adj · level: B1 · id: dl-a2-07-w20
 > uk: ситний, пікантний (не солодкий)
-> forms: herzhafter · am herzhaftesten
 > example: Zum Frühstück esse ich lieber etwas **Herzhaftes**. — На сніданок я волію щось несолодке.
 
 > [!word] die Vielfalt
@@ -300,7 +299,7 @@ estimatedMinutes: 40
 > - [ ] о 18:00
 > - [ ] о 20:00
 >
-> **Пояснення:** *um drei Uhr* — о третій; в обіднику це 15:00. Kaffee und Kuchen — це зустріч по обіді, а не вранці й не ввечері.
+> **Пояснення:** *um drei Uhr* — о третій; по обіді це 15:00. Kaffee und Kuchen — це зустріч по обіді, а не вранці й не ввечері.
 
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: dl-a2-07-l03
@@ -345,15 +344,15 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-07-s02
 > text: Zum Abendbrot gibt es Brot, Käse und Wurst.
-> ipa: /tsʊm ˈaːbn̩tbʁoːt ɡiːpt ɛs bʁoːt ˈkɛːzə ʊnt vʊʁst/
+> ipa: /tsʊm ˈaːbn̩tˌbʁoːt ɡiːpt ɛs bʁoːt ˈkɛːzə ʊnt vʊʁst/
 > tip: gibt — [ɡiːpt], b на кінці складу глухне до [p]; Wurst — w читається як «в», u короткий.
 > uk: На вечерю є хліб, сир і ковбаса.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-07-s03
 > text: Eine Currywurst mit Pommes, bitte.
-> ipa: /ˈaɪ̯nə ˈkœʁivʊʁst mɪt pɔms ˈbɪtə/
-> tip: Currywurst — перший склад «кьо», як у Curry [ˈkœʁi]; Pommes — [pɔms], без «е» на кінці.
+> ipa: /ˈaɪ̯nə ˈkœʁiˌvʊʁst mɪt pɔms ˈbɪtə/
+> tip: Currywurst — перший склад з [œ] — коротке «е» з округленими губами, як у Curry [ˈkœʁi]; Pommes — [pɔms], без «е» на кінці.
 > uk: Одну каривурст із картоплею фрі, будь ласка.
 
 ## Типові помилки й пастки
@@ -368,7 +367,7 @@ estimatedMinutes: 40
 > Часто кажуть, що з 1516 року всю Німеччину змушували варити пиво за цим законом. Насправді його видали для **герцогства Баварія**; на інші землі він поширився пізніше. У тексті 1516 року **немає дріжджів** — їх назвали значно пізніше. Сьогодні положення Reinheitsgebot — частина німецького права про пиво, а не стародавнє «чудо без змін».
 
 > [!pitfall] «Ich bin voll» — не «я наївся»
-> Українське «я наївся» перекладай як **Ich bin satt**. Фразу *Ich bin voll* німці розуміють по-різному, а розмовне *voll sein* може означати «бути пʼяним». Ввічливо відмовитися від добавки: *Danke, ich bin satt.* А ще кажуть *Ich habe Hunger / Durst* («маю голод / спрагу»), а не «я голодний».
+> Українське «я наївся» перекладай як **Ich bin satt**. Фразу *Ich bin voll* німці розуміють по-різному, а розмовне *voll sein* може означати «бути пʼяним». Ввічливо відмовитися від добавки: *Danke, ich bin satt.* А ще частіше кажуть *Ich habe Hunger / Durst* («маю голод / спрагу»); *Ich bin hungrig / durstig* теж правильно, але звучить книжніше.
 
 ## Landeskunde-Text
 
@@ -377,7 +376,7 @@ estimatedMinutes: 40
 >
 > Viele Familien essen abends Abendbrot. Dann gibt es Brot, Butter, Käse, Wurst und Gurken, aber oft kein warmes Essen. Das warme Essen gibt es am Mittag. Am Sonntagnachmittag trinkt man Kaffee und isst Kuchen.
 >
-> Auch regional isst man verschieden. In Schwaben im Süden isst man gern Spätzle. Im Norden, zum Beispiel in Hamburg und Bremen, ist Labskaus eine bekannte Spezialität. In Bayern trinkt man dazu ein Bier. Das Reinheitsgebot für Bier gibt es seit 1516.
+> Auch regional isst man verschieden. In Schwaben im Süden isst man gern Spätzle. Im Norden, zum Beispiel in Hamburg und Bremen, ist Labskaus eine bekannte Spezialität. In Bayern trinkt man gern Bier. Das Reinheitsgebot für Bier gibt es seit 1516.
 >
 > *Слова:* *das Kulturerbe* — культурна спадщина; *immateriell* — нематеріальний; *regional* — регіональний, місцевий; *verschieden* — різний.
 
@@ -424,7 +423,7 @@ estimatedMinutes: 40
 > - [x] У Brotregister зафіксовано понад 3000 сортів.
 > - [x] Deutsche Brotkultur з 2014 року є в національному списку нематеріальної спадщини.
 > - [ ] Deutsche Brotkultur — обʼєкт Світової спадщини ЮНЕСКО.
-> - [ ] У Німеччині є лише три види хліба: світлий, темний і жито.
+> - [ ] У Німеччині є понад 30 000 сортів.
 >
 > **Пояснення:** національний список веде Німецька комісія у справах ЮНЕСКО, і це **не** міжнародний список ЮНЕСКО. Назви «Weltkulturerbe» в рекламі пекарень вводять в оману. Сортів значно більше трьох.
 
@@ -441,16 +440,16 @@ estimatedMinutes: 40
 > **Пояснення:** сніданок (*das Frühstück*) → обід (*das Mittagessen*) → кава й пиріг по обіді (*Kaffee und Kuchen*) → вечеря (*das Abendbrot*). Kaffee und Kuchen — не обовʼязковий щодня прийом, а звичай вихідних і гостин.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: A2 · type: fill · id: dl-a2-07-q08 · bank: Süden, Frühstück, Westen
+> level: A2 · type: fill · id: dl-a2-07-q08 · bank: Süden, Mittag, Westen
 >
 > ```text fill
-> Zum [[Abendbrot]] gibt es oft Brot, Käse und Wurst.
+> Am Abend gibt es oft [[Abendbrot]]: Brot, Käse und Wurst.
 > Spätzle sind eine Spezialität aus [[Schwaben]].
 > Labskaus kommt aus dem [[Norden]].
 > Das [[Reinheitsgebot]] ist ein Gesetz für Bier.
 > ```
 >
-> **Пояснення:** *Abendbrot* — холодна вечеря; *Schwaben* — регіон Spätzle; *aus dem Norden* — Dativ після *aus*; *das Reinheitsgebot* — середній рід. *Süden*, *Frühstück* і *Westen* — зайві слова.
+> **Пояснення:** *Abendbrot* — холодна вечеря (*am Abend* — ввечері); *Schwaben* — регіон Spätzle; *aus dem Norden* — Dativ після *aus*; *das Reinheitsgebot* — середній рід. *Süden*, *Mittag* і *Westen* — зайві слова.
 
 > [!quiz] Склади речення: «У неділю ми пʼємо каву й їмо пиріг».
 > level: A2 · type: order · id: dl-a2-07-q09

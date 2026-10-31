@@ -12,7 +12,7 @@ estimatedMinutes: 45
 
 > [!success] Після цього розділу ти зможеш
 > - назвати всі 16 *Bundesländer* і їхні столиці (*Landeshauptstädte*) та показати їх на схемі;
-> - розрізняти *Stadtstaaten*, *Flächenländer* і *Freistaaten*;
+> - розрізняти *Stadtstaaten* і *Flächenländer* та знати, що означає назва *Freistaat*;
 > - пояснити простими словами, що таке федералізм: що вирішує *der Bund*, а що — *die Länder*;
 > - не плутати Sachsen, Niedersachsen й Sachsen-Anhalt і казати *im Saarland*, а не «in Saarland»;
 > - прочитати й зрозуміти короткий текст німецькою про федеральні землі.
@@ -32,12 +32,12 @@ estimatedMinutes: 45
 
 ### Шістнадцять земель на одній сторінці
 
-Німеччина — не одна велика держава з одним центром, а **федерація**: федеральна республіка (*Bundesrepublik*), що складається з шістнадцяти земель. Кожна земля (*das Land*, мн. *die Länder*; щоб було ясно, що йдеться про землю, а не про країну, кажуть *das Bundesland*) має власну столицю (*Landeshauptstadt*), власний парламент (*Landtag*), власний уряд (*Landesregierung*) і власну конституцію. Деякі землі стали такими лише після 1945 року, пʼять східних — відновлено 3 жовтня 1990 року, коли НДР приєдналася до ФРН (Bundesregierung).
+Німеччина — не одна велика держава з одним центром, а **федерація**: федеральна республіка (*Bundesrepublik*), що складається з шістнадцяти земель. Кожна земля (*das Land*, мн. *die Länder*; щоб було ясно, що йдеться про землю, а не про країну, кажуть *das Bundesland*) має власну столицю (*Landeshauptstadt*), власний парламент (*Landtag*), власний уряд (*Landesregierung*) і власну конституцію. Більшість нинішніх земель утворилися лише після 1945 року, пʼять східних — відновлено 3 жовтня 1990 року, коли НДР приєдналася до ФРН (Bundesregierung).
 
 | Земля | Landeshauptstadt | Тип |
 |---|---|---|
 | Baden-Württemberg | Stuttgart | Flächenland |
-| Bayern | München | Freistaat |
+| Bayern | München | Flächenland (Freistaat) |
 | Berlin | Berlin | Stadtstaat |
 | Brandenburg | Potsdam | Flächenland |
 | Bremen | Bremen | Stadtstaat |
@@ -48,20 +48,20 @@ estimatedMinutes: 45
 | Nordrhein-Westfalen | Düsseldorf | Flächenland |
 | Rheinland-Pfalz | Mainz | Flächenland |
 | Saarland | Saarbrücken | Flächenland |
-| Sachsen | Dresden | Freistaat |
+| Sachsen | Dresden | Flächenland (Freistaat) |
 | Sachsen-Anhalt | Magdeburg | Flächenland |
 | Schleswig-Holstein | Kiel | Flächenland |
-| Thüringen | Erfurt | Freistaat |
+| Thüringen | Erfurt | Flächenland (Freistaat) |
 
-### Три типи земель
+### Два типи земель і особлива назва
 
 - **Stadtstaaten** — міста, які одночасно є землями: *Berlin*, *Hamburg* і *Bremen*. Land Bremen складається з двох міст — Bremen і Bremerhaven, між якими лежить територія Нижньої Саксонії (bpb).
-- **Flächenländer** — «територіальні» землі, що мають кілька міст, сіл і округів. Їх 13.
-- **Freistaaten** — *Bayern*, *Sachsen* і *Thüringen*. Це слово — історичне самоназвання (*Freistaat* = «вільна держава», на противагу монархії); юридично такі землі нічим не відрізняються від інших.
+- **Flächenländer** — «територіальні» землі, що мають кілька міст, сіл і округів. Їх 13 — разом із тими, що носять назву Freistaat.
+- **Freistaat** — не третій тип, а офіційна назва, яку носять три Flächenländer: *Bayern*, *Sachsen* і *Thüringen*. Це історичне самоназвання (*Freistaat* = «вільна держава», на противагу монархії); юридично такі землі нічим не відрізняються від інших.
 
 ### Великі й малі
 
-За даними Destatis (стан на 31.12.2024) найбільша за площею земля — Bayern (70 542 км², майже пʼята частина Німеччини), потім Niedersachsen (47 710 км²), Baden-Württemberg (35 748 км²) й Nordrhein-Westfalen (34 112 км²); найменша — Bremen (близько 420 км²). Найбільше жителів на 31.12.2025 — у Nordrhein-Westfalen: 17 986 214; далі Bayern (13 245 503) і Baden-Württemberg (11 238 761); найменше — у Bremen (706 915) і Saarland (1 007 342). Вся Німеччина — 83 467 117 жителів (Destatis).
+За даними Destatis площа вказана станом на 31.12.2024: найбільша за площею земля — Bayern (70 542 км², майже пʼята частина Німеччини), потім Niedersachsen (47 710 км²), Baden-Württemberg (35 748 км²) й Nordrhein-Westfalen (34 112 км²); найменша — Bremen (близько 420 км²). Найбільше жителів на 31.12.2025 — у Nordrhein-Westfalen: 17 986 214; далі Bayern (13 245 503) і Baden-Württemberg (11 238 761); найменше — у Bremen (706 915) і Saarland (1 007 342). Вся Німеччина — 83 467 117 жителів (Destatis).
 
 > [!diagram] Шістнадцять земель за сторонами світу
 > ```yaml
@@ -76,29 +76,29 @@ estimatedMinutes: 45
 >   - { id: be, col: o, label: "Stadtstaat", text: "Berlin", note: "Berlin", tone: pink }
 >   - { id: bb, col: o, label: "Flächenland", text: "Brandenburg", note: "Potsdam", tone: yellow }
 >   - { id: st, col: o, label: "Flächenland", text: "Sachsen-Anhalt", note: "Magdeburg", tone: yellow }
->   - { id: sn, col: o, label: "Freistaat", text: "Sachsen", note: "Dresden", tone: gray }
->   - { id: th, col: o, label: "Freistaat", text: "Thüringen", note: "Erfurt", tone: gray }
+>   - { id: sn, col: o, label: "Flächenland · Freistaat", text: "Sachsen", note: "Dresden", tone: gray }
+>   - { id: th, col: o, label: "Flächenland · Freistaat", text: "Thüringen", note: "Erfurt", tone: gray }
 >   - { id: nw, col: w, label: "Flächenland", text: "Nordrhein-Westfalen", note: "Düsseldorf", tone: yellow }
 >   - { id: he, col: w, label: "Flächenland", text: "Hessen", note: "Wiesbaden", tone: yellow }
 >   - { id: rp, col: w, label: "Flächenland", text: "Rheinland-Pfalz", note: "Mainz", tone: yellow }
 >   - { id: sl, col: w, label: "Flächenland", text: "Saarland", note: "Saarbrücken", tone: yellow }
 >   - { id: bw, col: s, label: "Flächenland", text: "Baden-Württemberg", note: "Stuttgart", tone: yellow }
->   - { id: by, col: s, label: "Freistaat", text: "Bayern", note: "München", tone: gray }
+>   - { id: by, col: s, label: "Flächenland · Freistaat", text: "Bayern", note: "München", tone: gray }
 > steps:
 >   - { show: [sh, hh, ni, hb], note: "Північ: Schleswig-Holstein (Kiel), Hamburg, Niedersachsen (Hannover) і Bremen. Hamburg і Bremen — Stadtstaaten." }
->   - { show: [mv, be, bb, st, sn, th], note: "Схід: шість земель — це переважно колишня НДР. Berlin — Stadtstaat, Sachsen й Thüringen — Freistaaten. Поділ за сторонами світу — орієнтовний, офіційного немає." }
+>   - { show: [mv, be, bb, st, sn, th], note: "Схід: шість земель — це переважно колишня НДР. Berlin — Stadtstaat, Sachsen й Thüringen — Flächenländer з назвою Freistaat. Поділ за сторонами світу — орієнтовний, офіційного немає." }
 >   - { show: [nw, he, rp, sl], note: "Захід: Nordrhein-Westfalen (Düsseldorf), Hessen (Wiesbaden), Rheinland-Pfalz (Mainz), Saarland (Saarbrücken)." }
 >   - { show: [bw, by], note: "Південь: Baden-Württemberg (Stuttgart) і Bayern (München, Freistaat)." }
 > ```
-> Рожевий — міста-землі, сірий — Freistaaten, жовтий — решта Flächenländer. Групування за сторонами світу — умовне, для запамʼятовування.
+> Рожевий — міста-землі, сірий — Flächenländer з назвою Freistaat, жовтий — решта Flächenländer. Групування за сторонами світу — умовне, для запамʼятовування.
 
 ### Федералізм простими словами
 
-Принцип записаний у Grundgesetz (Основному законі), стаття 30: *„Die Ausübung der staatlichen Befugnisse und die Erfüllung der staatlichen Aufgaben ist Sache der Länder, soweit dieses Grundgesetz keine andere Regelung trifft oder zulässt.“* Простими словами: якщо в конституції не сказано, що це робить **der Bund** (федерація), то це робить земля.
+Принцип записаний у Grundgesetz (Основному законі), стаття 30: *„Die Ausübung der staatlichen Befugnisse und die Erfüllung der staatlichen Aufgaben ist Sache der Länder, soweit dieses Grundgesetz keine andere Regelung trifft oder zuläßt.“* (так у чинному тексті на gesetze-im-internet.de; у сучасній орфографії — «zulässt») Простими словами: якщо в конституції не сказано, що це робить **der Bund** (федерація), то це робить земля.
 
 Федерація відповідає, зокрема, за зовнішню політику й оборону (*auswärtige Angelegenheiten, Verteidigung* — Grundgesetz, стаття 73). Землі мають останнє слово в освіті й культурі: Bundeszentrale für politische Bildung називає шкільну політику «Hausgut» земель, а понад 80 % видатків на культуру йдуть із бюджетів земель і громад. Тому й правила в школі, канікули чи програми різняться від землі до землі.
 
-Землі мають голос і на федеральному рівні — через **Bundesrat**. Це палата, у якій сидять члени урядів земель. Голосів у ній 69: кожна земля має від 3 до 6 голосів залежно від кількості жителів, і голосує землею як єдиним блоком (bpb). Тому закони, які зачіпають землі, не ухвалюються без Bundesrat.
+Землі мають голос і на федеральному рівні — через **Bundesrat**. Це палата, у якій сидять члени урядів земель. Голосів у ній 69: кожна земля має від 3 до 6 голосів залежно від кількості жителів, і голосує землею як єдиним блоком (bpb). Тому багато федеральних законів, які зачіпають землі, потребують згоди Bundesrat.
 
 > [!diagram] Хто за що відповідає
 > ```yaml
@@ -121,11 +121,11 @@ estimatedMinutes: 45
 - *Deutschland hat sechzehn Bundesländer.* — У Німеччині шістнадцять федеральних земель.
 - *Die Landeshauptstadt von Bayern ist München.* — Столиця Баварії — Мюнхен.
 - *Berlin, Hamburg und Bremen sind Stadtstaaten.* — Берлін, Гамбург і Бремен — міста-землі.
-- *Wir wohnen im Saarland, in Saarbrücken.* — Ми живемо в Заарланді, у Заарбрюккені.
+- *Wir wohnen im Saarland, in Saarbrücken.* — Ми живемо в Саарланді, у Саарбрюкені.
 - *Sachsen ist ein Freistaat.* — Саксонія — вільна держава (Freistaat).
 - *Meine Schwester studiert in Baden-Württemberg.* — Моя сестра вчиться в Баден-Вюртемберзі.
 - *Die Schule ist Ländersache.* — Школа — справа земель.
-- *Der Ministerpräsident von Hessen wohnt in Wiesbaden.* — Премʼєр-міністр Гессену живе у Вісбадені.
+- *Die Staatskanzlei von Hessen ist in Wiesbaden.* — Державна канцелярія Гессену — у Вісбадені.
 - *An der Nordsee und an der Ostsee gibt es viele Inseln.* — На Північному й Балтійському морях багато островів.
 - *Die Alpen liegen im Süden von Deutschland.* — Альпи лежать на півдні Німеччини.
 
@@ -148,7 +148,7 @@ estimatedMinutes: 45
 > note: Land + es + Hauptstadt. Не плутати з die Bundeshauptstadt (столиця держави, тобто Berlin).
 
 > [!word] der Stadtstaat
-> ipa: /ˈʃtatˌʃtaːt/ · pos: noun · level: A2 · id: dl-a2-02-w03
+> ipa: /ˈʃtatʃtaːt/ · pos: noun · level: A2 · id: dl-a2-02-w03
 > uk: місто-держава, місто-земля
 > forms: die Stadtstaaten
 > example: Hamburg ist ein **Stadtstaat**. — Гамбург — місто-земля.
@@ -183,7 +183,7 @@ estimatedMinutes: 45
 > note: не плутати з der Bundestag (парламент, який обирає народ). Окремий член Бундесрату — das Mitglied des Bundesrates.
 
 > [!word] der Landtag
-> ipa: /ˈlantˌtaːk/ · pos: noun · level: B1 · id: dl-a2-02-w08
+> ipa: /ˈlanttaːk/ · pos: noun · level: B1 · id: dl-a2-02-w08
 > uk: ландтаг (парламент землі)
 > forms: die Landtage
 > example: Der **Landtag** wählt den Ministerpräsidenten. — Ландтаг обирає премʼєр-міністра землі.
@@ -200,8 +200,8 @@ estimatedMinutes: 45
 > ipa: /miˈnɪstɐpʁɛziˌdɛnt/ · pos: noun · level: B1 · id: dl-a2-02-w10
 > uk: премʼєр-міністр (глава уряду землі)
 > forms: die Ministerpräsidenten
-> example: Der **Ministerpräsident** von Bayern wohnt in München. — Премʼєр-міністр Баварії живе в Мюнхені.
-> note: слабкий іменник: den Ministerpräsidenten. Жін. — die Ministerpräsidentin. У Berlin цю посаду називають Regierender Bürgermeister.
+> example: Der **Ministerpräsident** leitet die Landesregierung. — Премʼєр-міністр очолює уряд землі.
+> note: слабкий іменник: den Ministerpräsidenten. Жін. — die Ministerpräsidentin. У міст-земель посада називається інакше: у Berlin — Regierender Bürgermeister, у Hamburg — Erster Bürgermeister, у Bremen — Präsident des Senats.
 
 > [!word] der Bürgermeister
 > ipa: /ˈbʏʁɡɐˌmaɪ̯stɐ/ · pos: noun · level: A2 · id: dl-a2-02-w11
@@ -224,14 +224,14 @@ estimatedMinutes: 45
 > note: ä = [ɛ], ch після ä = [ç]. Одиниця — Quadratkilometer (км²).
 
 > [!word] die Nordsee
-> ipa: /ˈnɔʁtˌzeː/ · pos: noun · level: A2 · id: dl-a2-02-w14
+> ipa: /ˈnɔʁtzeː/ · pos: noun · level: A2 · id: dl-a2-02-w14
 > uk: Північне море
 > forms: — (без множини)
 > example: Hamburg liegt nicht direkt an der **Nordsee**. — Гамбург лежить не безпосередньо на Північному морі.
-> note: die See — «море» (у північних діалектах), das Meer — загальне слово. An der Nordsee (Dativ), an die Nordsee (Akkusativ, рух).
+> note: die See (жін.) — «море», переважно в назвах і морській лексиці (Nordsee, auf See); das Meer — загальне слово; der See (чол.) — «озеро», тож не плутай.  An der Nordsee (Dativ), an die Nordsee (Akkusativ, рух).
 
 > [!word] die Ostsee
-> ipa: /ˈɔstˌzeː/ · pos: noun · level: A2 · id: dl-a2-02-w15
+> ipa: /ˈɔstzeː/ · pos: noun · level: A2 · id: dl-a2-02-w15
 > uk: Балтійське море
 > forms: — (без множини)
 > example: Rostock liegt an der **Ostsee**. — Росток лежить на Балтійському морі.
@@ -298,7 +298,7 @@ estimatedMinutes: 45
 > uk: культура
 > forms: die Kulturen
 > example: Die **Kultur** ist Sache der Länder. — Культура — справа земель.
-> note: наголос на останньому складі: Kultúr. Суфікс -ur → die.
+> note: наголос на останньому складі: Kultúr. Суфікс -ur зазвичай → die (виняток — das Abitur).
 
 > [!word] bundesweit
 > ipa: /ˈbʊndəsˌvaɪ̯t/ · pos: adj · level: B1 · id: dl-a2-02-w25
@@ -329,7 +329,7 @@ estimatedMinutes: 45
 > - [ ] у Баварії
 > - [x] у Рейнланд-Пфальці
 > - [ ] у Гессені
-> - [ ] у Саарі
+> - [ ] у Саарланді
 >
 > **Пояснення:** *Rheinland-Pfalz* — земля на заході, Mainz — її столиця. Wiesbaden — столиця сусіднього Hessen; Saarland має Saarbrücken.
 
@@ -366,14 +366,14 @@ estimatedMinutes: 45
 > level: A2 · speed: slow · id: dl-a2-02-s02
 > text: Die Hauptstadt von Sachsen ist Dresden.
 > ipa: /diː ˈhaʊ̯ptʃtat fɔn ˈzaksn̩ ɪst ˈdʁeːsdn̩/
-> tip: Sachsen: ch після a = [x], x = [ks]; Sachsen — «закс-ен». Dresden: dr- = [dʁ], долгий [eː], потім [sdn̩].
+> tip: Sachsen: chs = [ks], тож «заксен». Dresden: dr- = [dʁ], довгий [eː], потім [sdn̩].
 > uk: Столиця Саксонії — Дрезден.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: dl-a2-02-s03
 > text: Ich wohne in Nordrhein-Westfalen.
-> ipa: /ɪç ˈvoːnə ɪn ˌnɔʁtʁaɪ̯nˈvɛstfaːlən/
-> tip: ich — [ç]; wohne — «во:не», h після o не звучить. Nordrhein: -rh- = [ʁ], ei = [aɪ̯]. Westfalen: w = [v], f = [f], -fa- довге [aː].
+> ipa: /ɪç ˈvoːnə ɪn ˌnɔʁtʁaɪ̯nvɛstˈfaːlən/
+> tip: ich — [ç]; wohne — «во:не», h після o не звучить. Nordrhein: -rh- = [ʁ], ei = [aɪ̯]. Westfalen: w = [v], f = [f], наголос на -fa-, воно довге [aː].
 > uk: Я живу в Північному Рейні-Вестфалії.
 
 ## Типові помилки й пастки
@@ -382,10 +382,10 @@ estimatedMinutes: 45
 > *Das Land* означає і «країну» (*Deutschland ist ein Land*), і «землю» (*Bayern ist ein Land*). Щоб уникнути плутанини, кажуть *Bundesland* (земля у федерації) або *Staat* (держава). Множина — *Länder* з умлаутом; *die Landeshauptstadt* — це столиця землі, а столиця Німеччини — *die Bundeshauptstadt*.
 
 > [!pitfall] Sachsen, Niedersachsen і Sachsen-Anhalt — різні землі
-> Три «сакси» не мають спільної території: *Sachsen* (Dresden) на сході, *Niedersachsen* (Hannover) на півночі, *Sachsen-Anhalt* (Magdeburg) між ними. Назва *Nieder-sachsen* означає «Нижня Саксонія», а *Sachsen-Anhalt* — окрема земля, що не є частиною Sachsen. На пошті чи в анкеті це три різні адреси.
+> Це три окремі землі: *Sachsen* (Dresden) на сході, *Niedersachsen* (Hannover) на півночі, *Sachsen-Anhalt* (Magdeburg) між ними. *Niedersachsen* означає «Нижня Саксонія», а *Sachsen-Anhalt* — не частина Sachsen. На пошті чи в анкеті це три різні адреси.
 
 > [!pitfall] Столиця землі ≠ найбільше місто
-> Столиця землі не завжди є її найбільшим містом. Nordrhein-Westfalen: столиця — *Düsseldorf*, але *Köln* — одна з чотирьох німецьких міст-мільйонників (Destatis). Hessen: столиця — *Wiesbaden*, а найвідоміше й найбільше місто — *Frankfurt am Main*. Тож відповідь на «Hauptstadt von NRW» — не Köln і не Dortmund.
+> Столиця землі не завжди є її найбільшим містом. Nordrhein-Westfalen: столиця — *Düsseldorf*, але *Köln* — одне з чотирьох німецьких міст-мільйонників (Destatis). Hessen: столиця — *Wiesbaden*, а найвідоміше й найбільше місто — *Frankfurt am Main*. Тож відповідь на «Hauptstadt von NRW» — не Köln і не Dortmund.
 
 > [!pitfall] «in Saarland» і «in Bayern»: артикль у назв земель
 > Майже всі землі вживаються без артикля: *in Bayern, in Sachsen, in Hessen, in Brandenburg*. Але *das Saarland* — з артиклем, середнього роду: *im Saarland* (= in dem), *ins Saarland* (= in das). Помилка «Ich wohne in Saarland» — дуже поширена. Складні назви землі (*Nordrhein-Westfalen*) теж без артикля.
@@ -397,7 +397,7 @@ estimatedMinutes: 45
 >
 > Jedes Land hat eine Landesregierung und ein Parlament, meistens den Landtag. Die Hauptstadt eines Landes heißt Landeshauptstadt. Das ist nicht immer die größte Stadt: In Nordrhein-Westfalen ist Düsseldorf die Landeshauptstadt, aber Köln ist größer.
 >
-> Die Länder entscheiden über viele Dinge, zum Beispiel über Schule und Kultur. Für Außenpolitik und Armee ist der Bund zuständig.
+> Die Länder entscheiden über viele Dinge, zum Beispiel über Schule und Kultur. Deshalb sind die Schulferien nicht in allen Ländern gleich. Für Außenpolitik und Armee ist der Bund zuständig. Der Bundesrat vertritt die Länder in Berlin.
 >
 > *Слова:* *entscheiden über* — вирішувати (щодо чогось); *meistens* — здебільшого; *die Armee* — армія.
 
@@ -408,7 +408,7 @@ estimatedMinutes: 45
 > - [x] 13
 > - [ ] fünf
 >
-> **Пояснення:** *Die anderen 13 sind Flächenländer.* Три земли — Stadtstaaten, решта — 16 − 3 = 13.
+> **Пояснення:** *Die anderen 13 sind Flächenländer.* Три землі — Stadtstaaten, решта — 16 − 3 = 13.
 
 > [!quiz] Lies den Text. Welches Land hat die meisten Einwohner?
 > level: A2 · type: single · id: dl-a2-02-q03
@@ -422,7 +422,7 @@ estimatedMinutes: 45
 > [!quiz] Lies den Text. Wofür ist der Bund zuständig?
 > level: A2 · type: single · id: dl-a2-02-q04
 > - [ ] für Schule und Kultur
-> - [ ] für Düsseldorf und Köln
+> - [ ] für die Wahlen zum Landtag
 > - [x] für Außenpolitik und Armee
 > - [ ] für die Landesregierung
 >
@@ -482,14 +482,14 @@ estimatedMinutes: 45
 >
 > **Пояснення:** школа й культура — традиційна сфера земель (bpb). Зовнішню політику й оборону веде *der Bund* (Grundgesetz, ст. 73).
 
-> [!quiz] Яка земля має найбільше жителів (31.12.2025)?
+> [!quiz] Яка з цих земель офіційно називається Freistaat?
 > level: A2 · type: single · id: dl-a2-02-q10
-> - [ ] Bayern — 13,2 млн
-> - [ ] Baden-Württemberg — 11,2 млн
-> - [x] Nordrhein-Westfalen — близько 18 млн
-> - [ ] Berlin — 3,7 млн
+> - [x] Sachsen
+> - [ ] Niedersachsen
+> - [ ] Sachsen-Anhalt
+> - [ ] Brandenburg
 >
-> **Пояснення:** NRW — 17 986 214 жителів (Destatis); Bayern — 13 245 503, Baden-Württemberg — 11 238 761. Berlin — найбільше *місто* Німеччини, але не найбільша земля.
+> **Пояснення:** Freistaat — назва лише трьох земель: Bayern, Sachsen і Thüringen. Niedersachsen і Sachsen-Anhalt — звичайні Flächenländer, хоч і мають «Sachsen» у назві.
 
 > [!quiz] Хто засідає в Бундесраті?
 > level: A2 · type: single · id: dl-a2-02-q11
@@ -500,7 +500,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *Bundesrat* — палата земель (69 голосів, bpb): в ній засідають члени урядів земель. Не плутай: Bundesrat — «рада земель», Bundestag — парламент, якого обирає народ.
 
-> [!quiz] Заповни пропуски: «в Саарі» і «в Баварії»
+> [!quiz] Заповни пропуски: «в Саарланді» і «в Баварії»
 > level: A2 · type: fill · bank: ins, in der · id: dl-a2-02-q12
 >
 > ```text fill
@@ -529,7 +529,7 @@ estimatedMinutes: 45
 > Land Bremen складається з двох міст — Bremen і Bremerhaven. Між ними — близько 65 км, і лежать вони не поруч: посередині — територія Нижньої Саксонії. Тож Bremen — найменша земля Німеччини, до того ж із двох міст, що не межують одне з одним (bpb).
 
 > [!reel] 🗳 Земля, яку схвалив референдум
-> Baden-Württemberg виникла 25 квітня 1952 року з трьох земель — Baden, Württemberg-Baden і Württemberg-Hohenzollern. Перед цим, 9 грудня 1951 року, 69,7 % голосів на консультативному референдумі були за єдину південно-західну державу. Це єдина німецька земля, обʼєднання якої люди схвалили голосуванням (lpb-bw.de).
+> Baden-Württemberg виникла 25 квітня 1952 року з трьох земель — Baden, Württemberg-Baden і Württemberg-Hohenzollern. Перед цим, 9 грудня 1951 року, 69,7 % голосів у вирішальному народному голосуванні були за єдину південно-західну державу (в одному з чотирьох округів, Південному Бадені, більшість була проти). За оцінкою LpB, це єдина німецька земля, створена за результатом такого голосування (lpb-bw.de).
 
 > [!reel] 🏛 Берлін і Бранденбург: «ні» 1996 року
 > 5 травня 1996 року жителі Berlin і Brandenburg голосували за злиття двох земель. У Berlin 53,4 % були «за», але в Brandenburg 62,7 % — «проти», тож злиття не відбулося (bpb). Berlin лежить усередині Brandenburg, і після невдалого злиття обидві землі співпрацюють через спільні установи, наприклад спільний орган планування з 1995 року (bpb).
@@ -537,12 +537,12 @@ estimatedMinutes: 45
 > [!reel] 🗺 Референдум у Saarland 1955 року
 > 23 жовтня 1955 року жителі Saarland на референдумі відхилили «Saarstatut» — європейський статус з економічним союзом з Францією (67,7 % «проти»). Після цього земля повернулася до ФРН: 1 січня 1957 року Saarland став десятою землею Західної Німеччини (LeMO).
 
-> [!reel] 🏭 Дюссельдорф проти Кельна
-> Столиця Nordrhein-Westfalen — Düsseldorf, але Köln — одне з чотирьох німецьких міст-мільйонників (поруч із Berlin, Hamburg і München; Destatis). Саме тому питання «Hauptstadt von NRW?» — класична пастка для тих, хто вчить німецьку: правильна відповідь Düsseldorf.
+> [!reel] ⚖ Бремен із 3 голосами, Баварія з 6
+> У Bundesrat 69 голосів: земля має від 3 до 6 залежно від кількості жителів, а голосує вона блоком (bpb). Bremen, яке має 706 915 жителів (Destatis), отримує 3 голоси, а Bayern із понад 13 мільйонами — 6. Тобто голос малої землі «важить» більше, ніж голос великої, якщо рахувати на одного жителя.
 
 ## Джерела та що почитати
 
-- Площа й населення: [Destatis — Bundesländer mit Hauptstädten nach Fläche, Bevölkerung und Dichte](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/_tabellen-innen-bevoelkerung-flaeche-wahlen.html); [Destatis — Bevölkerung Deutschlands 2025](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html); [Destatis — Zensus 2022](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zensus2022-Pressemitteilungen/PM_zensus2022_44.html) (Millionenstädte).
+- Площа й населення: [Destatis — Bundesländer mit Hauptstädten nach Fläche, Bevölkerung und Dichte](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/_tabellen-innen-bevoelkerung-flaeche-wahlen.html); [Destatis GENESIS — Bevölkerung: Bundesländer, Stichtag](https://genesis.destatis.de/datenbank/online/url/b194db1c); [Destatis — Bevölkerung Deutschlands 2025](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html); [Destatis — Zensus 2022](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zensus2022-Pressemitteilungen/PM_zensus2022_44.html) (Millionenstädte).
 - Федералізм: [bpb — Föderalismus und Bundesländer](https://www.bpb.de/themen/politisches-system/24-deutschland/40429/foederalismus-und-bundeslaender/); [bpb — Bundesrat](https://www.bpb.de/themen/politisches-system/deutsche-demokratie/39348/bundesrat/); [Grundgesetz, Art. 30](https://www.gesetze-im-internet.de/gg/art_30.html) і [Art. 73](https://www.gesetze-im-internet.de/gg/art_73.html).
 - Історія земель: [Baden-Württemberg — Entstehung des Südweststaats](https://www.baden-wuerttemberg.de/de/unser-land/geschichte/entstehung-des-suedweststaats); [LpB BW — Gründung des Landes Baden-Württemberg](https://www.lpb-bw.de/entstehung-baden-wuerttembergs); [bpb Deutschland-Chronik — 5. Mai 1996](https://www.bpb.de/themen/zeit-kulturgeschichte/deutschland-chronik/132377/5-mai-1996/); [LeMO — Saarfrage](https://www.hdg.de/lemo/kapitel/geteiltes-deutschland-gruenderjahre/weg-nach-westen/saarfrage.html); [bpb — Land (Freie Hansestadt) Bremen](https://www.bpb.de/kurz-knapp/lexika/handwoerterbuch-politisches-system/202054/land-freie-hansestadt-bremen/); [Bundesregierung — Die Einheit ist Wirklichkeit](https://www.bundesregierung.de/breg-de/schwerpunkte/deutsche-einheit/die-einheit-ist-wirklichkeit-432814).
 
