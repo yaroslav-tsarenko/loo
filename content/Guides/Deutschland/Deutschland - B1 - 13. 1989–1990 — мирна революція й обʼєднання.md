@@ -52,15 +52,15 @@ estimatedMinutes: 45
 
 ### Лейпциг: понеділки, які змінили країну
 
-4 вересня 1989 року після молитви за мир на площі біля Nikolaikirche лишилися, за даними bpb, близько 1200 людей — це була перша **Montagsdemonstration**. Вони розгорнули транспаранти: *«Für ein offenes Land mit freien Menschen»* («За відкриту країну з вільними людьми»), *«Reisefreiheit statt Massenflucht»* («Свобода подорожей замість масової втечі»). Співробітники Штазі в цивільному зірвали їх — на очах західних журналістів, які приїхали на Лейпцизький ярмарок. Через тиждень, 11 вересня, поліція затримала багатьох учасників. Щопонеділка людей ставало більше: 25 вересня — близько 5000, 2 жовтня — понад 20 000.
+4 вересня 1989 року після молитви за мир на площі біля Nikolaikirche лишилися, за даними bpb, близько 1200 людей — це була перша **Montagsdemonstration**. Вони розгорнули транспаранти: *«Für ein offenes Land mit freien Menschen»* («За відкриту країну з вільними людьми»), *«Reisefreiheit statt Massenflucht»* («Свобода подорожей замість масової втечі»). Співробітники Штазі в цивільному зірвали їх — на очах західних журналістів, які приїхали на Лейпцизький ярмарок. Через тиждень, 11 вересня, поліція затримала багатьох учасників. Щопонеділка людей ставало більше: 25 вересня — близько 5000, 2 жовтня — близько 20 000.
 
-7 жовтня керівництво СЄПН урочисто святкувало 40-річчя НДР; почесним гостем був Горбачов. 9 жовтня в Лейпцигу вийшли щонайменше 70 000 людей. Влада стягнула поліцію, Штазі й робітничі бойові загони — але ті не втрутилися. Демонстранти скандували:
+7 жовтня керівництво СЄПН урочисто святкувало 40-річчя НДР; почесним гостем був Горбачов. 9 жовтня в Лейпцигу вийшли, за оцінками, щонайменше 70 000 людей. Влада стягнула поліцію, Штазі й робітничі бойові загони — але ті не втрутилися. Демонстранти скандували:
 
 > [!quote] Лейпциг, 9 жовтня 1989
 > **«Wir sind das Volk!»** — «Народ — це ми!»
 > **«Keine Gewalt!»** — «Без насильства!»
 
-Після 9 жовтня страх зник: 16 жовтня вийшли понад 120 000, 30 жовтня — за різними оцінками, близько 200 000. 18 жовтня ЦК СЄПН оголосив про відставку Еріха Гонеккера (Erich Honecker) — офіційно «за станом здоровʼя»; наступником став Egon Krenz. Того ж вечора по телебаченню він пообіцяв: *«Mit der heutigen Tagung werden wir eine Wende einleiten»* — «Сьогоднішнім засіданням [ЦК] ми почнемо поворот». 4 листопада на Alexanderplatz у Берліні зібралися сотні тисяч людей (за різними оцінками; Bundesregierung називає 500 000) — наймасовіша демонстрація проти системи в історії НДР.
+Після 9 жовтня страх зник: 16 жовтня, за оцінками, вийшли понад 100 000 (до 120 000), 30 жовтня — за різними оцінками, близько 200 000. 18 жовтня ЦК СЄПН оголосив про відставку Еріха Гонеккера (Erich Honecker) — офіційно «за станом здоровʼя»; наступником став Egon Krenz. Того ж вечора по телебаченню він пообіцяв: *«Mit der heutigen Tagung werden wir eine Wende einleiten»* — «Сьогоднішнім засіданням [ЦК] ми почнемо поворот». 4 листопада на Alexanderplatz у Берліні зібралися сотні тисяч людей (оцінки — від 200 000 до мільйона; Bundesregierung називає 500 000) — наймасовіша демонстрація проти системи в історії НДР.
 
 ### 9 листопада 1989: «sofort, unverzüglich»
 
@@ -70,9 +70,9 @@ estimatedMinutes: 45
 > **«Das tritt nach meiner Kenntnis … ist das sofort, unverzüglich.»**
 > «Це набуває, наскільки я знаю, … це негайно, без зволікань».
 
-Речення збилося посередині — Шабовський не знав, що правила мали діяти з наступного дня. Західне телебачення передало новину, і люди пішли до пунктів пропуску. Близько 21:20 на Bornholmer Straße почали випускати частину людей — проштамповуючи паспорти так, щоб їх не впустили назад (*Ventillösung*, «рішення-клапан»). Близько 23:30 підполковник паспортного контролю Harald Jäger, побоюючись за життя своїх людей, припинив контроль і відкрив пункт. До півночі відчинилися всі пункти пропуску в Берліні. Стіна, яка 28 років ділила місто, впала — **der Mauerfall**.
+Речення збилося посередині — Шабовський не знав, що правила мали діяти з наступного дня. Західне телебачення передало новину, і люди пішли до пунктів пропуску. Близько 21:20 на Bornholmer Straße почали випускати частину людей — проштамповуючи паспорти так, щоб їх не впустили назад (*Ventillösung*, «рішення-клапан»). Близько 23:30 підполковник паспортного контролю Harald Jäger, побоюючись за життя своїх людей, припинив контроль і відкрив пункт. У ніч на 10 листопада відчинилися й інші пункти пропуску в Берліні. Стіна, яка 28 років ділила місто, впала — **der Mauerfall**.
 
-Того ж вечора, близько 20:30, новина дійшла до Бундестагу в Бонні: депутати перервали засідання й заспівали гімн. 10 листопада колишній канцлер Willy Brandt приїхав до ратуші Шенеберг у Західному Берліні. Того дня в радіоінтервʼю (SFB) він сказав:
+Того ж вечора, о 20:22, новина дійшла до Бундестагу в Бонні, і засідання перервали; коли о 20:46 його відновили, а близько 21:00 засідання завершилося, депутати стоячи заспівали гімн. 10 листопада колишній канцлер Willy Brandt приїхав до ратуші Шенеберг у Західному Берліні. Того дня в радіоінтервʼю (SFB) він сказав:
 
 > [!quote] Willy Brandt, інтервʼю радіо SFB, 10 листопада 1989
 > **«Jetzt sind wir in einer Situation, in der wieder zusammenwächst, was zusammengehört.»** — «Тепер ми в ситуації, коли знову зростається те, що належить одне одному».
@@ -104,7 +104,7 @@ estimatedMinutes: 45
 >   - { move: { from: zpv, to: einheit, value: "0:00 Uhr" }, note: "3 жовтня 1990 року опівночі приєднання набуло чинності: пʼять нових земель стали частиною ФРН." }
 > ```
 
-**Валютний союз.** Договір про валютний, економічний і соціальний союз (**die Währungsunion**) підписали 18 травня, а 1 липня 1990 року D-Mark стала грошима НДР. Зарплати, пенсії, орендна плата — 1:1. Заощадження міняли 1:1 у межах ліміту за віком: до 14 років — 2000 марок НДР, 15–59 — 4000, від 60 — 6000; усе понад ліміт — 2:1. Для порівняння: за даними Bundesregierung, одразу після падіння Стіни на «чорному ринку» за одну D-Mark давали близько 8 марок НДР.
+**Валютний союз.** Договір про валютний, економічний і соціальний союз (**die Währungsunion**) підписали 18 травня, а 1 липня 1990 року D-Mark стала грошима НДР. Зарплати, пенсії, орендна плата — 1:1. Заощадження міняли 1:1 у межах ліміту за віком: до 14 років — 2000 марок НДР, 15–59 — 4000, від 60 — 6000; усе понад ліміт — 2:1. Для порівняння: за даними Bundesregierung, одразу після падіння Стіни на «чорному ринку» за одну D-Mark давали близько 20 марок НДР, а на початку 1990 року — близько 8.
 
 **Договір про обʼєднання.** 23 серпня Volkskammer 294 голосами проти 62 (7 утрималися) ухвалила приєднання НДР до сфери дії Основного закону (**der Beitritt**, стаття 23) з 3 жовтня 1990 року. 31 серпня Wolfgang Schäuble (ФРН) і Günther Krause (НДР) підписали **Einigungsvertrag**: Берлін — столиця, 3 жовтня — державне свято замість 17 червня.
 
@@ -150,7 +150,7 @@ estimatedMinutes: 45
 | | Німеччина (НДР) | Україна |
 |---|---|---|
 | громадянський рух | осінь 1989 — нові групи (Neues Forum та інші), понеділкові демонстрації в Лейпцигу з 4 вересня | 8–10 вересня 1989 — установчий зʼїзд Народного руху України за перебудову в Києві |
-| масова акція | 9 жовтня 1989 — Лейпциг, щонайменше 70 000 людей | 21 січня 1990 — «Ланцюг єднання» між Києвом і Львовом, майже 700 км; за різними оцінками, від 400 000 до 3 млн учасників |
+| масова акція | 9 жовтня 1989 — Лейпциг, щонайменше 70 000 людей | 21 січня 1990 — «Ланцюг злуки» між Києвом і Львовом, майже 700 км; за різними оцінками, від 400 000 до 3 млн учасників |
 | мирний протест змінює владу | 18 жовтня 1989 — відставка Гонеккера; з 7 грудня — Круглий стіл | 2–17 жовтня 1990 — «Революція на граніті»: студентське голодування в Києві; Верховна Рада частково задовольнила вимоги, голову уряду Віталія Масола відправили у відставку |
 | декларація | — | 16 липня 1990 — Декларація про державний суверенітет |
 | ключовий акт | 23 серпня 1990 — Volkskammer вирішує приєднатися до ФРН | 24 серпня 1991 — Верховна Рада проголошує незалежність (після серпневого путчу в Москві) |
@@ -249,9 +249,9 @@ estimatedMinutes: 45
 > note: дієслово: *die Mauer fiel* (fallen → fiel → ist gefallen).
 
 > [!word] zusammenwachsen
-> ipa: /tsuˈzamənˌvaksn̩/ · pos: verb · level: B2 · id: dl-b1-13-w12
+> ipa: /tsuˈzamənvaksn̩/ · pos: verb · level: B2 · id: dl-b1-13-w12
 > uk: зростатися, зливатися в одне ціле
-> forms: er wächst zusammen · wuchs zusammen · ist zusammengewachsen
+> forms: zusammenwachsen → wuchs zusammen → ist zusammengewachsen
 > example: Ost und West **wachsen** nur langsam **zusammen**. — Схід і Захід зростаються лише повільно.
 > note: відокремлюваний префікс. Не плутай із *zusammengehören* — «належати одне одному» (*was zusammengehört*). Брандт: *… in der wieder zusammenwächst, was zusammengehört*.
 
@@ -425,9 +425,9 @@ estimatedMinutes: 45
 ## Landeskunde-Text
 
 > [!example] Leipzig, Herbst 1989
-> Seit 1982 treffen sich Menschen jeden Montag in der Nikolaikirche in Leipzig zum Friedensgebet. Im Herbst 1989 gehen sie nach dem Gebet nicht mehr einfach nach Hause. Am 4. September bleiben etwa 1.200 Menschen vor der Kirche stehen. Auf ihren Plakaten steht: „Für ein offenes Land mit freien Menschen“. Stasi-Leute reißen die Plakate herunter. Eine Woche später nimmt die Polizei viele Menschen fest.
+> Seit 1982 treffen sich Menschen jeden Montag in der Nikolaikirche in Leipzig zum Friedensgebet. Im Herbst 1989 gehen sie nach dem Gebet nicht mehr einfach nach Hause. Am 4. September bleiben etwa 1.200 Menschen vor der Kirche stehen. Stasi-Leute reißen die Plakate herunter. Eine Woche später nimmt die Polizei viele Menschen fest.
 >
-> Doch jede Woche kommen mehr Menschen. Am 9. Oktober haben viele Leipziger große Angst, denn Polizei, Stasi und Kampfgruppen stehen bereit. Trotzdem gehen an diesem Abend mindestens 70.000 Menschen über den Innenstadtring. Sie rufen „Keine Gewalt!“ und „Wir sind das Volk!“. Die Sicherheitskräfte greifen nicht ein. Eine Woche später sind es schon mehr als 120.000 Menschen.
+> Doch jede Woche kommen mehr Menschen. Am 9. Oktober haben viele Leipziger große Angst, denn Polizei, Stasi und Kampfgruppen stehen bereit. Trotzdem gehen an diesem Abend mindestens 70.000 Menschen über den Innenstadtring. Sie rufen „Keine Gewalt!“ und „Wir sind das Volk!“. Die Sicherheitskräfte greifen nicht ein.
 >
 > Nach dem Fall der Mauer am 9. November ändert sich der Ruf. Viele rufen jetzt „Wir sind ein Volk!“. Sie wollen nicht mehr nur eine bessere DDR, sie wollen die deutsche Einheit. Weniger als ein Jahr später, am 3. Oktober 1990, gibt es die DDR nicht mehr.
 >
@@ -519,14 +519,15 @@ estimatedMinutes: 45
 >
 > **Пояснення:** явка ≈ 93,4 %; Allianz für Deutschland — 48 %, SPD — 22 %, PDS — 16 %. Виборці підтримали швидку єдність. Премʼєром став Lothar de Maizière.
 
-> [!quiz] Валютний союз 1 липня 1990 року. Що міняли за курсом 1:1?
-> level: B1 · type: single · id: dl-b1-13-q10
-> - [x] зарплати, пенсії й орендну плату, а заощадження — у межах ліміту за віком
-> - [ ] усі гроші без винятку
-> - [ ] лише готівку до 100 марок
-> - [ ] нічого — курс був 1:8, як на «чорному ринку»
+> [!quiz] Валютний союз 1 липня 1990 року: заповни курс обміну
+> level: B1 · type: fill · id: dl-b1-13-q10
 >
-> **Пояснення:** регулярні виплати — 1:1; заощадження 1:1 — до 2000 марок (діти до 14), 4000 (15–59) або 6000 (від 60), усе більше — 2:1. Курс 1:8 — це «чорний ринок» після падіння Стіни.
+> ```text fill
+> Löhne und Renten wurden im Verhältnis [[1]] zu 1 umgestellt.
+> Ersparnisse über dem Freibetrag wurden im Verhältnis [[2]] zu 1 umgestellt.
+> ```
+>
+> **Пояснення:** регулярні виплати — 1:1; заощадження 1:1 — до 2000 марок (діти до 14), 4000 (15–59) або 6000 (від 60), усе більше — 2:1. Курс 1:8 чи 1:20 — це «чорний ринок» кінця 1989 – початку 1990 року, а не офіційний курс.
 
 > [!quiz] Що таке Zentraler Runder Tisch?
 > level: B1 · type: single · id: dl-b1-13-q11
@@ -535,13 +536,13 @@ estimatedMinutes: 45
 > - [ ] засідання чотирьох держав-переможниць щодо Німеччини
 > - [ ] зустрічі Коля й Горбачова на Кавказі
 >
-> **Пояснення:** перше засідання — 7 грудня 1989 року в Берліні, модерували троє священників; 16 засідань, проєкт конституції, вимога розпустити Штазі й перенесення виборів на 18 березня.
+> **Пояснення:** перше засідання — 7 грудня 1989 року в Берліні, модерували троє священиків; 16 засідань, проєкт конституції, вимога розпустити Штазі й перенесення виборів на 18 березня.
 
 > [!quiz] Чому національне свято — 3 жовтня, а не 9 листопада?
 > level: B1 · type: single · id: dl-b1-13-q12
 > - [ ] 9 листопада Стіна ще не впала.
 > - [x] 9 листопада — також день погрому 1938 року й путчу Гітлера 1923 року; день вважали надто обтяженим для свята.
-> - [ ] 3 жовтня — день народження Гельмута Коля.
+> - [ ] 3 жовтня 1990 року в Москві підписали «Два плюс чотири».
 > - [ ] Так вирішили держави-переможниці в договорі «Два плюс чотири».
 >
 > **Пояснення:** 9 листопада в німецькій історії — і 1918 (проголошення республіки), і 1923, і 1938, і 1989. Einigungsvertrag зробив святом 3 жовтня — день, коли єдність набула чинності.
@@ -561,23 +562,23 @@ estimatedMinutes: 45
 
 > [!quiz] Що спільного у Німеччини 1990 і України 1991 років?
 > level: B1 · type: single · id: dl-b1-13-q14
-> - [ ] Обидві країни приєдналися до сусідньої держави.
+> - [ ] Обидві країни стали частиною сусідньої держави за результатами голосування.
 > - [x] Обидва процеси стали можливими через ослаблення СРСР, і обидва підтвердили люди: Німеччина — вільними виборами березня 1990-го, Україна — референдумом 1 грудня 1991 року (понад 90 % «за»).
-> - [ ] Обидві країни проголосили незалежність 24 серпня.
-> - [ ] В обох країнах вирішальним був договір «Два плюс чотири».
+> - [ ] Обидві країни проголосили незалежність 24 серпня 1990 року.
+> - [ ] В обох країнах вирішальним був міжнародний договір «Два плюс чотири» з чотирма державами-переможницями.
 >
 > **Пояснення:** мета різна: НДР приєдналася до ФРН, Україна стала незалежною державою (Акт 24 серпня 1991 року, референдум 1 грудня). Спільне — момент історії: реформи Горбачова й розпад радянського блоку.
 
 ## Фішки
 
 > [!reel] 🗺 Пікнік, що відкрив кордон
-> 19 серпня 1989 року на угорсько-австрійському кордоні біля Шопрона влаштували «Панєвропейський пікнік». Кордон відчинили на кілька годин — і понад 700 громадян НДР просто перейшли в Австрію. Через три тижні Угорщина відкрила кордон для громадян НДР.
+> 19 серпня 1989 року на угорсько-австрійському кордоні біля Шопрона влаштували «Панʼєвропейський пікнік». Кордон відчинили на кілька годин — і понад 700 громадян НДР просто перейшли в Австрію. Через три тижні Угорщина відкрила кордон для громадян НДР.
 
-> [!reel] 💬 Горбачов цього не казав
-> «Wer zu spät kommt, den bestraft das Leben» — «Хто запізнюється, того карає життя» — приписують Горбачову в Берліні 7 жовтня 1989-го. Справжні слова: «Wenn wir zurückbleiben, bestraft uns das Leben sofort». Крилату фразу зробили з перекладу.
+> [!reel] 💬 Горбачов так дослівно не казав
+> «Wer zu spät kommt, den bestraft das Leben» — «Хто запізнюється, того карає життя» — приписують Горбачову в Берліні 7 жовтня 1989-го. Те, що він справді сказав: «Wenn wir zurückbleiben, bestraft uns das Leben sofort». Крилату фразу зробив переклад.
 
 > [!reel] 🎤 Бундестаг заспівав гімн
-> Увечері 9 листопада 1989 року, близько 20:30, звістка про відкритий кордон дійшла до Бундестагу в Бонні. Депутати перервали засідання — і спонтанно заспівали національний гімн.
+> Увечері 9 листопада 1989 року, о 20:22, звістка про відкритий кордон дійшла до Бундестагу в Бонні, і засідання перервали. Близько 21:00 депутати спонтанно заспівали національний гімн.
 
 > [!reel] 📰 НДР заборонила радянський журнал
 > У листопаді 1988 року НДР викреслила радянський *Sputnik* зі списку дозволених видань: мовляв, він «перекручує історію». Для СЄПН журнал був надто «перебудовним». Посипалися листи-протести, дехто вийшов з партії, а повернути *Sputnik* пообіцяли лише за Кренца, у жовтні 1989-го.
@@ -596,7 +597,7 @@ estimatedMinutes: 45
 - Модератори Круглого столу: bpb Deutschland Archiv — [«Das Alte des Westens wurde das Neue im Osten»](https://www.bpb.de/themen/deutschlandarchiv/311849/das-alte-des-westens-wurde-das-neue-im-osten/) (підпис до фото з іменами й церквами модераторів).
 - LeMO (Haus der Geschichte) — [40 Jahre DDR](https://www.hdg.de/lemo/kapitel/deutsche-einheit/friedliche-revolution/40-jahre-ddr.html), [біографія Горбачова](https://www.hdg.de/lemo/biografie/michail-gorbatschow.html).
 - Deutscher Bundestag, Wissenschaftliche Dienste — [Gebrauch der Abkürzung BRD](https://www.bundestag.de/resource/blob/494506/dae9e4a85e6baeaff1770647ed7250a6/Gebrauch-der-Abkuerzung-BRD.pdf) (PDF).
-- Україна 1990–1991: bpb — [Zeittafel Ukraine](https://www.bpb.de/shop/zeitschriften/izpb/info-aktuell/209827/zeittafel/), [Russland und Ukraine](https://www.bpb.de/themen/europa/russland/303242/russland-und-ukraine/); Ukraine-Analysen — [Was bedeutet das Ende der Sowjetunion für die heutige Ukraine?](https://laender-analysen.de/ukraine-analysen/255/was-bedeutet-das-ende-der-sowjetunion-fuer-die-heutige-ukraine-eine-einleitung/); Український інститут національної памʼяті — [установчий зʼїзд Руху, 8–10 вересня 1989](https://uinp.gov.ua/istorychnyy-kalendar/veresen/8/1989-vidkryvsya-ustanovchyy-zyizd-narodnogo-ruhu-ukrayiny-za-perebudovu), [«Ланцюг єднання», 21 січня 1990](https://uinp.gov.ua/istorychnyy-kalendar/sichen/21/1990-symvolichnyy-lancyug-zluky-ukrayinska-hvylya-vid-kyyeva-do-lvova), [«Революція на граніті», 2–17 жовтня 1990](https://uinp.gov.ua/informaciyni-materialy/vchytelyam/metodychni-rekomendaciyi/postaly-za-a-ne-proty-do-richnyci-revolyuciyi-na-graniti-2-17-zhovtnya-1990-roku).
+- Україна 1990–1991: bpb — [Zeittafel Ukraine](https://www.bpb.de/shop/zeitschriften/izpb/info-aktuell/209827/zeittafel/), [Russland und Ukraine](https://www.bpb.de/themen/europa/russland/303242/russland-und-ukraine/);  Український інститут національної памʼяті — [установчий зʼїзд Руху, 8–10 вересня 1989](https://uinp.gov.ua/istorychnyy-kalendar/veresen/8/1989-vidkryvsya-ustanovchyy-zyizd-narodnogo-ruhu-ukrayiny-za-perebudovu), [«Ланцюг злуки», 21 січня 1990](https://uinp.gov.ua/istorychnyy-kalendar/sichen/21/1990-symvolichnyy-lancyug-zluky-ukrayinska-hvylya-vid-kyyeva-do-lvova), [«Революція на граніті», 2–17 жовтня 1990](https://uinp.gov.ua/informaciyni-materialy/vchytelyam/metodychni-rekomendaciyi/postaly-za-a-ne-proty-do-richnyci-revolyuciyi-na-graniti-2-17-zhovtnya-1990-roku).
 
 > [!important] Підсумок
 > - 1989: Угорщина відкриває кордон (11.09) → Лейпциг, щонайменше 70 000, *Keine Gewalt! Wir sind das Volk!* (09.10) → відставка Гонеккера (18.10) → Alexanderplatz (04.11) → *sofort, unverzüglich* і **Mauerfall** (09.11) → **Runder Tisch** (07.12).

@@ -51,27 +51,27 @@ estimatedMinutes: 45
 
 Що вирішила Bulle:
 - право обирати короля мають **семеро** Kurfürsten: три духовних (архієпископи Mainz, Köln, Trier) і чотири світських (король Böhmen, пфальцграф Pfalz, герцог Sachsen, маркграф Brandenburg);
-- рішення приймають більшістю голосів;
-- курфюрства (*Kurländer*) неподільні;
+- рішення ухвалюють більшістю голосів;
+- курфюрства (*die Kurfürstentümer*) неподільні;
 - закон діяв як основний закон Reich (*Reichsgrundgesetz*) аж до 1806 року.
 
 Важливо: Bulle оформила звичай, а не вигадала його. Вона не «створила демократію»: виборцями були семеро наймогутніших осіб імперії.
 
 ### Reichsstädte: місто, підпорядковане лише імператору
 
-**Freie Reichsstädte** підпорядковувалися безпосередньо імператору, а не місцевому князю. Особливий статус сучасних міст-земель Hamburg і Bremen походить із цієї доби (Planet Wissen). Але не всі ганзейські міста були імперськими, й навпаки.
+**Freie Reichsstädte** підпорядковувалися безпосередньо імператору, а не місцевому князю. Особливий статус сучасних міст-земель Hamburg і Bremen має історичне коріння в цій добі (імперську безпосередність Бремен формально закріпив 1646 року, Гамбург — 1768 року). Але не всі ганзейські міста були імперськими, й навпаки.
 
 ### Hanse: мережа, а не держава
 
-У середині XII століття німецькі купці створювали обʼєднання (*Genossenschaften*). Слово **Hanse** походить зі староверхньонімецького слова зі значенням «загін, супровід» (Planet Wissen). Зі спілки купців (*Kaufmannshanse*) виросла спілка міст (*Städtehanse*). Lübeck, засноване 1143 року (археологічні сліди поселення сягають близько 800 року), стало її лідером; 1235 року німецькі купці заснували факторію в Брюгге.
+У середині XII століття німецькі купці створювали обʼєднання (*Genossenschaften*). Слово **Hanse** походить зі староверхньонімецького слова зі значенням «загін, супровід» (Planet Wissen). Зі спілки купців (*Kaufmannshanse*) виросла спілка міст (*Städtehanse*). Любек, заснований 1143 року (археологічні сліди поселення сягають близько 800 року), стало її лідером; у Брюгге німецькі купці здобули привілеї й заснували факторію (за різними даними, 1235 або 1252/53 року).
 
 **Hansetag** — збори представників міст. Перший відбувся 1356 року в Lübeck, останній — 1669 року. Попри роль головного органу, у нього не було бюджету, статуту й писаного договору. Джерела подекуди називають іншу дату першого зібрання (1358), тож рік 1356 — загальноприйнятий, але не єдиний.
 
-У розквіт (XIV–XVI століття) до Hanse належало до 200 міст. Чотири головні **Kontore**: Лондон (Stalhof, закритий 1603), Брюгге, Берген і Новгород (закритий 1494 року Іваном III). Торгували, зокрема, англійською вовною та товарами з Балтики. Типовий корабель — **Kogge**.
+У розквіт (XIV–XVI століття) до Hanse належало до 200 міст. Чотири головні **Kontore**: Лондон (Stalhof, закритий наприкінці XVI століття: за різними даними, 1598 або 1603 року), Брюгге, Берген і Новгород (закритий 1494 року Іваном III). Торгували, зокрема, англійською вовною та товарами з Балтики. Типовий корабель — **Kogge**.
 
 **Занепад** розпочався в середині XV століття: Данія 1429 року ввела мито для суден, що проходили протоками; з Нідерландами й Англією зросла конкуренція, а князі змушували деякі міста виходити зі спілки. 1669 року на останній Hansetag зʼїхалася жменька міст.
 
-Сьогодні слово живе в назвах: **Hansestadt** — офіційна частина назви кількох міст, наприклад Hamburg, Bremen, Lübeck. 1980 року в нідерландському Zwolle засновано сучасну спілку міст «Die Hanse», яка раз на два роки збирається в різних містах.
+Сьогодні слово живе в назвах: **Hansestadt** — офіційна частина назви кількох міст, наприклад Hamburg, Bremen, Lübeck. 1980 року в нідерландському Zwolle засновано сучасну спілку міст «Die Hanse», яка щороку збирається на Hansetag в іншому місті.
 
 > [!diagram] Імперія й Ганза: від 962 до 1806
 > ```yaml
@@ -110,7 +110,7 @@ estimatedMinutes: 45
 - *Eine Reichsstadt gehörte direkt dem Kaiser.* — Імперське місто підпорядковувалося безпосередньо імператору.
 - *Die Hanse war ein Bund von Kaufleuten und Städten.* — Ганза була союзом купців і міст.
 - *Der erste Hansetag fand 1356 in Lübeck statt.* — Перший Hansetag відбувся 1356 року в Любеку.
-- *Die Kogge war das typische Schiff der Hanse.* — Коґґе було типовим кораблем Ганзи.
+- *Die Kogge war das typische Schiff der Hanse.* — Ког був типовим кораблем Ганзи.
 - *Die Kaufleute hatten Kontore in London und Bergen.* — Купці мали контори в Лондоні й Бергені.
 - *Hamburg trägt bis heute den Titel „Hansestadt“.* — Гамбург і донині носить титул «ганзейське місто».
 - *Der Papst krönte den König zum Kaiser.* — Папа коронував короля імператором.
@@ -120,7 +120,7 @@ estimatedMinutes: 45
 ### Влада й вибори
 
 > [!word] das Heilige Römische Reich
-> ipa: /das ˈhaɪ̯lɪɡə ˈʁøːmɪʃə ˈʁaɪ̯ç/ · pos: phrase · level: B1 · id: dl-b1-02-w01
+> ipa: /ˈhaɪ̯lɪɡə ˈʁøːmɪʃə ˈʁaɪ̯ç/ · pos: phrase · level: B1 · id: dl-b1-02-w01
 > uk: Священна Римська імперія (962–1806)
 > example: Das **Heilige Römische Reich** bestand von 962 bis 1806. — Священна Римська імперія існувала з 962 до 1806 року.
 > note: скорочено *das Reich* або *das Alte Reich*; «Deutscher Nation» додали у пізньому Середньовіччі. Прикметники відмінюються: *im Heiligen Römischen Reich*.
@@ -130,7 +130,7 @@ estimatedMinutes: 45
 > uk: імперія, держава
 > forms: die Reiche
 > example: Das **Reich** hatte keine feste Hauptstadt. — В імперії не було постійної столиці.
-> note: *das Römische Reich*, *das Kaiserreich*; *-reich* у складних словах — «багатий на…» (*wasserreich*), не плутай із *reich* — «багатий».
+> note: *das Römische Reich*, *das Kaiserreich*; не плутай *das Reich* (імперія) з прикметником *reich* (багатий; *wasserreich* — багатий на воду).
 
 > [!word] der Kurfürst
 > ipa: /ˈkuːɐ̯fʏʁst/ · pos: noun · level: B1 · id: dl-b1-02-w03
@@ -142,7 +142,6 @@ estimatedMinutes: 45
 > [!word] die Goldene Bulle
 > ipa: /diː ˈɡɔldənə ˈbʊlə/ · pos: phrase · level: B1 · id: dl-b1-02-w04
 > uk: Золота булла (імперський закон 1356 року)
-> forms: die Goldenen Bullen
 > example: Die **Goldene Bulle** stammt von 1356. — Золота булла датується 1356 роком.
 > note: *die Bulle* тут — «печатка, грамота»; *der Bulle* — «бик» і розм. «поліцай». Рід розрізняє слова.
 
@@ -241,9 +240,9 @@ estimatedMinutes: 45
 
 > [!word] die Kogge
 > ipa: /ˈkɔɡə/ · pos: noun · level: C1 · id: dl-b1-02-w18
-> uk: коґґе (середньовічний вантажний вітрильник)
+> uk: ког, когг (середньовічний вантажний вітрильник)
 > forms: die Koggen
-> example: Die **Kogge** transportierte Waren über die Ostsee. — Коґґе перевозило товари через Балтійське море.
+> example: Die **Kogge** transportierte Waren über die Ostsee. — Ког перевозив товари через Балтійське море.
 > note: gg — тверде [ɡ]; символ Ганзи.
 
 > [!word] der Zoll
@@ -320,12 +319,12 @@ estimatedMinutes: 45
 > level: B1 · id: dl-b1-02-s03
 > text: Die Kogge war ein Schiff der Hanse.
 > ipa: /diː ˈkɔɡə vaːɐ̯ aɪ̯n ʃɪf deːɐ̯ ˈhanzə/
-> tip: Kogge — коротке «о», gg — тверде «ґ»; Schiff — «ш» + коротке «і» і довге ff в кінці; Hanse — h видихом.
-> uk: Коґґе було кораблем Ганзи.
+> tip: Kogge — коротке «о», gg — тверде «ґ»; Schiff — «ш» + коротке «і», ff — звичайне [f] (подвоєння показує, що «і» коротке); Hanse — h видихом.
+> uk: Ког був кораблем Ганзи.
 
 ## Типові помилки й пастки
 
-> [!pitfall] Священна Римська імперія — не Німеччина і не «Священна»
+> [!pitfall] Священна Римська імперія — не просто «Німеччина»
 > *Das Heilige Römische Reich* (962–1806) охоплювало Німеччину, але й Богемію, частини Італії та інші землі; мови були різні, столиці — постійної — не було. Назва «Deutscher Nation» зʼявилася лише наприкінці Середньовіччя. Тому «німецька імперія 962 року» — спрощення. Не плутай також із *das Deutsche Reich* (1871–1945) — це інша держава.
 
 > [!pitfall] Hanse не була державою
@@ -335,16 +334,16 @@ estimatedMinutes: 45
 > *Die Goldene Bulle* — жіночий рід, від латинського *bulla* («печатка»). *Der Bulle* — чоловічий рід, означає «бик», а розмовно — «поліцай». У назві документа ніякого бика немає. Рід видно з артикля: *die Bulle* — грамота, *der Bulle* — бик.
 
 > [!pitfall] Один Kaufmann — багато Kaufleute
-> Множина від *der Kaufmann* зазвичай *die Kaufleute*, а не ~~die Kaufmänner~~ (така форма існує, але в мові трапляється рідко). Те саме для словосполучень: *die Kaufleute aus Lübeck*. А для жінок — *die Kauffrau*, *die Kauffrauen*.
+> Множина від *der Kaufmann* зазвичай *die Kaufleute*, а *die Kaufmänner* трапляється рідко. Те саме для словосполучень: *die Kaufleute aus Lübeck*. А для жінок — *die Kauffrau*, *die Kauffrauen*.
 
 ## Landeskunde-Text
 
 > [!example] Das Europäische Hansemuseum in Lübeck
 > Im Europäischen Hansemuseum in Lübeck lernt man viel über die Hanse. Das Museum ist seit dem 27. Mai 2015 geöffnet. Jedes Jahr kommen rund 100.000 Gäste. Die Ausstellung erzählt die Geschichte der Hanse an vier Orten: in London, in Brügge, in Bergen und in Nowgorod. Dort hatten die Kaufleute ihre Kontore.
 >
-> Die Hanse war nie ein Staat, sondern ein Bund von Kaufleuten und Städten. 1356 treffen sich die Städte zum ersten Mal zu einem Hansetag in Lübeck. Der letzte Hansetag findet im Jahr 1669 statt. Zur Zeit der größten Macht gehören bis zu 200 Städte zur Hanse. Die Kaufleute handeln zum Beispiel mit Wolle.
+> Die Hanse war nie ein Staat, sondern ein Bund von Kaufleuten und Städten. 1356 trafen sich die Städte zum ersten Mal zu einem Hansetag in Lübeck. Der letzte Hansetag fand im Jahr 1669 statt. Zur Zeit der größten Macht gehörten bis zu 200 Städte zur Hanse. Die Kaufleute handelten zum Beispiel mit Wolle.
 >
-> Auch heute tragen Städte wie Lübeck den Titel „Hansestadt“. Außerdem gibt es wieder eine „Hanse“. Seit 1980 treffen sich Städte alle zwei Jahre zu einem Hansetag in einer anderen Stadt.
+> Auch heute tragen Städte wie Lübeck den Titel „Hansestadt“. Außerdem gibt es wieder eine „Hanse“. Seit 1980 treffen sich Städte jedes Jahr zu einem Hansetag in einer anderen Stadt.
 >
 > *Слова:* *die Ausstellung* — виставка; *erzählen* — розповідати; *die Wolle* — вовна; *die Zeit der größten Macht* — час найбільшого розквіту.
 
@@ -369,11 +368,11 @@ estimatedMinutes: 45
 > [!quiz] Lies den Text. Was passiert seit 1980?
 > level: B1 · type: single · id: dl-b1-02-q04
 > - [ ] Alle Städte der alten Hanse bilden einen Staat.
-> - [x] Städte treffen sich alle zwei Jahre zu einem Hansetag in einer anderen Stadt.
+> - [x] Städte treffen sich jedes Jahr zu einem Hansetag in einer anderen Stadt.
 > - [ ] Das Museum in Lübeck ist geschlossen.
-> - [ ] Der Hansetag findet jedes Jahr in Lübeck statt.
+> - [ ] Der Hansetag findet immer in Lübeck statt.
 >
-> **Пояснення:** *Seit 1980 treffen sich Städte alle zwei Jahre … in einer anderen Stadt.* Це сучасний союз міст, не відновлена держава.
+> **Пояснення:** *Seit 1980 treffen sich Städte jedes Jahr … in einer anderen Stadt.* Це сучасний союз міст, не відновлена держава.
 
 ## Практика
 
@@ -397,7 +396,7 @@ estimatedMinutes: 45
 > - [x] Серед них були три духовних князі: з Mainz, Köln і Trier.
 > - [x] Рішення ухвалювали більшістю голосів.
 > - [ ] Новий король мусив отримати згоду народних зборів усієї імперії.
-> - [ ] Золота булла створила Ганзу.
+> - [ ] Булла дозволила обирати короля всім князям імперії.
 >
 > **Пояснення:** булла визначила коло виборців, більшість голосів і неподільність курфюрств. Ганза склалася окремо, як мережа купців і міст.
 
@@ -411,7 +410,7 @@ estimatedMinutes: 45
 > **Пояснення:** *reichsunmittelbar* — «безпосередньо підпорядкований імперії». Не всі ганзейські міста мали такий статус, і не кожне імперське місто входило до Hanse.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: B1 · type: fill · id: dl-b1-02-q08 · bank: Wahl, Hanse, Kogge, Kontore, Krone, Zoll
+> level: B1 · type: fill · id: dl-b1-02-q08 · bank: Krone, Zoll
 >
 > ```text fill
 > Die Goldene Bulle regelte die [[Wahl]] des Königs.
@@ -449,7 +448,7 @@ estimatedMinutes: 45
 > - [ ] Бо Hanse не мала флоту.
 > - [x] Бо в неї не було бюджету, статуту й писаного договору, а членство залежало від інтересів міст.
 > - [ ] Бо в Hanse входили лише міста за межами імперії.
-> - [ ] Бо Hanse існувала лише один рік.
+> - [ ] Бо Hanse не мала спільної мови.
 >
 > **Пояснення:** Hanse — гнучка мережа торгових міст і купців. Вона існувала століттями (останній Hansetag — 1669).
 
@@ -486,7 +485,7 @@ estimatedMinutes: 45
 > Goldene Bulle названа за золоту печатку, якою скріплювали її примірники. Слово *Bulle* — від лат. *bulla*, «печатка». Документ вважали «основним законом» імперії до 1806 року.
 
 > [!reel] ⚓ Новгородська контора
-> Один із чотирьох головних Kontore Ганзи був у Новгороді; його закрив 1494 року московський великий князь Іван III. Лондонський Stalhof проіснував до 1603 року.
+> Один із чотирьох головних Kontore Ганзи був у Новгороді; його закрив 1494 року московський великий князь Іван III. Лондонський Stalhof закрили наприкінці XVI століття (за різними даними, 1598 або 1603 року).
 
 > [!reel] 🏙 Місто, якому понад 880 років
 > Lübeck заснували 1143 року, а на місці музею Hanse знайшли сліди поселення близько 800 року. Місто пізніше стало лідером союзу, а Hansetag збирався там до самого кінця — 1669 року.

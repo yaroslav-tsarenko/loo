@@ -44,7 +44,7 @@ estimatedMinutes: 45
 
 14 червня 1985 року ФРН, Франція, Бельгія, Нідерланди й Люксембург підписали в люксембурзькому містечку Шенген на кордоні з Німеччиною й Францією угоду про поступове скасування контролю на спільних кордонах. 26 березня 1995 року перші країни справді прибрали контроль на внутрішніх кордонах. За даними bpb, 2025 року до **Schengen-Raum** належали 29 держав — серед них Швейцарія, Норвегія, Ісландія й Ліхтенштейн, які не входять до ЄС.
 
-Правила Шенгену дозволяють тимчасово повертати контроль. З 16 вересня 2024 року Німеччина перевіряє на всіх своїх сухопутних кордонах; МВС пояснює це боротьбою з нелегальною міграцією й контрабандою людей. У лютому 2026 року федеральне МВС продовжило контроль ще на пів року; у ЄС і в самій Німеччині це рішення обговорюють.
+Правила Шенгену дозволяють тимчасово повертати контроль. З 16 вересня 2024 року Німеччина проводить перевірки на всіх своїх сухопутних кордонах (раніше контроль уже діяв на кордоні з Австрією — з 2015 року, а з Польщею, Чехією й Швейцарією — з жовтня 2023 року); МВС пояснює це боротьбою з нелегальною міграцією й контрабандою людей. У лютому 2026 року федеральне МВС продовжило контроль ще на пів року; станом на жовтень 2026 року, за повідомленнями медіа, міністерство планує продовжити його до середини березня 2027 року (Mediendienst Integration, станом на 8 жовтня 2026). У ЄС і в самій Німеччині ці рішення обговорюють.
 
 ### 2015: «Wir schaffen das»
 
@@ -58,9 +58,9 @@ estimatedMinutes: 45
 
 ### Energiewende: без атома, з вітром і сонцем
 
-**Die Energiewende** — перехід від атомної енергії, вугілля й газу до відновлюваних джерел. Після аварії на японській АЕС «Фукусіма» у 2011 році Бундестаг ухвалив поетапний вихід з атомної енергетики (**der Atomausstieg**). Останні три атомні електростанції — Isar 2, Emsland і Neckarwestheim 2 — відключили 15 квітня 2023 року. Їх мали зупинити ще 31 грудня 2022 року, але через енергетичну кризу після нападу Росії на Україну роботу продовжили на кілька місяців.
+**Die Energiewende** — перехід від атомної енергії, вугілля й газу до відновлюваних джерел. Після аварії на японській АЕС «Фукусіма» навесні 2011 року Бундестаг 30 червня 2011 року ухвалив поетапний вихід з атомної енергетики (**der Atomausstieg**). Останні три атомні електростанції — Isar 2, Emsland і Neckarwestheim 2 — відключили 15 квітня 2023 року. Їх мали зупинити ще 31 грудня 2022 року, але через енергетичну кризу після нападу Росії на Україну роботу продовжили на кілька місяців.
 
-За даними Destatis, 2025 року 58,6 % виробленої електроенергії дали відновлювані джерела; вітер — 30 %, сонце — 16 %. Водночас природний газ дав 16,1 % — більше, ніж роком раніше. Енергетичний перехід — дорогий і суперечливий: сперечаються про ціни на струм, лінії електропередач і швидкість змін.
+За даними Destatis, 2025 року 58,6 % виробленої електроенергії дали відновлювані джерела; вітер — 30 %, сонце — 16 %. Водночас природний газ дав 16,1 % — більше, ніж роком раніше. Енергетичний перехід — дорогий і суперечливий: сперечаються про ціни на електроенергію, лінії електропередач і швидкість змін.
 
 ### 2022: Zeitenwende
 
@@ -80,7 +80,7 @@ estimatedMinutes: 45
 
 ### Німеччина 2025–2026
 
-Після дострокових виборів до Бундестагу 23 лютого 2025 року канцлером став Friedrich Merz (ХДС). 6 травня 2025 року Бундестаг обрав його лише в другому турі — 325 голосами; таке сталося вперше в історії ФРН. Уряд утворили ХДС/ХСС і СДПН (*Koalition*). Наприкінці 2025 року в Німеччині жили 83,5 млн людей, з них 12,4 млн — іноземні громадяни (14,9 %); населення вперше з 2020 року трохи зменшилося (Destatis).
+Після дострокових виборів до Бундестагу 23 лютого 2025 року канцлером став Friedrich Merz (ХДС). 6 травня 2025 року Бундестаг обрав його лише в другому турі — 325 голосами; таке сталося вперше в історії ФРН. Уряд утворили ХДС/ХСС і СДПН (*Koalition*). Наприкінці 2025 року в Німеччині жили 83,5 млн людей, з них 12,4 млн — іноземні громадяни (≈ 15 %, власний розрахунок); населення вперше з 2020 року трохи зменшилося (Destatis).
 
 > [!diagram] Німеччина в Європі: 1957–2025
 > ```yaml
@@ -166,7 +166,7 @@ estimatedMinutes: 45
 > uk: Шенгенська зона
 > forms: — (без множини)
 > example: Die Schweiz gehört zum **Schengen-Raum**, aber nicht zur EU. — Швейцарія належить до Шенгенської зони, але не до ЄС.
-> note: *der Raum* — простір. Шенген — назва люксембурзького містечка: g тут вимовляють як [ŋ], «ШЕН-ген».
+> note: *der Raum* — простір. Шенген — назва люксембурзького містечка: *ng* = [ŋ] без окремого [ɡ], як у *lang*: «ШЕҤ-ен».
 
 > [!word] die Grenzkontrolle
 > ipa: /ˈɡʁɛntskɔnˌtʁɔlə/ · pos: noun · level: B1 · id: dl-b1-14-w08
@@ -294,14 +294,14 @@ estimatedMinutes: 45
 > audio: Im Jahr 2025 kamen 58,6 Prozent des Stroms in Deutschland aus erneuerbaren Energien. Die wichtigste Quelle war die Windkraft mit 30 Prozent. Photovoltaik und Erdgas erreichten neue Höchstwerte.
 >
 > ```fill
-> Anteil erneuerbarer Energien: [[58,6|58,6 %|58,6 Prozent]] Prozent
+> Anteil erneuerbarer Energien: [[58,6]] Prozent
 > Wichtigste Quelle: [[Windkraft|die Windkraft|Wind]]
 > Neue Höchstwerte: Photovoltaik und [[Erdgas|das Erdgas|Gas]]
 > ```
 >
 > **Пояснення:** *der Anteil* — частка; *der Höchstwert* — рекорд, максимум; *die Photovoltaik* — сонячні панелі. Десятковий дріб німецькою — з комою: *achtundfünfzig Komma sechs*.
 
-> [!listen] В Ausländerbehörde. Що каже співробітниця?
+> [!listen] У відомстві у справах іноземців (Ausländerbehörde). Що каже співробітниця?
 > level: B1 · type: answer · id: dl-b1-14-l05
 > audio: A: Guten Tag, ich komme aus Charkiw. Muss ich einen Asylantrag stellen?
 > audio: B: Nein, das müssen Sie nicht. Für Geflüchtete aus der Ukraine gibt es den vorübergehenden Schutz nach Paragraf 24. Sie bekommen eine Aufenthaltserlaubnis.
@@ -324,7 +324,7 @@ estimatedMinutes: 45
 > [!speak] Скажи вголос
 > level: B1 · id: dl-b1-14-s02
 > text: Wir erleben eine Zeitenwende.
-> ipa: /viːɐ̯ ɛɐ̯ˈleːbn̩ ˈaɪ̯nə ˈtsaɪ̯tn̩vɛndə/
+> ipa: /viːɐ̯ ɛɐ̯ˈleːbn̩ ˈaɪ̯nə ˈtsaɪ̯tn̩ˌvɛndə/
 > tip: z — [ts], «ц»: «ЦАЙ-тн-вен-де». Наголос на першому складі; w — «в».
 > uk: Ми переживаємо зміну епох.
 
@@ -332,7 +332,7 @@ estimatedMinutes: 45
 > level: B1 · id: dl-b1-14-s03
 > text: Ich komme aus der Ukraine und lerne hier Deutsch.
 > ipa: /ɪç ˈkɔmə aʊ̯s deːɐ̯ ukʁaˈiːnə ʊnt ˈlɛʁnə hiːɐ̯ dɔʏ̯tʃ/
-> tip: Ukraine — чотири склади з наголосом на «і»: «у-кра-І-не», а не «У-край-не». Країна жіночого роду: *aus der Ukraine*, *in der Ukraine*.
+> tip: Ukraine — стандартно «у-кра-І-не» (чотири склади); Duden допускає й «у-КРАЙ-не»; неправильно — «У-край-не» з наголосом на першому складі. Країна жіночого роду: *aus der Ukraine*, *in der Ukraine*.
 > uk: Я з України й вивчаю тут німецьку.
 
 ## Типові помилки й пастки
@@ -347,16 +347,16 @@ estimatedMinutes: 45
 > *Die Wende* у німецькій історії — передусім 1989 рік (див. B1-13). *Die Zeitenwende* — слово Шольца 2022 року про зміну епох після нападу Росії на Україну. *Die Energiewende* — енергетичний перехід. Корінь той самий (*wenden* — повертати), але це три різні поняття: не скорочуй *Zeitenwende* до *Wende*.
 
 > [!pitfall] zehn Euro, а не ~~zehn Euros~~
-> Після числа назва валюти не змінюється: *Das kostet zehn **Euro***, *zwei **Cent***, *hundert Euro*. Форма *Euros* буває в розмові про монети як предмети (*Ich habe noch ein paar Euros in der Tasche*), але ціни й суми — без -s. Так само жила й D-Mark: *zwanzig Mark*.
+> Після числа назва валюти не змінюється: *Das kostet zehn **Euro***, *zwei **Cent***, *hundert Euro*. Форма *Euros* буває в розмові про монети як предмети (*Ich habe noch ein paar Euros in der Tasche*), але ціни й суми — без -s. Так само й з D-Mark: *zwanzig Mark*.
 
 ## Landeskunde-Text
 
 > [!example] Ukrainerinnen und Ukrainer in Deutschland
-> Seit dem 24. Februar 2022 führt Russland einen großen Krieg gegen die Ukraine. Viele Menschen sind seitdem nach Deutschland geflohen. Ende September 2026 waren im Ausländerzentralregister fast 1,37 Millionen Geflüchtete aus der Ukraine registriert. Etwa ein Viertel von ihnen waren Kinder und Jugendliche.
+> Seit dem 24. Februar 2022 führt Russland einen großen Krieg gegen die Ukraine. Viele Menschen sind seitdem nach Deutschland geflohen. Ende September 2026 waren im Ausländerzentralregister fast 1,37 Millionen Geflüchtete aus der Ukraine registriert.
 >
 > Geflüchtete aus der Ukraine müssen keinen Asylantrag stellen. Sie bekommen vorübergehenden Schutz nach Paragraf 24 des Aufenthaltsgesetzes. Die EU hat diesen Schutz bis zum 4. März 2028 verlängert. Mit der Aufenthaltserlaubnis dürfen die Menschen arbeiten, die Kinder gehen in Deutschland zur Schule. Viele Erwachsene besuchen zuerst einen Integrationskurs und lernen dort Deutsch.
 >
-> Nicht alle bleiben. Laut Register haben bis Ende 2025 rund 467.000 Menschen, die aus der Ukraine gekommen waren, Deutschland wieder verlassen. Für manche ist Deutschland ein Ort auf Zeit, andere bauen sich hier ein neues Leben auf.
+> Nicht alle bleiben. Laut Register haben bis Ende 2025 rund 467.000 Menschen, die aus der Ukraine gekommen waren, Deutschland wieder verlassen (Ausländerzentralregister, Stichtag 31.12.2025). Für manche ist Deutschland ein Ort auf Zeit, andere bauen sich hier ein neues Leben auf.
 >
 > *Слова:* *fliehen* — тікати (floh · ist geflohen); *das Register* — реєстр; *verlängern* — продовжити (строк); *ein Ort auf Zeit* — тимчасове місце; *sich etwas aufbauen* — збудувати собі щось.
 
@@ -367,7 +367,7 @@ estimatedMinutes: 45
 > - [ ] etwa ein Viertel der Bevölkerung Deutschlands
 > - [ ] 4,3 Millionen
 >
-> **Пояснення:** *fast 1,37 Millionen Geflüchtete … registriert*. 467 000 — це ті, хто до кінця 2025 року Німеччину вже покинув; *ein Viertel* — частка дітей і підлітків серед біженців.
+> **Пояснення:** *fast 1,37 Millionen Geflüchtete … registriert*. 467 000 — це ті, хто до кінця 2025 року Німеччину вже покинув.
 
 > [!quiz] Lies den Text. Was ist richtig?
 > level: B1 · type: single · id: dl-b1-14-q03
@@ -420,12 +420,12 @@ estimatedMinutes: 45
 > - [x] Щороку витрачати на оборону понад 2 % ВВП.
 > - [x] Напад Росії 24 лютого — це *Zeitenwende*, зміна епох.
 > - [ ] Повторне ввімкнення закритих атомних електростанцій.
-> - [ ] Запровадження євро як єдиної валюти в Україні.
+> - [ ] Вихід Німеччини із Шенгенської зони.
 >
 > **Пояснення:** про *Sondervermögen*, 2 % і *Zeitenwende* — у тексті промови. Атомні станції в промові не відновлювали: восени 2022 року Бундестаг лише продовжив роботу трьох останніх до 15 квітня 2023 року.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: B1 · type: fill · id: dl-b1-14-q08 · bank: Mauerfall, Ostalgie
+> level: B1 · type: fill · id: dl-b1-14-q08 · bank: Asyl, Bundeswehr
 >
 > ```text fill
 > Der Euro ist die gemeinsame [[Währung]] vieler EU-Staaten.
@@ -435,7 +435,7 @@ estimatedMinutes: 45
 > CDU/CSU und SPD bilden zusammen eine [[Koalition]].
 > ```
 >
-> **Пояснення:** *zur Energiewende* — *zu + der* (Dat. жін. р.). *Mauerfall* і *Ostalgie* — слова 1989–1990 років (B1-13), тут зайві.
+> **Пояснення:** *zur Energiewende* — *zu + der* (Dat. жін. р.). *Asyl* і *Bundeswehr* — слова цього розділу, але за змістом і за артиклем у пропуски не підходять.
 
 > [!quiz] На якій підставі більшість українських біженців живуть у Німеччині?
 > level: B1 · type: single · id: dl-b1-14-q09
@@ -500,8 +500,8 @@ estimatedMinutes: 45
 > [!reel] 📖 Слово, якому понад 50 років
 > *Zeitenwende* стало «словом 2022 року», але в словнику Duden воно є з 1973-го. Давнє значення — початок нашої ери, від Різдва Христового. Шольц дав йому нове життя.
 
-> [!reel] ⚛️ Рівно 34 роки
-> Neckarwestheim 2 — остання АЕС Німеччини, яку відключили 15 квітня 2023 року, — пропрацювала комерційно рівно 34 роки: з 15 квітня 1989 року.
+> [!reel] 💥 Doppel-Wumms
+> У десятці «слів 2022 року» за версією GfdS, крім *Zeitenwende*, — *Gaspreisbremse* («гальмо цін на газ»), *Klimakleber* (активісти «Letzte Generation», що приклеювалися до доріг і картин) і *Doppel-Wumms* — так Шольц назвав разом заплановані «гальма» цін на газ і на електрику. *Wumms* — розмовне «бабах», сила удару.
 
 > [!reel] 🎵 Гімн без слів
 > Гімн ЄС — мелодія «Оди до радості» з Девʼятої симфонії Бетховена (1823). Рада Європи обрала її 1972 року, лідери ЄС — 1985-го. Офіційних слів у гімну немає — лише музика.
@@ -510,9 +510,9 @@ estimatedMinutes: 45
 
 - Рим і Маастрихт: bpb — [Römische Verträge (Europalexikon)](https://www.bpb.de/kurz-knapp/lexika/das-europalexikon/177241/roemische-vertraege/), [60 Jahre Römische Verträge](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/244986/60-jahre-roemische-vertraege/), [25 Jahre Vertrag von Maastricht](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/260600/25-jahre-vertrag-von-maastricht/); Європейський Союз — [EU countries](https://european-union.europa.eu/principles-countries-history/eu-countries_en), [The European anthem](https://european-union.europa.eu/principles-countries-history/symbols/european-anthem_en).
 - Євро: Deutsche Bundesbank — [Das Euro-Bargeld wird 20!](https://www.bundesbank.de/de/aufgaben/themen/das-euro-bargeld-wird-20--856394).
-- Шенген і контроль на кордонах: bpb — [40 Jahre Schengener Abkommen](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/563068/40-jahre-schengener-abkommen/), [Vor 25 Jahren: Der Schengen-Raum wird Realität](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/203499/vor-25-jahren-der-schengen-raum-wird-realitaet/); Mediendienst Integration — [Grenzkontrollen und Zurückweisungen](https://mediendienst-integration.de/fluechtlinge/fluechtlinge-in-deutschland/grenzkontrollen-und-zurueckweisungen/); Bundesministerium des Innern — [Grenzkontrollen verlängert](https://www.bmi.bund.de/SharedDocs/kurzmeldungen/DE/2026/02/grenzkontrollen.html) (лютий 2026).
-- Міграція 2015: Bundesregierung — [Sommerpressekonferenz von Bundeskanzlerin Merkel, 31.08.2015](https://www.bundesregierung.de/breg-de/aktuelles/pressekonferenzen/sommerpressekonferenz-von-bundeskanzlerin-merkel-848300); BAMF — [Das Bundesamt in Zahlen 2016](https://www.bamf.de/SharedDocs/Anlagen/DE/Statistik/BundesamtinZahlen/bundesamt-in-zahlen-2016.pdf?__blob=publicationFile&v=16) (PDF; 476 649 і 745 545 заяв), [Migrationsbericht 2015](https://www.bamf.de/SharedDocs/Anlagen/DE/Forschung/Migrationsberichte/migrationsbericht-2015.html?nn=403964) (≈ 890 000).
-- Energiewende: bpb — [Atomausstieg: Deutschland verabschiedet sich endgültig von der Kernkraft](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/520059/atomausstieg-deutschland-verabschiedet-sich-endgueltig-von-der-kernkraft/); BASE — [Isar 2, Emsland & Neckarwestheim 2](https://www.base.bund.de/de/nukleare-sicherheit/atomausstieg/abgeschaltete-akw/2022/die-drei-letzten-akw_inhalt.html); Destatis — [Stromerzeugung aus Photovoltaik und Erdgas erreicht im Jahr 2025 neue Höchstwerte](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/03/PD26_073_43312.html).
+- Шенген і контроль на кордонах: bpb — [40 Jahre Schengener Abkommen](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/563068/40-jahre-schengener-abkommen/), [Vor 25 Jahren: Der Schengen-Raum wird Realität](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/203499/vor-25-jahren-der-schengen-raum-wird-realitaet/); Mediendienst Integration — [Grenzkontrollen und Zurückweisungen](https://mediendienst-integration.de/fluechtlinge/fluechtlinge-in-deutschland/grenzkontrollen-und-zurueckweisungen/); (продовження в лютому 2026 року на пів року; станом на 8 жовтня 2026 — планується до середини березня 2027).
+- Міграція 2015: Sommerpressekonferenz Angela Merkel, 31.08.2015 (цитата) — [retopea.eu](https://retopea.eu/s/de/item/5926), [Das Parlament — Zehn Jahre nach Merkels «Wir schaffen das»](https://www.das-parlament.de/inland/migrationspolitik/zehn-jahre-nach-merkels-wir-schaffen-das); bpb — [Asylanträge in Deutschland](https://www.bpb.de/themen/migration-integration/zahlen-zu-asyl/265708/asylantraege-in-deutschland/) (476 649 і 745 545 заяв за даними BAMF), [Flucht und Asyl in Deutschland](https://www.bpb.de/themen/migration-integration/laenderprofile/deutschland/344086/flucht-und-asyl-in-deutschland) (≈ 890 000 прибулих 2015 року).
+- Energiewende: bpb — [Atomausstieg: Deutschland verabschiedet sich endgültig von der Kernkraft](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/520059/atomausstieg-deutschland-verabschiedet-sich-endgueltig-von-der-kernkraft/); Destatis — [Stromerzeugung aus Photovoltaik und Erdgas erreicht im Jahr 2025 neue Höchstwerte](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/03/PD26_073_43312.html).
 - Zeitenwende: Deutscher Bundestag — [Bundeskanzler Olaf Scholz: Wir erleben eine Zeitenwende](https://www.bundestag.de/dokumente/textarchiv/2022/kw08-sondersitzung-882198); повний текст — [germanhistorydocs.org](https://germanhistorydocs.org/de/ein-neues-deutschland-1990-2023/zeitenwende-regierungserklaerung-von-bundeskanzler-olaf-scholz-27-februar-2022); GfdS — [Wort des Jahres 2022](https://gfds.de/wort-des-jahres-2022/); Duden — [„Zeitenwende“ ist das Wort des Jahres 2022](https://www.duden.de/presse/wort-des-jahres-2022-zeitenwende).
 - Допомога Україні: Kiel Institute — [How much aid has Germany given to Ukraine?](https://www.kielinstitut.de/publications/how-much-aid-has-germany-given-to-ukraine-20290/) (жовтень 2026).
 - Українці в Німеччині й тимчасовий захист: Mediendienst Integration — [Wie viele Flüchtlinge aus der Ukraine leben in Deutschland?](https://mediendienst-integration.de/fluechtlinge/ukrainische-fluechtlinge-in-deutschland/wie-viele-fluechtlinge-aus-der-ukraine-leben-in-deutschland/); EEAS — [EU countries agree to extend temporary protection for those fleeing Ukraine until March 2028](https://www.eeas.europa.eu/delegations/ukraine/eu-countries-agree-extend-temporary-protection-those-fleeing-ukraine-until-march-2028_en).
