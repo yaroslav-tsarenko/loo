@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import type { Chapter, Guide } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { getContent, getDocument } from '@/server/content'
+import { chapterLanguages, hreflangAlternates, langParam, localizedDocument } from '@/server/content-i18n'
+import { uiLocale } from '@/server/locale'
 import { chapterNumberMap, nextChapterFor, pageProgress, readableChapters, treeView } from '@/server/services/library'
 import { count, minutes } from '@/ui/format'
 import { renderMdast } from '@/ui/markdown/render'
@@ -45,14 +47,22 @@ function locate(snapshot: ContentSnapshot, params: Params): { guide: Guide; chap
   return null
 }
 
-export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+type Search = Promise<Record<string, string | string[] | undefined>>
+
+export async function generateMetadata({ params, searchParams }: { params: Promise<Params>; searchParams: Search }): Promise<Metadata> {
   const snapshot = await getContent()
   const found = locate(snapshot, await params)
   if (!found) return { title: 'Не знайдено' }
-  return { title: found.chapter && found.chapter.kind !== 'index' ? `${found.chapter.title} · ${found.guide.title}` : found.guide.title }
+  const { chapter, guide } = found
+  if (!chapter) return { title: guide.title }
+  // translations (docs/COURSE_FORMAT.md «Переклад»): hreflang alternates only for languages the page really exists in
+  const langs = await chapterLanguages(snapshot, chapter, langParam(await searchParams))
+  const title = (langs.lang ? snapshot.translations.get(chapter.id)?.get(langs.lang)?.title : null) ?? chapter.title
+  const languages = hreflangAlternates(chapterHref(snapshot, chapter), langs)
+  return { title: chapter.kind !== 'index' ? `${title} · ${guide.title}` : guide.title, ...(languages ? { alternates: { languages } } : {}) }
 }
 
-export default async function GuidePage({ params }: { params: Promise<Params> }) {
+export default async function GuidePage({ params, searchParams }: { params: Promise<Params>; searchParams: Search }) {
   const snapshot = await getContent()
   const found = locate(snapshot, await params)
   if (!found) notFound()
@@ -62,9 +72,14 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   const numbers = chapterNumberMap(tree)
   if (!chapter || chapter.kind === 'index') return <GuideOverview snapshot={snapshot} guide={guide} index={chapter} tree={tree} progress={progress} />
 
-  const doc = await getDocument(chapter.id)
-  if (!doc) notFound()
-  const content = await renderMdast(doc.root, { snapshot, chapter, depth: 0, variant: 'reader' })
+  const source = await getDocument(chapter.id)
+  if (!source) notFound()
+  // the learner's UI language when a course offers it and the topic is translated (or ?lang=); else the source
+  const [langs, locale] = await Promise.all([chapterLanguages(snapshot, chapter, langParam(await searchParams)), uiLocale()])
+  const localized = langs.lang ? await localizedDocument(chapter.id, langs.lang, langs.source) : null
+  const doc = localized ?? source
+  const title = localized?.title ?? chapter.title
+  const content = await renderMdast(doc.root, { snapshot, chapter, depth: 0, variant: 'reader', units: localized?.units, locale })
   const order = readableChapters(snapshot, guide)
   const position = order.findIndex((c) => c.id === chapter.id)
   const prev = position > 0 ? order[position - 1]! : null
@@ -80,11 +95,11 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
 
   return (
     <>
-      <PageTopbar crumbs={[{ label: guide.title, href: guideHref(guide.id) }, ...(part ? [{ label: part }] : []), { label: chapter.title }]}>
+      <PageTopbar crumbs={[{ label: guide.title, href: guideHref(guide.id) }, ...(part ? [{ label: part }] : []), { label: title }]}>
         <MarkStudied chapterId={chapter.id} studied={status === 'studied'} nextHref={next ? chapterHref(snapshot, next) : null} prevHref={prev ? chapterHref(snapshot, prev) : null} />
       </PageTopbar>
       <ReadingTracker chapterId={chapter.id} />
-      <article className="page reader" data-reading="">
+      <article className="page reader" data-reading="" lang={localized?.lang ?? langs.source}>
         <header className="reader-hero">
           <div className="reader-hero-text">
             <div className="reader-kicker">
@@ -96,7 +111,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
             </div>
             <h1 className="page-title reader-title">
               {number ? <span className="reader-num tabular">{number}</span> : null}
-              {chapter.title}
+              {title}
             </h1>
             <div className="reader-meta">
               <span className="reader-chip">

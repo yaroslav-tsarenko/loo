@@ -215,6 +215,7 @@ The common paths:
   gesture so the verdict's sound plays on time) and the haptic tap; the verdict lands ~10 ms of database later. Practice
   quizzes with a shipped key grade instantly. The shop plays its sound on press.
 - `[!diagram]`, `[!viz]` and `[!figure]` blocks load their code only on pages that show one (`src/ui/markdown/lazy-blocks.tsx`).
+- The code-runner worker (`/runner/worker.js`) carries the TypeScript stripper (sucrase, ~180 KB minified / ~41 KB gzip): the script grew from ~23 KB (~6.5 KB gzip) to ~207 KB (~48 KB gzip). It is fetched only when a task runs and then revalidated by `ETag` (304 on later runs), never part of a page bundle.
 - Pixel icons: one `<path>` per colour instead of a `<rect>` per run (~1 KB instead of ~4 KB each).
 - `/words` groups use `content-visibility: auto`.
 

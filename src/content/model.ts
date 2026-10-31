@@ -44,6 +44,11 @@ export interface ChapterMeta {
   parts?: string[]
   // placement-test bank file (`<Guide>/_placement/B2.md`, docs/LANGUAGE_COURSE.md): not theory, never a chapter
   placement?: boolean
+  // courses with skills (course.yaml `skills`): the topic's main skill id
+  skill?: string
+  // a translation (`<Guide>/_i18n/<lang>/…`, docs/COURSE_FORMAT.md «Переклад»): its language and the source topic id
+  lang?: string
+  source?: string
 }
 
 export type ChapterKind = 'chapter' | 'index' | 'overview'
@@ -67,6 +72,8 @@ export interface Chapter {
   mtimeMs: number
   description: string | null
   icon: string | null
+  // frontmatter `skill:` (courses with skills, docs/COURSE_FORMAT.md §3); absent when not set
+  skill?: string
 }
 
 export type TreeNode =
@@ -266,7 +273,7 @@ export type LearningUnit = FlashcardUnit | QuizUnit | TaskUnit
 
 export interface ContentIssue {
   severity: 'warning' | 'error'
-  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block'
+  code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block' | 'i18n'
   path: string
   message: string
 }

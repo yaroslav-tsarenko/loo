@@ -6,6 +6,10 @@ import {
   courseLevels,
   currentSkills,
   diffNumber,
+  hasSkillModel,
+  levelShort,
+  skillModelOf,
+  skillTitle,
   levelSuggestion,
   skillsView,
   skillThetas,
@@ -14,9 +18,9 @@ import {
   type CourseBundle,
   type ExamBand,
   type LearnerLevels,
-  type LearnerSkill,
   type Level,
   type LevelSuggestion,
+  type PathSkills,
   type SkillObservation,
   type SkillsView,
   type SkillState,
@@ -31,7 +35,8 @@ import { activeCourse, courseLevelOf } from './enrollment'
 import { exerciseUnit } from './registry'
 import type { ResolvedTest } from './tests-core'
 
-// Per-skill level estimate of language courses (src/course/select/skills.ts) on the server: stored per learner and
+// Per-skill level estimate of every course with a skill model (course.skills; language courses — the five defaults;
+// src/course/select/skills.ts) on the server: stored per learner and
 // course in user_settings under `skills:<courseId>` (jsonb, no migration; read with the base rows in one statement —
 // src/server/base.ts), updated inside submitTest's transaction after every topic test and section exam.
 
@@ -49,9 +54,11 @@ export function skillStatesRead(conn: Conn, userId: string): Read<Map<string, un
   )
 }
 
+// CEFR ladder (IELTS bands, language practice sections). The skill model itself is `hasSkillModel(bundle)`.
 export const isLanguageCourse = (bundle: CourseBundle): boolean => courseLadder(bundle.course) === 'cefr'
 
 export interface LearnerSkills {
+  bundle: CourseBundle
   state: SkillState
   view: SkillsView
   learner: LearnerLevels
@@ -59,14 +66,15 @@ export interface LearnerSkills {
 }
 
 export function learnerSkillsFor(bundle: CourseBundle, enrollment: { level: Level; placement: EnrollmentPlacement | null }, stored: unknown): LearnerSkills | null {
-  if (!isLanguageCourse(bundle)) return null
+  if (!hasSkillModel(bundle)) return null
   const levels = courseLevels(bundle.course)
-  const state = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels)
-  const view = skillsView(state, levels, bundle.course.exam)
-  return { state, view, learner: { overall: view.overallTheta, skills: skillThetas(state) }, levels }
+  const model = skillModelOf(bundle)
+  const state = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels, model)
+  const view = skillsView(state, levels, model, bundle.course.exam)
+  return { bundle, state, view, learner: { overall: view.overallTheta, skills: skillThetas(state, model) }, levels }
 }
 
-// The active course's estimate (null: no course, or not a language course). No database trip of its own.
+// The active course's estimate (null: no course, or a course without a skill model). No database trip of its own.
 export const activeSkills = cache(async (): Promise<LearnerSkills | null> => {
   const [active, base] = await Promise.all([activeCourse(), userBase()])
   if (!active) return null
@@ -75,9 +83,18 @@ export const activeSkills = cache(async (): Promise<LearnerSkills | null> => {
 
 // The estimate of any enrolled course (course page): the stored row comes with the base rows.
 export async function courseSkills(bundle: CourseBundle, enrollment: { level: Level; placement: EnrollmentPlacement | null } | null): Promise<LearnerSkills | null> {
-  if (!enrollment || !isLanguageCourse(bundle)) return null
+  if (!enrollment || !hasSkillModel(bundle)) return null
   const base = await userBase()
   return learnerSkillsFor(bundle, enrollment, base?.skillStates.get(bundle.course.id))
+}
+
+// θ per skill for the path's known topics and recommendations (src/course/select/path.ts) — courses with declared
+// skills only (language topics carry no skill: their path stays level-based). The stored row comes with the base rows.
+export async function pathSkills(active: { bundle: CourseBundle; enrollment: { level: Level; placement: EnrollmentPlacement | null } }): Promise<PathSkills | null> {
+  if (!hasSkillModel(active.bundle) || isLanguageCourse(active.bundle)) return null
+  const base = await userBase()
+  const skills = learnerSkillsFor(active.bundle, active.enrollment, base?.skillStates.get(active.bundle.course.id))
+  return skills ? { thetas: skills.learner.skills } : null
 }
 
 // Chance of a blind guess: options of a choice (a minimal pair has 2), 0 for typed / ordered / multi-answer items.
@@ -89,22 +106,30 @@ export function guessOptions(unit: LearningUnit): number {
   return 0
 }
 
-// The graded quizzes of a test as observations of their skills (self-rated fallback cards don't count).
+// The graded quizzes of a test as observations of their skills (self-rated fallback cards don't count). Language
+// exercises always have a skill (grammar when older bundles lack it); elsewhere an exercise without one is skipped.
 export function testObservations(bundle: CourseBundle, snapshot: ContentSnapshot, built: BuiltTest, results: readonly boolean[]): SkillObservation[] {
   const out: SkillObservation[] = []
+  const fallback = isLanguageCourse(bundle) ? 'grammar' : undefined
   built.questions.forEach((id, i) => {
     const ex = bundle.exercises[id]
     const unit = exerciseUnit(snapshot, bundle, id)
     if (!ex || !unit || unit.kind !== 'quiz' || ex.kind === 'speak') return
-    out.push({ skill: ex.skill ?? 'grammar', level: ex.level, diff: diffNumber(ex.difficulty), options: guessOptions(unit), correct: results[i] === true })
+    const skill = ex.skill ?? fallback
+    if (!skill) return
+    out.push({ skill, level: ex.level, diff: diffNumber(ex.difficulty), options: guessOptions(unit), correct: results[i] === true })
   })
   return out
 }
 
 export interface SkillChange {
-  skill: LearnerSkill
+  skill: string
+  // course.skills title; the levels as shown (CEFR ids, IT ranks)
+  label: string
   before: Level
   after: Level
+  beforeLabel: string
+  afterLabel: string
   // θ moved up / down (rounded to 0.05), null — unchanged
   trend: 'up' | 'down' | null
 }
@@ -112,6 +137,7 @@ export interface SkillChange {
 export interface TestSkills {
   changes: SkillChange[]
   overall: Level
+  overallLabel: string
   exam: ExamBand | null
   suggestion: LevelSuggestion | null
 }
@@ -124,7 +150,7 @@ export async function recordTestSkills(
 ): Promise<TestSkills | null> {
   const { test, now } = input
   const bundle = test.bundle
-  if (!isLanguageCourse(bundle)) return null
+  if (!hasSkillModel(bundle)) return null
   const observations = testObservations(bundle, input.snapshot, input.built, input.results)
   if (observations.length === 0) return null
   const courseId = bundle.course.id
@@ -154,23 +180,24 @@ export async function recordTestSkills(
   // a test of a course that isn't in the library: no level to start from
   if (!enrollment) return null
   const levels = courseLevels(bundle.course)
-  const before = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels)
-  const after = updateSkills(before, observations, levels, now)
+  const model = skillModelOf(bundle)
+  const before = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels, model)
+  const after = updateSkills(before, observations, levels, now, model)
   await tx
     .insert(userSettings)
     .values({ userId, key: skillsKey(courseId), value: after })
     .onConflictDoUpdate({ target: [userSettings.userId, userSettings.key], set: { value: after } })
   if (test.kind === 'section-exam' && input.passed) passedExams.add(test.id)
-  const b = skillsView(before, levels, bundle.course.exam)
-  const a = skillsView(after, levels, bundle.course.exam)
+  const b = skillsView(before, levels, model, bundle.course.exam)
+  const a = skillsView(after, levels, model, bundle.course.exam)
   const tested = new Set(observations.map((o) => o.skill))
   const changes = a.skills
     .filter((s) => tested.has(s.skill))
     .map((s): SkillChange => {
       const was = b.skills.find((x) => x.skill === s.skill)!
       const delta = Math.round((s.theta - was.theta) * 20) / 20
-      return { skill: s.skill, before: was.level, after: s.level, trend: delta > 0 ? 'up' : delta < 0 ? 'down' : null }
+      return { skill: s.skill, label: skillTitle(bundle.course, s.skill), before: was.level, after: s.level, beforeLabel: levelShort(was.level), afterLabel: levelShort(s.level), trend: delta > 0 ? 'up' : delta < 0 ? 'down' : null }
     })
   const suggestion = levelSuggestion({ bundle, sectionId: test.section.id, testKind: test.kind, score: input.score, passed: input.passed, observations, state: after, passedExams })
-  return { changes, overall: a.overall, exam: a.exam, suggestion }
+  return { changes, overall: a.overall, overallLabel: levelShort(a.overall), exam: a.exam, suggestion }
 }

@@ -7,6 +7,10 @@ import { getProfile, getUser } from '@/server/auth'
 import { coursePractice } from '@/course/practice'
 import { readSettings } from '@/server/settings'
 import { shellData } from '@/server/shell'
+import { uiLocale } from '@/server/locale'
+import { LocaleProvider } from '@/i18n/react'
+import { t } from '@/i18n'
+import { en } from '@/i18n/register'
 import { LooSkinProvider } from '@/ui/design/mascot/LooSkin'
 import { EvolutionMoment } from '@/ui/game/EvolutionMoment'
 import { FeedbackProvider } from '@/ui/feedback/FeedbackProvider'
@@ -71,7 +75,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   }
   // Two transactions in all: the learner's base rows (profile, settings, active course) and the shell's reads
   // (src/server/base.ts, src/server/shell.ts) — both cached for the page rendered inside.
-  const [settings, profile, shell, nonce] = await Promise.all([readSettings(), getProfile(), shellData(), headers().then((h) => h.get('x-nonce') ?? undefined)])
+  const [settings, profile, shell, nonce, locale] = await Promise.all([readSettings(), getProfile(), shellData(), headers().then((h) => h.get('x-nonce') ?? undefined), uiLocale()])
   if (!shell) throw new Error('shell: signed-in user without shell data')
   const { snapshot, xp, counts, library, game, active, theory } = shell
   const courses = library.map((c) => ({ id: c.id, title: c.title, icon: c.icon, active: c.enrollment.active }))
@@ -81,15 +85,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const practice = meta ? coursePractice(meta) : FALLBACK_PRACTICE
   const account = { name: profile?.displayName || user.name || user.email || 'Я', avatarUrl: profile?.avatarUrl ?? user.avatarUrl }
   return (
-    <html lang="uk" data-theme={settings.theme} className={fonts} suppressHydrationWarning>
+    <html lang={locale} data-theme={settings.theme} className={fonts} suppressHydrationWarning>
       <head>
         {/* Static string (no user input); allowed by the per-request CSP nonce from proxy.ts. */}
         <script nonce={nonce} dangerouslySetInnerHTML={{ __html: SIDEBAR_BOOT }} />
       </head>
       <body>
         <a href="#main" className="skip-link">
-          До вмісту
+          {t('shell.skipToContent', undefined, locale)}
         </a>
+        <LocaleProvider locale={locale} dict={locale === 'en' ? en : undefined}>
         <FeedbackProvider initialXp={xp} sound={settings.sound} volume={settings.volume} haptics={settings.haptics}>
           <SpeechSettingsProvider accent={settings.accent}>
           <LooSkinProvider skin={game.look}>
@@ -100,9 +105,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               banner={
                 snapshot.error ? (
                   <div className="vault-error" role="alert">
-                    <strong>Vault не знайдено.</strong> {snapshot.error}.{' '}
+                    <strong>{t('shell.vaultMissing', undefined, locale)}</strong> {snapshot.error}.{' '}
                     <Link className="ui-link" href="/settings">
-                      Вказати шлях
+                      {t('shell.vaultPath', undefined, locale)}
                     </Link>
                   </div>
                 ) : null
@@ -122,6 +127,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </LooSkinProvider>
           </SpeechSettingsProvider>
         </FeedbackProvider>
+        </LocaleProvider>
         <ClientEnhancer />
         <Tracker />
       </body>

@@ -5,7 +5,7 @@ import { z } from 'zod'
 import { BUCKS, buckRef, canStartTest, GEMS, gemRef } from '@/game'
 import { dayKey } from '@/progress/day'
 import type { Effect } from '@/progress/types'
-import { lookup, scoreTest } from '@/course'
+import { levelShort, lookup, scoreTest } from '@/course'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
@@ -63,13 +63,14 @@ export interface TestOutcome {
   firstPass: boolean
   testOut: boolean
   effects: Effect[]
-  // language courses: the per-skill levels after this test and a skip-ahead / review offer (src/course/select/skills.ts)
+  // courses with a skill model: the per-skill levels after this test and a skip-ahead / review offer (src/course/select/skills.ts)
   skills: TestSkillsView | null
 }
 
 export interface TestSkillsView {
   changes: TestSkills['changes']
   overall: TestSkills['overall']
+  overallLabel: string
   exam: TestSkills['exam']
   suggestion: { kind: 'skip-ahead' | 'review'; href: string; level: string; section: string } | null
 }
@@ -153,7 +154,8 @@ function skillsViewOf(bundle: Parameters<typeof lookup>[0], skills: TestSkills):
   return {
     changes: skills.changes,
     overall: skills.overall,
+    overallLabel: skills.overallLabel,
     exam: skills.exam,
-    suggestion: s && section ? { kind: s.kind, href: `/test/${encodeURIComponent(s.testId)}`, level: s.level, section: section.title } : null,
+    suggestion: s && section ? { kind: s.kind, href: `/test/${encodeURIComponent(s.testId)}`, level: levelShort(s.level), section: section.title } : null,
   }
 }

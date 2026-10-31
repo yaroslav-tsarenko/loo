@@ -4,14 +4,18 @@ import { notFound } from 'next/navigation'
 import { PiArrowRightBold, PiCheckBold, PiFlaskFill, PiPlusBold } from 'react-icons/pi'
 import { SECTION_FALLBACK_ICON, TEST_ICON } from '@/content/icons'
 import { courseLevels, LEVEL_LABEL, levelShort } from '@/course'
-import { messages, t } from '@/i18n'
+import { contentLanguage, courseHreflangs, localizedCourse } from '@/course/i18n'
+import { messages, translator } from '@/i18n'
+import { langParam } from '@/server/content-i18n'
+import { uiLocale } from '@/server/locale'
 import { requireUser } from '@/server/auth'
 import { enrollCourse, leaveCourse, setCourseLevel, switchCourse } from '@/server/actions/courses'
 import { myEnrollments } from '@/server/courses/enrollment'
 import { courseListing } from '@/server/courses/bundles'
 import { getCourseEntry } from '@/server/courses/registry'
 import { courseSkills } from '@/server/courses/skills'
-import { SkillLevels, skillsNote } from '@/ui/courses/SkillLevels'
+import { SkillLevels } from '@/ui/courses/SkillLevels'
+import { skillCard } from '@/ui/courses/skill-rows'
 import { param } from '@/ui/auth/AuthShell'
 import { Choice, ChoiceGroup } from '@/ui/auth/Choices'
 import { Pill } from '@/ui/design/Badge'
@@ -22,14 +26,30 @@ import { count } from '@/ui/format'
 
 type Params = Promise<{ id: string }>
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const entry = await getCourseEntry((await params).id)
-  return { title: entry?.bundle.course.title ?? 'Курс' }
+type Search = Promise<Record<string, string | string[] | undefined>>
+
+// the course's texts in the UI locale (or ?lang=) when the course lists it (course.yaml `languages`)
+async function courseLang(bundle: Parameters<typeof localizedCourse>[0], query: Record<string, string | string[] | undefined>): Promise<string | null> {
+  return contentLanguage(bundle.course, langParam(query) ?? (await uiLocale()), courseHreflangs(bundle))
 }
 
-export default async function CoursePage({ params, searchParams }: { params: Params; searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  await requireUser()
+export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: Search }): Promise<Metadata> {
   const [{ id }, query] = await Promise.all([params, searchParams])
+  const entry = await getCourseEntry(id)
+  if (!entry) return { title: translator(await uiLocale())('courses.course') }
+  const texts = localizedCourse(entry.bundle, await courseLang(entry.bundle, query))
+  // hreflang only for the languages the course page really has
+  const langs = courseHreflangs(entry.bundle)
+  const href = `/courses/${id}`
+  const source = langs[0]!
+  const languages = langs.length > 1 ? { ...Object.fromEntries(langs.map((l) => [l, l === source ? href : `${href}?lang=${l}`])), 'x-default': href } : null
+  return { title: texts.title, ...(languages ? { alternates: { languages } } : {}) }
+}
+
+export default async function CoursePage({ params, searchParams }: { params: Params; searchParams: Search }) {
+  await requireUser()
+  const [{ id }, query, locale] = await Promise.all([params, searchParams, uiLocale()])
+  const t = translator(locale)
   const entry = await getCourseEntry(id)
   if (!entry) notFound()
   const listing = courseListing(entry)
@@ -38,7 +58,9 @@ export default async function CoursePage({ params, searchParams }: { params: Par
   const enrollment = (await myEnrollments()).find((e) => e.courseId === id) ?? null
   // language courses: per-skill levels + the exam band (course.yaml `exam:`; the stored estimate comes with the base rows, no extra query)
   const skills = await courseSkills(bundle, enrollment)
-  const m = messages()
+  const card = skills ? skillCard(bundle, skills.view, skills.levels, { answers: true }) : null
+  const m = messages(locale)
+  const texts = localizedCourse(bundle, await courseLang(bundle, query))
   const placementSection = enrollment?.placement ? bundle.sections[enrollment.placement.sectionIndex] : undefined
   const style = { '--course-c': meta.color ?? 'var(--lu-violet)' } as CSSProperties
   const path = bundle.sections.filter((s) => s.kind === 'path')
@@ -60,8 +82,8 @@ export default async function CoursePage({ params, searchParams }: { params: Par
           <p className="course-hero-eyebrow">
             {listing.source === 'official' ? t('courses.official') : meta.authors.map((a) => a.name).join(', ')} · {levelShort(listing.levels.from)} → {levelShort(listing.levels.to)}
           </p>
-          <h1 className="course-hero-title">{meta.title}</h1>
-          {meta.subtitle ? <p className="course-hero-sub">{meta.subtitle}</p> : null}
+          <h1 className="course-hero-title">{texts.title}</h1>
+          {texts.subtitle ? <p className="course-hero-sub">{texts.subtitle}</p> : null}
           <div className="course-hero-pills">
             {/* price / likes / comments: data hooks in CourseListing, filled once the marketplace has them */}
             <Pill tone="mint" solid size="sm">
@@ -111,16 +133,17 @@ export default async function CoursePage({ params, searchParams }: { params: Par
         ))}
       </dl>
 
-      {skills ? (
+      {skills && card ? (
         <SkillLevels
-          rows={skills.view.skills.map((v) => ({ skill: v.skill, level: v.level }))}
-          overall={skills.view.overall}
+          rows={card.rows}
+          overall={card.overall}
           exam={skills.view.exam}
-          note={skills.view.answers > 0 ? `${skillsNote(skills.view.exam)} · ${t('skills.answers', { n: skills.view.answers })}` : t('skills.start')}
+          next={card.next}
+          note={card.note}
         />
       ) : null}
 
-      {meta.description ? <p className="course-desc">{meta.description}</p> : null}
+      {texts.description ? <p className="course-desc">{texts.description}</p> : null}
 
       <h2 className="gsection-title">{t('courses.learn')}</h2>
       <ul className="course-learn">
@@ -130,8 +153,8 @@ export default async function CoursePage({ params, searchParams }: { params: Par
               <Icon name={s.icon ?? SECTION_FALLBACK_ICON} size={26} />
             </span>
             <span>
-              <strong>{s.title}</strong>
-              {s.description ? <span className="course-learn-desc">{s.description}</span> : null}
+              <strong>{texts.section(s.key, s).title}</strong>
+              {texts.section(s.key, s).description ? <span className="course-learn-desc">{texts.section(s.key, s).description}</span> : null}
             </span>
           </li>
         ))}
@@ -149,7 +172,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
                 <span className="course-program-text">
                   <span className="course-program-title">
                     {s.kind === 'path' ? `${i + 1}. ` : ''}
-                    {s.title}
+                    {texts.section(s.key, s).title}
                     {s.kind === 'practice' ? (
                       <Pill size="sm" tone="orange">
                         {t('courses.practice')}
@@ -157,12 +180,12 @@ export default async function CoursePage({ params, searchParams }: { params: Par
                     ) : null}
                   </span>
                   <span className="course-program-meta tabular">
-                    {s.status === 'planned' ? `скоро · ${LEVEL_LABEL[s.level]}` : `${count(s.topics.length, 'тема', 'теми', 'тем')} · ~${Math.max(1, Math.round(s.minutes / 60))} год · ${LEVEL_LABEL[s.minLevel]}`}
+                    {s.status === 'planned' ? `${t('courses.soonShort')} · ${LEVEL_LABEL[s.level]}` : `${locale === 'uk' ? count(s.topics.length, 'тема', 'теми', 'тем') : t('courses.topics', { n: s.topics.length })} · ${t('courses.hours', { n: Math.max(1, Math.round(s.minutes / 60)) })} · ${LEVEL_LABEL[s.minLevel]}`}
                     {s.minLevel !== s.level ? ` → ${LEVEL_LABEL[s.level]}` : ''}
                     {s.exam ? (
                       <>
                         {' · '}
-                        <GameIcon name="crown" size={14} /> екзамен
+                        <GameIcon name="crown" size={14} /> {t('courses.exam')}
                       </>
                     ) : null}
                   </span>
@@ -174,11 +197,11 @@ export default async function CoursePage({ params, searchParams }: { params: Par
                     <Icon name={topic.icon ?? 'px:book'} size={18} /> {topic.title}
                     <small className="tabular">
                       {' '}
-                      · {topic.lessons.length} ур.
+                      · {t('courses.lessonsShort', { n: topic.lessons.length })}
                       {topic.test ? (
                         <>
                           {' · '}
-                          <Icon name={TEST_ICON} size={14} label="тест теми" />
+                          <Icon name={TEST_ICON} size={14} label={t('courses.topicTest')} />
                         </>
                       ) : null}
                     </small>

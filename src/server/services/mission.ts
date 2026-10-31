@@ -17,6 +17,7 @@ import { awardBucks, grantXp } from '../game/ledger'
 import { readSettings } from '../settings'
 import { activeCourse, exerciseIds, type ActiveCourse } from '../courses/enrollment'
 import { courseProgressIn, coursePathView, cursorHref, pathViewFrom } from '../courses/path'
+import { pathSkills } from '../courses/skills'
 import { chapterProgressIn, nextChapterFor, type ProgressRow } from './library'
 
 // Where the learner is in the active course: the next node of the course path (lesson, topic test or section exam).
@@ -232,8 +233,8 @@ export async function missionCursor(snapshot: ContentSnapshot): Promise<{ cursor
 // missionCursor inside the caller's transaction (the course progress read alongside its other reads).
 export async function missionCursorIn(db: Conn, userId: string, snapshot: ContentSnapshot, active: ActiveCourse | null): Promise<{ cursor: MissionCursor; scope: ReadonlySet<string> | null }> {
   if (!active) return { cursor: EMPTY_CURSOR, scope: null }
-  const progress = await courseProgressIn(db, userId, active.bundle)
-  return cursorFrom(snapshot, active, pathViewFrom(active, progress))
+  const [progress, skills] = await Promise.all([courseProgressIn(db, userId, active.bundle), pathSkills(active)])
+  return cursorFrom(snapshot, active, pathViewFrom(active, progress, skills))
 }
 
 function cursorFrom(snapshot: ContentSnapshot, active: ActiveCourse, view: CoursePathView): { cursor: MissionCursor; scope: ReadonlySet<string> | null } {

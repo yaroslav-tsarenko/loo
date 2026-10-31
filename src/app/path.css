@@ -207,6 +207,16 @@
   font-weight: 600;
   color: var(--lu-text-2);
 }
+/* courses with skills: the topic's skill, «знаю», «рекомендовано» (src/course/select/path.ts) */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+.skill[data-known] .skill-head {
+  opacity: 0.85;
+}
 .skill-crowns {
   display: inline-flex;
   align-items: center;

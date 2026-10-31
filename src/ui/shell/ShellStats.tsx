@@ -1,6 +1,6 @@
 'use client'
 
-import { t } from '@/i18n'
+import { useT } from '@/i18n/react'
 import Link from 'next/link'
 import { rankAt } from '@/game/ranks'
 import { GameIcon } from '@/ui/design/GameIcon'
@@ -13,6 +13,7 @@ import { useCounts } from './NavLinks'
 
 // Streak (freezes applied), bucks, gems, hearts and XP — live from /api/counts; a bolt «×2» while double XP runs.
 export function ShellStats() {
+  const t = useT()
   const counts = useCounts()
   const { xp } = useFeedback()
   const now = useClock(15_000)

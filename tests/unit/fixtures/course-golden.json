@@ -1,0 +1,16 @@
+{
+  "english-a1-c2": {
+    "sha256": "46a2f0e551fa7fdd676c502195a9fc889bad233af2937e11008d7d7a349f4b56",
+    "sections": 6,
+    "topics": 166,
+    "exercises": 9375,
+    "placement": 252
+  },
+  "javascript-noob-to-god": {
+    "sha256": "0ea351624813555c3aa3ae86fa8d1b4866b9415d40fad3050c221bad2576be6d",
+    "sections": 9,
+    "topics": 73,
+    "exercises": 1759,
+    "placement": 310
+  }
+}

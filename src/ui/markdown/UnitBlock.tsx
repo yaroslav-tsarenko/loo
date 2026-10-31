@@ -6,6 +6,7 @@ import { ListenExercise } from '@/ui/lang/ListenExercise'
 import { PairAudio, PairOption } from '@/ui/lang/PairExercise'
 import { WordInline } from '@/ui/lang/WordCard'
 import { DIFFICULTY_LABEL, LEVEL_LABEL, type FlashcardUnit, type QuizUnit, type TaskUnit } from '@/content/model'
+import { contentMeta } from '@/i18n'
 import { QuizInline } from '@/ui/study/QuizInline'
 import { TaskInline } from '@/ui/study/TaskInline'
 import { Tag } from '@/ui/Tag'
@@ -29,8 +30,8 @@ async function FlashcardInline({ unit, env }: { unit: FlashcardUnit; env: Render
         <span className="toggle-arrow" aria-hidden="true" />
         <span className="unit-flash-q">{question}</span>
         <span className="unit-flash-tags">
-          {unit.frequency ? <Tag>{unit.frequency}</Tag> : null}
-          {unit.qtype ? <Tag color="default">{unit.qtype}</Tag> : null}
+          {unit.frequency ? <Tag>{contentMeta(unit.frequency, env.locale)}</Tag> : null}
+          {unit.qtype ? <Tag color="default">{contentMeta(unit.qtype, env.locale)}</Tag> : null}
         </span>
       </summary>
       <div className="unit-flash-a prose-flow">{answer}</div>
@@ -130,7 +131,7 @@ async function TaskBlock({ unit, env }: { unit: TaskUnit; env: RenderEnv }) {
 }
 
 export async function UnitBlock({ unitId, env }: { unitId: string; env: RenderEnv }) {
-  const unit = env.snapshot.units.get(unitId)
+  const unit = env.units?.get(unitId) ?? env.snapshot.units.get(unitId)
   if (!unit) return null
   if (unit.kind === 'flashcard' && unit.word) return <WordInline id={unit.id} word={unit.word} lang={await speechLangFor(unit)} level={unit.level ?? null} />
   if (unit.kind === 'flashcard') return <FlashcardInline unit={unit} env={env} />

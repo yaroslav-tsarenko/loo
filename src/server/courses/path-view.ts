@@ -1,6 +1,6 @@
 import 'server-only'
 import { EXAM_ICON, TEST_ICON, TOPIC_FALLBACK_ICONS } from '@/content/icons'
-import { LEVEL_LABEL, type PathLessonNode, type PathTestNode, type PathExamNode } from '@/course'
+import { LEVEL_LABEL, skillTitle, type PathLessonNode, type PathTestNode, type PathExamNode } from '@/course'
 import type { CPNode, CPSection } from '@/ui/courses/types'
 import { lessonHref, testHref, type CoursePath } from './path'
 
@@ -53,6 +53,7 @@ export function lightSections(sections: CPSection[]): CPSection[] {
 
 export function pathSections(path: CoursePath): CPSection[] {
   let topicNo = 0
+  const recommended = new Set(path.view.recommended)
   return path.view.sections.map((s) => {
     const levelLabel = s.section.minLevel === s.section.level ? LEVEL_LABEL[s.section.level] : `${LEVEL_LABEL[s.section.minLevel]} → ${LEVEL_LABEL[s.section.level]}`
     return {
@@ -97,6 +98,7 @@ export function pathSections(path: CoursePath): CPSection[] {
               }
             : { quizzes: '0/0', cards: '0/0', tasks: '0/0' },
           nodes: t.nodes.map((n) => node(n, theory)),
+          ...(t.topic.skill ? { skill: skillTitle(path.bundle.course, t.topic.skill), known: t.known, recommended: recommended.has(t.topic.id) } : {}),
         }
       }),
     }

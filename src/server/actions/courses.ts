@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import type { ReactNode } from 'react'
-import { courseLevels, LEVELS, levelRank, placementCandidates, sectionForLevel, type CourseBundle, type ExamBand, type Level, type PlacementConfidence, type PlacementResult, type PlacementSkill } from '@/course'
+import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type ExamBand, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
 import { quizKey } from '@/content/blocks/quiz/view'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
@@ -148,9 +148,12 @@ export interface PlacementResultView {
   // bank mode (language courses)
   confidence: PlacementConfidence | null
   followUp: boolean
-  skills: Partial<Record<PlacementSkill, PlacementSkillView>> | null
-  strong: PlacementSkill[]
-  weak: PlacementSkill[]
+  // per measured skill: language — grammar / vocabulary / reading / listening; courses with skills — their ids
+  skills: Partial<Record<string, PlacementSkillView>> | null
+  strong: string[]
+  weak: string[]
+  // the per-skill phase ran (course.yaml `placement.perSkill`)
+  perSkill: boolean
   exam: ExamBand | null
   // what the exam estimate doesn't cover (course.yaml `exam.note`; null → the generic i18n text)
   examNote: string | null
@@ -174,7 +177,7 @@ export interface PlacementStepResult {
   next: string | null
   asked: number
   maxQuestions: number
-  phase: 'main' | 'follow-up' | null
+  phase: 'main' | 'skills' | 'follow-up' | null
   // the verdict of the last answer, graded on the server
   lastCorrect: boolean | null
   result: PlacementResultView | null
@@ -213,7 +216,7 @@ function startChoices(bundle: CourseBundle, r: PlacementResult): PlacementResult
 
 function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultView {
   const skills: PlacementResultView['skills'] = r.skills ? {} : null
-  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k as PlacementSkill] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, exam: v.exam }
+  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, exam: v.exam }
   return {
     level: r.level,
     sectionIndex: r.sectionIndex,
@@ -228,6 +231,7 @@ function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultVi
     examNote: r.exam ? (bundle.course.exam?.note ?? null) : null,
     lessonsReady: r.lessonsReady ?? true,
     startLevel: r.startLevel ?? null,
+    perSkill: r.perSkill ?? false,
     starts: startChoices(bundle, r),
   }
 }
@@ -309,7 +313,7 @@ export async function applyPlacement(raw: { course: string; nonce: string; answe
   const sectionId = chosen?.id ?? r.sectionId
   // stored under the jsonb keys of the IELTS-only days (`ielts`: the band label of the course's exam) — no migration
   const stored: EnrollmentPlacement['skills'] = view.skills
-    ? Object.fromEntries(Object.entries(view.skills).map(([k, v]) => [k, { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.exam?.label ?? null }]))
+    ? Object.fromEntries(Object.entries(view.skills).flatMap(([k, v]) => (v ? [[k, { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.exam?.label ?? null }]] : [])))
     : undefined
   const extra: Partial<EnrollmentPlacement> = r.confidence ? { confidence: r.confidence, skills: stored, ielts: view.exam?.label ?? null, followUp: r.followedUp ?? false } : {}
   await savePlacement(input.course, { level: r.level, sectionIndex, sectionId, confident: r.confident, asked: run.step.asked, at: now, ...extra }, r.level, placementCredit(levelRank(r.level)))
@@ -340,7 +344,8 @@ export async function startAtLevel(form: FormData): Promise<void> {
   await limitUser(user.id, 'placement')
   const bundle = await getCourse(input.course)
   if (!bundle) throw new Error('Unknown course')
-  if (!courseLevels(bundle.course).includes(input.level)) throw new Error('Unknown level')
+  // programming courses with skills: only «Я новачок» (the lowest level)
+  if (!manualStartAllowed(bundle, input.level)) throw new Error('Unknown level')
   const { index, id } = sectionForLevel(bundle, input.level)
   await savePlacement(input.course, { level: input.level, sectionIndex: index, sectionId: id, confident: false, asked: 0, at: Date.now(), skipped: true }, input.level)
   redirect(safeRedirectPath(input.next ?? '/path'))

@@ -13,6 +13,8 @@ import { useFeedback } from '@/ui/feedback/FeedbackProvider'
 import { DictationInput } from '@/ui/lang/DictationInput'
 import { SpeakExercise, type SpeakVerdict, type SpeakView } from '@/ui/lang/SpeakExercise'
 import { DEFAULT_SPEECH_LANG } from '@/ui/lang/speech/voices'
+import type { Translate } from '@/i18n'
+import { useT } from '@/i18n/react'
 import { ActionBar, submitLabel } from './ActionBar'
 import { LevelPill } from './LevelPill'
 import { FillBlanks } from './exercises/FillBlanks'
@@ -82,15 +84,15 @@ interface Props {
 // `code`: the exercise fence names a programming language (```js order); language courses' sentences: none or ```text
 const PLAIN_FENCE = /^(text|txt|plain|plaintext)$/i
 
-function kindOf(mode: QuizMode, free: boolean, multi: boolean, code: boolean): { label: string; tone: Tone; icon: ReactNode } {
-  if (mode === 'listen') return { label: free ? 'Диктант' : 'Аудіювання', tone: 'pink', icon: <PiHeadphonesFill /> }
-  if (mode === 'pair') return { label: 'Розрізни на слух', tone: 'orange', icon: <PiEarFill /> }
-  if (mode === 'speak') return { label: 'Скажи вголос', tone: 'mint', icon: <PiMicrophoneFill /> }
-  if (mode === 'order') return { label: code ? 'Склади код' : 'Склади по порядку', tone: 'orange', icon: <PiPuzzlePieceFill /> }
-  if (mode === 'fill') return { label: 'Заповни пропуски', tone: 'mint', icon: <PiCodeBlockFill /> }
-  if (free || mode === 'output') return { label: 'Що виведе код', tone: 'blue', icon: <PiTerminalWindowFill /> }
-  if (multi) return { label: 'Кілька відповідей', tone: 'pink', icon: <PiListChecksFill /> }
-  return { label: 'Тест', tone: 'violet', icon: <PiExamFill /> }
+function kindOf(mode: QuizMode, free: boolean, multi: boolean, code: boolean, t: Translate): { label: string; tone: Tone; icon: ReactNode } {
+  if (mode === 'listen') return { label: free ? t('quiz.kind.dictation') : t('quiz.kind.listening'), tone: 'pink', icon: <PiHeadphonesFill /> }
+  if (mode === 'pair') return { label: t('quiz.kind.pair'), tone: 'orange', icon: <PiEarFill /> }
+  if (mode === 'speak') return { label: t('quiz.kind.speak'), tone: 'mint', icon: <PiMicrophoneFill /> }
+  if (mode === 'order') return { label: code ? t('quiz.kind.orderCode') : t('quiz.kind.order'), tone: 'orange', icon: <PiPuzzlePieceFill /> }
+  if (mode === 'fill') return { label: t('quiz.kind.fill'), tone: 'mint', icon: <PiCodeBlockFill /> }
+  if (free || mode === 'output') return { label: t('quiz.kind.output'), tone: 'blue', icon: <PiTerminalWindowFill /> }
+  if (multi) return { label: t('quiz.kind.multi'), tone: 'pink', icon: <PiListChecksFill /> }
+  return { label: t('quiz.kind.single'), tone: 'violet', icon: <PiExamFill /> }
 }
 
 type Phase = 'open' | 'checking' | 'done'
@@ -113,7 +115,8 @@ export function QuizInline(props: Props) {
   const headingId = useId()
   const feedback = useFeedback()
   const code = Boolean(exercise?.lang && !PLAIN_FENCE.test(exercise.lang))
-  const kind = kindOf(mode, free, multi, code)
+  const t = useT()
+  const kind = kindOf(mode, free, multi, code, t)
   const checked = phase !== 'open'
   const key = verdict?.key ?? null
   const correct = verdict?.correct ?? null
@@ -148,7 +151,7 @@ export function QuizInline(props: Props) {
       finish(await (check ?? serverCheck)(answer), answer)
     } catch {
       setPhase('open')
-      setError('Не вдалося перевірити відповідь. Спробуй ще раз.')
+      setError(t('quiz.checkError'))
     }
   }
 
@@ -194,17 +197,17 @@ export function QuizInline(props: Props) {
   const verdictText =
     mode === 'speak'
       ? correct
-        ? 'Чудова вимова!'
-        : 'Потренуйся ще — фраза повернеться.'
+        ? t('quiz.speakGood')
+        : t('quiz.speakAgain')
       : correct
         ? interactive && code
-          ? 'Правильно! Код зібрано'
-          : 'Правильно!'
+          ? t('quiz.rightCode')
+          : t('quiz.right')
         : dictation
-          ? 'Не зовсім — звір із правильним текстом.'
+          ? t('quiz.compareText')
           : free && key?.free
-            ? `Не зовсім. Відповідь: ${key.free}`
-            : 'Неправильно — питання додано в «Мої помилки».'
+            ? t('quiz.wrongFree', { answer: key.free })
+            : t('quiz.wrong')
 
   // [!speak]: the recogniser's alternatives go through the host's check (answerQuiz) as `chosen`
   const speakCheck = async (transcripts: string[], durationMs: number): Promise<SpeakVerdict> => {
@@ -234,7 +237,7 @@ export function QuizInline(props: Props) {
         ) : exercise?.kind === 'fill' ? (
           <FillBlanks exercise={exercise} checked={checked} answers={key?.blanks ?? null} variant={variant} onSubmit={(values) => void submit(values, null)} actionsSlot={actionsSlot} />
         ) : (
-          <p className="unit-meta">Ця вправа відкривається в розділі «Тести».</p>
+          <p className="unit-meta">{t('quiz.inTests')}</p>
         )
       ) : dictation ? (
         <form
@@ -248,7 +251,7 @@ export function QuizInline(props: Props) {
           {phase !== 'done' ? (
             <ActionBar slot={actionsSlot}>
               <Button type={actionsSlot ? 'button' : 'submit'} block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'} onClick={actionsSlot ? () => void submit([], typed) : undefined}>
-                {submitLabel(variant)}
+                {submitLabel(variant, t)}
               </Button>
             </ActionBar>
           ) : null}
@@ -262,7 +265,7 @@ export function QuizInline(props: Props) {
           }}
         >
           <label className="sr-only" htmlFor={`${headingId}-answer`}>
-            Ваша відповідь
+            {t('quiz.yourAnswer')}
           </label>
           <input
             id={`${headingId}-answer`}
@@ -271,7 +274,7 @@ export function QuizInline(props: Props) {
             value={typed}
             onChange={(e) => setTyped(e.target.value)}
             disabled={checked}
-            placeholder="Наприклад: 1 4 3 2"
+            placeholder={t('quiz.orderPlaceholder')}
             autoComplete="off"
             autoCapitalize="off"
             spellCheck={false}
@@ -281,12 +284,12 @@ export function QuizInline(props: Props) {
             actionsSlot ? (
               <ActionBar slot={actionsSlot}>
                 <Button block size="lg" disabled={!typed.trim()} loading={phase === 'checking'} onClick={() => void submit([], typed)}>
-                  {submitLabel(variant)}
+                  {submitLabel(variant, t)}
                 </Button>
               </ActionBar>
             ) : (
               <Button type="submit" size={compact ? 'sm' : 'md'} disabled={!typed.trim()} loading={phase === 'checking'}>
-                {submitLabel(variant)}
+                {submitLabel(variant, t)}
               </Button>
             )
           ) : null}
@@ -313,8 +316,8 @@ export function QuizInline(props: Props) {
                     {optionState === 'right' ? <PiCheckBold /> : optionState === 'wrong' ? <PiXBold /> : multi && picked ? <PiCheckBold /> : i + 1}
                   </span>
                   <span className="quiz-option-text">{o.content}</span>
-                  {phase === 'done' && key && right ? <span className="quiz-mark">правильно</span> : null}
-                  {phase === 'done' && key && picked && !right ? <span className="quiz-mark">ваш вибір</span> : null}
+                  {phase === 'done' && key && right ? <span className="quiz-mark">{t('quiz.markRight')}</span> : null}
+                  {phase === 'done' && key && picked && !right ? <span className="quiz-mark">{t('quiz.markPicked')}</span> : null}
                 </button>
               </li>
             )
@@ -324,9 +327,9 @@ export function QuizInline(props: Props) {
       {phase !== 'done' && !free && !interactive && mode !== 'speak' ? (
         <ActionBar slot={actionsSlot}>
           <Button block={Boolean(actionsSlot)} size={actionsSlot ? 'lg' : compact ? 'sm' : 'md'} disabled={chosen.length === 0} loading={phase === 'checking'} onClick={() => void submit(chosen, null)}>
-            {submitLabel(variant)}
+            {submitLabel(variant, t)}
           </Button>
-          {!actionsSlot && multi ? <span className="quiz-hint">обрано {chosen.length}</span> : null}
+          {!actionsSlot && multi ? <span className="quiz-hint">{t('quiz.chosen', { n: chosen.length })}</span> : null}
         </ActionBar>
       ) : null}
       {error ? (

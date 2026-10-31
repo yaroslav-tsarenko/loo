@@ -15,6 +15,7 @@ import { renderMdast } from '@/ui/markdown/render'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
+import { localizedUnits } from '../content-i18n'
 import { limitUser } from '../courses/limits'
 import { speechLangFor } from '../courses/target'
 import { resolveTestById, storeTestAnswer } from '../courses/tests'
@@ -143,7 +144,9 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
   // League placement reads other learners' rows on its own connection: after the response (it shows on /leagues).
   if (result.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))
   const chapter = snapshot.chapters.get(unit.chapterId)
-  const explanation = unit.explanation && chapter ? await renderMdast(unit.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
+  // graded on the source unit above; the explanation in the reader's language (same id — src/server/content-i18n.ts)
+  const shown = (await localizedUnits(snapshot, [unit])).get(unit.id) ?? unit
+  const explanation = shown.kind === 'quiz' && shown.explanation && chapter ? await renderMdast(shown.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
   return { correct, key: quizKey(unit), explanation, effects: result.effects, hearts: result.hearts, outOfHearts: false }
 }
 

@@ -61,6 +61,11 @@ function registry(): Promise<Map<string, CourseEntry>> {
   return g[key]
 }
 
+// The loaded bundles (a new Map after a dev reload — callers may key caches on its identity).
+export function courseRegistry(): Promise<Map<string, CourseEntry>> {
+  return registry()
+}
+
 export async function listCourses(): Promise<CourseListing[]> {
   return [...(await registry()).values()].filter((e) => e.listed).map(courseListing)
 }

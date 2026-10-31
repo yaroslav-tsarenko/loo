@@ -1176,6 +1176,40 @@
   color: var(--lu-text-3);
   font-weight: normal;
 }
+/* N skills with bars (courses with course.skills): name · level on top, the ladder position below */
+.skill-levels[data-bars] .skill-levels-list {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+.skill-levels[data-bars] .skill-levels-list li {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+.skill-levels-list li[data-mark='weak'] {
+  border-color: var(--lu-orange);
+}
+.skill-levels-list li[data-mark='strong'] {
+  border-color: var(--lu-green);
+}
+.skill-levels-bar {
+  flex: 1 0 100%;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--lu-border);
+  overflow: hidden;
+}
+.skill-levels-bar i {
+  display: block;
+  height: 100%;
+  background: var(--lu-violet);
+}
+.skill-levels-next {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+  font-size: var(--lu-fs-sm);
+  font-weight: var(--lu-fw-bold);
+}
 .skill-levels-note {
   margin: 8px 0 0;
   color: var(--lu-text-3);

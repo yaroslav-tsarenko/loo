@@ -2,6 +2,8 @@
 
 import { PiCheckBold, PiHourglassFill, PiWarningFill, PiXBold } from 'react-icons/pi'
 import { Pill } from '@/ui/design/Badge'
+import type { Translate } from '@/i18n'
+import { useT } from '@/i18n/react'
 import type { RunReport } from './runner'
 
 interface Props {
@@ -10,22 +12,23 @@ interface Props {
   stuckOn: string | null
 }
 
-function summary(report: RunReport, stuckOn: string | null): string {
-  const passed = report.tests.filter((t) => t.ok).length
+function summary(report: RunReport, stuckOn: string | null, t: Translate): string {
+  const passed = report.tests.filter((r) => r.ok).length
   switch (report.status) {
     case 'passed':
-      return `Усі тести пройдено 🎉`
+      return `${t('task.report.passed')} 🎉`
     case 'failed':
-      return `Пройдено ${passed} з ${report.tests.length}`
+      return t('task.report.failed', { passed, total: report.tests.length })
     case 'timeout':
-      return `${report.error ?? 'Таймаут'}${stuckOn ? ` Зависло на «${stuckOn}»` : ''}`
+      return `${report.error ?? t('task.report.timeout')}${stuckOn ? ` ${t('task.report.stuck', { name: stuckOn })}` : ''}`
     default:
-      return report.error ?? 'Помилка'
+      return report.error ?? t('task.report.error')
   }
 }
 
 // Checklist of tests: a green/red chip per row, plus a score pill.
 export function TestReport({ report, running, stuckOn }: Props) {
+  const t = useT()
   if (running && !report) {
     return (
       <div className="test-report" data-status="running" role="status">
@@ -33,13 +36,13 @@ export function TestReport({ report, running, stuckOn }: Props) {
           <span className="test-chip" data-ok="wait" aria-hidden="true">
             <PiHourglassFill />
           </span>
-          Запускаю тести…
+          {t('task.report.running')}
         </p>
       </div>
     )
   }
   if (!report) return null
-  const passed = report.tests.filter((t) => t.ok).length
+  const passed = report.tests.filter((r) => r.ok).length
   return (
     <div className="test-report" data-status={report.status} role="status" aria-live="polite">
       <p className="test-summary">
@@ -48,36 +51,36 @@ export function TestReport({ report, running, stuckOn }: Props) {
             <PiWarningFill />
           </span>
         ) : null}
-        <span className="test-summary-text">{summary(report, stuckOn)}</span>
+        <span className="test-summary-text">{summary(report, stuckOn, t)}</span>
         {report.tests.length > 0 ? (
           <Pill size="sm" tone={report.status === 'passed' ? 'green' : 'red'} solid className="tabular">
             {passed}/{report.tests.length}
           </Pill>
         ) : null}
-        <span className="test-ms tabular">{Math.round(report.ms)} мс</span>
+        <span className="test-ms tabular">{t('task.report.ms', { ms: Math.round(report.ms) })}</span>
       </p>
       {report.tests.length > 0 ? (
         <ol className="test-list">
-          {report.tests.map((t, i) => (
-            <li key={i} className="test-row" data-ok={t.ok ? '' : undefined}>
-              <span className="test-chip" data-ok={t.ok ? 'yes' : 'no'} role="img" aria-label={t.ok ? 'пройдено' : 'не пройдено'}>
-                {t.ok ? <PiCheckBold /> : <PiXBold />}
+          {report.tests.map((r, i) => (
+            <li key={i} className="test-row" data-ok={r.ok ? '' : undefined}>
+              <span className="test-chip" data-ok={r.ok ? 'yes' : 'no'} role="img" aria-label={r.ok ? t('task.report.ok') : t('task.report.notOk')}>
+                {r.ok ? <PiCheckBold /> : <PiXBold />}
               </span>
               <div className="test-body">
-                <span className="test-name">{t.name}</span>
-                {!t.ok && t.error ? <span className="test-error">{t.error}</span> : null}
-                {!t.ok && (t.expected !== undefined || t.received !== undefined) ? (
+                <span className="test-name">{r.name}</span>
+                {!r.ok && r.error ? <span className="test-error">{r.error}</span> : null}
+                {!r.ok && (r.expected !== undefined || r.received !== undefined) ? (
                   <dl className="test-diff">
-                    {t.expected !== undefined ? (
+                    {r.expected !== undefined ? (
                       <div>
-                        <dt>Очікувалось</dt>
-                        <dd>{t.expected}</dd>
+                        <dt>{t('task.report.expected')}</dt>
+                        <dd>{r.expected}</dd>
                       </div>
                     ) : null}
-                    {t.received !== undefined ? (
+                    {r.received !== undefined ? (
                       <div>
-                        <dt>Отримано</dt>
-                        <dd>{t.received}</dd>
+                        <dt>{t('task.report.received')}</dt>
+                        <dd>{r.received}</dd>
                       </div>
                     ) : null}
                   </dl>
@@ -89,7 +92,7 @@ export function TestReport({ report, running, stuckOn }: Props) {
       ) : null}
       {report.logs.length > 0 ? (
         <details className="test-console" open>
-          <summary>Консоль · {report.logs.length}</summary>
+          <summary>{t('task.report.console', { n: report.logs.length })}</summary>
           <pre>
             {report.logs.map((l, i) => (
               <span key={i} className="test-log" data-level={l.level}>

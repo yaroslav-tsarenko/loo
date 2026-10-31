@@ -1,0 +1,18 @@
+id: web-skills
+version: 0.1.0
+title: Web skills fixture
+subject: programming
+kind: programming
+language: uk
+levels: [noob, junior, middle, senior, god]
+skills:
+  - { id: routing, title: Маршрутизація }
+  - { id: data, title: Дані й кеш, description: 'Fetch, cache' }
+  - { id: ui, title: UI }
+sections:
+  - { id: basics, title: Основи, from: Web, chapters: 1-2 }
+  - { id: data, title: Дані, from: Web, chapters: 3, skill: data }
+exams:
+  topic: { questions: 5, pass: 0.8 }
+  section: { questions: 10, pass: 0.8, testOut: true }
+placement: { enabled: true, maxQuestions: 20, perLevel: 3, perSkill: true, skills: [routing, data] }

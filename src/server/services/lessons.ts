@@ -9,6 +9,7 @@ import { renderMdast } from '@/ui/markdown/render'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type StudyItem } from '@/ui/study/render-items'
 import { userScope } from '../auth'
+import { chapterLanguages, localizedDocument } from '../content-i18n'
 import { readableChapters } from './library'
 
 // Bonus on top of per-question XP: first pass of a lesson, first flawless pass.
@@ -71,6 +72,14 @@ export async function renderLessonItems(snapshot: ContentSnapshot, refs: Readonl
   const unitIds = refs.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
   const rendered = new Map((await renderStudyItems(snapshot, unitIds)).map((r) => [r.unitId, r]))
   const reels = new Map(snapshot.reels.map((r) => [r.id, r]))
+  // reels of translated topics in the UI locale (same ids; src/server/content-i18n.ts)
+  const reelChapters = new Set(refs.flatMap((r) => (r.kind === 'reel' ? [reels.get(r.id)?.chapterId ?? ''] : [])).filter((id) => snapshot.translations.has(id)))
+  for (const chapterId of reelChapters) {
+    const chapter = snapshot.chapters.get(chapterId)
+    const langs = chapter ? await chapterLanguages(snapshot, chapter) : null
+    const doc = langs?.lang ? await localizedDocument(chapterId, langs.lang, langs.source) : null
+    for (const [id, reel] of doc?.reels ?? []) reels.set(id, reel)
+  }
   const items: PlayerItem[] = []
   for (const ref of refs) {
     if (ref.kind === 'unit') {

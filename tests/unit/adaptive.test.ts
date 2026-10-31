@@ -5,6 +5,7 @@ import type { LearningUnit } from '@/content/model'
 import { loadSnapshot } from '@/content/store'
 import {
   CEFR_LEVELS,
+  LANGUAGE_SKILL_MODEL,
   compileCourse,
   currentSkills,
   deriveDifficulty,
@@ -286,7 +287,7 @@ describe('skill update', () => {
   it('an A1 learner acing A1 tests ends up around A2', () => {
     let s = initialSkills({ level: 'A1' }, levels)
     for (let i = 0; i < 3; i++) s = updateSkills(s, obs(10, 10, 'A1'), levels, i)
-    const v = skillsView(s, levels, { id: 'ielts', name: 'IELTS', below: 'нижче 4.0', bands: { B1: '4.0–5.0' } })
+    const v = skillsView(s, levels, LANGUAGE_SKILL_MODEL, { id: 'ielts', name: 'IELTS', below: 'нижче 4.0', bands: { B1: '4.0–5.0' } })
     expect(v.skills.find((x) => x.skill === 'grammar')!.level).toBe('A2')
     // the overall level averages the four placement skills: one strong skill doesn't lift it alone
     expect(v.overall).toBe('A1')

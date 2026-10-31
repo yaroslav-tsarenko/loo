@@ -2,7 +2,7 @@ import { compileCourseDetailed, MIN_AUTO_QUESTIONS } from '../compile/compile'
 import type { CourseSource } from '../compile/source'
 import { iconExists, type IconCatalog } from '../icons'
 import type { CourseIssue } from '../issues'
-import { courseKind, courseLevels, coursePractice, PLACEMENT_SKILLS, parseCourseManifest, parseCourseYaml, PRACTICE_NEEDS, type CourseBundle, type CourseManifest, type ExerciseKind, type Level, levelRank, type Topic } from '../schema'
+import { courseKind, courseLevels, coursePractice, placementSkillIds, parseCourseManifest, parseCourseYaml, PRACTICE_NEEDS, type CourseBundle, type CourseManifest, type ExerciseKind, type Level, levelRank, type Topic } from '../schema'
 
 // COURSE_FORMAT §7: schema, guides and ranges, unique ids, icons, §4 minimums (warnings), exercise levels,
 // test/exam/placement pools, plus the content parser's own issues for the chapters the course uses.
@@ -119,8 +119,11 @@ export function checkCourse(input: unknown, source: CourseSource, opts: Validate
   return { manifest, bundle, issues }
 }
 
+// Questions per (skill × level) pair a bank of a course with skills should have (docs/NEXTJS_SYLLABUS.md §4.1).
+export const PER_PAIR = 6
+
 // Bank mode (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): every level of the ladder needs enough questions for a
-// probe plus the follow-up, all four skills and enough diff ≥ 2 items (guessing protection).
+// probe plus the follow-up, every measured skill (language: the four) and enough diff ≥ 2 items (guessing protection).
 function bankIssues(bundle: CourseBundle): CourseIssue[] {
   const { bank = {}, perLevel, followUp = 0 } = bundle.placement
   const items = Object.values(bank)
@@ -129,6 +132,8 @@ function bankIssues(bundle: CourseBundle): CourseIssue[] {
   const thin: string[] = []
   const skills: string[] = []
   const hard: string[] = []
+  const measured = placementSkillIds(bundle)
+  const pairs: string[] | null = bundle.placement.skills ? [] : null
   for (const l of courseLevels(bundle.course)) {
     const at = items.filter((i) => i.level === l)
     if (at.length === 0) {
@@ -136,8 +141,16 @@ function bankIssues(bundle: CourseBundle): CourseIssue[] {
       continue
     }
     if (at.length < want) thin.push(`${l} (${at.length})`)
-    const lacking = PLACEMENT_SKILLS.filter((s) => !at.some((i) => i.skill === s))
-    if (lacking.length > 0) skills.push(`${l}: ${lacking.join(', ')}`)
+    if (pairs) {
+      // courses with declared skills: every (skill × level) pair needs PER_PAIR questions (phase 2 asks 2–3 per skill)
+      for (const s of measured) {
+        const n = at.filter((i) => i.skill === s).length
+        if (n < PER_PAIR) pairs.push(`${s}×${l} (${n})`)
+      }
+    } else {
+      const lacking = measured.filter((s) => !at.some((i) => i.skill === s))
+      if (lacking.length > 0) skills.push(`${l}: ${lacking.join(', ')}`)
+    }
     if (at.filter((i) => i.diff >= 2).length < perLevel) hard.push(l)
   }
   const out: CourseIssue[] = []
@@ -145,6 +158,12 @@ function bankIssues(bundle: CourseBundle): CourseIssue[] {
   if (missing.length > 0) warn(`немає питань рівнів ${missing.join(', ')} — тест їх не перевіряє`)
   if (thin.length > 0) warn(`замало питань: ${thin.join(', ')} — потрібно ≥ ${want} (краще 40)`)
   if (skills.length > 0) warn(`без навичок — ${skills.join('; ')}`)
+  if (bundle.placement.perSkill) {
+    // phase 2 needs 2 per skill on top of a minimal main test (2 probes); otherwise skills silently get none
+    const need = 2 * perLevel + 2 * measured.length
+    if (bundle.placement.maxQuestions < need) warn(`maxQuestions ${bundle.placement.maxQuestions} < ${need} (2·perLevel + 2·навичок) — фазі «за навичками» не лишиться питань`)
+  }
+  if (pairs && pairs.length > 0) warn(`замало питань на пару навичка × рівень (потрібно ≥ ${PER_PAIR}): ${pairs.slice(0, 8).join(', ')}${pairs.length > 8 ? ` … ще ${pairs.length - 8}` : ''}`)
   if (hard.length > 0) warn(`замало питань diff ≥ 2 на рівнях ${hard.join(', ')} — захист від вгадування слабший`)
   return out
 }

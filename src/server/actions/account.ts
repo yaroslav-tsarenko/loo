@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { profiles } from '@/db/schema'
+import { LOCALES, type Locale } from '@/i18n'
 import { safeRedirectPath } from '@/lib/redirect'
 import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
@@ -77,7 +78,7 @@ export async function completeOnboarding(form: FormData): Promise<void> {
 const profileInput = z.object({
   displayName: z.string().trim().min(1).max(60),
   avatar: z.enum(['oauth', 'initials']),
-  locale: z.enum(['uk']),
+  locale: z.enum(LOCALES as unknown as [Locale, ...Locale[]]),
   minutes,
   interests,
   level,

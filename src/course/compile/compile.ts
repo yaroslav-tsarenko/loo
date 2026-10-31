@@ -24,7 +24,6 @@ import {
   type Level,
   type PlacementItem,
   type PlacementPool,
-  type PlacementSkill,
   type ReelRef,
   type Section,
   type SectionExam,
@@ -33,6 +32,9 @@ import {
   type TopicTest,
   kindForSubject,
   resolvePractice,
+  courseSkills,
+  placementSkillIds,
+  type SkillDef,
 } from '../schema'
 import { deriveDifficulty, exerciseSkill, topicKindOf } from './difficulty'
 import { PACE, isInterviewUnit, topicLessons } from './lessons'
@@ -112,6 +114,22 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
   }
 
   const ladder = courseLadder({ levels: manifest.levels })
+  const kind = manifest.kind ?? kindForSubject(manifest.subject)
+  // skills as course data (schema/skills.ts): language courses keep their own derivation (difficulty.ts →
+  // exerciseSkill); a programming / general course has a skill model only when it declares `skills:`
+  const skillDefs: SkillDef[] = courseSkills({ kind, subject: manifest.subject, levels: manifest.levels, skills: manifest.skills })
+  const declared = ladder !== 'cefr' && manifest.skills ? new Set(manifest.skills.map((s) => s.id)) : null
+  const unknownSkill = (where: string, id: string, what: string) =>
+    issues.push({ severity: 'error', code: 'unknown-skill', where, message: `${what}: невідома навичка «${id}» (у course.yaml skills: ${[...declared!].join(', ')})` })
+  // an exercise's own `skill:` (quiz meta line), validated against the declared skills
+  const ownSkill = (u: LearningUnit, where: string): string | undefined => {
+    if (!declared || u.kind !== 'quiz' || !u.skill) return undefined
+    if (declared.has(u.skill)) return u.skill
+    unknownSkill(where, u.skill, `Вправа ${u.id}`)
+    return undefined
+  }
+  const withSkill = (own: string | undefined, topic: string | undefined): { skill?: string } => (own ?? topic ? { skill: (own ?? topic)! } : {})
+  const topicsWithoutSkill: string[] = []
   const quick = new Set<string>()
   const sections: Section[] = []
   manifest.sections.forEach((sm, sectionIndex) => {
@@ -180,6 +198,13 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       const topicLevel: Level = sm.level ?? contentLevel ?? toCourseLevel(guide.level, ladder) ?? DEFAULT_LEVEL[ladder]
       // language topics: grammar | vocabulary | pronunciation | listening | skills | review (difficulty.ts)
       const topicKind = ladder === 'cefr' ? topicKindOf(chapter.tags) : undefined
+      // declared skills: frontmatter `skill:` → the section's `skill:` → none (a warning)
+      let topicSkill: string | undefined
+      if (declared) {
+        if (chapter.skill && !declared.has(chapter.skill)) unknownSkill(tid, chapter.skill, `Тема «${chapter.title}» (${chapter.path})`)
+        topicSkill = chapter.skill && declared.has(chapter.skill) ? chapter.skill : sm.skill
+        if (!topicSkill) topicsWithoutSkill.push(chapter.title)
+      }
       // difficulty: place of the exercise among the topic's exercises of its kind (words first, quizzes later…)
       const kindTotal = new Map<ExerciseKind, number>()
       for (const u of units) kindTotal.set(exerciseKind(u), (kindTotal.get(exerciseKind(u)) ?? 0) + 1)
@@ -201,7 +226,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
           topicId: tid,
           position,
           difficulty: deriveDifficulty({ unit: u, kind, position: nth, count: kindTotal.get(kind) ?? 1, topicKind, ownLevel: ladder === 'cefr' ? own : null, assignedLevel: level }),
-          ...(ladder === 'cefr' ? { skill: exerciseSkill(u, kind, topicKind) } : {}),
+          ...(ladder === 'cefr' ? { skill: exerciseSkill(u, kind, topicKind) } : declared ? withSkill(ownSkill(u, tid), topicSkill) : {}),
           autoTested: u.kind === 'task' && Boolean(u.code?.tests),
           minutes: unitMinutes(u),
         }
@@ -256,6 +281,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
         level: topicLevel,
         tags: chapter.tags,
         ...(topicKind ? { kind: topicKind } : {}),
+        ...(topicSkill ? { skill: topicSkill } : {}),
         minutes: lessons.reduce((sum, l) => sum + l.minutes, 0),
         exercises: units.map((u) => u.id),
         reels: chapterReels.map((r) => r.id),
@@ -311,7 +337,9 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
   } else {
     for (const s of sections) if (!theory.includes(s.guideId)) theory.push(s.guideId)
   }
-  const kind = manifest.kind ?? kindForSubject(manifest.subject)
+  if (topicsWithoutSkill.length > 0) {
+    issues.push({ severity: 'warning', code: 'topic-skill', where: 'skills', message: `${topicsWithoutSkill.length} тем без навички (frontmatter skill: або skill: розділу): ${topicsWithoutSkill.slice(0, 4).join(', ')}${topicsWithoutSkill.length > 4 ? '…' : ''}` })
+  }
 
   // the bank of the guides this course uses (sections, planned ones too, and theory)
   const courseGuides = new Set<string>(theory)
@@ -319,9 +347,10 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
     const g = findGuide(source, sm.from)
     if (g) courseGuides.add(g.id)
   }
-  const bank = placementBank(source, courseGuides, ladder, issues)
+  const measured = declared ? new Set(placementSkillIds({ course: { kind, subject: manifest.subject, levels: manifest.levels, skills: manifest.skills }, placement: manifest.placement })) : null
+  const bank = placementBank(source, courseGuides, ladder, issues, measured)
   for (const id of bank.chapterIds) chapterIds.push(id)
-  const placement = bank.size > 0 ? bankPool(manifest, bank.items, ladder) : placementPool(manifest, sections, exercises, quick, ladder)
+  const placement = bank.size > 0 ? bankPool(manifest, bank.items, ladder, measured) : placementPool(manifest, sections, exercises, quick, ladder)
   const stats = courseStats(sections, exercises, reels, ladder)
   const icons = [...new Set([iconRef(manifest.icon), ...sections.map((s) => s.icon), ...sections.flatMap((s) => s.topics.map((t) => t.icon))].filter((v): v is string => Boolean(v)))]
 
@@ -338,6 +367,9 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       practice: resolvePractice(kind, manifest.practice),
       language: manifest.language,
       ...(manifest.target ? { target: manifest.target } : kind === 'language' ? { target: manifest.language } : {}),
+      // translations: only when not the defaults, so courses without them compile byte-identically
+      ...(manifest.sourceLanguage !== manifest.language ? { sourceLanguage: manifest.sourceLanguage } : {}),
+      ...(manifest.languages.length !== 1 || manifest.languages[0] !== manifest.sourceLanguage ? { languages: manifest.languages } : {}),
       icon: iconRef(manifest.icon),
       color: manifest.color ?? null,
       cover: manifest.cover ?? null,
@@ -347,6 +379,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       license: manifest.license ?? null,
       estimatedHours: manifest.estimatedHours ?? stats.hours,
       ...(manifest.exam ? { exam: manifest.exam } : {}),
+      ...(skillDefs.length > 0 ? { skills: skillDefs } : {}),
     },
     exams: manifest.exams,
     sections,
@@ -356,6 +389,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
     placement,
     icons,
     stats,
+    ...(manifest.i18n ? { i18n: manifest.i18n } : {}),
   }
   return { bundle, issues, chapterIds }
 }
@@ -368,12 +402,13 @@ export function compileCourse(manifest: CourseManifest, source: CourseSource): C
 export const PLACEMENT_PASS = 0.75
 export const PLACEMENT_FOLLOW_UP = 6
 
-const isSkill = (v: unknown): v is PlacementSkill => typeof v === 'string' && (PLACEMENT_SKILLS as readonly string[]).includes(v)
+const isSkill = (v: unknown): v is string => typeof v === 'string' && (PLACEMENT_SKILLS as readonly string[]).includes(v)
 
 // Placement bank (docs/LANGUAGE_COURSE.md «Банк вступного тесту»): single-choice [!quiz] and [!listen] choice / answer
 // items of the course guides' `_placement/` files, with level, skill and diff. Independent of the sections, so
 // it measures levels whose lessons are still `status: planned`.
-function placementBank(source: CourseSource, guides: ReadonlySet<string>, ladder: LevelLadder, issues: CourseIssue[]): { items: Map<string, PlacementItem>; size: number; chapterIds: string[] } {
+// `measured`: a course with declared skills — the bank's items must name one of them (`skill:` in the meta line).
+function placementBank(source: CourseSource, guides: ReadonlySet<string>, ladder: LevelLadder, issues: CourseIssue[], measured: ReadonlySet<string> | null = null): { items: Map<string, PlacementItem>; size: number; chapterIds: string[] } {
   const items = new Map<string, PlacementItem>()
   const chapterIds: string[] = []
   const units = source.placementUnits
@@ -392,13 +427,26 @@ function placementBank(source: CourseSource, guides: ReadonlySet<string>, ladder
       note('пропущено: не один правильний варіант або не [!quiz] / [!listen] choice', u.id)
       continue
     }
-    const level = toCourseLevel(u.level, ladder)
+    // courses with skills: `noob` / `god` aren't content levels (src/content/model.ts) — the bank file's name
+    // (`_placement/noob.md`) gives the level then
+    const level = toCourseLevel(u.level, ladder) ?? (measured ? bankFileLevel(source, u.chapterId, ladder) : null)
     if (!level) {
       note('пропущено: немає рівня (level: у рядку мета або frontmatter)', u.id)
       continue
     }
-    let skill: PlacementSkill = u.mode === 'listen' ? 'listening' : 'grammar'
-    if (isSkill(u.skill)) skill = u.skill
+    if (measured) {
+      if (!u.skill) {
+        note('пропущено: немає skill:', u.id)
+        continue
+      }
+      if (!measured.has(u.skill)) {
+        issues.push({ severity: 'error', code: 'unknown-skill', where: 'placement', message: `Банк вступного тесту: ${u.id} — невідома навичка «${u.skill}» (${[...measured].join(', ')})` })
+        continue
+      }
+    }
+    let skill: string = u.mode === 'listen' ? 'listening' : 'grammar'
+    if (measured) skill = u.skill!
+    else if (isSkill(u.skill)) skill = u.skill
     else note(u.skill ? `невідома skill «${u.skill}» (grammar | vocabulary | reading | listening), взято ${skill}` : `немає skill:, взято ${skill}`, u.id)
     let diff = 2
     if (u.diff === 1 || u.diff === 2 || u.diff === 3) diff = u.diff
@@ -411,13 +459,21 @@ function placementBank(source: CourseSource, guides: ReadonlySet<string>, ladder
   return { items, size: items.size, chapterIds }
 }
 
-function bankPool(manifest: CourseManifest, items: ReadonlyMap<string, PlacementItem>, ladder: LevelLadder): PlacementPool {
+function bankFileLevel(source: CourseSource, chapterId: string, ladder: LevelLadder): Level | null {
+  const file = source.placementChapters?.get(chapterId)?.path
+  if (!file) return null
+  const name = file.split('/').pop()!.replace(/\.md$/i, '')
+  return toCourseLevel(name, ladder)
+}
+
+function bankPool(manifest: CourseManifest, items: ReadonlyMap<string, PlacementItem>, ladder: LevelLadder, measured: ReadonlySet<string> | null): PlacementPool {
   const { enabled, maxQuestions, perLevel } = manifest.placement
   const ids = [...items.keys()].sort()
   const pool = byLevel((l) => (enabled ? ids.filter((id) => items.get(id)!.level === l) : []), LADDERS[ladder])
   const bank: Record<string, PlacementItem> = {}
   for (const id of ids) bank[id] = items.get(id)!
-  return { enabled, maxQuestions, perLevel, pool, bank, pass: manifest.placement.pass ?? PLACEMENT_PASS, followUp: manifest.placement.followUp ?? PLACEMENT_FOLLOW_UP }
+  const extra = measured ? { ...(manifest.placement.perSkill ? { perSkill: true } : {}), skills: [...measured] } : {}
+  return { enabled, maxQuestions, perLevel, pool, bank, pass: manifest.placement.pass ?? PLACEMENT_PASS, followUp: manifest.placement.followUp ?? PLACEMENT_FOLLOW_UP, ...extra }
 }
 
 const PLACEMENT_KINDS = new Set<ExerciseKind>(['quiz', 'listen', 'pair'])
