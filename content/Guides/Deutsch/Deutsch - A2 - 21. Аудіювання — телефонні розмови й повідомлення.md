@@ -20,18 +20,18 @@ estimatedMinutes: 45
 
 > [!quiz] Що означає «Die Leitung ist besetzt»?
 > level: A2 · type: single · id: de-a2-hoeren-telefon-q01
-> - [ ] зв'язок поганий, нічого не чути
+> - [ ] звʼязок поганий, нічого не чути
 > - [x] лінія зайнята
 > - [ ] цієї особи немає на місці
 > - [ ] ви набрали неправильний номер
 >
-> **Пояснення:** *die Leitung* — «лінія», *besetzt* — «зайнята». Якщо людини немає, кажуть *Sie ist nicht da*. Поганий зв'язок — *die Verbindung ist schlecht*.
+> **Пояснення:** *die Leitung* — «лінія», *besetzt* — «зайнята». Якщо людини немає, кажуть *Sie ist nicht da*. Поганий звʼязок — *die Verbindung ist schlecht*.
 
 ## Як побудована телефонна розмова
 
 Телефонна розмова німецькою має передбачуваний порядок. Знаючи його, ти розумієш, що буде далі, навіть коли не вловив усіх слів.
 
-> [!diagram] П'ять кроків розмови
+> [!diagram] Пʼять кроків розмови
 > ```yaml
 > layout: flow
 > nodes:
@@ -42,7 +42,7 @@ estimatedMinutes: 45
 >   - { id: e, label: "5 · прощання", text: "Auf Wiederhören!", tone: gray }
 > steps:
 >   - { focus: g, note: "Той, хто відповідає, називає організацію або прізвище: Firma Schneider, guten Tag. / Schulz. Вдома теж часто відповідають прізвищем." }
->   - { focus: n, note: "Дзвінок: Hier spricht … (формально) або Hier ist … (між знайомими). Не «Ich bin Anna». Далі — прохання з'єднати: Kann ich bitte Frau Keller sprechen?" }
+>   - { focus: n, note: "Дзвінок: Hier spricht … (формально) або Hier ist … (між знайомими). Не «Ich bin Anna». Далі — прохання зʼєднати: Kann ich bitte Frau Keller sprechen?" }
 >   - { focus: a, note: "Назви мету одним реченням: Ich möchte einen Termin vereinbaren. Ich rufe wegen der Wohnung an." }
 >   - { focus: d, note: "Почуєш пропозицію дня й часу: Passt Ihnen Dienstag? Записуй число й годину. Якщо не підходить: Kann ich den Termin verschieben?" }
 >   - { focus: e, note: "По телефону прощаються словами Auf Wiederhören! — буквально «до почуття». У приватній розмові також Tschüs!" }
@@ -55,7 +55,7 @@ estimatedMinutes: 45
 |---|---|---|
 | Назвати себе | *Hier spricht Anna Schulz.* · *Schulz am Apparat.* | Говорить Анна Шульц. |
 | Попросити особу | *Kann ich bitte Frau Keller sprechen?* | Чи можна поговорити з пані Келлер? |
-| З'єднати | *Einen Moment, ich verbinde Sie.* | Хвилинку, я Вас з'єдную. |
+| Зʼєднати | *Einen Moment, ich verbinde Sie.* | Хвилинку, я Вас зʼєдную. |
 | Лінія зайнята | *Die Leitung ist besetzt.* | Лінія зайнята. |
 | Немає на місці | *Frau Keller ist heute nicht da.* | Пані Келлер сьогодні немає. |
 | Просити передзвонити | *Bitte rufen Sie mich zurück.* | Будь ласка, передзвоніть мені. |
@@ -71,7 +71,7 @@ estimatedMinutes: 45
 
 Номер телефону читають цифрами, часто групами: *null eins fünf eins, zwei drei vier, sechs sieben acht* = 0151 234 678. Цифру 2 по телефону часто вимовляють *zwo*, щоб не сплутати з *drei*.
 
-> [!diagram] Номер, ім'я, час: що записувати
+> [!diagram] Номер, імʼя, час: що записувати
 > ```yaml
 > layout: compare
 > columns: { a: "почуєш", b: "запишеш" }
@@ -95,12 +95,12 @@ estimatedMinutes: 45
 - Hier spricht Anna Schulz. Ich möchte einen Termin vereinbaren. — Говорить Анна Шульц. Я хочу домовитися про запис.
 - Passt Ihnen Dienstag um zehn Uhr dreißig? — Вам підходить вівторок о 10:30?
 - Kann ich bitte Frau Keller sprechen? — Чи можна поговорити з пані Келлер?
-- Einen Moment, ich verbinde Sie. — Хвилинку, я Вас з'єдную.
+- Einen Moment, ich verbinde Sie. — Хвилинку, я Вас зʼєдную.
 - Leider ist die Leitung besetzt. — На жаль, лінія зайнята.
 - Bitte rufen Sie mich zurück. Meine Nummer ist null eins sieben sechs … — Будь ласка, передзвоніть мені. Мій номер 0176 …
 - Ich muss den Termin leider absagen. — На жаль, я мушу скасувати запис.
 - Kann ich den Termin auf Donnerstag verschieben? — Чи можна перенести запис на четвер?
-- Die Verbindung ist schlecht. Können Sie noch einmal anrufen? — Зв'язок поганий. Чи можете Ви зателефонувати ще раз?
+- Die Verbindung ist schlecht. Können Sie noch einmal anrufen? — Звʼязок поганий. Чи можете Ви зателефонувати ще раз?
 
 ## Слова
 
@@ -113,14 +113,14 @@ estimatedMinutes: 45
 
 > [!word] verbinden
 > ipa: /fɛɐ̯ˈbɪndn̩/ · pos: verb · level: A2 · id: de-a2-hoeren-telefon-w02
-> uk: з'єднувати
+> uk: зʼєднувати
 > forms: verbinden → verband → hat verbunden
-> example: Einen Moment, ich **verbinde** Sie. — Хвилинку, я Вас з'єдную.
+> example: Einen Moment, ich **verbinde** Sie. — Хвилинку, я Вас зʼєдную.
 > note: невідокремлюване, наголос на -bin-. Також «поєднувати»: Das Kabel verbindet die Geräte.
 
 > [!word] die Leitung
 > ipa: /ˈlaɪ̯tʊŋ/ · pos: noun · level: A2 · id: de-a2-hoeren-telefon-w03
-> uk: лінія (зв'язку); керівництво
+> uk: лінія (звʼязку); керівництво
 > forms: die Leitungen
 > example: Bleiben Sie bitte in der **Leitung**. — Залишайтеся, будь ласка, на лінії.
 > note: -ung — завжди жіночий рід.
@@ -190,14 +190,14 @@ estimatedMinutes: 45
 > [!word] Am Apparat
 > ipa: /am apaˈʁaːt/ · pos: phrase · level: A2 · id: de-a2-hoeren-telefon-w13
 > uk: біля апарата, слухає (про того, хто на лінії)
-> example: Schulz **am Apparat**. — Шульц на зв'язку.
+> example: Schulz **am Apparat**. — Шульц на звʼязку.
 > note: кажуть про себе: Müller am Apparat або відповідь: Ja, am Apparat. Дещо офіційніше, ніж Hier ist …
 
 > [!word] der Empfang
 > ipa: /ɛmˈpfaŋ/ · pos: noun · level: B1 · id: de-a2-hoeren-telefon-w14
 > uk: прийом (сигналу); рецепція; отримання
 > forms: die Empfänge
-> example: Hier habe ich keinen **Empfang**. — Тут у мене немає зв'язку.
+> example: Hier habe ich keinen **Empfang**. — Тут у мене немає звʼязку.
 > note: емп-пф: [mpf]. В готелі та в офісі: am Empfang — на рецепції. Дієслово: empfangen.
 
 ## Слухаємо
@@ -245,7 +245,7 @@ estimatedMinutes: 45
 > audio: B: Frau Keller ist heute leider nicht im Büro. Sie ist ab morgen wieder da.
 > - [ ] сьогодні пізніше
 > - [x] завтра
-> - [ ] у п'ятницю
+> - [ ] у пʼятницю
 >
 > **Пояснення:** *ab morgen* — «від завтра». *Heute nicht im Büro* — сьогодні її немає.
 
@@ -307,7 +307,7 @@ estimatedMinutes: 45
 > - [x] на четвер о 9:00
 > - [ ] на четвер о 19:00
 >
-> **Пояснення:** *Donnerstag* — четвер, *um neun Uhr* — о дев'ятій. *Das passt gut* — «це добре підходить».
+> **Пояснення:** *Donnerstag* — четвер, *um neun Uhr* — о девʼятій. *Das passt gut* — «це добре підходить».
 
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-hoeren-telefon-l10
@@ -317,7 +317,7 @@ estimatedMinutes: 45
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-hoeren-telefon-l11
 > audio: Einen Moment, bitte. Ich verbinde Sie.
-> explain: *verbinden* — з'єднати. Наголос у *verˈbinde*: на -bin-.
+> explain: *verbinden* — зʼєднати. Наголос у *verˈbinde*: на -bin-.
 
 > [!listen] Послухай. Що сталося?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-telefon-l12
@@ -336,7 +336,7 @@ estimatedMinutes: 45
 > - [x] зателефонувати ще раз
 > - [ ] залишити повідомлення
 >
-> **Пояснення:** *noch einmal anrufen* — «зателефонувати ще раз». Причина — *schlechte Verbindung*, поганий зв'язок.
+> **Пояснення:** *noch einmal anrufen* — «зателефонувати ще раз». Причина — *schlechte Verbindung*, поганий звʼязок.
 
 > [!listen] Заповни прізвище
 > level: A2 · type: fill · speed: slow · id: de-a2-hoeren-telefon-l14
@@ -449,14 +449,14 @@ estimatedMinutes: 45
 
 ## Практика
 
-> [!quiz] Що кажуть по телефону, коли хочуть з'єднати з іншою особою?
+> [!quiz] Що кажуть по телефону, коли хочуть зʼєднати з іншою особою?
 > level: A2 · type: single · id: de-a2-hoeren-telefon-q02
 > - [ ] Ich rufe Sie zurück.
 > - [x] Einen Moment, ich verbinde Sie.
 > - [ ] Sie haben sich verwählt.
 > - [ ] Die Verbindung ist schlecht.
 >
-> **Пояснення:** *verbinden* — з'єднати. Решта фраз мають інше значення: «передзвоню», «не туди потрапили», «поганий зв'язок».
+> **Пояснення:** *verbinden* — зʼєднати. Решта фраз мають інше значення: «передзвоню», «не туди потрапили», «поганий звʼязок».
 
 > [!quiz] Що означає «Schulz am Apparat»?
 > level: A2 · type: single · id: de-a2-hoeren-telefon-q03

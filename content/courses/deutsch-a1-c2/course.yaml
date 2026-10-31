@@ -41,7 +41,7 @@ sections:
       description: 'Звуки й умлаути, sein і haben, артиклі й рід, Präsens, Akkusativ, перші ситуації.' }
   - { id: a2, title: A2 — Елементарний, icon: px:letterTile, from: Deutsch, chapters: 201-230, level: A2, status: planned,
       description: 'Perfekt і Präteritum модальних, Dativ, Wechselpräpositionen, Nebensätze з weil і dass.' }
-  - { id: land, title: Deutschland — країна й побут, icon: px:map, from: Deutschland, chapters: 201-210, level: A2, status: planned,
+  - { id: land, title: Deutschland — країна й побут, icon: px:map, from: Deutschland, chapters: 201-210, level: A2,
       description: 'DACH, федеральні землі, міста, діалекти, свята, їжа й культурні коди.' }
   - { id: b1, title: B1 — Середній, icon: px:chat, from: Deutsch, chapters: 301-330, level: B1, status: planned,
       description: 'Präteritum, Passiv, Relativsätze, Konjunktiv II, Infinitiv mit zu, формат Goethe і telc B1.' }

@@ -61,7 +61,7 @@ estimatedMinutes: 45
 
 **Застереження:** це лише зручна тенденція. Спорідненість форм важливіша: ß пишуть тоді, коли [s] лишається глухим у всіх формах (*Fuß* — *Füße*, *heißen* — *hieß*). У словах, де в родинній формі [s] стає дзвінким [z], пишуть просто **s**: *Haus* — *Häuser*, *Glas* — *Gläser*, *lesen* — *las*. Також просто **s** у коротких службових словах: *das, was, bis, aus, es*.
 
-Інші сталі пари, які варто запам'ятати: *schließen — schloss — geschlossen*, *genießen — genoss — genossen*, *essen — aß — gegessen*. Корінь той самий, але голосний змінює довжину, тому змінюється й написання.
+Інші сталі пари, які варто запамʼятати: *schließen — schloss — geschlossen*, *genießen — genoss — genossen*, *essen — aß — gegessen*. Корінь той самий, але голосний змінює довжину, тому змінюється й написання.
 
 **У Швейцарії та Ліхтенштейні** літеру ß не вживають, пишуть завжди **ss**: *Strasse, Fuss, gross*. Це не помилка, а місцева норма. У великих літерах (НАПИС) у Німеччині зазвичай пишуть **SS** (*STRASSE*); велика літера ẞ існує у правилах як варіант з 2017 року.
 
@@ -102,7 +102,7 @@ estimatedMinutes: 45
 
 ### 5. ä чи e
 
-[ɛ] і [ɛː] можуть бути записані як **ä** або **e**. Орієнтир: якщо є споріднене слово з **a**, пишуть **ä**: *Hand → Hände, Mann → Männer, Gast → Gäste, Land → Länder, kalt → kälter, Gefahr → gefährlich, Kraft → kräftig*. Є винятки: *Eltern* (пов'язане з *alt*, але пишеться з e).
+[ɛ] і [ɛː] можуть бути записані як **ä** або **e**. Орієнтир: якщо є споріднене слово з **a**, пишуть **ä**: *Hand → Hände, Mann → Männer, Gast → Gäste, Land → Länder, kalt → kälter, Gefahr → gefährlich, Kraft → kräftig*. Є винятки: *Eltern* (повʼязане з *alt*, але пишеться з e).
 
 ### 6. Кінцеві b, d, g і написання
 
@@ -238,7 +238,7 @@ estimatedMinutes: 45
 > uk: зачиняти; закривати; закінчувати
 > forms: schließen → schloss → hat geschlossen
 > example: Das Geschäft **schließt** um 20 Uhr. — Магазин зачиняється о 20:00.
-> note: ß у інфінітиві (довге [iː]), але ss у Präteritum schloss і Partizip geschlossen (короткий [ɔ]). Це хороший приклад зв'язку довготи й написання.
+> note: ß у інфінітиві (довге [iː]), але ss у Präteritum schloss і Partizip geschlossen (короткий [ɔ]). Це хороший приклад звʼязку довготи й написання.
 
 > [!word] genießen
 > ipa: /ɡəˈniːsn̩/ · pos: verb · level: B1 · id: de-a2-rechtschreibung-w16
@@ -293,7 +293,7 @@ estimatedMinutes: 45
 > ipa: /ˈzaːnə/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w23
 > uk: вершки
 > forms: — (без множини)
-> example: Ich trinke Kaffee mit **Sahne**. — Я п'ю каву з вершками.
+> example: Ich trinke Kaffee mit **Sahne**. — Я пʼю каву з вершками.
 > note: h німе, a довге [aː]. s на початку слова перед голосним = [z]. AT: Obers (вершки), Schlagobers (збиті вершки); CH: Rahm.
 
 > [!word] die Biene
@@ -479,7 +479,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] ß і ss
-> Українці або пишуть усюди ss, або вживають ß навмання. Орієнтир: **довгий голосний чи дифтонг → ß** (*Straße, heiß, draußen*), **короткий → ss** (*muss, Fluss, nass*). Пам'ятай виняток зі спорідненою формою: *Haus* (бо *Häuser*), *Glas*, *las*. У Швейцарії ß немає взагалі, і *Strasse* там не помилка.
+> Українці або пишуть усюди ss, або вживають ß навмання. Орієнтир: **довгий голосний чи дифтонг → ß** (*Straße, heiß, draußen*), **короткий → ss** (*muss, Fluss, nass*). Памʼятай виняток зі спорідненою формою: *Haus* (бо *Häuser*), *Glas*, *las*. У Швейцарії ß немає взагалі, і *Strasse* там не помилка.
 
 > [!pitfall] Німе h читають як «г» або «х»
 > У *Zahl, Bahn, nehmen, Uhr, Lohn* українець часто вимовляє h: «захл», «бахн». Але h після голосного не звучить; воно лише показує довготу: [tsaːl], [baːn], [ˈneːmən], [uːɐ̯]. Видихом читаємо тільки h на початку слова чи складу перед голосним (*Haus, Hand*).

@@ -20,9 +20,9 @@ estimatedMinutes: 45
 
 > [!quiz] Ти чуєш: «Der Zug fährt nicht um neun Uhr, sondern um zehn Uhr.» О котрій відправляється потяг?
 > level: A2 · type: single · id: de-a2-hoeren-durchsagen-q01
-> - [ ] о дев'ятій
+> - [ ] о девʼятій
 > - [x] о десятій
-> - [ ] о дев'ятій і о десятій
+> - [ ] о девʼятій і о десятій
 > - [ ] потяг не їде
 >
 > **Пояснення:** після *sondern* стоїть правильна інформація. Перше число (*nicht um neun*) — те, що було раніше й тепер недійсне. Це улюблений прийом у завданнях: слухай, чи є виправлення.
@@ -268,11 +268,11 @@ estimatedMinutes: 45
 > [!listen] Послухай автовідповідач. Коли приймає лікар?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-durchsagen-l10
 > audio: Guten Tag, Sie sind verbunden mit der Praxis Doktor Weber. Unsere Sprechstunde ist Montag bis Freitag von acht bis zwölf Uhr. Bitte hinterlassen Sie eine Nachricht nach dem Signalton.
-> - [x] з понеділка по п'ятницю з 8 до 12
+> - [x] з понеділка по пʼятницю з 8 до 12
 > - [ ] з понеділка по суботу з 8 до 12
-> - [ ] з понеділка по п'ятницю з 12 до 18
+> - [ ] з понеділка по пʼятницю з 12 до 18
 >
-> **Пояснення:** *Montag bis Freitag* — з понеділка по п'ятницю, *von acht bis zwölf Uhr* — з 8 до 12.
+> **Пояснення:** *Montag bis Freitag* — з понеділка по пʼятницю, *von acht bis zwölf Uhr* — з 8 до 12.
 
 > [!listen] Послухай автовідповідач фірми. Коли треба передзвонити?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-durchsagen-l11
@@ -281,7 +281,7 @@ estimatedMinutes: 45
 > - [x] завтра з 9
 > - [ ] завтра з 19
 >
-> **Пояснення:** *heute geschlossen* — сьогодні закрито; *morgen ab neun Uhr* — завтра з дев'ятої. *Ab* = «від, з».
+> **Пояснення:** *heute geschlossen* — сьогодні закрито; *morgen ab neun Uhr* — завтра з девʼятої. *Ab* = «від, з».
 
 > [!listen] Послухай оголошення в автобусі. Де зупиниться автобус?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-durchsagen-l12
@@ -308,7 +308,7 @@ estimatedMinutes: 45
 > - [x] вимкнути телефон і сісти на місця
 > - [ ] вийти із залу
 >
-> **Пояснення:** *ausschalten* — вимкнути, *die Plätze einnehmen* — зайняти місця. Фільм починається за п'ять хвилин.
+> **Пояснення:** *ausschalten* — вимкнути, *die Plätze einnehmen* — зайняти місця. Фільм починається за пʼять хвилин.
 
 > [!listen] Послухай інструкцію. Чим користуватися при пожежній тривозі?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-durchsagen-l15
@@ -496,7 +496,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🚆 Літера + число
-> На вокзалах колії мають номери (*Gleis 8*), а в аеропортах вихід на посадку зазвичай складається з літери й числа (*Gate B 12*, *Ausgang B zwölf*). На слух запам'ятовуй пару разом: *B zwölf*, а не просто *zwölf*.
+> На вокзалах колії мають номери (*Gleis 8*), а в аеропортах вихід на посадку зазвичай складається з літери й числа (*Gate B 12*, *Ausgang B zwölf*). На слух запамʼятовуй пару разом: *B zwölf*, а не просто *zwölf*.
 
 > [!reel] 📞 «Nach dem Signalton»
 > Автовідповідач німецькою закінчується фразою *Bitte hinterlassen Sie eine Nachricht nach dem Signalton* («після звукового сигналу»). Залишаючи повідомлення, називають імʼя, причину дзвінка й номер. Як це зробити, розповідає тема A2-21.

@@ -85,7 +85,7 @@ estimatedMinutes: 35
 - *Als Kind **durfte** ich nicht allein **weggehen**.* — Дитиною мені не дозволяли виходити самому.
 
 > [!note] wollte і sollte
-> *Ich wollte* — «я хотів». *Ich sollte* — «я мав (зобов’язаний був)», але той самий вигляд має й форма «мені слід було б», залежно від контексту: *Ich sollte mehr schlafen* (теперішнє, «варто б»). У минулому про обов’язок кажемо також *Ich sollte gestern anrufen* — «я мав учора подзвонити». Контекст (*gestern*) покаже час.
+> *Ich wollte* — «я хотів». *Ich sollte* — «я мав (зобовʼязаний був)», але той самий вигляд має й форма «мені слід було б», залежно від контексту: *Ich sollte mehr schlafen* (теперішнє, «варто б»). У минулому про обовʼязок кажемо також *Ich sollte gestern anrufen* — «я мав учора подзвонити». Контекст (*gestern*) покаже час.
 
 ## Ще кілька форм, які варто розпізнавати
 
@@ -158,7 +158,7 @@ estimatedMinutes: 35
 > ipa: /ˈaɪ̯ɡŋ̩tlɪç/ · pos: adv · level: A2 · id: de-a2-praeteritum-basis-w09
 > uk: власне; насправді
 > example: Ich wollte **eigentlich** zu Hause bleiben. — Я власне хотів залишитися вдома.
-> note: eigentlich пом’якшує речення; не плутати з «насправді» у значенні «правду кажучи».
+> note: eigentlich помʼякшує речення; не плутати з «насправді» у значенні «правду кажучи».
 
 > [!word] es gab
 > ipa: /ɛs ɡaːp/ · pos: phrase · level: A2 · id: de-a2-praeteritum-basis-w10
@@ -386,7 +386,7 @@ estimatedMinutes: 35
 > A: Nein, wir [[hatten]] Besuch.
 > ```
 >
-> **Пояснення:** *du warst* (запитання про відсутність), *ich musste* (обов’язок), *du hattest* (запитання про час), *wir hatten* (мали гостей). Дистрактори: *mussten* (для *wir / sie*) і *hattet* (для *ihr*) не збігаються з підметами цих речень.
+> **Пояснення:** *du warst* (запитання про відсутність), *ich musste* (обовʼязок), *du hattest* (запитання про час), *wir hatten* (мали гостей). Дистрактори: *mussten* (для *wir / sie*) і *hattet* (для *ihr*) не збігаються з підметами цих речень.
 
 > [!quiz] Склади речення: «Вчора я не міг прийти»
 > level: A2 · type: order · id: de-a2-praeteritum-basis-q11

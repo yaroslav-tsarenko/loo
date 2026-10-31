@@ -14,7 +14,7 @@ estimatedMinutes: 45
 > - додати правильне закінчення прикметнику після **der / die / das** (і *dieser, jeder, welcher*): *der neue Tisch, die neue Lampe, die neuen Stühle*;
 > - вибрати між **-e** і **-en** в Nominativ, Akkusativ і Dativ: *Ich kaufe **den** neu**en** Tisch*, *mit **dem** neu**en** Tisch*;
 > - не ставити закінчення після *sein* (*Der Tisch ist neu*);
-> - запам'ятати правило «п'ять разів -e, решта -en».
+> - запамʼятати правило «пʼять разів -e, решта -en».
 
 ## Передбач
 
@@ -70,15 +70,15 @@ estimatedMinutes: 45
 > ```
 > Кольори — рід: синій — чоловічий, червоний — жіночий, зелений — середній, фіолетовий — множина.
 
-## Правило «п'ять разів -e, решта -en»
+## Правило «пʼять разів -e, решта -en»
 
-У таблиці рівно **п'ять** клітинок із закінченням **-e**:
+У таблиці рівно **пʼять** клітинок із закінченням **-e**:
 
 | Nominativ ч. | Nominativ ж. | Nominativ с. | Akkusativ ж. | Akkusativ с. |
 |---|---|---|---|---|
 | der neu**e** Tisch | die neu**e** Lampe | das neu**e** Sofa | die neu**e** Lampe | das neu**e** Sofa |
 
-Усе інше — **-en**. Це легко запам'ятати: **артикль уже показує відмінок і рід**, тому прикметник йому не допомагає — він просто додає нейтральне закінчення (*-e* або *-en*).
+Усе інше — **-en**. Це легко запамʼятати: **артикль уже показує відмінок і рід**, тому прикметник йому не допомагає — він просто додає нейтральне закінчення (*-e* або *-en*).
 
 > [!tip] Як вибрати за секунду
 > 1. Подивись на артикль: *der / die / das* (Nominativ) або *die / das* (Akkusativ ж., с.) → **-e**;
@@ -111,7 +111,7 @@ estimatedMinutes: 45
 - Das alte Haus hat einen großen Garten. — У старому будинку великий сад.
 - Die roten Schuhe gefallen mir. — Червоні черевики мені подобаються.
 - Gefällt dir der blaue Pullover oder der graue? — Тобі подобається синій светр чи сірий?
-- Ich sitze auf dem weichen Sofa. — Я сиджу на м'якому дивані.
+- Ich sitze auf dem weichen Sofa. — Я сиджу на мʼякому дивані.
 - Er trägt den grauen Anzug. — Він носить сірий костюм.
 - Hast du die neuen Nachbarn schon gesehen? — Ти вже бачила нових сусідів?
 
@@ -163,7 +163,7 @@ estimatedMinutes: 45
 > ipa: /kluːk/ · pos: adj · level: A2 · id: de-a2-adj-bestimmt-w08
 > uk: розумний
 > forms: klüger · am klügsten
-> example: Das **kluge** Kind löst die Aufgabe. — Розумна дитина розв'язує завдання.
+> example: Das **kluge** Kind löst die Aufgabe. — Розумна дитина розвʼязує завдання.
 > note: кінцеве g = [k]: «клук». Із закінченням g знову дзвінке: kluge [ˈkluːɡə].
 
 > [!word] tief
@@ -188,7 +188,7 @@ estimatedMinutes: 45
 > ipa: /fʁɛmt/ · pos: adj · level: A2 · id: de-a2-adj-bestimmt-w12
 > uk: чужий; незнайомий
 > example: Wir sprechen mit der **fremden** Frau. — Ми розмовляємо з незнайомою жінкою.
-> note: пов'язане: der Fremde — чужинець, Fremdsprache — іноземна мова.
+> note: повʼязане: der Fremde — чужинець, Fremdsprache — іноземна мова.
 
 > [!word] echt
 > ipa: /ɛçt/ · pos: adj · level: A2 · id: de-a2-adj-bestimmt-w13
@@ -198,8 +198,8 @@ estimatedMinutes: 45
 
 > [!word] weich
 > ipa: /vaɪ̯ç/ · pos: adj · level: A2 · id: de-a2-adj-bestimmt-w14
-> uk: м'який
-> example: Das **weiche** Kissen liegt auf dem Sofa. — М'яка подушка лежить на дивані.
+> uk: мʼякий
+> example: Das **weiche** Kissen liegt auf dem Sofa. — Мʼяка подушка лежить на дивані.
 > note: протилежне — hart. ch після [aɪ̯] — [ç].
 
 > [!word] der Laptop
@@ -507,7 +507,7 @@ estimatedMinutes: 45
 
 > [!important] Підсумок
 > - Прикметник **перед іменником** має закінчення; у присудку (*ist neu*) — ні.
-> - Після **der / die / das** (також *dieser, jeder, welcher*): **п'ять разів -e** (Nominativ ч., ж., с. + Akkusativ ж., с.), решта — **-en**.
+> - Після **der / die / das** (також *dieser, jeder, welcher*): **пʼять разів -e** (Nominativ ч., ж., с. + Akkusativ ж., с.), решта — **-en**.
 > - Akkusativ: змінюється лише чоловічий рід (*den neuen Tisch*); у Dativ — завжди -en (*mit dem neuen Tisch*); у множині — -en (*die neuen Stühle*).
 > - Dativ множини: -n і в іменника (*den neuen Stühlen*), якщо множина ще не на -n / -s.
 > - Не додавай другий сигнал: ~~der neuer Tisch~~.

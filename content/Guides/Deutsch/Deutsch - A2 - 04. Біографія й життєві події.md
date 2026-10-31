@@ -161,10 +161,10 @@ estimatedMinutes: 40
 
 > [!word] die Gesamtschule
 > ipa: /ɡəˈzamtˌʃuːlə/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w12
-> uk: об’єднана школа
+> uk: обʼєднана школа
 > forms: die Gesamtschulen
 > example: Auf der **Gesamtschule** kann man alle Abschlüsse machen. — У Gesamtschule можна отримати будь-який випускний документ.
-> note: об’єднує навчальні шляхи Hauptschule, Realschule й Gymnasium.
+> note: обʼєднує навчальні шляхи Hauptschule, Realschule й Gymnasium.
 
 > [!word] der Kindergarten
 > ipa: /ˈkɪndɐˌɡaʁtn̩/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w13
@@ -589,7 +589,7 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 > Слово *Abitur* походить від латинського *abire* — «піти геть»: той, хто закінчив школу, «відходить». У Німеччині документ видають на завершення гімназії; в Австрії й Швейцарії аналог — *Matura*.
 
 > [!reel] 👶 Kita, Kindergarten, Krippe
-> У Німеччині діти до трьох років ходять до *Krippe*, потім до *Kindergarten*. Загальний термін — *Kita* (*Kindertagesstätte*). Дошкільні групи не входять до обов’язкового шкільного навчання.
+> У Німеччині діти до трьох років ходять до *Krippe*, потім до *Kindergarten*. Загальний термін — *Kita* (*Kindertagesstätte*). Дошкільні групи не входять до обовʼязкового шкільного навчання.
 
 > [!reel] 📜 Lebenslauf — не лише текст
 > В Німеччині Lebenslauf пишуть таблицею: зверху дані, далі етапи від найновішого до найдавнішого. Фото в резюме колись було нормою, зараз — за бажанням.

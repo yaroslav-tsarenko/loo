@@ -160,7 +160,7 @@ estimatedMinutes: 45
 > ipa: /ˈanmɛldʊŋ/ · pos: noun · level: A2 · id: de-a2-situationen-w02
 > uk: реєстрація; запис (на курс)
 > forms: die Anmeldungen
-> example: Die **Anmeldung** ist Pflicht. — Реєстрація обов'язкова.
+> example: Die **Anmeldung** ist Pflicht. — Реєстрація обовʼязкова.
 > note: -ung → die. Окремі значення: реєстрація адреси, запис на курс. AT: Meldezettel.
 
 > [!word] abmelden
@@ -235,7 +235,7 @@ estimatedMinutes: 45
 
 > [!word] vorlegen
 > ipa: /ˈfoːɐ̯leːɡn̩/ · pos: verb · level: B1 · id: de-a2-situationen-w13
-> uk: пред'явити; подати (документ)
+> uk: предʼявити; подати (документ)
 > forms: vorlegen → legte vor → hat vorgelegt
 > example: Bitte **legen** Sie den Mietvertrag **vor**. — Будь ласка, подайте договір оренди.
 > note: відокремлюване. Формальне слово для установ. v на початку = [f].
@@ -256,7 +256,7 @@ estimatedMinutes: 45
 
 > [!word] besichtigen
 > ipa: /bəˈzɪçtɪɡn̩/ · pos: verb · level: B1 · id: de-a2-situationen-w16
-> uk: оглядати (приміщення, пам'ятку)
+> uk: оглядати (приміщення, памʼятку)
 > forms: besichtigen → besichtigte → hat besichtigt
 > example: Wir **besichtigen** morgen eine Wohnung. — Завтра ми оглядатимемо квартиру.
 > note: невідокремлюване. s перед i = [z]. Також: Sehenswürdigkeiten besichtigen — оглядати визначні місця.
@@ -280,7 +280,7 @@ estimatedMinutes: 45
 > uk: управляюча компанія будинку
 > forms: die Hausverwaltungen
 > example: Die **Hausverwaltung** schickt die Abrechnung. — Управляюча компанія надсилає розрахунок.
-> note: це може бути і власник, і окрема фірма. Контакт зазвичай на табличці у під'їзді.
+> note: це може бути і власник, і окрема фірма. Контакт зазвичай на табличці у підʼїзді.
 
 > [!word] unbefristet
 > ipa: /ˈʊnbəfʁɪstət/ · pos: adj · level: B1 · id: de-a2-situationen-w20
@@ -478,12 +478,12 @@ estimatedMinutes: 45
 > audio: B: Guten Tag. Ich habe morgen um neun Uhr einen Termin, aber ich bin krank. Kann ich den Termin verschieben?
 > audio: A: Ja, gern. Wie wäre es mit Donnerstag um elf Uhr?
 > audio: B: Ja, das passt. Vielen Dank.
-> - [ ] завтра о дев'ятій
+> - [ ] завтра о девʼятій
 > - [x] у четвер об одинадцятій
 > - [ ] у середу об одинадцятій
-> - [ ] у четвер о дев'ятій
+> - [ ] у четвер о девʼятій
 >
-> **Пояснення:** нова дата — *Donnerstag um elf Uhr*. Переклад: — Bürgeramt Mitte, добрий день. — Добрий день. Завтра о дев'ятій у мене запис, але я хворію. Чи можна його перенести? — Так, звичайно. Як щодо четверга об одинадцятій? — Так, це підходить. Щиро дякую.
+> **Пояснення:** нова дата — *Donnerstag um elf Uhr*. Переклад: — Bürgeramt Mitte, добрий день. — Добрий день. Завтра о девʼятій у мене запис, але я хворію. Чи можна його перенести? — Так, звичайно. Як щодо четверга об одинадцятій? — Так, це підходить. Щиро дякую.
 
 > [!speak] Скажи по телефону: перенеси запис
 > level: A2 · speed: slow · id: de-a2-situationen-s03
@@ -764,8 +764,8 @@ estimatedMinutes: 45
 
 ## Джерела та що почитати
 
-- [Gesetze im Internet — § 17 Bundesmeldegesetz (BMG)](https://www.gesetze-im-internet.de/bmg/__17.html): обов'язок Anmeldung протягом двох тижнів.
-- [Gesetze im Internet — § 19 BMG](https://www.gesetze-im-internet.de/bmg/__19.html): Wohnungsgeberbestätigung і обов'язки власника.
+- [Gesetze im Internet — § 17 Bundesmeldegesetz (BMG)](https://www.gesetze-im-internet.de/bmg/__17.html): обовʼязок Anmeldung протягом двох тижнів.
+- [Gesetze im Internet — § 19 BMG](https://www.gesetze-im-internet.de/bmg/__19.html): Wohnungsgeberbestätigung і обовʼязки власника.
 - [Gesetze im Internet — § 551 BGB](https://www.gesetze-im-internet.de/bgb/__551.html): розмір Kaution.
 - [DWDS — Bürgeramt](https://www.dwds.de/wb/Bürgeramt): значення слова.
 - [DWDS — Meldebescheinigung](https://www.dwds.de/wb/Meldebescheinigung): значення слова.

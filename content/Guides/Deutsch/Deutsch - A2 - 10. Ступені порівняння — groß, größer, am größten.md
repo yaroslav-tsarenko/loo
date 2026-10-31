@@ -46,7 +46,7 @@ estimatedMinutes: 40
 > layout: flow
 > nodes:
 >   - { id: pos, label: "1. Positiv", text: "alt · groß · gut", note: "основа слова", tone: gray }
->   - { id: komp, label: "2. + -er", text: "älter · größer · besser", note: "умлаут у багатьох односкладових, неправильні форми запам'ятовуємо", tone: yellow }
+>   - { id: komp, label: "2. + -er", text: "älter · größer · besser", note: "умлаут у багатьох односкладових, неправильні форми запамʼятовуємо", tone: yellow }
 >   - { id: sup, label: "3. am + -sten", text: "am ältesten · am größten · am besten", note: "після -d, -t, -s, -ß, -sch, -z, -x зазвичай -esten", tone: pink }
 > edges:
 >   - { from: pos, to: komp, label: "+ er" }
@@ -72,7 +72,7 @@ estimatedMinutes: 40
 
 Після **-d, -t, -s, -ß, -sch, -z, -x** перед суфіксом стоїть **-e-**: *am ältesten, am nettesten, am heißesten, am kürzesten, am hübschesten*. Виняток — **groß: am größten** (а не ~~am größesten~~).
 
-Перед іменником форма інша: артикль + прикметник + **-ste** + закінчення: *der höchste Berg, die schönste Stadt, das beste Brot*. Закінчення прикметників — у темах [[Deutsch - A2 - 15. Відмінювання прикметників I — після der, die, das]] і [[Deutsch - A2 - 17. Відмінювання прикметників II — після ein і без артикля]]. Поки що запам'ятай: **am** — лише для присудка і прислівника, перед іменником — **der / die / das … -ste**.
+Перед іменником форма інша: артикль + прикметник + **-ste** + закінчення: *der höchste Berg, die schönste Stadt, das beste Brot*. Закінчення прикметників — у темах [[Deutsch - A2 - 15. Відмінювання прикметників I — після der, die, das]] і [[Deutsch - A2 - 17. Відмінювання прикметників II — після ein і без артикля]]. Поки що запамʼятай: **am** — лише для присудка і прислівника, перед іменником — **der / die / das … -ste**.
 
 ## Неправильні форми
 
@@ -91,7 +91,7 @@ estimatedMinutes: 40
 
 ## Порівняння: als і wie
 
-Для **нерівності** («більше / менше за») — **als** + ім'я чи займенник у тому ж відмінку:
+Для **нерівності** («більше / менше за») — **als** + імʼя чи займенник у тому ж відмінку:
 
 - Berlin ist **größer als** Hamburg. — Берлін більший за Гамбург.
 - Ich bin **älter als** du. — Я старший за тебе.
@@ -127,7 +127,7 @@ estimatedMinutes: 40
 - Im Winter ist es hier am kältesten. — Узимку тут найхолодніше.
 - Dieser Zug ist schneller als der Bus. — Цей потяг швидший за автобус.
 - Das Hochhaus ist höher als der Turm. — Хмарочос вищий за вежу.
-- Ich trinke lieber Tee als Kaffee. — Я п'ю чай охочіше, ніж каву.
+- Ich trinke lieber Tee als Kaffee. — Я пʼю чай охочіше, ніж каву.
 - Am liebsten esse ich Suppe. — Найохочіше я їм суп.
 - Anna ist nicht so alt wie Max. — Анна не така стара, як Макс.
 - Pizza schmeckt gut, aber Pasta schmeckt besser. — Піца смачна, але паста смачніша.
@@ -371,7 +371,7 @@ estimatedMinutes: 40
 > text: Ich trinke lieber Tee als Kaffee.
 > ipa: /ɪç ˈtʁɪŋkə ˈliːbɐ teː als ˈkafe/
 > tip: lieber — довге [iː], b дзвінке. Kaffee — наголос на першому складі, у Австрії частіше на другому.
-> uk: Я п'ю чай охочіше, ніж каву.
+> uk: Я пʼю чай охочіше, ніж каву.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-komparation-s04
@@ -426,7 +426,7 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-komparation-s07
 > text: Dieses Handy ist leichter und schneller.
 > ipa: /ˈdiːzəs ˈhɛndi ɪst ˈlaɪ̯çtɐ ʊnt ˈʃnɛlɐ/
-> tip: Handy — наголос на першому складі, звук [ɛ]. leichter: ei = [aɪ̯], ch = [ç]. Два вищі ступені, з'єднані und.
+> tip: Handy — наголос на першому складі, звук [ɛ]. leichter: ei = [aɪ̯], ch = [ç]. Два вищі ступені, зʼєднані und.
 > uk: Цей телефон легший і швидший.
 
 ## Практика
@@ -597,7 +597,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🥇 gut, besser, am besten: різні корені
-> Як в англійській *good — better — best* й українській *добрий — кращий — найкращий*, німецька бере вищий ступінь від іншого кореня: *besser* не утворено від *gut*. Тому правило «+ -er» тут не працює, а форму вчимо напам'ять.
+> Як в англійській *good — better — best* й українській *добрий — кращий — найкращий*, німецька бере вищий ступінь від іншого кореня: *besser* не утворено від *gut*. Тому правило «+ -er» тут не працює, а форму вчимо напамʼять.
 
 > [!reel] 🏔 Вищі за вищих
 > *Die Zugspitze ist der höchste Berg Deutschlands. Der Großglockner in Österreich ist höher, und die Dufourspitze in der Schweiz ist noch höher.* Три країни DACH — три найвищі вершини; ще й чудовий приклад для вправ: *hoch — höher — am höchsten*.

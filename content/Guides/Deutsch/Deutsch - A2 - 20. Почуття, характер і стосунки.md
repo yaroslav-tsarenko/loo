@@ -38,7 +38,7 @@ estimatedMinutes: 40
 | **Ich fühle mich** + прикметник | Ich fühle mich einsam. | «почуваюся» (зворотне дієслово) |
 | **Ich habe** + іменник | Ich habe Angst. Ich habe Sorgen. | страх, турботи |
 
-Для запитання підходять *Wie fühlst du dich?*, *Wie geht es dir?* і *Was ist los?* («Що сталося?»). Кажемо: *Ich fühle **mich** gut* — зворотний займенник обов’язковий (докладно — [[Deutsch - A2 - 14. Зворотні дієслова — sich freuen, sich waschen]]).
+Для запитання підходять *Wie fühlst du dich?*, *Wie geht es dir?* і *Was ist los?* («Що сталося?»). Кажемо: *Ich fühle **mich** gut* — зворотний займенник обовʼязковий (докладно — [[Deutsch - A2 - 14. Зворотні дієслова — sich freuen, sich waschen]]).
 
 ### Почуття з прийменниками
 
@@ -110,7 +110,7 @@ estimatedMinutes: 40
 - Sie ist traurig, weil ihre Freundin umzieht. — Вона сумна, бо її подруга переїздить.
 - Warum bist du so wütend? — Чому ти така злюща?
 - Wie fühlst du dich heute? — Ich fühle mich viel besser. — Як ти себе почуваєш? — Набагато краще.
-- Mein Bruder ist schüchtern, aber sehr zuverlässig. — Мій брат сором’язливий, але дуже надійний.
+- Mein Bruder ist schüchtern, aber sehr zuverlässig. — Мій брат соромʼязливий, але дуже надійний.
 - Meine Oma ist großzügig. Sie schenkt allen etwas. — Моя бабуся щедра. Вона всім щось дарує.
 - Wir haben uns gestritten, aber jetzt haben wir uns wieder vertragen. — Ми посварились, але тепер помирились.
 - Er hat sich bei ihr entschuldigt. — Він перепросив у неї.
@@ -211,8 +211,8 @@ estimatedMinutes: 40
 
 > [!word] schüchtern
 > ipa: /ˈʃʏçtɐn/ · pos: adj · level: A2 · id: de-a2-gefuehle-w15
-> uk: сором’язливий
-> example: Mein Sohn ist ein bisschen **schüchtern**. — Мій син трохи сором’язливий.
+> uk: соромʼязливий
+> example: Mein Sohn ist ein bisschen **schüchtern**. — Мій син трохи соромʼязливий.
 > note: sch = «ш»; ü — губи трубочкою, язик як для «і»; ch після ü = [ç].
 
 > [!word] großzügig
@@ -294,7 +294,7 @@ estimatedMinutes: 40
 
 > [!word] die Beziehung
 > ipa: /bəˈtsiːʊŋ/ · pos: noun · level: A2 · id: de-a2-gefuehle-w28
-> uk: стосунки; зв’язок
+> uk: стосунки; звʼязок
 > forms: die Beziehungen
 > example: Sie haben eine gute **Beziehung**. — У них добрі стосунки.
 > note: -ung — жіночий рід. z = [ts], наголос на -zieh-.
@@ -409,7 +409,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *wütend* — розлючена, *traurig* — сумна. *Was ist los?* — «Що сталося?».
 
-> [!listen] Послухай діалог у кав’ярні. Що порадила Анна?
+> [!listen] Послухай діалог у кавʼярні. Що порадила Анна?
 > level: A2 · type: answer · speed: slow · id: de-a2-gefuehle-l06
 > audio: A: Du siehst müde aus, Tim. Ist alles in Ordnung?
 > audio: B: Ich mache mir Sorgen. Mein Chef ist unzufrieden mit mir.
@@ -444,7 +444,7 @@ estimatedMinutes: 40
 > text: Er ist schüchtern, aber sehr zuverlässig.
 > ipa: /eːɐ̯ ɪst ˈʃʏçtɐn ˈaːbɐ zeːɐ̯ ˈtsuːfɛɐ̯lɛsɪç/
 > tip: schüchtern — [ʃ] + [ʏ] + [ç]. zuverlässig: наголос на zu-.
-> uk: Він сором’язливий, але дуже надійний.
+> uk: Він соромʼязливий, але дуже надійний.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-gefuehle-s04
@@ -558,11 +558,11 @@ estimatedMinutes: 40
 > ```text fill
 > Sie sagt immer die Wahrheit. Sie ist (чесна) [[ehrlich]].
 > Er gibt gern Geld und Geschenke. Er ist (щедрий) [[großzügig]].
-> Mein Sohn spricht nicht gern mit Fremden. Er ist (сором’язливий) [[schüchtern]].
+> Mein Sohn spricht nicht gern mit Fremden. Er ist (соромʼязливий) [[schüchtern]].
 > Auf ihn kann man sich verlassen. Er ist (надійний) [[zuverlässig]].
 > ```
 >
-> **Пояснення:** *ehrlich* — чесний, *großzügig* — щедрий, *schüchtern* — сором’язливий, *zuverlässig* — надійний.
+> **Пояснення:** *ehrlich* — чесний, *großzügig* — щедрий, *schüchtern* — соромʼязливий, *zuverlässig* — надійний.
 
 > [!quiz] Допиши зворотний займенник
 > level: A2 · type: fill · bank: mir, euch · id: de-a2-gefuehle-q07

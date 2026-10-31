@@ -11,7 +11,7 @@ estimatedMinutes: 45
 # Прийменники місця — wo (Dativ) і wohin (Akkusativ)
 
 > [!success] Після цієї теми ти зможеш
-> - вибрати між Dativ і Akkusativ після дев'яти прийменників *in, an, auf, über, unter, vor, hinter, neben, zwischen*: *Ich bin im Büro* — *Ich gehe ins Büro*;
+> - вибрати між Dativ і Akkusativ після девʼяти прийменників *in, an, auf, über, unter, vor, hinter, neben, zwischen*: *Ich bin im Büro* — *Ich gehe ins Büro*;
 > - поставити питання «де?» (*wo?*) і «куди?» (*wohin?*) і за ним вибрати відмінок;
 > - розрізнити пари *liegen / legen, stehen / stellen, sitzen / setzen, hängen*;
 > - розповісти, де що лежить, стоїть і висить у кімнаті, і що куди ти кладеш.
@@ -27,9 +27,9 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *gehen* показує рух до місця — питання *wohin?* — тому після *in* стоїть **Akkusativ**: *in das Büro → ins Büro*. *im Büro* (= *in dem Büro*) відповідає на питання «де?»: *Ich bin im Büro.* Прийменник без артикля (*in Büro*) тут неможливий.
 
-## Дев'ять прийменників, два відмінки
+## Девʼять прийменників, два відмінки
 
-Більшість прийменників мають один відмінок (*mit* — завжди Dativ, *für* — завжди Akkusativ). Дев'ять прийменників можуть мати **обидва** — їх називають *Wechselpräpositionen* («змінні»):
+Більшість прийменників мають один відмінок (*mit* — завжди Dativ, *für* — завжди Akkusativ). Девʼять прийменників можуть мати **обидва** — їх називають *Wechselpräpositionen* («змінні»):
 
 **in · an · auf · über · unter · vor · hinter · neben · zwischen**
 
@@ -112,7 +112,7 @@ estimatedMinutes: 45
 - Die Lampe steht zwischen dem Sofa und dem Fenster. — Лампа стоїть між диваном і вікном.
 - Wir stellen die Lampe neben das Sofa. — Ми ставимо лампу поруч із диваном.
 - Der Hund schläft unter dem Tisch. — Собака спить під столом.
-- Der Ball rollt unter das Sofa. — М'яч закотився під диван.
+- Der Ball rollt unter das Sofa. — Мʼяч закотився під диван.
 - Die Katze sitzt auf dem Kleiderschrank. — Кішка сидить на шафі.
 - Papa setzt das Kind auf den Stuhl. — Тато садить дитину на стілець.
 - Wir fahren im Sommer ans Meer. — Влітку ми їдемо до моря.
@@ -321,7 +321,7 @@ estimatedMinutes: 45
 
 ## Вимова
 
-У цій темі важливі короткі слова *im, am, ins, ans*: вони сильно «з'їдаються» в мові. *im* звучить [ɪm], *am* — [am], *ins* — [ɪns]. Різницю *im* / *ins* чути за кінцевим *-s*: його легко проґавити, тому тренуй пару *Ich bin im Kino — Ich gehe ins Kino.*
+У цій темі важливі короткі слова *im, am, ins, ans*: вони сильно «зʼїдаються» в мові. *im* звучить [ɪm], *am* — [am], *ins* — [ɪns]. Різницю *im* / *ins* чути за кінцевим *-s*: його легко проґавити, тому тренуй пару *Ich bin im Kino — Ich gehe ins Kino.*
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-wechselpraep-s01
@@ -361,7 +361,7 @@ estimatedMinutes: 45
 ## Типові помилки українців
 
 > [!pitfall] Dativ після дієслова руху
-> ~~Ich gehe in dem Büro~~ → Ich gehe **ins** Büro. ~~Ich lege das Buch auf dem Tisch~~ → Ich lege das Buch **auf den** Tisch. Українською ти кажеш «кладу *на стіл*» (знахідний), але в німецькому можна «з'їсти» артикль і забути змінити *dem* на *den*. Перед вибором артикля завжди став питання: *wohin?* → Akkusativ.
+> ~~Ich gehe in dem Büro~~ → Ich gehe **ins** Büro. ~~Ich lege das Buch auf dem Tisch~~ → Ich lege das Buch **auf den** Tisch. Українською ти кажеш «кладу *на стіл*» (знахідний), але в німецькому можна «зʼїсти» артикль і забути змінити *dem* на *den*. Перед вибором артикля завжди став питання: *wohin?* → Akkusativ.
 
 > [!pitfall] liegen замість legen, stehen замість stellen
 > ~~Ich liege das Buch auf den Tisch~~ → Ich **lege** das Buch auf den Tisch. ~~Das Auto stellt in der Garage~~ → Das Auto **steht** in der Garage. «Стан» — *liegen, stehen, sitzen, hängen* (Dativ), «дія» — *legen, stellen, setzen, hängen* (Akkusativ). Якщо в реченні є предмет, який ти *кладеш / ставиш*, потрібне дієслово дії.
@@ -600,7 +600,7 @@ estimatedMinutes: 45
 - [DW Learn German — Nicos Weg](https://learngerman.dw.com/en/beginners/c-36519789): безкоштовний відеокурс, розділи про прийменники місця.
 
 > [!important] Підсумок
-> - Дев'ять прийменників (*in, an, auf, über, unter, vor, hinter, neben, zwischen*): **wo?** → Dativ, **wohin?** → Akkusativ.
+> - Девʼять прийменників (*in, an, auf, über, unter, vor, hinter, neben, zwischen*): **wo?** → Dativ, **wohin?** → Akkusativ.
 > - Пари: *liegen / legen, stehen / stellen, sitzen / setzen, hängen* (стан) / *hängen* (дія); дієслова дії мають додаток в Akkusativ.
 > - *im* = in dem, *ins* = in das, *am* = an dem, *ans* = an das, *aufs* = auf das.
 > - Рух усередині місця — це «де?»: *Die Kinder laufen im Garten.*

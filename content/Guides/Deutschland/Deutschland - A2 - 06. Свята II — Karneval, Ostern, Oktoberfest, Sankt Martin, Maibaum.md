@@ -130,48 +130,41 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 > example: An **Weiberfastnacht** beginnt der Straßenkarneval. — На Weiberfastnacht починається вуличний карнавал.
 > note: за DWDS, святкують у Рейнланді; множина рідкісна.
 
-> [!word] der Rosenmontag
-> ipa: /ˌʁoːzn̩ˈmoːntaːk/ · pos: noun · level: B1 · id: dl-a2-06-w03
-> uk: Rosenmontag (понеділок перед Fastnacht)
-> forms: die Rosenmontage
-> example: Am **Rosenmontag** gibt es einen großen Umzug. — На Rosenmontag є велика хода.
-> note: *am Rosenmontag*; множина рідкісна (DWDS).
-
 > [!word] der Rosenmontagszug
-> ipa: /ˌʁoːzn̩ˈmoːntaːksˌtsuːk/ · pos: noun · level: B1 · id: dl-a2-06-w04
+> ipa: /ˌʁoːzn̩ˈmoːntaːksˌtsuːk/ · pos: noun · level: B1 · id: dl-a2-06-w03
 > uk: карнавальна хода на Rosenmontag
 > forms: die Rosenmontagszüge
 > example: Der **Rosenmontagszug** startet um 10 Uhr. — Хода Rosenmontag стартує о 10:00.
 > note: *der Zug* — тут «хода»; *Zug* у A1 — також «потяг».
 
 > [!word] der Aschermittwoch
-> ipa: /ˈaʃɐˌmɪtvɔx/ · pos: noun · level: B1 · id: dl-a2-06-w05
+> ipa: /ˈaʃɐˌmɪtvɔx/ · pos: noun · level: B1 · id: dl-a2-06-w04
 > uk: Попільна середа
 > forms: die Aschermittwoche
 > example: Am **Aschermittwoch** ist der Karneval vorbei. — У Попільну середу карнавал закінчується.
 > note: *die Asche* — попіл; множина рідкісна.
 
 > [!word] sich verkleiden
-> ipa: /zɪç fɛɐ̯ˈklaɪ̯dn̩/ · pos: verb · level: A2 · id: dl-a2-06-w06
+> ipa: /zɪç fɛɐ̯ˈklaɪ̯dn̩/ · pos: verb · level: A2 · id: dl-a2-06-w05
 > uk: переодягатися, вбиратися в костюм
 > forms: er verkleidet sich · verkleidete sich · hat sich verkleidet
 > example: Viele **verkleiden** sich als Pirat. — Багато хто вбирається піратом.
 > note: з *als*: *sich als Clown verkleiden*. Прикметник — *verkleidet*.
 
 > [!word] Alaaf
-> ipa: /aˈlaːf/ · pos: phrase · level: B1 · id: dl-a2-06-w07
+> ipa: /aˈlaːf/ · pos: phrase · level: B1 · id: dl-a2-06-w06
 > uk: «Alaaf!» — карнавальний вигук у Кельні
 > example: In Köln ruft man **Alaaf**. — У Кельні кричать «Alaaf».
 > note: DWDS: Nordrhein і Mittelrhein/Mosel; не плутай з *Helau*.
 
 > [!word] Helau
-> ipa: /hɛˈlaʊ̯/ · pos: phrase · level: B1 · id: dl-a2-06-w08
+> ipa: /hɛˈlaʊ̯/ · pos: phrase · level: B1 · id: dl-a2-06-w07
 > uk: «Helau!» — карнавальний вигук (Дюссельдорф, Майнц та ін.)
 > example: In Düsseldorf ruft man **Helau**. — У Дюссельдорфі кричать «Helau».
 > note: DWDS: переважно центрально-західна Німеччина.
 
 > [!word] die Kamelle
-> ipa: /kaˈmɛlə/ · pos: noun · level: B1 · id: dl-a2-06-w09
+> ipa: /kaˈmɛlə/ · pos: noun · level: B1 · id: dl-a2-06-w08
 > uk: цукерки, які кидають із возів на карнавалі
 > forms: die Kamellen
 > example: Die Zuschauer rufen: „**Kamelle**!“ — Глядачі кричать: «Kamelle!»
@@ -179,21 +172,8 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 
 ### Ostern
 
-> [!word] der Osterhase
-> ipa: /ˈoːstɐˌhaːzə/ · pos: noun · level: A2 · id: dl-a2-06-w10
-> uk: пасхальний заєць
-> forms: die Osterhasen
-> example: Der **Osterhase** versteckt die Eier. — Пасхальний заєць ховає яйця.
-
-> [!word] das Osterei
-> ipa: /ˈoːstɐˌʔaɪ̯/ · pos: noun · level: A2 · id: dl-a2-06-w11
-> uk: пасхальне яйце
-> forms: die Ostereier
-> example: Die Kinder suchen **Ostereier**. — Діти шукають пасхальні яйця.
-> note: EKD: яйце й заєць — символи відродженого життя.
-
 > [!word] das Osterfeuer
-> ipa: /ˈoːstɐˌfɔʏ̯ɐ/ · pos: noun · level: B1 · id: dl-a2-06-w12
+> ipa: /ˈoːstɐˌfɔʏ̯ɐ/ · pos: noun · level: B1 · id: dl-a2-06-w09
 > uk: пасхальне вогнище
 > forms: die Osterfeuer
 > example: Am Samstag brennt ein **Osterfeuer**. — У суботу горить пасхальне вогнище.
@@ -202,48 +182,48 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 ### Oktoberfest
 
 > [!word] das Oktoberfest
-> ipa: /ɔkˈtoːbɐˌfɛst/ · pos: noun · level: A2 · id: dl-a2-06-w13
+> ipa: /ɔkˈtoːbɐˌfɛst/ · pos: noun · level: A2 · id: dl-a2-06-w10
 > uk: Октоберфест (мюнхенське народне свято)
 > forms: die Oktoberfeste
 > example: Das **Oktoberfest** beginnt im September. — Oktoberfest починається у вересні.
 > note: DWDS: «з 1810 року щорічно в Мюнхені». Множина — загальна назва осінніх ярмарків.
 
 > [!word] die Wiesn
-> ipa: /ˈviːsn̩/ · pos: noun · level: B1 · id: dl-a2-06-w14
+> ipa: /ˈviːsn̩/ · pos: noun · level: B1 · id: dl-a2-06-w11
 > uk: Wiesn — Oktoberfest (баварська назва)
 > forms: die Wiesn (мн. рідко)
 > example: Wir gehen auf die **Wiesn**. — Ми йдемо на Wiesn.
 > note: скорочено від *Theresienwiese*; DWDS: баварський варіант слова *die Wiese* («луг»). Жіночий рід, однина: *auf der Wiesn* (де?), *auf die Wiesn* (куди?).
 
 > [!word] das Festzelt
-> ipa: /ˈfɛsttsɛlt/ · pos: noun · level: B1 · id: dl-a2-06-w15
+> ipa: /ˈfɛsttsɛlt/ · pos: noun · level: B1 · id: dl-a2-06-w12
 > uk: святковий намет
 > forms: die Festzelte
 > example: Im **Festzelt** spielt eine Kapelle. — У наметі грає капела.
 
 > [!word] die Maß
-> ipa: /maːs/ · pos: noun · level: B1 · id: dl-a2-06-w16
+> ipa: /maːs/ · pos: noun · level: B1 · id: dl-a2-06-w13
 > uk: маса — літровий кухоль пива (Баварія)
 > forms: die Maß (мн. зазвичай теж Maß: zwei Maß; рідко Maßen)
 > example: Eine **Maß** Bier, bitte! — Літр пива, будь ласка!
 > note: DWDS: у Баварії, [maːs] або [mas]; пишуть і *Mass*. Не плутай із *das Maß* («міра»).
 
 > [!word] die Tracht
-> ipa: /tʁaxt/ · pos: noun · level: B1 · id: dl-a2-06-w17
+> ipa: /tʁaxt/ · pos: noun · level: B1 · id: dl-a2-06-w14
 > uk: національний (народний) костюм
 > forms: die Trachten
 > example: Viele Gäste tragen **Tracht**. — Багато гостей одягнені в Tracht.
 > note: DWDS: одяг, мало залежний від моди; повʼязаний із регіоном або професією.
 
 > [!word] das Dirndl
-> ipa: /ˈdɪʁndl̩/ · pos: noun · level: B1 · id: dl-a2-06-w18
+> ipa: /ˈdɪʁndl̩/ · pos: noun · level: B1 · id: dl-a2-06-w15
 > uk: дірндль (жіноче вбрання з Баварії та Австрії)
 > forms: die Dirndl (рідше Dirndln)
 > example: Sie trägt ein **Dirndl**. — Вона в дірндлі.
 > note: DWDS: Trachtenkleid з вузькою талією, широкою спідницею й півфартухом.
 
 > [!word] die Lederhose
-> ipa: /ˈleːdɐˌhoːzə/ · pos: noun · level: B1 · id: dl-a2-06-w19
+> ipa: /ˈleːdɐˌhoːzə/ · pos: noun · level: B1 · id: dl-a2-06-w16
 > uk: шкіряні штани (баварський костюм)
 > forms: die Lederhosen
 > example: Er trägt eine **Lederhose**. — Він у шкіряних штанях.
@@ -251,51 +231,51 @@ Oktoberfest у Мюнхені почалося **12 жовтня 1810 року**
 ### Martin, Mai, Einheit
 
 > [!word] der Martinstag
-> ipa: /ˈmaʁtiːnsˌtaːk/ · pos: noun · level: B1 · id: dl-a2-06-w20
+> ipa: /ˈmaʁtiːnsˌtaːk/ · pos: noun · level: B1 · id: dl-a2-06-w17
 > uk: день святого Мартіна (11 листопада)
 > forms: die Martinstage
 > example: Am **Martinstag** gehen Kinder mit Laternen. — На Martinstag діти ходять із ліхтарями.
 
 > [!word] der Laternenumzug
-> ipa: /laˈtɛʁnənˌʔʊmtsuːk/ · pos: noun · level: B1 · id: dl-a2-06-w21
+> ipa: /laˈtɛʁnənˌʔʊmtsuːk/ · pos: noun · level: B1 · id: dl-a2-06-w18
 > uk: хода з ліхтарями
 > forms: die Laternenumzüge
 > example: Der **Laternenumzug** beginnt am Abend. — Хода з ліхтарями починається ввечері.
 
 > [!word] die Laterne
-> ipa: /laˈtɛʁnə/ · pos: noun · level: A2 · id: dl-a2-06-w22
+> ipa: /laˈtɛʁnə/ · pos: noun · level: A2 · id: dl-a2-06-w19
 > uk: ліхтар
 > forms: die Laternen
 > example: Das Kind hält eine **Laterne**. — Дитина тримає ліхтар.
 
 > [!word] die Martinsgans
-> ipa: /ˈmaʁtiːnsˌɡans/ · pos: noun · level: B1 · id: dl-a2-06-w23
+> ipa: /ˈmaʁtiːnsˌɡans/ · pos: noun · level: B1 · id: dl-a2-06-w20
 > uk: мартинівська гуска (печена)
 > forms: die Martinsgänse
 > example: Zu Sankt Martin isst man **Martinsgans**. — На Sankt Martin їдять печену гуску.
 
 > [!word] der Weckmann
-> ipa: /ˈvɛkman/ · pos: noun · level: B1 · id: dl-a2-06-w24
+> ipa: /ˈvɛkman/ · pos: noun · level: B1 · id: dl-a2-06-w21
 > uk: Weckmann — солодка булочка-чоловічок
 > forms: die Weckmänner
 > example: Die Kinder bekommen einen **Weckmann**. — Діти отримують Weckmann.
 > note: DWDS: регіональні назви — *Stutenkerl* (північ), *Lebkuchenmann* (схід), *Grittibänz* (Швейцарія).
 
 > [!word] der Maibaum
-> ipa: /ˈmaɪ̯baʊ̯m/ · pos: noun · level: A2 · id: dl-a2-06-w25
+> ipa: /ˈmaɪ̯baʊ̯m/ · pos: noun · level: A2 · id: dl-a2-06-w22
 > uk: травневе дерево (стовп)
 > forms: die Maibäume
 > example: Der **Maibaum** ist 25 Meter hoch. — Maibaum заввишки 25 метрів.
 
 > [!word] aufstellen
-> ipa: /ˈaʊ̯fˌʃtɛlən/ · pos: verb · level: A2 · id: dl-a2-06-w26
+> ipa: /ˈaʊ̯fˌʃtɛlən/ · pos: verb · level: A2 · id: dl-a2-06-w23
 > uk: ставити, встановлювати
 > forms: er stellt auf · stellte auf · hat aufgestellt
 > example: Man **stellt** den Maibaum **auf**. — Maibaum встановлюють.
 > note: відокремлюваний префікс; у підрядному — *… wenn man den Baum aufstellt*.
 
 > [!word] der Tag der Deutschen Einheit
-> ipa: /taːk deːɐ̯ ˈdɔʏ̯tʃn̩ ˈaɪ̯nhaɪ̯t/ · pos: phrase · level: A2 · id: dl-a2-06-w27
+> ipa: /taːk deːɐ̯ ˈdɔʏ̯tʃn̩ ˈaɪ̯nhaɪ̯t/ · pos: phrase · level: A2 · id: dl-a2-06-w24
 > uk: День німецької єдності (3 жовтня)
 > example: Am 3. Oktober ist der **Tag der Deutschen Einheit**. — 3 жовтня — День німецької єдності.
 > note: *der Deutschen Einheit* — Genitiv («день чого?»), прикметник у слабкій відміні; державне свято з 1990 року.

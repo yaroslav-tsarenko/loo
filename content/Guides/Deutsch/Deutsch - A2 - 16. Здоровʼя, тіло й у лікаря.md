@@ -277,7 +277,7 @@ estimatedMinutes: 45
 > ipa: /ˈʃpʁɛçʃtʊndə/ · pos: noun · level: A2 · id: de-a2-arzt-w21
 > uk: години прийому
 > forms: die Sprechstunden
-> example: Die **Sprechstunde** beginnt um neun Uhr. — Прийом починається о дев’ятій.
+> example: Die **Sprechstunde** beginnt um neun Uhr. — Прийом починається о девʼятій.
 > note: sp на початку складу = «шп»; ch після е = [ç].
 
 > [!word] das Rezept
@@ -361,7 +361,7 @@ estimatedMinutes: 45
 > ipa: /ˈkʁaŋkn̩vaːɡn̩/ · pos: noun · level: A2 · id: de-a2-arzt-w33
 > uk: швидка допомога (автомобіль)
 > forms: die Krankenwagen
-> example: Der **Krankenwagen** ist in fünf Minuten da. — Швидка буде за п’ять хвилин.
+> example: Der **Krankenwagen** ist in fünf Minuten da. — Швидка буде за пʼять хвилин.
 > note: офіційно — der Rettungswagen (RTW). Кінцеве -wagen: w = «в», g = [ɡ] «ґ».
 
 > [!word] die Notaufnahme
@@ -429,7 +429,7 @@ estimatedMinutes: 45
 > [!word] Mir ist schlecht.
 > ipa: /miːɐ̯ ɪst ʃlɛçt/ · pos: phrase · level: A2 · id: de-a2-arzt-w43
 > uk: Мені зле / Мене нудить.
-> example: **Mir ist schlecht.** Ich glaube, ich habe etwas Falsches gegessen. — Мені зле. Здається, я з’їв щось не те.
+> example: **Mir ist schlecht.** Ich glaube, ich habe etwas Falsches gegessen. — Мені зле. Здається, я зʼїв щось не те.
 > note: mir — давальний відмінок. Es geht mir schlecht — ширше: «мені погано / мої справи кепські».
 
 ## Слухаємо
@@ -470,7 +470,7 @@ estimatedMinutes: 45
 > audio: B: Ja, das passt. Mein Name ist Bondar.
 > - [ ] сьогодні
 > - [x] завтра о пів на десяту
-> - [ ] завтра о дев’ятій
+> - [ ] завтра о девʼятій
 >
 > **Пояснення:** *halb zehn* — це 9:30 (пів до десятої), а не 10:30. *Heute ist alles voll* — сьогодні вже всі місця зайняті.
 
@@ -524,7 +524,7 @@ estimatedMinutes: 45
 > text: Ich habe einen Termin um neun Uhr.
 > ipa: /ɪç ˈhaːbə ˈaɪ̯nən tɛʁˈmiːn ʊm nɔʏ̯n uːɐ̯/
 > tip: Termin — наголос на -min. neun — дифтонг [ɔʏ̯]: один плавний звук, а не окремі «о» та «й».
-> uk: У мене запис на дев’яту годину.
+> uk: У мене запис на девʼяту годину.
 
 ## Типові помилки українців
 

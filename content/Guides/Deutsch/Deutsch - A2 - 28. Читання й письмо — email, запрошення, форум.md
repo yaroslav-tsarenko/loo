@@ -52,7 +52,7 @@ estimatedMinutes: 40
 >   - { id: an, label: "2. Anrede", text: "Liebe Anna,", note: "після коми — мала літера", tone: pink }
 >   - { id: ein, label: "3. Einleitung", text: "ich hoffe, es geht dir gut.", note: "одне речення, не обовʼязково", tone: gray }
 >   - { id: haupt, label: "4. Hauptteil", text: "три пункти завдання", note: "по реченню на кожен пункт", tone: yellow }
->   - { id: ende, label: "5. Schluss + Gruß", text: "Viele Grüße, Olena", note: "побажання, прощання, ім'я", tone: pink }
+>   - { id: ende, label: "5. Schluss + Gruß", text: "Viele Grüße, Olena", note: "побажання, прощання, імʼя", tone: pink }
 > edges:
 >   - { from: bet, to: an }
 >   - { from: an, to: ein }
@@ -63,7 +63,7 @@ estimatedMinutes: 40
 >   - { focus: an, note: "Anrede: Liebe Anna, / Lieber Tom, / Hallo Anna, / Sehr geehrte Frau Becker, Після коми наступний рядок пишемо з малої літери (якщо це не іменник)." }
 >   - { focus: ein, note: "Короткий вступ: Danke für deine Nachricht. Він ввічливий, але не обовʼязковий." }
 >   - { focus: haupt, note: "Головна частина: по реченню на кожен з трьох пунктів. Так ти не забудеш жодного." }
->   - { focus: ende, note: "Закінчення: Viele Grüße / Liebe Grüße (друг) або Mit freundlichen Grüßen (Ви). Потім ім'я." }
+>   - { focus: ende, note: "Закінчення: Viele Grüße / Liebe Grüße (друг) або Mit freundlichen Grüßen (Ви). Потім імʼя." }
 > ```
 > Кольори тільки чергують кроки; назву кожного кроку видно в підписі.
 
@@ -83,14 +83,14 @@ estimatedMinutes: 40
 > layout: compare
 > columns: { inf: "Неформальний (du)", sem: "Напівформальний (Sie)" }
 > nodes:
->   - { id: a1, col: inf, label: "Початок", text: "Liebe Anna, / Hallo Tom,", note: "ім'я адресата", tone: gray }
+>   - { id: a1, col: inf, label: "Початок", text: "Liebe Anna, / Hallo Tom,", note: "імʼя адресата", tone: gray }
 >   - { id: a2, col: sem, label: "Початок", text: "Sehr geehrte Frau Becker,", note: "прізвище, Frau / Herr", tone: gray }
 >   - { id: b1, col: inf, label: "Мова", text: "Danke für deine Nachricht!", note: "дозволені розмовні слова", tone: gray }
 >   - { id: b2, col: sem, label: "Мова", text: "Vielen Dank für Ihre Nachricht.", note: "ввічливі форми Sie, Ihre", tone: gray }
 >   - { id: c1, col: inf, label: "Прохання", text: "Kannst du mir bitte helfen?", note: "проста форма", tone: gray }
 >   - { id: c2, col: sem, label: "Прохання", text: "Könnten Sie mir bitte helfen?", note: "ввічливіше, Konjunktiv", tone: gray }
 >   - { id: d1, col: inf, label: "Кінець", text: "Viele Grüße", note: "або Liebe Grüße", tone: gray }
->   - { id: d2, col: sem, label: "Кінець", text: "Mit freundlichen Grüßen", note: "ім'я нижче", tone: gray }
+>   - { id: d2, col: sem, label: "Кінець", text: "Mit freundlichen Grüßen", note: "імʼя нижче", tone: gray }
 > steps:
 >   - { focus: [a1, a2], note: "Початок: з другом по імені, з викладачем чи установою — Sehr geehrte / Sehr geehrter + прізвище." }
 >   - { focus: [b1, b2], note: "Мова: у неформальному листі du, deine; в напівформальному — Sie, Ihre (з великої)." }
@@ -228,7 +228,7 @@ estimatedMinutes: 40
 
 > [!word] die Rückmeldung
 > ipa: /ˈʁʏkˌmɛldʊŋ/ · pos: noun · level: B1 · id: de-a2-lesen-schreiben-w10
-> uk: зворотний зв'язок; відповідь
+> uk: зворотний звʼязок; відповідь
 > forms: die Rückmeldungen
 > example: Ich warte auf Ihre **Rückmeldung**. — Я чекаю на Вашу відповідь.
 > note: від sich zurückmelden. ü = [ʏ]. -ung → die. У листах: Über eine Rückmeldung würde ich mich freuen.
@@ -525,7 +525,7 @@ estimatedMinutes: 40
 > - [ ] Vielen Dank im Voraus für ihre Antwort.
 > - [ ] Vielen Dank im Voraus Ihre Antwort.
 >
-> **Пояснення:** до людини на «Ви» — ***Ihre*** з великої літери. *Ihre* з малої означає «її / їхня», а без *für* зв'язок розривається.
+> **Пояснення:** до людини на «Ви» — ***Ihre*** з великої літери. *Ihre* з малої означає «її / їхня», а без *für* звʼязок розривається.
 
 > [!quiz] Яка частина листа зазвичай стоїть одразу після Anrede?
 > level: A2 · type: single · id: de-a2-lesen-schreiben-q14
@@ -544,7 +544,7 @@ estimatedMinutes: 40
 > [!reel] 📱 SMS, якого вже ніхто не пише
 > У письмовій частині Goethe A2 перше завдання досі називається «SMS», хоча в житті ми пишемо у месенджерах. Правила ті самі: 3 пункти, ≈ 20–30 слів, привітання, прощання. Тож тренуйся писати коротко: це корисно й для повсякденних повідомлень.
 
-> [!reel] 🏷️ VB: торг у п'яти літерах
+> [!reel] 🏷️ VB: торг у пʼяти літерах
 > Скорочення *VB* у Kleinanzeigen розшифровується як *Verhandlungsbasis*: ціна не остаточна, і продавець готовий поторгуватися. Є й *FP* (*Festpreis*): ціна фіксована. Знання цих двох скорочень рятує від зайвих сварок із продавцем.
 
 ## Джерела та що почитати

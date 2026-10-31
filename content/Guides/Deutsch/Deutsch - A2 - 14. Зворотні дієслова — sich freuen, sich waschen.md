@@ -111,7 +111,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 >   - { id: o, label: "додаток", text: "die Hände", tone: gray }
 > steps:
 >   - { show: [s, v, r], hide: o, focus: [s, v, r], note: "Дія повертається до того, хто її виконує: Ich wasche mich. Займенник — Akkusativ (кого мию? себе)." }
->   - { show: [o], set: { r: "mir" }, focus: [r, o], note: "З'являється прямий додаток (die Hände, Akkusativ). Місце Akkusativ зайняте, тому займенник переходить у Dativ: mir." }
+>   - { show: [o], set: { r: "mir" }, focus: [r, o], note: "Зʼявляється прямий додаток (die Hände, Akkusativ). Місце Akkusativ зайняте, тому займенник переходить у Dativ: mir." }
 > ```
 
 ## Українське «-ся» і німецьке sich
@@ -121,7 +121,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 | | Німецька | Українська |
 |---|---|---|
 | І. Обидві зворотні | **sich** waschen, **sich** interessieren, **sich** entschuldigen | умиватися, цікавитися, вибачатися |
-| ІІ. Німецька зворотна, українська ні | **sich** freuen, **sich** beeilen, **sich** erinnern, **sich** ausruhen, **sich** langweilen, **sich** bedanken | радіти, поспішати, пам'ятати, відпочивати, нудьгувати, дякувати |
+| ІІ. Німецька зворотна, українська ні | **sich** freuen, **sich** beeilen, **sich** erinnern, **sich** ausruhen, **sich** langweilen, **sich** bedanken | радіти, поспішати, памʼятати, відпочивати, нудьгувати, дякувати |
 | ІІІ. Українська зворотна, німецька ні | lachen, lernen, hoffen, anfangen, enden, heiraten | сміятися, вчитися, сподіватися, починатися, закінчуватися, одружитися |
 
 Група ІІІ — головне джерело помилок: ~~Der Kurs fängt sich an~~ → Der Kurs fängt **an**. ~~Ich lache mich~~ → Ich lache.
@@ -130,7 +130,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 
 ## Прийменники після деяких зворотних дієслів
 
-Деякі зворотні дієслова вимагають певного прийменника. Поки що запам'ятай ці п'ять (докладніше про прийменникові дієслова — на рівні B1):
+Деякі зворотні дієслова вимагають певного прийменника. Поки що запамʼятай ці пʼять (докладніше про прийменникові дієслова — на рівні B1):
 
 - *sich freuen **auf** + Akk* — чекати з радістю (майбутнє): *Ich freue mich **auf** den Urlaub.*
 - *sich freuen **über** + Akk* — радіти чомусь, що вже сталося: *Ich freue mich **über** das Geschenk.*
@@ -150,7 +150,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 - Setzen Sie sich bitte! — Сідайте, будь ласка!
 - Sie interessiert sich für Geschichte. — Вона цікавиться історією.
 - Ich habe mich gut erholt. — Я добре відпочила.
-- Der Kurs fängt um neun an. — Курс починається о дев'ятій. (без sich)
+- Der Kurs fängt um neun an. — Курс починається о девʼятій. (без sich)
 
 ## Слова
 
@@ -198,9 +198,9 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 
 > [!word] sich erinnern (an + Akk)
 > ipa: /zɪç ɛɐ̯ˈɪnɐn/ · pos: verb · level: A2 · id: de-a2-reflexiv-w07
-> uk: пам'ятати, згадувати
+> uk: памʼятати, згадувати
 > forms: erinnern → erinnerte sich → hat sich erinnert
-> example: Ich **erinnere mich** an meinen ersten Tag. — Я пам'ятаю свій перший день.
+> example: Ich **erinnere mich** an meinen ersten Tag. — Я памʼятаю свій перший день.
 > note: Ich erinnere dich an den Termin — я нагадую тобі про зустріч (без sich = нагадувати).
 
 > [!word] sich kümmern (um + Akk)
@@ -382,7 +382,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 ## Типові помилки українців
 
 > [!pitfall] Забутий sich: «Ich freue auf den Urlaub»
-> ~~Ich freue auf den Urlaub~~ → Ich freue **mich** auf den Urlaub. Українські «радіти, поспішати, пам'ятати, відпочивати, нудьгувати, дякувати» не мають «-ся», тому *sich* виглядає зайвим. Але ці німецькі дієслова — завжди зворотні. Вчи їх одразу з займенником: *sich freuen, sich beeilen, sich erinnern.*
+> ~~Ich freue auf den Urlaub~~ → Ich freue **mich** auf den Urlaub. Українські «радіти, поспішати, памʼятати, відпочивати, нудьгувати, дякувати» не мають «-ся», тому *sich* виглядає зайвим. Але ці німецькі дієслова — завжди зворотні. Вчи їх одразу з займенником: *sich freuen, sich beeilen, sich erinnern.*
 
 > [!pitfall] «-ся» там, де sich немає
 > ~~Der Kurs fängt sich an~~ → Der Kurs fängt **an**. ~~Ich lache mich~~ → Ich **lache**. ~~Wir hoffen uns~~ → Wir **hoffen**. Українське «починатися, сміятися, вчитися, сподіватися, одружитися» німецькою — незворотні: *anfangen, lachen, lernen, hoffen, heiraten*.

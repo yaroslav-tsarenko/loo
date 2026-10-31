@@ -392,11 +392,11 @@ estimatedMinutes: 55
 > audio: B: Ich bin Mechaniker. Ich arbeite in einer Werkstatt, von acht bis siebzehn Uhr.
 > audio: A: Arbeiten Sie in Vollzeit?
 > audio: B: Ja, aber am Freitag habe ich schon um zwei Uhr Feierabend.
-> - [x] повний день, у п'ятницю закінчує раніше
-> - [ ] на неповну ставку, лише по п'ятницях
+> - [x] повний день, у пʼятницю закінчує раніше
+> - [ ] на неповну ставку, лише по пʼятницях
 > - [ ] у нічну зміну
 >
-> **Пояснення:** *von acht bis siebzehn Uhr* і *Vollzeit* — повний день; *am Freitag um zwei Uhr Feierabend* — у п'ятницю закінчує о другій.
+> **Пояснення:** *von acht bis siebzehn Uhr* і *Vollzeit* — повний день; *am Freitag um zwei Uhr Feierabend* — у пʼятницю закінчує о другій.
 
 ## Вимова
 
@@ -455,7 +455,7 @@ estimatedMinutes: 55
 > audio: A: Gut. Kommen Sie am Montag um zehn Uhr zum Gespräch.
 > - [x] у понеділок о десятій
 > - [ ] у вівторок о десятій
-> - [ ] у понеділок о дев'ятій
+> - [ ] у понеділок о девʼятій
 >
 > **Пояснення:** *am Montag um zehn Uhr* — у понеділок о 10:00. Закінчення *-in* у *Verkäuferin* підкреслює, що шукають жінку-продавчиню, хоча формально вакансія для будь-кого.
 

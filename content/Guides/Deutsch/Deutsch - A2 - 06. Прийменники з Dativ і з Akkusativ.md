@@ -42,9 +42,9 @@ estimatedMinutes: 40
 >   - { id: a2, col: a, label: "Dativ", text: "seit · von · zu · (außer, gegenüber)", note: "seit einem Jahr · von meiner Mutter · zum Arzt · gegenüber dem Bahnhof", tone: yellow }
 >   - { id: b1, col: b, label: "Akkusativ", text: "durch · für · gegen · ohne · um", note: "durch den Park · für dich · gegen den Wind · ohne mich · um den Tisch", tone: pink }
 > steps:
->   - { focus: a1, note: "Запам’ятай ланцюжок: aus, bei, mit, nach, seit, von, zu — усі з Dativ. Артикль: der → dem, die → der, das → dem, множина → den + -n." }
+>   - { focus: a1, note: "Запамʼятай ланцюжок: aus, bei, mit, nach, seit, von, zu — усі з Dativ. Артикль: der → dem, die → der, das → dem, множина → den + -n." }
 >   - { focus: a2, note: "Ще два Dativ-прийменники: außer («крім») і gegenüber («навпроти»)." }
->   - { focus: b1, note: "П’ять Akkusativ-прийменників: durch, für, gegen, ohne, um. Також bis й entlang (пізніше)." }
+>   - { focus: b1, note: "Пʼять Akkusativ-прийменників: durch, für, gegen, ohne, um. Також bis й entlang (пізніше)." }
 > ```
 > Кольори тут позначають лише групу прийменників (жовті — Dativ, рожеві — Akkusativ).
 
@@ -141,7 +141,7 @@ estimatedMinutes: 40
 > [!word] ohne (+ Akk)
 > ipa: /ˈoːnə/ · pos: prep · level: A2 · id: de-a2-praep-kasus-w05
 > uk: без
-> example: Ich trinke Tee **ohne** Zucker. — Я п’ю чай без цукру.
+> example: Ich trinke Tee **ohne** Zucker. — Я пʼю чай без цукру.
 > note: з артиклем: ohne den Zucker; без артикля — ohne Zucker.
 
 > [!word] außer (+ Dat)

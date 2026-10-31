@@ -257,7 +257,7 @@ estimatedMinutes: 45
 > uk: скасовуватися
 > forms: er fällt aus · fiel aus · ist ausgefallen
 > example: Der Zug ist **ausgefallen**. — Потяг скасовано.
-> note: з sein. Об’яви: «Der Zug fällt aus».
+> note: з sein. Обʼяви: «Der Zug fällt aus».
 
 > [!word] die Störung
 > ipa: /ˈʃtøːʁʊŋ/ · pos: noun · level: A2 · id: de-a2-reisen-w25

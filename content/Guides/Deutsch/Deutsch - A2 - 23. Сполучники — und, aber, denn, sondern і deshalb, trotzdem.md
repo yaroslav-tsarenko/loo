@@ -11,10 +11,10 @@ estimatedMinutes: 40
 # Сполучники — und, aber, denn, sondern і deshalb, trotzdem
 
 > [!success] Після цієї теми ти зможеш
-> - з’єднувати прості речення сполучниками *und, aber, oder, denn, sondern* без зміни порядку слів;
+> - зʼєднувати прості речення сполучниками *und, aber, oder, denn, sondern* без зміни порядку слів;
 > - вживати *deshalb, trotzdem, außerdem, dann, danach* з інверсією: *Es regnet, deshalb bleibe ich zu Hause.*;
 > - розрізняти *aber* («але») і *sondern* («а, лише»);
-> - розставляти коми й будувати довші, зв’язні речення.
+> - розставляти коми й будувати довші, звʼязні речення.
 
 ## Передбач
 
@@ -55,11 +55,11 @@ estimatedMinutes: 40
 >   - { focus: [a1, a2, a3], note: "Ich bin müde, aber ich gehe heute arbeiten. Після aber — звичайний порядок: підмет, потім дієслово." }
 >   - { focus: [b1, b2, b3], note: "Ich bin müde, trotzdem gehe ich heute arbeiten. Після trotzdem — дієслово, потім підмет." }
 > ```
-> М’ятний блок — підмет, помаранчевий — дієслово, сірий — решта; мітка є в кожному блоці.
+> Мʼятний блок — підмет, помаранчевий — дієслово, сірий — решта; мітка є в кожному блоці.
 
 ### Позиція 0: und, aber, oder, denn, sondern
 
-Ці п’ять слів просто **з’єднують два речення**, не впливаючи на порядок слів.
+Ці пʼять слів просто **зʼєднують два речення**, не впливаючи на порядок слів.
 
 | Союз | Значення | Приклад |
 |---|---|---|
@@ -69,7 +69,7 @@ estimatedMinutes: 40
 | **denn** | бо | Ich bleibe zu Hause, denn ich bin krank. |
 | **sondern** | а (лише) | Er ist nicht faul, sondern müde. |
 
-Перед *aber, denn, sondern* кома **обов’язкова**; перед *und, oder* між двома цілими реченнями її зазвичай не ставлять (допустимо поставити).
+Перед *aber, denn, sondern* кома **обовʼязкова**; перед *und, oder* між двома цілими реченнями її зазвичай не ставлять (допустимо поставити).
 
 > [!tip] denn ≠ weil
 > Обидва слова означають «бо», але порядок слів різний: після *denn* — звичайний (*denn ich bin krank*), після *weil* — дієслово в кінці (*weil ich krank bin*). Докладніше про *weil* — у темі [[Deutsch - A2 - 11. Підрядні речення з weil, dass, wenn — дієслово в кінці]].
@@ -85,7 +85,7 @@ estimatedMinutes: 40
 > columns: { a: "aber", b: "sondern" }
 > nodes:
 >   - { id: a1, col: a, label: "умова", text: "обидві частини правдиві", note: "Ich bin müde, aber ich arbeite.", tone: yellow }
->   - { id: a2, col: a, label: "заперечення?", text: "необов’язкове", tone: yellow }
+>   - { id: a2, col: a, label: "заперечення?", text: "необовʼязкове", tone: yellow }
 >   - { id: b1, col: b, label: "умова", text: "перша частина заперечена, друга її виправляє", note: "Er ist nicht faul, sondern müde.", tone: pink }
 >   - { id: b2, col: b, label: "заперечення?", text: "є: nicht / kein", tone: pink }
 > steps:
@@ -129,14 +129,14 @@ estimatedMinutes: 40
 > [!word] und
 > ipa: /ʊnt/ · pos: conj · level: A1 · id: de-a2-konnektoren-w01
 > uk: і; й; а
-> example: Ich trinke Tee **und** er trinkt Kaffee. — Я п’ю чай, а він — каву.
+> example: Ich trinke Tee **und** er trinkt Kaffee. — Я пʼю чай, а він — каву.
 > note: кінцеве d глушиться: [t]. Не змінює порядку слів.
 
 > [!word] sondern
 > ipa: /ˈzɔndɐn/ · pos: conj · level: A2 · id: de-a2-konnektoren-w02
 > uk: а (лише); але (після заперечення)
 > example: Das ist kein Hund, **sondern** ein Wolf. — Це не собака, а вовк.
-> note: після nicht / kein; кома обов’язкова. s на початку — дзвінке [z]; -ern = [ɐn].
+> note: після nicht / kein; кома обовʼязкова. s на початку — дзвінке [z]; -ern = [ɐn].
 
 > [!word] deshalb
 > ipa: /ˈdɛshalp/ · pos: adv · level: A2 · id: de-a2-konnektoren-w03
@@ -196,7 +196,7 @@ estimatedMinutes: 40
 > ipa: /ˈalɐdɪŋs/ · pos: adv · level: B1 · id: de-a2-konnektoren-w12
 > uk: правда; однак
 > example: Ich komme gern, **allerdings** nur bis acht Uhr. — Я радо прийду, правда, лише до восьмої.
-> note: пом’якшене «але»: додає застереження.
+> note: помʼякшене «але»: додає застереження.
 
 > [!word] nämlich
 > ipa: /ˈnɛːmlɪç/ · pos: adv · level: B1 · id: de-a2-konnektoren-w13
@@ -469,7 +469,7 @@ estimatedMinutes: 40
 > - [ ] Das ist nicht rot sondern blau.
 > - [x] Das ist nicht rot, sondern blau.
 >
-> **Пояснення:** перед *aber, denn, sondern* кома обов’язкова.
+> **Пояснення:** перед *aber, denn, sondern* кома обовʼязкова.
 
 > [!quiz] Що означає «also» у реченні «Ich habe Hunger, also esse ich»?
 > level: A2 · type: single · id: de-a2-konnektoren-q14
@@ -517,7 +517,7 @@ estimatedMinutes: 40
 - [DWDS — also](https://www.dwds.de/wb/also): значення, приклади, відмінність від auch.
 - [DWDS — aber](https://www.dwds.de/wb/aber): значення й частинка aber.
 - [Duden — deshalb](https://www.duden.de/rechtschreibung/deshalb): правопис і значення.
-- [DW — Nicos Weg (A2)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): безкоштовний відеокурс Deutsche Welle, теми зв’язного мовлення.
+- [DW — Nicos Weg (A2)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): безкоштовний відеокурс Deutsche Welle, теми звʼязного мовлення.
 - H. Dreyer, R. Schmitt — *Lehr- und Übungsbuch der deutschen Grammatik* (Hueber) — розділ про сполучники.
 
 > [!important] Підсумок

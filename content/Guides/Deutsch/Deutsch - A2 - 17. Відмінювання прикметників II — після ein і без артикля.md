@@ -122,7 +122,7 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- Das ist ein neuer Computer. — Це новий комп’ютер.
+- Das ist ein neuer Computer. — Це новий компʼютер.
 - Ich suche einen bequemen Stuhl. — Я шукаю зручний стілець.
 - Sie hat eine kleine Wohnung in Köln. — У неї маленька квартира в Кельні.
 - Wir kaufen frisches Brot und kalte Milch. — Ми купуємо свіжий хліб і холодне молоко.
@@ -252,7 +252,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-Закінчення -er, -es, -em, -en в потоці мови вимовляємо м’яко. **-er** — вокалізоване [ɐ], **-en** — слабке [n̩] або [ən], **-es** — [əs]; а **-em** — [əm]. Тому на слух важливо ловити останню приголосну: *neuer* — [ˈnɔʏ̯ɐ], *neues* — [ˈnɔʏ̯əs], *neuen* — [ˈnɔʏ̯ən].
+Закінчення -er, -es, -em, -en в потоці мови вимовляємо мʼяко. **-er** — вокалізоване [ɐ], **-en** — слабке [n̩] або [ən], **-es** — [əs]; а **-em** — [əm]. Тому на слух важливо ловити останню приголосну: *neuer* — [ˈnɔʏ̯ɐ], *neues* — [ˈnɔʏ̯əs], *neuen* — [ˈnɔʏ̯ən].
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-adj-unbestimmt-s01

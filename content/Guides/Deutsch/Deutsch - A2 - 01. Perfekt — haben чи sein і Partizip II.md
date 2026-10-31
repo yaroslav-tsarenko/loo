@@ -186,7 +186,7 @@ estimatedMinutes: 40
 > ipa: /bəˈɡɪnən/ · pos: verb · level: A2 · id: de-a2-perfekt-w09
 > uk: починати(ся)
 > forms: beginnen → begann → hat begonnen
-> example: Der Kurs hat um neun Uhr **begonnen**. — Курс почався о дев’ятій.
+> example: Der Kurs hat um neun Uhr **begonnen**. — Курс почався о девʼятій.
 > note: be- ненаголошений, Partizip без ge-. Синонім з розмовним відтінком: anfangen.
 
 > [!word] denken
@@ -632,7 +632,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🇬🇧 sing – sang – sung: німецька та англійська думають однаково
-> Багато сильних дієслів у німецькій і англійській мають ту саму зміну голосної: *singen – sang – gesungen* і *sing – sang – sung*, *trinken – trank – getrunken* і *drink – drank – drunk*, *finden – fand – gefunden* і *find – found – found*. Тож англійська допомагає запам’ятати німецькі Partizip.
+> Багато сильних дієслів у німецькій і англійській мають ту саму зміну голосної: *singen – sang – gesungen* і *sing – sang – sung*, *trinken – trank – getrunken* і *drink – drank – drunk*, *finden – fand – gefunden* і *find – found – found*. Тож англійська допомагає запамʼятати німецькі Partizip.
 
 > [!reel] 🗣️ «Haste gesehen?»
 > У розмові допоміжне дієслово часто зливається з займенником: *Hast du* → *haste*, *Habe ich* → *hab ich*. У літературній мові це не пишуть, але чуєш повсюди: *Hab ich gesehen!* Для іспиту та листів — повні форми.

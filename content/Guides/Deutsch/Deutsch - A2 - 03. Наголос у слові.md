@@ -38,7 +38,7 @@ estimatedMinutes: 40
 | ˈ | головний наголос | *Lehrer* /ˈleːʁɐ/ |
 | ˌ | другорядний наголос (у довгих складних словах) | *Supermarkt* /ˈzuːpɐˌmaʁkt/ |
 
-## П'ять правил наголосу
+## Пʼять правил наголосу
 
 **1. Рідні слова: наголос на першому складі кореня.** *ˈarbeiten*, *ˈLehrer*, *ˈFreundin*, *ˈBahnhof*, *ˈMutter*. Закінчення й суфікси *-en, -er, -e, -ung* зазвичай не наголошуються.
 
@@ -84,7 +84,7 @@ estimatedMinutes: 40
 
 | Наголос на префіксі (відокремлюване) | Наголос на корені (невідокремлюване) |
 |---|---|
-| *ˈumfahren*: збити (машиною): *Er fährt das Schild ˈum.* | *umˈfahren*: об'їхати: *Er umˈfährt den Stau.* |
+| *ˈumfahren*: збити (машиною): *Er fährt das Schild ˈum.* | *umˈfahren*: обʼїхати: *Er umˈfährt den Stau.* |
 | *ˈübersetzen*: переправити на інший берег | *überˈsetzen*: перекладати текст |
 | *ˈwiederholen*: забрати назад | *wiederˈholen*: повторити |
 
@@ -200,9 +200,9 @@ estimatedMinutes: 40
 
 > [!word] die Metzgerei
 > ipa: /mɛtsɡəˈʁaɪ̯/ · pos: noun · level: A2 · id: de-a2-wortakzent-w14
-> uk: м'ясна крамниця
+> uk: мʼясна крамниця
 > forms: die Metzgereien
-> example: In der **Metzgerei** kaufe ich Wurst. — У м'ясній крамниці я купую ковбасу.
+> example: In der **Metzgerei** kaufe ich Wurst. — У мʼясній крамниці я купую ковбасу.
 > note: так кажуть на півдні Німеччини, у Швейцарії й часто в Австрії; на півночі й сході — die Fleischerei; у Східній Австрії — die Fleischhauerei.
 
 > [!word] die Natur
@@ -216,7 +216,7 @@ estimatedMinutes: 40
 > ipa: /ʁepaʁaˈtuːɐ̯/ · pos: noun · level: A2 · id: de-a2-wortakzent-w16
 > uk: ремонт
 > forms: die Reparaturen
-> example: Die **Reparatur** kostet fünfzig Euro. — Ремонт коштує п'ятдесят євро.
+> example: Die **Reparatur** kostet fünfzig Euro. — Ремонт коштує пʼятдесят євро.
 > note: іменник від reparieren; наголос на -tur. Werkstatt — майстерня, де роблять ремонт.
 
 > [!word] der Tourist
@@ -416,7 +416,7 @@ estimatedMinutes: 40
 > В українській похідні слова мають свій наголос, тому в *studieren*, *Situation*, *Universität* його легко поставити не туди: *~~ˈstudieren~~*, *~~ˈSituation~~*. Для німецьких іншомовних слів працює правило суфікса: наголос на **-ie-** (*studiˈeren*), на **-on** (*Situatiˈon*), на **-tät** (*Universiˈtät*), на **-ei** (*Poliˈzei*).
 
 > [!pitfall] Однаковий вигляд — різний наголос
-> *umfahren*, *übersetzen*, *wiederholen* пишуться однаково, а вимовляються і значать різне: *ˈumfahren* (збити) і *umˈfahren* (об'їхати). Тому в незнайомому дієслові з *über-, um-, unter-, durch-, wieder-* слухай, чи наголошений префікс. Невідокремлювані форми в Perfekt не мають *ge-*: *hat umˈfahren*, але *ist ˈumgefahren*.
+> *umfahren*, *übersetzen*, *wiederholen* пишуться однаково, а вимовляються і значать різне: *ˈumfahren* (збити) і *umˈfahren* (обʼїхати). Тому в незнайомому дієслові з *über-, um-, unter-, durch-, wieder-* слухай, чи наголошений префікс. Невідокремлювані форми в Perfekt не мають *ge-*: *hat umˈfahren*, але *ist ˈumgefahren*.
 
 ## Практика
 
@@ -539,8 +539,8 @@ estimatedMinutes: 40
 > [!reel] 🎵 Accent = «до-спів»
 > Слово *Akzent* прийшло з латинського *accentus*, від *ad* («до») і *cantus* («спів»): буквально «підспівування». Давні граматики бачили в наголосі підйом голосу. Тому «наголос» і «акцент» у німецькій мові — одне слово: *der Akzent* означає і наголошений склад, і чужий вимовний «присмак».
 
-> [!reel] 🚗 Збити чи об'їхати?
-> *Der Lastwagen hat das Schild ˈumgefahren.* Вантажівка збила знак. А *Der Fahrer hat die Baustelle umˈfahren.* Водій об'їхав будівельний майданчик. Один і той самий запис *umfahren*, але наголос вирішує, хто пошкодив знак. У листі їх розрізняють контекстом, а в розмові: слухом.
+> [!reel] 🚗 Збити чи обʼїхати?
+> *Der Lastwagen hat das Schild ˈumgefahren.* Вантажівка збила знак. А *Der Fahrer hat die Baustelle umˈfahren.* Водій обʼїхав будівельний майданчик. Один і той самий запис *umfahren*, але наголос вирішує, хто пошкодив знак. У листі їх розрізняють контекстом, а в розмові: слухом.
 
 > [!reel] 🧩 Наголос підказує, як бути з Perfekt
 > Якщо префікс наголошений (*ˈeinkaufen*), у Perfekt *ge-* ставиться всередині: *eingekauft*. Якщо слабкий (*verˈkaufen*), *ge-* немає зовсім: *verkauft*. Тому спочатку визнач наголос, і форма дієприкметника стане очевидною.

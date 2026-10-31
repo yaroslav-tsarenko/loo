@@ -88,7 +88,7 @@ estimatedMinutes: 40
 
 ## Приклади
 
-- *Wir feiern Weihnachten mit der ganzen Familie.* — Ми святкуємо Різдво з усією сім'єю.
+- *Wir feiern Weihnachten mit der ganzen Familie.* — Ми святкуємо Різдво з усією сімʼєю.
 - *An Silvester gibt es um Mitternacht Feuerwerk.* — На Silvester опівночі буде феєрверк.
 - *Zu Ostern verstecken wir Ostereier im Garten.* — На Великдень ми ховаємо писанки в саду.
 - *Ich wünsche dir ein frohes Fest!* — Бажаю тобі гарного свята!
@@ -98,7 +98,7 @@ estimatedMinutes: 40
 - *Meine Eltern schenken mir ein Buch.* — Батьки дарують мені книжку.
 - *Am Muttertag bringe ich meiner Mutter Blumen.* — На День матері я приношу мамі квіти.
 - *Am Samstag mache ich eine Party. Kommst du?* — У суботу в мене вечірка. Прийдеш?
-- *Prost! Auf dein Wohl!* — За твоє здоров'я!
+- *Prost! Auf dein Wohl!* — За твоє здоровʼя!
 - *Im Dezember gehen wir auf den Weihnachtsmarkt.* — У грудні ми йдемо на різдвяний ярмарок.
 
 ## Слова
@@ -156,7 +156,7 @@ estimatedMinutes: 40
 
 > [!word] Pfingsten
 > ipa: /ˈpfɪŋstn̩/ · pos: noun · level: B1 · id: de-a2-feste-w08
-> uk: Зелені свята, П'ятидесятниця
+> uk: Зелені свята, Пʼятидесятниця
 > forms: — (без множини)
 > example: Zu **Pfingsten** machen wir einen Ausflug. — На Pfingsten ми їдемо на екскурсію.
 > note: Pfingstsonntag і Pfingstmontag — вихідні. pf на початку — [pf], швидко «пф». Дата — через 50 днів після Великодня.
@@ -300,9 +300,9 @@ estimatedMinutes: 40
 
 > [!word] Prost
 > ipa: /pʁoːst/ · pos: phrase · level: A2 · id: de-a2-feste-w28
-> uk: за здоров'я! (тост)
+> uk: за здоровʼя! (тост)
 > note: при тості дивляться в очі. CH також Zum Wohl; AT також Prost, Zum Wohl. o довге: «проост».
-> example: **Prost** und auf dein Wohl! — За твоє здоров'я!
+> example: **Prost** und auf dein Wohl! — За твоє здоровʼя!
 
 > [!word] der Festumzug
 > ipa: /ˈfɛstˌʔʊmtsuːk/ · pos: noun · level: B1 · id: de-a2-feste-w29
@@ -604,7 +604,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🎆 Звідки назва Silvester
-> Слово *Silvester* походить від імені папи Сильвестра I, чий день пам'яті відзначають 31 грудня. У німецькій мові так називають саме останній вечір року, а не самого святого. Тож *Silvester* і 31 грудня — майже синоніми.
+> Слово *Silvester* походить від імені папи Сильвестра I, чий день памʼяті відзначають 31 грудня. У німецькій мові так називають саме останній вечір року, а не самого святого. Тож *Silvester* і 31 грудня — майже синоніми.
 
 > [!reel] 🎭 Alaaf чи Helau?
 > На карнавалі кричать по-різному: у Кельні — *Alaaf!*, у Дюссельдорфі й Майнці — *Helau!* Карнавальний сезон традиційно «відкривається» 11 листопада о 11:11 (*Elfter im Elften*). Кожне місто береже свої правила, тож не помились із вітанням.

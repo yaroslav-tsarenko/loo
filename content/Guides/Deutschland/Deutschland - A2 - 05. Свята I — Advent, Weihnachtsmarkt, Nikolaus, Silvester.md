@@ -153,29 +153,22 @@ estimatedMinutes: 40
 > forms: die Lebkuchen
 > example: Nürnberger **Lebkuchen** schmecken nach Zimt und Honig. — Нюрнберзькі пряники смакують корицею й медом.
 
-> [!word] das Plätzchen
-> ipa: /ˈplɛtsçən/ · pos: noun · level: A2 · id: dl-a2-05-w07
-> uk: печиво
-> forms: die Plätzchen
-> example: Wir backen **Plätzchen** für Weihnachten. — Ми печемо печиво до Різдва.
-> note: DWDS: маленьке солодке плоске печиво, яке часто печуть перед Різдвом самі або купують у пекаря.
-
 > [!word] der Brauch
-> ipa: /bʁaʊ̯x/ · pos: noun · level: B1 · id: dl-a2-05-w08
+> ipa: /bʁaʊ̯x/ · pos: noun · level: B1 · id: dl-a2-05-w07
 > uk: звичай
 > forms: die Bräuche
 > example: Das ist ein alter **Brauch**. — Це давній звичай.
 > note: *Brauch* + умлаут у множині.
 
 > [!word] schmücken
-> ipa: /ˈʃmʏkn̩/ · pos: verb · level: A2 · id: dl-a2-05-w09
+> ipa: /ˈʃmʏkn̩/ · pos: verb · level: A2 · id: dl-a2-05-w08
 > uk: прикрашати
 > forms: schmücken → schmückte → hat geschmückt
 > example: Wir **schmücken** den Baum. — Ми прикрашаємо ялинку.
 > note: *den Weihnachtsbaum schmücken* — прикрашати ялинку.
 
 > [!word] anzünden
-> ipa: /ˈantsʏndn̩/ · pos: verb · level: A2 · id: dl-a2-05-w10
+> ipa: /ˈantsʏndn̩/ · pos: verb · level: A2 · id: dl-a2-05-w09
 > uk: запалювати
 > forms: anzünden → zündete an → hat angezündet
 > example: Ich **zünde** eine Kerze **an**. — Я запалюю свічку.
@@ -184,28 +177,28 @@ estimatedMinutes: 40
 ### Nikolaus і Різдво
 
 > [!word] der Nikolaustag
-> ipa: /ˈnɪkolaʊ̯sˌtaːk/ · pos: noun · level: A2 · id: dl-a2-05-w11
+> ipa: /ˈnɪkolaʊ̯sˌtaːk/ · pos: noun · level: A2 · id: dl-a2-05-w10
 > uk: день святого Миколая (6 грудня)
 > forms: die Nikolaustage
 > example: Am **Nikolaustag** bekommen Kinder Süßigkeiten. — На Nikolaustag діти отримують солодощі.
 > note: *am sechsten Dezember*; кажуть і *der Nikolaus* — святий або перевдягнений персонаж.
 
 > [!word] der Stiefel
-> ipa: /ˈʃtiːfl̩/ · pos: noun · level: A2 · id: dl-a2-05-w12
+> ipa: /ˈʃtiːfl̩/ · pos: noun · level: A2 · id: dl-a2-05-w11
 > uk: чобіт
 > forms: die Stiefel
 > example: Die Kinder stellen ihre **Stiefel** vor die Tür. — Діти ставлять свої чоботи перед дверима.
 > note: у множині — як в однині; не плутай із *der Stollen*.
 
 > [!word] der Heiligabend
-> ipa: /ˌhaɪ̯lɪçˈʔaːbn̩t/ · pos: noun · level: A2 · id: dl-a2-05-w13
+> ipa: /ˌhaɪ̯lɪçˈʔaːbn̩t/ · pos: noun · level: A2 · id: dl-a2-05-w12
 > uk: Святвечір, 24 грудня
 > forms: die Heiligabende
 > example: An **Heiligabend** ist die Familie zusammen. — На Святвечір вся родина разом.
 > note: *an Heiligabend* (прийменник *an*); час — *am Abend des 24. Dezember*. DWDS: тоді ж *die Bescherung* — вручення подарунків.
 
 > [!word] der Weihnachtsbaum
-> ipa: /ˈvaɪ̯naxtsˌbaʊ̯m/ · pos: noun · level: A2 · id: dl-a2-05-w14
+> ipa: /ˈvaɪ̯naxtsˌbaʊ̯m/ · pos: noun · level: A2 · id: dl-a2-05-w13
 > uk: різдвяна ялинка
 > forms: die Weihnachtsbäume
 > example: Der **Weihnachtsbaum** steht im Wohnzimmer. — Ялинка стоїть у вітальні.
@@ -214,49 +207,43 @@ estimatedMinutes: 40
 ### Silvester
 
 > [!word] das Feuerwerk
-> ipa: /ˈfɔʏ̯ɐˌvɛʁk/ · pos: noun · level: A2 · id: dl-a2-05-w15
+> ipa: /ˈfɔʏ̯ɐˌvɛʁk/ · pos: noun · level: A2 · id: dl-a2-05-w14
 > uk: феєрверк
 > forms: die Feuerwerke
 > example: Um Mitternacht gibt es ein großes **Feuerwerk**. — О півночі буде великий феєрверк.
 
 > [!word] die Rakete
-> ipa: /ʁaˈkeːtə/ · pos: noun · level: A2 · id: dl-a2-05-w16
+> ipa: /ʁaˈkeːtə/ · pos: noun · level: A2 · id: dl-a2-05-w15
 > uk: ракета (феєрверкова)
 > forms: die Raketen
 > example: Er zündet eine **Rakete** an. — Він запалює ракету.
 
 > [!word] der Böller
-> ipa: /ˈbœlɐ/ · pos: noun · level: B1 · id: dl-a2-05-w17
+> ipa: /ˈbœlɐ/ · pos: noun · level: B1 · id: dl-a2-05-w16
 > uk: петарда
 > forms: die Böller
 > example: Die **Böller** sind sehr laut. — Петарди дуже гучні.
 > note: DWDS: розмовно — те, що кидають чи запалюють на землі, а не ракета. Дієслово *böllern* — «гучно стріляти».
 
 > [!word] die Wunderkerze
-> ipa: /ˈvʊndɐˌkɛʁtsə/ · pos: noun · level: A2 · id: dl-a2-05-w18
+> ipa: /ˈvʊndɐˌkɛʁtsə/ · pos: noun · level: A2 · id: dl-a2-05-w17
 > uk: бенгальський вогонь
 > forms: die Wunderkerzen
 > example: Die Kinder halten **Wunderkerzen**. — Діти тримають бенгальські вогні.
 > note: *Wunder* + *Kerze*. Належить до класу F1: його продають увесь рік (ZDFheute).
 
 > [!word] das Bleigießen
-> ipa: /ˈblaɪ̯ɡiːsn̩/ · pos: noun · level: A2 · id: dl-a2-05-w19
+> ipa: /ˈblaɪ̯ɡiːsn̩/ · pos: noun · level: A2 · id: dl-a2-05-w18
 > uk: виливання свинцю (новорічне ворожіння)
 > forms: — (без множини)
 > example: Das **Bleigießen** ist ein alter Silvesterbrauch. — Bleigießen — давній новорічний звичай.
 > note: нині його замінює *das Wachsgießen* («виливання воску»).
 
 > [!word] der Jahreswechsel
-> ipa: /ˈjaːʁəsˌvɛksl̩/ · pos: noun · level: B1 · id: dl-a2-05-w20
+> ipa: /ˈjaːʁəsˌvɛksl̩/ · pos: noun · level: B1 · id: dl-a2-05-w19
 > uk: зміна року, Новий рік
 > forms: die Jahreswechsel
 > example: Wir feiern den **Jahreswechsel** mit Freunden. — Ми зустрічаємо Новий рік із друзями.
-
-> [!word] Guten Rutsch!
-> ipa: /ˈɡuːtn̩ ʁʊtʃ/ · pos: phrase · level: A2 · id: dl-a2-05-w21
-> uk: з наступаючим! (напередодні Нового року)
-> example: **Guten Rutsch** ins neue Jahr! — З наступаючим Новим роком!
-> note: DWDS: вживають перед Silvester. Після 1 січня кажуть *Frohes neues Jahr!*
 
 ## Слухаємо
 
