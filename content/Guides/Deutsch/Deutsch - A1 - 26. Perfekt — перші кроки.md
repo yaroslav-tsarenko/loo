@@ -79,7 +79,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 
 ## haben чи sein?
 
-Більшість дієслів у Perfekt з **haben**. З **sein** — лише дієслова двох груп:
+Більшість дієслів у Perfekt з **haben**. З **sein** — дієслова двох груп:
 
 1. **Переміщення з точки А в точку Б:** *fahren, gehen, kommen, fliegen, laufen, reisen*.
 2. **Зміна стану:** *aufstehen, einschlafen, werden*.
@@ -103,7 +103,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > ```
 
 > [!note] Для сумнівних випадків
-> Якщо не впевнений — скажи *haben*, дієслова руху й зміни стану вчи з карток разом із *ist*. Такі дієслова, як *schlafen* («спати») і *stehen* («стояти»), не мають напрямку: це *haben* (*Ich habe gut geschlafen*). У південній Німеччині, Австрії та Швейцарії кажуть *Ich bin gestanden / gesessen*, але в підручниках — *haben*.
+> Якщо не впевнений — скажи *haben*, дієслова руху й зміни стану вчи з карток разом із *ist*. Такі дієслова, як *schlafen* («спати») і *stehen* («стояти»), не мають напрямку: це *haben* (*Ich habe gut geschlafen*).
 
 ## Місце Partizip і заперечення
 
@@ -236,7 +236,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > uk: прибирати; чистити
 > forms: putzen → putzte → hat geputzt
 > example: Am Samstag haben wir die Wohnung **geputzt**. — У суботу ми прибрали квартиру.
-> note: Zähne putzen = чистити зуби. tz = [ts]. AT: putzen = прибирати.
+> note: Zähne putzen = чистити зуби. tz = [ts].
 
 > [!word] fliegen
 > ipa: /ˈfliːɡn̩/ · pos: verb · level: A1 · id: de-a1-perfekt-w14
@@ -260,7 +260,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > note: ck = короткий приголосний [k]. sch- = «ш».
 
 > [!word] erklären
-> ipa: /ɛɐ̯ˈkleːʁən/ · pos: verb · level: A1 · id: de-a1-perfekt-w17
+> ipa: /ɛɐ̯ˈklɛːʁən/ · pos: verb · level: A1 · id: de-a1-perfekt-w17
 > uk: пояснювати
 > forms: erklären → erklärte → hat erklärt
 > example: Der Lehrer hat die Regel **erklärt**. — Учитель пояснив правило.
@@ -276,7 +276,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > [!word] kennenlernen
 > ipa: /ˈkɛnənˌlɛʁnən/ · pos: verb · level: A1 · id: de-a1-perfekt-w19
 > uk: знайомитися
-> forms: lernt kennen → lernte kennen → hat kennengelernt
+> forms: kennenlernen → lernte kennen → hat kennengelernt
 > example: Ich habe sie im Deutschkurs **kennengelernt**. — Я познайомився з нею на курсі німецької.
 > note: відокремлюване: Ich lerne dich kennen. Partizip пишемо разом: kennengelernt.
 
@@ -335,7 +335,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > level: A1 · speed: slow · id: de-a1-perfekt-s02
 > text: Ich habe Pizza gegessen.
 > ipa: /ɪç ˈhaːbə ˈpɪtsa ɡəˈɡɛsn̩/
-> tip: Pizza — z = [ts]: «піца». gegessen — ге-ґЕсн: два «ґ» поспіль.
+> tip: Pizza — z = [ts]: «піца». gegessen — ґе-ҐЕсн: два «ґ» поспіль.
 > uk: Я їв піцу.
 
 > [!speak] Скажи вголос
@@ -453,7 +453,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > - [x] Sie hat den Film gesehen.
 > - [ ] Sie ist den Film gesehen.
 >
-> **Пояснення:** *fahren* (рух) → *sein*; *sehen* (дія з об'єктом) → *haben*.
+> **Пояснення:** *fahren* (рух) → *sein*; *sehen* (дія з обʼєктом) → *haben*.
 
 > [!quiz] У яких реченнях потрібно sein? Обери всі.
 > level: A1 · type: multi · id: de-a1-perfekt-q08
@@ -489,16 +489,16 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > **Пояснення:** слабке дієслово — *gemacht*; *telefonieren* і *besuchen* — без *ge-*; *trinken* — сильне: *getrunken*.
 
 > [!quiz] Заповни пропуски: розмова про вихідні
-> level: A1 · type: fill · bank: gekommen, gefahren · id: de-a1-perfekt-q11
+> level: A1 · type: fill · bank: gegeht, gesehet · id: de-a1-perfekt-q11
 >
 > ```text fill
 > A: Was [[hast]] du am Samstag gemacht?
-> B: Ich bin ins Kino [[gegangen]].
-> A: Hast du den Film schon [[gesehen]]?
-> B: Nein, ich habe ihn noch [[nicht]] gesehen.
+> B: Ich bin ins Kino [[gegangen]]. Ich habe einen neuen Film [[gesehen]].
+> A: Hast du auch Popcorn [[gegessen]]?
+> B: Nein, ich habe [[kein]] Popcorn gegessen.
 > ```
 >
-> **Пояснення:** питання з *du* — *hast*; *gehen* → *gegangen* (з *bin*); *sehen* → *gesehen*; заперечення «ще не» — *noch nicht*. *gekommen* і *gefahren* — Partizip інших дієслів.
+> **Пояснення:** питання з *du* — *hast*; *gehen* → *gegangen* (з *bin*); *sehen* → *gesehen*; *essen* → *gegessen*; з іменником без артикля — *kein*. Форми *gegeht* і *gesehet* — типові помилки: сильні дієслова мають свої Partizip.
 
 > [!quiz] Заповни пропуски: Partizip відокремлюваних дієслів
 > level: A1 · type: fill · bank: aufgestehen, geeinkauft · id: de-a1-perfekt-q12
@@ -575,7 +575,7 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > Те, що рух вимагає окремого допоміжного дієслова, — не вигадка німців. У французькій *aller* («йти») теж у складному минулому з *être* («бути»): *il est allé*. Німецьке *Ich bin gefahren* і французьке *je suis allé* мають однакову логіку: рух — це про «бути» десь інде, а не про «мати».
 
 > [!reel] 🗣️ «Ich habe fertig!»
-> У березні 1998 року тренер «Баварії» Джованні Трапаттоні на прес-конференції емоційно закінчив промову словами «Ich habe fertig!». Німці почули в цьому помилку: правильно *Ich bin fertig* («я закінчив»), а розмовне *etwas fertig haben* стосується справи: *Ich habe die Arbeit fertig*. Фраза стала крилатою.
+> 10 березня 1998 року тренер «Баварії» Джованні Трапаттоні на прес-конференції емоційно закінчив промову словами «Ich habe fertig!». Німці почули в цьому помилку: правильно *Ich bin fertig* («я закінчив»), а розмовне *etwas fertig haben* стосується справи: *Ich habe die Arbeit fertig*. Фраза стала крилатою.
 
 > [!reel] 🏔️ Південь: «Ich bin gestanden»
 > У Баварії, Австрії та Швейцарії кажуть *Ich bin gestanden* і *Ich bin gesessen* — із *sein* для «стояти» й «сидіти». У стандартній німецькій і в підручниках — *Ich habe gestanden, ich habe gesessen*. Обидві форми розуміють усі.
@@ -584,7 +584,8 @@ Perfekt — «складний» час: **допоміжне дієслово**
 
 - [DWDS — Perfekt](https://www.dwds.de/wb/Perfekt) — термін, значення, приклади.
 - [Duden — Perfekt](https://www.duden.de/rechtschreibung/Perfekt) — граматичний термін і вживання.
-- [DWDS — fertig](https://www.dwds.de/wb/fertig) — значення слова *fertig* (до реплік про Trapattoni).
+- [FC Bayern — «Ich habe fertig!»: річниця легендарної прес-конференції Трапаттоні](https://fcbayern.com/de/news/2023/03/ich-habe-fertig-jahrestag-von-trapattonis-legendaerer-pressekonferenz) — дата (10.03.1998) і контекст.
+- [DWDS — fertig](https://www.dwds.de/wb/fertig) — значення слова *fertig*.
 - [DW Learn German — Nicos Weg (A1)](https://learngerman.dw.com/en/beginners/c-36519789) — безкоштовний відеокурс; Perfekt у розмовних ситуаціях.
 - Goethe-Institut — сторінка іспиту *Goethe-Zertifikat A1: Start Deutsch 1* на goethe.de: Perfekt лишається на рівні A1 у вигляді шматків.
 - H. Dreyer, R. Schmitt — *Lehr- und Übungsbuch der deutschen Grammatik* (Hueber) — розділ «Perfekt».
@@ -592,6 +593,6 @@ Perfekt — «складний» час: **допоміжне дієслово**
 > [!important] Підсумок
 > - У розмові минуле — **Perfekt**: *haben / sein* (2-ге місце) + **Partizip II** (в кінці).
 > - Слабкі: *ge-…-t* (*gemacht*); сильні — *ge-…-en* (*gegessen*, зміна голосної); без *ge-* — *-ieren, be-, ver-, er-, ent-*; відокремлювані — *ge-* усередині.
-> - **sein** — лише для руху, зміни стану й винятків *sein, bleiben, passieren*; усі решта — **haben**.
+> - **sein** — лише для руху, зміни стану й винятків *sein, bleiben, passieren*; решта — **haben**.
 > - Заперечення: *Ich habe nicht gearbeitet / kein Brot gekauft / noch nicht gesehen*.
 > - Не пропускай допоміжне дієслово й не залишай Partizip посеред речення.

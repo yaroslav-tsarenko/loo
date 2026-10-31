@@ -52,7 +52,7 @@ estimatedMinutes: 35
 >   - { focus: m, note: "Ще ширше — місяць, пора року: im (= in dem): im Mai, im Winter." }
 >   - { focus: y, note: "Рік — найширший відрізок. Прийменника не потрібно: Ich bin 2026 nach Berlin gezogen." }
 > ```
-> Чим точніше — тим «коротший» прийменник: *um* (година) → *am* (день) → *im* (місяць). Рік — без прийменника.
+> Від точної години до місяця: *um* → *am* → *im*. Рік — без прийменника.
 
 > [!tip] Запитання «Wann?» і «Um wie viel Uhr?»
 > *Wann* — «коли» взагалі: *Wann hast du Unterricht? — Am Montag.* *Um wie viel Uhr* — «о котрій»: *Um wie viel Uhr beginnt der Kurs? — Um acht.*
@@ -92,7 +92,7 @@ estimatedMinutes: 35
 > steps:
 >   - { focus: a, note: "von 9 — початок періоду: тут ми починаємо." }
 >   - { focus: c, note: "bis 17 Uhr — кінець періоду: до цього часу." }
->   - { focus: [a, b, c], note: "Весь відрізок — Ich arbeite von 9 bis 17 Uhr. Усередині нього може бути pause (перерва)." }
+>   - { focus: [a, b, c], note: "Весь відрізок — Ich arbeite von 9 bis 17 Uhr. Усередині нього може бути die Pause (перерва)." }
 > ```
 
 ## vor і nach — до і після
@@ -148,14 +148,14 @@ estimatedMinutes: 35
 > [!word] an (+ Dat)
 > ipa: /an/ · pos: prep · level: A1 · id: de-a1-zeitpraep-w02
 > uk: у, на (про дні, пори доби); біля
-> example: **An** welchem Tag hast du Unterricht? — Який день у тебе заняття?
-> note: у часі найчастіше як am (= an dem): am Montag, am Abend, am 3. Mai. Просторове значення — «біля»: am Fenster.
+> example: **An** welchem Tag hast du Unterricht? — У який день у тебе заняття?
+> note: у часі найчастіше як am (= an dem): am Montag, am Abend, am 3. Mai. У часі завжди з Dativ. Просторове значення — «біля»: am Fenster.
 
 > [!word] in (+ Dat)
 > ipa: /ɪn/ · pos: prep · level: A1 · id: de-a1-zeitpraep-w03
 > uk: у, в (про місяці, пори року)
 > example: **In** den Ferien reisen wir viel. — Під час канікул ми багато подорожуємо.
-> note: у часі найчастіше як im (= in dem): im Mai, im Sommer. In der Nacht — не am Nacht. Ще: in einer Stunde = через годину.
+> note: у часі найчастіше як im (= in dem): im Mai, im Sommer. In der Nacht — не am Nacht. У часі завжди з Dativ. Ще: in einer Stunde = через годину.
 
 > [!word] vor (+ Dat)
 > ipa: /foːɐ̯/ · pos: prep · level: A1 · id: de-a1-zeitpraep-w04
@@ -262,9 +262,9 @@ estimatedMinutes: 35
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-zeitpraep-s03
 > text: Von neun bis siebzehn Uhr.
-> ipa: /fɔn nɔɪ̯n bɪs ˈziːptseːn uːɐ̯/
-> tip: von — v = [f]. neun — eu = [ɔɪ̯]. siebzehn: b у -zehn глухе [p].
-> uk: З дев'ятої до сімнадцятої.
+> ipa: /fɔn nɔʏ̯n bɪs ˈziːptseːn uːɐ̯/
+> tip: von — v = [f]. neun — eu = [ɔʏ̯]. siebzehn: b перед -zehn глухе [p].
+> uk: З девʼятої до сімнадцятої.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-zeitpraep-s04
@@ -350,10 +350,10 @@ estimatedMinutes: 35
 > - [x] ab 9 Uhr bis 17 Uhr
 > - [ ] seit 9 bis 17 Uhr
 >
-> **Пояснення:** «з … до» — *von … bis* (або *ab … bis*). Вираз ~~von … zu~~ у німецькій не існує, а *seit* не поєднується з *bis*.
+> **Пояснення:** «з … до» — *von … bis* (у розмові також *ab … bis*). Вираз ~~von … zu~~ у німецькій не існує, а *seit* не поєднується з *bis*.
 
 > [!quiz] Заповни пропуски прийменниками
-> level: A1 · type: fill · bank: in, an, vor · id: de-a1-zeitpraep-q09
+> level: A1 · type: fill · bank: An, In, vor · id: de-a1-zeitpraep-q09
 >
 > ```text fill
 > Der Unterricht beginnt [[um]] 9 Uhr.
@@ -459,10 +459,11 @@ estimatedMinutes: 35
 > В університеті біля розкладу стоїть «10 c.t.» — *cum tempore*, тобто лекція починається о 10:15. Є й «10 s.t.» — *sine tempore*, рівно о 10:00. Це *akademisches Viertel*, і воно існує досі. Але поза університетом *um 10 Uhr* означає саме 10:00.
 
 > [!reel] 🛒 Sonntag: Ruhetag
-> У Німеччині в неділю майже всі магазини зачинені — діє закон про години роботи магазинів (*Ladenschluss*), який визначають землі. Тож *am Sonntag* — день тиші, прогулянок і кафе. Зазвичай відчинені лише заправки, крамниці на вокзалах, ресторани й, на кілька годин, пекарні.
+> У Німеччині в неділю майже всі магазини зачинені — діє закон про години роботи магазинів (*Ladenschluss*), який визначають землі. Тож *am Sonntag* — день тиші, прогулянок і кафе. Зазвичай відчинені лише заправки, крамниці на вокзалах, ресторани й, на кілька годин, пекарні. Неділя захищена й Конституцією (ст. 140 Основного закону): це «день відпочинку й духовного піднесення». Винятки — *verkaufsoffene Sonntage*: кілька неділь на рік у кожній землі, зазвичай із приводу (ярмарок, свято).
 
 ## Джерела та що почитати
 
+- [Grundgesetz, Art. 140](https://www.gesetze-im-internet.de/gg/art_140.html) — неділя як день відпочинку (разом зі ст. 139 Веймарської конституції).
 - [DWDS — um](https://www.dwds.de/wb/um) — значення прийменника, також у часі.
 - [DWDS — seit](https://www.dwds.de/wb/seit) — значення й відмінність від *seid*.
 - [Duden — Montag](https://www.duden.de/rechtschreibung/Montag) — походження назви дня.

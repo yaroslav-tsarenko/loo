@@ -99,11 +99,11 @@ estimatedMinutes: 35
 
 ### unser і euer: невелика особливість
 
-У словах **unser** і **euer** при додаванні закінчення часто випадає зайве -e-: *unser + e = unsere* (також розмовно *unsre*), *euer + e = **eure***, *euer + en = **euren***. Правильно: *Das ist eure Tasche*, а не ~~euere Tasche~~. Слово *unser* із закінченням *-en*: *unseren Hund*.
+У словах **unser** і **euer** при додаванні закінчення слово **euer** завжди втрачає -e-, а в **unser** воно зазвичай лишається (*unsere*, розм. також *unsre*): *euer + e = **eure***, *euer + en = **euren***. Правильно: *Das ist eure Tasche*, а не ~~euere Tasche~~. Слово *unser* із закінченням *-en*: *unseren Hund*.
 
 ### ihr — «її», «їхній», а також «ви»
 
-Слово **ihr** має три значення: займенник «ви» (*Ihr seid hier*), присвійне «її» (*ihr Bruder*) й «їхній» (*ihr Haus*). Розрізняємо за контекстом. Присвійне *Ihr* — «Ваш» — завжди з великої літери, бо належить до ввічливого *Sie*.
+Слово **ihr** має три значення: займенник «ви» (*Seid ihr hier?*), присвійне «її» (*ihr Bruder*) й «їхній» (*ihr Haus*). Розрізняємо за контекстом. Присвійне *Ihr* — «Ваш» — завжди з великої літери, бо належить до ввічливого *Sie*.
 
 ## Приклади
 
@@ -157,14 +157,14 @@ estimatedMinutes: 35
 > uk: наш; наша; наше; наші
 > forms: unser · unsere · unseren
 > example: **Unser** Haus ist klein. — Наш будинок маленький.
-> note: з закінченням розм. часто unsre, unsren. s перед голосним дзвінке [z], а перед t, k — ні.
+> note: з закінченням розм. часто unsre, unsren.
 
 > [!word] euer
-> ipa: /ˈɔɪ̯ɐ/ · pos: det · level: A1 · id: de-a1-possessiv-w06
+> ipa: /ˈɔʏ̯ɐ/ · pos: det · level: A1 · id: de-a1-possessiv-w06
 > uk: ваш; ваша; ваше; ваші (до друзів, ihr)
 > forms: euer · eure · euren
 > example: Kinder, wo ist **euer** Lehrer? — Діти, де ваш учитель?
-> note: з закінченням випадає e: euer + e = eure (не euere). eu = [ɔɪ̯]. До кількох друзів, дітей; ввічливо — Ihr.
+> note: з закінченням випадає e: euer + e = eure (не euere). eu = [ɔʏ̯]. До кількох друзів, дітей; ввічливо — Ihr.
 
 > [!word] Ihr (Ваш)
 > ipa: /iːɐ̯/ · pos: det · level: A1 · id: de-a1-possessiv-w07
@@ -183,7 +183,7 @@ estimatedMinutes: 35
 > note: розмовне скорочення від Kugelschreiber; офіційно: der Stift, der Kugelschreiber. u довге — [uː].
 
 > [!word] der Ausweis
-> ipa: /ˈaʊ̯sˌvaɪ̯s/ · pos: noun · level: A1 · id: de-a1-possessiv-w09
+> ipa: /ˈaʊ̯svaɪ̯s/ · pos: noun · level: A1 · id: de-a1-possessiv-w09
 > uk: посвідчення особи; паспорт
 > forms: die Ausweise
 > example: Ihr **Ausweis**, bitte! — Ваш документ, будь ласка!
@@ -297,7 +297,7 @@ estimatedMinutes: 35
 
 ## Ситуація: у бюро знахідок
 
-> [!listen] Надія загубила речі. Що вона описує?
+> [!listen] Надія загубила ключ. Що вона описує?
 > level: A1 · type: answer · speed: slow · id: de-a1-possessiv-l06
 > audio: A: Guten Tag! Kann ich Ihnen helfen?
 > audio: B: Ja. Ich habe meinen Schlüssel verloren.
@@ -396,10 +396,10 @@ estimatedMinutes: 35
 > level: A1 · type: fill · bank: ihren, mein · id: de-a1-possessiv-q10
 >
 > ```text fill
-> Ich liebe [[meine]] Familie.
-> Du hast [[deinen]] Schlüssel.
-> Wir suchen [[unser]] Haus.
-> Er sucht [[seine]] Tasche.
+> Ich liebe [[meine]] Familie. (Я люблю свою сімʼю.)
+> Du hast [[deinen]] Schlüssel. (У тебе твій ключ.)
+> Wir suchen [[unser]] Haus. (Ми шукаємо наш будинок.)
+> Er sucht [[seine]] Tasche. (Він шукає свою сумку.)
 > ```
 >
 > **Пояснення:** *die Familie* → *meine*, *der Schlüssel* (Akk) → *deinen*, *das Haus* → *unser* (без закінчення), *die Tasche* → *seine*. Дистрактори: *ihren* — для чоловічого роду у знахідному, *mein* — без закінчення, а Familie жіночого роду.

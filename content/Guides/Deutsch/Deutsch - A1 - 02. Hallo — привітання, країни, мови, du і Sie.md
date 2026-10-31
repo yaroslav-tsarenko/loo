@@ -51,7 +51,7 @@ estimatedMinutes: 40
 *Guten Morgen, Guten Tag, Guten Abend* — це скорочені фрази: повністю було б *Ich wünsche Ihnen einen guten Tag*. Тому в них закінчення **-en** (знахідний відмінок, його розберемо в темі [[Deutsch - A1 - 11. haben, знахідний відмінок і kein]]) — просто вчимо як готові фрази.
 
 > [!tip] Привітання в DACH
-> У Німеччині на півночі вдень і вранці кажуть **Moin** (і *Moin Moin*), на півдні й в Австрії — **Servus**, у Баварії та Австрії — **Grüß Gott**, у німецькомовній Швейцарії — **Grüezi** (до одного) і **Grüezi mitenand** (до кількох). Вони рівноправні з *Guten Tag* у своїх регіонах. У словниках слів *Hallo* і *Guten Tag* досить для всього німецькомовного світу.
+> У Німеччині на півночі вдень і вранці кажуть **Moin** (і *Moin Moin*), на півдні й в Австрії — **Servus**, у Баварії та Австрії — **Grüß Gott**, у німецькомовній Швейцарії — **Grüezi** (до одного) і **Grüezi mitenand** (до кількох). *Moin*, *Grüß Gott* і *Grüezi* — нейтральні й ввічливі в своїх регіонах, а **Servus** (а в Швейцарії *Salü* і *Hoi*) — неформальні, між знайомими. Для всього німецькомовного світу досить *Hallo* (знайомим) і *Guten Tag* (усім).
 
 ## Як справи?
 
@@ -86,7 +86,7 @@ estimatedMinutes: 40
 >   - { id: b3, col: b, label: "питання", text: "Wie heißen Sie? Woher kommen Sie?", tone: gray }
 > steps:
 >   - { focus: [a1, b1], note: "Незнайомому дорослому — Sie. Це не про «старий / молодий», а про відстань між людьми." }
->   - { focus: [a2, b2], note: "Hallo і Tschüs — фамільярні; Guten Tag та Auf Wiedersehen працюють з обома." }
+>   - { focus: [a2, b2], note: "Hallo і Tschüs — неформальні; Guten Tag та Auf Wiedersehen працюють з обома." }
 >   - { focus: [a3, b3], note: "Змінюється і займенник, і закінчення дієслова: du kommst → Sie kommen. Sie завжди з великої літери." }
 > ```
 > Сумніваєшся — кажи **Sie**. Пропонує перейти на *du* зазвичай старший за віком чи посадою: *Wir können uns duzen.*
@@ -151,7 +151,7 @@ estimatedMinutes: 40
 Мови пишемо з **великої** літери як іменники (*Deutsch, Ukrainisch*), але прикметники — з малої: *ukrainisch, deutsch* (*die ukrainische Sprache*). Після *sprechen* артикль не ставимо: *Ich spreche Deutsch.* Але *auf Deutsch*: *Wie sagt man das **auf Deutsch**?*
 
 > [!tip] Дві Швейцарії? Ні, чотири мови
-> У Швейцарії чотири державні мови: німецька, французька, італійська й ретороманська. Німецька в швейцарських кантонах — це **Hochdeutsch** (школа, преса, телебачення) і **Schweizerdeutsch** (розмовні діалекти, які німці з Німеччини розуміють дуже важко). Учити варто Hochdeutsch: ним говорять усі.
+> У Швейцарії чотири державні мови: німецька, французька, італійська й ретороманська. Німецька в швейцарських кантонах — це **Hochdeutsch** (школа, преса, телебачення) і **Schweizerdeutsch** (розмовні діалекти, які німці з Німеччини розуміють дуже важко). Учити варто Hochdeutsch: його розуміють усі.
 
 ## Приклади
 
@@ -172,7 +172,7 @@ estimatedMinutes: 40
 > ipa: /haˈloː/ · pos: phrase · level: A1 · id: de-a1-hallo-w01
 > uk: привіт
 > example: **Hallo**, Anna! Wie geht's? — Привіт, Анно! Як справи?
-> note: AT і південь Німеччини: Servus; CH: Salü (між друзями), Grüezi (ввічливо). Не для начальства чи першого контакту в Behörde.
+> note: AT і південь Німеччини: Servus (неформально); CH: Salü і Hoi (неформально, між знайомими), Grüezi (ввічливо). Не для начальства чи першого контакту в Behörde.
 
 > [!word] Guten Morgen
 > ipa: /ˈɡuːtn̩ ˈmɔʁɡn̩/ · pos: phrase · level: A1 · id: de-a1-hallo-w02
@@ -202,7 +202,7 @@ estimatedMinutes: 40
 > ipa: /aʊ̯f ˈviːdɐzeːən/ · pos: phrase · level: A1 · id: de-a1-hallo-w06
 > uk: до побачення
 > example: **Auf Wiedersehen**, Frau Müller, und danke! — До побачення, пані Мюллер, і дякую!
-> note: по телефону — Auf Wiederhören! (буквально «до почуття»). AT: Auf Wiederschauen; CH: Uf Wiederluege.
+> note: по телефону — Auf Wiederhören! (прощання по телефону: «до наступної розмови»). AT: Auf Wiederschauen; CH: Uf Wiederluege.
 
 > [!word] Wie geht's?
 > ipa: /viː ˈɡeːts/ · pos: phrase · level: A1 · id: de-a1-hallo-w07
@@ -226,7 +226,7 @@ estimatedMinutes: 40
 > ipa: /ɛntˈʃʊldɪɡʊŋ/ · pos: phrase · level: A1 · id: de-a1-hallo-w10
 > uk: перепрошую; пробачте
 > example: **Entschuldigung**, ist hier noch frei? — Перепрошую, тут вільно?
-> note: ент-шульді-гунг; наголос на -schul-. Також іменник die Entschuldigung = виправдання, довідка в школу. Вибачаючись щиро — Es tut mir leid.
+> note: ент-шульдіґунг; наголос на -schul-. Також іменник die Entschuldigung = виправдання, довідка в школу. Вибачаючись щиро — Es tut mir leid.
 
 > [!word] Freut mich
 > ipa: /ˈfʁɔʏ̯t mɪç/ · pos: phrase · level: A1 · id: de-a1-hallo-w11
@@ -307,7 +307,7 @@ estimatedMinutes: 40
 > uk: Україна
 > forms: — (без множини)
 > example: Meine Eltern leben noch in **der Ukraine**. — Мої батьки ще живуть в Україні.
-> note: з артиклем: aus der Ukraine, in der Ukraine. Наголос на -ai-: «укра-і́-не». Українське «в Україні» → in der Ukraine, не ~~in Ukraine~~.
+> note: з артиклем: aus der Ukraine, in der Ukraine. Наголос на -i-: «укра-і́-не». Українське «в Україні» → in der Ukraine, не ~~in Ukraine~~.
 
 > [!word] Polen
 > ipa: /ˈpoːlən/ · pos: noun · level: A1 · id: de-a1-hallo-w23
@@ -363,13 +363,13 @@ estimatedMinutes: 40
 > uk: Чехія
 > forms: — (без множини)
 > example: Prag ist die Hauptstadt von **Tschechien**. — Прага — столиця Чехії.
-> note: без артикля. Tsch- = «ч»: «чехіен»; ch = [ç]. Старіше — die Tschechische Republik, мова — Tschechisch.
+> note: без артикля. Tsch- = «ч»: «чехіен»; ch = [ç]. Офіційна назва — die Tschechische Republik, мова — Tschechisch.
 
 > [!word] die Slowakei
 > ipa: /slovaˈkaɪ̯/ · pos: noun · level: A1 · id: de-a1-hallo-w31
 > uk: Словаччина
 > forms: — (без множини)
-> example: Bratislava ist die Hauptstadt von **der Slowakei**. — Братислава — столиця Словаччини.
+> example: Bratislava ist die Hauptstadt **der Slowakei**. — Братислава — столиця Словаччини.
 > note: з артиклем: aus der Slowakei. Наголос на останньому складі. sl- = «сл» (s перед l — глухе).
 
 > [!word] Rumänien
@@ -377,7 +377,7 @@ estimatedMinutes: 40
 > uk: Румунія
 > forms: — (без множини)
 > example: Meine Kollegin kommt aus **Rumänien**. — Моя колега родом із Румунії.
-> note: без артикля. ä довге = «е»: «румéніен». Мова — Rumänisch.
+> note: без артикля. ä довге [ɛː]. Мова — Rumänisch.
 
 > [!word] Ungarn
 > ipa: /ˈʊŋɡaʁn/ · pos: noun · level: A1 · id: de-a1-hallo-w33
@@ -433,7 +433,7 @@ estimatedMinutes: 40
 > uk: французька (мова)
 > forms: — (без множини)
 > example: In der Schweiz spricht man auch **Französisch**. — У Швейцарії говорять також французькою.
-> note: прикметник: französisch. ö довге: «франце́з-»; z = [ts].
+> note: прикметник: französisch. ö — довге, z = [ts].
 
 ## Слухаємо
 
@@ -468,7 +468,7 @@ estimatedMinutes: 40
 > audio: B: Ich komme aus der Ukraine, aus Lwiw.
 > - [ ] з Німеччини
 > - [x] з Австрії
-> - [ ] з Швейцарії
+> - [ ] зі Швейцарії
 >
 > **Пояснення:** Макс каже *aus Österreich, aus Graz*. Олена — *aus der Ukraine, aus Lwiw*.
 
@@ -501,7 +501,7 @@ estimatedMinutes: 40
 > level: A1 · speed: slow · id: de-a1-hallo-s03
 > text: Ich komme aus der Ukraine.
 > ipa: /ɪç ˈkɔmə aʊ̯s deːɐ̯ ukʁaˈiːnə/
-> tip: Ukraine — наголос на -ai-: «укра-і́-не». r — горлове, не українське «р».
+> tip: Ukraine — наголос на -i-: «укра-і́-не». r — горлове, не українське «р».
 > uk: Я з України.
 
 > [!speak] Скажи вголос
@@ -515,7 +515,7 @@ estimatedMinutes: 40
 > level: A1 · speed: slow · id: de-a1-hallo-s05
 > text: Auf Wiedersehen und tschüs!
 > ipa: /aʊ̯f ˈviːdɐzeːən ʊnt tʃyːs/
-> tip: ie — довге «і»: «ві́дер-зеен». tschüs — «чюс» не з «ю»: ü = губи «у» + язик «і».
+> tip: ie — довге «і»: «ві́дер-зеен». tschüs: Tsch- = «ч», ü — губи «у» + язик «і».
 > uk: До побачення і бувайте!
 
 > [!speak] Скажи вголос
@@ -567,6 +567,22 @@ estimatedMinutes: 40
 >
 > **Пояснення:** обоє кажуть *Sie* (*Sind Sie …?*, *Woher kommen Sie?*). Це типова ситуація: перша зустріч, дорослі, офіційна обстановка.
 
+Тепер відповідай ти, як пан Коваленко.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-hallo-s09
+> text: Ja, das bin ich. Guten Tag, Frau Schneider.
+> ipa: /jaː das bɪn ɪç ˈɡuːtn̩ taːk fʁaʊ̯ ˈʃnaɪ̯dɐ/
+> tip: Tag закінчується на [k]: «таак». Schneider: Sch = «ш», ei = «ай».
+> uk: Так, це я. Добрий день, пані Шнайдер.
+
+> [!speak] Скажи вголос
+> level: A1 · speed: slow · id: de-a1-hallo-s10
+> text: Ich komme aus der Ukraine, aus Charkiw.
+> ipa: /ɪç ˈkɔmə aʊ̯s deːɐ̯ ukʁaˈiːnə aʊ̯s ˈxaʁkiːf/
+> tip: Charkiw: ch перед a = [x] («х»), w наприкінці — [f]. Ukraine — наголос на -i-.
+> uk: Я з України, з Харкова.
+
 ## Landeskunde: Grüß Gott, Moin, Grüezi
 
 > [!example] Lesetext
@@ -586,7 +602,7 @@ estimatedMinutes: 40
 > - [ ] Moin!
 > - [ ] Grüß Gott!
 > - [x] Grüezi!
-> - [ ] Hallo Welt!
+> - [ ] Servus!
 >
 > **Пояснення:** швейцарське ввічливе привітання — *Grüezi*. *Moin* — на півночі Німеччини, *Grüß Gott* — на півдні Німеччини й в Австрії.
 
@@ -615,11 +631,11 @@ estimatedMinutes: 40
 > - [ ] Ich komme aus Ukraine.
 > - [x] Ich komme aus der Ukraine.
 > - [ ] Ich komme in der Ukraine.
-> - [ ] Ich bin die Ukraine.
+> - [ ] Ich bin aus Ukraine.
 >
 > **Пояснення:** *die Ukraine* має артикль, а після *aus* він змінюється на *der*. *In* означає «де», а не «звідки».
 
-> [!quiz] Обери всі речення, ввічливі для розмови з пані Шнайдер
+> [!quiz] Перша зустріч в установі з пані Шнайдер. Обери всі ввічливі речення
 > level: A1 · type: multi · id: de-a1-hallo-q07
 > - [x] Guten Tag, Frau Schneider!
 > - [ ] Hallo, Frau Schneider, was geht?
@@ -627,17 +643,17 @@ estimatedMinutes: 40
 > - [ ] Tschüs, bis morgen, Frau Schneider!
 > - [x] Auf Wiedersehen, Frau Schneider!
 >
-> **Пояснення:** з *Sie*-співрозмовницею — *Guten Tag*, *Wie geht es Ihnen?*, *Auf Wiedersehen*. *Hallo, was geht?* і *Tschüs* — дуже фамільярні для першого знайомства.
+> **Пояснення:** при першій зустрічі в установі — *Guten Tag*, *Wie geht es Ihnen?*, *Auf Wiedersehen*. *Hallo, was geht?* і *Tschüs* — неформальні, для знайомих.
 
-> [!quiz] Які країни зазвичай вживаємо з артиклем?
+> [!quiz] Які країни ми вживаємо з артиклем *die*?
 > level: A1 · type: multi · id: de-a1-hallo-q08
-> - [x] die Ukraine
+> - [x] Ukraine
 > - [ ] Polen
-> - [x] die Schweiz
+> - [x] Schweiz
 > - [ ] Deutschland
-> - [x] die Türkei
+> - [x] Türkei
 >
-> **Пояснення:** артикль мають *die Ukraine, die Schweiz, die Türkei, die Slowakei, die USA*. Більшість назв — без артикля: *Polen, Deutschland, Österreich*.
+> **Пояснення:** ці три назви вживаємо з артиклем *die*; решта — без. Артикль мають *die Ukraine, die Schweiz, die Türkei, die Slowakei, die USA*. Більшість назв — без артикля: *Polen, Deutschland, Österreich*.
 
 > [!quiz] Заповни пропуски: знайомство
 > level: A1 · type: fill · bank: heißen, kommen · id: de-a1-hallo-q09

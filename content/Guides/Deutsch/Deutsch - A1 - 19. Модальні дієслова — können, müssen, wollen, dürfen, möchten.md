@@ -56,8 +56,8 @@ estimatedMinutes: 40
 
 Дві особливості, які варто запамʼятати:
 
-1. **У однині голосний змінюється** (können → *kann*, müssen → *muss*, dürfen → *darf*, wollen → *will*), а в множині лишається як в інфінітиві.
-2. **ich і er / sie / es мають однакову форму без закінчення:** *ich kann, er kann*, ~~ich kanne~~, ~~er kannt~~. Закінчення -st є лише в *du*.
+1. **У однині голосний змінюється** (können → *kann*, müssen → *muss*, dürfen → *darf*, wollen → *will*, sollen → *soll*), а в множині лишається як в інфінітиві. Виняток — *möchten*: *ich möchte, du möchtest*, голосний той самий.
+2. **ich і er / sie / es мають однакову форму без закінчення:** *ich kann, er kann*, ~~ich kanne~~, ~~er kannt~~. Закінчення -st є лише в *du*. Виняток — *möchten*: воно має -e (*ich möchte, er möchte*).
 
 > [!warning] Не плутай will і werden
 > Німецьке ***ich will*** означає «я **хочу**», а не англійське *I will* («я буду»). Майбутнє в німецькій — окреме дієслово *werden*, його ми вчимо пізніше.
@@ -81,7 +81,7 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: s, note: "Підмет відкриває речення: Ich. Але перше місце може зайняти і інше слово, наприклад Heute muss ich arbeiten." }
 >   - { focus: m, note: "Модальне дієслово — на другому місці й відмінюється: ich muss, du musst, wir müssen." }
->   - { focus: r, note: "Усе решта (heute, nach Hause, einen Tee) іде між дієсловами." }
+>   - { focus: r, note: "Усе інше (heute, nach Hause, einen Tee) іде між дієсловами." }
 >   - { focus: i, note: "Смислове дієслово в інфінітиві — завжди останнє: arbeiten. Без zu, без закінчень." }
 > ```
 > Мʼятний блок — підмет, помаранчеві — дієслова, сірий — решта; мітка є в кожному блоці.
@@ -268,10 +268,10 @@ estimatedMinutes: 40
 > [!listen] Що буде завтра?
 > level: A1 · type: answer · speed: slow · id: de-a1-modalverben-l03
 > audio: Morgen muss ich nicht arbeiten. Ich kann lange schlafen.
-> - [x] Завтра йому не треба працювати, він може довго спати.
-> - [ ] Завтра йому не можна працювати, він не хоче спати.
-> - [ ] Завтра він мусить працювати і не може спати.
-> - [ ] Завтра він хоче працювати і довго спати.
+> - [x] Завтра мені не треба працювати, я можу довго спати.
+> - [ ] Завтра мені не можна працювати, я не хочу спати.
+> - [ ] Завтра я мушу працювати і не можу спати.
+> - [ ] Завтра я хочу працювати і довго спати.
 >
 > **Пояснення:** *muss nicht arbeiten* — «не треба працювати», *kann lange schlafen* — «може довго спати».
 
@@ -297,7 +297,7 @@ estimatedMinutes: 40
 > - [ ] Завтра о девʼятій; телефон треба принести.
 > - [ ] Завтра о десятій; у тесті не можна мати телефон.
 >
-> **Пояснення:** *Sie müssen morgen um neun Uhr kommen* — завтра о 9, *im Test dürfen Sie kein Handy haben* — у тесті телефон не дозволений. Переклад: — Добрий день! Що бажаєте? — Я б хотів записатися на курс німецької. Чи можна пройти тест сьогодні? — Ні, на жаль. Вам треба прийти завтра о девʼятій. — Добре. Чи треба щось принести? — Ні. Але в тесті ви не можете мати телефон. — Без проблем. Дякую!
+> **Пояснення:** *Sie müssen morgen um neun Uhr kommen* — завтра о 9, *im Test dürfen Sie kein Handy haben* — у тесті телефон не дозволений (*dürfen*). Переклад: — Добрий день! Що бажаєте? — Я б хотів записатися на курс німецької. Чи можна пройти тест сьогодні? — Ні, на жаль. Вам треба прийти завтра о девʼятій. — Добре. Чи треба щось принести? — Ні. Але в тесті вам не можна мати телефон. — Без проблем. Дякую!
 
 ## Вимова
 
@@ -311,8 +311,8 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-modalverben-s02
 > text: Ich muss heute arbeiten.
-> ipa: /ɪç mʊs ˈhɔɪ̯tə ˈaʁbaɪ̯tn̩/
-> tip: muss — короткий [ʊ], ss = [s]; eu у heute — [ɔɪ̯], «ой»; arbeiten — наголос на першому складі, -en майже не вимовляється.
+> ipa: /ɪç mʊs ˈhɔʏ̯tə ˈaʁbaɪ̯tn̩/
+> tip: muss — короткий [ʊ], ss = [s]; eu у heute — [ɔʏ̯], «ой»; arbeiten — наголос на першому складі, -en майже не вимовляється.
 > uk: Мені треба сьогодні працювати.
 
 > [!speak] Скажи вголос
@@ -339,7 +339,7 @@ estimatedMinutes: 40
 > [!speak] Ситуація: спитай про тест
 > level: A1 · speed: slow · id: de-a1-modalverben-s06
 > text: Kann ich heute den Test machen?
-> ipa: /kan ɪç ˈhɔɪ̯tə deːn tɛst ˈmaxn̩/
+> ipa: /kan ɪç ˈhɔʏ̯tə deːn tɛst ˈmaxn̩/
 > tip: Test — t і st на кінці чутно [tɛst]; machen — a коротке, ch = [x].
 > uk: Чи можу я сьогодні скласти тест?
 
@@ -359,7 +359,7 @@ estimatedMinutes: 40
 
 ## Ситуація: у центрі мовних курсів
 
-> [!listen] Гість приходить до центру мовних курсів. Що вона питає і що можна?
+> [!listen] Гостя приходить до центру мовних курсів. Що вона питає і що можна?
 > level: A1 · type: answer · speed: slow · id: de-a1-modalverben-l07
 > audio: A: Guten Tag! Kann ich Ihnen helfen?
 > audio: B: Ja. Darf ich hier einen Kaffee trinken?
@@ -463,14 +463,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** про дозвіл питаємо з *dürfen*. *Muss man hier parken?* — «чи обовʼязково тут паркуватися?». *Will / möchte man hier parken?* — «чи хоче хтось».
 
-> [!quiz] Відміняй модальні дієслова
+> [!quiz] Відмінюй модальні дієслова
 > level: A1 · type: fill · bank: kannst, dürft · id: de-a1-modalverben-q11
 >
 > ```text fill
-> Ich [[kann]] gut kochen.
-> Du [[musst]] heute arbeiten.
-> Er [[will]] nach Hause.
-> Wir [[dürfen]] hier nicht parken.
+> Ich [[kann]] gut kochen. (können)
+> Du [[musst]] heute arbeiten. (müssen)
+> Er [[will]] nach Hause. (wollen)
+> Wir [[dürfen]] hier nicht parken. (dürfen)
 > ```
 >
 > **Пояснення:** *ich kann* (без закінчення), *du musst* (-st), *er will* (без закінчення), *wir dürfen* (як інфінітив). Дистрактори: *kannst* — для *du*, *dürft* — для *ihr*.
@@ -492,7 +492,7 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Ich [[möchte]] einen Tee.
-> Du [[möchtest]] Kaffee.
+> Du [[möchtest]] Kaffee?
 > Er [[möchte]] ein Brötchen.
 > Wir [[möchten]] bezahlen.
 > ```
@@ -543,7 +543,7 @@ estimatedMinutes: 40
 > Англійське *I will go* означає майбутнє, а німецьке *ich will gehen* — «я хочу піти». Хоча слова споріднені: давнє значення «бажати» в англійській стало допоміжним дієсловом майбутнього, а в німецькій лишилося як «хотіти». Майбутнє в німецькій будує *werden*.
 
 > [!reel] 🧬 Чому ich kann = er kann
-> Модальні дієслова — колишні форми минулого часу, які з часом стали теперішніми: «я знав» перетворилося на «я вмію». Тому в однині в них немає закінчення -t в 3-й особі і голосний інший, ніж в інфінітиві. Такі дієслова називають претерито-презентними.
+> Більшість модальних дієслів (können, müssen, dürfen, sollen, mögen) — колишні форми минулого часу, які з часом стали теперішніми: «я знав» перетворилося на «я вмію». Тому в однині в них немає закінчення -t в 3-й особі, а голосний інший, ніж в інфінітиві. Такі дієслова називають претерито-презентними. *Wollen* трохи інше, а *möchte* взагалі форма від *mögen*.
 
 > [!reel] 🚭 Verboten!
 > Німеччина славиться знаками й правилами: *Rauchen verboten*, *Parken verboten*, *Betreten verboten*. Слово *verboten* — «заборонено», і воно настільки німецьке, що його зрозуміють у багатьох країнах. Але в розмові правило частіше звучить як *Das darf man nicht*.

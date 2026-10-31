@@ -48,7 +48,7 @@ estimatedMinutes: 35
 >   - { id: c3, col: c, label: "die", text: "Großeltern", tone: violet }
 > steps:
 >   - { focus: [a1, a2, a3], note: "Чоловічі ролі — der: der Vater, der Bruder, der Onkel." }
->   - { focus: [b1, b2, b3], note: "Жіночі ролі — die: die Mutter, die Schwester, die Tante. Закінчення чоловічої та жіночої форм відрізняються: Onkel / Tante, Vater / Mutter." }
+>   - { focus: [b1, b2, b3], note: "Жіночі ролі — die: die Mutter, die Schwester, die Tante. Пари: Vater / Mutter, Onkel / Tante." }
 >   - { focus: [c1, c2, c3], note: "Eltern, Geschwister, Großeltern — слова, які вживаються лише у множині. Артикль у називному відмінку — die." }
 > ```
 > Колір — лише рід і множина: синій — der, червоний — die, фіолетовий — множина.
@@ -110,7 +110,7 @@ estimatedMinutes: 35
 
 ## Частини тіла
 
-Частини тіла вчимо відразу з артиклем і множиною: у цій групі багато виняткових форм (*der Fuß → die Füße*, *die Hand → die Hände*).
+Частини тіла вчимо відразу з артиклем і множиною: у цій групі багато форм з умлаутом (*der Fuß → die Füße*, *die Hand → die Hände*).
 
 > [!diagram] Тіло: рід за артиклем
 > ```yaml
@@ -127,7 +127,7 @@ estimatedMinutes: 35
 >   - { id: c3, col: c, label: "das", text: "Gesicht", tone: green }
 > steps:
 >   - { focus: [a1, a2, a3], note: "der: Kopf, Arm, Fuß. Українське «голова» — жіночого роду, а німецьке der Kopf — чоловічого." }
->   - { focus: [b1, b2], note: "die: Hand, Nase. Тут рід збігається з українським." }
+>   - { focus: [b1, b2], note: "die: Hand, Nase. Рід не завжди збігається: українське «ніс» — чоловічого роду, а die Nase — жіночого." }
 >   - { focus: [c1, c2, c3], note: "das: Bein, Auge, Gesicht. Українське «нога» — жіночого, а das Bein — середнього роду." }
 > ```
 > Українське слово підказує рід лише частково: порівняй «голова — der Kopf» і «рука — die Hand».
@@ -168,7 +168,7 @@ estimatedMinutes: 35
 > uk: батько; тато
 > forms: die Väter
 > example: Mein **Vater** arbeitet in Köln. — Мій батько працює в Кельні.
-> note: розм. Papa; CH, AT: Papi, Vati. Множина з умлаутом: ä.
+> note: розм. Papa, Vati; CH: Papi. Множина з умлаутом: ä.
 
 > [!word] die Mutter
 > ipa: /ˈmʊtɐ/ · pos: noun · level: A1 · id: de-a1-familie-w04
@@ -196,7 +196,7 @@ estimatedMinutes: 35
 > uk: брати й сестри
 > forms: — (тільки множина)
 > example: Hast du **Geschwister**? — Ja, einen Bruder. — Чи є в тебе брати й сестри? — Так, брат.
-> note: одне слово на «брати й/або сестри»; в однині не вживається. Ge- ненаголошене: [ɡə].
+> note: одне слово на «брати й/або сестри»; в однині у розмові майже не вживається. Ge- ненаголошене: [ɡə].
 
 > [!word] der Sohn
 > ipa: /zoːn/ · pos: noun · level: A1 · id: de-a1-familie-w08
@@ -259,7 +259,7 @@ estimatedMinutes: 35
 > uk: чоловік; чоловіча особа
 > forms: die Männer
 > example: Das ist mein **Mann**, Jens. — Це мій чоловік, Йенс.
-> note: «чоловік» (чоловіча особа) і «чоловік» (partner) — одне слово. Множина з умлаутом: Männer. Mein Mann = мій чоловік у шлюбі.
+> note: «чоловік» (чоловіча особа) і «чоловік» (партнер) — одне слово. Множина з умлаутом: Männer. Mein Mann = мій чоловік у шлюбі.
 
 > [!word] die Frau
 > ipa: /fʁaʊ̯/ · pos: noun · level: A1 · id: de-a1-familie-w17
@@ -538,10 +538,10 @@ estimatedMinutes: 35
 > *Mein Freund* / *meine Freundin* часто означає «мій хлопець / моя дівчина». Щоб сказати нейтрально «друг», кажуть *ein Freund von mir* або *ein guter Freund*. А «колега» — *Kollege*, «знайомий» — *Bekannter*.
 
 > [!pitfall] «Волосся» — множина, «окуляри» — однина
-> Українською «волосся» — однина, «окуляри» — множина. Німецькою навпаки: *Meine **Haare** sind lang* (множина) і *Er hat **eine Brille*** (однина). Помилка: ~~Mein Haar ist lang~~ (про всю зачіску), ~~zwei Brillen~~ (коли йдеться про одну пару окулярів).
+> Українською «волосся» — однина, «окуляри» — множина. Німецькою навпаки: *Meine **Haare** sind lang* (множина) і *Er hat **eine Brille*** (однина). Форма *Mein Haar ist lang* можлива, але про зачіску кажуть переважно множиною. Помилка: ~~zwei Brillen~~, коли йдеться про одну пару окулярів.
 
 > [!pitfall] «Geschwister» не має однини
-> Про одного брата чи сестру не скажеш ~~ein Geschwister~~: потрібні *ein Bruder* або *eine Schwester*. Слово *Geschwister* — лише множина «брати й сестри»: *Hast du Geschwister?* Так само *die Eltern* — завжди множина: ~~mein Eltern~~ → **meine** Eltern.
+> Про одного брата чи сестру не скажеш ~~ein Geschwister~~: потрібні *ein Bruder* або *eine Schwester*. Слово *Geschwister* у розмові вживається в множині («брати й сестри»): *Hast du Geschwister?* Так само *die Eltern* — завжди множина: ~~mein Eltern~~ → **meine** Eltern.
 
 > [!pitfall] Familienname — це «прізвище»
 > *Familienname* — прізвище (*Müller*), а не «назва родини». Імʼя — *Vorname*. Питання *Wie ist Ihr Familienname?* — «Яке Ваше прізвище?».
@@ -554,7 +554,7 @@ estimatedMinutes: 35
 > audio: B: Das ist meine Familie. Das hier ist mein Vater und das ist meine Mutter.
 > audio: A: Und wer ist der Junge?
 > audio: B: Das ist mein Bruder Paul. Er ist zehn. Er ist sehr lustig.
-> - [x] батьків і молодшого брата Пауля
+> - [x] батьків і брата Пауля
 > - [ ] двох сестер і дядька
 > - [ ] бабусю з дідусем
 >
@@ -572,7 +572,7 @@ estimatedMinutes: 35
 ## Landeskunde: Familie Müller
 
 > [!example] Familie Müller
-> Familie Müller wohnt in Köln. Der Vater heißt Jens, die Mutter heißt Sabine. Sie haben zwei Kinder: Leon ist zehn Jahre alt, Mia ist sieben. Mia hat lange blonde Haare. Die Großeltern, Oma Ingrid und Opa Karl, wohnen in Wien. Am Sonntag sind alle zusammen.
+> Familie Müller wohnt in Köln. Der Vater heißt Jens, die Mutter heißt Sabine. Sie haben zwei Kinder: Leon ist zehn Jahre alt, Mia ist sieben. Mia hat lange blonde Haare. Die Großeltern, Oma Ingrid und Opa Karl, wohnen in Wien. Am Sonntag telefoniert die Familie mit Wien.
 
 > [!quiz] Wo wohnen die Großeltern?
 > level: A1 · type: single · id: de-a1-familie-q02
@@ -592,14 +592,14 @@ estimatedMinutes: 35
 >
 > **Пояснення:** *Leon ist zehn Jahre alt, Mia ist sieben. Mia hat lange blonde Haare.* Мії сім, а не десять.
 
-> [!quiz] Wann sind alle zusammen?
+> [!quiz] Wann telefoniert die Familie mit Wien?
 > level: A1 · type: single · id: de-a1-familie-q04
 > - [ ] am Freitag
 > - [x] am Sonntag
 > - [ ] am Montag
 > - [ ] jeden Tag
 >
-> **Пояснення:** останнє речення: *Am Sonntag sind alle zusammen.* Дні тижня — у темі [[Deutsch - A1 - 12. Час, дні, місяці й дата]].
+> **Пояснення:** останнє речення: *Am Sonntag telefoniert die Familie mit Wien.* Дні тижня — у темі [[Deutsch - A1 - 12. Час, дні, місяці й дата]].
 
 У Німеччині, Австрії та Швейцарії діти нерідко називають бабусю й дідуся по-різному: у Німеччині й Австрії — *Oma / Opa*, у Швейцарії — *Grosi* і *Grosspapi* (швейцарський правопис без ß).
 
@@ -632,7 +632,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** *die Brille* — однина, і в «є» вживають *haben*: *Er hat eine Brille.* Із *sein* було б «Він — окуляри».
 
-> [!quiz] Яке слово означає «чоловік» (partner у шлюбі)?
+> [!quiz] Яке слово означає «чоловік» (партнер у шлюбі)?
 > level: A1 · type: single · id: de-a1-familie-q08
 > - [ ] der Freund
 > - [x] der Mann

@@ -48,7 +48,7 @@ estimatedMinutes: 40
 |---|---|---|
 | der Käse, der Fisch, der Salat, der Apfel, der Reis | die Wurst, die Suppe, die Milch, die Butter, die Tomate, die Kartoffel, die Pizza | das Brot, das Ei, das Fleisch, das Obst, das Gemüse, das Brötchen |
 
-Напої: **der** Kaffee, **der** Tee, **der** Saft, **der** Wein, **das** Bier, **das** Wasser, **die** Cola.
+Напої: **der** Kaffee, **der** Tee, **der** Saft, **der** Wein, **das** Bier, **das** Wasser, **die** Cola (AT, півд. також das Cola).
 
 ### Як замовити: hätte gern і nehme
 
@@ -101,7 +101,7 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: a, note: "Часто можна самому обрати вільний стіл, а в солідному ресторані на вас чекають біля входу." }
 >   - { focus: b, note: "Меню — die Speisekarte. Слово das Menü означає не меню, а комплексний обід за фіксованою ціною." }
->   - { focus: c, note: "Замовляємо: Ich hätte gern … або Ich nehme … Не кричи «Kellner!» — підійди поглядом або скажи Entschuldigung!" }
+>   - { focus: c, note: "Замовляємо: Ich hätte gern … або Ich nehme … Не кричи «Kellner!» — привертай увагу поглядом або кажи Entschuldigung!" }
 >   - { focus: d, note: "Guten Appetit! — побажання перед їжею. Відповідь: Danke, gleichfalls! (Дякую, і вам того ж.)" }
 >   - { focus: e, note: "Зазвичай гості кажуть Zahlen, bitte! Офіціант питає: Zusammen oder getrennt? — разом чи окремо." }
 > ```
@@ -162,14 +162,14 @@ estimatedMinutes: 40
 > note: CH розм. Zmorge. Дієслово: frühstücken («снідати»). ü — [yː], губи округлені.
 
 > [!word] das Mittagessen
-> ipa: /ˈmɪtaːkˌɛsn̩/ · pos: noun · level: A1 · id: de-a1-essen-w02
+> ipa: /ˈmɪtaːkˌʔɛsn̩/ · pos: noun · level: A1 · id: de-a1-essen-w02
 > uk: обід
 > forms: die Mittagessen
 > example: Zum **Mittagessen** gibt es Suppe. — На обід є суп.
 > note: від der Mittag («полудень») + das Essen.  CH розм. Zmittag.
 
 > [!word] das Abendessen
-> ipa: /ˈaːbn̩tˌɛsn̩/ · pos: noun · level: A1 · id: de-a1-essen-w03
+> ipa: /ˈaːbn̩tˌʔɛsn̩/ · pos: noun · level: A1 · id: de-a1-essen-w03
 > uk: вечеря
 > forms: die Abendessen
 > example: Das **Abendessen** ist um sechs Uhr. — Вечеря о шостій.
@@ -188,7 +188,7 @@ estimatedMinutes: 40
 > ipa: /ˈbʊtɐ/ · pos: noun · level: A1 · id: de-a1-essen-w05
 > uk: масло (вершкове)
 > forms: — (без множини)
-> example: Ich esse Brot mit **Butter**. — Я хочу хліб з маслом.
+> example: Ich esse Brot mit **Butter**. — Я їм хліб з маслом.
 > note: рід укр. «масло» — середній, нім. die Butter — жіночий. Кінцеве -er звучить [ɐ].
 
 > [!word] der Käse
@@ -196,7 +196,7 @@ estimatedMinutes: 40
 > uk: сир
 > forms: die Käse
 > example: Der **Käse** ist sehr lecker. — Сир дуже смачний.
-> note: слово на -e, але чоловічого роду (виняток). Кисломолочний сир (творог) — der Quark. Укр. «сир» — це der Käse. ä довге — [ɛː].
+> note: слово на -e, але чоловічого роду (виняток). Кисломолочний (домашній) сир — der Quark. Укр. «сир» — це der Käse. ä довге — [ɛː].
 
 > [!word] die Wurst
 > ipa: /vʊʁst/ · pos: noun · level: A1 · id: de-a1-essen-w07
@@ -312,7 +312,7 @@ estimatedMinutes: 40
 > [!word] das Wasser
 > ipa: /ˈvasɐ/ · pos: noun · level: A1 · id: de-a1-essen-w22
 > uk: вода
-> forms: — (без множини)
+> forms: — (зазвичай без множини; у замовленні: zwei Wasser)
 > example: Ein **Wasser**, bitte! — Воду, будь ласка!
 > note: укр. «вода» — жіночого роду, нім. das Wasser — середнього. Мінеральна — das Mineralwasser. w = [v].
 
@@ -365,7 +365,7 @@ estimatedMinutes: 40
 > uk: офіціант
 > forms: die Kellner
 > example: Der **Kellner** bringt die Rechnung. — Офіціант приносить рахунок.
-> note: жінка — die Kellnerin, множина die Kellnerinnen. Звертатися: Entschuldigung! (не «Herr Ober» — застаріло).
+> note: жінка — die Kellnerin, множина die Kellnerinnen. Звертатися: Entschuldigung! («Herr Ober» уже застаріває; у віденських кафе ще трапляється).
 
 > [!word] die Rechnung
 > ipa: /ˈʁɛçnʊŋ/ · pos: noun · level: A1 · id: de-a1-essen-w30
@@ -375,7 +375,7 @@ estimatedMinutes: 40
 > note: -ung → die без винятків. Множина: die Rechnungen.
 
 > [!word] das Trinkgeld
-> ipa: /ˈtʁɪŋkˌɡɛlt/ · pos: noun · level: A2 · id: de-a1-essen-w31
+> ipa: /ˈtʁɪŋkɡɛlt/ · pos: noun · level: A2 · id: de-a1-essen-w31
 > uk: чайові
 > forms: die Trinkgelder
 > example: **Trinkgeld** ist hier üblich. — Чайові тут звичні.
@@ -414,7 +414,7 @@ estimatedMinutes: 40
 > uk: спрага
 > forms: — (без множини)
 > example: Ich habe **Durst**. — Я хочу пити.
-> note: «Я хочу пити» = Ich habe Durst. Прикметник durstig майже не вживається.
+> note: «Я хочу пити» = Ich habe Durst. Прикметник durstig теж існує (sehr durstig sein), але в розмові частіше кажуть Ich habe Durst.
 
 ### Дієслова
 
@@ -470,7 +470,7 @@ estimatedMinutes: 40
 > ipa: /ˈɡuːtn̩ apeˈtiːt/ · pos: phrase · level: A1 · id: de-a1-essen-w44
 > uk: смачного!
 > example: **Guten Appetit!** — Danke, gleichfalls! — Смачного! — Дякую, вам також!
-> note: AT, CH теж Guten Appetit; на роботі опівдні: Mahlzeit! Наголос на кінці: Appetít.
+> note: AT, CH теж Guten Appetit; Наголос на кінці: Appetít.
 
 > [!word] Stimmt so.
 > ipa: /ʃtɪmt zoː/ · pos: phrase · level: A1 · id: de-a1-essen-w45
@@ -482,12 +482,12 @@ estimatedMinutes: 40
 
 > [!listen] Що замовили?
 > level: A1 · type: choice · speed: slow · id: de-a1-essen-l01
-> audio: Ich hätte gern einen Käse.
+> audio: Ich hätte gern ein Käsebrot.
 > - [ ] Ich hätte gern einen Kaffee.
-> - [x] Ich hätte gern einen Käse.
-> - [ ] Ich hätte gern eine Käse.
+> - [x] Ich hätte gern ein Käsebrot.
+> - [ ] Ich hätte gern eine Käsebrot.
 >
-> **Пояснення:** *Kaffee* і *Käse* звучать схоже, але *Käse* починається з довгого [kɛː], а *Kaffee* — з короткого [ka]. Після *hätte gern* для чоловічого роду — *einen*.
+> **Пояснення:** *Kaffee* і *Käsebrot* звучать схоже на початку, але *Käse-* починається з довгого [kɛː], а *Kaffee* — з короткого [ka]. *Das Käsebrot* — середній рід, тому *ein Käsebrot*; для чоловічого було б *einen*.
 
 > [!listen] Яке питання ти почув?
 > level: A1 · type: choice · speed: slow · id: de-a1-essen-l02
@@ -520,7 +520,7 @@ estimatedMinutes: 40
 > [!listen] Послухай. Скільки гості заплатять разом із чайовими?
 > level: A1 · type: answer · speed: slow · id: de-a1-essen-l06
 > audio: A: Guten Tag! Was darf es sein?
-> audio: B: Wir hätten gern zwei Kaffee und einen Kuchen.
+> audio: B: Wir hätten gern zwei Kaffee und ein Stück Kuchen.
 > audio: A: Gern. Sonst noch etwas?
 > audio: B: Nein, danke. Zahlen, bitte!
 > audio: A: Zusammen oder getrennt?
@@ -540,13 +540,13 @@ estimatedMinutes: 40
 > level: A1 · speed: slow · id: de-a1-essen-s01
 > text: Ich hätte gern einen Kaffee.
 > ipa: /ɪç ˈhɛtə ɡɛʁn ˈaɪ̯nən ˈkafe/
-> tip: ich — [ç], мʼяке, як «хь»; hätte — [ɛ], короткий; r у gern — майже не чути, «гейрн» мʼяко.
+> tip: ich — [ç], мʼяке, як «хь»; hätte — [ɛ], короткий; r у gern — майже не чути, «ґерн» мʼяко.
 > uk: Я б хотів кави.
 
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-essen-s02
 > text: Das Frühstück, das Mittagessen, das Abendessen.
-> ipa: /das ˈfʁyːʃtʏk das ˈmɪtaːkˌɛsn̩ das ˈaːbn̩tˌɛsn̩/
+> ipa: /das ˈfʁyːʃtʏk das ˈmɪtaːkˌʔɛsn̩ das ˈaːbn̩tˌʔɛsn̩/
 > tip: ü у Frühstück — [yː], губи округлені, як для «у», язик як для «і»; sch — [ʃ]; Abend — d оглушується [t]: «абент».
 > uk: Сніданок, обід, вечеря.
 
@@ -626,7 +626,7 @@ estimatedMinutes: 40
 ## Landeskunde: Restaurant und Trinkgeld
 
 > [!example] Im Restaurant in Deutschland
-> Im Restaurant sucht man oft selbst einen Tisch. Man ruft nicht „Kellner!“, sondern sagt „Entschuldigung!“. Am Ende bittet man um die Rechnung: „Zahlen, bitte!“ Der Kellner fragt: „Zusammen oder getrennt?“ Das Trinkgeld gibt man direkt beim Bezahlen. Die Rechnung hat 18,50 Euro. Man gibt 20 Euro und sagt „Stimmt so“. Trinkgeld ist nicht Pflicht, aber üblich.
+> Im Restaurant sucht man oft selbst einen Tisch. Man ruft nicht „Kellner!“, sondern sagt „Entschuldigung!“. Am Ende bittet man um die Rechnung: „Zahlen, bitte!“ Der Kellner fragt: „Zusammen oder getrennt?“ Das Trinkgeld gibt man direkt beim Bezahlen. Die Rechnung beträgt 18,50 Euro. Man gibt 20 Euro und sagt „Stimmt so“. Trinkgeld ist nicht Pflicht, aber üblich.
 >
 > **Переклад:** У ресторані в Німеччині гість часто сам вибирає стіл. Офіціанта не кличуть «Kellner!», а кажуть «Перепрошую!». Наприкінці просять рахунок. Офіціант питає: разом чи окремо? Чайові дають одразу під час оплати: якщо рахунок 18,50 євро, віддають 20 і кажуть «Stimmt so». Чайові не обовʼязкові, але звичні.
 
@@ -646,7 +646,7 @@ estimatedMinutes: 40
 > - [ ] Лише тоді, коли в меню написано Trinkgeld.
 > - [ ] Ніколи, чайові в Німеччині не дають.
 >
-> **Пояснення:** у німецькій практиці суму називають під час розрахунку (*Stimmt so* або *Machen Sie 20 Euro*). Залишати монети на столі, як у деяких країнах, не прийнято. Чайові необовʼязкові, але звичні.
+> **Пояснення:** у німецькій практиці суму називають під час розрахунку (*Stimmt so* або *Machen Sie 20 Euro*). Залишати монети на столі, як у деяких країнах, у Німеччині менш поширено. Чайові необовʼязкові, але звичні.
 
 ## Практика
 
@@ -657,7 +657,7 @@ estimatedMinutes: 40
 > - [ ] Чи ви хочете замовити ще щось.
 > - [ ] Чи ви платите готівкою чи карткою.
 >
-> **Пояснення:** *zusammen* — разом, *getrennt* — окремо. Питання лунить, коли за столом кілька людей і ви просите рахунок.
+> **Пояснення:** *zusammen* — разом, *getrennt* — окремо. Питання лунає, коли за столом кілька людей і ви просите рахунок.
 
 > [!quiz] Ich hätte gern ___ Kaffee.
 > level: A1 · type: single · id: de-a1-essen-q05
@@ -706,7 +706,7 @@ estimatedMinutes: 40
 > **Пояснення:** *Durst* (спрага) — іменник, а стан «мати спрагу» в німецькій передається через *haben*: *Ich habe Durst / Hunger*. З *sein* вийшло б «я — спрага».
 
 > [!quiz] Заповни пропуски
-> level: A1 · type: fill · bank: habe, bezahlen · id: de-a1-essen-q10
+> level: A1 · type: fill · bank: habe, getrunken · id: de-a1-essen-q10
 >
 > ```text fill
 > Ich [[hätte]] gern eine Suppe.
@@ -715,7 +715,7 @@ estimatedMinutes: 40
 > Zusammen oder [[getrennt]]?
 > ```
 >
-> **Пояснення:** *Ich hätte gern …* і *Ich nehme …* — дві формули замовлення. *Bestellen* — «замовляти». *Getrennt* — «окремо». Дистрактор *bezahlen* — «платити» (інша дія), *habe* — «маю», не «хотів би».
+> **Пояснення:** *Ich hätte gern …* і *Ich nehme …* — дві формули замовлення. *Bestellen* — «замовляти». *Getrennt* — «окремо». Дистрактори: *habe* — «маю», не «хотів би»; *getrunken* — Partizip II, а не форма для *wir*.
 
 > [!quiz] Артикль у знахідному
 > level: A1 · type: fill · bank: einem, die · id: de-a1-essen-q11
@@ -761,8 +761,8 @@ estimatedMinutes: 40
 > [!reel] 🕐 Frühstück — «ранній шматок»
 > Слово *Frühstück* складається з *früh* («рано») і *Stück* («шматок»): колись це був шматок хліба, який їли вранці. Тому й донині *Stück* лишається в побуті: *ein Stück Kuchen*, *ein Stück Brot*.
 
-> [!reel] 👋 Mahlzeit!
-> Опівдні на німецькому робочому місці колеги вітаються «Mahlzeit!». Ймовірно, це скорочення від *Gesegnete Mahlzeit* («благословенна трапеза»). Відповідають тим самим словом. Це не побажання смачного саме тобі, а звичка привітатися об обідній порі.
+> [!reel] 🍞 Abendbrot — вечеря з хліба
+> На півночі Німеччини вечерю називають *das Abendbrot*, тобто «вечірній хліб»: традиційно ввечері їли хліб із сиром, ковбасою й маслом, а гаряче готували на обід. Слово збереглося, навіть коли на столі вже не лише хліб.
 
 ## Джерела та що почитати
 

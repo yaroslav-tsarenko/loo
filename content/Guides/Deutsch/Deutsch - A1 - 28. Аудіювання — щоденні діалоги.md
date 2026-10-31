@@ -12,7 +12,7 @@ estimatedMinutes: 45
 
 > [!success] Після цієї теми ти зможеш
 > - зрозуміти короткі діалоги в кафе, у магазині, на вулиці, на знайомстві й по телефону;
-> - знайти в мові ключову інформацію: число, ціну, час, місце, ім'я;
+> - знайти в мові ключову інформацію: число, ціну, час, місце, імʼя;
 > - попросити повторити: *Wie bitte? Noch einmal, bitte. Langsamer, bitte.*;
 > - відповісти співрозмовнику вголос коротким реченням.
 
@@ -29,7 +29,7 @@ estimatedMinutes: 45
 
 ## Як слухати діалог
 
-Не намагайся зрозуміти кожне слово. На рівні A1 достатньо знайти **ключову інформацію**. Іспит *Start Deutsch 1* перевіряє саме це: ім'я, число, ціну, час, місце. Тому:
+Не намагайся зрозуміти кожне слово. На рівні A1 достатньо знайти **ключову інформацію**. Іспит *Start Deutsch 1* перевіряє саме це: імʼя, число, ціну, час, місце. Тому:
 
 1. **Прочитай питання (і відповіді) до аудіо.** Ти вже знаєш, що шукати.
 2. **Лови ключові слова.** Числа, назви місць, дні, ціни, дієслова-підказки.
@@ -45,10 +45,10 @@ estimatedMinutes: 45
 >   - { id: r, label: "крок 3", text: "Послухай ще раз", tone: gray }
 >   - { id: a, label: "крок 4", text: "Вибери відповідь", tone: yellow }
 > steps:
->   - { focus: q, note: "Спочатку питання: що тобі треба знайти — ціну, час, місце, ім'я? Тоді слухаєш цілеспрямовано." }
+>   - { focus: q, note: "Спочатку питання: що тобі треба знайти — ціну, час, місце, імʼя? Тоді слухаєш цілеспрямовано." }
 >   - { focus: k, note: "У діалозі шукай числа, дні, назви місць і слова, що відповідають на питання. Решта — фон." }
 >   - { focus: r, note: "Не зрозумів — послухай ще раз. На іспиті Hören текст звучить двічі." }
->   - { focus: a, note: "Обирай відповідь, що збігається з почутим. Відповідь не обов'язково слово в слово." }
+>   - { focus: a, note: "Обирай відповідь, що збігається з почутим. Відповідь не обовʼязково слово в слово." }
 > ```
 > Спершу питання, потім слухання: так ти чуєш не «все», а «потрібне».
 
@@ -84,7 +84,7 @@ estimatedMinutes: 45
 ## Приклади (корисні речення з діалогів)
 
 - Was möchten Sie trinken? — Einen Kaffee, bitte. — Що ви будете пити? — Каву, будь ласка.
-- Das macht drei Euro fünfzig. — З вас три євро п'ятдесят.
+- Das macht drei Euro fünfzig. — З вас три євро пʼятдесят.
 - Zusammen oder getrennt? — Разом чи окремо?
 - Wie viel kostet die Jacke? — Скільки коштує куртка?
 - Entschuldigung, wo ist die Apotheke? — Перепрошую, де аптека?
@@ -102,56 +102,49 @@ estimatedMinutes: 45
 > note: ich verstehe nicht — коротше, але неповне (бракує що саме). Das стоїть на першому місці, дієслово — друге: V2.
 
 > [!word] Was bedeutet …?
-> ipa: /vas bəˈdɔɪ̯tət/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w02
+> ipa: /vas bəˈdɔʏ̯tət/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w02
 > uk: Що означає …?
 > example: **Was bedeutet** „Feierabend"? — Що означає «Feierabend»?
-> note: bedeuten → bedeutete → hat bedeutet; eu = [ɔɪ̯]. Можна й: Was heißt …? («Що означає...»).
-
-> [!word] wiederholen
-> ipa: /viːdɐˈhoːlən/ · pos: verb · level: A1 · id: de-a1-hoeren-dialoge-w03
-> uk: повторювати
-> forms: wiederholen → wiederholte → hat wiederholt
-> example: Können Sie das bitte **wiederholen**? — Можете, будь ласка, повторити?
-> note: wieder- не відокремлюване тут: ich wiederhole, Partizip wiederholt (без ge-). Іменник: die Wiederholung.
+> note: bedeuten → bedeutete → hat bedeutet; eu = [ɔʏ̯]. Можна й: Was heißt …? («Що означає...»).
 
 > [!word] Kein Problem!
-> ipa: /kaɪ̯n pʁoˈbleːm/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w04
+> ipa: /kaɪ̯n pʁoˈbleːm/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w03
 > uk: Без проблем!; Нічого страшного!
 > example: Danke für die Hilfe! — **Kein Problem!** — Дякую за допомогу! — Без проблем!
 > note: das Problem, die Probleme. Також: Gern geschehen. («Прошу»).
 
 > [!word] Einen Moment, bitte.
-> ipa: /ˈaɪ̯nən moˈmɛnt ˈbɪtə/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w05
+> ipa: /ˈaɪ̯nən moˈmɛnt ˈbɪtə/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w04
 > uk: Хвилинку, будь ласка.
 > example: **Einen Moment, bitte.** Ich suche die Karte. — Хвилинку, будь ласка. Я шукаю картку.
 > note: der Moment, die Momente. Також: Einen Augenblick, bitte. (ввічливіше).
 
 > [!word] Alles klar!
-> ipa: /ˈaləs klaːɐ̯/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w06
+> ipa: /ˈaləs klaːɐ̯/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w05
 > uk: Усе зрозуміло!; Добре!
 > example: Wir treffen uns um acht. — **Alles klar!** — Зустрічаємось о восьмій. — Добре!
 > note: klar = ясно; r вокалізоване. Розмовне; формально — Verstanden.
 
 > [!word] Gern geschehen.
-> ipa: /ɡɛʁn ɡəˈʃeːən/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w07
+> ipa: /ɡɛʁn ɡəˈʃeːən/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w06
 > uk: Прошу.; Будь ласка (у відповідь на «дякую»)
 > example: Danke für Ihre Hilfe! — **Gern geschehen.** — Дякую за допомогу! — Прошу.
 > note: geschehen — «траплятися», дослівно «охоче сталося». Коротше: Bitte. / Gern.
 
 > [!word] Es tut mir leid.
-> ipa: /ɛs tuːt miːɐ̯ laɪ̯t/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w08
+> ipa: /ɛs tuːt miːɐ̯ laɪ̯t/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w07
 > uk: Мені шкода.; Перепрошую.
 > example: **Es tut mir leid**, ich verstehe das nicht. — Мені шкода, я цього не розумію.
 > note: мені — mir (давальний). Entschuldigung — «перепрошую» перед питанням, Es tut mir leid — вибачення за вчинок.
 
 > [!word] Vielen Dank!
-> ipa: /ˈfiːlən daŋk/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w09
+> ipa: /ˈfiːlən daŋk/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w08
 > uk: Дуже дякую!
 > example: **Vielen Dank** für Ihre Hilfe! — Дуже дякую за Вашу допомогу!
 > note: v у viel = [f]. Ще: Danke schön! Відповідь: Gern geschehen. / Bitte schön.
 
 > [!word] Bitte schön!
-> ipa: /ˈbɪtə ʃøːn/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w10
+> ipa: /ˈbɪtə ʃøːn/ · pos: phrase · level: A1 · id: de-a1-hoeren-dialoge-w09
 > uk: Будь ласка!; Прошу!
 > example: Danke! — **Bitte schön!** — Дякую! — Будь ласка!
 > note: Також: коли щось подаєш («Ось, прошу»). schön — ö довге.
@@ -234,7 +227,7 @@ estimatedMinutes: 45
 > audio: B: Nehmen Sie den Bus Nummer sieben.
 > audio: A: Wie lange dauert das?
 > audio: B: Etwa zehn Minuten.
-> - [ ] на автобусі 17, п'ять хвилин
+> - [ ] на автобусі 17, пʼять хвилин
 > - [x] на автобусі 7, близько десяти хвилин
 > - [ ] на трамваї 7, пів години
 
@@ -275,7 +268,7 @@ estimatedMinutes: 45
 > audio: A: Ja, das geht.
 > - [ ] у понеділок о десятій
 > - [x] у вівторок о десятій
-> - [ ] у вівторок о дев'ятій
+> - [ ] у вівторок о девʼятій
 
 > [!listen] Напиши або скажи, що почув
 > level: A1 · type: dictation · speed: slow · id: de-a1-hoeren-dialoge-l14
@@ -297,9 +290,9 @@ estimatedMinutes: 45
 > audio: A: Um halb neun.
 > audio: B: Noch einmal, bitte. Langsamer.
 > audio: A: Um — halb — neun.
-> - [ ] о дев'ятій
+> - [ ] о девʼятій
 > - [ ] о 9:30
-> - [x] о пів на дев'яту, тобто о 8:30
+> - [x] о пів на девʼяту, тобто о 8:30
 
 > [!listen] Що ти почув?
 > level: A1 · type: choice · speed: slow · id: de-a1-hoeren-dialoge-l17
@@ -367,10 +360,10 @@ estimatedMinutes: 45
 > Українське «Що?» німецькою звучить як *Was?* — це різко й невиховано, особливо до незнайомих. Ввічливо: ***Wie bitte?*** або ***Noch einmal, bitte.*** До друзів можна *Was hast du gesagt?*, але в магазині й офісі кажи *Wie bitte?*
 
 > [!pitfall] dreizehn і dreißig, sechzehn і sechzig
-> Числа 13–19 закінчуються на **-zehn**, а десятки 30–90 — на **-zig**: *dreizehn* (13) ≠ *dreißig* (30), *sechzehn* (16) ≠ *sechzig* (60). Слухай саме закінчення. А ще пам'ятай: у двозначних числах першими йдуть **одиниці**: *vierundzwanzig* (24) = «чотири-і-двадцять».
+> Числа 13–19 закінчуються на **-zehn**, а десятки 30–90 — на **-zig**: *dreizehn* (13) ≠ *dreißig* (30), *sechzehn* (16) ≠ *sechzig* (60). Слухай саме закінчення. А ще памʼятай: у двозначних числах першими йдуть **одиниці**: *vierundzwanzig* (24) = «чотири-і-двадцять».
 
 > [!pitfall] «halb neun» — це не 9:30
-> *halb neun* = 8:30 (дослівно «півдев'ятої»), а не 9:30. Німці рахують «пів до наступної години»: 9:30 — це *halb zehn*. Докладно — у темі [[Deutsch - A1 - 12. Час, дні, місяці й дата]].
+> *halb neun* = 8:30 (дослівно «півдевʼятої»), а не 9:30. Німці рахують «пів до наступної години»: 9:30 — це *halb zehn*. Докладно — у темі [[Deutsch - A1 - 12. Час, дні, місяці й дата]].
 
 ## Практика
 
@@ -404,11 +397,11 @@ estimatedMinutes: 45
 > [!quiz] Що означає «Der Kurs beginnt um halb neun»?
 > level: A1 · type: single · id: de-a1-hoeren-dialoge-q05
 > - [ ] о 9:30
-> - [ ] о дев'ятій
+> - [ ] о девʼятій
 > - [x] о 8:30
 > - [ ] о 9:15
 >
-> **Пояснення:** *halb neun* — «пів до дев'ятої», тобто 8:30.
+> **Пояснення:** *halb neun* — «пів до девʼятої», тобто 8:30.
 
 > [!quiz] Які фрази допомагають перепитати? Обери всі.
 > level: A1 · type: multi · id: de-a1-hoeren-dialoge-q06
@@ -499,7 +492,7 @@ estimatedMinutes: 45
 > Німці відповідають на дзвінок прізвищем: «Müller.» або «Praxis Doktor Braun, guten Tag». Сказати лише «Алло» — не заборонено, але вважається не надто діловим. Так у вас одразу зрозуміло, куди ви потрапили.
 
 > [!reel] 💶 «Stimmt so» — чайові по-німецьки
-> Коли в кафе платиш і кажеш *Stimmt so*, офіціант не віддає решту — вона стає чайовими (*Trinkgeld*). Зазвичай округлюють суму: замість 3,50 € даєш 4 €. У Німеччині чайові не обов'язкові, а ввічливий жест подяки.
+> Коли в кафе платиш і кажеш *Stimmt so*, офіціант не віддає решту — вона стає чайовими (*Trinkgeld*). Зазвичай округлюють суму: замість 3,50 € даєш 4 €. У Німеччині чайові не обовʼязкові, а ввічливий жест подяки.
 
 > [!reel] 👂 Чому німецька на слух швидка
 > У живій мові слова «злипаються»: *Wie geht's?* замість *Wie geht es?*, *Ich hab's* замість *Ich habe es*. Тому записи в підручнику звучать повільніше, ніж на вулиці. Звикай поступово: спершу повільні діалоги, потім звичайні.
@@ -513,8 +506,8 @@ estimatedMinutes: 45
 - Goethe-Institut — сторінка іспиту *Goethe-Zertifikat A1: Start Deutsch 1* на goethe.de: зразки частини *Hören*.
 
 > [!important] Підсумок
-> - Слухай не «усе», а ключову інформацію: число, ціну, час, місце, ім'я.
+> - Слухай не «усе», а ключову інформацію: число, ціну, час, місце, імʼя.
 > - Читай питання до аудіо; слухай двічі.
 > - Перепитуй ввічливо: *Wie bitte? Noch einmal, bitte. Langsamer, bitte.*
-> - Не плутай *-zehn* і *-zig* (13 ≠ 30), пам'ятай про *einundzwanzig* і *halb neun* = 8:30.
+> - Не плутай *-zehn* і *-zig* (13 ≠ 30), памʼятай про *einundzwanzig* і *halb neun* = 8:30.
 > - Відповідай вголос коротким повним реченням.

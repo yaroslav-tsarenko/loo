@@ -327,7 +327,7 @@ estimatedMinutes: 40
 > note: -keit — завжди die: möglich → die Möglichkeit. g у кінці складу Mög- оглушується до [k]: [ˈmøːk-].
 
 > [!word] die Freundschaft
-> ipa: /ˈfʁɔɪ̯ntʃaft/ · pos: noun · level: A2 · id: de-a1-artikel-w20
+> ipa: /ˈfʁɔʏ̯ntʃaft/ · pos: noun · level: A2 · id: de-a1-artikel-w20
 > uk: дружба
 > forms: die Freundschaften
 > example: Die **Freundschaft** ist wichtig für mich. — Дружба для мене важлива.

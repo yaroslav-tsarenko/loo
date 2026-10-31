@@ -58,7 +58,7 @@ estimatedMinutes: 40
 **Заперечення:** *nicht gern* — «не люблю»: *Ich koche **nicht gern**.* Не ~~kein gern~~.
 
 > [!tip] gern чи gerne
-> Обидві форми правильні: *Ich tanze gern* і *Ich tanze gerne*. *Gerne* трохи м'якше, трапляється в розмові. Для вищого ступеня слів *lieber* і *am liebsten* додаткових форм немає.
+> Обидві форми правильні: *Ich tanze gern* і *Ich tanze gerne*. *Gerne* трохи мʼякше, трапляється в розмові. Для вищого ступеня слів *lieber* і *am liebsten* додаткових форм немає.
 
 ## spielen, machen, gehen, fahren, hören
 
@@ -123,7 +123,7 @@ estimatedMinutes: 40
 >   - { id: b2, col: b, label: "дієслово", text: "ist", tone: orange }
 >   - { id: b3, col: b, label: "прикметник", text: "kalt.", tone: gray }
 > steps:
->   - { focus: [a1, a2], note: "Es regnet. Підмет es обов'язковий — дощ ніхто «не робить», але речення без підмета в німецькій не буває." }
+>   - { focus: [a1, a2], note: "Es regnet. Підмет es обовʼязковий — дощ ніхто «не робить», але речення без підмета в німецькій не буває." }
 >   - { focus: [b1, b2, b3], note: "Es ist kalt. Це sein + прикметник: те саме, що в темі 03, лише підмет — es." }
 >   - { set: { a2: "schneit.", b3: "heiß." }, focus: [a2, b3], note: "Заміняй слова: Es schneit. Es ist heiß. Структура та сама." }
 > ```
@@ -166,10 +166,10 @@ estimatedMinutes: 40
 
 > [!word] der Fußball
 > ipa: /ˈfuːsbal/ · pos: noun · level: A1 · id: de-a1-freizeit-w03
-> uk: футбол; футбольний м'яч
+> uk: футбол; футбольний мʼяч
 > forms: die Fußbälle
 > example: Er spielt jeden Samstag **Fußball**. — Він грає у футбол щосуботи.
-> note: як вид спорту — без множини. Fußball spielen. Як «футбольний м'яч» — має множину die Fußbälle.
+> note: як вид спорту — без множини. Fußball spielen. Як «футбольний мʼяч» — має множину die Fußbälle.
 
 > [!word] das Tennis
 > ipa: /ˈtɛnɪs/ · pos: noun · level: A1 · id: de-a1-freizeit-w04
@@ -502,8 +502,8 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A1 · speed: slow · id: de-a1-freizeit-s04
 > text: Wie ist das Wetter heute?
-> ipa: /viː ɪst das ˈvɛtɐ ˈhɔɪ̯tə/
-> tip: w = «в». Wetter — короткий ɛ і подвоєне tt. heute — eu = [ɔɪ̯]. W-питання — голос униз ↘.
+> ipa: /viː ɪst das ˈvɛtɐ ˈhɔʏ̯tə/
+> tip: w = «в». Wetter — короткий ɛ і подвоєне tt. heute — eu = [ɔʏ̯]. W-питання — голос униз ↘.
 > uk: Яка сьогодні погода?
 
 > [!speak] Скажи вголос
@@ -605,7 +605,7 @@ estimatedMinutes: 40
 > - [x] Im Winter ist es kalt.
 > - [ ] Im Winter ist kalt.
 >
-> **Пояснення:** підмет **es** обов'язковий: *Es regnet. Im Winter ist es kalt.* Без нього виходить калька з української «Іде дощ / Холодно».
+> **Пояснення:** підмет **es** обовʼязковий: *Es regnet. Im Winter ist es kalt.* Без нього виходить калька з української «Іде дощ / Холодно».
 
 > [!quiz] Які фрази правильні? Обери всі.
 > level: A1 · type: multi · id: de-a1-freizeit-q07
@@ -685,7 +685,7 @@ estimatedMinutes: 40
 > Німці кажуть про сильний дощ *Es regnet Bindfäden* («дощ мотузками»), *Es regnet in Strömen* («потоками») або *Es schüttet* («ллє»). А про дрібний — *Es nieselt*. Існує й «Schmuddelwetter» — сире, сіре, непривітне.
 
 > [!reel] 🧤 «Schietwetter» і «Kaiserwetter»
-> На півночі кажуть *Schietwetter* — «паскудна погода» (нижньонім. *schiet*). Протилежність — *Kaiserwetter*: ясне сонячне небо, «імператорська погода». Походження цього слова остаточно не з'ясоване.
+> На півночі кажуть *Schietwetter* — «паскудна погода» (нижньонім. *schiet*). Протилежність — *Kaiserwetter*: ясне сонячне небо, «імператорська погода». Походження цього слова остаточно не зʼясоване.
 
 > [!reel] ❤️ Verein — «клуб за інтересами»
 > У Німеччині майже на кожне хобі існує *Verein* — зареєстроване товариство: *Sportverein, Gesangverein, Schützenverein, Kleingartenverein*. Членство зазвичай платне, але недороге. Для новачка це найпростіший спосіб швидко знайти друзів і потренувати німецьку.
@@ -702,5 +702,5 @@ estimatedMinutes: 40
 > [!important] Підсумок
 > - «Люблю робити» = дієслово + **gern**; «охочіше» = **lieber**; «найохочіше» = **am liebsten**. Заперечення — *nicht gern*.
 > - До заняття підбираємо дієслово: *Fußball / Gitarre spielen, Sport machen, schwimmen gehen, Rad fahren, Musik hören*.
-> - Погода: підмет **es** обов'язковий (*Es regnet / Es ist kalt*); температура — *Es sind 20 Grad*.
+> - Погода: підмет **es** обовʼязковий (*Es regnet / Es ist kalt*); температура — *Es sind 20 Grad*.
 > - Пори року — **im Sommer**; *Mir ist kalt* ≠ *Ich bin kalt*.

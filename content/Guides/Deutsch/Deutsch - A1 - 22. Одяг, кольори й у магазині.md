@@ -34,11 +34,11 @@ estimatedMinutes: 40
 
 | der · ч. | die · ж. | das · с. | die · мн. |
 |---|---|---|---|
-| der Rock (спідниця) | die Hose (штани) | das Kleid (сукня) | die Jeans (джинси) |
-| der Pullover (светр) | die Jacke (куртка) | das Hemd (сорочка) | die Schuhe (взуття) |
-| der Mantel (пальто) | die Bluse (блузка) | das T-Shirt (футболка) | die Socken (шкарпетки) |
+| der Rock (спідниця) | die Hose (штани) | das Kleid (сукня) | die Schuhe (взуття) |
+| der Pullover (светр) | die Jacke (куртка) | das Hemd (сорочка) | die Socken (шкарпетки) |
+| der Mantel (пальто) | die Bluse (блузка) | das T-Shirt (футболка) | |
 | der Gürtel (ремінь) | die Socke (шкарпетка) | | |
-| der Schal (шарф) | | | |
+| der Schal (шарф) | die Jeans (джинси; одна пара) | | |
 
 **Увага до однини й множини.** В українській «штани» — лише множина. У німецькій **die Hose** — звичайна **однина**: *eine Hose, die Hose ist neu*. Так само *das Kleid* (одна сукня). *Die Jeans* — слово однієї форми: *die Jeans ist neu* і *die Jeans sind neu* (однина й множина мають однакову форму). Для пари кажуть *ein Paar Schuhe*, *ein Paar Socken*.
 
@@ -126,7 +126,7 @@ estimatedMinutes: 40
 - *Kann ich die Hose anprobieren?* — Можна приміряти штани?
 - *Die Hose ist leider zu klein.* — Штани, на жаль, замалі.
 - *Die Jacke passt gut. Ich nehme sie.* — Куртка добре сидить. Беру її.
-- *Ist das Kleid in Rot oder in Schwarz?* — Сукня червона чи чорна?
+- *Gibt es das Kleid in Rot oder in Schwarz?* — Сукня червона чи чорна?
 - *Der Mantel ist grau und der Schal ist bunt.* — Пальто сіре, а шарф різнокольоровий.
 - *Wo ist die Kasse?* — Де каса?
 - *Ich bezahle bar.* — Я плачу готівкою.
@@ -198,7 +198,7 @@ estimatedMinutes: 40
 > uk: куртка; піджак
 > forms: die Jacken
 > example: Die **Jacke** ist teuer. — Куртка дорога.
-> note: j — [j], як українське «й». AT також der Anorak (куртка від дощу).
+> note: j — [j], як українське «й».
 
 > [!word] der Mantel
 > ipa: /ˈmantl̩/ · pos: noun · level: A1 · id: de-a1-kleidung-w10
@@ -233,7 +233,7 @@ estimatedMinutes: 40
 > uk: шарф
 > forms: die Schals
 > example: Der **Schal** ist bunt. — Шарф різнокольоровий.
-> note: Duden також дозволяє множину die Schale; у розмові — die Schals. Не плутай з die Schale (миска, шкірка).
+> note: Не плутай з die Schale (миска, шкірка).
 
 > [!word] die Kleidung
 > ipa: /ˈklaɪ̯dʊŋ/ · pos: noun · level: A1 · id: de-a1-kleidung-w15
@@ -347,7 +347,7 @@ estimatedMinutes: 40
 > uk: коштувати
 > forms: kosten → kostete → hat gekostet
 > example: Was **kostet** die Jacke? — Скільки коштує куртка?
-> note: не змінюється за відмінками; змінюється за числом: Was kostet das? / Was kosten die Schuhe? Є також іменник die Kosten.
+> note: узгоджується з підметом: Was kostet das? / Was kosten die Schuhe? Є також іменник die Kosten.
 
 > [!word] das Geschäft
 > ipa: /ɡəˈʃɛft/ · pos: noun · level: A1 · id: de-a1-kleidung-w32
@@ -357,11 +357,11 @@ estimatedMinutes: 40
 > note: das Geschäft = магазин, а не das Magazin (журнал). sch — [ʃ], наголос на останньому складі.
 
 > [!word] der Verkäufer
-> ipa: /fɛɐ̯ˈkɔɪ̯fɐ/ · pos: noun · level: A1 · id: de-a1-kleidung-w33
+> ipa: /fɛɐ̯ˈkɔʏ̯fɐ/ · pos: noun · level: A1 · id: de-a1-kleidung-w33
 > uk: продавець
 > forms: die Verkäufer
 > example: Der **Verkäufer** hilft mir. — Продавець допомагає мені.
-> note: жінка — die Verkäuferin. Покупець — der Kunde. ä тут [ɔɪ̯]: äu = «ой».
+> note: жінка — die Verkäuferin. Покупець — der Kunde. ä тут [ɔʏ̯]: äu = «ой».
 
 > [!word] der Kassenbon
 > ipa: /ˈkasn̩ˌbɔŋ/ · pos: noun · level: A2 · id: de-a1-kleidung-w34
@@ -566,9 +566,9 @@ estimatedMinutes: 40
 ## Landeskunde: Einkaufen und Umtausch
 
 > [!example] Einkaufen in Deutschland
-> Bei Kleidern, Hosen und Blusen sind die Größen Zahlen, zum Beispiel 36, 38 oder 40. Bei T-Shirts und Pullovern gibt es oft Buchstaben: S, M oder L. Im Geschäft hat man kein automatisches Recht auf Umtausch. Viele Geschäfte tauschen aber freiwillig um, oft nur mit Kassenbon. Fragen Sie vor dem Kauf: „Kann ich das umtauschen?“ Wenn die Ware kaputt ist, ist das etwas anderes: Dann gilt die gesetzliche Gewährleistung.
+> Bei Kleidern, Hosen und Blusen sind die Größen Zahlen, zum Beispiel 36, 38 oder 40. Bei T-Shirts gibt es oft Buchstaben: S, M oder L. Im Geschäft hat man kein Recht auf Umtausch. Viele Geschäfte tauschen aber freiwillig um, meist mit Kassenbon. Fragen Sie vor dem Kauf: „Kann ich das umtauschen?“ Ist die Ware kaputt, ist das etwas anderes.
 >
-> **Переклад:** Розміри суконь, штанів і блузок — це числа, наприклад 36, 38 або 40. Для футболок і светрів часто літери: S, M або L. У магазині немає автоматичного права на обмін. Але багато магазинів міняють добровільно, часто лише з чеком. Спитай перед покупкою: «Чи можна це обміняти?». Якщо товар зіпсований, це інша справа: тоді діє законна гарантія (Gewährleistung).
+> **Переклад:** Розміри суконь, штанів і блузок — числа, наприклад 36, 38 або 40. У футболок часто літери: S, M або L. У магазині немає права на обмін. Але багато магазинів міняють добровільно, зазвичай із чеком. Спитайте перед покупкою: «Чи можна це обміняти?». Якщо товар зіпсований, це інша справа.
 
 > [!quiz] Яке право на обмін має покупець у звичайному магазині одягу?
 > level: A1 · type: single · id: de-a1-kleidung-q02
@@ -679,7 +679,7 @@ estimatedMinutes: 40
 > anprobiere ✗
 > ```
 >
-> **Пояснення:** з модальним *kann* інфінітив *anprobieren* іде в кінець. Форма *anprobiere* була б для *ich* у присудку без модального.
+> **Пояснення:** з модальним *kann* інфінітив *anprobieren* іде в кінець. Форма *anprobiere* трапляється лише в підрядному реченні (*…, weil ich die Jacke anprobiere*); у простому реченні дієслово розділяється: *Ich probiere die Jacke an.*
 
 > [!quiz] Склади речення: «Куртка мені завелика.»
 > level: A1 · type: order · id: de-a1-kleidung-q13
@@ -696,8 +696,8 @@ estimatedMinutes: 40
 
 ## Фішки
 
-> [!reel] 👖 Чому Jeans і Hose
-> *Jeans* — від французького *Gênes* («Генуя»): з міста родом груба тканина для робочих штанів. Німецькою *die Jeans* має однакову форму в однині й множині. Звук j тут — англійський [dʒ], а не німецький [j].
+> [!reel] 👖 Jeans: звідки слово
+> *Jeans* — від французького *Gênes* («Генуя»): з цього міста походить цупка тканина для робочих штанів. Німецькою *die Jeans* має однакову форму в однині й множині. Звук j тут — англійський [dʒ], а не німецький [j].
 
 > [!reel] 🎨 Weiß і weiß
 > *Weiß* («білий») і *weiß* («знаю», від *wissen*) пишуться однаково: *Ich weiß, die Wand ist weiß.* Різниця лише в контексті. Швейцарці пишуть *weiss*, бо не вживають ß.

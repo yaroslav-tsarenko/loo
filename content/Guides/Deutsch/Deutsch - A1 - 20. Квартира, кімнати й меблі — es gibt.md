@@ -19,14 +19,14 @@ estimatedMinutes: 40
 
 ## Передбач
 
-> [!quiz] «В квартирі є балкон». Як сказати?
+> [!quiz] «У квартирі є балкон». Як сказати?
 > level: A1 · type: single · id: de-a1-wohnung-q01
 > - [ ] Es gibt ein Balkon.
 > - [x] Es gibt einen Balkon.
 > - [ ] Es gibt der Balkon.
 > - [ ] Es gibt Balkon.
 >
-> **Пояснення:** після *es gibt* іменник стоїть у **знахідному** відмінку. *Der Balkon* — чоловічий рід, тому *einen Balkon*. Без артикля (*Es gibt Balkon*) сказати не можна, а *der Balkon* означає вже відомий балкон.
+> **Пояснення:** після *es gibt* іменник стоїть у **знахідному** відмінку. *Der Balkon* — чоловічий рід, тому *einen Balkon*. Без артикля (*Es gibt Balkon*) сказати не можна, а *der Balkon* — це називний відмінок; відомий балкон у знахідному — *den Balkon*.
 
 ## Пояснення
 
@@ -117,7 +117,7 @@ estimatedMinutes: 40
 
 | Скорочення | Значення |
 |---|---|
-| **3-Zi.-Whg.** | 3-Zimmer-Wohnung — тримісна квартира |
+| **3-Zi.-Whg.** | 3-Zimmer-Wohnung — трикімнатна квартира |
 | **70 m²** | siebzig Quadratmeter — 70 квадратних метрів |
 | **KM** | die Kaltmiete — оренда без комунальних |
 | **NK** | die Nebenkosten — комунальні платежі |
@@ -206,7 +206,7 @@ estimatedMinutes: 40
 > uk: передпокій; коридор
 > forms: die Flure
 > example: Im **Flur** hängt eine Lampe. — У передпокої висить лампа.
-> note: CH: der Gang; AT: der Vorraum. u довге — [uː], -r вокалізується [ɐ̯].
+> note: CH: der Gang; AT: das Vorzimmer. u довге — [uː], -r вокалізується [ɐ̯].
 
 > [!word] der Balkon
 > ipa: /balˈkɔŋ/ · pos: noun · level: A1 · id: de-a1-wohnung-w08
@@ -343,7 +343,7 @@ estimatedMinutes: 40
 > uk: перший поверх (на рівні землі)
 > forms: die Erdgeschosse
 > example: Die Wohnung ist im **Erdgeschoss**. — Квартира на першому поверсі.
-> note: скорочення EG. AT: das Erdgeschoß (старий правопис) і Parterre. 1. Stock = наш 2-й поверх.
+> note: скорочення EG. AT, півд.: Erdgeschoß [ɡəˈʃoːs] (довге o, також у чинній нормі) і Parterre. 1. Stock = наш 2-й поверх.
 
 > [!word] das Stockwerk
 > ipa: /ˈʃtɔkˌvɛʁk/ · pos: noun · level: A2 · id: de-a1-wohnung-w27
@@ -378,7 +378,7 @@ estimatedMinutes: 40
 > uk: будинок
 > forms: die Häuser
 > example: Das **Haus** hat einen Garten. — У будинку є сад.
-> note: «додому» = nach Hause, «вдома» = zu Hause . Множина з умлаутом: die Häuser.
+> note: «додому» = nach Hause, «вдома» = zu Hause. Множина з умлаутом: die Häuser.
 
 ### Прикметники
 
@@ -397,11 +397,11 @@ estimatedMinutes: 40
 > note: у форм порівняння e випадає: dunkler (не dunkeler). n+k: [ŋk].
 
 > [!word] teuer
-> ipa: /ˈtɔɪ̯ɐ/ · pos: adj · level: A1 · id: de-a1-wohnung-w34
+> ipa: /ˈtɔʏ̯ɐ/ · pos: adj · level: A1 · id: de-a1-wohnung-w34
 > uk: дорогий
 > forms: teuer → teurer → am teuersten
 > example: Die Miete ist sehr **teuer**. — Оренда дуже дорога.
-> note: eu — [ɔɪ̯], «ой». Порівняльний: teurer (e випадає). Протилежність: günstig, billig.
+> note: eu — [ɔʏ̯], «ой». Порівняльний: teurer (e випадає). Протилежність: günstig, billig.
 
 > [!word] günstig
 > ipa: /ˈɡʏnstɪç/ · pos: adj · level: A1 · id: de-a1-wohnung-w35
@@ -548,7 +548,7 @@ estimatedMinutes: 40
 > ~~Es gibt ein Balkon.~~ → Es gibt **einen** Balkon. ~~Es gibt der Aufzug.~~ → Es gibt **einen** Aufzug. Після *es gibt* — знахідний, тож чоловічий рід змінюється: *ein → einen*, *kein → keinen*. Жіночий і середній лишаються: *eine Küche, ein Fenster*. У словнику слово стоїть у називному (*der Balkon*), тому в реченні не забудь змінити.
 
 > [!pitfall] Перший поверх — це Erdgeschoss
-> ~~Ich wohne im ersten Stock~~ — для німця це наш **другий** поверх. Перший поверх у Німеччині — **das Erdgeschoss** (EG), а **der erste Stock** — вже над ним. Українське «на першому поверсі» = *im Erdgeschoss*, «на другому» = *im ersten Stock*.
+> *Ich wohne im ersten Stock* — для німця це наш **другий** поверх, і тут легко помилитися в значенні. Перший поверх у Німеччині — **das Erdgeschoss** (EG), а **der erste Stock** — вже над ним. Українське «на першому поверсі» = *im Erdgeschoss*, «на другому» = *im ersten Stock*.
 
 > [!pitfall] Ціна в оголошенні — не вся
 > ~~Kaltmiete 650 € — отже, я плачу 650 €.~~ У німецьких оголошеннях **KM** (Kaltmiete) — це оренда **без** комунальних платежів. Щомісяця ти платиш **Warmmiete**: Kaltmiete + Nebenkosten. Завжди перевіряй, що саме вказано.
@@ -582,9 +582,9 @@ estimatedMinutes: 40
 ## Landeskunde: Wohnen in Deutschland
 
 > [!example] Wohnen in Deutschland
-> Viele Menschen in Deutschland wohnen zur Miete. Eine Wohnung sucht man oft im Internet. In der Anzeige steht zum Beispiel: „3 Zimmer, 70 m², Kaltmiete 650 €, Nebenkosten 150 €.“ Die Kaltmiete ist die Miete ohne Nebenkosten. Zu den Nebenkosten gehören zum Beispiel Wasser und Heizung. Die Kaltmiete und die Nebenkosten zusammen sind die Warmmiete. Oft zahlt man auch eine Kaution, höchstens drei Monatsmieten.
+> Viele Menschen in Deutschland wohnen zur Miete. Eine Wohnung sucht man oft im Internet. In der Anzeige steht zum Beispiel: „3 Zimmer, 70 m², Kaltmiete 650 €, Nebenkosten 150 €.“ Die Kaltmiete ist die Miete ohne Nebenkosten. Zu den Nebenkosten gehören zum Beispiel Wasser und Heizung. Die Kaltmiete und die Nebenkosten zusammen sind die Warmmiete. Oft zahlt man auch eine Kaution, höchstens drei Kaltmieten. Nach Daten des Statistischen Bundesamts (Destatis) liegt die Eigentumsquote unter 50 Prozent: Die meisten Haushalte wohnen zur Miete.
 >
-> **Переклад:** Багато людей у Німеччині живуть в орендованому житлі. Квартиру часто шукають в інтернеті. В оголошенні, наприклад: «3 кімнати, 70 м², оренда без комунальних 650 €, комунальні 150 €». Kaltmiete — оренда без комунальних, а до Nebenkosten належать, скажімо, вода й опалення. Kaltmiete і Nebenkosten разом — це Warmmiete. Часто ще платять заставу, не більш як три місячні оренди.
+> **Переклад:** Більшість домогосподарств у Німеччині живе в орендованому житлі (за даними Destatis, власне житло має менше половини). Квартиру часто шукають в інтернеті. В оголошенні, наприклад: «3 кімнати, 70 м², оренда без комунальних 650 €, комунальні 150 €». Kaltmiete — оренда без комунальних, а до Nebenkosten належать, скажімо, вода й опалення. Kaltmiete і Nebenkosten разом — це Warmmiete. Часто ще платять заставу, не більш як три місячні оренди.
 
 > [!quiz] Kaltmiete 650 €, Nebenkosten 150 €. Скільки Warmmiete?
 > level: A1 · type: single · id: de-a1-wohnung-q02
@@ -611,16 +611,16 @@ estimatedMinutes: 40
 > - [ ] шість місячних оренд
 > - [ ] скільки захоче
 >
-> **Пояснення:** за законом (§ 551 BGB) застава не може бути більшою за трикратну місячну оренду без передоплат на комунальні. Інші суми недійсні.
+> **Пояснення:** за законом (§ 551 BGB) застава не може бути більшою за трикратну місячну оренду без передоплат на комунальні. Менша застава допустима; недійсна лише та частина, що перевищує три оренди.
 
 ## Практика
 
 > [!quiz] Що означає «3-Zi.-Whg., 70 m²» в оголошенні?
 > level: A1 · type: single · id: de-a1-wohnung-q05
-> - [x] тримісна квартира площею 70 м²
+> - [x] трикімнатна квартира площею 70 м²
 > - [ ] будинок із трьох квартир
 > - [ ] квартира на третьому поверсі
-> - [ ] три вікна й 70 кімнат
+> - [ ] три квартири по 70 м²
 >
 > **Пояснення:** *Zi.* = Zimmer, *Whg.* = Wohnung, *m²* = Quadratmeter. Кухня й ванна у три кімнати не входять.
 
@@ -629,7 +629,7 @@ estimatedMinutes: 40
 > - [ ] на першому
 > - [x] на другому
 > - [ ] на третьому
-> - [ ] на підвальному
+> - [ ] на четвертому
 >
 > **Пояснення:** перший поверх у Німеччині — *das Erdgeschoss*, тож *der erste Stock* — наш другий поверх.
 
@@ -660,7 +660,7 @@ estimatedMinutes: 40
 > **Пояснення:** рід складного слова дає **остання** частина: *das Zimmer → das Schlafzimmer*. Перша частина (*der Schlaf*) на артикль не впливає.
 
 > [!quiz] Es gibt ...
-> level: A1 · type: fill · bank: einem, kein · id: de-a1-wohnung-q10
+> level: A1 · type: fill · bank: einem, einer · id: de-a1-wohnung-q10
 >
 > ```text fill
 > Es gibt [[einen]] Balkon.
@@ -669,7 +669,7 @@ estimatedMinutes: 40
 > Es gibt [[keinen]] Keller.
 > ```
 >
-> **Пояснення:** після *es gibt* — знахідний: *der Balkon → einen Balkon*, *die Küche → eine Küche*, *das Fenster → ein Fenster*, *der Keller → keinen Keller*. Змінюється лише чоловічий рід. Дистрактор *einem* — це давальний, *kein* — для середнього роду.
+> **Пояснення:** після *es gibt* — знахідний: *der Balkon → einen Balkon*, *die Küche → eine Küche*, *das Fenster → ein Fenster*, *der Keller → keinen Keller*. Змінюється лише чоловічий рід. Дистрактори: *einem* — давальний відмінок, *einer* — давальний жіночого роду; після *es gibt* потрібен знахідний.
 
 > [!quiz] Протилежності
 > level: A1 · type: fill · bank: günstig, schön · id: de-a1-wohnung-q11
@@ -726,13 +726,14 @@ estimatedMinutes: 40
 > У Німеччині в будинку є *Erdgeschoss* (від *Erde* — земля), а наступний поверх — *erster Stock* (його ще називають *1. OG*, *Obergeschoss*). Тому, коли німець каже «я живу в першому», українець зазвичай думає: на другому. Німецька нумерація збігається з британською: *ground floor* — це *Erdgeschoss*, *first floor* — *1. Stock*. У США ж *first floor* — це поверх на рівні землі, тому плутаються не лише ми.
 
 > [!reel] 🍳 Квартира без кухні
-> У Німеччині орендовану квартиру часто здають **без кухні**: плиту, шафи й мийку приносить мешканець. В оголошеннях шукай *EBK* (Einbauküche, вбудована кухня) — якщо вона є, це плюс. А часом доводиться купувати й світильники, бо *Lampen* також бувають за рахунок орендаря.
+> У Німеччині орендовану квартиру нерідко здають **без кухні**: за аналізом оголошень immowelt (2023), вбудована кухня є лише в близько 41 % квартир, тож плиту, шафи й мийку часто купує мешканець. В оголошеннях шукай *EBK* (Einbauküche, вбудована кухня) — якщо вона є, це плюс. А часом доводиться купувати й світильники, бо *Lampen* також бувають за рахунок орендаря.
 
 > [!reel] 🤫 Ruhezeit
 > У багатьох німецьких будинках діє *Hausordnung* (правила будинку), де є *Ruhezeiten* — години тиші: вночі, а подекуди й опівдні. Жити гучно не заборонено, але сусіди можуть нагадати. Конкретні години — у договорі оренди або Hausordnung.
 
 ## Джерела та що почитати
 
+- [immowelt — Einbauküchen und Mieten (2023)](https://www.immowelt.de/ueberuns/presse/pressemitteilungenkontakt/2023/einbaukuechen-verteuern-die-miete-um-ueber-12-prozent-fuer-balkone-kaum-aufschlag/): частка квартир з вбудованою кухнею в оголошеннях.
 - [DWDS — Wohnung](https://www.dwds.de/wb/Wohnung): значення слова, форми, приклади й походження.
 - [DWDS — Erdgeschoss](https://www.dwds.de/wb/Erdgeschoss): рід, множина й значення; поверхи в Німеччині.
 - [DWDS — Kaltmiete](https://www.dwds.de/wb/Kaltmiete): що таке Kaltmiete і з чого складається слово.

@@ -29,7 +29,7 @@ estimatedMinutes: 40
 
 ## Місто: де що знаходиться
 
-Назви місць у місті складаються з тих самих слів, що й українські, — лише артикль треба вивчити разом зі словом. Запитуємо просто: *Wo ist …?* — «Де …?» (після *ist* стоїть іменник у називному відмінку, як ти вже знаєш).
+Багато назв місць у місті схожі на українські (*das Kino, die Bank, der Park*) — лише артикль треба вивчити разом зі словом. Запитуємо просто: *Wo ist …?* — «Де …?» (після *ist* стоїть іменник у називному відмінку, як ти вже знаєш).
 
 | Українською | Німецькою |
 |---|---|
@@ -76,7 +76,7 @@ estimatedMinutes: 40
 >   - { id: b3, col: b, label: "решта", text: "zu Fuß zur Schule.", tone: gray }
 > steps:
 >   - { focus: [a1, a2, a3], note: "Автобус, потяг, метро, велосипед, авто: транспорт везе тебе — дієслово fahren." }
->   - { focus: [b1, b2, b3], note: "Йдеш ногами — gehen. Українське «я йду на автобусі» звучить дивно й німецькою, і по суті: Ich gehe mit dem Bus — помилка." }
+>   - { focus: [b1, b2, b3], note: "Йдеш ногами — gehen. Українське «йду» на автобусі німецькою не працює: Ich gehe mit dem Bus — помилка." }
 >   - { set: { a3: "mit dem Fahrrad zur Arbeit." }, focus: a3, note: "Велосипед теж fahren, а не gehen: Ich fahre mit dem Fahrrad." }
 > ```
 > Є колеса чи двигун — *fahren*; ногами — *gehen*.
@@ -158,7 +158,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 
 - Entschuldigung, wo ist der Bahnhof? — Перепрошую, де вокзал?
 - Gehen Sie geradeaus und dann links. — Ідіть прямо, а тоді ліворуч.
-- Nehmen Sie die Straßenbahn Nummer fünf. — Сядьте на трамвай номер п'ять.
+- Nehmen Sie die Straßenbahn Nummer fünf. — Сядьте на трамвай номер пʼять.
 - Steigen Sie am Rathaus aus. — Вийдіть біля ратуші.
 - Wie komme ich zum Flughafen? — Як мені дістатися до аеропорту?
 - Die Apotheke ist gegenüber der Bank. — Аптека навпроти банку.
@@ -181,7 +181,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > uk: вокзал
 > forms: die Bahnhöfe
 > example: Der **Bahnhof** ist gleich um die Ecke. — Вокзал зовсім поруч, за рогом.
-> note: Hauptbahnhof = головний вокзал, скорочено Hbf. AT: der Bahnhof / Hauptbahnhof (Hbf). CH: der Bahnhof (SBB).
+> note: Hauptbahnhof = головний вокзал, скорочено Hbf.
 
 > [!word] die Haltestelle
 > ipa: /ˈhaltəˌʃtɛlə/ · pos: noun · level: A1 · id: de-a1-stadt-w03
@@ -194,7 +194,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > ipa: /bʊs/ · pos: noun · level: A1 · id: de-a1-stadt-w04
 > uk: автобус
 > forms: die Busse
-> example: Der **Bus** kommt in fünf Minuten. — Автобус приїде за п'ять хвилин.
+> example: Der **Bus** kommt in fünf Minuten. — Автобус приїде за пʼять хвилин.
 > note: u коротке: «бус», не «біс».
 
 > [!word] die U-Bahn
@@ -244,7 +244,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > uk: квиток (на проїзд)
 > forms: die Fahrkarten
 > example: Eine **Fahrkarte** nach Köln, bitte. — Один квиток до Кельна, будь ласка.
-> note: розм. auch das Ticket. CH: das Billett. Квиток на концерт — die Eintrittskarte / das Ticket.
+> note: розм. також das Ticket. CH: das Billett. Квиток на концерт — die Eintrittskarte / das Ticket.
 
 > [!word] die Post
 > ipa: /pɔst/ · pos: noun · level: A1 · id: de-a1-stadt-w12
@@ -257,7 +257,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > ipa: /baŋk/ · pos: noun · level: A1 · id: de-a1-stadt-w13
 > uk: банк
 > forms: die Banken
-> example: Die **Bank** öffnet um neun Uhr. — Банк відчиняється о дев'ятій.
+> example: Die **Bank** öffnet um neun Uhr. — Банк відчиняється о девʼятій.
 > note: лавка в парку — теж die Bank, але множина інша: die Bänke.
 
 > [!word] die Apotheke
@@ -314,14 +314,13 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > uk: світлофор
 > forms: die Ampeln
 > example: An der **Ampel** gehen Sie links. — Біля світлофора йдіть ліворуч.
-> note: повна назва — die Verkehrsampel.
 
 > [!word] die Ecke
 > ipa: /ˈɛkə/ · pos: noun · level: A1 · id: de-a1-stadt-w22
 > uk: ріг, куток
 > forms: die Ecken
 > example: Der Supermarkt ist gleich um die **Ecke**. — Супермаркет зовсім поруч, за рогом.
-> note: um die Ecke = за рогом. Подвійне ck — короткий [ɛ].
+> note: um die Ecke = за рогом. ck після короткої голосної: Ecke [ˈɛkə].
 
 > [!word] geradeaus
 > ipa: /ɡəʁaːdəˈʔaʊ̯s/ · pos: adv · level: A1 · id: de-a1-stadt-w23
@@ -333,7 +332,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > ipa: /lɪŋks/ · pos: adv · level: A1 · id: de-a1-stadt-w24
 > uk: ліворуч; зліва
 > example: Biegen Sie an der Ampel **links** ab. — На світлофорі поверніть ліворуч.
-> note: nach links = у напрямку ліворуч; links = зліва (місце). ng = [ŋ], як у «банк».
+> note: nach links = у напрямку ліворуч; links = зліва (місце). n перед k звучить як [ŋ].
 
 > [!word] rechts
 > ipa: /ʁɛçts/ · pos: adv · level: A1 · id: de-a1-stadt-w25
@@ -358,7 +357,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > [!word] abbiegen
 > ipa: /ˈapˌbiːɡn̩/ · pos: verb · level: A1 · id: de-a1-stadt-w28
 > uk: повернути (при русі)
-> forms: biegt ab → bog ab → ist abgebogen
+> forms: abbiegen → bog ab → ist abgebogen
 > example: Biegen Sie an der Ampel links **ab**. — Поверніть ліворуч біля світлофора.
 > note: відокремлюване: Sie biegen links ab; Imperativ: Biegen Sie ab! Biege ab!
 
@@ -369,7 +368,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > note: протилежне — nah (близько). ei = [aɪ̯]; w = «в».
 
 > [!word] gegenüber
-> ipa: /ɡeːɡn̩ˈʔyːbɐ/ · pos: adv · level: A1 · id: de-a1-stadt-w30
+> ipa: /ɡeːɡn̩ˈʔyːbɐ/ · pos: prep · level: A1 · id: de-a1-stadt-w30
 > uk: навпроти
 > example: Die Bank ist **gegenüber** der Post. — Банк навпроти пошти.
 > note: з Dativ: gegenüber der Post. Також: gegenüber von der Post (розм.). Наголос на -über.
@@ -383,26 +382,26 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > [!word] aussteigen
 > ipa: /ˈaʊ̯sˌʃtaɪ̯ɡn̩/ · pos: verb · level: A1 · id: de-a1-stadt-w32
 > uk: виходити (з транспорту)
-> forms: steigt aus → stieg aus → ist ausgestiegen
+> forms: aussteigen → stieg aus → ist ausgestiegen
 > example: Hier muss ich **aussteigen**. — Тут мені виходити.
 > note: відокремлюване. Imperativ: Steigen Sie aus! Steig aus! Perfekt з sein: ist ausgestiegen.
 
 > [!word] einsteigen
 > ipa: /ˈaɪ̯nˌʃtaɪ̯ɡn̩/ · pos: verb · level: A1 · id: de-a1-stadt-w33
 > uk: сідати (в транспорт); заходити
-> forms: steigt ein → stieg ein → ist eingestiegen
+> forms: einsteigen → stieg ein → ist eingestiegen
 > example: **Steigen** Sie bitte hinten **ein**! — Заходьте, будь ласка, ззаду!
 > note: відокремлюване. Протилежне — aussteigen. st- = «шт».
 
 > [!word] umsteigen
 > ipa: /ˈʊmˌʃtaɪ̯ɡn̩/ · pos: verb · level: A1 · id: de-a1-stadt-w34
 > uk: пересідати
-> forms: steigt um → stieg um → ist umgestiegen
+> forms: umsteigen → stieg um → ist umgestiegen
 > example: In Köln müssen Sie **umsteigen**. — У Кельні вам треба пересісти.
 > note: відокремлюване. Der Umstieg — пересадка.
 
 > [!word] der Stadtplan
-> ipa: /ˈʃtatˌplaːn/ · pos: noun · level: A1 · id: de-a1-stadt-w35
+> ipa: /ˈʃtatplaːn/ · pos: noun · level: A1 · id: de-a1-stadt-w35
 > uk: план міста
 > forms: die Stadtpläne
 > example: Hast du einen **Stadtplan**? — У тебе є план міста?
@@ -430,7 +429,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > note: s перед голосним — дзвінке [z]. Das Geschäft — магазин узагалі.
 
 > [!word] das Rathaus
-> ipa: /ˈʁaːtˌhaʊ̯s/ · pos: noun · level: A1 · id: de-a1-stadt-w39
+> ipa: /ˈʁaːthaʊ̯s/ · pos: noun · level: A1 · id: de-a1-stadt-w39
 > uk: ратуша; міська адміністрація
 > forms: die Rathäuser
 > example: Das **Rathaus** steht am Marktplatz. — Ратуша стоїть на ринковій площі.
@@ -501,10 +500,10 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > [!listen] Послухай діалог. Що каже водій або пасажир?
 > level: A1 · type: answer · speed: slow · id: de-a1-stadt-l08
 > audio: A: Ist das der Zug nach Hamburg?
-> audio: B: Nein, der fährt nach Köln. Sie müssen in Hannover umsteigen.
+> audio: B: Nein, der fährt nur nach Hannover. Für Hamburg müssen Sie dort umsteigen.
 > - [ ] Це потяг до Гамбурга, пересадки немає.
 > - [x] Це не потяг до Гамбурга, потрібна пересадка.
-> - [ ] Потяг до Кельна відправився.
+> - [ ] Цей потяг їде до Кельна.
 
 ## Вимова
 
@@ -575,7 +574,7 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 > audio: A: Und wo ist die Haltestelle?
 > audio: B: Gleich um die Ecke, links. Sie ist nicht weit.
 > - [ ] Цей автобус їде до вокзалу.
-> - [x] До вокзалу їде лінія п'ять, її зупинка за рогом ліворуч.
+> - [x] До вокзалу їде лінія пʼять, її зупинка за рогом ліворуч.
 > - [ ] До вокзалу треба йти пішки.
 
 > [!speak] «Перепрошую, цей автобус їде до вокзалу?»
@@ -588,24 +587,24 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 ## Landeskunde: öffentlicher Nahverkehr
 
 > [!example] Mit Bus und Bahn in Deutschland
-> In den meisten deutschen Städten fahren Busse, Straßenbahnen und U-Bahnen. Man kauft die Fahrkarte am Automaten oder in einer App. In vielen Städten muss man eine Papierfahrkarte vor der Fahrt entwerten, also stempeln. Wer ohne gültige Fahrkarte fährt, zahlt eine Strafe. Das nennt man „Schwarzfahren".
+> In Deutschland fahren Busse, Straßenbahnen und U-Bahnen. Man kauft die Fahrkarte am Automaten oder in einer App. Wer ohne Fahrkarte fährt, zahlt eine Strafe. Das nennt man „Schwarzfahren“.
 >
-> Viele Menschen nutzen das Deutschlandticket. Mit dem Monatsabo fährt man im Regionalverkehr in ganz Deutschland: mit der S-Bahn, U-Bahn, Straßenbahn, mit Bussen und Regionalzügen, aber nicht mit dem ICE oder IC. Radfahrer fahren oft auch zur Arbeit: In Städten wie Münster oder Freiburg gibt es viele Fahrradwege.
+> Viele Leute haben das Deutschlandticket. Es gilt in ganz Deutschland, mit Bus, Straßenbahn, U-Bahn und Regionalzug. Im ICE gilt es nicht.
 
-> [!quiz] Was bedeutet „Schwarzfahren"?
+> [!quiz] Was bedeutet „Schwarzfahren“?
 > level: A1 · type: single · id: de-a1-stadt-q02
 > - [ ] mit dem Auto in der Nacht fahren
 > - [x] ohne gültige Fahrkarte fahren
 > - [ ] mit dem Fahrrad ohne Licht fahren
-> - [ ] mit dem schwarzen Bus fahren
+> - [ ] mit der Straßenbahn fahren
 >
-> **Пояснення:** *Schwarzfahren* — їзда «зайцем», без дійсного квитка; за це платять штраф. Слово не має стосунку до кольору авто чи ночі.
+> **Пояснення:** *Schwarzfahren* — їзда «зайцем», без дійсного квитка; за це платять штраф. Слово не має стосунку до кольору, ночі чи вибору транспорту.
 
 > [!quiz] Wo gilt das Deutschlandticket?
 > level: A1 · type: single · id: de-a1-stadt-q03
 > - [ ] nur in Berlin
 > - [ ] im ICE in ganz Deutschland
-> - [x] im Regionalverkehr in ganz Deutschland
+> - [x] in Bus und Regionalzug in ganz Deutschland
 > - [ ] nur für Fahrräder
 >
 > **Пояснення:** квиток діє в регіональному транспорті (S-Bahn, U-Bahn, трамвай, автобус, регіональні потяги) по всій країні; у далекобіжних ICE та IC — ні.
@@ -739,13 +738,13 @@ Imperativ — форма, якою дають вказівку, пораду ч�
 ## Фішки
 
 > [!reel] 🚦 Ampel і Ampelmännchen
-> Слово *die Ampel* спершу означало лампу, що висить (лат. *ampulla*, від чого й «ампула»). У колишній НДР пішохідні світлофори мали чоловічка в капелюсі — *Ampelmännchen*. Після об'єднання його хотіли прибрати, але мешканці вступилися, і тепер він — один із символів колишньої НДР.
+> Слово *die Ampel* спершу означало лампу, що висить (лат. *ampulla*, від чого й «ампула»). У колишній НДР пішохідні світлофори мали чоловічка в капелюсі — *Ampelmännchen*. Після обʼєднання його хотіли прибрати, але мешканці вступилися, і тепер він — один із символів колишньої НДР.
 
 > [!reel] 🚲 Велосипед чи Velo?
 > У Німеччині кажуть *das Fahrrad* або *das Rad*, а у Швейцарії — *das Velo* (від французького *vélocipède*). Дослівно *Fahrrad* — «колесо, що їде». Тому вказівку «їдь на велосипеді» у Швейцарії скажуть інакше: *Fahr mit dem Velo*.
 
 > [!reel] 🛤️ Чому «зайця» називають «чорним»
-> У слові *Schwarzfahren* колір ні до чого: *schwarz* тут означає «нелегально, поза правилами». Так само *Schwarzarbeit* (робота «в тіні») і *Schwarzmarkt* (чорний ринок). Тож *ohne Fahrkarte fahren* — це «їхати без квитка в тіні».
+> У слові *Schwarzfahren* колір ні до чого: *schwarz* тут означає «нелегально, поза правилами». Так само *Schwarzarbeit* (робота «в тіні») і *Schwarzmarkt* (чорний ринок). Тож *ohne Fahrkarte fahren* — це «їхати зайцем».
 
 ## Джерела та що почитати
 

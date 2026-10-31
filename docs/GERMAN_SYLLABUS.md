@@ -233,6 +233,11 @@ estimatedMinutes: 35
 14. **Абсолютні формулювання в A1–B1** («завжди / ніколи / без винятків / лише») — тільки для справді безвиняткових
     правил; інакше «зазвичай / майже завжди» + приклад винятку (незлічувані без артикля; *Wie geht's?*).
 
+15. **h кирилицею:** «видих [h]» або легке «х» (Haus — «хаус», видихом); ніколи «г». Кінцеве g = [k] — «к», не «ґ»
+    (Tag — «так»); «ґ» — лише для початкового [ɡ].
+16. **Діалог «Ситуації» у тематичних (vocabulary/skills) темах** — завжди з 1–2 `[!speak]` після нього.
+17. **Голосні в кирилиці:** «е» як у «день» (не «лес»); [eː] — описом «довге напружене е»; без «є», «ә», «ьо».
+
 ### 9.0 Анатомія розділу Deutschland (уточнення після хвилі 0, модель — B1-13)
 
 Результати → Передбач → **Оповідь** (`###` на подію; оригінальні цитати з перекладом) → `[!diagram]` timeline →
@@ -288,7 +293,7 @@ der Mauerbau, die Stasi; B1-13 — der Mauerfall, die Wende, die Wiedervereinigu
 | 03 | 103 | Особові займенники й дієслово sein | grammar | `de-a1-sein` | ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind; sie = вона / вони / Ви; заперечення nicht; чому «я студент» → Ich bin Student (без артикля при професії) | 12 | 6 | 6 | 0 | 14 |
 | 04 | 104 | Числа, вік і номер телефону | vocabulary | `de-a1-zahlen` | 0–100, einundzwanzig (одиниці перед десятками!), сотні й тисячі, вік — Ich bin 25 (Jahre alt), не «ich habe 25», номери телефону (zwo), Wie alt bist du? | 35 | 10 | 6 | 4 | 12 |
 | 05 | 105 | Довгі й короткі голосні | pronunciation | `de-a1-vokale` | довгота розрізняє слова: Miete/Mitte, Staat/Stadt, Ofen/offen, bieten/bitten; сигнали довготи (ie, h, подвоєння aa ee oo) і короткості (подвоєний приголосний, ck, tz); ненаголошене -e [ə] | 24 | 6 | 10 | 14 | 12 |
-| 06 | 106 | Артикль і рід — der, die, das, ein, eine | grammar | `de-a1-artikel` | три роди, означений і неозначений артикль, рід — частина слова (вчити der Tisch, а не Tisch); правила роду: -ung/-heit/-keit/-schaft/-ion → die, -chen/-lein → das, дні/місяці/пори року → der; das Mädchen, die Sonne, der Mond; кольорова схема в `[!diagram]` | 30 | 4 | 4 | 0 | 16 |
+| 06 | 106 | Артикль і рід — der, die, das, ein, eine | grammar | `de-a1-artikel` | три роди, означений і неозначений артикль, рід — частина слова (вчити der Tisch, а не Tisch); правила роду: -ung/-heit/-keit/-schaft/-ion → die, -chen/-lein → das, дні/місяці/пори року → der; das Mädchen, die Sonne, der Mond; кольорова схема в `[!diagram]` | 30 | 5 | 5 | 0 | 16 |
 | 07 | 107 | Präsens — правильні дієслова | grammar | `de-a1-praesens` | закінчення -e -st -t -en -t -en, wohnen / heißen / arbeiten (du arbeitest), sie wohnt / sie wohnen / Sie wohnen; Präsens = і «зараз», і найближче майбутнє | 20 | 5 | 6 | 0 | 14 |
 | 08 | 108 | Сімʼя, люди й зовнішність | vocabulary | `de-a1-familie` | члени родини, die Eltern, die Geschwister, зовнішність (groß, blond, lange Haare), характер (nett, lustig), базові частини тіла; Landeskunde: «Familie Müller» — текст 50 слів | 40 | 6 | 6 | 0 | 12 |
 | 09 | 109 | Питання й місце дієслова — V2 і W-Fragen | grammar | `de-a1-fragen` | дієслово — завжди на 2-му місці (V2), інверсія Heute lerne ich…, W-Fragen (wer, was, wo, woher, wohin, wann, wie, warum), Ja/Nein-Fragen з дієсловом на 1-му місці, відповідь doch | 12 | 6 | 6 | 0 | 16 |
@@ -631,7 +636,7 @@ der Mauerbau, die Stasi; B1-13 — der Mauerfall, die Wende, die Wiedervereinigu
 
 | № | ch | Назва | id | Зміст | W | L | S | Q | reels |
 |---|---|---|---|---|---|---|---|---|---|
-| 01 | 201 | Німецькомовний світ — DACH і ще пʼять країн | `dl-a2-01` | Deutschland, Österreich, die Schweiz, Liechtenstein, Luxemburg, Südtirol, Ostbelgien; ≈ 130 млн носіїв; плюрицентрична мова | 20 | 5 | 3 | 10 | 4 |
+| 01 | 201 | Німецькомовний світ — DACH і сусіди | `dl-a2-01` | Deutschland, Österreich, die Schweiz, Liechtenstein, Luxemburg, Südtirol, Ostbelgien; ≈ 130 млн носіїв; плюрицентрична мова | 20 | 5 | 3 | 10 | 4 |
 | 02 | 202 | 16 федеральних земель | `dl-a2-02` | Bundesländer і столиці, Stadtstaaten, карта (`[!diagram]`), Föderalismus простими словами | 25 | 5 | 3 | 12 | 5 |
 | 03 | 203 | Міста й регіони — Berlin, Hamburg, München, Köln, Ruhrgebiet | `dl-a2-03` | характер міст, Kiez, Hafen, Dom, Zeche; Ruhrpott — від шахт до культури | 20 | 5 | 3 | 10 | 5 |
 | 04 | 204 | Діалекти — Bairisch, Schwäbisch, Plattdeutsch, Sächsisch, Kölsch | `dl-a2-04` | Hochdeutsch vs Dialekt, Moin, Grüß Gott, Servus, Ade, Tschö; аудіоприклади стандартом з поясненням | 20 | 6 | 3 | 10 | 5 |
