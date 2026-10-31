@@ -32,7 +32,7 @@ estimatedMinutes: 50
 
 ### 1945: чотири зони
 
-8 травня 1945 року війна в Європі закінчилася. 5 червня 1945 року чотири держави-переможниці — США, СРСР, Велика Британія і Франція — проголосили, що беруть на себе вищу владу в Німеччині. Країну поділили на чотири **Besatzungszonen**, а Берлін — на чотири сектори. Спершу, на Ялтинській конференції в лютому 1945 року, домовлялися про три зони; Франція отримала власну зону пізніше. На **Потсдамській конференції** (17 липня – 2 серпня 1945 року, палац Цецилієнгоф) союзники узгодили принципи: демілітаризація, денацифікація, децентралізація, деканцелярізація й демократизація. 30 липня 1945 року почала працювати **Alliierter Kontrollrat** («Союзна контрольна рада»). Але чотири держави дедалі більше розходилися.
+8 травня 1945 року війна в Європі закінчилася. 5 червня 1945 року чотири держави-переможниці — США, СРСР, Велика Британія і Франція — проголосили, що беруть на себе вищу владу в Німеччині. Країну поділили на чотири **Besatzungszonen**, а Берлін — на чотири сектори. Спершу, на Ялтинській конференції в лютому 1945 року, домовлялися про три зони; Франція отримала власну зону пізніше. На **Потсдамській конференції** (17 липня – 2 серпня 1945 року, палац Цецилієнгоф) союзники узгодили принципи: демілітаризація, денацифікація, децентралізація, декартелізація й демократизація. 30 липня 1945 року почала працювати **Alliierter Kontrollrat** («Союзна контрольна рада»). Але чотири держави дедалі більше розходилися.
 
 У радянській зоні (**SBZ**) 21 квітня 1946 року KPD і SPD примусово об'єднали в **SED** (*Sozialistische Einheitspartei Deutschlands*), під тиском радянської військової адміністрації. З 1948 року в зоні панувала одна партія. У західних зонах поступово складалася інша система.
 
@@ -157,36 +157,29 @@ Stasi стежила, збирала інформацію про людей і �
 > example: Die Stadt lag in der amerikanischen **Besatzungszone**. — Місто лежало в американській окупаційній зоні.
 > note: *besetzen* — окупувати, *die Besatzung* — окупація, *die Zone* — зона. Зони: американська, британська, французька, радянська (*SBZ*).
 
-> [!word] die Teilung
-> ipa: /ˈtaɪ̯lʊŋ/ · pos: noun · level: B1 · id: dl-b1-12-w02
-> uk: поділ
-> forms: die Teilungen
-> example: Die **Teilung** Deutschlands dauerte bis 1990. — Поділ Німеччини тривав до 1990 року.
-> note: від *teilen* — «ділити»; *die deutsche Teilung* — поділ Німеччини.
-
 > [!word] der Kalte Krieg
-> ipa: /deːɐ̯ ˈkaltə ˈkʁiːk/ · pos: phrase · level: B2 · id: dl-b1-12-w03
+> ipa: /deːɐ̯ ˈkaltə ˈkʁiːk/ · pos: phrase · level: B2 · id: dl-b1-12-w02
 > uk: холодна війна
 > forms: — (без множини)
 > example: Im **Kalten Krieg** standen sich Ost und West gegenüber. — Під час холодної війни Схід і Захід стояли один проти одного.
 > note: прикметник відмінюється слабко і пишеться з великої: *der Kalte Krieg*, *im Kalten Krieg*.
 
 > [!word] der Eiserne Vorhang
-> ipa: /deːɐ̯ ˈaɪ̯zɐnə ˈfoːɐ̯haŋ/ · pos: phrase · level: B2 · id: dl-b1-12-w04
+> ipa: /deːɐ̯ ˈaɪ̯zɐnə ˈfoːɐ̯haŋ/ · pos: phrase · level: B2 · id: dl-b1-12-w03
 > uk: залізна завіса
 > forms: — (без множини)
 > example: Der **Eiserne Vorhang** trennte Europa in Ost und West. — Залізна завіса ділила Європу на Схід і Захід.
 > note: *das Eisen* — залізо, *der Vorhang* — завіса. Вислів поширив Winston Churchill 1946 року.
 
 > [!word] die Blockade
-> ipa: /blɔˈkaːdə/ · pos: noun · level: B2 · id: dl-b1-12-w05
+> ipa: /blɔˈkaːdə/ · pos: noun · level: B2 · id: dl-b1-12-w04
 > uk: блокада
 > forms: die Blockaden
 > example: Die **Blockade** von West-Berlin dauerte fast elf Monate. — Блокада Західного Берліна тривала майже одинадцять місяців.
 > note: дієслово *blockieren*. Наголос на другому складі: [blɔˈkaːdə]; *die Berlin-Blockade* 1948/49.
 
 > [!word] die Luftbrücke
-> ipa: /ˈlʊftbʁʏkə/ · pos: noun · level: B2 · id: dl-b1-12-w06
+> ipa: /ˈlʊftbʁʏkə/ · pos: noun · level: B2 · id: dl-b1-12-w05
 > uk: повітряний міст
 > forms: die Luftbrücken
 > example: Die **Luftbrücke** versorgte Berlin mit Lebensmitteln. — Повітряний міст постачав Берлін продуктами.
@@ -195,49 +188,49 @@ Stasi стежила, збирала інформацію про людей і �
 ### Дві держави
 
 > [!word] das Grundgesetz
-> ipa: /ˈɡʁʊntɡəzɛts/ · pos: noun · level: B1 · id: dl-b1-12-w07
+> ipa: /ˈɡʁʊntɡəzɛts/ · pos: noun · level: B1 · id: dl-b1-12-w06
 > uk: Основний закон (конституція ФРН)
 > forms: — (як назва, без множини)
 > example: Das **Grundgesetz** gilt seit 1949. — Основний закон діє з 1949 року.
 > note: від 1990 року діє для всієї Німеччини. *Die Verfassung* (B1-09) — загальне слово для конституції.
 
 > [!word] die Bundesrepublik
-> ipa: /ˈbʊndəsʁepuˌbliːk/ · pos: noun · level: B1 · id: dl-b1-12-w08
+> ipa: /ˈbʊndəsʁepuˌbliːk/ · pos: noun · level: B1 · id: dl-b1-12-w07
 > uk: Федеративна Республіка (ФРН)
 > forms: — (без множини)
 > example: Die **Bundesrepublik** wurde 1949 gegründet. — Федеративну Республіку заснували 1949 року.
 > note: повна назва *die Bundesrepublik Deutschland*; розмовне *die Bundesrepublik*. Скорочення *BRD* у ФРН офіційно уникали (розділ B1-13).
 
 > [!word] die DDR
-> ipa: /deːdeːˈʔɛʁ/ · pos: noun · level: B1 · id: dl-b1-12-w09
+> ipa: /deːdeːˈʔɛʁ/ · pos: noun · level: B1 · id: dl-b1-12-w08
 > uk: НДР (Німецька Демократична Республіка)
 > forms: — (без множини)
 > example: In der **DDR** regierte die SED. — У НДР правила SED.
 > note: *die Deutsche Demokratische Republik*; читається як назви літер: «де-де-ер». Пояснення: *demokratisch* у назві не означало вільних виборів.
 
 > [!word] das Wirtschaftswunder
-> ipa: /ˈvɪʁtʃaftsˌvʊndɐ/ · pos: noun · level: B2 · id: dl-b1-12-w10
+> ipa: /ˈvɪʁtʃaftsˌvʊndɐ/ · pos: noun · level: B2 · id: dl-b1-12-w09
 > uk: «економічне диво» (зростання ФРН у 1950-х)
 > forms: — (без множини)
 > example: Das **Wirtschaftswunder** brachte Vollbeschäftigung. — «Економічне диво» принесло повну зайнятість.
 > note: *die Wirtschaft* + *das Wunder*; *die Vollbeschäftigung* — повна зайнятість.
 
 > [!word] die soziale Marktwirtschaft
-> ipa: /diː zoˈtsi̯aːlə ˈmaʁktvɪʁtʃaft/ · pos: phrase · level: B2 · id: dl-b1-12-w11
+> ipa: /diː zoˈtsi̯aːlə ˈmaʁktvɪʁtʃaft/ · pos: phrase · level: B2 · id: dl-b1-12-w10
 > uk: соціальна ринкова економіка
 > forms: — (без множини)
 > example: Die **soziale Marktwirtschaft** verbindet freien Markt und Sozialstaat. — Соціальна ринкова економіка поєднує вільний ринок і соціальну державу.
 > note: прикметник з малої літери: *die soziale Marktwirtschaft*; ідея пов'язана з Ludwig Erhard.
 
 > [!word] der Gastarbeiter
-> ipa: /ˈɡastˌʔaʁbaɪ̯tɐ/ · pos: noun · level: B2 · id: dl-b1-12-w12
+> ipa: /ˈɡastˌʔaʁbaɪ̯tɐ/ · pos: noun · level: B2 · id: dl-b1-12-w11
 > uk: «гастарбайтер» — іноземний працівник, запрошений до ФРН (1955–1973)
 > forms: die Gastarbeiter (жін. die Gastarbeiterin, мн. die Gastarbeiterinnen)
 > example: Viele **Gastarbeiter** blieben in Deutschland. — Багато «гастарбайтерів» залишилися в Німеччині.
 > note: *der Gast* + *der Arbeiter*. Слово історичне; сьогодні про працівників з-за кордону кажуть частіше *ausländische Arbeitskräfte*.
 
 > [!word] die SED
-> ipa: /ɛsʔeːˈdeː/ · pos: noun · level: B2 · id: dl-b1-12-w13
+> ipa: /ɛsʔeːˈdeː/ · pos: noun · level: B2 · id: dl-b1-12-w12
 > uk: СЄПН — Соціалістична єдина партія Німеччини
 > forms: — (без множини)
 > example: Die **SED** regierte die DDR 40 Jahre lang. — SED правила НДР сорок років.
@@ -246,49 +239,49 @@ Stasi стежила, збирала інформацію про людей і �
 ### Stasi і втеча
 
 > [!word] die Stasi
-> ipa: /ˈʃtaːzi/ · pos: noun · level: B1 · id: dl-b1-12-w14
+> ipa: /ˈʃtaːzi/ · pos: noun · level: B1 · id: dl-b1-12-w13
 > uk: Штазі, держбезпека НДР
 > forms: — (без множини)
 > example: Die **Stasi** sammelte Informationen über viele Bürger. — Stasi збирала інформацію про багатьох громадян.
 > note: від *Staatssicherheit*; офіційно *das Ministerium für Staatssicherheit (MfS)*. Вимова: St- = [ʃt], s перед голосним = [z].
 
 > [!word] der inoffizielle Mitarbeiter
-> ipa: /deːɐ̯ ˈɪnʔɔfɪtsi̯ɛlə ˈmɪtʔaʁbaɪ̯tɐ/ · pos: phrase · level: B2 · id: dl-b1-12-w15
+> ipa: /deːɐ̯ ˈɪnʔɔfɪtsi̯ɛlə ˈmɪtʔaʁbaɪ̯tɐ/ · pos: phrase · level: B2 · id: dl-b1-12-w14
 > uk: неформальний співробітник Stasi (інформатор), скор. IM
 > forms: die inoffiziellen Mitarbeiter
 > example: Ein **inoffizieller Mitarbeiter** berichtete der Stasi über seine Nachbarn. — Неформальний співробітник доповідав Stasi про своїх сусідів.
 > note: скорочено *der IM* [iːˈʔɛm]; після 1968 року так називали інформаторів (раніше — *Geheime Informatoren*). Прикметник *inoffiziell*, як і *offiziell*.
 
 > [!word] der Spitzel
-> ipa: /ˈʃpɪtsl̩/ · pos: noun · level: C1 · id: dl-b1-12-w16
+> ipa: /ˈʃpɪtsl̩/ · pos: noun · level: C1 · id: dl-b1-12-w15
 > uk: донощик, інформатор (зневажливо)
 > forms: die Spitzel
 > example: Niemand wollte einem **Spitzel** vertrauen. — Ніхто не хотів довіряти донощикові.
 > note: розмовне й негативне слово; нейтральніше *der Informant*. Жін. *die Spitzelin* рідко.
 
 > [!word] die Überwachung
-> ipa: /yːbɐˈvaxʊŋ/ · pos: noun · level: B2 · id: dl-b1-12-w17
+> ipa: /yːbɐˈvaxʊŋ/ · pos: noun · level: B2 · id: dl-b1-12-w16
 > uk: нагляд, стеження
 > forms: — (без множини в цьому значенні)
 > example: Die **Überwachung** durch die Stasi war allgegenwärtig. — Стеження з боку Stasi було всюдисущим.
-> note: дієслово *überwachen* (überwacht · überwachte · hat überwacht) — неВідокремлюване, наголос на другому складі.
+> note: дієслово *überwachen* (überwacht · überwachte · hat überwacht) — невідокремлюване, наголос на другому складі.
 
 > [!word] der Volksaufstand
-> ipa: /ˈfɔlksʔaʊ̯fʃtant/ · pos: noun · level: B2 · id: dl-b1-12-w18
+> ipa: /ˈfɔlksʔaʊ̯fʃtant/ · pos: noun · level: B2 · id: dl-b1-12-w17
 > uk: народне повстання
 > forms: die Volksaufstände
 > example: Der **Volksaufstand** vom 17. Juni 1953 wurde niedergeschlagen. — Народне повстання 17 червня 1953 року придушили.
 > note: *das Volk* + *der Aufstand* (*aufstehen* — вставати).
 
 > [!word] die Flucht
-> ipa: /flʊxt/ · pos: noun · level: B1 · id: dl-b1-12-w19
+> ipa: /flʊxt/ · pos: noun · level: B1 · id: dl-b1-12-w18
 > uk: втеча
 > forms: die Fluchten (рідко)
 > example: Die **Flucht** über die Grenze war gefährlich. — Втеча через кордон була небезпечною.
 > note: дієслово *fliehen* (flieht · floh · ist geflohen); *der Flüchtling* — біженець. ch після u = [x].
 
 > [!word] die Republikflucht
-> ipa: /ʁepuˈbliːkflʊxt/ · pos: noun · level: B2 · id: dl-b1-12-w20
+> ipa: /ʁepuˈbliːkflʊxt/ · pos: noun · level: B2 · id: dl-b1-12-w19
 > uk: «втеча з республіки» — незаконний виїзд з НДР
 > forms: — (без множини)
 > example: In der DDR war **Republikflucht** strafbar. — У НДР «втеча з республіки» каралася законом.
@@ -297,35 +290,35 @@ Stasi стежила, збирала інформацію про людей і �
 ### Стіна
 
 > [!word] die Mauer
-> ipa: /ˈmaʊ̯ɐ/ · pos: noun · level: B1 · id: dl-b1-12-w21
+> ipa: /ˈmaʊ̯ɐ/ · pos: noun · level: B1 · id: dl-b1-12-w20
 > uk: стіна (мур, зовнішня), «Стіна» — Берлінська стіна
 > forms: die Mauern
 > example: Die **Mauer** teilte Berlin von 1961 bis 1989. — Стіна ділила Берлін з 1961 до 1989 року.
 > note: *die Mauer* — зовнішня кам'яна стіна, мур; стіна кімнати — *die Wand*. З великої літери «Die Mauer» — Берлінська стіна. Нейтрально: *die Berliner Mauer*.
 
 > [!word] der Mauerbau
-> ipa: /ˈmaʊ̯ɐbaʊ̯/ · pos: noun · level: B2 · id: dl-b1-12-w22
+> ipa: /ˈmaʊ̯ɐbaʊ̯/ · pos: noun · level: B2 · id: dl-b1-12-w21
 > uk: будівництво Стіни (13.08.1961)
 > forms: — (без множини)
 > example: Der **Mauerbau** begann in der Nacht zum 13. August 1961. — Будівництво Стіни почалося вночі проти 13 серпня 1961 року.
 > note: *bauen* → *der Bau*; пара: *der Mauerbau* (1961) — *der Mauerfall* (1989).
 
 > [!word] der Schießbefehl
-> ipa: /ˈʃiːsbəfeːl/ · pos: noun · level: B2 · id: dl-b1-12-w23
+> ipa: /ˈʃiːsbəfeːl/ · pos: noun · level: B2 · id: dl-b1-12-w22
 > uk: наказ стріляти (по втікачах на кордоні НДР)
 > forms: die Schießbefehle
 > example: Der **Schießbefehl** an der Grenze wurde 1989 aufgehoben. — Наказ стріляти на кордоні скасували 1989 року.
 > note: *schießen* + *der Befehl*. Загальноприйняте слово; офіційно скасований 21.12.1989.
 
 > [!word] der Todesstreifen
-> ipa: /ˈtoːdəsˌʃtʁaɪ̯fn̩/ · pos: noun · level: B2 · id: dl-b1-12-w24
+> ipa: /ˈtoːdəsˌʃtʁaɪ̯fn̩/ · pos: noun · level: B2 · id: dl-b1-12-w23
 > uk: «смуга смерті» — прикордонна смуга біля Стіни
 > forms: die Todesstreifen (рідко)
 > example: Im **Todesstreifen** standen Wachtürme und Zäune. — У «смузі смерті» стояли вартові вежі й паркани.
 > note: назва поширена на Заході; влада НДР говорила *der Grenzstreifen*.
 
 > [!word] der Stacheldraht
-> ipa: /ˈʃtaxl̩dʁaːt/ · pos: noun · level: B2 · id: dl-b1-12-w25
+> ipa: /ˈʃtaxl̩dʁaːt/ · pos: noun · level: B2 · id: dl-b1-12-w24
 > uk: колючий дріт
 > forms: — (без множини)
 > example: Am 13. August 1961 lag zuerst nur **Stacheldraht** auf den Straßen. — 13 серпня 1961 року спершу на вулицях лежав лише колючий дріт.
@@ -408,7 +401,7 @@ Stasi стежила, збирала інформацію про людей і �
 ## Типові помилки й пастки
 
 > [!pitfall] «Antifaschistischer Schutzwall» — це не нейтральна назва
-> Так Стіну називала влада НДР. Слово «захисний вал» мало пояснити, що вона нібито захищає від «фашистського» Заходу, хоча збудували її, щоб зупинити втечу людей із НДР. Тому нейтрально й точно пишуть **die Berliner Mauer** або **die Mauer**, а офіційну назву даючи в лапках і з відступом: *Die DDR nannte die Mauer „antifaschistischen Schutzwall“.*
+> Так Стіну називала влада НДР. Слово «захисний вал» мало пояснити, що вона нібито захищає від «фашистського» Заходу, хоча збудували її, щоб зупинити втечу людей із НДР. Тому нейтрально й точно пишуть **die Berliner Mauer** або **die Mauer**, а офіційну назву подавай у лапках і з відступом: *Die DDR nannte die Mauer „antifaschistischen Schutzwall“.*
 
 > [!pitfall] «Щонайменше 140» — не «рівно 140»
 > Число жертв Стіни — результат конкретного дослідження (ZZF Потсдам і Stiftung Berliner Mauer; станом на серпень 2017 року): *mindestens 140 Todesopfer*. Раніші списки давали від 86 до понад 200 — через різні критерії. Окремо рахують щонайменше 251 мандрівника, які померли на пунктах пропуску. Пиши «щонайменше 140 за даними ZZF і Stiftung Berliner Mauer», а не «рівно 140» і не «тисячі».
@@ -422,7 +415,7 @@ Stasi стежила, збирала інформацію про людей і �
 ## Landeskunde-Text
 
 > [!example] Berlin, 13. August 1961
-> In der Nacht zum 13. August 1961 schließen Soldaten und Polizisten in Berlin die Grenze. Zuerst liegt nur Stacheldraht auf den Straßen, dann bauen Arbeiter eine Mauer. Familien, Freunde und Kollegen sind plötzlich getrennt. Mehr als 50.000 Ostberliner können nicht mehr zu ihrer Arbeit im Westen fahren.
+> In der Nacht zum 13. August 1961 schließen Soldaten und Polizisten in Berlin die Grenze. Zuerst liegt nur Stacheldraht auf den Straßen, dann bauen Arbeiter eine Mauer. Familien, Freunde und Kollegen sind plötzlich getrennt. Mehr als 50.000 Ostberliner können nicht mehr zu ihrer Arbeit im Westen fahren. Nur noch sieben Übergänge bleiben offen.
 >
 > In der Bernauer Straße gehören die Häuser zum Osten, der Bürgersteig davor aber zum Westen. Einige Menschen springen aus den Fenstern in die Sprungtücher der Feuerwehr. Bald mauert die DDR die Fenster zu. Von 1949 bis 1961 sind etwa 2,8 Millionen Menschen aus der DDR in die Bundesrepublik geflohen. Die DDR nennt die Mauer „antifaschistischen Schutzwall“. Sie soll aber vor allem verhindern, dass die Menschen das Land verlassen.
 >
@@ -484,7 +477,7 @@ Stasi стежила, збирала інформацію про людей і �
 > Die [[Mauer]] teilte Berlin fast 30 Jahre lang.
 > ```
 >
-> **Пояснення:** *Blockade* (die) і *Teilung* (die) не підходять за змістом: Берлін постачали *mit der Luftbrücke*, а «ділила Берлін» саме *Mauer*. «Вессі» вживають *Wirtschaftswunder* (das): *vom* = von dem.
+> **Пояснення:** *Blockade* (die) і *Teilung* (die) не підходять за змістом: Берлін постачали *mit der Luftbrücke*, а «ділила Берлін» саме *Mauer*. *Wirtschaftswunder* — середнього роду: *vom* = von dem.
 
 > [!quiz] Що правильно про 1949 рік? Обери всі правильні відповіді.
 > level: B1 · type: multi · id: dl-b1-12-q07
@@ -530,9 +523,9 @@ Stasi стежила, збирала інформацію про людей і �
 > - [x] Влада НДР називала її «antifaschistischer Schutzwall».
 > - [x] Щонайменше 140 людей загинули на ній або у зв'язку з прикордонним режимом (1961–1989).
 > - [ ] Вона проходила лише через центр Берліна й не оточувала Західний Берлін.
-> - [ ] Вона була однією з укріплених ділянок на кордоні між Східним і Західним Берліном і межі ФРН та НДР.
+> - [ ] Її збудувала влада Західного Берліна для захисту від НДР.
 >
-> **Пояснення:** Стіна довжиною 155 км оточувала весь Західний Берлін (43 км — через місто). Остання відповідь неправильна: кордон між ФРН і НДР був окремою системою.
+> **Пояснення:** Стіна довжиною 155 км оточувала весь Західний Берлін (43 км — через місто). Решта відповідей хибні: Стіну збудувала НДР, і вона оточувала весь Західний Берлін.
 
 > [!quiz] Звідки походить число «щонайменше 140 загиблих біля Берлінської стіни»?
 > level: B1 · type: single · id: dl-b1-12-q12

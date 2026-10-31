@@ -18,7 +18,7 @@ estimatedMinutes: 55
 
 ## Передбач
 
-> [!quiz] Як сказати: «Ми добре порозумілися з сусідкою по квартирі»?
+> [!quiz] Як сказати: «Ми добре ладнаємо з сусідкою по квартирі»?
 > level: B1 · type: single · id: de-b1-beziehungen-q01
 > - [ ] Wir verstehen gut mit unserer Mitbewohnerin.
 > - [x] Wir verstehen uns gut mit unserer Mitbewohnerin.
@@ -84,7 +84,7 @@ estimatedMinutes: 55
 
 ### Розподіл ролей: Haushalt, Elternzeit, Gleichberechtigung
 
-У Німеччині партнери зазвичай ділять домашні обовʼязки: *den Haushalt machen* («вести господарство»), *sich um die Kinder kümmern*. Закон дає кожному з батьків право на **Elternzeit** — відпустку для догляду за дитиною до її третього дня народження. Для малят є **Kita** (*Kindertagesstätte*, дитячий садок з яслами). Тема *Gleichberechtigung* — рівноправність чоловіка й жінки — в обговореннях звучить постійно.
+У Німеччині партнери зазвичай ділять домашні обовʼязки: *den Haushalt machen* («вести господарство»), *sich um die Kinder kümmern*. Закон дає кожному з батьків право на **Elternzeit** — відпустку для догляду за дитиною: до трьох років на кожну дитину, а частину можна перенести на час до восьмих уродин. Для малят є **Kita** (*Kindertagesstätte*, дитячий садок з яслами). Тема *Gleichberechtigung* — рівноправність чоловіка й жінки — в обговореннях звучить постійно.
 
 ## Приклади
 
@@ -223,7 +223,7 @@ estimatedMinutes: 55
 > [!word] die Verwandtschaft
 > ipa: /fɛɐ̯ˈvantʃaft/ · pos: noun · level: B1 · id: de-b1-beziehungen-w18
 > uk: рідня; родичі
-> forms: — (без множини)
+> forms: — (рідко у множині)
 > example: Zu Weihnachten kommt die ganze **Verwandtschaft**. — На Різдво приїжджає вся рідня.
 > note: окремий родич — der Verwandte / die Verwandte. -schaft → die. Зі збірним значенням «вся рідня».
 
@@ -281,7 +281,7 @@ estimatedMinutes: 55
 > uk: спільне життя; співжиття
 > forms: — (без множини)
 > example: Das **Zusammenleben** in der WG braucht klare Regeln. — Спільне життя в WG потребує чітких правил.
-> note: інфінітив як іменник → das (без винятків). Має однину.
+> note: інфінітив як іменник → das (без винятків). Лише однина.
 
 > [!word] die Eifersucht
 > ipa: /ˈaɪ̯fɐˌzʊxt/ · pos: noun · level: B1 · id: de-b1-beziehungen-w27
@@ -305,14 +305,14 @@ estimatedMinutes: 55
 > note: sich verloben mit + Dat; Perfekt з haben. Прикметник: verlobt sein.
 
 > [!word] zusammenziehen
-> ipa: /tsuˈzamәntsiːәn/ · pos: verb · level: B1 · id: de-b1-beziehungen-w30
+> ipa: /tsuˈzaməntsiːən/ · pos: verb · level: B1 · id: de-b1-beziehungen-w30
 > uk: переїхати разом
 > forms: zusammenziehen → zog zusammen → ist zusammengezogen
 > example: Im Mai **ziehen** wir **zusammen**. — У травні ми переїжджаємо разом.
 > note: відокремлюване; Perfekt із sein (зміна місця). Коротко: Wir sind zusammengezogen.
 
 > [!word] zusammenleben
-> ipa: /tsuˈzamәnleːbn̩/ · pos: verb · level: B1 · id: de-b1-beziehungen-w31
+> ipa: /tsuˈzamənleːbn̩/ · pos: verb · level: B1 · id: de-b1-beziehungen-w31
 > uk: жити разом
 > forms: zusammenleben → lebte zusammen → hat zusammengelebt
 > example: Sie **leben** schon lange **zusammen**. — Вони живуть разом уже давно.
@@ -357,7 +357,7 @@ estimatedMinutes: 55
 > ipa: /ˈʁʏkzɪçt ˈneːmən/ · pos: phrase · level: B1 · id: de-b1-beziehungen-w37
 > uk: зважати; бути делікатним до
 > example: Man muss **Rücksicht auf** die Nachbarn **nehmen**. — Треба зважати на сусідів.
-> note: die Rücksicht, без прийменника. rücksichtsvoll — делікатний, rücksichtslos — безцеремонний.
+> note: die Rücksicht — іменник від цього звороту. rücksichtsvoll — делікатний, rücksichtslos — безцеремонний.
 
 > [!word] sich zerstreiten (mit + Dat)
 > ipa: /zɪç tsɛɐ̯ˈʃtʁaɪ̯tn̩/ · pos: verb · level: B1 · id: de-b1-beziehungen-w38
@@ -392,7 +392,7 @@ estimatedMinutes: 55
 > uk: заспокоювати; втішати
 > forms: trösten → tröstete → hat getröstet
 > example: Die Mutter **tröstete** das weinende Kind. — Мати втішала дитину, що плакала.
-> note: ö довге, st — «шт» лише на початку слова; всередині — [st].
+> note: ö довге; st тут усередині слова — [st], не «шт».
 
 > [!word] alleinerziehend
 > ipa: /aˈlaɪ̯nʔɛɐ̯tsiːənt/ · pos: adj · level: B1 · id: de-b1-beziehungen-w43
@@ -473,7 +473,7 @@ estimatedMinutes: 55
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-beziehungen-s02
 > text: Im Mai sind wir zusammengezogen.
-> ipa: /ɪm maɪ̯ zɪnt viːɐ̯ tsuˈzamənɡəˌtsoːɡn̩/
+> ipa: /ɪm maɪ̯ zɪnt viːɐ̯ tsuˈzamənɡətsoːɡn̩/
 > tip: zusammengezogen — наголос на -sam-. Mai — ai = [aɪ̯]. gezogen — g між голосними, дзвінке.
 > uk: У травні ми переїхали разом.
 
@@ -482,7 +482,7 @@ estimatedMinutes: 55
 > text: Sie versteht sich gut mit ihrer Schwiegermutter.
 > ipa: /ziː fɛɐ̯ˈʃteːt zɪç ɡuːt mɪt ˈiːʁɐ ˈʃviːɡɐˌmʊtɐ/
 > tip: versteht — ver- ненаголошене, st = «шт». Schwiegermutter — «шв», наголос на Schwie-.
-> uk: Вона добре ладнає з тещею / свекрухою.
+> uk: Вона добре ладнає зі свекрухою.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-beziehungen-s04
@@ -527,13 +527,13 @@ estimatedMinutes: 55
 > audio: B: Das finde ich auch wichtig. Ich bin sehr ordentlich und koche gern gemeinsam.
 > audio: A: Super! Und wie ist es mit Besuch?
 > audio: B: Mein Freund kommt manchmal am Wochenende.
-> - [ ] Щоб мешканці були зі спільних країн.
+> - [ ] Щоб мешканці були з однієї країни.
 > - [x] Щоб усі зважали одне на одного.
 > - [ ] Щоб ніхто не мав гостей.
 >
 > **Пояснення:** *dass jeder Rücksicht nimmt* — щоб кожен зважав на інших. *Mein Freund kommt manchmal* — «мій хлопець» (не просто друг).
 
-> [!speak] «Мені важливо, щоб ми поважали одне одного.»
+> [!speak] «Мені важливо, щоб ми зважали одне на одного.»
 > level: B1 · id: de-b1-beziehungen-s07
 > text: Mir ist wichtig, dass wir Rücksicht aufeinander nehmen.
 > ipa: /miːɐ̯ ɪst ˈvɪçtɪç das viːɐ̯ ˈʁʏkzɪçt aʊ̯fʔaɪ̯ˈnandɐ ˈneːmən/
@@ -543,7 +543,7 @@ estimatedMinutes: 55
 ## Landeskunde: Wie Deutsche zusammenleben
 
 > [!example] Wie Deutsche zusammenleben
-> Etwa die Hälfte der Menschen in Deutschland lebt in einer Familie: 2025 waren es 49 Prozent. 1996 waren es noch 57 Prozent. Die klassische Familie mit Trauschein wird seltener. Damals waren 78 Prozent der Familien Ehepaare mit Kindern, heute sind es 66 Prozent. Dafür leben mehr Eltern ohne Trauschein zusammen: Das sind jetzt 10 Prozent der Familien (1996: 4 Prozent). Auch Alleinerziehende gibt es häufiger. Sie machen 24 Prozent aller Familien aus (1996: 18 Prozent). Außerdem wohnen mehr Menschen allein: Der Anteil der Alleinstehenden stieg von 17 Prozent im Jahr 1996 auf 23 Prozent im Jahr 2025. Quelle: Statistisches Bundesamt (Mikrozensus).
+> Als Familie zählt das Statistische Bundesamt alle Eltern-Kind-Gemeinschaften: Ehepaare, Paare ohne Trauschein und Alleinerziehende mit Kindern, egal wie alt die Kinder sind. Etwa die Hälfte der Menschen in Deutschland lebt in einer Familie: 2025 waren es 49 Prozent. 1996 waren es noch 57 Prozent. Die klassische Familie mit Trauschein wird seltener. Damals waren 78 Prozent der Familien Ehepaare mit Kindern, heute sind es 66 Prozent. Dafür leben mehr Eltern ohne Trauschein zusammen: Das sind jetzt 10 Prozent der Familien (1996: 4 Prozent). Auch Alleinerziehende gibt es häufiger. Sie machen 24 Prozent aller Familien aus (1996: 18 Prozent). Außerdem wohnen mehr Menschen allein: Der Anteil der Alleinstehenden stieg von 17 Prozent im Jahr 1996 auf 23 Prozent im Jahr 2025. Paare ohne Kinder im Haushalt machen 28 Prozent der Bevölkerung aus (1996: 26 Prozent). Die Hälfte der Familien hat ein Kind, in 37 Prozent der Familien leben zwei Kinder und in 13 Prozent drei oder mehr. Quelle: Statistisches Bundesamt (Mikrozensus).
 
 > [!quiz] Nach dem Text: Wie viele Menschen lebten 2025 in Familien?
 > level: B1 · type: single · id: de-b1-beziehungen-q02
@@ -665,7 +665,7 @@ estimatedMinutes: 55
 > *Kommune I* — політично налаштована Wohngemeinschaft у Західному Берліні. Її засновано 1 січня 1967 року, а остаточно вона розпалася в листопаді 1969-го. Сьогодні слово *WG* означає просто спільну квартиру, у якій кілька людей ділять кімнати, кухню й рахунки.
 
 > [!reel] 👶 Право на місце в Kita
-> У Німеччині кожна дитина, що вже відсвяткувала перший день народження, має право на місце в яслах чи дитсадку: до третього дня народження — за § 24 книги SGB VIII. Це *Rechtsanspruch*. А батьки мають право на Elternzeit до третього дня народження дитини.
+> У Німеччині кожна дитина, що вже відсвяткувала перший день народження, має право на місце в Kita або в Kindertagespflege (догляд у няні): з першого до третього дня народження — за § 24 книги SGB VIII. Це *Rechtsanspruch*. З трьох років місце в дитсадку гарантоване до школи. А батьки мають право на Elternzeit до трьох років на дитину.
 
 > [!reel] 💬 Мій Freund — друг чи хлопець?
 > У німецькій *Freund* без додаткових слів у контексті пари означає «хлопець». Німці уточнюють: *fester Freund* — «постійний хлопець», *guter Freund* — «добрий друг», *Freund der Familie* — «друг сімʼї». Тож коли німкеня каже *mein Freund*, зазвичай це партнер, а не приятель.

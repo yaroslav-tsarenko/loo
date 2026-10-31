@@ -148,7 +148,8 @@ estimatedMinutes: 45
 > - [ ] A
 > - [ ] B
 > - [ ] C
-> - [x] ні одна: у цьому разі пишуть 0
+> - [ ] D
+> - [x] жодна: у цьому разі пишуть 0
 >
 > **Пояснення:** жодне з оголошень не пропонує курс у Відні. У Teil 3 така ситуація буває одна: тоді вписують **0**. Не привʼязуйся до слова *Deutsch*: воно є в A і B, але формат інший.
 
@@ -233,152 +234,138 @@ estimatedMinutes: 45
 
 ## Слова
 
-> [!word] der Absatz
-> ipa: /ˈapzats/ · pos: noun · level: B1 · id: de-b1-lesen-w01
-> uk: абзац
-> forms: die Absätze
-> example: Jeder **Absatz** hat einen eigenen Gedanken. — У кожному абзаці своя думка.
-> note: друге значення — «каблук» (взуття) та «збут» (товарів): Absatz von Waren. Рід чоловічий, множина з умлаутом.
-
 > [!word] die Überschrift
-> ipa: /ˈyːbɐʃʁɪft/ · pos: noun · level: B1 · id: de-b1-lesen-w02
+> ipa: /ˈyːbɐʃʁɪft/ · pos: noun · level: B1 · id: de-b1-lesen-w01
 > uk: заголовок
 > forms: die Überschriften
 > example: Die **Überschrift** verrät oft das Thema. — Заголовок часто розкриває тему.
 > note: Schlagzeile — гучний заголовок новини; Überschrift — загальне слово для заголовків тексту.
 
-> [!word] die Zusammenfassung
-> ipa: /tsuˈzamənfasʊŋ/ · pos: noun · level: B1 · id: de-b1-lesen-w03
-> uk: резюме, стислий виклад
-> forms: die Zusammenfassungen
-> example: Schreiben Sie bitte eine kurze **Zusammenfassung**. — Напишіть, будь ласка, коротке резюме.
-> note: дієслово — zusammenfassen: er fasst zusammen. -ung — рід жіночий.
-
 > [!word] der Abschnitt
-> ipa: /ˈapʃnɪt/ · pos: noun · level: B1 · id: de-b1-lesen-w04
+> ipa: /ˈapʃnɪt/ · pos: noun · level: B1 · id: de-b1-lesen-w02
 > uk: розділ, частина тексту
 > forms: die Abschnitte
 > example: Der erste **Abschnitt** erklärt die Regeln. — Перша частина пояснює правила.
 > note: ab + schneiden — відрізати. Абзац — Absatz, частина тексту з заголовком — Abschnitt.
 
 > [!word] das Schlüsselwort
-> ipa: /ˈʃlʏsl̩vɔʁt/ · pos: noun · level: B2 · id: de-b1-lesen-w05
+> ipa: /ˈʃlʏsl̩vɔʁt/ · pos: noun · level: B2 · id: de-b1-lesen-w03
 > uk: ключове слово
 > forms: die Schlüsselwörter
 > example: Markieren Sie die **Schlüsselwörter** im Text. — Позначте ключові слова в тексті.
-> note: множина — Schlüsselwörter (з крапками), не Schlüsselworte. Schlüssel — ключ.
+> note: множина — Schlüsselwörter (з крапками), частіше Schlüsselwörter (Duden допускає й Schlüsselworte). Schlüssel — ключ.
 
 > [!word] der Zusammenhang
-> ipa: /tsuˈzamənhaŋ/ · pos: noun · level: B1 · id: de-b1-lesen-w06
+> ipa: /tsuˈzamənhaŋ/ · pos: noun · level: B1 · id: de-b1-lesen-w04
 > uk: звʼязок; контекст
 > forms: die Zusammenhänge
 > example: Im **Zusammenhang** wird das Wort klar. — У контексті слово стає зрозумілим.
 > note: кінцеве -ng = [ŋ] без [ɡ]. «im Zusammenhang mit» — у звʼязку з. «Aus dem Zusammenhang» — з контексту.
 
 > [!word] erschließen
-> ipa: /ɛɐ̯ˈʃliːsn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w07
+> ipa: /ɛɐ̯ˈʃliːsn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w05
 > uk: зʼясувати (за контекстом); освоїти
 > forms: er erschließt · erschloss · hat erschlossen
 > example: Man kann die Bedeutung aus dem Text **erschließen**. — Значення можна зʼясувати з тексту.
 > note: невідокремлюване, тому Partizip II без ge-. Часто: sich etwas erschließen.
 
 > [!word] überfliegen
-> ipa: /yːbɐˈfliːɡn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w08
+> ipa: /yːbɐˈfliːɡn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w06
 > uk: переглянути навскіс, побіжно прочитати
 > forms: er überfliegt · überflog · hat überflogen
 > example: Ich **überfliege** den Text zuerst. — Спершу я побіжно переглядаю текст.
-> note: невідокремлюване (наголос на -flie-). Відокремлюване überfliegen (з сенсом «перелетіти») має інший наголос: ˈüberˌfliegen. Для читання вживаємо невідокремлюване.
+> note: невідокремлюване (наголос на -flie-).
 
 > [!word] zuordnen
-> ipa: /ˈtsuːʔɔʁdnən/ · pos: verb · level: B1 · id: de-b1-lesen-w09
+> ipa: /ˈtsuːʔɔʁdnən/ · pos: verb · level: B1 · id: de-b1-lesen-w07
 > uk: співвіднести, віднести (до чого)
 > forms: er ordnet zu · ordnete zu · hat zugeordnet
 > example: Ordnen Sie die Anzeigen den Situationen **zu**. — Співвіднесіть оголошення із ситуаціями.
 > note: відокремлюване, давальний відмінок: einer Situation zuordnen. Складова «ʔ»: zu|ordnen.
 
 > [!word] der Leserbrief
-> ipa: /ˈleːzɐˌbʁiːf/ · pos: noun · level: B1 · id: de-b1-lesen-w10
+> ipa: /ˈleːzɐˌbʁiːf/ · pos: noun · level: B1 · id: de-b1-lesen-w08
 > uk: лист читача (до редакції)
 > forms: die Leserbriefe
 > example: Sie schreibt einen **Leserbrief** an die Zeitung. — Вона пише листа читача до газети.
 > note: s перед голосним — дзвінке [z]. Leser — читач, Brief — лист.
 
 > [!word] verbindlich
-> ipa: /fɛɐ̯ˈbɪntlɪç/ · pos: adj · level: B2 · id: de-b1-lesen-w11
+> ipa: /fɛɐ̯ˈbɪntlɪç/ · pos: adj · level: B2 · id: de-b1-lesen-w09
 > uk: обовʼязковий; зобовʼязуючий
 > example: Die Anmeldung ist **verbindlich**. — Реєстрація є обовʼязковою.
 > note: не «звʼязковий»: verbindlich означає, що від слова не відмовишся. Також «verbindlicher Termin» — остаточна домовленість.
 
 > [!word] vorgeschrieben
-> ipa: /ˈfoːɐ̯ɡəʃʁiːbn̩/ · pos: adj · level: B2 · id: de-b1-lesen-w12
+> ipa: /ˈfoːɐ̯ɡəʃʁiːbn̩/ · pos: adj · level: B2 · id: de-b1-lesen-w10
 > uk: приписаний, обовʼязковий за правилами
 > example: Das Tragen eines Helms ist **vorgeschrieben**. — Носіння шолома є обовʼязковим.
 > note: Partizip II дієслова vorschreiben (schreibt vor · schrieb vor · hat vorgeschrieben). Часто в правилах: ist vorgeschrieben.
 
 > [!word] die Angabe
-> ipa: /ˈanɡaːbə/ · pos: noun · level: B1 · id: de-b1-lesen-w13
+> ipa: /ˈanɡaːbə/ · pos: noun · level: B1 · id: de-b1-lesen-w11
 > uk: дані, відомості
 > forms: die Angaben
 > example: Bitte machen Sie genaue **Angaben** zur Person. — Будь ласка, вкажіть точні дані про себе.
 > note: [nɡ] на межі частин слова: an|gabe, чути [n] + [ɡ]. Дієслово — angeben.
 
 > [!word] enthalten
-> ipa: /ɛntˈhaltn̩/ · pos: verb · level: B1 · id: de-b1-lesen-w14
+> ipa: /ɛntˈhaltn̩/ · pos: verb · level: B1 · id: de-b1-lesen-w12
 > uk: містити
 > forms: er enthält · enthielt · hat enthalten
 > example: Der Text **enthält** viele Zahlen. — Текст містить багато чисел.
 > note: невідокремлюване (Partizip II без ge-). Не плутай з erhalten («отримувати»).
 
 > [!word] bezeichnen
-> ipa: /bəˈtsaɪ̯çnən/ · pos: verb · level: B2 · id: de-b1-lesen-w15
+> ipa: /bəˈtsaɪ̯çnən/ · pos: verb · level: B2 · id: de-b1-lesen-w13
 > uk: називати, позначати
 > forms: er bezeichnet · bezeichnete · hat bezeichnet
 > example: Man **bezeichnet** das als „Freistaat". — Це називають «Freistaat».
 > note: bezeichnen als + Akk: Er bezeichnet das als Fehler. Іменник — die Bezeichnung.
 
 > [!word] der Inhalt
-> ipa: /ˈɪnhalt/ · pos: noun · level: B1 · id: de-b1-lesen-w16
+> ipa: /ˈɪnhalt/ · pos: noun · level: B1 · id: de-b1-lesen-w14
 > uk: зміст
 > forms: die Inhalte
 > example: Der **Inhalt** des Artikels ist interessant. — Зміст статті цікавий.
 > note: також «вміст»: der Inhalt der Flasche. Подібне слово: das Inhaltsverzeichnis — зміст (перелік розділів).
 
 > [!word] der Verfasser
-> ipa: /fɛɐ̯ˈfasɐ/ · pos: noun · level: B2 · id: de-b1-lesen-w17
+> ipa: /fɛɐ̯ˈfasɐ/ · pos: noun · level: B2 · id: de-b1-lesen-w15
 > uk: автор (тексту)
 > forms: die Verfasser
 > example: Der **Verfasser** des Briefes ist unbekannt. — Автор листа невідомий.
 > note: жінка — die Verfasserin. Дієслово — verfassen. Синонім: der Autor.
 
 > [!word] die Textsorte
-> ipa: /ˈtɛkstˌzɔʁtə/ · pos: noun · level: B2 · id: de-b1-lesen-w18
+> ipa: /ˈtɛkstˌzɔʁtə/ · pos: noun · level: B2 · id: de-b1-lesen-w16
 > uk: тип тексту, жанр
 > forms: die Textsorten
 > example: Eine Anzeige ist eine andere **Textsorte** als ein Artikel. — Оголошення — це інший тип тексту, ніж стаття.
 > note: Sorte — сорт, різновид. Приклади Textsorten: Brief, Anzeige, Kommentar, Hausordnung.
 
 > [!word] ausdrücklich
-> ipa: /ˈaʊ̯sdʁʏklɪç/ · pos: adj · level: B2 · id: de-b1-lesen-w19
+> ipa: /ˈaʊ̯sdʁʏklɪç/ · pos: adj · level: B2 · id: de-b1-lesen-w17
 > uk: прямий, явно висловлений
 > example: Das steht **ausdrücklich** im Text. — Це прямо сказано в тексті.
-> note: ausdrücklich = «в явному вигляді»; протилежне — andeuten, «натякати».
+> note: ausdrücklich = «в явному вигляді»; протилежне — «імпліцитно», «лише в натяку».
 
 > [!word] die Schlussfolgerung
-> ipa: /ˈʃlʊsˌfɔlɡəʁʊŋ/ · pos: noun · level: C1 · id: de-b1-lesen-w20
+> ipa: /ˈʃlʊsˌfɔlɡəʁʊŋ/ · pos: noun · level: C1 · id: de-b1-lesen-w18
 > uk: висновок
 > forms: die Schlussfolgerungen
 > example: Welche **Schlussfolgerung** ziehst du aus dem Text? — Який висновок ти робиш із тексту?
 > note: подібне — das Fazit. «Eine Schlussfolgerung ziehen» — робити висновок.
 
 > [!word] andeuten
-> ipa: /ˈandɔʏ̯tn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w21
+> ipa: /ˈandɔʏ̯tn̩/ · pos: verb · level: B2 · id: de-b1-lesen-w19
 > uk: натякати
 > forms: er deutet an · deutete an · hat angedeutet
 > example: Die Autorin **deutet** nur **an**, was sie meint. — Авторка лише натякає на те, що має на увазі.
 > note: відокремлюване. Іменник — die Andeutung. На іспиті відповідь буває лише в натяку, не прямою фразою.
 
 > [!word] die Behauptung
-> ipa: /bəˈhaʊ̯ptʊŋ/ · pos: noun · level: B2 · id: de-b1-lesen-w22
+> ipa: /bəˈhaʊ̯ptʊŋ/ · pos: noun · level: B2 · id: de-b1-lesen-w20
 > uk: твердження
 > forms: die Behauptungen
 > example: Diese **Behauptung** ist nicht bewiesen. — Це твердження не доведене.
@@ -448,8 +435,8 @@ estimatedMinutes: 45
 > [!pitfall] Одне збіжне слово — і відповідь «готова»
 > У завданнях варіанти часто містять слова з тексту, але змінюють зміст. У прикладі про Radweg слово *zwölf* є і в тексті, але стосується парковок, а не довжини. Перевіряй, що саме про це слово сказано.
 
-> [!pitfall] «Verbindlich» ≠ «звʼязковий»
-> Слова схожі, а значення інше. *Verbindlich* — «обовʼязковий, остаточний» (*verbindliche Anmeldung*). Так само *Bedeutung* («значення») не слід плутати з *Bedienung* («обслуговування»). Такі слова краще вчити з прикладом.
+> [!pitfall] Хибні друзі: *die Anzeige* і *der Artikel*
+> *Die Anzeige* — це «оголошення» в газеті, але й «заява в поліцію» (*Anzeige erstatten*). *Der Artikel* — «стаття» в газеті, а ще «артикль» (*der, die, das*). Контекст підкаже значення: в Teil 3 *Anzeige* — це оголошення, а не заява.
 
 ## Практика
 

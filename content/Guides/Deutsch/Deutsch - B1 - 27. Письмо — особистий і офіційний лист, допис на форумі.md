@@ -111,7 +111,7 @@ estimatedMinutes: 45
 У форумі або гостьовій книзі ти реагуєш на тему. Структура: **позиція → причина → приклад → інший бік → підсумок** (див. тему B1-24).
 
 > [!example] Зразок: «Чи потрібен дитині телефон у початковій школі?»
-> Ich finde, dass Kinder in der Grundschule noch kein Handy brauchen. Meiner Meinung nach lernen sie zuerst, miteinander zu spielen und zu sprechen. Ein Vorteil ist natürlich, dass Eltern ihre Kinder jederzeit erreichen können. Andererseits gibt es im Internet viele Dinge, die für Kinder nicht geeignet sind. Zum Beispiel können sie Videos sehen, die ihnen Angst machen. Deshalb bin ich dafür, dass Kinder erst mit zwölf Jahren ein eigenes Handy bekommen. Im Großen und Ganzen sollten die Eltern entscheiden, aber die Kinder brauchen klare Regeln.
+> Ich finde, dass Kinder in der Grundschule noch kein Handy brauchen. Meiner Meinung nach sollten sie zuerst lernen, miteinander zu spielen und zu sprechen. Ein Vorteil ist natürlich, dass Eltern ihre Kinder jederzeit erreichen können. Andererseits gibt es im Internet viele Dinge, die für Kinder nicht geeignet sind. Zum Beispiel können sie Videos sehen, die ihnen Angst machen. Deshalb bin ich dafür, dass Kinder erst mit zwölf Jahren ein eigenes Handy bekommen. Im Großen und Ganzen sollten die Eltern entscheiden, aber die Kinder brauchen klare Regeln.
 
 У зразку немає *Anrede*: у форумі вона не обовʼязкова, допис починається з думки. Використано *dass* (дієслово в кінці), *Ein Vorteil ist, dass …*, *Andererseits*, *Zum Beispiel*, *Deshalb*, *Im Großen und Ganzen*.
 
@@ -149,8 +149,8 @@ estimatedMinutes: 45
 - Könnten Sie mir bitte die Unterlagen schicken? — Чи могли б Ви надіслати мені документи?
 - Außerdem ist es dort sehr günstig. — До того ж там дуже недорого.
 - Ich freue mich auf deine Antwort. — Чекаю на твою відповідь.
-- Mit freundlichen Grüßen, Olena Kovalenko — З повагою, Олена Коваленко.
-- Liebe Grüße, Anna — Сердечні вітання, Анна.
+- Mit freundlichen Grüßen (новий рядок) Olena Kovalenko — З повагою, Олена Коваленко.
+- Liebe Grüße (новий рядок) Anna — Сердечні вітання, Анна.
 
 ## Слова
 
@@ -173,7 +173,7 @@ estimatedMinutes: 45
 > uk: додаток (до листа)
 > forms: die Anlagen
 > example: In der **Anlage** finden Sie meinen Lebenslauf. — У додатку Ви знайдете моє резюме.
-> note: у e-mail частіше der Anhang. Also «споруда, обʼєкт».
+> note: у e-mail частіше der Anhang. Також «споруда, обʼєкт».
 
 > [!word] das Forum
 > ipa: /ˈfoːʁʊm/ · pos: noun · level: B1 · id: de-b1-schreiben-w04
@@ -213,7 +213,7 @@ estimatedMinutes: 45
 > [!word] formell
 > ipa: /fɔʁˈmɛl/ · pos: adj · level: B1 · id: de-b1-schreiben-w09
 > uk: офіційний, формальний
-> example: Eine **formelle** E-Mail beginnt mit „Sehr geehrte …". — Формальний лист починається зі «Sehr geehrte …».
+> example: Eine **formelle** E-Mail beginnt mit „Sehr geehrte …“. — Формальний лист починається зі «Sehr geehrte …».
 > note: протилежність — informell. Не плутай з förmlich (церемонний).
 
 > [!word] informell
@@ -247,7 +247,7 @@ estimatedMinutes: 45
 > ipa: /bəˈʃveːɐ̯də/ · pos: noun · level: B1 · id: de-b1-schreiben-w14
 > uk: скарга
 > forms: die Beschwerden
-> example: Ich schreibe wegen einer **Beschwerde**. — Я пишу через скаргу.
+> example: Ich möchte mich über die Lieferung **beschweren**. Das ist meine **Beschwerde**. — Я хочу поскаржитися на доставку. Це моя скарга.
 > note: Beschwerden — ще й «недуги» (медичні скарги). sich beschweren (bei + Dativ).
 
 > [!word] anhängen
@@ -321,8 +321,8 @@ estimatedMinutes: 45
 > level: B1 · type: answer · id: de-b1-schreiben-l02
 > audio: A: Was schreibst du da, Lena?
 > audio: B: Eine Mail an Frau Weber vom Kundenservice. Ich möchte mich über die Lieferung beschweren.
-> audio: A: Dann schreib „Sehr geehrte Frau Weber" und am Ende „Mit freundlichen Grüßen".
-> audio: B: Genau. Und „Sie" schreibe ich mit großem S.
+> audio: A: Dann schreib „Sehr geehrte Frau Weber“ und am Ende „Mit freundlichen Grüßen“.
+> audio: B: Genau. Und „Sie“ schreibe ich mit großem S.
 > - [x] формальний лист зі скаргою
 > - [ ] запрошення другові
 > - [ ] допис на форумі
@@ -341,8 +341,8 @@ estimatedMinutes: 45
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-schreiben-s01
 > text: Sehr geehrte Frau Weber, ich schreibe Ihnen wegen meines Antrags.
-> ipa: /zeːɐ̯ ɡəˈʔeːɐ̯tə fʁaʊ̯ ˈveːbɐ ɪç ˈʃʁaɪ̯bə ˈiːnən ˈveːɡn̩ ˈmaɪ̯nəs ˈantʁaːɡs/
-> tip: geehrte: ʔ-пауза між ge- і ehr-. Weber — [v] «в», довге e. Ihnen: h німе, подовжує i — «ііне».
+> ipa: /zeːɐ̯ ɡəˈʔeːɐ̯tə fʁaʊ̯ ˈveːbɐ ɪç ˈʃʁaɪ̯bə ˈiːnən ˈveːɡn̩ ˈmaɪ̯nəs ˈantʁaːks/
+> tip: geehrte: ʔ-пауза між ge- і ehr-. Weber — [v] «в», довге e. Ihnen: h німе й подовжує i: довге «і».
 > uk: Шановна пані Вебер, я пишу Вам щодо моєї заяви.
 
 > [!speak] Скажи вголос
@@ -354,10 +354,10 @@ estimatedMinutes: 45
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-schreiben-s03
-> text: Mit freundlichen Grüßen, Olena Kovalenko.
+> text: Mit freundlichen Grüßen. Olena Kovalenko.
 > ipa: /mɪt ˈfʁɔʏ̯ntlɪçn̩ ˈɡʁyːsn̩ oˈleːna kovaˈlɛŋko/
 > tip: freundlichen: eu = «ой», -lich- — [lɪç]. Grüßen: ü — [yː], ß = [s]. Імʼя вимов за звичною вимовою.
-> uk: З повагою, Олена Коваленко.
+> uk: З повагою. Олена Коваленко.
 
 ## Типові помилки українців
 
@@ -365,7 +365,7 @@ estimatedMinutes: 45
 > *Anrede* і *Gruß* мусять мати один регістр. Офіційно: *Sehr geehrte Frau Weber, … Mit freundlichen Grüßen*. Друзям: *Liebe Anna, … Liebe Grüße*. Змішувати (*Sehr geehrte … Tschüss*, *Liebe Frau Weber … Mit freundlichen Grüßen*) не варто. Також ~~Geehrter Herr Weber~~: потрібно *Sehr geehrter Herr Weber*.
 
 > [!pitfall] Кальки: ~~Mit Respekt~~, ~~Geehrter Herr~~
-> «З повагою» німецькою не перекладаємо як ~~Mit Respekt~~: стандартна формула — *Mit freundlichen Grüßen*. «Дякую за Ваше повідомлення» — *Vielen Dank für Ihre Nachricht*. А «Я пишу Вам» — *Ich schreibe Ihnen* (Dativ!), а не ~~Ich schreibe Sie~~.
+> «З повагою» німецькою не перекладаємо як ~~Mit Respekt~~: стандартна формула — *Mit freundlichen Grüßen*. «Дякую за Ваше повідомлення» — *Vielen Dank für Ihre Nachricht*. Після *Mit freundlichen Grüßen* і *Liebe Grüße* коми **немає**, а імʼя йде з нового рядка (на відміну від українського «З повагою,»). А «Я пишу Вам» — *Ich schreibe Ihnen* (Dativ!), а не ~~Ich schreibe Sie~~.
 
 > [!pitfall] Не відповісти на всі пункти
 > У Goethe B1 Aufgabe 1 є три змістові пункти, і треба написати про **кожен**. Це частина критерію *Erfüllung*. Дуже гарний текст без одного пункту втрачає бали, а гарний текст із усіма пунктами — отримує їх. Перед написанням познач пункти олівцем.
@@ -376,31 +376,31 @@ estimatedMinutes: 45
 ## Landeskunde: Briefe und E-Mails in Deutschland
 
 > [!example] Form ist wichtig
-> Wer in Deutschland einen Brief oder eine E-Mail schreibt, achtet auf die Form. Bei Behörden, Firmen und Vermietern schreibt man formell. Wenn man den Namen kennt, beginnt man mit „Sehr geehrte Frau Müller" oder „Sehr geehrter Herr Schmidt". Kennt man den Namen nicht, schreibt man „Sehr geehrte Damen und Herren". Am Ende steht „Mit freundlichen Grüßen" und darunter der vollständige Name. Eine E-Mail an ein Amt hat immer einen Betreff, damit der Empfänger sofort versteht, worum es geht. Bei Freunden und Kollegen, die man duzt, ist ein lockerer Stil normal: „Hallo Tim", „Liebe Grüße". In Briefen kann man „du" und „dein" klein oder groß schreiben, aber „Sie" schreibt man immer groß. Kurze Absätze und klare Sätze machen den Text leicht lesbar. Viele Prüfungen, zum Beispiel das Goethe-Zertifikat B1, testen genau diese Formen: eine persönliche E-Mail, einen Diskussionsbeitrag und eine formelle Mail.
+> Wer in Deutschland einen Brief oder eine E-Mail schreibt, achtet auf die Form. Bei Behörden, Firmen und Vermietern schreibt man formell. Wenn man den Namen kennt, beginnt man mit „Sehr geehrte Frau Müller“ oder „Sehr geehrter Herr Schmidt“. Kennt man den Namen nicht, schreibt man „Sehr geehrte Damen und Herren“. Am Ende steht „Mit freundlichen Grüßen“ und darunter der vollständige Name. Eine E-Mail an ein Amt hat immer einen Betreff, damit der Empfänger sofort versteht, worum es geht. Bei Freunden und Kollegen, die man duzt, ist ein lockerer Stil normal: „Hallo Tim“, „Liebe Grüße“. In Briefen kann man „du“ und „dein“ klein oder groß schreiben, aber „Sie“ schreibt man immer groß. Kurze Absätze und klare Sätze machen den Text leicht lesbar. Hat die Person einen Doktortitel, schreibt man „Sehr geehrte Frau Dr. Müller“. Viele Prüfungen, zum Beispiel das Goethe-Zertifikat B1, testen genau diese Formen: eine persönliche E-Mail, einen Diskussionsbeitrag und eine formelle Mail.
 
-> [!quiz] Nach dem Text: Wann schreibt man „Sehr geehrte Damen und Herren"?
+> [!quiz] Nach dem Text: Wann schreibt man „Sehr geehrte Damen und Herren“?
 > level: B1 · type: single · id: de-b1-schreiben-q02
 > - [ ] wenn man den Empfänger gut kennt
 > - [x] wenn man den Namen nicht kennt
 > - [ ] nur bei Freunden
 > - [ ] nur am Ende des Briefes
 >
-> **Пояснення:** у тексті: *Kennt man den Namen nicht, schreibt man „Sehr geehrte Damen und Herren".* Це звертання вживають на початку, і лише в офіційних листах.
+> **Пояснення:** у тексті: *Kennt man den Namen nicht, schreibt man „Sehr geehrte Damen und Herren“.* Це звертання вживають на початку, і лише в офіційних листах.
 
 > [!quiz] Nach dem Text: Was steht in einer E-Mail an ein Amt immer?
 > level: B1 · type: single · id: de-b1-schreiben-q03
-> - [ ] „Hallo"
+> - [ ] „Hallo“
 > - [x] ein Betreff
 > - [ ] ein Foto
-> - [ ] „Tschüss"
+> - [ ] „Tschüss“
 >
 > **Пояснення:** *Eine E-Mail an ein Amt hat immer einen Betreff, damit der Empfänger sofort versteht, worum es geht.*
 
 > [!quiz] Was stimmt laut Text?
 > level: B1 · type: multi · id: de-b1-schreiben-q04
-> - [x] „Sie" schreibt man immer groß.
+> - [x] „Sie“ schreibt man immer groß.
 > - [x] Bei Freunden ist ein lockerer Stil normal.
-> - [ ] „Mit freundlichen Grüßen" schreibt man an Freunde.
+> - [ ] „Mit freundlichen Grüßen“ schreibt man an Freunde.
 > - [ ] Ein Betreff ist bei Behörden unnötig.
 >
 > **Пояснення:** *Sie* — завжди з великої; з друзями — вільний стиль (*Hallo Tim, Liebe Grüße*). *Mit freundlichen Grüßen* — формально.
@@ -442,7 +442,7 @@ estimatedMinutes: 45
 > **Пояснення:** порядок: звертання → подяка → основна частина → пропозиція → привітання → підпис. *Mit freundlichen Grüßen* — не для листа до друга.
 
 > [!quiz] Заповни формальну пошту
-> level: B1 · type: fill · bank: Hallo, Tschüss, dir · id: de-b1-schreiben-q08
+> level: B1 · type: fill · bank: geehrter, nehmen, Gruß · id: de-b1-schreiben-q08
 >
 > ```text fill
 > Sehr [[geehrte]] Frau Weber,
@@ -451,7 +451,7 @@ estimatedMinutes: 45
 > Mit freundlichen [[Grüßen]]
 > ```
 >
-> **Пояснення:** *Sehr geehrte Frau …* — звертання до жінки; *einen Termin wahrnehmen*; *bitten um + Akk*; *Mit freundlichen Grüßen*. *Hallo, Tschüss, dir* не підходять у формальному листі.
+> **Пояснення:** *Sehr geehrte Frau …* — звертання до жінки; *einen Termin wahrnehmen*; *bitten um + Akk*; *Mit freundlichen Grüßen*. *geehrter, nehmen, Gruß* не підходять до жодної з цих позицій.
 
 > [!quiz] Яке речення правильне для формальної пошти?
 > level: B1 · type: single · id: de-b1-schreiben-q09

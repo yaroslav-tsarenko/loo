@@ -179,56 +179,49 @@ estimatedMinutes: 45
 > example: Innerhalb weniger Monate wurde aus der Republik eine **Diktatur**. — За кілька місяців республіка перетворилася на диктатуру.
 > note: прикм. *diktatorisch*; *der Diktator* — диктатор. Наголос на останньому складі: «дік-та-ТУР».
 
-> [!word] die Notverordnung
-> ipa: /ˈnoːtfɛɐ̯ˌʔɔʁdnʊŋ/ · pos: noun · level: B2 · id: dl-b1-10-w03
-> uk: надзвичайний указ (за ст. 48 Веймарської конституції)
-> forms: die Notverordnungen
-> example: Die **Notverordnung** vom 28. Februar 1933 setzte die Grundrechte außer Kraft. — Надзвичайний указ від 28 лютого 1933 року призупинив основні права.
-> note: *die Not* — біда, скрута + *die Verordnung* — указ, постанова. Указ від 28.02.1933 називають *Reichstagsbrandverordnung*.
-
 > [!word] das Ermächtigungsgesetz
-> ipa: /ɛɐ̯ˈmɛçtɪɡʊŋsɡəˌzɛts/ · pos: noun · level: B1 · id: dl-b1-10-w04
+> ipa: /ɛɐ̯ˈmɛçtɪɡʊŋsɡəˌzɛts/ · pos: noun · level: B1 · id: dl-b1-10-w03
 > uk: закон про надзвичайні повноваження (23.03.1933)
 > forms: die Ermächtigungsgesetze
 > example: Mit dem **Ermächtigungsgesetz** konnte die Regierung Gesetze ohne den Reichstag beschließen. — Закон про надзвичайні повноваження дозволив уряду ухвалювати закони без Рейхстагу.
 > note: *ermächtigen* — уповноважити. Офіційна назва — *Gesetz zur Behebung der Not von Volk und Reich*.
 
 > [!word] die Gleichschaltung
-> ipa: /ˈɡlaɪ̯çʃaltʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w05
+> ipa: /ˈɡlaɪ̯çʃaltʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w04
 > uk: «уніфікація» — підкорення держави й суспільства нацистській владі
 > forms: — (без множини)
 > example: Zur **Gleichschaltung** gehörte auch das Verbot der Gewerkschaften. — До «уніфікації» належала й заборона профспілок.
 > note: термін самих нацистів, узятий з електротехніки («вмикати синхронно»); в історичних текстах — у значенні 1933–1934 років. Дієслово: *gleichschalten*.
 
 > [!word] die Schutzhaft
-> ipa: /ˈʃʊtshaft/ · pos: noun · level: B2 · id: dl-b1-10-w06
+> ipa: /ˈʃʊtshaft/ · pos: noun · level: B2 · id: dl-b1-10-w05
 > uk: «превентивний арешт» — евфемізм для арешту без суду
 > forms: — (без множини)
 > example: Tausende Gegner kamen 1933 ohne Gericht in **Schutzhaft**. — 1933 року тисячі противників режиму без суду кинули в «превентивне увʼязнення».
 > note: евфемізм: дослівно «захисне увʼязнення», ніби людину «захищають». Насправді — свавільний арешт, часто концтабір. Пиши в лапках: *die sogenannte „Schutzhaft“*.
 
 > [!word] das Konzentrationslager
-> ipa: /kɔntsɛntʁaˈtsi̯oːnsˌlaːɡɐ/ · pos: noun · level: B1 · id: dl-b1-10-w07
+> ipa: /kɔntsɛntʁaˈtsi̯oːnsˌlaːɡɐ/ · pos: noun · level: B1 · id: dl-b1-10-w06
 > uk: концентраційний табір, концтабір
 > forms: die Konzentrationslager
 > example: Eines der ersten **Konzentrationslager** entstand im März 1933 in Dachau. — Один з перших концтаборів зʼявився в березні 1933 року в Дахау.
 > note: скорочення *das KZ* [kaːˈtsɛt], мн. *die KZs*. *Die KZ-Gedenkstätte* — меморіал на місці концтабору.
 
 > [!word] die Propaganda
-> ipa: /pʁopaˈɡanda/ · pos: noun · level: B1 · id: dl-b1-10-w08
+> ipa: /pʁopaˈɡanda/ · pos: noun · level: B1 · id: dl-b1-10-w07
 > uk: пропаганда
 > forms: — (без множини)
 > example: Die NS-**Propaganda** nutzte Radio, Film und Plakate. — Нацистська пропаганда використовувала радіо, кіно й плакати.
 > note: наголос на третьому складі: «про-па-ҐАН-да». *Das Propagandaministerium* — міністерство пропаганди (Joseph Goebbels).
 
 > [!word] die Bücherverbrennung
-> ipa: /ˈbyːçɐfɛɐ̯ˌbʁɛnʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w09
+> ipa: /ˈbyːçɐfɛɐ̯ˌbʁɛnʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w08
 > uk: спалення книжок
 > forms: die Bücherverbrennungen
 > example: Am 10. Mai 1933 fanden in vielen Städten **Bücherverbrennungen** statt. — 10 травня 1933 року в багатьох містах палили книжки.
 
 > [!word] die Volksgemeinschaft
-> ipa: /ˈfɔlksɡəˌmaɪ̯nʃaft/ · pos: noun · level: B2 · id: dl-b1-10-w10
+> ipa: /ˈfɔlksɡəˌmaɪ̯nʃaft/ · pos: noun · level: B2 · id: dl-b1-10-w09
 > uk: «народна спільнота» — гасло нацистської пропаганди
 > forms: — (без множини)
 > example: Wer nicht zur „**Volksgemeinschaft**“ gehören sollte, wurde ausgegrenzt. — Тих, кого не зараховували до «народної спільноти», виключали з суспільства.
@@ -237,63 +230,56 @@ estimatedMinutes: 45
 ### Війна
 
 > [!word] der Zweite Weltkrieg
-> ipa: /ˈtsvaɪ̯tə ˈvɛltkʁiːk/ · pos: noun · level: B1 · id: dl-b1-10-w11
+> ipa: /ˈtsvaɪ̯tə ˈvɛltkʁiːk/ · pos: noun · level: B1 · id: dl-b1-10-w10
 > uk: Друга світова війна
 > forms: — (без множини)
 > example: Nach dem **Zweiten Weltkrieg** lag Europa in Trümmern. — Після Другої світової війни Європа лежала в руїнах.
 > note: *Zweite* — з великої, бо це назва; прикметник відмінюється: *im Zweiten Weltkrieg*, *des Zweiten Weltkriegs*. *Der Weltkrieg* — мн. *die Weltkriege*.
 
 > [!word] der Überfall
-> ipa: /ˈyːbɐfal/ · pos: noun · level: B1 · id: dl-b1-10-w12
+> ipa: /ˈyːbɐfal/ · pos: noun · level: B1 · id: dl-b1-10-w11
 > uk: напад (зненацька)
 > forms: die Überfälle
 > example: Der **Überfall** auf Polen begann am 1. September 1939. — Напад на Польщу почався 1 вересня 1939 року.
 > note: *der Überfall auf + Akk*. Дієслово: *überfallen* (überfällt · überfiel · hat überfallen) — невідокремлюване: *Die Wehrmacht überfiel Polen.*
 
 > [!word] der Vernichtungskrieg
-> ipa: /fɛɐ̯ˈnɪçtʊŋsˌkʁiːk/ · pos: noun · level: B2 · id: dl-b1-10-w13
+> ipa: /fɛɐ̯ˈnɪçtʊŋsˌkʁiːk/ · pos: noun · level: B2 · id: dl-b1-10-w12
 > uk: війна на знищення
 > forms: die Vernichtungskriege
 > example: Der Krieg gegen die Sowjetunion war als **Vernichtungskrieg** geplant. — Війну проти Радянського Союзу планували як війну на знищення.
 > note: *vernichten* — знищувати, *die Vernichtung* — знищення. Термін істориків: мета — не лише перемога, а вбивство й винищення населення.
 
 > [!word] die Wehrmacht
-> ipa: /ˈveːɐ̯maxt/ · pos: noun · level: B1 · id: dl-b1-10-w14
+> ipa: /ˈveːɐ̯maxt/ · pos: noun · level: B1 · id: dl-b1-10-w13
 > uk: Вермахт — збройні сили нацистської Німеччини (1935–1945)
 > forms: — (без множини)
 > example: Auch Soldaten der **Wehrmacht** waren an Verbrechen beteiligt. — У злочинах брали участь і солдати Вермахту.
 > note: до 1935 року — *die Reichswehr*, після 1955 року в ФРН — *die Bundeswehr*, у НДР — *die Nationale Volksarmee (NVA)*.
 
-> [!word] die Besatzung
-> ipa: /bəˈzatsʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w15
-> uk: окупація; окупаційна влада
-> forms: die Besatzungen
-> example: Unter der deutschen **Besatzung** litten Millionen Menschen in der Ukraine. — Під німецькою окупацією страждали мільйони людей в Україні.
-> note: друге значення — екіпаж (*die Besatzung eines Schiffes*). Дієслово: *besetzen* — окупувати, займати. Після 1945 — *die Besatzungszone* (зона окупації).
-
 > [!word] das Reichskommissariat
-> ipa: /ˈʁaɪ̯çskɔmɪsaˌʁi̯aːt/ · pos: noun · level: B2 · id: dl-b1-10-w16
+> ipa: /ˈʁaɪ̯çskɔmɪsaˌʁi̯aːt/ · pos: noun · level: B2 · id: dl-b1-10-w14
 > uk: райхскомісаріат — німецька цивільна окупаційна адміністрація
 > forms: die Reichskommissariate
 > example: Das **Reichskommissariat** Ukraine hatte seinen Sitz in Riwne. — Адміністрація райхскомісаріату «Україна» містилася в Рівному.
 > note: *der Reichskommissar* — райхскомісар (для України — Erich Koch).
 
 > [!word] die Zwangsarbeit
-> ipa: /ˈtsvaŋsʔaʁbaɪ̯t/ · pos: noun · level: B1 · id: dl-b1-10-w17
+> ipa: /ˈtsvaŋsʔaʁbaɪ̯t/ · pos: noun · level: B1 · id: dl-b1-10-w15
 > uk: примусова праця
 > forms: — (без множини)
 > example: Mehr als 13 Millionen Menschen mussten im Deutschen Reich **Zwangsarbeit** leisten. — Понад 13 мільйонів людей мусили виконувати в Німецькій державі примусову працю.
 > note: *der Zwang* — примус. *Der Zwangsarbeiter* / *die Zwangsarbeiterin* — примусовий робітник / робітниця. Сталий вираз: *Zwangsarbeit leisten*.
 
 > [!word] der Ostarbeiter
-> ipa: /ˈɔstʔaʁbaɪ̯tɐ/ · pos: noun · level: B2 · id: dl-b1-10-w18
+> ipa: /ˈɔstʔaʁbaɪ̯tɐ/ · pos: noun · level: B2 · id: dl-b1-10-w16
 > uk: «остарбайтер» — вивезений з окупованих земель СРСР примусовий робітник
 > forms: die Ostarbeiter
 > example: Viele **Ostarbeiter** kamen aus der Ukraine. — Багато остарбайтерів були з України.
 > note: нацистський адміністративний термін; у сучасному тексті — в лапках: *sogenannte „Ostarbeiter“*. Жін. *die Ostarbeiterin*. Нейтрально — *ukrainische Zwangsarbeiterinnen und Zwangsarbeiter*.
 
 > [!word] der Kriegsgefangene
-> ipa: /ˈkʁiːksɡəˌfaŋənə/ · pos: noun · level: B1 · id: dl-b1-10-w19
+> ipa: /ˈkʁiːksɡəˌfaŋənə/ · pos: noun · level: B1 · id: dl-b1-10-w17
 > uk: військовополонений
 > forms: die Kriegsgefangenen
 > example: Mehr als drei Millionen sowjetische **Kriegsgefangene** starben in deutschen Lagern. — Понад три мільйони радянських військовополонених загинули в німецьких таборах.
@@ -302,42 +288,35 @@ estimatedMinutes: 45
 ### Опір і кінець війни
 
 > [!word] der Widerstand
-> ipa: /ˈviːdɐʃtant/ · pos: noun · level: B1 · id: dl-b1-10-w20
+> ipa: /ˈviːdɐʃtant/ · pos: noun · level: B1 · id: dl-b1-10-w18
 > uk: опір; рух опору
 > forms: die Widerstände
 > example: Die Weiße Rose leistete **Widerstand** gegen das NS-Regime. — «Біла троянда» чинила опір нацистському режимові.
 > note: *Widerstand leisten gegen + Akk* — чинити опір. Множина вживається в значенні «перешкоди» або в електротехніці; у значенні «рух опору» — лише однина.
 
 > [!word] das Flugblatt
-> ipa: /ˈfluːkblat/ · pos: noun · level: B1 · id: dl-b1-10-w21
+> ipa: /ˈfluːkblat/ · pos: noun · level: B1 · id: dl-b1-10-w19
 > uk: листівка (агітаційна)
 > forms: die Flugblätter
 > example: Die Gruppe verteilte sechs **Flugblätter**. — Група поширила шість листівок.
 > note: *der Flyer* — сучасна рекламна листівка; *das Flugblatt* — передусім політична.
 
-> [!word] das Attentat
-> ipa: /ˈatn̩taːt/ · pos: noun · level: B2 · id: dl-b1-10-w22
-> uk: замах (на життя політика)
-> forms: die Attentate
-> example: Das **Attentat** auf Hitler am 20. Juli 1944 scheiterte. — Замах на Гітлера 20 липня 1944 року не вдався.
-> note: *das Attentat auf + Akk*; *der Attentäter* — той, хто вчинив замах. Наголос можливий і на останньому складі: [atn̩ˈtaːt].
-
 > [!word] die Kapitulation
-> ipa: /kapitulaˈtsi̯oːn/ · pos: noun · level: B1 · id: dl-b1-10-w23
+> ipa: /kapitulaˈtsi̯oːn/ · pos: noun · level: B1 · id: dl-b1-10-w20
 > uk: капітуляція
 > forms: die Kapitulationen
 > example: Die bedingungslose **Kapitulation** trat am 8. Mai 1945 in Kraft. — Беззастережна капітуляція набула чинності 8 травня 1945 року.
 > note: дієслово *kapitulieren* (kapitulierte · hat kapituliert).
 
 > [!word] die Befreiung
-> ipa: /bəˈfʁaɪ̯ʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w24
+> ipa: /bəˈfʁaɪ̯ʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w21
 > uk: визволення, звільнення
 > forms: die Befreiungen
 > example: Für die Häftlinge der Lager bedeutete das Kriegsende die **Befreiung**. — Для вʼязнів таборів кінець війни означав визволення.
 > note: *befreien von + Dat* — визволити від: *von der Diktatur befreien*. Weizsäcker 1985: *ein Tag der Befreiung*.
 
 > [!word] verfolgen
-> ipa: /fɛɐ̯ˈfɔlɡn̩/ · pos: verb · level: B1 · id: dl-b1-10-w25
+> ipa: /fɛɐ̯ˈfɔlɡn̩/ · pos: verb · level: B1 · id: dl-b1-10-w22
 > uk: переслідувати
 > forms: verfolgen → verfolgte → hat verfolgt
 > example: Das Regime **verfolgte** Juden, Sinti und Roma und politische Gegner. — Режим переслідував євреїв, синті й рома та політичних противників.

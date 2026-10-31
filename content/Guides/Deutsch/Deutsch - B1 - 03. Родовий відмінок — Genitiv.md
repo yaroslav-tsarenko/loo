@@ -25,11 +25,11 @@ estimatedMinutes: 45
 > - [ ] das Buch dem Lehrer
 > - [ ] das Buch den Lehrer
 >
-> **Пояснення:** «Чия книга?» — **Genitiv**. Чоловічий рід: *der Lehrer → des Lehrers* (артикль *des* + закінчення **-s** на іменнику). *Der Lehrer* без закінчення — це Genitiv жіночого роду чи множини. *Dem* — Dativ, *den* — Akkusativ, обидва тут не підходять.
+> **Пояснення:** «Чия книга?» — **Genitiv**. Чоловічий рід: *der Lehrer → des Lehrers* (артикль *des* + закінчення **-s** на іменнику). *Der Lehrer* — це Genitiv множини (*das Buch der Lehrer* = книга вчителів) або форма жіночого роду. *Dem* — Dativ, *den* — Akkusativ, обидва тут не підходять.
 
 ## Чий? Український і німецький Genitiv
 
-В українській є родовий відмінок: «книга вчителя», «машина мого батька», «через дощ», «без сумніву». У німецькій теж є **Genitiv**, і ти вже вмієш ставити питання до нього: **wessen?** — «чий?, кого?». Але вживання різниться: у німецькій Genitiv лише у кількох ситуаціях, а в усній мові його часто замінюють на *von* + Dativ.
+В українській є родовий відмінок: «книга вчителя», «машина мого батька», «замість кави», «під час відпустки». У німецькій теж є **Genitiv**, і ти вже вмієш ставити питання до нього: **wessen?** — «чий?, кого?». Але вживання різниться: у німецькій Genitiv лише у кількох ситуаціях, а в усній мові його часто замінюють на *von* + Dativ.
 
 Genitiv потрібен у трьох місцях:
 
@@ -71,7 +71,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 З неозначеним артиклем і присвійним займенником форми такі самі за логікою: **eines Mannes, einer Frau, eines Kindes** і **meines Vaters, meiner Mutter, meines Kindes, meiner Eltern**. Множина без артикля (*Kinder*) Genitiv не показує, тому тут вживають *von* + Dativ: *die Spiele von Kindern*.
 
-Прикметник у Genitiv: **-en** після означеного артикля, *eines, meines, keines* та інших слів на *-es / -er*: *der Name des **neuen** Lehrers; die Hilfe einer **guten** Freundin; wegen des **schlechten** Wetters*. Так само, як у A2-15 і A2-17.
+Прикметник у Genitiv: **-en** після означеного артикля, *eines, meines, keines* та інших слів на *-es / -er* (без артикля бувають інші закінчення: *trotz großer Kälte*): *der Name des **neuen** Lehrers; die Hilfe einer **guten** Freundin; wegen des **schlechten** Wetters*. Так само, як у A2-15 і A2-17.
 
 ### Закінчення іменника: -s чи -es
 
@@ -79,7 +79,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 | Тип | Закінчення | Приклад |
 |---|---|---|
-| один склад; закінчення на -s, -ß, -x, -z, -tz, -sch | зазвичай **-es** | des Haus**es**, des Mann**es**, des Platz**es**, des Tisch**es** |
+| закінчення на -s, -ß, -x, -z, -tz, -sch (обовʼязково); багато односкладових (зазвичай) | **-es** | des Haus**es**, des Mann**es**, des Platz**es**, des Tisch**es** |
 | багатоскладові слова | **-s** | des Lehrer**s**, des Computer**s**, des Fahrrad**s**, des Handy**s** |
 | слабкі іменники (n-Deklination) | **-(e)n** | des Student**en**, des Mensch**en**, des Herr**n**, des Kollege**n** |
 | слово *Name*, *Herz* | **-ns, -ens** | des Name**ns**, des Herz**ens** |
@@ -99,12 +99,12 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 У розмові (і в письмовій мові також) Genitiv часто замінюють на *von* + Dativ: *das Auto **von meinem Vater**, die Hauptstadt **von Deutschland**, ein Freund **von mir***. Це не помилка, а природна форма. Є випадки, коли *von* майже обовʼязкове:
 
-- коли нема артикля, що показав би Genitiv: *die Preise **von Gemüse**, ein Teil **von uns***;
+- коли нема артикля, що показав би Genitiv: *die Preise **von Gemüse**, die Zimmer **von Studenten***;
 - з особовими займенниками Genitiv не вживають: *ein Freund **von mir**, ein Teil **von uns***.
 
 ## Прийменники з Genitiv
 
-Ці прийменники вимагають Genitiv; більшість з них пишемо з іменником після артикля.
+Ці прийменники вимагають Genitiv.
 
 | Прийменник | Значення | Приклад |
 |---|---|---|
@@ -114,7 +114,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 | **statt / anstatt** | замість | Statt des Kaffees trinke ich Tee. |
 | **innerhalb** | протягом; у межах | Innerhalb einer Woche bekommst du Antwort. |
 | **außerhalb** | поза; за межами | Außerhalb der Stadt ist es ruhiger. |
-| **aufgrund** | на підставі, через | Aufgrund des Wetters fällt das Fest aus. |
+| **aufgrund** | на підставі, унаслідок | Aufgrund des Wetters fällt das Fest aus. |
 
 > [!diagram] Як утворити Genitiv за чотири кроки
 > ```yaml
@@ -173,7 +173,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 > [!word] wegen (+ Gen)
 > ipa: /ˈveːɡn̩/ · pos: prep · level: B1 · id: de-b1-genitiv-w03
-> uk: через; з-за
+> uk: через; унаслідок
 > example: **Wegen** einer Erkältung blieb sie im Bett. — Через застуду вона лежала в ліжку.
 > note: у розмові часто + Dativ (wegen dem Regen). Із займенниками є злиті форми: meinetwegen, deinetwegen. g у середині = [ɡ].
 
@@ -202,7 +202,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > note: часові межі й місце. Також: außerhalb der Öffnungszeiten — поза годинами роботи.
 
 > [!word] aufgrund (+ Gen)
-> ipa: /ˈaʊ̯fɡʁʊnt/ · pos: prep · level: B2 · id: de-b1-genitiv-w08
+> ipa: /aʊ̯fˈɡʁʊnt/ · pos: prep · level: B2 · id: de-b1-genitiv-w08
 > uk: на підставі; унаслідок
 > example: **Aufgrund** der Verspätung verpasste ich den Zug. — Через запізнення я пропустив потяг.
 > note: офіційніше за wegen. Допускається й окремо: auf Grund. Часто в листах та оголошеннях.
@@ -295,7 +295,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 ## Вимова
 
-Закінчення -s і -es у Genitiv вимовляємо коротко: *des Mannes* [dɛs ˈmanəs], *des Kindes* [dɛs ˈkɪndəs]. Артикль *des* — ненаголошений, з коротким [ɛ]: [dɛs]. А прийменники *wegen, trotz, statt* самі коротко наголошені.
+Закінчення -s і -es у Genitiv вимовляємо коротко: *des Mannes* [dɛs ˈmanəs], *des Kindes* [dɛs ˈkɪndəs]. Артикль *des* — ненаголошений, з коротким [ɛ]: [dɛs]. А прийменники *wegen* (довге [eː]), *trotz* і *statt* наголошені на першому складі.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-genitiv-s01
@@ -322,7 +322,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > level: B1 · id: de-b1-genitiv-s04
 > text: Statt eines Kuchens brachte sie Blumen mit.
 > ipa: /ʃtat ˈaɪ̯nəs ˈkuːxn̩s ˈbʁaxtə ziː ˈbluːmən mɪt/
-> tip: statt — st- = «шт». Kuchens — ch після u = [x]. brachte — вставного немає, ch = [x].
+> tip: statt — st- = «шт». Kuchens — ch після u = [x]. brachte — ch = [x].
 > uk: Замість торта вона принесла квіти.
 
 > [!speak] «Столиця Німеччини — Берлін.»
@@ -475,7 +475,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > level: B1 · type: fill · id: de-b1-genitiv-q13
 >
 > ```text fill
-> [[Wegen]] des [[schlechten]] Wetters bleiben wir hier. (через; schlecht)
+> [[Wegen|Aufgrund]] des [[schlechten]] Wetters bleiben wir hier. (schlecht)
 > [[Trotz]] der [[großen]] Hitze gingen sie wandern. (попри; groß)
 > ```
 >
@@ -521,7 +521,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > dem ✗
 > ```
 >
-> **Пояснення:** *wegen* + Genitiv: *des Regens*. Підрядне речення тут немає, тому дієслово *blieben* — на другому місці, після підрядної обставини.
+> **Пояснення:** *wegen* + Genitiv: *des Regens*. Підрядне речення тут немає, тому дієслово *blieben* — на другому місці, після обставини.
 
 > [!quiz] Склади речення: «Протягом тижня ти отримаєш відповідь»
 > level: B1 · type: order · id: de-b1-genitiv-q17
@@ -548,7 +548,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 > Німецькі граматики давно придумали власні назви відмінків: Nominativ — *Wer-Fall*, Genitiv — *Wes-Fall* (від *wessen?*), Dativ — *Wem-Fall*, Akkusativ — *Wen-Fall*. А саме слово *Genitiv* — від латинського *casus genitivus*, «відмінок, що вказує на походження».
 
 > [!reel] 🇺🇦 Чашка кави — родовий, а Tasse Kaffee — ні
-> В українській після слів на кшталт «чашка», «пляшка», «багато» стоїть родовий відмінок: чашка кави, багато людей. У німецькій Genitiv у цих випадках немає: *eine Tasse Kaffee, viele Leute*. Натомість там, де українська скаже «через дощ», німецька відповість Genitiv: *wegen des Regens*. Тож родовий відмінок є в обох мовах, але вживають його в різних місцях.
+> В українській після слів на кшталт «чашка», «пляшка», «багато» стоїть родовий відмінок: чашка кави, багато людей. У німецькій Genitiv у цих випадках немає: *eine Tasse Kaffee, viele Leute*. Натомість після прийменників на кшталт «замість», «під час» німецька, як і українська, ставить Genitiv: *statt des Kaffees, während des Urlaubs*. Тож родовий відмінок є в обох мовах, але вживають його в різних місцях.
 
 ## Джерела та що почитати
 
@@ -562,7 +562,7 @@ Genitiv — четвертий і останній відмінок. Подив�
 
 > [!important] Підсумок
 > - Genitiv відповідає на питання **wessen?**: *das Auto meines Vaters*.
-> - m / n: **des** + іменник із **-(e)s** (*des Mannes, des Kindes*); f і множина: **der**, без закінчення (*der Frau, der Eltern*); прикметник — **-en**.
+> - m / n: **des** + іменник із **-(e)s** (*des Mannes, des Kindes*); f і множина: **der**, без закінчення (*der Frau, der Eltern*); прикметник після артикля — **-en**.
 > - Імена: *Annas Buch*, без апострофа; після -s, -ß, -x, -z — *Max'*.
 > - Прийменники: **wegen, trotz, während, statt, innerhalb, außerhalb, aufgrund** + Genitiv. У розмові часто *wegen dem*, *von* + Dativ; у листі — Genitiv.
 > - «Чашка кави», «багато людей» — без Genitiv: *eine Tasse Kaffee, viele Leute*.

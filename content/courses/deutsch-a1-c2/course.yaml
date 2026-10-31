@@ -43,7 +43,7 @@ sections:
       description: 'Perfekt і Präteritum модальних, Dativ, Wechselpräpositionen, Nebensätze з weil і dass.' }
   - { id: land, title: Deutschland — країна й побут, icon: px:map, from: Deutschland, chapters: 201-210, level: A2,
       description: 'DACH, федеральні землі, міста, діалекти, свята, їжа й культурні коди.' }
-  - { id: b1, title: B1 — Середній, icon: px:chat, from: Deutsch, chapters: 301-330, level: B1, status: planned,
+  - { id: b1, title: B1 — Середній, icon: px:chat, from: Deutsch, chapters: 301-330, level: B1,
       description: 'Präteritum, Passiv, Relativsätze, Konjunktiv II, Infinitiv mit zu, формат Goethe і telc B1.' }
   - { id: geschichte, title: Deutschland — історія, icon: px:scroll, from: Deutschland, chapters: 301-314, level: B1, status: planned,
       description: 'Від германців і Священної Римської імперії до 1990 року й сьогодення.' }

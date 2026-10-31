@@ -65,7 +65,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 
 Закінчення: *-e, -est, -e, -en, -et, -en*: *ich könnte, du könntest, er könnte, wir könnten, ihr könntet, sie könnten*. Форми *sollte* і *wollte* збігаються з Präteritum — значення видно з контексту.
 
-Для частини дієслів існують власні короткі форми, їх чути в розмові: *ich käme, ich ginge, ich wüsste, es gäbe, ich fände*. Але з *würde* + інфінітив ти не помилишся.
+Для частини дієслів існують власні короткі форми, їх чути в розмові й на письмі: *ich wüsste, es gäbe, ich bräuchte, ich fände, ich käme, ich ginge*. Але з *würde* + інфінітив ти не помилишся.
 
 > [!diagram] Як ввічливіше сказати те саме
 > ```yaml
@@ -93,7 +93,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 
 - *Könnten Sie mir bitte helfen?* — Чи не могли б Ви мені допомогти?
 - *Würden Sie bitte das Fenster schließen?* — Чи не закрили б Ви вікно?
-- *Hätten Sie kurz Zeit?* — Чи мали б Ви хвилинку?
+- *Hätten Sie kurz Zeit?* — Чи не знайшлося б у Вас хвилинки?
 - *Dürfte ich Sie etwas fragen?* — Чи міг би я Вас дещо спитати?
 
 Форма *Können Sie …?* теж ввічлива й цілком звичайна, а *Könnten Sie …?* додає ще мʼякості — її чекають у Behörde, в лікаря, від продавця. З **du** — *Könntest du …? Würdest du …?*
@@ -105,7 +105,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 
 - *Ich hätte gern einen Tee.* — Мені б чаю.
 - *Ich möchte einen Termin.* — Я хотів би записатися на прийом.
-- *Ich bräuchte kurz Ihre Hilfe.* — Мені б потрібна була Ваша допомога.
+- *Ich bräuchte kurz Ihre Hilfe.* — Мені б знадобилася Ваша допомога.
 - *Das wäre nett.* — Було б мило.
 - *Es wäre schön, wenn …* — Було б чудово, якби …
 
@@ -137,7 +137,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 > [!word] der Rat
 > ipa: /ʁaːt/ · pos: noun · level: B1 · id: de-b1-konjunktiv2-w01
 > uk: порада
-> forms: die Räte
+> forms: — (у значенні «порада»; мн. — Ratschläge)
 > example: Ich brauche deinen **Rat**. — Мені потрібна твоя порада.
 > note: «порада» — Rat (мн. рідко), частіше der Ratschlag; «рада» як орган — der Stadtrat, die Räte.
 
@@ -377,7 +377,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 > - [ ] hatte
 > - [ ] war
 >
-> **Пояснення:** *hatte* і *war* — Präteritum. Konjunktiv II має умлаут: *hätte, wäre, könnte*.
+> **Пояснення:** *hatte* і *war* — Präteritum. У *haben, sein, können* Konjunktiv II має умлаут: *hätte, wäre, könnte* (а *sollte, wollte* — без умлаута).
 
 > [!quiz] Які прохання сформульовані правильно? Обери всі правильні варіанти
 > level: B1 · type: multi · id: de-b1-konjunktiv2-q08
@@ -507,7 +507,7 @@ Konjunktiv II (*Konjunktiv Zwei*) — це спосіб, яким німці г�
 > На касі продавець питає *Sonst noch etwas?*, а ти відповідаєш *Nein, das wäre alles, danke.* Це типове *wäre* — «це було б усе». Фраза скоро стає автоматичною: просто «це все».
 
 > [!reel] 🗣️ Короткі форми в розмові
-> Поряд із *würde* + інфінітив німці часто кажуть *ich käme, ich ginge, ich wüsste, es gäbe*. Наприклад: *Das wüsste ich auch gern.* — «Я теж хотів би це знати». Для A1–B1 достатньо *würde* + інфінітив, але на слух ці короткі форми корисно впізнавати.
+> Поряд із *würde* + інфінітив у розмові часто чути *ich wüsste, es gäbe, ich bräuchte, ich fände*. Наприклад: *Das wüsste ich auch gern.* — «Я теж хотів би це знати». Для A1–B1 достатньо *würde* + інфінітив, але на слух ці короткі форми корисно впізнавати.
 
 ## Джерела та що почитати
 

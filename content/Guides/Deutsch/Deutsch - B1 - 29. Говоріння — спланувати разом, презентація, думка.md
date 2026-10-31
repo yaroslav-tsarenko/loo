@@ -355,7 +355,7 @@ estimatedMinutes: 50
 > uk: слайд; плівка; фольга
 > forms: die Folien
 > example: Auf der ersten **Folie** steht das Thema. — На першому слайді стоїть тема.
-> note: у презентаціях слайд = die Folie (також das Slide, розм.). Алюмінієва фольга — die Alufolie. Множина Folien — 3 склади: [ˈfoːli̯ən].
+> note: у презентаціях слайд = die Folie Алюмінієва фольга — die Alufolie. Множина Folien — 2 склади: [ˈfoːli̯ən].
 
 > [!word] die Gliederung
 > ipa: /ˈɡliːdəʁʊŋ/ · pos: noun · level: B2 · id: de-b1-sprechen-w03
@@ -419,89 +419,62 @@ estimatedMinutes: 50
 > example: Wer **organisiert** das Fest? — Хто організовує свято?
 > note: наголос на -sie-; Partizip II без ge-: organisiert. Іменник — die Organisation.
 
-> [!word] ergänzen
-> ipa: /ɛɐ̯ˈɡɛntsn̩/ · pos: verb · level: B1 · id: de-b1-sprechen-w12
-> uk: доповнювати
-> forms: er ergänzt · ergänzte · hat ergänzt
-> example: Ich möchte noch etwas **ergänzen**. — Хочу ще дещо додати.
-> note: невідокремлюване. Іменник — die Ergänzung. Також: sich ergänzen — доповнювати одне одного.
-
-> [!word] zusammenfassen
-> ipa: /tsuˈzamənfasn̩/ · pos: verb · level: B1 · id: de-b1-sprechen-w13
-> uk: підсумовувати, стисло викласти
-> forms: er fasst zusammen · fasste zusammen · hat zusammengefasst
-> example: Am Ende **fasse** ich alles kurz **zusammen**. — Наприкінці я коротко підсумую все.
-> note: відокремлюване. Іменник — die Zusammenfassung. Часта вставка: zusammenfassend kann man sagen.
-
 > [!word] das Fazit
-> ipa: /ˈfaːtsɪt/ · pos: noun · level: B2 · id: de-b1-sprechen-w14
+> ipa: /ˈfaːtsɪt/ · pos: noun · level: B2 · id: de-b1-sprechen-w12
 > uk: підсумок, висновок
 > forms: die Fazite
 > example: Mein **Fazit**: Vereine sind sehr wichtig. — Мій висновок: клуби дуже важливі.
 > note: множина: die Fazite або die Fazits (за Duden). Фраза «ein Fazit ziehen» — підбити підсумок.
 
-> [!word] die Einleitung
-> ipa: /ˈaɪ̯nlaɪ̯tʊŋ/ · pos: noun · level: B1 · id: de-b1-sprechen-w15
-> uk: вступ
-> forms: die Einleitungen
-> example: In der **Einleitung** nenne ich das Thema. — У вступі я називаю тему.
-> note: ei = [aɪ̯]; -ung = [ʊŋ]. Протилежне — der Schluss (є в курсі).
-
 > [!word] der Hauptteil
-> ipa: /ˈhaʊ̯pttaɪ̯l/ · pos: noun · level: B1 · id: de-b1-sprechen-w16
+> ipa: /ˈhaʊ̯pttaɪ̯l/ · pos: noun · level: B1 · id: de-b1-sprechen-w13
 > uk: основна частина
 > forms: die Hauptteile
 > example: Im **Hauptteil** erzähle ich von meinen Erfahrungen. — В основній частині я розповідаю про свій досвід.
 > note: Haupt- + Teil: [pt] і [t] зливаються в один довший звук. Hauptteil — не Hauptstadt.
 
 > [!word] zunächst
-> ipa: /tsuˈnɛːçst/ · pos: adv · level: B1 · id: de-b1-sprechen-w17
+> ipa: /tsuˈnɛːçst/ · pos: adv · level: B1 · id: de-b1-sprechen-w14
 > uk: спершу, насамперед
 > example: **Zunächst** möchte ich mich vorstellen. — Спершу я хочу представитися.
 > note: після zunächst на першому місці — дієслово другим: Zunächst möchte ich … ä довге [ɛː], -chst — [çst].
 
 > [!word] jedenfalls
-> ipa: /ˈjeːdn̩fals/ · pos: adv · level: B1 · id: de-b1-sprechen-w18
+> ipa: /ˈjeːdn̩fals/ · pos: adv · level: B1 · id: de-b1-sprechen-w15
 > uk: у кожному разі, принаймні
 > example: **Jedenfalls** bin ich pünktlich. — У кожному разі я буду вчасно.
-> note: j = [j] «й»: «йе-ден-фальс». Синонім: auf jeden Fall.
-
-> [!word] na ja
-> ipa: /na ˈjaː/ · pos: phrase · level: B1 · id: de-b1-sprechen-w19
-> uk: ну, ну що ж (вагання)
-> example: **Na ja**, das ist schwierig. — Ну, це складно.
-> note: не повна згода, а скоріше вагання. Інтонація падає: na ja ↘. Розмовне слово.
+> note: j = [j] «й»: «йе-ден-фальс». Близьке за змістом: auf jeden Fall (сильніше).
 
 > [!word] sozusagen
-> ipa: /zotsuˈzaːɡn̩/ · pos: adv · level: B2 · id: de-b1-sprechen-w20
+> ipa: /zotsuˈzaːɡn̩/ · pos: adv · level: B2 · id: de-b1-sprechen-w16
 > uk: так би мовити
 > example: Er ist **sozusagen** mein Chef. — Він, так би мовити, мій начальник.
 > note: уточнює, що слово сказане «приблизно». Наголос на -sa-.
 
 > [!word] wie gesagt
-> ipa: /viː ɡəˈzaːkt/ · pos: phrase · level: B1 · id: de-b1-sprechen-w21
+> ipa: /viː ɡəˈzaːkt/ · pos: phrase · level: B1 · id: de-b1-sprechen-w17
 > uk: як було сказано
 > example: **Wie gesagt**, ich habe heute keine Zeit. — Як я вже казав, сьогодні в мене немає часу.
 > note: Partizip II від sagen. Кінцеве -t у gesagt чітко чути.
 
 > [!word] ich meine
-> ipa: /ɪç ˈmaɪ̯nə/ · pos: phrase · level: B1 · id: de-b1-sprechen-w22
+> ipa: /ɪç ˈmaɪ̯nə/ · pos: phrase · level: B1 · id: de-b1-sprechen-w18
 > uk: я маю на увазі; я вважаю
 > example: **Ich meine**, wir sollten früher beginnen. — Я вважаю, нам слід почати раніше.
 > note: уточнення в середині думки: «Ich meine das ernst.» (я кажу серйозно). Не плутай з meine (моя).
 
 > [!word] der Treffpunkt
-> ipa: /ˈtʁɛfpʊŋkt/ · pos: noun · level: B1 · id: de-b1-sprechen-w23
+> ipa: /ˈtʁɛfpʊŋkt/ · pos: noun · level: B1 · id: de-b1-sprechen-w19
 > uk: місце зустрічі
 > forms: die Treffpunkte
 > example: Unser **Treffpunkt** ist vor dem Bahnhof. — Наше місце зустрічі — перед вокзалом.
 > note: Treff- + Punkt. [fp] без голосного між ними.
 
 > [!word] die Begleitung
-> ipa: /bəˈɡlaɪ̯tʊŋ/ · pos: noun · level: B2 · id: de-b1-sprechen-w24
+> ipa: /bəˈɡlaɪ̯tʊŋ/ · pos: noun · level: B2 · id: de-b1-sprechen-w20
 > uk: супровід; супутник
 > forms: die Begleitungen
-> example: Ich komme gern in **Begleitung**. — Я охоче прийду зі супутником.
+> example: Ich komme gern in **Begleitung**. — Я охоче прийду із супутником.
 > note: дієслово — begleiten (begleitet · begleitete · hat begleitet). Також «musikalische Begleitung».
 
 ## Landeskunde: Vereine
@@ -529,7 +502,7 @@ estimatedMinutes: 50
 
 > [!quiz] Wovon leben viele Vereine?
 > level: B1 · type: single · id: de-b1-sprechen-q04
-> - [ ] von Spenden von Politikern
+> - [ ] von Mitgliedsbeiträgen allein
 > - [ ] von Gehältern der Mitglieder
 > - [x] vom Ehrenamt, also von Freiwilligen ohne Bezahlung
 > - [ ] vom Staat allein
@@ -546,7 +519,7 @@ estimatedMinutes: 50
 > Багато хто просто виголошує свою ідею й чекає. Але завдання — **плануєте разом**: слухай, відповідай, пропонуй. Реагуй на кожну репліку партнера фразою (*Gute Idee! · Hmm, ich weiß nicht …*) і задавай запитання (*Was meinst du?*).
 
 > [!pitfall] Занадто пряме «Ich will» і «Nein»
-> *Ich will am Samstag ins Kino* звучить наказово. Ввічливіше: *Ich würde gern … · Wie wäre es mit …?* Відмову підкріплюй причиною й іншою пропозицією: *Am Samstag habe ich leider keine Zeit. Geht es auch am Sonntag?*
+> *Ich will am Samstag ins Kino* звучить категорично. Ввічливіше: *Ich würde gern … · Wie wäre es mit …?* Відмову підкріплюй причиною й іншою пропозицією: *Am Samstag habe ich leider keine Zeit. Geht es auch am Sonntag?*
 
 > [!pitfall] Мовчання або «ну…» замість слів-заповнювачів
 > Коли шукаєш слово, українці часто кажуть «ну», «значить», «типу». Німецькі аналоги — *also, na ja, sozusagen, wie gesagt*. Але не переборщуй: два-три за відповідь, інакше мова звучить нерішуче.
@@ -657,8 +630,8 @@ estimatedMinutes: 50
 
 ## Фішки
 
-> [!reel] 🗺️ Пʼять слайдів — пʼять речень
-> Три хвилини презентації — це приблизно пʼять-сім речень на кожен слайд. На слайд 1 вистачить «Mein Thema ist … Zuerst … dann … zum Schluss …». Пиши на нотатках не речення, а ключові слова: так легше говорити вільно.
+> [!reel] 🗺️ Пʼять слайдів — одна-дві фрази на кожен
+> Три хвилини презентації — це загалом близько пʼяти-десяти речень: одне-два на слайд. На слайд 1 вистачить «Mein Thema ist … Zuerst … dann … zum Schluss …». Пиши на нотатках не речення, а ключові слова: так легше говорити вільно.
 
 > [!reel] 🤝 Єдиного «правильного» плану немає
 > В Aufgabe 1 оцінюють не рішення, а спосіб його знайти: пропозиція, реакція, обґрунтування, домовленість. Тому розмова, де ви довго не погоджувалися, але чемно дійшли до згоди, цінніша за швидку «ідеальну» відповідь.

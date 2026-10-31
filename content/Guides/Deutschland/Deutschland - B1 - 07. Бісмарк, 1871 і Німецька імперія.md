@@ -259,22 +259,15 @@ estimatedMinutes: 45
 > example: Viele **Arbeiter** zogen vom Land in die Städte. — Багато робітників переїжджали із села до міст.
 > note: жін. *die Arbeiterin*, мн. *die Arbeiterinnen*. Не плутай з *der Angestellte* (службовець).
 
-> [!word] die Bevölkerung
-> ipa: /bəˈfœlkəʁʊŋ/ · pos: noun · level: B1 · id: dl-b1-07-w14
-> uk: населення
-> forms: die Bevölkerungen
-> example: Die **Bevölkerung** wuchs von 41 auf 65 Millionen. — Населення зросло з 41 до 65 мільйонів.
-> note: переважно в однині; корінь *das Volk*.
-
 > [!word] die Auswanderung
-> ipa: /ˈaʊ̯svandəʁʊŋ/ · pos: noun · level: B2 · id: dl-b1-07-w15
+> ipa: /ˈaʊ̯svandəʁʊŋ/ · pos: noun · level: B2 · id: dl-b1-07-w14
 > uk: еміграція (виїзд з країни)
 > forms: die Auswanderungen
 > example: Im 19. Jahrhundert war die **Auswanderung** nach Amerika groß. — У ХІХ столітті еміграція до Америки була значною.
 > note: той, хто виїжджає, — *der Auswanderer*; протилежність — *die Einwanderung* (іммігрує).
 
 > [!word] die Gründerzeit
-> ipa: /ˈɡʁʏndɐˌtsaɪ̯t/ · pos: noun · level: B2 · id: dl-b1-07-w16
+> ipa: /ˈɡʁʏndɐˌtsaɪ̯t/ · pos: noun · level: B2 · id: dl-b1-07-w15
 > uk: «грюндерська епоха» (початок 1870-х, бум заснування підприємств)
 > forms: — (без множини)
 > example: In der **Gründerzeit** entstanden viele Fabriken und Banken. — У грюндерську епоху виникло багато фабрик і банків.
@@ -283,28 +276,28 @@ estimatedMinutes: 45
 ### Колонії
 
 > [!word] die Kolonie
-> ipa: /koloˈniː/ · pos: noun · level: B2 · id: dl-b1-07-w17
+> ipa: /koloˈniː/ · pos: noun · level: B2 · id: dl-b1-07-w16
 > uk: колонія
 > forms: die Kolonien (вимова [koloˈniːən])
 > example: Das Deutsche Reich hatte **Kolonien** in Afrika. — У Німецької імперії були колонії в Африці.
 > note: прикметник *kolonial*.
 
 > [!word] der Kolonialismus
-> ipa: /koloni̯aˈlɪsmʊs/ · pos: noun · level: B2 · id: dl-b1-07-w18
+> ipa: /koloni̯aˈlɪsmʊs/ · pos: noun · level: B2 · id: dl-b1-07-w17
 > uk: колоніалізм
 > forms: — (без множини)
 > example: Der deutsche **Kolonialismus** dauerte nur wenige Jahrzehnte. — Німецький колоніалізм тривав лише кілька десятиліть.
 > note: сьогодні в Німеччині про нього говорять як про окрему тему історичної пам’яті (*Aufarbeitung des Kolonialismus*).
 
 > [!word] das Schutzgebiet
-> ipa: /ˈʃʊtsɡəˌbiːt/ · pos: noun · level: C1 · id: dl-b1-07-w19
+> ipa: /ˈʃʊtsɡəˌbiːt/ · pos: noun · level: C1 · id: dl-b1-07-w18
 > uk: «протекторат» (офіційна назва німецьких колоній)
 > forms: die Schutzgebiete
 > example: Offiziell hießen die Kolonien **Schutzgebiete**. — Офіційно колонії називалися Schutzgebiete.
 > note: евфемізм: «захищена територія» мало стосувалася захисту місцевих жителів. Сьогодні *das Naturschutzgebiet* — заповідник.
 
 > [!word] der Völkermord
-> ipa: /ˈfœlkɐˌmɔʁt/ · pos: noun · level: B2 · id: dl-b1-07-w20
+> ipa: /ˈfœlkɐˌmɔʁt/ · pos: noun · level: B2 · id: dl-b1-07-w19
 > uk: геноцид
 > forms: die Völkermorde
 > example: Deutschland erkannte den **Völkermord** an den Herero und Nama an. — Німеччина визнала геноцид гереро й нама.

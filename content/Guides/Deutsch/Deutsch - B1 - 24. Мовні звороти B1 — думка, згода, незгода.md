@@ -176,7 +176,7 @@ estimatedMinutes: 40
 > ipa: /ɪç ˈdɛŋkə das/ · pos: phrase · level: A2 · id: de-b1-redemittel-w08
 > uk: я думаю, що…
 > example: **Ich denke, dass** das möglich ist. — Я думаю, що це можливо.
-> note: denken, dass — «вважати»; думати про когось — denken an + Akk (не ~~über~~).
+> note: denken, dass — «вважати»; думати про когось (згадувати) — denken an + Akk; мати думку про — denken über + Akk.
 
 > [!word] Ich bin davon überzeugt, dass…
 > ipa: /ɪç bɪn daˈfɔn yːbɐˈtsɔʏ̯kt das/ · pos: phrase · level: B1 · id: de-b1-redemittel-w09
@@ -199,14 +199,14 @@ estimatedMinutes: 40
 > [!word] Ich bin dafür.
 > ipa: /ɪç bɪn daˈfyːɐ̯/ · pos: phrase · level: B1 · id: de-b1-redemittel-w12
 > uk: я за.
-> example: Willst du früher anfangen? — **Ich bin dafür.** — Хочеш почати раніше? — Я за.
+> example: Sollen wir früher anfangen? — **Ich bin dafür.** — Почнемо раніше? — Я за.
 > note: з dass: Ich bin dafür, dass wir früher anfangen.
 
 > [!word] Ich bin dagegen.
 > ipa: /ɪç bɪn daˈɡeːɡn̩/ · pos: phrase · level: B1 · id: de-b1-redemittel-w13
 > uk: я проти.
 > example: Ein neues Auto? **Ich bin dagegen.** — Нове авто? Я проти.
-> note: у da-словах наголос на другому складі: dagegen, dafür.
+> note: у da-словах зазвичай наголос на другому складі: dagegen, dafür.
 
 > [!word] Da stimme ich zu.
 > ipa: /da ˈʃtɪmə ɪç tsuː/ · pos: phrase · level: B1 · id: de-b1-redemittel-w14
@@ -359,7 +359,7 @@ estimatedMinutes: 40
 > note: прикметники як іменники (тема B1-22): das Große, das Ganze.
 
 > [!word] Zusammenfassend kann man sagen, dass…
-> ipa: /tsuˈzamənfasnt kan man ˈzaːɡn̩ das/ · pos: phrase · level: B1 · id: de-b1-redemittel-w39
+> ipa: /tsuˈzamənfasn̩t kan man ˈzaːɡn̩ das/ · pos: phrase · level: B1 · id: de-b1-redemittel-w39
 > uk: підсумовуючи, можна сказати, що…
 > example: **Zusammenfassend kann man sagen, dass** beide Wege Vorteile haben. — Підсумовуючи, можна сказати, що обидва шляхи мають переваги.
 > note: офіційний підсумок для презентацій і листів.
@@ -367,7 +367,7 @@ estimatedMinutes: 40
 > [!word] Auf der einen Seite …, auf der anderen Seite …
 > ipa: /aʊ̯f deːɐ̯ ˈaɪ̯nən ˈzaɪ̯tə aʊ̯f deːɐ̯ ˈandəʁən ˈzaɪ̯tə/ · pos: phrase · level: B1 · id: de-b1-redemittel-w40
 > uk: з одного боку…, з іншого боку…
-> example: **Auf der einen Seite** ist es bequem, **auf der anderen Seite** teuer. — З одного боку, це зручно, з іншого — дорого.
+> example: **Auf der einen Seite** ist es bequem, **auf der anderen Seite** ist es teuer. — З одного боку, це зручно, з іншого — дорого.
 > note: синонім до einerseits … andererseits (картка в іншій темі).
 
 > [!word] Zum Schluss möchte ich sagen, dass…
@@ -390,7 +390,7 @@ estimatedMinutes: 40
 > audio: Meiner Meinung nach ist das keine gute Idee.
 > explain: після Meiner Meinung nach дієслово ist стоїть на 2-му місці, перед das.
 
-> [!listen] Послухай діалог. Що думає В про Homeoffice?
+> [!listen] Послухай діалог. Що думає B про Homeoffice?
 > level: B1 · type: answer · id: de-b1-redemittel-l03
 > audio: A: Was hältst du eigentlich vom Homeoffice?
 > audio: B: Einerseits spare ich viel Zeit, weil ich nicht zur Arbeit fahren muss. Andererseits fehlt mir der Kontakt zu den Kollegen.
@@ -417,7 +417,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-Оформлюй думку інтонацією: у звичайному реченні голос падає ↘ в кінці. Перед *aber* зазвичай коротка пауза й голос тримається, а питання «так / ні» йде вгору ↗. Звуки: *ei* в *Meinung, einen, Seite* — [aɪ̯] («ай»); *-ng* в *Meinung* — один звук [ŋ], без «г»; *dass* має короткий голосний, на відміну від *das* — на слух вони однакові, їх розрізняють за позицією.
+Оформлюй думку інтонацією: у звичайному реченні голос падає ↘ в кінці. Перед *aber* зазвичай коротка пауза й голос тримається, а питання «так / ні» йде вгору ↗. Звуки: *ei* в *Meinung, einen, Seite* — [aɪ̯] («ай»); *-ng* в *Meinung* — один звук [ŋ], без «г»; *das* і *dass* звучать однаково [das]; їх розрізняють за позицією в реченні.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-redemittel-s01
@@ -437,13 +437,13 @@ estimatedMinutes: 40
 > level: B1 · id: de-b1-redemittel-s03
 > text: Das sehe ich anders.
 > ipa: /das ˈzeːə ɪç ˈandɐs/
-> tip: s перед голосним у sehe — дзвінке [z]. anders: наголос на an-, кінцеве -ers — коротке «ерс».
+> tip: s перед голосним у sehe — дзвінке [z]. anders: наголос на an-, кінцеве -ers ≈ «ас».
 > uk: Я бачу це інакше.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-redemittel-s04
 > text: Ich bin davon überzeugt, dass es funktioniert.
-> ipa: /ɪç bɪn daˈfɔn yːbɐˈtsɔʏ̯kt das ɛs fʊŋkˈtsi̯oːnɪʁt/
+> ipa: /ɪç bɪn daˈfɔn yːbɐˈtsɔʏ̯kt das ɛs fʊŋktsi̯oˈniːɐ̯t/
 > tip: überzeugt — наголос на -zeugt; eu = [ɔʏ̯] («ой»). funktionieren: наголос на -ie-, ti = [tsi̯]. Кінцеве -t оглушене.
 > uk: Я переконаний, що це працює.
 
@@ -453,13 +453,13 @@ estimatedMinutes: 40
 > Українською порядок вільний, а німецькою після *dass* дієслово йде в кінець: *Ich finde, dass das eine gute Idee **ist**.* Помилка: ~~Ich finde, dass das ist eine gute Idee~~. Без *dass* порядок звичайний: *Ich finde, das **ist** eine gute Idee.* Проте після *Meiner Meinung nach* дієслово стоїть одразу: *Meiner Meinung nach **ist** das falsch.*
 
 > [!pitfall] ~~Ich stimme dich zu~~ — Dativ
-> Дієслово *zustimmen* вимагає Dativ: *Ich stimme **dir** zu.* Те саме з *recht haben*: *Da hast du recht.* А *überzeugen* — Akk: *Das überzeugt **mich** nicht.* Такі керування вчи разом зі зворотом.
+> Дієслово *zustimmen* вимагає Dativ: *Ich stimme **dir** zu.* Зворот *recht haben* без Dativ: *Da hast du recht.* А *überzeugen* — Akk: *Das überzeugt **mich** nicht.* Такі керування вчи разом зі зворотом.
 
 > [!pitfall] Ich glaube / Ich denke — не про віру й не про «думати над»
-> *Ich glaube, dass …* означає «я вважаю», і нічого з релігією не повʼязано. А «вірити в когось» — *glauben an + Akk*. «Думати про когось» — *denken an + Akk*: *Ich denke an dich.* Для «вважаю» після *denke* стоїть *dass*: *Ich denke, dass …*
+> *Ich glaube, dass …* означає «я вважаю», і нічого з релігією не повʼязано. А «вірити в когось» — *glauben an + Akk*. «Думати про когось» (згадувати) — *denken an + Akk*: *Ich denke an dich.* «Мати думку про когось» — *denken über + Akk*: *Was denkst du über ihn?* Для «вважаю» після *denke* стоїть *dass*: *Ich denke, dass …*
 
 > [!pitfall] Різкість: Quatsch, Unsinn, Du hast unrecht
-> Прямі німецькі вислови звучать ще різкіше, ніж їхні українські відповідники. *Das ist Quatsch* — невимушене й зневажливе, на роботі його краще не вживати. Для чемної незгоди: *Das sehe ich anders, weil …* або *Da bin ich nicht sicher.*
+> *Das ist Quatsch* — невимушене й зневажливе, на роботі його краще не вживати. Для чемної незгоди: *Das sehe ich anders, weil …* або *Da bin ich nicht sicher.*
 
 ## Ситуація: призначити зустріч у команді
 
@@ -491,7 +491,7 @@ estimatedMinutes: 40
 ## Landeskunde: Diskutieren in Deutschland
 
 > [!example] Meinung sagen und diskutieren
-> Diskutieren gehört in Deutschland zum Alltag. Schon in der Schule lernen die Schüler, ihre Meinung zu begründen: Im Deutschunterricht schreiben sie eine Erörterung, in vielen Fächern halten sie ein Referat und diskutieren danach in der Klasse. Auch am Arbeitsplatz sagt man oft offen, was man denkt. Wer in einer Besprechung widerspricht, gilt meistens nicht als unhöflich, wenn er sachlich bleibt. Wichtig ist, dass man Gründe nennt. „Ich sehe das anders, weil …" klingt besser als nur „Das ist falsch". Viele Menschen mögen es außerdem, wenn man zuerst etwas Positives sagt: „Die Idee ist interessant, aber …". Die Freiheit, seine Meinung zu sagen, steht in Artikel 5 des Grundgesetzes. Das heißt aber nicht, dass man alles sagen darf, denn es gibt Grenzen, zum Beispiel bei Beleidigungen. In einer Diskussion hört man deshalb aufmerksam zu und lässt den anderen ausreden. Wer aus einem anderen Land kommt, wundert sich manchmal über die Direktheit. Sie ist aber oft nicht persönlich gemeint, sondern sachlich.
+> Diskutieren gehört in Deutschland zum Alltag. Schon in der Schule lernen die Schüler, ihre Meinung zu begründen: Im Deutschunterricht schreiben sie eine Erörterung, in vielen Fächern halten sie ein Referat und diskutieren danach in der Klasse. Auch am Arbeitsplatz sagt man oft offen, was man denkt. Wer in einer Besprechung widerspricht, gilt meistens nicht als unhöflich, wenn er sachlich bleibt. Wichtig ist, dass man Gründe nennt. „Ich sehe das anders, weil …“ klingt besser als nur „Das ist falsch“. Viele Menschen mögen es außerdem, wenn man zuerst etwas Positives sagt: „Die Idee ist interessant, aber …“. Die Freiheit, seine Meinung zu sagen, steht in Artikel 5 des Grundgesetzes. Das heißt aber nicht, dass man alles sagen darf, denn es gibt Grenzen, zum Beispiel bei Beleidigungen. In einer Diskussion hört man deshalb aufmerksam zu und lässt den anderen ausreden. Wer aus einem anderen Land kommt, wundert sich manchmal über die Direktheit. Sie ist aber oft nicht persönlich gemeint, sondern sachlich.
 
 > [!quiz] Nach dem Text: Wo steht die Meinungsfreiheit?
 > level: B1 · type: single · id: de-b1-redemittel-q02
@@ -586,7 +586,7 @@ estimatedMinutes: 40
 > ```text fill
 > [[Wie]] meinst du das?
 > [[Meiner]] Meinung nach ist das richtig.
-> Da bin ich anderer [[Meinung]].
+> Da bin ich anderer [[Meinung|Ansicht]].
 > Das [[kommt]] darauf an.
 > ```
 >
@@ -628,7 +628,7 @@ estimatedMinutes: 40
 > level: B1 · type: single · id: de-b1-redemittel-q14
 > - [x] Я думаю, що він прийде.
 > - [ ] Я вірю в нього.
-> - [ ] Я вірю в Бога, і він приходить.
+> - [ ] Я вірю, що він прийшов.
 > - [ ] Я не вірю, що він прийде.
 >
 > **Пояснення:** *glauben, dass* — «вважати, думати». «Вірити в когось» — *glauben an + Akk*.

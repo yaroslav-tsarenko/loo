@@ -168,57 +168,29 @@ estimatedMinutes: 45
 > example: Die **Demokratie** war in Deutschland noch jung. — Демократія в Німеччині була ще молодою.
 > note: наголос на останньому складі, -ie = [iː]. Прикметник *demokratisch*, особа *der Demokrat*.
 
-> [!word] die Nationalversammlung
-> ipa: /natsi̯oˈnaːlfɛɐ̯ˌzamlʊŋ/ · pos: noun · level: B2 · id: dl-b1-09-w03
-> uk: Національні збори
-> forms: die Nationalversammlungen
-> example: Die **Nationalversammlung** tagte 1919 in Weimar. — Національні збори засідали 1919 року у Веймарі.
-> note: *versammeln* — збирати; *sich versammeln* — збиратися. У 1848 році Національні збори були у Франкфурті (*Paulskirche*, B1-06).
-
-> [!word] die Verfassung
-> ipa: /fɛɐ̯ˈfasʊŋ/ · pos: noun · level: B1 · id: dl-b1-09-w04
-> uk: конституція
-> forms: die Verfassungen
-> example: Die **Verfassung** von 1919 garantierte viele Grundrechte. — Конституція 1919 року гарантувала багато основних прав.
-> note: конституція ФРН має власну назву — *das Grundgesetz* (B1-12). *Die Verfassung* також «стан, самопочуття»: *in guter Verfassung sein*.
-
 > [!word] das Frauenwahlrecht
-> ipa: /ˈfʁaʊ̯ənˌvaːlʁɛçt/ · pos: noun · level: B2 · id: dl-b1-09-w05
+> ipa: /ˈfʁaʊ̯ənˌvaːlʁɛçt/ · pos: noun · level: B2 · id: dl-b1-09-w03
 > uk: виборче право жінок
 > forms: — (без множини)
 > example: Das **Frauenwahlrecht** wurde im November 1918 eingeführt. — Виборче право жінок запровадили у листопаді 1918 року.
 > note: *das Wahlrecht* — виборче право; *aktives Wahlrecht* — право обирати, *passives* — право бути обраним.
 
-> [!word] der Reichstag
-> ipa: /ˈʁaɪ̯çstaːk/ · pos: noun · level: B1 · id: dl-b1-09-w06
-> uk: Рейхстаг (парламент 1871–1945; будівля в Берліні)
-> forms: die Reichstage (про історичні скликання)
-> example: Der **Reichstag** wurde alle vier Jahre gewählt. — Рейхстаг обирали раз на чотири роки.
-> note: сьогодні парламент ФРН — *der Bundestag*; у будівлі Рейхстагу він працює від 1999 року. *Der Reichstag* — і парламент, і будівля в Берліні.
-
 > [!word] der Reichspräsident
-> ipa: /ˈʁaɪ̯çspʁɛziˌdɛnt/ · pos: noun · level: B2 · id: dl-b1-09-w07
+> ipa: /ˈʁaɪ̯çspʁɛziˌdɛnt/ · pos: noun · level: B2 · id: dl-b1-09-w04
 > uk: президент імперії (Веймарська республіка)
 > forms: die Reichspräsidenten
 > example: Der **Reichspräsident** wurde direkt vom Volk gewählt. — Президента імперії обирав безпосередньо народ.
 > note: сьогодні — *der Bundespräsident*; його повноваження переважно представницькі, на відміну від Веймара.
 
-> [!word] der Reichskanzler
-> ipa: /ˈʁaɪ̯çskantslɐ/ · pos: noun · level: B2 · id: dl-b1-09-w08
-> uk: рейхсканцлер, імперський канцлер
-> forms: die Reichskanzler
-> example: Hitler wurde am 30. Januar 1933 **Reichskanzler**. — 30 січня 1933 року Hitler став рейхсканцлером.
-> note: сьогодні — *der Bundeskanzler* / *die Bundeskanzlerin*.
-
 > [!word] der Putsch
-> ipa: /pʊtʃ/ · pos: noun · level: B2 · id: dl-b1-09-w09
+> ipa: /pʊtʃ/ · pos: noun · level: B2 · id: dl-b1-09-w05
 > uk: путч, спроба державного перевороту
 > forms: die Putsche
 > example: Der **Putsch** in München scheiterte. — Путч у Мюнхені зазнав невдачі.
 > note: слово з швейцарської німецької (1839); дієслово *putschen* («підняти путч»), особа *der Putschist*. Приклади: *Kapp-Putsch* 1920, *Hitler-Putsch* 1923.
 
 > [!word] die Dolchstoßlegende
-> ipa: /ˈdɔlçʃtoːsleˌɡɛndə/ · pos: noun · level: C1 · id: dl-b1-09-w10
+> ipa: /ˈdɔlçʃtoːsleˌɡɛndə/ · pos: noun · level: C1 · id: dl-b1-09-w06
 > uk: легенда про «удар у спину»
 > forms: — (як назва, без множини)
 > example: Die **Dolchstoßlegende** war eine politische Lüge. — Легенда про «удар у спину» була політичною брехнею.
@@ -227,35 +199,35 @@ estimatedMinutes: 45
 ### Криза 1923 року
 
 > [!word] die Ruhrbesetzung
-> ipa: /ˈʁuːɐ̯bəˌzɛtsʊŋ/ · pos: noun · level: C1 · id: dl-b1-09-w11
+> ipa: /ˈʁuːɐ̯bəˌzɛtsʊŋ/ · pos: noun · level: C1 · id: dl-b1-09-w07
 > uk: окупація Рура (1923)
 > forms: — (як назва, без множини)
 > example: Nach der **Ruhrbesetzung** begann der passive Widerstand. — Після окупації Рура почався пасивний опір.
 > note: *besetzen* — окупувати, займати; *die Besetzung*. *Der passive Widerstand* — «пасивний опір».
 
 > [!word] die Inflation
-> ipa: /ɪnflaˈtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-09-w12
+> ipa: /ɪnflaˈtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-09-w08
 > uk: інфляція
 > forms: die Inflationen
 > example: Die **Inflation** machte das Geld wertlos. — Інфляція зробила гроші нікчемними.
 > note: наголос на -on: [ɪnflaˈtsi̯oːn]. Протилежне — *die Deflation*.
 
 > [!word] die Hyperinflation
-> ipa: /ˈhyːpɐʔɪnflaˌtsi̯oːn/ · pos: noun · level: C1 · id: dl-b1-09-w13
+> ipa: /ˈhyːpɐʔɪnflaˌtsi̯oːn/ · pos: noun · level: C1 · id: dl-b1-09-w09
 > uk: гіперінфляція
 > forms: die Hyperinflationen (рідко)
 > example: Die **Hyperinflation** von 1923 vernichtete die Ersparnisse. — Гіперінфляція 1923 року знищила заощадження.
 > note: приставка *Hyper-* і складове слово: між Hyper- і Inflation — гортанна змичка [ʔ].
 
 > [!word] die Rentenmark
-> ipa: /ˈʁɛntn̩maʁk/ · pos: noun · level: C1 · id: dl-b1-09-w14
+> ipa: /ˈʁɛntn̩maʁk/ · pos: noun · level: C1 · id: dl-b1-09-w10
 > uk: ренточна марка (валюта листопада 1923 – 1924)
 > forms: — (як назва, без множини)
 > example: Die **Rentenmark** beendete die Hyperinflation. — Ренточна марка поклала край гіперінфляції.
 > note: ~~Rente~~ тут не «пенсія»: *Rentenbank* — банк, капітал якого забезпечили іпотекою землі й промисловості (від давнього значення *Rente* — «регулярний дохід»). 30 серпня 1924 року її замінила *die Reichsmark*.
 
 > [!word] die Währungsreform
-> ipa: /ˈvɛːʁʊŋsʁeˌfɔʁm/ · pos: noun · level: B2 · id: dl-b1-09-w15
+> ipa: /ˈvɛːʁʊŋsʁeˌfɔʁm/ · pos: noun · level: B2 · id: dl-b1-09-w11
 > uk: валютна реформа
 > forms: die Währungsreformen
 > example: Die **Währungsreform** von 1923 stoppte die Inflation. — Валютна реформа 1923 року зупинила інфляцію.
@@ -264,49 +236,49 @@ estimatedMinutes: 45
 ### Двадцяті й криза
 
 > [!word] die Goldenen Zwanziger
-> ipa: /diː ˈɡɔldənən ˈtsvantsɪɡɐ/ · pos: phrase · level: B2 · id: dl-b1-09-w16
+> ipa: /diː ˈɡɔldənən ˈtsvantsɪɡɐ/ · pos: phrase · level: B2 · id: dl-b1-09-w12
 > uk: «золоті двадцяті» (1924–1929)
 > forms: — (тільки множина)
 > example: In den **Goldenen Zwanzigern** war Berlin eine Weltstadt. — У «золоті двадцяті» Берлін був світовим містом.
 > note: прикметник після артикля змінюється слабко (*-en*): *die Goldenen Zwanziger*, *in den Goldenen Zwanzigern*. Те саме — *die Zwanzigerjahre*.
 
 > [!word] das Bauhaus
-> ipa: /ˈbaʊ̯haʊ̯s/ · pos: noun · level: B2 · id: dl-b1-09-w17
+> ipa: /ˈbaʊ̯haʊ̯s/ · pos: noun · level: B2 · id: dl-b1-09-w13
 > uk: Баухаус (школа архітектури й дизайну, 1919–1933)
 > forms: — (як назва, без множини)
 > example: Das **Bauhaus** hat modernes Design geprägt. — Баухаус визначив сучасний дизайн.
 > note: *bauen* — будувати + *das Haus*. Заснував Walter Gropius. Загальне *das Bauhaus* — і школа, і стиль.
 
 > [!word] die Neue Frau
-> ipa: /diː ˈnɔʏ̯ə ˈfʁaʊ̯/ · pos: phrase · level: B2 · id: dl-b1-09-w18
+> ipa: /diː ˈnɔʏ̯ə ˈfʁaʊ̯/ · pos: phrase · level: B2 · id: dl-b1-09-w14
 > uk: «нова жінка» (тип самостійної жінки 1920-х)
 > forms: die Neuen Frauen
 > example: Die **Neue Frau** wollte einen Beruf und ein eigenes Leben. — «Нова жінка» хотіла професії й власного життя.
 > note: *neu* з великої літери, бо це усталена назва. *Der Bubikopf* — коротка жіноча стрижка.
 
 > [!word] die Weltwirtschaftskrise
-> ipa: /ˈvɛltvɪʁtʃaftsˌkʁiːzə/ · pos: noun · level: B2 · id: dl-b1-09-w19
+> ipa: /ˈvɛltvɪʁtʃaftsˌkʁiːzə/ · pos: noun · level: B2 · id: dl-b1-09-w15
 > uk: світова економічна криза (з 1929)
 > forms: — (як назва, без множини)
 > example: Die **Weltwirtschaftskrise** begann 1929 in den USA. — Світова економічна криза почалася 1929 року в США.
 > note: *Welt* + *Wirtschaft* + *Krise*; *die Krise* [ˈkʁiːzə] — z перед голосним = [z]. Українською кажуть також «Велика депресія».
 
 > [!word] die Arbeitslosigkeit
-> ipa: /ˈaʁbaɪ̯tsloːzɪçkaɪ̯t/ · pos: noun · level: B1 · id: dl-b1-09-w20
+> ipa: /ˈaʁbaɪ̯tsloːzɪçkaɪ̯t/ · pos: noun · level: B1 · id: dl-b1-09-w16
 > uk: безробіття
 > forms: — (без множини)
 > example: Die **Arbeitslosigkeit** stieg nach 1929 stark. — Безробіття після 1929 року сильно зросло.
 > note: *arbeitslos* — безробітний; *der Arbeitslose* — безробітний (як іменник). Слова на *-keit* жіночого роду.
 
 > [!word] die Notverordnung
-> ipa: /ˈnoːtfɛɐ̯ˌʔɔʁdnʊŋ/ · pos: noun · level: C1 · id: dl-b1-09-w21
+> ipa: /ˈnoːtfɛɐ̯ˌʔɔʁdnʊŋ/ · pos: noun · level: C1 · id: dl-b1-09-w17
 > uk: надзвичайний указ (розпорядження президента за статтею 48)
 > forms: die Notverordnungen
 > example: Brüning regierte mit **Notverordnungen**. — Brüning правив за допомогою надзвичайних указів.
 > note: *die Not* — скрута; *die Verordnung* — розпорядження. Президент ФРН таких повноважень сьогодні не має.
 
 > [!word] die Koalition
-> ipa: /koaliˈtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-09-w22
+> ipa: /koaliˈtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-09-w18
 > uk: коаліція
 > forms: die Koalitionen
 > example: Viele **Koalitionen** hielten nur kurz. — Багато коаліцій тримались недовго.
@@ -392,7 +364,7 @@ estimatedMinutes: 45
 ## Landeskunde-Text
 
 > [!example] Das Jahr 1923
-> Im Jahr 1923 verlieren die Menschen in Deutschland das Vertrauen in ihr Geld. Im Januar besetzen französische und belgische Soldaten das Ruhrgebiet, weil Deutschland zu wenig Reparationen liefert. Die Regierung ruft zum passiven Widerstand auf und bezahlt die Arbeiter weiter. Dafür druckt sie immer mehr Papiergeld. Die Preise steigen jeden Tag. Im Oktober kostet ein Dollar schon 40 Milliarden Mark. Die Menschen kaufen sofort ein, denn das Geld verliert jeden Tag an Wert. Wer Ersparnisse hat, verliert sie.
+> Im Jahr 1923 verlieren die Menschen in Deutschland das Vertrauen in ihr Geld. Im Januar besetzen französische und belgische Soldaten das Ruhrgebiet, weil Deutschland zu wenig Reparationen liefert. Die Regierung ruft zum passiven Widerstand auf und bezahlt die Arbeiter weiter. Dafür druckt sie immer mehr Papiergeld. Die Preise steigen jeden Tag. Im Oktober kostet ein Dollar schon 40 Milliarden Mark. Die Menschen kaufen sofort ein, denn das Geld verliert jeden Tag an Wert. Wer Ersparnisse hat, verliert sie. Auch Kriegsanleihen, die lange als sicher gelten, sind plötzlich nichts mehr wert. Viele Familien verlieren das Vertrauen in den Staat.
 >
 > Am 15. November 1923 kommt eine neue Währung: die Rentenmark. Eine Rentenmark ist so viel wert wie eine Billion Papiermark. Danach bleiben die Preise stabil. Viele Deutsche vergessen diese Zeit nicht.
 >

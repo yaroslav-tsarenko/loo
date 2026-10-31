@@ -91,7 +91,7 @@ estimatedMinutes: 45
 | Teil 3 | розмова | один раз | 7 завдань Richtig / Falsch |
 | Teil 4 | дискусія | двічі | 8 завдань: «Wer sagt was?», тобто приписати твердження одній із осіб |
 
-Перед кожною частиною ти маєш час, щоб прочитати завдання (на моделі: 10 секунд на приклад, 60 секунд перед Teil 2 і Teil 3). Словники й телефони заборонені. Іспит telc має інший формат: див. тему [[Deutsch - B1 - 21. Аудіювання — інтервʼю й розмови носіїв]].
+Перед кожною частиною ти маєш час, щоб прочитати завдання (на моделі: 10 секунд на приклад, 60 секунд перед Teil 2, Teil 3 і Teil 4). Словники й телефони заборонені. Іспит telc має інший формат: див. тему [[Deutsch - B1 - 21. Аудіювання — інтервʼю й розмови носіїв]].
 
 ## Приклади
 
@@ -181,7 +181,7 @@ estimatedMinutes: 45
 > ipa: /ˈaɪ̯lˌmɛldʊŋ/ · pos: noun · level: B2 · id: de-b1-hoeren-nachrichten-w11
 > uk: термінова новина
 > forms: die Eilmeldungen
-> example: Eine **Eilmeldung** unterbricht die Sendung. — Термінова новина переривала передачу.
+> example: Eine **Eilmeldung** unterbricht die Sendung. — Термінова новина перериває передачу.
 > note: Eile — поспіх; Meldung — повідомлення. Push-Meldung — сповіщення на смартфоні.
 
 > [!word] der Korrespondent
@@ -202,7 +202,7 @@ estimatedMinutes: 45
 > ipa: /laɪ̯f/ · pos: adv · level: B1 · id: de-b1-hoeren-nachrichten-w14
 > uk: наживо, в прямому ефірі
 > example: Das Konzert wird **live** im Radio übertragen. — Концерт транслюють по радіо наживо.
-> note: запозичення з англійської: v читається як [f], не як у німецьких словах. Коротко: «ein Live-Konzert».
+> note: запозичення з англійської: англійською [laɪv], але в німецькій кінцевий звук оглушується: [laɪ̯f]. Коротко: «ein Live-Konzert».
 
 > [!word] der Hörfunk
 > ipa: /ˈhøːɐ̯fʊŋk/ · pos: noun · level: B2 · id: de-b1-hoeren-nachrichten-w15
@@ -371,15 +371,16 @@ estimatedMinutes: 45
 
 > [!listen] Teil 4: Дискусія. Хто увімкнув сповіщення про новини?
 > level: B1 · type: answer · id: de-b1-hoeren-nachrichten-l18
+> audio: Moderator: Heute diskutieren zwei Gäste über Nachrichten.
 > audio: A: Ich finde, Nachrichten sollte man nur einmal am Tag lesen. Sonst wird man nervös.
 > audio: B: Das sehe ich anders. Ich möchte immer informiert sein, deshalb habe ich Push-Meldungen eingeschaltet.
 > audio: A: Aber das stört doch bei der Arbeit.
 > audio: B: Nein, ich lese sie in der Pause.
+> - [ ] Moderator
 > - [ ] A
 > - [x] B
-> - [ ] обидва
 >
-> **Пояснення:** у Teil 4 потрібно приписати думку тому, хто її висловив. *Ich habe Push-Meldungen eingeschaltet* каже B. A — прихильник читання раз на день.
+> **Пояснення:** у Teil 4 потрібно приписати думку тому, хто її висловив. *Ich habe Push-Meldungen eingeschaltet* каже B. A — прихильник читання раз на день, а ведучий лише представляє гостей.
 
 ## Вимова
 
@@ -485,7 +486,7 @@ estimatedMinutes: 45
 > **Пояснення:** *aktuell* — «поточний, останній», а не «актуальний, важливий».
 
 > [!quiz] Заповни пропуски
-> level: B1 · type: fill · bank: ab, zu · id: de-b1-hoeren-nachrichten-q09
+> level: B1 · type: fill · bank: ab, auf · id: de-b1-hoeren-nachrichten-q09
 >
 > ```text fill
 > Der Moderator [[kündigt]] die nächste Sendung [[an]].
@@ -498,7 +499,7 @@ estimatedMinutes: 45
 > level: B1 · type: fill · bank: weil, obwohl · id: de-b1-hoeren-nachrichten-q10
 >
 > ```text fill
-> Es gab einen Unfall. [[Deshalb]] ist die Straße gesperrt.
+> Es gab einen Unfall, [[deshalb]] ist die Straße gesperrt.
 > Die Polizei bittet um Hilfe, [[denn]] es gibt noch keine Zeugen.
 > ```
 >

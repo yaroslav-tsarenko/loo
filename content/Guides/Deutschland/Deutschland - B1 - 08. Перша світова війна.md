@@ -191,29 +191,22 @@ estimatedMinutes: 45
 > example: Die **Mobilmachung** begann am 1. August 1914. — Мобілізація почалася 1 серпня 1914 року.
 > note: дієслово *mobilmachen* (macht mobil). Також *die Mobilisierung* — у загальному значенні («мобілізувати ресурси»).
 
-> [!word] das Bündnis
-> ipa: /ˈbʏntnɪs/ · pos: noun · level: B2 · id: dl-b1-08-w06
-> uk: союз, альянс
-> forms: die Bündnisse
-> example: Das **Bündnis** zog viele Staaten in den Krieg. — Союз утягнув у війну багато держав.
-> note: пов'язане зі *sich verbünden* («об'єднатися в союз») та *der Verbündete* («союзник»). *Das Bündnis* — і політичний союз, і блок: *das Bündnis der Mittelmächte*.
-
 > [!word] die Mittelmächte
-> ipa: /ˈmɪtl̩ˌmɛçtə/ · pos: noun · level: C1 · id: dl-b1-08-w07
+> ipa: /ˈmɪtl̩ˌmɛçtə/ · pos: noun · level: C1 · id: dl-b1-08-w06
 > uk: Центральні держави (Німеччина, Австро-Угорщина та їхні союзники)
 > forms: — (тільки множина)
 > example: Die **Mittelmächte** schlossen Frieden mit der Ukraine. — Центральні держави уклали мир з Україною.
 > note: *die Macht* → *die Mächte*; *die Mittelmächte* — «держави посередині» Європи. Проти них — *die Entente*.
 
 > [!word] die Entente
-> ipa: /ãˈtãːt/ · pos: noun · level: C1 · id: dl-b1-08-w08
+> ipa: /ãˈtãːt/ · pos: noun · level: C1 · id: dl-b1-08-w07
 > uk: Антанта (Франція, Росія, Велика Британія та союзники)
 > forms: — (без множини)
 > example: Die **Entente** bestand zuerst aus Frankreich, Russland und Großbritannien. — Спершу Антанту складали Франція, Росія й Велика Британія.
 > note: від фр. *entente cordiale* «сердечна згода»; вимова французька, [ãˈtãːt].
 
 > [!word] der Burgfrieden
-> ipa: /ˈbʊʁkfʁiːdn̩/ · pos: noun · level: C1 · id: dl-b1-08-w09
+> ipa: /ˈbʊʁkfʁiːdn̩/ · pos: noun · level: C1 · id: dl-b1-08-w08
 > uk: «фортечний мир» — внутрішньополітичне перемир'я 1914 року
 > forms: — (без множини)
 > example: Im August 1914 begann der **Burgfrieden**. — У серпні 1914 року почався «Burgfrieden».
@@ -222,35 +215,35 @@ estimatedMinutes: 45
 ### Фронт і тил
 
 > [!word] die Westfront
-> ipa: /ˈvɛstfʁɔnt/ · pos: noun · level: B2 · id: dl-b1-08-w10
+> ipa: /ˈvɛstfʁɔnt/ · pos: noun · level: B2 · id: dl-b1-08-w09
 > uk: Західний фронт
 > forms: — (без множини)
 > example: An der **Westfront** bewegte sich die Linie kaum. — На Західному фронті лінія майже не рухалася.
 > note: аналогічно *die Ostfront* («Східний фронт»); *die Front* — «фронт, лінія бойових дій».
 
 > [!word] der Schützengraben
-> ipa: /ˈʃʏtsn̩ˌɡʁaːbn̩/ · pos: noun · level: C1 · id: dl-b1-08-w11
+> ipa: /ˈʃʏtsn̩ˌɡʁaːbn̩/ · pos: noun · level: C1 · id: dl-b1-08-w10
 > uk: окоп
 > forms: die Schützengräben
 > example: Im **Schützengraben** war es nass und kalt. — В окопі було мокро й холодно.
 > note: *der Schütze* — стрілець, *der Graben* — рів; множина з умлаутом: *die Gräben*.
 
 > [!word] der Stellungskrieg
-> ipa: /ˈʃtɛlʊŋsˌkʁiːk/ · pos: noun · level: C1 · id: dl-b1-08-w12
+> ipa: /ˈʃtɛlʊŋsˌkʁiːk/ · pos: noun · level: C1 · id: dl-b1-08-w11
 > uk: позиційна війна
 > forms: die Stellungskriege (рідко)
 > example: Der **Stellungskrieg** kostete Millionen Menschenleben. — Позиційна війна забрала мільйони життів.
 > note: *die Stellung* — позиція; протилежність — *der Bewegungskrieg* («маневрена війна»). Складається зі *Stellung* + сполучного *-s-* + *Krieg*.
 
 > [!word] das Giftgas
-> ipa: /ˈɡɪftɡaːs/ · pos: noun · level: B2 · id: dl-b1-08-w13
+> ipa: /ˈɡɪftɡaːs/ · pos: noun · level: B2 · id: dl-b1-08-w12
 > uk: отруйний газ
 > forms: die Giftgase
 > example: Im April 1915 setzte man bei Ypern **Giftgas** ein. — У квітні 1915 року біля Іпра застосували отруйний газ.
 > note: *das Gift* — отрута (не плутати з англ. *gift*); *das Gas* [ɡaːs]. Хлор — *das Chlor* [kloːɐ̯].
 
 > [!word] die Seeblockade
-> ipa: /ˈzeːblɔˌkaːdə/ · pos: noun · level: C1 · id: dl-b1-08-w14
+> ipa: /ˈzeːblɔˌkaːdə/ · pos: noun · level: C1 · id: dl-b1-08-w13
 > uk: морська блокада
 > forms: die Seeblockaden
 > example: Die britische **Seeblockade** verschärfte den Hunger. — Британська морська блокада посилила голод.
@@ -258,57 +251,50 @@ estimatedMinutes: 45
 
 ### Кінець війни
 
-> [!word] die Niederlage
-> ipa: /ˈniːdɐˌlaːɡə/ · pos: noun · level: B1 · id: dl-b1-08-w15
-> uk: поразка
-> forms: die Niederlagen
-> example: Im Herbst 1918 war die **Niederlage** nicht mehr zu verhindern. — Восени 1918 року поразки було вже не уникнути.
-> note: протилежне — *der Sieg* (die Siege). Не плутати з *die Kapitulation*: у 1918 її не було.
-
 > [!word] der Waffenstillstand
-> ipa: /ˈvafn̩ʃtɪlʃtant/ · pos: noun · level: B2 · id: dl-b1-08-w16
+> ipa: /ˈvafn̩ʃtɪlʃtant/ · pos: noun · level: B2 · id: dl-b1-08-w14
 > uk: перемир'я
 > forms: die Waffenstillstände
 > example: Der **Waffenstillstand** trat am 11. November 1918 in Kraft. — Перемир'я набуло чинності 11 листопада 1918 року.
 > note: *die Waffe* + *der Stillstand* (зупинка). Це ще не мир: мирний договір — *der Friedensvertrag*.
 
 > [!word] die Abdankung
-> ipa: /ˈapdaŋkʊŋ/ · pos: noun · level: C1 · id: dl-b1-08-w17
+> ipa: /ˈapdaŋkʊŋ/ · pos: noun · level: C1 · id: dl-b1-08-w15
 > uk: зречення престолу (монарха)
 > forms: die Abdankungen
 > example: Die **Abdankung** des Kaisers wurde am 9. November bekannt. — Про зречення кайзера оголосили 9 листопада.
 > note: дієслово *abdanken* (dankt ab · dankte ab · hat abgedankt). Про міністра чи президента кажуть *der Rücktritt*, а *die Abdankung* — про монарха.
 
 > [!word] die Novemberrevolution
-> ipa: /noˈvɛmbɐʁevoluˌtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-08-w18
+> ipa: /noˈvɛmbɐʁevoluˌtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-08-w16
 > uk: Листопадова революція 1918 року
 > forms: — (як назва, без множини)
 > example: Die **Novemberrevolution** begann mit dem Aufstand der Matrosen. — Листопадова революція почалася з повстання матросів.
 > note: також *die Revolution 1918/19*. З неї постала Веймарська республіка.
 
 > [!word] der Friedensvertrag
-> ipa: /ˈfʁiːdn̩sfɛɐ̯ˌtʁaːk/ · pos: noun · level: B2 · id: dl-b1-08-w19
+> ipa: /ˈfʁiːdn̩sfɛɐ̯ˌtʁaːk/ · pos: noun · level: B2 · id: dl-b1-08-w17
 > uk: мирний договір
 > forms: die Friedensverträge
 > example: Der **Friedensvertrag** wurde im Spiegelsaal unterschrieben. — Мирний договір підписали в Дзеркальній залі.
 > note: *der Friede(n)* — мир; у складних словах *Friedens-*. Не плутати з *der Waffenstillstand*.
 
 > [!word] die Reparationen
-> ipa: /ʁepaʁaˈtsi̯oːnən/ · pos: noun · level: C1 · id: dl-b1-08-w20
+> ipa: /ʁepaʁaˈtsi̯oːnən/ · pos: noun · level: C1 · id: dl-b1-08-w18
 > uk: репарації
 > forms: — (тільки множина)
 > example: Deutschland musste **Reparationen** zahlen. — Німеччина мусила платити репарації.
 > note: в однині *die Reparation* — «відшкодування», але в політиці майже завжди кажуть у множині.
 
 > [!word] die Kriegsschuld
-> ipa: /ˈkʁiːksʃʊlt/ · pos: noun · level: C1 · id: dl-b1-08-w21
+> ipa: /ˈkʁiːksʃʊlt/ · pos: noun · level: C1 · id: dl-b1-08-w19
 > uk: відповідальність за війну, «вина за війну»
 > forms: — (без множини)
 > example: Über die **Kriegsschuld** streiten Historiker bis heute. — Історики сперечаються про відповідальність за війну досі.
 > note: у договорі — *der Kriegsschuldartikel* (стаття 231). Слово *die Schuld* — «вина, борг»: *die Schulden* — «борги».
 
 > [!word] der Brotfrieden
-> ipa: /ˈbʁoːtfʁiːdn̩/ · pos: noun · level: C1 · id: dl-b1-08-w22
+> ipa: /ˈbʁoːtfʁiːdn̩/ · pos: noun · level: C1 · id: dl-b1-08-w20
 > uk: «хлібний мир» (договір УНР із Центральними державами, 9.02.1918)
 > forms: — (без множини)
 > example: Der **Brotfrieden** brachte der Ukraine die Anerkennung. — «Хлібний мир» приніс Україні визнання.

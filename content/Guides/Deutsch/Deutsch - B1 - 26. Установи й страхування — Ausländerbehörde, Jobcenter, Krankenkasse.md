@@ -63,7 +63,7 @@ estimatedMinutes: 45
 >   - { focus: u, note: "Дізнайся, які документи потрібні: Welche Unterlagen muss ich mitbringen? Паспорт (Reisepass), біометричне фото, Mietvertrag тощо — залежить від справи." }
 >   - { focus: a, note: "Заяву подаєш (stellst) на формулярі (Formular): Ich möchte einen Antrag auf ... stellen." }
 >   - { focus: b, note: "Рішення приходить письмово — це Bescheid: Antrag bewilligt або abgelehnt." }
->   - { focus: w, note: "Якщо не згоден — Widerspruch. Строк зазвичай один місяць після того, як ти отримав Bescheid (§ 70 VwGO). Строк — у кінці листа, у Rechtsbehelfsbelehrung." }
+>   - { focus: w, note: "Якщо не згоден — залежно від установи це Widerspruch (наприклад, § 70 VwGO, у Jobcenter й Krankenkasse — § 84 SGG), Einspruch (Familienkasse) або одразу Klage (у деяких землях Widerspruch скасовано). Що саме й до якої дати — у Rechtsbehelfsbelehrung; строк зазвичай один місяць." }
 > ```
 > Кольори тут чергують етапи; значення — у підписах.
 
@@ -76,7 +76,7 @@ estimatedMinutes: 45
 3. **Що потрібно зробити** — зазвичай одне зі слів: *bitte reichen Sie … nach / füllen Sie … aus / melden Sie sich*.
 4. **Frist** — крайній термін (*bis zum …*). Якщо його пропустити, заяву можуть відхилити.
 
-Якщо в листі написано *Bescheid*, шукай внизу **Rechtsbehelfsbelehrung** — це пояснення, як і до якої дати оскаржити рішення (*Widerspruch einlegen*).
+Якщо в листі написано *Bescheid*, шукай внизу **Rechtsbehelfsbelehrung** — це пояснення, як і до якої дати оскаржити рішення (*Widerspruch einlegen*, інколи *Einspruch* або *Klage*).
 
 ### Слова-колокації: що з чим
 
@@ -93,7 +93,7 @@ estimatedMinutes: 45
 
 ### Дозвіл на проживання й страхування
 
-**Aufenthaltstitel** — загальна назва документів про право перебувати: за законом це *Visum*, *Aufenthaltserlaubnis*, *Blaue Karte EU*, *Niederlassungserlaubnis* та *Erlaubnis zum Daueraufenthalt-EU* (§ 4 AufenthG). *Aufenthaltserlaubnis* — тимчасовий дозвіл; *Niederlassungserlaubnis* — безстроковий. Для людей, які отримали тимчасовий захист у звʼязку з війною в Україні, діє *Aufenthaltserlaubnis nach § 24 AufenthG*. Правила й строки змінюються, тому перевіряй актуальну інформацію на сайті BMAS або BAMF і в Ausländerbehörde.
+**Aufenthaltstitel** — загальна назва документів про право перебувати: за законом це *Visum*, *Aufenthaltserlaubnis*, *Blaue Karte EU*, *ICT-Karte*, *Mobiler-ICT-Karte*, *Niederlassungserlaubnis* та *Erlaubnis zum Daueraufenthalt-EU* (§ 4 AufenthG). *Aufenthaltserlaubnis* — тимчасовий дозвіл; *Niederlassungserlaubnis* — безстроковий. Для людей, які отримали тимчасовий захист у звʼязку з війною в Україні, діє *Aufenthaltserlaubnis nach § 24 AufenthG*. Правила й строки змінюються: для тих, хто прибув після 1 квітня 2025, готується перехід від Jobcenter до виплат за Asylbewerberleistungsgesetz (станом на жовтень 2026 — перевір на сайті BMAS). Тому перевіряй актуальну інформацію на сайті BMAS або BAMF і в Ausländerbehörde.
 
 **Страхування:**
 
@@ -113,7 +113,7 @@ estimatedMinutes: 45
 - Der Antrag wurde leider abgelehnt. Ich lege Widerspruch ein. — Заяву, на жаль, відхилено. Я подаю заперечення.
 - Bis wann muss ich die Unterlagen nachreichen? — До якого числа потрібно додати документи?
 - Die Frist endet am Freitag. — Строк закінчується в пʼятницю.
-- Meine Krankenkasse schickt mir die neue Gesundheitskarte. — Моя каса надсилає мені нову картку здоровʼя.
+- Meine Krankenkasse schickt mir die neue Gesundheitskarte. — Моя каса надсилає мені нову картку медичного страхування.
 - Haben Sie schon eine Haftpflichtversicherung? — У Вас уже є страховка цивільної відповідальності?
 - Ich brauche eine Bescheinigung für das Jobcenter. — Мені потрібна довідка для Jobcenter.
 - Wer ist für meinen Fall zuständig? — Хто відповідає за мою справу?
@@ -143,14 +143,14 @@ estimatedMinutes: 45
 > note: nachweisen — довести, підтвердити.
 
 > [!word] die Aufenthaltserlaubnis
-> ipa: /ˈaʊ̯fɛnthaltsʔɛɐ̯ˌlaʊ̯pnɪs/ · pos: noun · level: B2 · id: de-b1-behoerden-w04
+> ipa: /ˈaʊ̯fʔɛnthaltsʔɛɐ̯ˌlaʊ̯pnɪs/ · pos: noun · level: B2 · id: de-b1-behoerden-w04
 > uk: дозвіл на проживання
 > forms: die Aufenthaltserlaubnisse
 > example: Meine **Aufenthaltserlaubnis** gilt noch ein Jahr. — Мій дозвіл на проживання діє ще рік.
 > note: тимчасовий; безстроковий — die Niederlassungserlaubnis. Складне слово: Aufenthalt + s + Erlaubnis.
 
 > [!word] der Aufenthaltstitel
-> ipa: /ˈaʊ̯fɛnthaltsˌtiːtl̩/ · pos: noun · level: B2 · id: de-b1-behoerden-w05
+> ipa: /ˈaʊ̯fʔɛnthaltsˌtiːtl̩/ · pos: noun · level: B2 · id: de-b1-behoerden-w05
 > uk: документ про право перебування
 > forms: die Aufenthaltstitel
 > example: Ohne **Aufenthaltstitel** darf man nicht lange bleiben. — Без документа про право перебування довго залишатися не можна.
@@ -164,7 +164,7 @@ estimatedMinutes: 45
 > note: у деяких містах має іншу назву (Amt für Migration, Ausländeramt). Не плутай із Bürgeramt.
 
 > [!word] das Jobcenter
-> ipa: /ˈdʒɔptsɛntɐ/ · pos: noun · level: B1 · id: de-b1-behoerden-w07
+> ipa: /ˈdʒɔpsɛntɐ/ · pos: noun · level: B1 · id: de-b1-behoerden-w07
 > uk: центр зайнятості (допомога на життя та пошук роботи)
 > forms: die Jobcenter
 > example: Das **Jobcenter** hilft bei der Arbeitssuche. — Jobcenter допомагає шукати роботу.
@@ -203,7 +203,7 @@ estimatedMinutes: 45
 > uk: заперечення; оскарження
 > forms: die Widersprüche
 > example: Gegen den Bescheid lege ich **Widerspruch** ein. — Проти рішення я подаю заперечення.
-> note: строк зазвичай один місяць після оголошення рішення (§ 70 VwGO); точну дату дивись у Rechtsbehelfsbelehrung.
+> note: залежно від установи — також Einspruch або Klage; строк зазвичай один місяць (напр., § 70 VwGO, § 84 SGG); точно — у Rechtsbehelfsbelehrung.
 
 > [!word] die Zuständigkeit
 > ipa: /ˈtsuːʃtɛndɪçkaɪ̯t/ · pos: noun · level: B2 · id: de-b1-behoerden-w13
@@ -252,7 +252,7 @@ estimatedMinutes: 45
 > uk: домовленість про запис
 > forms: die Terminvereinbarungen
 > example: Die **Terminvereinbarung** läuft online. — Запис проводиться онлайн.
-> note: ein Termin vereinbaren → die Vereinbarung.
+> note: einen Termin vereinbaren → die Vereinbarung.
 
 > [!word] die Bescheinigung
 > ipa: /bəˈʃaɪ̯nɪɡʊŋ/ · pos: noun · level: B1 · id: de-b1-behoerden-w20
@@ -329,7 +329,7 @@ estimatedMinutes: 45
 > uk: рекомендований лист
 > forms: die Einschreiben
 > example: Der Brief kam als **Einschreiben**. — Лист прийшов як рекомендований.
-> note: пошта: Einwurf-Einschreiben та Übergabe-Einschreiben; вручення підтверджується.
+> note: пошта: Einwurf-Einschreiben та Übergabe-Einschreiben; Übergabe-Einschreiben вручають під підпис.
 
 > [!word] bewilligen
 > ipa: /bəˈvɪlɪɡn̩/ · pos: verb · level: B2 · id: de-b1-behoerden-w31
@@ -357,7 +357,7 @@ estimatedMinutes: 45
 > uk: опрацьовувати, розглядати
 > forms: bearbeiten → bearbeitete → hat bearbeitet
 > example: Wir **bearbeiten** Ihren Antrag. — Ми розглядаємо Вашу заяву.
-> note: Beamter bearbeitet Anträge. Не відокремлюване.
+> note: Der Beamte bearbeitet Anträge. Не відокремлюване.
 
 > [!word] beglaubigen
 > ipa: /bəˈɡlaʊ̯bɪɡn̩/ · pos: verb · level: B2 · id: de-b1-behoerden-w35
@@ -368,7 +368,7 @@ estimatedMinutes: 45
 
 > [!word] gesetzlich
 > ipa: /ɡəˈzɛtslɪç/ · pos: adj · level: B1 · id: de-b1-behoerden-w36
-> uk: законний; державний (про страхування)
+> uk: законний; обовʼязковий (gesetzliche Krankenversicherung)
 > example: Ich bin **gesetzlich** krankenversichert. — Я застрахований у державній системі.
 > note: gesetzliche Krankenversicherung (GKV) vs private Krankenversicherung (PKV).
 
@@ -423,7 +423,7 @@ estimatedMinutes: 45
 
 ## Вимова
 
-Звук **sch** — завжди «ш» (*Bescheid, Beschreibung*), **ch** після a, o, u — [x] (*Nachweis, Frist* без ch, *Vollmacht*), після ei, i, e — [ç]. Префікси *be-, ver-, ge-* не наголошені: наголос падає на корінь (*beˈscheid, verˈsichern*).
+Звук **sch** — завжди «ш» (*Bescheid, Beschreibung*), **ch** після a, o, u — [x] (*Nachweis, Vollmacht*), після ei, i, e — [ç] (*nicht, sicher*). Префікси *be-, ver-, ge-* не наголошені: наголос падає на корінь (*Beˈscheid, verˈsichern*).
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-behoerden-s01
@@ -455,7 +455,7 @@ estimatedMinutes: 45
 > level: B1 · id: de-b1-behoerden-s03
 > text: Ich möchte einen Termin vereinbaren.
 > ipa: /ɪç ˈmœçtə ˈaɪ̯nən tɛʁˈmiːn fɛɐ̯ˈʔaɪ̯nbaːʁən/
-> tip: Termin — наголос на -min: «термін», довге [iː]. vereinbaren: ʔ перед ei — легка пауза між ver- і ein. Не плутай із «термін» (Frist).
+> tip: Termin — наголос на -min, довге [iː]; звучить як «термін», але означає запис. vereinbaren: ʔ перед ei — легка пауза між ver- і ein.
 > uk: Я хочу домовитись про запис.
 
 > [!speak] «Які документи мені взяти?»
@@ -494,7 +494,7 @@ estimatedMinutes: 45
 ## Landeskunde: Behördendeutsch
 
 > [!example] Briefe von Ämtern verstehen
-> Wer in Deutschland einen Antrag stellt, bekommt oft einen Brief mit schwierigen Wörtern. Typisch sind der Bescheid, die Frist und die Rechtsbehelfsbelehrung. Ein Bescheid ist die offizielle Entscheidung der Behörde: Der Antrag wird bewilligt oder abgelehnt. Am Ende steht, wie man dagegen Widerspruch einlegen kann. Die Frist dafür beträgt meistens einen Monat nach der Bekanntgabe. Deshalb sollte man Post von Ämtern immer sofort öffnen und das Datum notieren. Wer etwas nicht versteht, kann bei der Behörde nachfragen oder eine Beratungsstelle besuchen. Wichtig ist auch: Jede Person mit Wohnsitz in Deutschland muss krankenversichert sein. Viele sind in der gesetzlichen Krankenversicherung, zum Beispiel bei der AOK oder der Techniker Krankenkasse. Eine private Haftpflichtversicherung ist dagegen freiwillig, wird aber von Verbraucherschützern empfohlen. Viele Ämter vergeben Termine online. Man sollte pünktlich kommen und alle Unterlagen mitbringen. Regeln für Aufenthalt und Leistungen können sich ändern. Aktuelle Informationen findet man auf den Seiten der Behörden.
+> Wer in Deutschland einen Antrag stellt, bekommt oft einen Brief mit schwierigen Wörtern. Typisch sind der Bescheid, die Frist und die Rechtsbehelfsbelehrung. Ein Bescheid ist die offizielle Entscheidung der Behörde: Der Antrag wird bewilligt oder abgelehnt. Am Ende steht, wie man dagegen vorgehen kann, zum Beispiel mit einem Widerspruch. Die Frist dafür beträgt meistens einen Monat nach der Bekanntgabe. Deshalb sollte man Post von Ämtern immer sofort öffnen und das Datum notieren. Wer etwas nicht versteht, kann bei der Behörde nachfragen oder eine Beratungsstelle besuchen. Wichtig ist auch: Jede Person mit Wohnsitz in Deutschland muss krankenversichert sein. Viele sind in der gesetzlichen Krankenversicherung, zum Beispiel bei der AOK oder der Techniker Krankenkasse. Eine private Haftpflichtversicherung ist dagegen freiwillig, wird aber von Verbraucherschützern empfohlen. Viele Ämter vergeben Termine online. Man sollte pünktlich kommen und alle Unterlagen mitbringen. Regeln für Aufenthalt und Leistungen können sich ändern. Aktuelle Informationen findet man auf den Seiten der Behörden und der Ministerien.
 
 > [!quiz] Nach dem Text: Was ist ein Bescheid?
 > level: B1 · type: single · id: de-b1-behoerden-q02
@@ -512,7 +512,7 @@ estimatedMinutes: 45
 > - [ ] ein Jahr
 > - [ ] gar keine Zeit
 >
-> **Пояснення:** *Die Frist dafür beträgt meistens einen Monat nach der Bekanntgabe.* Конкретний строк завжди дивись у Rechtsbehelfsbelehrung свого листа.
+> **Пояснення:** *Die Frist dafür beträgt meistens einen Monat nach der Bekanntgabe.* Конкретний строк дивись у Rechtsbehelfsbelehrung свого листа.
 
 > [!quiz] Was stimmt laut Text?
 > level: B1 · type: multi · id: de-b1-behoerden-q04
@@ -586,13 +586,13 @@ estimatedMinutes: 45
 > - [ ] Gesundheitskarte
 > - [ ] Kindergeld
 >
-> **Пояснення:** закон називає *Visum, Aufenthaltserlaubnis, Blaue Karte EU, ICT-Karte, Niederlassungserlaubnis* та *Erlaubnis zum Daueraufenthalt-EU*. Gesundheitskarte — страхова картка, Kindergeld — виплата.
+> **Пояснення:** закон називає *Visum, Aufenthaltserlaubnis, Blaue Karte EU, ICT-Karte, Mobiler-ICT-Karte, Niederlassungserlaubnis* та *Erlaubnis zum Daueraufenthalt-EU*. Gesundheitskarte — страхова картка, Kindergeld — виплата.
 
 > [!quiz] Заповни пропуски
 > level: B1 · type: fill · id: de-b1-behoerden-q11
 >
 > ```text fill
-> Der Antrag wurde [[bewilligt]]: Ich bekomme das Geld.
+> Der Antrag wurde [[bewilligt|genehmigt]]: Ich bekomme das Geld.
 > Gegen den Bescheid kann man [[Widerspruch]] einlegen.
 > Bitte reichen Sie die Unterlagen bis Freitag [[nach]].
 > Bitte halten Sie die [[Frist]] ein.
@@ -620,10 +620,10 @@ estimatedMinutes: 45
 > muss
 > ich
 > mitbringen?
-> bringen ✗
+> mitbringt ✗
 > ```
 >
-> **Пояснення:** після питального слова — дієслово *muss* на 2-му місці, підмет *ich*, а *mitbringen* — в кінці (інфінітив з модальним). Форма *bringen* без префікса змінює значення.
+> **Пояснення:** після питального слова — дієслово *muss* на 2-му місці, підмет *ich*, а *mitbringen* — в кінці (інфінітив з модальним). Форма *mitbringt* — особова, а тут потрібен інфінітив.
 
 > [!quiz] Склади питання: «До якого числа я маю здати заяву?»
 > level: B1 · type: order · id: de-b1-behoerden-q14
@@ -647,7 +647,7 @@ estimatedMinutes: 45
 > *der Termin* — це запис або зустріч у конкретний час (*Termin beim Arzt*). Строк, до якого щось треба зробити, — *die Frist*. Рішення установи — *der Bescheid*, а довідка — *die Bescheinigung*. Плутанина тут може коштувати пропущеного строку.
 
 > [!pitfall] Колокації: ~~Antrag machen~~, ~~Widerspruch machen~~
-> Німці **стелять** заяву й **кладуть** заперечення: *einen Antrag **stellen***, *Widerspruch **einlegen***, *die Frist **einhalten***, *Unterlagen **einreichen***. Українські «зробити заяву» дослівно не працює.
+> Німці **ставлять** заяву й **кладуть** заперечення: *einen Antrag **stellen***, *Widerspruch **einlegen***, *die Frist **einhalten***, *Unterlagen **einreichen***. Українське «зробити заяву» дослівно не працює.
 
 > [!pitfall] Krankenkasse — не «каса» і не лікарня
 > *Kasse* тут — організація, що збирає внески й оплачує лікування (страхова). Лікарня — *das Krankenhaus*, лікар — *der Arzt*, а «каса» в магазині — *die Kasse*. Правильно: *Ich bin bei der AOK versichert*, а не ~~Ich bin in der Krankenkasse~~.
@@ -661,10 +661,10 @@ estimatedMinutes: 45
 > *die Kasse*, за DWDS, прийшла з італійської банківської справи (it. *cassa*) через мову купців. Звідси й *Krankenkasse* — установа, куди сплачують внески на випадок хвороби.
 
 > [!reel] 📬 Leichte Sprache
-> Закон про рівні права людей з інвалідністю (BGG, § 11) каже, що органи влади мають частіше давати інформацію в **Leichter Sprache** («легкій мові»). Для тебе це корисно: офіційні сайти (наприклад, федерального уряду) мають сторінки простою німецькою, і вчитися за ними легше.
+> Закон про рівні права людей з інвалідністю (BGG, § 11) каже, що федеральні органи влади мають частіше давати інформацію в **Leichter Sprache** («легкій мові»). Для тебе це корисно: офіційні сайти (наприклад, федерального уряду) мають сторінки простою німецькою, і вчитися за ними легше.
 
 > [!reel] ✉ Einschreiben
-> Рекомендований лист (*Einschreiben*) пошта вручає під підпис, тож відправник має підтвердження. Якщо тебе не було вдома, у скриньку кладуть повідомлення, а лист чекає у відділенні. Тому пошту від установ завжди бери всерйоз і відкривай одразу.
+> Рекомендований лист (*Einschreiben*) пошта має кілька видів: *Übergabe-Einschreiben* вручають під підпис, *Einwurf-Einschreiben* кладуть у скриньку, а відправник має підтвердження. Якщо тебе не було вдома, у скриньку кладуть повідомлення, а лист чекає у відділенні. Тому пошту від установ завжди бери всерйоз і відкривай одразу.
 
 ## Джерела та що почитати
 

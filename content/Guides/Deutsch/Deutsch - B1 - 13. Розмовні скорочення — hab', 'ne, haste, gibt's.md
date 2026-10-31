@@ -74,15 +74,15 @@ estimatedMinutes: 40
 
 - *hast du → haste*, *bist du → bisste*, *kannst du → kannste*, *willst du → willste*, *weißt du → weißte*.
 - *gibt es → gibt's*, *geht es → geht's*, *ich habe es → ich hab's*, *ist es → isses*.
-- *eine → 'ne*, *einen → 'nen*, *einem → 'nem*, *so ein → so'n*, *was für ein → was'n*: *Was'n Quatsch!* (Що за дурниця!).
+- *eine → 'ne*, *einen → 'nen*, *einem → 'nem*, *so ein → so'n*, *was für ein → was für'n*: *Was für'n Quatsch!* (Що за дурниця!).
 
 ### Кінцеві приголосні
 
-- *nicht → nich*, *ist → is*, *und → un*, *jetzt → jetz*, *aber → aba*, *oder → oda*.
+- *nicht → nich*, *ist → is*, *und → un*, *jetzt → jetz*.
 - *auf dem → aufm*, *mit dem → mitm*, *für einen → für'n*.
 
 > [!tip] Вимова *nicht* залежить від регіону
-> На півночі й у центрі кажуть *nich*, на півдні й в Австрії — частіше *net* або *ned*. Це не стандарт, а регіональна розмова. Для B1 важливо лише **впізнати**: *Ich weiß ned* — це «я не знаю».
+> На півночі й сході кажуть *nich* (у Саксонії — *ni*); на півдні й заході центру (Гессен, Пфальц, Баден-Вюртемберг, Баварія) та в Австрії — *net* або *ned*; у Швейцарії — *nöd* або *nid*. Це не стандарт, а регіональна розмова. Для B1 важливо лише **впізнати**: *Ich weiß ned* — це «я не знаю».
 
 ## Коли це пишуть, а коли ні
 
@@ -165,7 +165,7 @@ estimatedMinutes: 40
 > uk: скорочення (слова, абревіатура); коротка дорога
 > forms: die Abkürzungen
 > example: „usw." ist die **Abkürzung** für „und so weiter". — «usw.» — скорочення від «und so weiter».
-> note: бувають письмові скорочення (z. B., usw.) і усні (haste, gibt's). Не плутай: Abkürzung ≠ Verkürzung.
+> note: бувають письмові скорочення (z. B., usw.) і усні (haste, gibt's). Не плутай: Abkürzung — це скорочення слова, а Kurzform — коротший варіант самого слова.
 
 > [!word] locker
 > ipa: /ˈlɔkɐ/ · pos: adj · level: B1 · id: de-b1-reduktionen-w09
@@ -190,8 +190,8 @@ estimatedMinutes: 40
 > ipa: /ˈʃʁɪftbɪlt/ · pos: noun · level: B2 · id: de-b1-reduktionen-w12
 > uk: графічний вигляд (написання) слова чи тексту
 > forms: die Schriftbilder
-> example: Im **Schriftbild** sieht „haste" fremd aus. — Написане, «haste» виглядає чужо.
-> note: bild = [bɪlt], кінцеве d оглушене. Також «vom Schriftbild her» — за вигляд тексту.
+> example: Im **Schriftbild** sieht „haste" fremd aus. — На письмі «haste» виглядає чужо.
+> note: bild = [bɪlt], кінцеве d оглушене. Також «vom Schriftbild her» — за виглядом тексту.
 
 > [!word] verschleifen
 > ipa: /fɛɐ̯ˈʃlaɪ̯fn̩/ · pos: verb · level: C1 · id: de-b1-reduktionen-w13
@@ -201,11 +201,11 @@ estimatedMinutes: 40
 > note: у фонетиці — термін для стирання меж між звуками. Словоформа Passiv: werden verschliffen.
 
 > [!word] weglassen
-> ipa: /ˈvɛkˌlasn̩/ · pos: verb · level: B1 · id: de-b1-reduktionen-w14
+> ipa: /ˈvɛklasn̩/ · pos: verb · level: B1 · id: de-b1-reduktionen-w14
 > uk: пропускати, випускати
 > forms: er lässt weg · ließ weg · hat weggelassen
 > example: Wenn man schnell spricht, **lässt** man oft Endungen **weg**. — Коли швидко говориш, часто випускаєш закінчення.
-> note: відокремлюване. Іменник — die Auslassung.
+> note: відокремлюване. Близьке дієслово — auslassen, від нього іменник die Auslassung.
 
 > [!word] die Auslassung
 > ipa: /ˈaʊ̯slasʊŋ/ · pos: noun · level: C1 · id: de-b1-reduktionen-w15
@@ -273,10 +273,15 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *ham* = *haben*, *is* = *ist*, *alle* — «закінчилося». Дієслово *einkaufen* — відокремлюване: *ich geh einkaufen*.
 
-> [!listen] Напиши або скажи, що почув
-> level: B1 · type: dictation · id: de-b1-reduktionen-l07
+> [!listen] Запиши повні форми
+> level: B1 · type: fill · id: de-b1-reduktionen-l07
 > audio: Das is nich schlimm.
-> explain: *is* = *ist*, *nich* = *nicht*. Такі форми пишуть лише в неформальному тексті.
+>
+> ```fill
+> Das [[ist]] [[nicht]] schlimm.
+> ```
+>
+> **Пояснення:** *is* = *ist*, *nich* = *nicht*. У розмовних текстах такі форми пишуть без апострофа, але в завданнях ми запитуємо повні.
 
 > [!listen] Послухай. Де зараз співрозмовник?
 > level: B1 · type: answer · id: de-b1-reduktionen-l08
@@ -318,10 +323,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *'nen* = *einen* (чоловічий рід, Akk), *nich* = *nicht*, *ham* = *haben*. *Alles voll* — «все зайнято».
 
-> [!listen] Напиши або скажи, що почув
-> level: B1 · type: dictation · id: de-b1-reduktionen-l12
+> [!listen] Куди піде мовець?
+> level: B1 · type: answer · id: de-b1-reduktionen-l12
 > audio: Ich geh nachher noch zum Bäcker.
-> explain: *geh* = *gehe*: кінцеве -e опущено, більше нічого не змінилося. Безкінцеві форми дуже типові.
+> - [ ] до лікаря
+> - [x] до пекаря (у пекарню)
+> - [ ] додому
+>
+> **Пояснення:** *geh* = *gehe*: кінцеве -e опущено, більше нічого не змінилося. *Zum Bäcker* — «до пекаря / в пекарню».
 
 ## Вимова
 
@@ -464,7 +473,7 @@ estimatedMinutes: 40
 > - [ ] keine Frage
 > - [ ] meine Frage
 > - [x] eine Frage
-> - [ ] nein, Frage
+> - [ ] deine Frage
 >
 > **Пояснення:** *'ne* — скорочене *eine*. Рід жіночий, Akk, тому *eine Frage*. Не плутай з *keine* («жодного»).
 
@@ -499,8 +508,8 @@ estimatedMinutes: 40
 > level: B1 · type: fill · bank: habt, einen · id: de-b1-reduktionen-q09
 >
 > ```text fill
-> Haste mal 'ne Minute? = [[Hast]] du mal [[eine]] Minute?
-> Isses kalt? = [[Ist]] es kalt?
+> Haste mal 'ne Minute? = Sag mal, [[hast]] du mal [[eine]] Minute?
+> Isses kalt? = Sag mal, [[ist]] es kalt?
 > ```
 >
 > **Пояснення:** *haste* розкладається на *hast du*; *'ne* перед *Minute* (жіночий рід) — *eine*; *isses* — *ist es*. Форми *habt* (ihr) і *einen* (чоловічий Akk) не підходять.
@@ -509,7 +518,7 @@ estimatedMinutes: 40
 > level: B1 · type: fill · bank: gibst, nichts · id: de-b1-reduktionen-q10
 >
 > ```text fill
-> Gibt's hier Kaffee? = [[Gibt]] es hier Kaffee?
+> Gibt's hier Kaffee? = Sag mal, [[gibt]] es hier Kaffee?
 > Ich weiß nich. = Ich weiß [[nicht]].
 > ```
 >
@@ -547,13 +556,13 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🧠 Мозок «додумує» слова
-> Швидке *Haste mal 'ne Minute?* складається з 4 слів і шести складів, але ти розумієш його, бо мозок знає шаблон. Те саме в українській: у розмові «що ти сказав» звучить як «шо ти сказав». Тренуйся слухати: чим більше скорочень знаєш, тим менше «додумуєш».
+> Швидке *Haste mal 'ne Minute?* складається з чотирьох слів і семи складів, але ти розумієш його, бо мозок знає шаблон. Те саме в українській: у розмові «що ти сказав» звучить як «шо ти сказав». Тренуйся слухати: чим більше скорочень знаєш, тим менше «додумуєш».
 
 > [!reel] 📝 Апостроф — німецький знак «тут чогось бракує»
-> Апостроф у німецькому ставлять, щоб показати, що літеру випущено: *gibt's, geht's, ich hab's*. Його не ставлять перед словотворчим *-s* (*Annas Auto*, а не *Anna's Auto*): так пишуть лише в англійській. Це типова помилка під впливом англійської.
+> Апостроф у німецькому ставлять, щоб показати, що літеру випущено: *gibt's, geht's, ich hab's*. Перед закінченням родового відмінка *-s* його зазвичай не ставлять (*Annas Auto*, а не *Anna's Auto*); Duden допускає такий апостроф лише для уточнення імені. Це типова помилка під впливом англійської.
 
 > [!reel] 🗣️ Різні регіони, різні скорочення
-> У Німеччині *nicht* скорочують по-різному: на півночі *nich*, на півдні — *net* або *ned*. Типові приказки — «Ne?» на півночі, «Gell?» у Баварії та Австрії — ставлять наприкінці речення як «правда?». Для учня головне — впізнавати, а не вживати.
+> У Німеччині *nicht* скорочують по-різному: на півночі *nich*, на півдні *net* або *ned*. Частки-перепитування — «Ne?» на півночі, «Gell?» на півдні та в Австрії — ставлять наприкінці речення як «правда?». Для учня головне — впізнавати, а не вживати.
 
 ## Джерела та що почитати
 

@@ -104,7 +104,7 @@ estimatedMinutes: 45
 > uk: інтервʼю
 > forms: die Interviews
 > example: Das **Interview** mit der Ministerin dauert zehn Minuten. — Інтервʼю з міністеркою триває десять хвилин.
-> note: дієслово — interviewen [ˌɪntɐˈvjuːən]; людина, що бере інтервʼю, — der Interviewer. Запозичення з англійської.
+> note: дієслово — interviewen [ɪntɐˈvjuːən]; людина, що бере інтервʼю, — der Interviewer. Запозичення з англійської.
 
 > [!word] zustimmen (+ Dat)
 > ipa: /ˈtsuːʃtɪmən/ · pos: verb · level: B1 · id: de-b1-hoeren-interviews-w02
@@ -117,7 +117,7 @@ estimatedMinutes: 45
 > ipa: /viːdɐˈʃpʁɛçn̩/ · pos: verb · level: B1 · id: de-b1-hoeren-interviews-w03
 > uk: заперечувати, суперечити (кому)
 > forms: er widerspricht · widersprach · hat widersprochen
-> example: Der Sohn **widerspricht** seinem Vater. — Син заперечує батькові.
+> example: Der Sohn **widerspricht** seinem Vater. — Син суперечить батькові.
 > note: невідокремлюване, тож Partizip II без -ge-: widersprochen. Давальний відмінок: Ich widerspreche Ihnen.
 
 > [!word] zugeben
@@ -132,7 +132,7 @@ estimatedMinutes: 45
 > uk: переконувати (в чому)
 > forms: er überzeugt · überzeugte · hat überzeugt
 > example: Mich **überzeugt** das Argument nicht. — Мене цей аргумент не переконує.
-> note: невідокремлюване (наголос на -zeu-). Reflexive: sich überzeugen lassen — дати себе переконати. Прикметник überzeugt — переконаний.
+> note: невідокремлюване (наголос на -zeu-). Зворотне: sich überzeugen (von) — переконатися; sich überzeugen lassen — дати себе переконати. Прикметник überzeugt — переконаний.
 
 > [!word] der Vorteil
 > ipa: /ˈfoːɐ̯taɪ̯l/ · pos: noun · level: B1 · id: de-b1-hoeren-interviews-w06
@@ -149,7 +149,7 @@ estimatedMinutes: 45
 > note: ch після a — [x]: «нахтайль». Часто парою: Vor- und Nachteile.
 
 > [!word] ablehnen
-> ipa: /ˈaplɛːnən/ · pos: verb · level: B1 · id: de-b1-hoeren-interviews-w08
+> ipa: /ˈapleːnən/ · pos: verb · level: B1 · id: de-b1-hoeren-interviews-w08
 > uk: відхиляти, відмовляти
 > forms: er lehnt ab · lehnte ab · hat abgelehnt
 > example: Der Chef **lehnt** den Vorschlag **ab**. — Начальник відхиляє пропозицію.
@@ -264,7 +264,7 @@ estimatedMinutes: 45
 > - [ ] C
 > - [x] D
 >
-> **Пояснення:** *Einerseits … andererseits … ich bin noch unentschlossen* — типова формула вагання.
+> **Пояснення:** *Einerseits … andererseits … ich bin unentschlossen* — типова формула вагання.
 
 > [!listen] Те саме опитування. Чому B проти?
 > level: B1 · type: answer · id: de-b1-hoeren-interviews-l07
@@ -283,7 +283,7 @@ estimatedMinutes: 45
 >
 > ```fill
 > B: [[dagegen]]
-> C: [[dafür]]
+> C: [[dafür|für|richtig]]
 > D: [[unentschlossen]]
 > ```
 >
@@ -393,7 +393,7 @@ estimatedMinutes: 45
 > level: B1 · id: de-b1-hoeren-interviews-s03
 > text: Einerseits ist das praktisch, andererseits ist es teuer.
 > ipa: /ˈaɪ̯nɐzaɪ̯ts ɪst das ˈpʁaktɪʃ ˈandəʁɐzaɪ̯ts ɪst ɛs ˈtɔʏ̯ɐ/
-> tip: дві частини з різним наголосом на початку; між ними короткий вдих. *-seits* — [zaɪ̯ts], «ц» в кінці.
+> tip: обидві частини мають наголос на першому складі (*ˈeinerseits*, *ˈandererseits*); між ними короткий вдих. *-seits* — [zaɪ̯ts], «ц» в кінці.
 > uk: З одного боку, це практично, з другого — дорого.
 
 > [!speak] Скажи вголос
@@ -487,11 +487,11 @@ estimatedMinutes: 45
 > level: B1 · type: fill · bank: dich, Sie · id: de-b1-hoeren-interviews-q09
 >
 > ```text fill
-> Ich stimme [[dir]] zu.
-> Wir widersprechen [[Ihnen]] nicht.
+> Ich stimme [[dir]] zu. (до друга, «ти»)
+> Wir widersprechen [[Ihnen]] nicht. (до незнайомої людини, «Ви»)
 > ```
 >
-> **Пояснення:** *zustimmen* і *widersprechen* — з Dativ: *dir, Ihnen*. *dich* і *Sie* — знахідний відмінок, тут вони помилкові.
+> **Пояснення:** *zustimmen* і *widersprechen* — з Dativ: *dir, Ihnen*. *dich* і *Sie* — знахідний відмінок, тут вони помилкові. Підказка в дужках визначає форму звертання: «ти» — *dir*, «Ви» — *Ihnen*.
 
 > [!quiz] Заповни пропуски
 > level: B1 · type: fill · bank: Entweder, Sowohl · id: de-b1-hoeren-interviews-q10
@@ -532,7 +532,7 @@ estimatedMinutes: 45
 > mehr
 > Radwege
 > brauchen.
-> brauchen ✗
+> braucht ✗
 > ```
 >
 > **Пояснення:** у підрядному *dass*-реченні дієслово стоїть у кінці: *wir mehr Radwege brauchen*.

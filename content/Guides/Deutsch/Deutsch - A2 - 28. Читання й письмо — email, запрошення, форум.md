@@ -294,12 +294,6 @@ estimatedMinutes: 40
 
 ### Готові формули
 
-> [!word] Viele Grüße!
-> ipa: /ˈfiːlə ˈɡʁyːsə/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w19
-> uk: З вітанням! (кінець листа)
-> example: **Viele Grüße**, Olena — З вітанням, Олена
-> note: нейтрально-дружня формула. Також Liebe Grüße (ближче), Herzliche Grüße (тепло), Beste Grüße (нейтрально).
-
 > [!word] Mit freundlichen Grüßen
 > ipa: /mɪt ˈfʁɔʏ̯ntlɪçn̩ ˈɡʁyːsn̩/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w20
 > uk: З повагою (кінець офіційного листа)

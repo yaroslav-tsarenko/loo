@@ -25,7 +25,7 @@ estimatedMinutes: 55
 > - [ ] Ich warte für den Bus.
 > - [ ] Ich warte zu dem Bus.
 >
-> **Пояснення:** українське «чекати» вживається без прийменника або з «на»; німецьке **warten** завжди йде з **auf + Akkusativ**: *Ich warte **auf** den Bus.* Форми з *für*, *zu* або без прийменника — типові помилки.
+> **Пояснення:** українське «чекати» вживається без прийменника або з «на»; коли ж кажемо, **на що або на кого** чекаємо, німецьке **warten** потребує **auf + Akkusativ**: *Ich warte **auf** den Bus.* Форми з *für*, *zu* або без прийменника тут — типові помилки. (Без додатка *warten* вживається самостійно: *Warte mal! Ich warte hier.*)
 
 ## Чому прийменник — частина дієслова
 
@@ -145,7 +145,7 @@ estimatedMinutes: 55
 - *Ich freue mich **darauf**, dich **zu** sehen.* — Я радий (наперед) тебе побачити.
 - *Sie achtet **darauf**, **dass** alle pünktlich sind.* — Вона стежить за тим, щоб усі були вчасно.
 
-В усній мові *darauf* часто опускають: *Ich freue mich, dass du kommst.* Але у письмових текстах і на іспиті краще вживати повну форму. Про *zu*-інфінітив докладніше — у темі B1-10.
+Кореляту *darauf* часто опускають, і це цілком правильно: *Ich freue mich, dass du kommst* (тут природніше *darüber* — радість від того, що вже відомо). З дієсловами, де додаток чіткий, корелят підкреслює зв’язок: *Ich warte darauf, dass …; Achte darauf, dass …* Про *zu*-інфінітив докладніше — у темі B1-10.
 
 ### sich freuen: auf чи über?
 
@@ -274,7 +274,7 @@ estimatedMinutes: 55
 > uk: відмовлятися від
 > forms: verzichten → verzichtete → hat verzichtet
 > example: Ich **verzichte auf** Zucker im Kaffee. — Я відмовляюся від цукру в каві.
-> note: Ohne Zucker — «без цукру». verzichten — свідома відмова, не те, що відмовляти комусь (absagen).
+> note: verzichten — свідома відмова, не те, що відмовляти комусь (absagen).
 
 > [!word] sich gewöhnen an (+ Akk)
 > ipa: /zɪç ɡəˈvøːnən an/ · pos: verb · level: B1 · id: de-b1-verben-praep-w15
@@ -302,7 +302,7 @@ estimatedMinutes: 55
 > uk: брати участь; долучатися до
 > forms: sich beteiligen → beteiligte sich → hat sich beteiligt
 > example: Alle sollen **sich an** der Diskussion **beteiligen**. — Усі мають долучитися до обговорення.
-> note: formal, ширше за teilnehmen: також фінансова участь.
+> note: офіційніше й ширше за teilnehmen: також фінансова участь.
 
 > [!word] bestehen aus (+ Dat)
 > ipa: /bəˈʃteːən aʊ̯s/ · pos: verb · level: B1 · id: de-b1-verben-praep-w19
@@ -323,7 +323,7 @@ estimatedMinutes: 55
 > uk: вважати за; сприймати як
 > forms: halten → hielt → hat gehalten
 > example: Ich **halte** das **für** eine gute Idee. — Я вважаю це хорошою ідеєю.
-> note: er hält. Für wen hältst du mich? — «За кого ти мене маєш?» Різне від halten von — «мати думку про».
+> note: er hält. Für wen hältst du mich? — «За кого ти мене маєш?» Не плутай із halten von — «мати думку про».
 
 > [!word] protestieren gegen (+ Akk)
 > ipa: /pʁotɛsˈtiːʁən ˈɡeːɡn̩/ · pos: verb · level: B2 · id: de-b1-verben-praep-w22
@@ -336,7 +336,7 @@ estimatedMinutes: 55
 > ipa: /ˈaphɛŋən fɔn/ · pos: verb · level: B1 · id: de-b1-verben-praep-w23
 > uk: залежати від
 > forms: abhängen → hing ab → hat abgehangen
-> example: Das **hängt von** dem Wetter **ab**. — Це залежить від погоди.
+> example: Das **hängt vom** Wetter **ab**. — Це залежить від погоди.
 > note: Es kommt darauf an, … — те саме, але іншою конструкцією. відокремлюване, сильне.
 
 > [!word] gehören zu (+ Dat)
@@ -448,7 +448,7 @@ estimatedMinutes: 55
 > uk: повідомляти про; інформувати
 > forms: informieren → informierte → hat informiert
 > example: Die Schule **informiert** die Eltern **über** den Ausflug. — Школа повідомляє батькам про екскурсію.
-> note: sich informieren über — довідуватися про. Ударення на -mie-.
+> note: sich informieren über — довідуватися про. Наголос на -mie-.
 
 > [!word] sich einsetzen für (+ Akk)
 > ipa: /zɪç ˈaɪ̯nzɛtsn̩ fyːɐ̯/ · pos: verb · level: B2 · id: de-b1-verben-praep-w40
@@ -544,7 +544,7 @@ estimatedMinutes: 55
 ## Типові помилки українців
 
 > [!pitfall] «Ich warte dich», «Ich warte für den Bus» — калька з «чекати»
-> Українське «чекати» часто без прийменника («чекаю тебе») або з «на». Німецьке *warten* завжди тягне **auf + Akkusativ**: *Ich warte **auf** dich. Wir warten **auf** den Zug.* Те саме з *hoffen auf, achten auf, reagieren auf*. Прийменник — частина дієслова, пропускати його не можна.
+> Українське «чекати» часто без прийменника («чекаю тебе») або з «на». Коли названо, кого чи що чекаєш, німецьке *warten* тягне **auf + Akkusativ**: *Ich warte **auf** dich. Wir warten **auf** den Zug.* (Без додатка прийменника немає: *Warte mal!*; а *mit dem Essen warten* означає «зачекати з їжею».) Те саме з *hoffen auf, achten auf, reagieren auf*. Прийменник — частина дієслова, пропускати його не можна.
 
 > [!pitfall] «Ich denke über dich» і «Ich denke von dir»
 > Українське «думати про» німецькою залежить від змісту. **denken an + Akk** — памʼятати, згадувати: *Ich denke an dich.* **nachdenken über + Akk** — міркувати: *Ich denke über den Plan nach.* **denken über + Akk** — мати певну думку: *Was denkst du **über** ihn?* Для «я думаю про тебе» скажи *Ich denke an dich*.

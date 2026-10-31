@@ -362,7 +362,7 @@ estimatedMinutes: 45
 ## Landeskunde-Text
 
 > [!example] Luthers Bibel
-> Im Dezember 1521 lebt Martin Luther auf der Wartburg bei Eisenach. Er versteckt sich dort, denn der Kaiser hat ihn geächtet. In wenigen Monaten übersetzt er das Neue Testament ins Deutsche. Er will, dass auch einfache Menschen die Bibel verstehen. Deshalb schreibt er in einer klaren Sprache.
+> Im Dezember 1521 lebt Martin Luther auf der Wartburg bei Eisenach. Er versteckt sich dort, denn der Kaiser hat ihn geächtet. In wenigen Monaten übersetzt er das Neue Testament ins Deutsche. Er will, dass auch einfache Menschen die Bibel verstehen. Deshalb schreibt er in einer klaren Sprache. So können auch Menschen ohne Latein die Bibel lesen.
 >
 > Im September 1522 erscheint das Buch in Wittenberg. Man nennt es Septembertestament. Die erste Auflage hat 3.000 Exemplare. Schon im Dezember ist sie ausverkauft, obwohl das Buch teuer ist. 1534 erscheint dann die ganze Bibel auf Deutsch.
 >

@@ -13,7 +13,7 @@ estimatedMinutes: 90
 > [!success] Після цієї теми ти зможеш
 > - перевірити себе з усієї граматики B1: *Präteritum, Plusquamperfekt і часові речення, Genitiv, дієслова з прийменниками, відносні речення, Infinitiv mit zu, um … zu / damit, Konjunktiv II і нереальні умови, Passiv, порядок слів у середині речення, парні сполучники, прикметник як іменник, словотвір, модальні частки*;
 > - розрізняти на слух минуле, Genitiv, ввічливу форму Konjunktiv II та Passiv і записати речення під диктовку;
-> - попрацювати в форматі Goethe-Zertifikat B1: короткий текст для читання (Richtig / Falsch, a / b / c) і завдання на аудіювання;
+> - попрацювати в форматі Goethe-Zertifikat B1: короткий текст для читання (Richtig / Falsch і вибір a / b / c) і завдання на аудіювання;
 > - почути мінімальні пари (*konnte / könnte*, *wurde / würde*) і вимовити типові фрази рівня B1 вголос;
 > - позначити в чеклісті «я вмію», що вже працює, а що ще варто повторити.
 
@@ -158,10 +158,11 @@ estimatedMinutes: 90
 > ```text fill
 > Der Kollege, [[mit dem]] ich arbeite, kommt aus Polen. (mit + займенник)
 > Die Frau, [[deren]] Sohn hier lernt, ist nett. (чий)
+> Die Stadt, [[in der|wo]] ich wohne, ist klein. (місце)
 > Alles, [[was]] ich habe, gebe ich dir. (після alles)
 > ```
 >
-> **Пояснення:** прийменник стоїть перед займенником і керує його відмінком (*mit dem* — Dativ); «чий» для жіночого роду — *deren*; після *alles* — *was*. Тема B1-08.
+> **Пояснення:** прийменник стоїть перед займенником і керує його відмінком (*mit dem* — Dativ); «чий» для жіночого роду — *deren*; для міста — *in der* або *wo*; після *alles* — *was*. Тема B1-08.
 
 > [!quiz] «Я забув тобі зателефонувати.» «Ich habe vergessen, dich ___.»
 > level: B1 · type: single · id: de-b1-review-q12
@@ -179,7 +180,7 @@ estimatedMinutes: 90
 > - [ ] dass
 > - [ ] ohne
 >
-> **Пояснення:** підмети різні (*ich* і *meine Kinder*), тому потрібне підрядне речення з **damit**; *um … zu* вимагає того самого підмета. *Dass* виражало б бажання, а не мету. Тема B1-11.
+> **Пояснення:** підмети різні (*ich* і *meine Kinder*), тому потрібне підрядне речення з **damit**; *um … zu* вимагає того самого підмета. *Dass* не виражає мету (хіба що в розмовному *so dass*). Тема B1-11.
 
 > [!quiz] Склади речення: «Він пішов, не попрощавшись»
 > level: B1 · type: order · id: de-b1-review-q14
@@ -279,14 +280,19 @@ estimatedMinutes: 90
 >
 > **Пояснення:** змінюване дієслово — на 2-му місці, *nicht* стоїть у середині речення перед Partizip II або перед напрямком. У двох останніх реченнях дієслово не на другому місці. Тема B1-19.
 
-> [!quiz] «У мене немає ні часу, ні бажання.» Яка пара правильна? «Ich habe ___ Zeit ___ Lust.»
-> level: B1 · type: single · id: de-b1-review-q22
-> - [x] weder … noch
-> - [ ] weder … oder
-> - [ ] nicht … noch
-> - [ ] kein … noch
+> [!quiz] Склади речення: «Замість того щоб працювати, він спить»
+> level: B1 · type: order · id: de-b1-review-q22
 >
-> **Пояснення:** пара «ні … ні» — **weder … noch**, і вона вже містить заперечення, тому *nicht* і *kein* не додаємо. Тема B1-20.
+> ```text order
+> Statt
+> zu
+> arbeiten,
+> schläft
+> er.
+> dass ✗
+> ```
+>
+> **Пояснення:** при одному підметі — *statt … zu* + інфінітив; після коми дієслово *schläft* стоїть перед підметом. Тема B1-11.
 
 > [!quiz] Заповни пропуски: парні сполучники
 > level: B1 · type: fill · id: de-b1-review-q23
@@ -295,9 +301,10 @@ estimatedMinutes: 90
 > Sie spricht [[sowohl]] Deutsch als auch Englisch. (і … і)
 > Er ist nicht nur klug, [[sondern]] auch fleißig. (не лише … а й)
 > Die Wohnung ist [[zwar]] klein, aber günstig. (хоч … але)
+> Ich habe [[weder]] Zeit [[noch]] Lust. (ні … ні)
 > ```
 >
-> **Пояснення:** *sowohl … als auch*, *nicht nur … sondern auch*, *zwar … aber*. Тема B1-20.
+> **Пояснення:** *sowohl … als auch*, *nicht nur … sondern auch*, *zwar … aber*, *weder … noch* (вже містить заперечення). Тема B1-20.
 
 > [!quiz] Склади речення: «Чим більше Анна вправляється, тим краще вона говорить»
 > level: B1 · type: order · id: de-b1-review-q24
@@ -324,6 +331,7 @@ estimatedMinutes: 90
 > ```text fill
 > Gibt es etwas [[Neues]]? (що-небудь нове)
 > [[Alles]] Gute zum Geburtstag! (усього найкращого)
+> Das [[lachende]] Kind ist glücklich. (Partizip I від lachen)
 > Ein [[Bekannter]] von mir wohnt hier. (знайомий)
 > ```
 >
@@ -368,7 +376,7 @@ estimatedMinutes: 90
 >
 > **Пояснення:** у тексті: *Seit März wohne ich in Leipzig.* Травень — це місяць, коли вона знайшла власну квартиру. У форматі Teil 1 перевіряй у тексті точну деталь: *März* ≠ *Mai*.
 
-> [!quiz] Warum ist Lena aus der WG ausgezogen? (Teil 1 · a, b, c)
+> [!quiz] Warum ist Lena aus der WG ausgezogen? (у стилі Teil 2 / 5 · a, b, c)
 > level: B1 · type: single · id: de-b1-review-q30
 > - [ ] a) Die WG war zu teuer.
 > - [x] b) Es war abends zu laut.
@@ -438,7 +446,7 @@ estimatedMinutes: 90
 >
 > **Пояснення:** *nicht um zehn, sondern erst um elf Uhr* — зустріч починається об одинадцятій. Слово *sondern* виправляє назване раніше. У форматі Teil 1 такий текст звучить двічі.
 
-> [!listen] Goethe B1, Hören Teil 3: розмова двох людей. Що радить A?
+> [!listen] Hören у стилі Goethe B1: розмова двох людей (a, b, c). Що радить A?
 > level: B1 · type: answer · id: de-b1-review-l09
 > audio: A: Hast du schon eine Wohnung gefunden?
 > audio: B: Nein, leider nicht. Die Mieten sind so hoch, dass ich weder in der Stadt noch am Stadtrand etwas Bezahlbares finde. Je länger ich suche, desto frustrierter werde ich.
@@ -448,16 +456,16 @@ estimatedMinutes: 90
 > - [x] Спробувати знайти кімнату в WG.
 > - [ ] Попросити грошей у батьків.
 >
-> **Пояснення:** *Vielleicht solltest du es mit einer WG versuchen* — порада спробувати WG (*sollte* — Konjunktiv II). У форматі Teil 3 розмова звучить один раз.
+> **Пояснення:** *Vielleicht solltest du es mit einer WG versuchen* — порада спробувати WG (*sollte* — Konjunktiv II). У модулі Hören розмови між двома людьми звучать один раз.
 
-> [!listen] Goethe B1, Hören Teil 2: оголошення на радіо. Що радять мандрівникам?
+> [!listen] Hören у стилі Goethe B1: оголошення на вокзалі (a, b, c). Що радять мандрівникам?
 > level: B1 · type: answer · id: de-b1-review-l10
 > audio: Achtung, liebe Reisende. Im Hauptbahnhof wird ab Montag gebaut. Deshalb werden einige Züge von Gleis 3 auf Gleis 7 verlegt. Bitte planen Sie mindestens zehn Minuten mehr Zeit ein.
 > - [ ] Купувати квитки лише онлайн.
 > - [ ] Їхати в обхід через інший вокзал.
 > - [x] Закласти щонайменше десять додаткових хвилин.
 >
-> **Пояснення:** *planen Sie mindestens zehn Minuten mehr Zeit ein* — на дорогу треба більше часу. *Wird gebaut* і *werden … verlegt* — Passiv Präsens (тема B1-17). У форматі Teil 2 текст звучить один раз.
+> **Пояснення:** *planen Sie mindestens zehn Minuten mehr Zeit ein* — на дорогу треба більше часу. *Wird gebaut* і *werden … verlegt* — Passiv Präsens (тема B1-17). Такі оголошення на іспиті звучать один раз.
 
 ## Мінімальні пари
 
@@ -509,7 +517,7 @@ Konjunktiv II часто відрізняється від Präteritum лише 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-review-s04
 > text: Er fuhr nach Hause, ohne sich zu verabschieden.
-> ipa: /eːɐ̯ fuːɐ̯ naːx ˈhaʊ̯zə ˈoːnə zɪç tsuː fɛɐ̯ˈʔapʃiːdn̩/
+> ipa: /eːɐ̯ fuːɐ̯ naːx ˈhaʊ̯zə ˈoːnə zɪç tsu fɛɐ̯ˈʔapʃiːdn̩/
 > tip: fuhr — довге [uː], r ослаблене. verabschieden — після ver- легкий твердий приступ, наголос на -ab-, sch = [ʃ].
 > uk: Він поїхав додому, не попрощавшись.
 
@@ -536,7 +544,7 @@ Konjunktiv II часто відрізняється від Präteritum лише 
 > ~~Ich warte für den Bus~~, ~~Ich habe Angst für Hunde~~, ~~Ich denke über dich~~ (коли пам’ятаєш) → *Ich warte **auf** den Bus*, *Angst **vor** Hunden*, *Ich denke **an** dich*. Для речей запитай *worauf? wovor?*, для людей — *auf wen? vor wem?* Тема B1-06.
 
 > [!pitfall] Дієслово не там: після підрядного, у zu-групі й у нереальній умові
-> ~~Wenn ich Zeit hätte, ich würde kommen~~, ~~Nachdem er kam, er rief an~~, ~~Ich habe vergessen zu anrufen~~ → *Wenn ich Zeit hätte, **würde** ich kommen*; *Nachdem er kam, **rief** er an*; *…, dich **anzurufen***. Якщо підрядне речення на першому місці, головне починається з дієслова. Теми B1-10, B1-15.
+> ~~Wenn ich Zeit hätte, ich würde kommen~~, ~~Nachdem er angekommen war, er rief an~~, ~~Ich habe vergessen zu anrufen~~ → *Wenn ich Zeit hätte, **würde** ich kommen*; *Nachdem er angekommen war, **rief** er an*; *…, dich **anzurufen***. Якщо підрядне речення на першому місці, головне починається з дієслова. Теми B1-10, B1-15.
 
 > [!pitfall] Genitiv без -s і «um … zu» при різних підметах
 > ~~das Auto des Vater~~, ~~Anna's Buch~~, ~~Ich spare, um meine Kinder studieren können~~ → *das Auto des Vater**s***, *Annas Buch*, *…, **damit** meine Kinder studieren können*. Чоловічий і середній рід у Genitiv мають закінчення **-s / -es** на іменнику; *um … zu* — лише коли підмет той самий. Теми B1-03, B1-11.

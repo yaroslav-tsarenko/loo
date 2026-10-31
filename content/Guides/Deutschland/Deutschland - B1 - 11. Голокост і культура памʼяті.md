@@ -282,15 +282,8 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > example: Vor unserem Haus liegen zwei **Stolpersteine**. — Перед нашим будинком лежать два «камені спотикання».
 > note: *stolpern* — спіткнутися. Проєкт художника Gunter Demnig; на сайті проєкту назву пишуть великими літерами: *STOLPERSTEINE*.
 
-> [!word] das Denkmal
-> ipa: /ˈdɛŋkmaːl/ · pos: noun · level: B1 · id: dl-b1-11-w20
-> uk: памʼятник
-> forms: die Denkmäler
-> example: Das **Denkmal** für die ermordeten Juden Europas wurde 2005 eröffnet. — Памʼятник убитим євреям Європи відкрили 2005 року.
-> note: книжна множина — *die Denkmale*. *Das Mahnmal* — памʼятник-застереження (*mahnen* — нагадувати, застерігати).
-
 > [!word] die Vergangenheitsbewältigung
-> ipa: /fɛɐ̯ˈɡaŋənhaɪ̯tsbəˌvɛltɪɡʊŋ/ · pos: noun · level: B2 · id: dl-b1-11-w21
+> ipa: /fɛɐ̯ˈɡaŋənhaɪ̯tsbəˌvɛltɪɡʊŋ/ · pos: noun · level: B2 · id: dl-b1-11-w20
 > uk: «подолання минулого» — осмислення нацистських злочинів суспільством
 > forms: — (без множини)
 > example: Der Auschwitz-Prozess war ein Wendepunkt der **Vergangenheitsbewältigung**. — Процес щодо Аушвіца став поворотним пунктом у подоланні минулого.

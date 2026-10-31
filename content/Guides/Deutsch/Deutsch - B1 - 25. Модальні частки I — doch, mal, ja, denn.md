@@ -33,14 +33,14 @@ estimatedMinutes: 40
 
 Модальні частки (*die Modalpartikeln*) — короткі слова, які показують **ставлення мовця**: здивування, нетерпіння, дружність, нагадування. Вони не мають окремого значення, не змінюють фактів, але змінюють тон. Порівняй:
 
-- *Komm vorbei!* — наказ, майже команда.
+- *Komm vorbei!* — звучить прямолінійніше, як наказ.
 - *Komm **doch mal** vorbei!* — запрошення, «зазирни до нас».
 
 В українській таке теж є: **ж, же, -но, -бо, таки, а**. «Ти ж знаєш!», «Іди-но сюди», «А як тебе звати?». Тому ідея знайома, але повної відповідності між німецькою часткою й українською немає: *doch* може перекладатися як «ж», «адже», «-но» або «ну», залежно від речення.
 
 Як їх відрізнити від звичайних слів:
 
-1. Частка **ненаголошена** (на відміну від *Ja!* / *Doch!* як відповіді).
+1. Частка зазвичай **ненаголошена** (на відміну від *Ja!* / *Doch!* як відповіді; виняток — наголошене *JA* в застереженні: *Komm JA nicht zu spät!*).
 2. Стоїть **всередині** речення, зазвичай після підмета й займенників: *Du weißt **doch**, …* Першою в реченні вона не стоїть.
 3. Її не можна заперечити й не можна відповісти нею на питання.
 4. Кожна частка пасує до певних **типів речень**: наказ, окличне речення, питання.
@@ -68,7 +68,7 @@ estimatedMinutes: 40
 
 ### mal — «на хвилинку», мʼяко
 
-*mal* — скорочення від *einmal* («один раз»). У частці лишилось відтінок «просто, на хвилинку». Вона робить **наказ і прохання** дружніми:
+*mal* — скорочення від *einmal* («один раз»). У частці лишився відтінок «просто, на хвилинку». Вона робить **наказ і прохання** дружніми:
 
 | Без частки | З часткою |
 |---|---|
@@ -87,6 +87,8 @@ estimatedMinutes: 40
 
 > [!warning] Ja, nein чи doch?
 > На питання зі словом *nicht* або *kein* німці відповідають **doch**, якщо хочуть сказати «так»: *Kommst du nicht mit? — **Doch**, ich komme mit.* Просте *Ja* тут може збити з пантелику. А *Nein* означає «ні, не прийду».
+
+Порядок слів у парі: зазвичай *doch mal*, а не ~~mal doch~~ (*Komm doch mal vorbei!*).
 
 ### ja — «ого!» і «адже»
 
@@ -206,10 +208,10 @@ estimatedMinutes: 40
 > note: з denn звучить нетерпляче.
 
 > [!word] Das ist aber schön!
-> ipa: /das ɪst ˈaːbɐ ʃøːn/ · pos: phrase · level: B1 · id: de-b1-partikeln-w14
+> ipa: /das ɪst aːbɐ ˈʃøːn/ · pos: phrase · level: B1 · id: de-b1-partikeln-w14
 > uk: Ой, як гарно!
 > example: Du hast neue Möbel? **Das ist aber schön!** — У тебе нові меблі? Ой, як гарно!
-> note: aber тут — частка здивування, не «але». Наголос на aber.
+> note: aber тут — частка здивування, не «але». aber ненаголошене, наголос на schön.
 
 > [!word] Gib mir mal das Salz.
 > ipa: /ɡiːp miːɐ̯ maːl das zalts/ · pos: phrase · level: B1 · id: de-b1-partikeln-w15
@@ -232,7 +234,7 @@ estimatedMinutes: 40
 > [!word] Ich habe ja keine Zeit.
 > ipa: /ɪç ˈhaːbə jaː ˈkaɪ̯nə tsaɪ̯t/ · pos: phrase · level: B1 · id: de-b1-partikeln-w18
 > uk: Я ж не маю часу.
-> example: Warum so spät? — **Ich habe ja keine Zeit.** — Чому так пізно? — Я ж не маю часу.
+> example: Warum kommst du nicht mit? — **Ich habe ja keine Zeit.** — Чому ти не йдеш з нами? — Я ж не маю часу.
 > note: ja нагадує про відоме обом. Без ja — просто факт.
 
 > [!word] Kannst du mir mal helfen?
@@ -261,7 +263,7 @@ estimatedMinutes: 40
 > audio: Wie heißt du denn?
 > explain: denn у питанні — частка, ненаголошена й коротка: [dɛn].
 
-> [!listen] Послухай діалог. Що робитиме Б?
+> [!listen] Послухай діалог. Що робитиме B?
 > level: B1 · type: answer · id: de-b1-partikeln-l03
 > audio: A: Hast du heute Abend Zeit?
 > audio: B: Ja, warum denn?
@@ -283,7 +285,7 @@ estimatedMinutes: 40
 > audio: Sag mal, hast du kurz Zeit?
 > explain: Sag mal — стале початкове слово питання; g у кінці слова звучить як [k].
 
-> [!listen] Послухай діалог. Що каже А?
+> [!listen] Послухай діалог. Що каже A?
 > level: B1 · type: answer · id: de-b1-partikeln-l06
 > audio: A: Du weißt doch, dass ich nicht schwimmen kann.
 > audio: B: Ja, aber das Wasser ist nur einen Meter tief.
@@ -300,7 +302,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-Модальні частки **ненаголошені**: наголошені слова в реченні — *Komm doch mal **vor**bei*, *Das ist ja **toll***, а не частки. Звучать вони коротко й тихо: *doch* — [dɔx] з [x] («х»), *mal* — [maːl] у повній формі, а в швидкому мовленні коротке [mal], *denn* — [dɛn], *ja* — [jaː]. Інтонація: питання зі *denn* — як звичайне W-питання, голос падає ↘.
+Модальні частки зазвичай **ненаголошені**: наголошені слова в реченні — *Komm doch mal **vor**bei*, *Das ist ja **toll***, а не частки. Звучать вони коротко й тихо: *doch* — [dɔx] з [x] («х»), *mal* — [maːl] у повній формі, а в швидкому мовленні коротке [mal], *denn* — [dɛn], *ja* — [jaː]. Інтонація: питання з *denn* — як звичайне W-питання, голос падає ↘.
 
 > [!speak] Скажи вголос
 > level: B1 · id: de-b1-partikeln-s01
@@ -360,7 +362,7 @@ estimatedMinutes: 40
 > - [ ] mal
 > - [ ] nicht
 >
-> **Пояснення:** *Wo bist du **denn**?* — питання з нетерпінням. *ja* не вживається у питаннях, *mal* пасує наказам, *nicht* зробило б питання запереченням.
+> **Пояснення:** *Wo bist du **denn**?* — питання з нетерпінням. *ja* зазвичай не вживається у питаннях, *mal* пасує наказам, *nicht* зробило б питання запереченням.
 
 > [!quiz] Вибери частку: «Schau ___ her!»
 > level: B1 · type: single · id: de-b1-partikeln-q03
@@ -431,19 +433,19 @@ estimatedMinutes: 40
 >
 > ```text fill
 > Komm [[doch]] mal vorbei! (запрошення)
-> Das ist [[ja]] toll! (здивування)
+> Das ist [[ja|aber]] toll! (здивування)
 > Wie alt bist du [[denn]]? (інтерес)
 > ```
 >
 > **Пояснення:** *doch* заохочує (разом з *mal*), *ja* виражає захоплення, *denn* робить питання цікавим.
 
-> [!quiz] Заповни діалог (враховуй позначки в дужках)
+> [!quiz] Заповни діалог (так, іду / нетерпіння / бо)
 > level: B1 · type: fill · bank: weil, mal · id: de-b1-partikeln-q11
 >
 > ```text fill
-> A: Kommst du nicht mit? B: [[Doch]], ich komme mit.
-> A: Wo bist du [[denn]]? Ich warte schon lange.
-> B: Ich bleibe zu Hause, [[denn]] ich bin krank.
+> A: Kommst du nicht mit? B: [[Doch]], ich komme mit. (так, іду)
+> A: Wo bist du [[denn]]? Ich warte schon lange. (нетерпіння)
+> B: Ich bleibe zu Hause, [[denn]] ich bin krank. (бо)
 > ```
 >
 > **Пояснення:** *Doch* — «ні, іду»; *denn* в питанні — частка нетерпіння; *denn* перед *ich bin krank* — сполучник (порядок слів звичайний). *weil* вимагає дієслова в кінці, *mal* тут не підходить.
@@ -494,12 +496,12 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *ja* і *doch* стоять усередині речення. На початку *Ja* — наголошена відповідь, і зазвичай після неї кома.
 
-> [!quiz] Як по-німецьки «Та ти ж знаєш!»?
+> [!quiz] Як по-німецьки «Та ти ж це знаєш!»?
 > level: B1 · type: single · id: de-b1-partikeln-q16
-> - [x] Du weißt doch!
-> - [ ] Du weißt denn!
-> - [ ] Du weißt mal!
-> - [ ] Du weißt nicht!
+> - [x] Das weißt du doch!
+> - [ ] Das weißt du denn!
+> - [ ] Das weißt du mal!
+> - [ ] Das weißt du nicht!
 >
 > **Пояснення:** нагадування про відоме — *doch*. *denn* — для питань, *mal* — для наказів. *nicht* означає «ти не знаєш».
 
@@ -508,7 +510,7 @@ estimatedMinutes: 40
 > [!listen] Послухай розмову сусідів. Чого потребує Frau Roth?
 > level: B1 · type: answer · id: de-b1-partikeln-l08
 > audio: A: Guten Tag, Frau Roth! Kommen Sie doch herein!
-> audio: B: Danke. Ich wollte nur mal kurz fragen: Können Sie mir mal helfen? Mein Drucker funktioniert nicht.
+> audio: B: Danke. Ich wollte nur kurz fragen: Können Sie mir mal helfen? Mein Drucker funktioniert nicht.
 > audio: A: Das ist ja ärgerlich! Zeigen Sie mal.
 > - [ ] запросити на каву
 > - [x] допомогу з принтером
@@ -521,12 +523,12 @@ estimatedMinutes: 40
 > tip: Sie з великої, дзвінке «зі»; наголос на -rein. doch — коротко [dɔx].
 > uk: Заходьте, будь ласка!
 
-> [!speak] «Ого, як прикро!»
+> [!speak] «Ой, як прикро!»
 > level: B1 · id: de-b1-partikeln-s07
 > text: Das ist ja ärgerlich!
 > ipa: /das ɪst jaː ˈɛʁɡɐlɪç/
 > tip: ä — відкрите «е» [ɛ]. g у ärgerlich — [ɡ], ch у кінці — [ç].
-> uk: Ого, як прикро!
+> uk: Ой, як прикро!
 
 > [!speak] «Покажіть-но!»
 > level: B1 · id: de-b1-partikeln-s08
@@ -554,7 +556,7 @@ estimatedMinutes: 40
 - H. Dreyer, R. Schmitt — *Lehr- und Übungsbuch der deutschen Grammatik* (Hueber), розділ про модальні частки.
 
 > [!important] Підсумок
-> - Модальні частки ненаголошені, стоять усередині речення й змінюють **тон**, а не факти.
+> - Модальні частки зазвичай ненаголошені, стоять усередині речення й змінюють **тон**, а не факти.
 > - *mal* мʼякшує наказ і прохання; *doch* заохочує й нагадує; *ja* — здивування або «ж»; *denn* — зацікавлене питання.
 > - *Doch!* — відповідь «так» на заперечене питання: *Kommst du nicht mit? — Doch!*
 > - *denn* як частка — у питаннях; *denn* як сполучник «бо» — між двома реченнями зі звичайним порядком слів.
