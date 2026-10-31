@@ -151,7 +151,7 @@ estimatedMinutes: 40
 > note: те саме, що deshalb, трохи розмовніше.
 
 > [!word] daher
-> ipa: /ˈdaːheːɐ̯/ · pos: adv · level: B1 · id: de-a2-konnektoren-w05
+> ipa: /daˈheːɐ̯/ · pos: adv · level: B1 · id: de-a2-konnektoren-w05
 > uk: звідси; тому
 > example: Es gab einen Unfall, **daher** ist die Straße gesperrt. — Сталася аварія, тому вулицю перекрито.
 > note: daher також може означати «звідси, звідти»: Daher kommt der Name. — Звідси назва.
@@ -190,10 +190,10 @@ estimatedMinutes: 40
 > ipa: /jeˈdɔx/ · pos: adv · level: B1 · id: de-a2-konnektoren-w11
 > uk: проте; однак
 > example: Das Hotel ist schön, **jedoch** sehr teuer. — Готель гарний, проте дуже дорогий.
-> note: jedoch може стояти і на першому місці (інверсія), і в середині речення. j = [j].
+> note: jedoch може стояти і на першому місці (інверсія), і в середині речення, а також як союз у позиції 0: Er kam, jedoch ich war schon weg. j = [j].
 
 > [!word] allerdings
-> ipa: /ˈalɐdɪŋs/ · pos: adv · level: B1 · id: de-a2-konnektoren-w12
+> ipa: /alɐˈdɪŋs/ · pos: adv · level: B1 · id: de-a2-konnektoren-w12
 > uk: правда; однак
 > example: Ich komme gern, **allerdings** nur bis acht Uhr. — Я радо прийду, правда, лише до восьмої.
 > note: помʼякшене «але»: додає застереження.
@@ -214,13 +214,13 @@ estimatedMinutes: 40
 > ipa: /ˈɛntveːdɐ ˈoːdɐ/ · pos: phrase · level: A2 · id: de-a2-konnektoren-w15
 > uk: або … або
 > example: **Entweder** fahren wir mit dem Zug, **oder** wir fliegen. — Або ми їдемо потягом, або летимо.
-> note: після entweder — звичайний порядок (V2); oder — позиція 0.
+> note: entweder — позиція 1 (Entweder fahren wir …) або позиція 0 (Entweder wir fahren …); oder — позиція 0.
 
 > [!word] weder … noch
 > ipa: /ˈveːdɐ nɔx/ · pos: phrase · level: A2 · id: de-a2-konnektoren-w16
 > uk: ні … ні
 > example: Ich habe **weder** Zeit **noch** Geld. — У мене немає ні часу, ні грошей.
-> note: німецька не вимагає подвійного заперечення: weder … noch вже заперечує, nicht не потрібне.
+> note: німецька не вимагає подвійного заперечення: weder … noch вже заперечує, nicht тут не можна.
 
 > [!word] nicht nur … sondern auch
 > ipa: /nɪçt nuːɐ̯ ˈzɔndɐn aʊ̯x/ · pos: phrase · level: A2 · id: de-a2-konnektoren-w17
@@ -339,11 +339,11 @@ estimatedMinutes: 40
 > ```text fill
 > Ich bin müde, (але) [[aber]] ich lerne weiter.
 > Ich bleibe zu Hause, (бо) [[denn]] ich bin krank.
-> Es regnet, (тому) [[deshalb]] nehme ich einen Regenschirm.
-> Es regnet, (все ж) [[trotzdem]] gehen wir spazieren.
+> Es regnet, (тому) [[deshalb|deswegen|daher]] nehme ich einen Regenschirm.
+> Es regnet, (все ж) [[trotzdem|dennoch]] gehen wir spazieren.
 > ```
 >
-> **Пояснення:** *aber* — але; *denn* — бо; *deshalb* — тому; *trotzdem* — все ж таки.
+> **Пояснення:** *aber* — але; *denn* — бо; *deshalb* (також *deswegen, daher*) — тому; *trotzdem* (також *dennoch*) — все ж таки.
 
 > [!quiz] Допиши дієслово (інверсія після прислівника)
 > level: A2 · type: fill · id: de-a2-konnektoren-q03
@@ -357,7 +357,7 @@ estimatedMinutes: 40
 > **Пояснення:** після *deshalb, trotzdem, danach* дієслово стоїть на другому місці — перед підметом (*komme ich, arbeitet er, gehen wir*).
 
 > [!quiz] Допиши парний сполучник
-> level: A2 · type: fill · bank: aber, und · id: de-a2-konnektoren-q04
+> level: A2 · type: fill · bank: aber, und, Sowohl · id: de-a2-konnektoren-q04
 >
 > ```text fill
 > Ich trinke nicht nur Kaffee, [[sondern]] auch Tee.
@@ -365,9 +365,9 @@ estimatedMinutes: 40
 > Weder er [[noch]] sie ist da.
 > ```
 >
-> **Пояснення:** *nicht nur … sondern auch*, *entweder … oder*, *weder … noch*. Слова *aber* та *und* в парних конструкціях не вживаються.
+> **Пояснення:** *nicht nur … sondern auch*, *entweder … oder*, *weder … noch*. Слова *aber*, *und* та *Sowohl* в парних конструкціях не вживаються.
 
-> [!quiz] Склади речення (почни зі слова Es): «Йде дощ, але ми все одно йдемо гуляти»
+> [!quiz] Склади речення (почни зі слова Es, у другій частині — trotzdem першим): «Йде дощ, але ми все одно йдемо гуляти»
 > level: A2 · type: order · id: de-a2-konnektoren-q05
 >
 > ```text order
@@ -507,7 +507,7 @@ estimatedMinutes: 40
 > Німці часто починають думку словом *Also,* — як ми «ну» або «отже». Це не завжди «тому»: часто це просто пауза, щоб зібратися з думками. *Also, ich glaube, wir sollten gehen.*
 
 > [!reel] 🔁 Різниця в одну літеру: denn, dann, den
-> *denn* — «бо», *dann* — «тоді, потім», *den* — артикль знахідного відмінка (*den Tisch*). Звучать майже однаково, а пишуться по-різному. Тест: *Ich esse, dann gehe ich* (потім), *Ich esse, denn ich habe Hunger* (бо).
+> *denn* — «бо», *dann* — «тоді, потім», *den* — артикль знахідного відмінка (*den Tisch*). Їх легко сплутати на письмі. Тест: *Ich esse, dann gehe ich* (потім), *Ich esse, denn ich habe Hunger* (бо).
 
 ## Джерела та що почитати
 

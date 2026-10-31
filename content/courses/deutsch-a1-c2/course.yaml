@@ -39,7 +39,7 @@ license: proprietary
 sections:
   - { id: a1, title: A1 — Початковий, icon: px:sprout, from: Deutsch, chapters: 101-130, level: A1,
       description: 'Звуки й умлаути, sein і haben, артиклі й рід, Präsens, Akkusativ, перші ситуації.' }
-  - { id: a2, title: A2 — Елементарний, icon: px:letterTile, from: Deutsch, chapters: 201-230, level: A2, status: planned,
+  - { id: a2, title: A2 — Елементарний, icon: px:letterTile, from: Deutsch, chapters: 201-230, level: A2,
       description: 'Perfekt і Präteritum модальних, Dativ, Wechselpräpositionen, Nebensätze з weil і dass.' }
   - { id: land, title: Deutschland — країна й побут, icon: px:map, from: Deutschland, chapters: 201-210, level: A2,
       description: 'DACH, федеральні землі, міста, діалекти, свята, їжа й культурні коди.' }

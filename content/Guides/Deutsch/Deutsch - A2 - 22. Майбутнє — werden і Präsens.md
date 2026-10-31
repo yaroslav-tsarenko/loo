@@ -82,7 +82,7 @@ estimatedMinutes: 35
 |---|---|
 | план, рішення | Ich werde mehr Sport treiben. — Я більше займатимусь спортом. |
 | обіцянка | Ich werde dir immer helfen. — Я завжди тобі допомагатиму. |
-| прогноз | Morgen wird es kalt. — Завтра буде холодно. |
+| прогноз | Morgen wird es regnen. — Завтра буде холодно. |
 | припущення (з *wohl, bestimmt*) | Er wird wohl krank sein. — Він, мабуть, хворий. |
 
 > [!tip] Futur не «неправильний»
@@ -96,7 +96,7 @@ estimatedMinutes: 35
 |---|---|---|
 | ставати | Ich **werde** Arzt. | Я стану лікарем. |
 | ставати | Es **wird** kalt. | Холоднішає. |
-| ставати | Mir **wird** schlecht. | Мені робиться зле. |
+| ставати | Mir **wird** schlecht. | Мені стає зле. |
 
 > [!diagram] Три значення werden
 > ```yaml
@@ -144,14 +144,14 @@ estimatedMinutes: 35
 > [!word] planen
 > ipa: /ˈplaːnən/ · pos: verb · level: A2 · id: de-a2-zukunft-w03
 > uk: планувати
-> forms: plant → plante → hat geplant
+> forms: planen → plante → hat geplant
 > example: Wir **planen** eine Reise nach Italien. — Ми плануємо поїздку до Італії.
 > note: planen + Akk: eine Reise planen; planen + інфінітив з zu: Ich plane, nach Wien zu fahren.
 
 > [!word] vorhaben
 > ipa: /ˈfoːɐ̯haːbn̩/ · pos: verb · level: A2 · id: de-a2-zukunft-w04
 > uk: мати намір; планувати
-> forms: hat vor → hatte vor → hat vorgehabt
+> forms: vorhaben · er hat vor · hatte vor · hat vorgehabt
 > example: Was **hast** du am Wochenende **vor**? — Що ти плануєш на вихідні?
 > note: відокремлюване: ich habe … vor. Типове питання про плани: Was hast du morgen vor?
 
@@ -176,7 +176,7 @@ estimatedMinutes: 35
 > [!word] versprechen
 > ipa: /fɛɐ̯ˈʃpʁɛçn̩/ · pos: verb · level: A2 · id: de-a2-zukunft-w08
 > uk: обіцяти
-> forms: verspricht → versprach → hat versprochen
+> forms: versprechen · er verspricht · versprach · hat versprochen
 > example: Ich **verspreche** dir, dass ich komme. — Обіцяю тобі, що прийду.
 > note: sich versprechen — обмовитися. Іменник — das Versprechen (обіцянка).
 
@@ -190,7 +190,7 @@ estimatedMinutes: 35
 > ipa: /ˈhɔfn̩tlɪç/ · pos: adv · level: A2 · id: de-a2-zukunft-w10
 > uk: сподіваюся; дай Боже
 > example: **Hoffentlich** regnet es morgen nicht. — Сподіваюся, завтра не дощитиме.
-> note: стоїть на початку речення; відповідь «Hoffentlich!» — «Дай Боже!». h — видих.
+> note: часто стоїть на початку речення; відповідь «Hoffentlich!» — «Дай Боже!». h — видих.
 
 > [!word] irgendwann
 > ipa: /ˈɪʁɡn̩tvan/ · pos: adv · level: A2 · id: de-a2-zukunft-w11
@@ -216,7 +216,7 @@ estimatedMinutes: 35
 > - [ ] Es wurde heute Abend regnen.
 > - [ ] Es wird heute Abend geregnet.
 >
-> **Пояснення:** *wird … regnen* — Futur, прогноз. *wurde* — це минулий час; після нього не бувало б інфінітива.
+> **Пояснення:** *wird … regnen* — Futur, прогноз. *wurde* — минулий час; *wurde* + інфінітив не утворює майбутнього.
 
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-zukunft-l03
@@ -241,7 +241,7 @@ estimatedMinutes: 35
 
 ## Вимова
 
-У Futur важливо чітко вимовляти **werde, wirst, wird**: *w* = «в», голосні короткі, кінцеве *-d* глухне: *wird* [vɪʁt]. А *wirst* звучить як «вірст».
+У Futur важливо чітко вимовляти **werde, wirst, wird**: *w* = «в», у *werde* довге [eː], у *wirst, wird* — коротке [ɪ]; кінцеве *-d* глухне: *wird* [vɪʁt].
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-zukunft-s01
@@ -385,7 +385,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** після *werden* — прикметник або іменник (*dunkel, Lehrerin, kalt*) → «ставати». Якщо після нього інфінітив (*kommen, helfen*) — Futur.
 
-> [!quiz] Склади речення (почни зі слова Ich): «Завтра зранку я встану рано»
+> [!quiz] Склади речення (почни зі слова Ich): «Завтра зранку я встану»
 > level: A2 · type: order · id: de-a2-zukunft-q11
 >
 > ```text order

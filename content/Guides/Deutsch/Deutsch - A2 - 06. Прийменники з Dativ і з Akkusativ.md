@@ -44,7 +44,7 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: a1, note: "Запамʼятай ланцюжок: aus, bei, mit, nach, seit, von, zu — усі з Dativ. Артикль: der → dem, die → der, das → dem, множина → den + -n." }
 >   - { focus: a2, note: "Ще два Dativ-прийменники: außer («крім») і gegenüber («навпроти»)." }
->   - { focus: b1, note: "Пʼять Akkusativ-прийменників: durch, für, gegen, ohne, um. Також bis й entlang (пізніше)." }
+>   - { focus: b1, note: "Пʼять Akkusativ-прийменників: durch, für, gegen, ohne, um. Також bis (+ Akk); entlang — пізніше." }
 > ```
 > Кольори тут позначають лише групу прийменників (жовті — Dativ, рожеві — Akkusativ).
 
@@ -96,7 +96,7 @@ estimatedMinutes: 40
 
 ## seit і vor: різниця в часі
 
-- ***seit*** + Dativ — **початок, який триває досі**: *Ich wohne **seit zwei Jahren** in Köln.* (досі живу). Дієслово — в **теперішньому часі**.
+- ***seit*** + Dativ — **початок, який триває досі**: *Ich wohne **seit zwei Jahren** in Köln.* (досі живу). Для дії, яка **триває** досі, дієслово стоїть у **теперішньому часі**; із запереченням можливий і Perfekt: *Ich habe ihn seit Jahren nicht gesehen*.
 - ***vor*** + Dativ — «тому»: *Ich bin **vor zwei Jahren** umgezogen.* (подія закінчилася).
 
 ## Приклади
@@ -110,7 +110,7 @@ estimatedMinutes: 40
 - Wir sitzen um den Tisch und essen. — Ми сидимо навколо столу й їмо.
 - Der Bus fährt durch die Stadt. — Автобус їде через місто.
 - Ich bin gegen diesen Plan. — Я проти цього плану.
-- Heute bleibe ich zu Hause, morgen fahre ich nach Hause zu meinen Eltern. — Сьогодні я лишаюся вдома, завтра їду додому до батьків.
+- Heute bleibe ich zu Hause, morgen fahre ich zu meinen Eltern. — Сьогодні я лишаюся вдома, завтра їду до батьків.
 
 ## Слова
 
@@ -142,7 +142,7 @@ estimatedMinutes: 40
 > ipa: /ˈoːnə/ · pos: prep · level: A2 · id: de-a2-praep-kasus-w05
 > uk: без
 > example: Ich trinke Tee **ohne** Zucker. — Я пʼю чай без цукру.
-> note: з артиклем: ohne den Zucker; без артикля — ohne Zucker.
+> note: ohne Zucker (без артикля); з лічильним іменником: ohne den Schlüssel.
 
 > [!word] außer (+ Dat)
 > ipa: /ˈaʊ̯sɐ/ · pos: prep · level: A2 · id: de-a2-praep-kasus-w06
@@ -229,13 +229,13 @@ estimatedMinutes: 40
 
 ## Вимова
 
-У прийменників короткі звуки: *mit* [mɪt], *bei* [baɪ̯], *aus* [aʊ̯s], *von* [fɔn] (v = «ф»), *zu* [tsuː], *nach* [naːx]. У розмові *zum* і *zur* вимовляють швидко: [tsʊm], [tsuːɐ̯].
+Прийменники зазвичай ненаголошені: *mit* [mɪt], *bei* [baɪ̯], *aus* [aʊ̯s], *von* [fɔn] (v = «ф»), *zu* [tsuː], *nach* [naːx]. У розмові *zum* і *zur* вимовляють швидко: [tsʊm], [tsuːɐ̯].
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-praep-kasus-s01
 > text: Ich gehe zum Arzt.
-> ipa: /ɪç ˈɡeːə tsʊm aʁtst/
-> tip: zum — коротке [ʊ]. Arzt — [aʁtst], rzt без голосних.
+> ipa: /ɪç ˈɡeːə tsʊm aːɐ̯tst/
+> tip: zum — коротке [ʊ]. Arzt — [aːɐ̯tst], довге a, rzt без голосних.
 > uk: Я йду до лікаря.
 
 > [!speak] Скажи вголос
@@ -256,13 +256,13 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-praep-kasus-s04
 > text: Das Geschenk ist für dich.
 > ipa: /das ɡəˈʃɛŋk ɪst fyːɐ̯ dɪç/
-> tip: für — довге [yː], як «фю(р)»; dich — [dɪç].
+> tip: für — довге [yː]: губи для «у», язик для «і»; dich — [dɪç].
 > uk: Подарунок для тебе.
 
 ## Типові помилки українців
 
 > [!pitfall] «mit Auto», «mit Bus»: орудний без артикля
-> Українською «їду автобусом» — одне слово в орудному. Німецькою потрібні *mit* і артикль у Dativ: ***mit dem Bus***, ***mit der Bahn***, ***mit dem Auto***. Форми *mit Bus, mit Auto* без артикля вказують на помилку. Пішки — *zu Fuß*, без *mit*.
+> Українською «їду автобусом» — одне слово в орудному. Німецькою потрібні *mit* і артикль у Dativ: ***mit dem Bus***, ***mit der Bahn***, ***mit dem Auto***. Форми *mit Bus, mit Auto* без артикля зазвичай помилкові (крім сталих виразів: *mit Bus und Bahn*). Пішки — *zu Fuß*, без *mit*.
 
 > [!pitfall] «nach Arzt», «zu Berlin», «ich bin nach Hause»: nach, zu, bei, Hause
 > До людини чи установи — **zu**: *zum Arzt, zur Bank*. До міста — **nach**: *nach Berlin*. Де ти вже є — **bei** (*beim Arzt*) або *zu Hause*. Додому — *nach Hause*. Три різні слова, бо відповідають на різні запитання («куди?» / «де?»).
@@ -271,7 +271,7 @@ estimatedMinutes: 40
 > Займенник береться у відмінку, якого вимагає прийменник: *für **mich*** (Akk), *mit **mir*** (Dat), *ohne **ihn*** (Akk), *bei **uns*** (Dat, для *wir* форма та сама). В українській відмінок видно за формою займенника («для мене», «зі мною»); у німецькій його теж задає прийменник.
 
 > [!pitfall] «seit zwei Jahre» і «Ich habe gearbeitet seit zwei Jahren»
-> *seit* потребує Dativ: *seit zwei Jahr**en***, *seit einem Jahr*. Дію, яка триває досі, ставимо в **теперішній час**: *Ich arbeite seit zwei Jahren hier*. Українською «працюю вже два роки» — теж теперішній. Perfekt із *seit* тут не підходить.
+> *seit* потребує Dativ: *seit zwei Jahr**en***, *seit einem Jahr*. Дію, яка триває досі, ставимо в **теперішній час**: *Ich arbeite seit zwei Jahren hier*. Українською «працюю вже два роки» — теж теперішній. Perfekt із *seit* уживають переважно із запереченням (*Ich habe ihn seit Jahren nicht gesehen*), а не для дії, що триває.
 
 ## Практика
 
@@ -284,7 +284,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** дія триває досі — *seit* + Dativ. *Vor zwei Jahren* означало б «два роки тому» (дієслово було б у Perfekt).
 
-> [!quiz] Обери прийменник: «Wir fahren ___ Berlin.»
+> [!quiz] Обери прийменник: «Wir fahren ___ Berlin.» (куди?)
 > level: A2 · type: single · id: de-a2-praep-kasus-q03
 > - [ ] zu
 > - [x] nach
@@ -311,14 +311,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** «для тебе» — *für dich* (Akkusativ). *Zu dich* і *mit dich* — типові помилки.
 
-> [!quiz] Обери форму: «Ich trinke Kaffee ohne ___ Zucker.»
+> [!quiz] Обери форму: «Ich gehe nicht ohne ___ Schlüssel aus dem Haus.»
 > level: A2 · type: single · id: de-a2-praep-kasus-q06
 > - [ ] dem
 > - [x] den
 > - [ ] der
 > - [ ] das
 >
-> **Пояснення:** *ohne* + Akkusativ; *der Zucker* — чоловічий рід, Akkusativ — *den*. Допускається й без артикля: *ohne Zucker*.
+> **Пояснення:** *ohne* + Akkusativ; *der Schlüssel* — чоловічий рід, Akkusativ — *den*. З незлічуваним іменником артикль не потрібен: *ohne Zucker*.
 
 > [!quiz] Які прийменники завжди з Dativ? Обери всі.
 > level: A2 · type: multi · id: de-a2-praep-kasus-q07
@@ -363,15 +363,15 @@ estimatedMinutes: 40
 > **Пояснення:** *für, ohne* — Akkusativ (*dich, ihn*); *mit, bei* — Dativ (*dir, uns*). *Mich* і *mir* — форми для «я», а тут інші особи.
 
 > [!quiz] Заповни пропуски: seit чи vor
-> level: A2 · type: fill · bank: bei, aus · id: de-a2-praep-kasus-q11
+> level: A2 · type: fill · bank: für, nach · id: de-a2-praep-kasus-q11
 >
 > ```text fill
 > Ich wohne [[seit]] 2020 in Köln.
-> [[Vor]] drei Jahren bin ich umgezogen.
+> Ich bin [[vor]] drei Jahren umgezogen.
 > Er arbeitet [[seit]] zwei Monaten hier.
 > ```
 >
-> **Пояснення:** *seit* — триває досі; *vor* — «тому», подія закінчилася. *Bei* і *aus* тут не мають часового значення.
+> **Пояснення:** *seit* — триває досі; *vor* — «тому», подія закінчилася. *Für* і *nach* дають інше значення («на три роки», «після»).
 
 > [!quiz] Склади речення: «Я щодня їжджу на роботу автобусом»
 > level: A2 · type: order · id: de-a2-praep-kasus-q12
@@ -444,5 +444,5 @@ estimatedMinutes: 40
 > - **Dativ:** *aus, bei, mit, nach, seit, von, zu* (+ *außer, gegenüber*). **Akkusativ:** *durch, für, gegen, ohne, um*.
 > - Злиття: *zum, zur, beim, vom*; розмовні *durchs, fürs, ums*.
 > - *nach* — міста, країни, *nach Hause*; *zu* — до людини чи установи; *bei* — перебування у людини чи установи.
-> - *seit* + Präsens — «вже»; *vor* — «тому».
+> - *seit* + Präsens (для дії, що триває) — «вже»; *vor* — «тому».
 > - Транспорт: *mit dem Bus*, пішки — *zu Fuß*.

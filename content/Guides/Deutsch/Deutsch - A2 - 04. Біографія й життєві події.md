@@ -48,7 +48,7 @@ estimatedMinutes: 40
 >   - { id: a, label: "1995", text: "Ich bin geboren.", note: "народився", tone: yellow }
 >   - { id: b, label: "2001", text: "Ich bin zur Schule gegangen.", note: "пішов до школи", tone: pink }
 >   - { id: c, label: "2013", text: "Ich habe das Abitur gemacht.", note: "склав Abitur", tone: yellow }
->   - { id: d, label: "2019", text: "Ich habe die Ausbildung beendet.", note: "закінчив навчання", tone: pink }
+>   - { id: d, label: "2019", text: "Ich habe eine Ausbildung gemacht.", note: "пройшов навчання", tone: pink }
 >   - { id: e, label: "heute", text: "Ich arbeite in Hamburg.", note: "тепер", tone: gray }
 > edges:
 >   - { from: a, to: b, label: "zuerst" }
@@ -111,7 +111,7 @@ estimatedMinutes: 40
 > note: зміна стану → sein. Відокремлюване: Ich wachse auf.
 
 > [!word] die Kindheit
-> ipa: /ˈkɪntˌhaɪ̯t/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w05
+> ipa: /ˈkɪnthaɪ̯t/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w05
 > uk: дитинство
 > forms: — (без множини)
 > example: In meiner **Kindheit** habe ich viel gelesen. — У дитинстві я багато читав.
@@ -127,7 +127,7 @@ estimatedMinutes: 40
 > [!word] das Leben
 > ipa: /ˈleːbn̩/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w07
 > uk: життя
-> forms: — (зазвичай без множини)
+> forms: die Leben (рідко)
 > example: Das **Leben** in Deutschland ist anders. — Життя в Німеччині інше.
 > note: від дієслова leben (carded). Der Lebenslauf — біографія / CV.
 
@@ -192,7 +192,7 @@ estimatedMinutes: 40
 > uk: навчання в університеті
 > forms: die Studien
 > example: Nach dem **Studium** habe ich einen Job gefunden. — Після університету я знайшов роботу.
-> note: -um → das. Дієслово studieren (carded). st- = «шт».
+> note: -um (латинське) → зазвичай das. Дієслово studieren (carded). st- = «шт».
 
 > [!word] der Abschluss
 > ipa: /ˈapˌʃlʊs/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w17
@@ -206,7 +206,7 @@ estimatedMinutes: 40
 > uk: практика; стажування
 > forms: die Praktika
 > example: Ich habe ein **Praktikum** in Berlin gemacht. — Я проходив практику в Берліні.
-> note: наголос на першому складі; множина Praktika. ck → [k].
+> note: наголос на першому складі;
 
 > [!word] umziehen
 > ipa: /ˈʊmˌtsiːən/ · pos: verb · level: A2 · id: de-a2-lebenslauf-w19
@@ -216,7 +216,7 @@ estimatedMinutes: 40
 > note: sich umziehen = перевдягатися (haben).
 
 > [!word] der Umzug
-> ipa: /ˈʊmˌtsuːk/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w20
+> ipa: /ˈʊmtsuːk/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w20
 > uk: переїзд
 > forms: die Umzüge
 > example: Der **Umzug** hat zwei Tage gedauert. — Переїзд тривав два дні.
@@ -237,7 +237,7 @@ estimatedMinutes: 40
 > note: heiraten + Akk без прийменника: Sie heiratet ihn. Не «mit».
 
 > [!word] die Hochzeit
-> ipa: /ˈhɔxˌtsaɪ̯t/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w23
+> ipa: /ˈhɔxtsaɪ̯t/ · pos: noun · level: A2 · id: de-a2-lebenslauf-w23
 > uk: весілля
 > forms: die Hochzeiten
 > example: Die **Hochzeit** war im Sommer. — Весілля було влітку.
@@ -259,7 +259,7 @@ estimatedMinutes: 40
 > [!word] sich verlieben (in + Akk)
 > ipa: /zɪç fɛɐ̯ˈliːbn̩/ · pos: verb · level: A2 · id: de-a2-lebenslauf-w26
 > uk: закохатися
-> forms: verliebt sich → verliebte sich → hat sich verliebt
+> forms: sich verlieben → verliebte sich → hat sich verliebt
 > example: Er hat sich in eine Kollegin **verliebt**. — Він закохався в колегу.
 > note: рефлексивне; Partizip без ge- (префікс ver-). Стан: Er ist verliebt.
 
@@ -386,7 +386,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-У словах цієї теми багато довгих складних слів: наголос падає на **перший складник**: *Lébenslauf, Gébursort, Úmzug, Áusbildung*. У словах з префіксом *ver-, be-, er-, ge-* наголос на кореневому складі: *verlíeben, beginnen, Erfáhrung*.
+У словах цієї теми багато довгих складних слів: наголос падає на **перший складник**: *Lébenslauf, Gebúrtsort, Úmzug, Áusbildung*. У словах з префіксом *ver-, be-, er-, ge-* наголос на кореневому складі: *verlíeben, beginnen, Erfáhrung*.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-lebenslauf-s01
@@ -427,7 +427,7 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-lebenslauf-s06
 > text: Meine Eltern gehen nächstes Jahr in Rente.
 > ipa: /ˈmaɪ̯nə ˈɛltɐn ˈɡeːən nɛçstəs jaːɐ̯ ɪn ˈʁɛntə/
-> tip: nächstes — ä = [ɛ], ch = [ç]. Eltern — «ельтерн».
+> tip: nächstes — наголос на nächs-, ä довге [ɛː], ch = [ç]. Eltern — «ельтерн».
 > uk: Мої батьки наступного року підуть на пенсію.
 
 ## Типові помилки українців
@@ -463,7 +463,7 @@ estimatedMinutes: 40
 
 ## Landeskunde: школа в Німеччині
 
-In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren beginnt die Grundschule. Sie dauert meistens vier Jahre, in Berlin und Brandenburg sechs Jahre. Danach wechseln die Kinder auf eine weiterführende Schule, zum Beispiel auf das Gymnasium, die Realschule oder die Gesamtschule. Nach dem Gymnasium machen viele das Abitur und können studieren. Wer eine Ausbildung machen will, lernt im Betrieb und in der Berufsschule. Jedes Bundesland entscheidet selbst über sein Schulsystem, deshalb ist es nicht überall gleich.
+In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren beginnt die Grundschule. Sie dauert meistens vier Jahre, in Berlin und Brandenburg sechs Jahre. Danach wechseln die Kinder auf eine weiterführende Schule, zum Beispiel auf das Gymnasium, die Realschule oder die Gesamtschule. Am Ende des Gymnasiums machen die Schüler das Abitur. Dann können sie studieren. Wer eine Ausbildung machen will, lernt im Betrieb und in der Berufsschule. Jedes Bundesland entscheidet selbst über sein Schulsystem, deshalb ist es nicht überall gleich.
 
 > [!quiz] Wie lange dauert die Grundschule meistens?
 > level: A2 · type: single · id: de-a2-lebenslauf-q02
@@ -474,14 +474,14 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 >
 > **Пояснення:** у тексті: *Sie dauert meistens vier Jahre, in Berlin und Brandenburg sechs Jahre.* Шість років — лише в окремих землях.
 
-> [!quiz] Was machen viele Schüler nach dem Gymnasium?
+> [!quiz] Was machen viele Schüler am Ende des Gymnasiums?
 > level: A2 · type: single · id: de-a2-lebenslauf-q03
 > - [ ] Sie gehen in die Grundschule.
-> - [x] Sie machen das Abitur und können studieren.
+> - [x] Sie machen das Abitur und können dann studieren.
 > - [ ] Sie arbeiten sofort in einer Firma.
 > - [ ] Sie wechseln auf die Hauptschule.
 >
-> **Пояснення:** *Nach dem Gymnasium machen viele das Abitur und können studieren.*
+> **Пояснення:** *Am Ende des Gymnasiums machen die Schüler das Abitur. Dann können sie studieren.*
 
 > [!quiz] Wer entscheidet über das Schulsystem?
 > level: A2 · type: single · id: de-a2-lebenslauf-q04
@@ -525,7 +525,7 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 > **Пояснення:** *geboren* — *bin*, *studieren* — *hat*, *umziehen* — *sind*, *heiraten* — *hat*. Дистрактори *ist* і *habe* не підходять до підметів *ich / sie / wir / er* у цих реченнях.
 
 > [!quiz] Заповни пропуски: слова біографії
-> level: A2 · type: fill · bank: Studium, Erfahrung · id: de-a2-lebenslauf-q08
+> level: A2 · type: fill · bank: Studium, Abitur · id: de-a2-lebenslauf-q08
 >
 > ```text fill
 > Nach dem Abitur hat er eine [[Ausbildung]] gemacht.
@@ -533,19 +533,19 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 > Sie hat 2020 eine Firma [[gegründet]].
 > ```
 >
-> **Пояснення:** *eine Ausbildung machen*, *in Rente gehen*, *eine Firma gründen* (Partizip *gegründet*). *Studium* — середній рід (*ein Studium*), а *Erfahrung* не сполучається з *gemacht* у такому реченні.
+> **Пояснення:** *eine Ausbildung machen*, *in Rente gehen*, *eine Firma gründen* (Partizip *gegründet*). *Studium* і *Abitur* — середній рід (*ein Studium, ein Abitur*), тож з *eine* не сполучаються, а в *in … gehen* не підходять.
 
 > [!quiz] Заповни пропуски: розповідь Софії
-> level: A2 · type: fill · bank: weil, aber · id: de-a2-lebenslauf-q09
+> level: A2 · type: fill · bank: Weil, Aber · id: de-a2-lebenslauf-q09
 >
 > ```text fill
 > [[Zuerst]] ist Sofia zur Schule gegangen.
-> [[Dann]] hat sie vier Jahre studiert.
-> [[Später]] hat sie ein Praktikum gemacht.
+> Dann hat sie vier Jahre studiert.
+> Später hat sie ein Praktikum gemacht.
 > [[Schließlich]] ist sie ausgewandert.
 > ```
 >
-> **Пояснення:** послідовність: *zuerst, dann, später, schließlich*. *Weil* і *aber* — сполучники, після яких порядок слів інший; вони не відкривають речення про наступний крок.
+> **Пояснення:** *zuerst* відкриває послідовність, *schließlich* — закриває її. *Weil* і *aber* — сполучники, після яких порядок слів інший; вони не відкривають речення про наступний крок.
 
 > [!quiz] Склади речення: «У 2018 році ми переїхали до Німеччини»
 > level: A2 · type: order · id: de-a2-lebenslauf-q10
@@ -576,12 +576,12 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 
 > [!quiz] Яка форма правильна: «Mein Vater ___ nächstes Jahr in Rente.»
 > level: A2 · type: single · id: de-a2-lebenslauf-q12
-> - [ ] geht in die Rente
-> - [x] geht in Rente
-> - [ ] ist Rente
-> - [ ] hat Rente
+> - [x] geht
+> - [ ] ist
+> - [ ] hat
+> - [ ] macht
 >
-> **Пояснення:** стійкий вираз *in Rente gehen* — без артикля.
+> **Пояснення:** стійкий вираз *in Rente gehen*. Дієслова *sein, haben, machen* з *in Rente* так не сполучаються.
 
 ## Фішки
 
@@ -589,7 +589,7 @@ In Deutschland müssen alle Kinder zur Schule gehen. Mit etwa sechs Jahren begin
 > Слово *Abitur* походить від латинського *abire* — «піти геть»: той, хто закінчив школу, «відходить». У Німеччині документ видають на завершення гімназії; в Австрії й Швейцарії аналог — *Matura*.
 
 > [!reel] 👶 Kita, Kindergarten, Krippe
-> У Німеччині діти до трьох років ходять до *Krippe*, потім до *Kindergarten*. Загальний термін — *Kita* (*Kindertagesstätte*). Дошкільні групи не входять до обовʼязкового шкільного навчання.
+> У Німеччині діти до трьох років можуть ходити до *Krippe*, потім до *Kindergarten*. Загальний термін — *Kita* (*Kindertagesstätte*). Дошкільні групи не входять до обовʼязкового шкільного навчання.
 
 > [!reel] 📜 Lebenslauf — не лише текст
 > В Німеччині Lebenslauf пишуть таблицею: зверху дані, далі етапи від найновішого до найдавнішого. Фото в резюме колись було нормою, зараз — за бажанням.

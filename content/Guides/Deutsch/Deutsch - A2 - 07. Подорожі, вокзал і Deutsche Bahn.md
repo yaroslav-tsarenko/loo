@@ -29,7 +29,7 @@ estimatedMinutes: 45
 
 ## На вокзалі
 
-У Німеччині більшість подорожей потягом організовує **Deutsche Bahn (DB)**: далекі маршрути (*Fernverkehr*: ICE, IC) і місцеві (*Nahverkehr*: RE, RB, S-Bahn). Квиток купують в автоматі, на сайті чи в застосунку DB Navigator. На табло шукаєш: **Zug** (номер і напрямок), **Abfahrt** (відправлення), **Gleis** (колія) та **Verspätung** (запізнення).
+У Німеччині найбільший залізничний перевізник — **Deutsche Bahn (DB)**: далекі маршрути (*Fernverkehr*: ICE, IC) і місцеві (*Nahverkehr*: RE, RB, S-Bahn). Квиток купують в автоматі, на сайті чи в застосунку DB Navigator. На табло шукаєш: **Zug** (номер і напрямок), **Abfahrt** (відправлення), **Gleis** (колія) та **Verspätung** (запізнення).
 
 > [!diagram] Від квитка до пункту призначення
 > ```yaml
@@ -103,7 +103,7 @@ estimatedMinutes: 45
 > uk: платформа
 > forms: die Bahnsteige
 > example: Der Zug steht am **Bahnsteig** 3. — Потяг стоїть біля платформи 3.
-> note: CH: das Perron; AT: Bahnsteig. Кінцеве g = [k]: ‘банштайк’.
+> note: CH: das Perron; AT: Bahnsteig. Кінцеве g = [k]: «банштайк».
 
 > [!word] die Verspätung
 > ipa: /fɛɐ̯ˈʃpɛːtʊŋ/ · pos: noun · level: A2 · id: de-a2-reisen-w03
@@ -131,17 +131,17 @@ estimatedMinutes: 45
 > uk: Deutschlandticket (місячний квиток на регіональний транспорт)
 > forms: die Deutschlandtickets
 > example: Mit dem **Deutschlandticket** fahre ich überall im Nahverkehr. — З Deutschlandticket я їжджу скрізь місцевим транспортом.
-> note: з 1.1.2026 — 63 € на місяць; не діє в ICE / IC.
+> note: з 1.1.2026 — 63 € на місяць (з 1.1.2027 — 66,80 €); не діє в ICE / IC.
 
 > [!word] die Hin- und Rückfahrt
-> ipa: /ˈhɪn ʊnt ˈʁʏkˌfaːɐ̯t/ · pos: noun · level: A2 · id: de-a2-reisen-w07
+> ipa: /ˈhɪn ʊnt ˈʁʏkfaːɐ̯t/ · pos: noun · level: A2 · id: de-a2-reisen-w07
 > uk: поїздка туди й назад
 > forms: die Hin- und Rückfahrten
 > example: Eine **Hin- und Rückfahrt** nach Köln, bitte. — Квиток до Кельна й назад, будь ласка.
 > note: коротко: hin und zurück. CH: retour. Просто в один бік — einfach.
 
 > [!word] die Unterkunft
-> ipa: /ˈʊntɐˌkʊnft/ · pos: noun · level: A2 · id: de-a2-reisen-w08
+> ipa: /ˈʊntɐkʊnft/ · pos: noun · level: A2 · id: de-a2-reisen-w08
 > uk: житло (на час подорожі)
 > forms: die Unterkünfte
 > example: Wir suchen eine günstige **Unterkunft**. — Ми шукаємо недороге житло.
@@ -162,7 +162,7 @@ estimatedMinutes: 45
 > note: plan довге a: [plaːn].
 
 > [!word] die Abfahrt
-> ipa: /ˈapˌfaːɐ̯t/ · pos: noun · level: A2 · id: de-a2-reisen-w11
+> ipa: /ˈapfaːɐ̯t/ · pos: noun · level: A2 · id: de-a2-reisen-w11
 > uk: відправлення
 > forms: die Abfahrten
 > example: Die **Abfahrt** ist um 9:15 Uhr. — Відправлення о 9:15.
@@ -204,32 +204,32 @@ estimatedMinutes: 45
 > note: Sitzplatzreservierung = резервування місця.
 
 > [!word] der Sitzplatz
-> ipa: /ˈzɪtsˌplats/ · pos: noun · level: A2 · id: de-a2-reisen-w17
+> ipa: /ˈzɪtsplats/ · pos: noun · level: A2 · id: de-a2-reisen-w17
 > uk: сидяче місце
 > forms: die Sitzplätze
 > example: Haben Sie einen **Sitzplatz** gefunden? — Ви знайшли місце?
 > note: tz = [ts].
 
 > [!word] der Zuschlag
-> ipa: /ˈtsuːˌʃlaːk/ · pos: noun · level: A2 · id: de-a2-reisen-w18
+> ipa: /ˈtsuːʃlaːk/ · pos: noun · level: A2 · id: de-a2-reisen-w18
 > uk: доплата
 > forms: die Zuschläge
 > example: Für das Einzelzimmer zahlt man einen **Zuschlag**. — За одномісний номер беруть доплату.
 > note: кінцеве g = [k]. Zuschlag буває й у поїзді, і в готелі.
 
 > [!word] der Fernverkehr
-> ipa: /ˈfɛʁnfɛɐ̯ˌkeːɐ̯/ · pos: noun · level: A2 · id: de-a2-reisen-w19
+> ipa: /ˈfɛʁnfɛɐ̯keːɐ̯/ · pos: noun · level: A2 · id: de-a2-reisen-w19
 > uk: далекі перевезення
 > forms: — (без множини)
 > example: ICE und IC gehören zum **Fernverkehr**. — ICE та IC належать до далеких перевезень.
 > note: «Fern-» = далекий. Протилежне: Nahverkehr.
 
 > [!word] der Nahverkehr
-> ipa: /ˈnaːfɛɐ̯ˌkeːɐ̯/ · pos: noun · level: A2 · id: de-a2-reisen-w20
+> ipa: /ˈnaːfɛɐ̯keːɐ̯/ · pos: noun · level: A2 · id: de-a2-reisen-w20
 > uk: місцеві перевезення
 > forms: — (без множини)
 > example: Das Deutschlandticket gilt im **Nahverkehr**. — Deutschlandticket діє в місцевому транспорті.
-> note: ö: Bus, Straßenbahn, U-Bahn, S-Bahn, RB, RE.
+> note: напр.: Bus, Straßenbahn, U-Bahn, S-Bahn, RB, RE.
 
 > [!word] der ICE
 > ipa: /iːtseːˈʔeː/ · pos: noun · level: A2 · id: de-a2-reisen-w21
@@ -239,7 +239,7 @@ estimatedMinutes: 45
 > note: Intercity-Express; множина — ICE (або ICEs). Також: IC, EC; AT: Railjet; CH: IC / ICN.
 
 > [!word] die S-Bahn
-> ipa: /ˈɛsˌbaːn/ · pos: noun · level: A2 · id: de-a2-reisen-w22
+> ipa: /ˈɛsbaːn/ · pos: noun · level: A2 · id: de-a2-reisen-w22
 > uk: міська електричка
 > forms: die S-Bahnen
 > example: Die **S-Bahn** fährt alle zehn Minuten. — Міська електричка їде кожні десять хвилин.
@@ -253,7 +253,7 @@ estimatedMinutes: 45
 > note: на сайті DB: Verbindung suchen.
 
 > [!word] ausfallen
-> ipa: /ˈaʊ̯sˌfalən/ · pos: verb · level: A2 · id: de-a2-reisen-w24
+> ipa: /ˈaʊ̯sfalən/ · pos: verb · level: A2 · id: de-a2-reisen-w24
 > uk: скасовуватися
 > forms: er fällt aus · fiel aus · ist ausgefallen
 > example: Der Zug ist **ausgefallen**. — Потяг скасовано.
@@ -274,7 +274,7 @@ estimatedMinutes: 45
 > note: ei = [aɪ̯]; Bahnstreik.
 
 > [!word] die Auskunft
-> ipa: /ˈaʊ̯sˌkʊnft/ · pos: noun · level: A2 · id: de-a2-reisen-w27
+> ipa: /ˈaʊ̯skʊnft/ · pos: noun · level: A2 · id: de-a2-reisen-w27
 > uk: довідка; інформація
 > forms: die Auskünfte
 > example: Wo ist die **Auskunft**? — Де довідка?
@@ -288,7 +288,7 @@ estimatedMinutes: 45
 > note: ein Stück Gepäck, zwei Koffer. Не «Gepäcke».
 
 > [!word] der Reisepass
-> ipa: /ˈʁaɪ̯zəˌpas/ · pos: noun · level: A2 · id: de-a2-reisen-w29
+> ipa: /ˈʁaɪ̯zəpas/ · pos: noun · level: A2 · id: de-a2-reisen-w29
 > uk: закордонний паспорт
 > forms: die Reisepässe
 > example: Bitte zeigen Sie Ihren **Reisepass**. — Покажіть, будь ласка, ваш паспорт.
@@ -440,14 +440,14 @@ estimatedMinutes: 45
 > [!listen] Послухай діалог. Що Пауль забронював?
 > level: A2 · type: answer · speed: slow · id: de-a2-reisen-l06
 > audio: A: Hallo, Paul! Wie war dein Urlaub?
-> audio: B: Super! Wir haben eine Ferienwohnung gebucht und eine Woche in Österreich übernachtet.
+> audio: B: Super! Wir haben eine Ferienwohnung gebucht und eine Woche in Österreich verbracht.
 > - [x] Апартаменти для відпустки на тиждень.
 > - [ ] Номер у готелі на ніч.
 > - [ ] Квитки на потяг.
 
 ## Вимова
 
-Наголос у складних словах — на **першому** складнику: *Fáhrkarte, Báhnhof, Fáhrplan, Gléisänderung*. Слова на *-ung* мають наголос перед суфіксом: *VerSPÄtung*, *ReserVIErung*. Кінцеве *-g* у *Zug*, *Bahnsteig* читаємо як [k].
+Наголос у складних словах — на **першому** складнику: *Fáhrkarte, Báhnhof, Fáhrplan, Gléisänderung*. Суфікс *-ung* не змінює наголосу дієслова: *verˈspäten → Verˈspätung*, *reserˈvieren → Reserˈvierung*, *ˈausbilden → ˈAusbildung*. Кінцеве *-g* у *Zug*, *Bahnsteig* читаємо як [k].
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-reisen-s01
@@ -550,7 +550,7 @@ Die Deutsche Bahn ist für viele Menschen wichtig, aber nicht immer pünktlich. 
 
 ## Практика
 
-> [!quiz] Яке речення правильне?
+> [!quiz] Які речення правильні? Обери всі.
 > level: A2 · type: multi · id: de-a2-reisen-q05
 > - [x] Der Zug ist ausgefallen.
 > - [x] Ich habe meinen Anschluss verpasst.
@@ -645,7 +645,7 @@ Die Deutsche Bahn ist für viele Menschen wichtig, aber nicht immer pünktlich. 
 ## Фішки
 
 > [!reel] 🎫 Від «Neun-Euro-Ticket» до Deutschlandticket
-> Влітку 2022 року уряд запропонував Neun-Euro-Ticket для місцевого транспорту: його продали 52 мільйони разів. Із цього проєкту виріс Deutschlandticket: з 2023 року, зараз — 63 € на місяць (з січня 2026), як пише Bundesregierung.
+> Влітку 2022 року уряд запропонував Neun-Euro-Ticket для місцевого транспорту: його продали 52 мільйони разів. Із цього проєкту виріс Deutschlandticket: з 2023 року, зараз — 63 € на місяць (з січня 2026; з січня 2027 — 66,80 €), як пише Bundesregierung.
 
 > [!reel] ⏱️ Чому 5 хвилин 59 секунд — «пунктуально»
 > У статистиці Deutsche Bahn потяг уважають пунктуальним, якщо запізнення менше шести хвилин. Тому в німецькому розкладі «пунктуальний» не завжди означає «хвилина в хвилину».
@@ -667,5 +667,5 @@ Die Deutsche Bahn ist für viele Menschen wichtig, aber nicht immer pünktlich. 
 > - Квиток: *eine Fahrkarte nach … (einfach / hin und zurück)*; колія — *Gleis*; затримка — *Verspätung haben*; пересадка — *umsteigen / Anschluss*.
 > - Потяг, який ти не встиг: *verpassen*. Скасовано: *ist ausgefallen*.
 > - Житло: *Einzelzimmer, Doppelzimmer, Ferienwohnung, Jugendherberge* — *buchen* і *übernachten*.
-> - Deutschlandticket: 63 € на місяць (з 1.1.2026), діє в Nahverkehr, не в ICE/IC.
+> - Deutschlandticket: 63 € на місяць (з 1.1.2026; з 1.1.2027 — 66,80 €), діє в Nahverkehr, не в ICE/IC.
 > - Пунктуальність DB 2025: Fernverkehr 60,1 %, Regionalverkehr 88,7 %.

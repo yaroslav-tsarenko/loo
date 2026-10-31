@@ -87,7 +87,7 @@ estimatedMinutes: 45
 
 ## Інші слова з тим самим правилом
 
-Закінчення такі самі після *dieser, jeder, welcher* (дієслівно «der-слова»):
+Закінчення такі самі після *dieser, jeder, welcher* (так звані «der-слова»):
 
 - **dieser** neue Laptop, **diese** neue Jacke, **dieses** neue Handy — цей новий ноутбук / ця нова куртка / цей новий телефон;
 - **jeder** gute Freund — кожен добрий друг;
@@ -99,7 +99,7 @@ estimatedMinutes: 45
 - Іменник можна опустити: *Welcher Pullover? — Der blaue.* Закінчення таке саме, як і з іменником.
 - **hoch** → *hoh-*: *der hohe Turm*; **teuer** → *teur-*: *das teure Auto*; **dunkel** → *dunkl-*: *die dunkle Jacke*. Перед закінченням зникає -c- (hoch) або -e- (teuer, dunkel).
 - Деякі прикметники **закінчень не мають**: *lila, rosa* (*die rosa Tasche*; розм. бувають і закінчення).
-- Прикметники від назв міст на **-er** не змінюються: *der Berliner Dom*, *die Hamburger Hafenstadt*.
+- Прикметники від назв міст на **-er** не змінюються: *der Berliner Dom*, *die Frankfurter Würstchen*.
 
 ## Приклади
 
@@ -207,17 +207,17 @@ estimatedMinutes: 45
 > uk: ноутбук
 > forms: die Laptops
 > example: Der **Laptop** liegt auf dem Schreibtisch. — Ноутбук лежить на письмовому столі.
-> note: запозичення: наголос на першому складі.
+> note: запозичення: наголос на першому складі. Рід: також das Laptop (розм.).
 
 > [!word] die Aussicht
-> ipa: /ˈaʊ̯sˌzɪçt/ · pos: noun · level: A2 · id: de-a2-adj-bestimmt-w16
+> ipa: /ˈaʊ̯szɪçt/ · pos: noun · level: A2 · id: de-a2-adj-bestimmt-w16
 > uk: краєвид; перспектива
 > forms: die Aussichten
 > example: Die **Aussicht** vom Balkon ist schön. — Краєвид з балкона гарний.
 > note: складне слово: aus + sehen. Також «прогноз»: die Wetteraussichten.
 
 > [!word] der Anzug
-> ipa: /ˈanˌtsuːk/ · pos: noun · level: A2 · id: de-a2-adj-bestimmt-w17
+> ipa: /ˈantsuːk/ · pos: noun · level: A2 · id: de-a2-adj-bestimmt-w17
 > uk: костюм (чоловічий)
 > forms: die Anzüge
 > example: Er trägt einen grauen **Anzug**. — Він носить сірий костюм.
@@ -235,7 +235,7 @@ estimatedMinutes: 45
 > uk: жіноча сумочка
 > forms: die Handtaschen
 > example: Die **Handtasche** ist neu. — Сумочка нова.
-> note: подвійне t: [tt] вимовляється чітко, як в «х-а-н-т-т». Складене: die Hand + die Tasche.
+> note: d + t зливаються в один трохи довший [t]. Складене: die Hand + die Tasche.
 
 ## Слухаємо
 
@@ -477,7 +477,7 @@ estimatedMinutes: 45
 > klein ✗
 > ```
 >
-> **Пояснення:** Dativ жіночого роду → *kleinen*; без закінчення прикметник стоїти не може.
+> **Пояснення:** Dativ жіночого роду → *kleinen*; без закінчення прикметник стояти не може.
 
 > [!quiz] Яке слово пропущено: «Welcher Pullover gefällt dir? — Der ___.» (rot)
 > level: A2 · type: single · id: de-a2-adj-bestimmt-q16
@@ -490,11 +490,11 @@ estimatedMinutes: 45
 
 ## Фішки
 
-> [!reel] 🇩🇪 «Guten Morgen» — це Akkusativ
-> *Guten Morgen, Gute Nacht, Gutes neues Jahr, Guten Appetit, Gute Reise* — це скорочення від «Ich wünsche dir einen guten Morgen / eine gute Nacht …». Закінчення *-en / -e / -es* — це Akkusativ ч. (*einen guten Morgen*), ж. (*eine gute Nacht*) і с. (*ein gutes neues Jahr*). Артикль зник, а закінчення залишилося — його докладно розбираємо в темі A2-17.
+> [!reel] 🌸 lila і rosa не відмінюються
+> Прикметники *lila* (бузковий) і *rosa* (рожевий) походять від назв квітів, тому закінчень зазвичай не мають: *das lila Kleid*, *die rosa Tasche*. У розмові іноді чути й *rosane Tasche*, але в нормі — без закінчення.
 
 > [!reel] 🧩 Кольори як імена
-> Німецькі власні назви зберігають прикметник із закінченням слабкої відміни: *das Rote Rathaus* у Берліні (за червоною цеглою), *das Schwarze Brett* (дошка оголошень), *das Rote Kreuz*, *das Schwarze Meer*. З великої літери — бо це частина назви.
+> Власні назви й сталі терміни зберігають прикметник із закінченням слабкої відміни: *das Rote Rathaus* у Берліні (за червоною цеглою), *das Schwarze Brett* (дошка оголошень), *das Rote Kreuz*, *das Schwarze Meer*. З великої літери — бо це частина назви.
 
 > [!reel] 🥐 Економія в мові
 > Німецька не повторює сигнал двічі. Артикль уже каже «чоловічий рід, Nominativ» — тож прикметник мовчить: *der neue Tisch*. Без артикля прикметник бере сигнал на себе: *neuer Tisch*, *frisches Brot*. Це й є вся логіка двох відмін; другу побачимо в темі A2-17.

@@ -45,7 +45,7 @@ estimatedMinutes: 45
 >   - { focus: n, note: "Дзвінок: Hier spricht … (формально) або Hier ist … (між знайомими). Не «Ich bin Anna». Далі — прохання зʼєднати: Kann ich bitte Frau Keller sprechen?" }
 >   - { focus: a, note: "Назви мету одним реченням: Ich möchte einen Termin vereinbaren. Ich rufe wegen der Wohnung an." }
 >   - { focus: d, note: "Почуєш пропозицію дня й часу: Passt Ihnen Dienstag? Записуй число й годину. Якщо не підходить: Kann ich den Termin verschieben?" }
->   - { focus: e, note: "По телефону прощаються словами Auf Wiederhören! — буквально «до почуття». У приватній розмові також Tschüs!" }
+>   - { focus: e, note: "По телефону прощаються словами Auf Wiederhören! — буквально «до нового слухання», тобто «почуємося». У приватній розмові також Tschüs!" }
 > ```
 > Привітання → хто → мета → домовленість → прощання.
 
@@ -67,7 +67,7 @@ estimatedMinutes: 45
 
 ### Імена й номери
 
-Імʼя й прізвище по телефону диктують літерами, а номер за одною цифрою. Для літер німці використовують слова-опори: *A wie Anton*, *B wie Berta*, *C wie Cäsar*. Із 2022 року стандарт DIN 5009 пропонує назви міст (*A wie Aachen, B wie Berlin, C wie Chemnitz*), але старі слова теж широко вживані.
+Імʼя й прізвище по телефону диктують літерами, а номер цифрами, часто групами. Для літер німці використовують слова-опори: *A wie Anton*, *B wie Berta*, *C wie Cäsar*. Із 2022 року стандарт DIN 5009 пропонує назви міст (*A wie Aachen, B wie Berlin, C wie Chemnitz*), але старі слова теж широко вживані.
 
 Номер телефону читають цифрами, часто групами: *null eins fünf eins, zwei drei vier, sechs sieben acht* = 0151 234 678. Цифру 2 по телефону часто вимовляють *zwo*, щоб не сплутати з *drei*.
 
@@ -109,7 +109,7 @@ estimatedMinutes: 45
 > uk: телефон
 > forms: die Telefone
 > example: Das **Telefon** klingelt. — Телефон дзвонить.
-> note: наголос на Te-: [ˈteːləfoːn]. Мобільний — das Handy (AT, DE) або das Mobiltelefon; у Швейцарії також das Natel. Дієслово: telefonieren.
+> note: у Німеччині частіше [ˈteːləfoːn], але є й [teləˈfoːn]; у AT і CH зазвичай наголос на -fon. Мобільний — das Handy (AT, DE) або das Mobiltelefon; у Швейцарії також das Natel. Дієслово: telefonieren.
 
 > [!word] verbinden
 > ipa: /fɛɐ̯ˈbɪndn̩/ · pos: verb · level: A2 · id: de-a2-hoeren-telefon-w02
@@ -130,7 +130,7 @@ estimatedMinutes: 45
 > uk: передзвонити
 > forms: zurückrufen → rief zurück → hat zurückgerufen
 > example: Ich **rufe** Sie später **zurück**. — Я передзвоню Вам пізніше.
-> note: відокремлюване, наголос на zu-. Керування Akk: jemanden zurückrufen. Не «dir zurückrufen».
+> note: відокремлюване, наголос на -rück-: [tsuˈʁʏkʁuːfn̩]. Керування Akk: jemanden zurückrufen. Не «dir zurückrufen».
 
 > [!word] der Rückruf
 > ipa: /ˈʁʏkʁuːf/ · pos: noun · level: B1 · id: de-a2-hoeren-telefon-w05
@@ -161,7 +161,7 @@ estimatedMinutes: 45
 > note: Sie haben die Firma Schneider erreicht — «Ви додзвонилися до фірми Шнайдер». ch після ei = [ç].
 
 > [!word] vereinbaren
-> ipa: /fɛɐ̯ˈaɪ̯nbaːʁən/ · pos: verb · level: A2 · id: de-a2-hoeren-telefon-w09
+> ipa: /fɛɐ̯ˈʔaɪ̯nbaːʁən/ · pos: verb · level: A2 · id: de-a2-hoeren-telefon-w09
 > uk: домовлятися, узгоджувати
 > forms: vereinbaren → vereinbarte → hat vereinbart
 > example: Ich möchte einen Termin **vereinbaren**. — Я хотів би домовитися про запис.
@@ -198,7 +198,7 @@ estimatedMinutes: 45
 > uk: прийом (сигналу); рецепція; отримання
 > forms: die Empfänge
 > example: Hier habe ich keinen **Empfang**. — Тут у мене немає звʼязку.
-> note: емп-пф: [mpf]. В готелі та в офісі: am Empfang — на рецепції. Дієслово: empfangen.
+> note: mpf вимовляємо разом: [ɛmˈpfaŋ]. В готелі та в офісі: am Empfang — на рецепції. Дієслово: empfangen.
 
 ## Слухаємо
 
@@ -268,7 +268,7 @@ estimatedMinutes: 45
 > audio: A: Das sind zwei Nächte. Auf welchen Namen?
 > - [ ] на одну ніч
 > - [x] на дві ночі
-> - [ ] на чотирнадцять ночей
+> - [ ] на три ночі
 >
 > **Пояснення:** з 12 до 14 травня — це *zwei Nächte*. Число *vierzehn* — дата виїзду, а не кількість ночей.
 
@@ -364,7 +364,7 @@ estimatedMinutes: 45
 > audio: Die Praxis ist heute geschlossen. In dringenden Fällen rufen Sie bitte den Notruf an: eins eins zwei.
 > - [ ] 110
 > - [x] 112
-> - [ ] 211
+> - [ ] 110
 >
 > **Пояснення:** *eins eins zwei* = 112. Це європейський номер екстреної допомоги; у Німеччині 112 — швидка допомога й пожежна, 110 — поліція.
 
@@ -408,14 +408,14 @@ estimatedMinutes: 45
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-hoeren-telefon-s03
 > text: Ich möchte einen Termin vereinbaren.
-> ipa: /ɪç ˈmœçtə ˈaɪ̯nən tɛɐ̯ˈmiːn fɛɐ̯ˈaɪ̯nbaːʁən/
+> ipa: /ɪç ˈmœçtə ˈaɪ̯nən tɛʁˈmiːn fɛɐ̯ˈaɪ̯nbaːʁən/
 > tip: möchte — ö коротке [œ], ch = [ç]. Termin — наголос на -min; vereinbaren — наголос на -ein-, ver- слабке.
 > uk: Я хотів би домовитися про запис.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-hoeren-telefon-s04
 > text: Ich rufe später noch einmal an.
-> ipa: /ɪç ˈʁuːfə ˈʃpɛːtɐ nɔx ˈaɪ̯nmaːl an/
+> ipa: /ɪç ˈʁuːfə ˈʃpɛːtɐ nɔx ˈaɪ̯nmaːl ˈan/
 > tip: an наприкінці наголошене: відокремлюваний префікс. später — sp = «шп», ä довге [ɛː].
 > uk: Я зателефоную пізніше ще раз.
 
@@ -423,7 +423,7 @@ estimatedMinutes: 45
 > level: A2 · speed: slow · id: de-a2-hoeren-telefon-s05
 > text: Können Sie mich bitte zurückrufen?
 > ipa: /ˈkœnən ziː mɪç ˈbɪtə tsuˈʁʏkʁuːfn̩/
-> tip: zurückrufen — наголос на zu-. ü коротке [ʏ] (губи «у», язик «і»). Підйом ↗ наприкінці.
+> tip: zurückrufen — наголос на -rück-. ü коротке [ʏ] (губи «у», язик «і»). Підйом ↗ наприкінці.
 > uk: Чи не могли б Ви мені передзвонити?
 
 > [!speak] Скажи вголос
@@ -439,10 +439,10 @@ estimatedMinutes: 45
 > Українець по телефону каже «Це Анна» і перекладає *Ich bin Anna*. Зрозуміють, але природні формули інші: *Hier spricht Anna Schulz* або між знайомими *Hier ist Anna*. Для офіційного дзвінка: *Hier spricht + повне імʼя*.
 
 > [!pitfall] «Ich rufe dir zurück»: Dativ замість Akkusativ
-> Українське «передзвоню тобі» штовхає до Dativ. Але *anrufen* і *zurückrufen* вимагають Akkusativ: *Ich rufe dich an*, *Ich rufe Sie zurück*. Форми *mir, dir, ihm* тут неправильні.
+> Українське «передзвоню тобі» штовхає до Dativ. Але *anrufen* і *zurückrufen* вимагають Akkusativ: *Ich rufe dich an*, *Ich rufe Sie zurück*. У Німеччині й Австрії форми *mir, dir, ihm* тут неправильні (у Швейцарії розмовно трапляється й Dativ).
 
 > [!pitfall] Різке «Wer ist da?»
-> Українське «Хто це?» перекладають буквально: *Wer ist da?* По телефону це звучить різко. Ввічливі варіанти: *Mit wem spreche ich?* або *Wer spricht dort, bitte?* Спершу назви себе, потім спитай, з ким говориш.
+> Українське «Хто це?» перекладають буквально: *Wer ist da?* По телефону це звучить різко. Ввічливі варіанти: *Mit wem spreche ich?* або *Wer ist am Apparat?* Спершу назви себе, потім спитай, з ким говориш.
 
 > [!pitfall] Цифри телефону й часу
 > Номер телефону диктують цифрами: *null dreißig* = 030 (де dreißig — 30). Помилка — чути *dreizehn* (13). Також по телефону *zwo* = 2. Слухай закінчення: -zehn [tseːn] проти -zig [tsɪç], як на A1.
@@ -551,12 +551,12 @@ estimatedMinutes: 45
 
 > [!quiz] Що робити, якщо ти не розчув по телефону?
 > level: A2 · type: single · id: de-a2-hoeren-telefon-q12
-> - [ ] сказати «ja» і далі вдавати, що зрозумів
-> - [x] ввічливо перепитати: «Wie bitte? Noch einmal, bitte.»
-> - [ ] мовчати, поки співрозмовник повторить сам
-> - [ ] одразу покласти слухавку
+> - [ ] «Was?»
+> - [x] «Wie bitte? Noch einmal, bitte.»
+> - [ ] «Ja, ja.», щоб не затримувати розмову
+> - [ ] «Ich verstehe nicht gut.», і більше нічого
 >
-> **Пояснення:** перепитування — звичайна й ввічлива практика: *Wie bitte? Können Sie das wiederholen? Langsamer, bitte.* Відповісти навмання небезпечно, коли йдеться про дату чи номер.
+> **Пояснення:** *Was?* звучить грубо, *Ja, ja* — ризик пропустити дату чи номер, а лише *Ich verstehe nicht gut* не просить нічого повторити. Ввічливо: *Wie bitte? Können Sie das wiederholen? Langsamer, bitte.*
 
 ## Фішки
 
@@ -564,7 +564,7 @@ estimatedMinutes: 45
 > Для диктування літер німці користуються таблицею (die Buchstabiertafel). Стандарт DIN 5009 у редакції 2022 року пропонує назви міст (*A wie Aachen, B wie Berlin*) замість імен (*A wie Anton, B wie Berta*). Старі слова поширені й досі, тому на слух доводиться розуміти обидва набори.
 
 > [!reel] 👂 «Auf Wiederhören»
-> *Auf Wiedersehen* буквально «до нового побачення». По телефону співрозмовника не видно, тому кажуть *Auf Wiederhören* — «до нового почуття». Обидві форми зрозумілі, але саме в телефонній розмові природніше звучить *Wiederhören*.
+> *Auf Wiedersehen* буквально «до нового побачення». По телефону співрозмовника не видно, тому кажуть *Auf Wiederhören* — «до нового слухання», тобто «почуємося». Обидві форми зрозумілі, але саме в телефонній розмові природніше звучить *Wiederhören*.
 
 > [!reel] 📱 Handy — німецьке слово
 > Слово *Handy* звучить як англійське, але мобільний телефон англійською називають *mobile phone* або *cell phone*, а *handy* там означає «зручний». Це німецьке слово, що виглядає англійським. У Швейцарії мобільний телефон також називають *Natel*.

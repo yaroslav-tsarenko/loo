@@ -146,61 +146,61 @@ estimatedMinutes: 40
 > example: **Man** darf hier nicht rauchen. — Тут не можна палити.
 > note: пишеться з малої, дієслово — в третій особі однини. Не плутай: der Mann — чоловік.
 
-> [!word] glauben
-> ipa: /ˈɡlaʊ̯bn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w02
-> uk: вірити; думати
-> forms: glaubt → glaubte → hat geglaubt
-> example: Ich **glaube** dir. — Я тобі вірю.
-> note: людині — Dativ (Ich glaube dir), фактові — Akkusativ (Ich glaube es). «Вірити в» — glauben an + Akk.
-
-> [!word] gratulieren
-> ipa: /ɡʁatuˈliːʁən/ · pos: verb · level: A2 · id: de-a2-pronomen-w03
-> uk: вітати; поздоровляти
-> forms: gratuliert → gratulierte → hat gratuliert
-> example: Wir **gratulieren** dir zum Geburtstag! — Ми вітаємо тебе з днем народження!
-> note: «з чим» — gratulieren zu + Dat; зі святом — zum. -ieren: наголос на -ie-.
-
-> [!word] zuhören
-> ipa: /ˈtsuːhøːʁən/ · pos: verb · level: A2 · id: de-a2-pronomen-w04
-> uk: слухати (уважно)
-> forms: hört zu → hörte zu → hat zugehört
-> example: Hör mir bitte **zu**! — Послухай мене, будь ласка!
-> note: слухати людину — zuhören + Dat. Відрізняй від hören («чути»).
-
 > [!word] vermissen
-> ipa: /fɛɐ̯ˈmɪsn̩/ · pos: verb · level: B1 · id: de-a2-pronomen-w05
+> ipa: /fɛɐ̯ˈmɪsn̩/ · pos: verb · level: B1 · id: de-a2-pronomen-w02
 > uk: сумувати (за кимось); не вистачати
-> forms: vermisst → vermisste → hat vermisst
+> forms: vermissen → vermisste → hat vermisst
 > example: Ich **vermisse** dich so sehr. — Я так за тобою сумую.
-> note: українське «сумувати за ким» — Akkusativ: Ich vermisse dich, а не ~~Ich vermisse an dich~~.
+> note: українське «сумувати за ким» — Akkusativ: Ich vermisse dich, а не ~~Ich vermisse nach dir~~ (калька «сумую за тобою»).
 
 > [!word] verzeihen
-> ipa: /fɛɐ̯ˈtsaɪ̯ən/ · pos: verb · level: B1 · id: de-a2-pronomen-w06
+> ipa: /fɛɐ̯ˈtsaɪ̯ən/ · pos: verb · level: B1 · id: de-a2-pronomen-w03
 > uk: пробачати
-> forms: verzeiht → verzieh → hat verziehen
+> forms: verzeihen → verzieh → hat verziehen
 > example: Bitte **verzeih** mir! — Будь ласка, пробач мені!
 > note: пробачити комусь — Dativ; пробачити щось — Akkusativ: Ich verzeihe dir den Fehler.
 
 > [!word] verbieten
-> ipa: /fɛɐ̯ˈbiːtn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w07
+> ipa: /fɛɐ̯ˈbiːtn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w04
 > uk: забороняти
-> forms: verbietet → verbot → hat verboten
+> forms: verbieten → verbot → hat verboten
 > example: Der Arzt **verbietet** mir den Kaffee. — Лікар забороняє мені каву.
 > note: комусь (Dativ) щось (Akkusativ): Ich verbiete dir das. Прикметник — verboten.
 
 > [!word] raten
-> ipa: /ˈʁaːtn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w08
+> ipa: /ˈʁaːtn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w05
 > uk: радити; відгадувати
-> forms: rät → riet → hat geraten
+> forms: raten → er rät · riet · hat geraten
 > example: Ich **rate** dir: Bleib zu Hause! — Раджу тобі: лишайся вдома!
 > note: комусь — Dativ: Ich rate dir. Те саме дієслово — «відгадувати»: Rate mal!
 
 > [!word] vorschlagen
-> ipa: /ˈfoːɐ̯ʃlaːɡn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w09
+> ipa: /ˈfoːɐ̯ʃlaːɡn̩/ · pos: verb · level: A2 · id: de-a2-pronomen-w06
 > uk: пропонувати
-> forms: schlägt vor → schlug vor → hat vorgeschlagen
+> forms: vorschlagen → er schlägt vor · schlug vor · hat vorgeschlagen
 > example: Ich **schlage** dir einen Termin **vor**. — Я пропоную тобі час для зустрічі.
 > note: відокремлюване: ich schlage … vor. Кому — Dativ, що — Akkusativ.
+
+> [!word] begegnen
+> ipa: /bəˈɡeːɡnən/ · pos: verb · level: B1 · id: de-a2-pronomen-w07
+> uk: зустрічати (випадково); траплятися
+> forms: begegnen → er begegnet · begegnete · ist begegnet
+> example: Ich bin ihm gestern in der Stadt **begegnet**. — Я вчора випадково зустрів його в місті.
+> note: людині — Dativ: Ich begegne dir. Perfekt із sein. Не плутай з treffen (Akkusativ).
+
+> [!word] folgen
+> ipa: /ˈfɔlɡn̩/ · pos: verb · level: B1 · id: de-a2-pronomen-w08
+> uk: іти слідом; слухатися
+> forms: folgen → er folgt · folgte · ist gefolgt
+> example: Bitte **folge** mir! — Будь ласка, іди за мною!
+> note: людині — Dativ: Ich folge dir. Perfekt із sein: ist gefolgt.
+
+> [!word] schaden
+> ipa: /ˈʃaːdn̩/ · pos: verb · level: B1 · id: de-a2-pronomen-w09
+> uk: шкодити
+> forms: schaden → er schadet · schadete · hat geschadet
+> example: Rauchen **schadet** der Gesundheit. — Куріння шкодить здоров’ю.
+> note: Dativ: Das schadet dir nicht. Іменник — der Schaden.
 
 ## Слухаємо
 
@@ -232,14 +232,14 @@ estimatedMinutes: 40
 > audio: Ich schenke ihr eine Blume.
 > explain: *schenken* — два обʼєкти: *ihr* (кому) і *eine Blume* (що).
 
-> [!listen] Послухай діалог. Що зробить жінка далі?
+> [!listen] Послухай діалог. Що зробить A далі?
 > level: A2 · type: answer · speed: slow · id: de-a2-pronomen-l05
 > audio: A: Entschuldigung, gehört der Schlüssel Ihnen?
 > audio: B: Nein, er gehört mir nicht. Fragen Sie doch den Mann dort.
 > audio: A: Danke. Ich frage ihn.
 > - [ ] Залишить ключ собі.
 > - [ ] Віддасть ключ співрозмовникові.
-> - [x] Спитає чоловіка поруч.
+> - [x] Спитає чоловіка он там.
 >
 > **Пояснення:** *gehört der Schlüssel Ihnen?* — «ключ належить Вам?» (Dativ). Відповідь: *er gehört mir nicht*. *Ich frage ihn* — *fragen* вимагає Akkusativ.
 
@@ -397,14 +397,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *man* — безособовий займенник, не *der Mann*. Українською передаємо безособово: «говорять, можна».
 
-> [!quiz] Ми даруємо дітям подарунок: «Wir schenken ___ ein Geschenk.» (die Kinder)
+> [!quiz] Ми даємо дітям подарунок: «Wir geben ___ ein Geschenk.» (die Kinder)
 > level: A2 · type: single · id: de-a2-pronomen-q11
 > - [ ] sie
 > - [ ] ihr
 > - [x] ihnen
 > - [ ] ihm
 >
-> **Пояснення:** *schenken* — кому? → Dativ, множина «їм» = *ihnen*.
+> **Пояснення:** *geben* — кому? → Dativ, множина «їм» = *ihnen*.
 
 > [!quiz] Обери всі правильні речення
 > level: A2 · type: multi · id: de-a2-pronomen-q12
@@ -485,8 +485,8 @@ estimatedMinutes: 40
 > [!reel] 🎁 Gift — це не подарунок
 > Німецьке *das Gift* означає «отрута», а подарунок — *das Geschenk*. Колись слово *Gift* означало «те, що даєш», як англійське *gift*, але в німецькій значення звузилося до «отруйна доза». Тож не називай подарунок *Gift*.
 
-> [!reel] 🗣️ Чому Sie, а не du?
-> Займенники *du* й *Sie* — це не лише граматика, а й соціальний сигнал. Незнайомим дорослим кажуть *Sie*; пропонує перейти на *du* зазвичай старший за віком або посадою. Давальний теж змінюється: *Wie geht es **dir**?* — *Wie geht es **Ihnen**?*
+> [!reel] 👤 man — родич слова Mann
+> Безособове *man* походить від *der Mann* у старому значенні «людина». Тому *man* пишеться з малої й одним *n*, але колись означало «будь-яка людина». Сьогодні *Mann* — «чоловік», а *man* — «хтось, люди, ми».
 
 > [!reel] 🌧️ Хто ж іде дощем?
 > *Es regnet* — «дощить», але хто виконує дію? Ніхто: *es* — просто «порожній» підмет, який потрібен граматично. Мовознавці називають його «формальним підметом». В українській «дощить» підмета не має, а німецька без нього не обходиться.
@@ -494,8 +494,7 @@ estimatedMinutes: 40
 ## Джерела та що почитати
 
 - [DWDS — man](https://www.dwds.de/wb/man): займенник man, значення й приклади.
-- [DWDS — Geschenk](https://www.dwds.de/wb/Geschenk): значення, множина, походження слова.
-- [DWDS — gratulieren](https://www.dwds.de/wb/gratulieren): відмінювання й керування.
+- [DWDS — Gift](https://www.dwds.de/wb/Gift): значення й походження слова (Gabe → Gift).
 - [DWDS — leihen](https://www.dwds.de/wb/leihen): значення й конструкції «позичити / позичити в».
 - [DWDS — vermissen](https://www.dwds.de/wb/vermissen): керування Akkusativ.
 - [DW — Nicos Weg (A2)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): безкоштовний відеокурс Deutsche Welle з граматикою займенників.

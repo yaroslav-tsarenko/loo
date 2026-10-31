@@ -43,9 +43,9 @@ estimatedMinutes: 45
 |---|---|---|
 | **weil** | тому що (причина) | Ich lerne Deutsch, **weil** ich in Berlin arbeite. |
 | **dass** | що (після думок і слів) | Ich glaube, **dass** er heute kommt. |
-| **wenn** | якщо; щоразу коли | **Wenn** es regnet, bleibe ich zu Hause. |
+| **wenn** | якщо; коли (про теперішнє й майбутнє) | **Wenn** es regnet, bleibe ich zu Hause. |
 
-Перед кожним із них — **кома**. На відміну від українського «що» / «бо», де кома теж є, у німецькому вона обовʼязкова завжди.
+Підрядне речення завжди відокремлюємо **комою** (перед ним або після нього), так само як в українській.
 
 > [!diagram] Головне + підрядне: куди йде дієслово
 > ```yaml
@@ -90,7 +90,7 @@ estimatedMinutes: 45
 
 Помилка: ~~Wenn ich Zeit habe, ich komme~~.
 
-> [!diagram] Підрядне першим: V1 у головному
+> [!diagram] Підрядне першим: дієслово головного відразу після коми
 > ```yaml
 > layout: flow
 > nodes:
@@ -133,7 +133,7 @@ estimatedMinutes: 45
 
 ## wenn: якщо й коли
 
-*wenn* означає і умову («якщо»), і повторювану дію («щоразу коли»):
+*wenn* означає умову («якщо») і «коли» про теперішнє чи майбутнє, зокрема про повторювану дію («щоразу коли»). Про одну подію в минулому кажуть *als* (рівень B1):
 
 - **Wenn** du willst, kannst du mitkommen. — Якщо хочеш, можеш піти з нами.
 - **Wenn** es regnet, bleibe ich zu Hause. — Коли (якщо) йде дощ, я лишаюся вдома.
@@ -169,7 +169,7 @@ estimatedMinutes: 45
 
 > [!word] wenn
 > ipa: /vɛn/ · pos: conj · level: A2 · id: de-a2-nebensaetze-w03
-> uk: якщо; коли (щоразу)
+> uk: якщо; коли (теперішнє, майбутнє)
 > example: **Wenn** du Zeit hast, ruf mich an. — Якщо маєш час, зателефонуй мені.
 > note: не плутай з wann (коли? — питання). Ще: wenn ich nicht irre — якщо не помиляюся.
 
@@ -184,7 +184,7 @@ estimatedMinutes: 45
 > uk: причина; підстава
 > forms: die Gründe
 > example: Was ist der **Grund**? — Яка причина?
-> note: кінцеве d = [t]: «грунт». Ще: der Grund = ґрунт, земля (im Grunde — в основі).
+> note: кінцеве d = [t]: «ґрунт». Ще: der Grund = ґрунт, земля (im Grunde — в основі).
 
 > [!word] hoffen
 > ipa: /ˈhɔfn̩/ · pos: verb · level: A2 · id: de-a2-nebensaetze-w06
@@ -264,7 +264,7 @@ estimatedMinutes: 45
 
 ## Вимова
 
-Підрядне речення має свою мелодію: перед комою голос злегка піднімається або лишається рівним, а в кінці — спадає ↘. Сполучники (*weil, dass, wenn*) слабкі, без наголосу; наголос падає на змістові слова й на дієслово в кінці підрядного.
+Підрядне речення має свою мелодію: перед комою голос злегка піднімається або лишається рівним, а в кінці — спадає ↘. Сполучники (*weil, dass, wenn*) слабкі, без наголосу; наголос падає на змістові слова (у *weil ich krank bin* — на *krank*), а дієслово *bin* у кінці слабке.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-nebensaetze-s01
@@ -306,7 +306,7 @@ estimatedMinutes: 45
 > ~~Ich bleibe, denn ich krank bin~~ → Ich bleibe, **denn** ich **bin** krank / Ich bleibe, **weil** ich krank **bin**. Не змішуй: *denn* — звичайний порядок слів, *weil* — дієслово в кінці. Також ~~Denn ich bin krank, bleibe ich zu Hause~~ не існує: *denn* не стоїть перед головним.
 
 > [!pitfall] wenn чи wann, dass чи das
-> ~~Wenn kommt der Zug?~~ → **Wann** kommt der Zug? *wann* — лише питання, *wenn* — умова чи «щоразу коли». ~~Ich glaube, das er kommt~~ → Ich glaube, **dass** er kommt. Після коми й слів думки (*glauben, wissen, hoffen*) — *dass*, не *das*.
+> ~~Wenn kommt der Zug?~~ → **Wann** kommt der Zug? *wann* — лише питання, *wenn* — «якщо» чи «коли» (про теперішнє й майбутнє). ~~Ich glaube, das er kommt~~ → Ich glaube, **dass** er kommt. Після коми й слів думки (*glauben, wissen, hoffen*) — *dass*, не *das*.
 
 ## Ситуація: пояснюємо, чому запізнюємося
 
@@ -410,7 +410,7 @@ estimatedMinutes: 45
 > - [x] Er kommt nicht, denn er ist krank.
 > - [ ] Weil ich habe Hunger, esse ich.
 >
-> **Пояснення:** *dass er Arzt ist* і *Wenn du willst, kannst du …* — дієслово в кінці / V1 у головному. *dass er kommt nicht* і *Weil ich habe Hunger* — дієслово не в кінці підрядного. *denn er ist krank* — звичайний порядок слів.
+> **Пояснення:** *dass er Arzt ist* і *Wenn du willst, kannst du …* — дієслово в кінці; у головному дієслово стоїть відразу після коми (2-ге місце всього речення). *dass er kommt nicht* і *Weil ich habe Hunger* — дієслово не в кінці підрядного. *denn er ist krank* — звичайний порядок слів.
 
 > [!quiz] У яких реченнях кому поставлено правильно?
 > level: A2 · type: multi · id: de-a2-nebensaetze-q10
@@ -423,7 +423,7 @@ estimatedMinutes: 45
 > **Пояснення:** кома ставиться **перед** сполучником підрядного (*, dass*) і **після** підрядного, якщо воно перше (*…ist, trage*). Пропуск коми — помилка, навіть якщо українською ти вагаєшся.
 
 > [!quiz] Заповни пропуски сполучниками і дієсловами
-> level: A2 · type: fill · bank: denn, ist · id: de-a2-nebensaetze-q11
+> level: A2 · type: fill · bank: Denn, ist · id: de-a2-nebensaetze-q11
 >
 > ```text fill
 > Ich bleibe zu Hause, [[weil]] ich krank [[bin]].
@@ -527,7 +527,7 @@ estimatedMinutes: 45
 > Німці в розмові часто кажуть *weil ich habe keine Zeit*, ніби *weil* — це *denn*. Лінгвісти бачать у цьому окрему інтонацію та паузу: слово *weil* стає схожим на «бо, мовляв». Але правило на письмі й на іспиті однозначне: після *weil* — дієслово в кінці.
 
 > [!reel] ß → ss: чому dass
-> До реформи правопису 1996 р. сполучник писали **daß**. Тепер правило просте: після короткого голосного — *ss* (*dass, muss*), після довгого — *ß* (*Straße*). Артикль *das* лишився, тож у письмі два слова з однаковою вимовою стали різними.
+> До реформи правопису 1996 р. сполучник писали **daß**. Тепер правило просте: після короткого голосного — *ss* (*dass, muss*), після довгого голосного або дифтонга — *ß* (*Straße, heißen*). Артикль *das* лишився, тож у письмі два слова з однаковою вимовою стали різними.
 
 ## Джерела та що почитати
 

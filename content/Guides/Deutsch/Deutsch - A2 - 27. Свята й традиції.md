@@ -84,13 +84,13 @@ estimatedMinutes: 40
 
 ### Різдвяний час і Karneval у кількох словах
 
-На Різдво прикрашають ***Tannenbaum***, запалюють ***Kerzen***, печуть ***Plätzchen***, співають ***Weihnachtslieder***. Увечері 24 грудня (***Heiligabend***) вручають подарунки: це ***Bescherung***. Дітей, за традицією, обдаровує ***Weihnachtsmann*** або Christkind (залежить від регіону й родини). На ***Weihnachtsmarkt*** ходять у грудні. У період ***Karneval*** люди одягають ***Masken*** і костюми, ходять на ***Festumzug*** і кидають ***Konfetti***. Про історію й особливості свят читай також у [[Deutschland - A2 - 05. Свята I — Advent, Weihnachtsmarkt, Nikolaus, Silvester]].
+На Різдво прикрашають ***Tannenbaum***, запалюють ***Kerzen***, печуть ***Plätzchen***, співають ***Weihnachtslieder***. Увечері 24 грудня (***Heiligabend***) вручають подарунки: це ***Bescherung***. Дітей, за традицією, обдаровує ***Weihnachtsmann*** або Christkind (залежить від регіону й родини). На ***Weihnachtsmarkt*** ходять у грудні. У період ***Karneval*** люди одягають ***Masken*** і костюми, ходять на ***Festumzug*** і кидають ***Konfetti***. Про історію й особливості свят читай також у [[Deutschland - A2 - 05. Свята I — Advent, Weihnachtsmarkt, Nikolaus, Silvester]] і [[Deutschland - A2 - 06. Свята II — Karneval, Ostern, Oktoberfest, Sankt Martin, Maibaum]].
 
 ## Приклади
 
 - *Wir feiern Weihnachten mit der ganzen Familie.* — Ми святкуємо Різдво з усією сімʼєю.
 - *An Silvester gibt es um Mitternacht Feuerwerk.* — На Silvester опівночі буде феєрверк.
-- *Zu Ostern verstecken wir Ostereier im Garten.* — На Великдень ми ховаємо писанки в саду.
+- *Zu Ostern verstecken wir Ostereier im Garten.* — На Великдень ми ховаємо великодні яйця в саду.
 - *Ich wünsche dir ein frohes Fest!* — Бажаю тобі гарного свята!
 - *Herzlichen Glückwunsch zum Geburtstag!* — Щиро вітаю з днем народження!
 - *Danke für die Einladung! Ich komme gern.* — Дякую за запрошення! Я охоче прийду.
@@ -145,7 +145,7 @@ estimatedMinutes: 40
 > uk: Новий рік (1 січня)
 > forms: — (без множини)
 > example: An **Neujahr** schlafen viele lange. — На Новий рік багато хто спить допізна.
-> note: neu + das Jahr. Наголос на -jahr; -ahr читаємо [aːɐ̯], r майже не чути. Привітання: Frohes neues Jahr! (Prosit Neujahr!).
+> note: neu + das Jahr. Наголос зазвичай на -jahr (трапляється й [ˈnɔʏ̯jaːɐ̯]); -ahr читаємо [aːɐ̯], r майже не чути. Привітання: Frohes neues Jahr! (Prosit Neujahr!).
 
 > [!word] Ostern
 > ipa: /ˈoːstɐn/ · pos: noun · level: A2 · id: de-a2-feste-w07
@@ -159,21 +159,21 @@ estimatedMinutes: 40
 > uk: Зелені свята, Пʼятидесятниця
 > forms: — (без множини)
 > example: Zu **Pfingsten** machen wir einen Ausflug. — На Pfingsten ми їдемо на екскурсію.
-> note: Pfingstsonntag і Pfingstmontag — вихідні. pf на початку — [pf], швидко «пф». Дата — через 50 днів після Великодня.
+> note: Pfingstsonntag і Pfingstmontag — вихідні. pf на початку — [pf], швидко «пф». Дата — на 50-й день після Великодня (через сім тижнів).
 
 > [!word] der Karneval
 > ipa: /ˈkaʁnəval/ · pos: noun · level: B1 · id: de-a2-feste-w09
 > uk: карнавал
 > forms: die Karnevale
 > example: Im **Karneval** verkleiden sich viele Menschen. — Під час карнавалу багато людей перевдягаються.
-> note: Karneval (Рейнланд), Fasching (Баварія, AT), Fastnacht (напр. Майнц, Гессен), Fasnacht (Швабія, CH). Множина рідко. Наголос на першому складі: KAR-ne-val.
+> note: Karneval (Рейнланд), Fasching (Баварія, AT), Fastnacht (напр. Майнц, Гессен), Fasnet (Швабія), Fasnacht (Баден, CH). Множина рідко. Наголос на першому складі: KAR-ne-val.
 
 > [!word] der Fasching
 > ipa: /ˈfaʃɪŋ/ · pos: noun · level: B1 · id: de-a2-feste-w10
 > uk: Фашинг (карнавал на півдні Німеччини й в Австрії)
 > forms: die Faschinge
 > example: In Wien feiert man **Fasching** mit Bällen. — У Відні Fasching святкують балами.
-> note: те саме свято, що Karneval, лише регіональна назва; у Швейцарії та Швабії кажуть Fasnacht.
+> note: те саме свято, що Karneval, лише регіональна назва; у Швейцарії та Бадені кажуть Fasnacht, у Швабії — Fasnet.
 
 > [!word] der Rosenmontag
 > ipa: /ˈʁoːzn̩ˌmoːntaːk/ · pos: noun · level: B1 · id: de-a2-feste-w11
@@ -201,7 +201,7 @@ estimatedMinutes: 40
 > uk: Гелловін
 > forms: — (без множини)
 > example: Zu **Halloween** verkleiden sich Kinder. — На Гелловін діти перевдягаються.
-> note: запозичення з англійської; у Німеччині відоме, але менш традиційне, ніж в США. 31 жовтня. Наголос на останньому складі: hel-o-VIN.
+> note: запозичення з англійської; у Німеччині відоме, але менш традиційне, ніж у США. 31 жовтня. Наголос на останньому складі: hel-o-VIN.
 
 > [!word] die Tradition
 > ipa: /tʁadiˈtsi̯oːn/ · pos: noun · level: A2 · id: de-a2-feste-w15
@@ -216,7 +216,7 @@ estimatedMinutes: 40
 > ipa: /bəˈʃeːʁʊŋ/ · pos: noun · level: B1 · id: de-a2-feste-w16
 > uk: вручення різдвяних подарунків
 > forms: die Bescherungen
-> example: Die **Bescherung** ist am Heiligabend. — Вручення подарунків — у Heiligabend.
+> example: Die **Bescherung** ist am Heiligabend. — Вручення подарунків — на Heiligabend.
 > note: Розмовно: «Das ist ja eine schöne Bescherung!» — «Гарна халепа!» (іронічно).
 
 > [!word] der Tannenbaum
@@ -242,7 +242,7 @@ estimatedMinutes: 40
 
 > [!word] das Osterei
 > ipa: /ˈoːstɐˌʔaɪ̯/ · pos: noun · level: A2 · id: de-a2-feste-w20
-> uk: великодне яйце, писанка
+> uk: великодне яйце (крашанка)
 > forms: die Ostereier
 > example: Die Kinder suchen **Ostereier** im Garten. — Діти шукають великодні яйця в саду.
 > note: Ei → das Ei, множина Eier. Ostereier — фарбовані яйця, а також шоколадні.
@@ -263,10 +263,10 @@ estimatedMinutes: 40
 
 > [!word] der Weihnachtsmann
 > ipa: /ˈvaɪ̯naxtsˌman/ · pos: noun · level: A2 · id: de-a2-feste-w23
-> uk: Дід Мороз; Санта-Клаус
+> uk: різдвяний дід; Санта-Клаус
 > forms: die Weihnachtsmänner
 > example: Der **Weihnachtsmann** kommt mit einem großen Sack. — Weihnachtsmann приходить з великим мішком.
-> note: не зовсім Дід Мороз: приходить на Різдво. У південних регіонах, AT і CH частіше Christkind.
+> note: приходить на Різдво (це не Дід Мороз з новорічної традиції). У південних регіонах, AT і CH частіше Christkind.
 
 > [!word] das Weihnachtslied
 > ipa: /ˈvaɪ̯naxtsˌliːt/ · pos: noun · level: A2 · id: de-a2-feste-w24
@@ -348,9 +348,9 @@ estimatedMinutes: 40
 
 > [!word] Guten Rutsch!
 > ipa: /ˈɡuːtn̩ ʁʊtʃ/ · pos: phrase · level: A2 · id: de-a2-feste-w35
-> uk: Гарного входу в новий рік!
-> example: **Guten Rutsch** ins neue Jahr! — Гарного входу в новий рік!
-> note: кажуть до 31 грудня, після опівночі — Frohes neues Jahr! Rutsch — «ковзання».
+> uk: Щасливо зустріти Новий рік!
+> example: **Guten Rutsch** ins neue Jahr! — Щасливо зустріти Новий рік!
+> note: буквально «гарне ковзання (в новий рік)». Кажуть до 31 грудня, після опівночі — Frohes neues Jahr! Rutsch — «ковзання».
 
 > [!word] Frohes neues Jahr!
 > ipa: /ˈfʁoːəs ˈnɔʏ̯əs jaːɐ̯/ · pos: phrase · level: A2 · id: de-a2-feste-w36
@@ -379,7 +379,7 @@ estimatedMinutes: 40
 > - [x] перед Новим роком, 31 грудня
 > - [ ] на день народження
 > - [ ] на Великдень
-> - [ ] коли людина їде на таксі
+> - [ ] коли прощаються взимку
 >
 > **Пояснення:** *Guten Rutsch (ins neue Jahr)* — побажання перед Новим роком. Після опівночі кажуть *Frohes neues Jahr!*
 
@@ -398,7 +398,7 @@ estimatedMinutes: 40
 
 ## Вимова
 
-Тут тренуємо **ch** у *Weihnachten* (після a — глибоке [x]), **pf** у *Pfingsten* і довгі *Prost, Fest*. Зверни увагу на наголос на першому складі: *WEIH-nach-ten*, *OS-tern*.
+Тут тренуємо **ch** у *Weihnachten* (після a — глибоке [x]), **pf** у *Pfingsten* і різну довготу: довге [oː] у *Prost*, коротке [ɛ] у *Fest*. Зверни увагу на наголос на першому складі: *WEIH-nach-ten*, *OS-tern*.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-feste-s01
@@ -419,7 +419,7 @@ estimatedMinutes: 40
 > text: Guten Rutsch ins neue Jahr!
 > ipa: /ˈɡuːtn̩ ʁʊtʃ ɪns ˈnɔʏ̯ə jaːɐ̯/
 > tip: Rutsch — tsch = «ч», коротке [ʊ]; neue — eu = [ɔʏ̯], «ной»; Jahr — j = «й».
-> uk: Гарного входу в новий рік!
+> uk: Щасливо зустріти Новий рік!
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-feste-s04
@@ -503,7 +503,7 @@ estimatedMinutes: 40
 > - [ ] Man verliert das Geld.
 > - [x] Man bekommt das Geld zurück, wenn man die Tasse abgibt.
 > - [ ] Man zahlt es auf der Rechnung.
-> - [ ] Man schenkt die Tasse dem Verkäufer.
+> - [ ] Man bezahlt die Tasse zweimal.
 >
 > **Пояснення:** *Für die Tasse zahlt man oft Pfand und bekommt das Geld zurück, wenn man sie abgibt*. Це та сама застава, про яку ти читав у темі про гроші й послуги.
 
@@ -518,14 +518,14 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *gratulieren* вимагає Dativ: ***dir***. Форма *dich* (Akkusativ) — типова помилка за українською «вітаю тебе».
 
-> [!quiz] Які привітання підходять опівночі 31 грудня? Обери всі.
+> [!quiz] Які привітання доречні на Silvester (31 грудня, до й після опівночі)? Обери всі.
 > level: A2 · type: multi · id: de-a2-feste-q05
 > - [x] Guten Rutsch!
 > - [x] Frohes neues Jahr!
 > - [ ] Frohe Ostern!
 > - [ ] Herzlichen Glückwunsch zum Geburtstag!
 >
-> **Пояснення:** на Silvester кажуть *Guten Rutsch!* і після опівночі *Frohes neues Jahr!* *Frohe Ostern* — на Великдень, *zum Geburtstag* — на день народження.
+> **Пояснення:** до опівночі кажуть *Guten Rutsch!*, після опівночі — *Frohes neues Jahr!*; обидва привітання доречні в цей вечір. *Frohe Ostern* — на Великдень, *zum Geburtstag* — на день народження.
 
 > [!quiz] Заповни пропуски
 > level: A2 · type: fill · id: de-a2-feste-q06 · bank: dich, zur
@@ -547,7 +547,7 @@ estimatedMinutes: 40
 > [[Frohes]] neues Jahr!
 > ```
 >
-> **Пояснення:** *Weihnachten* — множина, тому *Frohe*; *Glückwunsch* — чоловічий рід, фіксований вираз *Herzlichen Glückwunsch*; *das Jahr* — *Frohes neues Jahr*. Слова з банку не підходять до цих усталених виразів.
+> **Пояснення:** у привітаннях *Weihnachten* вживається як множина, тому *Frohe*; *Glückwunsch* — чоловічий рід, фіксований вираз *Herzlichen Glückwunsch*; *das Jahr* — *Frohes neues Jahr*. Слова з банку не підходять до цих усталених виразів.
 
 > [!quiz] Склади речення: «У суботу ми святкуємо вечірку.»
 > level: A2 · type: order · id: de-a2-feste-q08

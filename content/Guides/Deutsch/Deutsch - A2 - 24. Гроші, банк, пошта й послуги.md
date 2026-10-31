@@ -42,7 +42,7 @@ estimatedMinutes: 40
 | Bitte **kontaktlos** oder mit **PIN**. | Прикладіть картку або введіть PIN. |
 | Stimmt so! | Решти не треба (*Trinkgeld* вже враховано). |
 
-Дієслово ***zahlen*** можна вживати без обʼєкта (*Ich zahle bar*), а ***bezahlen*** потребує того, що оплачуєш (*Ich bezahle die Rechnung*). Грошові одиниці після числа стоять **без закінчення**: *zehn Euro, fünf Cent*. Вживання *Euros* і *Cents* чути в живій мові, але в тексті й на ціннику пишуть *Euro* і *Cent*.
+Дієслово ***zahlen*** можна вживати без обʼєкта (*Ich zahle bar*), а ***bezahlen*** найчастіше має обʼєкт (*Ich bezahle die Rechnung*), але в кафе чи ресторані кажуть і без нього: *Ich möchte bezahlen*. Грошові одиниці після числа стоять **без закінчення**: *zehn Euro, fünf Cent*. Вживання *Euros* і *Cents* чути в живій мові, але в тексті й на ціннику пишуть *Euro* і *Cent*.
 
 ### Банк: Konto, Überweisung, IBAN
 
@@ -80,14 +80,14 @@ estimatedMinutes: 40
 
 ### Пошта: Paket, Päckchen, Briefmarke
 
-На пошті (*die Post*, відділення — *die Filiale*) ти стоїш до вікна ***Schalter***. ***Der Brief*** клеїш *Briefmarke* і кидаєш у ***Briefkasten***. Посилку відправляють як ***Päckchen*** (менша і легша) або ***Paket***. Кожна ***Sendung*** має номер для відстеження. Якщо курʼєр тебе не застав, у поштовій скриньці залишається картка-повідомлення, і посилку треба ***abholen***: у відділенні чи пункті видачі, зазвичай з документом, що посвідчує особу.
+На пошті (*die Post*, відділення — *die Filiale*) ти підходиш до віконця (***der Schalter***). На лист (*der Brief*) клеїш марку (***die Briefmarke***) і кидаєш його в поштову скриньку (***der Briefkasten***). Посилку відправляють як ***Päckchen*** (менше й легше) або ***Paket***. Кожна ***Sendung*** має номер для відстеження. Якщо курʼєр тебе не застав, у поштовій скриньці залишається картка-повідомлення, і посилку треба ***abholen***: у відділенні чи пункті видачі, зазвичай з документом, що посвідчує особу.
 
 > [!diagram] Посилку не вручили. Що робити?
 > ```yaml
 > layout: flow
 > nodes:
 >   - { id: card, label: "1. Картка в скриньці", text: "Benachrichtigung", note: "там написано, де лежить посилка", tone: yellow }
->   - { id: place, label: "2. Місце", text: "Filiale або пункт видачі", note: "годинний режим на картці", tone: pink }
+>   - { id: place, label: "2. Місце", text: "Filiale або пункт видачі", note: "години роботи на картці", tone: pink }
 >   - { id: doc, label: "3. Що взяти", text: "картку + документ з фото", note: "інколи — довіреність для іншого", tone: yellow }
 >   - { id: sign, label: "4. Підпис", text: "unterschreiben на Schalter", note: "і перевір, чи ціла коробка", tone: gray }
 > edges:
@@ -103,7 +103,7 @@ estimatedMinutes: 40
 
 ### Reklamation: коли щось не так
 
-***Reklamieren*** — заявити претензію, що товар чи послуга несправні. ***Die Reklamation*** — сама претензія. Це не «реклама»: рекламу німецькою називають ***die Werbung***. Якщо товар зламаний, його можна ***zurückgeben*** або ***umtauschen*** (слово *Umtausch* ти вже знаєш з теми про одяг). Закон дає на несправний новий товар **два роки** гарантійних прав (*Gewährleistung*, §438 BGB). Чи візьме магазин назад несправний товар без причини, залежить від самого магазину. Тому чек (*Kassenbon*) варто зберігати.
+***Reklamieren*** — заявити претензію, що товар чи послуга несправні. ***Die Reklamation*** — сама претензія. Це не «реклама»: рекламу німецькою називають ***die Werbung***. Якщо товар зламаний, його можна ***zurückgeben*** або ***umtauschen*** (слово *Umtausch* ти вже знаєш з теми про одяг). Закон дає на несправний новий товар **два роки** гарантійних прав (*Gewährleistung*, §438 BGB). Чи візьме магазин назад справний (бездефектний) товар, який просто не сподобався, залежить від самого магазину. Тому чек (*Kassenbon*) варто зберігати.
 
 ### Pfand: застава за пляшку
 
@@ -143,10 +143,10 @@ estimatedMinutes: 40
 
 > [!word] der Cent
 > ipa: /sɛnt/ · pos: noun · level: A2 · id: de-a2-geld-w03
-> uk: цент (сотa частка євро)
-> forms: die Cent
+> uk: цент (сота частка євро)
+> forms: die Cents (після числа: fünf Cent)
 > example: Das kostet neunundneunzig **Cent**. — Це коштує девʼяносто девʼять центів.
-> note: після числа без закінчення: fünf Cent. Розмовне Cents теж трапляється. c на початку — [s].
+> note: після числа без закінчення: fünf Cent. Множина Cents вживається, коли йдеться про самі монети. c на початку — [s].
 
 > [!word] die Münze
 > ipa: /ˈmʏntsə/ · pos: noun · level: A2 · id: de-a2-geld-w04
@@ -260,7 +260,7 @@ estimatedMinutes: 40
 > uk: ощадна каса (тип банку в Німеччині)
 > forms: die Sparkassen
 > example: Meine **Sparkasse** hat eine Filiale im Zentrum. — У моєї Sparkasse є відділення в центрі.
-> note: Sparkassen — публічні банки з відділеннями майже в кожному місті; їхній знак — червоне S. Інший поширений тип — Volksbank.
+> note: Sparkassen — публічно-правові банки з відділеннями майже в кожному місті; їхній знак — червоне S. Інший поширений тип — Volksbank.
 
 > [!word] die PIN
 > ipa: /pɪn/ · pos: noun · level: A2 · id: de-a2-geld-w20
@@ -291,11 +291,11 @@ estimatedMinutes: 40
 > note: Dauer + Auftrag. Множина з умлаутом: Daueraufträge.
 
 > [!word] die Lastschrift
-> ipa: /ˈlastˌʃʁɪft/ · pos: noun · level: A2 · id: de-a2-geld-w24
+> ipa: /ˈlastʃʁɪft/ · pos: noun · level: A2 · id: de-a2-geld-w24
 > uk: прямий дебет (списування з рахунку отримувачем)
 > forms: die Lastschriften
 > example: Die Stromrechnung wird per **Lastschrift** bezahlt. — Рахунок за світло сплачується прямим дебетом.
-> note: Last-schrift: st тут на межі частин складного слова, тому читається [st]; sch = [ʃ]. Частіше чуєш SEPA-Lastschrift.
+> note: Last-schrift: st не на початку слова, тому читається [st]; sch = [ʃ]. Частіше чуєш SEPA-Lastschrift.
 
 > [!word] abbuchen
 > ipa: /ˈapbuːxn̩/ · pos: verb · level: A2 · id: de-a2-geld-w25
@@ -369,7 +369,7 @@ estimatedMinutes: 40
 > uk: повертати (річ)
 > forms: zurückgeben → gab zurück → hat zurückgegeben (er gibt zurück)
 > example: Kann ich die Hose **zurückgeben**? — Чи можу я повернути штани?
-> note: відокремлюване, наголос на zurück-. gibt: i, а не «gebt».
+> note: відокремлюване, наголос на -rück-. gibt: i, а не «gebt».
 
 ## Слухаємо
 
@@ -385,6 +385,7 @@ estimatedMinutes: 40
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-geld-l02
 > audio: Ich bezahle die Rechnung mit Karte.
+> explain: bezahlen + Akkusativ (die Rechnung); mit Karte — без артикля.
 
 > [!listen] Заповни дані постійного доручення
 > level: A2 · type: fill · speed: slow · id: de-a2-geld-l03
@@ -499,22 +500,22 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-geld-s06
 > text: Ich möchte die Jacke zurückgeben.
 > ipa: /ɪç ˈmœçtə diː ˈjakə tsuˈʁʏkɡeːbn̩/
-> tip: Jacke — j = «й», кінцеве -e слабке [ə]; zurück — наголос на другому складі, ü = [ʏ]; -geben — b у кінці складу [b], -en слабке.
+> tip: Jacke — j = «й», кінцеве -e слабке [ə]; zurück — наголос на -rück-, ü = [ʏ]; -geben — b відкриває склад [b], -en слабке.
 > uk: Я хочу повернути куртку.
 
 ## Landeskunde: «Nur Bares ist Wahres»
 
 > [!example] Bargeld in Deutschland
-> In Deutschland sagt man: „Nur Bares ist Wahres.“ Das heißt: Bargeld ist sicher. Viele Deutsche zahlen im Laden gern mit Münzen und Scheinen. Nach einer Studie der Bundesbank wurde 2023 bei etwa jeder zweiten Zahlung bar bezahlt (51 Prozent). 2021 waren es noch 58 Prozent. Karten und Handys werden aber immer wichtiger. Trotzdem ist es klug, etwas Bargeld dabeizuhaben. Beim Bäcker, auf dem Markt oder im kleinen Restaurant kann die Kartenzahlung fehlen, und manchmal gilt ein Mindestbetrag. Mit der Girocard kann man fast überall zahlen. Eine Kreditkarte nehmen nicht alle Geschäfte.
+> In Deutschland sagt man: „Nur Bares ist Wahres.“ Das heißt: Bargeld ist sicher. Viele Deutsche zahlen im Laden gern mit Münzen und Scheinen. Nach einer Studie der Bundesbank wurde 2025 bei 45 Prozent der Zahlungen bar bezahlt. 2023 waren es noch 51 Prozent. Karten und Handys werden aber immer wichtiger. Trotzdem ist es klug, etwas Bargeld dabeizuhaben. Beim Bäcker, auf dem Markt oder im kleinen Restaurant kann man nicht immer mit Karte zahlen, und manchmal gilt ein Mindestbetrag. Mit der Girocard kann man fast überall zahlen. Eine Kreditkarte nehmen nicht alle Geschäfte.
 
-> [!quiz] Nach dem Text: Wie viel Prozent der Zahlungen waren 2023 bar?
+> [!quiz] Nach dem Text: Wie viel Prozent der Zahlungen waren 2025 bar?
 > level: A2 · type: single · id: de-a2-geld-q02
 > - [ ] 58 Prozent
-> - [x] 51 Prozent
-> - [ ] 26 Prozent
-> - [ ] 100 Prozent
+> - [ ] 51 Prozent
+> - [x] 45 Prozent
+> - [ ] 23 Prozent
 >
-> **Пояснення:** у тексті: *2023 … 51 Prozent*; 58 Prozent — це дані за 2021 рік, а 26 Prozent у дослідженні Bundesbank — частка готівки в сумі витрат (за обсягом), а не за кількістю платежів.
+> **Пояснення:** у тексті: *2025 … 45 Prozent*; 51 Prozent — це дані за 2023 рік (а 58 Prozent — за 2021), тобто частка падає. 23 Prozent у дослідженні 2025 року — частка готівки в сумі витрат (за обсягом), а не за кількістю платежів.
 
 > [!quiz] Що радить текст?
 > level: A2 · type: single · id: de-a2-geld-q03
@@ -542,9 +543,9 @@ estimatedMinutes: 40
 > - [x] Geld einzahlen
 > - [x] Geld überweisen
 > - [ ] Geld reklamieren
-> - [ ] Geld abholen
+> - [ ] Briefmarken einzahlen
 >
-> **Пояснення:** з грошима в банку: *abheben* (зняти), *einzahlen* (покласти), *überweisen* (переказати). *Reklamieren* — заявити претензію щодо дефекту, а *abholen* — забрати посилку чи людину, не гроші.
+> **Пояснення:** з грошима в банку: *abheben* (зняти), *einzahlen* (покласти), *überweisen* (переказати). *Reklamieren* — заявити претензію щодо дефекту, а марки в банку не вносять (*einzahlen* стосується грошей на рахунок).
 
 > [!quiz] Яке слово означає «рахунок на оплату»?
 > level: A2 · type: single · id: de-a2-geld-q06
@@ -583,19 +584,20 @@ estimatedMinutes: 40
 > überweise
 > die Miete
 > auf das Konto.
-> Ich weise die Miete über ✗
+> weise ✗
 > ```
 >
-> **Пояснення:** *überweisen* невідокремлюване: *ich überweise*. Форма ~~ich weise über~~ — помилка.
+> **Пояснення:** *überweisen* невідокремлюване: *ich überweise*. Форма ~~ich weise … über~~ — помилка.
 
 > [!quiz] Склади речення: «Я хочу забрати посилку.»
 > level: A2 · type: order · id: de-a2-geld-q10
 >
 > ```text order
-> Ich möchte
+> Ich
+> möchte
 > das Paket
 > abholen.
-> abholen das Paket möchte Ich ✗
+> abgeholt ✗
 > ```
 >
 > **Пояснення:** з модальним *möchte* смисловий інфінітив *abholen* стоїть в кінці речення, не розривається.
@@ -621,7 +623,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 💶 «Nur Bares ist Wahres»
-> Німецьке прислівʼя «Лише готівка справжня». У дослідженні Bundesbank за 2023 рік готівка становила близько половини всіх платежів у Німеччині, але частка швидко падає. Тож картку тримай при собі, а монети теж не викидай.
+> Німецьке прислівʼя «Лише готівка справжня». За дослідженням Bundesbank «Zahlungsverhalten in Deutschland 2025» готівкою сплачено 45 % платежів, тобто вперше менше половини (у 2023 році було 51 %), але частка падає. Тож картку тримай при собі, а монети теж не викидай.
 
 > [!reel] 🍾 Пляшка за 25 центів
 > Застава на одноразові пляшки й банки — 25 Cent. Здай порожню пляшку в Pfandautomat у супермаркеті, і чек зменшиться на цю суму. Одноразові пляшки й банки з заставою виглядають як звичайні, тож дивись на значок Pfand на етикетці.
@@ -632,7 +634,7 @@ estimatedMinutes: 40
 ## Джерела та що почитати
 
 - [Wikipedia (DE) — Einwegpfand in Deutschland](https://de.wikipedia.org/wiki/Einwegpfand_in_Deutschland): розмір застави 0,25 євро для одноразових пляшок і банок.
-- [Bundesbank — Studie zum Zahlungsverhalten](https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/veroeffentlichungen/newsletter/studie-der-bundesbank-zum-zahlungsverhalten-941082): частка готівки й безготівкових платежів за 2023 рік.
+- [Bundesbank — Zahlungsverhalten in Deutschland 2025 (пресреліз)](https://www.bundesbank.de/de/presse/pressemitteilungen/zahlungsverhalten-in-deutschland-2025-964736): 45 % платежів і 23 % обороту готівкою; для порівняння — 51 % у 2023 році.
 - [Gesetze im Internet — BGB § 438](https://www.gesetze-im-internet.de/bgb/__438.html): строк давності прав покупця при дефекті товару (два роки для нових речей).
 - [DWDS — Girokonto](https://www.dwds.de/wb/Girokonto): рід, множина, вимова.
 - [DWDS — Reklamation](https://www.dwds.de/wb/Reklamation): значення слова.

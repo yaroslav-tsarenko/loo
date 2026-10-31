@@ -13,7 +13,7 @@ estimatedMinutes: 45
 > [!success] Після цієї теми ти зможеш
 > - вибрати між **ß** і **ss** у слові (*Straße* — *Fluss*, *heiß* — *muss*) і знати, як це пишуть у Швейцарії;
 > - прочитати **ie** як довге [iː], **ei** як [aɪ̯], а німе **h** після голосного як ознаку довготи (*Zahl*, *Bahn*);
-> - писати іменники з великої літери й не писати з великої дні тижня *heute* та *morgen früh*;
+> - писати іменники з великої літери, а прислівники *heute, morgen früh, montags* — з малої;
 > - відрізняти **ä** від **e** за спорідненим словом (*Hand* → *Hände*) і правильно писати кінцеві приголосні (*Hund* → *Hunde*).
 
 ## Передбач
@@ -43,7 +43,7 @@ estimatedMinutes: 45
 | *groß* | /ɡʁoːs/ | *essen* | /ˈɛsn̩/ |
 | *draußen* | /ˈdaʊ̯sn̩/ | *nass* | /nas/ |
 
-Після **короткого** голосного пишемо **ss**: *muss, Fluss, nass, Kuss, essen, Wasser*.
+Після **короткого** голосного зазвичай пишемо **ss**: *muss, Fluss, nass, Kuss, essen, Wasser*. Винятки: *Bus*, *Ergebnis* (мн. *Ergebnisse*), *Kürbis*, а також службові *mit, hat, um, ab*, де кінцеве s не подвоюють.
 
 > [!diagram] ß чи ss
 > ```yaml
@@ -59,7 +59,7 @@ estimatedMinutes: 45
 > ```
 > Довгий або дифтонг → ß; короткий → ss.
 
-**Застереження:** це лише зручна тенденція. Спорідненість форм важливіша: ß пишуть тоді, коли [s] лишається глухим у всіх формах (*Fuß* — *Füße*, *heißen* — *hieß*). У словах, де в родинній формі [s] стає дзвінким [z], пишуть просто **s**: *Haus* — *Häuser*, *Glas* — *Gläser*, *lesen* — *las*. Також просто **s** у коротких службових словах: *das, was, bis, aus, es*.
+**Застереження:** це лише зручна тенденція. Вибір робимо у два кроки. Спочатку питаємо, чи [s] лишається глухим у родинних формах; тоді це ß або ss (*Fuß* — *Füße*, *Fluss* — *Flüsse*) (*Fuß* — *Füße*, *heißen* — *hieß*); а вже потім довжина голосного вирішує між ß і ss. У словах, де в родинній формі [s] стає дзвінким [z], пишуть просто **s**: *Haus* — *Häuser*, *Glas* — *Gläser*, *lesen* — *las*. Також просто **s** у коротких службових словах: *das, was, bis, aus, es*.
 
 Інші сталі пари, які варто запамʼятати: *schließen — schloss — geschlossen*, *genießen — genoss — genossen*, *essen — aß — gegessen*. Корінь той самий, але голосний змінює довжину, тому змінюється й написання.
 
@@ -79,14 +79,14 @@ estimatedMinutes: 45
 
 Літера **h** після голосного **не вимовляється** й показує, що голосний довгий: *Zahl* /tsaːl/, *Bahn* /baːn/, *Lohn* /loːn/, *Mehl* /meːl/, *Sahne* /ˈzaːnə/. Не читай її як «г» або «х».
 
-Але **h на початку слова чи складу перед голосним** читається легким видихом: *Hand, Haus, Be-hör-de*. Німе саме **h після голосного**: *Zahl, Uhr, Bahn, nehmen, gehen, sehen*.
+Але **h на початку слова або кореня** читається легким видихом: *Hand, Haus, Be-hörde, wo-her*. Німе **h між голосними всередині кореня** й після голосного перед приголосним: *Zahl, Uhr, Bahn, nehmen, gehen, sehen, Ruhe*.
 
 > [!diagram] Що робить h
 > ```yaml
 > layout: compare
 > columns: { a: "h читається: видих [h]", b: "h німе: голосний довгий" }
 > nodes:
->   - { id: a1, col: a, label: "позиція", text: "початок слова або складу перед голосним", tone: yellow }
+>   - { id: a1, col: a, label: "позиція", text: "початок слова або кореня", tone: yellow }
 >   - { id: a2, col: a, label: "приклад", text: "Haus · Hand · Behörde", tone: yellow }
 >   - { id: b1, col: b, label: "позиція", text: "після голосного перед приголосним", tone: pink }
 >   - { id: b2, col: b, label: "приклад", text: "Zahl · Bahn · nehmen · Uhr", tone: pink }
@@ -98,11 +98,11 @@ estimatedMinutes: 45
 
 ### 4. Подвоєння приголосних, ck, tz
 
-Після короткого голосного пишуть подвоєну приголосну або ck, tz: *Bett, kommen, Mutter, backen, Zucker, Katze, Platz, jetzt*. Після довгого голосного приголосну не подвоюють: *kam, Name, Tür*. Тому правило читання: **подвоєна приголосна (або ck, tz) = короткий голосний перед нею**.
+Після короткого голосного зазвичай пишуть подвоєну приголосну або ck, tz (але *Bus, mit, hat*): *Bett, kommen, Mutter, backen, Zucker, Katze, Platz, jetzt*. Після довгого голосного приголосну не подвоюють: *kam, Name, Tür*. Тому, побачивши подвоєну приголосну (або ck, tz), читай голосний перед нею коротким.
 
 ### 5. ä чи e
 
-[ɛ] і [ɛː] можуть бути записані як **ä** або **e**. Орієнтир: якщо є споріднене слово з **a**, пишуть **ä**: *Hand → Hände, Mann → Männer, Gast → Gäste, Land → Länder, kalt → kälter, Gefahr → gefährlich, Kraft → kräftig*. Є винятки: *Eltern* (повʼязане з *alt*, але пишеться з e).
+Короткий [ɛ] записують як **ä** або **e**, а довгий [ɛː] — майже завжди як **ä**. Орієнтир: якщо є споріднене слово з **a**, пишуть **ä**: *Hand → Hände, Mann → Männer, Gast → Gäste, Land → Länder, kalt → kälter, Gefahr → gefährlich, Kraft → kräftig*. Є винятки: *Eltern* (повʼязане з *alt*, але пишеться з e).
 
 ### 6. Кінцеві b, d, g і написання
 
@@ -126,7 +126,7 @@ estimatedMinutes: 45
 - Mein Fuß tut weh. — Моя нога болить.
 - Die Bienen summen im Garten. — Бджоли дзижчать у саду.
 - Das Märchen ist schön. — Казка гарна.
-- Wir haben viel Spaß. — У нас багато веселощів.
+- Wir haben viel Spaß. — Нам дуже весело.
 - Draußen ist es kalt. — Надворі холодно.
 - Am Montag habe ich Deutsch. — У понеділок у мене німецька.
 - Heute Abend gehen wir ins Kino. — Сьогодні ввечері ми йдемо в кіно.
@@ -196,7 +196,7 @@ estimatedMinutes: 45
 > uk: помилка
 > forms: die Fehler
 > example: Im Diktat habe ich zwei **Fehler**. — У диктанті в мене дві помилки.
-> note: Fehler machen — робити помилки; ein Fehler im Text. -er = [ɐ]. Fehler ≠ Irrtum (оману).
+> note: Fehler machen — робити помилки; ein Fehler im Text. -er = [ɐ]. Fehler ≠ Irrtum (омана).
 
 > [!word] verbessern
 > ipa: /fɛɐ̯ˈbɛsɐn/ · pos: verb · level: A2 · id: de-a2-rechtschreibung-w10
@@ -213,16 +213,16 @@ estimatedMinutes: 45
 > note: Satz + Zeichen. Слово завершується на складове [n̩]: -zeichen [tsaɪ̯çn̩].
 
 > [!word] der Apostroph
-> ipa: /aˈpɔstʁoːf/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w12
+> ipa: /apoˈstʁoːf/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w12
 > uk: апостроф
 > forms: die Apostrophe
 > example: Bei „geht’s“ steht ein **Apostroph**. — У «geht's» стоїть апостроф.
-> note: наголос на -stroph: [aˈpɔstʁoːf]. ph = [f]. Апостроф у німецькій заміняє пропущену літеру: geht's, wie geht's.
+> note: наголос на -stroph: [apoˈstʁoːf]. ph = [f]. Апостроф у німецькій заміняє пропущену літеру: geht's, wie geht's.
 
 > [!word] falsch
 > ipa: /falʃ/ · pos: adj · level: A1 · id: de-a2-rechtschreibung-w13
 > uk: неправильний; хибний; фальшивий
-> forms: — (не змінюється за ступенями)
+> forms: falsch · falscher · am falsch(e)sten (рідко)
 > example: Das Wort ist **falsch** geschrieben. — Слово написане неправильно.
 > note: протилежність: richtig. Falsch verstehen — розуміти не так.
 
@@ -250,9 +250,9 @@ estimatedMinutes: 45
 > [!word] der Strauß
 > ipa: /ʃtʁaʊ̯s/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w17
 > uk: букет; (також) страус
-> forms: die Sträuße
+> forms: die Sträuße (букети)
 > example: Er bringt einen **Strauß** Blumen mit. — Він приносить букет квітів.
-> note: ß після дифтонга; множина Sträuße /ˈʃtʁɔʏ̯sə/. Перше значення — букет (der Blumenstrauß), друге — птах.
+> note: ß після дифтонга; множина Sträuße /ˈʃtʁɔʏ̯sə/. Перше значення — букет (der Blumenstrauß), друге — птах (мн. die Strauße /ˈʃtʁaʊ̯sə/).
 
 > [!word] der Kuss
 > ipa: /kʊs/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w18
@@ -264,9 +264,9 @@ estimatedMinutes: 45
 > [!word] der Schluss
 > ipa: /ʃlʊs/ · pos: noun · level: A2 · id: de-a2-rechtschreibung-w19
 > uk: кінець; закінчення; висновок
-> forms: — (без множини)
+> forms: die Schlüsse
 > example: Am **Schluss** sagt er „Danke“. — Наприкінці він каже «дякую».
-> note: Schluss machen — закінчити; Schluss! — Досить! Висновки — Schlussfolgerungen.
+> note: Schluss machen — закінчити; Schluss! — Досить! Мн. die Schlüsse — висновки: Schlüsse ziehen.
 
 > [!word] nass
 > ipa: /nas/ · pos: adj · level: A2 · id: de-a2-rechtschreibung-w20
@@ -403,7 +403,7 @@ estimatedMinutes: 45
 > [!pair] Wahl /vaːl/ — Wall /val/
 > level: A2 · id: de-a2-rechtschreibung-p05
 > say: Wall
-> tip: *Wahl* — довге [aː], *Wall* — коротке [a] і довше [l].
+> tip: *Wahl* — довге [aː], *Wall* — коротке [a].
 
 > [!pair] Hüte /ˈhyːtə/ — Hütte /ˈhʏtə/
 > level: A2 · id: de-a2-rechtschreibung-p06
@@ -482,7 +482,7 @@ estimatedMinutes: 45
 > Українці або пишуть усюди ss, або вживають ß навмання. Орієнтир: **довгий голосний чи дифтонг → ß** (*Straße, heiß, draußen*), **короткий → ss** (*muss, Fluss, nass*). Памʼятай виняток зі спорідненою формою: *Haus* (бо *Häuser*), *Glas*, *las*. У Швейцарії ß немає взагалі, і *Strasse* там не помилка.
 
 > [!pitfall] Німе h читають як «г» або «х»
-> У *Zahl, Bahn, nehmen, Uhr, Lohn* українець часто вимовляє h: «захл», «бахн». Але h після голосного не звучить; воно лише показує довготу: [tsaːl], [baːn], [ˈneːmən], [uːɐ̯]. Видихом читаємо тільки h на початку слова чи складу перед голосним (*Haus, Hand*).
+> У *Zahl, Bahn, nehmen, Uhr, Lohn* українець часто вимовляє h: «захл», «бахн». Але h після голосного не звучить; воно лише показує довготу: [tsaːl], [baːn], [ˈneːmən], [uːɐ̯]. Видихом читаємо h на початку слова або кореня (*Haus, Hand, woher*); між голосними всередині кореня (*gehen, sehen*) h німе.
 
 > [!pitfall] ie і ei навпаки
 > За назвами літер *ie* читають як «і-е», а *ei* як «е-і». Насправді **ie = довге [iː]**, **ei = [aɪ̯]**: *Biene* [ˈbiːnə] — бджола, *Beine* [ˈbaɪ̯nə] — ноги, *Wien* — Відень, *Wein* — вино. Ця плутанина змінює значення слова.
@@ -503,10 +503,10 @@ estimatedMinutes: 45
 
 > [!quiz] Чому слово «Fuß» пишеться з ß, а «Fluss» з ss?
 > level: A2 · type: single · id: de-a2-rechtschreibung-q03
-> - [ ] Fuß — іменник, Fluss — дієслово
+> - [ ] Fuß — старе написання, сучасне — Fuss
 > - [x] у Fuß голосний довгий [uː], у Fluss — короткий [ʊ]
 > - [ ] Fluss вживають лише у Швейцарії
-> - [ ] різниці немає, обидва пишуть як завгодно
+> - [ ] у Fluss два склади, тому подвоєно s
 >
 > **Пояснення:** *Fuß* /fuːs/ має довге [uː] → ß; *Fluss* /flʊs/ має коротке [ʊ] → ss. Різниця в довжині голосного.
 
@@ -606,7 +606,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 🔠 Велике ẞ: офіційно з 2017 року
-> До 2017 року великої літери для ß у правилах не було: *STRASSE*. У 2017 році німецька Рада з правопису додала великий знак ẞ як допустиму форму у правилах. На практиці у великих літерах найчастіше бачиш *STRASSE* з SS; вживання ẞ факультативне.
+> До 2017 року великої літери для ß у правилах не було: *STRASSE*. У 2017 році Рада з німецького правопису додала великий знак ẞ як допустиму форму у правилах. На практиці у великих літерах найчастіше бачиш *STRASSE* з SS; вживання ẞ факультативне.
 
 > [!reel] 🇨🇭 У Швейцарії ß не існує
 > У Швейцарії та Ліхтенштейні літеру ß не вживають: *Strasse, Fuss, gross*. Ці форми не помилка, а місцева норма. Іноземця в Цюріху це не повинно збивати з пантелику: читається так само, [s].
@@ -624,8 +624,8 @@ estimatedMinutes: 45
 - [Rat für deutsche Rechtschreibung](https://www.rechtschreibrat.com/) — офіційний орган правопису.
 
 > [!important] Підсумок
-> - **ß** після довгого голосного чи дифтонга (*Straße, heiß*), **ss** після короткого (*muss, Fluss*); у Швейцарії завжди **ss**.
+> - **ß** після довгого голосного чи дифтонга (*Straße, heiß*), **ss** зазвичай після короткого (*muss, Fluss*; але *Bus*); у Швейцарії завжди **ss**.
 > - **ie** = [iː], **ei** = [aɪ̯]; німе **h** після голосного = довгий голосний (*Zahl, Bahn*).
 > - Усі іменники з великої літери; *heute Abend*, але *morgen früh*.
 > - **ä**, якщо є споріднене слово з **a** (*Hand → Hände*); кінцеве *b / d / g* перевіряй подовженням (*Hund → Hunde*).
-> - Подвоєна приголосна або ck / tz = короткий голосний.
+> - Подвоєна приголосна або ck / tz зазвичай позначає короткий голосний.

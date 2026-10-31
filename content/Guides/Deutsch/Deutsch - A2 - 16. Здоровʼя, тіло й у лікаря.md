@@ -15,7 +15,7 @@ estimatedMinutes: 45
 > - описати симптоми: *Ich habe Fieber und Husten. Mir ist schlecht. Mir ist schwindlig.*;
 > - домовитися про Termin, пройти реєстрацію в Praxis і зрозуміти, що таке Rezept, Überweisung і Krankschreibung;
 > - відрізнити Apotheke від Drogerie й знати, який номер набрати в Notfall;
-> - пожаліти хворого: *Gute Besserung!*
+> - побажати хворому одужання: *Gute Besserung!*
 
 ## Передбач
 
@@ -26,7 +26,7 @@ estimatedMinutes: 45
 > - [ ] Ich schmerze am Kopf.
 > - [ ] Ich tue Kopf weh.
 >
-> **Пояснення:** українське «болить» німецька передає або іменником *der Schmerz* (*Ich habe Kopfschmerzen*), або дієсловом *wehtun*, де підмет — частина тіла: *Mein Kopf tut weh*. Конструкції з «я» як підметом при *schmerzen* чи *wehtun* не існує.
+> **Пояснення:** українське «болить» німецька передає або іменником *der Schmerz* (*Ich habe Kopfschmerzen*), або дієсловом *wehtun*, де підмет — частина тіла: *Mein Kopf tut weh*. Конструкції з «я» як підметом у значенні «у мене болить» не існує.
 
 ## Пояснення
 
@@ -61,7 +61,7 @@ estimatedMinutes: 45
 
 ### Німецька система: від Hausarzt до Apotheke
 
-У Німеччині з будь-якою не надто терміновою проблемою йдуть спочатку до **Hausarzt** (сімейного лікаря). Він скеровує до вузького спеціаліста (*Facharzt*) за **Überweisung**. Майже всі мають страхування в **Krankenkasse**; на реєстрації в **Praxis** показують **Versichertenkarte**. Лікар може виписати **Rezept** на ліки або **Krankschreibung**, якщо через хворобу не можна працювати.
+У Німеччині з не надто терміновою проблемою зазвичай спершу йдуть до **Hausarzt** (сімейного лікаря). До більшості вузьких спеціалістів (*Facharzt*: Augenarzt, Frauenarzt, Zahnarzt) можна записатися й напряму, але **Überweisung** від Hausarzt часто полегшує отримання Termin; для деяких спеціальностей вона потрібна. Майже всі мають страхування в **Krankenkasse**; на реєстрації в **Praxis** показують **Versichertenkarte**. Лікар може виписати **Rezept** на ліки або **Krankschreibung**, якщо через хворобу не можна працювати.
 
 > [!diagram] Візит до лікаря: від Termin до Apotheke
 > ```yaml
@@ -81,7 +81,7 @@ estimatedMinutes: 45
 >   - { focus: a, note: "Без Termin до лікаря зазвичай не потрапиш; у гострому випадку кажи про це одразу при дзвінку." }
 >   - { focus: b, note: "На рецепції віддають Versichertenkarte. Без неї можуть попросити документ про страхування пізніше." }
 >   - { focus: c, note: "Untersuchung: лікар питає, що болить, і оглядає." }
->   - { focus: d, note: "Rezept — на ліки, Krankschreibung — для роботодавця, Überweisung — до спеціаліста." }
+>   - { focus: d, note: "Rezept — на ліки, Krankschreibung — для роботодавця, Überweisung — до спеціаліста (потрібна не завжди)." }
 >   - { focus: e, note: "Рецептурні ліки видає лише Apotheke. Drogerie — інший тип магазину." }
 > ```
 
@@ -109,11 +109,11 @@ estimatedMinutes: 45
 - **112** — Notruf у Німеччині: Rettungsdienst (*Krankenwagen*) і Feuerwehr; працює по всьому ЄС. **110** — поліція.
 - **116 117** — лікарська служба, коли Praxis зачинена, а ситуація не загрозлива для життя (*ärztlicher Bereitschaftsdienst*).
 - В Австрії та Швейцарії швидку викликають за номером **144**; 112 там теж приймає дзвінки.
-- Наприкінці дзвінка скажи *Wer? Was? Wo?*: хто ти, що сталося, де ти. Адресу називай повільно.
+- На початку дзвінка скажи: **Wo?** (адреса — повільно), **Was?** (що сталося), **Wer?** (хто дзвонить). Не клади слухавку — чекай на питання (*Warten auf Rückfragen*).
 
 ### Krankschreibung і робота
 
-Коли ти захворів, роботодавця треба повідомити **негайно**. Якщо хвороба триває довше за три календарні дні, потрібна довідка від лікаря — не пізніше наступного робочого дня; роботодавець може вимагати її й раніше. Сьогодні лікар передає дані електронно (*eAU*), але повідомити про хворобу має сам працівник.
+Коли ти захворів, роботодавця треба повідомити **негайно**. Якщо хвороба триває довше за три календарні дні, потрібна довідка від лікаря — не пізніше наступного робочого дня; роботодавець може вимагати її й раніше. Для застрахованих у gesetzliche Krankenkasse лікар передає дані електронно (*eAU*); приватно застраховані й далі отримують паперову довідку. Повідомити про хворобу має сам працівник.
 
 ## Приклади
 
@@ -165,7 +165,7 @@ estimatedMinutes: 45
 > uk: коліно
 > forms: die Knie
 > example: Mein linkes **Knie** schmerzt beim Treppensteigen. — Ліве коліно болить, коли підіймаюсь сходами.
-> note: k вимовляємо: «кні». Множина die Knie звучить як [ˈkniːə] (дві склади).
+> note: k вимовляємо: «кні». Множина die Knie звучить як [ˈkniːə] (два склади).
 
 > [!word] der Magen
 > ipa: /ˈmaːɡn̩/ · pos: noun · level: A2 · id: de-a2-arzt-w06
@@ -246,20 +246,14 @@ estimatedMinutes: 45
 > example: Ich habe eine **Allergie** gegen Katzen. — У мене алергія на котів.
 > note: наголос на кінці -ie [ˈɡiː]; «алергія на» — Allergie gegen + Akk. Прикметник — allergisch.
 
-> [!word] schlecht
-> ipa: /ʃlɛçt/ · pos: adj · level: A1 · id: de-a2-arzt-w17
-> uk: поганий; зле
-> example: Mir ist **schlecht**. — Мені зле.
-> note: Mir ist schlecht — нудить або просто кепсько, а Ich bin schlecht — «я погана людина / поганий у чомусь». ch після l = [ç].
-
 > [!word] schwindlig
-> ipa: /ˈʃvɪndlɪç/ · pos: adj · level: B1 · id: de-a2-arzt-w18
+> ipa: /ˈʃvɪndlɪç/ · pos: adj · level: B1 · id: de-a2-arzt-w17
 > uk: який відчуває запаморочення
 > example: Mir ist **schwindlig**. Ich muss mich setzen. — У мене паморочиться голова. Мені треба сісти.
 > note: зазвичай з Dativ: Mir ist schwindlig. -ig у кінці = [ɪç]. Пишуть також schwindelig.
 
 > [!word] erkältet
-> ipa: /ɛɐ̯ˈkɛltət/ · pos: adj · level: A2 · id: de-a2-arzt-w19
+> ipa: /ɛɐ̯ˈkɛltət/ · pos: adj · level: A2 · id: de-a2-arzt-w18
 > uk: застуджений
 > example: Ich bin **erkältet** und bleibe heute zu Hause. — Я застудився й сьогодні лишаюсь удома.
 > note: стан: Ich bin erkältet; сам процес — Ich habe mich erkältet (я застудився).
@@ -267,167 +261,167 @@ estimatedMinutes: 45
 ### У лікаря
 
 > [!word] der Hausarzt
-> ipa: /ˈhaʊ̯sʔaːɐ̯tst/ · pos: noun · level: A2 · id: de-a2-arzt-w20
+> ipa: /ˈhaʊ̯sʔaːɐ̯tst/ · pos: noun · level: A2 · id: de-a2-arzt-w19
 > uk: сімейний лікар
 > forms: die Hausärzte
 > example: Ich gehe morgen zu meinem **Hausarzt**. — Завтра я йду до свого сімейного лікаря.
 > note: жінка — die Hausärztin. Вузький спеціаліст — der Facharzt. AT: також Arzt für Allgemeinmedizin.
 
 > [!word] die Sprechstunde
-> ipa: /ˈʃpʁɛçʃtʊndə/ · pos: noun · level: A2 · id: de-a2-arzt-w21
+> ipa: /ˈʃpʁɛçʃtʊndə/ · pos: noun · level: A2 · id: de-a2-arzt-w20
 > uk: години прийому
 > forms: die Sprechstunden
 > example: Die **Sprechstunde** beginnt um neun Uhr. — Прийом починається о девʼятій.
 > note: sp на початку складу = «шп»; ch після е = [ç].
 
 > [!word] das Rezept
-> ipa: /ʁeˈtsɛpt/ · pos: noun · level: A2 · id: de-a2-arzt-w22
+> ipa: /ʁeˈtsɛpt/ · pos: noun · level: A2 · id: de-a2-arzt-w21
 > uk: рецепт (лікарський; кулінарний)
 > forms: die Rezepte
 > example: Der Arzt schreibt mir ein **Rezept**. — Лікар виписує мені рецепт.
 > note: те саме слово — і «рецепт ліків», і «кулінарний рецепт». Рецептурні ліки — verschreibungspflichtig.
 
 > [!word] das Medikament
-> ipa: /medikaˈmɛnt/ · pos: noun · level: A2 · id: de-a2-arzt-w23
+> ipa: /medikaˈmɛnt/ · pos: noun · level: A2 · id: de-a2-arzt-w22
 > uk: ліки; препарат
 > forms: die Medikamente
 > example: Das **Medikament** hole ich in der Apotheke. — Ліки я візьму в аптеці.
 > note: «ліки» в однині: ein Medikament, множина — die Medikamente. Наголос на -ment.
 
 > [!word] die Tablette
-> ipa: /taˈblɛtə/ · pos: noun · level: A2 · id: de-a2-arzt-w24
+> ipa: /taˈblɛtə/ · pos: noun · level: A2 · id: de-a2-arzt-w23
 > uk: таблетка
 > forms: die Tabletten
 > example: Nehmen Sie die **Tablette** zweimal am Tag. — Приймайте таблетку двічі на день.
 > note: наголос на другому складі.
 
 > [!word] die Krankenkasse
-> ipa: /ˈkʁaŋkn̩kasə/ · pos: noun · level: A2 · id: de-a2-arzt-w25
+> ipa: /ˈkʁaŋkn̩kasə/ · pos: noun · level: A2 · id: de-a2-arzt-w24
 > uk: лікарняна каса; страхова компанія (медична)
 > forms: die Krankenkassen
 > example: Welche **Krankenkasse** haben Sie? — У якій Krankenkasse Ви застраховані?
 > note: медичне страхування в Німеччині обовʼязкове, більшість застрахована в gesetzliche Krankenkasse. У Швейцарії базове страхування також обовʼязкове, але пропонують його приватні Krankenkassen.
 
 > [!word] die Versichertenkarte
-> ipa: /fɛɐ̯ˈzɪçɐtn̩kaʁtə/ · pos: noun · level: B1 · id: de-a2-arzt-w26
+> ipa: /fɛɐ̯ˈzɪçɐtn̩kaʁtə/ · pos: noun · level: B1 · id: de-a2-arzt-w25
 > uk: картка страхувальника
 > forms: die Versichertenkarten
 > example: Bitte geben Sie Ihre **Versichertenkarte** an der Anmeldung ab. — Будь ласка, віддайте картку на реєстрації.
 > note: офіційно — elektronische Gesundheitskarte (eGK). AT: e-card; CH: Versichertenkarte.
 
 > [!word] die Krankschreibung
-> ipa: /ˈkʁaŋkʃʁaɪ̯bʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w27
+> ipa: /ˈkʁaŋkʃʁaɪ̯bʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w26
 > uk: лікарняний (довідка про непрацездатність)
 > forms: die Krankschreibungen
 > example: Ich brauche eine **Krankschreibung** für meinen Chef. — Мені потрібен лікарняний для керівника.
 > note: «лікар виписав мені лікарняний» — Der Arzt hat mich krankgeschrieben. Офіційна назва: Arbeitsunfähigkeitsbescheinigung.
 
 > [!word] die Untersuchung
-> ipa: /ʊntɐˈzuːxʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w28
+> ipa: /ʊntɐˈzuːxʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w27
 > uk: огляд; обстеження
 > forms: die Untersuchungen
 > example: Nach der **Untersuchung** weiß ich mehr. — Після огляду я знатиму більше.
 > note: -ung — жіночий рід. Наголос на -such- (довге [uː]).
 
 > [!word] untersuchen
-> ipa: /ʊntɐˈzuːxn̩/ · pos: verb · level: B1 · id: de-a2-arzt-w29
+> ipa: /ʊntɐˈzuːxn̩/ · pos: verb · level: B1 · id: de-a2-arzt-w28
 > uk: оглядати; досліджувати
-> forms: untersucht → untersuchte → hat untersucht
+> forms: untersuchen → untersuchte → hat untersucht
 > example: Die Ärztin **untersucht** den Patienten. — Лікарка оглядає пацієнта.
 > note: наголос на -such-; префікс unter- тут безнаголосний, дієслово нероздільне.
 
 > [!word] die Impfung
-> ipa: /ˈɪmpfʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w30
+> ipa: /ˈɪmpfʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w29
 > uk: щеплення
 > forms: die Impfungen
 > example: Die **Impfung** gegen Grippe ist im Herbst. — Щеплення від грипу — восени.
 > note: щеплення — gegen + Akk: Impfung gegen Grippe. Документ — der Impfpass.
 
 > [!word] der Notruf
-> ipa: /ˈnoːtʁuːf/ · pos: noun · level: B1 · id: de-a2-arzt-w31
+> ipa: /ˈnoːtʁuːf/ · pos: noun · level: B1 · id: de-a2-arzt-w30
 > uk: екстрений виклик
 > forms: die Notrufe
 > example: Der **Notruf** in Deutschland ist die 112. — Екстрений номер у Німеччині — 112.
 > note: AT, CH: швидка допомога — 144.
 
 > [!word] der Notfall
-> ipa: /ˈnoːtfal/ · pos: noun · level: B1 · id: de-a2-arzt-w32
+> ipa: /ˈnoːtfal/ · pos: noun · level: B1 · id: de-a2-arzt-w31
 > uk: невідкладний випадок
 > forms: die Notfälle
 > example: Das ist ein **Notfall**! Bitte kommen Sie schnell! — Це невідкладний випадок! Будь ласка, приїжджайте швидко!
-> note: у Notfall — «у невідкладному випадку»; Notdienst — черговий лікар.
+> note: у Notfall — «у невідкладному випадку»; Notdienst — чергова служба (черговий лікар — der Bereitschaftsarzt).
 
 > [!word] der Krankenwagen
-> ipa: /ˈkʁaŋkn̩vaːɡn̩/ · pos: noun · level: A2 · id: de-a2-arzt-w33
+> ipa: /ˈkʁaŋkn̩vaːɡn̩/ · pos: noun · level: A2 · id: de-a2-arzt-w32
 > uk: швидка допомога (автомобіль)
 > forms: die Krankenwagen
 > example: Der **Krankenwagen** ist in fünf Minuten da. — Швидка буде за пʼять хвилин.
-> note: офіційно — der Rettungswagen (RTW). Кінцеве -wagen: w = «в», g = [ɡ] «ґ».
+> note: у рятувальній службі — RTW (Rettungswagen, екстрена допомога) і KTW (Krankentransportwagen, транспортування). Кінцеве -wagen: w = «в», g = [ɡ] «ґ».
 
 > [!word] die Notaufnahme
-> ipa: /ˈnoːtʔaʊ̯fnaːmə/ · pos: noun · level: B1 · id: de-a2-arzt-w34
+> ipa: /ˈnoːtʔaʊ̯fnaːmə/ · pos: noun · level: B1 · id: de-a2-arzt-w33
 > uk: приймальне відділення; невідкладна допомога
 > forms: die Notaufnahmen
 > example: Wir fahren sofort in die **Notaufnahme**. — Ми їдемо відразу в приймальне відділення.
 > note: Notaufnahme — відділення лікарні (Krankenhaus) для невідкладних випадків; AT: часто Ambulanz, CH: Notfallstation.
 
 > [!word] die Drogerie
-> ipa: /dʁoɡəˈʁiː/ · pos: noun · level: A2 · id: de-a2-arzt-w35
+> ipa: /dʁoɡəˈʁiː/ · pos: noun · level: A2 · id: de-a2-arzt-w34
 > uk: дрогері (магазин гігієни й косметики)
 > forms: die Drogerien
 > example: Shampoo und Zahnpasta kaufe ich in der **Drogerie**. — Шампунь і зубну пасту я купую в дрогері.
 > note: Drogerie — не аптека: рецептурних ліків там немає. Наголос на -rie.
 
 > [!word] die Salbe
-> ipa: /ˈzalbə/ · pos: noun · level: B1 · id: de-a2-arzt-w36
+> ipa: /ˈzalbə/ · pos: noun · level: B1 · id: de-a2-arzt-w35
 > uk: мазь
 > forms: die Salben
 > example: Tragen Sie die **Salbe** zweimal täglich auf. — Наносьте мазь двічі на день.
 > note: s перед голосним — дзвінке [z].
 
 > [!word] das Pflaster
-> ipa: /ˈpflastɐ/ · pos: noun · level: B1 · id: de-a2-arzt-w37
+> ipa: /ˈpflastɐ/ · pos: noun · level: B1 · id: de-a2-arzt-w36
 > uk: пластир
 > forms: die Pflaster
 > example: Hast du ein **Pflaster**? Ich habe mich geschnitten. — У тебе є пластир? Я порізався.
 > note: pfl- — три приголосні разом: [pf] + [l].
 
 > [!word] die Überweisung
-> ipa: /yːbɐˈvaɪ̯zʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w38
+> ipa: /yːbɐˈvaɪ̯zʊŋ/ · pos: noun · level: B1 · id: de-a2-arzt-w37
 > uk: направлення; грошовий переказ
 > forms: die Überweisungen
 > example: Der Hausarzt gibt mir eine **Überweisung** zum Orthopäden. — Сімейний лікар дає мені направлення до ортопеда.
 > note: те саме слово — і «банківський переказ» (тема про банк).
 
 > [!word] der Patient
-> ipa: /paˈtsi̯ɛnt/ · pos: noun · level: A2 · id: de-a2-arzt-w39
+> ipa: /paˈtsi̯ɛnt/ · pos: noun · level: A2 · id: de-a2-arzt-w38
 > uk: пацієнт
 > forms: die Patienten
 > example: Der nächste **Patient**, bitte! — Наступний пацієнт, будь ласка!
 > note: жінка — die Patientin, die Patientinnen. -ti- читається [tsi̯].
 
 > [!word] einnehmen
-> ipa: /ˈaɪ̯nneːmən/ · pos: verb · level: A2 · id: de-a2-arzt-w40
+> ipa: /ˈaɪ̯nneːmən/ · pos: verb · level: A2 · id: de-a2-arzt-w39
 > uk: приймати (ліки)
-> forms: nimmt ein → nahm ein → hat eingenommen
+> forms: einnehmen → er nimmt ein · nahm ein · hat eingenommen
 > example: Ich **nehme** die Tablette morgens **ein**. — Я приймаю таблетку вранці.
 > note: відокремлюване: ein|nehmen; Tabletten nehmen теж можна, але einnehmen — точніше.
 
 > [!word] verschreiben
-> ipa: /fɛɐ̯ˈʃʁaɪ̯bn̩/ · pos: verb · level: B1 · id: de-a2-arzt-w41
+> ipa: /fɛɐ̯ˈʃʁaɪ̯bn̩/ · pos: verb · level: B1 · id: de-a2-arzt-w40
 > uk: виписувати (рецепт)
-> forms: verschreibt → verschrieb → hat verschrieben
+> forms: verschreiben → verschrieb → hat verschrieben
 > example: Der Arzt **verschreibt** mir ein Antibiotikum. — Лікар виписує мені антибіотик.
 > note: нероздільне, префікс ver- безнаголосний. Рецептурні ліки — verschreibungspflichtig.
 
 > [!word] Gute Besserung!
-> ipa: /ˈɡuːtə ˈbɛsəʁʊŋ/ · pos: phrase · level: A2 · id: de-a2-arzt-w42
+> ipa: /ˈɡuːtə ˈbɛsəʁʊŋ/ · pos: phrase · level: A2 · id: de-a2-arzt-w41
 > uk: Одужуй! / Одужуйте!
 > example: Du bist krank? **Gute Besserung!** — Ти хворий? Одужуй!
 > note: слово «Besserung» — «покращення». Відповідь: Danke! Дякую!
 
 > [!word] Mir ist schlecht.
-> ipa: /miːɐ̯ ɪst ʃlɛçt/ · pos: phrase · level: A2 · id: de-a2-arzt-w43
+> ipa: /miːɐ̯ ɪst ʃlɛçt/ · pos: phrase · level: A2 · id: de-a2-arzt-w42
 > uk: Мені зле / Мене нудить.
 > example: **Mir ist schlecht.** Ich glaube, ich habe etwas Falsches gegessen. — Мені зле. Здається, я зʼїв щось не те.
 > note: mir — давальний відмінок. Es geht mir schlecht — ширше: «мені погано / мої справи кепські».
@@ -472,7 +466,7 @@ estimatedMinutes: 45
 > - [x] завтра о пів на десяту
 > - [ ] завтра о девʼятій
 >
-> **Пояснення:** *halb zehn* — це 9:30 (пів до десятої), а не 10:30. *Heute ist alles voll* — сьогодні вже всі місця зайняті.
+> **Пояснення:** *halb zehn* — це 9:30 (тобто пів на десяту), а не 10:30. *Heute ist alles voll* — сьогодні вже всі місця зайняті.
 
 > [!listen] Послухай діалог у Praxis. Що просить подати адміністраторка?
 > level: A2 · type: answer · speed: slow · id: de-a2-arzt-l06
@@ -496,7 +490,7 @@ estimatedMinutes: 45
 > text: Mein Rücken tut weh.
 > ipa: /maɪ̯n ˈʁʏkn̩ tuːt veː/
 > tip: ü — губи трубочкою, язик як для «і»; -en у кінці — слабке [n̩], без окремого «е».
-> uk: Моя спина болить.
+> uk: У мене болить спина.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-arzt-s02
@@ -564,17 +558,17 @@ estimatedMinutes: 45
 > tip: seit — прийменник «з»: [zaɪ̯t], як і seid. gestern — g на початку слова дає «ґ». Fieber — довге [iː].
 > uk: Мені зле від учора, і в мене температура.
 
-> [!speak] «Мій живіт болить, і мені потрібен лікарняний.»
+> [!speak] «У мене болить живіт, і мені потрібен лікарняний.»
 > level: A2 · speed: slow · id: de-a2-arzt-s07
 > text: Mein Bauch tut weh, und ich brauche eine Krankschreibung.
 > ipa: /maɪ̯n baʊ̯x tuːt veː ʊnt ɪç ˈbʁaʊ̯xə ˈaɪ̯nə ˈkʁaŋkʃʁaɪ̯bʊŋ/
 > tip: Bauch — [x] «х» глибоко, як у «бах»; brauche — тут [x] теж. Krank-: ng = [ŋ] + k.
-> uk: Мій живіт болить, і мені потрібен лікарняний.
+> uk: У мене болить живіт, і мені потрібен лікарняний.
 
 ## Landeskunde: Beim Arzt in Deutschland
 
 > [!example] Beim Arzt in Deutschland
-> Wenn man krank ist, ruft man zuerst bei der Hausarztpraxis an und bekommt einen Termin. Bei einem Notfall wartet man nicht: Die Nummer 112 ruft den Krankenwagen. In der Praxis gibt man die Versichertenkarte an der Anmeldung ab. Nach der Untersuchung bekommt man vielleicht ein Rezept und holt das Medikament in der Apotheke. Eine Drogerie ist keine Apotheke: Dort kauft man zum Beispiel Zahnpasta und Shampoo, aber keine Medikamente auf Rezept. Wer wegen einer Krankheit nicht arbeiten kann, braucht eine Krankschreibung. Wenn die Praxis geschlossen ist und es nicht dringend ist, hilft die Nummer 116 117.
+> Wenn man krank ist, ruft man zuerst bei der Hausarztpraxis an und bekommt einen Termin. Bei einem Notfall wartet man nicht: Unter der Nummer 112 ruft man den Krankenwagen. In der Praxis gibt man die Versichertenkarte an der Anmeldung ab. Nach der Untersuchung bekommt man vielleicht ein Rezept und holt das Medikament in der Apotheke. Eine Drogerie ist keine Apotheke: Dort kauft man zum Beispiel Zahnpasta und Shampoo, aber keine Medikamente auf Rezept. Wer wegen einer Krankheit nicht arbeiten kann, braucht eine Krankschreibung. Wenn die Praxis geschlossen ist und es nicht dringend ist, hilft die Nummer 116 117.
 >
 > **Переклад:** Коли людина хвора, вона спершу телефонує до кабінету сімейного лікаря й отримує запис. У невідкладному випадку чекати не слід: за номером 112 викликають швидку. У кабінеті на реєстрації віддають картку страхувальника. Після огляду, можливо, отримують рецепт і беруть ліки в аптеці. Drogerie — не аптека: там купують, наприклад, зубну пасту й шампунь, але не ліки за рецептом. Хто через хворобу не може працювати, потребує лікарняного. Якщо кабінет зачинений, а справа не термінова, допомагає номер 116 117.
 
@@ -607,14 +601,14 @@ estimatedMinutes: 45
 
 ## Практика
 
-> [!quiz] Де купити ліки, які лікар виписав за Rezept?
+> [!quiz] Що зазвичай купують у Drogerie?
 > level: A2 · type: single · id: de-a2-arzt-q05
-> - [x] in der Apotheke
-> - [ ] in der Drogerie
-> - [ ] in der Praxis
-> - [ ] bei der Krankenkasse
+> - [x] Shampoo і Zahnpasta
+> - [ ] антибіотик за Rezept
+> - [ ] Krankschreibung
+> - [ ] Überweisung
 >
-> **Пояснення:** рецептурні препарати видає Apotheke. Drogerie — гігієна й косметика, Praxis — кабінет лікаря, Krankenkasse — страхова каса.
+> **Пояснення:** Drogerie продає гігієну й косметику. Рецептурні ліки видає Apotheke, а Krankschreibung і Überweisung виписує лікар.
 
 > [!quiz] Обери всі правильні речення про самопочуття
 > level: A2 · type: multi · id: de-a2-arzt-q06
@@ -720,10 +714,10 @@ estimatedMinutes: 45
 > Слово *Apotheke* походить від грецького *apothḗkē* — «склад, комора». Колись в аптеці зберігали трави й сушені рослини; відтоді назва лишилася, і в багатьох мовах аптека — це «склад ліків».
 
 > [!reel] 🍀 Не плутай: Gute Besserung і Hals- und Beinbruch
-> Хворому кажуть *Gute Besserung!* Побажання *Hals- und Beinbruch!* («поламай шию й ногу») — це на удачу перед іспитом або виступом, а не хворому. Походження пояснюють по-різному: за однією версією — від ідиш *hazloche un broche* («успіх і благословення»).
+> Хворому кажуть *Gute Besserung!* Побажання *Hals- und Beinbruch!* («поламай шию й ногу») — це на удачу перед іспитом або виступом, а не хворому. Походження пояснюють по-різному: за однією версією — від ідиш *hazloche un broche* («успіх і благословення»), за іншою — це побажання «навпаки», щоб не наврочити (як *toi, toi, toi*).
 
 > [!reel] 🩺 Krankenkasse з 1883 року
-> Закон про обовʼязкове медичне страхування робітників ухвалили в Німеччині 1883 року, за канцлера Отто фон Бісмарка. Це початок системи Krankenkasse, яка діє й сьогодні, хоч і сильно змінилася.
+> Закон про обовʼязкове медичне страхування робітників ухвалили в Німеччині 1883 року, за канцлера Отто фон Бісмарка. Закон зробив страхування обовʼязковим для робітників і заклав основу сучасної gesetzliche Krankenversicherung, хоч система відтоді сильно змінилася.
 
 ## Джерела та що почитати
 

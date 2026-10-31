@@ -39,7 +39,7 @@ estimatedMinutes: 40
 | groß | gr**ö**ß**er** | am gr**ö**ß**ten** | великий — більший — найбільший |
 | teuer | teu**rer** | am teuer**sten** | дорогий — дорожчий — найдорожчий |
 
-Українська має ті самі три ступені, але утворює їх по-різному (*більший, найбільший*; або описово: *більш цікавий*). Німецька **завжди додає суфікс**: ніколи не кажи ~~mehr interessant~~ — правильно *interessanter*.
+Українська має ті самі три ступені, але утворює їх по-різному (*більший, найбільший*; або описово: *більш цікавий*). Щоб порівняти два предмети, німецька додає суфікс: не ~~mehr interessant~~, а *interessanter*.
 
 > [!diagram] Як утворити вищий і найвищий ступінь
 > ```yaml
@@ -47,14 +47,14 @@ estimatedMinutes: 40
 > nodes:
 >   - { id: pos, label: "1. Positiv", text: "alt · groß · gut", note: "основа слова", tone: gray }
 >   - { id: komp, label: "2. + -er", text: "älter · größer · besser", note: "умлаут у багатьох односкладових, неправильні форми запамʼятовуємо", tone: yellow }
->   - { id: sup, label: "3. am + -sten", text: "am ältesten · am größten · am besten", note: "після -d, -t, -s, -ß, -sch, -z, -x зазвичай -esten", tone: pink }
+>   - { id: sup, label: "3. am + -sten", text: "am ältesten · am größten · am besten", note: "після -d, -t, -s, -ß, -sch, -z, -x у наголошеному складі зазвичай -esten", tone: pink }
 > edges:
 >   - { from: pos, to: komp, label: "+ er" }
 >   - { from: komp, to: sup, label: "am … sten" }
 > steps:
 >   - { focus: pos, note: "Починаємо з основної форми: alt, groß, gut." }
 >   - { focus: komp, note: "Вищий ступінь — суфікс -er. Багато односкладових прикметників з a, o, u отримують умлаут: alt → älter, groß → größer." }
->   - { focus: sup, note: "Найвищий ступінь: am + суфікс -sten. Після d, t, s, ß, sch, z, x вставляємо -e-: am ältesten, am kürzesten. Виняток: am größten." }
+>   - { focus: sup, note: "Найвищий ступінь: am + суфікс -sten. Після d, t, s, ß, sch, z, x у наголошеному складі зазвичай вставляємо -e-: am ältesten, am kürzesten. Винятки: am größten, am spannendsten." }
 > ```
 
 ## Вищий ступінь: -er
@@ -70,11 +70,11 @@ estimatedMinutes: 40
 - Im Sommer ist es hier **am wärmsten**. — Влітку тут найтепліше.
 - Er läuft **am schnellsten**. — Він бігає швидше за всіх.
 
-Після **-d, -t, -s, -ß, -sch, -z, -x** перед суфіксом стоїть **-e-**: *am ältesten, am nettesten, am heißesten, am kürzesten, am hübschesten*. Виняток — **groß: am größten** (а не ~~am größesten~~).
+Після **-d, -t, -s, -ß, -sch, -z, -x** в наголошеному складі перед суфіксом зазвичай стоїть **-e-**: *am ältesten, am nettesten, am heißesten, am kürzesten, am hübschesten*. Винятки: **groß → am größten** (а не ~~am größesten~~) і прикметники на ненаголошене -end: *spannend → am spannendsten*, *bedeutend → am bedeutendsten*.
 
 Перед іменником форма інша: артикль + прикметник + **-ste** + закінчення: *der höchste Berg, die schönste Stadt, das beste Brot*. Закінчення прикметників — у темах [[Deutsch - A2 - 15. Відмінювання прикметників I — після der, die, das]] і [[Deutsch - A2 - 17. Відмінювання прикметників II — після ein і без артикля]]. Поки що запамʼятай: **am** — лише для присудка і прислівника, перед іменником — **der / die / das … -ste**.
 
-## Неправильні форми
+## Неправильні й найчастіші форми
 
 | Positiv | Komparativ | Superlativ | Приклад |
 |---|---|---|---|
@@ -127,8 +127,8 @@ estimatedMinutes: 40
 - Im Winter ist es hier am kältesten. — Узимку тут найхолодніше.
 - Dieser Zug ist schneller als der Bus. — Цей потяг швидший за автобус.
 - Das Hochhaus ist höher als der Turm. — Хмарочос вищий за вежу.
-- Ich trinke lieber Tee als Kaffee. — Я пʼю чай охочіше, ніж каву.
-- Am liebsten esse ich Suppe. — Найохочіше я їм суп.
+- Ich trinke lieber Tee als Kaffee. — Я більше люблю чай, ніж каву.
+- Am liebsten esse ich Suppe. — Найбільше я люблю суп.
 - Anna ist nicht so alt wie Max. — Анна не така стара, як Макс.
 - Pizza schmeckt gut, aber Pasta schmeckt besser. — Піца смачна, але паста смачніша.
 - Das Wetter wird immer besser. — Погода дедалі краща.
@@ -245,7 +245,7 @@ estimatedMinutes: 40
 > uk: більше
 > forms: — (без ступенів)
 > example: Ich habe **mehr** Zeit als du. — У мене більше часу, ніж у тебе.
-> note: mehr — вищий ступінь від viel і перед прикметником не ставиться: ~~mehr schnell~~ → schneller.
+> note: mehr — вищий ступінь від viel; для порівняння двох предметів перед прикметником його не ставимо: ~~mehr schnell~~ → schneller.
 
 > [!word] weniger
 > ipa: /ˈveːnɪɡɐ/ · pos: adv · level: A2 · id: de-a2-komparation-w17
@@ -299,7 +299,7 @@ estimatedMinutes: 40
 > uk: температура
 > forms: die Temperaturen
 > example: Die **Temperatur** ist heute höher als gestern. — Температура сьогодні вища, ніж учора.
-> note: про температуру тіла — Fieber (жар): Ich habe Fieber.
+> note: про температуру тіла: erhöhte Temperatur або Fieber (жар): Ich habe Fieber.
 
 > [!word] das Hochhaus
 > ipa: /ˈhoːxhaʊ̯s/ · pos: noun · level: A2 · id: de-a2-komparation-w25
@@ -334,7 +334,7 @@ estimatedMinutes: 40
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-komparation-l04
 > audio: Ich trinke lieber Tee als Kaffee.
-> explain: *gern → lieber → am liebsten*; *lieber … als* — «охочіше, ніж».
+> explain: *gern → lieber → am liebsten*; *lieber … als* — «більше люблю, ніж».
 
 > [!listen] Послухай діалог у магазині. Який телевізор дешевший?
 > level: A2 · type: answer · speed: slow · id: de-a2-komparation-l05
@@ -371,7 +371,7 @@ estimatedMinutes: 40
 > text: Ich trinke lieber Tee als Kaffee.
 > ipa: /ɪç ˈtʁɪŋkə ˈliːbɐ teː als ˈkafe/
 > tip: lieber — довге [iː], b дзвінке. Kaffee — наголос на першому складі, у Австрії частіше на другому.
-> uk: Я пʼю чай охочіше, ніж каву.
+> uk: Я більше люблю чай, ніж каву.
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-komparation-s04
@@ -383,8 +383,8 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-komparation-s05
 > text: Im Winter ist es hier am kältesten.
-> ipa: /ɪm ˈvɪntɐ ɪst ɛs hiːɐ̯ am ˈkɛltɐstn̩/
-> tip: після -t — вставне -e-: kältesten. Winter: w = «в».
+> ipa: /ɪm ˈvɪntɐ ɪst ɛs hiːɐ̯ am ˈkɛltəstn̩/
+> tip: після -t — вставне -e-: kältesten [ˈkɛltəstn̩]. Winter: w = «в».
 > uk: Узимку тут найхолодніше.
 
 > [!speak] Скажи вголос
@@ -400,10 +400,10 @@ estimatedMinutes: 40
 > ~~Er ist größer wie ich~~ → Er ist größer **als** ich. Українське «як» у «такий як» і «ніж» у «більший ніж» — це різні слова в німецькій: **als** після вищого ступеня, **wie** після *so* + Positiv. У розмові німці інколи кажуть «größer wie», але в нормі й на екзамені — *als*.
 
 > [!pitfall] mehr + прикметник
-> ~~mehr groß, mehr interessant, mehr gut~~ → **größer, interessanter, besser**. Українське «більш цікавий» німецькою передається суфіксом. *mehr* ставиться лише перед іменником (*mehr Zeit*) або при дієслові (*Ich arbeite mehr*), не перед прикметником.
+> ~~mehr groß, mehr interessant, mehr gut~~ → **größer, interessanter, besser**. Українське «більш цікавий» німецькою передається суфіксом. *mehr* ставиться перед іменником (*mehr Zeit*) або при дієслові (*Ich arbeite mehr*); щоб порівняти два предмети за ознакою, перед прикметником його не ставимо (порівняння двох властивостей — *mehr schlau als fleißig* — окремий випадок).
 
 > [!pitfall] Забутий умлаут і -e-
-> ~~alter, kalter, am altesten~~ → **älter, kälter, am ältesten**. ~~am heißsten~~ → **am heißesten**; ~~am kürztesten~~ → **am kürzesten**. Для коротких частих прикметників (*alt, jung, kalt, warm, lang, kurz, groß, stark, hoch*) вчи форму разом із умлаутом, а перед суфіксом -st після d, t, s, ß, sch, z, x став -e-.
+> ~~alter, kalter, am altesten~~ → **älter, kälter, am ältesten**. ~~am heißsten~~ → **am heißesten**; ~~am kürztesten~~ → **am kürzesten**. Для коротких частих прикметників (*alt, jung, kalt, warm, lang, kurz, groß, stark, hoch*) вчи форму разом із умлаутом, а перед суфіксом -st після d, t, s, ß, sch, z, x у наголошеному складі зазвичай став -e- (*am ältesten*, але *am spannendsten*).
 
 > [!pitfall] am чи der + іменник
 > ~~Das ist am besten Freund~~ → Das ist **mein bester** Freund. *am … -sten* стоїть лише без іменника (*Er ist am besten*). Перед іменником — артикль або присвійне слово та закінчення: *der beste Freund, die schönste Stadt*.
@@ -471,12 +471,12 @@ estimatedMinutes: 40
 > level: A2 · type: single · id: de-a2-komparation-q06
 > - [x] lieber
 > - [ ] gerner
-> - [ ] besser
+> - [ ] mehr gern
 > - [ ] am liebsten
 >
-> **Пояснення:** *gern — lieber — am liebsten*. «Охочіше, ніж» → *lieber … als*. *am liebsten* — «найохочіше», після нього *als* не стоїть.
+> **Пояснення:** *gern — lieber — am liebsten*. «Більше люблю, ніж» → *lieber … als*; *mehr gern* утворено за загальним правилом, але такої форми немає. *am liebsten* — «найбільше люблю», після нього *als* не стоїть.
 
-> [!quiz] Які речення правильні?
+> [!quiz] Обери всі правильні речення.
 > level: A2 · type: multi · id: de-a2-komparation-q07
 > - [x] Mein Auto ist älter als dein Auto.
 > - [x] Anna ist so groß wie Max.
@@ -486,7 +486,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *älter als* і *so groß wie* — правильні моделі; *am schönsten* — найвищий ступінь у присудку. ~~größer wie~~ плутає *als* і *wie*; ~~mehr teuer~~ — калька, правильно *teurer*.
 
-> [!quiz] Які ряди форм правильні?
+> [!quiz] Обери всі правильні ряди форм.
 > level: A2 · type: multi · id: de-a2-komparation-q08
 > - [x] teuer – teurer – am teuersten
 > - [x] hoch – höher – am höchsten
@@ -558,7 +558,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *teuer → teurer → am teuersten*: -e- випадає лише у вищому ступені (*teurer*), у найвищому лишається *teuersten*.
 
-> [!quiz] Що правильно: «Найохочіше я їм піцу» (Pizza esse ich …)
+> [!quiz] Що правильно: «Найбільше я люблю піцу» (Pizza esse ich …)
 > level: A2 · type: single · id: de-a2-komparation-q14
 > - [x] am liebsten
 > - [ ] am gernsten
@@ -614,7 +614,7 @@ estimatedMinutes: 40
 - [Wikipedia — Mark Twain](https://de.wikipedia.org/wiki/Mark_Twain): автор «The Awful German Language».
 
 > [!important] Підсумок
-> - Три ступені: **Positiv — Komparativ (-er) — Superlativ (am -sten)**; умлаут у багатьох односкладових (*alt → älter*), після d, t, s, ß, sch, z, x — *-esten*.
+> - Три ступені: **Positiv — Komparativ (-er) — Superlativ (am -sten)**; умлаут у багатьох односкладових (*alt → älter*), після d, t, s, ß, sch, z, x в наголошеному складі зазвичай *-esten* (але *am größten, am spannendsten*).
 > - Неправильні: *gut — besser — am besten, viel — mehr — am meisten, gern — lieber — am liebsten, hoch — höher — am höchsten, nah — näher — am nächsten*.
 > - Нерівність: **Komparativ + als**; рівність: **so + Positiv + wie**.
 > - Не кажи ~~größer wie~~ і ~~mehr groß~~.

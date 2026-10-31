@@ -13,7 +13,7 @@ estimatedMinutes: 70
 > [!success] Після цієї теми ти зможеш
 > - перевірити себе з усієї граматики A2: *Perfekt і Präteritum, Dativ, прийменники з Dativ / Akkusativ і Wechselpräpositionen, ступені порівняння, відмінювання прикметників, weil / dass / wenn, зворотні дієслова, займенники й порядок обʼєктів, Futur I, сполучники, непрямі питання*;
 > - розрізняти на слух минуле, давальний відмінок, місце й напрям, записати речення під диктовку;
-> - почути мінімальні пари (*kam / Kamm*, *Hüte / Hütte*) і вимовити типові фрази рівня A2 вголос;
+> - почути мінімальні пари (*kam / Kamm*, *Beet / Bett*) і вимовити типові фрази рівня A2 вголос;
 > - позначити в чеклісті «я вмію», що вже працює, а що ще варто повторити.
 
 Це тема без нового матеріалу. Нових слів тут немає: усе, що трапляється, ти вже вивчив(ла) у темах A2-01…29 і A1. Якщо щось не виходить, поруч підказка, у якій темі це розібрано.
@@ -52,14 +52,17 @@ estimatedMinutes: 70
 
 ## Блок 1. Минуле: Perfekt і Präteritum
 
-> [!quiz] Яка форма Partizip II від einkaufen правильна?
-> level: A2 · type: single · id: de-a2-review-q01
-> - [ ] geeinkauft
-> - [x] eingekauft
-> - [ ] einkauft
-> - [ ] eingekaufen
+> [!quiz] Заповни пропуски: сильні дієслова
+> level: A2 · type: fill · id: de-a2-review-q01 · bank: getrinkt, gekommt
 >
-> **Пояснення:** у відокремлюваних дієсловах *ge-* стоїть між префіксом і основою: *ein + ge + kauft*. Правильні дієслова закінчуються на *-t*. Тема A2-01.
+> ```text fill
+> Er hat einen Brief [[geschrieben]].
+> Wir haben Wasser [[getrunken]].
+> Sie ist zu Hause [[geblieben]].
+> Ich bin spät [[gekommen]].
+> ```
+>
+> **Пояснення:** сильні дієслова мають Partizip II на *-en* (часто зі зміною кореня): *schreiben → geschrieben, trinken → getrunken, bleiben → geblieben, kommen → gekommen*. Рух і зміна стану (*bleiben, kommen*) — із *sein*. *Getrinkt* і *gekommt* — типові помилки за зразком правильних дієслів. Тема A2-01.
 
 > [!quiz] Обери допоміжне дієслово: «Gestern ___ wir nach Köln gefahren.»
 > level: A2 · type: single · id: de-a2-review-q02
@@ -89,8 +92,17 @@ estimatedMinutes: 70
 >
 > **Пояснення:** Präteritum модальних дієслів без умлаута: *ich konnte*. *Kannte* — від *kennen* («знав»). У розмові про минуле *konnte* природніше за Perfekt модального. Тема A2-02.
 
+> [!quiz] Обери форму: «Gestern ___ ich krank.»
+> level: A2 · type: single · id: de-a2-review-q05
+> - [x] war
+> - [ ] hatte
+> - [ ] bin
+> - [ ] habe
+>
+> **Пояснення:** *krank sein* → *ich war krank*. *Hatte* — від *haben* (*ich hatte Fieber*), *bin* і *habe* — теперішній час. Тема A2-02.
+
 > [!quiz] Склади речення: «Торік ми переїхали до Гамбурга.»
-> level: A2 · type: order · id: de-a2-review-q05
+> level: A2 · type: order · id: de-a2-review-q06
 >
 > ```text order
 > Letztes Jahr
@@ -106,7 +118,7 @@ estimatedMinutes: 70
 ## Блок 2. Dativ, прийменники й займенники
 
 > [!quiz] Обери артикль: «Ich helfe ___ Mann.»
-> level: A2 · type: single · id: de-a2-review-q06
+> level: A2 · type: single · id: de-a2-review-q07
 > - [ ] den
 > - [x] dem
 > - [ ] der
@@ -115,7 +127,7 @@ estimatedMinutes: 70
 > **Пояснення:** *helfen* вимагає Dativ. Чоловічий рід у Dativ — *dem* (*dem Mann*). *Den* і *einen* — Akkusativ. Тема A2-05.
 
 > [!quiz] Обери займенник: «Das Buch gehört ___.» (мені)
-> level: A2 · type: single · id: de-a2-review-q07
+> level: A2 · type: single · id: de-a2-review-q08
 > - [ ] mich
 > - [x] mir
 > - [ ] ich
@@ -124,7 +136,7 @@ estimatedMinutes: 70
 > **Пояснення:** *gehören* — Dativ: *gehört mir*. *Mich* — знахідний, *ich* — називний. Теми A2-05 і A2-19.
 
 > [!quiz] Які дієслова вимагають Dativ? Обери всі.
-> level: A2 · type: multi · id: de-a2-review-q08
+> level: A2 · type: multi · id: de-a2-review-q09
 > - [x] helfen
 > - [x] danken
 > - [x] gefallen
@@ -134,7 +146,7 @@ estimatedMinutes: 70
 > **Пояснення:** *helfen, danken, gefallen* — Dativ (*ich helfe dir, ich danke Ihnen, es gefällt mir*). *Besuchen* і *fragen* — Akkusativ (*ich besuche dich, ich frage ihn*). Тема A2-05.
 
 > [!quiz] «Я їду на роботу автобусом.» Яка форма правильна?
-> level: A2 · type: single · id: de-a2-review-q09
+> level: A2 · type: single · id: de-a2-review-q10
 > - [ ] Ich fahre mit Bus zur Arbeit.
 > - [ ] Ich fahre mit den Bus zur Arbeit.
 > - [x] Ich fahre mit dem Bus zur Arbeit.
@@ -143,7 +155,7 @@ estimatedMinutes: 70
 > **Пояснення:** *mit* завжди з Dativ; *der Bus* → *dem Bus*. Артикль обовʼязковий. Тема A2-06.
 
 > [!quiz] «Книга лежить на столі.» Яка форма правильна?
-> level: A2 · type: single · id: de-a2-review-q10
+> level: A2 · type: single · id: de-a2-review-q11
 > - [ ] Das Buch liegt auf den Tisch.
 > - [x] Das Buch liegt auf dem Tisch.
 > - [ ] Das Buch liegt auf das Tisch.
@@ -151,11 +163,20 @@ estimatedMinutes: 70
 >
 > **Пояснення:** *liegen* відповідає на питання *wo?* (де лежить?) → Dativ: *auf dem Tisch*. Тема A2-08.
 
+> [!quiz] Обери займенник: «Das Geschenk ist für ___.» (тобі)
+> level: A2 · type: single · id: de-a2-review-q12
+> - [x] dich
+> - [ ] dir
+> - [ ] du
+> - [ ] dein
+>
+> **Пояснення:** *für* завжди вимагає Akkusativ: *für dich*. Те саме *durch, gegen, ohne, um*: *ohne mich, gegen ihn*. Тема A2-06.
+
 > [!quiz] Заповни пропуски: де і куди
-> level: A2 · type: fill · id: de-a2-review-q11 · bank: vom, durchs
+> level: A2 · type: fill · id: de-a2-review-q13 · bank: vom, durchs
 >
 > ```text fill
-> Ich bin [[im]] Büro. (у офісі)
+> Ich bin [[im]] Büro. (в офісі)
 > Ich gehe [[ins]] Büro. (в офіс)
 > Wir fahren [[zum]] Arzt. (до лікаря)
 > Ich bin [[beim]] Arzt. (у лікаря)
@@ -164,7 +185,7 @@ estimatedMinutes: 70
 > **Пояснення:** *in dem = im* (де?), *in das = ins* (куди?). Для людей: *zu dem = zum* (до кого?), *bei dem = beim* (у кого?). Теми A2-06 і A2-08. *Vom* і *durchs* не підходять за значенням.
 
 > [!quiz] Склади речення: «Я даю його йому.» (книжку, Buch)
-> level: A2 · type: order · id: de-a2-review-q12
+> level: A2 · type: order · id: de-a2-review-q14
 >
 > ```text order
 > Ich gebe
@@ -178,7 +199,7 @@ estimatedMinutes: 70
 ## Блок 3. Прикметники й порівняння
 
 > [!quiz] «Я купую новий стіл.» Обери закінчення: «Ich kaufe den ___ Tisch.»
-> level: A2 · type: single · id: de-a2-review-q13
+> level: A2 · type: single · id: de-a2-review-q15
 > - [x] neuen
 > - [ ] neue
 > - [ ] neuer
@@ -187,7 +208,7 @@ estimatedMinutes: 70
 > **Пояснення:** після *den* (Akkusativ чоловічого роду) — слабка відміна, закінчення ***-en***. «Пʼять разів -e, решта -en»: *-e* лише в Nominativ (ч., ж., с.) і Akkusativ (ж., с.). Тема A2-15.
 
 > [!quiz] «Це новий автомобіль.» Обери закінчення: «Das ist ein ___ Auto.»
-> level: A2 · type: single · id: de-a2-review-q14
+> level: A2 · type: single · id: de-a2-review-q16
 > - [ ] neue
 > - [ ] neuer
 > - [x] neues
@@ -196,7 +217,7 @@ estimatedMinutes: 70
 > **Пояснення:** після *ein* у середньому роді артикль не показує рід, тому прикметник бере сигнал на себе: ***ein neues Auto***. Тема A2-17.
 
 > [!quiz] Заповни закінчення прикметників
-> level: A2 · type: fill · id: de-a2-review-q15 · bank: kalter, kaltes
+> level: A2 · type: fill · id: de-a2-review-q17 · bank: kalter, kaltes
 >
 > ```text fill
 > Das ist eine [[neue]] Lampe.
@@ -207,7 +228,7 @@ estimatedMinutes: 70
 > **Пояснення:** після *eine* (жіночий Nominativ) — *-e*; без артикля в Akkusativ чоловічого роду — сильне закінчення *-en* (*kalten Kaffee*); після *dem* (Dativ) — *-en*. Теми A2-15 і A2-17.
 
 > [!quiz] «Мій брат старший за мене.»
-> level: A2 · type: single · id: de-a2-review-q16
+> level: A2 · type: single · id: de-a2-review-q18
 > - [ ] Mein Bruder ist alter als ich.
 > - [x] Mein Bruder ist älter als ich.
 > - [ ] Mein Bruder ist mehr alt als ich.
@@ -216,7 +237,7 @@ estimatedMinutes: 70
 > **Пояснення:** вищий ступінь утворюється із суфіксом *-er* і умлаутом (*alt → älter*); порівняння — з ***als***, а не *wie*. Тема A2-10.
 
 > [!quiz] «Я пʼю чай радше, ніж каву.» (gern)
-> level: A2 · type: single · id: de-a2-review-q17
+> level: A2 · type: single · id: de-a2-review-q19
 > - [ ] Ich trinke besser Tee als Kaffee.
 > - [x] Ich trinke lieber Tee als Kaffee.
 > - [ ] Ich trinke gerner Tee als Kaffee.
@@ -227,7 +248,7 @@ estimatedMinutes: 70
 ## Блок 4. Підрядні речення, сполучники, майбутнє, зворотні дієслова
 
 > [!quiz] «Я лишаюся вдома, бо хворію.» Яке речення правильне?
-> level: A2 · type: single · id: de-a2-review-q18
+> level: A2 · type: single · id: de-a2-review-q20
 > - [ ] Ich bleibe zu Hause, weil ich bin krank.
 > - [x] Ich bleibe zu Hause, weil ich krank bin.
 > - [ ] Ich bleibe zu Hause, weil bin ich krank.
@@ -236,7 +257,7 @@ estimatedMinutes: 70
 > **Пояснення:** після *weil* змінюване дієслово йде в кінець: *weil ich krank **bin***. Тема A2-11.
 
 > [!quiz] «Якщо в мене буде час, я прийду.» Яке речення правильне?
-> level: A2 · type: single · id: de-a2-review-q19
+> level: A2 · type: single · id: de-a2-review-q21
 > - [ ] Wenn ich Zeit habe, ich komme.
 > - [ ] Wenn ich habe Zeit, komme ich.
 > - [x] Wenn ich Zeit habe, komme ich.
@@ -245,7 +266,7 @@ estimatedMinutes: 70
 > **Пояснення:** підрядне речення на першому місці займає позицію 1, тому в головному дієслово йде одразу після коми: *…, komme ich*. Кома між частинами обовʼязкова. Тема A2-11.
 
 > [!quiz] «Чи можете Ви сказати мені, де вокзал?»
-> level: A2 · type: single · id: de-a2-review-q20
+> level: A2 · type: single · id: de-a2-review-q22
 > - [ ] Können Sie mir sagen, wo ist der Bahnhof?
 > - [x] Können Sie mir sagen, wo der Bahnhof ist?
 > - [ ] Können Sie mir sagen, ob wo der Bahnhof ist?
@@ -254,7 +275,7 @@ estimatedMinutes: 70
 > **Пояснення:** непряме питання — підрядне речення: питальне слово + підмет + дієслово в кінці. Тема A2-25.
 
 > [!quiz] «Я не знаю, чи він прийде.» Яке слово пропущено: «Ich weiß nicht, ___ er kommt.»
-> level: A2 · type: single · id: de-a2-review-q21
+> level: A2 · type: single · id: de-a2-review-q23
 > - [ ] wenn
 > - [x] ob
 > - [ ] dass
@@ -263,7 +284,7 @@ estimatedMinutes: 70
 > **Пояснення:** питання «так / ні» у непрямій формі вводиться ***ob*** («чи»). *Wenn* — «якщо», *dass* — «що», *weil* — «тому що». Тема A2-25.
 
 > [!quiz] «Іде дощ, тому я лишаюся вдома.» Яке слово пропущено: «Es regnet, ___ bleibe ich zu Hause.»
-> level: A2 · type: single · id: de-a2-review-q22
+> level: A2 · type: single · id: de-a2-review-q24
 > - [x] deshalb
 > - [ ] denn
 > - [ ] weil
@@ -272,7 +293,7 @@ estimatedMinutes: 70
 > **Пояснення:** *deshalb* відкриває речення з інверсією: *deshalb bleibe ich*. Після *denn* і *weil* порядок інший (*denn ich bleibe*, *weil ich bleibe*). Теми A2-23 і A2-11.
 
 > [!quiz] Склади речення: «Іде дощ, тому я лишаюся вдома.»
-> level: A2 · type: order · id: de-a2-review-q23
+> level: A2 · type: order · id: de-a2-review-q25
 >
 > ```text order
 > Es regnet,
@@ -286,7 +307,7 @@ estimatedMinutes: 70
 > **Пояснення:** *deshalb* займає перше місце в другій частині, тож дієслово стоїть одразу за ним, а підмет після дієслова. Тема A2-23.
 
 > [!quiz] «Завтра буде дощ.» Яка форма правильна?
-> level: A2 · type: single · id: de-a2-review-q24
+> level: A2 · type: single · id: de-a2-review-q26
 > - [ ] Morgen werde es regnen.
 > - [x] Morgen wird es regnen.
 > - [ ] Morgen wirst es regnen.
@@ -295,7 +316,7 @@ estimatedMinutes: 70
 > **Пояснення:** Futur I: *werden* у потрібній особі (*es wird*) + інфінітив у кінці. *Wurde* — минуле. Тема A2-22.
 
 > [!quiz] «Я радію вихідним.» Яка форма правильна: «Ich freue ___ auf das Wochenende.»
-> level: A2 · type: single · id: de-a2-review-q25
+> level: A2 · type: single · id: de-a2-review-q27
 > - [ ] mir
 > - [x] mich
 > - [ ] dich
@@ -304,7 +325,7 @@ estimatedMinutes: 70
 > **Пояснення:** зворотний займенник відповідає підмету: *ich → mich*. Тема A2-14.
 
 > [!quiz] Заповни зворотні займенники
-> level: A2 · type: fill · id: de-a2-review-q26 · bank: mich, dir
+> level: A2 · type: fill · id: de-a2-review-q28 · bank: mich, dir
 >
 > ```text fill
 > Ich wasche [[mir]] die Hände. (собі)
@@ -317,7 +338,7 @@ estimatedMinutes: 70
 ## Блок 5. Вимова й правопис
 
 > [!quiz] Які дієслова мають наголос на першому складі? Обери всі.
-> level: A2 · type: multi · id: de-a2-review-q27
+> level: A2 · type: multi · id: de-a2-review-q29
 > - [x] anrufen
 > - [x] einkaufen
 > - [x] aufstehen
@@ -327,16 +348,16 @@ estimatedMinutes: 70
 > **Пояснення:** відокремлювані префікси наголошені: *ˈanrufen, ˈeinkaufen, ˈaufstehen*. Невідокремлювані *ver-, be-, er-* не наголошені: *verˈstehen, beˈsuchen*. Тема A2-03.
 
 > [!quiz] Як правильно писати «річка» після реформи правопису?
-> level: A2 · type: single · id: de-a2-review-q28
+> level: A2 · type: single · id: de-a2-review-q30
 > - [ ] Fluß
 > - [x] Fluss
 > - [ ] Flus
 > - [ ] Flüss
 >
-> **Пояснення:** після короткого голосного пишемо ***ss***: *Fluss, muss*. ***ß*** — після довгого голосного чи дифтонга (*Straße, heiß*). *Fluß* — написання до реформи 1996 року. Тема A2-26.
+> **Пояснення:** зазвичай після короткого голосного пишемо ***ss***: *Fluss, muss*. ***ß*** — після довгого голосного чи дифтонга (*Straße, heiß*). *Fluß* — написання до реформи 1996 року. Тема A2-26.
 
 > [!quiz] Яка мелодія в питанні «Kommst du morgen?»
-> level: A2 · type: single · id: de-a2-review-q29
+> level: A2 · type: single · id: de-a2-review-q31
 > - [x] голос іде вгору ↗
 > - [ ] голос іде вниз ↘
 > - [ ] голос лишається рівним
@@ -344,14 +365,14 @@ estimatedMinutes: 70
 >
 > **Пояснення:** у питанні «так / ні» голос піднімається наприкінці (↗). У W-питанні (*Wann kommst du?*) і твердженні — вниз (↘). Тема A2-18.
 
-> [!quiz] «Руки» множина від die Hand. Як писати?
-> level: A2 · type: single · id: de-a2-review-q30
-> - [ ] die Hende
-> - [x] die Hände
-> - [ ] die Hänte
-> - [ ] die Henden
+> [!quiz] «Я думаю, що він завтра прийде.» Яке слово пропущено: «Ich glaube, ___ er morgen kommt.»
+> level: A2 · type: single · id: de-a2-review-q32
+> - [x] dass
+> - [ ] das
+> - [ ] ob
+> - [ ] wenn
 >
-> **Пояснення:** ***ä*** пишемо тоді, коли є споріднене слово з ***a***: *Hand → Hände*. Тема A2-26.
+> **Пояснення:** ***dass*** («що») вводить підрядне речення з фактом чи думкою; дієслово — у кінці. *Das* — артикль чи вказівний займенник (друга літера *s* подвоєна лише в сполучнику). *Ob* — «чи», *wenn* — «якщо». Тема A2-11.
 
 ## Диктант і аудіювання
 
@@ -362,7 +383,7 @@ estimatedMinutes: 70
 > - [x] Wir sind gestern nach Köln gefahren.
 > - [ ] Wir waren gestern in Köln.
 >
-> **Пояснення:** *sind … gefahren* — Perfekt, *gestern* — вчора. *Fahren* — рух, тож *nach Köln*, а не *in Köln*. Тема A2-01.
+> **Пояснення:** *sind … gefahren* — Perfekt, *gestern* — вчора. *Fahren* — рух, тож *nach Köln*; *in Köln* стоїть із *sein* (*wir waren in Köln*) і означає стан, а не рух. Тема A2-01.
 
 > [!listen] Що ти почув?
 > level: A2 · type: choice · speed: slow · id: de-a2-review-l02
@@ -371,7 +392,7 @@ estimatedMinutes: 70
 > - [ ] Ich helfe ihr gern.
 > - [ ] Ich helfe Ihnen gern.
 >
-> **Пояснення:** *dir* — [diːɐ̯], *ihr* — [iːɐ̯] (початок «д»), *Ihnen* — три склади. Тема A2-05.
+> **Пояснення:** *dir* починається з [d], *ihr* — без приголосного на початку, *Ihnen* — три склади. Тема A2-05.
 
 > [!listen] Що ти почув?
 > level: A2 · type: choice · speed: slow · id: de-a2-review-l03
@@ -394,7 +415,7 @@ estimatedMinutes: 70
 > level: A2 · type: dictation · speed: slow · id: de-a2-review-l06
 > audio: Können Sie mir sagen, wo der Bahnhof ist?
 
-> [!listen] Телефонна розмова. Коли в Йонаса запис до лікаря?
+> [!listen] Телефонна розмова. Коли в пацієнта запис до лікаря?
 > level: A2 · type: answer · speed: slow · id: de-a2-review-l07
 > audio: A: Praxis Dr. Schneider, guten Tag.
 > audio: B: Guten Tag, ich möchte einen Termin vereinbaren. Ich habe seit gestern Fieber.
@@ -442,15 +463,15 @@ estimatedMinutes: 70
 
 ## Мінімальні пари
 
-> [!pair] Wiese /ˈviːzə/ — wisse /ˈvɪsə/
+> [!pair] Ofen /ˈoːfn̩/ — offen /ˈɔfn̩/
 > level: A2 · id: de-a2-review-p01
-> say: Wiese
-> tip: ie — довге [iː], подвоєне ss — перед ним короткий [ɪ]. Дзвінке [z] проти глухого [s].
+> say: offen
+> tip: [oː] — закрите довге, [ɔ] — коротке й відкритіше. Подвоєне ff позначає короткий голосний.
 
-> [!pair] Hüte /ˈhyːtə/ — Hütte /ˈhʏtə/
+> [!pair] Beet /beːt/ — Bett /bɛt/
 > level: A2 · id: de-a2-review-p02
-> say: Hütte
-> tip: ü довге [yː] проти короткого [ʏ]. Подвоєне tt після голосного — ознака короткості.
+> say: Beet
+> tip: [eː] — довге напружене, [ɛ] — коротке й відкрите. Подвоєне tt — ознака короткості.
 
 > [!pair] Höhle /ˈhøːlə/ — Hölle /ˈhœlə/
 > level: A2 · id: de-a2-review-p03
@@ -467,10 +488,10 @@ estimatedMinutes: 70
 > say: still
 > tip: ie — довге [iː], подвоєне ll — короткий [ɪ].
 
-> [!pair] Maße /ˈmaːsə/ — Masse /ˈmasə/
+> [!pair] Staat /ʃtaːt/ — Stadt /ʃtat/
 > level: A2 · id: de-a2-review-p06
-> say: Masse
-> tip: ß після довгого голосного, ss після короткого. Звук [s] той самий, різниця в довготі [aː] / [a].
+> say: Stadt
+> tip: довге [aː] проти короткого [a]; приголосні однакові, різниця лише в довготі голосного.
 
 ## Говоріння
 
@@ -581,7 +602,7 @@ estimatedMinutes: 70
 > [!reel] 🎓 Goethe-Zertifikat A2
 > Письмова частина іспиту Goethe A2 триває 90 хвилин: читання 30 хв, аудіювання ≈ 30 хв, письмо 30 хв. Усна частина — ≈ 15 хв у парі. Щоб скласти, потрібно набрати щонайменше 60 зі 100 балів. Граматика цієї теми потрібна на кожній частині іспиту.
 
-> [!reel] ⏭️ Німці рідко кажуть «werden»
+> [!reel] ⏭️ Німці рідко кажуть Futur I
 > Хоча Futur I існує, про найближче майбутнє німці здебільшого просто кажуть Präsens із часом: *Morgen fahre ich nach Berlin.* Futur I зʼявляється, коли треба підкреслити обіцянку, план чи прогноз, або коли маркера часу немає.
 
 ## Джерела та що почитати

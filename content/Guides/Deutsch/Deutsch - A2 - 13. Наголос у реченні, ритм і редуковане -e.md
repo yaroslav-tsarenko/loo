@@ -11,7 +11,7 @@ estimatedMinutes: 40
 # Наголос у реченні, ритм і редуковане -e
 
 > [!success] Після цієї теми ти зможеш
-> - розрізняти в реченні змістові слова (вони наголошені) і службові (вони слабкі): *Ich habe einen TERmin beim ARZT*;
+> - розрізняти в реченні змістові слова (вони наголошені) і службові (вони слабкі): *Ich habe einen TerMIN beim ARZT*;
 > - вимовляти ненаголошені закінчення слабко: *-e* [ə], *-en* [ən] або [n̩], *-er* [ɐ], *-el* [l̩];
 > - тримати німецький ритм: між наголошеними словами слабкі слова стискаються;
 > - перенести наголос на слово, яке ти хочеш виділити: *Ich komme MORgen*, а не сьогодні.
@@ -25,7 +25,7 @@ estimatedMinutes: 40
 > - [x] *Termin* і *Arzt*
 > - [ ] *einen* і *beim*
 >
-> **Пояснення:** в реченні наголошені слова, що несуть зміст: іменники *Termin* і *Arzt*. Займенник *ich*, допоміжне *habe*, артикль *einen* і злиття *beim* слабкі й короткі. Тому речення звучить як *ich-habe-einen TERmin-beim ARZT*.
+> **Пояснення:** в реченні наголошені слова, що несуть зміст: іменники *Termin* і *Arzt*. Займенник *ich*, допоміжне *habe*, артикль *einen* і злиття *beim* слабкі й короткі. Тому речення звучить як *ich-habe-einen terMIN-beim ARZT*.
 
 ## Слова мають різну вагу
 
@@ -46,12 +46,12 @@ estimatedMinutes: 40
 > layout: flow
 > nodes:
 >   - { id: w1, label: "Ich habe", text: "слабкі · швидко", tone: gray }
->   - { id: w2, label: "einen TERmin", text: "TERmin — наголос", tone: yellow }
+>   - { id: w2, label: "einen TerMIN", text: "TerMIN — наголос", tone: yellow }
 >   - { id: w3, label: "beim", text: "слабке · швидко", tone: gray }
 >   - { id: w4, label: "ARZT", text: "найсильніше слово", tone: yellow }
 > steps:
 >   - { focus: w1, note: "Ich habe: два службових слова. Вони зливаються: [ɪç ˈhaːbə], без окремого наголосу." }
->   - { focus: w2, note: "einen Termin: артикль слабкий, Termin наголошений на першому складі: ˈTermin." }
+>   - { focus: w2, note: "einen Termin: артикль слабкий, Termin наголошений на останньому складі: Terˈmin." }
 >   - { focus: w3, note: "beim — злиття bei + dem. Слабке й коротке: [baɪ̯m]." }
 >   - { focus: w4, note: "Arzt — остання змістова група в реченні. Тут найвищий тон і найсильніший наголос: ˈArzt." }
 > ```
@@ -62,9 +62,9 @@ estimatedMinutes: 40
 У німецькій мові наголоси йдуть приблизно **через однакові проміжки часу**, а слабкі склади між ними стискаються. Тому довге речення з багатьма службовими словами не стає в три рази довшим:
 
 - *Das ist ein TISCH.* — один наголос;
-- *Das ist ein sehr schöner TISCH.* — два наголоси (*SCHÖner*, *TISCH*), слабкі слова лише трохи довші.
+- *Das ist ein schöner, großer TISCH.* — два наголоси (*SCHÖner*, *GROßer*) і *TISCH*, слабкі слова лише трохи довші.
 
-Українська мова зазвичай ближча до рівного ритму: кожен склад триває приблизно однаково. Тому українцям здається, що німці «ковтають» слова, а німцям українська вимова здається «рубаною».
+Українську часто описують як ближчу до складового ритму, де склади тривають приблизно однаково. Тому учням спершу може здаватися, що німці «ковтають» слабкі слова.
 
 ## Редуковане -e: schwa
 
@@ -78,7 +78,7 @@ estimatedMinutes: 40
 | **-el** | [l̩] | *Apfel* /ˈapfl̩/, *Tafel* /ˈtaːfl̩/ |
 | **be-, ge-** | [bə], [ɡə] | *bekommen* /bəˈkɔmən/, *gemacht* /ɡəˈmaxt/ |
 
-**-en** після [b], [p], [d], [t], [g], [k] часто стає складовим [n̩]: голосного між ними майже немає (*haben*, *arbeiten*). Після [m], [n], [l], [r] чуємо слабке [ən] (*kommen, lernen*). Різниця невелика, головне: **ніколи не вимовляй повне «е»**.
+**-en** після вибухових і фрикативних ([b p d t ɡ k f s ʃ x]) часто стає складовим [n̩]: голосного між ними майже немає (*haben*, *arbeiten*). Після [m], [n], [l], [r] чуємо слабке [ən] (*kommen, lernen*). Різниця невелика, головне: **ніколи не вимовляй повне «е»**.
 
 Закінчення **-er** не читається як «ер» із [ʁ]: це короткий звук [ɐ], близький до слабкого «а».
 
@@ -136,7 +136,7 @@ estimatedMinutes: 40
 > uk: речення; (також) стрибок, комплект
 > forms: die Sätze
 > example: Bitte lies den **Satz** noch einmal. — Будь ласка, прочитай речення ще раз.
-> note: ä у множині довге-відкрите [ɛ]: Sätze /ˈzɛtsə/. Der Nebensatz — підрядне речення.
+> note: ä у множині — коротке відкрите [ɛ]: Sätze /ˈzɛtsə/. Der Nebensatz — підрядне речення.
 
 > [!word] der Rhythmus
 > ipa: /ˈʁʏtmʊs/ · pos: noun · level: B1 · id: de-a2-satzakzent-w03
@@ -204,16 +204,16 @@ estimatedMinutes: 40
 > [!word] nachsprechen
 > ipa: /ˈnaːxʃpʁɛçn̩/ · pos: verb · level: A2 · id: de-a2-satzakzent-w12
 > uk: повторювати за кимось (вголос)
-> forms: nachsprechen → sprach nach → hat nachgesprochen
+> forms: er spricht nach · sprach nach · hat nachgesprochen
 > example: Bitte **sprechen** Sie den Satz **nach**. — Будь ласка, повторіть речення за мною.
 > note: відокремлюване: ˈnachsprechen, наголос на nach-. sp на початку кореня = [ʃp].
 
 > [!word] vorlesen
 > ipa: /ˈfoːɐ̯leːzn̩/ · pos: verb · level: A2 · id: de-a2-satzakzent-w13
 > uk: читати вголос
-> forms: vorlesen → las vor → hat vorgelesen
+> forms: er liest vor · las vor · hat vorgelesen
 > example: Ich **lese** meiner Tochter eine Geschichte **vor**. — Я читаю доньці історію вголос.
-> note: відокремлюване. s у -lesen дзвінке [z]. Es liest vor — liest [liːst] з довгим [iː].
+> note: відокремлюване. s у -lesen дзвінке [z]. Er liest vor — liest [liːst] з довгим [iː].
 
 > [!word] üben
 > ipa: /ˈyːbn̩/ · pos: verb · level: A1 · id: de-a2-satzakzent-w14
@@ -325,8 +325,8 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-satzakzent-s01
 > text: Ich habe einen Termin beim Arzt.
-> ipa: /ɪç ˈhaːbə aɪ̯nən tɛɐ̯ˈmiːn baɪ̯m aʁtst/
-> tip: Наголошені: Termin і Arzt. Решта швидка. *Termin* — [tɛɐ̯ˈmiːn], наголос на -min.
+> ipa: /ɪç ˈhaːbə aɪ̯nən tɛʁˈmiːn baɪ̯m aːɐ̯tst/
+> tip: Наголошені: Termin і Arzt. Решта швидка. *Termin* — [tɛʁˈmiːn], наголос на -min.
 > uk: У мене запис до лікаря.
 
 > [!speak] Скажи вголос
@@ -339,7 +339,7 @@ estimatedMinutes: 40
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-satzakzent-s03
 > text: Wir wohnen in einer kleinen Wohnung.
-> ipa: /viːɐ̯ ˈvoːnən ɪn ˈaɪ̯nɐ ˈklaɪ̯nən ˈvoːnʊŋ/
+> ipa: /viːɐ̯ ˈvoːnən ɪn aɪ̯nɐ ˈklaɪ̯nən ˈvoːnʊŋ/
 > tip: *wohnen, kleinen* — слабке [ən]. *einer* — [ɐ]. Наголоси тримай на wohnen, klein-, Woh-.
 > uk: Ми живемо в маленькій квартирі.
 
@@ -526,10 +526,10 @@ estimatedMinutes: 40
 > Мовознавці зазвичай відносять німецьку, як і англійську, до мов із ритмом за наголосами: наголошені склади йдуть через приблизно рівні проміжки часу, а слабкі між ними стискаються. Тому довге речення з багатьма службовими словами не розтягується пропорційно.
 
 > [!reel] 🔇 Schwa — найчастіший звук
-> Нейтральний [ə] є одним із найчастіших голосних звуків німецької мови. Він стоїть у закінченнях *-e, -en, -er* й префіксах *be-, ge-*. Тому правильна вимова слабких складів впливає на «німецьке» звучання сильніше, ніж окремі рідкісні звуки.
+> Нейтральний [ə] є одним із найчастіших голосних звуків німецької мови. Він стоїть у закінченнях *-e, -en, -el* і префіксах *be-, ge-*; у *-er* — споріднений звук [ɐ]. Тому правильна вимова слабких складів впливає на «німецьке» звучання сильніше, ніж окремі рідкісні звуки.
 
 > [!reel] ✂️ Hab's, geht's, gibt's
-> У розмові німці скорочують слова: *Ich hab's* (haben + es), *Wie geht's?*, *Das gibt's nicht!* Апостроф показує, що голосний випав. У формальному листі краще писати повні форми: *Ich habe es*, *Wie geht es dir?*
+> У розмові німці скорочують слова: *Ich hab's* (habe + es), *Wie geht's?*, *Das gibt's nicht!* Апостроф показує, що голосний випав. У формальному листі краще писати повні форми: *Ich habe es*, *Wie geht es dir?*
 
 ## Джерела та що почитати
 
@@ -537,7 +537,7 @@ estimatedMinutes: 40
 - [DWDS — Rhythmus](https://www.dwds.de/wb/Rhythmus) — значення й вимова слова.
 - [DWDS — Satz](https://www.dwds.de/wb/Satz) — значення слова.
 - [DWDS — fließend](https://www.dwds.de/wb/flie%C3%9Fend) — вживання прикметника.
-- [Wikipedia — Deutsche Phonetik](https://de.wikipedia.org/wiki/Deutsche_Phonetik) — огляд фонетики німецької мови.
+- [Wikipedia — Aussprache der deutschen Sprache](https://de.wikipedia.org/wiki/Aussprache_der_deutschen_Sprache) — огляд фонетики німецької мови.
 
 > [!important] Підсумок
 > - У реченні наголошені змістові слова (іменники, дієслова, прикметники, прислівники), а службові слова (артиклі, займенники, прийменники, сполучники) слабкі й короткі.

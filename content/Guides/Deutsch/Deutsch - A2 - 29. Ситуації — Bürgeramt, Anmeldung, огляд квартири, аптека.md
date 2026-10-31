@@ -24,7 +24,7 @@ estimatedMinutes: 45
 > - [ ] Was? Ich habe nicht verstanden.
 > - [x] Könnten Sie das bitte wiederholen?
 > - [ ] Wiederholen Sie das!
-> - [ ] Sagen Sie mir das noch einmal und schneller.
+> - [ ] Ich verstehe Sie nicht, sprechen Sie anders.
 >
 > **Пояснення:** ввічливе прохання — ***Könnten Sie das bitte wiederholen?*** Сухе *Was?* звучить грубо, а наказова форма *Wiederholen Sie das!* без *bitte* виглядає як наказ.
 
@@ -106,8 +106,8 @@ estimatedMinutes: 45
 > layout: compare
 > columns: { w: "Wohnung", a: "Apotheke", b: "Bank" }
 > nodes:
->   - { id: w1, col: w, label: "Що сказати", text: "Ist die Wohnung unbefristet?", note: "питання про договір", tone: gray }
->   - { id: w2, col: w, label: "Що мати", text: "документи, іноді Schufa-Auskunft", note: "її часто просять", tone: gray }
+>   - { id: w1, col: w, label: "Що сказати", text: "Ist der Mietvertrag unbefristet?", note: "питання про договір", tone: gray }
+>   - { id: w2, col: w, label: "Що мати", text: "документи, часто Schufa-Auskunft", note: "її часто просять", tone: gray }
 >   - { id: a1, col: a, label: "Що сказати", text: "Haben Sie etwas gegen Kopfschmerzen?", note: "gegen + Akkusativ", tone: gray }
 >   - { id: a2, col: a, label: "Що мати", text: "рецепт, якщо він потрібен", note: "ліки без рецепта — rezeptfrei", tone: gray }
 >   - { id: b1, col: b, label: "Що сказати", text: "Ich möchte ein Konto eröffnen.", note: "готова фраза", tone: gray }
@@ -120,7 +120,7 @@ estimatedMinutes: 45
 
 ### Ситуація 3: аптека
 
-В ***Apotheke*** (на відміну від *Drogerie*) продають ліки, і консультує фармацевт (***die Beratung***). Скажи, що болить, і спитай, чи є щось без рецепта (***rezeptfrei***). Перед прийомом прочитай ***Packungsbeilage***: там дозування й ***Nebenwirkungen***.
+В ***Apotheke*** продають рецептурні ліки та ті, що відпускаються лише в аптеці (на відміну від *Drogerie*), і консультує фармацевт (***die Beratung***). Скажи, що болить, і спитай, чи є щось без рецепта (***rezeptfrei***). Перед прийомом прочитай ***Packungsbeilage***: там дозування й ***Nebenwirkungen***.
 
 | Що сказати | Значення |
 |---|---|
@@ -133,7 +133,7 @@ estimatedMinutes: 45
 
 ### Ситуація 4: банк
 
-Щоб відкрити рахунок (***ein Konto eröffnen***), потрібні документ з фото й, як правило, підтвердження адреси; точний перелік залежить від банку. Розмова проста: ти говориш, що хочеш, службовець задає питання, ти підписуєш (***unterschreiben***). Карти й постійні доручення (*Dauerauftrag*) ти вже знаєш із теми про гроші.
+Щоб відкрити рахунок (***ein Konto eröffnen***), потрібні документ з фото й, як правило, підтвердження адреси; точний перелік залежить від банку. Розмова проста: ти говориш, що хочеш, службовець задає питання, ти підписуєш (***unterschreiben***). Картки й постійні доручення (*Dauerauftrag*) ти вже знаєш із теми про гроші.
 
 ## Приклади
 
@@ -203,7 +203,7 @@ estimatedMinutes: 45
 > uk: підтвердження від власника / орендодавця житла (для Anmeldung)
 > forms: die Wohnungsgeberbestätigungen
 > example: Meine Vermieterin schreibt mir die **Wohnungsgeberbestätigung**. — Орендодавиця пише мені підтвердження для реєстрації.
-> note: за законом його має видати власник або особа, яка здає житло. Без нього Anmeldung не зробити.
+> note: за законом його має видати власник або особа, яка здає житло. Якщо власник відмовляється, одразу повідом про це Bürgeramt (§ 19 BMG).
 
 > [!word] die Wartenummer
 > ipa: /ˈvaʁtn̩ˌnʊmɐ/ · pos: noun · level: A2 · id: de-a2-situationen-w09
@@ -277,9 +277,9 @@ estimatedMinutes: 45
 
 > [!word] die Hausverwaltung
 > ipa: /ˈhaʊ̯sfɛɐ̯ˌvaltʊŋ/ · pos: noun · level: B1 · id: de-a2-situationen-w19
-> uk: управляюча компанія будинку
+> uk: керуюча компанія будинку
 > forms: die Hausverwaltungen
-> example: Die **Hausverwaltung** schickt die Abrechnung. — Управляюча компанія надсилає розрахунок.
+> example: Die **Hausverwaltung** schickt die Abrechnung. — Керуюча компанія надсилає розрахунок.
 > note: це може бути і власник, і окрема фірма. Контакт зазвичай на табличці у підʼїзді.
 
 > [!word] unbefristet
@@ -293,7 +293,7 @@ estimatedMinutes: 45
 > uk: вбудована кухня
 > forms: die Einbauküchen
 > example: Die Wohnung hat eine **Einbauküche**. — У квартирі є вбудована кухня.
-> note: у здаваних квартирах кухня буває не вбудована, тому в оголошенні це важливий пункт. ü = [ʏ], ch = [ç].
+> note: у здаваних квартирах кухні часто немає взагалі, тому в оголошенні це важливий пункт. ü = [ʏ], ch = [ç].
 
 > [!word] das Haustier
 > ipa: /ˈhaʊ̯stiːɐ̯/ · pos: noun · level: A2 · id: de-a2-situationen-w22
@@ -304,7 +304,7 @@ estimatedMinutes: 45
 
 > [!word] der Hausmeister
 > ipa: /ˈhaʊ̯sˌmaɪ̯stɐ/ · pos: noun · level: A2 · id: de-a2-situationen-w23
-> uk: двірник-майстер, комендант будинку
+> uk: завгосп, технічний доглядач будинку
 > forms: die Hausmeister
 > example: Der **Hausmeister** repariert die Heizung. — Hausmeister лагодить опалення.
 > note: Hausmeisterin — жінка. Слід звертатися, коли зламалося щось у будинку.
@@ -382,8 +382,8 @@ estimatedMinutes: 45
 > ipa: /eˈtaːʒə/ · pos: noun · level: A2 · id: de-a2-situationen-w34
 > uk: поверх
 > forms: die Etagen
-> example: Die Wohnung ist in der dritten **Etage**. — Квартира на третьому поверсі.
-> note: AT, CH також der Stock. Нумерація: Erdgeschoss, 1. Etage, 2. Etage. g = [ʒ].
+> example: Die Wohnung ist in der dritten **Etage**. — Квартира на третій Etage (за нашим рахунком це четвертий поверх).
+> note: Те саме кажуть der Stock (скрізь). Нумерація: Erdgeschoss, 1. Etage (= 2-й поверх за нашим рахунком), 2. Etage. g = [ʒ].
 
 > [!word] die Sprechzeit
 > ipa: /ˈʃpʁɛçˌtsaɪ̯t/ · pos: noun · level: A2 · id: de-a2-situationen-w35
@@ -434,13 +434,13 @@ estimatedMinutes: 45
 > audio: B: Guten Morgen. Ich habe um zehn Uhr einen Termin. Ich möchte meine neue Wohnung anmelden.
 > audio: A: Haben Sie Ihren Ausweis und die Wohnungsgeberbestätigung dabei?
 > audio: B: Ja, hier bitte.
-> audio: A: Danke. Bitte nehmen Sie draußen Platz. Ihre Nummer wird aufgerufen.
+> audio: A: Danke. Bitte warten Sie draußen im Flur. Ihre Nummer wird aufgerufen.
 > - [x] чекати в коридорі, поки назвуть її номер
 > - [ ] піти додому й повернутися завтра
 > - [ ] заплатити кредитною карткою
-> - [ ] заповнити ще один рецепт
+> - [ ] заповнити ще один Antrag
 >
-> **Пояснення:** службовиця каже: *Nehmen Sie draußen Platz. Ihre Nummer wird aufgerufen* — сядьте надворі (в залі очікування), Ваш номер викличуть. Переклад: — Доброго ранку. Чим можу допомогти? — Доброго ранку. У мене запис на десяту. Хочу зареєструвати нову квартиру. — У Вас є документ і підтвердження від орендодавця? — Так, ось. — Дякую. Будь ласка, зачекайте надворі. Ваш номер викличуть.
+> **Пояснення:** службовиця каже: *Warten Sie draußen im Flur. Ihre Nummer wird aufgerufen* — зачекайте за дверима, у коридорі; Ваш номер викличуть. Переклад: — Доброго ранку. Чим можу допомогти? — Доброго ранку. У мене запис на десяту. Хочу зареєструвати нову квартиру. — У Вас є документ і підтвердження від орендодавця? — Так, ось. — Дякую. Будь ласка, зачекайте за дверима, у коридорі. Ваш номер викличуть.
 
 > [!speak] Скажи службовцю: запис
 > level: A2 · speed: slow · id: de-a2-situationen-s01
@@ -607,7 +607,7 @@ estimatedMinutes: 45
 > level: A2 · speed: slow · id: de-a2-situationen-s11
 > text: Ich möchte ein Konto eröffnen.
 > ipa: /ɪç ˈmœçtə aɪ̯n ˈkɔnto ɛɐ̯ˈœfnən/
-> tip: Konto — наголос на першому складі, o в кінці довге; eröffnen — er- + ö: [ɛɐ̯ˈœfnən], ö коротке округлене.
+> tip: Konto — наголос на першому складі, кінцеве o ненаголошене; eröffnen — er- + ö: [ɛɐ̯ˈœfnən], ö коротке округлене.
 > uk: Я хочу відкрити рахунок.
 
 > [!speak] Спитай, де підписати
@@ -638,7 +638,7 @@ estimatedMinutes: 45
 ## Landeskunde: die Anmeldung
 
 > [!example] Anmeldung beim Bürgeramt
-> Wer in Deutschland umzieht, muss sich beim Bürgeramt anmelden. Das muss man innerhalb von zwei Wochen nach dem Einzug machen. Man braucht den Ausweis oder Reisepass, ein Anmeldeformular und die Wohnungsgeberbestätigung vom Vermieter. In vielen Städten bekommt man einen Termin im Internet. Am Termin zieht man eine Wartenummer oder wird aufgerufen. Die Mitarbeiterin prüft die Unterlagen und gibt eine Meldebescheinigung. Die Bescheinigung braucht man später oft, zum Beispiel für ein Bankkonto oder beim Arbeitgeber.
+> Wer in Deutschland umzieht, muss sich beim Bürgeramt anmelden. Das muss man innerhalb von zwei Wochen nach dem Einzug machen. Man braucht den Ausweis oder Reisepass, ein Anmeldeformular und die Wohnungsgeberbestätigung vom Vermieter. In vielen Städten bekommt man einen Termin im Internet. Beim Termin zieht man eine Wartenummer oder wird aufgerufen. Die Anmeldung ist Pflicht, deshalb sollte man alle Dokumente vorher bereithalten. Die Mitarbeiterin prüft die Unterlagen und stellt eine Meldebescheinigung aus. Die Bescheinigung braucht man später oft, zum Beispiel für ein Bankkonto oder beim Arbeitgeber.
 
 > [!quiz] Nach dem Text: Wie lange hat man Zeit für die Anmeldung?
 > level: A2 · type: single · id: de-a2-situationen-q02
@@ -656,7 +656,7 @@ estimatedMinutes: 45
 > - [x] eine Meldebescheinigung
 > - [ ] ein Rezept
 >
-> **Пояснення:** *Die Mitarbeiterin … gibt eine Meldebescheinigung.* Wohnungsgeberbestätigung дає орендодавець, Mietvertrag підписують з ним, а Rezept — від лікаря.
+> **Пояснення:** *Die Mitarbeiterin … stellt eine Meldebescheinigung aus.* Wohnungsgeberbestätigung дає орендодавець, Mietvertrag підписують з ним, а Rezept — від лікаря.
 
 ## Практика
 
@@ -754,7 +754,7 @@ estimatedMinutes: 45
 ## Фішки
 
 > [!reel] 📅 Два тижні на Anmeldung
-> Закон вимагає зареєструватися в нове житло протягом двох тижнів після заселення (§ 17 Bundesmeldegesetz). Без довідки (*Meldebescheinigung*) важко відкрити рахунок, оформити роботу чи договір на інтернет. Тож Anmeldung — перший крок у новому місті.
+> Закон вимагає зареєструватися за новою адресою протягом двох тижнів після заселення (§ 17 Bundesmeldegesetz). Без довідки (*Meldebescheinigung*) важко відкрити рахунок, оформити роботу чи договір на інтернет. Тож Anmeldung — перший крок у новому місті.
 
 > [!reel] 🏠 Kaution: не більше трьох
 > Орендодавець не може вимагати заставу більше ніж трьох місячних Kaltmieten (§ 551 BGB). Її вносять на окремий рахунок, а після виїзду повертають, якщо немає претензій. Запитай про Kaution на огляді: це нормальне питання.

@@ -40,7 +40,7 @@ estimatedMinutes: 40
 | ein Auto | ні: *ein* без закінчення |
 | einen Tisch | так: **einen** |
 
-Коли артикль нічого не показує, цю роботу виконує прикметник: *ein **neuer** Tisch* (ч.), *ein **neues** Auto* (с.). Закінчення прикметника в такому разі майже збігаються із закінченнями *der / die / das*: **-er, -e, -es, -en, -em**.
+Коли артикль нічого не показує, цю роботу виконує прикметник: *ein **neuer** Tisch* (ч.), *ein **neues** Auto* (с.). Закінчення прикметника в такому разі — **-er** (ч.) і **-es** (с.), а далі **-e** / **-en**.
 
 ### Мішана відміна: після ein, kein, mein, dein, sein, ihr, unser, euer
 
@@ -86,7 +86,7 @@ estimatedMinutes: 40
 | **Akk.** | frisch**en** Kaffee | frisch**e** Milch | frisch**es** Brot | frisch**e** Brötchen |
 | **Dat.** | frisch**em** Kaffee | frisch**er** Milch | frisch**em** Brot | frisch**en** Brötchen |
 
-Порівняй із *der / die / das*: **-er** (der), **-e** (die), **-es** (das), **-en** (den), **-em** (dem). Єдина відмінність — давальний множини (*-en*) і Genitiv (він у темі B1-03).
+Порівняй із *der / die / das*: **-er** (der), **-e** (die), **-es** (das), **-en** (den), **-em** (dem). Закінчення сильної відміни повторюють останню літеру артикля в усіх клітинках цієї таблиці (давальний множини *-en* — як *den*). Виняток — лише Genitiv ч. і с. (*des → -en*), тема B1-03.
 
 > [!diagram] Сильна відміна: без артикля
 > ```yaml
@@ -131,7 +131,7 @@ estimatedMinutes: 40
 - Mit kaltem Wasser wasche ich mich nicht gern. — Холодною водою я мию(ся) неохоче.
 - Das ist ein dunkles Zimmer, aber es ist ruhig. — Це темна кімната, але в ній тихо.
 - Wir haben zwei große Hunde. — У нас два великі собаки.
-- Es ist keine gute Idee. — Це не гарна ідея.
+- Das ist keine gute Idee. — Це не гарна ідея.
 
 ## Слова
 
@@ -157,13 +157,13 @@ estimatedMinutes: 40
 > ipa: /ˈzaʊ̯ɐ/ · pos: adj · level: A2 · id: de-a2-adj-unbestimmt-w04
 > uk: кислий; (розм.) розсерджений
 > example: Die Milch ist **sauer**. — Молоко кисле.
-> note: у формі з закінченням випадає е: saure Gurken, saures Brot. Розм. Ich bin sauer — я розсерджений.
+> note: у формі з закінченням випадає е: saure Gurken, saure Sahne. Розм. Ich bin sauer — я розсерджений.
 
 > [!word] scharf
 > ipa: /ʃaʁf/ · pos: adj · level: A2 · id: de-a2-adj-unbestimmt-w05
 > uk: гострий (на смак); гострий (про ніж)
 > example: Das Essen ist zu **scharf**. — Їжа занадто гостра.
-> note: sch = «ш»; кінцеве f дзвінко не звучить. Також: ein scharfes Messer.
+> note: sch = «ш»; кінцеве f — глухе [f]. Також: ein scharfes Messer.
 
 > [!word] salzig
 > ipa: /ˈzaltsɪç/ · pos: adj · level: A2 · id: de-a2-adj-unbestimmt-w06
@@ -175,7 +175,7 @@ estimatedMinutes: 40
 > ipa: /fɔl/ · pos: adj · level: A2 · id: de-a2-adj-unbestimmt-w07
 > uk: повний; переповнений
 > example: Der Bus ist heute sehr **voll**. — Автобус сьогодні дуже переповнений.
-> note: v = [f], як у слові «вол»: «фол».
+> note: v тут = [f]: «фол».
 
 > [!word] wunderbar
 > ipa: /ˈvʊndɐbaːɐ̯/ · pos: adj · level: A2 · id: de-a2-adj-unbestimmt-w08
@@ -301,7 +301,7 @@ estimatedMinutes: 40
 > Без артикля в давальному прикметник бере сильне закінчення: ч. і с. — **-em**, ж. — **-er**: ~~mit kalten Wasser~~ → *mit kaltem Wasser*; ~~mit frische Milch~~ → *mit frischer Milch*. Лише в множині — **-en**: *mit frischen Brötchen*.
 
 > [!pitfall] «Ein teueres Auto» і «ein dunkeles Zimmer»
-> У *teuer, dunkel* перед закінченням випадає е: *ein **teures** Auto*, *ein **dunkles** Zimmer*, а не ~~teueres~~, ~~dunkeles~~. *hoch* перед закінченням стає *hoh-*: *ein hohes Haus*.
+> У *teuer, dunkel* перед закінченням випадає е: *ein **teures** Auto*, *ein **dunkles** Zimmer*, а не ~~dunkeles~~ (форма *teueres* трапляється рідко; у нормі *teures*). *hoch* перед закінченням стає *hoh-*: *ein hohes Haus*.
 
 ## Практика
 
@@ -402,8 +402,8 @@ estimatedMinutes: 40
 > level: A2 · type: single · id: de-a2-adj-unbestimmt-q11
 > - [ ] dunkeles
 > - [x] dunkles
-> - [ ] dunkelnes
-> - [ ] dunkelles
+> - [ ] dunkler
+> - [ ] dunkel
 >
 > **Пояснення:** у *dunkel* перед закінченням випадає **-e-**: *dunkles Zimmer*. Це середній рід, **-es**.
 
@@ -411,8 +411,8 @@ estimatedMinutes: 40
 > level: A2 · type: single · id: de-a2-adj-unbestimmt-q12
 > - [ ] Тому що Tisch закінчується на -sch.
 > - [x] Тому що в ein немає закінчення, і рід показує прикметник.
-> - [ ] Тому що називний відмінок завжди -er.
-> - [ ] Тому що Tisch — у множині.
+> - [ ] Тому що називний відмінок -er у будь-якому роді.
+> - [ ] Тому що Tisch — жіночого роду.
 >
 > **Пояснення:** *ein* без закінчення перед чоловічим і середнім родом у називному не показує рід, тому прикметник бере **-er** (ч.) або **-es** (с.). Для жіночого *eine neue Tasche* — закінчення в *eine* вже є.
 
@@ -495,13 +495,13 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🔁 Закінчення прикметника — це клонований артикль
-> Сильні закінчення прикметника майже збігаються з артиклем *der / die / das*: *-er, -e, -es, -en, -em*. Ці закінчення мають спільне походження з займенниковими формами. Тому «без артикля» прикметник бере на себе роль артикля.
+> Сильні закінчення прикметника збігаються з останньою літерою артикля: *-er, -e, -es, -en, -em*. Ці закінчення мають спільне походження з займенниковими формами. Тому «без артикля» прикметник бере на себе роль артикля.
 
 > [!reel] 🇺🇦 Ти вже це вмієш
 > В українській «новий стіл, нова сумка, нове авто» змінюється за родом і відмінком — так само, як німецький прикметник. Німецька лише додає одну деталь: закінчення залежить і від артикля перед ним. Якщо в ein «німе» закінчення, прикметник перебирає його сигнал.
 
-> [!reel] 👋 «Guten Tag!» — це скорочення
-> *Guten Tag, Gute Nacht, Guten Appetit* — це скорочені побажання: «[Ich wünsche dir einen] guten Tag». Тому *Tag* у знахідному, і прикметник має **-en**; а *die Nacht* — жіночий, тож *Gute Nacht*. А новорічне *Ein gutes neues Jahr!* — середній рід: два прикметники, обидва з -es.
+> [!reel] ⛰️ hoch, але hohes Haus
+> Слово *hoch* «втрачає» літеру в формах із закінченням: *ein hohes Haus*, *hohe Preise*, а не ~~hoches~~. Давній корінь — *hoh-*; в окремій формі він звучить [hoːx], а з закінченням «оживає». Той самий корінь у словах *die Höhe* (висота) і *höher* (вищий).
 
 ## Джерела та що почитати
 

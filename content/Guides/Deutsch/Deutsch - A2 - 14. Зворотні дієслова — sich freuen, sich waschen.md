@@ -33,8 +33,8 @@ estimatedMinutes: 45
 
 Німецькі зворотні дієслова бувають двох типів:
 
-1. **Завжди зворотні** (*echte reflexive Verben*): без *sich* дієслово не вживається: *sich freuen, sich beeilen, sich erinnern, sich entscheiden*.
-2. **Можуть бути зворотними чи ні**: *waschen* — *Ich wasche das Auto* (мию машину) / *Ich wasche mich* (мию себе); *anziehen* — *Ich ziehe das Kind an* / *Ich ziehe mich an*.
+1. **Лише зворотні** (*echte reflexive Verben*): без *sich* дієслово не вживається: *sich beeilen, sich bedanken, sich erholen, sich verlieben, sich schämen*.
+2. **Зворотні й незворотні**: *waschen* — *Ich wasche das Auto* (мию машину) / *Ich wasche mich* (мию себе); *anziehen* — *Ich ziehe das Kind an* / *Ich ziehe mich an*. Іноді значення змінюється: *Das freut mich* (це мене тішить) / *Ich freue mich* (я радію); *Ich erinnere dich an den Termin* (нагадую тобі) / *Ich erinnere mich* (памʼятаю); *Ich entscheide das* (я вирішую це) / *Ich entscheide mich für …* (обираю).
 
 Українська теж має «-ся», але збіг лише частковий.
 
@@ -75,7 +75,7 @@ estimatedMinutes: 45
 
 ## Місце займенника
 
-Займенник стоїть **одразу після змінюваного дієслова**:
+Зворотний займенник стоїть у середині речення: **після змінюваного дієслова**, а якщо підмет — особовий займенник (*ich, du, er*), то **після нього**:
 
 - Ich freue **mich**. — Я радію.
 - **Freust** du **dich**? — Ти радієш? (питання)
@@ -84,7 +84,7 @@ estimatedMinutes: 45
 - Ich muss **mich** beeilen. — Я мушу поспішати. (з модальним: займенник перед інфінітивом, узгоджений з підметом)
 - Beeil **dich**! / Beeilt **euch**! / Beeilen Sie **sich**! — Поспішай! / Поспішайте!
 - Ich habe **mich** gefreut. — Я зрадів. (Perfekt: займенник перед Partizip II; допоміжне — *haben*)
-- Ich glaube, dass er **sich** freut. — Я думаю, що він радіє. (у підрядному займенник одразу після сполучника й підмета)
+- Ich glaube, dass er **sich** freut. — Я думаю, що він радіє. (у підрядному — після підмета-займенника; з іменником-підметом: *dass sich der Kurs lohnt* або *dass der Kurs sich lohnt*)
 
 ## Dativ-рефлексив: ich wasche mir die Hände
 
@@ -162,7 +162,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > note: eu = [ɔʏ̯]. auf — майбутнє, über — те, що вже є. Vorfreude — радість очікування.
 
 > [!word] sich anziehen
-> ipa: /zɪç ˈanˌtsiːən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w02
+> ipa: /zɪç ˈantsiːən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w02
 > uk: вдягатися
 > forms: anziehen → zog sich an → hat sich angezogen
 > example: Ich **ziehe mich** schnell **an**. — Я швидко вдягаюся.
@@ -183,21 +183,21 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > note: без sich ärgern = дратувати когось: Der Lärm ärgert mich.
 
 > [!word] sich beeilen
-> ipa: /zɪç bəˈaɪ̯lən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w05
+> ipa: /zɪç bəˈʔaɪ̯lən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w05
 > uk: поспішати
 > forms: beeilen → beeilte sich → hat sich beeilt
-> example: **Beeil dich**, wir sind spät! — Поспішай, ми пізно!
+> example: **Beeil dich**, wir sind spät dran! — Поспішай, ми запізнюємося!
 > note: наголос на -eil-: be-EI-len. Різниця: eilig — терміновий.
 
 > [!word] sich entschuldigen (bei + Dat, für + Akk)
 > ipa: /zɪç ɛntˈʃʊldɪɡn̩/ · pos: verb · level: A2 · id: de-a2-reflexiv-w06
 > uk: вибачатися
 > forms: entschuldigen → entschuldigte sich → hat sich entschuldigt
-> example: Ich **entschuldige mich** bei dir für die Verspätung. — Перепрошую перед тобою за запізнення.
+> example: Ich **entschuldige mich** bei dir für die Verspätung. — Вибач мені за запізнення.
 > note: ent- наголосом не виділяється; sch = [ʃ]. Буквально «звільняю себе від провини» (Schuld).
 
 > [!word] sich erinnern (an + Akk)
-> ipa: /zɪç ɛɐ̯ˈɪnɐn/ · pos: verb · level: A2 · id: de-a2-reflexiv-w07
+> ipa: /zɪç ɛɐ̯ˈʔɪnɐn/ · pos: verb · level: A2 · id: de-a2-reflexiv-w07
 > uk: памʼятати, згадувати
 > forms: erinnern → erinnerte sich → hat sich erinnert
 > example: Ich **erinnere mich** an meinen ersten Tag. — Я памʼятаю свій перший день.
@@ -211,21 +211,21 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > note: ü — губи для «у», язик для «і».
 
 > [!word] sich unterhalten (mit + Dat, über + Akk)
-> ipa: /zɪç ʊntɐˈhaltn̩/ · pos: verb · level: A2 · id: de-a2-reflexiv-w09
+> ipa: /zɪç ʊntɐˈhaltn̩/ · pos: verb · level: B1 · id: de-a2-reflexiv-w09
 > uk: розмовляти, бесідувати
 > forms: unterhalten → unterhielt sich → hat sich unterhalten
 > example: Wir **unterhalten uns** über das Wetter. — Ми розмовляємо про погоду.
-> note: наголос на -hal-: untEr-HAL-ten. Невідокремлюване.
+> note: наголос на -hal-: unter-HAL-ten. Невідокремлюване.
 
 > [!word] sich vorstellen
-> ipa: /zɪç ˈfoːɐ̯ˌʃtɛlən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w10
+> ipa: /zɪç ˈfoːɐ̯ʃtɛlən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w10
 > uk: представитися
 > forms: vorstellen → stellte sich vor → hat sich vorgestellt
 > example: Darf ich **mich vorstellen**? Ich heiße Max. — Дозвольте представитися? Мене звати Макс.
 > note: відокремлюване. Ще: sich (Dat) etwas vorstellen = уявляти собі (рівень B1): Ich kann mir das nicht vorstellen.
 
 > [!word] sich ausruhen
-> ipa: /zɪç ˈaʊ̯sˌʁuːən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w11
+> ipa: /zɪç ˈaʊ̯sʁuːən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w11
 > uk: відпочивати
 > forms: ausruhen → ruhte sich aus → hat sich ausgeruht
 > example: Nach der Arbeit **ruhe ich mich** aus. — Після роботи я відпочиваю.
@@ -281,18 +281,18 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > note: офіційніше за danke. Невідокремлюване.
 
 > [!word] sich konzentrieren (auf + Akk)
-> ipa: /zɪç kɔntsɛnˈtʁiːʁən/ · pos: verb · level: A2 · id: de-a2-reflexiv-w19
+> ipa: /zɪç kɔntsɛnˈtʁiːʁən/ · pos: verb · level: B1 · id: de-a2-reflexiv-w19
 > uk: зосереджуватися
 > forms: konzentrieren → konzentrierte sich → hat sich konzentriert
 > example: Ich kann **mich** nicht **konzentrieren**. — Я не можу зосередитися.
 > note: наголос на -trier-.
 
 > [!word] sich anmelden (bei + Dat)
-> ipa: /zɪç ˈanˌmɛldn̩/ · pos: verb · level: A2 · id: de-a2-reflexiv-w20
+> ipa: /zɪç ˈanmɛldn̩/ · pos: verb · level: A2 · id: de-a2-reflexiv-w20
 > uk: записатися; зареєструватися
 > forms: anmelden → meldete sich an → hat sich angemeldet
 > example: Hast du **dich** schon für den Kurs **angemeldet**? — Ти вже записався на курс?
-> note: відокремлюване. Для реєстрації за місцем проживання — sich anmelden в Bürgeramt (тема A2-29).
+> note: відокремлюване. Для реєстрації за місцем проживання — sich anmelden у Bürgeramt (beim Bürgeramt) (тема A2-29).
 
 ## Слухаємо
 
@@ -347,7 +347,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-reflexiv-s02
 > text: Beeil dich, der Bus kommt!
-> ipa: /bəˈaɪ̯l dɪç deːɐ̯ bʊs kɔmt/
+> ipa: /bəˈʔaɪ̯l dɪç deːɐ̯ bʊs kɔmt/
 > tip: be-EIL: два голосних ee не зливаються. dich — [dɪç]. Голос на кінці падає ↘.
 > uk: Поспішай, автобус їде!
 
@@ -382,7 +382,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 ## Типові помилки українців
 
 > [!pitfall] Забутий sich: «Ich freue auf den Urlaub»
-> ~~Ich freue auf den Urlaub~~ → Ich freue **mich** auf den Urlaub. Українські «радіти, поспішати, памʼятати, відпочивати, нудьгувати, дякувати» не мають «-ся», тому *sich* виглядає зайвим. Але ці німецькі дієслова — завжди зворотні. Вчи їх одразу з займенником: *sich freuen, sich beeilen, sich erinnern.*
+> ~~Ich freue auf den Urlaub~~ → Ich freue **mich** auf den Urlaub. Українські «радіти, поспішати, памʼятати, відпочивати, нудьгувати, дякувати» не мають «-ся», тому *sich* виглядає зайвим. Але в значенні «я радію / поспішаю / памʼятаю» ці німецькі дієслова зворотні (хоч *freuen* чи *erinnern* без *sich* мають інше значення). Вчи їх одразу з займенником: *sich freuen, sich beeilen, sich erinnern.*
 
 > [!pitfall] «-ся» там, де sich немає
 > ~~Der Kurs fängt sich an~~ → Der Kurs fängt **an**. ~~Ich lache mich~~ → Ich **lache**. ~~Wir hoffen uns~~ → Wir **hoffen**. Українське «починатися, сміятися, вчитися, сподіватися, одружитися» німецькою — незворотні: *anfangen, lachen, lernen, hoffen, heiraten*.
@@ -513,7 +513,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 > mir ✗
 > ```
 >
-> **Пояснення:** займенник стоїть одразу після дієслова: *freue **mich***; Akkusativ, бо додатка в Akkusativ немає.
+> **Пояснення:** займенник стоїть після підмета-займенника й дієслова: *freue **mich***; Akkusativ, бо додатка в Akkusativ немає.
 
 > [!quiz] Склади речення: «Сьогодні мені треба поспішати.»
 > level: A2 · type: order · id: de-a2-reflexiv-q14
@@ -574,7 +574,7 @@ Dativ-рефлексив трапляється і з іншими дієсло�
 
 > [!important] Підсумок
 > - Зворотні займенники: **mich, dich, sich, uns, euch, sich** (Akkusativ); Dativ відрізняється лише в **mir, dir**.
-> - Займенник стоїть одразу після змінюваного дієслова: *Ich freue mich. Freust du dich? Ich muss mich beeilen. Ich habe mich gefreut.*
+> - Займенник стоїть у середині речення: після дієслова, а якщо підмет — займенник, то після нього: *Ich freue mich. Freust du dich? Ich muss mich beeilen. Ich habe mich gefreut.*
 > - Є прямий додаток (частина тіла, одяг) — Dativ: *Ich wasche **mir** die Hände.*
 > - Українське «-ся» і німецьке *sich* не збігаються: *радіти — sich freuen*, але *починатися — anfangen*.
 > - Прийменники вчи разом із дієсловом: *sich freuen auf / über, sich interessieren für, sich erinnern an.*

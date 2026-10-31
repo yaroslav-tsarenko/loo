@@ -11,7 +11,7 @@ estimatedMinutes: 40
 # Наголос у слові
 
 > [!success] Після цієї теми ти зможеш
-> - поставити наголос у новому німецькому слові за префіксом і суфіксом: *ˈanrufen*, *verˈstehen*, *studiˈeren*, *Universiˈtät*;
+> - поставити наголос у новому німецькому слові за префіксом і суфіксом: *ˈanrufen*, *verˈstehen*, *stuˈdieren*, *Universiˈtät*;
 > - розрізнити на слух відокремлювані й невідокремлювані дієслова: *ˈeinkaufen* — *verˈkaufen*, *ˈankommen* — *beˈkommen*;
 > - прочитати позначки ˈ і ˌ в транскрипції словника;
 > - помітити, коли наголос змінює значення: *ˈumfahren* і *umˈfahren*.
@@ -27,7 +27,7 @@ estimatedMinutes: 40
 >
 > **Пояснення:** префікс *ver-* у дієсловах не несе наголосу: він короткий і слабкий, [fɛɐ̯]. Наголошений корінь *-steh-*: [fɛɐ̯ˈʃteːən]. Українське «розуміти» тут не допоможе: у ньому свій наголос, а в німецькому слові наголос визначає префікс.
 
-## Навіщо слідкувати за наголосом
+## Навіщо стежити за наголосом
 
 В українській наголос вільний і рухомий (*за́мок* — *замо́к*), тому ми звикли просто запамʼятовувати його разом зі словом. У німецькій наголос теж «вільний», але **значно передбачуваніший**: у більшості слів його можна вирахувати з префікса й суфікса. Помилка в наголосі збиває слухача сильніше, ніж неточний звук: слово не впізнають, а голосні в ненаголошених складах мають звучати слабко.
 
@@ -40,7 +40,7 @@ estimatedMinutes: 40
 
 ## Пʼять правил наголосу
 
-**1. Рідні слова: наголос на першому складі кореня.** *ˈarbeiten*, *ˈLehrer*, *ˈFreundin*, *ˈBahnhof*, *ˈMutter*. Закінчення й суфікси *-en, -er, -e, -ung* зазвичай не наголошуються.
+**1. Рідні слова: зазвичай наголос на першому складі кореня** (виняток: *leˈbendig*, *Foˈrelle*). *ˈarbeiten*, *ˈLehrer*, *ˈFreundin*, *ˈBahnhof*, *ˈMutter*. Закінчення й суфікси *-en, -er, -e, -ung* зазвичай не наголошуються.
 
 **2. Відокремлювані префікси наголошені.** *ˈanrufen*, *ˈaufstehen*, *ˈeinkaufen*, *ˈausgehen*, *ˈmitkommen*, *ˈabholen*, *ˈvorbereiten*. Саме тому префікс «відокремлюється»: він наголошений і важить у реченні: *Ich rufe dich morgen ˈan.*
 
@@ -50,8 +50,8 @@ estimatedMinutes: 40
 
 | Суфікс | Наголошена частина | Приклади |
 |---|---|---|
-| *-ieren* | *-ie-* | *studiˈeren*, *repaˈrieren*, *proˈbieren* |
-| *-tion, -sion* | *-on* | *Situatiˈon*, *Diskussiˈon*, *Informatiˈon* |
+| *-ieren* | склад *-die-, -rie-, -bie-* ([iː]) | *stuˈdieren*, *repaˈrieren*, *proˈbieren* |
+| *-tion, -sion* | склад *-tion / -sion* [tsi̯oːn], [zi̯oːn] (i тут нескладове [i̯]) | *Situaˈtion*, *Diskusˈsion*, *Informaˈtion* |
 | *-ität* | *-tät* | *Qualiˈtät*, *Universiˈtät*, *Nationaliˈtät* |
 | *-ei* | *-ei* | *Poliˈzei*, *Metzgeˈrei*, *Bäckeˈrei* |
 | *-ur* | *-ur* | *Reparaˈtur*, *Naˈtur*, *Kulˈtur* |
@@ -59,7 +59,7 @@ estimatedMinutes: 40
 
 Ці правила діють майже без винятків, але є й слова з «власним» наголосом на кінці: *Büˈro*, *Hoˈtel*, *Comˈputer* /kɔmˈpjuːtɐ/. Їх просто запамʼятовують разом зі словом.
 
-**5. Складні слова: наголос на першому слові.** *ˈBahnhof*, *ˈHauptbahnhof*, *ˈKindergarten*, *ˈWochenende*. Другий елемент несе слабший, другорядний наголос.
+**5. Складні слова: зазвичай наголос на першому слові** (виняток: *Jahrˈhundert*, *Jahrˈzehnt*). *ˈBahnhof*, *ˈHauptbahnhof*, *ˈKindergarten*, *ˈWochenende*. Другий елемент несе слабший, другорядний наголос.
 
 > [!diagram] Куди ставити наголос: префікс вирішує
 > ```yaml
@@ -95,14 +95,14 @@ estimatedMinutes: 40
 - Ich rufe dich morgen an. — Я зателефоную тобі завтра. (*ˈan*)
 - Wir kaufen im Supermarkt ein. — Ми робимо покупки в супермаркеті. (*ˈein*)
 - Ich verstehe das nicht. — Я цього не розумію. (*verˈsteh*)
-- Sie studiert an der Universität. — Вона навчається в університеті. (*studiˈert*, *Universiˈtät*)
+- Sie studiert an der Universität. — Вона навчається в університеті. (*stuˈdiert*, *Universiˈtät*)
 - Die Polizei ist in der Nähe. — Поліція неподалік. (*Poliˈzei*)
 - Der Zug fährt vom Hauptbahnhof ab. — Потяг відправляється з головного вокзалу. (*ˈHaupt-*, *ˈab*)
 - Er erzählt eine Geschichte. — Він розповідає історію. (*erˈzählt*)
 - Wir reparieren das Fahrrad. — Ми ремонтуємо велосипед. (*repaˈrieren*)
 - Der Tourist fragt nach dem Weg. — Турист питає дорогу. (*Touˈrist*)
 - Wo ist das Büro? — Де офіс? (*Büˈro*)
-- Die Diskussion war interessant. — Дискусія була цікавою. (*Diskussiˈon*)
+- Die Diskussion war interessant. — Дискусія була цікавою. (*Diskusˈsion*)
 - Ich habe heute eingekauft. — Я сьогодні робив покупки. (*ˈeingekauft*)
 
 ## Слова
@@ -168,7 +168,7 @@ estimatedMinutes: 40
 > uk: ситуація
 > forms: die Situationen
 > example: Die **Situation** ist nicht einfach. — Ситуація непроста.
-> note: наголос на -on: [zituaˈtsi̯oːn]; ti = [tsi̯]. Не «ситуаціон» з наголосом на першому складі.
+> note: наголос на складі -tion [tsi̯oːn]: [zituaˈtsi̯oːn]; i тут нескладове [i̯], складів не «ці-я», а один. Не «ситуаціон» з наголосом на першому складі.
 
 > [!word] die Diskussion
 > ipa: /dɪskʊˈsi̯oːn/ · pos: noun · level: A2 · id: de-a2-wortakzent-w10
@@ -196,7 +196,7 @@ estimatedMinutes: 40
 > uk: поліція
 > forms: — (без множини)
 > example: Wir rufen die **Polizei**. — Ми викликаємо поліцію.
-> note: наголос на -zei, дифтонг [aɪ̯]. Номер виклику в Німеччині й Австрії — 110 (Німеччина), 133 (Австрія), 117 (Швейцарія).
+> note: наголос на -zei, дифтонг [aɪ̯]. Номер поліції: DE 110, AT 133, CH 117.
 
 > [!word] die Metzgerei
 > ipa: /mɛtsɡəˈʁaɪ̯/ · pos: noun · level: A2 · id: de-a2-wortakzent-w14
@@ -252,7 +252,7 @@ estimatedMinutes: 40
 > uk: гараж
 > forms: die Garagen
 > example: Das Auto steht in der **Garage**. — Автомобіль стоїть у гаражі.
-> note: наголос на -ra-, g наприкінці = [ʒ]. У Австрії й Швейцарії звучить так само.
+> note: наголос на -ra-, g наприкінці = [ʒ]. AT зазвичай [ɡaˈʁaːʃ] (без кінцевого -e), CH часто [ˈɡaʁaːʃ] — наголос на першому складі.
 
 ## Слухаємо
 
@@ -290,7 +290,7 @@ estimatedMinutes: 40
 > - [x] на *-die-*
 > - [ ] на *-ren*
 >
-> **Пояснення:** дієслова на *-ieren* наголошені на *-ie-*: *studiˈeren* [ʃtuˈdiːʁən]. Проти українського «студіювати» наголос зсунутий.
+> **Пояснення:** дієслова на *-ieren* наголошені на *-ie-*: *stuˈdieren* [ʃtuˈdiːʁən]. Проти українського «студіювати» наголос зсунутий.
 
 > [!listen] Напиши або скажи, що почув
 > level: A2 · type: dictation · speed: slow · id: de-a2-wortakzent-l05
@@ -317,7 +317,7 @@ estimatedMinutes: 40
 > [!pair] anfangen /ˈanfaŋən/ — empfangen /ɛmˈpfaŋən/
 > level: A2 · id: de-a2-wortakzent-p03
 > say: empfangen
-> tip: у *empfangen* префікс *emp-* слабкий, а корінь *-fang-* гучний. *Emp-* вимовляється [ɛmpf].
+> tip: у *empfangen* префікс *emp-* слабкий, а корінь *-fang-* гучний. *emp-* — [ɛm], далі [pf] кореня.
 
 > [!pair] aufstehen /ˈaʊ̯fʃteːən/ — bestehen /bəˈʃteːən/
 > level: A2 · id: de-a2-wortakzent-p04
@@ -401,7 +401,7 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-wortakzent-s10
 > text: Die Situation ist schwierig.
 > ipa: /diː zituaˈtsi̯oːn ɪst ˈʃviːʁɪç/
-> tip: *Situation* — наголос на *-on*; *-tion* = [tsi̯oːn]. *schwierig* — sch = «ш», w = «в», ie = довге [iː], -ig = [ɪç].
+> tip: *Situation* — наголос на останньому складі *-tion* = [tsi̯oːn] (один склад). *schwierig* — sch = «ш», w = «в», ie = довге [iː], -ig = [ɪç].
 > uk: Ситуація складна.
 
 ## Типові помилки українців
@@ -413,7 +413,7 @@ estimatedMinutes: 40
 > У реченні *Ich rufe dich morgen an* префікс *an* стоїть наприкінці, і його вимовляють тихо й нечітко. Українець вимовляє наприкінці речення «з падінням» і майже ковтає останнє слово. Але *an* несе наголос: *Ich rufe dich morgen ˈan.* Те саме з *ˈein, ˈauf, ˈmit, ˈab*.
 
 > [!pitfall] Наголос на корені в *-ieren, -tion, -ität, -ei*
-> В українській похідні слова мають свій наголос, тому в *studieren*, *Situation*, *Universität* його легко поставити не туди: *~~ˈstudieren~~*, *~~ˈSituation~~*. Для німецьких іншомовних слів працює правило суфікса: наголос на **-ie-** (*studiˈeren*), на **-on** (*Situatiˈon*), на **-tät** (*Universiˈtät*), на **-ei** (*Poliˈzei*).
+> В українській похідні слова мають свій наголос, тому в *studieren*, *Situation*, *Universität* його легко поставити не туди: *~~ˈstudieren~~*, *~~ˈSituation~~*. Для німецьких іншомовних слів працює правило суфікса: наголос на **-ie-** (*stuˈdieren*), на **-on** (*Situaˈtion*), на **-tät** (*Universiˈtät*), на **-ei** (*Poliˈzei*).
 
 > [!pitfall] Однаковий вигляд — різний наголос
 > *umfahren*, *übersetzen*, *wiederholen* пишуться однаково, а вимовляються і значать різне: *ˈumfahren* (збити) і *umˈfahren* (обʼїхати). Тому в незнайомому дієслові з *über-, um-, unter-, durch-, wieder-* слухай, чи наголошений префікс. Невідокремлювані форми в Perfekt не мають *ge-*: *hat umˈfahren*, але *ist ˈumgefahren*.
@@ -432,11 +432,11 @@ estimatedMinutes: 40
 > [!quiz] Де наголос у слові reparieren?
 > level: A2 · type: single · id: de-a2-wortakzent-q03
 > - [ ] *ˈreparieren*, на першому складі
-> - [ ] *rePAriren*, на *-pa-*
+> - [ ] *reˈparieren*, на *-pa-*
 > - [x] *repaRIEren*, на *-rie-*
 > - [ ] *reparieREN*, на *-ren*
 >
-> **Пояснення:** усі дієслова на *-ieren* наголошені на *-ie-*: *repaˈrieren*, *studiˈeren*, *proˈbieren*. Закінчення *-en* не наголошується.
+> **Пояснення:** усі дієслова на *-ieren* наголошені на *-ie-*: *repaˈrieren*, *stuˈdieren*, *proˈbieren*. Закінчення *-en* не наголошується.
 
 > [!quiz] Які слова мають наголос не на першому складі?
 > level: A2 · type: multi · id: de-a2-wortakzent-q04
@@ -446,7 +446,7 @@ estimatedMinutes: 40
 > - [ ] Bahnhof
 > - [x] Polizei
 >
-> **Пояснення:** *Situatiˈon, Büˈro, Poliˈzei* — наголос наприкінці. *ˈArbeiten* і *ˈBahnhof* — на першому складі: рідні слова та складні слова наголошуються на першому елементі.
+> **Пояснення:** *Situaˈtion, Büˈro, Poliˈzei* — наголос наприкінці. *ˈArbeiten* і *ˈBahnhof* — на першому складі: рідні слова та складні слова наголошуються на першому елементі.
 
 > [!quiz] Які з дієслів відокремлювані?
 > level: A2 · type: multi · id: de-a2-wortakzent-q05
@@ -489,7 +489,7 @@ estimatedMinutes: 40
 > level: A2 · type: fill · bank: Uni, ver, si · id: de-a2-wortakzent-q09
 >
 > ```text fill
-> Слово Universität наголошується на останньому складі «[[tät]]».
+> Слово Universität наголошується на складі «[[tät]]».
 > ```
 >
 > **Пояснення:** слова на *-ität* наголошені на *-tät*: *Universiˈtät, Qualiˈtät, Nationaliˈtät*. Склади *Uni-, -ver-, -si-* ненаголошені.
@@ -532,15 +532,15 @@ estimatedMinutes: 40
 > - [ ] studieren
 > - [x] Studium
 >
-> **Пояснення:** *ˈStudium* — на першому складі. *Stuˈdent*, *Stuˈdentin* — на *-dent-*, а *studiˈeren* — на *-ie-*. Родина слів з одним коренем має різні наголоси.
+> **Пояснення:** *ˈStudium* — на першому складі. *Stuˈdent*, *Stuˈdentin* — на *-dent-*, а *stuˈdieren* — на *-ie-*. Родина слів з одним коренем має різні наголоси.
 
 ## Фішки
 
 > [!reel] 🎵 Accent = «до-спів»
-> Слово *Akzent* прийшло з латинського *accentus*, від *ad* («до») і *cantus* («спів»): буквально «підспівування». Давні граматики бачили в наголосі підйом голосу. Тому «наголос» і «акцент» у німецькій мові — одне слово: *der Akzent* означає і наголошений склад, і чужий вимовний «присмак».
+> Слово *Akzent* прийшло з латинського *accentus*, від *ad* («до») і *cantus* («спів»): буквально «підспівування». Давні граматики бачили в наголосі підйом голосу. У німецькій «наголос» і «акцент» — одне слово: *der Akzent* означає і наголошений склад, і чужий вимовний «присмак».
 
 > [!reel] 🚗 Збити чи обʼїхати?
-> *Der Lastwagen hat das Schild ˈumgefahren.* Вантажівка збила знак. А *Der Fahrer hat die Baustelle umˈfahren.* Водій обʼїхав будівельний майданчик. Один і той самий запис *umfahren*, але наголос вирішує, хто пошкодив знак. У листі їх розрізняють контекстом, а в розмові: слухом.
+> *Der Lastwagen hat das Schild ˈumgefahren.* Вантажівка збила знак. А *Der Fahrer hat die Baustelle umˈfahren.* Водій обʼїхав будівельний майданчик. Один і той самий запис *umfahren*, але наголос вирішує, хто пошкодив знак. У листі їх розрізняють за контекстом, а в розмові — на слух.
 
 > [!reel] 🧩 Наголос підказує, як бути з Perfekt
 > Якщо префікс наголошений (*ˈeinkaufen*), у Perfekt *ge-* ставиться всередині: *eingekauft*. Якщо слабкий (*verˈkaufen*), *ge-* немає зовсім: *verkauft*. Тому спочатку визнач наголос, і форма дієприкметника стане очевидною.

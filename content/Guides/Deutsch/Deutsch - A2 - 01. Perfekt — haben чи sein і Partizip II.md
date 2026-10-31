@@ -61,7 +61,7 @@ estimatedMinutes: 40
 Три випадки, які легко переплутати:
 
 - Відокремлюваний префікс + дієслово, яке саме починається з невідокремлюваного префікса: *vorbereiten → vorbereitet* (а не *vorgebereitet*). *Ge-* не додаємо, бо слово вже має ненаголошений *be-*.
-- Дієслово, яке вже має *ge-* в інфінітиві, нового *ge-* не отримує: *gewinnen → gewonnen*.
+- Дієслово з невідокремлюваним префіксом *ge-* (*gewinnen, gehören, gefallen*) нового *ge-* не отримує: *gewinnen → gewonnen*. Але коли *ge-* — частина кореня, воно додається: *geben → gegeben, gehen → gegangen*.
 - Відокремлюване дієслово із сильним коренем: *ge-* усередині, закінчення -en: *stattfinden → stattgefunden, anfangen → angefangen*.
 
 > [!tip] Як розпізнати відокремлюваний префікс
@@ -74,21 +74,24 @@ estimatedMinutes: 40
 - **ei – ie – ie:** bleiben – blieb – **ist** geblieben · schreiben – schrieb – geschrieben · steigen – stieg – **ist** gestiegen · scheinen – schien – geschienen · leihen – lieh – geliehen · entscheiden – entschied – entschieden · vergleichen – verglich – verglichen · treiben – trieb – getrieben
 - **ei – i – i:** schneiden – schnitt – geschnitten · streiten – stritt – gestritten · reiten – ritt – **ist** geritten · leiden – litt – gelitten
 - **ie – o – o:** fliegen – flog – **ist** geflogen · ziehen – zog – gezogen · verlieren – verlor – verloren · schließen – schloss – geschlossen
-- **i – a – u / o:** finden – fand – gefunden · trinken – trank – getrunken · singen – sang – gesungen · springen – sprang – **ist** gesprungen · gewinnen – gewann – gewonnen · beginnen – begann – begonnen · schwimmen – schwamm – **ist** geschwommen · bitten – bat – gebeten · sitzen – saß – gesessen · liegen – lag – gelegen
-- **e – a – o / e:** sprechen – sprach – gesprochen · treffen – traf – getroffen · helfen – half – geholfen · nehmen – nahm – genommen · geben – gab – gegeben · essen – aß – gegessen · lesen – las – gelesen · sehen – sah – gesehen · vergessen – vergaß – vergessen · werfen – warf – geworfen · sterben – starb – **ist** gestorben · bekommen – bekam – bekommen · kommen – kam – **ist** gekommen · stehen – stand – gestanden · gehen – ging – **ist** gegangen
-- **a – u – a:** fahren – fuhr – **ist** gefahren · tragen – trug – getragen · schlafen – schlief – geschlafen · waschen – wusch – gewaschen · laufen – lief – **ist** gelaufen · fallen – fiel – **ist** gefallen · halten – hielt – gehalten · lassen – ließ – gelassen · rufen – rief – gerufen · anfangen – fing an – angefangen · wachsen – wuchs – **ist** gewachsen
+- **i – a – u / o:** finden – fand – gefunden · trinken – trank – getrunken · singen – sang – gesungen · springen – sprang – **ist** gesprungen · gewinnen – gewann – gewonnen · beginnen – begann – begonnen · schwimmen – schwamm – **ist** (рідше hat) geschwommen
+- **i / ie – a – e:** bitten – bat – gebeten · sitzen – saß – gesessen · liegen – lag – gelegen
+- **e – a – o / e (у 3-й особі Präsens e → i / ie):** sprechen – sprach – gesprochen · treffen – traf – getroffen · helfen – half – geholfen · nehmen – nahm – genommen · geben – gab – gegeben · essen – aß – gegessen · lesen – las – gelesen · sehen – sah – gesehen · vergessen – vergaß – vergessen · werfen – warf – geworfen · sterben – starb – **ist** gestorben
+- **a – u – a:** fahren – fuhr – **ist** gefahren · tragen – trug – getragen · waschen – wusch – gewaschen · wachsen – wuchs – **ist** gewachsen
+- **a / au / u – ie – a / au / u:** schlafen – schlief – geschlafen · fallen – fiel – **ist** gefallen · halten – hielt – gehalten · lassen – ließ – gelassen · laufen – lief – **ist** gelaufen · rufen – rief – gerufen · anfangen – fing an – angefangen
+- **особливі (вчимо окремо):** kommen – kam – **ist** gekommen · bekommen – bekam – bekommen · gehen – ging – **ist** gegangen · stehen – stand – gestanden
 - **змішані (як слабкі, але з новою голосною):** bringen – brachte – gebracht · denken – dachte – gedacht · kennen – kannte – gekannt · nennen – nannte – genannt · rennen – rannte – **ist** gerannt · wissen – wusste – gewusst
 - **особливі:** tun – tat – getan · werden – wurde – **ist** geworden · sein – war – **ist** gewesen · haben – hatte – gehabt
 
 ## haben чи sein?
 
-Правило з A1 лишається: **sein** — коли є **рух із зміною місця** або **зміна стану**, і ще три винятки *sein, bleiben, passieren*. Усе інше — **haben**. Тепер розберемо сірі зони.
+Правило з A1 лишається: **sein** — дієслова **руху** й **зміни стану**, плюс винятки *sein, bleiben, passieren / geschehen*. Усе інше — **haben**. Тепер розберемо сірі зони.
 
 | Група | Дієслова | Приклад |
 |---|---|---|
-| рух з А до Б | gehen, fahren, kommen, fliegen, laufen, rennen, abfahren, ausgehen, zurückkommen, umziehen | *Wir sind nach Köln gefahren.* |
+| рух (з А до Б або просто в русі) | gehen, fahren, kommen, fliegen, laufen, rennen, abfahren, ausgehen, zurückkommen, umziehen | *Wir sind nach Köln gefahren.* |
 | зміна стану | aufstehen, einschlafen, aufwachen, werden, sterben, wachsen, aufwachsen | *Er ist früh eingeschlafen.* |
-| винятки | sein, bleiben, passieren, geschehen | *Was ist passiert?* |
+| винятки | sein, bleiben, passieren / geschehen | *Was ist passiert?* |
 | решта: дія з додатком, процес без напрямку | machen, kaufen, essen, schlafen, arbeiten, lernen | *Ich habe gut geschlafen.* |
 
 > [!diagram] haben чи sein: одне дієслово — два допоміжних
@@ -96,19 +99,19 @@ estimatedMinutes: 40
 > layout: compare
 > columns: { a: "haben", b: "sein" }
 > nodes:
->   - { id: a1, col: a, label: "є прямий додаток (Akk)", text: "Ich habe das Auto gefahren.", note: "fahren = «вести» щось", tone: mint }
->   - { id: a2, col: a, label: "дія без напрямку", text: "Wir haben den ganzen Tag gearbeitet.", note: "процес, а не зміна місця", tone: mint }
->   - { id: b1, col: b, label: "рух з А до Б", text: "Ich bin nach Hause gefahren.", note: "є напрямок: nach Hause", tone: orange }
->   - { id: b2, col: b, label: "зміна стану", text: "Er ist eingeschlafen.", note: "не спав → спить", tone: orange }
+>   - { id: a1, col: a, label: "є прямий додаток (Akk)", text: "Ich habe das Auto gefahren.", note: "fahren = «вести» щось", tone: yellow }
+>   - { id: a2, col: a, label: "дія без напрямку", text: "Wir haben den ganzen Tag gearbeitet.", note: "процес, а не зміна місця", tone: yellow }
+>   - { id: b1, col: b, label: "рух", text: "Ich bin nach Hause gefahren.", note: "рух; навіть без «куди»: Wir sind lange gefahren", tone: pink }
+>   - { id: b2, col: b, label: "зміна стану", text: "Er ist eingeschlafen.", note: "не спав → спить", tone: pink }
 > steps:
 >   - { focus: [a1, a2], note: "Haben — якщо дієслово має прямий додаток у Akkusativ або описує процес без зміни місця й стану." }
->   - { focus: [b1, b2], note: "Sein — якщо відбувається переміщення (є «звідки / куди») або зміна стану." }
+>   - { focus: [b1, b2], note: "Sein — дієслова руху (також без «куди»: Wir sind zwei Stunden gefahren) і зміна стану." }
 >   - { focus: [a1, b1], note: "Одне й те саме fahren залежить від речення: Ich habe das Auto gefahren — я вів авто; Ich bin nach Hause gefahren — я поїхав додому." }
 > ```
 > Допоміжне дієслово обираємо за **реченням**, а не лише за інфінітивом.
 
 > [!note] Південь
-> У Баварії, Австрії та Швейцарії для *sitzen, stehen, liegen* зазвичай чуєш *sein* (*Ich bin gesessen*). У стандартній мові — *haben*: *Ich habe lange gesessen*. Іспит перевіряє стандарт.
+> У Баварії, Австрії та Швейцарії для *sitzen, stehen, liegen* зазвичай чуєш *sein* (*Ich bin gesessen*). У німецькому стандарті (DE) — *haben*: *Ich habe lange gesessen*; в AT і CH форма з *sein* — норма.
 
 ## Приклади
 
@@ -131,14 +134,14 @@ estimatedMinutes: 40
 > uk: сидіти
 > forms: sitzen → saß → hat gesessen
 > example: Wir haben zwei Stunden im Café **gesessen**. — Ми дві години сиділи в кафе.
-> note: стандарт haben; DE-південь, AT, CH часто ist gesessen. tz = [ts].
+> note: DE-стандарт haben; AT, CH і південь DE: ist gesessen (норма). tz = [ts].
 
 > [!word] liegen
 > ipa: /ˈliːɡn̩/ · pos: verb · level: A2 · id: de-a2-perfekt-w02
 > uk: лежати; розташовуватися
 > forms: liegen → lag → hat gelegen
 > example: Das Handy hat auf dem Tisch **gelegen**. — Телефон лежав на столі.
-> note: AT, CH, південь: ist gelegen. Не плутай з legen («класти», слабке).
+> note: AT, CH, південь DE: ist gelegen (норма). Не плутай з legen («класти», слабке).
 
 > [!word] rufen
 > ipa: /ˈʁuːfn̩/ · pos: verb · level: A2 · id: de-a2-perfekt-w03
@@ -172,7 +175,7 @@ estimatedMinutes: 40
 > ipa: /ˈtsiːən/ · pos: verb · level: A2 · id: de-a2-perfekt-w07
 > uk: тягти; тягнути
 > forms: ziehen → zog → hat gezogen
-> example: Er hat die Tür zu stark **gezogen**. — Він надто сильно смикнув двері.
+> example: Er hat zu stark an der Tür **gezogen**. — Він надто сильно смикнув двері.
 > note: ie = довге [iː], h не звучить. З префіксами: anziehen, umziehen (ist umgezogen), einziehen.
 
 > [!word] schneiden
@@ -229,7 +232,7 @@ estimatedMinutes: 40
 > uk: ставати
 > forms: er wird · wurde · ist geworden
 > example: Es ist spät **geworden**. — Вже пізно (стало пізно).
-> note: Perfekt з sein. Як допоміжне дієслово пасиву й Futur Partizip — worden, не geworden.
+> note: Perfekt з sein: ist geworden. Як допоміжне пасиву Partizip — worden (Er ist operiert worden). У Futur I — werden + Infinitiv, без Partizip (Ich werde kommen).
 
 > [!word] verlieren
 > ipa: /fɛɐ̯ˈliːʁən/ · pos: verb · level: A2 · id: de-a2-perfekt-w16
@@ -249,7 +252,7 @@ estimatedMinutes: 40
 > ipa: /ˈaʊ̯sˌɡeːən/ · pos: verb · level: A2 · id: de-a2-perfekt-w18
 > uk: виходити кудись (у місто); гаснути
 > forms: ausgehen → ging aus → ist ausgegangen
-> example: Wir sind am Samstag **ausgegangen**. — У суботу ми кудись ходили у місті.
+> example: Wir sind am Samstag **ausgegangen**. — У суботу ми кудись виходили розважитися.
 > note: Das Licht ist ausgegangen — світло згасло.
 
 > [!word] abfahren
@@ -355,7 +358,7 @@ estimatedMinutes: 40
 > uk: складати (іспит); існувати
 > forms: bestehen → bestand → hat bestanden
 > example: Ich habe die Prüfung **bestanden**. — Я склав іспит.
-> note: Prüfung bestehen, не «legen». Протилежне: durchfallen (ist durchgefallen).
+> note: Prüfung bestehen (скласти успішно); ablegen — «складати» (процес). Протилежне: durchfallen (ist durchgefallen).
 
 > [!word] stattfinden
 > ipa: /ˈʃtatˌfɪndn̩/ · pos: verb · level: A2 · id: de-a2-perfekt-w34
@@ -482,7 +485,7 @@ estimatedMinutes: 40
 > В українській минулий час майже завжди утворюється регулярно. У німецькій більшість найчастіших дієслів сильні, і їхній Partizip треба вчити: *gegangen, gekommen, geblieben*. Вчи дієслово разом із допоміжним і трьома формами: *bleiben — blieb — ist geblieben*. Змішані дієслова (*denken, kennen, bringen*) мають -t, але змінену голосну: *gedacht, gekannt, gebracht*, а не *gedenkt, gekennt*.
 
 > [!pitfall] «Ich habe nach Hause gefahren»: haben чи sein залежить від речення
-> Українське «я поїхав» не підказує допоміжне. Якщо є **напрямок** (*nach Hause, in die Stadt*) — **sein**: *Ich bin nach Hause gefahren*. Якщо є **прямий додаток** — **haben**: *Ich habe das Auto in die Garage gefahren*. Зверни увагу на питання «куди?»: є «куди» — *sein*.
+> Українське «я поїхав» не підказує допоміжне. *Fahren* як рух — **sein**, навіть без «куди»: *Ich bin nach Hause gefahren, Wir sind zwei Stunden gefahren*. Якщо *fahren* — перехідне (є прямий додаток: ти ведеш транспорт) — **haben**: *Ich habe das Auto in die Garage gefahren*.
 
 > [!pitfall] «Ich habe in Berlin gewesen» — sein має sein
 > Дієслово *sein* утворює Perfekt із **sein**: *Ich bin in Berlin gewesen*. У розмові частіше просто *Ich war in Berlin*. Форми *Ich habe gewesen* і *Ich bin gehabt* — типові помилки: допоміжне дієслово лишається при *sein* (*bin gewesen*), а *haben* має *habe gehabt*.
@@ -581,16 +584,16 @@ estimatedMinutes: 40
 > **Пояснення:** *reparieren* і *diskutieren* — без *ge-* (-ieren), *bestehen* — без *ge-* (префікс *be-*), *wachsen* — сильне: *gewachsen*. *Gerepariert* і *gebestanden* — зайве *ge-*.
 
 > [!quiz] Заповни пропуски: розмова про минуле
-> level: A2 · type: fill · bank: gegessen, getrinken · id: de-a2-perfekt-q11
+> level: A2 · type: fill · bank: gesst, gebekommen · id: de-a2-perfekt-q11
 >
 > ```text fill
-> A: Hast du schon einmal Spätzle [[gegessen]]?
-> B: Nein, noch nie. Aber ich habe schon Maultaschen [[probiert]].
-> A: Und was hast du dazu [[getrunken]]?
-> B: Wasser. Ich habe nichts anderes [[bekommen]].
+> A: Hast du schon einmal Spätzle [[gegessen]]? (essen)
+> B: Nein, noch nie. Aber ich habe schon Maultaschen [[probiert]]. (probieren)
+> A: Und was hast du dazu [[getrunken]]? (trinken)
+> B: Wasser. Ich habe nichts anderes [[bekommen]]. (bekommen)
 > ```
 >
-> **Пояснення:** *essen → gegessen*, *trinken → getrunken* (сильні), *probieren* — без *ge-* (-ieren), *bekommen* — без *ge-* (префікс *be-*). Форма *getrinken* — типова помилка за аналогією з *gesungen*.
+> **Пояснення:** *essen → gegessen*, *trinken → getrunken* (сильні), *probieren* — без *ge-* (-ieren), *bekommen* — без *ge-* (префікс *be-*). Форми *gesst* і *gebekommen* — типові помилки: *essen* має *gegessen*, а *bekommen* не бере *ge-*.
 
 > [!quiz] Склади речення: «Торік ми переїхали до Гамбурга»
 > level: A2 · type: order · id: de-a2-perfekt-q12
@@ -632,7 +635,7 @@ estimatedMinutes: 40
 ## Фішки
 
 > [!reel] 🇬🇧 sing – sang – sung: німецька та англійська думають однаково
-> Багато сильних дієслів у німецькій і англійській мають ту саму зміну голосної: *singen – sang – gesungen* і *sing – sang – sung*, *trinken – trank – getrunken* і *drink – drank – drunk*, *finden – fand – gefunden* і *find – found – found*. Тож англійська допомагає запамʼятати німецькі Partizip.
+> Багато сильних дієслів у німецькій і англійській мають схожу зміну голосної: *singen – sang – gesungen* і *sing – sang – sung*, *trinken – trank – getrunken* і *drink – drank – drunk*, *finden – fand – gefunden* і *find – found – found*. Тож англійська допомагає запамʼятати німецькі Partizip.
 
 > [!reel] 🗣️ «Haste gesehen?»
 > У розмові допоміжне дієслово часто зливається з займенником: *Hast du* → *haste*, *Habe ich* → *hab ich*. У літературній мові це не пишуть, але чуєш повсюди: *Hab ich gesehen!* Для іспиту та листів — повні форми.

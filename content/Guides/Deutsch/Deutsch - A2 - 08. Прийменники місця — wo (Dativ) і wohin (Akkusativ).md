@@ -112,7 +112,7 @@ estimatedMinutes: 45
 - Die Lampe steht zwischen dem Sofa und dem Fenster. — Лампа стоїть між диваном і вікном.
 - Wir stellen die Lampe neben das Sofa. — Ми ставимо лампу поруч із диваном.
 - Der Hund schläft unter dem Tisch. — Собака спить під столом.
-- Der Ball rollt unter das Sofa. — Мʼяч закотився під диван.
+- Der Ball rollt unter das Sofa. — Мʼяч котиться під диван.
 - Die Katze sitzt auf dem Kleiderschrank. — Кішка сидить на шафі.
 - Papa setzt das Kind auf den Stuhl. — Тато садить дитину на стілець.
 - Wir fahren im Sommer ans Meer. — Влітку ми їдемо до моря.
@@ -188,7 +188,7 @@ estimatedMinutes: 45
 > uk: стіна (у приміщенні)
 > forms: die Wände
 > example: Das Plakat hängt an der **Wand**. — Плакат висить на стіні.
-> note: стіна будинку ззовні, мур — die Mauer.
+> note: die Mauer — мур, камʼяна стіна (Berliner Mauer); зовнішня стіна будинку теж Wand (Außenwand).
 
 > [!word] die Decke
 > ipa: /ˈdɛkə/ · pos: noun · level: A2 · id: de-a2-wechselpraep-w12
@@ -251,7 +251,7 @@ estimatedMinutes: 45
 > uk: штора, завіса
 > forms: die Vorhänge
 > example: Der **Vorhang** hängt vor dem Fenster. — Штора висить перед вікном.
-> note: V на початку слів німецького походження = [f]: «фоа-ганг». Складне слово: vor + hängen.
+> note: v = [f]; h — легкий видих [h]; ng — один звук [ŋ]. Складене слово: vor + hängen.
 
 > [!word] der Haken
 > ipa: /ˈhaːkn̩/ · pos: noun · level: A2 · id: de-a2-wechselpraep-w21
@@ -271,7 +271,7 @@ estimatedMinutes: 45
 > ipa: /ˈoːbn̩/ · pos: adv · level: A1 · id: de-a2-wechselpraep-w23
 > uk: нагорі, угорі
 > example: Das Schlafzimmer ist **oben**. — Спальня нагорі.
-> note: «нагору» — nach oben; «звідти нагорі» — von oben.
+> note: «нагору» — nach oben; «згори» — von oben.
 
 > [!word] unten
 > ipa: /ˈʊntn̩/ · pos: adv · level: A1 · id: de-a2-wechselpraep-w24
@@ -367,7 +367,7 @@ estimatedMinutes: 45
 > ~~Ich liege das Buch auf den Tisch~~ → Ich **lege** das Buch auf den Tisch. ~~Das Auto stellt in der Garage~~ → Das Auto **steht** in der Garage. «Стан» — *liegen, stehen, sitzen, hängen* (Dativ), «дія» — *legen, stellen, setzen, hängen* (Akkusativ). Якщо в реченні є предмет, який ти *кладеш / ставиш*, потрібне дієслово дії.
 
 > [!pitfall] Люди, міста й країни — не in
-> ~~Ich gehe in den Arzt~~ → Ich gehe **zum** Arzt. ~~Ich fahre in Berlin~~ → Ich fahre **nach** Berlin. Пара *in / an / auf* стосується місць і речей. До людей — *zu* + Dativ, до міст і країн без артикля — *nach*, а куди «вдома» — *nach Hause*.
+> ~~Ich gehe in den Arzt~~ → Ich gehe **zum** Arzt. ~~Ich fahre in Berlin~~ → Ich fahre **nach** Berlin. Пара *in / an / auf* стосується місць і речей. До людей — *zu* + Dativ, до міст і країн без артикля — *nach*, додому — *nach Hause*.
 
 > [!pitfall] Жіночий рід: der Wand чи die Wand
 > *Wo?* → **an der Wand**, *wohin?* → **an die Wand**. У жіночому роді Dativ (*der*) і Akkusativ (*die*) відрізняються лише артиклем, а закінчення іменника не змінюється. У множині Dativ додає -n до іменника: *auf den Tischen*, *in den Zimmern*.
@@ -431,7 +431,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** немає додатка в Akkusativ і є Dativ (*auf dem Tisch*) — отже, стан: **liegt**. *legt* — «кладе» (потрібний додаток: *Er legt das Handy auf den Tisch*). *liegen* — форма множини.
 
-> [!quiz] Які речення правильні?
+> [!quiz] Обери всі правильні речення.
 > level: A2 · type: multi · id: de-a2-wechselpraep-q05
 > - [x] Ich lege das Buch auf den Tisch.
 > - [x] Das Buch liegt auf dem Tisch.
@@ -544,7 +544,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** *setzen* — дія, *wohin?* → Akkusativ; *Stuhl* — чоловічий рід → **auf den**. *auf dem* — Dativ (стан), *auf der* — жіночий рід, *auf das* — середній.
 
-> [!quiz] У яких реченнях потрібен Akkusativ?
+> [!quiz] Обери всі речення, де потрібен Akkusativ.
 > level: A2 · type: multi · id: de-a2-wechselpraep-q15
 > - [x] Er legt die Schlüssel auf den Tisch.
 > - [ ] Der Hund schläft unter dem Tisch.

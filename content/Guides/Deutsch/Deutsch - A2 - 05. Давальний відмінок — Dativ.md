@@ -74,7 +74,7 @@ estimatedMinutes: 40
 
 ## Дієслова з Dativ
 
-Ці дієслова **завжди** потребують Dativ (людина — це «кому»):
+З цими дієсловами особа («кому?») стоїть у Dativ:
 
 | Дієслово | Приклад |
 |---|---|
@@ -87,7 +87,7 @@ estimatedMinutes: 40
 | **zuhören** | Hör **mir** bitte zu! — Послухай мене, будь ласка! |
 | **fehlen** | Du fehlst **mir**. — Мені тебе бракує. |
 | **antworten** | Er antwortet **seinem Chef**. — Він відповідає начальникові. |
-| **passen** | Die Jacke passt **mir** nicht. — Куртка мені не пасує. |
+| **passen** | Die Jacke passt **mir** nicht. — Куртка мені не підходить (за розміром). |
 
 > [!tip] Подобається: хто що?
 > В українській: «**мені** подобається **фільм**». У німецькій так само: **фільм** — підмет, **мені** — Dativ: *Der Film gefällt **mir***. Не будуй речення на кшталт *Ich gefalle den Film*: *ich gefalle* означало б «я подобаюся».
@@ -153,7 +153,7 @@ estimatedMinutes: 40
 > uk: належати
 > forms: gehören → gehörte → hat gehört
 > example: Das Handy **gehört** mir. — Телефон мій.
-> note: gehören + Dat: ‘кому належить’. ö — довге, губи для «о», язик для «е».
+> note: gehören + Dat: «кому належить». ö — довге, губи для «о», язик для «е».
 
 > [!word] schmecken (+ Dat)
 > ipa: /ˈʃmɛkn̩/ · pos: verb · level: A2 · id: de-a2-dativ-w04
@@ -226,9 +226,9 @@ estimatedMinutes: 40
 > note: er- ненаголошене: Partizip без ge-. jemandem etwas erlauben.
 
 > [!word] wehtun
-> ipa: /ˈveːˌtuːn/ · pos: verb · level: A2 · id: de-a2-dativ-w14
+> ipa: /ˈveːtuːn/ · pos: verb · level: A2 · id: de-a2-dativ-w14
 > uk: боліти; завдавати болю
-> forms: tut weh · tat weh · hat wehgetan
+> forms: wehtun → tat weh → hat wehgetan
 > example: Mir **tut** der Kopf **weh**. — У мене болить голова.
 > note: Mir tut der Kopf weh. Також: Der Kopf tut mir weh. Пишемо в два слова: tut weh.
 
@@ -237,10 +237,10 @@ estimatedMinutes: 40
 > uk: подарунок
 > forms: die Geschenke
 > example: Das **Geschenk** gefällt meiner Mutter. — Подарунок подобається моїй мамі.
-> note: ge- ненаголошене; Geschenk — ‘подарунок’ (не Gift = ‘отрута’).
+> note: ge- ненаголошене; Geschenk — «подарунок» (не Gift = «отрута»).
 
 > [!word] Wie geht es dir?
-> ipa: /viː ɡeːt ɛs diːɐ̯/ · pos: phrase · level: A2 · id: de-a2-dativ-w16
+> ipa: /viː ɡeːt ɛs diːɐ̯/ · pos: phrase · level: A1 · id: de-a2-dativ-w16
 > uk: Як ти? Як справи?
 > example: **Wie geht es dir?** — Danke, es geht mir gut. — Як справи? — Дякую, добре.
 > note: ввічливо: Wie geht es Ihnen?; коротко: Wie geht’s? (carded). Відповіді: Mir geht’s gut / so lala / nicht so gut.
@@ -296,7 +296,7 @@ Dativ-форми містять вузькі й довгі звуки: *dem* [de
 > level: A2 · speed: slow · id: de-a2-dativ-s02
 > text: Das Buch gehört meinem Bruder.
 > ipa: /das buːx ɡəˈhøːɐ̯t ˈmaɪ̯nəm ˈbʁuːdɐ/
-> tip: gehört — ге-ХЕРТ, ö довге. Buch — ch після u = [x]. Bruder — Br- з ʁ.
+> tip: gehört — наголос на -hört, ö довге [øː]. Buch — ch після u = [x]. Bruder — Br- з ʁ.
 > uk: Книжка належить моєму братові.
 
 > [!speak] Скажи вголос
@@ -424,19 +424,19 @@ Dativ-форми містять вузькі й довгі звуки: *dem* [de
 > ```text fill
 > Ich gebe [[dem]] Kind einen Apfel.
 > Wir helfen [[der]] Lehrerin.
-> Das Geschenk gehört [[meinem]] Bruder.
-> Er antwortet [[seiner]] Chefin.
+> Das Geschenk gehört [[dem]] Bruder.
+> Er antwortet [[der]] Chefin.
 > ```
 >
-> **Пояснення:** *Kind* — *dem*, *Lehrerin* і *Chefin* — жіночий рід: *der / seiner*, *Bruder* — чоловічий: *meinem*. *Den* — множина, *die* — Nominativ / Akkusativ жін. роду.
+> **Пояснення:** *Kind* і *Bruder* — *dem* (середній і чоловічий рід), *Lehrerin* і *Chefin* — *der* (жіночий). *Den* — множина, *die* — Nominativ / Akkusativ жін. роду.
 
 > [!quiz] Заповни пропуски: множина в Dativ
 > level: A2 · type: fill · bank: Kinder, Freunde · id: de-a2-dativ-q11
 >
 > ```text fill
-> Ich helfe den [[Kindern]].
-> Wir danken den [[Freunden]].
-> Sie schenkt den [[Eltern]] Blumen.
+> Ich helfe den [[Kindern]]. (das Kind)
+> Wir danken den [[Freunden]]. (der Freund)
+> Sie schenkt den [[Eltern]] Blumen. (die Eltern)
 > ```
 >
 > **Пояснення:** в Dativ множини додаємо **-n**: *Kindern, Freunden*. *Eltern* вже закінчується на -n — нічого не додаємо. *Kinder* і *Freunde* — форми Nominativ / Akkusativ.

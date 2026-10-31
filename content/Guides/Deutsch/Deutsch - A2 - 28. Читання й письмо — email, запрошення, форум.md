@@ -37,7 +37,7 @@ estimatedMinutes: 40
 | Що питають | Як читати | Приклад |
 |---|---|---|
 | Про що текст? Хто пише? Навіщо? | **Gist**: заголовок, перше й останнє речення, тема, адресат | «Лист-запрошення» |
-| Коли? Де? Скільки? Хто? | **Detail**: шукай ключове слово, число, час, місце | «о 19 годині у Ліндена-штрассе» |
+| Коли? Де? Скільки? Хто? | **Detail**: шукай ключове слово, число, час, місце | «о 19 годині на Лінденштрасе» |
 | Правильно / неправильно | Порівнюй речення завдання з текстом слово до слова | «Der Kurs fällt aus.» |
 
 Тексти A2 короткі: SMS, оголошення, лист, допис на форумі. Не потрібно розуміти кожне слово: достатньо знайти відповідь на питання. Нове слово спробуй вгадати з контексту або з частини складного слова (*Kleinanzeige* = *klein* + *Anzeige*).
@@ -129,7 +129,7 @@ estimatedMinutes: 40
 | **Teil 1: SMS** | друг, знайомий | ≈ 20–30 слів | неформальний (*du*) |
 | **Teil 2: E-Mail** | викладач, знайомий, установа | ≈ 30–40 слів | напівформальний (залежить від завдання) |
 
-Порядок дій: прочитай три пункти, познач їх, напиши по реченню на кожен, додай привітання й підпис, перерахуй слова. Перевір, чи правильно *du* чи *Sie*.
+Порядок дій: прочитай три пункти, познач їх, напиши по реченню на кожен, додай привітання й підпис, перерахуй слова. Перевір, чи правильно *du* чи *Sie*. Увага на обсяг: якщо в тексті менше половини потрібних слів (тобто менше 10 слів у SMS або менше 15 в email), за це завдання отримуєш 0 балів. Тож не лишай завдання майже порожнім.
 
 **Приклад Teil 1.** Ваш друг Тім запросив вас на вечерю. Напишіть: подякуйте; скажіть, що прийдете пізніше, і чому; спитайте, що принести.
 
@@ -256,15 +256,8 @@ estimatedMinutes: 40
 > example: Ich habe einen **Vorschlag**: Wir treffen uns um sechs. — Маю пропозицію: зустрінемося о шостій.
 > note: множина з умлаутом. v на початку = [f]. Не плутай з das Angebot.
 
-> [!word] die Entschuldigung
-> ipa: /ɛntˈʃʊldɪɡʊŋ/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w14
-> uk: вибачення; пояснювальна записка
-> forms: die Entschuldigungen
-> example: Ich bitte um **Entschuldigung** für die Verspätung. — Прошу вибачення за запізнення.
-> note: Entschuldigung! — також «перепрошую» для привернення уваги. -ung → die.
-
 > [!word] der Tipp
-> ipa: /tɪp/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w15
+> ipa: /tɪp/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w14
 > uk: порада; підказка
 > forms: die Tipps
 > example: Hat jemand einen **Tipp**? — Чи має хтось пораду?
@@ -273,27 +266,27 @@ estimatedMinutes: 40
 ### Оголошення
 
 > [!word] die Anzeige
-> ipa: /ˈantsaɪ̯ɡə/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w16
+> ipa: /ˈantsaɪ̯ɡə/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w15
 > uk: оголошення; (також) заява в поліцію
 > forms: die Anzeigen
 > example: Ich habe Ihre **Anzeige** im Internet gelesen. — Я прочитала Ваше оголошення в інтернеті.
 > note: Anzeige erstatten — подати заяву в поліцію. Також шкала на приладі. z = [ts].
 
 > [!word] die Kleinanzeige
-> ipa: /ˈklaɪ̯nʔanˌtsaɪ̯ɡə/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w17
+> ipa: /ˈklaɪ̯nʔanˌtsaɪ̯ɡə/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w16
 > uk: коротке приватне оголошення
 > forms: die Kleinanzeigen
 > example: Ich suche ein Fahrrad in den **Kleinanzeigen**. — Я шукаю велосипед у приватних оголошеннях.
 > note: у Німеччині велика платформа Kleinanzeigen; друкований варіант — в газетах. Складне слово: рід від Anzeige.
 
 > [!word] gebraucht
-> ipa: /ɡəˈbʁaʊ̯xt/ · pos: adj · level: A2 · id: de-a2-lesen-schreiben-w18
+> ipa: /ɡəˈbʁaʊ̯xt/ · pos: adj · level: A2 · id: de-a2-lesen-schreiben-w17
 > uk: вживаний, секонд-хенд
 > example: Ich kaufe das Fahrrad **gebraucht**. — Я купую велосипед вживаним.
 > note: протилежне: neu, neuwertig. Від gebrauchen. ch після au = [x].
 
 > [!word] der Zustand
-> ipa: /ˈtsuːʃtant/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w19
+> ipa: /ˈtsuːʃtant/ · pos: noun · level: A2 · id: de-a2-lesen-schreiben-w18
 > uk: стан
 > forms: die Zustände
 > example: Das Fahrrad ist in gutem **Zustand**. — Велосипед у доброму стані.
@@ -302,13 +295,13 @@ estimatedMinutes: 40
 ### Готові формули
 
 > [!word] Viele Grüße!
-> ipa: /ˈfiːlə ˈɡʁyːsə/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w20
+> ipa: /ˈfiːlə ˈɡʁyːsə/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w19
 > uk: З вітанням! (кінець листа)
 > example: **Viele Grüße**, Olena — З вітанням, Олена
 > note: нейтрально-дружня формула. Також Liebe Grüße (ближче), Herzliche Grüße (тепло), Beste Grüße (нейтрально).
 
 > [!word] Mit freundlichen Grüßen
-> ipa: /mɪt ˈfʁɔʏ̯ntlɪçn̩ ˈɡʁyːsn̩/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w21
+> ipa: /mɪt ˈfʁɔʏ̯ntlɪçn̩ ˈɡʁyːsn̩/ · pos: phrase · level: A2 · id: de-a2-lesen-schreiben-w20
 > uk: З повагою (кінець офіційного листа)
 > example: **Mit freundlichen Grüßen** Olena Bondar — З повагою, Олена Бондар
 > note: скорочення MfG багато хто вважає занадто сухим, тому в листах краще писати повністю. Після формули коми зазвичай нема.
@@ -363,7 +356,7 @@ estimatedMinutes: 40
 ## Типові помилки українців
 
 > [!pitfall] Du і Sie в одному листі
-> ~~Sehr geehrte Frau Becker, ich wollte dir schreiben…~~ → Sehr geehrte Frau Becker, ich wollte **Ihnen** schreiben… Якщо лист починається з *Sehr geehrte*, весь лист пишемо на *Sie*. Однаково погано: ~~Hallo Frau Becker, mit freundlichen Grüßen~~ (початок надто невимушений, кінець надто офіційний). Підбери один рівень на весь лист.
+> ~~Sehr geehrte Frau Becker, ich wollte dir schreiben…~~ → Sehr geehrte Frau Becker, ich wollte **Ihnen** schreiben… Якщо лист починається з *Sehr geehrte*, весь лист пишемо на *Sie*. Непослідовно звучить і ~~Hallo Frau Becker, … Mit freundlichen Grüßen~~ (початок невимушений, кінець офіційний). Підбери один рівень на весь лист.
 
 > [!pitfall] Велика літера після коми в звертанні
 > ~~Liebe Anna, Ich hoffe…~~ → Liebe Anna, **ich** hoffe… Після коми в *Anrede* продовжуємо з малої літери (якщо це не іменник). Велику літеру ставимо лише після знака оклику: *Liebe Anna! Ich hoffe…* В українській ми зазвичай пишемо «Привіт, Анно!» з великої літери, а німецька норма інша.
@@ -405,7 +398,7 @@ estimatedMinutes: 40
 
 > [!quiz] Nach dem Text: Was bedeutet „VB“?
 > level: A2 · type: single · id: de-a2-lesen-schreiben-q02
-> - [ ] Vorsicht, Besichtigung
+> - [ ] Verkauf bei Barzahlung
 > - [x] Verhandlungsbasis, über den Preis kann man sprechen
 > - [ ] verkauft, bezahlt
 > - [ ] Versand bis Berlin
@@ -434,26 +427,26 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *80 € VB* — ціна 80 євро з можливістю торгу. *Guter Zustand* ≠ нове. *Nur Abholung* — без пошти. *Tel. ab 17 Uhr* — телефонувати після 17:00.
 
-> [!quiz] Nach Anzeige 2: Wie hoch ist die Warmmiete ungefähr?
+> [!quiz] Nach Anzeige 2: Wie viel muss man pro Monat insgesamt zahlen (Kaltmiete und Nebenkosten)?
 > level: A2 · type: single · id: de-a2-lesen-schreiben-q05
 > - [ ] 520 Euro
 > - [x] 650 Euro (520 + 130)
 > - [ ] 130 Euro
 > - [ ] 55 Euro
 >
-> **Пояснення:** Kaltmiete 520 € + NK (Nebenkosten) 130 € = 650 €. Саме ця сума потрапляє на рахунок щомісяця.
+> **Пояснення:** Kaltmiete 520 € + NK (Nebenkosten) 130 € = 650 €. Цю суму (Kaltmiete і Nebenkosten разом) називають Warmmiete.
 
 ## Практика
 
 > [!quiz] Заповни початок і кінець листа до пані Беккер
-> level: A2 · type: fill · id: de-a2-lesen-schreiben-q06 · bank: Hallo, Viele, Liebe
+> level: A2 · type: fill · id: de-a2-lesen-schreiben-q06 · bank: Hallo, Liebe, freundliche
 >
 > ```text fill
 > [[Sehr]] geehrte Frau Becker,
 > Mit [[freundlichen]] Grüßen
 > ```
 >
-> **Пояснення:** листа викладачці пишуть напівформально: *Sehr geehrte Frau Becker, …, Mit freundlichen Grüßen*. *Hallo, Viele* і *Liebe* — для друзів.
+> **Пояснення:** листа викладачці пишуть напівформально: *Sehr geehrte Frau Becker, …, Mit freundlichen Grüßen*. *Hallo* і *Liebe* — для друзів, а *freundliche* без «Mit … Grüßen» у потрібній формі (*freundlichen*) не підходить.
 
 > [!quiz] Склади речення: «На жаль, я не можу прийти, бо мушу працювати.»
 > level: A2 · type: order · id: de-a2-lesen-schreiben-q07
@@ -493,20 +486,20 @@ estimatedMinutes: 40
 > level: A2 · type: single · id: de-a2-lesen-schreiben-q10
 > - [ ] Ich komme nicht.
 > - [x] Danke für die Einladung, aber leider kann ich nicht kommen.
-> - [ ] Ich sage gern ab, weil ich keine Lust habe.
-> - [ ] Ich sage zu, aber ich komme nicht.
+> - [ ] Ich sage zu, weil ich nicht kommen kann.
+> - [ ] Ich bin nicht einverstanden, danke.
 >
-> **Пояснення:** ввічлива відмова: подякуй, вибачся (*leider*) і назви причину. *Ich komme nicht* надто різко, *zusagen* означає «прийняти».
+> **Пояснення:** ввічлива відмова: подякуй, вибачся (*leider*) і назви причину. *Ich komme nicht* надто різко, *zusagen* означає «прийняти» (тому *zusagen* з відмовою не поєднується).
 
 > [!quiz] Які пункти ти маєш виконати у кожному завданні письма Goethe A2? Обери всі.
 > level: A2 · type: multi · id: de-a2-lesen-schreiben-q11
 > - [x] кожен із трьох Leitpunkte
 > - [x] правильний стиль (du або Sie)
-> - [x] привітання й прощання
+> - [x] регістр, що відповідає адресатові (привітання й прощання)
 > - [ ] лише перший пункт
 > - [ ] будь-яка кількість слів
 >
-> **Пояснення:** на A2 перевіряють, чи виконано всі три пункти, чи відповідає стиль завданню та чи є привітання й підпис. Обсяг має бути приблизно як у завданні.
+> **Пояснення:** на A2 перевіряють, чи виконано всі три пункти, чи відповідає стиль (регістр) адресатові, чи достатньо різноманітні й правильні мовні засоби. Обсяг має бути приблизно як у завданні, а менше половини слів дає 0 балів.
 
 > [!quiz] Заповни пропуски
 > level: A2 · type: fill · id: de-a2-lesen-schreiben-q12 · bank: mir, für
@@ -541,7 +534,7 @@ estimatedMinutes: 40
 > [!reel] ✉️ Чому «MfG» не любять
 > Скорочення *MfG* (Mit freundlichen Grüßen) у листах багато хто вважає занадто сухим і недбалим. Тому в робочих і офіційних листах краще писати формулу повністю. Для друзів краще підходять теплі *Liebe Grüße* або *Viele Grüße*.
 
-> [!reel] 📱 SMS, якого вже ніхто не пише
+> [!reel] 📱 SMS, яку вже майже ніхто не пише
 > У письмовій частині Goethe A2 перше завдання досі називається «SMS», хоча в житті ми пишемо у месенджерах. Правила ті самі: 3 пункти, ≈ 20–30 слів, привітання, прощання. Тож тренуйся писати коротко: це корисно й для повсякденних повідомлень.
 
 > [!reel] 🏷️ VB: торг у пʼяти літерах

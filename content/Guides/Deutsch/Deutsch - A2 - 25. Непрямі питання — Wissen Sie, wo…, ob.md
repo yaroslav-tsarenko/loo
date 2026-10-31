@@ -74,7 +74,7 @@ estimatedMinutes: 35
 > steps:
 >   - { focus: head, note: "Починаємо головним реченням. Воно може бути питанням (Können Sie mir sagen…?) або твердженням (Ich weiß nicht…)." }
 >   - { focus: q, note: "Далі питальне слово: wann, wo, wie, warum, was… Для питання, на яке відповідають «так» чи «ні», ставимо ob." }
->   - { focus: subj, note: "Одразу після нього йде підмет. Порядок як у підрядному реченні: ніякої інверсії." }
+>   - { focus: subj, note: "Зазвичай одразу після нього йде підмет (виняток: питальне слово може само бути підметом, напр. wer, was). Порядок як у підрядному реченні, без інверсії." }
 >   - { focus: verb, note: "Змінне дієслово завжди в кінці: ...ob der Zug pünktlich ist. Мітка поруч із кольором: підмет — мʼятний, дієслово — помаранчевий, решта — сірий." }
 > ```
 
@@ -263,7 +263,7 @@ estimatedMinutes: 35
 > text: Wissen Sie, ob das Büro geöffnet ist?
 > ipa: /ˈvɪsn̩ ziː ɔp das byˈʁoː ɡəˈœfnət ɪst/
 > tip: wissen — w = [v], ss = [s]; ob — b у кінці = [p], «оп»; Büro — ü = [y], язик як для «і», губи округлені.
-> uk: Чи не знаєте Ви, чи офіс відчинений?
+> uk: Ви не знаєте, чи офіс відчинений?
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-indirekte-fragen-s03
@@ -285,7 +285,7 @@ estimatedMinutes: 35
 > ~~Können Sie mir sagen, wo ist das Bürgeramt?~~ → Können Sie mir sagen, wo das Bürgeramt **ist**? В українській порядок слів не змінюється: «Скажіть, де міськрада?» Німецьке підрядне вимагає змінного дієслова в кінці. У розмові інколи чути й інше, але в Behörde та на іспиті тримайся правила.
 
 > [!pitfall] «Чи» ≠ wenn і dass
-> ~~Ich weiß nicht, wenn er kommt~~, ~~Ich weiß nicht, dass er kommt~~ → Ich weiß nicht, **ob** er kommt. Українське «чи» дорівнює німецькому ***ob***; ***wenn*** — «якщо» або «коли» (повторювано), ***dass*** — «що».
+> ~~Ich weiß nicht, wenn er kommt~~ → Ich weiß nicht, **ob** er kommt. (*Ich weiß nicht, dass er kommt* граматично можливе, але означає інше: «не знаю того, що він прийде».) Українське «чи» дорівнює німецькому ***ob***; ***wenn*** — «якщо» або «коли» (повторювано), ***dass*** — «що».
 
 > [!pitfall] ob разом із питальним словом
 > ~~Ich weiß nicht, ob wann er kommt~~, ~~Wissen Sie, wann ob er kommt~~ → Ich weiß nicht, **wann** er kommt / **ob** er kommt. У підрядному реченні лише одне вступне слово: або питальне слово, або *ob*. Питання про час, місце, причину вже має питальне слово.
@@ -302,7 +302,7 @@ estimatedMinutes: 35
 > audio: A: Sie brauchen Ihren Ausweis und die Wohnungsgeberbestätigung.
 > audio: B: Und muss ich vorher einen Termin machen?
 > audio: A: Ja, bitte buchen Sie einen Termin im Internet.
-> - [x] документ, підтвердження від орендодавця й запис на термін
+> - [x] документ, підтвердження від орендодавця й попередній запис
 > - [ ] лише документ
 > - [ ] лише довідка з банку
 > - [ ] приходити без запису
@@ -313,14 +313,14 @@ estimatedMinutes: 35
 > level: A2 · speed: slow · id: de-a2-indirekte-fragen-s05
 > text: Können Sie mir sagen, welche Unterlagen ich brauche?
 > ipa: /ˈkœnən ziː miːɐ̯ ˈzaːɡn̩ ˈvɛlçə ˈʊntɐlaːɡn̩ ɪç ˈbʁaʊ̯xə/
-> tip: welche — ch після l = [ç], «вельхьє»; brauche — ch після au = [x], глибоко; Unterlagen — наголос на першому складі.
+> tip: welche — ch після l = [ç], «вельхе»; brauche — ch після au = [x], глибоко; Unterlagen — наголос на першому складі.
 > uk: Чи можете Ви сказати мені, які документи мені потрібні?
 
 > [!speak] Ситуація: спитай, котра година
 > level: A2 · speed: slow · id: de-a2-indirekte-fragen-s06
 > text: Entschuldigung, wissen Sie, wie spät es ist?
-> ipa: /ɛntˈʃʊldɪɡʊŋ ˈvɪsn̩ ziː viː ʃpeːt ɛs ɪst/
-> tip: Entschuldigung — наголос на -schul-, -ung = [ʊŋ]; spät — sp = [ʃp], довге [eː] (ä тут як довге е, не «я»).
+> ipa: /ɛntˈʃʊldɪɡʊŋ ˈvɪsn̩ ziː viː ʃpɛːt ɛs ɪst/
+> tip: Entschuldigung — наголос на -schul-, -ung = [ʊŋ]; spät — sp = [ʃp], довге [ɛː] (у повсякденній мові часто [eː]; не «я»).
 > uk: Перепрошую, Ви не знаєте, котра година?
 
 ## Практика
@@ -334,7 +334,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** питальне слово *wo* + підмет + дієслово в кінці: ***wo der Bahnhof ist***. Варіант *wo ist der Bahnhof* залишає пряме питання. Дієслово не можна пропускати.
 
-> [!quiz] «Я не знаю, чи запізнюється потяг.» Яке слово пропущено?
+> [!quiz] «Я не знаю, чи запізнюється потяг.» Яке слово пропущено: «Ich weiß nicht, ___ der Zug Verspätung hat.»
 > level: A2 · type: single · id: de-a2-indirekte-fragen-q03
 > - [ ] wann
 > - [x] ob
@@ -451,16 +451,16 @@ estimatedMinutes: 35
 > **Пояснення:** для незлічуваної величини (ціна) — ***wie viel***: *Können Sie mir sagen, wie viel das kostet?* *Wie viele* — для злічуваних, у множині.
 
 > [!quiz] Заповни пропуски
-> level: A2 · type: fill · id: de-a2-indirekte-fragen-q14 · bank: dass, wenn
+> level: A2 · type: fill · id: de-a2-indirekte-fragen-q14 · bank: dass, weil
 >
 > ```text fill
 > Ich habe sie gefragt, [[ob]] sie Zeit hat. (чи)
-> Sag mir, [[wann]] du kommst. (коли)
+> Sag mir, [[wann]] der Kurs beginnt. (о котрій годині)
 > Ich weiß nicht, [[warum]] er nicht anruft. (чому)
 > Kannst du mir erklären, [[wie]] der Automat funktioniert? (як)
 > ```
 >
-> **Пояснення:** *ob* — «чи», *wann* — «коли», *warum* — «чому», *wie* — «як». *Dass* («що») і *wenn* («якщо») не відповідають значенню в дужках.
+> **Пояснення:** *ob* — «чи», *wann* — «коли», *warum* — «чому», *wie* — «як». *Dass* («що») і *weil* («тому що») не відповідають значенню в дужках.
 
 > [!quiz] «Де Ви живете?» Перетвори: «Darf ich fragen, ___?»
 > level: A2 · type: single · id: de-a2-indirekte-fragen-q15
@@ -471,7 +471,7 @@ estimatedMinutes: 35
 >
 > **Пояснення:** питальне слово *wo* лишається, підмет *Sie*, дієслово *wohnen* — в кінці. *Ob* тут зайве: питання не «так / ні».
 
-> [!quiz] Склади ввічливе питання: «Чи не могли б Ви сказати мені, коли офіс відчиняється?»
+> [!quiz] Склади ввічливе питання: «Чи не могли б Ви сказати мені, коли установа відчиняється?»
 > level: A2 · type: order · id: de-a2-indirekte-fragen-q16
 >
 > ```text order
@@ -498,7 +498,6 @@ estimatedMinutes: 35
 ## Джерела та що почитати
 
 - [DWDS — ob](https://www.dwds.de/wb/ob): значення й вживання сполучника ob, приклади.
-- [DWDS — Auskunft](https://www.dwds.de/wb/Auskunft): значення, множина, вимова.
 - [Goethe-Institut — Durchführungsbestimmungen A2 (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A2.pdf): офіційний опис формату іспиту Goethe A2.
 - [DW — Nicos Weg (українською)](https://learngerman.dw.com/uk/nicos-weg/c-36519789): відеокурс A1–B1 з діалогами в побуті.
 

@@ -56,7 +56,7 @@ estimatedMinutes: 55
 
 **Жіноча форма** додає суфікс **-in** (множина — **-innen**): *der Koch → die Köchin, der Lehrer → die Lehrerin, der Arzt → die Ärztin*. Назва чоловічої професії про жінку звучить незвично; у вакансіях побачиш **(m/w/d)** — «чоловік / жінка / інша стать»: *Verkäufer (m/w/d)*. У дужках позначають, що шукають людей усіх статей.
 
-*Lehrer:innen* із двокрапкою трапляється в офіційних текстах як «гендерно чутлива» форма; для розмови досить *Lehrerinnen und Lehrer*.
+*Lehrer:innen* із двокрапкою трапляється в медіа й університетах, але офіційний правопис такої форми не визнає; для розмови досить *Lehrerinnen und Lehrer*.
 
 > [!note] Артикль зазвичай не потрібен, але...
 > *Ich bin Ingenieur* — без артикля. З прикметником артикль потрібен: *Er ist ein guter Ingenieur.* А *Ich bin Ingenieur von Beruf* — також нормально, коли хочеш підкреслити фах.
@@ -66,7 +66,7 @@ estimatedMinutes: 55
 - **Vollzeit** (повна зайнятість) і **Teilzeit** (неповна): *Ich arbeite in Vollzeit / in Teilzeit.*
 - **Minijob** — робота з невеликим обмеженим заробітком (верхня межа залежить від мінімальної погодинної оплати й змінюється); на таких умовах працює багато студентів.
 - **Schicht** — зміна: *Frühschicht, Spätschicht, Nachtschicht*. **Überstunden** — понаднормові години.
-- **Vertrag** — угода: *Ich habe einen Arbeitsvertrag* (трудова угода). **Gehalt** — зарплата (щомісячна), **Lohn** — оплата, найчастіше погодинна; в Швейцарії *Lohn* кажуть і про зарплату загалом.
+- **Vertrag** — угода: *Ich habe einen Arbeitsvertrag* (трудова угода). **Gehalt** — зарплата (щомісячна), **Lohn** — оплата праці, часто погодинна (є й *Monatslohn*); в Швейцарії *Lohn* кажуть і про зарплату загалом.
 - **Bewerbung** — заява на вакансію (резюме, супровідний лист); *sich bewerben* — «подавати заявку» (зворотне дієслово, докладно — на рівні B1).
 
 ## Навчання: duale Ausbildung
@@ -106,7 +106,7 @@ estimatedMinutes: 55
 > uk: майстерня; сервіс (авто)
 > forms: die Werkstätten
 > example: Mein Auto ist in der **Werkstatt**. — Моя машина в майстерні (на сервісі).
-> note: складне слово: das Werk + die Statt. st після k — [ʃt].
+> note: складне слово: das Werk + die Statt. st тут [ʃt], бо Statt — початок другої частини складного слова.
 
 > [!word] die Baustelle
 > ipa: /ˈbaʊ̯ʃtɛlə/ · pos: noun · level: A2 · id: de-a2-arbeit-w04
@@ -173,7 +173,7 @@ estimatedMinutes: 55
 
 > [!word] die Bewerbung
 > ipa: /bəˈvɛʁbʊŋ/ · pos: noun · level: A2 · id: de-a2-arbeit-w13
-> uk: заява (на роботу); аплікація
+> uk: заява на вакансію; подання (резюме)
 > forms: die Bewerbungen
 > example: Ich schreibe heute eine **Bewerbung**. — Сьогодні я пишу заявку на вакансію.
 > note: Bewerbungsunterlagen — пакет документів (резюме, лист, сертифікати).
@@ -267,7 +267,7 @@ estimatedMinutes: 55
 > uk: механік
 > forms: die Mechaniker
 > example: Der **Mechaniker** repariert mein Auto. — Механік ремонтує мою машину.
-> note: жінка — die Mechanikerin. ch перед e = [ç]. Автомеханік офіційно: Kfz-Mechatroniker.
+> note: жінка — die Mechanikerin. ch після e = [ç]. Автомеханік офіційно: Kfz-Mechatroniker.
 
 > [!word] der Elektriker
 > ipa: /eˈlɛktʁɪkɐ/ · pos: noun · level: A2 · id: de-a2-arbeit-w27
@@ -287,7 +287,7 @@ estimatedMinutes: 55
 > ipa: /aʁçiˈtɛkt/ · pos: noun · level: A2 · id: de-a2-arbeit-w29
 > uk: архітектор
 > forms: die Architekten
-> example: Die **Architektin** zeigt den Plan. — Архітекторка показує план.
+> example: Der **Architekt** zeigt den Plan. — Архітектор показує план.
 > note: жінка — die Architektin. Слабке відмінювання: den Architekten. ch перед i = [ç].
 
 > [!word] der Handwerker
@@ -305,7 +305,7 @@ estimatedMinutes: 55
 > note: складне слово: bauen + der Arbeiter.
 
 > [!word] der Zahnarzt
-> ipa: /ˈtsaːnˌʔaːɐ̯tst/ · pos: noun · level: A2 · id: de-a2-arbeit-w32
+> ipa: /ˈtsaːnʔaːɐ̯tst/ · pos: noun · level: A2 · id: de-a2-arbeit-w32
 > uk: стоматолог
 > forms: die Zahnärzte
 > example: Ich habe einen Termin beim **Zahnarzt**. — У мене запис до стоматолога.
@@ -319,11 +319,11 @@ estimatedMinutes: 55
 > note: невідокремлюване (префікс ver- не наголошений).
 
 > [!word] unterrichten
-> ipa: /ˈʊntɐˌʁɪçtn̩/ · pos: verb · level: A2 · id: de-a2-arbeit-w34
+> ipa: /ʊntɐˈʁɪçtn̩/ · pos: verb · level: A2 · id: de-a2-arbeit-w34
 > uk: викладати, давати уроки
 > forms: unterrichten → unterrichtete → hat unterrichtet
 > example: Sie **unterrichtet** Deutsch an einer Schule. — Вона викладає німецьку в школі.
-> note: наголос на першому складі: ˈunterrichten. Також: Ich unterrichte Mathe.
+> note: невідокремлюване: наголос на -rich-, Partizip II без ge-. Також: Ich unterrichte Mathe.
 
 > [!word] bauen
 > ipa: /ˈbaʊ̯ən/ · pos: verb · level: A2 · id: de-a2-arbeit-w35
@@ -337,7 +337,7 @@ estimatedMinutes: 55
 > uk: пекти (хліб, пироги)
 > forms: backen → backte → hat gebacken
 > example: Der Bäcker **backt** Brötchen. — Пекар пече булочки.
-> note: du bäckst / backst, er bäckt / backt — обидві форми. Минулий час: backte (бук — застаріле).
+> note: du bäckst / backst, er bäckt / backt — обидві форми. Минулий час: backte (buk — застаріле).
 
 > [!word] programmieren
 > ipa: /pʁoɡʁaˈmiːʁən/ · pos: verb · level: A2 · id: de-a2-arbeit-w37
@@ -353,7 +353,7 @@ estimatedMinutes: 55
 > note: das Arbeitslosengeld — допомога по безробіттю. Складне слово: Arbeit + -los.
 
 > [!word] berufstätig
-> ipa: /bəˈʁuːfsˌtɛːtɪç/ · pos: adj · level: A2 · id: de-a2-arbeit-w39
+> ipa: /bəˈʁuːfstɛːtɪç/ · pos: adj · level: A2 · id: de-a2-arbeit-w39
 > uk: зайнятий, працюючий
 > example: Meine Eltern sind beide **berufstätig**. — Обоє моїх батьків працюють.
 > note: протилежне — arbeitslos. Можна й erwerbstätig (офіційніше).
@@ -400,7 +400,7 @@ estimatedMinutes: 55
 
 ## Вимова
 
-Складні слова (*Arbeitsplatz, Berufsschule, Zahnarzt*) мають наголос на першій частині: *ˈArbeitsplatz*. Професії на -er (*Lehrer, Bäcker, Mechaniker*) закінчуються на нескладовий [ɐ]. Професії іншомовного походження наголошені на останньому складі: *Ingenieur, Friseur, Architekt*.
+Складні слова (*Arbeitsplatz, Berufsschule, Zahnarzt*) мають наголос на першій частині: *ˈArbeitsplatz*. Професії на -er (*Lehrer, Bäcker, Mechaniker*) закінчуються на нескладовий [ɐ]. Професії на *-eur, -ist, -ekt* наголошені на останньому складі (*Ingenieur, Friseur, Polizist, Architekt*); у словах на *-iker* наголос стоїть перед цим суфіксом (*Meˈchaniker, Eˈlektriker*).
 
 > [!speak] Скажи вголос
 > level: A2 · speed: slow · id: de-a2-arbeit-s01
@@ -413,7 +413,7 @@ estimatedMinutes: 55
 > level: A2 · speed: slow · id: de-a2-arbeit-s02
 > text: Ich arbeite als Mechaniker in einer Werkstatt.
 > ipa: /ɪç ˈaʁbaɪ̯tə als meˈçaːnɪkɐ ɪn ˈaɪ̯nɐ ˈvɛʁkʃtat/
-> tip: Mechaniker: ch перед e — легке [ç], наголос на -cha-. Werkstatt: наголос на першому складі, -st- = «шт».
+> tip: Mechaniker: ch після e — легке [ç], наголос на -cha-. Werkstatt: наголос на першому складі, -st- = «шт».
 > uk: Я працюю механіком у майстерні.
 
 > [!speak] Скажи вголос
@@ -442,7 +442,7 @@ estimatedMinutes: 55
 > **die Praxis** — це кабінет лікаря (або практика в протилежність теорії), «практика студента» — *das Praktikum*. **der Chef** — керівник, начальник, а шеф-кухар — *der Küchenchef*. Також **die Stelle** — це не лише «місце», а й «вакансія»: *eine Stelle suchen*.
 
 > [!pitfall] Arbeit, Stelle і Gehalt, Lohn
-> *Arbeit* — «праця, робота» як діяльність; «вакансія» — *Stelle*. «Я шукаю роботу» — *Ich suche eine Stelle* (або *Arbeit*). «Я безробітний» — *Ich bin arbeitslos*. Не плутай також *Gehalt* (щомісячна зарплата) і *Lohn* (оплата, найчастіше погодинна).
+> *Arbeit* — «праця, робота» як діяльність; «вакансія» — *Stelle*. «Я шукаю роботу» — *Ich suche eine Stelle* (або *Arbeit*). «Я безробітний» — *Ich bin arbeitslos*. Не плутай також *Gehalt* (щомісячна зарплата) і *Lohn* (оплата праці, часто погодинна).
 
 ## Ситуація: телефонуємо щодо вакансії
 
@@ -457,7 +457,7 @@ estimatedMinutes: 55
 > - [ ] у вівторок о десятій
 > - [ ] у понеділок о девʼятій
 >
-> **Пояснення:** *am Montag um zehn Uhr* — у понеділок о 10:00. Закінчення *-in* у *Verkäuferin* підкреслює, що шукають жінку-продавчиню, хоча формально вакансія для будь-кого.
+> **Пояснення:** *am Montag um zehn Uhr* — у понеділок о 10:00. Жінка називає себе *Verkäuferin* — жіноча форма професії.
 
 Скажи вголос.
 
@@ -471,7 +471,7 @@ estimatedMinutes: 55
 > [!speak] «Я два роки працювала в супермаркеті»
 > level: A2 · speed: slow · id: de-a2-arbeit-s06
 > text: Ich habe zwei Jahre in einem Supermarkt gearbeitet.
-> ipa: /ɪç ˈhaːbə tsvaɪ̯ ˈjaːʁə ɪn ˈaɪ̯nəm ˈzuːpɐˌmaʁkt ɡəˈaʁbaɪ̯tət/
+> ipa: /ɪç ˈhaːbə tsvaɪ̯ ˈjaːʁə ɪn ˈaɪ̯nəm ˈzuːpɐˌmaʁkt ɡəˈʔaʁbaɪ̯tət/
 > tip: Jahre: j = [j] як українське «й». Supermarkt: наголос на Su-, -markt закінчується на [kt]. gearbeitet: Partizip II з ge-.
 > uk: Я два роки працювала в супермаркеті.
 
@@ -578,7 +578,7 @@ estimatedMinutes: 55
 ## Фішки
 
 > [!reel] 👨‍🔧 Прізвища-професії
-> Найпоширеніше німецьке прізвище — **Müller** (від *Müller*, мірошник). Поряд із ним — *Schmidt / Schmitt* (коваль, *Schmied*), *Schneider* (кравець), *Fischer*, *Weber* (ткач), *Becker* (пекар, *Bäcker*), *Wagner* (возник). Колись прізвища походили від ремесла — звідси й «професійний» словник німецьких телефонних книг.
+> Найпоширеніше німецьке прізвище — **Müller** (від *Müller*, мірошник). Поряд із ним — *Schmidt / Schmitt* (коваль, *Schmied*), *Schneider* (кравець), *Fischer*, *Weber* (ткач), *Becker* (пекар, *Bäcker*), *Wagner* (стельмах, майстер возів). Колись прізвища походили від ремесла — звідси й «професійний» словник німецьких телефонних книг.
 
 > [!reel] 👔 Chef — це не шеф-кухар
 > Німецьке *Chef* походить від французького *chef* («голова», «керівник») і означає «начальник»: *mein Chef, die Chefin*. Шеф-кухар — це *der Küchenchef*. А *Koch* — просто кухар. Помилка «Er ist Chef im Restaurant» означає «він керівник», а не «шеф-кухар».
@@ -600,6 +600,6 @@ estimatedMinutes: 55
 > [!important] Підсумок
 > - Професія після *sein* — без артикля (*Ich bin Köchin*); «ким працюю» — *arbeiten als*; «у компанії» — *bei*; «в приміщенні» — *in*.
 > - Жіночі форми — на **-in** (*Ärztin, Lehrerin*); у вакансіях бачиш **(m/w/d)**.
-> - *Vollzeit / Teilzeit*, *Minijob*, *Schicht*, *Gehalt* (щомісячно) і *Lohn* (погодинно).
+> - *Vollzeit / Teilzeit*, *Minijob*, *Schicht*, *Gehalt* (щомісячно) і *Lohn* (оплата праці, часто погодинна).
 > - *duale Ausbildung* = навчання в підприємстві й у *Berufsschule*, учень — *Azubi*; в AT і CH — *Lehre*.
 > - Фальшиві друзі: *die Praxis* (кабінет), *das Praktikum* (стажування), *der Chef* (начальник).

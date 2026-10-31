@@ -29,7 +29,16 @@ estimatedMinutes: 45
 
 ## Як слухати оголошення
 
-Оголошення (*die Durchsage*, *die Ansage*) — короткий текст, який часто чуєш у шумі й без можливості перепитати. Не зрозуміти всі слова — нормально. Потрібно знати, **що саме шукати**. Модуль Hören в іспиті Goethe-Zertifikat A2 триває приблизно 30 хвилин.
+Оголошення (*die Durchsage*, *die Ansage*) — короткий текст, який часто чуєш у шумі й без можливості перепитати. Не зрозуміти всі слова — нормально. Потрібно знати, **що саме шукати**. Модуль Hören в іспиті Goethe-Zertifikat A2 триває 30 хвилин і має чотири частини.
+
+| Частина | Що слухаєш | Скільки разів | Завдання |
+|---|---|---|---|
+| 1 | п'ять коротких текстів (оголошення, повідомлення на автовідповідачі) | двічі | 1–5: варіанти a, b, c |
+| 2 | одна розмова | один раз | 6–10: підібрати картинку з a–i |
+| 3 | п'ять коротких розмов | один раз | 11–15: варіанти a, b, c |
+| 4 | інтерв'ю | двічі | 16–20: Ja / Nein |
+
+Формат подано за офіційним модельним тестом.
 
 > [!diagram] Стратегія: запитання → ключове слово → виправлення
 > ```yaml
@@ -78,7 +87,7 @@ estimatedMinutes: 45
 > nodes:
 >   - { id: a1, col: a, label: "14:30", text: "vierzehn Uhr dreißig", tone: yellow }
 >   - { id: a2, col: a, label: "18:37", text: "achtzehn Uhr siebenunddreißig", tone: yellow }
->   - { id: b1, col: b, label: "14:30", text: "halb drei", tone: pink }
+>   - { id: b1, col: b, label: "14:30 / 2:30", text: "halb drei", tone: pink }
 >   - { id: b2, col: b, label: "18:45", text: "Viertel vor sieben", tone: pink }
 > steps:
 >   - { focus: [a1, a2], note: "На вокзалі й в аеропорту час майже завжди 24-годинний: vierzehn Uhr dreißig. Просто запиши цифри." }
@@ -94,7 +103,7 @@ estimatedMinutes: 45
 - Heute im Angebot: Äpfel für 1,99 Euro das Kilo. — Сьогодні за акцією: яблука по 1,99 євро за кілограм.
 - Im Norden regnet es, im Süden scheint die Sonne. — На півночі йде дощ, на півдні світить сонце.
 - Die Temperaturen steigen bis 22 Grad. — Температура підніметься до 22 градусів.
-- Sie sind verbunden mit der Praxis Dr. Weber. — Ви зателефонували в практику доктора Вебера.
+- Sie sind verbunden mit der Praxis Dr. Weber. — Ви додзвонилися до кабінету (Praxis) доктора Вебера.
 - Bitte schalten Sie Ihr Handy aus. — Будь ласка, вимкніть мобільний телефон.
 - Vorsicht an der Bahnsteigkante! — Обережно, край платформи!
 - Unser Geschäft schließt in zehn Minuten. — Наш магазин зачиняється за десять хвилин.
@@ -135,7 +144,7 @@ estimatedMinutes: 45
 > note: v у Vor- = [f]. Попередження про небезпеку. Іменник die Vorsicht — обережність.
 
 > [!word] beachten
-> ipa: /bəˈaxtn̩/ · pos: verb · level: B1 · id: de-a2-hoeren-durchsagen-w06
+> ipa: /bəˈʔaxtn̩/ · pos: verb · level: B1 · id: de-a2-hoeren-durchsagen-w06
 > uk: зважати; брати до уваги; дотримуватися
 > forms: beachten → beachtete → hat beachtet
 > example: Bitte **beachten** Sie die Hinweise. — Будь ласка, зверніть увагу на вказівки.
@@ -285,7 +294,7 @@ estimatedMinutes: 45
 
 > [!listen] Послухай оголошення в автобусі. Де зупиниться автобус?
 > level: A2 · type: answer · speed: slow · id: de-a2-hoeren-durchsagen-l12
-> audio: Liebe Fahrgäste, wegen einer Baustelle hält der Bus zwölf heute nicht am Marktplatz, sondern am Rathaus.
+> audio: Liebe Fahrgäste, wegen einer Baustelle hält der Bus Nummer zwölf heute nicht am Marktplatz, sondern am Rathaus.
 > - [ ] на Marktplatz
 > - [x] біля Rathaus
 > - [ ] біля Bahnhof
@@ -367,7 +376,7 @@ estimatedMinutes: 45
 
 ## Типові помилки українців
 
-> [!pitfall] Берете перше число, а не виправлене
+> [!pitfall] Береш перше число, а не виправлене
 > В оголошенні часто чути два числа: старе й нове (*nicht um neun, sondern um zehn*). Записуєш перше, бо воно прозвучало першим, і відповідаєш неправильно. Слухай слова-сигнали: *nicht … sondern, eine Änderung, jetzt*. Правильна інформація зазвичай після них.
 
 > [!pitfall] fünfzehn або fünfzig, siebzehn або siebzig
@@ -376,8 +385,8 @@ estimatedMinutes: 45
 > [!pitfall] Спроба зрозуміти кожне слово
 > Оголошення довге, і хочеться розуміти все. Це перевантажує: ти пропускаєш число. Визнач, що питають (колія? час? ціна?), і слухай лише це. Незнайомі слова можна пропустити. Корисно знати лише формули-сигнали: *Achtung, Vorsicht, Bitte beachten Sie*.
 
-> [!pitfall] Година в оголошенні й «пів на…»
-> На вокзалі чуєш *vierzehn Uhr dreißig*, а не *halb drei*. Українець, який звик до «пів на третю», губиться. Запиши цифри як є: 14:30. Розмовне *halb drei* — 2:30, і воно дає ту саму годину в іншому записі.
+> [!pitfall] 24 години й «halb drei»
+> На вокзалі чуєш *vierzehn Uhr dreißig*, а не *halb drei*: запиши цифри як є, 14:30. Коли ж у розмові чуєш *halb drei*, це 2:30, а не 3:30: «пів на третю», як в українській, на відміну від англійського *half three*.
 
 ## Практика
 
@@ -454,7 +463,7 @@ estimatedMinutes: 45
 >
 > **Пояснення:** запізнення — *die Verspätung*. *Ankunft* (прибуття) і *Abfahrt* (відправлення) — моменти, а не запізнення, тому *hat zehn Minuten Ankunft* неможливе.
 
-> [!quiz] Склади оголошення: «Потяг відправляється з колії восьмої.»
+> [!quiz] Склади оголошення: «Потяг відправляється з восьмої колії.»
 > level: A2 · type: order · id: de-a2-hoeren-durchsagen-q10
 >
 > ```text order
@@ -506,7 +515,8 @@ estimatedMinutes: 45
 
 ## Джерела та що почитати
 
-- [Goethe-Institut — Durchführungsbestimmungen A2](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A2.pdf) — формат екзамену Goethe-Zertifikat A2: Hören ≈ 30 хвилин.
+- [Goethe-Institut — Durchführungsbestimmungen A2](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A2.pdf) — офіційні умови проведення Goethe-Zertifikat A2.
+- [Goethe-Institut — Modellsatz A2, Hören](https://bfu.goethe.de/a2_mod_2MX5/hoeren.php) — офіційний онлайн-тест: чотири частини, 20 завдань, 30 хвилин.
 - [DWDS — Durchsage](https://www.dwds.de/wb/Durchsage) — значення слова.
 - [DWDS — Ansage](https://www.dwds.de/wb/Ansage) — значення слова.
 - [DWDS — Wettervorhersage](https://www.dwds.de/wb/Wettervorhersage) — значення слова.

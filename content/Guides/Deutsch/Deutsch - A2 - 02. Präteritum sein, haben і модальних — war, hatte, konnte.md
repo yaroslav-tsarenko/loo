@@ -109,7 +109,7 @@ estimatedMinutes: 35
 > [!word] damals
 > ipa: /ˈdaːmaːls/ · pos: adv · level: A2 · id: de-a2-praeteritum-basis-w01
 > uk: тоді; у ті часи
-> example: **Damals** hatte ich noch kein Handy. — Тоді в мене ще не було телефона.
+> example: **Damals** hatte ich noch kein Handy. — Тоді в мене ще не було телефону.
 > note: про віддалений у часі минулий момент; наголос на da-.
 
 > [!word] früher
@@ -145,7 +145,7 @@ estimatedMinutes: 35
 > [!word] Glück haben
 > ipa: /ɡlʏk ˈhaːbn̩/ · pos: phrase · level: A2 · id: de-a2-praeteritum-basis-w07
 > uk: мати щастя; пощастити
-> example: Wir hatten **Glück**: Der Zug kam noch. — Нам пощастило: потяг ще не поїхав.
+> example: Wir hatten **Glück**: Der Zug war noch da. — Нам пощастило: потяг ще не поїхав.
 > note: das Glück, без множини. ü коротке, ck = [k].
 
 > [!word] zum Glück
@@ -155,10 +155,10 @@ estimatedMinutes: 35
 > note: zum = zu + dem.
 
 > [!word] eigentlich
-> ipa: /ˈaɪ̯ɡŋ̩tlɪç/ · pos: adv · level: A2 · id: de-a2-praeteritum-basis-w09
+> ipa: /ˈaɪ̯ɡn̩tlɪç/ · pos: adv · level: A2 · id: de-a2-praeteritum-basis-w09
 > uk: власне; насправді
 > example: Ich wollte **eigentlich** zu Hause bleiben. — Я власне хотів залишитися вдома.
-> note: eigentlich помʼякшує речення; не плутати з «насправді» у значенні «правду кажучи».
+> note: eigentlich помʼякшує речення. «Правду кажучи» — ehrlich gesagt.
 
 > [!word] es gab
 > ipa: /ɛs ɡaːp/ · pos: phrase · level: A2 · id: de-a2-praeteritum-basis-w10
@@ -217,7 +217,7 @@ estimatedMinutes: 35
 > audio: A: Wie war dein Wochenende?
 > audio: B: Am Samstag hatten wir Glück mit dem Wetter. Wir durften sogar im Park grillen. Am Sonntag war es leider kalt.
 > - [ ] У суботу була холодна погода.
-> - [x] У суботу була гарна погода й вони грилювали, у неділю було холодно.
+> - [x] У суботу була гарна погода й вони смажили на грилі, у неділю було холодно.
 > - [ ] Усі вихідні було тепло.
 
 ## Вимова
@@ -275,7 +275,7 @@ estimatedMinutes: 35
 > У Präteritum модальних уже є -te: *wollte, musste*. Нове закінчення додаємо після нього: *du wollte**st***, *wir wollte**n***, *ihr wollte**t***. Але 1-ша й 3-тя особа однини — без закінчення: *ich wollte, er musste*. Так само *du konnte**st*** (не *konnst*), *du durfte**st***.
 
 > [!pitfall] Perfekt модального: «Ich habe nicht kommen gekonnt»
-> Така форма існує лише у вигляді подвійного інфінітива (*Ich habe nicht kommen können*), і в розмові її майже не вживають. Для минулого з модальним бери Präteritum: *Ich konnte nicht kommen*. Те саме з *sein* і *haben*: *Ich war krank* замість *Ich bin krank gewesen* (хоча обидва варіанти можливі).
+> Така форма існує лише у вигляді подвійного інфінітива (*Ich habe nicht kommen können*), але в розмові її вживають рідше, ніж Präteritum (*konnte*). Для минулого з модальним бери Präteritum: *Ich konnte nicht kommen*. Те саме з *sein* і *haben*: *Ich war krank* замість *Ich bin krank gewesen* (хоча обидва варіанти можливі).
 
 > [!pitfall] «Ich war gehabt Zeit» і «Ich habe war krank»
 > *war* і *hatte* — це вже готові форми Präteritum. Їх не комбінують із допоміжним дієсловом чи Partizip: *Ich **war** krank*, *Ich **hatte** keine Zeit*. Додаючи ще *habe* або *ist*, ти змішуєш два часи в одному реченні.
@@ -302,11 +302,11 @@ estimatedMinutes: 35
 > [!quiz] Обери форму: «Gestern ___ ich krank.»
 > level: A2 · type: single · id: de-a2-praeteritum-basis-q02
 > - [ ] bin
-> - [ ] wurde
+> - [ ] warst
 > - [x] war
 > - [ ] habe
 >
-> **Пояснення:** про стан у минулому кажемо *war*. *Bin* — теперішній час, а *habe* — допоміжне дієслово для іншої групи дієслів.
+> **Пояснення:** про стан у минулому кажемо *war*. *Bin* — теперішній час, *warst* — форма для *du*, а *habe* — допоміжне дієслово для іншої групи дієслів.
 
 > [!quiz] Обери форму: «Wir ___ keine Zeit.»
 > level: A2 · type: single · id: de-a2-praeteritum-basis-q03

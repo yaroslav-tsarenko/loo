@@ -74,7 +74,7 @@ estimatedMinutes: 40
 Характер описуємо через *sein* + прикметник: *Er ist ehrlich. Sie ist sehr fleißig.* Українська каже «він чесний», німецька так само — але прикметник не змінюється: *Er ist ehrlich*, *Sie ist ehrlich*, *Sie sind ehrlich*.
 
 > [!tip] sympathisch — це не «симпатичний»
-> *Sie ist sympathisch* означає, що вона приємна в спілкуванні, викликає симпатію. Про зовнішність кажуть *hübsch* або *attraktiv*. Те саме з *nervös*: це «нервує, хвилюється», а не «нервова людина за характером».
+> *Sie ist sympathisch* означає, що вона приємна в спілкуванні, викликає симпатію. Про зовнішність кажуть *hübsch* або *attraktiv*. Те саме з *nervös*: частіше про стан — *Ich bin nervös* означає «я хвилююся».
 
 ### Стосунки: від знайомства до розставання
 
@@ -108,12 +108,12 @@ estimatedMinutes: 40
 
 - Ich bin heute sehr aufgeregt. Morgen ist mein Vorstellungsgespräch. — Я сьогодні дуже хвилююсь. Завтра моя співбесіда.
 - Sie ist traurig, weil ihre Freundin umzieht. — Вона сумна, бо її подруга переїздить.
-- Warum bist du so wütend? — Чому ти така злюща?
+- Warum bist du so wütend? — Чому ти така розлючена?
 - Wie fühlst du dich heute? — Ich fühle mich viel besser. — Як ти себе почуваєш? — Набагато краще.
 - Mein Bruder ist schüchtern, aber sehr zuverlässig. — Мій брат соромʼязливий, але дуже надійний.
 - Meine Oma ist großzügig. Sie schenkt allen etwas. — Моя бабуся щедра. Вона всім щось дарує.
 - Wir haben uns gestritten, aber jetzt haben wir uns wieder vertragen. — Ми посварились, але тепер помирились.
-- Er hat sich bei ihr entschuldigt. — Він перепросив у неї.
+- Er hat sich bei ihr entschuldigt. — Він вибачився перед нею.
 - Ich vertraue dir. — Я тобі довіряю.
 - Sie lächelt, aber ihre Augen sind traurig. — Вона посміхається, але очі в неї сумні.
 
@@ -283,7 +283,7 @@ estimatedMinutes: 40
 > uk: любов
 > forms: — (без множини)
 > example: Die **Liebe** ist wichtig im Leben. — Любов важлива в житті.
-> note: Ich liebe dich — дуже сильно; про друзів і рідню частіше Ich hab dich lieb.
+> note: Ich liebe dich — найчастіше партнерові, нерідко й у родині; друзям радше кажуть Du bist mir wichtig.
 
 > [!word] der Streit
 > ipa: /ʃtʁaɪ̯t/ · pos: noun · level: A2 · id: de-a2-gefuehle-w27
@@ -308,63 +308,56 @@ estimatedMinutes: 40
 > [!word] sich streiten (mit + Dat)
 > ipa: /zɪç ˈʃtʁaɪ̯tn̩/ · pos: verb · level: A2 · id: de-a2-gefuehle-w30
 > uk: сваритися
-> forms: streitet sich → stritt sich → hat sich gestritten
+> forms: sich streiten → stritt sich → hat sich gestritten
 > example: Wir **streiten** uns selten. — Ми рідко сваримося.
 > note: «через що» — streiten über + Akk або um + Akk; «з ким» — mit + Dat.
 
 > [!word] sich vertragen
 > ipa: /zɪç fɛɐ̯ˈtʁaːɡn̩/ · pos: verb · level: A2 · id: de-a2-gefuehle-w31
 > uk: ладнати; миритися
-> forms: verträgt sich → vertrug sich → hat sich vertragen
+> forms: sich vertragen → er verträgt sich · vertrug sich · hat sich vertragen
 > example: Die Geschwister **vertragen** sich gut. — Брат і сестра добре ладнають.
 > note: «помиритися» і «ладнати» — те саме дієслово.
 
-> [!word] sich entschuldigen (bei + Dat)
-> ipa: /zɪç ɛntˈʃʊldɪɡn̩/ · pos: verb · level: A2 · id: de-a2-gefuehle-w32
-> uk: перепрошувати
-> forms: entschuldigt sich → entschuldigte sich → hat sich entschuldigt
-> example: Er **entschuldigt** sich bei ihr für die Verspätung. — Він перепрошує в неї за запізнення.
-> note: «перед ким» — bei + Dat; «за що» — für + Akk. Entschuldigen Sie! — звернення до незнайомого.
-
 > [!word] vertrauen
-> ipa: /fɛɐ̯ˈtʁaʊ̯ən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w33
+> ipa: /fɛɐ̯ˈtʁaʊ̯ən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w32
 > uk: довіряти
-> forms: vertraut → vertraute → hat vertraut
+> forms: vertrauen → vertraute → hat vertraut
 > example: Ich **vertraue** dir. — Я тобі довіряю.
 > note: довіряти комусь — Dativ: dir, ihm. Іменник — das Vertrauen.
 
 > [!word] der Partner
-> ipa: /ˈpaʁtnɐ/ · pos: noun · level: A2 · id: de-a2-gefuehle-w34
+> ipa: /ˈpaʁtnɐ/ · pos: noun · level: A2 · id: de-a2-gefuehle-w33
 > uk: партнер (у стосунках, у бізнесі)
 > forms: die Partner
 > example: Mein **Partner** kocht gern. — Мій партнер любить готувати.
 > note: жінка — die Partnerin. Нейтральне слово для чоловіка / дружини / подруги чи друга у стосунках.
 
 > [!word] sich trennen (von + Dat)
-> ipa: /zɪç ˈtʁɛnən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w35
+> ipa: /zɪç ˈtʁɛnən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w34
 > uk: розлучатися; розходитися
-> forms: trennt sich → trennte sich → hat sich getrennt
+> forms: sich trennen → trennte sich → hat sich getrennt
 > example: Sie hat **sich** von ihm **getrennt**. — Вона розійшлася з ним.
 > note: «розійтися з кимось» — sich trennen von + Dat; Mülltrennung — те саме дієслово, інший контекст.
 
 > [!word] die Sorge
-> ipa: /ˈzɔʁɡə/ · pos: noun · level: A2 · id: de-a2-gefuehle-w36
+> ipa: /ˈzɔʁɡə/ · pos: noun · level: A2 · id: de-a2-gefuehle-w35
 > uk: турбота; хвилювання
 > forms: die Sorgen
 > example: Ich mache mir **Sorgen** um dich. — Я хвилююся за тебе.
 > note: sich Sorgen machen um + Akk. s перед голосним — дзвінке [z].
 
 > [!word] lächeln
-> ipa: /ˈlɛçl̩n/ · pos: verb · level: A2 · id: de-a2-gefuehle-w37
+> ipa: /ˈlɛçl̩n/ · pos: verb · level: A2 · id: de-a2-gefuehle-w36
 > uk: усміхатися
-> forms: lächelt → lächelte → hat gelächelt
+> forms: lächeln → lächelte → hat gelächelt
 > example: Sie **lächelt** immer, wenn sie ihn sieht. — Вона завжди усміхається, коли бачить його.
 > note: lächeln — тихо усміхатися, lachen — сміятися голосно. ä = [ɛ], ch після ä = [ç].
 
 > [!word] weinen
-> ipa: /ˈvaɪ̯nən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w38
+> ipa: /ˈvaɪ̯nən/ · pos: verb · level: A2 · id: de-a2-gefuehle-w37
 > uk: плакати
-> forms: weint → weinte → hat geweint
+> forms: weinen → weinte → hat geweint
 > example: Das Baby **weint**. — Малюк плаче.
 > note: w = «в»; ei = [aɪ̯].
 
@@ -450,7 +443,7 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: de-a2-gefuehle-s04
 > text: Wir haben uns gestritten und uns wieder vertragen.
 > ipa: /viːɐ̯ ˈhaːbn̩ ʊns ɡəˈʃtʁɪtn̩ ʊnt ʊns ˈviːdɐ fɛɐ̯ˈtʁaːɡn̩/
-> tip: gestritten — gesch- на початку «ґеш-», -tt- коротке. wieder — довге [iː].
+> tip: gestritten — ge-str-: st = [ʃt], «ге-штріттен»; -tt- коротке. wieder — довге [iː].
 > uk: Ми посварилися і знову помирилися.
 
 > [!speak] Скажи вголос
@@ -515,8 +508,8 @@ estimatedMinutes: 40
 > level: A2 · type: single · id: de-a2-gefuehle-q02
 > - [ ] Тільки «подруга».
 > - [x] «Подруга» або «дівчина (партнерка)».
-> - [ ] Тільки «колега».
-> - [ ] Тільки «сестра».
+> - [ ] Тільки «знайома».
+> - [ ] Тільки «однокласниця».
 >
 > **Пояснення:** текст: *Mein Freund und meine Freundin können auch Partner bedeuten.* Щоб підкреслити дружбу, кажуть *eine gute Freundin* або *eine Freundin von mir*.
 
@@ -531,10 +524,10 @@ estimatedMinutes: 40
 
 > [!quiz] Що кажуть друзям замість «Ich liebe dich» (за текстом)?
 > level: A2 · type: single · id: de-a2-gefuehle-q04
-> - [ ] Ich hasse dich.
+> - [ ] Ich vermisse dich.
 > - [x] Du bist mir wichtig.
 > - [ ] Ich bin stolz auf dich.
-> - [ ] Guten Tag.
+> - [ ] Ich möchte dich heiraten.
 >
 > **Пояснення:** текст: *Unter Freunden sagt man eher „Du bist mir wichtig“.*
 
@@ -656,22 +649,13 @@ estimatedMinutes: 40
 >
 > **Пояснення:** *wir* → *uns*; *nie* стоїть наприкінці.
 
-> [!quiz] Що означає «zuverlässig»?
-> level: A2 · type: single · id: de-a2-gefuehle-q15
-> - [ ] обережний
-> - [x] надійний
-> - [ ] ввічливий
-> - [ ] швидкий
->
-> **Пояснення:** *zuverlässig* — той, на кого можна покластися.
-
 ## Фішки
 
-> [!reel] 🌍 Слова, яких немає в інших мовах
+> [!reel] 🌍 Слова, які важко перекласти одним словом
 > У німецькій є слова для відчуттів, які інші мови описують цілим реченням. *Fernweh* — тяга до далеких країн (протилежність *Heimweh*), *Schadenfreude* — радість від чужої невдачі, *Weltschmerz* — смуток від недосконалості світу. Частину з цих слів запозичила англійська.
 
 > [!reel] 🦋 Метелики в животі
-> Німці кажуть *Schmetterlinge im Bauch haben* — «мати метеликів у животі», коли закохані. Українська має точно такий самий образ. А ще: *einen Kloß im Hals haben* — «ком у горлі», коли хочеться плакати, і *Daumen drücken* — «тиснути великий палець» (наш відповідник — «тримати кулаки»).
+> Німці кажуть *Schmetterlinge im Bauch haben* — «мати метеликів у животі», коли закохані. Українська має точно такий самий образ. А ще: *einen Kloß im Hals haben* — «клубок у горлі», коли хочеться плакати, і *Daumen drücken* — «тиснути великі пальці» (наш відповідник — «тримати кулаки»).
 
 > [!reel] 🗣️ Ich liebe dich — не для всіх
 > Німці зазвичай не кажуть «Ich liebe dich» знайомим чи друзям: цю фразу залишають для партнера й близьких. Друзям радше скажуть *Ich mag dich* або *Du bist mir wichtig*. Тому не дивуйся, якщо колега не відповів «так само».
@@ -691,5 +675,5 @@ estimatedMinutes: 40
 > - Почуття: **Ich bin froh / traurig / wütend**, **Mir ist langweilig / kalt**, **Ich fühle mich einsam**, **Ich habe Angst / Sorgen**.
 > - Прикметники з прийменниками: *stolz auf + Akk*, *eifersüchtig auf + Akk*, *verliebt in + Akk*, *zufrieden mit + Dat*, *enttäuscht von + Dat*.
 > - Характер: *ehrlich, großzügig, schüchtern, zuverlässig, geduldig, mutig*.
-> - Стосунки: *sich verlieben, sich streiten, sich vertragen, sich entschuldigen, sich trennen* — усі зворотні.
+> - Стосунки: *sich verlieben, sich streiten, sich vertragen, sich trennen* — усі зворотні.
 > - *sympathisch* — про характер, *hübsch* — про вигляд. *Mir ist langweilig*, а не ~~Ich bin langweilig~~.
