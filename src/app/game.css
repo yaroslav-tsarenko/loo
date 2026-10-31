@@ -146,7 +146,7 @@
 /* live try-on: sticky on wide screens so it follows the catalog */
 .shop-stage-card {
   position: sticky;
-  top: 76px;
+  top: calc(76px + var(--lu-safe-top, 0px));
   z-index: 2;
 }
 .shop-stage {

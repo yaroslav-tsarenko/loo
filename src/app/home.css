@@ -39,7 +39,7 @@
   display: grid;
   gap: 12px;
   position: sticky;
-  top: 64px;
+  top: calc(64px + var(--lu-safe-top, 0px));
 }
 
 /* Continue: Loo's violet hero block with a few pixel sparkles in the corner */

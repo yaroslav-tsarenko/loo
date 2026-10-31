@@ -60,7 +60,7 @@
 .path-banner {
   --s: 4px;
   position: sticky;
-  top: calc(45px + 8px);
+  top: calc(45px + 8px + var(--lu-safe-top, 0px));
   z-index: 3;
   isolation: isolate;
   display: flex;

@@ -879,7 +879,7 @@
   /* Queue card */
   .queue {
     position: sticky;
-    top: 64px;
+    top: calc(64px + var(--lu-safe-top, 0px));
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
