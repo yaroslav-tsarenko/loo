@@ -201,6 +201,7 @@ estimatedMinutes: 35
 8. **Кольори в `[!diagram]` для членів речення:** підмет/займенник — мʼятний, дієслово — помаранчевий, решта — сірий; для роду — §1 п. 4. Скрізь текстова мітка поруч із кольором.
 9. **Джерела:** curl → 200; виняток — goethe.de (захист від ботів, 403 для curl): посилання дозволені, якщо сторінка відкривається в браузері.
 10. **«Одне слово — одна картка»:** перед карткою перевір `grep -r "\[!word\] <слово>" content/Guides/Deutsch content/Guides/Deutschland`. Уже закартковані в A1-06: das Kind, der Tisch, der Stuhl, die Tür, das Handy, das Museum (A1-08, A1-20, A1-24 — лише в прикладах).
+10a. **Дубль картки:** слово належить темі з **меншим номером** (порядок курсу: A1-01 … C2-22, потім Deutschland); пізніша тема прибирає свою картку й лишає слово в прикладах. `pos:` для чисел — `num`, для артиклів і `kein` — `art`; країни й мови без артикля в заголовку (Deutschland, Deutsch).
 11. **`_guide.md` з повним списком тем** дає попередження `broken-link`, доки хвилі не допишуть теми, — це очікувано.
 
 ### 2.7 Правила після рецензії хвилі 0 (обовʼязкові; мають пріоритет над §2.4–§2.6, якщо розходяться)
@@ -309,7 +310,7 @@ der Mauerbau, die Stasi; B1-13 — der Mauerfall, die Wende, die Wiedervereinigu
 | 25 | 125 | Прийменники часу — am, um, im, von … bis, vor, nach | grammar | `de-a1-zeitpraep` | um 8 Uhr / am Montag / am Morgen / im Mai / im Sommer / 2026 без прийменника; von 9 bis 17 Uhr, vor / nach dem Essen (перший погляд на Dativ); `[!diagram]` «від точки до періоду» | 12 | 4 | 4 | 0 | 16 |
 | 26 | 126 | Perfekt — перші кроки | grammar | `de-a1-perfekt` | Was hast du gemacht? haben / sein + Partizip II (gemacht, gegessen, gefahren), sein для руху й зміни стану; Partizip у кінці речення; у розмові Perfekt = основний минулий час | 20 | 6 | 6 | 0 | 16 |
 | 27 | 127 | Вільний час, хобі й погода — gern, lieber | vocabulary | `de-a1-freizeit` | хобі й спорт, gern / lieber / am liebsten, spielen / machen / gehen, погода (Es regnet, Es ist sonnig), пори року, Wie ist das Wetter? | 40 | 6 | 6 | 0 | 12 |
-| 28 | 128 | Аудіювання — щоденні діалоги | listening | `de-a1-hoeren-dialoge` | короткі діалоги: кафе, магазин, вулиця, знайомство, телефон; choice / answer / dictation, slow → normal; відповіді учня через `[!speak]` | 10 | 18 | 6 | 0 | 12 |
+| 28 | 128 | Аудіювання — щоденні діалоги | listening | `de-a1-hoeren-dialoge` | короткі діалоги: кафе, магазин, вулиця, знайомство, телефон; choice / answer / dictation, `speed: slow` (§2.7.6); відповіді учня через `[!speak]` | 10 | 18 | 6 | 0 | 12 |
 | 29 | 129 | Читання й письмо — формуляр, оголошення, коротке повідомлення | skills | `de-a1-lesen-schreiben` | вивіски, оголошення, меню, SMS; Formular (Vorname, Nachname, Geburtsdatum, Wohnort) і коротка записка ≈ 30 слів — як у Start Deutsch 1 Schreiben; велика літера в іменниках, Sie з великої; Landeskunde: оголошення на дверях будинку | 20 | 4 | 3 | 0 | 14 |
 | 30 | 130 | Підсумок A1 — тест рівня | review | `de-a1-review` | змішані тести з усіх тем (choice / fill / order), диктант, мінімальні пари, чекліст «я вмію» A1; без нового матеріалу | 0 | 10 | 6 | 6 | 30 |
 
