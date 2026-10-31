@@ -1232,7 +1232,7 @@
   .read-progress {
     display: block;
     position: fixed;
-    inset: env(safe-area-inset-top) 0 auto 0;
+    inset: var(--lu-safe-top, env(safe-area-inset-top)) 0 auto 0;
     z-index: calc(var(--lu-z-nav) + 1);
     height: 4px;
     pointer-events: none;

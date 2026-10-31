@@ -54,7 +54,7 @@
     top: 0;
     height: 100dvh;
     /* the drawer on phones covers the status bar and the home indicator too */
-    padding-top: env(safe-area-inset-top);
+    padding-top: var(--lu-safe-top);
     padding-bottom: env(safe-area-inset-bottom);
     display: flex;
     flex-direction: column;
@@ -576,7 +576,11 @@
   }
 
   /* Opened from the home screen (iOS standalone, statusBarStyle black-translucent + viewportFit cover) the page runs
-     under the status bar / notch: the bar grows by the safe area so its buttons stay reachable. 0 everywhere else. */
+     under the status bar / notch: the bar grows by the safe area so its buttons stay reachable — plus a little more,
+     because iOS blurs a strip just below the status bar (the bar's text sat in it). 0 everywhere without a notch. */
+  :root {
+    --lu-safe-top: calc(env(safe-area-inset-top) + min(14px, env(safe-area-inset-top)));
+  }
   .page-topbar {
     position: sticky;
     top: 0;
@@ -584,8 +588,8 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    height: calc(56px + env(safe-area-inset-top));
-    padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+    height: calc(56px + var(--lu-safe-top));
+    padding: var(--lu-safe-top) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
     background: var(--lu-bg);
     border-bottom: 2px solid var(--lu-border);
     font-family: var(--lu-font);
@@ -1867,8 +1871,8 @@
       box-shadow: 0 0 0 2px var(--lu-surface);
     }
     .page-topbar {
-      height: calc(52px + env(safe-area-inset-top));
-      padding: env(safe-area-inset-top) max(6px, env(safe-area-inset-right)) 0 max(6px, env(safe-area-inset-left));
+      height: calc(52px + var(--lu-safe-top));
+      padding: var(--lu-safe-top) max(6px, env(safe-area-inset-right)) 0 max(6px, env(safe-area-inset-left));
     }
     .page-topbar[data-has-actions] .shell-stats {
       display: none;
