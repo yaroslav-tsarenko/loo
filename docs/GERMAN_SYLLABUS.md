@@ -45,7 +45,7 @@
    Velo / Fahrrad, parkieren / parken, Matura / Abitur, heuer / dieses Jahr.
 8. **Landeskunde в кожному рівні.** Кожна тематична (`vocabulary`) і `skills`-тема має розділ «Landeskunde» —
    короткий текст **німецькою** про Німеччину / Австрію / Швейцарію з 2–3 `[!quiz]` на розуміння: A1 40–60 слів,
-   A2 80–120, B1 150–200, B2 250–300, C1 350–450, C2 450–600. Тексти не повторюють розділи «Deutschland» (§9), а
+   A2 80–120, B1 150–200, B2 200–280, C1 350–450, C2 450–600. Тексти не повторюють розділи «Deutschland» (§9), а
    посилаються на них (`[[Deutschland - B1 - 13. …]]`).
 9. **Кожен рівень закривається темою `review`**: змішаний тест рівня, диктант, мінімальні пари, чекліст «я вмію»;
    з B1 — міні-тест у форматі іспиту рівня (§10). Екзамен розділу (25 питань, test-out) збирає платформа.
@@ -451,7 +451,7 @@ der Mauerbau, die Stasi; B1-13 — der Mauerfall, die Wende, die Wiedervereinigu
 | 04 | 404 | Konjunktiv II минулого — hätte gemacht, wäre gekommen | grammar | `de-b2-konjunktiv2-vergangenheit` | нереальне минуле, докір і жаль (Du hättest anrufen sollen — подвійний інфінітив), Wenn ich das gewusst hätte… | 10 | 6 | 6 | 0 | 18 |
 | 05 | 405 | Нереальні порівняння й наслідки — als ob, zu … als dass | grammar | `de-b2-als-ob` | als ob / als wenn / als + V2 (Er tut, als wäre er krank), zu … als dass, ohne dass, sodass / so … dass | 10 | 5 | 5 | 0 | 16 |
 | 06 | 406 | Konjunktiv I — непряма мова в новинах | grammar | `de-b2-konjunktiv1` | er sei, er habe, er komme; Ersatz через Konjunktiv II; дієслова-вводи (sagen, behaupten, betonen); новинний стиль ZDF / Tagesschau | 20 | 6 | 5 | 0 | 18 |
-| 07 | 407 | Суб'єктивні модальні — soll, will, muss, dürfte | grammar | `de-b2-modal-subjektiv` | Er soll reich sein (кажуть), Sie will das gesehen haben (стверджує), Das muss / dürfte / kann stimmen — шкала впевненості | 15 | 6 | 6 | 0 | 16 |
+| 07 | 407 | Субʼєктивні модальні — soll, will, muss, dürfte | grammar | `de-b2-modal-subjektiv` | Er soll reich sein (кажуть), Sie will das gesehen haben (стверджує), Das muss / dürfte / kann stimmen — шкала впевненості | 15 | 6 | 6 | 0 | 16 |
 | 08 | 408 | Конектори й підрядні — obwohl, indem, sodass, falls | grammar | `de-b2-konnektoren` | obwohl / trotzdem / trotz, während (час і контраст), indem / dadurch dass, sodass, falls / sofern, anstatt dass; таблиця «сполучник — прислівник — прийменник» | 30 | 4 | 4 | 0 | 18 |
 | 09 | 409 | Дієприкметникові означення — перші кроки | grammar | `de-b2-partizipialattribute` | das lachende Kind → das laut lachende Kind → das über den Witz laut lachende Kind; Partizip I / II, розгортання у відносне речення | 15 | 4 | 4 | 0 | 16 |
 | 10 | 410 | Номіналізація I — Verbalstil і Nominalstil | grammar | `de-b2-nominalisierung` | beim Fahren, nach dem Essen, die Entscheidung treffen; перетворення weil → wegen, wenn → bei, obwohl → trotz; газетний стиль | 30 | 3 | 3 | 0 | 16 |

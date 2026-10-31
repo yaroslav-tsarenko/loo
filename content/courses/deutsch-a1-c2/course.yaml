@@ -47,7 +47,7 @@ sections:
       description: 'Präteritum, Passiv, Relativsätze, Konjunktiv II, Infinitiv mit zu, формат Goethe і telc B1.' }
   - { id: geschichte, title: Deutschland — історія, icon: px:scroll, from: Deutschland, chapters: 301-314, level: B1,
       description: 'Від германців і Священної Римської імперії до 1990 року й сьогодення.' }
-  - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2, status: planned,
+  - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2,
       description: 'Adjektivdeklination без пауз, Konjunktiv I, Partizipien, Konnektoren, TestDaF-формат.' }
   - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2, status: planned,
       description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
