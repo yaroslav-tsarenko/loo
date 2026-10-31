@@ -98,11 +98,11 @@ export function quizKey(unit: QuizUnit): QuizKey {
 
 // Client-side grading with a shipped key (practice quizzes only) — mirrors gradeQuiz on the server.
 // Order answers are the pieces' code in the learner's order; fill answers are the blank values.
-export function gradeWithKey(shape: QuizShape, key: QuizKey, answer: QuizAnswer): boolean {
+export function gradeWithKey(shape: QuizShape, key: QuizKey, answer: QuizAnswer, lang?: string | null): boolean {
   if (shape.mode === 'order') return key.order !== null && answer.chosen.length === key.order.length && answer.chosen.every((c, i) => c === key.order![i])
   if (shape.mode === 'fill' || (shape.mode === 'listen' && key.blanks)) return key.blanks !== null && key.blanks.length > 0 && answer.chosen.length === key.blanks.length && key.blanks.every((b, i) => blankMatches(b, answer.chosen[i] ?? '', shape.mode === 'listen'))
   if (shape.mode === 'speak') return false
-  if (shape.mode === 'listen' && shape.free) return dictationMatches(answer.text ?? '', key.free ?? '', key.accept ?? [])
+  if (shape.mode === 'listen' && shape.free) return dictationMatches(answer.text ?? '', key.free ?? '', key.accept ?? [], lang)
   if (shape.free) {
     const text = answer.text ?? ''
     return text.trim() !== '' && normalizeFreeAnswer(text) === normalizeFreeAnswer(key.free ?? '')

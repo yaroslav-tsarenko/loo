@@ -1,9 +1,10 @@
 import 'server-only'
 import { courseKind } from '@/course'
+import { DEFAULT_SPEECH_LANG } from '@/ui/lang/speech/voices'
 import { getCourse, listCourses } from './registry'
 
 // The spoken language of a guide's language blocks ([!word] [!listen] [!speak] [!pair]): the `target` of the language
-// course that teaches the guide (course.yaml `target: en`, docs/SPEECH.md). A block's own `lang:` wins; default `en`.
+// course that teaches the guide (course.yaml `target: en`, docs/SPEECH.md). A block's own `lang:` wins; last resort `en` (DEFAULT_SPEECH_LANG).
 
 let cache: Promise<Map<string, string>> | null = null
 
@@ -28,5 +29,5 @@ export async function guideTargets(): Promise<Map<string, string>> {
 
 export async function speechLangFor(unit: { guideId: string; lang?: string }): Promise<string> {
   if (unit.lang) return unit.lang
-  return (await guideTargets()).get(unit.guideId) ?? 'en'
+  return (await guideTargets()).get(unit.guideId) ?? DEFAULT_SPEECH_LANG
 }

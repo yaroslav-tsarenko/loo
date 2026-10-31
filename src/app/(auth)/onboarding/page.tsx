@@ -24,6 +24,7 @@ export default async function OnboardingPage({ searchParams }: { searchParams: P
     icon: c.meta.icon ?? 'px:book',
     subject: c.meta.subject,
     target: c.meta.target ?? null,
+    exam: c.meta.exam?.name ?? null,
     range: `${levelShort(c.levels.from)} → ${levelShort(c.levels.to)}`,
   }))
   return (

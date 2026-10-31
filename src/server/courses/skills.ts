@@ -16,6 +16,7 @@ import {
   updateSkills,
   type BuiltTest,
   type CourseBundle,
+  type ExamBand,
   type LearnerLevels,
   type Level,
   type LevelSuggestion,
@@ -69,7 +70,7 @@ export function learnerSkillsFor(bundle: CourseBundle, enrollment: { level: Leve
   const levels = courseLevels(bundle.course)
   const model = skillModelOf(bundle)
   const state = currentSkills(stored, { level: courseLevelOf(enrollment.level, bundle.course), placement: enrollment.placement }, levels, model)
-  const view = skillsView(state, levels, model)
+  const view = skillsView(state, levels, model, bundle.course.exam)
   return { bundle, state, view, learner: { overall: view.overallTheta, skills: skillThetas(state, model) }, levels }
 }
 
@@ -137,7 +138,7 @@ export interface TestSkills {
   changes: SkillChange[]
   overall: Level
   overallLabel: string
-  ielts: string | null
+  exam: ExamBand | null
   suggestion: LevelSuggestion | null
 }
 
@@ -187,8 +188,8 @@ export async function recordTestSkills(
     .values({ userId, key: skillsKey(courseId), value: after })
     .onConflictDoUpdate({ target: [userSettings.userId, userSettings.key], set: { value: after } })
   if (test.kind === 'section-exam' && input.passed) passedExams.add(test.id)
-  const b = skillsView(before, levels, model)
-  const a = skillsView(after, levels, model)
+  const b = skillsView(before, levels, model, bundle.course.exam)
+  const a = skillsView(after, levels, model, bundle.course.exam)
   const tested = new Set(observations.map((o) => o.skill))
   const changes = a.skills
     .filter((s) => tested.has(s.skill))
@@ -198,5 +199,5 @@ export async function recordTestSkills(
       return { skill: s.skill, label: skillTitle(bundle.course, s.skill), before: was.level, after: s.level, beforeLabel: levelShort(was.level), afterLabel: levelShort(s.level), trend: delta > 0 ? 'up' : delta < 0 ? 'down' : null }
     })
   const suggestion = levelSuggestion({ bundle, sectionId: test.section.id, testKind: test.kind, score: input.score, passed: input.passed, observations, state: after, passedExams })
-  return { changes, overall: a.overall, overallLabel: levelShort(a.overall), ielts: a.ielts?.label ?? null, suggestion }
+  return { changes, overall: a.overall, overallLabel: levelShort(a.overall), exam: a.exam, suggestion }
 }

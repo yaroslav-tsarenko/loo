@@ -184,11 +184,14 @@ export const uk = {
       edit: 'Змінити',
       wishes: 'Чекаєш',
     },
+    // the «Іспит» goal of a course without `exam:` in course.yaml
+    examAny: { purpose: 'Іспит', react: 'Іспит? Готуймося разом!' },
     purposes: {
       relocate: 'Переїзд',
       work: 'Робота',
       travel: 'Подорожі',
-      exam: 'Іспит (IELTS)',
+      // {exam}: the course's exam (course.yaml `exam.name`); a course without one → examAny.purpose
+      exam: 'Іспит ({exam})',
       school: 'Школа чи університет',
       self: 'Для себе',
       'first-job': 'Перша робота в IT',
@@ -208,7 +211,7 @@ export const uk = {
         relocate: 'Нова країна — нові слова. Допоможу!',
         work: 'Мова для роботи — зробимо!',
         travel: 'Подорожі без розмовника — вперед!',
-        exam: 'IELTS? Готуймося разом!',
+        exam: '{exam}? Готуймося разом!',
         school: 'Оцінки підтягнемо, обіцяю.',
         self: 'Вчитися для себе — найкраща мотивація.',
         'first-job': 'Перша робота в IT — ціль що треба!',
@@ -416,9 +419,12 @@ export const uk = {
   // per-skill level estimate of language courses (docs/LANGUAGE_COURSE.md «Рівень за навичками»)
   skills: {
     title: 'Рівень за навичками',
-    ielts: 'IELTS ~{band}',
+    // {exam}: course.yaml `exam.name` (IELTS, Goethe-Zertifikat…)
+    exam: '{exam} ~{band}',
     overall: 'Загалом {level}',
-    note: 'Оновлюється після кожного тесту теми й екзамену. IELTS — лише орієнтир: письмо й говоріння тут не оцінюються.',
+    note: 'Оновлюється після кожного тесту теми й екзамену.',
+    // appended to `note` (after a space) when the course has an exam
+    examNote: '{exam} — лише орієнтир: письмо й говоріння тут не оцінюються.',
     start: 'Поки за вступним тестом або обраним рівнем — після тестів тем оцінка уточниться.',
     updated: 'Оновлено за цим тестом',
     answers: '{n} відповідей у тестах',
@@ -466,8 +472,9 @@ export const uk = {
     dontKnow: 'Не знаю',
     recorded: 'Записав!',
     recordedDontKnow: 'Чесно — так рівень буде точнішим.',
-    ielts: 'IELTS орієнтовно: {band}',
-    ieltsNote: 'Лише орієнтир за шкалою Cambridge / British Council. IELTS ще оцінює письмо й говоріння — цей тест їх не перевіряє.',
+    exam: '{exam} орієнтовно: {band}',
+    // when course.yaml `exam.note` is absent (English sets its own: Cambridge / British Council)
+    examNote: 'Лише орієнтир. {exam} ще оцінює письмо й говоріння — цей тест їх не перевіряє.',
     confidence: { high: 'Оцінка впевнена', medium: 'Оцінка майже впевнена', low: 'Оцінка приблизна' },
     confidenceNote: {
       high: 'Твій рівень і наступний перевірено достатньо питань — межа чітка.',

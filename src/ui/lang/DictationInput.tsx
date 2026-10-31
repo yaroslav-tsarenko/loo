@@ -6,13 +6,14 @@ import { compareWords } from '@/content/blocks/lang/grade'
 import { useSpeechSettings } from './SpeechSettings'
 import { speechProvider } from './speech/browser'
 import { RecognitionFailure, type RecognitionError } from './speech/provider'
-import { voiceLang } from './speech/voices'
+import { DEFAULT_SPEECH_LANG, languageNameUk, voiceLang } from './speech/voices'
 
 // Dictation answer ([!listen] type: dictation). Type it — or say it: the mic button runs the browser's recogniser
 // (same free Web Speech API as [!speak]) and puts what it heard into the field, where the learner can still fix it
 // before «Перевірити» (kids at A1 can answer without typing). The server checks the text either way.
 // After the server's verdict, the expected text is shown word by word: what the learner missed or misspelled is marked
-// (same normalisation as the server: case, punctuation, I'm = I am).
+// (same normalisation as the server: case, punctuation, I'm = I am; German ß = ss, ä = ae). `lang` — the course's
+// target (course.yaml `target`): the recogniser's language, the field's `lang` and «…англійською / німецькою».
 
 const ERRORS: Partial<Record<RecognitionError, string>> = {
   unsupported: 'Цей браузер не розпізнає мовлення — надрукуй відповідь.',
@@ -28,9 +29,11 @@ const noop = () => () => {}
 // «i am twenty one years old» → «I am twenty one years old»
 const sentence = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s)
 
-export function DictationInput({ id, value, onChange, disabled, state, expected, onSubmit, lang = 'en' }: { id: string; value: string; onChange: (v: string) => void; disabled: boolean; state?: 'right' | 'wrong'; expected: string | null; onSubmit: () => void; lang?: string }) {
-  const diff = expected && state === 'wrong' ? compareWords(expected, value, { typos: true }) : null
+export function DictationInput({ id, value, onChange, disabled, state, expected, onSubmit, lang = DEFAULT_SPEECH_LANG }: { id: string; value: string; onChange: (v: string) => void; disabled: boolean; state?: 'right' | 'wrong'; expected: string | null; onSubmit: () => void; lang?: string }) {
+  const diff = expected && state === 'wrong' ? compareWords(expected, value, { typos: true, lang }) : null
   const { accent } = useSpeechSettings()
+  // «англійською» / «німецькою»; a language without a Ukrainian name here → the hint without it
+  const inLang = languageNameUk(lang)
   const provider = speechProvider()
   // null while hydrating: the mic appears only where the browser can recognise speech
   const canRecognize = useSyncExternalStore(noop, () => provider.canRecognize(), () => null)
@@ -84,11 +87,11 @@ export function DictationInput({ id, value, onChange, disabled, state, expected,
           }}
           disabled={disabled}
           readOnly={listening}
-          placeholder={canRecognize ? 'Надрукуй або скажи, що почув' : 'Надрукуй, що почув — англійською'}
+          placeholder={canRecognize ? 'Надрукуй або скажи, що почув' : inLang ? `Надрукуй, що почув — ${inLang}` : 'Надрукуй, що почув'}
           autoComplete="off"
           autoCapitalize="sentences"
           spellCheck={false}
-          lang="en"
+          lang={lang}
           enterKeyHint="done"
         />
         {canRecognize && !disabled ? (
@@ -99,7 +102,7 @@ export function DictationInput({ id, value, onChange, disabled, state, expected,
       </div>
       {listening ? (
         <p className="lang-dictation-status" role="status" aria-live="polite">
-          Слухаю… говори англійською
+          {inLang ? `Слухаю… говори ${inLang}` : 'Слухаю… говори'}
         </p>
       ) : error ? (
         <p className="quiz-error" role="alert">

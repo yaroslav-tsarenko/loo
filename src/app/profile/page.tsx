@@ -451,7 +451,7 @@ export default async function ProfilePage() {
         {skills ? (
           <SkillLevels
             {...skillCard(skills.bundle, skills.view, skills.levels)}
-            ielts={skills.view.ielts?.label ?? null}
+            exam={skills.view.exam}
           />
         ) : null}
         <ul className="st-pref-courses">

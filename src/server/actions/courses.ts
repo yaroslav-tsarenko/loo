@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import type { ReactNode } from 'react'
-import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
+import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type ExamBand, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
 import { quizKey } from '@/content/blocks/quiz/view'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
@@ -136,7 +136,8 @@ export interface PlacementSkillView {
   asked: number
   correct: number
   measured: boolean
-  ielts: string | null
+  // the course's exam band (course.yaml `exam:`), null without one
+  exam: ExamBand | null
 }
 
 export interface PlacementResultView {
@@ -153,7 +154,9 @@ export interface PlacementResultView {
   weak: string[]
   // the per-skill phase ran (course.yaml `placement.perSkill`)
   perSkill: boolean
-  ielts: string | null
+  exam: ExamBand | null
+  // what the exam estimate doesn't cover (course.yaml `exam.note`; null → the generic i18n text)
+  examNote: string | null
   lessonsReady: boolean
   startLevel: Level | null
   // start sections the learner may pick instead (bank mode, lessons still planned): the default first
@@ -213,7 +216,7 @@ function startChoices(bundle: CourseBundle, r: PlacementResult): PlacementResult
 
 function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultView {
   const skills: PlacementResultView['skills'] = r.skills ? {} : null
-  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.ielts?.label ?? null }
+  if (r.skills && skills) for (const [k, v] of Object.entries(r.skills)) if (v) skills[k] = { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, exam: v.exam }
   return {
     level: r.level,
     sectionIndex: r.sectionIndex,
@@ -224,7 +227,8 @@ function resultView(bundle: CourseBundle, r: PlacementResult): PlacementResultVi
     skills,
     strong: r.strong ?? [],
     weak: r.weak ?? [],
-    ielts: r.ielts?.label ?? null,
+    exam: r.exam ?? null,
+    examNote: r.exam ? (bundle.course.exam?.note ?? null) : null,
     lessonsReady: r.lessonsReady ?? true,
     startLevel: r.startLevel ?? null,
     perSkill: r.perSkill ?? false,
@@ -295,7 +299,7 @@ async function savePlacement(courseIdValue: string, placement: EnrollmentPlaceme
 const applyInput = z.object({ start: z.string().max(200).optional() })
 
 // Applies the placement result: level + first section to study (earlier sections count as known). Bank mode also
-// stores the per-skill levels, the confidence and the IELTS estimate; `start` — one of the offered start sections.
+// stores the per-skill levels, the confidence and the exam (IELTS…) estimate; `start` — one of the offered start sections.
 export async function applyPlacement(raw: { course: string; nonce: string; answers: RawAnswer[]; followUp?: boolean; start?: string }): Promise<{ ok: true }> {
   const { start } = parseInput(applyInput, { start: raw.start })
   const { input, run, bundle } = await replay({ course: raw.course, nonce: raw.nonce, answers: raw.answers, followUp: raw.followUp })
@@ -307,7 +311,11 @@ export async function applyPlacement(raw: { course: string; nonce: string; answe
   if (start && !chosen) throw new Error('Unknown start section')
   const sectionIndex = chosen?.index ?? r.sectionIndex
   const sectionId = chosen?.id ?? r.sectionId
-  const extra: Partial<EnrollmentPlacement> = r.confidence ? { confidence: r.confidence, skills: view.skills ?? undefined, ielts: view.ielts, followUp: r.followedUp ?? false } : {}
+  // stored under the jsonb keys of the IELTS-only days (`ielts`: the band label of the course's exam) — no migration
+  const stored: EnrollmentPlacement['skills'] = view.skills
+    ? Object.fromEntries(Object.entries(view.skills).flatMap(([k, v]) => (v ? [[k, { level: v.level, asked: v.asked, correct: v.correct, measured: v.measured, ielts: v.exam?.label ?? null }]] : [])))
+    : undefined
+  const extra: Partial<EnrollmentPlacement> = r.confidence ? { confidence: r.confidence, skills: stored, ielts: view.exam?.label ?? null, followUp: r.followedUp ?? false } : {}
   await savePlacement(input.course, { level: r.level, sectionIndex, sectionId, confident: r.confident, asked: run.step.asked, at: now, ...extra }, r.level, placementCredit(levelRank(r.level)))
   return { ok: true }
 }

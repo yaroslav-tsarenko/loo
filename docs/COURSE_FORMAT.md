@@ -41,6 +41,7 @@ practice: [path, cards, tests, tasks, mistakes, roadmap]   # розділи пр
 theory: [JavaScript Start, JavaScript, JavaScript Katas]   # посібники «Теорії» в сайдбарі (§2.1)
 language: uk                        # мова викладання — пояснення, інтерфейс (BCP 47)
 # target: en                        # мовні курси: мова, яку вивчають (BCP 47) — для озвучки й розпізнавання мовлення
+# exam: { id: ielts, name: IELTS, bands: { B1: 4.0–5.0, … } }  # мовні курси: CEFR → іспит (LANGUAGE_COURSE.md «Нова мова»)
 # sourceLanguage: uk               # мова, якою написано теми (за замовчуванням = language) — §10
 # languages: [uk, en]               # мови, якими курс доступний (за замовчуванням [sourceLanguage]) — §10
 # title: { uk: JavaScript Zero → Pro, en: JavaScript Zero → Pro }   # будь-який текст курсу — рядок або мапа мов (§10)

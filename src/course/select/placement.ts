@@ -1,6 +1,6 @@
 import { rng, shuffle, type Seed } from '../rng'
 import { byLevel, courseLadder, courseLevels, hasSkillModel, levelAt, levelRank, PLACEMENT_SKILLS, placementSkillIds, type CourseBundle, type Level, type PlacementItem } from '../schema'
-import { ieltsBand, type IeltsBand } from './ielts'
+import { examBand, type ExamBand } from './exam'
 
 // Adaptive placement test, over the course's own ladder (noob…god, or A1…C2 for language courses). Stateless: the
 // server replays the answers so far to get the next question. Two modes:
@@ -64,7 +64,8 @@ export interface SkillEstimate {
   measured: boolean
   // guess-corrected share of right answers (−⅓ for a wrong guess of 4 options, 0 for «Не знаю»), 0…1
   score: number
-  ielts: IeltsBand | null
+  // the course's exam band (course.yaml `exam:`), null without one
+  exam: ExamBand | null
 }
 
 export interface PlacementResult {
@@ -88,7 +89,7 @@ export interface PlacementResult {
   weak?: string[]
   // the per-skill phase ran (`placement.perSkill`): every skill's level was measured on its own mini ladder
   perSkill?: boolean
-  ielts?: IeltsBand | null
+  exam?: ExamBand | null
   // false: the level's lessons are still `planned` — the start section is the highest level that has lessons
   lessonsReady?: boolean
   startLevel?: Level
@@ -625,7 +626,7 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
   const startSec = bundle.sections[start.index]
   const lessonsReady = bySkills || bundle.sections.some((s) => s.kind === 'path' && s.status !== 'planned' && levelRank(s.minLevel) <= levelRank(level) && levelRank(level) <= levelRank(s.level))
   const levels = courseLevels(bundle.course)
-  const skills = estimateSkills(run.items, level, levels, measuredSkills(bundle))
+  const skills = estimateSkills(run.items, level, levels, measuredSkills(bundle), bundle.course.exam)
   const perLevel = byLevel((l): LevelTally => {
     const t = tallies[l]
     return { asked: t.asked, correct: t.correct, dontKnow: t.dontKnow, hardAsked: t.hardAsked, hardCorrect: t.hardCorrect }
@@ -640,7 +641,7 @@ function bankResult(bundle: CourseBundle, answers: readonly PlacementAnswer[]): 
     followUp: offer,
     followedUp: followed,
     ...skills,
-    ielts: ieltsBand(level),
+    exam: examBand(bundle.course.exam, level),
     lessonsReady,
     startLevel: startSec?.level ?? level,
     ...(cfg.perSkill ? { perSkill: true } : {}),
@@ -665,7 +666,7 @@ const SKILL_MARGIN = 0.35
 
 const sigmoid = (x: number): number => 1 / (1 + Math.exp(-x))
 
-function estimateSkills(items: BankRun['items'], overall: Level, levels: readonly Level[], measured: readonly string[]): Pick<PlacementResult, 'skills' | 'strong' | 'weak'> {
+function estimateSkills(items: BankRun['items'], overall: Level, levels: readonly Level[], measured: readonly string[], exam: CourseBundle['course']['exam']): Pick<PlacementResult, 'skills' | 'strong' | 'weak'> {
   const n = levels.length
   const mid = levels.indexOf(overall) + 0.5
   const grid: number[] = []
@@ -700,7 +701,7 @@ function estimateSkills(items: BankRun['items'], overall: Level, levels: readonl
     const theta = mean / weight
     const measured = asked >= 2
     const level = measured ? levels[Math.max(0, Math.min(n - 1, Math.floor(theta)))]! : overall
-    skills[skill] = { level, asked, correct, measured, score: asked > 0 ? Math.max(0, points / asked) : 0, ielts: ieltsBand(level) }
+    skills[skill] = { level, asked, correct, measured, score: asked > 0 ? Math.max(0, points / asked) : 0, exam: examBand(exam, level) }
     if (measured) shift.push({ skill, d: theta - mid })
   }
   const strong = shift.filter((s) => s.d >= SKILL_MARGIN).sort((a, b) => b.d - a.d).map((s) => s.skill)

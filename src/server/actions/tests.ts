@@ -71,7 +71,7 @@ export interface TestSkillsView {
   changes: TestSkills['changes']
   overall: TestSkills['overall']
   overallLabel: string
-  ielts: string | null
+  exam: TestSkills['exam']
   suggestion: { kind: 'skip-ahead' | 'review'; href: string; level: string; section: string } | null
 }
 
@@ -102,7 +102,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
       }
       const scored = scoreTest(built, input.answers, (id, i) => {
         const unit = exerciseUnit(snapshot, test.bundle, id)
-        return gradeAnswer(built, unit, answerFor(unit, i), fallback)
+        return gradeAnswer(built, unit, answerFor(unit, i), fallback, test.bundle.course.target)
       })
       if (!scored.ok) {
         if (process.env.NODE_ENV === 'development') console.warn('[tests] answers do not match the draw', { questions: built.questions, answers: input.answers.map((a) => a.id) })
@@ -155,7 +155,7 @@ function skillsViewOf(bundle: Parameters<typeof lookup>[0], skills: TestSkills):
     changes: skills.changes,
     overall: skills.overall,
     overallLabel: skills.overallLabel,
-    ielts: skills.ielts,
+    exam: skills.exam,
     suggestion: s && section ? { kind: s.kind, href: `/test/${encodeURIComponent(s.testId)}`, level: levelShort(s.level), section: section.title } : null,
   }
 }

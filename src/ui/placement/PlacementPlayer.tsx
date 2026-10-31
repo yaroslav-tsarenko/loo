@@ -40,7 +40,7 @@ interface Props {
   next: string
   zero: ReactNode
   zeroHint?: string
-  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, IELTS (docs/LANGUAGE_COURSE.md);
+  // calibrated bank (language courses): «Не знаю», skills, confidence, follow-up, exam band (docs/LANGUAGE_COURSE.md);
   // `skills` — a course with declared skills (course.skills): the result shows a level per skill as bars
   bank?: { followUp: number; ladder: string[]; skills?: Array<{ id: string; title: string }>; measured?: string[] }
 }
@@ -473,7 +473,7 @@ function weakTitles(weak: readonly string[], skills: ReadonlyArray<{ id: string;
 
 const listOf = (skills: readonly Skill[], t: Translate) => skills.map((s) => t(`placement.skill.${s}`).toLowerCase()).join(', ')
 
-// Result of the calibrated test: level + IELTS (approximate), confidence (+ follow-up), skills, where to start, mistakes.
+// Result of the calibrated test: level + the course's exam band (approximate; course.yaml `exam:`), confidence (+ follow-up), skills, where to start, mistakes.
 function BankResult({ result, review, items, sections, levels, ladder, skills: courseSkills, course, busy, error, followUpCount, onApply, onFollowUp }: BankResultProps) {
   const t = useT()
   const level = levels[result.level] ?? result.level
@@ -488,12 +488,12 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
         <Confetti trigger={1} count={120} />
       </div>
       <h1 className="lesson-summary-title">{t('placement.resultTitle', { level })}</h1>
-      {result.ielts ? (
+      {result.exam ? (
         <div className="placement-ielts">
           <Pill tone="blue" icon={<PiTargetBold />}>
-            {t('placement.ielts', { band: result.ielts })}
+            {t('placement.exam', { exam: result.exam.exam, band: result.exam.label })}
           </Pill>
-          <p className="choice-hint">{t('placement.ieltsNote')}</p>
+          <p className="choice-hint">{result.examNote ?? t('placement.examNote', { exam: result.exam.exam })}</p>
         </div>
       ) : null}
 
@@ -523,7 +523,7 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
             return [{ skill: s.id, label: s.title, level: levels[v.level] ?? v.level, ratio: at >= 0 ? (at + 0.5) / ladder.length : undefined, mark: result.strong.includes(s.id) ? ('strong' as const) : result.weak.includes(s.id) ? ('weak' as const) : null }]
           })}
           overall={level}
-          ielts={null}
+          exam={null}
           next={weakTitles(result.weak, courseSkills, t)}
           note={result.perSkill ? t('placement.perSkillNote') : null}
         />
@@ -543,7 +543,7 @@ function BankResult({ result, review, items, sections, levels, ladder, skills: c
                   </Pill>
                   <span className="placement-skill-meta">
                     {v.measured ? `${v.correct}/${v.asked}` : t('placement.skillFew')}
-                    {v.ielts ? ` · IELTS ~${v.ielts}` : ''}
+                    {v.exam ? ` · ${t('skills.exam', { exam: v.exam.exam, band: v.exam.label })}` : ''}
                   </span>
                 </li>
               )

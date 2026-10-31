@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { CourseExamSchema } from './exam'
 import { LevelSchema } from './level'
 import { CourseI18nSchema } from './i18n'
 import { AuthorSchema, SectionKindSchema } from './manifest'
@@ -225,6 +226,8 @@ export const CourseMetaSchema = z.object({
   authors: z.array(AuthorSchema),
   license: z.string().nullable(),
   estimatedHours: z.number(),
+  // language courses: CEFR → external exam (course.yaml `exam:`); absent → no exam line
+  exam: CourseExamSchema.optional(),
   // the course's skills in order (course.yaml `skills`, language courses — the defaults); absent: no skill model
   skills: z.array(SkillDefSchema).optional(),
 })

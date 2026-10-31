@@ -378,6 +378,7 @@ export function compileCourseDetailed(manifest: CourseManifest, source: CourseSo
       authors: manifest.authors,
       license: manifest.license ?? null,
       estimatedHours: manifest.estimatedHours ?? stats.hours,
+      ...(manifest.exam ? { exam: manifest.exam } : {}),
       ...(skillDefs.length > 0 ? { skills: skillDefs } : {}),
     },
     exams: manifest.exams,

@@ -13,10 +13,14 @@ export interface SkillCard {
   note: string
 }
 
-// «Оновлюється після тестів…» (language: with the IELTS caveat); `answers` — show how many test answers it rests on.
+// «Оновлюється після тестів…» (language: with the caveat of the course's exam, if it has one); `answers` — show how many test answers it rests on.
 function noteOf(language: boolean, view: SkillsView, answers: boolean): string {
   if (view.answers === 0) return t('skills.start')
-  const base = language ? t('skills.note') : 'Оновлюється після кожного тесту теми й екзамену.'
+  const base = language
+    ? view.exam
+      ? `${t('skills.note')} ${t('skills.examNote', { exam: view.exam.exam })}`
+      : t('skills.note')
+    : 'Оновлюється після кожного тесту теми й екзамену.'
   return answers ? `${base} · ${t('skills.answers', { n: view.answers })}` : base
 }
 

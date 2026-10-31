@@ -218,9 +218,10 @@ export const en: DeepPartial<Dict> = {
   },
   skills: {
     title: 'Level by skill',
-    ielts: 'IELTS ~{band}',
+    exam: '{exam} ~{band}',
     overall: 'Overall {level}',
-    note: 'Updated after every topic test and exam. IELTS is only a guide: writing and speaking aren’t assessed here.',
+    note: 'Updated after every topic test and exam.',
+    examNote: '{exam} is only a guide: writing and speaking aren’t assessed here.',
     start: 'For now from the placement test or the level you picked — topic tests will refine it.',
     updated: 'Updated by this test',
     answers: '{n} answers in tests',
@@ -266,8 +267,8 @@ export const en: DeepPartial<Dict> = {
     dontKnow: 'I don’t know',
     recorded: 'Got it!',
     recordedDontKnow: 'Honest — that makes the level more accurate.',
-    ielts: 'IELTS estimate: {band}',
-    ieltsNote: 'Only a guide on the Cambridge / British Council scale. IELTS also scores writing and speaking — this test doesn’t check them.',
+    exam: '{exam} estimate: {band}',
+    examNote: 'Only a guide. {exam} also scores writing and speaking — this test doesn’t check them.',
     confidence: { high: 'Confident estimate', medium: 'Fairly confident estimate', low: 'Rough estimate' },
     confidenceNote: {
       high: 'Your level and the next one got enough questions — the boundary is clear.',

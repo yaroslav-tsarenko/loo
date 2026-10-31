@@ -1,0 +1,64 @@
+# Levelup course manifest — docs/COURSE_FORMAT.md, plan — docs/GERMAN_SYLLABUS.md
+# Official course: `from:` resolves against the shared Guides/ folder. A section is `planned` until its wave passed review.
+id: deutsch-a1-c2
+version: 0.1.0
+title: Deutsch A1 → C2
+subtitle: Уся німецька — від умлаутів до вільного C2, плюс історія й культура Німеччини
+description: >-
+  Німецька від першого «Hallo» до рівня носія: граматика без прогалин (артиклі, відмінки, порядок слів, Konjunktiv),
+  слова з артиклем і множиною, вимова, аудіювання й читання, ситуації з життя в Німеччині, Австрії та Швейцарії,
+  підготовка до Goethe, telc і TestDaF — і окремий посібник про історію й культуру Німеччини.
+subject: language
+kind: language
+practice: [path, words, listening, pronunciation, grammar, mistakes]
+theory: [Deutsch, Deutschland, Deutsch Prüfungen]
+language: uk
+target: de
+exam:
+  id: goethe
+  name: Goethe-Zertifikat
+  bands:
+    A1: 'A1 (Start Deutsch 1)'
+    A2: 'A2'
+    B1: 'B1'
+    B2: 'B2'
+    C1: 'C1'
+    C2: 'C2 (GDS)'
+  also:
+    B2: 'TestDaF TDN 3 · DSH-1'
+    C1: 'TestDaF TDN 4–5 · DSH-2'
+    C2: 'DSH-3'
+  note: 'Орієнтир за шкалою CEFR. Іспити Goethe, telc і TestDaF ще оцінюють письмо й говоріння — цей тест їх не перевіряє. TestDaF і DSH — орієнтовно.'
+icon: px:flagDe
+color: '#DD0000'
+levels: [A1, A2, B1, B2, C1, C2]
+tags: [deutsch, german, cefr, grammar, vocabulary, pronunciation, listening, landeskunde, goethe, telc, testdaf]
+authors: [{ name: Yaroslav Tsarenko }]
+license: proprietary
+
+sections:
+  - { id: a1, title: A1 — Початковий, icon: px:sprout, from: Deutsch, chapters: 101-130, level: A1,
+      description: 'Звуки й умлаути, sein і haben, артиклі й рід, Präsens, Akkusativ, перші ситуації.' }
+  - { id: a2, title: A2 — Елементарний, icon: px:letterTile, from: Deutsch, chapters: 201-230, level: A2,
+      description: 'Perfekt і Präteritum модальних, Dativ, Wechselpräpositionen, Nebensätze з weil і dass.' }
+  - { id: land, title: Deutschland — країна й побут, icon: px:map, from: Deutschland, chapters: 201-210, level: A2,
+      description: 'DACH, федеральні землі, міста, діалекти, свята, їжа й культурні коди.' }
+  - { id: b1, title: B1 — Середній, icon: px:chat, from: Deutsch, chapters: 301-330, level: B1,
+      description: 'Präteritum, Passiv, Relativsätze, Konjunktiv II, Infinitiv mit zu, формат Goethe і telc B1.' }
+  - { id: geschichte, title: Deutschland — історія, icon: px:scroll, from: Deutschland, chapters: 301-314, level: B1, status: planned,
+      description: 'Від германців і Священної Римської імперії до 1990 року й сьогодення.' }
+  - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2, status: planned,
+      description: 'Adjektivdeklination без пауз, Konjunktiv I, Partizipien, Konnektoren, TestDaF-формат.' }
+  - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2, status: planned,
+      description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
+  - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1, status: planned,
+      description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
+  - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2, status: planned,
+      description: 'Стиль, ідіоми, діалекти на слух, Großes Deutsches Sprachdiplom.' }
+  - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: 301-602, status: planned,
+      description: 'Формати іспитів B1–C2, стратегії й пробні завдання.' }
+
+exams:
+  topic: { questions: 10, pass: 0.8 }
+  section: { questions: 25, pass: 0.8, testOut: true }
+placement: { enabled: true, maxQuestions: 30, perLevel: 5, pass: 0.75, followUp: 6 }

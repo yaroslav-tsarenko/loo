@@ -190,7 +190,7 @@ describe('placement: per-skill phase', () => {
     expect(result.strong).toContain('data')
     // a programming course with skills starts at the first section: known topics decide what to skip
     expect(result.sectionIndex).toBe(0)
-    expect(result.ielts).toBeNull()
+    expect(result.exam).toBeNull()
     expect(steps.length).toBeLessThanOrEqual(36)
   })
 
@@ -276,7 +276,7 @@ describe('skill model from the bundle', () => {
     const view = skillsView(state, levels, model)
     expect(view.skills.map((s) => s.level)).toEqual(['senior', 'noob', 'junior'])
     expect(view.overall).toBe('junior')
-    expect(view.ielts).toBeNull()
+    expect(view.exam).toBeNull()
     expect(weakestSkills(view, 1)[0]!.skill).toBe('data')
     expect(nextSkillStep(view, levels)).toEqual({ skill: 'data', from: 'noob', to: 'junior' })
     expect(skillThetas(state, model)).toEqual({ routing: 3.5, data: 0.5, ui: 1.5 })

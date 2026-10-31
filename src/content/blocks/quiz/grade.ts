@@ -17,11 +17,12 @@ export function isFreeQuiz(unit: Pick<QuizUnit, 'mode' | 'options' | 'freeAnswer
   return unit.mode !== 'order' && unit.mode !== 'fill' && unit.options.length === 0 && unit.freeAnswer !== null
 }
 
-export function gradeQuiz(unit: QuizUnit, answer: QuizAnswer): boolean {
+// `lang` — the course's spoken language (course.yaml `target`) for dictation; the block's own `lang:` wins, absent → English.
+export function gradeQuiz(unit: QuizUnit, answer: QuizAnswer, lang?: string | null): boolean {
   // [!speak] is judged by checkSpeech (word diff of a transcript), never as a quiz answer
   if (unit.mode === 'speak') return false
   // [!listen] type: dictation — words compared without case / punctuation (src/content/blocks/lang/grade.ts)
-  if (unit.mode === 'listen' && isFreeQuiz(unit)) return dictationMatches(answer.text ?? '', unit.freeAnswer ?? '', unit.listen?.accept ?? [])
+  if (unit.mode === 'listen' && isFreeQuiz(unit)) return dictationMatches(answer.text ?? '', unit.freeAnswer ?? '', unit.listen?.accept ?? [], unit.lang ?? lang)
   // Order answers are code, not piece ids: the client only ever sees shuffled pieces (src/content/blocks/quiz/view.ts).
   if (unit.mode === 'order') return unit.exercise?.kind === 'order' ? orderCodesMatch(unit.exercise, answer.chosen) : false
   // fill — also [!listen] type: fill (a form completed while listening)

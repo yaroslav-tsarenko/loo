@@ -1,5 +1,5 @@
-import { LANGUAGE_SKILL_MODEL, levelRank, type CourseBundle, type Level, type Section, type SkillModel } from '../schema'
-import { ieltsBand, type IeltsBand } from './ielts'
+import { LANGUAGE_SKILL_MODEL, levelRank, type CourseBundle, type CourseExam, type Level, type Section, type SkillModel } from '../schema'
+import { examBand, type ExamBand } from './exam'
 import { lookup } from './lookup'
 
 // Per-skill level estimate of a learner (docs/LANGUAGE_COURSE.md «Рівень за навичками»), updated after every topic
@@ -166,7 +166,8 @@ export interface SkillView {
   n: number
   // answers of this skill were graded since the placement / level choice (otherwise: the starting level)
   updated: boolean
-  ielts: IeltsBand | null
+  // the course's exam band (course.yaml `exam:`), null without one
+  exam: ExamBand | null
 }
 
 export interface SkillsView {
@@ -175,20 +176,20 @@ export interface SkillsView {
   // four papers; otherwise every course skill)
   overall: Level
   overallTheta: number
-  ielts: IeltsBand | null
+  exam: ExamBand | null
   answers: number
 }
 
-export function skillsView(state: SkillState, levels: readonly Level[], model: SkillModel = LANGUAGE_SKILL_MODEL): SkillsView {
+export function skillsView(state: SkillState, levels: readonly Level[], model: SkillModel = LANGUAGE_SKILL_MODEL, exam?: CourseExam | null): SkillsView {
   const skills = model.skills.map((skill): SkillView => {
     const b = state.skills[skill] ?? { mu: levelTheta(state.basis.level), sd: SD_DEFAULT, n: 0, right: 0 }
     const level = thetaLevel(b.mu, levels)
-    return { skill, level, theta: b.mu, sd: b.sd, n: b.n, updated: b.n > 0, ielts: ieltsBand(level) }
+    return { skill, level, theta: b.mu, sd: b.sd, n: b.n, updated: b.n > 0, exam: examBand(exam, level) }
   })
   const four = skills.filter((s) => model.overall.includes(s.skill))
   const overallTheta = four.length > 0 ? four.reduce((sum, s) => sum + s.theta, 0) / four.length : levelTheta(state.basis.level)
   const overall = thetaLevel(overallTheta, levels)
-  return { skills, overall, overallTheta, ielts: ieltsBand(overall), answers: skills.reduce((sum, s) => sum + s.n, 0) }
+  return { skills, overall, overallTheta, exam: examBand(exam, overall), answers: skills.reduce((sum, s) => sum + s.n, 0) }
 }
 
 // θ per skill for practice selection (adaptive.ts)

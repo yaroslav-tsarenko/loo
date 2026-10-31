@@ -35,7 +35,8 @@ export interface SkillLevelRow {
 export interface SkillLevelsProps {
   rows: SkillLevelRow[]
   overall: string
-  ielts: string | null
+  // the course's exam band (course.yaml `exam:`): «IELTS ~5.5–6.5»; null — no exam line
+  exam: { exam: string; label: string } | null
   // under the list: «оновлюється після тестів» / «оновлено за цим тестом»
   note?: string | null
   // «Наступний крок: …» (courses with skills)
@@ -45,7 +46,7 @@ export interface SkillLevelsProps {
   bare?: boolean
 }
 
-export function SkillLevels({ rows, overall, ielts, note, next, title = t('skills.title'), bare = false }: SkillLevelsProps) {
+export function SkillLevels({ rows, overall, exam, note, next, title = t('skills.title'), bare = false }: SkillLevelsProps) {
   const bars = rows.some((r) => r.ratio !== undefined)
   return (
     <section className={bare ? 'skill-levels' : 'skill-levels lu-card'} data-pad="sm" data-bars={bars ? '' : undefined} aria-label={title}>
@@ -55,9 +56,9 @@ export function SkillLevels({ rows, overall, ielts, note, next, title = t('skill
           <Pill size="sm" tone="violet">
             {t('skills.overall', { level: overall })}
           </Pill>
-          {ielts ? (
+          {exam ? (
             <Pill size="sm" tone="blue" icon={<PiTargetBold />}>
-              {t('skills.ielts', { band: ielts })}
+              {t('skills.exam', { exam: exam.exam, band: exam.label })}
             </Pill>
           ) : null}
         </span>
@@ -92,4 +93,9 @@ export function SkillLevels({ rows, overall, ielts, note, next, title = t('skill
       {note ? <p className="skill-levels-note">{note}</p> : null}
     </section>
   )
+}
+
+// «Оновлюється після кожного тесту…» + «IELTS — лише орієнтир…» when the course has an exam
+export function skillsNote(exam: { exam: string } | null): string {
+  return exam ? `${t('skills.note')} ${t('skills.examNote', { exam: exam.exam })}` : t('skills.note')
 }

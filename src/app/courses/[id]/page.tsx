@@ -56,7 +56,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
   const { bundle } = entry
   const meta = bundle.course
   const enrollment = (await myEnrollments()).find((e) => e.courseId === id) ?? null
-  // language courses: per-skill levels + IELTS (the stored estimate comes with the base rows, no extra query)
+  // language courses: per-skill levels + the exam band (course.yaml `exam:`; the stored estimate comes with the base rows, no extra query)
   const skills = await courseSkills(bundle, enrollment)
   const card = skills ? skillCard(bundle, skills.view, skills.levels, { answers: true }) : null
   const m = messages(locale)
@@ -137,7 +137,7 @@ export default async function CoursePage({ params, searchParams }: { params: Par
         <SkillLevels
           rows={card.rows}
           overall={card.overall}
-          ielts={skills.view.ielts?.label ?? null}
+          exam={skills.view.exam}
           next={card.next}
           note={card.note}
         />
