@@ -29,8 +29,63 @@ type RecognitionCtor = new () => RecognitionLike
 
 function recognitionCtor(): RecognitionCtor | null {
   if (typeof window === 'undefined') return null
-  const w = window as unknown as { SpeechRecognition?: RecognitionCtor; webkitSpeechRecognition?: RecognitionCtor }
+  const w = window as unknown as {
+    SpeechRecognition?: RecognitionCtor
+    webkitSpeechRecognition?: RecognitionCtor
+  }
   return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null
+}
+
+// iPhone / iPad (iPadOS reports a Mac with touch). WebKit there won't let the recogniser take the microphone while
+// another getUserMedia stream holds it — the level meter's capture made every attempt fail with «not-allowed».
+export function isAppleTouch(): boolean {
+  if (typeof navigator === 'undefined') return false
+  return /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+}
+
+// Opened from the home screen (PWA, display-mode: standalone).
+export function isStandalone(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia?.('(display-mode: standalone)').matches === true || (navigator as Navigator & { standalone?: boolean }).standalone === true
+}
+
+// A failure that means «not here» (not «try again»): remembered for the tab, so the next exercises open in the
+// no-microphone mode with an explanation instead of failing again.
+const UNAVAILABLE_KEY = 'loo.asr-unavailable'
+const markUnavailable = () => {
+  try {
+    sessionStorage.setItem(UNAVAILABLE_KEY, '1')
+  } catch {}
+}
+const knownUnavailable = (): boolean => {
+  try {
+    return sessionStorage.getItem(UNAVAILABLE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+// What to do when recognition is unavailable, for this device.
+export function recognitionHelp(): string {
+  if (isAppleTouch()) {
+    if (isStandalone())
+      return 'На iPhone в режимі додатку з головного екрана розпізнавання мовлення не працює. Відкрий playloo.app у Safari, щоб тренуватися з мікрофоном.'
+    if (/CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent))
+      return 'На iPhone розпізнавання мовлення надійно працює лише в Safari. Відкрий playloo.app у Safari.'
+    return 'Розпізнавання мовлення вимкнене. На iPhone увімкни «Диктування»: Параметри → Загальні → Клавіатура → Диктування, і спробуй ще раз.'
+  }
+  return 'Цей браузер не дає сайту розпізнавати мовлення. Спробуй Chrome або Safari.'
+}
+
+async function micGranted(): Promise<boolean> {
+  try {
+    const status = await navigator.permissions?.query({
+      name: 'microphone' as PermissionName,
+    })
+    return status?.state === 'granted'
+  } catch {
+    return false
+  }
 }
 
 const synth = (): SpeechSynthesis | null => (typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null)
@@ -107,59 +162,89 @@ export const browserSpeech: SpeechProvider = {
     }
   },
   cancel: () => synth()?.cancel(),
-  canRecognize: () => recognitionCtor() !== null,
+  canRecognize: () => recognitionCtor() !== null && !knownUnavailable(),
   async recognize(opts: RecognizeOptions): Promise<RecognitionResult> {
     const Ctor = recognitionCtor()
     if (!Ctor) throw new RecognitionFailure('unsupported')
-    const stopMeter = opts.onLevel ? await levelMeter(opts.onLevel) : () => {}
-    return new Promise<RecognitionResult>((resolve, reject) => {
-      const rec = new Ctor()
-      rec.lang = opts.lang
-      rec.interimResults = true
-      rec.maxAlternatives = 3
-      rec.continuous = false
-      let finals: string[] = []
-      let settled = false
-      const timer = window.setTimeout(() => rec.stop(), opts.maxMs ?? 8000)
-      const done = (fn: () => void) => {
-        if (settled) return
-        settled = true
-        window.clearTimeout(timer)
-        stopMeter()
-        fn()
-      }
-      opts.signal?.addEventListener('abort', () => {
-        rec.abort()
-        done(() => reject(new RecognitionFailure('aborted')))
-      })
-      rec.onresult = (e) => {
-        let interim = ''
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-          const result = e.results[i]!
-          if (result.isFinal) finals = Array.from({ length: result.length }, (_, k) => result[k]!.transcript.trim()).filter(Boolean)
-          else interim += result[0]?.transcript ?? ''
+    // the level meter is a second capture of the microphone: never on iOS, and dropped on a retry elsewhere
+    const meter = Boolean(opts.onLevel) && !isAppleTouch()
+    try {
+      return await recognizeOnce(Ctor, opts, meter)
+    } catch (error) {
+      if (!(error instanceof RecognitionFailure)) throw error
+      // the recogniser couldn't get the mic while the meter held it: once more without the meter
+      if (meter && (error.reason === 'denied' || error.reason === 'no-mic') && !opts.signal?.aborted) {
+        try {
+          return await recognizeOnce(Ctor, opts, false)
+        } catch (again) {
+          throw await classify(again)
         }
-        opts.onPartial?.(finals[0] ?? interim)
       }
-      rec.onerror = (e) => {
-        const map: Record<string, RecognitionFailure['reason']> = {
-          'not-allowed': 'denied',
-          'service-not-allowed': 'denied',
-          'audio-capture': 'no-mic',
-          'no-speech': 'silence',
-          network: 'network',
-          aborted: 'aborted',
-        }
-        done(() => reject(new RecognitionFailure(map[e.error] ?? 'error')))
-      }
-      rec.onend = () => done(() => (finals.length > 0 ? resolve({ transcripts: finals }) : reject(new RecognitionFailure('silence'))))
-      try {
-        rec.start()
-      } catch {
-        done(() => reject(new RecognitionFailure('error')))
-      }
-    })
+      throw await classify(error)
+    }
   },
+}
+
+// «not-allowed» while the microphone permission is granted is the recogniser refusing, not the learner.
+async function classify(error: unknown): Promise<unknown> {
+  if (!(error instanceof RecognitionFailure)) return error
+  if (error.reason === 'denied' && (await micGranted())) {
+    markUnavailable()
+    return new RecognitionFailure('unavailable')
+  }
+  if (error.reason === 'unavailable') markUnavailable()
+  return error
+}
+
+async function recognizeOnce(Ctor: RecognitionCtor, opts: RecognizeOptions, meter: boolean): Promise<RecognitionResult> {
+  const stopMeter = meter && opts.onLevel ? await levelMeter(opts.onLevel) : () => {}
+  return new Promise<RecognitionResult>((resolve, reject) => {
+    const rec = new Ctor()
+    rec.lang = opts.lang
+    rec.interimResults = true
+    rec.maxAlternatives = 3
+    rec.continuous = false
+    let finals: string[] = []
+    let settled = false
+    const timer = window.setTimeout(() => rec.stop(), opts.maxMs ?? 8000)
+    const done = (fn: () => void) => {
+      if (settled) return
+      settled = true
+      window.clearTimeout(timer)
+      stopMeter()
+      fn()
+    }
+    opts.signal?.addEventListener('abort', () => {
+      rec.abort()
+      done(() => reject(new RecognitionFailure('aborted')))
+    })
+    rec.onresult = (e) => {
+      let interim = ''
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const result = e.results[i]!
+        if (result.isFinal) finals = Array.from({ length: result.length }, (_, k) => result[k]!.transcript.trim()).filter(Boolean)
+        else interim += result[0]?.transcript ?? ''
+      }
+      opts.onPartial?.(finals[0] ?? interim)
+    }
+    rec.onerror = (e) => {
+      const map: Record<string, RecognitionFailure['reason']> = {
+        'not-allowed': 'denied',
+        'service-not-allowed': 'unavailable',
+        'audio-capture': 'no-mic',
+        'no-speech': 'silence',
+        network: 'network',
+        aborted: 'aborted',
+      }
+      done(() => reject(new RecognitionFailure(map[e.error] ?? 'error')))
+    }
+    rec.onend = () => done(() => (finals.length > 0 ? resolve({ transcripts: finals }) : reject(new RecognitionFailure('silence'))))
+    try {
+      rec.start()
+    } catch {
+      done(() => reject(new RecognitionFailure('error')))
+    }
+  })
 }
 
 // `gateway` (AI voices, docs/SPEECH.md §5) is not wired in v1: every caller gets the browser provider.

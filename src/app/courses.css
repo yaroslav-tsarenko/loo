@@ -738,7 +738,7 @@
 }
 .course-level {
   margin-top: 28px;
-  scroll-margin-top: 70px;
+  scroll-margin-top: calc(70px + env(safe-area-inset-top));
 }
 .course-level-actions {
   margin-top: 12px;

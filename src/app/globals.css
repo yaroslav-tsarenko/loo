@@ -224,7 +224,7 @@
     font-family: var(--lu-font);
     color: var(--lu-text);
     text-wrap: balance;
-    scroll-margin-top: 84px;
+    scroll-margin-top: calc(84px + env(safe-area-inset-top));
   }
   .prose-read h1 {
     font-size: 1.75em;
@@ -1232,7 +1232,7 @@
   .read-progress {
     display: block;
     position: fixed;
-    inset: 0 0 auto 0;
+    inset: env(safe-area-inset-top) 0 auto 0;
     z-index: calc(var(--lu-z-nav) + 1);
     height: 4px;
     pointer-events: none;

@@ -4,7 +4,7 @@ import { useRef, useState, useSyncExternalStore } from 'react'
 import { PiMicrophoneFill, PiStopFill } from 'react-icons/pi'
 import { compareWords } from '@/content/blocks/lang/grade'
 import { useSpeechSettings } from './SpeechSettings'
-import { speechProvider } from './speech/browser'
+import { recognitionHelp, speechProvider } from './speech/browser'
 import { RecognitionFailure, type RecognitionError } from './speech/provider'
 import { DEFAULT_SPEECH_LANG, languageNameUk, voiceLang } from './speech/voices'
 
@@ -59,7 +59,7 @@ export function DictationInput({ id, value, onChange, disabled, state, expected,
       if (best) onChange(sentence(best))
     } catch (e) {
       const reason = e instanceof RecognitionFailure ? e.reason : 'error'
-      if (reason !== 'aborted') setError(ERRORS[reason] ?? ERRORS.error!)
+      if (reason !== 'aborted') setError(reason === 'unavailable' ? `${recognitionHelp()} Поки що надрукуй відповідь.` : (ERRORS[reason] ?? ERRORS.error!))
     } finally {
       setListening(false)
       setPartial('')

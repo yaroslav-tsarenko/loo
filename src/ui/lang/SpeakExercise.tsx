@@ -8,7 +8,7 @@ import { ActionBar } from '@/ui/study/ActionBar'
 import { AudioButton } from './AudioButton'
 import { IpaChip } from './IpaChip'
 import { useSpeechSettings } from './SpeechSettings'
-import { speechProvider } from './speech/browser'
+import { recognitionHelp, speechProvider } from './speech/browser'
 import { RecognitionFailure, type RecognitionError } from './speech/provider'
 import { voiceLang } from './speech/voices'
 
@@ -49,6 +49,8 @@ interface Props {
 const ERRORS: Record<RecognitionError, string> = {
   unsupported: 'Цей браузер не розпізнає мовлення.',
   denied: 'Немає доступу до мікрофона. Дозволь його для сайту (значок біля адреси) і спробуй ще раз — або тренуйся без мікрофона.',
+  // replaced by the device-specific recognitionHelp() when shown
+  unavailable: 'Розпізнавання мовлення тут недоступне.',
   'no-mic': 'Мікрофон не знайдено. Підключи його або тренуйся без мікрофона.',
   silence: 'Нічого не почув. Говори трохи голосніше й ближче до мікрофона.',
   network: 'Розпізнавання мовлення потребує інтернету. Перевір зʼєднання.',
@@ -103,8 +105,8 @@ export function SpeakExercise({ lang, spec, check, onDone, actionsSlot, locked =
     } catch (e) {
       const reason = e instanceof RecognitionFailure ? e.reason : 'error'
       setPhase('idle')
-      if (reason !== 'aborted') setError(ERRORS[reason])
-      if (reason === 'denied' || reason === 'no-mic' || reason === 'unsupported') setManual(true)
+      if (reason !== 'aborted') setError(reason === 'unavailable' ? recognitionHelp() : ERRORS[reason])
+      if (reason === 'denied' || reason === 'unavailable' || reason === 'no-mic' || reason === 'unsupported') setManual(true)
     }
   }
 
@@ -134,7 +136,7 @@ export function SpeakExercise({ lang, spec, check, onDone, actionsSlot, locked =
       {fallback ? (
         <div className="lang-speak-fallback">
           <p>
-            <PiMicrophoneSlashFill aria-hidden="true" /> {canRecognize === false ? 'Цей браузер не розпізнає мовлення (працює в Chrome, Edge, Safari).' : 'Тренування без мікрофона.'} Послухай зразок і
+            <PiMicrophoneSlashFill aria-hidden="true" /> {canRecognize === false && !error ? recognitionHelp() : 'Тренування без мікрофона.'} Послухай зразок і
             повтори вголос кілька разів, потім чесно оціни себе — XP за самооцінку не нараховується.
           </p>
           {error ? (

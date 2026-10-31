@@ -1328,7 +1328,7 @@
     gap: var(--lu-s-4);
     padding: var(--lu-s-8) 0;
     border-top: 2px solid var(--lu-border);
-    scroll-margin-top: 64px;
+    scroll-margin-top: calc(64px + env(safe-area-inset-top));
   }
   /* author emoji rendered as our pixel icon inside text (src/ui/markdown/emoji-icons.ts) */
   .px-emoji {

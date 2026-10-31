@@ -735,7 +735,7 @@
   place-content: center;
   justify-items: center;
   gap: 10px;
-  padding: 24px;
+  padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
   background:
     radial-gradient(color-mix(in srgb, var(--lu-violet) 22%, transparent) 1.5px, transparent 2px) 0 0 / 24px 24px,
     radial-gradient(circle at 50% 40%, var(--lu-violet-soft) 0%, var(--lu-bg-sunk) 70%);

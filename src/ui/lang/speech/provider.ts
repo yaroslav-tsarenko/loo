@@ -7,7 +7,9 @@ export interface SpokenLine {
   text: string
 }
 
-export type RecognitionError = 'unsupported' | 'denied' | 'no-mic' | 'silence' | 'network' | 'aborted' | 'error'
+// unavailable: the recogniser exists but this browser / mode won't run it although the microphone is allowed (iOS home-
+// screen app, Chrome on iOS, Dictation off in iOS settings — `service-not-allowed`)
+export type RecognitionError = 'unsupported' | 'denied' | 'unavailable' | 'no-mic' | 'silence' | 'network' | 'aborted' | 'error'
 
 export interface RecognitionResult {
   // alternatives, best first

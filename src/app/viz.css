@@ -2083,7 +2083,7 @@
   }
   .viz-showcase-section {
     margin-top: 36px;
-    scroll-margin-top: 64px;
+    scroll-margin-top: calc(64px + env(safe-area-inset-top));
   }
   .viz-showcase-section > h2 {
     font-size: 22px;
