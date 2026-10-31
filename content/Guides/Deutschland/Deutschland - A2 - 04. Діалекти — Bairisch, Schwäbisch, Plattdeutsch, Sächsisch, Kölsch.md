@@ -13,7 +13,7 @@ estimatedMinutes: 40
 > [!success] Після цього розділу ти зможеш
 > - пояснити, чим **Dialekt** відрізняється від **Hochdeutsch**, і чому Plattdeutsch — окрема мова, а Sächsisch — «забарвлена» стандартна;
 > - упізнати регіональні привітання й прощання: **Moin**, **Grüß Gott**, **Servus**, **Ade**, **Tschö**;
-> - назвати п’ять відомих говірок (Bairisch, Schwäbisch, Plattdeutsch, Sächsisch, Kölsch) і по одній справжній прикметі кожної;
+> - назвати пʼять відомих говірок (Bairisch, Schwäbisch, Plattdeutsch, Sächsisch, Kölsch) і по одній справжній прикметі кожної;
 > - не губитися, коли чуєш «не ту» німецьку, і знати, що на іспиті й у листі потрібен Hochdeutsch.
 
 ## Передбач
@@ -63,10 +63,10 @@ estimatedMinutes: 40
 > steps:
 >   - { focus: [a1, b1], note: "На півночі Moin — на весь день, на півдні — Grüß Gott, а в східній Баварії ще й Servus." }
 >   - { focus: [a2, b2], note: "Північ — це передусім Plattdeutsch; на півдні кілька великих груп говірок, і вони перетинають кордони земель." }
->   - { focus: [a3, b3], note: "Tschüss зрозумілий усюди, а Servus і Ade — локальні, їх можна розуміти, не обов’язково казати." }
+>   - { focus: [a3, b3], note: "Tschüss зрозумілий усюди, а Servus і Ade — локальні, їх можна розуміти, не обовʼязково казати." }
 > ```
 
-### П’ять говірок: що в них справжнього
+### Пʼять говірок: що в них справжнього
 
 **Bairisch** (баварська). За описом Bayerisches Staatsinstitut, у середньобаварській говірці (більшість Нижньої й Верхньої Баварії) головна прикмета — **вокалізація l**: *wollen → woin*, *viel → vui*. У південнобаварській (у Баварії — лише Верденфельзький край) чути *Kchua* замість *Kuh*, у північнобаварській — *Brejf* замість *Brief*.
 
@@ -74,7 +74,7 @@ estimatedMinutes: 40
 
 **Plattdeutsch** (нижньонімецька, **Niederdeutsch**). Єдина **Regionalsprache** Німеччини: за даними уряду Бранденбургу, це окрема германська мова, а не діалект hochdeutsch; з 1999 року вона під захистом Європейської хартії регіональних мов і мов меншин. Традиційно нею говорять у вісьмох землях: Бранденбург, Бремен, Гамбург, Мекленбург-Передня Померанія, Нижня Саксонія, Північний Рейн-Вестфалія, Саксонія-Ангальт і Шлезвіг-Гольштайн. Platt не належить до мов меншин: за поясненням уповноваженого уряду, його носії не становлять національної меншини. Приклади: *Goden Dag!* («добрий день»), *Goden Avend!*, *tschüüs* («до побачення»).
 
-**Sächsisch** (саксонська). Тут найцікавіше: за порталом Freistaat Sachsen, у «трикутнику» Лейпциг — Дрезден — Хемніц справжній діалект давно не вживається; саксонці говорять **забарвленою регіоном стандартною німецькою** (Regiolekt). Прикмети (теж за порталом): **Entrundung** — *ö/ü* звучать як *e/i* (*schön → scheen*, *Glück → Glick*), приголосні м’якнуть. Місцеві слова: **nu** («так, ага; тепер»), **die Bemme** («бутерброд», за DWDS — розмовне слово зі сходу Німеччини), *Bliemchengaffee* (рідка кава).
+**Sächsisch** (саксонська). Тут найцікавіше: за порталом Freistaat Sachsen, у «трикутнику» Лейпциг — Дрезден — Хемніц справжній діалект давно не вживається; саксонці говорять **забарвленою регіоном стандартною німецькою** (Regiolekt). Прикмети (теж за порталом): **Entrundung** — *ö/ü* звучать як *e/i* (*schön → scheen*, *Glück → Glick*), приголосні мʼякнуть. Місцеві слова: **nu** («так, ага; тепер»), **die Bemme** («бутерброд», за DWDS — розмовне слово зі сходу Німеччини), *Bliemchengaffee* (рідка кава).
 
 **Kölsch** (кельнська). За DWDS — **ripuarischer, westmitteldeutscher Dialekt** Кельна й околиць (слово *das Kölsch* означає ще й місцеве пиво — не плутай!). Прикмета: **Daach** замість *Tag* (Кельн південніше від лінії Benrather Linie, де *ch* зберігається; на півночі кажуть *Daak*). Відомий жарт-присягання — **Kölsches Grundgesetz**: збірка приказок із 11 пунктами. Перший звучить **«Et es wie et es»** («так, як є, так і є»). Походження й точний текст різняться за джерелами.
 
@@ -145,7 +145,7 @@ estimatedMinutes: 40
 > uk: розмовна мова
 > forms: die Umgangssprachen
 > example: „Tschüss“ ist **Umgangssprache**. — «Tschüss» — розмовне слово.
-> note: на відміну від діалекту, не прив’язана до однієї місцевості.
+> note: на відміну від діалекту, не привʼязана до однієї місцевості.
 
 > [!word] der Akzent
 > ipa: /akˈtsɛnt/ · pos: noun · level: B1 · id: dl-a2-04-w06
@@ -225,22 +225,15 @@ estimatedMinutes: 40
 
 ### Говірки
 
-> [!word] das Kölsch
-> ipa: /kœlʃ/ · pos: noun · level: B1 · id: dl-a2-04-w18
-> uk: кельнська говірка; а ще — місцеве пиво
-> forms: — (без множини)
-> example: Im Karneval hört man viel **Kölsch**. — На карнавалі чути багато кельнської говірки.
-> note: DWDS: два окремі слова — діалект (без множини) і пиво (*ein Kölsch*, склянка пива).
-
 > [!word] das Häusle
-> ipa: /ˈhɔʏ̯zlə/ · pos: noun · level: B1 · id: dl-a2-04-w19
+> ipa: /ˈhɔʏ̯zlə/ · pos: noun · level: B1 · id: dl-a2-04-w18
 > uk: будиночок (швабською)
 > forms: — (діалектне слово; у стандартній — die Häuschen)
 > example: „Schaffe, schaffe, **Häusle** baue.“ — «Працюй, працюй, дім будуй» (швабська приказка).
 > note: у стандартній — *das Häuschen*. Швабський суфікс *-le* = *-chen*.
 
 > [!word] die Bemme
-> ipa: /ˈbɛmə/ · pos: noun · level: B1 · id: dl-a2-04-w20
+> ipa: /ˈbɛmə/ · pos: noun · level: B1 · id: dl-a2-04-w19
 > uk: бутерброд (Саксонія, схід Німеччини)
 > forms: die Bemmen
 > example: Ich esse eine **Bemme** mit Käse. — Я їм бутерброд із сиром.
@@ -255,7 +248,7 @@ estimatedMinutes: 40
 > - [ ] Так, він помилився зі словом.
 > - [x] Ні, на півночі так вітаються цілий день.
 > - [ ] Так, «Moin» кажуть лише вранці.
-> - [ ] Ні, він кличе когось за ім’ям.
+> - [ ] Ні, він кличе когось за імʼям.
 >
 > **Пояснення:** *zu jeder Tageszeit* — «у будь-яку пору доби». *Moin* не від *Morgen*. Не відповідай *Guten Morgen* — скажи *Moin* або *Guten Tag*.
 
@@ -322,7 +315,7 @@ estimatedMinutes: 40
 > level: A2 · speed: slow · id: dl-a2-04-s02
 > text: Grüß Gott! Ich hätte gern ein Brötchen.
 > ipa: /ɡʁyːs ˈɡɔt ɪç ˈhɛtə ɡɛʁn aɪ̯n ˈbʁøːtçən/
-> tip: Grüß — довге [yː] і глухе [s]; Gott — коротке [ɔ], g = «ґ»; ich — [ç], м’яке «х».
+> tip: Grüß — довге [yː] і глухе [s]; Gott — коротке [ɔ], g = «ґ»; ich — [ç], мʼяке «х».
 > uk: Добридень! Я б хотів булочку.
 
 > [!speak] Скажи вголос
@@ -485,7 +478,7 @@ estimatedMinutes: 40
 - [Dialekte in Bayern](https://www.dialekte.schule.bayern.de/dialekte/) — Staatsinstitut für Schulqualität und Bildungsforschung (ISB), Bayern: Bairisch, Fränkisch, Schwäbisch-Alemannisch.
 - [Sprachen in Sachsen](https://www.freistaat.sachsen.de/sprachen-in-sachsen-5308.html) — Freistaat Sachsen, і [Sächsisch für alle](https://www.so-geht-saechsisch.de/dialekt) — Landesmarketing Sachsen.
 - [Niederdeutsch — Land Brandenburg](https://mwfk.brandenburg.de/mwfk/de/kultur/niederdeutsch-plattdueuetsch/) та [Niederdeutschsekretariat](https://www.niederdeutschsekretariat.de/); [Grüße auf Platt](https://plattmakers.de/de/weten/Gruesse).
-- [Die kölsche Sprache](https://www.koeln-lotse.de/2024/02/01/die-koelsche-sprache-mehr-als-nur-ein-dialekt-teil-i/) — Köln-Lotse; [Kölsches Grundgesetz](https://erlebnis-sprache.de/koelsches-grundgesetz/) та [Flimm’s Kölsches Grundgesetz](https://www.kabaenes.de/koelsches-grundgesetz.html).
+- [Die kölsche Sprache](https://www.koeln-lotse.de/2024/02/01/die-koelsche-sprache-mehr-als-nur-ein-dialekt-teil-i/) — Köln-Lotse; [Kölsches Grundgesetz](https://erlebnis-sprache.de/koelsches-grundgesetz/) та [Flimm's Kölsches Grundgesetz](https://www.kabaenes.de/koelsches-grundgesetz.html).
 - [Hallo und Tschüs](https://gfds.de/hallo-und-tschues/) — Gesellschaft für deutsche Sprache (tschüs, tschö).
 - [Swabian German — Wikipedia](https://en.wikipedia.org/wiki/Swabian_German) — суфікс *-le*; [Wir können alles. Außer Hochdeutsch.](https://de.wikipedia.org/wiki/Wir_k%C3%B6nnen_alles._Au%C3%9Fer_Hochdeutsch.) — Wikipedia.
 - [Sprachreport 2/2011 — Dialektologie](https://pub.ids-mannheim.de/laufend/sprachreport/pdf/sr11-2a.pdf) — Institut für Deutsche Sprache, Mannheim; [Forschungszentrum Deutscher Sprachatlas](https://www.regionalsprache.de/atlanten-und-karten.aspx).
