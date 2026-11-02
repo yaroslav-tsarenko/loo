@@ -184,7 +184,15 @@
   keywords:
     - event loop
     - event loop javascript
+    - event loop простими словами
     - мікрозадачі макрозадачі
+    - microtask macrotask
+    - setTimeout 0
+    - process.nextTick setImmediate
+    - event loop співбесіда
+  notes: Пошук 2026-11-02 — уся видача за «event loop простими словами / мікрозадачі макрозадачі» російськомовна (Хабр, learn.javascript.ru, Дока), українського матеріалу немає; задача «що виведе код» з setTimeout/then/await — стандарт співбесід Junior/Middle. Джерела — MDN (Execution model, Microtask guide, setTimeout, requestAnimationFrame), стандарт HTML, Node.js (event loop guide, process.nextTick vs queueMicrotask у CJS/ESM). Увесь код перевірено в Node 25.
+  status: done
+  slug: event-loop-javascript-prostymy-slovamy
 - topic: Методи масивів map, filter, reduce — шпаргалка з прикладами
   category: javascript
   keywords:
