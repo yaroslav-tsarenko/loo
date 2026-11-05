@@ -1,234 +1,168 @@
 <div align="center">
 
-# Loo — навчання як гра
+# Loo: learning as a game you can't cheat
 
-**Прокачуй навички щодня — по 5 хвилин.** Англійська від A1 до C2, JavaScript від нуля до Pro, а поруч — піксельний
-Loo, який росте разом із тобою.
+**Five-minute lessons, streaks and weekly leagues.** English from A1 to C2 and JavaScript from zero to pro, for Ukrainian speakers, with a pixel mascot that grows with you.
 
-[**playloo.app**](https://playloo.app) · [Блог](https://playloo.app/blog) · [Документація](#документація)
+[**playloo.app**](https://playloo.app) · [Blog](https://playloo.app/blog) · [Docs](#docs)
+
+**English** · [Українська](README.uk.md)
 
 ![Next.js 16](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)
 ![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ecf8e?logo=supabase&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-deploy-000?logo=vercel)
-![Tests](https://img.shields.io/badge/tests-1200%2B%20unit-8b5cf6)
+![Tests](https://img.shields.io/badge/tests-1300%2B%20unit-8b5cf6)
 
-<img src="docs/readme/landing.jpg" alt="Лендінг playloo.app" width="900" />
+<img src="docs/readme/landing.jpg" alt="playloo.app landing page" width="900" />
 
 </div>
 
 ---
 
-## Що таке Loo
+## What it is
 
-Loo — це застосунок у стилі Duolingo для україномовних. Будь-який предмет перетворюється на шлях з коротких уроків,
-тестів і повторень; за навчання ти отримуєш XP, бакси й кристали, тримаєш серію днів, змагаєшся в лігах і вдягаєш
-свого персонажа. Пояснення — українською, перевірка відповідей — лише на сервері, прогрес кожного — у власному
-рядку Postgres під RLS.
+Loo is a Duolingo-style app. Any subject becomes a path of short lessons, tests and reviews; learners earn XP and two currencies, keep a daily streak, compete in weekly leagues and dress their character. Explanations are in Ukrainian, answers are checked only on the server, and every learner's progress lives in their own Postgres rows under row-level security.
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/readme/today.jpg" alt="Сьогодні: місія дня, денна мета, продовжити урок" /></td>
-    <td width="50%"><img src="docs/readme/path.jpg" alt="Карта курсу: розділи CEFR і вузли уроків" /></td>
+    <td width="50%"><img src="docs/readme/today.jpg" alt="Today: daily mission, daily goal, continue the lesson" /></td>
+    <td width="50%"><img src="docs/readme/path.jpg" alt="Course map: CEFR sections and lesson nodes" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Сьогодні</b> — місія дня, денна мета, «продовжити» з того ж місця</td>
-    <td align="center"><b>Карта</b> — шлях курсу: розділи, теми, уроки, тести й екзамени</td>
+    <td align="center"><b>Today</b>: daily mission, daily goal, continue where you stopped</td>
+    <td align="center"><b>Map</b>: sections, topics, lessons, tests and exams</td>
   </tr>
   <tr>
-    <td><img src="docs/readme/lesson.jpg" alt="Урок: питання з варіантами" /></td>
-    <td><img src="docs/readme/theory.jpg" alt="Теорія: стаття теми з вбудованими вправами" /></td>
+    <td><img src="docs/readme/lesson.jpg" alt="Lesson with answer options" /></td>
+    <td><img src="docs/readme/theory.jpg" alt="Topic article with built-in exercises" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Урок</b> — передбач, розбери, закріпи; сердечка за помилки, XP за відповіді</td>
-    <td align="center"><b>Теорія</b> — статті тем з таблицями, діаграмами й вправами просто в тексті</td>
+    <td align="center"><b>Lesson</b>: predict, break down, practise; hearts for mistakes, XP for answers</td>
+    <td align="center"><b>Theory</b>: topic articles with tables, diagrams and exercises inline</td>
   </tr>
   <tr>
-    <td><img src="docs/readme/loo.jpg" alt="Мій Loo: ранг, спорядження, характеристики" /></td>
-    <td><img src="docs/readme/shop.jpg" alt="Крамниця: гаманець, розхідники, спорядження" /></td>
+    <td><img src="docs/readme/loo.jpg" alt="My Loo: rank, gear, stats" /></td>
+    <td><img src="docs/readme/shop.jpg" alt="Shop: wallet, consumables, gear" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Мій Loo</b> — шлях воїна з 56 кроків, спорядження й характеристики</td>
-    <td align="center"><b>Крамниця</b> — заморозка серії, сердечка, подвійний XP, скіни й броня</td>
+    <td align="center"><b>My Loo</b>: a 56-step rank path, gear and stats</td>
+    <td align="center"><b>Shop</b>: streak freezes, hearts, double XP, skins and armour</td>
   </tr>
 </table>
 
 <div align="center">
-<img src="docs/readme/m-path.jpg" alt="Карта на телефоні" width="250" />&nbsp;&nbsp;
-<img src="docs/readme/m-lesson.jpg" alt="Урок на телефоні" width="250" />&nbsp;&nbsp;
-<img src="docs/readme/m-loo.jpg" alt="Мій Loo на телефоні" width="250" />
+<img src="docs/readme/m-path.jpg" alt="Course map on a phone" width="250" />&nbsp;&nbsp;
+<img src="docs/readme/m-lesson.jpg" alt="Lesson on a phone" width="250" />&nbsp;&nbsp;
+<img src="docs/readme/m-loo.jpg" alt="My Loo on a phone" width="250" />
 
-<sub>На телефоні — нижня навігація, великі кнопки, PWA (можна встановити на головний екран).</sub>
+<sub>On a phone: bottom navigation, large targets, installable as a PWA.</sub>
 </div>
 
-## Курси
+## Courses
 
-| Курс | Розділи | Теми | Уроки | Вправи | Рілси |
+| Course | Sections | Topics | Lessons | Exercises | Reels |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| **English A1 → C2** — граматика, 4 287 слів, аудіювання, вимова, читання, IELTS-орієнтир | 6 (A1…C2) | 166 | 2 361 | 9 375 | 499 |
-| **JavaScript Zero → Pro** — від змінних до event loop, патернів і співбесід | 9 | 73 | 779 | 1 759 | 271 |
+| **English A1 → C2**: grammar, 4,287 words, listening, pronunciation, reading, IELTS guide | 6 (A1…C2) | 166 | 2,361 | 9,375 | 499 |
+| **JavaScript Zero → Pro**: from variables to the event loop, patterns and interviews | 9 | 73 | 779 | 1,759 | 271 |
 
-Курс — це Markdown-посібник у Obsidian + маніфест `course.yaml`; компілятор збирає з нього бандл (розділи, теми,
-уроки, тести тем, екзамени розділів, пули вправ). Новий курс = новий контент, без коду —
-[docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md).
+A course is a Markdown guide written in Obsidian plus a `course.yaml` manifest. A compiler turns it into a bundle of sections, topics, lessons, topic tests, section exams and exercise pools. A new course is new content, not new code ([docs/COURSE_FORMAT.md](docs/COURSE_FORMAT.md)).
 
-## Можливості
+## Engineering highlights
 
-### Навчання
-- **Уроки** з кроками «передбач → розбери → закріпи» (pretesting, interleaving, retrieval practice —
-  [docs/LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md)), сердечка за помилки, розбір наприкінці.
-- **Типи вправ:** один / кілька варіантів, «що виведе код», «склади код» (Parsons), «заповни пропуски», флешкартки,
-  задачі з автотестами у Web Worker, питання співбесіди.
-- **Інтервальні повторення FSRS** для карток і слів; **«Мої помилки»** — окрема сесія, питання виходить після двох
-  правильних відповідей з перервою.
-- **Тести тем і екзамени розділів** із можливістю «перескочити розділ»; **стрічка-рілси** з короткими фішками.
+- **The server is the source of truth.** Answer keys never reach the browser in graded contexts; XP, hearts, leagues and currencies change in one server transaction ([SECURITY.md](docs/SECURITY.md)).
+- **Row-level security everywhere.** Every progress table has `user_id` and an `own_rows` policy; server-only tables (analytics, admin log, email) have no grants for `anon` or `authenticated`.
+- **Learning science, not just points.** Lessons follow predict, break down, practise (pretesting, interleaving, retrieval practice). FSRS spaced repetition for cards and words, a mistakes queue that releases a question only after two spaced correct answers ([LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md)).
+- **Adaptive placement test.** Binary search over CEFR levels with guessing protection and an "I don't know" option; per-skill levels drive which exercises come next ([LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md)).
+- **Many exercise types.** Single and multiple choice, "what does this code print", Parsons problems, gap fill, flashcards, coding tasks with auto-tests in a Web Worker, interview questions, listening and speaking with browser speech APIs.
+- **Fast reads.** A page read is one statement through `readAll`, content is cached, round trips are kept to a minimum ([PERFORMANCE.md](docs/PERFORMANCE.md)).
+- **Run like a product.** Own analytics with no third-party trackers, an admin for users and the game economy, an action log, a blog with SSG, OpenGraph cards, sitemap and IndexNow.
+- **Tested.** 1,300+ unit tests on course, progress and game logic (Vitest), end-to-end flows in Playwright, layer boundaries enforced by ESLint.
 
-### Мовний курс
-
-<table>
-  <tr>
-    <td width="50%"><img src="docs/readme/placement.jpg" alt="Вступний тест: питання на читання" /></td>
-    <td width="50%"><img src="docs/readme/words.jpg" alt="Слова: FSRS-черга, фільтр за рівнями" /></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Вступний тест</b> — адаптивний, ~30 питань, рівень за навичками й орієнтовний IELTS</td>
-    <td align="center"><b>Слова</b> — 4 287 карток з вимовою, приклади, форми, FSRS-розклад</td>
-  </tr>
-</table>
-
-- Адаптивний **вступний тест** по CEFR (бінарний пошук рівня, захист від вгадування, «Не знаю») —
-  [docs/LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md).
-- **Рівень за навичками** (граматика, лексика, читання, аудіювання, вимова) після кожного тесту й підбір вправ під
-  слабкі місця.
-- **Аудіювання й вимова** — браузерний синтез і розпізнавання мовлення, мінімальні пари, диктанти, IELTS-форми;
-  тексти для озвучки потрапляють у браузер лише після натискання «Слухати» ([docs/SPEECH.md](docs/SPEECH.md)).
-
-### Гра
-- **XP, бакси й кристали**, денна мета й серія з заморозками, ачівки, місія дня.
-- **Шлях воїна** з 56 кроків і ранг у кожному курсі (Trainee → Principal / A1 → C2) —
-  [docs/ECONOMY.md](docs/ECONOMY.md).
-- **Тижневі ліги** (до 30 учнів, 10 рівнів від бронзи), підвищення й пониження.
-- **Крамниця й спорядження** з характеристиками — фундамент для дуелей і босів ([docs/BATTLES.md](docs/BATTLES.md)).
-
-### Блог і SEO
-
-<img src="docs/readme/blog.jpg" alt="Блог Loo" width="100%" />
-
-Статті простими словами про англійську, JavaScript, SQL і System Design (`blog/uk/*.md`): SSG, OpenGraph-картки,
-sitemap, IndexNow. Нові статті пише запланована задача Claude тричі на тиждень — [docs/BLOG.md](docs/BLOG.md).
-
-### Аналітика й адмінка
-
-<img src="docs/readme/admin.jpg" alt="Адмінка: огляд аналітики (демо-дані)" width="100%" />
-
-<sub>Скриншот на локальних демо-даних.</sub>
-
-- **Власна аналітика без сторонніх сервісів:** перегляди, кліки, час на сторінці, джерела, UTM, країни й міста,
-  пристрої — з фільтрами, порівнянням періодів і графіками ([docs/ANALYTICS.md](docs/ANALYTICS.md)).
-- **Адмінка `/admin`:** огляд, детальна аналітика, користувачі (баланси, сердечка, бусти, предмети, бан), економіка
-  гри, журнал усіх дій і налаштування ([docs/ADMIN.md](docs/ADMIN.md)).
-
-## Як це влаштовано
+## Architecture
 
 ```mermaid
 flowchart LR
   vault["Obsidian vault<br/>Guides/ · Courses/"] -->|pnpm content:sync| content["content/<br/>Markdown + course.yaml"]
-  content -->|pnpm course:build| bundle["content/courses/*.json<br/>бандл курсу"]
-  content -->|content-snapshot| snap["знімок вмісту<br/>(юніти, статті)"]
-  bundle --> app["Next.js 16 на Vercel<br/>RSC + server actions"]
+  content -->|pnpm course:build| bundle["content/courses/*.json<br/>course bundle"]
+  content -->|content-snapshot| snap["content snapshot<br/>(units, articles)"]
+  bundle --> app["Next.js 16 on Vercel<br/>RSC + server actions"]
   snap --> app
-  app <-->|"withUser (RLS)"| db[("Supabase Postgres<br/>прогрес · гра · аналітика")]
+  app <-->|"withUser (RLS)"| db[("Supabase Postgres<br/>progress · game · analytics")]
   app <--> auth["Supabase Auth<br/>email · Google · GitHub"]
-  browser["Браузер / PWA"] <--> app
+  browser["Browser / PWA"] <--> app
 ```
-
-- **Сервер — джерело правди.** Ключі відповідей не йдуть у браузер у графуваних контекстах; XP, серця, ліги й
-  гроші рахує сервер в одній транзакції ([docs/SECURITY.md](docs/SECURITY.md)).
-- **Кожна таблиця прогресу** має `user_id` і RLS-політику `own_rows`; серверні таблиці (аналітика, журнал адмінки,
-  пошта) — без грантів для `anon` / `authenticated`.
-- **Швидкість:** читання сторінки — один statement через `readAll`, кеш контенту, мінімум round trip
-  ([docs/PERFORMANCE.md](docs/PERFORMANCE.md)).
 
 ```
 src/
-  content/   vault → доменна модель; реєстр блоків (quiz, word, listen, speak, pair, task…); парсер Obsidian
-  course/    схема курсу, компілятор бандла, вступний тест, навички, адаптивний підбір (чиста логіка)
-  progress/  XP, рівні, FSRS, помилки, серії, ачівки (без I/O)
-  game/      ранги, валюти, крамниця, ліги, персонаж
-  db/        схема Drizzle і клієнт Postgres
-  server/    auth, actions, сервіси, адмінка, аналітика
-  ui/        React-компоненти
-  app/       маршрути Next.js (App Router)
+  content/   vault -> domain model; block registry (quiz, word, listen, speak, pair, task...); Obsidian parser
+  course/    course schema, bundle compiler, placement test, skills, adaptive selection (pure logic)
+  progress/  XP, levels, FSRS, mistakes, streaks, achievements (no I/O)
+  game/      ranks, currencies, shop, leagues, character
+  db/        Drizzle schema and Postgres client
+  server/    auth, actions, services, admin, analytics
+  ui/        React components
+  app/       Next.js routes (App Router)
 ```
 
-## Стек
+<img src="docs/readme/admin.jpg" alt="Admin analytics overview (demo data)" width="100%" />
 
-**Next.js 16** (App Router, React Compiler) · **React 19** · **TypeScript** strict · **Tailwind CSS 4** ·
-**Drizzle ORM** + **postgres-js** · **Supabase** (Postgres, Auth, RLS) · **ts-fsrs** · **Zod** · **Vitest** ·
-**Playwright** · **Vercel** (Fluid Compute) · **Resend** (листи) · Obsidian як CMS.
+<sub>Admin analytics on local demo data.</sub>
 
-## Швидкий старт
+## Stack
 
-Потрібні Node.js 22.12+ і pnpm (`corepack enable`).
+**Next.js 16** (App Router, React Compiler) · **React 19** · **TypeScript** strict · **Tailwind CSS 4** · **Drizzle ORM** + **postgres-js** · **Supabase** (Postgres, Auth, RLS) · **ts-fsrs** · **Zod** · **Vitest** · **Playwright** · **Vercel** (Fluid Compute) · **Resend** · Obsidian as the CMS.
+
+## Getting started
+
+Node.js 22.12+ and pnpm (`corepack enable`).
 
 ```bash
 pnpm install
-cp .env.example .env.local   # VAULT_PATH, DATABASE_URL, ключі Supabase, ADMIN_EMAILS
+cp .env.example .env.local   # VAULT_PATH, DATABASE_URL, Supabase keys, ADMIN_EMAILS
 ```
 
 ```bash
-pnpm db:local     # локальний Postgres (PGlite) на :54329 — в окремому терміналі
-pnpm db:migrate   # схема + RLS
+pnpm db:local     # local Postgres (PGlite) on :54329, in a separate terminal
+pnpm db:migrate   # schema + RLS
 pnpm dev          # http://127.0.0.1:3000
 ```
 
-Без ключів Supabase можна працювати над UI: `DEV_AUTH_BYPASS=1 pnpm dev` (лише `next dev` і лише без ключів — вхід
-як локальний власник). Налаштування входу — [docs/AUTH.md](docs/AUTH.md).
+Without Supabase keys you can work on the UI with `DEV_AUTH_BYPASS=1 pnpm dev` (only in `next dev` and only without keys). Sign-in setup: [docs/AUTH.md](docs/AUTH.md).
 
-### Команди
-
-| Команда | Що робить |
+| Command | What it does |
 | --- | --- |
-| `pnpm dev` / `pnpm build` / `pnpm start` | розробка / збірка / production-режим |
-| `pnpm content:sync` | копіює `Guides/` і `Courses/` з vault у `content/` |
-| `pnpm content:check [посібник]` | перевіряє статті: блоки, id, посилання |
-| `pnpm course:check <курс>` / `pnpm course:build` | перевіряє й компілює курси в бандли |
-| `pnpm db:generate` / `pnpm db:migrate` | міграції Drizzle (на прод — лише під час збірки на Vercel) |
-| `pnpm test` / `pnpm e2e` | unit-тести (Vitest) / e2e (Playwright) |
-| `pnpm lint` / `pnpm typecheck` | ESLint (з межами шарів) / TypeScript |
-| `pnpm admin:credentials [--vercel]` | новий пароль адмінки (хеш і секрет — у `.env.local` і Vercel) |
+| `pnpm dev` / `pnpm build` / `pnpm start` | development / build / production mode |
+| `pnpm content:sync` | copies `Guides/` and `Courses/` from the vault into `content/` |
+| `pnpm course:check <course>` / `pnpm course:build` | validates and compiles courses into bundles |
+| `pnpm db:generate` / `pnpm db:migrate` | Drizzle migrations |
+| `pnpm test` / `pnpm e2e` | unit tests (Vitest) / end-to-end (Playwright) |
+| `pnpm lint` / `pnpm typecheck` | ESLint with layer boundaries / TypeScript |
 
-### Клавіатура
+## Docs
 
-| Де | Клавіші |
+| Topic | File |
 | --- | --- |
-| Будь-де | `⌘K` / `Ctrl+K` або `/` — пошук і дії · `⌘\` — бічна панель |
-| Читалка | `M` — вивчено · `[` / `]` — попередній / наступний розділ |
-| Картки | `Пробіл` — перевернути · `1` / `2` / `3` — не знав / важко / знав |
-| Тести | `1`–`4` — варіант · `Enter` — перевірити / далі |
+| Architecture and layers | [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Content and course format | [CONTENT_SPEC.md](CONTENT_SPEC.md) · [COURSE_FORMAT.md](docs/COURSE_FORMAT.md) |
+| Language courses, placement, skills | [LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md) · [ENGLISH_SYLLABUS.md](docs/ENGLISH_SYLLABUS.md) · [SPEECH.md](docs/SPEECH.md) |
+| How we teach | [LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md) |
+| Game and economy | [ECONOMY.md](docs/ECONOMY.md) · [BATTLES.md](docs/BATTLES.md) |
+| Design | [DESIGN.md](docs/DESIGN.md) |
+| Sign-in and security | [AUTH.md](docs/AUTH.md) · [SECURITY.md](docs/SECURITY.md) |
+| Performance | [PERFORMANCE.md](docs/PERFORMANCE.md) |
+| Blog, email, analytics, admin | [BLOG.md](docs/BLOG.md) · [EMAIL.md](docs/EMAIL.md) · [ANALYTICS.md](docs/ANALYTICS.md) · [ADMIN.md](docs/ADMIN.md) |
+| Roadmap | [ROADMAP.md](docs/ROADMAP.md) |
 
-## Документація
+Most docs are in Ukrainian.
 
-| Тема | Файл |
-| --- | --- |
-| Архітектура й шари | [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
-| Формат контенту й курсів | [CONTENT_SPEC.md](CONTENT_SPEC.md) · [COURSE_FORMAT.md](docs/COURSE_FORMAT.md) |
-| Мовні курси, вступний тест, навички | [LANGUAGE_COURSE.md](docs/LANGUAGE_COURSE.md) · [ENGLISH_SYLLABUS.md](docs/ENGLISH_SYLLABUS.md) · [SPEECH.md](docs/SPEECH.md) |
-| Як ми вчимо | [LEARNING_PLAYBOOK.md](docs/LEARNING_PLAYBOOK.md) |
-| Гра й економіка | [ECONOMY.md](docs/ECONOMY.md) · [BATTLES.md](docs/BATTLES.md) |
-| Дизайн | [DESIGN.md](docs/DESIGN.md) |
-| Вхід і безпека | [AUTH.md](docs/AUTH.md) · [SECURITY.md](docs/SECURITY.md) |
-| Швидкодія | [PERFORMANCE.md](docs/PERFORMANCE.md) |
-| Блог, пошта, аналітика, адмінка | [BLOG.md](docs/BLOG.md) · [EMAIL.md](docs/EMAIL.md) · [ANALYTICS.md](docs/ANALYTICS.md) · [ADMIN.md](docs/ADMIN.md) |
-| Плани | [ROADMAP.md](docs/ROADMAP.md) |
+## Data and privacy
 
-## Дані й приватність
-
-- Прогрес кожного — у Postgres з `user_id` під RLS; видалення акаунта видаляє весь прогрес (каскадом).
-- **Профіль і акаунт → Завантажити мої дані** — усе про тебе в JSON; **Видалити акаунт** — профіль і прогрес.
-- Аналітика збирає IP і місто для статистики сайту — опис і строк зберігання в [ANALYTICS.md](docs/ANALYTICS.md).
+- Each learner's progress is stored in Postgres with `user_id` under RLS; deleting the account deletes all progress (cascade).
+- **Profile and account → Download my data** exports everything in JSON; **Delete account** removes the profile and progress.
+- Site analytics stores IP and city for statistics; retention is described in [ANALYTICS.md](docs/ANALYTICS.md).
 
 ---
 
-<div align="center"><sub>© Yaroslav Tsarenko · пропрієтарний код і контент · <a href="https://playloo.app">playloo.app</a></sub></div>
+<div align="center"><sub>© Yaroslav Tsarenko · source available for review, all rights reserved to the code and content · <a href="https://playloo.app">playloo.app</a></sub></div>
