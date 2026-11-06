@@ -4,6 +4,7 @@ export const BLOG_SLUGS: readonly string[] = [
   "event-loop-javascript-prostymy-slovamy",
   "ielts-baly-yak-rakhuietsia-band-score",
   "javascript-z-nulya",
+  "metody-masyviv-javascript-map-filter-reduce",
   "present-perfect-prostymy-slovamy",
   "promise-async-await-javascript",
   "rivni-anhliiskoi-movy-a1-c2",

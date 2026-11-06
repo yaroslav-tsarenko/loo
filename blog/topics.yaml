@@ -203,9 +203,16 @@
 - topic: Методи масивів map, filter, reduce — шпаргалка з прикладами
   category: javascript
   keywords:
+    - методи масивів js
+    - всі методи масивів js
+    - методи перебору масиву js
     - map filter reduce
-    - методи масивів javascript
-    - reduce javascript
+    - reduce js
+    - map і forEach різниця
+    - sort js
+  notes: Підказки Google (hl=uk) 2026-11-06 — «методи масивів js», «всі методи масивів js», «методи перебору масиву js»; за «reduce js», «sort js», «this в javascript» підказки й видача російськомовні. Джерела — MDN (Array, sort, reduce, forEach, includes, toSorted, Object.groupBy). Увесь код перевірено в Node 25.
+  status: done
+  slug: metody-masyviv-javascript-map-filter-reduce
 - topic: this у JavaScript — чому він «губиться» і як це виправити
   category: javascript
   keywords:
