@@ -1,50 +1,15 @@
 import { cx } from './cx'
-import { BASE_ICONS } from './pixel-icons/base'
-import { CONTENT_ICONS } from './pixel-icons/content'
-import { FLAG_ICONS } from './pixel-icons/flags'
-import { GAME_ICONS } from './pixel-icons/game'
-import { LEARN_ICONS } from './pixel-icons/learn'
-import { PIXEL_PALETTE } from './pixel-icons/palette'
-import { RANK_ICONS } from './pixel-icons/ranks'
-import { VIZ_ICONS } from './pixel-icons/viz'
+import type { PixelIconName } from './pixel-icons/names'
+
+export { PIXEL_ICONS, type PixelIconName } from './pixel-icons/names'
 
 // Levelup's own pixel icon set (16×16, same pixel language as Loo). Grids live in ./pixel-icons/*.ts (one file per
-// area), colours in ./pixel-icons/palette.ts.
+// area), colours in ./pixel-icons/palette.ts. They're drawn once into a sprite (./pixel-sprite.ts → /pixel-icons.svg);
+// an icon is a <use> of its symbol: ~80 bytes of markup instead of ~1.3 KB, and no atlas in the client bundles.
+// The version (a hash of the grids, next.config.ts) makes the sprite cacheable forever.
 // Preview: /design → «Піксельні іконки».
 
-const ART = { ...BASE_ICONS, ...CONTENT_ICONS, ...FLAG_ICONS, ...GAME_ICONS, ...LEARN_ICONS, ...RANK_ICONS, ...VIZ_ICONS }
-const PAL = PIXEL_PALETTE
-
-export type PixelIconName = keyof typeof ART
-export const PIXEL_ICONS = Object.keys(ART) as PixelIconName[]
-
-interface Layer {
-  fill: string
-  d: string
-}
-
-// Horizontal runs of one colour, all runs of a colour in ONE <path> (`M x y h w v1.02 h-w z` each): ≈1 KB of markup per
-// icon instead of ≈4 KB of <rect>s — a course path page shows hundreds of them (docs/PERFORMANCE.md).
-const LAYERS = new Map<PixelIconName, Layer[]>()
-function layers(name: PixelIconName): Layer[] {
-  let out = LAYERS.get(name)
-  if (out) return out
-  const byFill = new Map<string, string>()
-  ART[name].forEach((row, y) => {
-    let x = 0
-    while (x < row.length) {
-      const c = row.charAt(x)
-      let w = 1
-      while (row.charAt(x + w) === c) w++
-      const fill = PAL[c]
-      if (fill) byFill.set(fill, `${byFill.get(fill) ?? ''}M${x} ${y}h${w}v1.02h-${w}z`)
-      x += w
-    }
-  })
-  out = [...byFill].map(([fill, d]) => ({ fill, d }))
-  LAYERS.set(name, out)
-  return out
-}
+export const PIXEL_SPRITE_URL = `/pixel-icons.svg?v=${process.env.NEXT_PUBLIC_PIXEL_SPRITE ?? 'dev'}`
 
 export function PixelIcon({ name, size = 32, label, className }: { name: PixelIconName; size?: number; label?: string; className?: string }) {
   return (
@@ -59,9 +24,7 @@ export function PixelIcon({ name, size = 32, label, className }: { name: PixelIc
       aria-hidden={label ? undefined : true}
       focusable="false"
     >
-      {layers(name).map((l) => (
-        <path key={l.fill} d={l.d} fill={l.fill} />
-      ))}
+      <use href={`${PIXEL_SPRITE_URL}#${name}`} />
     </svg>
   )
 }

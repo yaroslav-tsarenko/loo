@@ -1,4 +1,15 @@
+import { createHash } from 'node:crypto'
+import { readdirSync, readFileSync } from 'node:fs'
+import path from 'node:path'
 import type { NextConfig } from 'next'
+
+// Version of the pixel icon sprite (/pixel-icons.svg): a hash of the grids and the palette, so the URL changes exactly
+// when the art does and browsers can cache it as immutable (src/ui/design/PixelIcon.tsx).
+const PIXEL_DIR = path.join(process.cwd(), 'src/ui/design/pixel-icons')
+const pixelSprite = createHash('sha256')
+  .update(['../pixel-sprite.ts', ...readdirSync(PIXEL_DIR).sort()].map((f) => readFileSync(path.join(PIXEL_DIR, f))).join('\0'))
+  .digest('hex')
+  .slice(0, 12)
 
 // Static security headers for every response (CSP is per-request, with a nonce, in src/proxy.ts).
 const SECURITY_HEADERS = [
@@ -17,6 +28,7 @@ const SECURITY_HEADERS = [
 
 const config: NextConfig = {
   reactCompiler: true,
+  env: { NEXT_PUBLIC_PIXEL_SPRITE: pixelSprite },
   typedRoutes: false,
   poweredByHeader: false,
   serverExternalPackages: ['chokidar'],

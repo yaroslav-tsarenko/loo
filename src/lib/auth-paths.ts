@@ -24,6 +24,7 @@ export const PUBLIC_GET: ReadonlySet<string> = new Set([
   '/twitter-image',
   '/indexnow.txt',
   '/welcome',
+  '/pixel-icons.svg',
 ])
 
 // The public blog: /blog, /blog/<category>, /blog/<slug>, its OG cards and images (public/blog/<slug>/<file>.webp),
