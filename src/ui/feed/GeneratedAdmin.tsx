@@ -5,7 +5,7 @@ import { Sparkles } from 'lucide-react'
 import { PiEyeSlashFill } from 'react-icons/pi'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
-import { hideGeneratedReel } from '@/server/actions/feed'
+import { hideGeneratedReel, publishGeneratedReel } from '@/server/actions/feed'
 import { generateReelsNow } from '@/server/actions/reels'
 
 export function GenerateNow() {
@@ -58,6 +58,27 @@ export function HideButton({ id }: { id: string }) {
       }
     >
       <PiEyeSlashFill aria-hidden="true" /> Сховати
+    </button>
+  )
+}
+
+// A news-based reel waits for review (status 'pending'): publish it for everyone.
+export function PublishButton({ id }: { id: string }) {
+  const [pending, start] = useTransition()
+  const router = useRouter()
+  return (
+    <button
+      type="button"
+      className="ui-button"
+      disabled={pending}
+      onClick={() =>
+        start(async () => {
+          await publishGeneratedReel(id)
+          router.refresh()
+        })
+      }
+    >
+      Опублікувати
     </button>
   )
 }

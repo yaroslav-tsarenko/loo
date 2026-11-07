@@ -13,7 +13,7 @@ import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
 import { readSystem } from '@/server/settings'
 import { relative } from '@/ui/format'
-import { GenerateNow, HideButton } from '@/ui/feed/GeneratedAdmin'
+import { GenerateNow, HideButton, PublishButton } from '@/ui/feed/GeneratedAdmin'
 import { Icon } from '@/ui/icons/Icon'
 import { chapterHref } from '@/ui/routes'
 
@@ -73,7 +73,7 @@ export default async function GeneratedReelsPage() {
             const { body, code } = splitBody(r.body)
             const chapter = r.chapterId ? snapshot.chapters.get(r.chapterId) : undefined
             return (
-              <li key={r.id} className="gen-row" data-hidden={r.status === 'hidden' ? '' : undefined}>
+              <li key={r.id} className="gen-row" data-hidden={r.status === 'hidden' ? '' : undefined} data-pending={r.status === 'pending' ? '' : undefined}>
                 <span className="news-emoji" aria-hidden="true">
                   <Icon name={iconRef(r.emoji, REEL_FALLBACK_ICON)!} size={24} />
                 </span>
@@ -99,10 +99,19 @@ export default async function GeneratedReelsPage() {
                         </a>
                       </>
                     ) : null}
-                    {r.status === 'hidden' ? ' · сховано' : ''}
+                    {r.status === 'hidden' ? ' · сховано' : r.status === 'pending' ? ' · чекає перевірки (новина)' : ''}
                   </div>
                 </div>
-                {r.status === 'active' ? <HideButton id={r.id} /> : <span />}
+                {r.status === 'pending' ? (
+                  <span className="gen-actions">
+                    <PublishButton id={r.id} />
+                    <HideButton id={r.id} />
+                  </span>
+                ) : r.status === 'active' ? (
+                  <HideButton id={r.id} />
+                ) : (
+                  <span />
+                )}
               </li>
             )
           })}

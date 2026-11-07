@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { signAdminToken, verifyAdminToken } from '@/lib/admin-token'
+import { adminTokenEpoch, signAdminPending, signAdminToken, verifyAdminPending, verifyAdminToken } from '@/lib/admin-token'
 import { isPublicRequest } from '@/lib/auth-paths'
 import { BeaconSchema, cleanPath, isBot, kyivDay, parseAgent, placeOf, rowsOf } from '@/server/analytics/collect'
 
@@ -15,6 +15,25 @@ describe('admin token', () => {
     expect(await verifyAdminToken(SECRET, token.replace(/.$/, (c) => (c === 'A' ? 'B' : 'A')), now)).toBe(false)
     expect(await verifyAdminToken(null, token, now)).toBe(false)
     expect(await verifyAdminToken(SECRET, undefined, now)).toBe(false)
+  })
+
+  it('carries the session generation it was signed in; the epoch is covered by the signature', async () => {
+    const now = Date.now()
+    const token = await signAdminToken(SECRET, now, 3)
+    expect(await adminTokenEpoch(SECRET, token, now)).toBe(3)
+    // forging another epoch breaks the signature
+    expect(await adminTokenEpoch(SECRET, token.replace('.3.', '.4.'), now)).toBeNull()
+    // pre-epoch (v1) tokens are no longer accepted: one re-login after the deploy
+    expect(await verifyAdminToken(SECRET, 'v1.9999999999999.abc', now)).toBe(false)
+  })
+
+  it('the pending marker (password ok, code next) is not an admin session and expires in 5 minutes', async () => {
+    const now = Date.now()
+    const pending = await signAdminPending(SECRET, now)
+    expect(await verifyAdminPending(SECRET, pending, now + 60_000)).toBe(true)
+    expect(await verifyAdminPending(SECRET, pending, now + 6 * 60_000)).toBe(false)
+    expect(await verifyAdminToken(SECRET, pending, now)).toBe(false)
+    expect(await verifyAdminPending(SECRET, await signAdminToken(SECRET, now), now)).toBe(false)
   })
 })
 

@@ -445,7 +445,8 @@ export const generatedReels = pgTable(
     sourceUrl: text('source_url'),
     sourceTitle: text('source_title'),
     model: text('model').notNull(),
-    status: text('status', { enum: ['active', 'hidden'] }).notNull().default('active'),
+    // pending: built on a news item, waits for the owner's review (/feed/generated) before anyone sees it
+    status: text('status', { enum: ['active', 'hidden', 'pending'] }).notNull().default('active'),
     createdAt: ms('created_at').notNull(),
   },
   (t) => [index('generated_reels_created_idx').on(t.createdAt)],

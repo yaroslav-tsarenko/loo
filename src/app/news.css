@@ -286,3 +286,15 @@
     }
   }
 }
+
+/* AI reels waiting for review (news-based, /feed/generated) */
+.gen-row[data-pending] {
+  outline: 1px dashed var(--lu-orange, #f59e0b);
+  outline-offset: 4px;
+  border-radius: var(--lu-r-md, 12px);
+}
+.gen-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

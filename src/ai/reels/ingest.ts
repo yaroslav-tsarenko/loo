@@ -111,7 +111,11 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
   if (batch.length) {
     await db
       .insert(generatedReels)
-      .values(batch.map((r, i) => ({ id: generatedReelId(r.title, today), ...r, model, status: 'active' as const, createdAt: now + i })))
+      .values(
+        // reels built on a news item (third-party text) wait for the owner's review on /feed/generated; the ones built
+        // on the course's own chapters go live (both passed the verifier and the sandbox)
+        batch.map((r, i) => ({ id: generatedReelId(r.title, today), ...r, model, status: r.topic.startsWith('Новини') ? ('pending' as const) : ('active' as const), createdAt: now + i })),
+      )
       .onConflictDoNothing()
   }
   const deleted = await db.delete(generatedReels).where(lt(generatedReels.createdAt, now - RETENTION_MS)).returning({ id: generatedReels.id })

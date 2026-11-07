@@ -3,8 +3,9 @@ import { isSameOrigin } from '@/lib/same-origin'
 import { afterSignIn, backTo, emailLimit, failureDelay, failuresBlocked, field, nextPath, recordFailure, normalizeEmail, readForm, seeOther } from '@/server/auth/http'
 import { userFromAuthUser } from '@/server/auth/session'
 import { createSupabaseServerClient } from '@/server/supabase'
-import { ADMIN_COOKIE, ADMIN_TTL_S, adminSecret, signAdminToken } from '@/lib/admin-token'
+import { ADMIN_COOKIE, ADMIN_PENDING_COOKIE, ADMIN_PENDING_TTL_S, ADMIN_TTL_S, adminSecret, signAdminPending, signAdminToken } from '@/lib/admin-token'
 import { adminLogin } from '@/server/admin/credentials'
+import { adminEpoch } from '@/server/admin/session'
 
 export const dynamic = 'force-dynamic'
 
@@ -29,8 +30,15 @@ export async function POST(request: NextRequest): Promise<Response> {
   // The owner's admin login (docs/ANALYTICS.md): same form, same rate limits; opens /admin only, not a learner account.
   const admin = await adminLogin(email, password)
   if (admin === 'ok') {
+    const cookie = { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax' as const, path: '/' }
+    // second factor configured: the password only opens the code form (src/app/(app)/(auth)/admin-verify)
+    if (process.env.ADMIN_TOTP_SECRET) {
+      const res = seeOther('/admin-verify')
+      res.cookies.set(ADMIN_PENDING_COOKIE, await signAdminPending(adminSecret()!, Date.now()), { ...cookie, maxAge: ADMIN_PENDING_TTL_S })
+      return res
+    }
     const res = seeOther('/admin')
-    res.cookies.set(ADMIN_COOKIE, await signAdminToken(adminSecret()!, Date.now()), { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/', maxAge: ADMIN_TTL_S })
+    res.cookies.set(ADMIN_COOKIE, await signAdminToken(adminSecret()!, Date.now(), await adminEpoch()), { ...cookie, maxAge: ADMIN_TTL_S })
     return res
   }
   if (admin === 'bad') {

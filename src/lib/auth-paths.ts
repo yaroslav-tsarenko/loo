@@ -25,6 +25,7 @@ export const PUBLIC_GET: ReadonlySet<string> = new Set([
   '/indexnow.txt',
   '/welcome',
   '/pixel-icons.svg',
+  '/admin-verify',
 ])
 
 // The public blog: /blog, /blog/<category>, /blog/<slug>, its OG cards and images (public/blog/<slug>/<file>.webp),
@@ -36,7 +37,7 @@ const PUBLIC_BLOG = /^\/blog(?:\/[a-z0-9][a-z0-9-]{0,99}(?:\.(?:webp|png|jpg|xml
 // /api/email/unsubscribe is token-authenticated and must accept cross-origin one-click POSTs from mail clients (RFC 8058).
 // /api/a is the first-party analytics collector (docs/ANALYTICS.md): beacons from signed-out visitors too; it checks
 // the Origin and rate-limits by IP itself.
-export const PUBLIC_POST: ReadonlySet<string> = new Set(['/auth/sign-in', '/auth/sign-up', '/auth/forgot-password', '/auth/sign-out', '/api/email/unsubscribe', '/api/a'])
+export const PUBLIC_POST: ReadonlySet<string> = new Set(['/auth/admin-verify', '/auth/sign-in', '/auth/sign-up', '/auth/forgot-password', '/auth/sign-out', '/api/email/unsubscribe', '/api/a'])
 
 // Prerendered public pages: static HTML, served without a session check and under the public CSP (src/lib/csp.ts).
 export function isStaticPublic(pathname: string): boolean {
@@ -53,7 +54,7 @@ export function isPublicRequest(method: string, pathname: string, isServerAction
 }
 
 // Pages that render full-screen, without sidebar / bottom nav, even for a signed-in user.
-const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth', '/unsubscribe', '/privacy', '/terms', '/blog', '/admin', '/banned', '/welcome']
+const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onboarding', '/auth', '/unsubscribe', '/privacy', '/terms', '/blog', '/admin', '/banned', '/welcome', '/admin-verify']
 
 export function isBarePath(pathname: string): boolean {
   return BARE.some((p) => pathname === p || pathname.startsWith(`${p}/`))

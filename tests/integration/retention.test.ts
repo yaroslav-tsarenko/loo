@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 import { startTestDb, type TestDb } from './harness'
 
 vi.mock('server-only', () => ({}))
+vi.mock('next/headers', () => ({ headers: async () => new Headers(), cookies: async () => ({ get: () => undefined, getAll: () => [], set: () => {} }) }))
 
 // The daily cleanup (src/server/maintenance/retention.ts) on the real schema: what it removes, and what it must keep.
 const U = '33333333-3333-4333-8333-333333333333'
@@ -57,5 +58,17 @@ describe('data retention', () => {
 
     // idempotent
     expect(await runRetention(NOW)).toEqual({ analyticsDeleted: 0, ipsHashed: 0, emailLogDeleted: 0, sessionsCompacted: 0, rateLimitsDeleted: 0 })
+  }, 60_000)
+
+  it('admin sessions: a sign-out bumps the generation; a TOTP step is accepted once', async () => {
+    const { adminEpoch, claimTotpStep, revokeAdminSessions } = await import('@/server/admin/session')
+    expect(await adminEpoch()).toBe(0)
+    expect(await revokeAdminSessions()).toBe(1)
+    expect(await revokeAdminSessions()).toBe(2)
+    expect(await adminEpoch()).toBe(2)
+    expect(await claimTotpStep(100)).toBe(true)
+    expect(await claimTotpStep(100)).toBe(false)
+    expect(await claimTotpStep(99)).toBe(false)
+    expect(await claimTotpStep(101)).toBe(true)
   }, 60_000)
 })

@@ -1,12 +1,12 @@
 'use server'
 
-import { and, eq, sql } from 'drizzle-orm'
+import { and, eq, inArray, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { GENERATED_ID, REEL_ID } from '@/ai/reels/mix'
 import { getDb } from '@/db/client'
 import { generatedReels, reelState } from '@/db/schema'
 import type { Effect } from '@/progress/types'
-import { isAdmin, requireUser, userScope } from '../auth'
+import { isAdmin, requireAdmin, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
 import { settleMission } from '../services/mission'
 
@@ -62,8 +62,21 @@ export async function hideGeneratedReel(id: string): Promise<{ hidden: boolean }
     await getDb()
       .update(generatedReels)
       .set({ status: 'hidden' })
-      .where(and(eq(generatedReels.id, id), eq(generatedReels.status, 'active')))
+      .where(and(eq(generatedReels.id, id), inArray(generatedReels.status, ['active', 'pending'])))
   }
   // No revalidatePath: it would re-render (and reshuffle) the feed the user is scrolling.
   return { hidden: exists }
+}
+
+// The owner's review of a news-based AI reel (status 'pending' until then): publishes it for everyone.
+export async function publishGeneratedReel(id: string): Promise<{ published: boolean }> {
+  await requireAdmin()
+  if (typeof id !== 'string' || !GENERATED_ID.test(id)) return { published: false }
+  // cross-user: admin review of shared AI content (system write, admin checked above).
+  const rows = await getDb()
+    .update(generatedReels)
+    .set({ status: 'active' })
+    .where(and(eq(generatedReels.id, id), eq(generatedReels.status, 'pending')))
+    .returning({ id: generatedReels.id })
+  return { published: rows.length > 0 }
 }
