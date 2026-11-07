@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs'
 import { mkdir, readdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { checkCourse, CourseBundleSchema } from '../src/course'
+import { writeCourseIndex } from './lib/course-index'
 import { listOfficialCourses, loadCourseSource, loadIconCatalog } from './lib/course-source'
 
 // Usage: pnpm course:build [--force] [--if-sources]
@@ -16,9 +17,10 @@ const ifSources = process.argv.includes('--if-sources')
 const outDir = path.resolve('content', 'courses')
 const courses = await listOfficialCourses()
 if (courses.length === 0) {
-  const kept = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json')) : []
+  const kept = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json') && f !== 'index.json') : []
   if (ifSources && kept.length > 0) {
     console.warn(`⚠️  Пакетів курсів не знайдено — лишаю зібрані bundle: ${kept.join(', ')}`)
+    await writeCourseIndex(outDir)
     process.exit(0)
   }
   console.error('Офіційних курсів не знайдено (очікується <vault>/Courses/<id>/course.yaml)')
@@ -52,4 +54,6 @@ for (const pkg of courses) {
   const s = bundle.stats
   console.log(`✅ ${bundle.course.id}@${bundle.course.version} → ${path.relative(process.cwd(), file)} · ${(json.length / 1024).toFixed(0)} КБ · розділів ${s.sections} · тем ${s.topics} · уроків ${s.lessons} · вправ ${s.exercises}${errors.length ? ` · ⚠️ ${errors.length} помилок (--force)` : ''}`)
 }
+// the catalog of whatever bundles are on disk now (src/server/courses/registry.ts)
+console.log(`📇 content/courses/index.json · ${((await writeCourseIndex(outDir)) / 1024).toFixed(0)} КБ`)
 process.exit(failed > 0 ? 1 : 0)

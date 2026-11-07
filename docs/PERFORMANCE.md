@@ -235,7 +235,9 @@ The common paths:
   locally opt in with `CONTENT_SNAPSHOT=1`. Chapter documents not in the snapshot are parsed on first view and kept (LRU).
 - **Search index**: built 1.5 s after the first request in 200-document chunks (`warmSearchIndex`), so it no longer blocks
   the instance for ~0.7 s.
-- Course bundles: parsed and validated once per process (~50 ms). Shiki: one highlighter, languages loaded on demand,
+- Course bundles: the server reads the catalog `content/courses/index.json` (~18 KB: marketplace cards and each course's
+  guides, written by `pnpm course:build`; a test keeps it in sync) and parses a bundle (0.5–4 MB) only when that course is
+  used, keeping up to `COURSE_CACHE_MAX` (default 8) in an LRU — `src/server/courses/registry.ts`. Shiki: one highlighter, languages loaded on demand,
   highlighted blocks memoized (4000 entries).
 
 ## 6. Client

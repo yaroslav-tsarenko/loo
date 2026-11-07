@@ -82,6 +82,37 @@ export function courseListing(entry: CourseEntry): CourseListing {
   }
 }
 
+// What the app needs about a course without its bundle (content/courses/index.json, written by pnpm course:build):
+// the marketplace card and the guides it teaches. Bundles themselves load on first use (registry.ts).
+export interface CourseIndexEntry {
+  id: string
+  source: CourseSource
+  listed: boolean
+  listing: CourseListing
+  // the guides the course teaches: its sections' and its `theory`
+  guides: string[]
+}
+
+export interface CourseIndex {
+  version: 1
+  courses: CourseIndexEntry[]
+}
+
+export function indexEntry(entry: CourseEntry): CourseIndexEntry {
+  const { bundle } = entry
+  return {
+    id: bundle.course.id,
+    source: entry.source,
+    listed: entry.listed,
+    listing: courseListing(entry),
+    guides: [...new Set([...bundle.sections.map((s) => s.guideId), ...(bundle.theory ?? [])])],
+  }
+}
+
+export function courseIndex(courses: Iterable<CourseEntry>): CourseIndex {
+  return { version: 1, courses: [...courses].map(indexEntry).sort((a, b) => a.id.localeCompare(b.id)) }
+}
+
 // `<course>:…` → course id (lesson, topic, test and exam ids all start with it).
 export function courseIdOf(id: string): string | null {
   const head = id.split(':')[0] ?? ''
