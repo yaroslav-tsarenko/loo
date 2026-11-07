@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { ACHIEVEMENTS } from '@/progress/achievements/catalog'
 import { emptyStats, holds, progressOf } from '@/progress/achievements/dsl'
 import { newlyUnlocked } from '@/progress/achievements/evaluate'
-import { dayKey, DAY, HOUR, shiftDay } from '@/progress/day'
+import { dayKey, dayStartMs, DAY, HOUR, shiftDay } from '@/progress/day'
 import { applyAttempt, type EngineState } from '@/progress/engine'
 import { levelInfo, rankFor, xpToReach } from '@/progress/levels'
 import { applyMistake, MISTAKE_MIN_GAP, nextEligibleAt } from '@/progress/mistakes'
@@ -64,10 +64,26 @@ describe('levels and ranks', () => {
 })
 
 describe('days and streaks', () => {
-  it('starts the day at 04:00', () => {
-    const lateNight = new Date(2026, 8, 29, 2, 30).getTime()
+  it('starts the day at 04:00 Kyiv time, whatever the server zone', () => {
+    // 02:30 / 04:01 in Kyiv on 29 Sep 2026 (UTC+3)
+    const lateNight = Date.UTC(2026, 8, 28, 23, 30)
     expect(dayKey(lateNight)).toBe('2026-09-28')
-    expect(dayKey(new Date(2026, 8, 29, 4, 1).getTime())).toBe('2026-09-29')
+    expect(dayKey(Date.UTC(2026, 8, 29, 1, 1))).toBe('2026-09-29')
+    // 00:30 UTC = 03:30 Kyiv: still the evening before; 03:30 UTC = 06:30 Kyiv: the new day (a UTC server said
+    // «yesterday» until 04:00 UTC)
+    expect(dayKey(Date.UTC(2026, 8, 29, 0, 30))).toBe('2026-09-28')
+    expect(dayKey(Date.UTC(2026, 8, 29, 3, 30))).toBe('2026-09-29')
+    // winter (UTC+2): 04:00 Kyiv = 02:00 UTC
+    expect(dayKey(Date.UTC(2026, 11, 15, 1, 59))).toBe('2026-12-14')
+    expect(dayKey(Date.UTC(2026, 11, 15, 2, 0))).toBe('2026-12-15')
+    expect(dayStartMs(Date.UTC(2026, 11, 15, 12, 0))).toBe(Date.UTC(2026, 11, 15, 2, 0))
+    expect(dayStartMs(Date.UTC(2026, 8, 29, 12, 0))).toBe(Date.UTC(2026, 8, 29, 1, 0))
+    // dayStartMs is the first instant of the key, across the DST switches (29 Mar / 25 Oct 2026)
+    for (const at of [Date.UTC(2026, 2, 29, 12), Date.UTC(2026, 9, 25, 12), Date.UTC(2026, 2, 28, 22), Date.UTC(2026, 9, 26, 0, 30)]) {
+      const start = dayStartMs(at)
+      expect(dayKey(start)).toBe(dayKey(at))
+      expect(dayKey(start - 1)).toBe(shiftDay(dayKey(at), -1))
+    }
     expect(shiftDay('2026-03-01', -1)).toBe('2026-02-28')
     expect(shiftDay('2026-12-31', 1)).toBe('2027-01-01')
   })

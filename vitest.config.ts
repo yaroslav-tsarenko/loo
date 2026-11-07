@@ -6,5 +6,7 @@ export default defineConfig({
   test: {
     include: ['tests/unit/**/*.test.ts'],
     environment: 'node',
+    // study days are Europe/Kyiv explicitly (src/progress/day.ts): tests must not depend on the machine's zone
+    env: { TZ: 'UTC' },
   },
 })

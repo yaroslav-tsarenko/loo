@@ -21,10 +21,13 @@ import { MissionCard } from '@/ui/mission/MissionCard'
 import { CoachCard } from '@/ui/stats/CoachCard'
 import { count, relative } from '@/ui/format'
 import { Landing } from '@/ui/marketing/Landing'
+import { STUDY_TZ } from '@/progress/day'
 
-// Loo greets by time of day (server clock, like before).
+const KYIV_HOUR = new Intl.DateTimeFormat('en-US', { timeZone: STUDY_TZ, hour: '2-digit', hourCycle: 'h23' })
+
+// Loo greets by time of day in the study calendar's zone (src/progress/day.ts) — the server runs in UTC.
 function greeting(now: Date): { title: string; mood: LooMood; icon: PixelIconName } {
-  const h = now.getHours()
+  const h = Number(KYIV_HOUR.format(now)) % 24
   if (h < 5) return { title: 'Нічна сесія?', mood: 'sleeping', icon: 'moon' }
   if (h < 12) return { title: 'Доброго ранку!', mood: 'wave', icon: 'sun' }
   if (h < 18) return { title: 'Гарного дня!', mood: 'happy', icon: 'rocket' }
