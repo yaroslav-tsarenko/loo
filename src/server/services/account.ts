@@ -3,10 +3,13 @@ import { eq } from 'drizzle-orm'
 import { getDb } from '@/db/client'
 import {
   achievements,
+  analyticsEvents,
   attempts,
+  buckLedger,
   chapterProgress,
   dailyActivity,
   dailyMissions,
+  emailLog,
   enrollments,
   examResults,
   frozenDays,
@@ -31,10 +34,10 @@ import { userScope } from '../auth'
 
 // GDPR export: everything stored about the signed-in user (docs/SECURITY.md §4.8).
 export async function exportUserData(): Promise<Record<string, unknown>> {
-  return userScope(
+  const own = await userScope(
     async (db, userId) => ({
       format: 'levelup/user-export',
-      version: 4,
+      version: 5,
       exportedAt: new Date().toISOString(),
       userId,
       profile: (await db.select().from(profiles).where(eq(profiles.id, userId)))[0] ?? null,
@@ -60,9 +63,22 @@ export async function exportUserData(): Promise<Record<string, unknown>> {
       inventory: await db.select().from(inventory).where(eq(inventory.userId, userId)),
       frozenDays: await db.select().from(frozenDays).where(eq(frozenDays.userId, userId)),
       leagues: await db.select().from(leagueMembers).where(eq(leagueMembers.userId, userId)),
+      buckLedger: await db.select().from(buckLedger).where(eq(buckLedger.userId, userId)),
     }),
     { tx: true },
   )
+  // server-only tables (no learner grant): read as the system, after the learner's transaction, filtered to them
+  const userId = String(own.userId)
+  return { ...own, ...(await systemRowsOf(userId)) }
+}
+
+async function systemRowsOf(userId: string) {
+  // cross-user: system reads of server-only tables, filtered to this learner (their own data export)
+  const db = getDb()
+  return {
+    emailLog: await db.select().from(emailLog).where(eq(emailLog.userId, userId)),
+    analyticsEvents: await db.select().from(analyticsEvents).where(eq(analyticsEvents.userId, userId)),
+  }
 }
 
 // "Delete my account": removes the profile, and ON DELETE CASCADE removes every per-user row. The Supabase Auth

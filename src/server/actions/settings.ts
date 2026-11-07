@@ -7,7 +7,7 @@ import { eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { defaultVaultConfig, normalizeVaultPath } from '@/content/config'
 import { getContentStore } from '@/content/store'
-import { achievements, attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, newsReads, reelState, sessions, srsCards, taskState, xpLedger } from '@/db/schema'
+import { attempts, chapterProgress, dailyActivity, dailyMissions, examResults, lessonProgress, mistakes, newsReads, reelState, sessions, srsCards, taskState, topicResults, xpLedger } from '@/db/schema'
 import { requireAdmin, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
 import { DEFAULT_SETTINGS, writeSetting, writeVaultPath, type AppSettings, type UserSettingKey } from '../settings'
@@ -50,6 +50,10 @@ export async function updateVaultPath(rawPath: string): Promise<{ ok: boolean; m
 }
 
 // Wipes the current user's learning progress (settings and profile stay).
+// «Скинути прогрес»: the learning history — answers, cards, mistakes, chapters, tasks, lessons, test and exam results,
+// XP, activity, missions. What was earned stays: achievements (they paid once; deleting them made every one whose
+// metric still held unlock again at once, with its toast and XP), gems, bucks, items, rank, leagues, and the course
+// choice (enrollments).
 export async function resetProgress(confirmation: string): Promise<{ ok: boolean }> {
   await requireUser()
   if (confirmation !== 'СКИНУТИ') return { ok: false }
@@ -61,7 +65,8 @@ export async function resetProgress(confirmation: string): Promise<{ ok: boolean
       await tx.delete(chapterProgress).where(eq(chapterProgress.userId, userId))
       await tx.delete(taskState).where(eq(taskState.userId, userId))
       await tx.delete(xpLedger).where(eq(xpLedger.userId, userId))
-      await tx.delete(achievements).where(eq(achievements.userId, userId))
+      await tx.delete(topicResults).where(eq(topicResults.userId, userId))
+      await tx.delete(examResults).where(eq(examResults.userId, userId))
       await tx.delete(dailyActivity).where(eq(dailyActivity.userId, userId))
       await tx.delete(dailyMissions).where(eq(dailyMissions.userId, userId))
       await tx.delete(sessions).where(eq(sessions.userId, userId))

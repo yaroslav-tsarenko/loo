@@ -163,7 +163,12 @@ describe('economy (integration)', () => {
     // resetProgress deletes attempts and xp: the totals follow
     as(A)
     const { resetProgress } = await import('@/server/actions/settings')
+    const [achBefore] = await rows<{ n: number }>(`select count(*)::int as n from achievements where user_id = $1`, [A])
+    expect(achBefore?.n).toBeGreaterThan(0)
     expect(await resetProgress('СКИНУТИ')).toEqual({ ok: true })
+    // what was earned stays: achievements don't re-unlock (and re-pay XP) on the next answer
+    const [achAfter] = await rows<{ n: number }>(`select count(*)::int as n from achievements where user_id = $1`, [A])
+    expect(achAfter?.n).toBe(achBefore?.n)
     const [gone] = await rows<{ n: number }>(`select count(*)::int as n from attempts where user_id = $1`, [A])
     expect(gone?.n).toBe(0)
     await check()
@@ -184,5 +189,24 @@ describe('economy (integration)', () => {
     expect(await rows(`delete from profiles where id = $1 returning id`, [B])).toEqual([{ id: B }])
     const [left] = await rows<{ n: number }>(`select count(*)::int as n from user_counters where user_id = $1`, [B])
     expect(left?.n).toBe(0)
+  }, 60_000)
+
+  it('the data export has every table that holds the learner\'s rows', async () => {
+    const { getTableConfig, PgTable } = await import('drizzle-orm/pg-core')
+    const { is } = await import('drizzle-orm')
+    const schema = await import('@/db/schema')
+    const tableKey = new Map<string, string>()
+    for (const [key, t] of Object.entries(schema)) if (is(t, PgTable)) tableKey.set(getTableConfig(t).name, key)
+    const perUser = [...tableKey.keys()].filter((name) => getTableConfig((schema as Record<string, unknown>)[tableKey.get(name)!] as never).columns.some((c) => c.name === 'user_id'))
+    // not exported: unsubscribe tokens (secrets), running totals (derived from attempts / xp_ledger)
+    const NOT_EXPORTED = new Set(['email_tokens', 'user_counters'])
+    as(A)
+    const { exportUserData } = await import('@/server/services/account')
+    const data = await exportUserData()
+    const exported = new Set(Object.keys(data))
+    // export keys are the schema's export names, except a few renamed ones
+    const RENAMED: Record<string, string> = { userState: 'gameState', leagueMembers: 'leagues', userSettings: 'settings', profiles: 'profile' }
+    const missing = perUser.filter((name) => !NOT_EXPORTED.has(name) && !exported.has(RENAMED[tableKey.get(name)!] ?? tableKey.get(name)!))
+    expect(missing).toEqual([])
   }, 60_000)
 })

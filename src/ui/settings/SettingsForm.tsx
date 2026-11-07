@@ -171,12 +171,12 @@ export function SettingsForm({ initial, vaultPath, envVault, admin = true, accen
         <h2 id="s-data" className="section-title rule-title">
           Дані
         </h2>
-        <Row label="Експорт прогресу" hint="Усі відповіді, розклад карток, помилки, XP і ачівки в одному JSON">
+        <Row label="Експорт прогресу" hint="Усі твої дані в одному JSON: відповіді, картки, помилки, XP, ачівки, гаманець, ліги, листи й аналітика">
           <a className="ui-button" data-variant="ghost" href="/api/export" download>
             Завантажити JSON
           </a>
         </Row>
-        <Row label="Скинути прогрес" hint="Видаляє всю історію навчання. Vault не змінюється. Дію не можна скасувати." htmlFor="reset">
+        <Row label="Скинути прогрес" hint="Видаляє історію навчання: відповіді, картки, помилки, розділи, уроки, тести, XP. Ачівки, кристали, бакси й предмети лишаються. Дію не можна скасувати." htmlFor="reset">
           <form
             className="inline-form"
             onSubmit={(e) => {
