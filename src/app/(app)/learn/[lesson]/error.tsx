@@ -1,6 +1,6 @@
 'use client'
 
-import { ErrorScreen } from '@/ui/errors/ErrorScreen'
+import { LazyErrorScreen as ErrorScreen } from '@/ui/errors/LazyErrorScreen'
 
 export default function LessonError(props: { error: Error & { digest?: string }; reset: () => void }) {
   return <ErrorScreen {...props} title="Урок не завантажився" text="Відповіді, які ти вже дав, збережені. Спробуй ще раз або повернись на карту." back={{ href: '/path', label: 'До карти' }} />
