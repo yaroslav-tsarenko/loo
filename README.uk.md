@@ -196,7 +196,7 @@ pnpm dev          # http://127.0.0.1:3000
 | `pnpm content:sync` | копіює `Guides/` і `Courses/` з vault у `content/` |
 | `pnpm content:check [посібник]` | перевіряє статті: блоки, id, посилання |
 | `pnpm course:check <курс>` / `pnpm course:build` | перевіряє й компілює курси в бандли |
-| `pnpm db:generate` / `pnpm db:migrate` | міграції Drizzle (на прод — лише під час збірки на Vercel) |
+| `pnpm db:generate` / `pnpm db:migrate` | міграції Drizzle (на прод — лише під час production-збірки на Vercel; preview не мігрує, окрема база для preview — `MIGRATE_ON_PREVIEW=1`; дві збірки не мігрують одночасно — advisory lock, `scripts/migrate.ts`) |
 | `pnpm test` / `pnpm e2e` | unit-тести (Vitest) / e2e (Playwright) |
 | `pnpm lint` / `pnpm typecheck` | ESLint (з межами шарів) / TypeScript |
 | `pnpm admin:credentials [--vercel]` | новий пароль адмінки (хеш і секрет — у `.env.local` і Vercel) |
