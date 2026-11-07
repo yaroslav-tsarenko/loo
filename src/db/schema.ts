@@ -395,6 +395,8 @@ export const topicResults = pgTable(
     passedAt: ms('passed_at'),
     // first answer per question of the current attempt, as checked on the server (index → answer)
     answers: jsonb('answers').$type<Record<string, StoredAnswer>>(),
+    // when the current attempt started: an exercise of the draw answered elsewhere after this (key peeked) counts wrong
+    attemptStartedAt: ms('attempt_started_at'),
     updatedAt: ms('updated_at').notNull(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.testId] }), index('topic_results_user_course_idx').on(t.userId, t.courseId)],
@@ -416,6 +418,7 @@ export const examResults = pgTable(
     passedAt: ms('passed_at'),
     testOut: boolean('test_out').notNull().default(false),
     answers: jsonb('answers').$type<Record<string, StoredAnswer>>(),
+    attemptStartedAt: ms('attempt_started_at'),
     updatedAt: ms('updated_at').notNull(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.examId] }), index('exam_results_user_course_idx').on(t.userId, t.courseId)],

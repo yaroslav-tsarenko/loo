@@ -157,15 +157,15 @@ let db: Db
 beforeAll(async () => {
   pg = await PGlite.create()
   await pg.exec(`
-    create role authenticated nologin;
+    create role levelup_learner nologin;
     create schema auth;
     create function auth.uid() returns uuid language sql stable as
       $$ select nullif(current_setting('request.jwt.claims', true)::jsonb ->> 'sub', '')::uuid $$;
-    grant usage on schema auth to authenticated;
+    grant usage on schema auth to levelup_learner;
     create table notes (user_id uuid not null, body text not null, n int not null, ok boolean not null, tags text[] not null, meta jsonb not null);
     alter table notes enable row level security;
-    grant select, insert on notes to authenticated;
-    create policy own on notes for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
+    grant select, insert on notes to levelup_learner;
+    create policy own on notes for all to levelup_learner using (user_id = auth.uid()) with check (user_id = auth.uid());
   `)
   const port = 56000 + Math.floor(Math.random() * 900)
   server = new PGLiteSocketServer({ db: pg, port, host: '127.0.0.1', maxConnections: 4 })
@@ -210,7 +210,7 @@ describe('against Postgres (PGlite)', () => {
     const [first, rows] = await withUser({ id: USER }, (conn) =>
       Promise.all([conn.execute<{ who: string; uid: string }>(sql`select current_user as who, auth.uid()::text as uid`), conn.select({ userId: notes.userId }).from(notes).where(eq(notes.n, 1))]),
     )
-    expect(first[0]).toEqual({ who: 'authenticated', uid: USER })
+    expect(first[0]).toEqual({ who: 'levelup_learner', uid: USER })
     expect(rows).toEqual([])
     const [after] = await db.execute<{ who: string }>(sql`select current_user as who`)
     expect(after?.who).toBe('postgres')
