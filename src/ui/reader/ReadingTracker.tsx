@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { trackReading } from '@/server/actions/study'
+import { THEORY_READING } from '@/ui/shell/constants'
 
 export function ReadingTracker({ chapterId }: { chapterId: string }) {
   const [pct, setPct] = useState(0)
@@ -39,7 +40,10 @@ export function ReadingTracker({ chapterId }: { chapterId: string }) {
       if (activeMs.current < 1000 && maxPct.current === 0) return
       const delta = activeMs.current
       activeMs.current = 0
-      void trackReading({ chapterId, scrollPct: maxPct.current, deltaMs: delta })
+      void trackReading({ chapterId, scrollPct: maxPct.current, deltaMs: delta }).then(
+        () => window.dispatchEvent(new CustomEvent(THEORY_READING, { detail: { chapterId } })),
+        () => {},
+      )
     }
     measure()
     const interval = window.setInterval(tick, 5000)

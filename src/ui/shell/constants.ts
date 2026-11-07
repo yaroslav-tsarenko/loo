@@ -4,6 +4,9 @@ export const SIDEBAR_BOOT = `try{if(localStorage.getItem('${SIDEBAR_KEY}')==='cl
 
 export const OPEN_PALETTE = 'palette:open'
 
+// A chapter's reading was recorded (ReadingTracker → the sidebar's theory tree marks it «читаю»). detail: { chapterId }
+export const THEORY_READING = 'theory:reading'
+
 // Shell stats ride along with nav badge counts (same /api/counts refresh); all keys start with '@'.
 export const STREAK_KEY = '@streak'
 export const STREAK_TODAY_KEY = '@streak-today'

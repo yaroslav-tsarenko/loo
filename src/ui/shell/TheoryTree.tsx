@@ -7,7 +7,7 @@ import { PiCaretRightBold } from 'react-icons/pi'
 import type { TheoryNode, TheoryStatus } from '@/server/courses/theory-core'
 import { PixelIcon } from '@/ui/design/PixelIcon'
 import { Icon } from '@/ui/icons/Icon'
-import { PROGRESS_EVENT } from './NavLinks'
+import { THEORY_READING } from './constants'
 import { useOpenNodes, type SetOpen } from './open-nodes'
 import { setMobileSidebar } from './sidebar-state'
 
@@ -56,9 +56,27 @@ function trailTo(nodes: readonly TheoryNode[], path: string): TheoryNode[] {
   return []
 }
 
-// Chapter status stays live: a server re-render of the layout (router.refresh after «вивчено») brings a fresh tree,
-// progress events and opening a chapter of the tree (it becomes «читаю») refetch it.
-function useLiveTheory(courseId: string, initial: TheoryNode[], activeId: string | null): TheoryNode[] {
+// Chapter status stays live without refetching the tree: «вивчено» (MarkStudied) refreshes the router, so the layout
+// re-renders this tree from the server; reading a chapter (the tracker recorded it) arrives as THEORY_READING and
+// turns that chapter «читаю» here. Quiz answers never change a chapter's status, so they don't touch the tree (it used
+// to refetch all of it — ~24 KB and a database read — after every answer).
+function markReading(nodes: readonly TheoryNode[], chapterId: string): TheoryNode[] {
+  let changed = false
+  const next = nodes.map((n) => {
+    if (n.kind === 'chapter' && n.id === chapterId && n.status === 'unread') {
+      changed = true
+      return { ...n, status: 'reading' as const }
+    }
+    if (n.children.length === 0) return n
+    const children = markReading(n.children, chapterId)
+    if (children === n.children) return n
+    changed = true
+    return { ...n, children }
+  })
+  return changed ? next : (nodes as TheoryNode[])
+}
+
+function useLiveTheory(initial: TheoryNode[]): TheoryNode[] {
   const [nodes, setNodes] = useState(initial)
   const [seed, setSeed] = useState(initial)
   if (seed !== initial) {
@@ -66,24 +84,13 @@ function useLiveTheory(courseId: string, initial: TheoryNode[], activeId: string
     setNodes(initial)
   }
   useEffect(() => {
-    let alive = true
-    let timer = 0
-    const load = () =>
-      fetch('/api/theory', { cache: 'no-store' })
-        .then((r) => r.json() as Promise<{ theory: { courseId: string; nodes: TheoryNode[] } | null }>)
-        .then((d) => {
-          // another tab switched the course: the layout re-renders this tree with a new key, ignore the mismatch
-          if (alive && d.theory?.courseId === courseId) setNodes(d.theory.nodes)
-        })
-        .catch(() => {})
-    if (activeId) timer = window.setTimeout(load, 2500)
-    window.addEventListener(PROGRESS_EVENT, load)
-    return () => {
-      alive = false
-      window.clearTimeout(timer)
-      window.removeEventListener(PROGRESS_EVENT, load)
+    const onReading = (e: Event) => {
+      const chapterId = (e as CustomEvent<{ chapterId: string }>).detail?.chapterId
+      if (chapterId) setNodes((current) => markReading(current, chapterId))
     }
-  }, [courseId, activeId])
+    window.addEventListener(THEORY_READING, onReading)
+    return () => window.removeEventListener(THEORY_READING, onReading)
+  }, [])
   return nodes
 }
 
@@ -171,10 +178,10 @@ function indexAll(nodes: readonly TheoryNode[], out = new Map<string, number>())
   return out
 }
 
-export function TheoryTree({ courseId, initial, label }: { courseId: string; initial: TheoryNode[]; label: string }) {
+export function TheoryTree({ initial, label }: { initial: TheoryNode[]; label: string }) {
   const path = decode(usePathname())
   // the page's node is looked up in the server tree (structure never changes between refetches, only status)
-  const nodes = useLiveTheory(courseId, initial, trailTo(initial, path).at(-1)?.id ?? null)
+  const nodes = useLiveTheory(initial)
   const router = useRouter()
   const [open, setOpen] = useOpenNodes()
   const [focused, setFocused] = useState<string | null>(null)

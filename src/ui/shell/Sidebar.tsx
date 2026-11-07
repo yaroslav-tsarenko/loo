@@ -255,7 +255,7 @@ export function Sidebar({
               </Link>
             </div>
             {theory ? (
-              <TheoryTree key={theory.courseId} courseId={theory.courseId} initial={theory.nodes} label={course ? `${t('shell.theory')}: ${course.title}` : t('shell.theory')} />
+              <TheoryTree key={theory.courseId} initial={theory.nodes} label={course ? `${t('shell.theory')}: ${course.title}` : t('shell.theory')} />
             ) : (
               <p className="sb-empty">
                 <Link href="/courses" className="ui-link" onClick={() => setMobileSidebar(false)}>
