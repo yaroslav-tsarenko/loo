@@ -235,9 +235,15 @@ describe('leagues', () => {
     expect(nextTier('bronze', 'demoted')).toBe('bronze')
     expect(nextTier('diamond', 'promoted')).toBe('diamond')
     expect(nextTier('ruby', resultOf('demote'))).toBe('sapphire')
-    expect(leagueGems(1, 'promoted')).toBe(60)
-    expect(leagueGems(7, 'promoted')).toBe(15)
-    expect(leagueGems(9, 'stayed')).toBe(0)
+    expect(leagueGems(1, 'promoted', 120)).toBe(60)
+    expect(leagueGems(7, 'promoted', 30)).toBe(15)
+    expect(leagueGems(9, 'stayed', 30)).toBe(0)
+    // first in a top-tier cohort (no promotion): 20 💎 — but only for a week with XP
+    expect(leagueGems(1, 'stayed', 50)).toBe(20)
+    expect(leagueGems(1, 'stayed', 0)).toBe(0)
+    // a cohort where nobody studied: whoever joined first is «first», and gets nothing
+    const idle = rankCohort([{ userId: 'a', xp: 0, joinedAt: 1 }, { userId: 'b', xp: 0, joinedAt: 2 }], 'diamond')
+    expect(idle.map((s) => leagueGems(s.rank, resultOf(s.zone), s.xp))).toEqual([0, 0])
   })
 
   it('joins the fullest open cohort', () => {

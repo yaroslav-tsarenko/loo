@@ -50,8 +50,10 @@ export function nextTier(tier: LeagueTier, result: LeagueResult | null): LeagueT
   return LEAGUE_TIERS[Math.max(0, Math.min(LEAGUE_TIERS.length - 1, j))]!
 }
 
-// Gems for the week's result: podium bonus on top of a promotion.
-export function leagueGems(rank: number, result: LeagueResult): number {
+// Gems for the week's result: podium bonus on top of a promotion. Nothing for a week without XP — a cohort where
+// nobody studied still has a «first place» (by join time), and it must not pay.
+export function leagueGems(rank: number, result: LeagueResult, xp: number): number {
+  if (xp <= 0) return 0
   if (result !== 'promoted') return rank === 1 ? 20 : 0
   return rank === 1 ? 60 : rank === 2 ? 40 : rank === 3 ? 25 : 15
 }

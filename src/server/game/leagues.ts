@@ -73,7 +73,7 @@ export async function finalizeCohort(cohortId: string, now: number): Promise<voi
         .update(leagueMembers)
         .set({ finalRank: s.rank, finalXp: s.xp, result, finalizedAt: now })
         .where(and(eq(leagueMembers.userId, s.userId), eq(leagueMembers.week, cohort.week)))
-      const gems = leagueGems(s.rank, result)
+      const gems = leagueGems(s.rank, result, s.xp)
       if (gems > 0) {
         // cross-user: league rewards are paid by the system job (unique ref → once per learner and week)
         await tx
