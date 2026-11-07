@@ -296,7 +296,7 @@ async function savePlacement(courseIdValue: string, placement: EnrollmentPlaceme
         .set({ onboarding: { ...profile?.onboarding, placement: { level: placement.level, at: placement.at } }, updatedAt: placement.at })
         .where(eq(profiles.id, userId))
     },
-    { tx: true },
+    { lock: true },
   )
   revalidatePath('/', 'layout')
 }

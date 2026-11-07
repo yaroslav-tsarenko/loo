@@ -11,5 +11,5 @@ const ackInput = z.object({ step: z.number().int().min(0).max(100) })
 export async function evolutionSeen(raw: { step: number }): Promise<void> {
   await requireUser()
   const input = parseInput(ackInput, raw)
-  await userScope((tx, userId) => ackEvolution(tx, userId, input.step, Date.now()), { tx: true })
+  await userScope((tx, userId) => ackEvolution(tx, userId, input.step, Date.now()), { lock: true })
 }

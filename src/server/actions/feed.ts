@@ -27,7 +27,7 @@ export async function markReelsSeen(rawIds: string[]): Promise<Effect[]> {
         .onConflictDoUpdate({ target: [reelState.userId, reelState.reelId], set: { views: sql`${reelState.views} + 1`, lastSeenAt: now } })
       return settleMission(tx, userId, now)
     },
-    { tx: true },
+    { lock: true },
   )
 }
 

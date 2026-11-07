@@ -45,7 +45,7 @@ export async function startTest(raw: { testId: string; attempt: number }): Promi
       if (!canStartTest((await loadState(tx, userId, now)).hearts, now)) return { ok: false, reason: 'hearts' as const }
       return { ok: await startAttempt(tx, userId, test, input.attempt, attemptSeed(userId, input.attempt), now) }
     },
-    { tx: true },
+    { lock: true },
   )
 }
 
@@ -141,7 +141,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
         skills: skills ? skillsViewOf(test.bundle, skills) : null,
       }
     },
-    { tx: true },
+    { lock: true },
   )
   // Leagues are joined outside the user's transaction (src/server/game/leagues.ts), after the response.
   if (outcome.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))

@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import { after } from 'next/server'
-import { and, eq } from 'drizzle-orm'
+import { and, desc, eq, gte, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { judgeSpeech, speechHints, type DisplayWord } from '@/content/blocks/lang/grade'
 import { gradeQuiz } from '@/content/blocks/quiz/grade'
@@ -73,6 +73,9 @@ export interface AnswerOutcome {
   speech?: SpeechResult
 }
 
+// A lesson left open longer than this no longer captures answers given outside it.
+const OPEN_LESSON_MS = 6 * 3_600_000
+
 export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
   const user = await requireUser()
   const input = parseInput(answerInput, raw)
@@ -103,6 +106,8 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
       let session: { mode: string; endedAt: number | null } | undefined
       let locked: GameState | undefined
       let reads: AttemptReads
+      // the session this answer is recorded against (see openLesson below)
+      let sessionId = input.sessionId
       if (input.sessionId) {
         const sessionId = input.sessionId
         const [found, lockedRow, ...values] = await readAll(tx, [
@@ -120,8 +125,39 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
         session = found
         locked = lockedRow ?? (await loadState(tx, userId, now, { lock: true }))
         reads = attemptReadsFrom(values)
-      } else {
+      } else if (test) {
         reads = attemptReadsFrom(await readAll(tx, attemptList))
+      } else {
+        // An exercise of a lesson that is still open, answered without the session (an article, a practice page, a
+        // crafted request): it counts in that lesson — the first answer, the ❤️ — so peeking at the key elsewhere
+        // can't buy a flawless lesson.
+        const [open, lockedRow, ...values] = await readAll(tx, [
+          read(
+            tx
+              .select({ id: sessions.id })
+              .from(sessions)
+              .where(
+                and(
+                  eq(sessions.userId, userId),
+                  eq(sessions.mode, 'lesson'),
+                  isNull(sessions.endedAt),
+                  gte(sessions.startedAt, now - OPEN_LESSON_MS),
+                  sql`${sessions.unitIds} @> jsonb_build_array(${unit.id}::text)`,
+                ),
+              )
+              .orderBy(desc(sessions.startedAt))
+              .limit(1),
+            (rows) => rows[0],
+          ),
+          stateRead(tx, userId, now, { lock: true }),
+          ...attemptList,
+        ])
+        reads = attemptReadsFrom(values)
+        if (open) {
+          sessionId = open.id
+          session = { mode: 'lesson', endedAt: null }
+          locked = lockedRow ?? (await loadState(tx, userId, now, { lock: true }))
+        }
       }
       if (input.sessionId && !session) throw new Error('Unknown session')
       const lesson = session?.mode === 'lesson' && session.endedAt === null
@@ -130,7 +166,7 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
         const ok = await storeTestAnswer(tx, userId, test, input.test.attempt, input.test.index, { id: unit.id, chosen, text: input.text }, now)
         if (!ok) throw new Error('Stale attempt')
       }
-      const effects = await recordAttemptIn(tx, userId, snapshot, unit, { unitId: unit.id, outcome: correct ? 'correct' : 'wrong', durationMs: input.durationMs, sessionId: input.sessionId }, now, reads)
+      const effects = await recordAttemptIn(tx, userId, snapshot, unit, { unitId: unit.id, outcome: correct ? 'correct' : 'wrong', durationMs: input.durationMs, sessionId }, now, reads)
       let hearts: AnswerOutcome['hearts'] = null
       if (lesson && locked) {
         // recording never touches hearts: the locked row is still current
@@ -140,7 +176,7 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
       }
       return { outOfHearts: false as const, effects, hearts }
     },
-    { tx: true },
+    { lock: true },
   )
 
   if (result.outOfHearts) return { correct: null, key: null, explanation: null, effects: [], hearts: { hearts: 0, nextAt: null }, outOfHearts: true }

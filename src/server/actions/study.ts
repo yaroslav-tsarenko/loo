@@ -1,15 +1,16 @@
 'use server'
 
 import { randomUUID } from 'node:crypto'
-import { and, eq, sql } from 'drizzle-orm'
+import { and, eq, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
-import { first } from '@/db/client'
-import { chapterProgress, dailyActivity, sessions, taskState } from '@/db/schema'
+import { first, type Conn } from '@/db/client'
+import { attempts, chapterProgress, dailyActivity, sessions, taskState } from '@/db/schema'
 import { dayKey } from '@/progress/day'
 import type { Effect, FlashRating } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
+import { limitUser } from '../courses/limits'
 import { BUCKS, buckRef, PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
 import { addHearts, awardBucks, loadState } from '../game'
 import { readForAttempt, recordAttempt, recordAttemptIn, settleProgress } from '../services/progress'
@@ -42,15 +43,17 @@ const endInput = z.object({ sessionId: ids.session })
 // that accepts a client-side «correct» flag any more.
 
 export async function rateFlashcard(raw: { unitId: string; rating: FlashRating; durationMs: number; sessionId: string | null }): Promise<Effect[]> {
-  await requireUser()
+  const user = await requireUser()
   const input = parseInput(flashInput, raw)
+  await limitUser(user.id, 'answer')
   const { snapshot, unit } = await unitOrThrow(input.unitId)
   return await recordAttempt(snapshot, unit, { unitId: unit.id, outcome: input.rating, durationMs: input.durationMs, sessionId: input.sessionId })
 }
 
 export async function finishTask(raw: { unitId: string; solved: boolean; hintsUsed: number; durationMs: number; sessionId: string | null }): Promise<Effect[]> {
-  await requireUser()
+  const user = await requireUser()
   const input = parseInput(taskInput, raw)
+  await limitUser(user.id, 'answer')
   const { snapshot, unit } = await unitOrThrow(input.unitId)
   if (unit.kind !== 'task') throw new Error('Unknown task')
   const now = Date.now()
@@ -72,7 +75,7 @@ export async function finishTask(raw: { unitId: string; solved: boolean; hintsUs
         .onConflictDoUpdate({ target: [taskState.userId, taskState.unitId], set: { status: input.solved ? 'solved' : 'failed', hintsRevealed: input.hintsUsed, updatedAt: now } })
       return effects
     },
-    { tx: true },
+    { lock: true },
   )
 }
 
@@ -108,7 +111,7 @@ export async function markChapter(raw: { chapterId: string; studied: boolean }):
         .onConflictDoUpdate({ target: [chapterProgress.userId, chapterProgress.chapterId], set: { status, studiedAt: input.studied ? now : null, lastOpenedAt: now } })
       return input.studied ? (await settleProgress(tx, userId, snapshot, now)).effects : []
     },
-    { tx: true },
+    { lock: true },
   )
 }
 
@@ -146,8 +149,9 @@ export async function trackReading(raw: { chapterId: string; scrollPct: number; 
 }
 
 export async function startSession(raw: { mode: 'flashcards' | 'quiz' | 'tasks' | 'mistakes'; unitIds: string[]; filters: Record<string, unknown> }): Promise<string> {
-  await requireUser()
+  const user = await requireUser()
   const input = parseInput(sessionInput, raw)
+  await limitUser(user.id, 'session')
   const id = randomUUID()
   await userScope((db, userId) => db.insert(sessions).values({ id, userId, mode: input.mode, filters: input.filters, unitIds: input.unitIds, startedAt: Date.now() }))
   return id
@@ -160,17 +164,20 @@ export async function endSession(raw: { sessionId: string }): Promise<Effect[]> 
   const now = Date.now()
   return userScope(
     async (tx, userId) => {
+      // Ends the session exactly once: a second (concurrent or replayed) call finds it closed and gets nothing.
       const row = await first(
         tx
-          .select()
-          .from(sessions)
-          .where(and(eq(sessions.userId, userId), eq(sessions.id, input.sessionId))),
+          .update(sessions)
+          .set({ endedAt: now })
+          .where(and(eq(sessions.userId, userId), eq(sessions.id, input.sessionId), isNull(sessions.endedAt)))
+          .returning(),
       )
-      if (!row || row.endedAt) return []
-      await tx.update(sessions).set({ endedAt: now }).where(and(eq(sessions.userId, userId), eq(sessions.id, input.sessionId)))
+      if (!row) return []
       const effects: Effect[] = []
-      // «Робота над помилками»: a finished practice session refills one heart and pays bucks (daily cap).
-      if ((row.mode === 'mistakes' || row.mode === 'quiz') && row.total >= PRACTICE_MIN_ANSWERS) {
+      // «Робота над помилками»: a finished practice session refills one heart and pays bucks (daily cap). It counts
+      // server-graded quizzes of this session's own exercises, each once — not the session's counters, which
+      // self-rated flashcards (or one card rated five times) could fill.
+      if ((row.mode === 'mistakes' || row.mode === 'quiz') && (await practiceAnswers(tx, userId, row.id, row.unitIds)) >= PRACTICE_MIN_ANSWERS) {
         const before = (await loadState(tx, userId, now)).hearts.hearts
         const after = await addHearts(tx, userId, PRACTICE_REFILL, now)
         if (after.hearts > before) effects.push({ type: 'hearts', hearts: after.hearts, delta: after.hearts - before })
@@ -181,6 +188,16 @@ export async function endSession(raw: { sessionId: string }): Promise<Effect[]> 
       effects.push(...(await settleProgress(tx, userId, snapshot, now, { mission: null })).effects)
       return effects
     },
-    { tx: true },
+    { lock: true },
   )
+}
+
+// Distinct quizzes of the session's exercise list answered in it (graded by the server).
+async function practiceAnswers(tx: Conn, userId: string, sessionId: string, unitIds: readonly string[]): Promise<number> {
+  const rows = await tx
+    .selectDistinct({ unitId: attempts.unitId })
+    .from(attempts)
+    .where(and(eq(attempts.userId, userId), eq(attempts.sessionId, sessionId), eq(attempts.kind, 'quiz')))
+  const planned = new Set(unitIds)
+  return rows.filter((r) => planned.has(r.unitId)).length
 }

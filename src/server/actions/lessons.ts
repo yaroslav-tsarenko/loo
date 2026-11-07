@@ -1,7 +1,7 @@
 'use server'
 
 import { randomUUID } from 'node:crypto'
-import { and, asc, eq, sql } from 'drizzle-orm'
+import { and, asc, eq, isNull, sql } from 'drizzle-orm'
 import { after } from 'next/server'
 import { z } from 'zod'
 import { first } from '@/db/client'
@@ -12,6 +12,7 @@ import type { Effect } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
 import { getContent } from '../content'
+import { limitUser } from '../courses/limits'
 import { findCourseLesson, learnerLevel, lessonView } from '../courses/lessons'
 import { bucksEarnedToday, loadState, touchLeague, xpEarnedToday, xpToGrant } from '../game'
 import { findLesson, LESSON_XP } from '../services/lessons'
@@ -48,8 +49,9 @@ async function lessonRef(lessonId: string): Promise<LessonRef> {
 
 // A new graded lesson needs at least one ❤️: null = out of hearts (the player offers practice or a refill).
 export async function startLesson(rawId: string): Promise<string | null> {
-  await requireUser()
+  const user = await requireUser()
   const lessonId = parseInput(ids.lesson, rawId)
+  await limitUser(user.id, 'session')
   const lesson = await lessonRef(lessonId)
   const id = randomUUID()
   const now = Date.now()
@@ -59,7 +61,7 @@ export async function startLesson(rawId: string): Promise<string | null> {
       await db.insert(sessions).values({ id, userId, mode: 'lesson', filters: { lessonId }, unitIds: lesson.unitIds, startedAt: now })
       return id
     },
-    { tx: true },
+    { lock: true },
   )
 }
 
@@ -123,19 +125,23 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
           .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId)))
         return empty(true)
       }
+      // Ends the session exactly once (the learner's lock already serializes completeLesson; this is the claim itself).
+      const claimed = await tx
+        .update(sessions)
+        .set({ endedAt: now })
+        .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId), isNull(sessions.endedAt)))
+        .returning({ id: sessions.id })
+      if (claimed.length === 0) return empty(true)
       const correct = units.filter((u) => firstAnswer.get(u)).length
       const accuracy = units.length > 0 ? correct / units.length : 1
       const firstTime = !before
       // Bonus once for the first pass and once for the first flawless pass — replays still earn per-question XP.
-      const bonus = (firstTime ? LESSON_XP.first : 0) + (accuracy === 1 && (before?.bestAccuracy ?? 0) < 1 ? LESSON_XP.perfect : 0)
+      // A lesson without exercises (theory only) is never «flawless» and pays no bucks: every replay would pay again.
+      const bonus = (firstTime ? LESSON_XP.first : 0) + (units.length > 0 && accuracy === 1 && (before?.bestAccuracy ?? 0) < 1 ? LESSON_XP.perfect : 0)
       const bonusXp = xpToGrant({ amount: bonus, reason: 'lesson', now }, state.boostUntil, xpToday)
       // Bucks: 10 per finished lesson, 20 when flawless (daily cap; once per session).
-      const bucksWanted = cappedBucks(accuracy >= 1 ? BUCKS.lessonPerfect : BUCKS.lesson, bucksToday, 'lesson')
-      const [, , , , bucksRows] = await Promise.all([
-        tx
-          .update(sessions)
-          .set({ endedAt: now })
-          .where(and(eq(sessions.userId, userId), eq(sessions.id, sessionId))),
+      const bucksWanted = units.length > 0 ? cappedBucks(accuracy >= 1 ? BUCKS.lessonPerfect : BUCKS.lesson, bucksToday, 'lesson') : 0
+      const [, , , bucksRows] = await Promise.all([
         bonusXp > 0 ? tx.insert(xpLedger).values({ userId, amount: bonusXp, reason: 'lesson', refId: lesson.id, createdAt: now, day }) : null,
         tx
           .insert(lessonProgress)
@@ -160,7 +166,7 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
       effects.push(...(await settleProgress(tx, userId, snapshot, now)).effects)
       return { effects, bonusXp, bucks, firstTime, correct, total: units.length, incomplete: false }
     },
-    { tx: true },
+    { lock: true },
   )
   // league placement reads other learners' rows on its own connection: after the response
   if (outcome.bonusXp > 0 || outcome.effects.some((e) => e.type === 'xp')) after(() => touchLeague(user.id, now))

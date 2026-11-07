@@ -181,7 +181,7 @@ function fakeDb(): { db: FakeConn; log: string[] } {
 }
 
 describe('withUser scope', () => {
-  it('on Supabase: one transaction, role authenticated + claims, then fn', async () => {
+  it('on Supabase: one transaction, the app role + claims, then fn', async () => {
     const { db, log } = fakeDb()
     const { withUser, currentUserId } = createScope({ db: () => db as unknown as Db, rls: async () => true })
     const seen = await withUser({ id: USER }, async (conn) => {
@@ -190,7 +190,8 @@ describe('withUser scope', () => {
     })
     expect(seen).toBe('tx1')
     expect(log[0]).toBe('db: begin')
-    expect(log[1]).toContain("set_config('request.jwt.claims', $1, true), set_config('role', 'authenticated', true)")
+    expect(log[1]).toContain("set_config('request.jwt.claims', $1, true), set_config('role', 'levelup_learner', true)")
+    expect(log[1]).not.toContain('pg_advisory_xact_lock')
     expect(JSON.parse(JSON.parse(log[1]!.slice(log[1]!.indexOf('['))) [0])).toMatchObject({ sub: USER, role: 'authenticated' })
     expect(log.at(-1)).toBe('db: commit')
     expect(currentUserId()).toBeNull()
@@ -218,6 +219,34 @@ describe('withUser scope', () => {
     log.length = 0
     await withUser({ id: USER }, async () => withUser({ id: USER }, async (conn) => (conn as unknown as FakeConn).name, { tx: true }))
     expect(log).toEqual(['db: begin', 'db: commit'])
+  })
+
+  it('lock: takes the learner advisory lock in the same statement as the role switch', async () => {
+    const { db, log } = fakeDb()
+    const { withUser } = createScope({ db: () => db as unknown as Db, rls: async () => true })
+    await withUser({ id: USER }, async () => 1, { lock: true })
+    expect(log[1]).toContain("set_config('role', 'levelup_learner', true), pg_advisory_xact_lock(hashtextextended($2, 0))")
+    expect(log[1]).toContain(`levelup:user:${USER}`)
+    expect(log.filter((l) => l.includes('pg_advisory_xact_lock'))).toHaveLength(1)
+  })
+
+  it('lock: a nested locked scope inside an unlocked transaction takes the lock once', async () => {
+    const { db, log } = fakeDb()
+    const { withUser } = createScope({ db: () => db as unknown as Db, rls: async () => true })
+    await withUser({ id: USER }, async () => {
+      await withUser({ id: USER }, async () => 1, { lock: true })
+      await withUser({ id: USER }, async () => 2, { lock: true })
+    })
+    expect(log.filter((l) => l.includes('pg_advisory_xact_lock'))).toHaveLength(1)
+    expect(log.filter((l) => l.endsWith('begin'))).toHaveLength(1)
+  })
+
+  it('lock on PGlite: a transaction with the lock', async () => {
+    const { db, log } = fakeDb()
+    const { withUser } = createScope({ db: () => db as unknown as Db, rls: async () => false })
+    expect(await withUser({ id: USER }, async (conn) => (conn as unknown as FakeConn).name, { lock: true })).toBe('tx1')
+    expect(log[0]).toBe('db: begin')
+    expect(log[1]).toContain('pg_advisory_xact_lock(hashtextextended($1, 0))')
   })
 
   it('rejects ids that are not uuids before touching the database', async () => {

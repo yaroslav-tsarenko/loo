@@ -99,7 +99,8 @@ async function buildPlan(db: Conn, userId: string, snapshot: ContentSnapshot, cu
   return planMission({
     budget,
     day: dayKey(now),
-    weekday: new Date(dayStartMs(now)).getDay(),
+    // the study day's weekday (0 = Sunday), from its calendar key — not the server's local clock
+    weekday: new Date(`${dayKey(now)}T00:00:00Z`).getUTCDay(),
     due,
     newCards: fresh,
     mistakes: openRows.filter((r) => snapshot.units.has(r.id) && (!scope || scope.has(r.id))).length,
@@ -303,10 +304,13 @@ export async function completeMission(conn: Conn, userId: string, mission: Missi
   if (!mission.complete) return []
   const day = dayKey(now)
   const plan = mission.plan
-  await conn
+  // claims the bonus: a concurrent settlement that also saw the mission complete updates nothing and pays nothing
+  const claimed = await conn
     .update(dailyMissions)
     .set({ completedAt: now })
-    .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day)))
+    .where(and(eq(dailyMissions.userId, userId), eq(dailyMissions.day, day), isNull(dailyMissions.completedAt)))
+    .returning({ day: dailyMissions.day })
+  if (claimed.length === 0) return []
   const xp = await grantXp(conn, userId, { amount: plan.bonusXp, reason: 'mission', refId: day, now })
   await conn
     .insert(dailyActivity)

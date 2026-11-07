@@ -69,7 +69,7 @@ export async function resetProgress(confirmation: string): Promise<{ ok: boolean
       await tx.delete(lessonProgress).where(eq(lessonProgress.userId, userId))
       await tx.delete(newsReads).where(eq(newsReads.userId, userId))
     },
-    { tx: true },
+    { lock: true },
   )
   revalidatePath('/', 'layout')
   return { ok: true }

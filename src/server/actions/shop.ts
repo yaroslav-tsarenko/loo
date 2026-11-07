@@ -52,7 +52,7 @@ export async function buyItem(raw: { itemId: string }): Promise<BuyResult> {
       const left = item.currency === 'gems' ? { bucks, gems: gems - item.price } : { bucks: bucks - item.price, gems }
       return { ok: true, ...left, effects }
     },
-    { tx: true },
+    { lock: true },
   )
 }
 
@@ -82,6 +82,6 @@ export async function equipItem(raw: { slot: (typeof SLOTS)[number]; itemId: str
       await saveState(tx, userId, { skin: clean }, now)
       return { ok: true }
     },
-    { tx: true },
+    { lock: true },
   )
 }

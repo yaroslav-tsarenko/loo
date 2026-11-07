@@ -16,8 +16,8 @@ const LABEL = 'levelup.quiz-option.v1'
 const DEV_SECRET = 'levelup-dev-quiz-option-secret'
 
 // QUIZ_OPTION_SECRET when set; otherwise another server-only secret every deployment already has (CRON_SECRET,
-// DATABASE_URL), domain-separated by the HMAC label. Rotating it only reshuffles ids: answers stored for an attempt
-// in progress are resolved when they arrive, so they survive it.
+// DATABASE_URL), domain-separated by the HMAC label. Rotating it reshuffles ids: test answers are resolved when they
+// arrive, so they survive it; a placement test in progress (its answers are replayed each step) has to restart.
 export function optionSecret(env: Record<string, string | undefined> = process.env): string {
   const secret = env.QUIZ_OPTION_SECRET || env.CRON_SECRET || env.DATABASE_URL
   if (secret) return secret

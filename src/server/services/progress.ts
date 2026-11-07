@@ -362,7 +362,7 @@ export function attemptReadsFrom([lastCorrectDay, srs, mistake, xpBefore, state,
 
 // `settings`: only the daily goal is used; without them the learner's settings rows are read in the same round trip.
 export async function recordAttempt(snapshot: ContentSnapshot, unit: LearningUnit, request: AttemptRequest, now = Date.now(), settings?: Pick<AppSettings, 'dailyGoal'>): Promise<Effect[]> {
-  return userScope(async (tx, userId) => recordAttemptIn(tx, userId, snapshot, unit, request, now, await readForAttempt(tx, userId, unit, now, settings)), { tx: true })
+  return userScope(async (tx, userId) => recordAttemptIn(tx, userId, snapshot, unit, request, now, await readForAttempt(tx, userId, unit, now, settings)), { lock: true })
 }
 
 const cte = (name: string, query: { getSQL(): SQL }): SQL => sql`${sql.raw(name)} as (${query.getSQL()})`
@@ -451,11 +451,22 @@ export async function recordAttemptIn(tx: Conn, userId: string, snapshot: Conten
     )
   }
   if (request.sessionId) {
+    // Counts only the first answer to one of the session's own exercises while it is open (the CTE above isn't
+    // visible here, so `not exists` sees earlier attempts only).
+    const sessionId = request.sessionId
     writes.push(
       cte('u', tx
         .update(sessions)
         .set({ total: sql`${sessions.total} + 1`, correct: sql`${sessions.correct} + ${result.correct ? 1 : 0}`, xp: sql`${sessions.xp} + ${xp}` })
-        .where(and(eq(sessions.userId, userId), eq(sessions.id, request.sessionId)))),
+        .where(
+          and(
+            eq(sessions.userId, userId),
+            eq(sessions.id, sessionId),
+            isNull(sessions.endedAt),
+            sql`${sessions.unitIds} @> jsonb_build_array(${unit.id}::text)`,
+            sql`not exists (select 1 from ${attempts} where ${attempts.userId} = ${userId} and ${attempts.sessionId} = ${sessionId} and ${attempts.unitId} = ${unit.id})`,
+          ),
+        )),
     )
   }
   // (getSQL: drizzle would wrap an embedded query in parentheses, which a data-modifying CTE doesn't allow)
