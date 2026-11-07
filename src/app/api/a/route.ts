@@ -1,29 +1,20 @@
 import { getDb } from '@/db/client'
 import { analyticsEvents } from '@/db/schema'
+import { hitRateLimit } from '@/lib/rate-limit'
 import { isSameOrigin } from '@/lib/same-origin'
 import { apiUser } from '@/server/auth'
 import { BeaconSchema, isBot, parseAgent, placeOf, rowsOf } from '@/server/analytics/collect'
+import { anonymizeIp } from '@/server/analytics/ip'
+import { dbRateLimitStore } from '@/server/rate-limit-store'
 
 export const dynamic = 'force-dynamic'
 
 // First-party analytics collector (docs/ANALYTICS.md): the browser beacons batches of page views, clicks and time on
-// page; the server adds IP, Vercel geo, device and the signed-in user, and writes them as the system (the table has
-// no grants). Same-origin only, ≤ 30 events per beacon, ≤ 240 events a minute per IP per instance.
+// page; the server adds the network token (never the IP — src/server/analytics/ip.ts), Vercel geo, device and the
+// signed-in user, and writes them as the system (the table has no grants). Same-origin only, ≤ 30 events per beacon,
+// ≤ 20 beacons a minute per network across all instances (a database counter: an in-memory one was per instance).
 
-const WINDOW_MS = 60_000
-const PER_IP = 240
-const seen = new Map<string, { n: number; until: number }>()
-
-function allowed(ip: string, events: number, now: number): boolean {
-  const slot = seen.get(ip)
-  if (!slot || slot.until < now) {
-    if (seen.size > 5_000) seen.clear()
-    seen.set(ip, { n: events, until: now + WINDOW_MS })
-    return true
-  }
-  slot.n += events
-  return slot.n <= PER_IP
-}
+const BEACONS_PER_MINUTE = 20
 
 const done = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } })
 
@@ -42,8 +33,10 @@ export async function POST(request: Request): Promise<Response> {
   const parsed = BeaconSchema.safeParse(json)
   if (!parsed.success) return new Response(null, { status: 400 })
   const now = Date.now()
-  const place = placeOf(request.headers)
-  if (!allowed(place.ip ?? 'unknown', parsed.data.e.length, now)) return new Response(null, { status: 429 })
+  const raw = placeOf(request.headers)
+  const place = { ...raw, ip: anonymizeIp(raw.ip) }
+  const limit = await hitRateLimit(dbRateLimitStore, `beacon:${place.ip ?? 'unknown'}`, { limit: BEACONS_PER_MINUTE, windowMs: 60_000 }, now).catch(() => ({ allowed: true }))
+  if (!limit.allowed) return new Response(null, { status: 429 })
   const user = await apiUser().catch(() => null)
   const rows = rowsOf(parsed.data, { now, userId: user?.id ?? null, place, agent: parseAgent(ua) })
   if (rows.length === 0) return done()
