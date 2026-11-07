@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
 import { blogCategory } from '@/blog/categories'
@@ -23,8 +24,19 @@ export function CategoryChip({ id, link = true }: { id: string; link?: boolean }
 export function BlogCover({ post, eager = false }: { post: BlogPost; eager?: boolean }) {
   const c = blogCategory(post.category)
   if (post.cover) {
-    // eslint-disable-next-line @next/next/no-img-element -- pre-sized webp from public/blog
-    return <img className="blog-cover" src={post.cover} alt={post.coverAlt ?? ''} width={1536} height={1024} loading={eager ? 'eager' : 'lazy'} decoding="async" {...(eager ? { fetchPriority: 'high' as const } : {})} />
+    // Covers are 1536×1024 webp; next/image serves a width that fits the slot (srcset, AVIF/WebP, CDN-cached), so a
+    // phone loads ~640 px instead of the full file for every card. `eager` = the featured card and the article header.
+    return (
+      <Image
+        className="blog-cover"
+        src={post.cover}
+        alt={post.coverAlt ?? ''}
+        width={1536}
+        height={1024}
+        sizes={eager ? '(max-width: 800px) 100vw, 760px' : '(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px'}
+        preload={eager}
+      />
+    )
   }
   return (
     <div className="blog-cover blog-cover-empty" style={{ '--chip': c?.color ?? '#7c4dff' } as CSSProperties} aria-hidden="true">

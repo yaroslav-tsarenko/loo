@@ -98,6 +98,13 @@ Measured on a production build against the lab (§3), gzip, first load:
   Supabase session check for them and sends the public CSP (docs/SECURITY.md M1). A signed-out `GET /` is rewritten to
   `/welcome`.
 
+- **Pixel icons as a sprite.** `PixelIcon` is a `<use>` of `/pixel-icons.svg` (prerendered, versioned by a hash of
+  the grids, immutable): `/path` HTML 65 → 48 KB gzip (~300 icons × 1.3 KB of paths), ~10 KB less JS on every page.
+- **Theory tree** no longer refetches the whole tree (~24 KB + a database read) after every answer: «читаю» is a
+  `theory:reading` event from the reading tracker, «вивчено» comes with the refreshed layout.
+- **Blog covers** via `next/image`: a phone gets a ~640 px WebP/AVIF (~5 KB) instead of the 1536 px original (~39 KB)
+  per card. `/_next/image` bypasses the proxy (it only serves files from `public/`).
+
 ### Capacity (load test, October 2026)
 
 `scripts/load-test.ts` against the lab (production build, Postgres 16 with the real RLS, 2 ms database RTT), virtual

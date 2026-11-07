@@ -143,9 +143,10 @@ async function handle(request: NextRequest): Promise<NextResponse> {
 }
 
 export const config = {
-  // Everything except immutable build assets and the static metadata files (exact paths: the app icons, the web
+  // Everything except immutable build assets, the image optimizer (/_next/image: only files under public/, public
+  // anyway — the blog covers) and the static metadata files (exact paths: the app icons, the web
   // manifest and the pixel icon sprite — public, prerendered, no page behind them; skipping the proxy lets the CDN
   // serve them without a function call). No extension-based exclusions, so a path like /g/x/y.png can't skip auth (it
   // still routes to a page and its server actions).
-  matcher: ['/((?!_next/static/|favicon\\.ico$|icon$|apple-icon$|manifest\\.webmanifest$|pixel-icons\\.svg$).*)'],
+  matcher: ['/((?!_next/static/|_next/image$|favicon\\.ico$|icon$|apple-icon$|manifest\\.webmanifest$|pixel-icons\\.svg$).*)'],
 }
