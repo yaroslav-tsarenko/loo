@@ -134,6 +134,9 @@ export const attempts = pgTable(
     index('attempts_user_unit_idx').on(t.userId, t.unitId, t.answeredAt),
     index('attempts_user_day_idx').on(t.userId, t.day),
     index('attempts_user_id_idx').on(t.userId, t.id),
+    // the leading run of correct answers at one level (leadingRead, src/server/services/progress.ts): the last 200 of
+    // that level without scanning the learner's whole history
+    index('attempts_user_level_id_idx').on(t.userId, t.level, t.id),
     // docs/PERFORMANCE.md: per-kind / per-outcome counts on every answer (achievement metrics) as index-only scans,
     // and a lesson's answers by session (completeLesson, «Робота над помилками» activity)
     index('attempts_user_kind_outcome_idx').on(t.userId, t.kind, t.outcome),

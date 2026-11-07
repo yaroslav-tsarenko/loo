@@ -1,0 +1,1 @@
+CREATE INDEX "attempts_user_level_id_idx" ON "attempts" USING btree ("user_id","level","id");
