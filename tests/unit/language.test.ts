@@ -5,7 +5,7 @@ import { compareWords, dictationMatches, judgeSpeech, normalizeText, numberWords
 import { splitTranslation } from '@/content/blocks/lang/fields'
 import { parsePairTitle } from '@/content/blocks/pair/definition'
 import { gradeQuiz } from '@/content/blocks/quiz/grade'
-import { gradedQuiz, gradeWithKey, quizKey, quizShape } from '@/content/blocks/quiz/view'
+import { gradedQuiz, quizKey } from '@/content/blocks/quiz/view'
 import { parseName } from '@/content/discover/names'
 import type { FlashcardUnit, QuizUnit } from '@/content/model'
 import { toLevel } from '@/content/parse/markdown'
@@ -272,7 +272,7 @@ describe('language answers: grading', () => {
     const key = quizKey(dictation)
     expect(key.free).toBe("I'm 21 years old.")
     expect(key.accept).toEqual(['I am twenty-one.'])
-    expect(gradeWithKey(quizShape(dictation), key, { chosen: [], text: 'I am twenty one' })).toBe(true)
+    expect(gradeQuiz(dictation, { chosen: [], text: 'I am twenty one' })).toBe(true)
   })
 })
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import { PiCheckBold, PiCodeBlockFill, PiEarFill, PiExamFill, PiHeadphonesFill, PiListChecksFill, PiMicrophoneFill, PiPuzzlePieceFill, PiTerminalWindowFill, PiXBold } from 'react-icons/pi'
-import { gradeWithKey, type ExerciseView, type QuizKey } from '@/content/blocks/quiz/view'
+import type { ExerciseView, QuizKey } from '@/content/blocks/quiz/view'
 import type { QuizMode } from '@/content/model'
 import { answerQuiz, type SpeechResult } from '@/server/actions/answers'
 import { Pill } from '@/ui/design/Badge'
@@ -61,8 +61,6 @@ interface Props {
   options: QuizOptionView[]
   // order / fill payload (shuffled view, no answers)
   exercise?: ExerciseView | null
-  /** Practice only (article quizzes): the key ships with the quiz for an instant verdict; XP still comes from the server. */
-  answerKey?: QuizKey
   explanation?: ReactNode
   variant: 'inline' | 'session'
   sessionId?: string
@@ -98,7 +96,7 @@ function kindOf(mode: QuizMode, free: boolean, multi: boolean, code: boolean, t:
 type Phase = 'open' | 'checking' | 'done'
 
 export function QuizInline(props: Props) {
-  const { unitId, mode, level, multi, free, prompt, body, options, variant, sessionId, onResult, actionsSlot, answerKey, check } = props
+  const { unitId, mode, level, multi, free, prompt, body, options, variant, sessionId, onResult, actionsSlot, check } = props
   const showVerdict = props.verdict !== 'none'
   const exercise = props.exercise ?? null
   // [!listen] type: fill arrives as mode 'listen' with a fill exercise
@@ -138,12 +136,6 @@ export function QuizInline(props: Props) {
     if (phase !== 'open') return
     setError(null)
     const answer: QuizAnswerInput = { unitId, chosen: picked, text, durationMs: Date.now() - started.current }
-    if (answerKey) {
-      // Practice: instant verdict from the shipped key; the server re-grades the same answer and grants XP.
-      finish({ correct: gradeWithKey({ mode, multi, free }, answerKey, { chosen: picked, text }, props.lang), key: answerKey, explanation: props.explanation ?? null }, answer)
-      void serverCheck(answer).catch(() => {})
-      return
-    }
     // the press registers at once (pressed option + tick + haptic tap); the verdict follows from the server
     setPhase('checking')
     feedback.play('tap')

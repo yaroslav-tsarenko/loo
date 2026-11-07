@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { gradeQuiz } from '@/content/blocks/quiz/grade'
-import { gradedQuiz, gradeWithKey, quizKey, quizShape, solutionText } from '@/content/blocks/quiz/view'
+import { gradedQuiz, quizKey, quizShape, solutionText } from '@/content/blocks/quiz/view'
 import type { QuizUnit } from '@/content/model'
 
 // Phase 4 anti-cheat: graded quizzes ship no answer key to the browser; the server's answerQuiz grades the raw answer.
@@ -84,20 +84,13 @@ describe('server grading of raw answers', () => {
     expect(gradeQuiz(order, { chosen: ['const a = 1', 'var a = 1', 'log(a)', 'return a'] })).toBe(false)
   })
 
-  it('reveals a key that matches the server verdict (practice grading parity)', () => {
-    const cases: Array<[QuizUnit, { chosen: string[]; text?: string | null }]> = [
-      [single, { chosen: ['b'] }],
-      [single, { chosen: ['a'] }],
-      [multi, { chosen: ['c', 'a'] }],
-      [multi, { chosen: ['a'] }],
-      [free, { chosen: [], text: '1;4;3;2' }],
-      [free, { chosen: [], text: '1 2 3 4' }],
-      [order, { chosen: ['const a = 1', 'log(a)', 'return a'] }],
-      [order, { chosen: ['log(a)', 'const a = 1', 'return a'] }],
-      [fill, { chosen: ['yield'] }],
-      [fill, { chosen: ['then'] }],
-    ]
-    for (const [unit, answer] of cases) expect(gradeWithKey(quizShape(unit), quizKey(unit), { text: null, ...answer })).toBe(gradeQuiz(unit, answer))
+  it('the revealed key, sent back as the answer, is what the one grader accepts', () => {
+    // one grader for every quiz (gradeQuiz); the key the server reveals after answering must agree with it
+    for (const unit of [single, multi, free, order, fill]) {
+      const key = quizKey(unit)
+      const answer = key.order ? { chosen: key.order } : key.blanks ? { chosen: key.blanks.map((b) => b[0]!) } : key.free !== null ? { chosen: [], text: key.free } : { chosen: key.options }
+      expect(gradeQuiz(unit, answer), unit.id).toBe(true)
+    }
   })
 
   it('builds review solutions from the revealed key', () => {

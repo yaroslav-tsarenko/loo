@@ -1,11 +1,9 @@
 import type { FillExercise, OrderExercise, QuizExercise, QuizMode, QuizUnit } from '../../model'
-import { dictationMatches } from '../lang/grade'
-import { blankMatches } from './exercise'
-import { isFreeQuiz, normalizeFreeAnswer, type QuizAnswer } from './grade'
+import { isFreeQuiz } from './grade'
 
 // What a quiz looks like on the client. In graded contexts (lessons, tests, exams, placement, feed, study sessions)
 // the client gets the view only — no `correct` flags, no free answer, no piece order, no blank answers — and asks the
-// server (answerQuiz) for the verdict. Article quizzes are practice: they also ship the key for instant feedback.
+// server (answerQuiz) for the verdict. Every quiz, practice included, is graded in one place: gradeQuiz (./grade.ts).
 
 export interface OrderView {
   kind: 'order'
@@ -27,7 +25,7 @@ export interface FillView {
 
 export type ExerciseView = OrderView | FillView
 
-// The answer key, revealed after answering (or shipped up front for practice quizzes).
+// The answer key, revealed by the server after answering.
 export interface QuizKey {
   // right option ids (single / multi / output with options)
   options: string[]
@@ -94,22 +92,6 @@ export function quizKey(unit: QuizUnit): QuizKey {
     blanks: (unit.mode === 'fill' || unit.mode === 'listen') && ex?.kind === 'fill' ? ex.segments.flatMap((s) => (s.kind === 'blank' ? [s.answers] : [])) : null,
     ...(unit.mode === 'listen' && unit.listen?.accept.length ? { accept: unit.listen.accept } : {}),
   }
-}
-
-// Client-side grading with a shipped key (practice quizzes only) — mirrors gradeQuiz on the server.
-// Order answers are the pieces' code in the learner's order; fill answers are the blank values.
-export function gradeWithKey(shape: QuizShape, key: QuizKey, answer: QuizAnswer, lang?: string | null): boolean {
-  if (shape.mode === 'order') return key.order !== null && answer.chosen.length === key.order.length && answer.chosen.every((c, i) => c === key.order![i])
-  if (shape.mode === 'fill' || (shape.mode === 'listen' && key.blanks)) return key.blanks !== null && key.blanks.length > 0 && answer.chosen.length === key.blanks.length && key.blanks.every((b, i) => blankMatches(b, answer.chosen[i] ?? '', shape.mode === 'listen'))
-  if (shape.mode === 'speak') return false
-  if (shape.mode === 'listen' && shape.free) return dictationMatches(answer.text ?? '', key.free ?? '', key.accept ?? [], lang)
-  if (shape.free) {
-    const text = answer.text ?? ''
-    return text.trim() !== '' && normalizeFreeAnswer(text) === normalizeFreeAnswer(key.free ?? '')
-  }
-  const right = [...key.options].sort()
-  const picked = [...new Set(answer.chosen)].sort()
-  return right.length > 0 && right.length === picked.length && picked.every((id, i) => id === right[i])
 }
 
 // The canonical solution as plain code, from a view and a revealed key (review screens).
