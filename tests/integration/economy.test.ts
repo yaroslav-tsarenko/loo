@@ -51,6 +51,21 @@ async function rightAnswer(unitId: string): Promise<{ chosen: string[]; text: st
 
 // Checks and seeds go through the app's own connection (pool of 1, owner role — no RLS): PGlite has ONE session, so a
 // query sent around the app could land inside the app's open (or just aborted) transaction.
+// PGlite's socket server answers an error inside a statement with one reply too many: the connection then lags one
+// response behind (docs/PERFORMANCE.md §4.1). Real Postgres doesn't; here every expected failure is followed by a
+// fresh connection, or the next checks would read the previous query's rows.
+async function expectFailure(run: () => Promise<unknown>): Promise<string> {
+  const message = await run().then(
+    () => '',
+    (e: Error & { cause?: Error }) => e.cause?.message ?? e.message,
+  )
+  const g = globalThis as unknown as Record<symbol, { sql: { end: (o: { timeout: number }) => Promise<void> } } | undefined>
+  const key = Symbol.for('interview-prep.db')
+  await g[key]?.sql.end({ timeout: 1 })
+  delete g[key]
+  return message
+}
+
 async function rows<T>(text: string, params: unknown[] = []): Promise<T[]> {
   const { getDb } = await import('@/db/client')
   const { $client } = getDb() as unknown as { $client: { unsafe: (q: string, p: unknown[]) => Promise<T[]> } }
@@ -124,10 +139,7 @@ describe('economy (integration)', () => {
     const ids = [...seen].map((r) => r.user_id)
     expect(ids).not.toContain(A)
     // writing a row for someone else is refused by the policy
-    const refused = await userScope(async (tx) => tx.execute(sql`insert into xp_ledger (user_id, amount, reason, ref_id, created_at, day) values (${A}, 1000, 'quiz', 'x', 0, '2026-01-01')`)).then(
-      () => null,
-      (e: Error & { cause?: Error }) => e.cause?.message ?? e.message,
-    )
+    const refused = await expectFailure(() => userScope(async (tx) => tx.execute(sql`insert into xp_ledger (user_id, amount, reason, ref_id, created_at, day) values (${A}, 1000, 'quiz', 'x', 0, '2026-01-01')`)))
     expect(refused).toMatch(/row-level security/)
     const [a] = await rows<{ n: number }>(`select count(*)::int as n from xp_ledger where user_id = $1 and ref_id = 'x'`, [A])
     expect(a?.n).toBe(0)
@@ -158,14 +170,18 @@ describe('economy (integration)', () => {
     // the learner can read the row, never write it
     as(B)
     const { userScope } = await import('@/server/auth')
-    const forged = await userScope(async (tx) => tx.execute(sql`update user_counters set xp = 1000000`)).then(
-      () => null,
-      (e: Error & { cause?: Error }) => e.cause?.message ?? e.message,
-    )
+    const forged = await expectFailure(() => userScope(async (tx) => tx.execute(sql`update user_counters set xp = 1000000`)))
     expect(forged).toMatch(/permission denied/)
+    // moving rows to another owner (the legacy-owner claim) moves their totals along
+    const [beforeA] = await rows<{ xp: number }>(`select coalesce((select xp::int from user_counters where user_id = $1), 0) as xp`, [A])
+    await rows(`insert into xp_ledger (user_id, amount, reason, ref_id, created_at, day) values ($1, 7, 'quiz', 'moved', 0, '2026-01-01')`, [B])
+    await rows(`update xp_ledger set user_id = $1 where user_id = $2 and ref_id = 'moved'`, [A, B])
+    const [afterA] = await rows<{ xp: number }>(`select xp::int from user_counters where user_id = $1`, [A])
+    expect(afterA?.xp).toBe((beforeA?.xp ?? 0) + 7)
+    await check()
     // deleting an account cascades through attempts / xp_ledger; their delete triggers must not bring the row back
-    await rows(`insert into attempts (user_id, unit_id, kind, outcome, correct, answered_at, day) select $1, 'jss-01-quiz-02', 'quiz', 'correct', true, 0, '2026-01-01'`, [B]).catch(() => null)
-    await rows(`delete from profiles where id = $1`, [B])
+    await rows(`insert into xp_ledger (user_id, amount, reason, ref_id, created_at, day) values ($1, 3, 'quiz', 'gone', 0, '2026-01-01')`, [B])
+    expect(await rows(`delete from profiles where id = $1 returning id`, [B])).toEqual([{ id: B }])
     const [left] = await rows<{ n: number }>(`select count(*)::int as n from user_counters where user_id = $1`, [B])
     expect(left?.n).toBe(0)
   }, 60_000)

@@ -34,6 +34,9 @@ export const CLAIM_TABLES: ReadonlyArray<{ table: string; keys: readonly string[
   { table: 'email_log', keys: ['kind', 'ref'] },
   // site analytics (surrogate key): the legacy owner's events become the claiming admin's
   { table: 'analytics_events', keys: [] },
+  // running totals (drizzle/0016): kept by triggers — the moves above already shifted them from the legacy owner to
+  // the user; the legacy owner's (now zero) row is just dropped
+  { table: 'user_counters', keys: [] },
 ]
 
 export function claimStatements(userId: string): SQL[] {
@@ -43,6 +46,10 @@ export function claimStatements(userId: string): SQL[] {
     // One active enrollment per user: a legacy active course never overrides the user's own active one.
     if (table === 'enrollments') {
       out.push(sql`update ${t} set active = false where user_id = ${LEGACY_USER_ID} and exists (select 1 from ${t} where user_id = ${userId} and active)`)
+    }
+    if (table === 'user_counters') {
+      out.push(sql`delete from ${t} where user_id = ${LEGACY_USER_ID}`)
+      continue
     }
     // One row per user: the user's own game state wins over the legacy one.
     if (table === 'user_state' || table === 'email_tokens') {

@@ -12,40 +12,39 @@ ALTER TABLE "user_counters" ADD CONSTRAINT "user_counters_user_id_profiles_id_fk
 -- ── Running totals kept by the database (src/db/schema.ts → userCounters) ─────────────────────────────────────
 -- Same definitions as the count/sum subqueries they replace (statsRead, xpRead): cards = flashcard attempts,
 -- cards_known = flashcard 'good', quizzes = quiz attempts, quizzes_correct = quiz 'correct', xp = sum(xp_ledger).
--- Inserts upsert the learner's row; deletes (resetProgress) only update it — when a whole account is deleted the
+-- Inserts upsert the learner's row; deletes (resetProgress) only update it; an update of the owner / kind / outcome /
+-- amount counts as delete + insert — when a whole account is deleted the
 -- counters row may already be gone through the cascade, and must not come back.
 -- SECURITY DEFINER: the trigger writes the row as the table owner; learners only ever read it (policy below).
 -- The triggers lock attempts / xp_ledger for the rest of this migration, so the backfill below and the rows inserted
 -- later never overlap or miss each other.
 CREATE OR REPLACE FUNCTION public.levelup_count_attempt() RETURNS trigger
   LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
-DECLARE
-  r record;
-  d integer;
 BEGIN
-  IF TG_OP = 'INSERT' THEN r := NEW; d := 1; ELSE r := OLD; d := -1; END IF;
-  IF r.kind NOT IN ('flashcard', 'quiz') THEN RETURN NULL; END IF;
-  IF TG_OP = 'INSERT' THEN
+  -- an UPDATE (the legacy-owner claim moves rows to a real user: src/server/auth/claim-sql.ts) is the old row out and
+  -- the new row in
+  IF TG_OP IN ('DELETE', 'UPDATE') AND OLD.kind IN ('flashcard', 'quiz') THEN
+    UPDATE user_counters SET
+      cards = cards - (OLD.kind = 'flashcard')::int,
+      cards_known = cards_known - (OLD.kind = 'flashcard' AND OLD.outcome = 'good')::int,
+      quizzes = quizzes - (OLD.kind = 'quiz')::int,
+      quizzes_correct = quizzes_correct - (OLD.kind = 'quiz' AND OLD.outcome = 'correct')::int
+    WHERE user_id = OLD.user_id;
+  END IF;
+  IF TG_OP IN ('INSERT', 'UPDATE') AND NEW.kind IN ('flashcard', 'quiz') THEN
     INSERT INTO user_counters AS c (user_id, cards, cards_known, quizzes, quizzes_correct)
     VALUES (
-      r.user_id,
-      (r.kind = 'flashcard')::int,
-      (r.kind = 'flashcard' AND r.outcome = 'good')::int,
-      (r.kind = 'quiz')::int,
-      (r.kind = 'quiz' AND r.outcome = 'correct')::int
+      NEW.user_id,
+      (NEW.kind = 'flashcard')::int,
+      (NEW.kind = 'flashcard' AND NEW.outcome = 'good')::int,
+      (NEW.kind = 'quiz')::int,
+      (NEW.kind = 'quiz' AND NEW.outcome = 'correct')::int
     )
     ON CONFLICT (user_id) DO UPDATE SET
       cards = c.cards + excluded.cards,
       cards_known = c.cards_known + excluded.cards_known,
       quizzes = c.quizzes + excluded.quizzes,
       quizzes_correct = c.quizzes_correct + excluded.quizzes_correct;
-  ELSE
-    UPDATE user_counters SET
-      cards = cards - (r.kind = 'flashcard')::int,
-      cards_known = cards_known - (r.kind = 'flashcard' AND r.outcome = 'good')::int,
-      quizzes = quizzes - (r.kind = 'quiz')::int,
-      quizzes_correct = quizzes_correct - (r.kind = 'quiz' AND r.outcome = 'correct')::int
-    WHERE user_id = r.user_id;
   END IF;
   RETURN NULL;
 END $$;
@@ -53,11 +52,12 @@ END $$;
 CREATE OR REPLACE FUNCTION public.levelup_count_xp() RETURNS trigger
   LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
 BEGIN
-  IF TG_OP = 'INSERT' THEN
+  IF TG_OP IN ('DELETE', 'UPDATE') THEN
+    UPDATE user_counters SET xp = xp - OLD.amount WHERE user_id = OLD.user_id;
+  END IF;
+  IF TG_OP IN ('INSERT', 'UPDATE') THEN
     INSERT INTO user_counters AS c (user_id, xp) VALUES (NEW.user_id, NEW.amount)
     ON CONFLICT (user_id) DO UPDATE SET xp = c.xp + excluded.xp;
-  ELSE
-    UPDATE user_counters SET xp = xp - OLD.amount WHERE user_id = OLD.user_id;
   END IF;
   RETURN NULL;
 END $$;
@@ -66,9 +66,9 @@ REVOKE ALL ON FUNCTION public.levelup_count_attempt() FROM PUBLIC;
 --> statement-breakpoint
 REVOKE ALL ON FUNCTION public.levelup_count_xp() FROM PUBLIC;
 --> statement-breakpoint
-CREATE TRIGGER attempts_count AFTER INSERT OR DELETE ON attempts FOR EACH ROW EXECUTE FUNCTION public.levelup_count_attempt();
+CREATE TRIGGER attempts_count AFTER INSERT OR DELETE OR UPDATE OF user_id, kind, outcome ON attempts FOR EACH ROW EXECUTE FUNCTION public.levelup_count_attempt();
 --> statement-breakpoint
-CREATE TRIGGER xp_ledger_count AFTER INSERT OR DELETE ON xp_ledger FOR EACH ROW EXECUTE FUNCTION public.levelup_count_xp();
+CREATE TRIGGER xp_ledger_count AFTER INSERT OR DELETE OR UPDATE OF user_id, amount ON xp_ledger FOR EACH ROW EXECUTE FUNCTION public.levelup_count_xp();
 --> statement-breakpoint
 INSERT INTO user_counters (user_id, xp, cards, cards_known, quizzes, quizzes_correct)
 SELECT p.id,
