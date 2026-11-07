@@ -75,5 +75,3 @@ export function weekWindow(key: string): WeekWindow {
   const [y, m, d] = key.split('-').map(Number) as [number, number, number]
   return { key, start: kyivMidnight(y, m, d), end: kyivMidnight(y, m, d + 7) }
 }
-
-export const isWeekKey = (s: string): boolean => /^\d{4}-\d{2}-\d{2}$/.test(s)

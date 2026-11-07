@@ -59,6 +59,3 @@ const BARE = ['/login', '/signup', '/forgot-password', '/reset-password', '/onbo
 export function isBarePath(pathname: string): boolean {
   return BARE.some((p) => pathname === p || pathname.startsWith(`${p}/`))
 }
-
-// Pages only for signed-out visitors: a signed-in user is sent home.
-export const SIGNED_OUT_ONLY: ReadonlySet<string> = new Set(['/login', '/signup', '/forgot-password'])

@@ -125,7 +125,3 @@ export function segmentRoot(root: Root, options: SegmentOptions = {}): Segment[]
   }
   return out
 }
-
-export function segmentMap(segments: readonly Segment[]): Map<string, Segment> {
-  return new Map(segments.map((s) => [s.id, s]))
-}

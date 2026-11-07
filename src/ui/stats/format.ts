@@ -28,13 +28,6 @@ export function seconds(ms: number): string {
   return s >= 100 ? String(Math.round(s)) : (Math.round(s * 10) / 10).toFixed(1)
 }
 
-// Hours for big tiles: «12.5» (< 10 h one decimal), minutes when under an hour are shown by the caller
-export function hoursValue(ms: number): string {
-  const h = ms / 3_600_000
-  if (h >= 10) return String(Math.round(h))
-  return (Math.round(h * 10) / 10).toFixed(1)
-}
-
 export function nouns(n: number, forms: { one: string; few: string; many: string }): string {
   return `${n} ${plural(n, forms.one, forms.few, forms.many)}`
 }

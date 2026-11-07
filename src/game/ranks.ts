@@ -29,8 +29,6 @@ export interface RankDef {
   gems: number
 }
 
-export const RANK_STEPS = WARRIOR_RANKS.length * RANK_TIERS - (RANK_TIERS - 1)
-
 // ~quadratic XP: 44·i² + 20·i, rounded to a readable number (Легенда ≈ 134 тис. XP).
 export function rankXp(index: number): number {
   const raw = 44 * index * index + 20 * index
@@ -89,7 +87,6 @@ function build(): RankDef[] {
 }
 
 export const RANKS: readonly RankDef[] = build()
-export const EVOLUTION_STEPS = RANKS.length
 
 const REQS: readonly Requirement[] = ['xp', 'lessons', 'tests', 'exams', 'courses']
 

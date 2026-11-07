@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, desc, eq, isNull, lte, sql } from 'drizzle-orm'
-import { first, type Conn } from '@/db/client'
-import { attempts, chapterProgress, dailyActivity, mistakes, srsCards, taskState } from '@/db/schema'
+import { type Conn } from '@/db/client'
+import { attempts, chapterProgress, dailyActivity, mistakes, srsCards } from '@/db/schema'
 import type { Chapter, Guide, TreeNode } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
@@ -24,10 +24,6 @@ export interface ProgressRow {
 // Page renders: the map read with the shell (src/server/shell.ts) — no query of its own.
 export async function pageProgress(): Promise<Map<string, ProgressRow>> {
   return (await shellData())?.progress ?? new Map()
-}
-
-export async function chapterProgressMap(): Promise<Map<string, ProgressRow>> {
-  return userScope((db, userId) => chapterProgressIn(db, userId))
 }
 
 export async function chapterProgressIn(conn: Conn, userId: string): Promise<Map<string, ProgressRow>> {
@@ -247,17 +243,4 @@ export function chapterNumberMap(tree: TreeViewNode[]): Map<string, string> {
   }
   walk(tree)
   return map
-}
-
-export async function taskStateFor(unitId: string) {
-  return (
-    (await userScope((db, userId) =>
-      first(
-        db
-          .select()
-          .from(taskState)
-          .where(and(eq(taskState.userId, userId), eq(taskState.unitId, unitId))),
-      ),
-    )) ?? null
-  )
 }

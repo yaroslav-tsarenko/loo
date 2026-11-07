@@ -80,12 +80,6 @@ if (perfEnabled) setQueryHook(() => {
   if (t) t.statements++
 })
 
-// Names the request in the log line (pages and actions call it with their route / action name).
-export function perfLabel(label: string): void {
-  const t = trace()
-  if (t && !t.label) t.label = label
-}
-
 export function perfTx(ms: number): void {
   const t = trace()
   if (!t) return

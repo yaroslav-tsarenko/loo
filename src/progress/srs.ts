@@ -49,10 +49,6 @@ function fromCard(card: Card): SrsCard {
   }
 }
 
-export function newCard(now: number): SrsCard {
-  return fromCard(createEmptyCard(new Date(now)))
-}
-
 export function review(card: SrsCard | null, rating: FlashRating, now: number): SrsCard {
   const current = card ? toCard(card) : createEmptyCard(new Date(now))
   const { card: next } = scheduler.next(current, new Date(now), GRADE[rating])

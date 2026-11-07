@@ -15,7 +15,7 @@ import { frozenRead, goalRead, settleStreak, streakInputs, streakRewards, type S
 // Other features (profile statistics, home) import from here: gameSnapshot(), streakNow(), rankOfUser(), leagueSummary().
 
 export { awardBucks, awardGems, bucksEarnedToday, grantXp, gemsEarnedToday, spendBucks, spendGems, xpEarnedToday, xpToGrant } from './ledger'
-export { addHearts, bucksOf, gemsOf, loadGame, loadState, ownedItems, spendHeart, spendHeartFrom, type GameRead, type GameState } from './state'
+export { addHearts, bucksOf, gemsOf, loadGame, loadState, ownedItems, spendHeartFrom, type GameRead, type GameState } from './state'
 export { settleStreak, streakInputs, streakRewards, goalDays, frozenDayList, type StreakInputs, type StreakState } from './streak'
 export { ackEvolution, rankInput, rankOfUser, settleRank } from './ranks'
 export { finalizeDue, leagueSummary, leagueView, moveToTier, touchLeague, type LeagueRow, type LeagueView } from './leagues'
@@ -123,12 +123,6 @@ export async function shellGameIn(conn: Conn, userId: string, now: number, pre: 
     rank: { id: def.id, title: def.title, index, rank: def.rank, tier: def.tier },
     evolution: state.evoStep > state.evoSeen ? { from: state.evoSeen, to: state.evoStep } : null,
   }
-}
-
-// Layout (full loads, router.refresh): also settles the rank silently, so a new user_state row (or ranks changed by
-// content) never shows a stale rank.
-export async function shellGame(now = Date.now()): Promise<ShellGame> {
-  return userScope((tx, userId) => settledShellIn(tx, userId, now), { tx: true })
 }
 
 // settleRank + shellGameIn with every read in one round trip; the game row is read again only when a rank-up was

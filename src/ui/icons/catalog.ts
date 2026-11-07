@@ -14,8 +14,6 @@ export const ICON_NAMES: Record<LibrarySet, readonly string[]> = {
   px: PIXEL_ICONS,
 }
 
-export const BRANDS: readonly { name: string; label: string; hex: string }[] = Object.entries(SI).map(([name, b]) => ({ name, label: b.label, hex: b.hex }))
-
 export function hasIcon(raw: string): boolean {
   const ref = parseIconRef(raw)
   if (!ref) return false

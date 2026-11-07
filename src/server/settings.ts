@@ -5,7 +5,7 @@ import { first, getDb, type Conn } from '@/db/client'
 import { systemState, userSettings } from '@/db/schema'
 import { userScope } from './auth'
 import { userBase } from './base'
-import { read, readOne, type Read } from './db/batch'
+import { read, type Read } from './db/batch'
 
 export type ThemeSetting = 'system' | 'light' | 'dark'
 // English voice of language courses (docs/SPEECH.md): British by default
@@ -82,12 +82,6 @@ export async function readVaultPath(): Promise<string | null> {
 
 export async function writeVaultPath(value: string | null): Promise<void> {
   await writeSystem('vaultPath', coerce('vaultPath', value))
-}
-
-// ── Per-user settings ──────────────────────────────────────────────────────────────────────────────────────────
-
-export async function settingsFor(conn: Conn, userId: string): Promise<AppSettings> {
-  return readOne(conn, settingsRead(conn, userId))
 }
 
 export function settingsRead(conn: Conn, userId: string): Read<AppSettings> {

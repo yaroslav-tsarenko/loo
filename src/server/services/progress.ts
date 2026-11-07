@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, desc, eq, isNull, lte, sql, type SQL } from 'drizzle-orm'
+import { and, desc, eq, isNull, sql, type SQL } from 'drizzle-orm'
 import type { Conn } from '@/db/client'
 import { achievements, attempts, buckLedger, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userCounters, userState, xpLedger } from '@/db/schema'
 import type { LearningUnit } from '@/content/model'
@@ -39,11 +39,6 @@ export async function totalXp(conn: Conn, userId: string): Promise<number> {
 // The learner's XP total: the running sum the database keeps (user_counters, drizzle/0016), not a sum over xp_ledger.
 export function xpRead(conn: Conn, userId: string): Read<number> {
   return read(conn.select({ total: userCounters.xp }).from(userCounters).where(eq(userCounters.userId, userId)), (rows) => Number(rows[0]?.total ?? 0))
-}
-
-// The signed-in user's XP (pages, layout, /api/counts).
-export async function userXp(): Promise<number> {
-  return userScope((db, userId) => totalXp(db, userId))
 }
 
 // The leading run of correct answers (overall or at one level) among the last 200.
@@ -488,10 +483,6 @@ export async function recordAttemptIn(tx: Conn, userId: string, snapshot: Conten
   effects.push(...settled.effects)
   effects.push(...levelEffects(pre.xpBefore, settled.xpTotal))
   return effects
-}
-
-export async function dueFlashcardIds(conn: Conn, userId: string, now: number): Promise<Set<string>> {
-  return new Set((await conn.select({ id: srsCards.unitId }).from(srsCards).where(and(eq(srsCards.userId, userId), lte(srsCards.due, now)))).map((r) => r.id))
 }
 
 export async function openMistakes(conn: Conn, userId: string): Promise<(typeof mistakes.$inferSelect)[]> {

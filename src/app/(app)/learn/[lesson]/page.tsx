@@ -5,21 +5,14 @@ import { courseLessonPlayerData } from '@/server/courses/player'
 import { findLesson, lessonPlayerData } from '@/server/services/lessons'
 import { learnerLevelFrom, playerGameFrom, shellData } from '@/server/shell'
 import { LessonPlayer } from '@/ui/lesson/LessonPlayer'
+import { safeDecode } from '@/lib/url'
 
 export const metadata: Metadata = { title: 'Урок' }
-
-function decode(raw: string): string {
-  try {
-    return decodeURIComponent(raw)
-  } catch {
-    return raw
-  }
-}
 
 // Course lessons: /learn/<course>:<section>:<topic>:<kind>-<n>. Old ids (<chapterId>::<kind>-<n>) redirect to the same
 // lesson of a course; lessons of guides that no course covers still play from the guide.
 export default async function LessonPage({ params }: { params: Promise<{ lesson: string }> }) {
-  const id = decode((await params).lesson)
+  const id = safeDecode((await params).lesson)
   // hearts, bucks and the learner's level come with the shell (read once with the layout: src/server/shell.ts)
   const shell = await shellData()
   if (!shell) redirect('/login')

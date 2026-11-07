@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, eq, sql } from 'drizzle-orm'
+import { eq, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
 import { read, readOne, type Read } from '../db/batch'
 import { buckLedger, gemLedger, inventory, userState } from '@/db/schema'
@@ -88,12 +88,7 @@ export async function saveState(conn: Conn, userId: string, patch: Partial<Pick<
 
 const heartsPatch = (h: HeartsState) => ({ hearts: h.hearts, heartsAt: h.heartsAt })
 
-// −1 ❤️ (never below zero). Returns the new hearts.
-export async function spendHeart(conn: Conn, userId: string, now: number): Promise<HeartsView> {
-  return spendHeartFrom(conn, userId, await loadState(conn, userId, now, { lock: true }), now)
-}
-
-// spendHeart with the state already read under the row lock in this transaction.
+// −1 ❤️ (never below zero), with the state already read under the row lock in this transaction. Returns the new hearts.
 export async function spendHeartFrom(conn: Conn, userId: string, locked: GameState, now: number): Promise<HeartsView> {
   const next = loseHeart(locked.hearts, now)
   await saveState(conn, userId, heartsPatch(next), now)
@@ -123,8 +118,4 @@ export async function ownedItems(conn: Conn, userId: string): Promise<Set<string
 
 export function ownedRead(conn: Conn, userId: string): Read<Set<string>> {
   return read(conn.select({ id: inventory.itemId }).from(inventory).where(eq(inventory.userId, userId)), (rows) => new Set(rows.map((r) => r.id)))
-}
-
-export async function hasItem(conn: Conn, userId: string, itemId: string): Promise<boolean> {
-  return Boolean(await first(conn.select({ id: inventory.itemId }).from(inventory).where(and(eq(inventory.userId, userId), eq(inventory.itemId, itemId)))))
 }

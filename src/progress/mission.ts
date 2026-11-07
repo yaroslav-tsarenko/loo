@@ -20,8 +20,6 @@ export const BUDGETS: readonly Budget[] = [
   { minutes: 90, id: 'beast', icon: 'px:crown', title: 'Звір', hint: 'Максимальне занурення' },
 ]
 
-export const DEFAULT_BUDGET = 20
-
 export function budgetFor(minutes: number): Budget {
   let best = BUDGETS[0]!
   for (const b of BUDGETS) if (b.minutes <= minutes) best = b

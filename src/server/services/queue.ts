@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, desc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
+import { and, desc, eq, inArray, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
 import { attempts, mistakes, srsCards, taskState } from '@/db/schema'
 import { LEVELS, type LearningUnit, type Level, type UnitKind } from '@/content/model'
@@ -99,11 +99,6 @@ export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: Uni
   return out.sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0))
 }
 
-export async function srsMap(ids: readonly string[]): Promise<Map<string, SrsCard>> {
-  if (ids.length === 0) return new Map()
-  return userScope((db, userId) => srsMapIn(db, userId, ids))
-}
-
 // A whole course's pool can be thousands of ids: past BIG_POOL the learner's cards come back in one query and are
 // filtered here (a learner has at most a few thousand cards) instead of shipping every id as a parameter.
 const BIG_POOL = 500
@@ -135,10 +130,6 @@ export async function srsMapIn(db: Conn, userId: string, ids: readonly string[])
       },
     ]),
   )
-}
-
-export async function newIntroducedToday(now: number): Promise<number> {
-  return userScope((db, userId) => newIntroducedTodayIn(db, userId, now))
 }
 
 async function newIntroducedTodayIn(db: Conn, userId: string, now: number): Promise<number> {
@@ -197,16 +188,6 @@ export interface MistakeRow {
   eligibleAt: number | null
 }
 
-export async function openMistakeRows(snapshot: ContentSnapshot): Promise<MistakeRow[]> {
-  const rows = await userScope((db, userId) =>
-    db
-      .select()
-      .from(mistakes)
-      .where(and(eq(mistakes.userId, userId), isNull(mistakes.resolvedAt))),
-  )
-  return openRowsFrom(snapshot, rows)
-}
-
 function openRowsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mistakes.$inferSelect>): MistakeRow[] {
   const out: MistakeRow[] = []
   for (const r of rows) {
@@ -216,21 +197,6 @@ function openRowsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mist
     out.push({ unit, wrongCount: r.wrongCount, correctStreak: r.correctStreak, lastWrongAt: r.lastWrongAt, eligibleAt: nextEligibleAt({ ...r }) })
   }
   return out.sort((a, b) => b.lastWrongAt - a.lastWrongAt)
-}
-
-export async function recentlyResolved(snapshot: ContentSnapshot, since: number): Promise<LearningUnit[]> {
-  const rows = await userScope((db, userId) =>
-    db
-      .select()
-      .from(mistakes)
-      .where(and(eq(mistakes.userId, userId), gte(mistakes.resolvedAt, since))),
-  )
-  return rows.map((r) => snapshot.units.get(r.unitId)).filter((u): u is LearningUnit => Boolean(u))
-}
-
-export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ chapterId: string; open: number; ever: number }>> {
-  const rows = await userScope((db, userId) => db.select().from(mistakes).where(eq(mistakes.userId, userId)))
-  return topicsFrom(snapshot, rows)
 }
 
 function topicsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mistakes.$inferSelect>): Array<{ chapterId: string; open: number; ever: number }> {

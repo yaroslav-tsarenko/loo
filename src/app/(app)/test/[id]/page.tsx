@@ -13,22 +13,15 @@ import { learnerLevelFrom, playerGameFrom, shellData } from '@/server/shell'
 import { EmptyState } from '@/ui/design/EmptyState'
 import { Button } from '@/ui/design/Button'
 import { LessonPlayer } from '@/ui/lesson/LessonPlayer'
+import { safeDecode } from '@/lib/url'
 
 export const metadata: Metadata = { title: 'Тест' }
-
-function decode(raw: string): string {
-  try {
-    return decodeURIComponent(raw)
-  } catch {
-    return raw
-  }
-}
 
 // /test/<course>:<section>:<topic>:test (topic test) and /test/<course>:<section>:exam (section exam). Attempt n = started attempts + 1,
 // drawn with the seed `${userId}:${n}`; the attempt is recorded when the learner presses «Почати».
 export default async function TestPage({ params }: { params: Promise<{ id: string }> }) {
   const user = await requireUser()
-  const id = decode((await params).id)
+  const id = safeDecode((await params).id)
   const bundle = await courseFor(id)
   const test = bundle ? resolveTest(bundle, id) : null
   if (!bundle || !test) notFound()

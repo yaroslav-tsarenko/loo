@@ -11,7 +11,7 @@ const layer = (from, forbidden, message) => ({
 const config = [
   ...nextVitals,
   ...nextTs,
-  { ignores: ['.next/**', 'node_modules/**', 'drizzle/**', 'test-results/**', 'playwright-report/**', 'next-env.d.ts', '.dev/**', '.lu-preview/**'] },
+  { ignores: ['.next/**', 'node_modules/**', 'tmp/**', 'drizzle/**', 'test-results/**', 'playwright-report/**', 'next-env.d.ts', '.dev/**', '.lu-preview/**'] },
   layer('progress', ['content/store', 'db', 'server', 'ui', 'app'], 'progress/ — чиста логіка без I/O і UI'),
   layer('db', ['content', 'server', 'ui', 'app', 'progress'], 'db/ не знає про markdown і UI'),
   layer('i18n', ['ui', 'server', 'db', 'app'], 'i18n/ — лише тексти: без UI, сервера й БД'),

@@ -39,7 +39,3 @@ export const TRACKS: readonly Track[] = [
   { id: 'ai', icon: 'tb:TbBrain', title: 'AI для інженерів', tagline: 'LLM, промпти, RAG, агенти, евали', stage: 'ai', guides: ['ai'], after: ['javascript'] },
   { id: 'android', icon: 'si:SiAndroid', title: 'Android + Kotlin', tagline: 'Kotlin, Compose, архітектура', stage: 'mobile', guides: ['kotlin', 'android'], after: [] },
 ]
-
-export function trackFor(guideId: string): Track | undefined {
-  return TRACKS.find((t) => t.guides.includes(guideId))
-}

@@ -20,24 +20,17 @@ import { Button } from '@/ui/design/Button'
 import { ProgressBar } from '@/ui/design/ProgressBar'
 import { Loo } from '@/ui/design/mascot/Loo'
 import type { ReactNode } from 'react'
+import { safeDecode } from '@/lib/url'
 
 interface Params {
   guide: string
   slug?: string[]
 }
 
-function decode(value: string): string {
-  try {
-    return decodeURIComponent(value)
-  } catch {
-    return value
-  }
-}
-
 function locate(snapshot: ContentSnapshot, params: Params): { guide: Guide; chapter: Chapter | null } | null {
-  const guide = snapshot.guideById.get(decode(params.guide))
+  const guide = snapshot.guideById.get(safeDecode(params.guide))
   if (!guide) return null
-  const slug = (params.slug ?? []).map(decode)
+  const slug = (params.slug ?? []).map(safeDecode)
   if (slug.length === 0) return { guide, chapter: guide.indexChapterId ? snapshot.chapters.get(guide.indexChapterId) ?? null : null }
   const wanted = slug.join('/').normalize('NFC')
   for (const id of guide.chapterIds) {

@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
+import { and, eq, isNull, sql } from 'drizzle-orm'
 import type { Conn } from '@/db/client'
 import { attempts, chapterProgress, dailyActivity, dailyMissions, lessonProgress, mistakes, reelState, sessions, srsCards, taskState } from '@/db/schema'
 import { lookup, type CoursePathView } from '@/course'
@@ -327,15 +327,4 @@ export async function completeMission(conn: Conn, userId: string, mission: Missi
 export async function settleMission(conn: Conn, userId: string, now = Date.now()): Promise<Effect[]> {
   const mission = await missionProgress(conn, userId, await todayMission(conn, userId, now), now)
   return mission ? completeMission(conn, userId, mission, now) : []
-}
-
-export async function missionHistory(days: string[]): Promise<Map<string, { budget: number; completed: boolean }>> {
-  if (days.length === 0) return new Map()
-  const rows = await userScope((db, userId) =>
-    db
-      .select()
-      .from(dailyMissions)
-      .where(and(eq(dailyMissions.userId, userId), inArray(dailyMissions.day, days))),
-  )
-  return new Map(rows.map((r) => [r.day, { budget: r.budgetMinutes, completed: r.completedAt !== null }]))
 }

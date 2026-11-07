@@ -5,7 +5,6 @@
 //   skins. There is no exchange between them.
 
 export type Currency = 'bucks' | 'gems'
-export const CURRENCIES: readonly Currency[] = ['bucks', 'gems']
 
 // ── Bucks: routine actions ─────────────────────────────────────────────────────────────────────────────────────
 
@@ -64,8 +63,6 @@ export const STREAK_MILESTONES: readonly StreakMilestone[] = [
 
 // Milestones a streak of `days` has reached (each is paid once per user; the ledger's unique ref keeps it so).
 export const streakMilestones = (days: number): StreakMilestone[] => STREAK_MILESTONES.filter((m) => days >= m.days)
-
-export const gemBalance = (amounts: readonly number[]): number => amounts.reduce((s, n) => s + n, 0)
 
 // Stable ledger refs (gem_ledger has a unique (user_id, reason, ref_id)): each award can only land once.
 export const gemRef = {

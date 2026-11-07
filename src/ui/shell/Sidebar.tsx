@@ -28,6 +28,7 @@ import { setMobileSidebar, setSidebarOpen } from './sidebar-state'
 import { TheoryTree } from './TheoryTree'
 import { SoundToggle, ThemeToggle } from './Toggles'
 import type { ThemeSetting } from '@/server/settings'
+import { safeDecode } from '@/lib/url'
 
 // The active course: heads the «Практика» block; its theory fills «Теорія».
 export interface SidebarActiveCourse {
@@ -124,14 +125,6 @@ function CourseRows({ courses }: { courses: SidebarCourse[] }) {
   )
 }
 
-function decode(href: string): string {
-  try {
-    return decodeURIComponent(href)
-  } catch {
-    return href
-  }
-}
-
 interface ItemProps {
   href: string
   label: string
@@ -214,7 +207,7 @@ export function Sidebar({
 }) {
   const t = useT()
   const locale = useLocale()
-  const path = decode(usePathname())
+  const path = safeDecode(usePathname())
 
   return (
     <>

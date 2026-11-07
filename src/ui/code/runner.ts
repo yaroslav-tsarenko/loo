@@ -4,8 +4,6 @@ import { HARNESS_UK, type HarnessText } from '@/i18n/harness-text'
 export type { LogEntry, RunReport, TestResult }
 
 export const RUN_TIMEOUT_MS = 3000
-// the emoji stays out of the dictionaries (tests/unit/game.test.ts: no emoji in UI strings)
-export const TIMEOUT_MESSAGE = `⏱️ ${HARNESS_UK.runTimeout}`
 
 type Message = { token: string } & (RunEvent | { type: 'done'; report: RunReport })
 

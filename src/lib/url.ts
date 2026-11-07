@@ -46,3 +46,12 @@ export function safeImageSrc(raw: unknown): string | null {
   if (value.length > 2048 || value.includes('\\')) return null
   return value.startsWith('/') && !value.startsWith('//') ? value : null
 }
+
+// decodeURIComponent that never throws: a malformed escape (`%E0%A4%A`) comes back as it was.
+export function safeDecode(value: string): string {
+  try {
+    return decodeURIComponent(value)
+  } catch {
+    return value
+  }
+}

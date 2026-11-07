@@ -10,20 +10,13 @@ import { Icon } from '@/ui/icons/Icon'
 import { THEORY_READING } from './constants'
 import { useOpenNodes, type SetOpen } from './open-nodes'
 import { setMobileSidebar } from './sidebar-state'
+import { safeDecode } from '@/lib/url'
 
 // Sidebar «Теорія» of the active course as a code-editor explorer: guide → part → chapter, collapsible, expand state
 // persisted, the current chapter highlighted and revealed. WAI-ARIA tree: one tab stop, arrows move, Right/Left
 // expand/collapse (or step in/out), Home/End, Enter opens, Space toggles.
 
 const STATUS_LABEL: Record<TheoryStatus, string> = { studied: 'вивчено', reading: 'читаю', unread: 'не прочитано' }
-
-function decode(href: string): string {
-  try {
-    return decodeURIComponent(href)
-  } catch {
-    return href
-  }
-}
 
 interface Row {
   node: TheoryNode
@@ -49,7 +42,7 @@ function visibleRows(nodes: readonly TheoryNode[], open: ReadonlySet<string>, le
 // Nodes from a root down to the node whose page is `path`.
 function trailTo(nodes: readonly TheoryNode[], path: string): TheoryNode[] {
   for (const n of nodes) {
-    if (n.href !== null && decode(n.href) === path) return [n]
+    if (n.href !== null && safeDecode(n.href) === path) return [n]
     const inner = trailTo(n.children, path)
     if (inner.length > 0) return [n, ...inner]
   }
@@ -117,7 +110,7 @@ interface ItemProps {
 
 function TreeItem({ row, rows, open, setOpen, path, focus, idPrefix, index }: ItemProps) {
   const { node, level, expandable, expanded } = row
-  const active = node.href !== null && decode(node.href) === path
+  const active = node.href !== null && safeDecode(node.href) === path
   const labelId = `${idPrefix}-${index.get(node.id) ?? 0}`
   const complete = node.total > 0 && node.done === node.total
   return (
@@ -179,7 +172,7 @@ function indexAll(nodes: readonly TheoryNode[], out = new Map<string, number>())
 }
 
 export function TheoryTree({ initial, label }: { initial: TheoryNode[]; label: string }) {
-  const path = decode(usePathname())
+  const path = safeDecode(usePathname())
   // the page's node is looked up in the server tree (structure never changes between refetches, only status)
   const nodes = useLiveTheory(initial)
   const router = useRouter()

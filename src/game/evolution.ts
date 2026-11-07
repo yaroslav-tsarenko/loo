@@ -64,8 +64,6 @@ export function rankTitle(rank: WarriorRank, tier: RankTier): string {
   return rank === 'legend' ? WARRIOR_LABEL.legend : `${WARRIOR_LABEL[rank]} ${TIER_ROMAN[tier]}`
 }
 
-export const isWarriorRank = (s: string): s is WarriorRank => (WARRIOR_RANKS as readonly string[]).includes(s)
-
 // ── Loo grows (the only rank-driven part of his look) ────────────────────────────────────────────────────────────
 
 export const LOO_STAGES = ['egg', 'small', 'normal'] as const

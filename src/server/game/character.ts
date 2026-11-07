@@ -29,7 +29,7 @@ import { userScope } from '../auth'
 import { courseLadder } from '@/course'
 import { getCourse } from '../courses/registry'
 import { masteryFromRows } from '../courses/path'
-import { withUser } from '../db/with-user'
+
 import { loadAggregates } from '../stats/queries'
 import { read, readAll, readBatch } from '../db/batch'
 import { rankInputFrom, rankRead } from './ranks'
@@ -189,10 +189,4 @@ export async function characterIn(conn: Conn, userId: string, now: number): Prom
 // The signed-in learner's sheet (/loo, profile).
 export async function myCharacter(now = Date.now()): Promise<CharacterView> {
   return userScope((db, userId) => characterIn(db, userId, now))
-}
-
-// Battle-ready snapshot of any learner (server-side only: matchmaking / duels will call it for both sides).
-// Reads that learner's rows in their own scope (RLS on Supabase); stable JSON (src/game/character.ts snapshotOf).
-export async function characterSnapshot(userId: string, now = Date.now()): Promise<CharacterSnapshot> {
-  return withUser({ id: userId }, async (db) => (await characterIn(db, userId, now)).snapshot)
 }

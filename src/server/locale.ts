@@ -1,7 +1,7 @@
 import 'server-only'
 import { cache } from 'react'
 import '@/i18n/register'
-import { resolveLocale, translator, type Locale, type Translate } from '@/i18n'
+import { resolveLocale, type Locale } from '@/i18n'
 import { getUser } from './auth/session'
 import { userBase } from './base'
 
@@ -11,7 +11,3 @@ export const uiLocale = cache(async (): Promise<Locale> => {
   if (!(await getUser())) return resolveLocale(null)
   return resolveLocale((await userBase())?.profile.locale)
 })
-
-export async function serverT(): Promise<Translate> {
-  return translator(await uiLocale())
-}
