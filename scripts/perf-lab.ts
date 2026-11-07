@@ -29,12 +29,15 @@ const arg = (name: string, fallback: string) => {
   return i >= 0 && args[i + 1] ? args[i + 1]! : fallback
 }
 
-const PG_PORT = 54339
-const PROXY_PORT = 54340
-const AUTH_PORT = 54341
-const CONTROL_PORT = 54342
+// --ports <base>: PGlite, proxy, auth, control on base … base+3 (default 54339 …); --out <dir>: env.sh / cookie.txt
+// (default tmp/perf-lab); --source none: start empty (the e2e tests, tests/e2e).
+const BASE = Number(arg('ports', '54339'))
+const PG_PORT = BASE
+const PROXY_PORT = BASE + 1
+const AUTH_PORT = BASE + 2
+const CONTROL_PORT = BASE + 3
 const source = arg('source', 'postgres://postgres@127.0.0.1:54329/postgres')
-const outDir = path.resolve('tmp/perf-lab')
+const outDir = path.resolve(arg('out', 'tmp/perf-lab'))
 mkdirSync(outDir, { recursive: true })
 
 // ── Database ───────────────────────────────────────────────────────────────────────────────────────────────────
@@ -95,27 +98,30 @@ await db.exec(`
 `)
 await db.migrate()
 
-const src = postgres(source, { max: 1, prepare: false, onnotice: () => {} })
-const tables = (await src`select tablename from pg_tables where schemaname = 'public' and tablename <> '__drizzle_migrations' order by 1`).map((r) => r.tablename as string)
-await db.exec(`set session_replication_role = replica`)
 let copied = 0
-for (const table of tables) {
-  const [row] = await src.unsafe(`select coalesce(json_agg(t), '[]')::text as rows from public."${table}" t`)
-  const rows = String(row?.rows ?? '[]')
-  if (rows === '[]') continue
-  await db.query(`insert into public."${table}" select * from json_populate_recordset(null::public."${table}", $1::json)`, [rows])
-  copied += (JSON.parse(rows) as unknown[]).length
+let tables: string[] = []
+if (source !== 'none') {
+  const src = postgres(source, { max: 1, prepare: false, onnotice: () => {} })
+  tables = (await src`select tablename from pg_tables where schemaname = 'public' and tablename <> '__drizzle_migrations' order by 1`).map((r) => r.tablename as string)
+  await db.exec(`set session_replication_role = replica`)
+  for (const table of tables) {
+    const [row] = await src.unsafe(`select coalesce(json_agg(t), '[]')::text as rows from public."${table}" t`)
+    const rows = String(row?.rows ?? '[]')
+    if (rows === '[]') continue
+    await db.query(`insert into public."${table}" select * from json_populate_recordset(null::public."${table}", $1::json)`, [rows])
+    copied += (JSON.parse(rows) as unknown[]).length
+  }
+  await db.exec(`set session_replication_role = origin`)
+  const seqs = await db.query<{ seq: string; tbl: string; col: string }>(`
+    select s.relname as seq, t.relname as tbl, a.attname as col from pg_class s
+    join pg_depend d on d.objid = s.oid join pg_class t on t.oid = d.refobjid
+    join pg_attribute a on a.attrelid = t.oid and a.attnum = d.refobjsubid
+    where s.relkind = 'S' and t.relnamespace = 'public'::regnamespace`)
+  for (const { seq, tbl, col } of seqs) await db.query(`select setval('public."${seq}"', greatest(1, coalesce((select max("${col}") from public."${tbl}"), 1)))`)
+  await src.end()
 }
-await db.exec(`set session_replication_role = origin`)
-const seqs = await db.query<{ seq: string; tbl: string; col: string }>(`
-  select s.relname as seq, t.relname as tbl, a.attname as col from pg_class s
-  join pg_depend d on d.objid = s.oid join pg_class t on t.oid = d.refobjid
-  join pg_attribute a on a.attrelid = t.oid and a.attnum = d.refobjsubid
-  where s.relkind = 'S' and t.relnamespace = 'public'::regnamespace`)
-for (const { seq, tbl, col } of seqs) await db.query(`select setval('public."${seq}"', greatest(1, coalesce((select max("${col}") from public."${tbl}"), 1)))`)
 const profiles = await db.query<{ id: string; n: number }>(`select p.id, (select count(*) from attempts a where a.user_id = p.id)::int as n from profiles p order by n desc`)
 await db.query(`insert into auth.users (id) select id from profiles on conflict do nothing`)
-await src.end()
 const userId = arg('user', profiles[0]?.id ?? randomUUID())
 if (!profiles.some((p) => p.id === userId)) await db.query(`insert into auth.users (id) values ($1)`, [userId])
 const target = await db.serve()
@@ -209,7 +215,7 @@ writeFileSync(
     '',
   ].join('\n'),
 )
-console.log(`🔐 auth ${authUrl} (kid ${kid}); cookie → tmp/perf-lab/cookie.txt; env → tmp/perf-lab/env.sh`)
+console.log(`🔐 auth ${authUrl} (kid ${kid}); cookie, env → ${path.relative(process.cwd(), outDir)}/`)
 console.log(`🐢 latency proxy :${PROXY_PORT} (rtt ${oneWay * 2}ms); control http://127.0.0.1:${CONTROL_PORT}/rtt?ms=N`)
 
 const stop = async () => {
