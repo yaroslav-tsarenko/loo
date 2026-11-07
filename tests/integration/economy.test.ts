@@ -132,4 +132,41 @@ describe('economy (integration)', () => {
     const [a] = await rows<{ n: number }>(`select count(*)::int as n from xp_ledger where user_id = $1 and ref_id = 'x'`, [A])
     expect(a?.n).toBe(0)
   }, 60_000)
+
+  it('the running totals (user_counters, kept by triggers) equal the ledgers — after answers, lessons, a reset', async () => {
+    const check = async () => {
+      const diff = await rows<{ user_id: string }>(`
+        select p.id as user_id from profiles p left join user_counters c on c.user_id = p.id
+        where coalesce(c.xp, 0) <> coalesce((select sum(amount) from xp_ledger x where x.user_id = p.id), 0)
+           or coalesce(c.cards, 0) <> (select count(*) from attempts a where a.user_id = p.id and a.kind = 'flashcard')
+           or coalesce(c.cards_known, 0) <> (select count(*) from attempts a where a.user_id = p.id and a.kind = 'flashcard' and a.outcome = 'good')
+           or coalesce(c.quizzes, 0) <> (select count(*) from attempts a where a.user_id = p.id and a.kind = 'quiz')
+           or coalesce(c.quizzes_correct, 0) <> (select count(*) from attempts a where a.user_id = p.id and a.kind = 'quiz' and a.outcome = 'correct')`)
+      expect(diff).toEqual([])
+    }
+    await check()
+    const [a] = await rows<{ xp: number; quizzes: number }>(`select xp::int, quizzes from user_counters where user_id = $1`, [A])
+    expect(a?.xp).toBeGreaterThan(0)
+    expect(a?.quizzes).toBeGreaterThan(0)
+    // resetProgress deletes attempts and xp: the totals follow
+    as(A)
+    const { resetProgress } = await import('@/server/actions/settings')
+    expect(await resetProgress('СКИНУТИ')).toEqual({ ok: true })
+    const [gone] = await rows<{ n: number }>(`select count(*)::int as n from attempts where user_id = $1`, [A])
+    expect(gone?.n).toBe(0)
+    await check()
+    // the learner can read the row, never write it
+    as(B)
+    const { userScope } = await import('@/server/auth')
+    const forged = await userScope(async (tx) => tx.execute(sql`update user_counters set xp = 1000000`)).then(
+      () => null,
+      (e: Error & { cause?: Error }) => e.cause?.message ?? e.message,
+    )
+    expect(forged).toMatch(/permission denied/)
+    // deleting an account cascades through attempts / xp_ledger; their delete triggers must not bring the row back
+    await rows(`insert into attempts (user_id, unit_id, kind, outcome, correct, answered_at, day) select $1, 'jss-01-quiz-02', 'quiz', 'correct', true, 0, '2026-01-01'`, [B]).catch(() => null)
+    await rows(`delete from profiles where id = $1`, [B])
+    const [left] = await rows<{ n: number }>(`select count(*)::int as n from user_counters where user_id = $1`, [B])
+    expect(left?.n).toBe(0)
+  }, 60_000)
 })

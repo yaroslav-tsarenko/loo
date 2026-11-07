@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, desc, eq, isNull, lte, sql, type SQL } from 'drizzle-orm'
 import type { Conn } from '@/db/client'
-import { achievements, attempts, buckLedger, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userState, xpLedger } from '@/db/schema'
+import { achievements, attempts, buckLedger, chapterProgress, dailyActivity, examResults, frozenDays, gemLedger, inventory, leagueMembers, lessonProgress, mistakes, sessions, srsCards, topicResults, units, userCounters, userState, xpLedger } from '@/db/schema'
 import type { LearningUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { ACHIEVEMENT_GEMS, gemRef, isXpReason, LEAGUE_TIERS, PRACTICE_MIN_ANSWERS, type RankInput } from '@/game'
@@ -36,8 +36,9 @@ export async function totalXp(conn: Conn, userId: string): Promise<number> {
   return readOne(conn, xpRead(conn, userId))
 }
 
+// The learner's XP total: the running sum the database keeps (user_counters, drizzle/0016), not a sum over xp_ledger.
 export function xpRead(conn: Conn, userId: string): Read<number> {
-  return read(conn.select({ total: sql<number>`coalesce(sum(${xpLedger.amount}), 0)` }).from(xpLedger).where(eq(xpLedger.userId, userId)), (rows) => Number(rows[0]?.total ?? 0))
+  return read(conn.select({ total: userCounters.xp }).from(userCounters).where(eq(userCounters.userId, userId)), (rows) => Number(rows[0]?.total ?? 0))
 }
 
 // The signed-in user's XP (pages, layout, /api/counts).
@@ -102,11 +103,12 @@ function statsRead(conn: Conn, userId: string): Read<StatsRows> {
   return read(
     conn
       .select({
-        xp: sql<number>`(select coalesce(sum(x.amount), 0) from ${xpLedger} x where x.user_id = ${userId})`,
-        cards: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.kind = 'flashcard')`,
-        known: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.kind = 'flashcard' and a.outcome = 'good')`,
-        quizzes: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.kind = 'quiz')`,
-        quizCorrect: sql<number>`(select count(*) from ${attempts} a where a.user_id = ${userId} and a.kind = 'quiz' and a.outcome = 'correct')`,
+        // running totals (user_counters, kept by triggers — drizzle/0016) instead of scans over the whole history
+        xp: sql<number>`(select c.xp from ${userCounters} c where c.user_id = ${userId})`,
+        cards: sql<number>`(select c.cards from ${userCounters} c where c.user_id = ${userId})`,
+        known: sql<number>`(select c.cards_known from ${userCounters} c where c.user_id = ${userId})`,
+        quizzes: sql<number>`(select c.quizzes from ${userCounters} c where c.user_id = ${userId})`,
+        quizCorrect: sql<number>`(select c.quizzes_correct from ${userCounters} c where c.user_id = ${userId})`,
         solved: sql<number>`(select count(distinct a.unit_id) from ${attempts} a where a.user_id = ${userId} and a.kind = 'task' and a.outcome = 'solved')`,
         solvedClean: sql<number>`(select count(distinct a.unit_id) from ${attempts} a where a.user_id = ${userId} and a.kind = 'task' and a.outcome = 'solved' and a.hints_used = 0)`,
         studied: sql<string[] | null>`(select array_agg(c.chapter_id) from ${chapterProgress} c where c.user_id = ${userId} and c.status = 'studied')`,

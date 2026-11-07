@@ -48,7 +48,7 @@ export async function listUsers(opts: { q: string; sort: UserSort; page: number 
   // cross-user: admin list of learners with their balances (system read)
   const rows = await many(sql`select p.id, p.display_name as name, ${email} as email, p.role, p.created_at as joined, p.banned_at,
       (select max(e.at) from analytics_events e where e.user_id = p.id) as last_seen,
-      (select coalesce(sum(x.amount), 0) from xp_ledger x where x.user_id = p.id) as xp,
+      coalesce((select c.xp from user_counters c where c.user_id = p.id), 0) as xp,
       (select coalesce(sum(b.amount), 0) from buck_ledger b where b.user_id = p.id) as bucks,
       (select coalesce(sum(g.amount), 0) from gem_ledger g where g.user_id = p.id) as gems
     from profiles p ${where} order by ${order} limit ${PAGE_SIZE} offset ${offset}`)

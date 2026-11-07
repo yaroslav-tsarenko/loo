@@ -482,6 +482,19 @@ export interface EquippedGearState {
 // equipped gear and the character rank («шлях воїна»): evo_step = the step reached (0–55, src/game/ranks.ts),
 // evo_seen = the last step whose rank-up moment was shown (the full-screen cutscene plays once per new step).
 // Created on first use.
+// Running totals of the two tables that grow with every answer (attempts, xp_ledger), kept by triggers in the
+// database (drizzle/0016_user_counters.sql) — so they can't drift from any write path, including deletes
+// (resetProgress) — instead of ~6 count/sum scans over the learner's whole history on every answer
+// (statsRead, xpRead in src/server/services/progress.ts). Learners can read their row, never write it.
+export const userCounters = pgTable('user_counters', {
+  userId: userId().primaryKey(),
+  xp: bigint('xp', { mode: 'number' }).notNull().default(0),
+  cards: integer('cards').notNull().default(0),
+  cardsKnown: integer('cards_known').notNull().default(0),
+  quizzes: integer('quizzes').notNull().default(0),
+  quizzesCorrect: integer('quizzes_correct').notNull().default(0),
+})
+
 export const userState = pgTable('user_state', {
   userId: userId().primaryKey(),
   hearts: integer('hearts').notNull().default(5),

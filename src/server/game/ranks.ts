@@ -2,7 +2,7 @@ import 'server-only'
 import { sql } from 'drizzle-orm'
 import type { Conn } from '@/db/client'
 import { read, readOne, type Read } from '../db/batch'
-import { enrollments, examResults, lessonProgress, topicResults, xpLedger } from '@/db/schema'
+import { enrollments, examResults, lessonProgress, topicResults, userCounters } from '@/db/schema'
 import { gemRef, rankOf, rankProgress, stepsBetween, type RankInput, type RankProgress } from '@/game'
 import type { Effect } from '@/progress/types'
 import { getCourse } from '../courses/registry'
@@ -40,7 +40,7 @@ export function rankRead(conn: Conn, userId: string): Read<RankParts> {
   return read(
     conn
       .select({
-        xp: sql<string>`(select coalesce(sum(x.amount), 0) from ${xpLedger} x where x.user_id = ${userId})`,
+        xp: sql<string>`coalesce((select c.xp from ${userCounters} c where c.user_id = ${userId}), 0)`,
         lessons: sql<string>`(select count(*) from ${lessonProgress} l where l.user_id = ${userId} and l.completions > 0)`,
         tests: sql<string>`(select count(*) from ${topicResults} t where t.user_id = ${userId} and t.passed_at is not null)`,
         exams: sql<string[] | null>`(select array_agg(e.exam_id) from ${examResults} e where e.user_id = ${userId} and e.passed_at is not null)`,
