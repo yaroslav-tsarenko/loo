@@ -1,7 +1,7 @@
 import type { Paragraph, PhrasingContent, RootContent } from 'mdast'
 import { toString } from 'mdast-util-to-string'
 import { FREQUENCIES, LEVELS, type Level } from '../model'
-import { toLevel } from '../parse/markdown'
+import { toLevel } from '../level'
 
 export interface LineMeta {
   values: Record<string, string>

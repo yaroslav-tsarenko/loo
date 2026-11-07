@@ -7,7 +7,7 @@ import { parseIconRef } from '@/ui/icons/ref'
 import { PI } from '@/ui/icons/sets/pi'
 
 // Visualizations draw their props with pixel icons and library glyphs, never with emoji.
-const ROOTS = ['src/ui/viz', 'src/content/blocks/viz', 'src/ui/theater', 'src/app/viz']
+const ROOTS = ['src/ui/viz', 'src/content/blocks/viz', 'src/ui/theater', 'src/app/(app)/viz']
 const PICTO = /\p{Extended_Pictographic}|\p{Regional_Indicator}|️/u
 
 function files(dir: string): string[] {

@@ -1,5 +1,6 @@
 'use client'
 
+import '@/app/landing.css'
 import { useSyncExternalStore } from 'react'
 import { PixelIcon } from '@/ui/design/PixelIcon'
 import { PUBLIC_THEME_EVENT, PUBLIC_THEME_KEY } from '@/ui/shell/constants'

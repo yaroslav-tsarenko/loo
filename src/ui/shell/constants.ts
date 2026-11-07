@@ -29,3 +29,8 @@ export const PRON_KEY = '@pron'
 export const PUBLIC_THEME_KEY = 'lu-public-theme'
 export const PUBLIC_THEME_EVENT = 'lu:public-theme'
 export const PUBLIC_THEME_BOOT = `try{var t=localStorage.getItem('${PUBLIC_THEME_KEY}');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}`
+
+// The signed-in learner's <html> attributes before first paint (src/app/(app)/layout.tsx; <HtmlAttrs> keeps them in sync).
+export function htmlAttrsBoot(theme: 'system' | 'light' | 'dark', lang: string): string {
+  return `document.documentElement.dataset.theme=${JSON.stringify(theme)};document.documentElement.lang=${JSON.stringify(lang)};`
+}

@@ -1,10 +1,10 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { blogPageExists } from '@/blog/paths'
-import { isPublicRequest } from '@/lib/auth-paths'
+import { isPublicRequest, isStaticPublic } from '@/lib/auth-paths'
 import { cronAuthorized } from '@/lib/auth'
 import { ADMIN_COOKIE, adminSecret, verifyAdminToken } from '@/lib/admin-token'
-import { buildCsp, createNonce } from '@/lib/csp'
+import { buildCsp, buildPublicCsp, createNonce } from '@/lib/csp'
 import { isHttps } from '@/lib/same-origin'
 import { devAuthBypass, supabaseConfig } from '@/lib/supabase/config'
 
@@ -67,6 +67,17 @@ function withCsp(request: NextRequest): NextResponse {
   return response
 }
 
+// Prerendered public pages: no nonce (the HTML is static), no session (nothing in them depends on it).
+function publicCsp(request: NextRequest): string {
+  return buildPublicCsp({ dev, https: isHttps(request.nextUrl, request.headers), supabaseUrl: supabaseConfig()?.url })
+}
+
+function staticPublic(request: NextRequest, rewriteTo?: string): NextResponse {
+  const response = rewriteTo ? NextResponse.rewrite(new URL(rewriteTo, request.url)) : NextResponse.next()
+  response.headers.set('Content-Security-Policy', publicCsp(request))
+  return response
+}
+
 // Refreshed auth cookies must reach the browser whatever response we send (and never be cached by a CDN).
 function finish(response: NextResponse, session: Session): NextResponse {
   for (const { name, value, options } of session.cookies) response.cookies.set(name, value, options)
@@ -105,8 +116,18 @@ async function handle(request: NextRequest): Promise<NextResponse> {
     if (await verifyAdminToken(adminSecret(), request.cookies.get(ADMIN_COOKIE)?.value, Date.now())) return withCsp(request)
   }
 
-  const session = await refreshSession(request)
   const isAction = request.headers.has('next-action')
+  const read = request.method === 'GET' || request.method === 'HEAD'
+
+  // The blog and the landing are static HTML (src/app/layout.tsx): served as they are, without the Supabase session
+  // round trip. A signed-in reader's session simply refreshes on their next app page.
+  if (read && !isAction && isStaticPublic(pathname)) return staticPublic(request)
+
+  const session = await refreshSession(request)
+
+  // Signed-out `/` is the landing: the prerendered /welcome (a query string — `?deleted=1` after account deletion —
+  // keeps the dynamic page, which shows the notice).
+  if (read && !isAction && !session.signedIn && pathname === '/' && !request.nextUrl.search) return finish(staticPublic(request, '/welcome'), session)
 
   if (!session.signedIn && !isPublicRequest(request.method, pathname, isAction, dev)) {
     if (pathname.startsWith('/api/') || isAction || request.method !== 'GET') {

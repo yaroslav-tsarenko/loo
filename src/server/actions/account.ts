@@ -13,7 +13,7 @@ import { writeSetting } from '../settings'
 import { courseLevelOf, enrollIn } from '../courses/enrollment'
 import { getCourse } from '../courses/registry'
 import { minutesSchema as minutes, onboardingInput, purposeFits } from '../services/onboarding-input'
-import { goalOf, INTERESTS, LEVELS } from '../services/preferences'
+import { goalOf, INTERESTS, LEVELS } from '@/progress/preferences'
 
 const interests = z.array(z.enum(INTERESTS)).max(INTERESTS.length)
 const level = z.enum(LEVELS)

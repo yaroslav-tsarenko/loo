@@ -1,3 +1,4 @@
+import '@/app/landing.css'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Logo } from '@/ui/design/brand/Logo'

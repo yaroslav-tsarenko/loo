@@ -7,7 +7,7 @@ import { listCourses, getCourse } from './courses/registry'
 import { myLibrary } from './courses/library'
 import { readSettings } from './settings'
 import { shellData } from './shell'
-import { INTERESTS, LEVELS, type SelfLevel } from './services/preferences'
+import { INTERESTS, LEVELS, type SelfLevel } from '@/progress/preferences'
 
 // One place to read what the learner wants (profile preferences + app settings + per-course levels). Feed, mission,
 // path and the profile read it from here instead of poking at profiles.preferences / user_settings directly.

@@ -1,8 +1,10 @@
 'use client'
 
+import '@/app/diagram.css'
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { diagramFrames, type DiagramEdge, type DiagramFrame, type DiagramNode, type DiagramSpec } from '@/content/diagram/spec'
+import { diagramFrames, type DiagramFrame } from '@/content/diagram/frames'
+import type { DiagramEdge, DiagramNode, DiagramSpec } from '@/content/diagram/spec'
 import { Icon } from '@/ui/icons'
 import { ZoomPan } from './ZoomPan'
 

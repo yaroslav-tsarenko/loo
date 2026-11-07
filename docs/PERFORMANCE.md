@@ -72,7 +72,31 @@ the weight of the pages, extra requests and one regression:
 What is cached where: course bundles and the parsed content snapshot live in memory per instance (shared by all
 users); `/api/vocab` responses are built once per snapshot; browsers cache vocab groups for an hour and the router cache
 keeps visited pages for 30 s. Per-learner data (progress, counts, hearts) is never shared — it stays a few batched
-statements per request (2–10). Pages stay dynamic on purpose: the CSP carries a per-request nonce.
+statements per request (2–10). App pages stay dynamic on purpose: the CSP carries a per-request nonce (the public blog and landing are static, see
+above).
+
+### November 2026 — first load on phones
+
+Measured on a production build against the lab (§3), gzip, first load:
+
+| | JS before | JS after | CSS before | CSS after | rendering |
+| --- | --- | --- | --- | --- | --- |
+| `/` signed in | 354 KB | 295 KB | 84 KB | 59 KB | dynamic |
+| `/` signed out (landing) | 354 KB | 198 KB | 84 KB | 59 KB | **static** (`/welcome`, CDN) |
+| `/blog`, posts | 269 KB | 196 KB | 84 KB | 61 KB | **static** (CDN) |
+| lesson, path, reader | ~360 KB | ~300 KB | 84 KB | 55 KB | dynamic |
+
+- **Parsers out of the browser.** Quiz grading (client) → `quiz/exercise.ts` → `blocks/meta.ts` imported `toLevel` from
+  the markdown parser, which put yaml + unified + remark (~82 KB) on every page. `toLevel` lives in `src/content/level.ts`;
+  `tests/unit/client-bundle.test.ts` walks the import graph from every `'use client'` module and fails on any path to a
+  parser, a highlighter, `src/server`, `src/db` or `src/content/parse` (a `'use server'` module is a boundary).
+- **CSS per route.** `globals.css` keeps tokens, Tailwind, the design system, the shell and the screens every learner
+  sees. viz*/scenes/theater/diagram are imported by the lazy blocks, landing/blog by the public pages, admin* by
+  `/admin`, news by `/news`.
+- **Static public pages.** The root layout (`src/app/layout.tsx`) has no session and no `headers()`; the app shell and
+  everything per-request moved to the `(app)` group's layout. `/blog/**` and `/welcome` prerender; the proxy skips the
+  Supabase session check for them and sends the public CSP (docs/SECURITY.md M1). A signed-out `GET /` is rewritten to
+  `/welcome`.
 
 ### Capacity (load test, October 2026)
 
@@ -208,7 +232,7 @@ The common paths:
 
 ## 6. Client
 
-- `loading.tsx` skeletons (Loo thinking + soft blocks, no spinners) for every route (`src/app/loading.tsx`) and shaped
+- `loading.tsx` skeletons (Loo thinking + soft blocks, no spinners) for every route (`src/app/(app)/loading.tsx`) and shaped
   ones for the path, the players, the reader and the practice hubs: a link responds the instant it's pressed, and
   links prefetch down to the skeleton.
 - Answering: the pressed option stays pressed (lip down, soft pulse) with a short tick (also unlocks audio inside the

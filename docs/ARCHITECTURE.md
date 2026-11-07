@@ -117,7 +117,7 @@ src/
 **Фаза 2 (зроблено):** вхід — `src/server/auth/` (`getUser`/`requireUser`/`userScope`/`getProfile`/`isAdmin`), сесія оновлюється в
 `src/proxy.ts`; кожен запит користувача — у `withUser()` (`src/server/db/`: на Supabase транзакція з роллю `authenticated` і claims → RLS).
 Маршрути: `/` — лендінг для гостей (`src/ui/marketing/Landing.tsx`) і «Сьогодні» для користувачів (серверне розгалуження в
-`src/app/page.tsx`, без переносу сторінок у `(app)/`); `(auth)/` — `/login`, `/signup`, `/forgot-password`, `/reset-password`,
+`src/app/(app)/page.tsx`, без переносу сторінок у `(app)/`); `(auth)/` — `/login`, `/signup`, `/forgot-password`, `/reset-password`,
 `/onboarding` і обробники `/auth/*`; `/account` — профіль. Оболонку (сайдбар, нижня навігація) вимикає `AppFrame` для auth-сторінок.
 Налаштування Supabase — [AUTH.md](./AUTH.md), статус безпеки — [SECURITY.md §5](./SECURITY.md).
 
@@ -133,7 +133,7 @@ src/
 наприкінці кожної транзакції прогресу: заморозки, винагороди за серії, ранги). Відповіді перевіряє сервер (`answerQuiz`,
 `src/server/actions/answers.ts`): клієнт графлених вправ отримує лише «вигляд» (`src/content/blocks/quiz/view.ts`) без ключа.
 Ліги — системний код поза транзакцією користувача (`src/server/game/leagues.ts`): ліниве приєднання, фіналізація при першому
-візиті нового тижня й cron `/api/cron/leagues`. Маршрути `/shop`, `/leagues`, `/loo`; скіни й спорядження Loo — `LooSkinProvider` у root layout. RPG-шар (ранги, валюти, речі) — [ECONOMY.md](./ECONOMY.md).
+візиті нового тижня й cron `/api/cron/leagues`. Маршрути `/shop`, `/leagues`, `/loo`; скіни й спорядження Loo — `LooSkinProvider` у layout групи `(app)`. RPG-шар (ранги, валюти, речі) — [ECONOMY.md](./ECONOMY.md).
 
 **Оболонка під активний курс (зроблено):** курс сам оголошує, яким є (`kind: programming | language | general`), які розділи
 практики пропонує і в якому порядку (`practice:`) і які посібники — його теорія (`theory:`); див. [COURSE_FORMAT.md §2.1](./COURSE_FORMAT.md).

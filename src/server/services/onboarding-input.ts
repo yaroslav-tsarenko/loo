@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { MAX_WISHES, WISH_IDS } from '@/course/catalog-soon'
-import { MINUTES, PURPOSES, purposesFor, ROLES, START_MODES, type Purpose } from './preferences'
+import { MINUTES, PURPOSES, purposesFor, ROLES, START_MODES, type Purpose } from '@/progress/preferences'
 
 // Input of the first sign-in wizard (src/ui/auth/OnboardingWizard.tsx → completeOnboarding). Pure, so it is unit-tested
 // (tests/unit/onboarding.test.ts); the action re-checks the purpose against the chosen course (purposeFits).

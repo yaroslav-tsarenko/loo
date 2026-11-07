@@ -7,7 +7,7 @@ import { dbRateLimitStore } from '../rate-limit-store'
 import { ensureProfile } from './profile'
 import type { AuthUser } from './session'
 
-// Helpers for the auth route handlers (src/app/(auth)/auth/*). These are plain form posts / redirects: no server
+// Helpers for the auth route handlers (src/app/(app)/(auth)/auth/*). These are plain form posts / redirects: no server
 // action is reachable without a session (proxy.ts), and each handler checks the Origin itself.
 
 const MAX_FORM_BYTES = 8192

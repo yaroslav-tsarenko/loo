@@ -1,5 +1,7 @@
 'use client'
 
+import '@/app/theater.css'
+import '@/app/scenes.css'
 import type { ReactNode } from 'react'
 import { figureInfo, figureScenario } from '@/content/blocks/figure/catalog'
 import { Theater } from './theater'

@@ -1,3 +1,5 @@
+import '@/app/admin.css'
+import '@/app/admin-analytics.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { requireAdminArea } from '@/server/admin/guard'

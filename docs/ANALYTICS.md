@@ -45,11 +45,11 @@
   джерелом і UTM беруть сесії цілком (ці поля пишуться лише в першому перегляді). Розбивки: сторінки, блог, вхід/вихід,
   джерела, UTM, країни, міста, пристрої, браузери, ОС, мови, екрани, акаунт/гості — клік по рядку додає фільтр. Кліки,
   останні події по 200 (курсор `before`). Відмова = сесія з одним переглядом. Час — київський.
-- Код: `src/app/admin/{page.tsx,analytics/page.tsx}`, `src/server/admin/analytics-query.ts` (модель запиту, SQL —
+- Код: `src/app/(app)/admin/{page.tsx,analytics/page.tsx}`, `src/server/admin/analytics-query.ts` (модель запиту, SQL —
   лише параметри, колонки з білого списку), `src/server/admin/analytics.ts` (запити по одному з тайм-аутом,
   `sequential` з `stats.ts` — пул Supabase не терпить паралельних запитів на з'єднанні), `src/ui/admin/*` (графік,
   списки, вибір періоду), `src/app/admin-analytics.css`; доступ — `src/server/admin/guard.ts`, `src/lib/admin-token.ts`,
-  проксі (`src/proxy.ts`), вхід (`src/app/(auth)/auth/sign-in/route.ts`).
+  проксі (`src/proxy.ts`), вхід (`src/app/(app)/(auth)/auth/sign-in/route.ts`).
 - Локально з даними: `tsx --env-file-if-exists=.env.local scripts/seed-analytics.ts` (лише localhost; `--clear`
   прибирає згенероване).
 - Користувачі, економіка, журнал дій, налаштування — [ADMIN.md](ADMIN.md).

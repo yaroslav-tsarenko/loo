@@ -9,22 +9,13 @@
 @import './path.css';
 @import './courses.css'; /* marketplace, course page, course path, tests, placement */
 @import './lesson.css';
-@import './viz.css';
-@import './viz-lang.css';
-@import './viz-modules.css';
-@import './viz-web.css';
-@import './theater.css';
-@import './scenes.css';
-@import './news.css';
 @import './auth.css'; /* sign-in, onboarding, account */
-@import './landing.css'; /* signed-out home */
-@import './admin.css'; /* /admin: shell, users, economy, settings */
-@import './admin-analytics.css'; /* /admin overview and analytics */
-@import './blog.css'; /* public blog */
-@import './diagram.css'; /* [!diagram] figures */
 @import './game.css'; /* hearts, gems, shop, leagues, ranks */
 @import './stats.css'; /* profile statistics, «+1% щодня» coach */
 @import './lang.css'; /* language courses: audio, IPA, words, listening, dictation, pronunciation */
+/* Route- and block-specific sheets are imported where they're used, so they ship only with those pages / lazy chunks:
+   viz*, scenes, theater, diagram (the lazy [!viz] [!figure] [!diagram] blocks), landing (public pages), blog, admin*,
+   news. */
 
 /* Legacy (reader/study/viz) variables, now aliases of the Levelup palette (tokens.css) so every screen shares one look. */
 :root {

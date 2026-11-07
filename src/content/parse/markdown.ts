@@ -4,8 +4,11 @@ import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { parse as parseYaml } from 'yaml'
-import { LEVELS, type ChapterMeta, type Level } from '../model'
+import { toLevel } from '../level'
+import type { ChapterMeta } from '../model'
 import { applyObsidian } from './obsidian'
+
+export { toLevel }
 
 const processor = unified().use(remarkParse).use(remarkGfm).use(remarkFrontmatter, ['yaml'])
 
@@ -13,18 +16,6 @@ export interface ParsedMarkdown {
   root: Root
   meta: ChapterMeta
   metaError: string | null
-}
-
-const CEFR = /^\s*([abc][12])\s*$/i
-
-export function toLevel(value: unknown): Level | null {
-  if (typeof value !== 'string') return null
-  // CEFR (language guides): a1 / A1 → 'A1'
-  const cefr = CEFR.exec(value)
-  if (cefr) return cefr[1]!.toUpperCase() as Level
-  const normalized = value.toLowerCase().replace(/[\s_-]+/g, '')
-  if (normalized === 'teamlead' || normalized === 'lead') return 'techlead'
-  return (LEVELS as readonly string[]).includes(normalized) && !CEFR.test(normalized) ? (normalized as Level) : null
 }
 
 function toStringList(value: unknown): string[] {

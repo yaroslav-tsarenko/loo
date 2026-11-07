@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-// The admin area's sidebar (src/app/admin/layout.tsx): sections, the current one highlighted.
+// The admin area's sidebar (src/app/(app)/admin/layout.tsx): sections, the current one highlighted.
 
 const LINKS = [
   { href: '/admin', label: 'Огляд' },

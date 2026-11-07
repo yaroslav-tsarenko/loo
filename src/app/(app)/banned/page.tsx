@@ -1,3 +1,4 @@
+import '@/app/admin.css'
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { getProfile, getUser } from '@/server/auth'

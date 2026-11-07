@@ -1,5 +1,6 @@
 'use client'
 
+import '@/app/news.css'
 import { Sparkles } from 'lucide-react'
 import { PiEyeSlashFill } from 'react-icons/pi'
 import { useRouter } from 'next/navigation'

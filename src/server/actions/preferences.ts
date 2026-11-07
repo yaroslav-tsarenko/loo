@@ -8,7 +8,7 @@ import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
 import { interestOptions } from '../preferences'
 import { writeSetting } from '../settings'
-import { MINUTES } from '../services/preferences'
+import { MINUTES } from '@/progress/preferences'
 
 const MAX_INTERESTS = 30
 const tag = z.string().regex(/^[a-z0-9][a-z0-9-]{0,39}$/)

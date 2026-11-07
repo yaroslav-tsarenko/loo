@@ -1,15 +1,20 @@
+import '@/app/landing.css'
+import '@/app/blog.css'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Logo } from '@/ui/design/brand/Logo'
 import { Button } from '@/ui/design/Button'
 import { PixelIcon } from '@/ui/design/PixelIcon'
+import { PublicThemeBoot } from '@/ui/marketing/PublicThemeBoot'
 import { ThemeSwitch } from '@/ui/marketing/ThemeSwitch'
 import { ClientEnhancer } from '@/ui/shell/ClientEnhancer'
 
-// Public blog chrome: the landing's neutral canvas and nav (landing.css), no app shell (src/lib/auth-paths.ts → BARE).
+// Public blog chrome: the landing's neutral canvas and nav (landing.css), no app shell. Outside the (app) group, so
+// the blog is prerendered (static HTML, CDN-cached) — no session or headers() anywhere in its tree.
 export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
     <div className="landing blog">
+      <PublicThemeBoot />
       <header className="landing-nav">
         <div className="blog-brand">
           <Link href="/" aria-label="Loo — на головну">

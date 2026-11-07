@@ -5,7 +5,8 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest
 import { runSnippet } from '@/ai/reels/code-check'
 import { urlResponds } from '@/ai/reels/generate'
 import { cronAuthorized, secretsEqual } from '@/lib/auth'
-import { buildCsp, RUNNER_WORKER_CSP } from '@/lib/csp'
+import { buildCsp, buildPublicCsp, RUNNER_WORKER_CSP } from '@/lib/csp'
+import { isBarePath, isPublicRequest, isStaticPublic } from '@/lib/auth-paths'
 import { isWithin, resolveInside } from '@/lib/path-guard'
 import { clientIp, hitAll, hitRateLimit, MemoryRateLimitStore } from '@/lib/rate-limit'
 import { safeRedirectPath } from '@/lib/redirect'
@@ -216,5 +217,25 @@ describe('failure-only rate limiting', () => {
     expect(blocked.allowed).toBe(false)
     expect(blocked.retryAfterMs).toBe(60_000)
     expect((await peekAll(store, checks, 61_001)).allowed).toBe(true)
+  })
+})
+
+describe('static public pages (prerendered: no nonce, no session check)', () => {
+  it('are exactly the blog and the landing', () => {
+    for (const p of ['/blog', '/blog/javascript', '/blog/javascript-array-methods', '/blog/about', '/welcome']) expect(isStaticPublic(p), p).toBe(true)
+    for (const p of ['/', '/path', '/login', '/blog/../path', '/blog/A', '/welcome/x', '/api/counts', '/admin', '/g/js-start/01']) expect(isStaticPublic(p), p).toBe(false)
+    expect(isPublicRequest('GET', '/welcome', false)).toBe(true)
+    expect(isBarePath('/welcome')).toBe(true)
+  })
+
+  it('their CSP differs from the app policy only in script-src', () => {
+    const app = buildCsp({ nonce: 'abc', dev: false, https: true, supabaseUrl: 'https://x.supabase.co' })
+    const pub = buildPublicCsp({ dev: false, https: true, supabaseUrl: 'https://x.supabase.co' })
+    expect(pub).toContain("script-src 'self' 'unsafe-inline';")
+    expect(pub).not.toContain('nonce-')
+    expect(pub).not.toContain('strict-dynamic')
+    const rest = (csp: string) => csp.split('; ').filter((d) => !d.startsWith('script-src'))
+    expect(rest(pub)).toEqual(rest(app))
+    expect(pub).toContain("frame-ancestors 'none'")
   })
 })

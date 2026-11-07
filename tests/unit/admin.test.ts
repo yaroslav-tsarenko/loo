@@ -17,7 +17,7 @@ const pages = (dir: string): string[] =>
 
 describe('admin access', () => {
   it('every admin page checks access itself', () => {
-    const list = pages('src/app/admin')
+    const list = pages('src/app/(app)/admin')
     expect(list.length).toBeGreaterThanOrEqual(5)
     for (const page of list) expect(read(page), page).toMatch(/await requireAdminArea\(\)/)
   })

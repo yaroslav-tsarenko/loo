@@ -1,5 +1,10 @@
 'use client'
 
+import '@/app/viz.css'
+import '@/app/viz-lang.css'
+import '@/app/viz-modules.css'
+import '@/app/viz-web.css'
+import '@/app/scenes.css'
 import { LazyMotion, MotionConfig, domMax } from 'motion/react'
 import { useState, type ReactNode } from 'react'
 import { vizInfo, vizScenario } from '@/content/blocks/viz/catalog'

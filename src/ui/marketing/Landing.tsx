@@ -1,3 +1,4 @@
+import '@/app/landing.css'
 import Link from 'next/link'
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site'
 import { JsonLd } from '@/ui/seo/JsonLd'

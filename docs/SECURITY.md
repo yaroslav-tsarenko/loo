@@ -130,7 +130,12 @@ Status: **Fixed** means fixed in this change. **Planned** is deferred to the aut
     form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests (https only)
     ```
     - Dev adds `'unsafe-eval'` (React dev tooling) and `ws:` (HMR).
-    - The inline `SIDEBAR_BOOT` script carries the nonce (`src/app/layout.tsx`).
+    - The inline boot scripts (`SIDEBAR_BOOT`, theme and language) carry the nonce (`src/app/(app)/layout.tsx`).
+  - **Prerendered public pages** (`/blog/**`, `/welcome` — the signed-out `/` is rewritten there) are static HTML, so
+    they can't carry a per-request nonce, and Next's inline RSC bootstrap differs per build (no hashes). They get
+    `buildPublicCsp()`: the same policy with `script-src 'self' 'unsafe-inline'`. Accepted for those pages only: no user
+    input, no raw HTML (blog markdown is rendered without `allowDangerousHtml`), no session; the proxy skips the
+    Supabase session refresh there (`isStaticPublic`, `src/lib/auth-paths.ts`). Everything else keeps the nonce policy.
   - **Static headers** in `next.config.ts`: HSTS (2y, includeSubDomains), `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy: same-origin`, COOP and CORP `same-origin`, and a restrictive `Permissions-Policy`.
 - **Accepted:** `style-src 'unsafe-inline'`. The UI uses React `style` props and motion; style injection without script execution is low impact.
 
@@ -229,12 +234,12 @@ Status: **Fixed** means fixed in this change. **Planned** is deferred to the aut
 
 | Area | Files |
 |---|---|
-| Proxy, CSP | `src/proxy.ts`, `src/lib/csp.ts`, `src/app/layout.tsx` (nonce), `next.config.ts` (headers, body limit) |
-| Auth | `src/lib/auth.ts`, `src/app/auth/login/route.ts`, `src/app/auth/logout/route.ts`, `src/app/login/page.tsx`, `src/app/settings/page.tsx` (logout), `src/lib/redirect.ts`, `src/lib/same-origin.ts` |
+| Proxy, CSP | `src/proxy.ts`, `src/lib/csp.ts`, `src/app/(app)/layout.tsx` (nonce), `buildPublicCsp` for the static public pages, `next.config.ts` (headers, body limit) |
+| Auth | `src/lib/auth.ts`, `src/app/auth/login/route.ts`, `src/app/auth/logout/route.ts`, `src/app/login/page.tsx`, `src/app/(app)/settings/page.tsx` (logout), `src/lib/redirect.ts`, `src/lib/same-origin.ts` |
 | Rate limiting | `src/lib/rate-limit.ts`, `src/server/rate-limit-store.ts`, `src/db/schema.ts` (`rate_limits`), `drizzle/0004_rate_limits.sql` (+ RLS and default-privilege lockdown) |
 | Actions | `src/server/auth-guard.ts`, every file in `src/server/actions/*` |
 | API routes | `api/vault-asset`, `api/tree/[guide]`, `api/cron/news`, `api/cron/reels`; new `runner/worker.js` |
-| Content rendering | `src/lib/url.ts`, `src/lib/path-guard.ts`, `src/ui/markdown/render.tsx`, `src/ui/news/NewsRow.tsx`, `src/app/news/page.tsx`, `src/server/services/feed.ts`, `src/app/feed/generated/page.tsx` |
+| Content rendering | `src/lib/url.ts`, `src/lib/path-guard.ts`, `src/ui/markdown/render.tsx`, `src/ui/news/NewsRow.tsx`, `src/app/(app)/news/page.tsx`, `src/server/services/feed.ts`, `src/app/(app)/feed/generated/page.tsx` |
 | Code execution | `src/ai/reels/code-check.ts`, `src/ai/reels/generate.ts`, `src/ui/code/runner.ts`, `src/ui/code/worker-source.ts` |
 | Feeds | `src/news/http.ts`, `src/news/collect.ts` |
 | Ops | `package.json` / lockfile (Next 16.3.8, override), `scripts/check-env.ts`, `scripts/copy-db.ts` (pre-existing typecheck error) |
@@ -407,10 +412,10 @@ Legend: ✅ done · ⚠️ done differently (reason) · ⏳ not yet.
 | Server identity from `getClaims()` (JWKS / Auth server), never `getSession()` or client ids | ✅ | `src/server/auth/session.ts`, `src/lib/supabase/claims.ts` |
 | Proxy refreshes the session; exact public allow-list; 401 for any `Next-Action` / API call without a user; CSP kept | ✅ | `src/proxy.ts`, `src/lib/auth-paths.ts` (unit-tested) |
 | `requireUser()` in every action/page/service; `apiUser()` for JSON routes | ✅ | `src/server/auth/index.ts`; `requireSession()` and `APP_PASSWORD` / `AUTH_SECRET` removed |
-| Auth forms are plain POSTs to route handlers (no server action reachable without a session), Origin-checked, rate-limited | ✅ | `src/app/(auth)/auth/*` — sign-in 10/15 min per IP + 5/15 min per account (hashed email) + global; sign-up 5/h per IP; reset 3/h per account; OAuth start 20/15 min per IP; password change 5/h per user |
+| Auth forms are plain POSTs to route handlers (no server action reachable without a session), Origin-checked, rate-limited | ✅ | `src/app/(app)/(auth)/auth/*` — sign-in 10/15 min per IP + 5/15 min per account (hashed email) + global; sign-up 5/h per IP; reset 3/h per account; OAuth start 20/15 min per IP; password change 5/h per user |
 | No user enumeration (sign-up / reset answer the same; failed sign-in delay) | ✅ | `src/server/auth/http.ts` |
 | Passwords 10–128, no composition rules | ✅ | app + Supabase setting (docs/AUTH.md §4) |
-| Re-auth for account deletion (last authentication < 15 min, from JWT `amr`) | ✅ | `src/app/(auth)/auth/delete-account/route.ts` |
+| Re-auth for account deletion (last authentication < 15 min, from JWT `amr`) | ✅ | `src/app/(app)/(auth)/auth/delete-account/route.ts` |
 | Re-auth for data export | ⚠️ | rate-limited (3/day per user) instead; re-auth adds friction for a read of your own data — revisit with MFA |
 | Sign out / sign out everywhere (`scope: 'global'`) | ✅ | `/auth/sign-out`, `/account` |
 | OAuth Google / GitHub (PKCE), buttons only for providers enabled in Supabase | ✅ | `/auth/oauth` (GET link: CSP `form-action` would block a POST's cross-origin redirect chain), `/auth/callback` |
