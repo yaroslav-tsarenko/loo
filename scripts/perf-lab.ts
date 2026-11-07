@@ -84,6 +84,7 @@ async function realDb(adminUrl: string): Promise<LabDb> {
 
 const pgUrl = arg('pg', '')
 const db = pgUrl ? await realDb(pgUrl) : await pgliteDb()
+for (const role of ['anon', 'authenticated']) await db.exec(`do $$ begin create role ${role} nologin; exception when duplicate_object then null; end $$`)
 await db.exec(`
   create schema auth;
   create table auth.users (id uuid primary key);
