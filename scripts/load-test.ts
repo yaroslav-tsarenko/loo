@@ -40,7 +40,7 @@ const SESSION: Step[] = [
   ['page /path', () => get('/path')],
   ['page /learn', () => get(lessonPath)],
   ['startLesson', () => action('startLesson', [LESSON], lessonPath)],
-  ...Array.from({ length: 5 }, (_, i): Step => [`answer`, (ctx) => action('answerQuiz', [{ ...QUIZ, sessionId: ctx.session }], lessonPath)]),
+  ...Array.from({ length: 5 }, (): Step => [`answer`, (ctx) => action('answerQuiz', [{ ...QUIZ, sessionId: ctx.session }], lessonPath)]),
   ['page /words', () => get('/words')],
   ['api /counts', () => get('/api/counts')],
   ['page /profile', () => get('/profile')],

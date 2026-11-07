@@ -38,9 +38,7 @@ jobs:
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.33.2
+      - uses: pnpm/action-setup@v4 # version from package.json → packageManager
       - uses: actions/setup-node@v4
         with:
           node-version: 24

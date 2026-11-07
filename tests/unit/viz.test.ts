@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import type { Element, Root as HastRoot } from 'hast'
 import type { Root } from 'mdast'
 import { toString } from 'mdast-util-to-string'
@@ -203,15 +203,28 @@ describe('promise combinators model', () => {
     [[30, false], [20, true], [10, false]],
   ]
 
+  // Real promises on fake timers: the timeouts fire in order at exact virtual times, so the check doesn't depend on how
+  // busy the machine is (with real timers 10 ms apart, a loaded CI runner reordered them).
   const real = async (id: (typeof COMBINATORS)[number]['id'], inputs: CombinatorInput[]) => {
-    const promises = inputs.map((i) => new Promise<string>((resolve, reject) => setTimeout(() => (i.ok ? resolve(i.value) : reject(i.reason)), i.ms)))
-    const start = Date.now()
+    vi.useFakeTimers()
     try {
+      const start = Date.now()
+      const promises = inputs.map((i) => new Promise<string>((resolve, reject) => setTimeout(() => (i.ok ? resolve(i.value) : reject(i.reason)), i.ms)))
       const run = Promise[id].bind(Promise) as (values: Promise<string>[]) => Promise<unknown>
-      const value = await run(promises)
-      return { ok: true, value, ms: Date.now() - start }
-    } catch (error) {
-      return { ok: false, value: error, ms: Date.now() - start }
+      let settled: { ok: boolean; value: unknown; ms: number } | null = null
+      run(promises).then(
+        (value) => (settled = { ok: true, value, ms: Date.now() - start }),
+        (error: unknown) => (settled = { ok: false, value: error, ms: Date.now() - start }),
+      )
+      // the rejections no combinator observed must not surface as unhandled
+      for (const p of promises) p.catch(() => {})
+      for (const ms of [...new Set(inputs.map((i) => i.ms))].sort((a, b) => a - b)) {
+        await vi.advanceTimersByTimeAsync(ms - (Date.now() - start))
+        if (settled) break
+      }
+      return settled ?? { ok: false, value: 'pending', ms: -1 }
+    } finally {
+      vi.useRealTimers()
     }
   }
 
@@ -222,7 +235,7 @@ describe('promise combinators model', () => {
       const actual = await real(id, inputs)
       expect(model.ok, id).toBe(actual.ok)
       if (id === 'race' || (id === 'any' && actual.ok) || (id === 'all' && !actual.ok)) expect(model.value, id).toBe(String(actual.value))
-      expect(Math.abs(actual.ms - model.at), id).toBeLessThan(25)
+      expect(actual.ms, id).toBe(model.at)
     }
   })
 })
