@@ -128,7 +128,8 @@ Next steps, in order of value:
    Components with the nonce CSP and dynamic pages.
 2. Lesson player prefetches the next lesson's content as immutable JSON (CDN, `?v=<build>`), so a session is one page
    load + answers.
-3. Database: one transaction per page instead of 2–3 (`userBase` + `shellData` reads in one statement); drizzle
+3. Database: one transaction per page instead of 2–3 (`userBase` + `shellData` reads in one statement — done November
+   2026: `pageTx` in src/server/base.ts, a page render is marked by the proxy with `x-page-render`); drizzle
    prepared queries for the hot reads.
 4. PWA: the course content cached on the device (later, owner's decision).
 5. A stress test on a preview deployment with its own Supabase project (preview has no `DATABASE_URL` today).

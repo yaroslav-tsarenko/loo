@@ -3,18 +3,17 @@ import { cache } from 'react'
 import type { Level } from '@/course'
 import type { ContentSnapshot } from '@/content/store'
 import { getUser } from './auth/session'
-import { activeCourse, enrollmentsRead, exerciseIds, type ActiveCourse } from './courses/enrollment'
+import { activeCourse, exerciseIds, type ActiveCourse } from './courses/enrollment'
 import { libraryFrom, type LibraryCourse } from './courses/library'
 import { theoryFrom, type ActiveTheory } from './courses/theory'
 import { getContent } from './content'
-import { withUser } from './db/with-user'
-import { readAll } from './db/batch'
-import { settledShellFrom, shellGameReads, type PlayerGame, type ShellGame } from './game'
-import { navCountsFrom, practiceRead } from './services/counts'
-import { progressRead, type ProgressRow } from './services/library'
-import { xpRead } from './services/progress'
+import { pageTx } from './base'
+import type { PlayerGame, ShellGame } from './game'
+import { navCountsFrom } from './services/counts'
+import type { ProgressRow } from './services/library'
 
-// Everything the app shell (root layout) shows for a signed-in learner, read in ONE transaction: XP, practice badges,
+// Everything the app shell ((app) layout) shows for a signed-in learner, read in the page's ONE transaction (with the
+// base rows — src/server/base.ts → pageTx): XP, practice badges,
 // game state (rank settled silently, streak freezes applied), the library and the chapter progress behind the
 // sidebar's «Теорія». All reads go out together (pipelined), so the shell costs ~3 database round trips instead of
 // the ~100 it took as eight separate transactions on a single pooled connection.
@@ -38,24 +37,10 @@ export interface ShellData {
 export const shellData = cache(async (): Promise<ShellData | null> => {
   const user = await getUser()
   if (!user) return null
-  const [snapshot, active] = await Promise.all([getContent(), activeCourse()])
-  const now = Date.now()
-  const read = await withUser(
-    user,
-    async (db) => {
-      // every read in ONE statement (src/server/db/batch.ts); writes only when the rank or the streak moved
-      const [xp, rows, enrollments, progress, rank, gameRow, goal, frozen] = await readAll(db, [
-        xpRead(db, user.id),
-        practiceRead(db, user.id, now),
-        enrollmentsRead(db, user.id),
-        progressRead(db, user.id),
-        ...shellGameReads(db, user.id, now),
-      ])
-      const game = await settledShellFrom(db, user.id, now, { rank, game: gameRow, goal, frozen })
-      return { xp, rows, enrollments, progress, game }
-    },
-    { tx: true },
-  )
+  // the shell's reads ride in the page's one transaction, together with the base rows (src/server/base.ts → pageTx)
+  const [snapshot, active, page] = await Promise.all([getContent(), activeCourse(), pageTx()])
+  if (!page) return null
+  const read = page.shell
   const pool = active ? exerciseIds(active.bundle) : null
   return {
     snapshot,

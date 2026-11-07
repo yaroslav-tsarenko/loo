@@ -61,6 +61,10 @@ function withCsp(request: NextRequest): NextResponse {
   // Next.js reads the nonce from the request's CSP header and applies it to its scripts.
   const headers = new Headers(request.headers)
   headers.set('x-nonce', nonce)
+  // a page render (not an API route, not a server action): the learner's base rows and the app shell share one
+  // transaction (src/server/base.ts → pageTx). Set here only, never trusted from the client.
+  if (request.method === 'GET' && !pathname.startsWith('/api/') && !request.headers.has('next-action')) headers.set('x-page-render', '1')
+  else headers.delete('x-page-render')
   headers.set('content-security-policy', csp)
   const response = NextResponse.next({ request: { headers } })
   response.headers.set('Content-Security-Policy', csp)
