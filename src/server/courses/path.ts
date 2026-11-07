@@ -1,7 +1,8 @@
 import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { buildCoursePath, lookup, type CourseBundle, type CoursePathView, type PathCursor, type PathSkills, type ResultRecord } from '@/course'
-import { chapterProgress, examResults, lessonProgress, srsCards, taskState, topicResults } from '@/db/schema'
+import { attempts, chapterProgress, examResults, lessonProgress, srsCards, taskState, topicResults } from '@/db/schema'
+import { stillCompleted } from '@/course/select/completed'
 import type { Conn } from '@/db/client'
 import type { ContentSnapshot } from '@/content/store'
 import { chapterMastery, STABLE_DAYS, type ChapterSignals, type Mastery } from '@/progress/mastery'
@@ -48,11 +49,11 @@ export async function courseProgressIn(db: Conn, userId: string, bundle: CourseB
   const courseId = bundle.course.id
   const lessonsOf = () =>
     db
-      .select({ id: lessonProgress.lessonId, best: lessonProgress.bestAccuracy })
+      .select({ id: lessonProgress.lessonId, best: lessonProgress.bestAccuracy, unitIds: lessonProgress.unitIds })
       .from(lessonProgress)
       .where(and(eq(lessonProgress.userId, userId), eq(lessonProgress.courseId, courseId)))
   // one statement: the reads, plus the legacy rows to carry over (none once migrated)
-  const [legacy, lessonsBefore, chapterRows, testRows, examRows] = await readBatch(db, [
+  const [legacy, lessonsBefore, chapterRows, testRows, examRows, attemptedRows] = await readBatch(db, [
     legacyLessonsQuery(db, userId),
     lessonsOf(),
     db.select({ id: chapterProgress.chapterId, status: chapterProgress.status }).from(chapterProgress).where(eq(chapterProgress.userId, userId)),
@@ -64,12 +65,16 @@ export async function courseProgressIn(db: Conn, userId: string, bundle: CourseB
       .select()
       .from(examResults)
       .where(and(eq(examResults.userId, userId), eq(examResults.courseId, courseId))),
+    // every exercise the learner has answered (index-only on attempts_user_unit_idx): completed lessons whose content
+    // changed since still count when the learner has seen all of it (src/course/select/completed.ts)
+    db.selectDistinct({ id: attempts.unitId }).from(attempts).where(eq(attempts.userId, userId)),
   ])
   const migrated = await migrateLegacyLessons(db, userId, bundle, legacy)
   const lessonRows = migrated > 0 ? await lessonsOf() : lessonsBefore
+  const lessons = stillCompleted(bundle, lessonRows, new Set(attemptedRows.map((r) => r.id)))
   return {
-    lessons: new Set(lessonRows.map((r) => r.id)),
-    perfect: new Set(lessonRows.filter((r) => r.best >= 1).map((r) => r.id)),
+    lessons,
+    perfect: new Set(lessonRows.filter((r) => r.best >= 1 && lessons.has(r.id)).map((r) => r.id)),
     studied: new Set(chapterRows.filter((r) => r.status === 'studied').map((r) => r.id)),
     reading: new Set(chapterRows.filter((r) => r.status === 'reading').map((r) => r.id)),
     tests: new Map(testRows.map((r) => [r.testId, { bestScore: r.bestScore, passed: r.passedAt !== null }])),

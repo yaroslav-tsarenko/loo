@@ -327,6 +327,9 @@ export const lessonProgress = pgTable(
     lastXp: integer('last_xp').notNull().default(0),
     firstCompletedAt: ms('first_completed_at'),
     lastCompletedAt: ms('last_completed_at'),
+    // the lesson's exercises when it was last completed: the path compares them with the course's current content
+    // (src/course/select/completed.ts); null on rows from before it was stored
+    unitIds: jsonb('unit_ids').$type<string[]>(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.lessonId] }), index('lesson_user_guide_idx').on(t.userId, t.guideId), index('lesson_user_course_idx').on(t.userId, t.courseId)],
 )

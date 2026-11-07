@@ -120,6 +120,13 @@
       "when": 1794057159149,
       "tag": "0016_user_counters",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1794058760738,
+      "tag": "0017_lesson_unit_ids",
+      "breakpoints": true
     }
   ]
 }

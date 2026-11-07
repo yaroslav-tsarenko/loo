@@ -145,10 +145,10 @@ export async function completeLesson(raw: { lessonId: string; sessionId: string 
         bonusXp > 0 ? tx.insert(xpLedger).values({ userId, amount: bonusXp, reason: 'lesson', refId: lesson.id, createdAt: now, day }) : null,
         tx
           .insert(lessonProgress)
-          .values({ userId, lessonId: lesson.id, courseId: lesson.courseId, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now })
+          .values({ userId, lessonId: lesson.id, courseId: lesson.courseId, guideId: lesson.guideId, chapterId: lesson.chapterId, completions: 1, bestAccuracy: accuracy, lastXp: bonusXp, firstCompletedAt: now, lastCompletedAt: now, unitIds: units })
           .onConflictDoUpdate({
             target: [lessonProgress.userId, lessonProgress.lessonId],
-            set: { completions: sql`${lessonProgress.completions} + 1`, bestAccuracy: sql`greatest(${lessonProgress.bestAccuracy}, ${accuracy})`, lastXp: bonusXp, lastCompletedAt: now },
+            set: { completions: sql`${lessonProgress.completions} + 1`, bestAccuracy: sql`greatest(${lessonProgress.bestAccuracy}, ${accuracy})`, lastXp: bonusXp, lastCompletedAt: now, unitIds: units },
           }),
         bonusXp > 0 ? addDailyXp(tx, userId, day, bonusXp) : null,
         bucksWanted > 0
