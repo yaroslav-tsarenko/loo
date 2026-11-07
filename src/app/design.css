@@ -1770,3 +1770,16 @@
   }
 }
 
+
+/* Error boundaries (src/ui/errors/ErrorScreen.tsx) */
+.error-screen {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+}
+.error-digest {
+  margin-top: 8px;
+  color: var(--lu-text-3);
+  font-size: var(--lu-fs-sm, 0.85rem);
+  font-family: var(--font-jbmono), ui-monospace, monospace;
+}
