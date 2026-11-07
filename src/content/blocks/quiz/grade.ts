@@ -17,6 +17,13 @@ export function isFreeQuiz(unit: Pick<QuizUnit, 'mode' | 'options' | 'freeAnswer
   return unit.mode !== 'order' && unit.mode !== 'fill' && unit.options.length === 0 && unit.freeAnswer !== null
 }
 
+// Quizzes answered by picking options: `chosen` holds option ids (everything that reaches the last branch of gradeQuiz).
+export function usesOptionIds(unit: QuizUnit): boolean {
+  if (unit.mode === 'speak' || unit.mode === 'order' || unit.mode === 'fill') return false
+  if (unit.mode === 'listen' && (isFreeQuiz(unit) || unit.listen?.type === 'fill')) return false
+  return !isFreeQuiz(unit)
+}
+
 // `lang` — the course's spoken language (course.yaml `target`) for dictation; the block's own `lang:` wins, absent → English.
 export function gradeQuiz(unit: QuizUnit, answer: QuizAnswer, lang?: string | null): boolean {
   // [!speak] is judged by checkSpeech (word diff of a transcript), never as a quiz answer

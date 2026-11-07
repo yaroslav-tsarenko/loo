@@ -6,7 +6,7 @@ import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import type { ReactNode } from 'react'
 import { courseLevels, LEVELS, levelRank, manualStartAllowed, placementCandidates, sectionForLevel, type CourseBundle, type ExamBand, type Level, type PlacementConfidence, type PlacementResult } from '@/course'
-import { quizKey } from '@/content/blocks/quiz/view'
+import { optionIds } from '../quiz-ids'
 import { renderMdast } from '@/ui/markdown/render'
 import { renderLessonItems, type PlayerItem } from '../services/lessons'
 import { first } from '@/db/client'
@@ -195,7 +195,12 @@ async function replay(raw: unknown) {
   const snapshot = await getContent()
   const unitOf = placementUnitOf(bundle, snapshot.placementUnits, (id) => exerciseUnit(snapshot, bundle, id))
   const seed = placementSeed(user.id, input.nonce)
-  const run = replayPlacement(bundle, input.answers, seed, unitOf, { followUp: input.followUp })
+  // the browser's opaque option ids → authored ids before grading (src/server/quiz-ids.ts)
+  const answers = input.answers.map((a) => {
+    const unit = unitOf(a.id)
+    return unit?.kind === 'quiz' ? { ...a, chosen: optionIds.resolve(unit, a.chosen) } : a
+  })
+  const run = replayPlacement(bundle, answers, seed, unitOf, { followUp: input.followUp })
   if (!run.ok) throw new Error('Invalid placement answers')
   return { user, input, bundle, run, snapshot, unitOf, seed }
 }
@@ -248,7 +253,7 @@ export async function placementStep(raw: { course: string; nonce: string; answer
       if (!unit || unit.kind !== 'quiz') continue
       const chapter = snapshot.placementChapters.get(unit.chapterId) ?? snapshot.chapters.get(unit.chapterId)
       const explanation = unit.explanation && chapter ? await renderMdast(unit.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
-      review.push({ id: unit.id, chosen: input.answers[i]?.chosen ?? [], dontKnow: g.dontKnow === true, key: quizKey(unit).options, explanation })
+      review.push({ id: unit.id, chosen: input.answers[i]?.chosen ?? [], dontKnow: g.dontKnow === true, key: optionIds.key(unit).options, explanation })
     }
   }
   return {

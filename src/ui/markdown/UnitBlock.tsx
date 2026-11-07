@@ -1,7 +1,8 @@
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
-import { exerciseView, quizKey, quizShape } from '@/content/blocks/quiz/view'
+import { gradedQuiz } from '@/content/blocks/quiz/view'
 import { speechLangFor } from '@/server/courses/target'
+import { optionIds } from '@/server/quiz-ids'
 import { ListenExercise } from '@/ui/lang/ListenExercise'
 import { PairAudio, PairOption } from '@/ui/lang/PairExercise'
 import { WordInline } from '@/ui/lang/WordCard'
@@ -47,10 +48,15 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
   const [prompt, body, explanation, ...options] = await Promise.all([
     renderPhrasing(unit.prompt, env),
     unit.body.children.length > 0 ? renderMdast(unit.body, env) : Promise.resolve(null),
-    unit.explanation ? renderMdast(unit.explanation, env) : Promise.resolve(null),
+    // only [!speak] shows its explanation up front; every other quiz gets it with the server's verdict
+    unit.speak && unit.explanation ? renderMdast(unit.explanation, env) : Promise.resolve(null),
     ...unit.options.map((o) => renderPhrasing(o.content, env)),
   ])
-  const shape = quizShape(unit)
+  // Article quizzes are the same units as lesson / test / exam / placement questions, so they ship exactly what graded
+  // contexts ship: shuffled options with opaque ids (src/server/quiz-ids.ts), no key. answerQuiz grades the answer
+  // (it did anyway, for XP) and returns the key and the explanation.
+  const payload = gradedQuiz(unit, Math.random, optionIds.idOf(unit))
+  const shape = payload
   // Language blocks: the spoken text and the key stay on the server (audio is fetched on play, answers are checked by
   // answerQuiz) — even in articles, the transcript of a listening item IS its answer.
   if (unit.mode === 'listen' || unit.mode === 'pair' || unit.mode === 'speak') {
@@ -76,17 +82,16 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
           </>
         }
         // listen / pair: the explanation may quote the transcript — it comes with the server's verdict instead
-        explanation={unit.speak ? explanation : null}
-        options={unit.options.map((o, i) => ({ id: o.id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang} /> : options[i] }))}
+        explanation={explanation}
+        options={payload.options.map(({ id, index: i }) => ({ id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang} /> : options[i] }))}
         // [!listen] type: fill — the form without its answers (they come with the verdict)
-        exercise={exerciseView(unit.exercise)}
+        exercise={payload.exercise}
         variant="inline"
         lang={lang}
         speak={unit.speak ? { text: unit.speak.text, ipa: unit.speak.ipa, ipaUs: unit.speak.ipaUs, translation: unit.speak.translation, slow: unit.speak.slow } : null}
       />
     )
   }
-  // Article quizzes are practice: the key ships for an instant verdict; XP is granted only by the server's own check.
   return (
     <QuizInline
       unitId={unit.id}
@@ -96,10 +101,8 @@ async function QuizBlock({ unit, env }: { unit: QuizUnit; env: RenderEnv }) {
       level={unit.level ?? null}
       prompt={prompt}
       body={body}
-      explanation={explanation}
-      answerKey={quizKey(unit)}
-      options={unit.options.map((o, i) => ({ id: o.id, content: options[i] }))}
-      exercise={exerciseView(unit.exercise)}
+      options={payload.options.map(({ id, index: i }) => ({ id, content: options[i] }))}
+      exercise={payload.exercise}
       variant="inline"
     />
   )

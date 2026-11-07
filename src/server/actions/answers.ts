@@ -8,7 +8,7 @@ import { judgeSpeech, speechHints, type DisplayWord } from '@/content/blocks/lan
 import { gradeQuiz } from '@/content/blocks/quiz/grade'
 import type { QuizUnit } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
-import { quizKey, type QuizKey } from '@/content/blocks/quiz/view'
+import type { QuizKey } from '@/content/blocks/quiz/view'
 import { sessions } from '@/db/schema'
 import type { Effect } from '@/progress/types'
 import { renderMdast } from '@/ui/markdown/render'
@@ -22,6 +22,7 @@ import { resolveTestById, storeTestAnswer } from '../courses/tests'
 import { read, readAll } from '../db/batch'
 import { loadState, spendHeartFrom, touchLeague, type GameState } from '../game'
 import { stateRead } from '../game/state'
+import { optionIds } from '../quiz-ids'
 import { attemptReadList, attemptReadsFrom, recordAttempt, recordAttemptIn, type AttemptReads } from '../services/progress'
 import { readSettings } from '../settings'
 
@@ -86,8 +87,10 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
     return speakOutcome(snapshot, unit, input.chosen, input.durationMs, input.sessionId)
   }
   const test = input.test ? await resolveTestById(input.test.testId) : null
+  // the browser's opaque option ids → authored ids (src/server/quiz-ids.ts); what is stored and graded below
+  const chosen = optionIds.resolve(unit, input.chosen)
   // dictation compares words of the course's spoken language (German: ß = ss, ä = ae …)
-  const correct = gradeQuiz(unit, { chosen: input.chosen, text: input.text }, unit.mode === 'listen' ? await speechLangFor(unit) : null)
+  const correct = gradeQuiz(unit, { chosen, text: input.text }, unit.mode === 'listen' ? await speechLangFor(unit) : null)
   const now = Date.now()
 
   // One transaction, few round trips: the session / hearts checks and every read the recording needs go out together
@@ -124,7 +127,7 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
       const lesson = session?.mode === 'lesson' && session.endedAt === null
       if (lesson && locked && locked.hearts.hearts <= 0) return { outOfHearts: true as const }
       if (test && input.test) {
-        const ok = await storeTestAnswer(tx, userId, test, input.test.attempt, input.test.index, { id: unit.id, chosen: input.chosen, text: input.text }, now)
+        const ok = await storeTestAnswer(tx, userId, test, input.test.attempt, input.test.index, { id: unit.id, chosen, text: input.text }, now)
         if (!ok) throw new Error('Stale attempt')
       }
       const effects = await recordAttemptIn(tx, userId, snapshot, unit, { unitId: unit.id, outcome: correct ? 'correct' : 'wrong', durationMs: input.durationMs, sessionId: input.sessionId }, now, reads)
@@ -147,7 +150,7 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
   // graded on the source unit above; the explanation in the reader's language (same id — src/server/content-i18n.ts)
   const shown = (await localizedUnits(snapshot, [unit])).get(unit.id) ?? unit
   const explanation = shown.kind === 'quiz' && shown.explanation && chapter ? await renderMdast(shown.explanation, { snapshot, chapter, depth: 0, variant: 'card' }) : null
-  return { correct, key: quizKey(unit), explanation, effects: result.effects, hearts: result.hearts, outOfHearts: false }
+  return { correct, key: optionIds.key(unit), explanation, effects: result.effects, hearts: result.hearts, outOfHearts: false }
 }
 
 const MAX_TRANSCRIPT = 500

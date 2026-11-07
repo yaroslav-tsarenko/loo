@@ -8,6 +8,7 @@ import { speechLangFor } from '@/server/courses/target'
 import { contentMeta, DEFAULT_LOCALE, t } from '@/i18n'
 import { userScope } from '@/server/auth'
 import { localizedUnits } from '@/server/content-i18n'
+import { optionIds } from '@/server/quiz-ids'
 import { uiLocale } from '@/server/locale'
 import { srsMapIn, taskStatesIn } from '@/server/services/queue'
 import { unitLabel } from '@/server/services/units-sync'
@@ -122,7 +123,8 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
           unit.body.children.length > 0 ? renderMdast(unit.body, env) : Promise.resolve(null),
           ...unit.options.map((o) => renderPhrasing(o.content, env)),
         ])
-        const payload = gradedQuiz(unit)
+        // shuffled, with opaque option ids (src/server/quiz-ids.ts)
+        const payload = gradedQuiz(unit, Math.random, optionIds.idOf(unit))
         const lang = unit.listen || unit.pair || unit.speak ? await speechLangFor(unit) : null
         // listening / minimal pairs: the audio is fetched on play (the transcript never ships with the item)
         const audio = unit.listen ? (
@@ -146,7 +148,7 @@ export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly 
           ) : (
             body
           ),
-          options: payload.optionIds.map((id, i) => ({ id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang!} /> : options[i] })),
+          options: payload.options.map(({ id, index: i }) => ({ id, content: pair ? <PairOption word={pair.words[i]!.word} ipa={pair.words[i]!.ipa} lang={lang!} /> : options[i] })),
           exercise: payload.exercise,
           lang,
           speak: unit.speak ? { text: unit.speak.text, ipa: unit.speak.ipa, ipaUs: unit.speak.ipaUs, translation: unit.speak.translation, slow: unit.speak.slow } : null,

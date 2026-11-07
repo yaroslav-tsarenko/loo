@@ -121,10 +121,18 @@ export function solutionText(view: ExerciseView, key: QuizKey): string {
 
 // Everything about a graded quiz that goes to the browser except the rendered prompt/body/option content.
 export interface GradedQuizPayload extends QuizShape {
-  optionIds: string[]
+  // In display order (shuffled per render): `id` is what the browser sends back, `index` the authored position (to
+  // pick the rendered content). Authored ids (a, b, c…) follow the author's order, and authors put the right answer
+  // second about half the time — so graded payloads never use them: the server passes opaque ids
+  // (src/server/quiz-ids.ts) and resolves them back before grading.
+  options: Array<{ id: string; index: number }>
   exercise: ExerciseView | null
 }
 
-export function gradedQuiz(unit: QuizUnit, random: () => number = Math.random): GradedQuizPayload {
-  return { ...quizShape(unit), optionIds: unit.options.map((o) => o.id), exercise: exerciseView(unit.exercise, random) }
+export function gradedQuiz(unit: QuizUnit, random: () => number = Math.random, idOf: (optionId: string) => string = (id) => id): GradedQuizPayload {
+  const options = shuffled(
+    unit.options.map((o, index) => ({ id: idOf(o.id), index })),
+    random,
+  )
+  return { ...quizShape(unit), options, exercise: exerciseView(unit.exercise, random) }
 }

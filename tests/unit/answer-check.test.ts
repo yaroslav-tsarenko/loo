@@ -53,8 +53,9 @@ describe('graded quiz payload (what the browser gets)', () => {
   })
 
   it('keeps what the UI needs to render', () => {
-    expect(gradedQuiz(multi)).toMatchObject({ multi: true, free: false, optionIds: ['a', 'b', 'c'] })
-    expect(gradedQuiz(free)).toMatchObject({ multi: false, free: true, optionIds: [] })
+    expect(gradedQuiz(multi)).toMatchObject({ multi: true, free: false })
+    expect(gradedQuiz(multi).options.map((o) => o.id).sort()).toEqual(['a', 'b', 'c'])
+    expect(gradedQuiz(free)).toMatchObject({ multi: false, free: true, options: [] })
     const o = gradedQuiz(order, rng()).exercise
     expect(o?.kind).toBe('order')
     if (o?.kind === 'order') {
