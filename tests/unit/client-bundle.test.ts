@@ -104,4 +104,19 @@ describe('client bundle', () => {
     const all = [...new Set(clientEntries.flatMap(leaks))]
     expect(all).toEqual([])
   })
+
+  it("a UI module that uses server code says so: import 'server-only' (a client import then fails the build)", () => {
+    const offenders = walk(path.join(ROOT, 'ui'))
+      .filter((f) => !/^\s*['"]use client['"]/.test(source(f)) && !/^\s*import ['"]server-only['"]/m.test(source(f)))
+      .flatMap((f) =>
+        specifiers(source(f))
+          .filter((spec) => spec.startsWith('@/server/') || spec.startsWith('@/db'))
+          .filter((spec) => {
+            const target = resolve(f, spec)
+            return !(target && /^\s*['"]use server['"]/.test(source(target)))
+          })
+          .map((spec) => `${rel(f)} → ${spec}`),
+      )
+    expect(offenders).toEqual([])
+  })
 })

@@ -2,7 +2,7 @@ import { Worker } from 'node:worker_threads'
 import { isRunnable, isTypeScript, solutionCode } from '../../src/content/blocks/task/code'
 import type { LearningUnit } from '../../src/content/model'
 import { runSuite, type RunReport } from '../../src/ui/code/harness'
-import { HARNESS_UK } from '../../src/ui/code/harness-text'
+import { HARNESS_UK } from '../../src/i18n/harness-text'
 import { prepareTypeScript } from '../../src/ui/code/ts-strip'
 
 // Shared by content:check and course:check: runs a task's reference solution (must pass) and starter (should fail)

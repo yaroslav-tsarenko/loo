@@ -1,3 +1,4 @@
+import 'server-only'
 import type { AnalyticsData, Item } from '@/server/admin/analytics'
 import { FILTER_KEYS, FILTER_LABEL, hrefOf, kyivToday, METRICS, RANGE_LABEL, RANGES, type FilterKey, type Query } from '@/server/admin/analytics-query'
 import type { BreakdownRow } from './BreakdownList'

@@ -13,8 +13,25 @@ const config = [
   ...nextTs,
   { ignores: ['.next/**', 'node_modules/**', 'drizzle/**', 'test-results/**', 'playwright-report/**', 'next-env.d.ts', '.dev/**', '.lu-preview/**'] },
   layer('progress', ['content/store', 'db', 'server', 'ui', 'app'], 'progress/ — чиста логіка без I/O і UI'),
-  layer('content', ['db', 'server', 'ui', 'app', 'progress'], 'content/ не знає про БД, прогрес і UI'),
   layer('db', ['content', 'server', 'ui', 'app', 'progress'], 'db/ не знає про markdown і UI'),
+  layer('i18n', ['ui', 'server', 'db', 'app'], 'i18n/ — лише тексти: без UI, сервера й БД'),
+  // content/ is pure (parsing, models, grading — some of it runs in the browser); the file system lives in the
+  // store, the config and the vault source only
+  {
+    files: ['src/content/**/*.{ts,tsx}'],
+    ignores: ['src/content/store.ts', 'src/content/config.ts', 'src/content/sources/**'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            { group: ['@/db/*', '@/db', '@/server/*', '@/ui/*', '@/app/*', '@/progress/*'], message: 'content/ не знає про БД, прогрес і UI' },
+            { group: ['node:fs', 'node:fs/*', 'node:path', 'node:os', 'node:v8', 'node:zlib', 'fs', 'path', 'chokidar'], message: 'content/ — чиста логіка; файли читають лише store.ts, config.ts і sources/' },
+          ],
+        },
+      ],
+    },
+  },
   {
     files: ['src/course/**/*.{ts,tsx}'],
     rules: {

@@ -2,7 +2,7 @@
 // Placeholders: {name} → t('key', { name }).
 
 import { levelBadge } from '@/game/evolution'
-import { HARNESS_UK } from '@/ui/code/harness-text'
+import { HARNESS_UK } from './harness-text'
 import { ukGame } from './uk-game'
 
 export const uk = {
@@ -822,7 +822,7 @@ export const uk = {
       console: 'Консоль · {n}',
     },
   },
-  // test harness of coding tasks (src/ui/code/harness-text.ts)
+  // test harness of coding tasks (src/i18n/harness-text.ts)
   harness: HARNESS_UK,
   // nav labels by path (src/ui/shell/nav-i18n.ts): «/» → today, «/review» → review
   nav: {

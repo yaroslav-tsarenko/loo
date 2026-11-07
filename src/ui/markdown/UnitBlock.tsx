@@ -1,3 +1,4 @@
+import 'server-only'
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
 import { gradedQuiz } from '@/content/blocks/quiz/view'

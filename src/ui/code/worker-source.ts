@@ -1,5 +1,5 @@
 import { runSuite, type HarnessHost } from './harness'
-import { HARNESS_UK, type HarnessText } from './harness-text'
+import { HARNESS_UK, type HarnessText } from '@/i18n/harness-text'
 import { TS_STRIP_SOURCE } from './ts-strip.bundle.generated'
 import type { prepareTypeScript } from './ts-strip'
 

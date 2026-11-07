@@ -15,7 +15,7 @@ import { compileCourse, parseCourseManifest, parseCourseYaml } from '@/course'
 import { contentLanguage, courseHreflangs, courseLanguages, localizedCourse } from '@/course/i18n'
 import '@/i18n/register'
 import { contentMeta, coverage, messages, resolveLocale, t } from '@/i18n'
-import { HARNESS_UK } from '@/ui/code/harness-text'
+import { HARNESS_UK } from '@/i18n/harness-text'
 import { runSuite, type HarnessHost } from '@/ui/code/harness'
 
 // Content i18n foundation (docs/COURSE_FORMAT.md «Переклад курсів (i18n)», docs/NEXTJS_SYLLABUS.md §8).

@@ -1,8 +1,8 @@
-import { HARNESS_UK, type HarnessText } from './harness-text'
+import { HARNESS_UK, type HarnessText } from '@/i18n/harness-text'
 
 // Test harness for learner code. `runSuite` is serialized with Function#toString into a Blob worker,
 // so it must stay fully self-contained: no imports, no module-level values, no references outside its body.
-// (The one exception is the default of `text`: the worker always passes the texts — src/ui/code/harness-text.ts.)
+// (The one exception is the default of `text`: the worker always passes the texts — src/i18n/harness-text.ts.)
 
 export type LogLevel = 'log' | 'info' | 'warn' | 'error'
 

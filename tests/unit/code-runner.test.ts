@@ -1,7 +1,7 @@
 import { loadBindings, minify } from 'next/dist/build/swc/index.js'
 import { describe, expect, it } from 'vitest'
 import { runSuite, type HarnessHost, type RunEvent, type RunReport } from '@/ui/code/harness'
-import { HARNESS_UK } from '@/ui/code/harness-text'
+import { HARNESS_UK } from '@/i18n/harness-text'
 
 const host: HarnessHost = {
   setTimeout: (fn, ms) => setTimeout(fn, ms),

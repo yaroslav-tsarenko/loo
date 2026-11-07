@@ -1,5 +1,5 @@
 import type { LogEntry, RunEvent, RunReport, TestResult } from './harness'
-import { HARNESS_UK, type HarnessText } from './harness-text'
+import { HARNESS_UK, type HarnessText } from '@/i18n/harness-text'
 
 export type { LogEntry, RunReport, TestResult }
 
