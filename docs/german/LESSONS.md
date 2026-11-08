@@ -49,3 +49,25 @@ Every Landeskunde number needs a source. If you can't source it, say «зазв�
 **Joke distractors.** Don't use them: «Hallo Welt», «70 кімнат», «mit dem schwarzen Bus». Every distractor must be a real mistake a Ukrainian learner makes.
 
 **`[!pair]`:** `say:` must exactly match one of the two words in the header (an article in the header breaks it).
+
+## Added after waves 5–7 (B1, Deutschland B1, B2)
+
+**Fill `bank:`** holds ONLY distractors — the parser adds the answers itself; listing them shows each answer chip twice.
+
+**Open fills without a bank** almost always accept two answers (*solle/müsse*, *gelebt/gewohnt*, *Zuerst/Nun*). Add an infinitive or Ukrainian gloss in brackets, or a bank. **Order quizzes:** if a second word order is just as natural, merge chunks so only one order is possible.
+
+**Verb `forms:`** start with the infinitive: `erklären → erklärte → hat erklärt` (not `erklärt → …`). Reflexive: `sich distanzieren → …`.
+
+**Card `level:`** = the word's real CEFR level, not the topic's level. Theater, Partei, Stress, obwohl, Diktatur… are not B2 just because a B2 topic cards them.
+
+**Unicode:** Ukrainian apostrophe is ʼ (U+02BC), never `'` or `’`. Write files with an editor or Python — `perl -pe` with a literal non-ASCII character writes mojibake («Ê¼»).
+
+**IPA traps seen:** unstressed über- is [yːbɐ] (long); Premiere [pʁəˈmi̯eːʁə]; hoch [hoːx]; Master [ˈmaːstɐ]; Absatz [ˈapzats]; telefonieren stresses -nie-; ʔ after prefixes and in compounds (Burn-out [ˈbœːɐ̯nʔaʊ̯t]).
+
+**Facts:** numbers that sources disagree on are given as a range with both sources. Fast-moving figures carry «станом на <місяць рік>». Legal notes (BGB, StVZO) are quoted from gesetze-im-internet.de and framed as orientation, not legal advice. Check reforms: Bundestag electoral law 2023 (Zweitstimmendeckung) + BVerfG 30.07.2024 on the Grundmandatsklausel.
+
+**Exam formats:** use the current modular Goethe formats (Modellsatz on goethe.de); the old «Prüfungsziele» PDFs describe pre-2019 formats.
+
+**Audio:** `[!listen]` audio ≤ 300 characters — split long monologues into consecutive blocks with a shared title, one question each. TTS reads standard German: don't promise dialect sounds the recording can't contain.
+
+**Landeskunde lengths (prose only):** B2 200–280 words, C1 350–450, C2 450–600; Deutschland B2 ≈ 160–220.

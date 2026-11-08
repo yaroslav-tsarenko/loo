@@ -49,7 +49,7 @@ sections:
       description: 'Від германців і Священної Римської імперії до 1990 року й сьогодення.' }
   - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2,
       description: 'Adjektivdeklination без пауз, Konjunktiv I, Partizipien, Konnektoren, TestDaF-формат.' }
-  - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2, status: planned,
+  - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2,
       description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
   - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1, status: planned,
       description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
