@@ -51,7 +51,7 @@ sections:
       description: 'Adjektivdeklination без пауз, Konjunktiv I, Partizipien, Konnektoren, TestDaF-формат.' }
   - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2,
       description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
-  - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1, status: planned,
+  - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1,
       description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
   - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2, status: planned,
       description: 'Стиль, ідіоми, діалекти на слух, Großes Deutsches Sprachdiplom.' }
