@@ -1,6 +1,6 @@
 # Stage 1a · step 1: lazy content storage with a heap budget (design)
 
-Status: design only. Nothing in `src/` has changed. Blocker 1 in
+Status: **implemented on `fs/storage` (steps 0–9, see §10)**. Blocker 1 in
 [FULLSTACK_TRACK.md §5.1](../../FULLSTACK_TRACK.md) and §10, [platform-audit.md §6](../platform-audit.md).
 Date: 2026-11-09, branch `feature/fullstack-zero-to-pro` (merged with `origin/main`, German course included).
 
@@ -453,3 +453,36 @@ after steps 5 and 8.
   need unit positions?
 - **Q4.** Is it acceptable that `/api/cron/reels` (reels ingest) streams all guide texts (≈ 30 MB transient, never
   cached)? Or should it be limited to guides of listed courses?
+
+---
+
+## 10. Implementation notes (`fs/storage`)
+
+What shipped, and where it differs from the design above.
+
+| Step | Shipped |
+|---|---|
+| 0 | `pnpm content:measure` (+ `--assert --verify --guides --json`), `pnpm content:functions` |
+| 1–3 | async body API, `UnitMeta` / `ReelMeta`, `ContentIndex` (alias `ContentSnapshot`) vs `FullSnapshot` (the parse), review fixes |
+| 4 | `src/content/shards/{format,write,read,source,verify}.ts`; `content:snapshot` writes `.snapshot/` atomically (tmp dir + rename) |
+| 5 | `ShardSource` + `ByteLru` (`src/content/lru.ts`), `CONTENT_CACHE_MB` (24), in-flight de-dup, `CONTENT_SHARDS=0` rollback |
+| 6 | `search.json.br` loaded by `store.searchIndex()` (`/api/search` only), route has its own `maxDuration` |
+| 7 | `next.config.ts` includes/excludes; search index only in `/api/search` |
+| 8 | `catalog.json`, `CourseStore` (`src/server/courses/catalog.ts`), `COURSE_CACHE_MB` (24) |
+| 9 | docs; the monolith is **kept** as the `CONTENT_SHARDS=0` rollback (a rollback without it would mean parsing 16 s and 170 MB per instance); drop it one release after the shards are in production |
+
+Deviations, all behaviour-preserving:
+
+- **`UnitMeta` is not columnar.** Plain objects with shared strings (`intern` in `read.ts`): the index is 15.1 MB, not the
+  2.5 MB columnar + 7.7 MB the design assumed. The budget (a) is 16 MB; at track scale (×2.2 units) expect ≈ 28 MB, and
+  columnar encoding is the lever if that is too much.
+- **Pack integrity**: sizes are compared with the manifest at load; the sha1 is checked by `--verify` and the tests, not
+  on every cold start.
+- **Search ranking**: the prebuilt index returns the same hits in the same order; scores differ in the 16th digit (the
+  sums run in another order after the JSON round trip). `verifyShards` compares ids and order exactly, scores to 1e-9.
+- **Document caches** (R8): byte-budgeted (`DOCUMENT_CACHE_MB`, 24, shared 2:1; cost = source chars × 16, calibrated).
+- Placement replay loads only the answered items (`getPlacementUnit` / `exerciseUnits`), not `placementUnits(guideId)`.
+- The units fingerprint hashes the whole row (one idempotent resync per environment on the first deploy).
+- mdast `position`s are kept (lead decision); the 60 MB budget is content-only (index + sections + bundles).
+
+Measured on this repo (Node 25.7, 23 455 units): see [PERFORMANCE.md §5](../../PERFORMANCE.md) and `pnpm content:measure`.
