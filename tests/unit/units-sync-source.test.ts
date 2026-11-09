@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { cpSync, mkdirSync, readFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { afterAll, describe, expect, it } from 'vitest'
@@ -36,7 +36,7 @@ describe('units sync source', () => {
     const live = await (await new ContentStore(config, false).unitsSync()).rows()
     const prebuilt = new ContentStore(config, false, prebuiltPath(config))
     const source = await prebuilt.unitsSync()
-    expect((prebuilt as unknown as { prebuiltUnits: string | null }).prebuiltUnits).not.toBeNull()
+    expect(source.fingerprint()).toBe(JSON.parse(readFileSync(manifestPath(config), 'utf8')).unitsFingerprint)
     expect(source.fingerprint()).toBe(unitsFingerprint(live))
     expect(await source.rows()).toEqual(live)
   })

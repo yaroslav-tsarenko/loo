@@ -279,6 +279,7 @@ interface UnitMetaBase {
   chapterId: string
   level: Level | null
   idSource: IdSource
+  // unitLabel(unit): at most 240 characters; also the title of a task in lists
   label: string
   lang?: string
 }

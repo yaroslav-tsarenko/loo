@@ -53,7 +53,6 @@ export async function getDocument(chapterId: string): Promise<ChapterDocument | 
   return getContentStore().document(chapterId)
 }
 
-
 // Unit and reel bodies. `cache()` makes the components of one render that ask for the same ids share one promise.
 export const getUnit = cache(async (id: string): Promise<LearningUnit | null> => {
   await boot()
@@ -76,16 +75,6 @@ export const getChapterUnits = cache(async (chapterId: string): Promise<Learning
 export async function getReels(ids: readonly string[]): Promise<Map<string, Reel>> {
   await boot()
   return getContentStore().reels(ids)
-}
-
-export async function getChapterReels(chapterId: string): Promise<Reel[]> {
-  await boot()
-  return getContentStore().chapterReels(chapterId)
-}
-
-export async function getPlacementUnits(guideId: string): Promise<Map<string, LearningUnit>> {
-  await boot()
-  return getContentStore().placementUnits(guideId)
 }
 
 export async function getPlacementUnit(id: string): Promise<LearningUnit | null> {

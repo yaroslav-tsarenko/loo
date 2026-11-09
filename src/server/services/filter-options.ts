@@ -1,5 +1,5 @@
 import 'server-only'
-import { FREQUENCIES, LEVEL_LABEL, LEVELS, type UnitMeta, type QuizMode, type UnitKind } from '@/content/model'
+import { FREQUENCIES, LEVEL_LABEL, LEVELS, type QuizMode, type UnitKind } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import type { Option } from '@/ui/study/FilterForm'
 import type { StudyFilters } from './queue'
@@ -25,7 +25,7 @@ function tally<T extends string>(values: Iterable<T | null>): Map<T, number> {
 // pool: exercise ids of the active course (counts without a guide pick); courseGuides: guides offered in the material
 // select (the active course's; null = every guide, «усі курси»). A picked guide outside them stays selectable.
 export function filterOptions(snapshot: ContentSnapshot, kind: UnitKind, f: StudyFilters, pool: ReadonlySet<string> | null = null, courseGuides: ReadonlySet<string> | null = null) {
-  const every = [...snapshot.units.values()].filter((u): u is UnitMeta => u.kind === kind)
+  const every = [...snapshot.units.values()].filter((u) => u.kind === kind)
   const all = pool && !f.guide ? every.filter((u) => pool.has(u.id)) : every
   const byGuide = tally(every.map((u) => u.guideId))
   const guides: Option[] = snapshot.guides

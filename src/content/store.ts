@@ -574,20 +574,20 @@ export class ContentStore {
     return (await this.bodies()).reels.filter((r) => r.chapterId === chapterId)
   }
 
-  // the placement-test bank of one guide (`_placement/`), by unit id
-  async placementUnits(guideId: string): Promise<Map<string, LearningUnit>> {
-    const { placementUnits } = await this.bodies()
-    return new Map([...placementUnits].filter(([, u]) => u.guideId === guideId))
-  }
-
   async placementUnit(id: string): Promise<LearningUnit | null> {
     return (await this.bodies()).placementUnits.get(id) ?? null
   }
 
   // The plain text of every chapter, guide by guide (reels ingest, search).
   async forEachGuideText(fn: (guideId: string, texts: ReadonlyMap<string, string>) => void | Promise<void>): Promise<void> {
-    const { guides, plainText } = await this.bodies()
-    for (const guide of guides) await fn(guide.id, new Map(guide.chapterIds.flatMap((id) => (plainText.has(id) ? [[id, plainText.get(id)!] as const] : []))))
+    const { guides, chapters, plainText } = await this.bodies()
+    const byGuide = new Map<string, Map<string, string>>(guides.map((g) => [g.id, new Map()]))
+    // every chapter of the guide, its index page included
+    for (const chapter of chapters.values()) {
+      const text = plainText.get(chapter.id)
+      if (text !== undefined) byGuide.get(chapter.guideId)?.set(chapter.id, text)
+    }
+    for (const [guideId, texts] of byGuide) await fn(guideId, texts)
   }
 
   // What the search index is built from (src/content/search.ts)

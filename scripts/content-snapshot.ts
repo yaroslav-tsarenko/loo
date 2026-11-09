@@ -6,7 +6,8 @@ import { buildPrebuilt, buildUnitsSync, manifestPath, prebuiltPath, unitsSyncPat
 // Parses the deployed guides (./content by default) once at build time and writes the snapshot a cold server loads
 // instead of parsing the vault (src/content/store.ts → prebuilt snapshot; docs/PERFORMANCE.md). vercel-build runs
 // it before `next build`, so the file ships with every server function (next.config.ts → outputFileTracingIncludes).
-// Next to it: units-sync.json.br (unit rows) and manifest.json (their fingerprint). Deployments use it only when the vault listing still matches; locally CONTENT_SNAPSHOT=1 opts in.
+// Next to it: units-sync.json.br (unit rows) and manifest.json (their fingerprint). Deployments use it only when
+// the vault listing still matches; locally CONTENT_SNAPSHOT=1 opts in.
 
 const i = process.argv.indexOf('--vault')
 const vaultPath = path.resolve(i >= 0 && process.argv[i + 1] ? process.argv[i + 1]! : 'content')

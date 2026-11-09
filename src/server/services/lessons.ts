@@ -72,7 +72,7 @@ export interface LessonPlayerData {
 export async function renderLessonItems(snapshot: ContentSnapshot, refs: ReadonlyArray<{ kind: 'unit' | 'reel'; id: string }>): Promise<PlayerItem[]> {
   const unitIds = refs.flatMap((i) => (i.kind === 'unit' ? [i.id] : []))
   const rendered = new Map((await renderStudyItems(snapshot, unitIds)).map((r) => [r.unitId, r]))
-  const reels = new Map(await getReels(refs.flatMap((i) => (i.kind === 'reel' ? [i.id] : []))))
+  const reels = await getReels(refs.flatMap((i) => (i.kind === 'reel' ? [i.id] : [])))
   // reels of translated topics in the UI locale (same ids; src/server/content-i18n.ts)
   const reelChapters = new Set(refs.flatMap((r) => (r.kind === 'reel' ? [reels.get(r.id)?.chapterId ?? ''] : [])).filter((id) => snapshot.translations.has(id)))
   for (const chapterId of reelChapters) {

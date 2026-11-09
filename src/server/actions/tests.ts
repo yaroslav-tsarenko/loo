@@ -85,18 +85,19 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
   const unfinished = await sectionUnfinished(test)
   const now = Date.now()
   const day = dayKey(now)
+  // The draw and the exercise bodies don't need the transaction: read them before it holds a connection.
+  const seed = attemptSeed(user.id, input.attempt)
+  const built = drawTest(test, seed)
+  if (!built) throw new Error('Unknown test')
+  const bodies = await exerciseUnits(test.bundle, built.questions)
   const outcome = await userScope(
     async (tx, userId) => {
       const record = await readTestRecord(tx, userId, test)
-      const seed = attemptSeed(userId, input.attempt)
       // Only the attempt that was started, once, with the seed it was drawn with.
       if (!record || record.attempts !== input.attempt || record.graded >= input.attempt || record.lastSeed !== seed) throw new Error('Stale attempt')
-      const built = drawTest(test, seed)
-      if (!built) throw new Error('Unknown test')
       const fallback = fallbackPool(test)
       // Quizzes are graded from the first answer the server checked during the attempt (answerQuiz → record.answers);
       // only self-rated fallback cards come from this request.
-      const bodies = await exerciseUnits(test.bundle, built.questions)
       const answerFor = (unit: LearningUnit | null, i: number) => {
         if (unit?.kind !== 'quiz') return input.answers[i]
         const stored = record.answers[String(i)]

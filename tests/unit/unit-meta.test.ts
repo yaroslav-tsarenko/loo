@@ -62,6 +62,9 @@ describe('content index', () => {
     await store.forEachGuideText((_guideId, texts) => {
       for (const [id, text] of texts) seen.set(id, text)
     })
-    for (const guide of full.guides) for (const id of guide.chapterIds) expect(seen.get(id)).toBe(full.plainText.get(id))
+    expect(seen.size).toBe(full.plainText.size)
+    for (const [id, text] of full.plainText) expect(seen.get(id)).toBe(text)
+    // a guide's index page is a chapter too
+    for (const guide of full.guides) if (guide.indexChapterId) expect(seen.has(guide.indexChapterId)).toBe(true)
   })
 })

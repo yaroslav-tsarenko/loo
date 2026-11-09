@@ -18,6 +18,7 @@ import { rankInput } from '../game/ranks'
 import { safeRedirectPath } from '@/lib/redirect'
 import { getProfile, requireUser, userScope } from '../auth'
 import { parseInput } from '../auth-guard'
+import type { LearningUnit } from '@/content/model'
 import { getContent, getPlacementUnit } from '../content'
 import { activate, enrollIn, levelFromPreference } from '../courses/enrollment'
 import { limitUser } from '../courses/limits'
@@ -195,9 +196,13 @@ async function replay(raw: unknown) {
   const snapshot = await getContent()
   // the replay grades the answered items only
   const answered = input.answers.map((a) => a.id)
-  const bankIds = answered.filter((id) => bundle.placement.bank?.[id])
-  const [bank, exercises] = await Promise.all([Promise.all(bankIds.map((id) => getPlacementUnit(id))), exerciseUnits(bundle, answered)])
-  const bankUnits = new Map(bank.flatMap((u) => (u ? [[u.id, u] as const] : [])))
+  // a bank test grades bank items; without a bank the questions are the course's exercises
+  const bankUnits = new Map<string, LearningUnit>()
+  let exercises = new Map<string, LearningUnit>()
+  if (bundle.placement.bank) {
+    const bank = await Promise.all(answered.filter((id) => bundle.placement.bank?.[id]).map((id) => getPlacementUnit(id)))
+    for (const u of bank) if (u) bankUnits.set(u.id, u)
+  } else exercises = await exerciseUnits(bundle, answered)
   const unitOf = placementUnitOf(bundle, bankUnits, (id) => exercises.get(id) ?? null)
   const seed = placementSeed(user.id, input.nonce)
   const run = replayPlacement(bundle, input.answers, seed, unitOf, { followUp: input.followUp })
