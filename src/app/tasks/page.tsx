@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PiArrowLeftBold, PiArrowRightBold, PiCheckBold, PiCodeBlockFill, PiPencilSimpleFill, PiTestTubeFill, PiXBold } from 'react-icons/pi'
 import { DIFFICULTIES, DIFFICULTY_LABEL, type TaskUnit } from '@/content/model'
-import { getContent } from '@/server/content'
+import { getContent, getUnit } from '@/server/content'
 import { studyScope } from '@/server/courses/enrollment'
 import { matchUnits, parseFilters, taskStates } from '@/server/services/queue'
 import { renderStudyItems } from '@/ui/study/render-items'
@@ -34,7 +34,7 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   const guideQuery = `${allQuery}${filters.guide ? `guide=${encodeURIComponent(filters.guide)}&` : ''}`
 
   if (unitParam) {
-    const unit = snapshot.units.get(unitParam)
+    const unit = await getUnit(unitParam)
     if (!unit || unit.kind !== 'task') notFound()
     const [item] = await renderStudyItems(snapshot, [unit.id])
     if (!item || item.kind !== 'task') notFound()

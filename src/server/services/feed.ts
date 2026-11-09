@@ -13,6 +13,7 @@ import { safeExternalUrl } from '@/lib/url'
 import { chapterHref } from '@/ui/routes'
 import { renderStudyItems, type FlashItem, type QuizItem } from '@/ui/study/render-items'
 import { userScope } from '../auth'
+import { getReels } from '../content'
 import { adaptiveContext, feedQuizOrder, newWordOrder } from '../courses/adaptive'
 import { activeScope } from '../courses/enrollment'
 import { lastOutcomes, shuffle } from './queue'
@@ -148,7 +149,10 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
     else plan.push({ kind: 'unit', id: queues[kind].shift()!.id })
   }
 
-  const rendered = await renderStudyItems(snapshot, plan.flatMap((p) => (p.kind === 'unit' ? [p.id] : [])), now)
+  const [rendered, reelBodies] = await Promise.all([
+    renderStudyItems(snapshot, plan.flatMap((p) => (p.kind === 'unit' ? [p.id] : [])), now),
+    getReels(plan.flatMap((p) => (p.kind === 'reel' && p.item.kind === 'guide' ? [p.item.reel.id] : []))),
+  ])
   const byId = new Map(rendered.map((r) => [r.unitId, r]))
   const slides = await Promise.all(
     plan.map(async (p): Promise<FeedSlide | null> => {
@@ -158,9 +162,9 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
         return item.kind === 'flashcard' ? { kind: 'flashcard', item } : { kind: 'quiz', item }
       }
       if (p.item.kind === 'ai') return renderGenerated(p.item.row, snapshot, states.get(p.item.row.id))
-      const reel = p.item.reel
-      const chapter = snapshot.chapters.get(reel.chapterId)
-      if (!chapter) return null
+      const reel = reelBodies.get(p.item.reel.id)
+      const chapter = reel && snapshot.chapters.get(reel.chapterId)
+      if (!reel || !chapter) return null
       const state = states.get(reel.id)
       return {
         kind: 'reel',

@@ -432,7 +432,7 @@ export class ContentStore {
     } catch {
       return null
     }
-    const units = new Map((snapshot.unitsByChapter.get(chapterId) ?? []).map((u) => [u.id, u]))
+    const units = new Map((await this.chapterUnits(chapterId)).map((u) => [u.id, u]))
     const selfName = path.basename(source.chapter.path, '.md').normalize('NFC')
     const merged = localizeDocument(
       { root: source.root, headings: source.headings, units },
@@ -441,7 +441,7 @@ export class ContentStore {
     )
     if (!merged) return null
     // reels in page order (a fallback block holds the source's), matched to the source reels by position
-    const srcReels = snapshot.reels.filter((r) => r.chapterId === chapterId)
+    const srcReels = await this.chapterReels(chapterId)
     const unwrapped: Root = { type: 'root', children: merged.root.children.flatMap((n) => (n.type === 'i18nFallback' ? (n.children as Root['children']) : [n])) }
     const trReels = collectReels(unwrapped, source.chapter.guideId, chapterId)
     const reels = new Map<string, Reel>(trReels.length === srcReels.length ? srcReels.map((r, i) => [r.id, { ...trReels[i]!, id: r.id, sectionSlug: r.sectionSlug }]) : [])
@@ -454,6 +454,45 @@ export class ContentStore {
       this.localized.delete(oldest)
     }
     return doc
+  }
+
+  // Unit and reel bodies. They are resolved from the in-memory snapshot for now; the API is async so the storage behind
+  // it can load them lazily (docs/fullstack/stage1/01-storage.md).
+  async unit(id: string): Promise<LearningUnit | null> {
+    return (await this.get()).units.get(id) ?? null
+  }
+
+  async units(ids: readonly string[]): Promise<Map<string, LearningUnit>> {
+    const { units } = await this.get()
+    const out = new Map<string, LearningUnit>()
+    for (const id of ids) {
+      const unit = units.get(id)
+      if (unit) out.set(id, unit)
+    }
+    return out
+  }
+
+  async chapterUnits(chapterId: string): Promise<LearningUnit[]> {
+    return (await this.get()).unitsByChapter.get(chapterId) ?? []
+  }
+
+  async reels(ids: readonly string[]): Promise<Map<string, Reel>> {
+    const wanted = new Set(ids)
+    return new Map((await this.get()).reels.filter((r) => wanted.has(r.id)).map((r) => [r.id, r]))
+  }
+
+  async chapterReels(chapterId: string): Promise<Reel[]> {
+    return (await this.get()).reels.filter((r) => r.chapterId === chapterId)
+  }
+
+  // the placement-test bank of one guide (`_placement/`), by unit id
+  async placementUnits(guideId: string): Promise<Map<string, LearningUnit>> {
+    const { placementUnits } = await this.get()
+    return new Map([...placementUnits].filter(([, u]) => u.guideId === guideId))
+  }
+
+  async placementUnit(id: string): Promise<LearningUnit | null> {
+    return (await this.get()).placementUnits.get(id) ?? null
   }
 
   async get(): Promise<ContentSnapshot> {

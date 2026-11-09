@@ -9,14 +9,14 @@ import { dayKey } from '@/progress/day'
 import type { Effect, FlashRating } from '@/progress/types'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
-import { getContent } from '../content'
+import { getContent, getUnit } from '../content'
 import { BUCKS, buckRef, PRACTICE_MIN_ANSWERS, PRACTICE_REFILL } from '@/game'
 import { addHearts, awardBucks, loadState } from '../game'
 import { readForAttempt, recordAttempt, recordAttemptIn, settleProgress } from '../services/progress'
 
 async function unitOrThrow(unitId: string) {
   const snapshot = await getContent()
-  const unit = snapshot.units.get(unitId)
+  const unit = await getUnit(unitId)
   if (!unit) throw new Error('Unknown unit')
   return { snapshot, unit }
 }

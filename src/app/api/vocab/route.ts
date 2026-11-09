@@ -1,5 +1,5 @@
 import { apiUser } from '@/server/auth'
-import { getContent } from '@/server/content'
+import { getChapterUnits, getContent } from '@/server/content'
 import type { ContentSnapshot } from '@/content/store'
 
 export const dynamic = 'force-dynamic'
@@ -19,14 +19,14 @@ export interface VocabWord {
 
 const built = new WeakMap<ContentSnapshot, Map<string, string>>()
 
-function chapterWords(snapshot: ContentSnapshot, chapterId: string): string {
+async function chapterWords(snapshot: ContentSnapshot, chapterId: string): Promise<string> {
   let byChapter = built.get(snapshot)
   if (!byChapter) built.set(snapshot, (byChapter = new Map()))
   const hit = byChapter.get(chapterId)
   if (hit) return hit
   const words: VocabWord[] = []
-  for (const u of snapshot.units.values()) {
-    if (u.chapterId !== chapterId || u.kind !== 'flashcard' || !u.word) continue
+  for (const u of await getChapterUnits(chapterId)) {
+    if (u.kind !== 'flashcard' || !u.word) continue
     words.push({ id: u.id, word: u.word.word, ipa: u.word.ipa, ipaUs: u.word.ipaUs ?? null, tr: u.word.translations.join('; '), lang: u.lang ?? null })
   }
   const json = JSON.stringify({ words })
@@ -39,5 +39,5 @@ export async function GET(request: Request): Promise<Response> {
   const chapter = new URL(request.url).searchParams.get('chapter') ?? ''
   const snapshot = await getContent()
   if (!chapter || chapter.length > 300 || !snapshot.chapters.has(chapter)) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'no-store' } })
-  return new Response(chapterWords(snapshot, chapter), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=3600' } })
+  return new Response(await chapterWords(snapshot, chapter), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=3600' } })
 }

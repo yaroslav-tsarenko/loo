@@ -4,7 +4,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { CourseBundle } from '@/course'
 import type { LearningUnit } from '@/content/model'
-import type { ContentSnapshot } from '@/content/store'
+import { getUnits } from '../content'
 import { courseIdOf, courseListing, parseBundles, type CourseEntry, type CourseListing } from './bundles'
 
 export { courseIdOf, type CourseEntry, type CourseListing, type CourseSource } from './bundles'
@@ -89,8 +89,8 @@ export async function defaultCourse(): Promise<CourseBundle | null> {
   return first?.bundle ?? null
 }
 
-// Exercise bodies live in the content store, keyed by the same id as the bundle's exercise refs.
-export function exerciseUnit(snapshot: ContentSnapshot, bundle: CourseBundle, exerciseId: string): LearningUnit | null {
-  if (!bundle.exercises[exerciseId]) return null
-  return snapshot.units.get(exerciseId) ?? null
+// Exercise bodies live in the content store, keyed by the same id as the bundle's exercise refs. Ids that are not
+// exercises of the bundle are left out.
+export async function exerciseUnits(bundle: CourseBundle, exerciseIds: readonly string[]): Promise<Map<string, LearningUnit>> {
+  return getUnits(exerciseIds.filter((id) => bundle.exercises[id]))
 }

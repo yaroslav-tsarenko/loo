@@ -14,7 +14,7 @@ import type { Effect } from '@/progress/types'
 import { renderMdast } from '@/ui/markdown/render'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
-import { getContent } from '../content'
+import { getContent, getUnit } from '../content'
 import { localizedUnits } from '../content-i18n'
 import { limitUser } from '../courses/limits'
 import { speechLangFor } from '../courses/target'
@@ -77,7 +77,7 @@ export async function answerQuiz(raw: AnswerRequest): Promise<AnswerOutcome> {
   const input = parseInput(answerInput, raw)
   await limitUser(user.id, 'answer')
   const snapshot = await getContent()
-  const unit = snapshot.units.get(input.unitId)
+  const unit = await getUnit(input.unitId)
   if (!unit || unit.kind !== 'quiz') throw new Error('Unknown quiz')
   if (unit.mode === 'speak') {
     if (input.test) throw new Error('Speaking is not part of tests')

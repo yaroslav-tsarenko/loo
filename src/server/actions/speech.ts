@@ -4,7 +4,7 @@ import { z } from 'zod'
 import type { AudioLine } from '@/content/model'
 import { requireUser } from '../auth'
 import { ids, parseInput } from '../auth-guard'
-import { getContent } from '../content'
+import { getPlacementUnit, getUnit } from '../content'
 import { limitUser } from '../courses/limits'
 
 // Speech for language courses, v1 = free browser speech (docs/SPEECH.md, owner's decision):
@@ -24,9 +24,8 @@ export async function speechLines(raw: { unitId: string }): Promise<SpeechLines>
   const user = await requireUser()
   const input = parseInput(linesInput, raw)
   await limitUser(user.id, 'audio')
-  const snapshot = await getContent()
   // placement bank items play through the same path (the test never ships their transcript)
-  const unit = snapshot.units.get(input.unitId) ?? snapshot.placementUnits.get(input.unitId)
+  const unit = (await getUnit(input.unitId)) ?? (await getPlacementUnit(input.unitId))
   if (unit?.kind === 'quiz' && unit.listen) return { lines: unit.listen.lines, slow: unit.listen.slow }
   if (unit?.kind === 'quiz' && unit.pair) return { lines: [{ speaker: null, text: unit.pair.say }], slow: false }
   throw new Error('No audio')
