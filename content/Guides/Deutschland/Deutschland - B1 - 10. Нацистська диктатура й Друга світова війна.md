@@ -63,7 +63,7 @@ estimatedMinutes: 45
 ### Gleichschaltung: одна партія, один голос
 
 Нацисти називали підкорення всього суспільства своїй владі **die Gleichschaltung** — «уніфікація». За LeMO:
-- 31 березня 1933 року закон «про уніфікацію земель» розпустив ландтаги — федералізм фактично зник;
+- 31 березня 1933 року закон «про уніфікацію земель» перебудував ландтаги за підсумками виборів 5 березня (без мандатів КПН), а 30 січня 1934 року ландтаги скасували зовсім — федералізм фактично зник;
 - 1 квітня — бойкот єврейських крамниць, лікарів і адвокатів;
 - 2 травня — поліція, SA і SS захопили приміщення профспілок, профспілки розгромили;
 - 10 травня — у містах палили книжки єврейських і опозиційних авторів (**die Bücherverbrennung**);
@@ -75,7 +75,7 @@ estimatedMinutes: 45
 
 ### Шлях до війни
 
-23 серпня 1939 року нацистська Німеччина і СРСР уклали договір про ненапад (**Hitler-Stalin-Pakt**). Таємний додатковий протокол поділив Польщу й Балтію на сфери впливу. 1 вересня 1939 року Вермахт напав на Польщу — почалася Друга світова війна; 17 вересня в Польщу з другого боку ввійшла Червона армія. Західна Україна (Галичина, Волинь), що до того належала Польщі, опинилася під владою СРСР.
+23 серпня 1939 року нацистська Німеччина і СРСР уклали договір про ненапад (**Hitler-Stalin-Pakt**). Таємний додатковий протокол поділив Польщу, Балтію, Фінляндію й Бессарабію на сфери впливу. 1 вересня 1939 року Вермахт напав на Польщу — почалася Друга світова війна; 17 вересня в Польщу з другого боку ввійшла Червона армія. Західна Україна (Галичина, Волинь), що до того належала Польщі, опинилася під владою СРСР.
 
 У 1940 році Німеччина окупувала Данію, Норвегію, Нідерланди, Бельгію, Люксембург і більшу частину Франції.
 
@@ -83,18 +83,18 @@ estimatedMinutes: 45
 
 22 червня 1941 року Німеччина без оголошення війни напала на Радянський Союз. LeMO пише, що цю війну від початку задумали як ідеологічну й расову **війну на знищення** (*der Vernichtungskrieg*): убивство єврейського населення й радянських «керівних верств» було заплановане заздалегідь. Накази зобовʼязували розстрілювати полонених політичних комісарів Червоної армії; на нараді 2 травня 1941 року статс-секретарі спокійно констатували, що «десятки мільйонів людей» помруть з голоду, коли Німеччина вивозитиме продовольство.
 
-Злочином стало й поводження з радянськими військовополоненими. За даними LeMO, з приблизно 5,7 млн червоноармійців, що потрапили в німецький полон, 3,3 млн не пережили його (у виданні bpb — «понад 3 млн»); лише до лютого 1942 року загинуло близько двох мільйонів — від голоду, холоду, хвороб і розстрілів. Табори для радянських полонених здебільшого підпорядковувалися Вермахтові.
+Злочином стало й поводження з радянськими військовополоненими. За даними LeMO, з приблизно 5,7 млн червоноармійців, що потрапили в німецький полон, 3,3 млн не пережили його (у виданні bpb — «понад 3 млн»); лише до лютого 1942 року загинуло близько двох мільйонів — від голоду, холоду, хвороб і розстрілів. Табори для радянських полонених здебільшого підпорядковувалися Вермахтові (так пише bpb у виданні «Dimensionen eines Verbrechens»).
 
 ### Окупація України
 
 Київ Вермахт захопив 19 вересня 1941 року. Окуповану Україну розділили:
 - **Distrikt Galizien** зі Львовом з 1 серпня 1941 року приєднали до *Generalgouvernement* — окупаційної влади в Польщі;
-- з 1 вересня 1941 року діяв **Reichskommissariat Ukraine** на чолі з райхскомісаром **Erich Koch**; адміністрація сиділа в Рівному (*Rowno*);
+- з 1 вересня 1941 року діяв **Reichskommissariat Ukraine** на чолі з рейхскомісаром **Erich Koch**; адміністрація сиділа в Рівному (нім. *Rowno*, укр. Рівне);
 - землі між Дністром і Бугом («Трансністрію») отримала союзниця Німеччини — Румунія; східні області лишалися під військовою адміністрацією.
 
 29–30 вересня 1941 року в яру **Бабин Яр** (*Babyn Jar*) біля Києва зондеркоманда 4a айнзацгрупи C разом з підрозділами поліції розстріляла 33 771 єврея — цю цифру назвали самі виконавці у звіті *Ereignismeldung UdSSR Nr. 101* від 2 жовтня 1941 року. Розстріли в Бабиному Яру тривали до осені 1943 року (детальніше — у [[Deutschland - B1 - 11. Голокост і культура памʼяті]]).
 
-З 1942 року окупанти масово вивозили людей до Німеччини на примусову працю. Указ Гіммлера від 20 лютого 1942 року (*Ostarbeiter-Erlasse*) поставив вивезених з СРСР цивільних робітників під дискримінаційне «особливе право»: закриті табори за колючим дротом і нашивка **«OST»** на одязі. Цих людей нацисти називали **Ostarbeiter** («східні робітники»). Зі сучасної території України, за різними оцінками, вивезли від 2 до 2,4 млн людей (Dokumentationszentrum NS-Zwangsarbeit; Stiftung EVZ). Загалом у Німецькій державі в 1939–1945 роках, за даними Stiftung EVZ, примусово працювали понад 13 млн людей.
+З 1942 року окупанти масово вивозили людей до Німеччини на примусову працю. Указ Гіммлера від 20 лютого 1942 року (*Ostarbeiter-Erlasse*) поставив вивезених з СРСР цивільних робітників під дискримінаційне «особливе право»: закриті табори за колючим дротом і нашивка **«OST»** на одязі. Цих людей нацисти називали **Ostarbeiter** («східні робітники»). З сучасної території України, за різними оцінками, вивезли від 2 до 2,4 млн людей (Dokumentationszentrum NS-Zwangsarbeit; Stiftung EVZ). Загалом у Німецькій державі в 1939–1945 роках, за даними Stiftung EVZ, примусово працювали понад 13 млн людей.
 
 За оцінками Інституту демографії ім. Птухи, які наводить Німецько-українська комісія істориків, населення УРСР з 22 червня 1941 до 8 травня 1945 року скоротилося з 42,4 до 32 млн — через убивства, загибель на фронті, голод, вивезення й евакуацію. Київ визволили 6 листопада 1943 року.
 
@@ -103,7 +103,7 @@ estimatedMinutes: 45
 Опір у Німеччині був, але меншості й смертельно небезпечний.
 - **Georg Elser**, тесля з Вюртемберга, 8 листопада 1939 року підірвав бомбу в мюнхенській пивній *Bürgerbräukeller*, де щороку виступав Гітлер. Гітлер пішов на кілька хвилин раніше. Ельзера тримали в ізоляції понад пʼять років і вбили в концтаборі Дахау 9 квітня 1945 року.
 - «**Weiße Rose**» («Біла троянда») — мюнхенські студенти й професор, що в 1942–1943 роках поширювали листівки (**Flugblätter**) проти режиму. Hans і Sophie Scholl та Christoph Probst стратили 22 лютого 1943 року.
-- **20 липня 1944 року** полковник Claus Schenk Graf von Stauffenberg підклав бомбу в ставці Гітлера «Wolfsschanze» у Східній Пруссії. Гітлер вижив. Того ж вечора Штауфенберга та ще трьох офіцерів розстріляли у дворі *Bendlerblock* у Берліні.
+- **20 липня 1944 року** полковник Claus Schenk Graf von Stauffenberg підклав бомбу в ставці Гітлера «Wolfsschanze» у Східній Пруссії. Гітлер вижив. В ніч проти 21 липня Штауфенберга та ще трьох офіцерів розстріляли у дворі *Bendlerblock* у Берліні.
 
 > [!quote] Weiße Rose, четверта листівка, літо 1942 року
 > **«Wir schweigen nicht, wir sind Euer böses Gewissen; die Weiße Rose läßt Euch keine Ruhe!»**
@@ -111,7 +111,7 @@ estimatedMinutes: 45
 
 ### 8 травня 1945: капітуляція
 
-30 квітня 1945 року Гітлер наклав на себе руки в Берліні. 7 травня в Реймсі, а в ніч на 9 травня ще раз у Берлін-Карлсгорсті представники Вермахту підписали **беззастережну капітуляцію** (*die bedingungslose Kapitulation*); вона набула чинності 8 травня о 23:01 за центральноєвропейським часом. Bpb підсумовує: шість років війни й **понад 60 млн загиблих**. Україна з 2023 року відзначає 8 травня як День памʼяті та перемоги над нацизмом у Другій світовій війні.
+30 квітня 1945 року Гітлер наклав на себе руки в Берліні. 7 травня в Реймсі, а в ніч на 9 травня ще раз у Берлін-Карлсгорсті представники Вермахту підписали **беззастережну капітуляцію** (*die bedingungslose Kapitulation*); вона набула чинності 8 травня о 23:01 за центральноєвропейським часом. Bpb підсумовує: шість років війни й **понад 60 млн загиблих**. В Україні 8 травня відзначали як День памʼяті та примирення з 2015 року; законом 2023 року його перейменували на День памʼяті та перемоги над нацизмом у Другій світовій війні (вперше під новою назвою — у 2024 році).
 
 У Західній Німеччині довго говорили про «поразку» й «катастрофу». 8 травня 1985 року федеральний президент Richard von Weizsäcker сказав у Бундестагу:
 
@@ -170,10 +170,10 @@ estimatedMinutes: 45
 > uk: прихід до влади (нацистів 1933 року), передача влади
 > forms: die Machtübernahmen
 > example: Mit der **Machtübernahme** 1933 begann die NS-Diktatur. — З приходом нацистів до влади 1933 року почалася нацистська диктатура.
-> note: нацистське самоназвання — *Machtergreifung* («захоплення влади»); в історичних текстах його беруть у лапки. Точніше — *Machtübertragung* («передача влади»).
+> note: нацистська самоназва — *Machtergreifung* («захоплення влади»); в історичних текстах його беруть у лапки. Точніше — *Machtübertragung* («передача влади»).
 
 > [!word] die Diktatur
-> ipa: /dɪktaˈtuːɐ̯/ · pos: noun · level: B1 · id: dl-b1-10-w02
+> ipa: /dɪktaˈtuːɐ̯/ · pos: noun · level: B2 · id: dl-b1-10-w02
 > uk: диктатура
 > forms: die Diktaturen
 > example: Innerhalb weniger Monate wurde aus der Republik eine **Diktatur**. — За кілька місяців республіка перетворилася на диктатуру.
@@ -208,7 +208,7 @@ estimatedMinutes: 45
 > note: скорочення *das KZ* [kaːˈtsɛt], мн. *die KZs*. *Die KZ-Gedenkstätte* — меморіал на місці концтабору.
 
 > [!word] die Propaganda
-> ipa: /pʁopaˈɡanda/ · pos: noun · level: B1 · id: dl-b1-10-w07
+> ipa: /pʁopaˈɡanda/ · pos: noun · level: B2 · id: dl-b1-10-w07
 > uk: пропаганда
 > forms: — (без множини)
 > example: Die NS-**Propaganda** nutzte Radio, Film und Plakate. — Нацистська пропаганда використовувала радіо, кіно й плакати.
@@ -234,10 +234,10 @@ estimatedMinutes: 45
 > uk: Друга світова війна
 > forms: — (без множини)
 > example: Nach dem **Zweiten Weltkrieg** lag Europa in Trümmern. — Після Другої світової війни Європа лежала в руїнах.
-> note: *Zweite* — з великої, бо це назва; прикметник відмінюється: *im Zweiten Weltkrieg*, *des Zweiten Weltkriegs*. *Der Weltkrieg* — мн. *die Weltkriege*.
+> note: *Zweite* — з великої, бо це назва; прикметник відмінюється: *im Zweiten Weltkrieg*, *des Zweiten Weltkriegs*.
 
 > [!word] der Überfall
-> ipa: /ˈyːbɐfal/ · pos: noun · level: B1 · id: dl-b1-10-w11
+> ipa: /ˈyːbɐfal/ · pos: noun · level: B2 · id: dl-b1-10-w11
 > uk: напад (зненацька)
 > forms: die Überfälle
 > example: Der **Überfall** auf Polen begann am 1. September 1939. — Напад на Польщу почався 1 вересня 1939 року.
@@ -259,13 +259,13 @@ estimatedMinutes: 45
 
 > [!word] das Reichskommissariat
 > ipa: /ˈʁaɪ̯çskɔmɪsaˌʁi̯aːt/ · pos: noun · level: B2 · id: dl-b1-10-w14
-> uk: райхскомісаріат — німецька цивільна окупаційна адміністрація
+> uk: рейхскомісаріат — німецька цивільна окупаційна адміністрація
 > forms: die Reichskommissariate
-> example: Das **Reichskommissariat** Ukraine hatte seinen Sitz in Riwne. — Адміністрація райхскомісаріату «Україна» містилася в Рівному.
-> note: *der Reichskommissar* — райхскомісар (для України — Erich Koch).
+> example: Das **Reichskommissariat** Ukraine hatte seinen Sitz in Rowno (heute Riwne). — Адміністрація рейхскомісаріату «Україна» містилася в Рівному.
+> note: *der Reichskommissar* — рейхскомісар (для України — Erich Koch).
 
 > [!word] die Zwangsarbeit
-> ipa: /ˈtsvaŋsʔaʁbaɪ̯t/ · pos: noun · level: B1 · id: dl-b1-10-w15
+> ipa: /ˈtsvaŋsʔaʁbaɪ̯t/ · pos: noun · level: B2 · id: dl-b1-10-w15
 > uk: примусова праця
 > forms: — (без множини)
 > example: Mehr als 13 Millionen Menschen mussten im Deutschen Reich **Zwangsarbeit** leisten. — Понад 13 мільйонів людей мусили виконувати в Німецькій державі примусову працю.
@@ -279,7 +279,7 @@ estimatedMinutes: 45
 > note: нацистський адміністративний термін; у сучасному тексті — в лапках: *sogenannte „Ostarbeiter“*. Жін. *die Ostarbeiterin*. Нейтрально — *ukrainische Zwangsarbeiterinnen und Zwangsarbeiter*.
 
 > [!word] der Kriegsgefangene
-> ipa: /ˈkʁiːksɡəˌfaŋənə/ · pos: noun · level: B1 · id: dl-b1-10-w17
+> ipa: /ˈkʁiːksɡəˌfaŋənə/ · pos: noun · level: B2 · id: dl-b1-10-w17
 > uk: військовополонений
 > forms: die Kriegsgefangenen
 > example: Mehr als drei Millionen sowjetische **Kriegsgefangene** starben in deutschen Lagern. — Понад три мільйони радянських військовополонених загинули в німецьких таборах.
@@ -288,35 +288,35 @@ estimatedMinutes: 45
 ### Опір і кінець війни
 
 > [!word] der Widerstand
-> ipa: /ˈviːdɐʃtant/ · pos: noun · level: B1 · id: dl-b1-10-w18
+> ipa: /ˈviːdɐʃtant/ · pos: noun · level: B2 · id: dl-b1-10-w18
 > uk: опір; рух опору
 > forms: die Widerstände
 > example: Die Weiße Rose leistete **Widerstand** gegen das NS-Regime. — «Біла троянда» чинила опір нацистському режимові.
 > note: *Widerstand leisten gegen + Akk* — чинити опір. Множина вживається в значенні «перешкоди» або в електротехніці; у значенні «рух опору» — лише однина.
 
 > [!word] das Flugblatt
-> ipa: /ˈfluːkblat/ · pos: noun · level: B1 · id: dl-b1-10-w19
+> ipa: /ˈfluːkblat/ · pos: noun · level: B2 · id: dl-b1-10-w19
 > uk: листівка (агітаційна)
 > forms: die Flugblätter
 > example: Die Gruppe verteilte sechs **Flugblätter**. — Група поширила шість листівок.
 > note: *der Flyer* — сучасна рекламна листівка; *das Flugblatt* — передусім політична.
 
 > [!word] die Kapitulation
-> ipa: /kapitulaˈtsi̯oːn/ · pos: noun · level: B1 · id: dl-b1-10-w20
+> ipa: /kapitulaˈtsi̯oːn/ · pos: noun · level: C1 · id: dl-b1-10-w20
 > uk: капітуляція
 > forms: die Kapitulationen
 > example: Die bedingungslose **Kapitulation** trat am 8. Mai 1945 in Kraft. — Беззастережна капітуляція набула чинності 8 травня 1945 року.
 > note: дієслово *kapitulieren* (kapitulierte · hat kapituliert).
 
 > [!word] die Befreiung
-> ipa: /bəˈfʁaɪ̯ʊŋ/ · pos: noun · level: B1 · id: dl-b1-10-w21
+> ipa: /bəˈfʁaɪ̯ʊŋ/ · pos: noun · level: B2 · id: dl-b1-10-w21
 > uk: визволення, звільнення
 > forms: die Befreiungen
 > example: Für die Häftlinge der Lager bedeutete das Kriegsende die **Befreiung**. — Для вʼязнів таборів кінець війни означав визволення.
 > note: *befreien von + Dat* — визволити від: *von der Diktatur befreien*. Weizsäcker 1985: *ein Tag der Befreiung*.
 
 > [!word] verfolgen
-> ipa: /fɛɐ̯ˈfɔlɡn̩/ · pos: verb · level: B1 · id: dl-b1-10-w22
+> ipa: /fɛɐ̯ˈfɔlɡn̩/ · pos: verb · level: B2 · id: dl-b1-10-w22
 > uk: переслідувати
 > forms: verfolgen → verfolgte → hat verfolgt
 > example: Das Regime **verfolgte** Juden, Sinti und Roma und politische Gegner. — Режим переслідував євреїв, синті й рома та політичних противників.
@@ -473,7 +473,7 @@ estimatedMinutes: 45
 > **Пояснення:** закон потребував двох третин голосів, тож нацистам були потрібні консерватори, Zentrum і ліберали — вони проголосували «за». 94 голоси «проти» — усі від СДПН (Otto Wels). Мандати КПН анулювали 8 березня, багато депутатів були під арештом.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: B1 · type: fill · id: dl-b1-10-q08 · bank: Wiedervereinigung, Währungsunion
+> level: B1 · type: fill · id: dl-b1-10-q08 · bank: Bücherverbrennung, Volksgemeinschaft
 >
 > ```text fill
 > Mit Hitlers Ernennung am 30. Januar 1933 begann die [[Machtübernahme]] der Nationalsozialisten.
@@ -483,7 +483,7 @@ estimatedMinutes: 45
 > Millionen Menschen aus der Ukraine mussten in Deutschland [[Zwangsarbeit]] leisten.
 > ```
 >
-> **Пояснення:** *Widerstand leisten* і *Zwangsarbeit leisten* — сталі сполучення з дієсловом *leisten*. *Wiedervereinigung* і *Währungsunion* — слова 1990 року (B1-13), тут зайві.
+> **Пояснення:** *Widerstand leisten* і *Zwangsarbeit leisten* — сталі сполучення з дієсловом *leisten*. *Bücherverbrennung* і *Volksgemeinschaft* — теж терміни цієї доби, але за змістом у жоден пропуск не підходять.
 
 > [!quiz] Хто очолював Reichskommissariat Ukraine і де була його адміністрація?
 > level: B1 · type: single · id: dl-b1-10-q09
@@ -492,7 +492,7 @@ estimatedMinutes: 45
 > - [ ] Alfred Rosenberg, адміністрація — у Києві
 > - [ ] Reinhard Heydrich, адміністрація — у Харкові
 >
-> **Пояснення:** райхскомісаром став Erich Koch, адміністрація сиділа в Рівному (*Rowno*). Hans Frank — генерал-губернатор окупованої Польщі, до якої з 1 серпня 1941 року приєднали Distrikt Galizien зі Львовом. Alfred Rosenberg — міністр окупованих східних територій у Берліні, формальний начальник Коха.
+> **Пояснення:** рейхскомісаром став Erich Koch, адміністрація сиділа в Рівному (*Rowno*). Hans Frank — генерал-губернатор окупованої Польщі, до якої з 1 серпня 1941 року приєднали Distrikt Galizien зі Львовом. Alfred Rosenberg — міністр окупованих східних територій у Берліні, формальний начальник Коха.
 
 > [!quiz] Заповни пропуски правильними формами дієслів
 > level: B1 · type: fill · id: dl-b1-10-q10 · bank: verfolgen, kapitulierten
@@ -531,9 +531,9 @@ estimatedMinutes: 45
 > [!quiz] Що мав на увазі Richard von Weizsäcker, коли 1985 року назвав 8 травня «днем визволення»?
 > level: B1 · type: single · id: dl-b1-10-q13
 > - [x] що 8 травня звільнило й німців від нелюдської системи нацистської влади, — і водночас нагадав, що для багатьох людей тоді почалися тяжкі страждання
-> - [ ] що Німеччина визволила себе сама силами власного руху опору
-> - [ ] що так 8 травня назвали держави-переможниці в акті капітуляції
-> - [ ] що 8 травня визволили лише вʼязнів концтаборів
+> - [ ] що Німеччина визволила себе сама, силами власного руху опору, ще до приходу армій союзників
+> - [ ] що саме так, «днем визволення», 8 травня назвали держави-переможниці в тексті акту про капітуляцію
+> - [ ] що 8 травня визволили лише вʼязнів концтаборів, а решти німців це не стосувалося взагалі
 >
 > **Пояснення:** промова 8 травня 1985 року в Бундестагу відмовилася від погляду «8 травня — лише поразка». Вайцзеккер повʼязав 8 травня з 30 січня 1933 року: без диктатури не було б і війни. В акті капітуляції такого формулювання немає.
 
@@ -552,26 +552,26 @@ estimatedMinutes: 45
 > Нейтральні назви — *die NS-Zeit*, *die NS-Diktatur*, *der Nationalsozialismus*, *das NS-Regime*. Вислів *das Dritte Reich* — самоназва режиму; історики пишуть його в лапках. Слова пропаганди (*Machtergreifung*, *Schutzhaft*, *Volksgemeinschaft*, *Ostarbeiter*) бери в лапки або додавай *sogenannt*.
 
 > [!important] Символи й заперечення — під забороною
-> У Німеччині публічне використання символів неконституційних організацій, зокрема нацистських (свастика, гасла, привітання), — кримінальний злочин за § 86a Кримінального кодексу (*Strafgesetzbuch*). Тому в підручниках і музеях їх показують лише в історичному контексті.
+> У Німеччині публічне використання символів неконституційних організацій, зокрема нацистських (свастика, гасла, привітання), — кримінальний злочин за § 86a Кримінального кодексу (*Strafgesetzbuch*). Заперечення чи применшення геноциду (*Volksverhetzung*) карається за § 130 абз. 3 того ж кодексу. Тому в підручниках і музеях їх показують лише в історичному контексті.
 
 > [!important] Україна в цій історії
-> Для української памʼяті ця війна — не лише фронт. Це окупація з 1941 по 1944 рік, Бабин Яр, сотні тисяч вивезених «остарбайтерів» з кожної області, загибель мільйонів цивільних і полонених. У Німеччині про це довго знали мало; сьогодні цим займаються, зокрема, Stiftung EVZ, Dokumentationszentrum NS-Zwangsarbeit у Берліні й Німецько-українська комісія істориків.
+> Для української памʼяті ця війна — не лише фронт. Це окупація з 1941 по 1944 рік, Бабин Яр, понад 2 мільйони вивезених «остарбайтерів», загибель мільйонів цивільних і полонених. У Німеччині про це довго знали мало; сьогодні цим займаються, зокрема, Stiftung EVZ, Dokumentationszentrum NS-Zwangsarbeit у Берліні й Німецько-українська комісія істориків.
 
 ## Джерела та що почитати
 
 - Призначення 30.01.1933: bpb — [Hindenburg ernennt Hitler zum Reichskanzler](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/263635/hindenburg-ernennt-hitler-zum-reichskanzler/); LeMO — [Ernennung Hitlers zum Reichskanzler](https://www.dhm.de/lemo/kapitel/ns-regime/etablierung-der-ns-herrschaft/ernennung-hitlers-zum-reichskanzler); Deutscher Bundestag — [Machtübernahme der Nationalsozialisten](https://www.bundestag.de/besuche/ausstellungen/verfassung/tafel22/tafel22-199844) (склад кабінету).
 - Пожежа й указ: LeMO — [Reichstagsbrand](https://www.dhm.de/lemo/kapitel/ns-regime/etablierung-der-ns-herrschaft/reichstagsbrand); bpb — [Reichstagsbrand: Auf dem Weg in die Diktatur](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/265402/reichstagsbrand-auf-dem-weg-in-die-diktatur/); 1000dokumente.de — [Verordnung des Reichspräsidenten zum Schutz von Volk und Staat](https://www.1000dokumente.de/Dokumente/Verordnung_des_Reichspr%C3%A4sidenten_zum_Schutz_von_Volk_und_Staat) (текст § 1).
 - Вибори 1932–1933: LeMO — [Reichstagswahl 31. Juli 1932](https://www.dhm.de/lemo/bestand/objekt/reichstagswahl-31-juli-1932) (37,3 %), [Reichstagswahl 1933](https://www.dhm.de/lemo/kapitel/ns-regime/etablierung-der-ns-herrschaft/reichstagswahl-1933) (листопад 1932 — 33,1 %, березень 1933 — 43,9 %).
-- Ermächtigungsgesetz: 1000dokumente.de — [Gesetz zur Behebung der Not von Volk und Reich](https://www.1000dokumente.de/Dokumente/Gesetz_zur_Behebung_der_Not_von_Volk_und_Reich_(Erm%C3%A4chtigungsgesetz)) (444 : 94, промова Вельса).
+- Ermächtigungsgesetz: 1000dokumente.de — [Gesetz zur Behebung der Not von Volk und Reich](https://www.1000dokumente.de/Dokumente/Gesetz_zur_Behebung_der_Not_von_Volk_und_Reich_%28Erm%C3%A4chtigungsgesetz%29) (444 : 94, промова Вельса).
 - Gleichschaltung, 1933–1934: LeMO — [Jahreschronik 1933](https://www.dhm.de/lemo/jahreschronik/1933), [Jahreschronik 1934](https://www.dhm.de/lemo/jahreschronik/1934).
 - Пакт і початок війни: bpb — [Vor 85 Jahren: Deutsch-sowjetischer Nichtangriffspakt](https://www.bpb.de/kurz-knapp/taegliche-dosis-politik/551544/vor-85-jahren-deutsch-sowjetischer-nichtangriffspakt/); LeMO — [Hitler-Stalin-Pakt 1939](https://www.dhm.de/lemo/kapitel/ns-regime/aussenpolitik/hitler-stalin-pakt-1939).
 - Війна проти СРСР і полонені: LeMO — [Überfall auf die Sowjetunion 1941](https://www.dhm.de/lemo/kapitel/der-zweite-weltkrieg/kriegsverlauf/ueberfall-auf-die-sowjetunion-1941), [Der Krieg gegen die Sowjetunion](https://www.dhm.de/lemo/rueckblick/ueberkommene-feindbilder-der-krieg-gegen-die-sowjetunion), [Kriegsgefangenschaft](https://www.dhm.de/lemo/kapitel/der-zweite-weltkrieg/kriegsverlauf/kriegsgefangenschaft); bpb — [Dimensionen eines Verbrechens. Sowjetische Kriegsgefangene](https://www.bpb.de/shop/buecher/schriftenreihe/519982/dimensionen-eines-verbrechens/).
 - Окупація України: USHMM — [Mass Shootings at Babyn Yar](https://encyclopedia.ushmm.org/content/en/article/kiev-and-babi-yar); Deutsch-Ukrainische Historikerkommission — [Die Ukraine unter deutscher Herrschaft](https://www.ukrainianhistoryportal.org/themenmodule/der-zweite-weltkrieg/die-ukraine-unter-deutscher-herrschaft-reichskommissariat-ukraine-und-generalgouvernement/) (адміністративний поділ, втрати населення), [Zwangsarbeiter aus der Ukraine im Deutschen Reich](https://www.ukrainianhistoryportal.org/themenmodule/der-zweite-weltkrieg/ns-zwangsarbeiter-aus-der-ukraine-im-deutschen-reich/).
 - Примусова праця: Zwangsarbeit 1939–1945 (FU Berlin) — [20. Februar 1942: Die „Ostarbeiter“-Erlasse](https://www.zwangsarbeit-archiv.de/zwangsarbeit/ereignisse/ostarbeiter/index.html); Stiftung EVZ — [Aufarbeitung NS-Zwangsarbeit](https://www.stiftung-evz.de/wer-wir-sind/geschichte/aufarbeitung-ns-zwangsarbeit/), [Verschleppt: Ehemalige NS-Zwangsarbeiter:innen aus der West-Ukraine berichten](https://www.stiftung-evz.de/presse/pressemitteilung/verschleppt-ehemalige-ns-zwangsarbeiterinnen-aus-der-west-ukraine-berichten-online-archiv-zwangsarbeit-1939-1945-erinnerungen-und-geschichte-wird-erweitert/) (≈ 2,4 млн з України); Dokumentationszentrum NS-Zwangsarbeit — [«Wie auf einem Sklavenmarkt»](https://www.ns-zwangsarbeit.de/fileadmin/dateien/Presse/2023/_stream_saveDocuments_saveFormat_PDF_uids_ZTGS__A73254E4E92C691ACE10026B9F2EE03A.pdf) (PDF, ≈ 2 млн).
 - Опір: Gedenkstätte Deutscher Widerstand — [Georg Elser](https://www.gdw-berlin.de/vertiefung/biografien/personenverzeichnis/biografie/view-bio/georg-elser/), [Der Bendlerblock](https://www.gdw-berlin.de/ort-der-erinnerung/der-bendlerblock); Bundesarchiv — [Weiße Rose — Das siebte Flugblatt](https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/weisse-rose/); University of Oxford, White Rose Project — [The Fourth Leaflet](https://whiteroseproject.seh.ox.ac.uk/index.php/the-fourth-leaflet/).
-- Кінець війни: bpb — [Befreiung vom Nationalsozialismus und Ende des Zweiten Weltkriegs in Europa](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/308821/befreiung-vom-nationalsozialismus-und-ende-des-zweiten-weltkriegs-in-europa/); Bundespräsident — [Rede von Richard von Weizsäcker, 8. Mai 1985](https://www.bundespraesident.de/SharedDocs/Reden/DE/Richard-von-Weizsaecker/Reden/1985/05/19850508_Rede.html); Український інститут національної памʼяті — [Верховна Рада встановила 8 травня Днем памʼяті та перемоги над нацизмом](https://uinp.gov.ua/pres-centr/novyny/verhovna-rada-vstanovyla-8-travnya-dnem-pamyati-ta-peremogy-nad-nacyzmom-u-drugiy-svitoviy-viyni-ta-oficiynym-vyhidnym).
+- Кінець війни: bpb — [Befreiung vom Nationalsozialismus und Ende des Zweiten Weltkriegs in Europa](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/308821/befreiung-vom-nationalsozialismus-und-ende-des-zweiten-weltkriegs-in-europa/); bpb Deutschland Archiv — [«Wir […] müssen die Vergangenheit annehmen»](https://www.bpb.de/themen/deutschlandarchiv/217619/wir-muessen-die-vergangenheit-annehmen/) (про промову Вайцзеккера 8.05.1985; повний текст — на bundespraesident.de); Український інститут національної памʼяті — [Верховна Рада встановила 8 травня Днем памʼяті та перемоги над нацизмом](https://uinp.gov.ua/pres-centr/novyny/verhovna-rada-vstanovyla-8-travnya-dnem-pamyati-ta-peremogy-nad-nacyzmom-u-drugiy-svitoviy-viyni-ta-oficiynym-vyhidnym).
 - Вермахт: bpb — [Vor 20 Jahren: Eine Ausstellung über Verbrechen der Wehrmacht polarisiert Deutschland](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/244026/vor-20-jahren-eine-ausstellung-ueber-verbrechen-der-wehrmacht-polarisiert-deutschland/).
-- § 86a StGB: [gesetze-im-internet.de](https://www.gesetze-im-internet.de/stgb/__86a.html).
+- § 86a StGB: [gesetze-im-internet.de](https://www.gesetze-im-internet.de/stgb/__86a.html); § 130 StGB: [gesetze-im-internet.de](https://www.gesetze-im-internet.de/stgb/__130.html).
 
 > [!important] Підсумок
 > - 1933: **Ernennung** (30.01) → **Reichstagsbrandverordnung** (28.02) → вибори без більшості, 43,9 % (05.03) → **Ermächtigungsgesetz**, 444 : 94 (23.03) → **Gleichschaltung**; з 1934 — «Führer und Reichskanzler».

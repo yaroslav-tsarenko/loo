@@ -4,6 +4,7 @@ id: dl-b1-01
 level: B1
 icon: px:scroll
 tags: [deutsch, landeskunde, skills, b1, geschichte, germanen, rom, karl]
+prerequisites: ["[[Deutschland - A2 - 10. Швейцарія — чотири мови й пряма демократія]]"]
 estimatedMinutes: 45
 ---
 
@@ -13,7 +14,7 @@ estimatedMinutes: 45
 > - розповісти, хто такі **Germanen** і чому це слово — римська збірна назва, а не назва одного народу;
 > - описати **Varusschlacht** 9 року, назвати, що в ній відоме, а що досі спірне (де саме вона відбулася);
 > - пояснити, що таке **Limes**, і відрізнити його від «стіни»;
-> - прослідкувати шлях від **Völkerwanderung** через **Franken** до коронації **Karl der Große** 25 грудня 800 року;
+> - простежити шлях від **Völkerwanderung** через **Franken** до коронації **Karl der Große** 25 грудня 800 року;
 > - критично говорити про **Hermann der Cherusker**: історичний Арміній і національний символ XIX століття — не те саме;
 > - користуватися німецькими словами для битв, перемог, поразок і памʼятників.
 
@@ -42,17 +43,17 @@ estimatedMinutes: 45
 
 ### 9 рік: Varusschlacht
 
-Восени 9 року (історики зазвичай називають вересень) три римські легіони (**die Legion**) під командуванням Вара потрапили в засідку (**der Hinterhalt**). Її підготував **Arminius** — князь херусків, який знав римське військо зсередини: він служив у ньому й мав римське громадянство. За оцінками, загинуло близько 15 000 легіонерів, а з допоміжними частинами й обозом — ще більше; Вар вчинив самогубство.
+Восени 9 року (історики зазвичай називають вересень) три римські легіони (**die Legion**) під командуванням Вара потрапили в засідку (**der Hinterhalt**). Її підготував **Arminius** — князь херусків, який знав римське військо зсередини: він служив у ньому й мав римське громадянство. Три легіони разом з допоміжними частинами — за звичайними оцінками, від 15 000 до 20 000 людей; більшість загинула, а обоз і цивільні, що йшли з військом, теж стали жертвами; Вар вчинив самогубство.
 
 Римський біограф Светоній записав, що Август був вражений до глибини душі й нібито кричав:
 
 > [!quote] Suetonius, «Divus Augustus» 23
 > **«Quintili Vare, legiones redde!»**
-> «Квінтіліє Варе, поверни легіони!»
+> «Квінтілію Варе, поверни легіони!»
 
 Історики застерігають: подробиці цієї сцени могли бути прикрашені, тож це свідчення про настрій, а не стенограма.
 
-**Де це було — спірно.** Давні автори називають лісову місцевість (*saltus Teutoburgiensis*, «Тевтобурзький ліс»), але її точне місце невідоме. Сьогодні багато дослідників вважають найімовірнішим місцем боїв **Kalkriese** біля Оснабрюка: з 1990 року там, на ділянці Oberesch, знайшли тисячі дрібних речей (музей і парк відкриті 2000 року). Але остаточно це не доведено: серед знахідок немає напису, який прямо називає знищені легіони. Памʼятник Герману на горі Grotenburg поблизу Детмольда стоїть далеко від Калькризе (за різними оцінками, за 50–100 км): місцевість навколо Детмольда у XIX столітті повʼязували з битвою.
+**Де це було — спірно.** Давні автори називають лісову місцевість (*saltus Teutoburgiensis*, «Тевтобурзький ліс»), але її точне місце невідоме. Сьогодні багато дослідників вважають найімовірнішим місцем боїв **Kalkriese** біля Оснабрюка: з 1989 року там велися розкопки, а з 1990 року на ділянці Oberesch знайшли тисячі дрібних речей (парк відкрили 2000 року, музей — 2002 року). Але остаточно це не доведено: серед знахідок немає напису, який прямо називає знищені легіони. Памʼятник Герману на горі Grotenburg поблизу Детмольда стоїть далеко від Калькризе (за різними оцінками, за 50–100 км): місцевість навколо Детмольда у XIX столітті повʼязували з битвою.
 
 **Наслідки.** Рим відмовився від плану створити провінцію до Ельби. Германік, небіж Тіберія, ще вів походи до 16 року, але вони не мали тривалого ефекту: земля на схід від Рейну лишилася в германських руках, і Рейн став межею.
 
@@ -65,11 +66,11 @@ estimatedMinutes: 45
 Критично тут слід бачити три речі:
 1. Арміній не діяв як «німець». Він був римським офіцером, а його союз був тимчасовим: частина херусків (зокрема, за Тацитом, його тесть Segestes) залишилася на боці Рима.
 2. Образ «германського визволителя» створили у XIX столітті. У Kaiserreich він був національним символом і підсилював антифранцузькі та антикатолицькі настрої (у Kulturkampf памʼятник читали як «памʼятник проти Рима»).
-3. Після 1918 року до міфу зверталися націоналісти, ворожі до республіки й демократії; його використовувала й нацистська пропаганда, хоча історики по-різному оцінюють, наскільки центральною була ця постать для націонал-соціалістів (Archäologie Online, Tagesspiegel).
+3. Після 1918 року до міфу зверталися націоналісти, ворожі до республіки й демократії; його використовувала й нацистська пропаганда, хоча історики по-різному оцінюють, наскільки центральною була ця постать для націонал-соціалістів (докладніше — у джерелах).
 
 ### Limes: кордон, який не був стіною
 
-**Der Limes** — римський прикордонний комплекс. Його частина **Obergermanisch-Raetischer Limes** тягнеться приблизно на 550 км від Рейнбро (Rheinbrohl) на Рейні до Айнінга (Eining) на Дунаї; налічує близько 900 вартових веж і малих фортів та близько 120 фортів (**Kastell**) з постійними гарнізонами. За Limesmuseum Aalen це була не стільки військова загорожа, скільки контрольована зона: там перевіряли, хто вʼїжджає й виїжджає, і стягували мито. Римляни залишили комплекс у середині III століття. 2005 року Limes разом з іншими пограничними спорудами Римської імперії (Hadrianswall та ін.) вніс до списку Світової спадщини ЮНЕСКО.
+**Der Limes** — римський прикордонний комплекс. Його частина **Obergermanisch-Raetischer Limes** тягнеться приблизно на 550 км від Рейнбро (Rheinbrohl) на Рейні до Айнінга (Eining) на Дунаї; налічує близько 900 вартових веж і малих фортів та близько 120 фортів (**Kastell**) з постійними гарнізонами. За даними дослідників, це була не стільки військова загорожа, скільки контрольована зона: там перевіряли, хто вʼїжджає й виїжджає, і стягували мито. Римляни залишили комплекс у середині III століття. 2005 року ЮНЕСКО внесла Limes разом з іншими прикордонними спорудами Римської імперії (Hadrianswall та ін.) до списку Світової спадщини.
 
 Римляни лишили і слова. За DWDS *Straße* походить від пізньолатинського *strata* (шлях, вимощений камінням), а *Kaiser* — від імені *Caesar* і, можливо, є найдавнішим латинським запозиченням у германських мовах. Так само з латини прийшли *Mauer* (murus), *Fenster* (fenestra), *Wein* (vinum), *Käse* (caseus). Міста Köln, Trier, Mainz, Augsburg виросли з римських поселень.
 
@@ -85,7 +86,7 @@ Merowinger — перша королівська династія франків
 
 **25 грудня 800 року** під час різдвяної меси в Римі папа Лев III увінчав Карла короною імператора (**krönen**). Чому це сталося — спірне: хроніст Ейнгард пізніше писав, що Карл був здивований, а сучасні історики сперечаються, чи планували подію заздалегідь (LVR, Rheinische Geschichte). Коронація створила «проблему двох імператорів» у стосунках із Візантією.
 
-Правління Карла супроводжував культурний підйом (**kulturelle Blüte**) — школи, рукописи, будівництво. Після смерті Карла його внуки за Verdun-договором 843 року розділили імперію на три частини — з нього зазвичай виводять початок окремих Західно-Франкського й Східно-Франкського королівств. Першим імператором Священної Римської імперії зазвичай називають не Карла, а Отто I (962), про це — у наступному розділі.
+Правління Карла супроводжував культурний підйом (**kulturelle Blüte**) — школи, рукописи, будівництво. Після смерті Карла його онуки за Верденським договором 843 року розділили імперію на три частини — з нього зазвичай виводять початок окремих Західно-Франкського й Східно-Франкського королівств. Першим імператором Священної Римської імперії зазвичай називають не Карла, а Отто I (962), про це — у наступному розділі.
 
 > [!diagram] Від Вара до Карла: тисячоліття в датах
 > ```yaml
@@ -124,7 +125,7 @@ Merowinger — перша королівська династія франків
 - *Die Völkerwanderung veränderte die Landkarte Europas.* — Велике переселення народів змінило карту Європи.
 - *Die Franken eroberten große Teile Europas.* — Франки завоювали значні частини Європи.
 - *Am 25. Dezember 800 wurde Karl in Rom zum Kaiser gekrönt.* — 25 грудня 800 року в Римі Карла коронували імператором.
-- *Das Hermannsdenkmal ist ein Denkmal für Arminius.* — Hermannsdenkmal — памʼятник Арміну.
+- *Das Hermannsdenkmal ist ein Denkmal für Arminius.* — Hermannsdenkmal — памʼятник Армінію.
 - *Hermann ist für viele Deutsche ein Mythos, kein genauer historischer Bericht.* — Для багатьох німців Герман — це міф, а не точний історичний звіт.
 
 ## Слова
@@ -222,7 +223,7 @@ Merowinger — перша королівська династія франків
 > uk: завойовувати
 > forms: erobern → eroberte → hat erobert
 > example: Karl der Große **eroberte** das Land der Sachsen. — Карл Великий завоював землю саксонців.
-> note: *die Eroberung* — завоювання; не плутай з *überwinden*.
+> note: *die Eroberung* — завоювання; *erobern* — здобувати територію, *besiegen* — перемагати супротивника.
 
 > [!word] die Provinz
 > ipa: /pʁoˈvɪnts/ · pos: noun · level: B1 · id: dl-b1-01-w14
@@ -238,14 +239,14 @@ Merowinger — перша королівська династія франків
 > example: Der **Limes** war etwa 550 Kilometer lang. — Лімес мав довжину близько 550 км.
 > note: латинське слово; множина (*die Limites*) трапляється рідко.
 
-### Міф і память
+### Міф і памʼять
 
 > [!word] der Mythos
 > ipa: /ˈmyːtɔs/ · pos: noun · level: B2 · id: dl-b1-01-w16
 > uk: міф
 > forms: die Mythen
 > example: Hermann der Cherusker wurde im 19. Jahrhundert zum nationalen **Mythos**. — У XIX столітті Герман Херуск став національним міфом.
-> note: прикметник *mythisch*; інше слово — *der Mythus* (застаріле).
+> note: прикметник *mythisch*; застарілий варіант — *der Mythus*.
 
 > [!word] das Denkmal
 > ipa: /ˈdɛŋkmaːl/ · pos: noun · level: B1 · id: dl-b1-01-w17
@@ -346,17 +347,17 @@ Merowinger — перша королівська династія франків
 > Герой XIX століття й історична постать відрізняються. Арміній був римським офіцером з громадянством, і його союз був нетривким; після битви він не створив держави й загинув від рук родичів. Памʼятник 1875 року й образ «Hermann» створила пізніша національна ідея, а не римські джерела. Місце битви теж невідоме напевно: Калькризе — найімовірніший кандидат, але не доведений.
 
 > [!pitfall] Карл Великий — не «німецький імператор»
-> Франкська держава охоплювала землі сучасних Франції, Німеччини й частини Італії. Німецька традиція називає його *Karl der Große*, французька — *Charlemagne*. До того ж Священну Римську імперію зазвичай починають не з 800, а з Отто I у 962 році; приставка «німецької нації» зʼявилася лише в пізньому Середньовіччі.
+> Франкська держава охоплювала землі сучасних Франції, Німеччини й частини Італії. Німецька традиція називає його *Karl der Große*, французька — *Charlemagne*. До того ж Священну Римську імперію зазвичай починають не з 800, а з Отто I у 962 році; додаток «німецької нації» зʼявилася лише в пізньому Середньовіччі.
 
 > [!pitfall] besiegen чи siegen?
-> Українське «перемогти» відповідає двом німецьким дієсловам. *besiegen* — перехідне, зі знахідним: *Die Germanen besiegten die Römer*. *siegen* — неперехідне, з *über + Akk*: *Die Germanen siegten über die Römer*. Невірно: ~~Die Germanen siegten die Römer~~.
+> Українське «перемогти» відповідає двом німецьким дієсловам. *besiegen* — перехідне, зі знахідним: *Die Germanen besiegten die Römer*. *siegen* — неперехідне, з *über + Akk*: *Die Germanen siegten über die Römer*. Неправильно: ~~Die Germanen siegten die Römer~~.
 
 ## Landeskunde-Text
 
 > [!example] Die Römer in Deutschland
 > Vor etwa 2000 Jahren gehört der Westen des heutigen Deutschlands zum Römischen Reich. Die Römer gründen Städte, zum Beispiel Köln, Trier und Augsburg. Dort leben Soldaten, Händler und Handwerker. Viele deutsche Wörter kommen aus dem Lateinischen, zum Beispiel Straße, Mauer, Fenster, Wein und Käse.
 >
-> Zwischen dem Rhein und der Donau bauen die Römer eine lange Grenzanlage: den Limes. Er ist etwa 550 Kilometer lang und hat rund 900 Wachtürme und kleine Forts. Aber der Limes ist keine hohe Mauer. Soldaten kontrollieren dort, wer über die Grenze geht, und Händler müssen Zoll zahlen.
+> Zwischen dem Rhein und der Donau bauen die Römer eine lange Grenzanlage: den Limes. Er ist etwa 550 Kilometer lang und hat rund 900 Wachtürme und kleine Forts. Aber der Limes ist nicht überall eine Mauer: Oft gibt es nur Holzzäune, Gräben und Wachtürme. Soldaten kontrollieren dort, wer über die Grenze geht, und Händler müssen Zoll zahlen.
 >
 > In der Mitte des dritten Jahrhunderts geben die Römer den Limes auf. Seit 2005 gehört er zum UNESCO-Welterbe. Heute kann man an vielen Stellen wandern und Reste von Türmen und Kastellen besichtigen.
 >
@@ -369,7 +370,7 @@ Merowinger — перша королівська династія франків
 > - [ ] als Straße von Köln nach Rom
 > - [ ] als Fluss zwischen Rhein und Donau
 >
-> **Пояснення:** *Der Limes ist keine hohe Mauer. Soldaten kontrollieren dort … und Händler müssen Zoll zahlen.* Хибний варіант «висока мур» — найпоширеніше уявлення, яке текст прямо спростовує.
+> **Пояснення:** *Der Limes ist nicht überall eine Mauer … Soldaten kontrollieren dort … und Händler müssen Zoll zahlen.* Хибний варіант «висока камʼяна стіна без воріт» — найпоширеніше уявлення, яке текст спростовує.
 
 > [!quiz] Lies den Text. Was ist richtig?
 > level: B1 · type: single · id: dl-b1-01-q03
@@ -418,14 +419,14 @@ Merowinger — перша королівська династія франків
 > level: B1 · type: multi · id: dl-b1-01-q07
 > - [x] На ділянці Oberesch біля Kalkriese з 1990 року знайшли тисячі дрібних речей.
 > - [x] Багато дослідників вважають Kalkriese найімовірнішим місцем битви, але остаточно це не доведено.
-> - [x] Музей і парк у Калькризе відкрили 2000 року.
-> - [ ] Місце битви біля Детмольда підтверджено надписами на римських щитах.
-> - [ ] Битва точно відбулася в 90 році н. е.
+> - [x] Парк у Калькризе відкрили 2000 року, а музейну будівлю — 2002 року.
+> - [ ] Битву точно локалізовано біля Детмольда, де стоїть памʼятник Герману.
+> - [ ] Битва відбулася в 9 році до н. е., ще до правління Августа.
 >
 > **Пояснення:** дата 9 рік н. е. достатньо надійна, а ось місце спірне. Серед знахідок у Калькризе немає напису, що прямо називав би знищені легіони.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: B1 · type: fill · id: dl-b1-01-q08 · bank: Niederlage, Hinterhalt, Limes, Völkerwanderung, Krönung, Mythos, Provinz
+> level: B1 · type: fill · id: dl-b1-01-q08 · bank: Mythos, Provinz
 >
 > ```text fill
 > Im Teutoburger Wald erlitten die Römer eine schwere [[Niederlage]].
@@ -435,7 +436,7 @@ Merowinger — перша королівська династія франків
 > Die [[Krönung]] Karls fand am 25. Dezember 800 in Rom statt.
 > ```
 >
-> **Пояснення:** *eine Niederlage erleiden* — усталений вираз; *in einen Hinterhalt locken* — заманити в засідку. *Mythos* і *Provinz* зайві: до жодного пропуску не підходять ні за змістом, ні за родом.
+> **Пояснення:** *eine Niederlage erleiden* — усталений вираз; *in einen Hinterhalt locken* — заманити в засідку. *Mythos* і *Provinz* зайві: до жодного пропуску не підходять за змістом.
 
 > [!quiz] Чому «Germanen» — римська збірна назва?
 > level: B1 · type: single · id: dl-b1-01-q09
@@ -463,7 +464,7 @@ Merowinger — перша королівська династія франків
 > level: B1 · type: single · id: dl-b1-01-q11
 > - [ ] Бо він народився у Парижі й керував лише Галлією.
 > - [ ] Бо в 800 році він заснував Священну Римську імперію німецької нації.
-> - [x] Бо його державa франків охоплювала землі сучасних Франції, Німеччини й частини Італії.
+> - [x] Бо його держава франків охоплювала землі сучасних Франції, Німеччини й частини Італії.
 > - [ ] Бо франки — те саме, що Germanen за Тацитом.
 >
 > **Пояснення:** Frankenreich — спільна спадщина двох країн. «Німецької нації» зʼявилося в назві імперії пізніше. А франки — одне з племен, а не збірна римська назва «Germanen».
@@ -485,7 +486,7 @@ Merowinger — перша королівська династія франків
 > - [ ] Готи були словʼянським народом, предками українців.
 > - [x] У III–IV століттях там розвивалася черняхівська культура, яку зазвичай повʼязують з готами; навала гунів 375 року призвела до її краху.
 > - [ ] Готи збудували Limes на Рейні.
-> - [ ] Гуни прийшли в Причорноморʼя лише після Карла Великого.
+> - [ ] Гуни прийшли в Причорноморʼя близько 800 року, за Карла Великого.
 >
 > **Пояснення:** готи — германці, не словʼяни. Черняхівська культура мала й змішаний склад (сарматські, дако-гетські риси), тому її не зводять лише до готів.
 
@@ -501,7 +502,7 @@ Merowinger — перша королівська династія франків
 > Hermannsdenkmal біля Детмольда будували від 1838 до 1875 року — 37 років. Статуя має 26,57 м, а з постаментом — 53,56 м: це найвища статуя в Німеччині. Скульптор Bandel хотів створити символ ще не досягнутої єдності й свободи. Сьогодні більшість дослідників шукають місце битви за 50–100 км від памʼятника, біля Калькризе.
 
 > [!reel] 🏰 Контроль без стіни
-> Limes тягнеться на 550 км — це найдовша археологічна памʼятка Європи. Але на німецькій ділянці був не суцільний мур, а система веж, палісадів, ровів і насипів: його головне завдання — спостереження й контроль мита.
+> Limes тягнеться на 550 км — це найдовша археологічна памʼятка Європи. Але на німецькій ділянці переважали не високі мури, а система веж, палісадів, ровів і насипів (лише в Реції, на півдні, палісад замінив камʼяний мур — «Teufelsmauer»): його головне завдання — спостереження й контроль мита.
 
 > [!reel] 👑 Рік народження невідомий
 > Про коронацію Карла Великого 800 року знають багато, а от про його народження — майже нічого: точні дата й місце невідомі, найчастіше називають 747 рік. Так буває з багатьма правителями ранньої доби: офіційно записували не народження, а вступ на престол.
@@ -511,7 +512,7 @@ Merowinger — перша королівська династія франків
 - Planet Wissen — [Germanen](https://www.planet-wissen.de/kultur/voelker/germanen/pwwbgermanen100.html), [Karl der Große](https://www.planet-wissen.de/geschichte/mittelalter/karl_der_grosse/index.html). Römermuseum NRW — [Wer waren eigentlich die Germanen?](https://www.roemer.nrw/wer-waren-eigentlich-die-germanen).
 - Kinderzeitmaschine — [Die Varusschlacht](https://www.kinderzeitmaschine.de/antike/rom/ereignisse/fruehe-und-hohe-kaiserzeit/die-varusschlacht/). Museum und Park Kalkriese — [kalkriese-varusschlacht.de](https://www.kalkriese-varusschlacht.de/).
 - Suetonius, *Divus Augustus* 23 — [thelatinlibrary.com](https://www.thelatinlibrary.com/suetonius/suet.aug.html).
-- Hermann und Hermannsdenkmal: [Landesverband Lippe](https://www.landesverband-lippe.de/angebote/hermannsdenkmal/); Tagesspiegel — [Wie Hermann der Cherusker zum Nationalhelden wurde](https://www.tagesspiegel.de/gesundheit/romer-in-deutschland-deutsch-zu-sein-bedarf-es-wenig-wie-hermann-der-cherusker-zum-nationalhelden-wurde-701926.html); Archäologie Online — [Wirkungsgeschichte und Rolle des Mythos Varusschlacht](https://www.archaeologie-online.de/artikel/2009/thema-varusschlacht/wirkungsgeschichte-und-rolle-des-mythos-varusschlacht-in-der-europaeischen-und-deutschen-geschichte-seit-dem-15-jh/).
+- Hermann und Hermannsdenkmal: [Landesverband Lippe](https://www.landesverband-lippe.de/angebote/hermannsdenkmal/); Tagesspiegel — [Wie Hermann der Cherusker zum Nationalhelden wurde](https://www.tagesspiegel.de/gesundheit/romer-in-deutschland-deutsch-zu-sein-bedarf-es-wenig-wie-hermann-der-cherusker-zum-nationalhelden-wurde-701926.html); Wikipedia — [Hermannsdenkmal (Rezeption)](https://de.wikipedia.org/wiki/Hermannsdenkmal); Limesmuseum Aalen — [Welterbe Limes](https://www.limesmuseum.de/welterbe/welterbe-limes).
 - Limes: [Limesmuseum Aalen — Welterbe Limes](https://www.limesmuseum.de/welterbe/welterbe-limes), [Welterbe Deutschland — Grenzen des Römischen Reiches](https://welterbedeutschland.de/grenzen-des-roemischen-reiches-obergermanisch-raetischer-limes/).
 - DWDS — [Kaiser](https://www.dwds.de/wb/Kaiser), [Straße](https://www.dwds.de/wb/Stra%C3%9Fe), [Mauer](https://www.dwds.de/wb/Mauer), [Fenster](https://www.dwds.de/wb/Fenster), [Wein](https://www.dwds.de/wb/Wein), [Käse](https://www.dwds.de/wb/K%C3%A4se).
 - Готи в Причорноморʼї: Encyclopedia.com — [Goths Between the Baltic and Black Seas](https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/goths-between-baltic-and-black-seas).
