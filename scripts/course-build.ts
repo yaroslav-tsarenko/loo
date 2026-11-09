@@ -1,24 +1,42 @@
 import { existsSync } from 'node:fs'
-import { mkdir, readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { checkCourse, CourseBundleSchema } from '../src/course'
+import { buildCatalog, CATALOG_FILE } from '../src/server/courses/catalog'
 import { listOfficialCourses, loadCourseSource, loadIconCatalog } from './lib/course-source'
 
-// Usage: pnpm course:build [--force] [--if-sources]
+// Usage: pnpm course:build [--force] [--if-sources] [--catalog-only]
 // Compiles every official course (<vault>/Courses/*/course.yaml) into content/courses/<id>.json,
 // which ships with the app (next.config.ts → outputFileTracingIncludes ./content/**; the server loads it in
 // src/server/courses/registry.ts). A course with validation errors is not written unless --force.
 // --if-sources (vercel-build): without course packages (no synced vault), keep the committed bundles.
+// Next to the bundles it writes catalog.json (listings, guides and languages per course, legacy lesson ids): the server
+// reads that at start and loads a bundle only when its course is opened (src/server/courses/catalog.ts).
 // Task self-tests: pnpm course:check.
 
 const force = process.argv.includes('--force')
 const ifSources = process.argv.includes('--if-sources')
+const catalogOnly = process.argv.includes('--catalog-only')
 const outDir = path.resolve('content', 'courses')
+async function writeCatalog(): Promise<void> {
+  const names = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json') && f !== CATALOG_FILE) : []
+  const files = await Promise.all(names.map(async (name) => ({ name, text: await readFile(path.join(outDir, name), 'utf8') })))
+  const { catalog, errors } = buildCatalog(files)
+  for (const e of errors) console.error(`❌ ${e}`)
+  await writeFile(path.join(outDir, CATALOG_FILE), `${JSON.stringify(catalog)}\n`)
+  console.log(`📚 ${path.relative(process.cwd(), path.join(outDir, CATALOG_FILE))} · курсів ${catalog.courses.length} · старих id уроків ${Object.keys(catalog.legacy).length}`)
+}
+
+if (catalogOnly) {
+  await writeCatalog()
+  process.exit(0)
+}
 const courses = await listOfficialCourses()
 if (courses.length === 0) {
-  const kept = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json')) : []
+  const kept = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json') && f !== CATALOG_FILE) : []
   if (ifSources && kept.length > 0) {
     console.warn(`⚠️  Пакетів курсів не знайдено — лишаю зібрані bundle: ${kept.join(', ')}`)
+    await writeCatalog()
     process.exit(0)
   }
   console.error('Офіційних курсів не знайдено (очікується <vault>/Courses/<id>/course.yaml)')
@@ -52,4 +70,5 @@ for (const pkg of courses) {
   const s = bundle.stats
   console.log(`✅ ${bundle.course.id}@${bundle.course.version} → ${path.relative(process.cwd(), file)} · ${(json.length / 1024).toFixed(0)} КБ · розділів ${s.sections} · тем ${s.topics} · уроків ${s.lessons} · вправ ${s.exercises}${errors.length ? ` · ⚠️ ${errors.length} помилок (--force)` : ''}`)
 }
+await writeCatalog()
 process.exit(failed > 0 ? 1 : 0)

@@ -1,20 +1,21 @@
 import 'server-only'
 import { existsSync, readdirSync, statSync } from 'node:fs'
-import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { CourseBundle } from '@/course'
 import type { LearningUnit } from '@/content/model'
 import { getUnits } from '../content'
-import { courseIdOf, courseListing, parseBundles, type CourseEntry, type CourseListing } from './bundles'
+import { courseIdOf, type CourseEntry, type CourseListing } from './bundles'
+import { CourseStore, type CourseCatalog } from './catalog'
 
 export { courseIdOf, type CourseEntry, type CourseListing, type CourseSource } from './bundles'
 
-// Official course bundles, compiled at build time (pnpm course:build → content/courses/<id>.json, traced into every
-// server function via next.config.ts). Loaded and schema-validated once per process.
+// Official course bundles, compiled at build time (pnpm course:build → content/courses/<id>.json + catalog.json, traced
+// into every server function via next.config.ts). The catalog is read once per process; a bundle is loaded and
+// schema-validated when a course is opened and kept under COURSE_CACHE_MB (./catalog.ts).
 
-const key = Symbol.for('levelup.course-registry')
-const sigKey = Symbol.for('levelup.course-registry-sig')
-type GlobalWithRegistry = typeof globalThis & { [key]?: Promise<Map<string, CourseEntry>>; [sigKey]?: string }
+const key = Symbol.for('levelup.course-store')
+const sigKey = Symbol.for('levelup.course-store-sig')
+type GlobalWithStore = typeof globalThis & { [key]?: CourseStore; [sigKey]?: string }
 
 // Dev only: `pnpm course:build` rewrites the bundles while the server runs — reload when their mtimes change.
 function bundlesSignature(): string {
@@ -30,21 +31,8 @@ export function coursesDir(): string {
   return path.resolve(process.cwd(), 'content', 'courses')
 }
 
-async function load(): Promise<Map<string, CourseEntry>> {
-  const dir = coursesDir()
-  if (!existsSync(dir)) {
-    console.warn(`[courses] ${dir} не знайдено — курсів немає (pnpm course:build)`)
-    return new Map()
-  }
-  const names = (await readdir(dir, { withFileTypes: true })).filter((e) => e.isFile() && e.name.endsWith('.json')).map((e) => e.name)
-  const files = await Promise.all(names.map(async (name) => ({ name, text: await readFile(path.join(dir, name), 'utf8') })))
-  const { courses, errors } = parseBundles(files, 'official')
-  for (const e of errors) console.error(`[courses] ${e}`)
-  return courses
-}
-
-function registry(): Promise<Map<string, CourseEntry>> {
-  const g = globalThis as GlobalWithRegistry
+export function courseStore(): CourseStore {
+  const g = globalThis as GlobalWithStore
   if (process.env.NODE_ENV !== 'production') {
     const sig = bundlesSignature()
     if (sig !== g[sigKey]) {
@@ -52,26 +40,20 @@ function registry(): Promise<Map<string, CourseEntry>> {
       g[key] = undefined
     }
   }
-  if (!g[key]) {
-    g[key] = load().catch((error: unknown) => {
-      g[key] = undefined
-      throw error
-    })
-  }
-  return g[key]
+  return (g[key] ??= new CourseStore(coursesDir()))
 }
 
-// The loaded bundles (a new Map after a dev reload — callers may key caches on its identity).
-export function courseRegistry(): Promise<Map<string, CourseEntry>> {
-  return registry()
+// The catalog (a new object after a dev reload — callers may key caches on its identity).
+export function courseCatalog(): Promise<CourseCatalog> {
+  return courseStore().catalog()
 }
 
 export async function listCourses(): Promise<CourseListing[]> {
-  return [...(await registry()).values()].filter((e) => e.listed).map(courseListing)
+  return (await courseCatalog()).courses.filter((c) => c.listed).map((c) => c.listing)
 }
 
 export async function getCourseEntry(id: string): Promise<CourseEntry | null> {
-  return (await registry()).get(id) ?? null
+  return courseStore().entry(id)
 }
 
 export async function getCourse(id: string): Promise<CourseBundle | null> {
@@ -85,8 +67,8 @@ export async function courseFor(id: string): Promise<CourseBundle | null> {
 }
 
 export async function defaultCourse(): Promise<CourseBundle | null> {
-  const first = [...(await registry()).values()].find((e) => e.listed)
-  return first?.bundle ?? null
+  const first = (await courseCatalog()).courses.find((c) => c.listed)
+  return first ? getCourse(first.id) : null
 }
 
 // Exercise bodies live in the content store, keyed by the same id as the bundle's exercise refs. Ids that are not

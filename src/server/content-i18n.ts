@@ -1,38 +1,38 @@
 import 'server-only'
-import { courseLanguages, type CourseLanguages } from '@/course/i18n'
+import type { CourseLanguages } from '@/course/i18n'
 import type { Chapter, LearningUnit } from '@/content/model'
 import { getContentStore, type ContentSnapshot, type LocalizedChapterDocument } from '@/content/store'
 import { t, type Locale } from '@/i18n'
-import { courseRegistry, type CourseEntry } from './courses/registry'
+import { courseCatalog } from './courses/registry'
+import type { CourseCatalog } from './courses/catalog'
 import { uiLocale } from './locale'
 
 // Which language a topic is shown in (docs/COURSE_FORMAT.md «Переклад курсів (i18n)»): the learner's UI locale when
 // a course that teaches the guide lists it in `languages` and the topic has a translation; otherwise the source.
 // Progress, grading and SRS never depend on it — exercises keep their ids (src/content/i18n/localize.ts).
 
-// keyed on the registry's identity: a dev `course:build` reloads the registry (new Map) and so this map
-const cache = new WeakMap<Map<string, CourseEntry>, Map<string, CourseLanguages>>()
+// keyed on the catalog's identity: a dev `course:build` reloads it (a new object) and so this map
+const cache = new WeakMap<CourseCatalog, Map<string, CourseLanguages>>()
 
-function build(registry: Map<string, CourseEntry>): Map<string, CourseLanguages> {
+function build(catalog: CourseCatalog): Map<string, CourseLanguages> {
   const out = new Map<string, CourseLanguages>()
-  for (const { bundle, listed } of registry.values()) {
+  for (const { guides, languages, listed } of catalog.courses) {
     if (!listed) continue
-    const langs = courseLanguages(bundle.course)
-    for (const id of [...bundle.sections.map((s) => s.guideId), ...(bundle.theory ?? [])]) {
+    for (const id of guides) {
       const known = out.get(id)
       // a guide taught by several courses: any of them offering a language is enough
-      out.set(id, known ? { source: known.source, languages: [...new Set([...known.languages, ...langs.languages])] } : langs)
+      out.set(id, known ? { source: known.source, languages: [...new Set([...known.languages, ...languages.languages])] } : languages)
     }
   }
   return out
 }
 
 export async function guideLanguages(): Promise<Map<string, CourseLanguages>> {
-  const registry = await courseRegistry()
-  let map = cache.get(registry)
+  const catalog = await courseCatalog()
+  let map = cache.get(catalog)
   if (!map) {
-    map = build(registry)
-    cache.set(registry, map)
+    map = build(catalog)
+    cache.set(catalog, map)
   }
   return map
 }

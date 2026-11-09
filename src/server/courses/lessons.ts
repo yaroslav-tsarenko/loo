@@ -1,11 +1,11 @@
 import 'server-only'
 import { and, eq } from 'drizzle-orm'
-import { lessonIdFromLegacy, lookup, selectLesson, type CourseBundle, type Lesson, type LessonView, type Level, type Section, type Topic } from '@/course'
+import { lookup, selectLesson, type CourseBundle, type Lesson, type LessonView, type Level, type Section, type Topic } from '@/course'
 import { first } from '@/db/client'
 import { enrollments } from '@/db/schema'
 import { getProfile, userScope } from '../auth'
 import { courseLevelOf, levelFromPreference } from './enrollment'
-import { courseFor, listCourses, getCourse } from './registry'
+import { courseCatalog, courseFor, getCourse } from './registry'
 
 export interface CourseLesson {
   bundle: CourseBundle
@@ -26,12 +26,7 @@ export async function findCourseLesson(id: string): Promise<CourseLesson | null>
 
 // Old `/learn/<chapterId>::<kind>-<n>` links → the same lesson in a course (first course that has it).
 export async function courseLessonForLegacy(legacyId: string): Promise<string | null> {
-  for (const listing of await listCourses()) {
-    const bundle = await getCourse(listing.id)
-    const id = bundle ? lessonIdFromLegacy(bundle, legacyId) : null
-    if (id) return id
-  }
-  return null
+  return (await courseCatalog()).legacy[legacyId] ?? null
 }
 
 // The learner's level in a course: the enrollment's, else the self-assessed one from the profile.
