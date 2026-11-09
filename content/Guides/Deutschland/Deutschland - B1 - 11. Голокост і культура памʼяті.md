@@ -39,13 +39,13 @@ estimatedMinutes: 45
 Переслідування почалося відразу:
 - 1 квітня 1933 року SA стояли біля єврейських крамниць, лікарських кабінетів і адвокатських контор — **бойкот** по всій країні;
 - закони 1933 року вигнали євреїв з державної служби, університетів, лікарень;
-- 15 вересня 1935 року на партійному зʼїзді в Нюрнберзі Рейхстаг ухвалив **Nürnberger Gesetze**: «закон про громадянство Райху» перетворив євреїв на людей без політичних прав, а «закон про захист німецької крові» заборонив шлюби між євреями й неєвреями.
+- 15 вересня 1935 року на партійному зʼїзді в Нюрнберзі Рейхстаг ухвалив **Nürnberger Gesetze**: «закон про громадянство Рейху» перетворив євреїв на людей без політичних прав, а «закон про захист німецької крові» заборонив шлюби між євреями й неєвреями.
 
-У ніч з 9 на 10 листопада 1938 року по всій Німеччині й Австрії нацисти влаштували **погром** (*das Novemberpogrom*). За сучасними даними, які наводить bpb, зруйновано 1406 синагог і молитовних приміщень, 191 синагогу підпалили; близько 30 000 єврейських чоловіків кинули в концтабори Дахау, Бухенвальд і Заксенгаузен. Від насильства, умов увʼязнення й самогубств унаслідок погромів, за оцінками bpb, загинули близько 1300 людей.
+У ніч з 9 на 10 листопада 1938 року по всій Німеччині й Австрії нацисти влаштували **погром** (*das Novemberpogrom*). За сучасними даними, які наводить bpb, зруйновано 1406 синагог і молитовних приміщень, 191 синагогу підпалили; близько 30 000 єврейських чоловіків кинули в концтабори Дахау, Бухенвальд і Заксенгаузен. Від насильства, умов увʼязнення й самогубств унаслідок погромів загинули, за оцінками bpb, від близько 1300 до понад 1500 людей (оцінки різняться); нацистський звіт називав лише 91 загиблого.
 
 ### Убивства людей з інвалідністю — «Aktion T4»
 
-Першими масово вбитими стали не євреї, а пацієнти психіатричних лікарень і люди з інвалідністю. Цю програму виконавці називали «евтаназією» (*„Euthanasie“*, грец. «добра смерть») — ще один евфемізм. З 1940 до серпня 1941 року в шести закладах (Grafeneck, Brandenburg an der Havel, Hartheim, Pirna-Sonnenstein, Bernburg, Hadamar) газом убили понад 70 000 людей. Назва «T4» — від адреси керівного бюро в Берліні: *Tiergartenstraße 4*. Після офіційної зупинки вбивства тривали голодом і отрутою; загальну кількість убитих пацієнтів дослідники оцінюють у 200 000–300 000 (Gedenkort T4, USHMM). Досвід і персонал «T4» згодом використали в таборах смерті.
+Першими масово вбитими стали не євреї, а пацієнти психіатричних лікарень і люди з інвалідністю. Цю програму виконавці називали «евтаназією» (*„Euthanasie“*, грец. «добра смерть») — ще один евфемізм. З 1940 до серпня 1941 року в шести закладах (Grafeneck, Brandenburg an der Havel, Hartheim, Pirna-Sonnenstein, Bernburg, Hadamar) газом убили понад 70 000 людей. Назва «T4» — від адреси керівного бюро в Берліні: *Tiergartenstraße 4*. Після офіційної зупинки вбивства тривали голодом і отрутою; загальну кількість убитих пацієнтів дослідники оцінюють у 200 000–300 000 (Gedenkort T4; USHMM у списку нижче називає 250 000–300 000 — оцінки дослідників різняться). Досвід і персонал «T4» згодом використали в таборах смерті «Aktion Reinhardt» — Bełżec, Sobibór і Treblinka ([Gedenkort T4](https://gedenkort-t4.eu/wissen/aktion-t4)).
 
 ### Голокост кулями: окупована Україна
 
@@ -88,7 +88,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 
 У перші повоєнні десятиліття більшість німців не хотіла говорити про злочини. Перелом почався з судів. Генеральний прокурор Гессену **Fritz Bauer** домігся процесу у Франкфурті-на-Майні — **Frankfurter Auschwitz-Prozess** (20 грудня 1963 — 20 серпня 1965 року). Німецький суд за німецьким правом судив колишніх працівників Аушвіца: на початку 22 обвинувачені, вироки — 20; шістьох засудили до довічного увʼязнення, 11 — до строків, трьох виправдали. Суд вислухав 360 свідків; газети щодня писали про табір, і мільйони німців уперше дізналися подробиці.
 
-Так виникло слово **die Vergangenheitsbewältigung** — «подолання минулого»: відкрито розбиратися зі злочинами, судити винних, памʼятати про жертв. Далі були:
+Тоді поширилося слово **die Vergangenheitsbewältigung** — «подолання минулого»: відкрито розбиратися зі злочинами, судити винних, памʼятати про жертв. Далі були:
 - 7 грудня 1970 року — канцлер Willy Brandt став на коліна перед памʼятником героям повстання у Варшавському гетто (*Kniefall von Warschau*);
 - 8 травня 1985 року — промова Richard von Weizsäcker про «день визволення»;
 - 1995–2004 роки — виставки про злочини Вермахту.
@@ -105,7 +105,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 
 **Denkmal für die ermordeten Juden Europas.** 25 червня 1999 року Бундестаг вирішив збудувати в центрі Берліна, неподалік Бранденбурзьких воріт, памʼятник убитим євреям Європи за проєктом архітектора Peter Eisenman. Його відкрили 10 травня 2005 року: поле з 2711 бетонних стел різної висоти на площі близько 19 000 м². Під ним — *Ort der Information*, виставка з іменами й історіями родин. Поруч — памʼятники убитим синті й рома (2012) і переслідуваним гомосексуальним людям.
 
-**Stolpersteine.** У 1992 році художник **Gunter Demnig** вигадав «камені спотикання» — латунні таблички на бетонному кубику 96 × 96 × 100 мм, вмуровані в тротуар перед будинком, де людина востаннє жила за власним вибором. Текст починається словами *HIER WOHNTE* — «тут жив / жила». Один камінь — одна людина: її імʼя, рік народження, доля. Станом на 2026 рік, за даними проєкту, у тротуарах уже 116 000 каменів у понад 1860 громадах 31 країни Європи — це найбільший децентралізований памʼятник світу.
+**Stolpersteine.** У 1992 році художник **Gunter Demnig** вигадав «камені спотикання» — латунні таблички на бетонному кубику 96 × 96 × 100 мм, вмуровані в тротуар, як правило, перед будинком, де людина востаннє жила за власним вибором. Текст починається словами *HIER WOHNTE* — «тут жив / жила». Один камінь — одна людина: її імʼя, рік народження, доля. За даними сайту проєкту (2026 рік), у тротуарах уже 116 000 каменів у понад 1860 громадах 31 країни Європи — це найбільший децентралізований памʼятник світу.
 
 **Закон.** Заперечення або применшення Голокосту в Німеччині — кримінальний злочин (§ 130 *Strafgesetzbuch*, «підбурювання до ненависті»).
 
@@ -115,7 +115,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > nodes:
 >   - { id: boykott, at: "01.04.1933", text: "Boykott jüdischer Geschäfte", note: "перша загальнонімецька акція", tone: gray }
 >   - { id: nuernberg, at: "15.09.1935", text: "Nürnberger Gesetze", note: "євреї без громадянських прав", tone: gray }
->   - { id: pogrom, at: "09.–10.11.1938", text: "Novemberpogrom", note: "1406 синагог і молитовних приміщень", tone: pink }
+>   - { id: pogrom, at: "09.–10.11.1938", text: "Novemberpogrom", note: "1406 синагог; загиблих — від ≈1300 до понад 1500", tone: pink }
 >   - { id: t4, at: "1940–1941", text: "„Aktion T4“", note: "понад 70 000 убитих пацієнтів", tone: gray }
 >   - { id: babynjar, at: "29.–30.09.1941", text: "Babyn Jar", note: "Київ, айнзацгрупа C", tone: pink }
 >   - { id: wannsee, at: "20.01.1942", text: "Wannsee-Konferenz", note: "координація вбивства євреїв Європи", tone: gray }
@@ -162,14 +162,14 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > note: німецький правопис і *die Schoah*. Звучить як «шо-А» з довгим а в кінці.
 
 > [!word] der Antisemitismus
-> ipa: /antizemiˈtɪsmʊs/ · pos: noun · level: B1 · id: dl-b1-11-w03
+> ipa: /antizemiˈtɪsmʊs/ · pos: noun · level: B2 · id: dl-b1-11-w03
 > uk: антисемітизм
 > forms: — (без множини)
 > example: Der **Antisemitismus** war ein Kern der NS-Ideologie. — Антисемітизм був ядром нацистської ідеології.
 > note: прикм. *antisemitisch*; *der Antisemit* — антисеміт. Наголос: «ан-ти-зе-мі-ТІС-мус»; s перед голосним — дзвінке [z].
 
 > [!word] die Synagoge
-> ipa: /zynaˈɡoːɡə/ · pos: noun · level: B1 · id: dl-b1-11-w04
+> ipa: /zynaˈɡoːɡə/ · pos: noun · level: B2 · id: dl-b1-11-w04
 > uk: синагога
 > forms: die Synagogen
 > example: In der Pogromnacht zündeten die Täter viele **Synagogen** an. — У ніч погрому виконавці підпалили багато синагог.
@@ -183,14 +183,14 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > note: *das Pogrom* або *der Pogrom* — Duden допускає обидва роди; поширені також *die Pogromnacht* і мн. *die Novemberpogrome*. Про слово «Reichskristallnacht» — у пастках.
 
 > [!word] die Deportation
-> ipa: /depɔʁtaˈtsi̯oːn/ · pos: noun · level: B1 · id: dl-b1-11-w06
+> ipa: /depɔʁtaˈtsi̯oːn/ · pos: noun · level: B2 · id: dl-b1-11-w06
 > uk: депортація, примусове вивезення
 > forms: die Deportationen
 > example: Die **Deportationen** aus Berlin begannen im Oktober 1941. — Депортації з Берліна почалися в жовтні 1941 року.
 > note: дієслово *deportieren* (deportierte · hat deportiert): *Die Familie wurde nach Auschwitz deportiert.*
 
 > [!word] das Ghetto
-> ipa: /ˈɡɛto/ · pos: noun · level: B1 · id: dl-b1-11-w07
+> ipa: /ˈɡɛto/ · pos: noun · level: B2 · id: dl-b1-11-w07
 > uk: гетто
 > forms: die Ghettos
 > example: Im besetzten Lwiw richteten die Täter 1941 ein **Ghetto** ein. — В окупованому Львові 1941 року виконавці створили гетто.
@@ -218,7 +218,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > note: *erschießen* (erschoss · hat erschossen) — розстріляти, застрелити.
 
 > [!word] der Täter
-> ipa: /ˈtɛːtɐ/ · pos: noun · level: B1 · id: dl-b1-11-w11
+> ipa: /ˈtɛːtɐ/ · pos: noun · level: B2 · id: dl-b1-11-w11
 > uk: виконавець злочину, злочинець; кривдник
 > forms: die Täter
 > example: Viele **Täter** wurden nach dem Krieg nie verurteilt. — Багатьох виконавців після війни так і не засудили.
@@ -234,14 +234,14 @@ USHMM наводить оцінки, які варто знати, бо за к�
 ### Памʼять
 
 > [!word] der Überlebende
-> ipa: /yːbɐˈleːbəndə/ · pos: noun · level: B1 · id: dl-b1-11-w13
+> ipa: /yːbɐˈleːbəndə/ · pos: noun · level: B2 · id: dl-b1-11-w13
 > uk: той, хто вижив; вцілілий
 > forms: die Überlebenden
 > example: Eine **Überlebende** erzählte den Schülern ihre Geschichte. — Жінка, що вижила, розповіла школярам свою історію.
 > note: субстантивований прикметник: *der Überlebende*, *ein Überlebender*, жін. *die* / *eine Überlebende*. Дієслово: *überleben* — невідокремлюване, наголос на *-le-*.
 
 > [!word] der Zeitzeuge
-> ipa: /ˈtsaɪ̯tˌtsɔʏ̯ɡə/ · pos: noun · level: B1 · id: dl-b1-11-w14
+> ipa: /ˈtsaɪ̯tˌtsɔʏ̯ɡə/ · pos: noun · level: B2 · id: dl-b1-11-w14
 > uk: свідок епохи (очевидець історичних подій)
 > forms: die Zeitzeugen
 > example: Immer weniger **Zeitzeugen** können heute in Schulen sprechen. — Дедалі менше свідків епохи можуть сьогодні виступати в школах.
@@ -262,14 +262,14 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > note: керує родовим: *der Opfer* (Gen. мн.), *des Widerstandskämpfers*. Офіційний, урочистий стиль.
 
 > [!word] der Gedenktag
-> ipa: /ɡəˈdɛŋktaːk/ · pos: noun · level: B1 · id: dl-b1-11-w17
+> ipa: /ɡəˈdɛŋktaːk/ · pos: noun · level: B2 · id: dl-b1-11-w17
 > uk: день памʼяті
 > forms: die Gedenktage
 > example: Der 27. Januar ist in Deutschland ein **Gedenktag**, aber kein Feiertag. — 27 січня в Німеччині — день памʼяті, але не вихідний.
 > note: *der Feiertag* — свято, вихідний; *der Gedenktag* — день памʼяті (робочий).
 
 > [!word] die Gedenkstätte
-> ipa: /ɡəˈdɛŋkˌʃtɛtə/ · pos: noun · level: B1 · id: dl-b1-11-w18
+> ipa: /ɡəˈdɛŋkˌʃtɛtə/ · pos: noun · level: B2 · id: dl-b1-11-w18
 > uk: меморіал (на місці подій)
 > forms: die Gedenkstätten
 > example: Die Klasse besucht die **Gedenkstätte** Dachau. — Клас відвідує меморіал Дахау.
@@ -371,7 +371,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > [!example] Stolpersteine
 > In vielen Städten in Deutschland liegen kleine Platten aus Messing im Gehweg. Sie sind nur etwa zehn mal zehn Zentimeter groß. Man nennt sie Stolpersteine. Jeder Stein erinnert an einen Menschen, den die Nationalsozialisten verfolgt, deportiert oder ermordet haben. Auf dem Stein stehen die Worte „Hier wohnte“, dann der Name, das Geburtsjahr und das Schicksal.
 >
-> Die Idee hatte der Künstler Gunter Demnig im Jahr 1992. Ein Stein liegt immer vor dem Haus, in dem die Person zuletzt freiwillig gelebt hat. Meistens suchen Initiativen, Schulklassen oder Nachbarn die Lebensgeschichte in Archiven. Spender bezahlen den Stein, die Familie der Opfer soll nichts bezahlen. Heute gibt es rund 116.000 Stolpersteine in 31 Ländern Europas. Wer die Inschrift lesen will, muss stehen bleiben und sich nach unten beugen.
+> Die Idee hatte der Künstler Gunter Demnig im Jahr 1992. Ein Stein liegt in der Regel vor dem Haus, in dem die Person zuletzt freiwillig gelebt hat. Meistens suchen Initiativen, Schulklassen oder Nachbarn die Lebensgeschichte in Archiven. Spender bezahlen den Stein, die Familie der Opfer soll nichts bezahlen. Heute gibt es rund 116.000 Stolpersteine in 31 Ländern Europas. Wer die Inschrift lesen will, muss stehen bleiben und sich nach unten beugen.
 >
 > *Слова:* *das Messing* — латунь; *der Gehweg* — тротуар; *das Schicksal* — доля; *freiwillig* — добровільно; *der Spender* — жертводавець, донор; *sich beugen* — нахилитися.
 
@@ -382,7 +382,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > - [ ] auf dem Friedhof, wo die Person begraben ist
 > - [ ] vor der Gedenkstätte eines Konzentrationslagers
 >
-> **Пояснення:** *Ein Stein liegt immer vor dem Haus, in dem die Person zuletzt freiwillig gelebt hat.* Для більшості вбитих могил немає — тому камінь лежить там, де людина жила, а не на кладовищі.
+> **Пояснення:** *Ein Stein liegt in der Regel vor dem Haus, in dem die Person zuletzt freiwillig gelebt hat.* Для більшості вбитих могил немає — тому камінь лежить там, де людина жила, а не на кладовищі.
 
 > [!quiz] Lies den Text. Wer bezahlt den Stein?
 > level: B1 · type: single · id: dl-b1-11-q03
@@ -408,11 +408,11 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > level: B1 · type: order · id: dl-b1-11-q05
 >
 > ```text order
-> Boykott jüdischer Geschäfte in ganz Deutschland
+> Die NSDAP organisiert einen Boykott jüdischer Geschäfte in ganz Deutschland.
 > Die Nürnberger Gesetze werden beschlossen.
 > In der Pogromnacht brennen Synagogen.
-> Massenerschießung in Babyn Jar bei Kiew
-> Wannsee-Konferenz in Berlin
+> In Babyn Jar bei Kiew findet eine Massenerschießung statt.
+> In Berlin findet die Wannsee-Konferenz statt.
 > Die Rote Armee befreit Auschwitz.
 > Der Frankfurter Auschwitz-Prozess beginnt.
 > Das Denkmal für die ermordeten Juden Europas wird eröffnet.
@@ -425,9 +425,9 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > - [ ] Гітлер особисто вперше оголосив рішення вбити євреїв Європи.
 > - [x] 15 високопосадовців під головуванням Гайдріха узгодили організацію депортацій і вбивства євреїв усієї Європи.
 > - [ ] Союзники домовилися про суд над нацистськими злочинцями.
-> - [ ] Нацисти вирішили переселити всіх євреїв на Мадагаскар.
+> - [ ] Конференція ухвалила Нюрнберзькі закони.
 >
-> **Пояснення:** Гітлера на конференції не було. Масові вбивства тривали вже з літа 1941 року; у Ванзее координували злочин між відомствами. Протокол Айхмана говорить про «*Endlösung der europäischen Judenfrage*» — евфемізм для вбивства. План «Мадагаскар» нацисти обговорювали 1940 року й відкинули.
+> **Пояснення:** Гітлера на конференції не було. Масові вбивства тривали вже з літа 1941 року; у Ванзее координували злочин між відомствами. Протокол Айхмана говорить про «*Endlösung der europäischen Judenfrage*» — евфемізм для вбивства.
 
 > [!quiz] Що правильно про Бабин Яр? Обери всі правильні відповіді.
 > level: B1 · type: multi · id: dl-b1-11-q07
@@ -440,7 +440,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > **Пояснення:** убивали зондеркоманда 4a айнзацгрупи C і поліцейські підрозділи. Звіт *Ereignismeldung UdSSR Nr. 101* від 2 жовтня 1941 року — документ виконавців. Румунія окупувала «Трансністрію» на південному заході, не Київ. До листопада 1943 року в Бабиному Яру вбивали ромів, пацієнтів, полонених, заручників.
 
 > [!quiz] Заповни пропуски словами з банку
-> level: B1 · type: fill · id: dl-b1-11-q08 · bank: Mauerfall, Treuhand
+> level: B1 · type: fill · id: dl-b1-11-q08 · bank: Zeitzeuge, Erinnerungskultur
 >
 > ```text fill
 > Beim [[Novemberpogrom]] 1938 brannten in ganz Deutschland Synagogen.
@@ -450,7 +450,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > Die Klasse besucht die [[Gedenkstätte]] Dachau.
 > ```
 >
-> **Пояснення:** *beim Novemberpogrom* — *das Pogrom* (Dat.: *beim*). *Mauerfall* і *Treuhand* — слова 1989–1990 років, тут зайві.
+> **Пояснення:** *beim Novemberpogrom* — *das Pogrom* (Dat.: *beim*). *Zeitzeuge* і *Erinnerungskultur* — теми цього розділу, але за змістом і за артиклем у пропуски не підходять.
 
 > [!quiz] Що означало у мові нацистських документів слово «Endlösung der Judenfrage»?
 > level: B1 · type: single · id: dl-b1-11-q09
@@ -476,7 +476,7 @@ USHMM наводить оцінки, які варто знати, бо за к�
 > [!quiz] Чим особливий Франкфуртський процес щодо Аушвіца (1963–1965)?
 > level: B1 · type: single · id: dl-b1-11-q11
 > - [ ] Це був суд союзників над головними військовими злочинцями.
-> - [x] Німецький суд за німецьким правом судив колишній персонал Аушвіца; процес домігся генпрокурор Fritz Bauer.
+> - [x] Німецький суд за німецьким правом судив колишній персонал Аушвіца; процесу домігся генпрокурор Fritz Bauer.
 > - [ ] Це був суд над Адольфом Айхманом.
 > - [ ] Обвинувачених судили в Польщі, на місці табору.
 >
@@ -528,11 +528,11 @@ USHMM наводить оцінки, які варто знати, бо за к�
 
 - Числа й визначення: Yad Vashem — [FAQ](https://www.yadvashem.org/holocaust/faqs.html), [FAQs — Central Database of Holocaust Victims' Names](https://www.yadvashem.org/archive/hall-of-names/database/faq.html) (оцінки 5,1–6 млн); USHMM — [How Many People did the Nazis Murder?](https://encyclopedia.ushmm.org/content/en/article/documenting-numbers-of-victims-of-the-holocaust-and-nazi-persecution) (усі групи жертв).
 - Нюрнберзькі закони: LeMO — [Nürnberger Gesetze 1935](https://www.dhm.de/lemo/kapitel/ns-regime/ausgrenzung-und-verfolgung/nuernberger-gesetze-1935); бойкот 1.04.1933 — LeMO, [Jahreschronik 1933](https://www.dhm.de/lemo/jahreschronik/1933).
-- Погром 1938: bpb — [Novemberpogrom 1938](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/542301/novemberpogrom-1938/) (1406 синагог і молитовних приміщень, ≈ 30 000 арештованих), [Der 9. November in der deutschen Geschichte](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/172172/der-9-november-in-der-deutschen-geschichte/) (≈ 1300 загиблих).
-- «Aktion T4»: Gedenkort T4 — [Aktion T4](https://gedenkort-t4.eu/wissen/aktion-t4); Bundesarchiv — [Euthanasie im Dritten Reich](https://www.bundesarchiv.de/im-archiv-recherchieren/archivgut-recherchieren/nach-themen/euthanasie-im-dritten-reich/).
-- Бабин Яр і Україна: USHMM — [Mass Shootings at Babyn Yar](https://encyclopedia.ushmm.org/content/en/article/kiev-and-babi-yar); текст звіту: PHDN — [Ereignismeldung UdSSR Nr. 101](https://phdn.org/histgen/lebontemps/lbt-09-194109-babiyar.html) (джерело — Zentrale Stelle der Landesjustizverwaltungen, Ludwigsburg); Український інститут національної памʼяті — [Трагедія Бабиного Яру](https://uinp.gov.ua/informaciyni-materialy/zhurnalistam/informaciyni-materialy-do-dnya-pamyati-tragediyi-babynogo-yaru-2022), [Holocaust in der Ukraine](https://uinp.gov.ua/informaciyni-materialy/ukrayinsko-nimecki-istorychni-dialogy/holocaust-in-der-ukraine) (≈ 1,5 млн); Deutsch-Ukrainische Historikerkommission — [Der Holocaust in der Ukraine 1941–1944](https://www.ukrainianhistoryportal.org/themenmodule/der-zweite-weltkrieg/der-holocaust-in-der-ukraine/); [Babyn Yar Holocaust Memorial Center](https://babynyar.org/en); Yad Vashem — [Reaction to the Attack Endangering the Historical Site of the Babi Yar Massacre](https://www.yadvashem.org/press-release/01-march-2022-17-46.html) (1.03.2022).
-- Депортації з Берліна: berlin.de — [Gedenkstätten am Bahnhof Grunewald](https://www.berlin.de/ba-charlottenburg-wilmersdorf/ueber-den-bezirk/geschichte/gedenkstaetten/artikel.1137369.php) (перший потяг — 18.10.1941). План «Мадагаскар»: USHMM — [Madagascar Plan](https://encyclopedia.ushmm.org/content/en/article/madagascar-plan).
-- Ванзее: Gedenk- und Bildungsstätte Haus der Wannsee-Konferenz — [Was war die Wannsee-Konferenz?](https://www.ghwk.de/de/leichte-sprache/was-war-die-wannsee-konferenz); Yad Vashem — [Protocol of the Wannsee Conference](https://www.yadvashem.org/docs/wannsee-conference-protocol.html).
+- Погром 1938: bpb — [Novemberpogrom 1938](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/542301/novemberpogrom-1938/) (1406 синагог і молитовних приміщень, ≈ 30 000 арештованих, понад 1500 загиблих за оцінками дослідників), [Der 9. November in der deutschen Geschichte](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/172172/der-9-november-in-der-deutschen-geschichte/) (≈ 1300 загиблих; нацистський звіт — 91).
+- «Aktion T4»: Gedenkort T4 — [Aktion T4](https://gedenkort-t4.eu/wissen/aktion-t4) (шість закладів, понад 70 000 убитих до серпня 1941; персонал T4 пізніше в таборах «Aktion Reinhard»); Bundesarchiv — [Euthanasie im Dritten Reich](https://www.bundesarchiv.de/im-archiv-recherchieren/archivgut-recherchieren/nach-themen/euthanasie-im-dritten-reich/).
+- Бабин Яр і Україна: USHMM — [Mass Shootings at Babyn Yar](https://encyclopedia.ushmm.org/content/en/article/kiev-and-babi-yar); текст звіту: PHDN — [Ereignismeldung UdSSR Nr. 101](https://phdn.org/histgen/lebontemps/lbt-09-194109-babiyar.html) (джерело — Zentrale Stelle der Landesjustizverwaltungen, Ludwigsburg); Український інститут національної памʼяті — [Трагедія Бабиного Яру](https://uinp.gov.ua/informaciyni-materialy/zhurnalistam/informaciyni-materialy-do-dnya-pamyati-tragediyi-babynogo-yaru-2022), [Holocaust in der Ukraine](https://uinp.gov.ua/informaciyni-materialy/ukrayinsko-nimecki-istorychni-dialogy/holocaust-in-der-ukraine) (≈ 1,5 млн); Deutsch-Ukrainische Historikerkommission — [Der Holocaust in der Ukraine 1941–1944](https://www.ukrainianhistoryportal.org/themenmodule/der-zweite-weltkrieg/der-holocaust-in-der-ukraine/); Yad Vashem — [Reaction to the Attack Endangering the Historical Site of the Babi Yar Massacre](https://www.yadvashem.org/press-release/01-march-2022-17-46.html) (1.03.2022).
+- Депортації з Берліна: berlin.de — [Gedenkstätten am Bahnhof Grunewald](https://www.berlin.de/ba-charlottenburg-wilmersdorf/ueber-den-bezirk/geschichte/gedenkstaetten/artikel.1137369.php) (перший потяг — 18.10.1941).
+- Ванзее: Yad Vashem — [Die Wannseekonferenz](https://www.yadvashem.org/de/holocaust/about/final-solution-beginning/wannsee-conference.html); Yad Vashem — [Protocol of the Wannsee Conference](https://www.yadvashem.org/docs/wannsee-conference-protocol.html).
 - Аушвіц: Auschwitz-Birkenau Memorial — [The number of victims](https://www.auschwitz.org/en/history/auschwitz-and-shoah/the-number-of-victims/).
 - Інші групи: USHMM — [Paragraph 175 and the Nazi Campaign against Homosexuality](https://encyclopedia.ushmm.org/content/en/article/paragraph-175-and-the-nazi-campaign-against-homosexuality); Dokumentations- und Kulturzentrum Deutscher Sinti und Roma — [40 Jahre Anerkennung des NS-Völkermordes](https://dokuzentrum.sintiundroma.de/en/40-years-recognition-nazi-genocide-sinti-roma-europe/); Stiftung Denkmal — [Memorial to the Sinti and Roma of Europe murdered under National Socialism](https://www.stiftung-denkmal.de/en/memorials/memorial-to-the-sinti-and-roma-of-europe-murdered-under-national-socialism/).
 - Суди: bpb — [Urteil im Frankfurter Auschwitz-Prozess](https://www.bpb.de/kurz-knapp/hintergrund-aktuell/314099/urteil-im-frankfurter-auschwitz-prozess/); Fritz Bauer Institut — [Fakten zum Auschwitz-Prozess 1963–1965](https://www.fritz-bauer-institut.de/fileadmin/editorial/download/aktuelles/Fakten_zum_Frankfurter_Auschwitz-Prozess.pdf) (PDF).

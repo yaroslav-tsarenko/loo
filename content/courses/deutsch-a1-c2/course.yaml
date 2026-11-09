@@ -45,17 +45,17 @@ sections:
       description: 'DACH, федеральні землі, міста, діалекти, свята, їжа й культурні коди.' }
   - { id: b1, title: B1 — Середній, icon: px:chat, from: Deutsch, chapters: 301-330, level: B1,
       description: 'Präteritum, Passiv, Relativsätze, Konjunktiv II, Infinitiv mit zu, формат Goethe і telc B1.' }
-  - { id: geschichte, title: Deutschland — історія, icon: px:scroll, from: Deutschland, chapters: 301-314, level: B1, status: planned,
+  - { id: geschichte, title: Deutschland — історія, icon: px:scroll, from: Deutschland, chapters: 301-314, level: B1,
       description: 'Від германців і Священної Римської імперії до 1990 року й сьогодення.' }
-  - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2, status: planned,
+  - { id: b2, title: B2 — Вище середнього, icon: px:compass, from: Deutsch, chapters: 401-429, level: B2,
       description: 'Adjektivdeklination без пауз, Konjunktiv I, Partizipien, Konnektoren, TestDaF-формат.' }
-  - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2, status: planned,
+  - { id: kultur, title: Deutschland — культура, icon: px:temple, from: Deutschland, chapters: 401-409, level: B2,
       description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
-  - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1, status: planned,
+  - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1,
       description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
-  - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2, status: planned,
+  - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2,
       description: 'Стиль, ідіоми, діалекти на слух, Großes Deutsches Sprachdiplom.' }
-  - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: 301-602, status: planned,
+  - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: '301-303, 401-403, 501-504, 601-602',
       description: 'Формати іспитів B1–C2, стратегії й пробні завдання.' }
 
 exams:
