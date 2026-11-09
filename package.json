@@ -30,6 +30,7 @@
     "course:build": "tsx --env-file-if-exists=.env.local scripts/course-build.ts",
     "content:snapshot": "tsx scripts/content-snapshot.ts",
     "content:measure": "tsx scripts/measure-content.ts",
+    "content:functions": "tsx scripts/function-sizes.ts",
     "i18n:check": "tsx --env-file-if-exists=.env.local scripts/i18n-check.ts",
     "i18n:stamp": "tsx --env-file-if-exists=.env.local scripts/i18n-stamp.ts",
     "runner:build": "tsx scripts/build-ts-strip.ts",
