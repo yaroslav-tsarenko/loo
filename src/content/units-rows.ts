@@ -33,9 +33,10 @@ export function unitRow(unit: LearningUnit): UnitRow {
   }
 }
 
-export function unitsFingerprint(rows: Iterable<Pick<UnitRow, 'id' | 'chapterId' | 'level' | 'label'>>): string {
+// Hashes whole rows, so a change of any mirrored column (kind, qtype, frequency, guide …) reaches the table.
+export function unitsFingerprint(rows: Iterable<UnitRow>): string {
   const hash = createHash('sha1')
-  for (const row of rows) hash.update(`${row.id}|${row.chapterId}|${row.level ?? ''}|${row.label}\n`)
+  for (const row of rows) hash.update(`${JSON.stringify(row)}\n`)
   return hash.digest('hex')
 }
 

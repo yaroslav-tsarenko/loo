@@ -57,3 +57,14 @@ describe('units sync source', () => {
     expect((await source.rows()).length).toBeGreaterThan(0)
   })
 })
+
+describe('units fingerprint', () => {
+  it('changes with any mirrored column of any row', () => {
+    const base = { id: 'a', kind: 'quiz', guideId: 'g', chapterId: 'c', level: null, frequency: null, qtype: 'single', label: 'L', idSource: 'explicit' } as const
+    const print = unitsFingerprint([base])
+    expect(unitsFingerprint([{ ...base }])).toBe(print)
+    for (const change of [{ qtype: 'multi' }, { frequency: 'часто' }, { guideId: 'h' }, { kind: 'task' }, { idSource: 'hash' }, { level: 'junior' }] as const) {
+      expect(unitsFingerprint([{ ...base, ...change }]), JSON.stringify(change)).not.toBe(print)
+    }
+  })
+})
