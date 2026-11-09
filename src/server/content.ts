@@ -31,7 +31,7 @@ export async function getContent(): Promise<ContentSnapshot> {
   await connection()
   await boot()
   const snapshot = await getContentStore().get()
-  await syncUnits(snapshot)
+  await syncUnits(snapshot, await getContentStore().unitsSync())
   return snapshot
 }
 

@@ -11,6 +11,7 @@ import { titleFrom } from './discover/names'
 import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from './i18n/files'
 import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import { LinkIndex } from './links'
+import { decodeUnitsSync, encodeUnitsSync, unitRow, unitsFingerprint, type UnitRow } from './units-rows'
 import type { Chapter, ContentIssue, Guide, Heading, LearningUnit } from './model'
 import { extractFile, QA_FILE, type ExtractResult } from './parse/extract'
 import { parseMarkdown } from './parse/markdown'
@@ -316,6 +317,31 @@ export function prebuiltPath(config: VaultConfig): string {
   return path.join(config.vaultPath, '.snapshot', 'guides.v8.br')
 }
 
+export function manifestPath(config: VaultConfig): string {
+  return path.join(config.vaultPath, '.snapshot', 'manifest.json')
+}
+
+export function unitsSyncPath(config: VaultConfig): string {
+  return path.join(config.vaultPath, '.snapshot', 'units-sync.json.br')
+}
+
+// Written next to the snapshot at build time. `fingerprint` ties it to the snapshot it was built with.
+export interface Manifest {
+  format: number
+  builtAt: string
+  fingerprint: string
+  unitsFingerprint: string
+  units: number
+}
+
+export const MANIFEST_FORMAT = 1
+
+// Build time: the unit rows the `units` table mirrors and the manifest that fingerprints them.
+export function buildUnitsSync(snapshot: ContentSnapshot, fingerprint: string): { manifest: Manifest; data: Buffer } {
+  const rows = [...snapshot.units.values()].map(unitRow)
+  return { manifest: { format: MANIFEST_FORMAT, builtAt: new Date().toISOString(), fingerprint, unitsFingerprint: unitsFingerprint(rows), units: rows.length }, data: encodeUnitsSync(rows) }
+}
+
 export function listingFingerprint(listing: VaultListing): string {
   const hash = createHash('sha1')
   hash.update(`${PREBUILT_FORMAT}\n`)
@@ -326,15 +352,16 @@ export function listingFingerprint(listing: VaultListing): string {
 }
 
 // Build time: parse the vault and serialize the snapshot together with the guide files it was built from.
-export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer; snapshot: ContentSnapshot }> {
+export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer; snapshot: ContentSnapshot; fingerprint: string }> {
   const listing = await listVault(config.vaultPath, config.guidesDir)
   const snapshot = await loadSnapshot(config, new Map(), 1, listing)
-  const payload: Prebuilt = { format: PREBUILT_FORMAT, v8: process.versions.v8, fingerprint: listingFingerprint(listing), snapshot, files: listing.files }
+  const fingerprint = listingFingerprint(listing)
+  const payload: Prebuilt = { format: PREBUILT_FORMAT, v8: process.versions.v8, fingerprint, snapshot, files: listing.files }
   const data = brotliCompressSync(serialize(payload), { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } })
-  return { data, snapshot }
+  return { data, snapshot, fingerprint }
 }
 
-async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: ContentSnapshot; files: Map<string, VaultFile> } | null> {
+async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: ContentSnapshot; files: Map<string, VaultFile>; fingerprint: string } | null> {
   let raw: Buffer
   try {
     raw = await readFile(file)
@@ -349,9 +376,25 @@ async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultLis
     snapshot.config = config
     Object.setPrototypeOf(snapshot.links, LinkIndex.prototype)
     const files = new Map(payload.files.map((f) => [f.path, { ...f, absolute: path.join(config.vaultPath, ...f.path.split('/')) }]))
-    return { snapshot, files }
+    return { snapshot, files, fingerprint: payload.fingerprint }
   } catch (error) {
     console.warn('[content] prebuilt snapshot unreadable, parsing the vault', error)
+    return null
+  }
+}
+
+// What syncUnits (src/server/services/units-sync.ts) needs of the content: a fingerprint of the unit rows and, only
+// when the `units` table is behind it, the rows themselves.
+export interface UnitsSyncSource {
+  fingerprint(): string
+  rows(): Promise<UnitRow[]>
+}
+
+async function readManifest(config: VaultConfig, fingerprint: string): Promise<Manifest | null> {
+  try {
+    const manifest = JSON.parse(await readFile(manifestPath(config), 'utf8')) as Manifest
+    return manifest.format === MANIFEST_FORMAT && manifest.fingerprint === fingerprint ? manifest : null
+  } catch {
     return null
   }
 }
@@ -370,6 +413,8 @@ export class ContentStore {
   private timer: ReturnType<typeof setTimeout> | null = null
   // guide files of a prebuilt snapshot (documents are parsed from them on demand)
   private prebuiltFiles: Map<string, VaultFile> | null = null
+  // the build's unit-rows fingerprint, while the snapshot in use is the prebuilt one it belongs to
+  private prebuiltUnits: string | null = null
 
   // `prebuilt`: a snapshot file to try on the first load (deployments; see buildPrebuilt)
   constructor(
@@ -495,6 +540,30 @@ export class ContentStore {
     return (await this.get()).placementUnits.get(id) ?? null
   }
 
+  // The prebuilt snapshot brings the rows' fingerprint with it (manifest.json); a vault parsed in-process (dev, or a
+  // snapshot that does not match the vault) computes them from its units.
+  async unitsSync(): Promise<UnitsSyncSource> {
+    const snapshot = await this.get()
+    const live = () => [...snapshot.units.values()].map(unitRow)
+    const stored = this.prebuiltUnits
+    if (!stored) {
+      let rows: UnitRow[] | null = null
+      return { fingerprint: () => unitsFingerprint((rows ??= live())), rows: async () => (rows ??= live()) }
+    }
+    return {
+      fingerprint: () => stored,
+      rows: async () => {
+        try {
+          const data = decodeUnitsSync(await readFile(unitsSyncPath(this.config)))
+          if (data.fingerprint === stored) return data.rows
+        } catch {
+          // fall through to the units in memory
+        }
+        return live()
+      },
+    }
+  }
+
   async get(): Promise<ContentSnapshot> {
     if (this.snapshot) return this.snapshot
     if (!this.loading) this.loading = this.reload([])
@@ -520,6 +589,7 @@ export class ContentStore {
   }
 
   private async reload(paths: string[]): Promise<ContentSnapshot> {
+    this.prebuiltUnits = null
     const snapshot = (await this.fromPrebuilt(paths)) ?? (await loadSnapshot(this.config, this.cache, ++this.version))
     this.snapshot = snapshot
     this.loading = null
@@ -535,6 +605,7 @@ export class ContentStore {
     const hit = await loadPrebuilt(this.prebuilt, this.config, listing)
     if (!hit) return null
     this.prebuiltFiles = hit.files
+    this.prebuiltUnits = (await readManifest(this.config, hit.fingerprint))?.unitsFingerprint ?? null
     return { ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) }
   }
 

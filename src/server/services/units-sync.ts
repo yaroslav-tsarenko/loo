@@ -1,11 +1,10 @@
 import 'server-only'
-import { createHash } from 'node:crypto'
 import { and, eq, inArray, sql } from 'drizzle-orm'
 import { getDb } from '@/db/client'
 import { attempts, mistakes, srsCards, taskState, unitAliases, units } from '@/db/schema'
 import { similarity } from '@/content/ids'
-import type { LearningUnit, QuizUnit } from '@/content/model'
-import type { ContentSnapshot } from '@/content/store'
+import type { ContentSnapshot, UnitsSyncSource } from '@/content/store'
+import type { UnitRow } from '@/content/units-rows'
 import { readSystem, writeSystem } from '../settings'
 
 const syncedKey = Symbol.for('interview-prep.units-synced')
@@ -14,59 +13,27 @@ type GlobalWithSync = typeof globalThis & { [syncedKey]?: { version: number; vau
 export const ALIAS_THRESHOLD = 0.85
 const FINGERPRINT_KEY = 'internal.unitsFingerprint'
 
-// First meaningful line of an order/fill exercise, blanks masked
-function exerciseLine(unit: QuizUnit): string | undefined {
-  const ex = unit.exercise
-  if (!ex) return undefined
-  const text = ex.kind === 'order' ? ex.pieces.find((p) => !p.distractor)?.code ?? '' : ex.segments.map((s) => (s.kind === 'text' ? s.value : '___')).join('')
-  return text.split('\n').find((l) => l.trim())?.trim()
+function unitValues(row: UnitRow, now: number) {
+  const { kind, guideId, chapterId, level, frequency, qtype, label, idSource } = row
+  return { kind, guideId, chapterId, level, frequency, qtype, label, idSource, lastSeen: now, missingSince: null }
 }
 
-export function unitLabel(unit: LearningUnit): string {
-  if (unit.kind === 'quiz') {
-    const code = unit.body.children.find((n) => n.type === 'code')
-    const firstLine = code && code.type === 'code' ? code.value.split('\n').find((l) => l.trim())?.trim() : exerciseLine(unit)
-    const text = unit.promptText.length < 40 && firstLine ? `${unit.promptText} ${firstLine}` : unit.promptText
-    return text.slice(0, 240)
-  }
-  const text = unit.kind === 'flashcard' ? unit.questionText : unit.titleText
-  return text.slice(0, 240)
-}
-
-function unitValues(unit: LearningUnit, now: number) {
-  return {
-    kind: unit.kind,
-    guideId: unit.guideId,
-    chapterId: unit.chapterId,
-    level: unit.level,
-    frequency: unit.kind === 'flashcard' ? unit.frequency : null,
-    qtype: unit.kind === 'flashcard' ? unit.qtype : unit.kind === 'quiz' ? unit.mode : unit.difficulty,
-    label: unitLabel(unit),
-    idSource: unit.idSource,
-    lastSeen: now,
-    missingSince: null,
-  }
-}
-
-function fingerprint(snapshot: ContentSnapshot): string {
-  const hash = createHash('sha1')
-  for (const unit of snapshot.units.values()) hash.update(`${unit.id}|${unit.chapterId}|${unit.level}|${unitLabel(unit)}\n`)
-  return hash.digest('hex')
-}
-
-export async function syncUnits(snapshot: ContentSnapshot): Promise<void> {
+// `source`: the fingerprint comes from the build (manifest.json), so the common case — the table is up to date after a
+// deploy — reads one setting and no unit. The rows are loaded only when it is behind.
+export async function syncUnits(snapshot: ContentSnapshot, source: UnitsSyncSource): Promise<void> {
   const g = globalThis as GlobalWithSync
   const marker = g[syncedKey]
   if (marker && marker.version === snapshot.version && marker.vault === snapshot.config.vaultPath) return
   const done = () => (g[syncedKey] = { version: snapshot.version, vault: snapshot.config.vaultPath })
-  const print = fingerprint(snapshot)
+  const print = source.fingerprint()
   const db = getDb()
   if ((await readSystem(FINGERPRINT_KEY)) === print) return void done()
   const now = Date.now()
   await db.transaction(async (tx) => {
     const existing = new Map((await tx.select().from(units)).map((u) => [u.id, u]))
-    const fresh: LearningUnit[] = []
-    const rows = [...snapshot.units.values()].map((unit) => {
+    const content = await source.rows()
+    const fresh: UnitRow[] = []
+    const rows = content.map((unit) => {
       if (!existing.has(unit.id) && unit.idSource === 'hash') fresh.push(unit)
       return { id: unit.id, firstSeen: existing.get(unit.id)?.firstSeen ?? now, ...unitValues(unit, now) }
     })
@@ -90,19 +57,19 @@ export async function syncUnits(snapshot: ContentSnapshot): Promise<void> {
           },
         })
     }
-    const missing = [...existing.values()].filter((row) => !snapshot.units.has(row.id))
+    const present = new Set(content.map((unit) => unit.id))
+    const missing = [...existing.values()].filter((row) => !present.has(row.id))
     const newlyMissing = missing.filter((row) => row.missingSince === null).map((row) => row.id)
     for (let i = 0; i < newlyMissing.length; i += 500) {
       await tx.update(units).set({ missingSince: now }).where(inArray(units.id, newlyMissing.slice(i, i + 500)))
     }
     const used = new Set<string>()
     for (const unit of fresh) {
-      const label = unitLabel(unit)
       let best: { id: string; score: number } | null = null
       for (const row of missing) {
         if (used.has(row.id)) continue
         if (row.idSource !== 'hash' || row.kind !== unit.kind || row.chapterId !== unit.chapterId) continue
-        const score = similarity(label, row.label)
+        const score = similarity(unit.label, row.label)
         if (score >= ALIAS_THRESHOLD && (!best || score > best.score)) best = { id: row.id, score }
       }
       if (!best) continue
