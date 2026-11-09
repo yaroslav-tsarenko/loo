@@ -57,6 +57,10 @@ export function loadSearchIndex(json: string): MiniSearch<SearchDoc> {
   return MiniSearch.loadJSON<SearchDoc>(json, INDEX_OPTIONS)
 }
 
+export function loadSearchIndexAsync(json: string): Promise<MiniSearch<SearchDoc>> {
+  return MiniSearch.loadJSONAsync<SearchDoc>(json, INDEX_OPTIONS)
+}
+
 function prepare(snapshot: SearchSource): { mini: MiniSearch<SearchDoc>; docs: SearchDoc[] } {
   const mini = new MiniSearch<SearchDoc>(INDEX_OPTIONS)
   const docs: SearchDoc[] = []

@@ -1,4 +1,4 @@
-import { existsSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, statSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { defaultVaultConfig, type VaultConfig } from '../../src/content/config'
@@ -9,6 +9,8 @@ import { parseCourseYaml } from '../../src/course/schema'
 // Course packages on disk (COURSE_FORMAT §1). Official courses live in <vault>/Courses/<id>/course.yaml and
 // resolve `from:` against the vault's shared Guides/; any other package resolves it against its own folders.
 
+const isDir = (p: string) => existsSync(p) && statSync(p).isDirectory()
+
 export const COURSES_DIR = process.env.COURSES_DIR ?? 'Courses'
 
 export interface CoursePackage {
@@ -18,11 +20,13 @@ export interface CoursePackage {
   official: boolean
 }
 
+// <vault>/Courses in an Obsidian vault, <repo>/content/courses in the repo: found by name regardless of case, so the
+// result doesn't depend on the file system (macOS is case-insensitive, Linux on Vercel / CI is not).
 export function coursesRoot(config: VaultConfig = defaultVaultConfig()): string {
-  return path.join(config.vaultPath, COURSES_DIR)
+  const wanted = COURSES_DIR.toLowerCase()
+  const found = existsSync(config.vaultPath) ? readdirSync(config.vaultPath).find((n) => n.toLowerCase() === wanted && isDir(path.join(config.vaultPath, n))) : undefined
+  return path.join(config.vaultPath, found ?? COURSES_DIR)
 }
-
-const isDir = (p: string) => existsSync(p) && statSync(p).isDirectory()
 
 async function readPackage(dir: string, root: string): Promise<CoursePackage | null> {
   const yamlPath = ['course.yaml', 'course.yml'].map((f) => path.join(dir, f)).find((f) => existsSync(f))

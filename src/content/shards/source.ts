@@ -1,10 +1,11 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { brotliDecompressSync } from 'node:zlib'
+import { promisify } from 'node:util'
+import { brotliDecompress } from 'node:zlib'
 import type MiniSearch from 'minisearch'
 import type { LearningUnit } from '../model'
 import type { Reel } from '../parse/reels'
-import { loadSearchIndex, searchIndexFor, type SearchDoc } from '../search'
+import { loadSearchIndexAsync, searchIndexFor, type SearchDoc } from '../search'
 import type { ContentIndex, FullSnapshot, Manifest } from '../store'
 import type { ShardReader } from './read'
 
@@ -12,6 +13,8 @@ import type { ShardReader } from './read'
 // - MemorySource: the full parse held in memory — the dev server, the build scripts, CONTENT_SHARDS=0, the monolith;
 // - ShardSource: the per-guide packs, read on demand through the section LRU (src/content/shards/read.ts).
 // Both answer the same questions with the same data (tests/unit/content-shards.test.ts).
+
+const brotliDecompressAsync = promisify(brotliDecompress)
 
 export interface BodySource {
   unit(id: string): Promise<LearningUnit | null>
@@ -150,7 +153,8 @@ export class ShardSource implements BodySource {
   private async loadSearch(): Promise<MiniSearch<SearchDoc>> {
     const file = this.manifest.shards?.search?.file
     if (!file) throw new Error('The snapshot has no search index (pnpm content:snapshot without --no-search)')
-    const search = loadSearchIndex(brotliDecompressSync(await readFile(path.join(this.dir, file))).toString('utf8'))
-    return search
+    // off the main thread (brotli) and in slices (loadJSONAsync): requests on this instance keep being served meanwhile
+    const json = (await brotliDecompressAsync(await readFile(path.join(this.dir, file)))).toString('utf8')
+    return loadSearchIndexAsync(json)
   }
 }

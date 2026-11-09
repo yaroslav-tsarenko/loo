@@ -1,0 +1,37 @@
+# Content storage checks (docs/fullstack/stage1/01-storage.md §7): the shards equal the full parse, the heap budgets
+# hold, and a deployment built from the traced files alone starts from the shards.
+name: storage
+
+on:
+  pull_request:
+    paths:
+      - 'src/content/**'
+      - 'src/server/courses/**'
+      - 'content/**'
+      - 'scripts/**'
+      - 'next.config.ts'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+jobs:
+  storage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Unit tests
+        run: pnpm test
+      - name: Snapshot, budgets, equivalence, build, trace check
+        env:
+          VAULT_PATH: content
+        run: pnpm check:storage

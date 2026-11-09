@@ -5,18 +5,22 @@ import { checkCourse, CourseBundleSchema } from '../src/course'
 import { buildCatalog, CATALOG_FILE } from '../src/server/courses/catalog'
 import { listOfficialCourses, loadCourseSource, loadIconCatalog } from './lib/course-source'
 
-// Usage: pnpm course:build [--force] [--if-sources] [--catalog-only]
+// Usage: VAULT_PATH=content pnpm course:build [--force] [--if-sources] [--catalog-only] [--from-vault]
 // Compiles every official course (<vault>/Courses/*/course.yaml) into content/courses/<id>.json,
 // which ships with the app (next.config.ts → outputFileTracingIncludes ./content/**; the server loads it in
 // src/server/courses/registry.ts). A course with validation errors is not written unless --force.
 // --if-sources (vercel-build): without course packages (no synced vault), keep the committed bundles.
 // Next to the bundles it writes catalog.json (listings, guides and languages per course, legacy lesson ids): the server
 // reads that at start and loads a bundle only when its course is opened (src/server/courses/catalog.ts).
+// The repo's content/courses/<id>/course.yaml is the source of truth for the committed bundles. Built from another
+// vault (the default is your Obsidian vault via .env.local) a course.yaml that differs from the repo's would silently
+// change the bundle (an older vault lacks the IELTS block, for one), so that fails unless --from-vault says it is meant.
 // Task self-tests: pnpm course:check.
 
 const force = process.argv.includes('--force')
 const ifSources = process.argv.includes('--if-sources')
 const catalogOnly = process.argv.includes('--catalog-only')
+const fromVault = process.argv.includes('--from-vault')
 const outDir = path.resolve('content', 'courses')
 async function writeCatalog(): Promise<void> {
   const names = existsSync(outDir) ? (await readdir(outDir)).filter((f) => f.endsWith('.json') && f !== CATALOG_FILE) : []
@@ -40,6 +44,18 @@ if (courses.length === 0) {
     process.exit(0)
   }
   console.error('Офіційних курсів не знайдено (очікується <vault>/Courses/<id>/course.yaml)')
+  process.exit(1)
+}
+
+// the repo's own course packages: content/courses/<id>/course.yaml
+const repoCourses = path.resolve('content', 'courses')
+const drift: string[] = []
+for (const pkg of courses) {
+  const repoYaml = path.join(repoCourses, path.basename(pkg.dir), 'course.yaml')
+  if (path.resolve(pkg.yamlPath) !== repoYaml && existsSync(repoYaml) && (await readFile(repoYaml, 'utf8')) !== pkg.source) drift.push(`${path.basename(pkg.dir)}: ${pkg.yamlPath} differs from ${path.relative(process.cwd(), repoYaml)}`)
+}
+if (drift.length > 0 && !fromVault) {
+  console.error(`❌ course.yaml з іншого vault відрізняється від репозиторію (джерело правди — content/courses/<id>/course.yaml):\n   ${drift.join('\n   ')}\n   Збирай з VAULT_PATH=content або додай --from-vault, якщо зміна навмисна.`)
   process.exit(1)
 }
 

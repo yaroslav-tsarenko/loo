@@ -204,9 +204,13 @@ The common paths:
   chapter texts), `search.json.br`, `units-sync.json.br`, `manifest.json` — and the old monolithic `guides.v8.br`.
   A cold server reads the manifest and the index (≈ 75 ms, 15 MB) and loads **a chapter's units and reels when a page
   asks for them** (one positioned read + brotli + `JSON.parse`, 1–3 ms), through a section LRU of `CONTENT_CACHE_MB`
-  (default 24) with one promise per section in flight. The monolith held 175 MB per instance; index + the 3 largest
-  guides + the 2 largest course bundles now hold 58 MB. Shards are used when the vault listing, the Node/V8 version
-  and every pack size match what was built; otherwise the store falls back to the monolith, then to parsing.
+  (default 24) with one promise per section in flight. The budgets (`CONTENT_CACHE_MB`, `COURSE_CACHE_MB`,
+  `DOCUMENT_CACHE_MB`) are caps on **cached** bytes: an evicted entry stays on the heap while a request still holds it. The monolith held 175 MB per instance; index + the 3 largest
+  guides + the 2 largest course bundles now hold 58 MB. Shards are used when the format, the Node/V8 version and every
+  pack size match the manifest (a pack's sha1 is checked when it is first opened); otherwise the store logs why, once
+  (`[content] shards not used: …`), and falls back to the monolith, then to parsing. On Vercel the build's manifest is
+  trusted and the vault listing is not compared (a function ships only the files it traces, so its listing is not the
+  build's); locally with `CONTENT_SNAPSHOT=1` the listing is compared, so edited vault files invalidate the build.
   Locally opt in with `CONTENT_SNAPSHOT=1`. **Rollback: `CONTENT_SHARDS=0`** serves from the monolith (still built
   and traced; remove it one release after the shards are in production).
 - Parsed articles (mdast with positions, for the reader) and their translated merges are cached under
@@ -218,6 +222,9 @@ The common paths:
 - **Course bundles**: `course:build` writes `content/courses/catalog.json` (listings, guides, languages, legacy lesson
   ids; 0.5 MB, 1.3 MB heap). A bundle is read and schema-validated when its course is opened and kept under
   `COURSE_CACHE_MB` (default 24; cost 2.3× the file). All four at once were 24 MB.
+- `pnpm check:storage` (CI: `.github/workflows/storage.yml`) = snapshot → `content:measure --assert --verify` → build →
+  `content:trace-check` (every route's trace holds the build's content files; the store starts from the traced files
+  alone, as on Vercel, in < 1 s and from the shards).
 - Measure it all: `pnpm content:measure [--assert] [--verify] [--guides] [--json]` (budgets in the script header) and
   `pnpm build && pnpm content:functions` (traced size per function). Shiki: one highlighter, languages loaded on demand,
   highlighted blocks memoized (4000 entries).

@@ -15,6 +15,20 @@ import { SHARDS_FORMAT, type GuideSections, type ShardIndex } from './format'
 // Reads the sections of the per-guide packs (docs/fullstack/stage1/01-storage.md §3, §4): one positioned read, brotli
 // and JSON.parse per section, a byte-budget LRU over the decoded sections and one promise per section in flight.
 
+const warned = new Set<string>()
+
+// One log line per reason per process (the store asks again on every reload and every request that finds no build).
+export function warnOnce(message: string): void {
+  if (warned.has(message)) return
+  warned.add(message)
+  console.warn(message)
+}
+
+// (tests)
+export function resetWarnings(): void {
+  warned.clear()
+}
+
 export interface ChapterSection {
   units: LearningUnit[]
   reels: Reel[]
@@ -34,14 +48,19 @@ export class ShardReader {
   readonly cache: ByteLru<unknown>
   private readonly handles = new Map<string, Promise<FileHandle>>()
   private readonly inflight = new Map<string, Promise<unknown>>()
+  // guides whose pack does not match the manifest: the error is remembered, the pack is not read again
+  private readonly bad = new Map<string, Error>()
+  private readonly oversized = new Set<string>()
   private decodes = 0
   private hits = 0
   private oversize = 0
 
+  // packs: guide id → the sha1 the manifest records for its pack; checked once, when the pack is first opened
   constructor(
     private readonly dir: string,
     private readonly sections: Readonly<Record<string, GuideSections>>,
     budget = budgetFromEnv('CONTENT_CACHE_MB', 24),
+    private readonly packs: Readonly<Record<string, string>> = {},
   ) {
     this.cache = new ByteLru(budget)
   }
@@ -55,12 +74,32 @@ export class ShardReader {
     if (!handle) {
       const pack = this.sections[guideId]?.pack
       if (!pack) return Promise.reject(new Error(`No shard for guide ${guideId}`))
-      handle = open(path.join(this.dir, 'guides', pack), 'r')
+      const known = this.bad.get(guideId)
+      if (known) return Promise.reject(known)
+      handle = this.openChecked(guideId, pack)
       // a failed open is not kept
       handle.catch(() => this.handles.delete(guideId))
       this.handles.set(guideId, handle)
     }
     return handle
+  }
+
+  // Opens a pack and, once, compares its bytes with the manifest: a pack of the right size but the wrong content (a
+  // partial copy) would decode to garbage or to another chapter.
+  private async openChecked(guideId: string, pack: string): Promise<FileHandle> {
+    const file = await open(path.join(this.dir, 'guides', pack), 'r')
+    const expected = this.packs[guideId]
+    if (expected) {
+      const actual = createHash('sha1').update(await file.readFile()).digest('hex')
+      if (actual !== expected) {
+        await file.close()
+        const error = new Error(`The pack ${pack} does not match the manifest (sha1): redeploy, or set CONTENT_SHARDS=0`)
+        this.bad.set(guideId, error)
+        console.error(`[content] ${error.message}`)
+        throw error
+      }
+    }
+    return file
   }
 
   private async read<T>(guideId: string, [offset, length]: readonly [number, number]): Promise<{ value: T; cost: number }> {
@@ -89,7 +128,10 @@ export class ShardReader {
     const task = this.read<T>(guideId, range).then(({ value, cost }) => {
       if (!bypassCache && !this.cache.set(key, value, cost)) {
         this.oversize++
-        console.warn(`[content] section ${key} (${(cost / 1e6).toFixed(1)} MB) is larger than CONTENT_CACHE_MB: served without caching`)
+        if (!this.oversized.has(key)) {
+          this.oversized.add(key)
+          console.warn(`[content] section ${key} (${(cost / 1e6).toFixed(1)} MB) is larger than CONTENT_CACHE_MB: served without caching`)
+        }
       }
       return value
     })
@@ -112,7 +154,9 @@ export class ShardReader {
     return this.section(guideId, 'text', this.sections[guideId]?.text, [], true)
   }
 
+  // Waits for the reads in flight (a dev reload swaps the source while requests still read the old one), then closes.
   async close(): Promise<void> {
+    await Promise.allSettled([...this.inflight.values()])
     const handles = [...this.handles.values()]
     this.handles.clear()
     this.cache.clear()
@@ -132,26 +176,32 @@ export function shardsDir(config: VaultConfig): string {
   return path.join(config.vaultPath, '.snapshot')
 }
 
-// null: no usable shards (missing, another format / V8, a pack that does not match the manifest, a different vault
-// listing) — the caller falls back to the monolith or to parsing.
-export async function loadShards(config: VaultConfig, listingFingerprint: string, budget?: number): Promise<LoadedShards | null> {
+// `expected`: the fingerprint of the vault listing the build must have been made from; null — trust the build (a
+// deployment ships only the files it traces, so its listing can't be compared with the build's).
+// `reason`: why the shards can't be used — the caller logs it and falls back to the monolith or to parsing.
+export async function loadShards(config: VaultConfig, expected: string | null, budget?: number): Promise<LoadedShards | { reason: string }> {
   const dir = shardsDir(config)
   try {
     const manifest = JSON.parse(await readFile(path.join(dir, 'manifest.json'), 'utf8')) as Manifest
-    if (!manifest.shards || manifest.shards.format !== SHARDS_FORMAT || manifest.fingerprint !== listingFingerprint || manifest.shards.v8 !== process.versions.v8) return null
+    if (!manifest.shards) return { reason: 'the manifest has no shards (built without them)' }
+    if (manifest.shards.format !== SHARDS_FORMAT) return { reason: `shards format ${manifest.shards.format}, this server reads ${SHARDS_FORMAT}` }
+    if (manifest.shards.v8 !== process.versions.v8) return { reason: `built with V8 ${manifest.shards.v8}, this server runs ${process.versions.v8}` }
+    if (expected !== null && manifest.fingerprint !== expected) return { reason: 'the vault listing differs from the build (content changed since pnpm content:snapshot)' }
     const raw = await readFile(path.join(dir, manifest.shards.index.file))
     const payload = deserialize(brotliDecompressSync(raw)) as ShardIndex
-    if (payload.fingerprint !== listingFingerprint) return null
-    // a pack that is not the one the index was written for would decode garbage: compare sizes (sha1 in the tests)
+    if (payload.fingerprint !== manifest.fingerprint) return { reason: 'index.v8.br and manifest.json come from different builds' }
+    // a pack that is not the one the index was written for would decode garbage: sizes now, sha1 when a pack is opened
     for (const guide of manifest.shards.guides) {
-      if ((await stat(path.join(dir, 'guides', guide.pack))).size !== guide.packBytes) return null
+      const size = (await stat(path.join(dir, 'guides', guide.pack))).size
+      if (size !== guide.packBytes) return { reason: `pack ${guide.pack} is ${size} bytes, the manifest says ${guide.packBytes}` }
     }
     Object.setPrototypeOf(payload.links, LinkIndex.prototype)
     const files = new Map(payload.files.map((f) => [f.path, { ...f, absolute: path.join(config.vaultPath, ...f.path.split('/')) }]))
-    return { manifest, reader: new ShardReader(dir, payload.sections, budget), files, index: indexOf(payload, config) }
+    const packs = Object.fromEntries(manifest.shards.guides.map((g) => [g.id, g.sha1]))
+    return { manifest, reader: new ShardReader(dir, payload.sections, budget, packs), files, index: indexOf(payload, config) }
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') console.warn('[content] shards unreadable', error)
-    return null
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return { reason: `${path.relative(process.cwd(), (error as NodeJS.ErrnoException).path ?? dir)} is missing (pnpm content:snapshot)` }
+    return { reason: `unreadable: ${error instanceof Error ? error.message : String(error)}` }
   }
 }
 

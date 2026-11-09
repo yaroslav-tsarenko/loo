@@ -11,7 +11,7 @@ import { packSha1, shardsDir } from './read'
 const plain = (x: unknown) =>
   JSON.stringify(x, (k, v: unknown) => (v instanceof Map ? [...v.entries()] : v instanceof Set ? [...v] : k === 'version' || k === 'scanMs' || k === 'config' || k === 'absolute' || k === 'file' ? undefined : v))
 
-export const VERIFY_QUERIES = ['present perfect', 'event loop', 'Perfekt', 'closure', 'що таке', 'next', 'der die das', 'a', 'promise', 'hello']
+export const VERIFY_QUERIES = ['present perfect', 'event loop', 'Perfekt', 'closure', 'що таке', 'next', 'der die das', 'a', 'promise', 'hello', 'promis', 'closur', 'перфект', 'zzqq event', 'der die das fehlt']
 
 export async function verifyShards(config: VaultConfig): Promise<string[]> {
   const problems: string[] = []

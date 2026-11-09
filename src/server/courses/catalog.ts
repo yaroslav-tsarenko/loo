@@ -47,7 +47,8 @@ export function buildCatalog(files: readonly BundleFile[], source: CourseSource 
   for (const entry of courses.values()) {
     const { bundle } = entry
     const file = `${bundle.course.id}.json`
-    const text = byName.get(file) ?? ''
+    const text = byName.get(file)
+    if (text === undefined) throw new Error(`The catalog needs the bundle file ${file}`)
     const target = courseKind(bundle.course) === 'language' ? (bundle.course.target ?? bundle.course.language) : null
     catalog.courses.push({
       id: bundle.course.id,
@@ -82,6 +83,9 @@ export class CourseStore {
   // without a usable catalog (an old checkout): every bundle, loaded at once, as before the catalog existed
   private all: Map<string, CourseEntry> | null = null
   private loads = 0
+  // bundles that failed validation: not read again on every request
+  private readonly invalid = new Set<string>()
+  private readonly oversize = new Set<string>()
 
   constructor(
     readonly dir: string,
@@ -135,7 +139,7 @@ export class CourseStore {
     const catalog = await this.catalog()
     if (this.all) return this.all.get(id) ?? null
     const course = catalog.courses.find((c) => c.id === id)
-    if (!course) return null
+    if (!course || this.invalid.has(id)) return null
     const hit = this.lru.get(id)
     if (hit) return hit
     const pending = this.inflight.get(id)
@@ -149,11 +153,21 @@ export class CourseStore {
 
   private async load(course: CatalogCourse): Promise<CourseEntry | null> {
     const text = await readFile(path.join(this.dir, course.file), 'utf8')
+    // the catalog describes another build of this bundle (same size, other content): rebuild it from the bundles
+    if (createHash('sha1').update(text).digest('hex') !== course.sha1) {
+      this.catalogPromise = this.fallback(`${course.file} no longer matches the catalog (sha1)`)
+      await this.catalogPromise
+      return this.all?.get(course.id) ?? null
+    }
     const { courses, errors } = parseBundles([{ name: course.file, text }], course.source)
     for (const e of errors) console.error(`[courses] ${e}`)
     const entry = courses.get(course.id) ?? null
     this.loads++
-    if (entry && !this.lru.set(course.id, entry, course.bytes * BUNDLE_HEAP_FACTOR)) console.warn(`[courses] ${course.id} is larger than COURSE_CACHE_MB: served without caching`)
+    if (!entry) this.invalid.add(course.id)
+    else if (!this.lru.set(course.id, entry, course.bytes * BUNDLE_HEAP_FACTOR) && !this.oversize.has(course.id)) {
+      this.oversize.add(course.id)
+      console.warn(`[courses] ${course.id} is larger than COURSE_CACHE_MB: served without caching`)
+    }
     return entry
   }
 }

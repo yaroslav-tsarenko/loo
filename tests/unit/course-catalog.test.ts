@@ -105,6 +105,21 @@ describe('course store', () => {
     expect(stale.stats().fallback).toBe(true)
   })
 
+  it('notices a bundle rebuilt to the same size (sha1) and rebuilds the catalog from the bundles', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const dir = copy()
+    const file = path.join(dir, names[0]!)
+    const text = readFileSync(file, 'utf8')
+    // same length, other bytes: a digit in the course's version string
+    writeFileSync(file, text.replace(/"version":"(\d)/, (_m, d: string) => `"version":"${(Number(d) + 1) % 10}`))
+    const store = new CourseStore(dir)
+    await store.catalog()
+    expect(store.stats().fallback).toBe(false)
+    const id = names[0]!.replace('.json', '')
+    expect((await store.entry(id))?.bundle.course.id).toBe(id)
+    expect(store.stats().fallback).toBe(true)
+  })
+
   it('does not break on a missing directory', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     const store = new CourseStore(path.join(tmpdir(), 'levelup-no-such-courses'))

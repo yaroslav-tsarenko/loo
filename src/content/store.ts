@@ -13,7 +13,7 @@ import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import type MiniSearch from 'minisearch'
 import { LinkIndex } from './links'
 import { ByteLru, budgetFromEnv } from './lru'
-import { loadShards, shardsDir, type ShardStats } from './shards/read'
+import { loadShards, shardsDir, warnOnce, type ShardStats } from './shards/read'
 import { MemorySource, ShardSource, type BodySource } from './shards/source'
 import type { SearchDoc, SearchSource } from './search'
 import { decodeUnitsSync, encodeUnitsSync, rowOfMeta, unitRow, unitsFingerprint, type UnitRow } from './units-rows'
@@ -422,16 +422,19 @@ export function encodePrebuilt(snapshot: FullSnapshot, files: VaultFile[], finge
   return brotliCompressSync(serialize(payload), { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } })
 }
 
-async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: FullSnapshot; files: Map<string, VaultFile>; fingerprint: string } | null> {
+// `expected`: as in loadShards (null — trust the build).
+async function loadPrebuilt(file: string, config: VaultConfig, expected: string | null): Promise<{ snapshot: FullSnapshot; files: Map<string, VaultFile>; fingerprint: string } | { reason: string }> {
   let raw: Buffer
   try {
     raw = await readFile(file)
   } catch {
-    return null
+    return { reason: `${path.relative(process.cwd(), file)} is missing` }
   }
   try {
     const payload = deserialize(brotliDecompressSync(raw)) as Prebuilt
-    if (payload.format !== PREBUILT_FORMAT || payload.v8 !== process.versions.v8 || payload.fingerprint !== listingFingerprint(listing)) return null
+    if (payload.format !== PREBUILT_FORMAT) return { reason: `format ${payload.format}, this server reads ${PREBUILT_FORMAT}` }
+    if (payload.v8 !== process.versions.v8) return { reason: `built with V8 ${payload.v8}, this server runs ${process.versions.v8}` }
+    if (expected !== null && payload.fingerprint !== expected) return { reason: 'the vault listing differs from the build' }
     const { snapshot } = payload
     // the snapshot was built elsewhere (another absolute path): rebase it on this server's vault
     snapshot.config = config
@@ -439,8 +442,7 @@ async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultLis
     const files = new Map(payload.files.map((f) => [f.path, { ...f, absolute: path.join(config.vaultPath, ...f.path.split('/')) }]))
     return { snapshot, files, fingerprint: payload.fingerprint }
   } catch (error) {
-    console.warn('[content] prebuilt snapshot unreadable, parsing the vault', error)
-    return null
+    return { reason: `unreadable: ${error instanceof Error ? error.message : String(error)}` }
   }
 }
 
@@ -458,6 +460,16 @@ async function readManifest(config: VaultConfig, fingerprint: string): Promise<M
   } catch {
     return null
   }
+}
+
+// A build in `.snapshot/` and the swap result of a (re)load: the index the app reads, where bodies come from, and what
+// goes with them.
+interface Loaded {
+  snapshot: ContentIndex
+  source: BodySource
+  // the build's unit-rows fingerprint, when the index is the build's own
+  units: string | null
+  files?: Map<string, VaultFile>
 }
 
 export class ContentStore {
@@ -487,6 +499,9 @@ export class ContentStore {
     private readonly prebuilt: string | null = null,
     // read the shards of the build (CONTENT_SHARDS≠0) before the monolithic snapshot
     private readonly shards = false,
+    // compare the vault listing with the build's before using it (false on a deployment, which ships only the files it
+    // traces: the build's manifest is the truth there)
+    private readonly verifyListing = true,
   ) {
     this.config = config
   }
@@ -657,8 +672,8 @@ export class ContentStore {
     this.localized.clear()
     await this.stopWatch?.()
     this.stopWatch = null
+    // readers wait for the new index (get() waits on `loading`); the old source keeps serving the reads already started
     this.snapshot = null
-    await this.releaseSource()
     this.loading = this.reload(['*'])
     return this.loading
   }
@@ -668,50 +683,60 @@ export class ContentStore {
     return () => this.listeners.delete(listener)
   }
 
-  private async releaseSource(): Promise<void> {
-    const source = this.source
-    this.source = null
-    if (source instanceof ShardSource) await source.reader.close()
-  }
-
+  // The new index and its source replace the old ones together; the old shard reader is closed once its reads finish.
   private async reload(paths: string[]): Promise<ContentIndex> {
-    this.prebuiltUnits = null
-    await this.releaseSource()
-    const snapshot = (await this.fromBuild(paths)) ?? this.fromParse(await loadSnapshot(this.config, this.cache, ++this.version))
-    this.snapshot = snapshot
+    const next = (await this.fromBuild(paths)) ?? this.fromParse(await loadSnapshot(this.config, this.cache, ++this.version))
+    const previous = this.source
+    this.source = next.source
+    this.snapshot = next.snapshot
+    this.prebuiltUnits = next.units
+    if (next.files) this.prebuiltFiles = next.files
     this.loading = null
+    if (previous instanceof ShardSource && previous !== next.source) void previous.reader.close().catch(() => {})
     if (this.watch && !this.stopWatch) await this.startWatch()
-    if (paths.length > 0) for (const l of this.listeners) l({ version: snapshot.version, paths })
-    return snapshot
+    if (paths.length > 0) for (const l of this.listeners) l({ version: next.snapshot.version, paths })
+    return next.snapshot
   }
 
-  private fromParse(full: FullSnapshot): ContentIndex {
-    this.source = new MemorySource(full)
-    return toIndex(full)
+  private fromParse(full: FullSnapshot): Loaded {
+    return { snapshot: toIndex(full), source: new MemorySource(full), units: null }
   }
 
-  // The build's files (deployments, CONTENT_SNAPSHOT=1): the shards, else the monolithic snapshot — each only when the
-  // vault listing still matches what they were built from.
-  private async fromBuild(paths: string[]): Promise<ContentIndex | null> {
+  // The build's files (deployments, CONTENT_SNAPSHOT=1): the shards, else the monolithic snapshot. Every reason one of
+  // them is not used is logged once.
+  private async fromBuild(paths: string[]): Promise<Loaded | null> {
     if (!this.prebuilt || paths.length > 0 || this.version > 0) return null
     const started = performance.now()
-    const listing = await listVault(this.config.vaultPath, this.config.guidesDir)
+    const expected = this.verifyListing ? listingFingerprint(await listVault(this.config.vaultPath, this.config.guidesDir)) : null
+    let manifest: Manifest | null = null
+    try {
+      manifest = JSON.parse(await readFile(manifestPath(this.config), 'utf8')) as Manifest
+    } catch {
+      // loadShards reports it
+    }
     if (this.shards) {
-      const hit = await loadShards(this.config, listingFingerprint(listing))
-      if (hit) {
+      const hit = await loadShards(this.config, expected)
+      if ('reason' in hit) warnOnce(`[content] shards not used: ${hit.reason}`)
+      else {
         const version = ++this.version
-        this.prebuiltFiles = hit.files
-        this.prebuiltUnits = hit.manifest.unitsFingerprint
         const snapshot: ContentIndex = { ...hit.index, version, scanMs: Math.round(performance.now() - started) }
-        this.source = new ShardSource(() => this.snapshot ?? snapshot, hit.reader, shardsDir(this.config), hit.manifest)
-        return snapshot
+        const source = new ShardSource(() => this.snapshot ?? snapshot, hit.reader, shardsDir(this.config), hit.manifest)
+        return { snapshot, source, units: hit.manifest.unitsFingerprint, files: hit.files }
       }
     }
-    const hit = await loadPrebuilt(this.prebuilt, this.config, listing)
-    if (!hit) return null
-    this.prebuiltFiles = hit.files
-    this.prebuiltUnits = (await readManifest(this.config, hit.fingerprint))?.unitsFingerprint ?? null
-    return this.fromParse({ ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) })
+    // the manifest comes from the same build as the monolith: when it already says the build can't be used, don't decode 14 MB to find out
+    const skip = manifest && ((expected !== null && manifest.fingerprint !== expected && 'the vault listing differs from the build') || (manifest.shards && manifest.shards.v8 !== process.versions.v8 && `built with V8 ${manifest.shards.v8}`))
+    if (skip) warnOnce(`[content] monolithic snapshot not used: ${skip}`)
+    else {
+      const hit = await loadPrebuilt(this.prebuilt, this.config, expected)
+      if ('reason' in hit) warnOnce(`[content] monolithic snapshot not used: ${hit.reason}`)
+      else {
+        const units = (await readManifest(this.config, hit.fingerprint))?.unitsFingerprint ?? null
+        return { ...this.fromParse({ ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) }), units, files: hit.files }
+      }
+    }
+    warnOnce('[content] no usable build in .snapshot/: parsing the whole vault (slow cold start, full heap)')
+    return null
   }
 
   private async startWatch(): Promise<void> {
@@ -754,7 +779,8 @@ export function getContentStore(): ContentStore {
     // deployments (and CONTENT_SNAPSHOT=1 locally) start from the build's parsed snapshot when it matches the vault
     const prebuilt = !watch && (process.env.VERCEL || process.env.CONTENT_SNAPSHOT === '1') ? prebuiltPath(config) : null
     // CONTENT_SHARDS=0 is the rollback to the monolithic snapshot
-    g[globalKey] = new ContentStore(config, watch, prebuilt, process.env.CONTENT_SHARDS !== '0')
+    // a deployment trusts its build's manifest: it ships only the files it traces, so its vault listing is not the build's
+    g[globalKey] = new ContentStore(config, watch, prebuilt, process.env.CONTENT_SHARDS !== '0', !process.env.VERCEL)
   }
   return g[globalKey]
 }

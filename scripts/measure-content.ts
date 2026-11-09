@@ -31,7 +31,8 @@ const BUDGET = {
   residentMB: 60,
   coldMs: 150,
   searchMB: 160,
-  searchMs: 1000,
+  // loaded in slices off the main thread (loadJSONAsync): slower wall time than a sync load, no stall for other requests
+  searchMs: 2000,
   // parsed articles: the retained heap after reading the 40 largest chapters stays within the documents' share of
   // DOCUMENT_CACHE_MB (16 of 24), plus 10 %
   documentsMB: 17.6,

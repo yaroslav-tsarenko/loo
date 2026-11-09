@@ -11,7 +11,9 @@ const syncedKey = Symbol.for('interview-prep.units-synced')
 type GlobalWithSync = typeof globalThis & { [syncedKey]?: { version: number; vault: string } }
 
 export const ALIAS_THRESHOLD = 0.85
-const FINGERPRINT_KEY = 'internal.unitsFingerprint'
+// versioned with the fingerprint's format (it hashes whole rows since v2): a deployment of another format sharing this
+// database (a preview, a rollback) keeps its own key and does not make this one resync on every cold start
+const FINGERPRINT_KEY = 'internal.unitsFingerprint.v2'
 
 function unitValues(row: UnitRow, now: number) {
   const { kind, guideId, chapterId, level, frequency, qtype, label, idSource } = row

@@ -134,8 +134,12 @@ export async function writeSnapshotDir(config: VaultConfig, built: BuiltSnapshot
   await rm(tmp, { recursive: true, force: true })
   await mkdir(path.join(tmp, 'guides'), { recursive: true })
   await Promise.all(built.files.map((f) => writeFile(path.join(tmp, f.name), f.data)))
-  await rm(target, { recursive: true, force: true })
+  // the old directory is moved aside, not deleted first, so there is no moment without a `.snapshot/`
+  const old = `${target}.old`
+  await rm(old, { recursive: true, force: true })
+  await rename(target, old).catch(() => {})
   await rename(tmp, target)
+  await rm(old, { recursive: true, force: true })
   return target
 }
 

@@ -49,7 +49,7 @@ describe('syncUnits', () => {
     const stored = await db.select().from(units)
     expect(stored.map((u) => u.id).sort()).toEqual(['a', 'b'])
     expect(stored.find((u) => u.id === 'b')).toMatchObject({ kind: 'flashcard', guideId: 'g', chapterId: 'g/c1', level: 'junior', frequency: 'часто', qtype: 'definition', label: 'Second', idSource: 'explicit', missingSince: null })
-    expect(system.get('internal.unitsFingerprint')).toBe(unitsFingerprint(rows))
+    expect(system.get('internal.unitsFingerprint.v2')).toBe(unitsFingerprint(rows))
   })
 
   it('does not read the rows while the fingerprint is current', async () => {

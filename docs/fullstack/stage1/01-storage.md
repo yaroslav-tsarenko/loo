@@ -483,6 +483,14 @@ Deviations, all behaviour-preserving:
 - **Document caches** (R8): byte-budgeted (`DOCUMENT_CACHE_MB`, 24, shared 2:1; cost = source chars × 16, calibrated).
 - Placement replay loads only the answered items (`getPlacementUnit` / `exerciseUnits`), not `placementUnits(guideId)`.
 - The units fingerprint hashes the whole row (one idempotent resync per environment on the first deploy).
+- **Listing trust (review B1).** `outputFileTracingExcludes` drops the course package sources, so a function's vault listing is
+  not the build's. A deployment therefore does not compare the listing at all (`ContentStore` `verifyListing=false` when
+  `VERCEL` is set): the manifest written by the same build is the truth, and only the files the store reads are checked
+  (formats, V8, pack sizes, pack sha1 on first open). The alternative — excluding nothing the fingerprint hashes — would
+  have tied every future tracing change to the fingerprint. `pnpm content:trace-check` guards the tracing side.
+- The units fingerprint key is versioned (`internal.unitsFingerprint.v2`), so a deployment of another format on the same
+  database does not resync on every cold start. `course:build` refuses a vault whose `course.yaml` differs from
+  `content/courses/<id>/course.yaml` unless `--from-vault`.
 - mdast `position`s are kept (lead decision); the 60 MB budget is content-only (index + sections + bundles).
 
 Measured on this repo (Node 25.7, 23 455 units): see [PERFORMANCE.md §5](../../PERFORMANCE.md) and `pnpm content:measure`.
