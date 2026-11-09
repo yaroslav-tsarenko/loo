@@ -1,7 +1,7 @@
 import type { Chapter, Guide, LearningUnit } from '@/content/model'
 import type { Reel } from '@/content/parse/reels'
 
-// What the compiler needs from the content layer. A ContentSnapshot (src/content/store.ts) satisfies it.
+// What the compiler needs from the content layer. A FullSnapshot (src/content/store.ts) satisfies it.
 export interface CourseSource {
   guides: readonly Guide[]
   chapters: ReadonlyMap<string, Chapter>

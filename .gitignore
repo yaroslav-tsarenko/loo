@@ -16,3 +16,5 @@ next-env.d.ts
 tmp/
 # build artifact (pnpm content:snapshot, vercel-build)
 content/.snapshot/
+content/.snapshot.tmp/
+content/.snapshot.old/

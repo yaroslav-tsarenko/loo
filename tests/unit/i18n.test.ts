@@ -10,7 +10,7 @@ import { headingSlugs } from '@/content/i18n/segments'
 import { extractFile } from '@/content/parse/extract'
 import { parseMarkdown } from '@/content/parse/markdown'
 import { mdastToHast } from '@/content/render/to-hast'
-import { ContentStore, loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { ContentStore, loadSnapshot, type FullSnapshot } from '@/content/store'
 import { compileCourse, parseCourseManifest, parseCourseYaml } from '@/course'
 import { contentLanguage, courseHreflangs, courseLanguages, localizedCourse } from '@/course/i18n'
 import '@/i18n/register'
@@ -206,7 +206,7 @@ describe('display: fallback rendering', () => {
 })
 
 describe('content store: _i18n is not a chapter', () => {
-  let snap: ContentSnapshot
+  let snap: FullSnapshot
   beforeAll(async () => {
     snap = await loadSnapshot({ vaultPath: vault, guidesDir: 'Guides' }, new Map(), 1)
   })

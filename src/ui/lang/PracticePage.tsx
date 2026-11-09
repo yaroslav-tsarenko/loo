@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { PiEarFill, PiHeadphonesFill, PiMicrophoneFill, PiTextAaFill, PiTranslateFill } from 'react-icons/pi'
 import { lookup } from '@/course'
-import type { LearningUnit } from '@/content/model'
+import type { UnitMeta } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
 import { getContent } from '@/server/content'
@@ -38,7 +38,7 @@ interface SectionDef {
   tone: 'blue' | 'pink' | 'orange' | 'purple'
   icon: ReactNode
   // units the section draws from
-  test: (u: LearningUnit, grammarChapters: ReadonlySet<string> | null) => boolean
+  test: (u: UnitMeta, grammarChapters: ReadonlySet<string> | null) => boolean
   kind: 'flashcard' | 'quiz'
   empty: string
 }
@@ -52,7 +52,7 @@ const SECTIONS: Record<LangSection, SectionDef> = {
     lead: 'Картки слів із вимовою: слово → переклад, приклади, форми. Повертаються за розкладом FSRS саме тоді, коли ти починаєш їх забувати.',
     tone: 'blue',
     icon: <PiTranslateFill size={38} />,
-    test: (u) => u.kind === 'flashcard' && u.word !== undefined,
+    test: (u) => u.kind === 'flashcard' && u.hasWord,
     kind: 'flashcard',
     empty: 'У цьому курсі ще немає карток слів.',
   },
@@ -231,7 +231,7 @@ export async function LangPracticePage({ section, params }: { section: LangSecti
 // The course's words by topic, with audio: a quick dictionary to listen through. Only the topic titles are rendered;
 // each group loads its words when opened (VocabGroup → /api/vocab).
 async function Vocabulary({ snapshot, pool }: { snapshot: ContentSnapshot; pool: ReadonlySet<string> }) {
-  const byChapter = new Map<string, LearningUnit[]>()
+  const byChapter = new Map<string, UnitMeta[]>()
   for (const id of pool) {
     const u = snapshot.units.get(id)
     if (!u) continue

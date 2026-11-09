@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { QuizUnit } from '@/content/model'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
 import {
   checkCourse,
   compileCourse,
@@ -27,7 +27,7 @@ import { placementSeed, placementUnitOf, replayPlacement } from '@/server/course
 
 const vaultPath = path.resolve(__dirname, '../fixtures/placement-vault')
 const yaml = () => readFileSync(path.join(vaultPath, 'Courses/english-bank/course.yaml'), 'utf8')
-let snap: ContentSnapshot
+let snap: FullSnapshot
 let bundle: CourseBundle
 
 beforeAll(async () => {

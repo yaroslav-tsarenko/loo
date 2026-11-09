@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { PiBrainFill, PiCardsThreeFill, PiCodeBlockFill, PiExamFill, PiHourglassFill, PiLightningFill, PiSealCheckFill } from 'react-icons/pi'
-import type { LearningUnit } from '@/content/model'
+import type { UnitMeta } from '@/content/model'
 import { LEVEL_LABEL } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { nowMs } from '@/server/clock'
@@ -10,7 +10,6 @@ import { getContent } from '@/server/content'
 import { adaptiveContext, orderMistakes } from '@/server/courses/adaptive'
 import { studyScope } from '@/server/courses/enrollment'
 import { mistakesOverview } from '@/server/services/queue'
-import { unitLabel } from '@/server/services/units-sync'
 import { Pill } from '@/ui/design/Badge'
 import { Button } from '@/ui/design/Button'
 import { Card } from '@/ui/design/Card'
@@ -26,7 +25,7 @@ import { StudySession } from '@/ui/study/StudySession'
 
 export const metadata: Metadata = { title: 'Мої помилки' }
 
-const KIND: Record<LearningUnit['kind'], { label: string; tone: Tone; icon: ReactNode }> = {
+const KIND: Record<UnitMeta['kind'], { label: string; tone: Tone; icon: ReactNode }> = {
   flashcard: { label: 'Картка', tone: 'purple', icon: <PiCardsThreeFill /> },
   quiz: { label: 'Тест', tone: 'blue', icon: <PiExamFill /> },
   task: { label: 'Задача', tone: 'orange', icon: <PiCodeBlockFill /> },
@@ -40,7 +39,7 @@ function looFor(open: number, eligible: number): { mood: LooMood; text: string }
   return { mood: 'fire', text: `${open} — це купа досвіду. Потроху, по 10 за раз!` }
 }
 
-function unitHref(snapshot: ContentSnapshot, unit: LearningUnit): string {
+function unitHref(snapshot: ContentSnapshot, unit: UnitMeta): string {
   const chapter = snapshot.chapters.get(unit.chapterId)
   return chapter ? `${chapterHref(snapshot, chapter)}#u-${unit.id}` : '/'
 }
@@ -190,7 +189,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
                     </span>
                     <span className="mistake-main">
                       <Link className="mistake-q" href={unitHref(snapshot, r.unit)}>
-                        {unitLabel(r.unit)}
+                        {r.unit.label}
                       </Link>
                       <span className="mistake-meta">
                         {snapshot.chapters.get(r.unit.chapterId)?.title}
@@ -225,7 +224,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Sea
               <li key={u.id}>
                 <Link href={unitHref(snapshot, u)} className="fixed-badge" data-tone={FIXED_TONES[i % FIXED_TONES.length]}>
                   <PiSealCheckFill className="fixed-badge-icon" aria-hidden="true" />
-                  <span>{unitLabel(u)}</span>
+                  <span>{u.label}</span>
                 </Link>
               </li>
             ))}

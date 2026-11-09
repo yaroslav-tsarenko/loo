@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PiArrowLeftBold, PiArrowRightBold, PiCheckBold, PiCodeBlockFill, PiPencilSimpleFill, PiTestTubeFill, PiXBold } from 'react-icons/pi'
-import { DIFFICULTIES, DIFFICULTY_LABEL, type TaskUnit } from '@/content/model'
-import { getContent } from '@/server/content'
+import { DIFFICULTIES, DIFFICULTY_LABEL, type TaskMeta } from '@/content/model'
+import { getContent, getUnit } from '@/server/content'
 import { studyScope } from '@/server/courses/enrollment'
 import { matchUnits, parseFilters, taskStates } from '@/server/services/queue'
 import { renderStudyItems } from '@/ui/study/render-items'
@@ -27,14 +27,14 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
   const snapshot = await getContent()
   const filters = parseFilters(params, 200)
   const scope = await studyScope(filters)
-  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task', scope.pool) as TaskUnit[]
+  const tasks = matchUnits(snapshot, { ...filters, types: [], size: 500 }, 'task', scope.pool) as TaskMeta[]
   const states = await taskStates(tasks.map((t) => t.id))
   const unitParam = typeof params.unit === 'string' ? params.unit : null
   const allQuery = filters.all ? 'scope=all&' : ''
   const guideQuery = `${allQuery}${filters.guide ? `guide=${encodeURIComponent(filters.guide)}&` : ''}`
 
   if (unitParam) {
-    const unit = snapshot.units.get(unitParam)
+    const unit = await getUnit(unitParam)
     if (!unit || unit.kind !== 'task') notFound()
     const [item] = await renderStudyItems(snapshot, [unit.id])
     if (!item || item.kind !== 'task') notFound()
@@ -79,7 +79,7 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
               <span className="gpager-dir">
                 <PiArrowLeftBold aria-hidden="true" /> Попередня
               </span>
-              <span className="gpager-title">{prev.titleText}</span>
+              <span className="gpager-title">{prev.label}</span>
             </Card>
           ) : (
             <span />
@@ -89,7 +89,7 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
               <span className="gpager-dir">
                 Наступна <PiArrowRightBold aria-hidden="true" />
               </span>
-              <span className="gpager-title">{next.titleText}</span>
+              <span className="gpager-title">{next.label}</span>
             </Card>
           ) : null}
         </nav>
@@ -169,13 +169,13 @@ export default async function TasksPage({ searchParams }: { searchParams: Search
                         {STATUS_ICON[status]}
                       </span>
                       <span className="task-card-text">
-                        <span className="task-card-title">{t.titleText}</span>
+                        <span className="task-card-title">{t.label}</span>
                         <span className="task-card-meta">
                           {chapter?.title}
                           {state && state.hintsRevealed > 0 ? ` · підказок: ${state.hintsRevealed}` : ''}
                         </span>
                       </span>
-                      {t.code?.tests ? (
+                      {t.hasTests ? (
                         <Pill size="sm" tone="blue" icon={<PiTestTubeFill />} className="task-card-tests" title="Перевіряється автотестами">
                           тести
                         </Pill>

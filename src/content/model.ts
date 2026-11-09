@@ -271,6 +271,50 @@ export interface TaskCode {
 
 export type LearningUnit = FlashcardUnit | QuizUnit | TaskUnit
 
+// What the resident index keeps of a unit (docs/fullstack/stage1/01-storage.md): enough to filter, count and list
+// units without their bodies. `label` is unitLabel(unit), precomputed.
+interface UnitMetaBase {
+  id: string
+  guideId: string
+  chapterId: string
+  level: Level | null
+  idSource: IdSource
+  // unitLabel(unit): at most 240 characters; also the title of a task in lists
+  label: string
+  lang?: string
+}
+
+export interface FlashcardMeta extends UnitMetaBase {
+  kind: 'flashcard'
+  frequency: string | null
+  qtype: string | null
+  // a [!word] card
+  hasWord: boolean
+}
+
+export interface QuizMeta extends UnitMetaBase {
+  kind: 'quiz'
+  mode: QuizMode
+}
+
+export interface TaskMeta extends UnitMetaBase {
+  kind: 'task'
+  difficulty: Difficulty
+  // an auto-tested coding task
+  hasTests: boolean
+}
+
+export type UnitMeta = FlashcardMeta | QuizMeta | TaskMeta
+
+// A reel without its body (the feed samples these, then loads the bodies it shows)
+export interface ReelMeta {
+  id: string
+  guideId: string
+  chapterId: string
+  sectionSlug: string | null
+  title: string
+}
+
 export interface ContentIssue {
   severity: 'warning' | 'error'
   code: 'missing-id' | 'duplicate-id' | 'broken-link' | 'quiz-no-correct' | 'task-no-solution' | 'exercise-invalid' | 'block-warning' | 'prerequisite-cycle' | 'parse-error' | 'unknown-block' | 'i18n'

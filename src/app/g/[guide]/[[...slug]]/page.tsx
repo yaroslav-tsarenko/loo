@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Chapter, Guide } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
-import { getContent, getDocument } from '@/server/content'
+import { getChapterUnits, getContent, getDocument } from '@/server/content'
 import { chapterLanguages, hreflangAlternates, langParam, localizedDocument } from '@/server/content-i18n'
 import { uiLocale } from '@/server/locale'
 import { chapterNumberMap, nextChapterFor, pageProgress, readableChapters, treeView } from '@/server/services/library'
@@ -79,7 +79,9 @@ export default async function GuidePage({ params, searchParams }: { params: Prom
   const localized = langs.lang ? await localizedDocument(chapter.id, langs.lang, langs.source) : null
   const doc = localized ?? source
   const title = localized?.title ?? chapter.title
-  const content = await renderMdast(doc.root, { snapshot, chapter, depth: 0, variant: 'reader', units: localized?.units, locale })
+  // the chapter's unit bodies, loaded once for the unit blocks of the page
+  const bodies = localized?.units ?? new Map((await getChapterUnits(chapter.id)).map((u) => [u.id, u]))
+  const content = await renderMdast(doc.root, { snapshot, chapter, depth: 0, variant: 'reader', units: bodies, locale })
   const order = readableChapters(snapshot, guide)
   const position = order.findIndex((c) => c.id === chapter.id)
   const prev = position > 0 ? order[position - 1]! : null

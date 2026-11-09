@@ -9,7 +9,8 @@ import { gradedQuiz, gradeWithKey, quizKey, quizShape } from '@/content/blocks/q
 import { parseName } from '@/content/discover/names'
 import type { FlashcardUnit, QuizUnit } from '@/content/model'
 import { toLevel } from '@/content/parse/markdown'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
+import { unitMeta } from '@/content/unit-meta'
 import {
   buildCoursePath,
   checkCourse,
@@ -36,7 +37,7 @@ import { pickVoice, voiceLang } from '@/ui/lang/speech/voices'
 import { LISTEN_KEY, PRON_KEY, WORDS_KEY } from '@/ui/shell/constants'
 
 const vaultPath = path.resolve(__dirname, '../fixtures/lang-vault')
-let snap: ContentSnapshot
+let snap: FullSnapshot
 let bundle: CourseBundle
 
 const unit = <T extends 'flashcard' | 'quiz'>(id: string) => snap.units.get(id) as T extends 'quiz' ? QuizUnit : FlashcardUnit
@@ -350,7 +351,8 @@ describe('speech helpers and badges', () => {
 
   it('counts due words and open listening / minimal-pair mistakes of the course', () => {
     const rows = { due: ['en-a1-hello-w01', 'en-a1-hello-q01'], mistakes: ['en-a1-hello-l01', 'en-a1-hello-p01', 'en-a1-hello-q02'] }
-    expect(languageCounts(rows, snap.units, null)).toEqual({ [WORDS_KEY]: 1, [LISTEN_KEY]: 1, [PRON_KEY]: 1 })
-    expect(languageCounts(rows, snap.units, new Set(['en-a1-hello-q01']))).toEqual({ [WORDS_KEY]: 0, [LISTEN_KEY]: 0, [PRON_KEY]: 0 })
+    const metas = new Map([...snap.units].map(([id, u]) => [id, unitMeta(u)]))
+    expect(languageCounts(rows, metas, null)).toEqual({ [WORDS_KEY]: 1, [LISTEN_KEY]: 1, [PRON_KEY]: 1 })
+    expect(languageCounts(rows, metas, new Set(['en-a1-hello-q01']))).toEqual({ [WORDS_KEY]: 0, [LISTEN_KEY]: 0, [PRON_KEY]: 0 })
   })
 })

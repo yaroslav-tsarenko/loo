@@ -1,6 +1,7 @@
 import type { Root } from 'mdast'
 import { Fragment } from 'react'
 import { exerciseView, quizKey, quizShape } from '@/content/blocks/quiz/view'
+import { getUnit } from '@/server/content'
 import { speechLangFor } from '@/server/courses/target'
 import { ListenExercise } from '@/ui/lang/ListenExercise'
 import { PairAudio, PairOption } from '@/ui/lang/PairExercise'
@@ -131,7 +132,7 @@ async function TaskBlock({ unit, env }: { unit: TaskUnit; env: RenderEnv }) {
 }
 
 export async function UnitBlock({ unitId, env }: { unitId: string; env: RenderEnv }) {
-  const unit = env.units?.get(unitId) ?? env.snapshot.units.get(unitId)
+  const unit = env.units?.get(unitId) ?? (await getUnit(unitId))
   if (!unit) return null
   if (unit.kind === 'flashcard' && unit.word) return <WordInline id={unit.id} word={unit.word} lang={await speechLangFor(unit)} level={unit.level ?? null} />
   if (unit.kind === 'flashcard') return <FlashcardInline unit={unit} env={env} />

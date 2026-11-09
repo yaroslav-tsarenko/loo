@@ -8,9 +8,10 @@ import { speechLangFor } from '@/server/courses/target'
 import { contentMeta, DEFAULT_LOCALE, t } from '@/i18n'
 import { userScope } from '@/server/auth'
 import { localizedUnits } from '@/server/content-i18n'
+import { getPlacementUnit, getUnits } from '@/server/content'
 import { uiLocale } from '@/server/locale'
 import { srsMapIn, taskStatesIn } from '@/server/services/queue'
-import { unitLabel } from '@/server/services/units-sync'
+import { unitLabel } from '@/content/unit-label'
 import { renderPhrasing } from '@/ui/markdown/UnitBlock'
 import { renderMdast, type RenderEnv } from '@/ui/markdown/render'
 import { ListenExercise } from '@/ui/lang/ListenExercise'
@@ -68,7 +69,10 @@ export type StudyItem = FlashItem | QuizItem | TaskItem
 
 export async function renderStudyItems(snapshot: ContentSnapshot, ids: readonly string[], now = Date.now()): Promise<StudyItem[]> {
   // placement bank items (`_placement/`) render here too: only the placement page asks for them
-  const sourceUnits = ids.map((id) => snapshot.units.get(id) ?? snapshot.placementUnits.get(id)).filter((u): u is LearningUnit => Boolean(u))
+  const bodies = new Map(await getUnits(ids))
+  const bank = await Promise.all(ids.filter((id) => !bodies.has(id)).map((id) => getPlacementUnit(id)))
+  for (const unit of bank) if (unit) bodies.set(unit.id, unit)
+  const sourceUnits = ids.map((id) => bodies.get(id)).filter((u): u is LearningUnit => Boolean(u))
   // card schedules and task states: one transaction, one round trip; translated texts (same ids) for the UI locale
   const [[cards, tasks], localized, locale] = await Promise.all([
     userScope((db, userId) =>

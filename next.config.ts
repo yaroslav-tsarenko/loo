@@ -20,10 +20,29 @@ const config: NextConfig = {
   typedRoutes: false,
   poweredByHeader: false,
   serverExternalPackages: ['chokidar'],
-  // Guides synced from the Obsidian vault (pnpm content:sync) ship with every server function, with the parsed
-  // snapshot vercel-build writes (pnpm content:snapshot; a dot directory, so it is named explicitly).
+  // What ships with every server function (docs/fullstack/stage1/01-storage.md §6): the Markdown of the guides
+  // (articles are parsed from it on demand), the compiled course bundles and their catalog, and the build's content
+  // files in `.snapshot/` (a dot directory, so each is named): the manifest, the index, the per-guide packs and the
+  // unit rows — plus the monolithic guides.v8.br, the rollback of CONTENT_SHARDS=0. The prebuilt search index (4 MB,
+  // ~130 MB once loaded) goes only to /api/search; the course packages' sources and the other content never ship.
   outputFileTracingIncludes: {
-    '/**': ['./content/**/*', './content/.snapshot/*', './blog/**/*.md'],
+    '/**': [
+      './content/Guides/**/*',
+      './content/glossary/**/*',
+      './content/courses/*.json',
+      './content/.snapshot/manifest.json',
+      './content/.snapshot/index.v8.br',
+      './content/.snapshot/units-sync.json.br',
+      './content/.snapshot/guides/*.pack',
+      './content/.snapshot/guides.v8.br',
+      './blog/**/*.md',
+    ],
+    '/api/search': ['./content/.snapshot/search.json.br'],
+  },
+  outputFileTracingExcludes: {
+    // the search index is found by tracing the `.snapshot/` directory: keep it out of every function; /api/search's
+    // include above still wins
+    '/**': ['./content/courses/*/**', './content/.snapshot/search.json.br'],
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],

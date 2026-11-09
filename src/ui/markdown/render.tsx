@@ -23,7 +23,7 @@ export interface RenderEnv {
   chapter: Chapter
   depth: number
   variant: 'reader' | 'card'
-  // a translated page (src/server/content-i18n.ts): its units — translated texts, source ids
+  // the unit bodies of the page's chapter, loaded once (a translated page: translated texts, source ids)
   units?: ReadonlyMap<string, LearningUnit>
   // the reader's UI locale (enum-like content meta, «not translated yet»)
   locale?: Locale

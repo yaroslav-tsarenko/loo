@@ -121,6 +121,13 @@ src/
 `/onboarding` і обробники `/auth/*`; `/account` — профіль. Оболонку (сайдбар, нижня навігація) вимикає `AppFrame` для auth-сторінок.
 Налаштування Supabase — [AUTH.md](./AUTH.md), статус безпеки — [SECURITY.md §5](./SECURITY.md).
 
+**Сховище вмісту (етап 1a):** `ContentStore` (`src/content/store.ts`) тримає в пам'яті лише індекс (`ContentIndex`: гайди, розділи,
+посилання, переклади, `UnitMeta` на кожну вправу, `ReelMeta`). Тіла вправ і фішок читаються асинхронно (`getUnit`, `getUnits`,
+`getChapterUnits`, `getReels` у `src/server/content.ts`) з пакетів `content/.snapshot/guides/<guide>.pack` через LRU із бюджетом
+`CONTENT_CACHE_MB`; у dev і скриптах — повний парсинг у пам'яті (`MemorySource`), відкат на проді — `CONTENT_SHARDS=0`.
+Курси: `catalog.json` + ледаче завантаження bundle під `COURSE_CACHE_MB`. Пошук — окремий індекс, його вантажить лише `/api/search`.
+Деталі й виміри — [fullstack/stage1/01-storage.md](./fullstack/stage1/01-storage.md), [PERFORMANCE.md §5](./PERFORMANCE.md).
+
 **Фаза 3 (зроблено):** реєстр курсів `src/server/courses/` (bundle з `content/courses/*.json`, один раз на процес, схема `CourseBundleSchema`);
 записи учня `enrollments` (рівень, результат вступного тесту, один активний курс), `topic_results`, `exam_results`. Шлях —
 чиста функція `buildCoursePath` (`src/course/select/path.ts`) над bundle + прогресом. Маршрути: `/courses`, `/courses/[id]`, `/path`

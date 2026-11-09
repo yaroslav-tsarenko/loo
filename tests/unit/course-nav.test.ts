@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { Chapter, Guide } from '@/content/model'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
 import {
   checkCourse,
   compileCourseDetailed,
@@ -26,7 +26,7 @@ import { DUE_KEY, WORDS_KEY, MISTAKES_KEY, TASKS_KEY } from '@/ui/shell/constant
 
 const vaultPath = path.resolve(__dirname, '../fixtures/course-vault')
 const yaml = readFileSync(path.join(vaultPath, 'Courses/fixture-course/course.yaml'), 'utf8')
-let snap: ContentSnapshot
+let snap: FullSnapshot
 let base: CourseManifest
 
 beforeAll(async () => {

@@ -8,9 +8,10 @@ import type { Effect } from '@/progress/types'
 import { levelShort, lookup, scoreTest } from '@/course'
 import { requireUser, userScope } from '../auth'
 import { ids, parseInput } from '../auth-guard'
+import type { LearningUnit } from '@/content/model'
 import { getContent } from '../content'
 import { limitUser } from '../courses/limits'
-import { exerciseUnit } from '../courses/registry'
+import { exerciseUnits } from '../courses/registry'
 import { recordTestSkills, type TestSkills } from '../courses/skills'
 import { readTestRecord, resolveTestById, saveGrade, sectionUnfinished, startAttempt } from '../courses/tests'
 import { attemptSeed, drawTest, fallbackPool, gradeAnswer, testBonus } from '../courses/tests-core'
@@ -84,24 +85,26 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
   const unfinished = await sectionUnfinished(test)
   const now = Date.now()
   const day = dayKey(now)
+  // The draw and the exercise bodies don't need the transaction: read them before it holds a connection.
+  const seed = attemptSeed(user.id, input.attempt)
+  const built = drawTest(test, seed)
+  if (!built) throw new Error('Unknown test')
+  const bodies = await exerciseUnits(test.bundle, built.questions)
   const outcome = await userScope(
     async (tx, userId) => {
       const record = await readTestRecord(tx, userId, test)
-      const seed = attemptSeed(userId, input.attempt)
       // Only the attempt that was started, once, with the seed it was drawn with.
       if (!record || record.attempts !== input.attempt || record.graded >= input.attempt || record.lastSeed !== seed) throw new Error('Stale attempt')
-      const built = drawTest(test, seed)
-      if (!built) throw new Error('Unknown test')
       const fallback = fallbackPool(test)
       // Quizzes are graded from the first answer the server checked during the attempt (answerQuiz → record.answers);
       // only self-rated fallback cards come from this request.
-      const answerFor = (unit: ReturnType<typeof exerciseUnit>, i: number) => {
+      const answerFor = (unit: LearningUnit | null, i: number) => {
         if (unit?.kind !== 'quiz') return input.answers[i]
         const stored = record.answers[String(i)]
         return stored ? { ...stored, rating: null } : undefined
       }
       const scored = scoreTest(built, input.answers, (id, i) => {
-        const unit = exerciseUnit(snapshot, test.bundle, id)
+        const unit = bodies.get(id) ?? null
         return gradeAnswer(built, unit, answerFor(unit, i), fallback, test.bundle.course.target)
       })
       if (!scored.ok) {
@@ -111,7 +114,7 @@ export async function submitTest(raw: { testId: string; attempt: number; answers
       const testOut = test.kind === 'section-exam' && scored.passed && unfinished
       await saveGrade(tx, userId, test, input.attempt, scored.score, scored.passed, testOut, now)
       // per-skill level estimate (language courses): one read + one upsert
-      const skills = await recordTestSkills(tx, userId, { test, built, results: scored.results, score: scored.score, passed: scored.passed, snapshot, now })
+      const skills = await recordTestSkills(tx, userId, { test, built, results: scored.results, score: scored.score, passed: scored.passed, units: bodies, now })
       const reason = test.kind === 'topic-test' ? 'topic-test' : 'section-exam'
       const bonusXp = await grantXp(tx, userId, { amount: testBonus(test.kind, { passed: record.passed, bestScore: record.bestScore }, { passed: scored.passed, score: scored.score, testOut }), reason, refId: test.id, now })
       const effects: Effect[] = []

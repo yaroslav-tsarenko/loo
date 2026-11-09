@@ -197,13 +197,36 @@ The common paths:
 
 ## 5. Static and expensive data
 
-- **Content snapshot** (`pnpm content:snapshot`, run by `vercel-build` before `next build`): the parsed vault, v8-serialized
-  and brotli-compressed into `content/.snapshot/guides.v8.br` (3.5 MB, traced into every function). A cold server loads it
-  in ~0.19 s instead of parsing for 3.5 s. Used only when the vault listing (paths + sizes) and the V8 version match;
-  locally opt in with `CONTENT_SNAPSHOT=1`. Chapter documents not in the snapshot are parsed on first view and kept (LRU).
-- **Search index**: built 1.5 s after the first request in 200-document chunks (`warmSearchIndex`), so it no longer blocks
-  the instance for ~0.7 s.
-- Course bundles: parsed and validated once per process (~50 ms). Shiki: one highlighter, languages loaded on demand,
+- **Content snapshot** (`pnpm content:snapshot`, run by `vercel-build` before `next build`) writes `content/.snapshot/`
+  (design and numbers: [fullstack/stage1/01-storage.md](./fullstack/stage1/01-storage.md)):
+  `index.v8.br` (guides, chapters, links, translations, one `UnitMeta` per unit — 0.8 MB, 15 MB on the heap),
+  `guides/<guide>.pack` (one pack per guide: separately brotli'd JSON sections per chapter, the placement bank and the
+  chapter texts), `search.json.br`, `units-sync.json.br`, `manifest.json` — and the old monolithic `guides.v8.br`.
+  A cold server reads the manifest and the index (≈ 75 ms, 15 MB) and loads **a chapter's units and reels when a page
+  asks for them** (one positioned read + brotli + `JSON.parse`, 1–3 ms), through a section LRU of `CONTENT_CACHE_MB`
+  (default 24) with one promise per section in flight. The budgets (`CONTENT_CACHE_MB`, `COURSE_CACHE_MB`,
+  `DOCUMENT_CACHE_MB`) are caps on **cached** bytes: an evicted entry stays on the heap while a request still holds it. The monolith held 175 MB per instance; index + the 3 largest
+  guides + the 2 largest course bundles now hold 58 MB. Shards are used when the format, the Node/V8 version and every
+  pack size match the manifest (a pack's sha1 is checked when it is first opened); otherwise the store logs why, once
+  (`[content] shards not used: …`), and falls back to the monolith, then to parsing. On Vercel the build's manifest is
+  trusted and the vault listing is not compared (a function ships only the files it traces, so its listing is not the
+  build's); locally with `CONTENT_SNAPSHOT=1` the listing is compared, so edited vault files invalidate the build.
+  Locally opt in with `CONTENT_SNAPSHOT=1`. **Rollback: `CONTENT_SHARDS=0`** serves from the monolith (still built
+  and traced; remove it one release after the shards are in production).
+- Parsed articles (mdast with positions, for the reader) and their translated merges are cached under
+  `DOCUMENT_CACHE_MB` (default 24, shared 2:1), the cost estimated from the source size.
+- **Search index**: built at deploy (`search.json.br`, 4 MB) and loaded only by `/api/search` (≈ 0.9 s, +131 MB heap —
+  the same index and options as before, so the same hits); the route has its own `maxDuration`, so Vercel deploys it as
+  its own function and page instances never hold it. With the monolith (`CONTENT_SHARDS=0`) it is still built on the
+  first search, in 200-document chunks (`warmSearchIndex`).
+- **Course bundles**: `course:build` writes `content/courses/catalog.json` (listings, guides, languages, legacy lesson
+  ids; 0.5 MB, 1.3 MB heap). A bundle is read and schema-validated when its course is opened and kept under
+  `COURSE_CACHE_MB` (default 24; cost 2.3× the file). All four at once were 24 MB.
+- `pnpm check:storage` (CI: `.github/workflows/storage.yml`) = snapshot → `content:measure --assert --verify` → build →
+  `content:trace-check` (every route's trace holds the build's content files; the store starts from the traced files
+  alone, as on Vercel, in < 1 s and from the shards).
+- Measure it all: `pnpm content:measure [--assert] [--verify] [--guides] [--json]` (budgets in the script header) and
+  `pnpm build && pnpm content:functions` (traced size per function). Shiki: one highlighter, languages loaded on demand,
   highlighted blocks memoized (4000 entries).
 
 ## 6. Client

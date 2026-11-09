@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import type { ContentSnapshot } from '@/content/store'
+import type { FullSnapshot } from '@/content/store'
 import { buildCoursePath, checkCourse, CourseBundleSchema, DEFAULT_SKILLS, LANGUAGE_SKILL_MODEL, skillModelOf, type CourseBundle, type Level, type PathProgress, type ResultRecord } from '@/course'
 import { loadCourseSource, loadIconCatalog, resolveCourse } from '../../scripts/lib/course-source'
 
@@ -42,7 +42,7 @@ function stripAdded(bundle: CourseBundle): unknown {
   }
 }
 
-let snapshotOnce: Promise<ContentSnapshot> | undefined
+let snapshotOnce: Promise<FullSnapshot> | undefined
 
 const compiled = new Map<string, CourseBundle>()
 

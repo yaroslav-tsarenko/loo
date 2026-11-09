@@ -26,13 +26,11 @@ import {
   type SkillState,
 } from '@/course'
 import type { LearningUnit } from '@/content/model'
-import type { ContentSnapshot } from '@/content/store'
 import type { Conn } from '@/db/client'
 import { enrollments, examResults, userSettings, type EnrollmentPlacement } from '@/db/schema'
 import { userBase } from '../base'
 import { read, readAll, type Read } from '../db/batch'
 import { activeCourse, courseLevelOf } from './enrollment'
-import { exerciseUnit } from './registry'
 import type { ResolvedTest } from './tests-core'
 
 // Per-skill level estimate of every course with a skill model (course.skills; language courses — the five defaults;
@@ -108,12 +106,12 @@ export function guessOptions(unit: LearningUnit): number {
 
 // The graded quizzes of a test as observations of their skills (self-rated fallback cards don't count). Language
 // exercises always have a skill (grammar when older bundles lack it); elsewhere an exercise without one is skipped.
-export function testObservations(bundle: CourseBundle, snapshot: ContentSnapshot, built: BuiltTest, results: readonly boolean[]): SkillObservation[] {
+export function testObservations(bundle: CourseBundle, units: ReadonlyMap<string, LearningUnit>, built: BuiltTest, results: readonly boolean[]): SkillObservation[] {
   const out: SkillObservation[] = []
   const fallback = isLanguageCourse(bundle) ? 'grammar' : undefined
   built.questions.forEach((id, i) => {
     const ex = bundle.exercises[id]
-    const unit = exerciseUnit(snapshot, bundle, id)
+    const unit = ex ? units.get(id) : undefined
     if (!ex || !unit || unit.kind !== 'quiz' || ex.kind === 'speak') return
     const skill = ex.skill ?? fallback
     if (!skill) return
@@ -146,12 +144,12 @@ export interface TestSkills {
 export async function recordTestSkills(
   tx: Conn,
   userId: string,
-  input: { test: ResolvedTest; built: BuiltTest; results: readonly boolean[]; score: number; passed: boolean; snapshot: ContentSnapshot; now: number },
+  input: { test: ResolvedTest; built: BuiltTest; results: readonly boolean[]; score: number; passed: boolean; units: ReadonlyMap<string, LearningUnit>; now: number },
 ): Promise<TestSkills | null> {
   const { test, now } = input
   const bundle = test.bundle
   if (!hasSkillModel(bundle)) return null
-  const observations = testObservations(bundle, input.snapshot, input.built, input.results)
+  const observations = testObservations(bundle, input.units, input.built, input.results)
   if (observations.length === 0) return null
   const courseId = bundle.course.id
   const [enrollment, stored, passedExams] = await readAll(tx, [

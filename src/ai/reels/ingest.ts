@@ -5,7 +5,7 @@ import { first, getDb } from '@/db/client'
 import { generatedReels } from '@/db/schema'
 import { systemLatestNews } from '@/news/queries'
 import { dayKey, dayStartMs } from '@/progress/day'
-import { getContent } from '@/server/content'
+import { forEachGuideText, getContent } from '@/server/content'
 import { FEED_GUIDES } from '@/server/services/feed'
 import { readableChapters } from '@/server/services/library'
 import { writeSystem } from '@/server/settings'
@@ -78,13 +78,19 @@ export async function generateDailyReels(now: number, opts: { force?: boolean } 
   for (const r of snapshot.reels) add(r.chapterId, r.title)
   for (const r of existing) add(r.chapterId, r.title)
 
+  // the cron is the only reader of the chapter texts: guide by guide, only the guides the feed draws from
+  const plainText = new Map<string, string>()
+  await forEachGuideText((guideId, texts) => {
+    if (FEED_GUIDES.includes(guideId)) for (const [id, text] of texts) plainText.set(id, text)
+  })
+
   const plan = pickTopics({
     now,
     news,
     weak: [],
     current: [],
     candidates,
-    plainText: snapshot.plainText,
+    plainText,
     reelTitlesByChapter,
     recentChapterIds: new Set(existing.filter((r) => r.createdAt > now - 7 * DAY_MS && r.chapterId).map((r) => r.chapterId!)),
     coveredUrls: new Set(existing.flatMap((r) => (r.sourceUrl ? [r.sourceUrl] : []))),
