@@ -71,3 +71,17 @@ Every Landeskunde number needs a source. If you can't source it, say «зазв�
 **Audio:** `[!listen]` audio ≤ 300 characters — split long monologues into consecutive blocks with a shared title, one question each. TTS reads standard German: don't promise dialect sounds the recording can't contain.
 
 **Landeskunde lengths (prose only):** B2 200–280 words, C1 350–450, C2 450–600; Deutschland B2 ≈ 160–220.
+
+## Added after waves 8–9 (Deutschland B2, C1)
+
+**Count Landeskunde as the German prose only** (the `[!example]` text, without headings, quizzes or glosses). C1 authors reported 440 words where the prose had 264–303.
+
+**Correct German struck out again** (*goldene Berge versprechen*, *Wichtig ist, dass…*, *Sie meinte, sie würde keine Zeit haben*, *Er vertritt die Theorie*). Before striking anything out, find a dictionary or grammar entry that marks it wrong; otherwise write «звучить неприродно / недоречно в листі».
+
+**Sibling duplicates inside a wave.** Before your first `[!word]`, grep `content/Guides/Deutsch*` **without the article** (`grep -ri "\] Kohle\b\|\] die Kohle"` misses nothing). Across guides the language guide (Deutsch) keeps the card; Deutschland chapters use the word in examples.
+
+**Icons:** `icon: px:<name>` only (pixel set); `pi:` icons mostly don't exist and fail `course:check`.
+
+**Russian idioms and calques** («Тула й самовар», «вішати локшину на вуха», «правда-матка», «по-українськи») — use Ukrainian equivalents.
+
+**Exam formats:** Goethe C1 Lesen now has 4 parts (8/7/8/7, 65 min) — April 2026 Modellsatz. «Own» exam-style tasks must not copy a Modellsatz topic.

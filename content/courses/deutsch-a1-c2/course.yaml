@@ -53,7 +53,7 @@ sections:
       description: 'Музика, література, філософія, наука, кіно, спорт і політика.' }
   - { id: c1, title: C1 — Просунутий, icon: px:gradCap, from: Deutsch, chapters: 501-525, level: C1,
       description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
-  - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2, status: planned,
+  - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2,
       description: 'Стиль, ідіоми, діалекти на слух, Großes Deutsches Sprachdiplom.' }
   - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: 301-602, status: planned,
       description: 'Формати іспитів B1–C2, стратегії й пробні завдання.' }
