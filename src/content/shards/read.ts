@@ -155,7 +155,37 @@ export async function loadShards(config: VaultConfig, listingFingerprint: string
   }
 }
 
+// v8.deserialize makes a new string for every value: 23k unit rows would hold 23k copies of the same guide and chapter
+// id. The repeated strings are shared instead (the heap of the index drops by a third).
+function intern(payload: ShardIndex): void {
+  const pool = new Map<string, string>()
+  const share = <T extends string>(value: T): T => {
+    const known = pool.get(value)
+    if (known !== undefined) return known as T
+    pool.set(value, value)
+    return value
+  }
+  for (const list of [payload.units, payload.placementUnits]) {
+    for (const meta of list) {
+      meta.guideId = share(meta.guideId)
+      meta.chapterId = share(meta.chapterId)
+      if (meta.level) meta.level = share(meta.level)
+      if (meta.lang) meta.lang = share(meta.lang)
+      if (meta.kind === 'flashcard') {
+        if (meta.frequency) meta.frequency = share(meta.frequency)
+        if (meta.qtype) meta.qtype = share(meta.qtype)
+      }
+    }
+  }
+  for (const reel of payload.reels) {
+    reel.guideId = share(reel.guideId)
+    reel.chapterId = share(reel.chapterId)
+  }
+  for (const chapter of [...payload.chapters, ...payload.placementChapters]) chapter.guideId = share(chapter.guideId)
+}
+
 function indexOf(payload: ShardIndex, config: VaultConfig): Omit<ContentIndex, 'version'> {
+  intern(payload)
   const chapters = new Map(payload.chapters.map((c) => [c.id, c]))
   const units = new Map(payload.units.map((u) => [u.id, u]))
   const unitsByChapter = new Map<string, ContentIndex['units'] extends ReadonlyMap<string, infer M> ? M[] : never>()

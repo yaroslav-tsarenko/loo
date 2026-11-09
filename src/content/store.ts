@@ -103,7 +103,7 @@ type Listener = (event: ChangeEvent) => void
 
 // heap bytes per character of article source held by a parsed document (mdast with positions, headings, units);
 // measured by pnpm content:measure (documents scenario)
-const DOCUMENT_HEAP_FACTOR = Number(process.env.DOCUMENT_HEAP_FACTOR) || 12
+const DOCUMENT_HEAP_FACTOR = Number(process.env.DOCUMENT_HEAP_FACTOR) || 16
 
 const UNIT_TYPES = unitCalloutTypes()
 // Files with reels need a full parse too, so the feed can pick them up.
