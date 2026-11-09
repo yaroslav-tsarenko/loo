@@ -55,7 +55,7 @@ sections:
       description: 'Nominalstil, Funktionsverbgefüge, Modalpartikeln, академічна й ділова німецька.' }
   - { id: c2, title: C2 — Вільне володіння, icon: px:crown, from: Deutsch, chapters: 601-622, level: C2,
       description: 'Стиль, ідіоми, діалекти на слух, Großes Deutsches Sprachdiplom.' }
-  - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: 301-602, status: planned,
+  - { id: pruefungen, title: 'Іспити — Goethe, telc, TestDaF', icon: px:check, from: Deutsch Prüfungen, chapters: '301-303, 401-403, 501-504, 601-602',
       description: 'Формати іспитів B1–C2, стратегії й пробні завдання.' }
 
 exams:
