@@ -1,4 +1,4 @@
-import MiniSearch from 'minisearch'
+import MiniSearch, { type Options } from 'minisearch'
 import { LEVEL_LABEL } from './model'
 import type { FullSnapshot } from './store'
 
@@ -40,13 +40,25 @@ function build(snapshot: SearchSource): MiniSearch<SearchDoc> {
   return mini
 }
 
+// The options are not part of MiniSearch.toJSON(): a prebuilt index is loaded with the same ones.
+const INDEX_OPTIONS: Options<SearchDoc> = {
+  fields: ['title', 'text'],
+  storeFields: ['type', 'title', 'context', 'chapterId', 'guideId'],
+  processTerm: normalizeTerm,
+  searchOptions: { boost: { title: 3 }, prefix: true, fuzzy: 0.18, combineWith: 'AND', processTerm: normalizeTerm },
+}
+
+// Build time (pnpm content:snapshot): the index as JSON, loaded by loadSearchIndex.
+export function exportSearchIndex(snapshot: SearchSource): string {
+  return JSON.stringify(build(snapshot))
+}
+
+export function loadSearchIndex(json: string): MiniSearch<SearchDoc> {
+  return MiniSearch.loadJSON<SearchDoc>(json, INDEX_OPTIONS)
+}
+
 function prepare(snapshot: SearchSource): { mini: MiniSearch<SearchDoc>; docs: SearchDoc[] } {
-  const mini = new MiniSearch<SearchDoc>({
-    fields: ['title', 'text'],
-    storeFields: ['type', 'title', 'context', 'chapterId', 'guideId'],
-    processTerm: normalizeTerm,
-    searchOptions: { boost: { title: 3 }, prefix: true, fuzzy: 0.18, combineWith: 'AND', processTerm: normalizeTerm },
-  })
+  const mini = new MiniSearch<SearchDoc>(INDEX_OPTIONS)
   const docs: SearchDoc[] = []
   for (const chapter of snapshot.chapters.values()) {
     const guide = snapshot.guideById.get(chapter.guideId)
@@ -93,14 +105,25 @@ export function warmSearchIndex(snapshot: SearchSource): Promise<void> {
   return pending
 }
 
+// The index of a parsed vault, built in chunks on the first call.
+export async function searchIndexFor(snapshot: SearchSource): Promise<MiniSearch<SearchDoc>> {
+  await warmSearchIndex(snapshot)
+  return indexes.get(snapshot)!
+}
+
 export function searchContent(snapshot: SearchSource, query: string, limit = 24): SearchHit[] {
-  const q = query.trim()
-  if (!q) return []
+  if (!query.trim()) return []
   let mini = indexes.get(snapshot)
   if (!mini) {
     mini = build(snapshot)
     indexes.set(snapshot, mini)
   }
+  return searchIn(mini, query, limit)
+}
+
+export function searchIn(mini: MiniSearch<SearchDoc>, query: string, limit = 24): SearchHit[] {
+  const q = query.trim()
+  if (!q) return []
   let results = mini.search(q)
   if (results.length === 0) results = mini.search(q, { combineWith: 'OR' })
   return results.slice(0, limit).map((r) => ({

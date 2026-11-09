@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { brotliCompressSync, brotliDecompressSync } from 'node:zlib'
-import type { IdSource, LearningUnit, Level } from './model'
-import { unitLabel } from './unit-label'
+import type { IdSource, LearningUnit, Level, UnitMeta } from './model'
+import { unitMeta } from './unit-meta'
 
 // What the `units` table mirrors of the content (src/server/services/units-sync.ts). Computed at build time
 // (pnpm content:snapshot → units-sync.json.br) so a server does not hash and label every unit to find out that the
@@ -19,19 +19,21 @@ export interface UnitRow {
   idSource: IdSource
 }
 
-export function unitRow(unit: LearningUnit): UnitRow {
+export function rowOfMeta(meta: UnitMeta): UnitRow {
   return {
-    id: unit.id,
-    kind: unit.kind,
-    guideId: unit.guideId,
-    chapterId: unit.chapterId,
-    level: unit.level ?? null,
-    frequency: unit.kind === 'flashcard' ? unit.frequency : null,
-    qtype: unit.kind === 'flashcard' ? unit.qtype : unit.kind === 'quiz' ? unit.mode : unit.difficulty,
-    label: unitLabel(unit),
-    idSource: unit.idSource,
+    id: meta.id,
+    kind: meta.kind,
+    guideId: meta.guideId,
+    chapterId: meta.chapterId,
+    level: meta.level ?? null,
+    frequency: meta.kind === 'flashcard' ? meta.frequency : null,
+    qtype: meta.kind === 'flashcard' ? meta.qtype : meta.kind === 'quiz' ? meta.mode : meta.difficulty,
+    label: meta.label,
+    idSource: meta.idSource,
   }
 }
+
+export const unitRow = (unit: LearningUnit): UnitRow => rowOfMeta(unitMeta(unit))
 
 // Hashes whole rows, so a change of any mirrored column (kind, qtype, frequency, guide …) reaches the table.
 export function unitsFingerprint(rows: Iterable<UnitRow>): string {

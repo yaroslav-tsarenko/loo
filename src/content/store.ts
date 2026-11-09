@@ -10,9 +10,12 @@ import { buildGuide, chapterIdFor, guideIdFor, pickIndex, type ParsedFile } from
 import { titleFrom } from './discover/names'
 import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from './i18n/files'
 import { localizeDocument, type LocalizedDocument } from './i18n/localize'
+import type MiniSearch from 'minisearch'
 import { LinkIndex } from './links'
-import type { SearchSource } from './search'
-import { decodeUnitsSync, encodeUnitsSync, unitRow, unitsFingerprint, type UnitRow } from './units-rows'
+import { loadShards, shardsDir, type ShardStats } from './shards/read'
+import { MemorySource, ShardSource, type BodySource } from './shards/source'
+import type { SearchDoc, SearchSource } from './search'
+import { decodeUnitsSync, encodeUnitsSync, rowOfMeta, unitRow, unitsFingerprint, type UnitRow } from './units-rows'
 import type { Chapter, ContentIssue, Guide, Heading, LearningUnit, ReelMeta, UnitMeta } from './model'
 import { extractFile, QA_FILE, type ExtractResult } from './parse/extract'
 import { parseMarkdown } from './parse/markdown'
@@ -61,7 +64,7 @@ export interface ContentIndex extends Omit<FullSnapshot, 'plainText' | 'units' |
 
 export type ContentSnapshot = ContentIndex
 
-function toIndex(full: FullSnapshot): ContentIndex {
+export function toIndex(full: FullSnapshot): ContentIndex {
   const meta = new Map([...full.units.values()].map((u) => [u.id, unitMeta(u)]))
   return {
     version: full.version,
@@ -370,6 +373,18 @@ export interface Manifest {
   fingerprint: string
   unitsFingerprint: string
   units: number
+  shards?: ShardManifest
+}
+
+// The shards of the build (src/content/shards/format.ts)
+export interface ShardManifest {
+  format: number
+  v8: string
+  node: string
+  index: { file: string; bytes: number }
+  search: { file: string; bytes: number } | null
+  guides: Array<{ id: string; pack: string; packBytes: number; sha1: string; chapters: number; units: number; placement: number; reels: number }>
+  totals: { guides: number; chapters: number; units: number; placement: number; reels: number }
 }
 
 export const MANIFEST_FORMAT = 1
@@ -394,9 +409,12 @@ export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer
   const listing = await listVault(config.vaultPath, config.guidesDir)
   const snapshot = await loadSnapshot(config, new Map(), 1, listing)
   const fingerprint = listingFingerprint(listing)
-  const payload: Prebuilt = { format: PREBUILT_FORMAT, v8: process.versions.v8, fingerprint, snapshot, files: listing.files }
-  const data = brotliCompressSync(serialize(payload), { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } })
-  return { data, snapshot, fingerprint }
+  return { data: encodePrebuilt(snapshot, listing.files, fingerprint), snapshot, fingerprint }
+}
+
+export function encodePrebuilt(snapshot: FullSnapshot, files: VaultFile[], fingerprint: string): Buffer {
+  const payload: Prebuilt = { format: PREBUILT_FORMAT, v8: process.versions.v8, fingerprint, snapshot, files }
+  return brotliCompressSync(serialize(payload), { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } })
 }
 
 async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: FullSnapshot; files: Map<string, VaultFile>; fingerprint: string } | null> {
@@ -442,7 +460,7 @@ export class ContentStore {
   private readonly cache = new Map<string, CacheEntry>()
   private readonly documents = new Map<string, { mtimeMs: number; result: ExtractResult }>()
   private readonly localized = new Map<string, { key: string; doc: LocalizedChapterDocument }>()
-  private full: FullSnapshot | null = null
+  private source: BodySource | null = null
   private snapshot: ContentIndex | null = null
   private loading: Promise<ContentIndex> | null = null
   private version = 0
@@ -460,6 +478,8 @@ export class ContentStore {
     config: VaultConfig,
     private readonly watch: boolean,
     private readonly prebuilt: string | null = null,
+    // read the shards of the build (CONTENT_SHARDS≠0) before the monolithic snapshot
+    private readonly shards = false,
   ) {
     this.config = config
   }
@@ -540,66 +560,64 @@ export class ContentStore {
     return doc
   }
 
-  // Unit and reel bodies. They are resolved from the in-memory parse for now; the API is async so the storage behind
-  // it can load them lazily (docs/fullstack/stage1/01-storage.md).
-  private async bodies(): Promise<FullSnapshot> {
+  // Unit and reel bodies, chapter texts and the search index. Where they come from — the parse in memory or the
+  // per-guide packs — is the BodySource's business (src/content/shards/source.ts); the API is async either way.
+  private async bodies(): Promise<BodySource> {
     await this.get()
-    return this.full!
+    return this.source!
   }
 
   async unit(id: string): Promise<LearningUnit | null> {
-    return (await this.bodies()).units.get(id) ?? null
+    return (await this.bodies()).unit(id)
   }
 
   async units(ids: readonly string[]): Promise<Map<string, LearningUnit>> {
-    const { units } = await this.bodies()
-    const out = new Map<string, LearningUnit>()
-    for (const id of ids) {
-      const unit = units.get(id)
-      if (unit) out.set(id, unit)
-    }
-    return out
+    return (await this.bodies()).units(ids)
   }
 
   async chapterUnits(chapterId: string): Promise<LearningUnit[]> {
-    return (await this.bodies()).unitsByChapter.get(chapterId) ?? []
+    return (await this.bodies()).chapterUnits(chapterId)
   }
 
   async reels(ids: readonly string[]): Promise<Map<string, Reel>> {
-    const wanted = new Set(ids)
-    return new Map((await this.bodies()).reels.filter((r) => wanted.has(r.id)).map((r) => [r.id, r]))
+    return (await this.bodies()).reels(ids)
   }
 
   async chapterReels(chapterId: string): Promise<Reel[]> {
-    return (await this.bodies()).reels.filter((r) => r.chapterId === chapterId)
+    return (await this.bodies()).chapterReels(chapterId)
   }
 
   async placementUnit(id: string): Promise<LearningUnit | null> {
-    return (await this.bodies()).placementUnits.get(id) ?? null
+    return (await this.bodies()).placementUnit(id)
   }
 
-  // The plain text of every chapter, guide by guide (reels ingest, search).
+  // The plain text of every chapter, guide by guide (reels ingest). The shards are read without entering the cache.
   async forEachGuideText(fn: (guideId: string, texts: ReadonlyMap<string, string>) => void | Promise<void>): Promise<void> {
-    const { guides, chapters, plainText } = await this.bodies()
-    const byGuide = new Map<string, Map<string, string>>(guides.map((g) => [g.id, new Map()]))
-    // every chapter of the guide, its index page included
-    for (const chapter of chapters.values()) {
-      const text = plainText.get(chapter.id)
-      if (text !== undefined) byGuide.get(chapter.guideId)?.set(chapter.id, text)
-    }
-    for (const [guideId, texts] of byGuide) await fn(guideId, texts)
+    return (await this.bodies()).forEachGuideText(fn)
   }
 
-  // What the search index is built from (src/content/search.ts)
+  // The global search index: loaded from the build's search.json.br, or built from the parse in memory.
+  async searchIndex(): Promise<MiniSearch<SearchDoc>> {
+    return (await this.bodies()).searchIndex()
+  }
+
+  // What the search index is built from (src/content/search.ts): only the parse in memory has it.
   async searchSource(): Promise<SearchSource> {
-    return this.bodies()
+    const source = await this.bodies()
+    if (!(source instanceof MemorySource)) throw new Error('The text of everything is not resident when the content comes from shards: use searchIndex()')
+    return source.full
+  }
+
+  // Counters of the section cache; null when the content is held in memory.
+  shardStats(): ShardStats | null {
+    return this.source instanceof ShardSource ? this.source.reader.stats() : null
   }
 
   // The prebuilt snapshot brings the rows' fingerprint with it (manifest.json); a vault parsed in-process (dev, or a
-  // snapshot that does not match the vault) computes them from its units.
+  // snapshot that does not match the vault) computes them from its unit metadata.
   async unitsSync(): Promise<UnitsSyncSource> {
-    const { units } = await this.bodies()
-    const live = () => [...units.values()].map(unitRow)
+    const { units } = await this.get()
+    const live = () => [...units.values()].map(rowOfMeta)
     const stored = this.prebuiltUnits
     if (!stored) {
       let rows: UnitRow[] | null = null
@@ -634,7 +652,7 @@ export class ContentStore {
     await this.stopWatch?.()
     this.stopWatch = null
     this.snapshot = null
-    this.full = null
+    await this.releaseSource()
     this.loading = this.reload(['*'])
     return this.loading
   }
@@ -644,11 +662,16 @@ export class ContentStore {
     return () => this.listeners.delete(listener)
   }
 
+  private async releaseSource(): Promise<void> {
+    const source = this.source
+    this.source = null
+    if (source instanceof ShardSource) await source.reader.close()
+  }
+
   private async reload(paths: string[]): Promise<ContentIndex> {
     this.prebuiltUnits = null
-    const full = (await this.fromPrebuilt(paths)) ?? (await loadSnapshot(this.config, this.cache, ++this.version))
-    const snapshot = toIndex(full)
-    this.full = full
+    await this.releaseSource()
+    const snapshot = (await this.fromBuild(paths)) ?? this.fromParse(await loadSnapshot(this.config, this.cache, ++this.version))
     this.snapshot = snapshot
     this.loading = null
     if (this.watch && !this.stopWatch) await this.startWatch()
@@ -656,15 +679,33 @@ export class ContentStore {
     return snapshot
   }
 
-  private async fromPrebuilt(paths: string[]): Promise<FullSnapshot | null> {
+  private fromParse(full: FullSnapshot): ContentIndex {
+    this.source = new MemorySource(full)
+    return toIndex(full)
+  }
+
+  // The build's files (deployments, CONTENT_SNAPSHOT=1): the shards, else the monolithic snapshot — each only when the
+  // vault listing still matches what they were built from.
+  private async fromBuild(paths: string[]): Promise<ContentIndex | null> {
     if (!this.prebuilt || paths.length > 0 || this.version > 0) return null
     const started = performance.now()
     const listing = await listVault(this.config.vaultPath, this.config.guidesDir)
+    if (this.shards) {
+      const hit = await loadShards(this.config, listingFingerprint(listing))
+      if (hit) {
+        const version = ++this.version
+        this.prebuiltFiles = hit.files
+        this.prebuiltUnits = hit.manifest.unitsFingerprint
+        const snapshot: ContentIndex = { ...hit.index, version, scanMs: Math.round(performance.now() - started) }
+        this.source = new ShardSource(() => this.snapshot ?? snapshot, hit.reader, shardsDir(this.config), hit.manifest)
+        return snapshot
+      }
+    }
     const hit = await loadPrebuilt(this.prebuilt, this.config, listing)
     if (!hit) return null
     this.prebuiltFiles = hit.files
     this.prebuiltUnits = (await readManifest(this.config, hit.fingerprint))?.unitsFingerprint ?? null
-    return { ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) }
+    return this.fromParse({ ...hit.snapshot, version: ++this.version, scanMs: Math.round(performance.now() - started) })
   }
 
   private async startWatch(): Promise<void> {
@@ -706,7 +747,8 @@ export function getContentStore(): ContentStore {
     const watch = process.env.CONTENT_WATCH !== '0' && !process.env.VERCEL
     // deployments (and CONTENT_SNAPSHOT=1 locally) start from the build's parsed snapshot when it matches the vault
     const prebuilt = !watch && (process.env.VERCEL || process.env.CONTENT_SNAPSHOT === '1') ? prebuiltPath(config) : null
-    g[globalKey] = new ContentStore(config, watch, prebuilt)
+    // CONTENT_SHARDS=0 is the rollback to the monolithic snapshot
+    g[globalKey] = new ContentStore(config, watch, prebuilt, process.env.CONTENT_SHARDS !== '0')
   }
   return g[globalKey]
 }

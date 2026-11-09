@@ -4,7 +4,8 @@ import { connection } from 'next/server'
 import { defaultVaultConfig, normalizeVaultPath } from '@/content/config'
 import type { LearningUnit } from '@/content/model'
 import type { Reel } from '@/content/parse/reels'
-import type { SearchSource } from '@/content/search'
+import type MiniSearch from 'minisearch'
+import type { SearchDoc } from '@/content/search'
 import { getContentStore, type ChapterDocument, type ContentSnapshot } from '@/content/store'
 import { readVaultPath } from './settings'
 import { syncUnits } from './services/units-sync'
@@ -36,10 +37,10 @@ export async function getContent(): Promise<ContentSnapshot> {
   return snapshot
 }
 
-// The text of everything, for the search index (the only reader of the unit and chapter text besides the cron).
-export async function getSearchSource(): Promise<SearchSource> {
+// The global search index (only /api/search loads it).
+export async function getSearchIndex(): Promise<MiniSearch<SearchDoc>> {
   await boot()
-  return getContentStore().searchSource()
+  return getContentStore().searchIndex()
 }
 
 // The plain text of every chapter, guide by guide (reels cron).
