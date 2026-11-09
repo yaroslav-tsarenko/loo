@@ -2,7 +2,7 @@ import 'server-only'
 import { and, desc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
 import { first, type Conn } from '@/db/client'
 import { attempts, mistakes, srsCards, taskState } from '@/db/schema'
-import { LEVELS, type LearningUnit, type Level, type UnitKind } from '@/content/model'
+import { LEVELS, type UnitMeta, type Level, type UnitKind } from '@/content/model'
 import type { ContentSnapshot } from '@/content/store'
 import { dayKey } from '@/progress/day'
 import { nextEligibleAt } from '@/progress/mistakes'
@@ -77,9 +77,9 @@ export function unitOrder(snapshot: ContentSnapshot): Map<string, number> {
 }
 
 // scope: exercise ids of the active course (src/server/courses/enrollment.ts → studyScope); null = all content.
-export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: UnitKind, scope: ReadonlySet<string> | null = null): LearningUnit[] {
+export function matchUnits(snapshot: ContentSnapshot, f: StudyFilters, kind: UnitKind, scope: ReadonlySet<string> | null = null): UnitMeta[] {
   const order = unitOrder(snapshot)
-  const out: LearningUnit[] = []
+  const out: UnitMeta[] = []
   for (const unit of snapshot.units.values()) {
     if (unit.kind !== kind) continue
     if (scope && !scope.has(unit.id)) continue
@@ -163,7 +163,7 @@ export interface FlashQueue {
 
 // orderNew: the order new cards are introduced in (language courses: the learner's level first —
 // src/server/courses/adaptive.ts → newWordOrder); default — document order.
-export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null, orderNew?: (units: readonly LearningUnit[]) => LearningUnit[]): Promise<FlashQueue> {
+export async function flashcardQueue(snapshot: ContentSnapshot, f: StudyFilters, now = Date.now(), scope: ReadonlySet<string> | null = null, orderNew?: (units: readonly UnitMeta[]) => UnitMeta[]): Promise<FlashQueue> {
   const candidates = matchUnits(snapshot, f, 'flashcard', scope)
   const settings = await readSettings()
   // one transaction, both reads in one round trip
@@ -190,7 +190,7 @@ export function shuffle<T>(items: readonly T[], seed: number): T[] {
 }
 
 export interface MistakeRow {
-  unit: LearningUnit
+  unit: UnitMeta
   wrongCount: number
   correctStreak: number
   lastWrongAt: number
@@ -218,14 +218,14 @@ function openRowsFrom(snapshot: ContentSnapshot, rows: ReadonlyArray<typeof mist
   return out.sort((a, b) => b.lastWrongAt - a.lastWrongAt)
 }
 
-export async function recentlyResolved(snapshot: ContentSnapshot, since: number): Promise<LearningUnit[]> {
+export async function recentlyResolved(snapshot: ContentSnapshot, since: number): Promise<UnitMeta[]> {
   const rows = await userScope((db, userId) =>
     db
       .select()
       .from(mistakes)
       .where(and(eq(mistakes.userId, userId), gte(mistakes.resolvedAt, since))),
   )
-  return rows.map((r) => snapshot.units.get(r.unitId)).filter((u): u is LearningUnit => Boolean(u))
+  return rows.map((r) => snapshot.units.get(r.unitId)).filter((u): u is UnitMeta => Boolean(u))
 }
 
 export async function mistakeTopics(snapshot: ContentSnapshot): Promise<Array<{ chapterId: string; open: number; ever: number }>> {
@@ -254,7 +254,7 @@ export async function mistakesOverview(
   snapshot: ContentSnapshot,
   since: number,
   signalsFor?: { courseId: string; now: number },
-): Promise<{ open: MistakeRow[]; topics: Array<{ chapterId: string; open: number; ever: number }>; resolved: LearningUnit[]; signals: PracticeSignals | null }> {
+): Promise<{ open: MistakeRow[]; topics: Array<{ chapterId: string; open: number; ever: number }>; resolved: UnitMeta[]; signals: PracticeSignals | null }> {
   const { rows, signals } = await userScope(async (db, userId) => {
     const all = read(db.select().from(mistakes).where(eq(mistakes.userId, userId)), (r) => r)
     if (!signalsFor) return { rows: await readOne(db, all), signals: null }

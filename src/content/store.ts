@@ -11,16 +11,20 @@ import { titleFrom } from './discover/names'
 import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from './i18n/files'
 import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import { LinkIndex } from './links'
+import type { SearchSource } from './search'
 import { decodeUnitsSync, encodeUnitsSync, unitRow, unitsFingerprint, type UnitRow } from './units-rows'
-import type { Chapter, ContentIssue, Guide, Heading, LearningUnit } from './model'
+import type { Chapter, ContentIssue, Guide, Heading, LearningUnit, ReelMeta, UnitMeta } from './model'
 import { extractFile, QA_FILE, type ExtractResult } from './parse/extract'
 import { parseMarkdown } from './parse/markdown'
 import { collectReels, REEL_TYPES, type Reel } from './parse/reels'
 import { scanFile } from './parse/scan'
+import { unitMeta } from './unit-meta'
 import { jsonUnits, parseQuestionsJson } from './sources/questions-json'
 import { listVault, readText, type VaultFile, type VaultListing } from './sources/vault-fs'
 
-export interface ContentSnapshot {
+// The full parse of the vault: every unit and reel with its body, plus the plain text of every chapter. Build scripts
+// and the dev server work on it; the app reads the ContentIndex derived from it (bodies through the store's async API).
+export interface FullSnapshot {
   version: number
   config: VaultConfig
   guides: Guide[]
@@ -44,6 +48,40 @@ export interface ContentSnapshot {
   issues: ContentIssue[]
   scanMs: number
   error: string | null
+}
+
+// What the app keeps resident: everything but the unit bodies. `units`, `unitsByChapter`, `placementUnits` and `reels`
+// hold metadata only; bodies come from ContentStore.unit / units / chapterUnits / reels, text from forEachGuideText.
+export interface ContentIndex extends Omit<FullSnapshot, 'plainText' | 'units' | 'unitsByChapter' | 'placementUnits' | 'reels'> {
+  units: ReadonlyMap<string, UnitMeta>
+  unitsByChapter: ReadonlyMap<string, readonly UnitMeta[]>
+  placementUnits: ReadonlyMap<string, UnitMeta>
+  reels: readonly ReelMeta[]
+}
+
+export type ContentSnapshot = ContentIndex
+
+function toIndex(full: FullSnapshot): ContentIndex {
+  const meta = new Map([...full.units.values()].map((u) => [u.id, unitMeta(u)]))
+  return {
+    version: full.version,
+    config: full.config,
+    guides: full.guides,
+    guideById: full.guideById,
+    chapters: full.chapters,
+    chapterByPath: full.chapterByPath,
+    units: meta,
+    unitsByChapter: new Map([...full.unitsByChapter].map(([chapterId, list]) => [chapterId, list.map((u) => meta.get(u.id)!)])),
+    reels: full.reels.map(({ id, guideId, chapterId, sectionSlug, title }) => ({ id, guideId, chapterId, sectionSlug, title })),
+    placementUnits: new Map([...full.placementUnits].map(([id, u]) => [id, unitMeta(u)])),
+    placementChapters: full.placementChapters,
+    translations: full.translations,
+    backlinks: full.backlinks,
+    links: full.links,
+    issues: full.issues,
+    scanMs: full.scanMs,
+    error: full.error,
+  }
 }
 
 interface CacheEntry {
@@ -101,7 +139,7 @@ async function readIndexSlug(file: VaultFile | null): Promise<string | null> {
   return scanFile(await readText(file.absolute), UNIT_TYPES).meta.slug ?? null
 }
 
-export async function loadSnapshot(config: VaultConfig, cache: Map<string, CacheEntry>, version: number, listed?: VaultListing): Promise<ContentSnapshot> {
+export async function loadSnapshot(config: VaultConfig, cache: Map<string, CacheEntry>, version: number, listed?: VaultListing): Promise<FullSnapshot> {
   const started = performance.now()
   const listing = listed ?? (await listVault(config.vaultPath, config.guidesDir))
   const issues: ContentIssue[] = []
@@ -309,7 +347,7 @@ interface Prebuilt {
   format: number
   v8: string
   fingerprint: string
-  snapshot: ContentSnapshot
+  snapshot: FullSnapshot
   files: VaultFile[]
 }
 
@@ -337,7 +375,7 @@ export interface Manifest {
 export const MANIFEST_FORMAT = 1
 
 // Build time: the unit rows the `units` table mirrors and the manifest that fingerprints them.
-export function buildUnitsSync(snapshot: ContentSnapshot, fingerprint: string): { manifest: Manifest; data: Buffer } {
+export function buildUnitsSync(snapshot: FullSnapshot, fingerprint: string): { manifest: Manifest; data: Buffer } {
   const rows = [...snapshot.units.values()].map(unitRow)
   return { manifest: { format: MANIFEST_FORMAT, builtAt: new Date().toISOString(), fingerprint, unitsFingerprint: unitsFingerprint(rows), units: rows.length }, data: encodeUnitsSync(rows) }
 }
@@ -352,7 +390,7 @@ export function listingFingerprint(listing: VaultListing): string {
 }
 
 // Build time: parse the vault and serialize the snapshot together with the guide files it was built from.
-export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer; snapshot: ContentSnapshot; fingerprint: string }> {
+export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer; snapshot: FullSnapshot; fingerprint: string }> {
   const listing = await listVault(config.vaultPath, config.guidesDir)
   const snapshot = await loadSnapshot(config, new Map(), 1, listing)
   const fingerprint = listingFingerprint(listing)
@@ -361,7 +399,7 @@ export async function buildPrebuilt(config: VaultConfig): Promise<{ data: Buffer
   return { data, snapshot, fingerprint }
 }
 
-async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: ContentSnapshot; files: Map<string, VaultFile>; fingerprint: string } | null> {
+async function loadPrebuilt(file: string, config: VaultConfig, listing: VaultListing): Promise<{ snapshot: FullSnapshot; files: Map<string, VaultFile>; fingerprint: string } | null> {
   let raw: Buffer
   try {
     raw = await readFile(file)
@@ -404,8 +442,9 @@ export class ContentStore {
   private readonly cache = new Map<string, CacheEntry>()
   private readonly documents = new Map<string, { mtimeMs: number; result: ExtractResult }>()
   private readonly localized = new Map<string, { key: string; doc: LocalizedChapterDocument }>()
-  private snapshot: ContentSnapshot | null = null
-  private loading: Promise<ContentSnapshot> | null = null
+  private full: FullSnapshot | null = null
+  private snapshot: ContentIndex | null = null
+  private loading: Promise<ContentIndex> | null = null
   private version = 0
   private readonly listeners = new Set<Listener>()
   private stopWatch: (() => Promise<void>) | null = null
@@ -501,14 +540,19 @@ export class ContentStore {
     return doc
   }
 
-  // Unit and reel bodies. They are resolved from the in-memory snapshot for now; the API is async so the storage behind
+  // Unit and reel bodies. They are resolved from the in-memory parse for now; the API is async so the storage behind
   // it can load them lazily (docs/fullstack/stage1/01-storage.md).
+  private async bodies(): Promise<FullSnapshot> {
+    await this.get()
+    return this.full!
+  }
+
   async unit(id: string): Promise<LearningUnit | null> {
-    return (await this.get()).units.get(id) ?? null
+    return (await this.bodies()).units.get(id) ?? null
   }
 
   async units(ids: readonly string[]): Promise<Map<string, LearningUnit>> {
-    const { units } = await this.get()
+    const { units } = await this.bodies()
     const out = new Map<string, LearningUnit>()
     for (const id of ids) {
       const unit = units.get(id)
@@ -518,33 +562,44 @@ export class ContentStore {
   }
 
   async chapterUnits(chapterId: string): Promise<LearningUnit[]> {
-    return (await this.get()).unitsByChapter.get(chapterId) ?? []
+    return (await this.bodies()).unitsByChapter.get(chapterId) ?? []
   }
 
   async reels(ids: readonly string[]): Promise<Map<string, Reel>> {
     const wanted = new Set(ids)
-    return new Map((await this.get()).reels.filter((r) => wanted.has(r.id)).map((r) => [r.id, r]))
+    return new Map((await this.bodies()).reels.filter((r) => wanted.has(r.id)).map((r) => [r.id, r]))
   }
 
   async chapterReels(chapterId: string): Promise<Reel[]> {
-    return (await this.get()).reels.filter((r) => r.chapterId === chapterId)
+    return (await this.bodies()).reels.filter((r) => r.chapterId === chapterId)
   }
 
   // the placement-test bank of one guide (`_placement/`), by unit id
   async placementUnits(guideId: string): Promise<Map<string, LearningUnit>> {
-    const { placementUnits } = await this.get()
+    const { placementUnits } = await this.bodies()
     return new Map([...placementUnits].filter(([, u]) => u.guideId === guideId))
   }
 
   async placementUnit(id: string): Promise<LearningUnit | null> {
-    return (await this.get()).placementUnits.get(id) ?? null
+    return (await this.bodies()).placementUnits.get(id) ?? null
+  }
+
+  // The plain text of every chapter, guide by guide (reels ingest, search).
+  async forEachGuideText(fn: (guideId: string, texts: ReadonlyMap<string, string>) => void | Promise<void>): Promise<void> {
+    const { guides, plainText } = await this.bodies()
+    for (const guide of guides) await fn(guide.id, new Map(guide.chapterIds.flatMap((id) => (plainText.has(id) ? [[id, plainText.get(id)!] as const] : []))))
+  }
+
+  // What the search index is built from (src/content/search.ts)
+  async searchSource(): Promise<SearchSource> {
+    return this.bodies()
   }
 
   // The prebuilt snapshot brings the rows' fingerprint with it (manifest.json); a vault parsed in-process (dev, or a
   // snapshot that does not match the vault) computes them from its units.
   async unitsSync(): Promise<UnitsSyncSource> {
-    const snapshot = await this.get()
-    const live = () => [...snapshot.units.values()].map(unitRow)
+    const { units } = await this.bodies()
+    const live = () => [...units.values()].map(unitRow)
     const stored = this.prebuiltUnits
     if (!stored) {
       let rows: UnitRow[] | null = null
@@ -564,13 +619,13 @@ export class ContentStore {
     }
   }
 
-  async get(): Promise<ContentSnapshot> {
+  async get(): Promise<ContentIndex> {
     if (this.snapshot) return this.snapshot
     if (!this.loading) this.loading = this.reload([])
     return this.loading
   }
 
-  async setConfig(config: VaultConfig): Promise<ContentSnapshot> {
+  async setConfig(config: VaultConfig): Promise<ContentIndex> {
     if (config.vaultPath === this.config.vaultPath && config.guidesDir === this.config.guidesDir && this.snapshot) return this.snapshot
     this.config = config
     this.cache.clear()
@@ -579,6 +634,7 @@ export class ContentStore {
     await this.stopWatch?.()
     this.stopWatch = null
     this.snapshot = null
+    this.full = null
     this.loading = this.reload(['*'])
     return this.loading
   }
@@ -588,9 +644,11 @@ export class ContentStore {
     return () => this.listeners.delete(listener)
   }
 
-  private async reload(paths: string[]): Promise<ContentSnapshot> {
+  private async reload(paths: string[]): Promise<ContentIndex> {
     this.prebuiltUnits = null
-    const snapshot = (await this.fromPrebuilt(paths)) ?? (await loadSnapshot(this.config, this.cache, ++this.version))
+    const full = (await this.fromPrebuilt(paths)) ?? (await loadSnapshot(this.config, this.cache, ++this.version))
+    const snapshot = toIndex(full)
+    this.full = full
     this.snapshot = snapshot
     this.loading = null
     if (this.watch && !this.stopWatch) await this.startWatch()
@@ -598,7 +656,7 @@ export class ContentStore {
     return snapshot
   }
 
-  private async fromPrebuilt(paths: string[]): Promise<ContentSnapshot | null> {
+  private async fromPrebuilt(paths: string[]): Promise<FullSnapshot | null> {
     if (!this.prebuilt || paths.length > 0 || this.version > 0) return null
     const started = performance.now()
     const listing = await listVault(this.config.vaultPath, this.config.guidesDir)

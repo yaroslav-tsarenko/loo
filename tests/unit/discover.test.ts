@@ -2,12 +2,12 @@ import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { LinkIndex } from '@/content/links'
 import type { Chapter, FlashcardUnit, TreeNode } from '@/content/model'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
 import { parseName, titleFrom } from '@/content/discover/names'
 import { similarity } from '@/content/ids'
 
 const vaultPath = path.resolve(__dirname, '../fixtures/vault')
-let snap: ContentSnapshot
+let snap: FullSnapshot
 
 beforeAll(async () => {
   snap = await loadSnapshot({ vaultPath, guidesDir: 'Guides' }, new Map(), 1)

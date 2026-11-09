@@ -1,4 +1,4 @@
-import type { LearningUnit } from '@/content/model'
+import type { UnitMeta } from '@/content/model'
 import { DUE_KEY, LISTEN_KEY, MISTAKES_KEY, PRON_KEY, TASKS_KEY, WORDS_KEY } from '@/ui/shell/constants'
 
 // Practice badges, scoped to the active course (framework-free for unit tests; I/O in ./counts.ts).
@@ -22,14 +22,14 @@ export function practiceCounts(rows: PracticeRows, exists: Has, pool: Has | null
 
 // Language practice badges (docs/LANGUAGE_COURSE.md): due [!word] cards («Слова»), open mistakes in listening items
 // («Аудіювання») and in minimal pairs («Вимова»). [!speak] misses are never recorded, so they never show up here.
-export function languageCounts(rows: Pick<PracticeRows, 'due' | 'mistakes'>, units: ReadonlyMap<string, LearningUnit>, pool: Has | null): Record<string, number> {
-  const count = (ids: readonly string[], test: (u: LearningUnit) => boolean) =>
+export function languageCounts(rows: Pick<PracticeRows, 'due' | 'mistakes'>, units: ReadonlyMap<string, UnitMeta>, pool: Has | null): Record<string, number> {
+  const count = (ids: readonly string[], test: (u: UnitMeta) => boolean) =>
     ids.filter((id) => {
       const u = units.get(id)
       return u !== undefined && (!pool || pool.has(id)) && test(u)
     }).length
   return {
-    [WORDS_KEY]: count(rows.due, (u) => u.kind === 'flashcard' && u.word !== undefined),
+    [WORDS_KEY]: count(rows.due, (u) => u.kind === 'flashcard' && u.hasWord),
     [LISTEN_KEY]: count(rows.mistakes, (u) => u.kind === 'quiz' && u.mode === 'listen'),
     [PRON_KEY]: count(rows.mistakes, (u) => u.kind === 'quiz' && u.mode === 'pair'),
   }

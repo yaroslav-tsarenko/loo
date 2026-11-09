@@ -50,11 +50,11 @@ const scenarios: Record<string, () => Promise<Omit<Result, 'scenario'>>> = {
     const { ContentStore, prebuiltPath } = await import('../src/content/store')
     const { warmSearchIndex, searchContent } = await import('../src/content/search')
     const store = new ContentStore(config, false, prebuiltPath(config))
-    const snapshot = await store.get()
+    const source = await store.searchSource()
     const base = heap()
     const started = performance.now()
-    await warmSearchIndex(snapshot)
-    searchContent(snapshot, 'present perfect')
+    await warmSearchIndex(source)
+    searchContent(source, 'present perfect')
     const ms = Math.round(performance.now() - started)
     return { heapMB: mb(heap() - base), ms }
   },

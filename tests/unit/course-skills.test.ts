@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
 import {
   buildCoursePath,
   checkCourse,
@@ -91,7 +91,7 @@ describe('default skills', () => {
 describe('compile: skills of a programming course', () => {
   const vaultPath = path.resolve(__dirname, '../fixtures/skills-vault')
   const yaml = () => readFileSync(path.join(vaultPath, 'Courses/web-skills/course.yaml'), 'utf8')
-  let snap: ContentSnapshot
+  let snap: FullSnapshot
   beforeAll(async () => {
     snap = await loadSnapshot({ vaultPath, guidesDir: 'Guides' }, new Map(), 1)
   })

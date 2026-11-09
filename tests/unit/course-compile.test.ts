@@ -2,7 +2,8 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { chapterLessons } from '@/content/lessons'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
+import { unitMeta } from '@/content/unit-meta'
 import {
   compileCourse,
   CourseBundleSchema,
@@ -17,7 +18,7 @@ import {
 } from '@/course'
 
 const vaultPath = path.resolve(__dirname, '../fixtures/course-vault')
-let snap: ContentSnapshot
+let snap: FullSnapshot
 let manifest: CourseManifest
 let bundle: CourseBundle
 
@@ -133,7 +134,7 @@ describe('legacy lesson ids', () => {
   it('every old lesson of a path topic has a twin with the same items', () => {
     for (const t of bundle.sections.filter((s) => s.kind === 'path').flatMap((s) => s.topics)) {
       const chapter = snap.chapters.get(t.chapterId)!
-      const old = chapterLessons(chapter, snap.unitsByChapter.get(chapter.id) ?? [], snap.reels.filter((r) => r.chapterId === chapter.id), snap.units)
+      const old = chapterLessons(chapter, (snap.unitsByChapter.get(chapter.id) ?? []).map(unitMeta), snap.reels.filter((r) => r.chapterId === chapter.id), new Map([...snap.units].map(([id, u]) => [id, unitMeta(u)])))
       for (const lesson of old) {
         const id = lessonIdFromLegacy(bundle, lesson.id)
         expect(id, lesson.id).not.toBeNull()

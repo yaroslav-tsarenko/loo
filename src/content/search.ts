@@ -1,6 +1,9 @@
 import MiniSearch from 'minisearch'
 import { LEVEL_LABEL } from './model'
-import type { ContentSnapshot } from './store'
+import type { FullSnapshot } from './store'
+
+// Search reads the text of everything, so it works on the full parse (ContentStore.searchSource).
+export type SearchSource = Pick<FullSnapshot, 'chapters' | 'guideById' | 'plainText' | 'units'>
 
 export interface SearchDoc {
   id: string
@@ -29,15 +32,15 @@ export function normalizeTerm(term: string): string | null {
   return t.length > 0 ? t : null
 }
 
-const indexes = new WeakMap<ContentSnapshot, MiniSearch<SearchDoc>>()
+const indexes = new WeakMap<SearchSource, MiniSearch<SearchDoc>>()
 
-function build(snapshot: ContentSnapshot): MiniSearch<SearchDoc> {
+function build(snapshot: SearchSource): MiniSearch<SearchDoc> {
   const { mini, docs } = prepare(snapshot)
   mini.addAll(docs)
   return mini
 }
 
-function prepare(snapshot: ContentSnapshot): { mini: MiniSearch<SearchDoc>; docs: SearchDoc[] } {
+function prepare(snapshot: SearchSource): { mini: MiniSearch<SearchDoc>; docs: SearchDoc[] } {
   const mini = new MiniSearch<SearchDoc>({
     fields: ['title', 'text'],
     storeFields: ['type', 'title', 'context', 'chapterId', 'guideId'],
@@ -73,11 +76,11 @@ function prepare(snapshot: ContentSnapshot): { mini: MiniSearch<SearchDoc>; docs
   return { mini, docs }
 }
 
-const warming = new WeakMap<ContentSnapshot, Promise<void>>()
+const warming = new WeakMap<SearchSource, Promise<void>>()
 
 // Builds the index in the background, in small chunks (the full build is ~0.7 s of CPU: done in one go it would stall
 // every request on the instance). searchContent() before it finishes builds synchronously, as before.
-export function warmSearchIndex(snapshot: ContentSnapshot): Promise<void> {
+export function warmSearchIndex(snapshot: SearchSource): Promise<void> {
   if (indexes.has(snapshot)) return Promise.resolve()
   let pending = warming.get(snapshot)
   if (!pending) {
@@ -90,7 +93,7 @@ export function warmSearchIndex(snapshot: ContentSnapshot): Promise<void> {
   return pending
 }
 
-export function searchContent(snapshot: ContentSnapshot, query: string, limit = 24): SearchHit[] {
+export function searchContent(snapshot: SearchSource, query: string, limit = 24): SearchHit[] {
   const q = query.trim()
   if (!q) return []
   let mini = indexes.get(snapshot)

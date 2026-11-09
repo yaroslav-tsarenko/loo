@@ -4,6 +4,7 @@ import { connection } from 'next/server'
 import { defaultVaultConfig, normalizeVaultPath } from '@/content/config'
 import type { LearningUnit } from '@/content/model'
 import type { Reel } from '@/content/parse/reels'
+import type { SearchSource } from '@/content/search'
 import { getContentStore, type ChapterDocument, type ContentSnapshot } from '@/content/store'
 import { readVaultPath } from './settings'
 import { syncUnits } from './services/units-sync'
@@ -33,6 +34,18 @@ export async function getContent(): Promise<ContentSnapshot> {
   const snapshot = await getContentStore().get()
   await syncUnits(snapshot, await getContentStore().unitsSync())
   return snapshot
+}
+
+// The text of everything, for the search index (the only reader of the unit and chapter text besides the cron).
+export async function getSearchSource(): Promise<SearchSource> {
+  await boot()
+  return getContentStore().searchSource()
+}
+
+// The plain text of every chapter, guide by guide (reels cron).
+export async function forEachGuideText(fn: (guideId: string, texts: ReadonlyMap<string, string>) => void | Promise<void>): Promise<void> {
+  await boot()
+  return getContentStore().forEachGuideText(fn)
 }
 
 export async function getDocument(chapterId: string): Promise<ChapterDocument | null> {

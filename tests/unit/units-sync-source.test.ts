@@ -26,8 +26,8 @@ async function writeBuild(): Promise<void> {
 
 describe('units sync source', () => {
   it('rows carry what the units table mirrors, with the unit label', async () => {
-    const snapshot = await new ContentStore(config, false).get()
-    const unit = [...snapshot.units.values()][0]!
+    const store = new ContentStore(config, false)
+    const unit = (await store.unit([...(await store.get()).units.keys()][0]!))!
     expect(unitRow(unit)).toMatchObject({ id: unit.id, kind: unit.kind, guideId: unit.guideId, chapterId: unit.chapterId, label: unitLabel(unit), idSource: unit.idSource })
   })
 

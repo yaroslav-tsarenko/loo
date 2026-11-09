@@ -4,7 +4,7 @@ import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { compareWords, dictationMatches, foldGerman, judgeSpeech, speechHints, words } from '@/content/blocks/lang/grade'
-import { loadSnapshot, type ContentSnapshot } from '@/content/store'
+import { loadSnapshot, type FullSnapshot } from '@/content/store'
 import { CourseBundleSchema, compileCourse, examBand, parseCourseManifest, parseCourseYaml, skillsView, initialSkills, type CourseManifestInput, type Level } from '@/course'
 import { messages, t } from '@/i18n'
 import { hasAccentChoice, ipaShown, languageNameUk, showsAccentSetting, voiceLang } from '@/ui/lang/speech/voices'
@@ -86,7 +86,7 @@ describe('English course: exam mapping is IELTS, byte-identical texts', () => {
 })
 
 describe('exam mapping changes nothing else in a compiled bundle', () => {
-  let snap: ContentSnapshot
+  let snap: FullSnapshot
   const vaultPath = path.resolve(__dirname, '../fixtures/lang-vault')
   const yaml = () => readFileSync(path.join(vaultPath, 'Courses/english-test/course.yaml'), 'utf8')
   beforeAll(async () => {

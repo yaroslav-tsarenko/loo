@@ -2,7 +2,7 @@ import { existsSync, statSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { defaultVaultConfig, type VaultConfig } from '../../src/content/config'
-import { loadSnapshot, type ContentSnapshot } from '../../src/content/store'
+import { loadSnapshot, type FullSnapshot } from '../../src/content/store'
 import { iconNamesFromSource, type IconCatalog } from '../../src/course/icons'
 import { parseCourseYaml } from '../../src/course/schema'
 
@@ -61,7 +61,7 @@ export async function resolveCourse(arg: string): Promise<CoursePackage | null> 
 }
 
 export interface LoadedSource {
-  snapshot: ContentSnapshot
+  snapshot: FullSnapshot
   config: VaultConfig
 }
 
@@ -93,7 +93,7 @@ export async function loadIconCatalog(): Promise<IconCatalog> {
 // Illustrations: [!viz], [!figure] and [!diagram] (language guides illustrate tenses and structures with diagrams)
 const FIGURE = /^(?:>\s?)+\[!(viz|visualization|візуалізація|figure|scene|сцена|diagram|діаграма|схема)\]/gimu
 
-export async function countFigures(snapshot: ContentSnapshot, config: VaultConfig, chapterIds: readonly string[]): Promise<Map<string, number>> {
+export async function countFigures(snapshot: FullSnapshot, config: VaultConfig, chapterIds: readonly string[]): Promise<Map<string, number>> {
   const out = new Map<string, number>()
   await Promise.all(
     chapterIds.map(async (id) => {

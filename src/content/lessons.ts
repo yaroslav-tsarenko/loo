@@ -1,6 +1,5 @@
 import { LESSON_ICONS } from './icons'
-import type { Chapter, Guide, LearningUnit } from './model'
-import type { Reel } from './parse/reels'
+import type { Chapter, Guide, ReelMeta, UnitMeta } from './model'
 
 // Duolingo-style lessons, derived deterministically from a chapter's own content.
 // A chapter becomes: theory (the article) → start → core × n → cards × n → one code node per task → interview.
@@ -34,17 +33,17 @@ const chunk = <T>(items: readonly T[], size: number): T[][] => {
   return out
 }
 
-function minutesOf(items: LessonItemRef[], units: Map<string, LearningUnit>): number {
+function minutesOf(items: LessonItemRef[], units: ReadonlyMap<string, UnitMeta>): number {
   let m = 0
   for (const item of items) m += item.kind === 'reel' ? PACE.reel : PACE[units.get(item.id)?.kind ?? 'quiz']
   return Math.max(1, Math.round(m))
 }
 
-export function isInterviewCard(unit: LearningUnit): boolean {
+export function isInterviewCard(unit: UnitMeta): boolean {
   return unit.kind === 'flashcard' && unit.qtype === 'співбесіда'
 }
 
-export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[], reels: readonly Reel[], unitById: Map<string, LearningUnit>): Lesson[] {
+export function chapterLessons(chapter: Chapter, units: readonly UnitMeta[], reels: readonly ReelMeta[], unitById: ReadonlyMap<string, UnitMeta>): Lesson[] {
   const quizzes = units.filter((u) => u.kind === 'quiz')
   const cards = units.filter((u) => u.kind === 'flashcard' && !isInterviewCard(u))
   const interview = units.filter(isInterviewCard)
@@ -55,7 +54,7 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
     if (kind !== 'theory' && items.length === 0) return
     lessons.push({ id: `${chapter.id}::${kind}-${n}`, guideId: chapter.guideId, chapterId: chapter.id, index: lessons.length, kind, icon: LESSON_ICONS[kind], title, items, minutes: kind === 'theory' ? chapter.estimatedMinutes : minutesOf(items, unitById) })
   }
-  const unit = (u: LearningUnit): LessonItemRef => ({ kind: 'unit', id: u.id })
+  const unit = (u: UnitMeta): LessonItemRef => ({ kind: 'unit', id: u.id })
   const reel = (): LessonItemRef[] => {
     const r = reelQueue.shift()
     return r ? [{ kind: 'reel', id: r.id }] : []
@@ -84,7 +83,7 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
   })
 
   tasks.forEach((t, i) => {
-    const title = t.kind === 'task' ? t.titleText : 'Задача'
+    const title = t.kind === 'task' ? t.label : 'Задача'
     push('code', i + 1, title.length > 48 ? `${title.slice(0, 46)}…` : title, [unit(t)])
   })
 
@@ -98,8 +97,8 @@ export function chapterLessons(chapter: Chapter, units: readonly LearningUnit[],
   return lessons
 }
 
-export function guideLessons(guide: Guide, chapters: readonly Chapter[], unitsByChapter: Map<string, LearningUnit[]>, reels: readonly Reel[], units: Map<string, LearningUnit>): Map<string, Lesson[]> {
-  const reelsByChapter = new Map<string, Reel[]>()
+export function guideLessons(guide: Guide, chapters: readonly Chapter[], unitsByChapter: ReadonlyMap<string, readonly UnitMeta[]>, reels: readonly ReelMeta[], units: ReadonlyMap<string, UnitMeta>): Map<string, Lesson[]> {
+  const reelsByChapter = new Map<string, ReelMeta[]>()
   for (const r of reels) {
     if (r.guideId !== guide.id) continue
     const list = reelsByChapter.get(r.chapterId)

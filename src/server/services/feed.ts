@@ -4,9 +4,8 @@ import { and, desc, eq, gte, inArray } from 'drizzle-orm'
 import { interleave } from '@/ai/reels/mix'
 import { generatedReels, reelState, srsCards } from '@/db/schema'
 import { iconRef, REEL_FALLBACK_ICON } from '@/content/icons'
-import type { Chapter, LearningUnit } from '@/content/model'
+import type { Chapter, ReelMeta, UnitMeta } from '@/content/model'
 import { parseMarkdown } from '@/content/parse/markdown'
-import type { Reel } from '@/content/parse/reels'
 import type { ContentSnapshot } from '@/content/store'
 import { renderMdast } from '@/ui/markdown/render'
 import { safeExternalUrl } from '@/lib/url'
@@ -66,7 +65,7 @@ function hueFor(key: string): number {
 }
 
 type GeneratedRow = typeof generatedReels.$inferSelect
-type QueuedReel = { kind: 'guide'; reel: Reel } | { kind: 'ai'; row: GeneratedRow }
+type QueuedReel = { kind: 'guide'; reel: ReelMeta } | { kind: 'ai'; row: GeneratedRow }
 
 const GENERATED_WINDOW_MS = 60 * 86_400_000
 
@@ -106,7 +105,7 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
 
   // Reels: never seen first, then the ones seen longest ago. Generated ones (newest first) are
   // mixed in at ~1 per 2 guide reels.
-  const guideItem = (reel: Reel): QueuedReel => ({ kind: 'guide', reel })
+  const guideItem = (reel: ReelMeta): QueuedReel => ({ kind: 'guide', reel })
   const aiItem = (row: GeneratedRow): QueuedReel => ({ kind: 'ai', row })
   const reelQueue: QueuedReel[] = [
     ...interleave(shuffle(reels.filter((r) => !seen(r.id)), seed).map(guideItem), generated.filter((r) => !seen(r.id)).map(aiItem)),
@@ -120,12 +119,12 @@ export async function buildFeed(snapshot: ContentSnapshot, seed: number, size = 
   const unseenCards = flash.filter((u) => !srs.has(u.id))
   // shuffled first, so the level order keeps the feed varied inside a level
   const fresh = adaptive ? newWordOrder(adaptive)(shuffle(unseenCards, seed + 2)) : shuffle(unseenCards, seed + 2)
-  const cardQueue: LearningUnit[] = [...due, ...fresh]
+  const cardQueue: UnitMeta[] = [...due, ...fresh]
 
   // Quizzes: wrong last time → never tried → previously right.
   // [!speak] needs a microphone: it stays in lessons and «Вимова», not in the feed
   const quizzes = units.filter((u) => u.kind === 'quiz' && u.mode !== 'speak')
-  let quizQueue: LearningUnit[]
+  let quizQueue: UnitMeta[]
   if (adaptive) {
     // one statement: last verdicts + mistakes + recent wrong answers + topic scores
     quizQueue = await feedQuizOrder(adaptive, quizzes, shuffle(quizzes, seed + 3), Math.ceil(size / 2), seed, now)
