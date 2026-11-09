@@ -12,6 +12,7 @@ import { isI18nFile, lockPathFor, translationLang, type TranslationInfo } from '
 import { localizeDocument, type LocalizedDocument } from './i18n/localize'
 import type MiniSearch from 'minisearch'
 import { LinkIndex } from './links'
+import { ByteLru, budgetFromEnv } from './lru'
 import { loadShards, shardsDir, type ShardStats } from './shards/read'
 import { MemorySource, ShardSource, type BodySource } from './shards/source'
 import type { SearchDoc, SearchSource } from './search'
@@ -99,6 +100,10 @@ export interface ChangeEvent {
 }
 
 type Listener = (event: ChangeEvent) => void
+
+// heap bytes per character of article source held by a parsed document (mdast with positions, headings, units);
+// measured by pnpm content:measure (documents scenario)
+const DOCUMENT_HEAP_FACTOR = Number(process.env.DOCUMENT_HEAP_FACTOR) || 12
 
 const UNIT_TYPES = unitCalloutTypes()
 // Files with reels need a full parse too, so the feed can pick them up.
@@ -458,8 +463,10 @@ async function readManifest(config: VaultConfig, fingerprint: string): Promise<M
 export class ContentStore {
   private config: VaultConfig
   private readonly cache = new Map<string, CacheEntry>()
-  private readonly documents = new Map<string, { mtimeMs: number; result: ExtractResult }>()
-  private readonly localized = new Map<string, { key: string; doc: LocalizedChapterDocument }>()
+  // parsed articles (mdast with positions, headings, units) and their translated merges: heap-heavy, so each cache has
+  // a byte budget (DOCUMENT_CACHE_MB, shared 2:1), the cost estimated from the source text (DOCUMENT_HEAP_FACTOR)
+  private readonly documents = new ByteLru<{ mtimeMs: number; result: ExtractResult }>(budgetFromEnv('DOCUMENT_CACHE_MB', 24) * (2 / 3))
+  private readonly localized = new ByteLru<{ key: string; doc: LocalizedChapterDocument }>(budgetFromEnv('DOCUMENT_CACHE_MB', 24) / 3)
   private source: BodySource | null = null
   private snapshot: ContentIndex | null = null
   private loading: Promise<ContentIndex> | null = null
@@ -495,20 +502,12 @@ export class ContentStore {
     const entry = this.cache.get(chapter.path)
     if (entry?.parsed.full) return { chapter, root: entry.parsed.full.root, headings: entry.parsed.full.headings }
     const cached = this.documents.get(chapter.path)
-    if (cached && cached.mtimeMs === chapter.mtimeMs) {
-      this.documents.delete(chapter.path)
-      this.documents.set(chapter.path, cached)
-      return { chapter, root: cached.result.root, headings: cached.result.headings }
-    }
+    if (cached && cached.mtimeMs === chapter.mtimeMs) return { chapter, root: cached.result.root, headings: cached.result.headings }
     const file = entry?.parsed.file ?? this.prebuiltFiles?.get(chapter.path)
     if (!file) return null
-    const result = fullParse(await readText(file.absolute), file, chapter.guideId, chapter.id)
-    this.documents.set(chapter.path, { mtimeMs: chapter.mtimeMs, result })
-    while (this.documents.size > 80) {
-      const oldest = this.documents.keys().next().value
-      if (oldest === undefined) break
-      this.documents.delete(oldest)
-    }
+    const text = await readText(file.absolute)
+    const result = fullParse(text, file, chapter.guideId, chapter.id)
+    this.documents.set(chapter.path, { mtimeMs: chapter.mtimeMs, result }, text.length * DOCUMENT_HEAP_FACTOR)
     return { chapter, root: result.root, headings: result.headings }
   }
 
@@ -530,9 +529,16 @@ export class ContentStore {
     const sourceFile = this.cache.get(source.chapter.path)?.parsed.file ?? this.prebuiltFiles?.get(source.chapter.path)
     let translated: ExtractResult
     let sourceText: string
+    let translatedLength = 0
     try {
       if (!sourceFile) return null
-      ;[translated, sourceText] = await Promise.all([readText(file.absolute).then((text) => fullParse(text, file, source.chapter.guideId, chapterId)), readText(sourceFile.absolute)])
+      ;[translated, sourceText] = await Promise.all([
+        readText(file.absolute).then((text) => {
+          translatedLength = text.length
+          return fullParse(text, file, source.chapter.guideId, chapterId)
+        }),
+        readText(sourceFile.absolute),
+      ])
     } catch {
       return null
     }
@@ -550,13 +556,7 @@ export class ContentStore {
     const trReels = collectReels(unwrapped, source.chapter.guideId, chapterId)
     const reels = new Map<string, Reel>(trReels.length === srcReels.length ? srcReels.map((r, i) => [r.id, { ...trReels[i]!, id: r.id, sectionSlug: r.sectionSlug }]) : [])
     const doc: LocalizedChapterDocument = { chapter: source.chapter, lang, title: info.title, ...merged, reels }
-    this.localized.delete(memo)
-    this.localized.set(memo, { key, doc })
-    while (this.localized.size > 40) {
-      const oldest = this.localized.keys().next().value
-      if (oldest === undefined) break
-      this.localized.delete(oldest)
-    }
+    this.localized.set(memo, { key, doc }, (sourceText.length + translatedLength) * DOCUMENT_HEAP_FACTOR)
     return doc
   }
 
@@ -606,6 +606,12 @@ export class ContentStore {
     const source = await this.bodies()
     if (!(source instanceof MemorySource)) throw new Error('The text of everything is not resident when the content comes from shards: use searchIndex()')
     return source.full
+  }
+
+  // Counters of the document caches (parsed articles, translated merges)
+  documentStats(): { documents: { bytes: number; budget: number; entries: number; evictions: number }; localized: { bytes: number; budget: number; entries: number; evictions: number } } {
+    const stat = (c: ByteLru<unknown>) => ({ bytes: c.bytes, budget: c.budget, entries: c.size, evictions: c.evictions })
+    return { documents: stat(this.documents), localized: stat(this.localized) }
   }
 
   // Counters of the section cache; null when the content is held in memory.
